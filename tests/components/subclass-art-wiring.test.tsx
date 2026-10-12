@@ -77,7 +77,8 @@ describe("запасний портрет готового білда", () => {
     expect(findPresetImageSrc(classOnly, false)).toBe("/images/classes/fighter.webp");
   });
 
-  it("без ШІ завжди віддає арт класу", () => {
-    expect(findPresetImageSrc({ ...classOnly, portraitSrc: "/images/presets/own.webp", subclassImageSrc: CHAMPION_ART }, true)).toBe("/images/classes/fighter.webp");
+  it("без ШІ лишає картку без зображення, щоб пресети одного класу не повторювали той самий арт", () => {
+    expect(findPresetImageSrc({ ...classOnly, portraitSrc: "/images/presets/own.webp", subclassImageSrc: CHAMPION_ART }, true)).toBeNull();
+    expect(findPresetImageSrc(classOnly, true)).toBeNull();
   });
 });

@@ -52,5 +52,6 @@ export function findPresetImageSrc(
   isGeneratedArtHidden: boolean,
 ): string | null {
   const generatedSrc = findPresetGeneratedSrc(preset);
-  return isGeneratedArtHidden ? preset.classImageSrc : generatedSrc ?? preset.classImageSrc;
+  // Without generated art every preset of a class would repeat the same class picture, so no-AI cards stay plain.
+  return isGeneratedArtHidden ? null : generatedSrc ?? preset.classImageSrc;
 }
