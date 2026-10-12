@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, LogIn, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, LogIn, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ModeLink } from "@/components/no-ai/ModeLink";
@@ -14,6 +14,7 @@ import { useRpgbotSurfaceView } from "@/lib/monitoring/use-rpgbot-surface-view";
 import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import type { PresetEntry } from "@/lib/monitoring/rpgbot-analytics-model";
 import { LevelPicker } from "./ReadyPresetLevels";
+import { CatalogMention } from "./CatalogMention";
 import { ReadyPresetCustomization, listPresetCustomizationSteps } from "./ReadyPresetCustomization";
 
 export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entry }: { data: ReadyPresetPageData; catalogQuery: string; catalogClass?: string; entry: PresetEntry }) {
@@ -56,8 +57,9 @@ export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entr
     {header}
     {step === 2 ? <div className="mx-auto max-w-3xl space-y-6">
       <section className="glass-panel border-gradient-rpg rounded-2xl p-5 sm:p-7">
-        <p className="text-lg text-white">{data.summary.className} · {data.summary.raceName}</p>
-        <p className="mt-2 text-sm text-slate-400">{data.summary.backgroundName} · {data.summary.subclassName}</p>
+        <p className="text-lg text-white"><CatalogMention href={data.links.classHref} title={data.summary.className}>{data.summary.className}</CatalogMention> · <CatalogMention href={data.links.raceHref} title={data.summary.raceName}>{data.summary.raceName}</CatalogMention></p>
+        <p className="mt-2 text-sm text-slate-400"><CatalogMention href={data.links.backgroundHref} title={data.summary.backgroundName}>{data.summary.backgroundName}</CatalogMention> · <CatalogMention href={data.links.subclassHref} title={data.summary.subclassName}>{data.summary.subclassName}</CatalogMention></p>
+        <ModeLink prefetch={false} href={data.links.guideHref} className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm text-arcane-200 underline-offset-4 hover:underline"><BookOpen className="h-4 w-4" /> Читати гайд цього білда</ModeLink>
         {data.levels ? <PresetLevelPicker levels={data.levels} selected={assembly.targetLevel} onSelect={(level) => { captureRpgbotEvent("rpgbot_preset_level_selected", { preset_id: presetId, level, from_level: assembly.targetLevel, placement: "preset_page" }); assembly.selectLevel(level); }} /> : <p className="mt-4 text-slate-300">1-й рівень</p>}
       </section>
       <div className="grid gap-4 sm:grid-cols-2">

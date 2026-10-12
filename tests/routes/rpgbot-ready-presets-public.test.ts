@@ -39,6 +39,19 @@ describe("anonymous access to 2014 RPGbot presets", () => {
     expect(missing).toEqual([]);
   });
 
+  it("links each name on the preset page to its catalog card and the summary to its guide section", async () => {
+    const { links } = await loadReadyPresetPage("rogue-inquisitive-2014");
+    const rogue = getAllClasses("RULES_2014").find((entry) => entry.key === "ROGUE_2014")!;
+    const inquisitive = rogue.subclasses.find((entry) => entry.key === "INQUISITIVE")!;
+    expect(links).toEqual({
+      classHref: `/classes?class=${rogue.classId}`,
+      subclassHref: `/classes?class=${rogue.classId}&subclass=${inquisitive.subclassId}`,
+      raceHref: "/races?race=vedalken",
+      backgroundHref: expect.stringMatching(/^\/backgrounds\/\d+$/),
+      guideHref: "/rules/optimization/rogue-inquisitive-2014#section-example",
+    });
+  });
+
   it("keeps unknown presets and the build tree of both editions private", async () => {
     await expect(loadReadyPresetPage("not-a-preset")).rejects.toThrow("NOT_FOUND");
     await expect(loadReadyPresetPage("../monk-shadow-2014")).rejects.toThrow("NOT_FOUND");

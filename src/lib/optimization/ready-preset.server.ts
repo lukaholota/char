@@ -19,6 +19,9 @@ import { findExecutableLevels } from "./build-executable-levels";
 import { findReadyPresetRecipe, listReadyPresetSlugs, readReadyPreset } from "./ready-preset-files";
 import { buildReadyPresetLevels } from "./ready-preset-levels.server";
 import { createLogger } from "@/server/logging/logger";
+import { buildClassCardHref, buildRaceReadingHref } from "@/lib/catalogs/reading-target";
+import { getAllRaces } from "@/lib/racesData";
+import { buildDraftArticleHref } from "./article-view";
 
 export async function loadReadyPresetPage(slug: string) {
   const slugs = await listReadyPresetSlugs();
@@ -103,7 +106,7 @@ function buildReadyPresetPageData(preset: ReadyPreset, recipe: BuildRecipe, cont
         raceChoiceOptions: pageContent.race.raceChoiceOptions, subraces: pageContent.subrace ? [pageContent.subrace] : [] },
       variant: pageContent.variant, subrace: pageContent.subrace, background: pageContent.background, weapons: content.weapons,
     },
-    summary: buildReadyPresetSummary(pageContent, recipe), abilityInput: buildPresetAbilitySources(draft, content),
+    summary: buildReadyPresetSummary(pageContent, recipe), links: buildReadyPresetLinks(pageContent, recipe, preset.articleSlug), abilityInput: buildPresetAbilitySources(draft, content),
     levels: buildReadyPresetLevels(recipe, content),
     belongings: findBackgroundStartingItems(pageContent.background, undefined),
   };
@@ -120,6 +123,18 @@ function findReadyPresetPageContent(draft: ReturnType<typeof buildReadyPresetDra
   };
 }
 type ReadyPresetPageContent = ReturnType<typeof findReadyPresetPageContent>;
+
+function buildReadyPresetLinks({ characterClass, race, background }: ReadyPresetPageContent, recipe: BuildRecipe, articleSlug: string) {
+  const { subclassClass, subclass } = findReadyPresetClass(recipe);
+  const catalogRace = getAllRaces(recipe.ruleset).find((entry) => entry.key === race.name);
+  return {
+    classHref: buildClassCardHref(recipe.ruleset, characterClass.classId),
+    subclassHref: buildClassCardHref(recipe.ruleset, subclassClass.classId, subclass.subclassId),
+    raceHref: catalogRace ? buildRaceReadingHref("", { raceKey: catalogRace.slug, branch: null, featureKey: null }) : null,
+    backgroundHref: `/backgrounds/${background.backgroundId}`,
+    guideHref: buildDraftArticleHref(recipe.ruleset, articleSlug, recipe.sourceRefs[0].sectionId),
+  };
+}
 
 function buildReadyPresetSummary({ draft, characterClass, race, variant, subrace, background, feat }: ReadyPresetPageContent, recipe: BuildRecipe) {
   const { subclass, subclassLevel } = findReadyPresetClass(recipe);
