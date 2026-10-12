@@ -111,8 +111,8 @@ ENV NODE_ENV=production \
 # із зафіксованою версією. @sparticuz/chromium лишається для середовищ на кшталт Vercel.
 
 WORKDIR /app
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
+COPY --chown=node:node --from=builder /app/.next/standalone ./
+COPY --chown=node:node --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/prisma ./prisma
 
