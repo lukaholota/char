@@ -123,10 +123,10 @@ type ReadyPresetPageContent = ReturnType<typeof findReadyPresetPageContent>;
 
 function buildReadyPresetSummary({ draft, characterClass, race, variant, subrace, background, feat }: ReadyPresetPageContent, recipe: BuildRecipe) {
   const { subclass, subclassLevel } = findReadyPresetClass(recipe);
-  const featOption = feat?.featChoiceOptions.find((entry) => Object.values(draft.featChoiceSelections).flat().includes(entry.choiceOptionId));
+  const featOptions = feat?.featChoiceOptions.filter((entry) => Object.values(draft.featChoiceSelections).flat().includes(entry.choiceOptionId)) ?? [];
   return { className: translateValue(characterClass.name), raceName: translateValue(variant?.name ?? subrace?.name ?? race.name),
     backgroundName: translateValue(background.name), subclassName: subclass.name, subclassLevel,
-    featName: feat ? translateValue(feat.name) : null, featOptionLabel: featOption?.choiceOption.optionName ?? null,
+    featName: feat ? translateValue(feat.name) : null, featOptionLabel: featOptions.map((entry) => entry.choiceOption.optionName).join(", ") || null,
     startsWithSubclass: hasFirstLevelSubclass(characterClass),
   };
 }

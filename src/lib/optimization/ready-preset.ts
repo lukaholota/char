@@ -27,7 +27,7 @@ export const readyPresetSchema = z.object({
   raceOptions: z.array(z.string().min(1)).default([]), subclassOptions: z.array(z.string().min(1)).default([]),
   platformChoices: z.array(z.enum(["classOptions", "subclassOptions", "raceOptions"])).optional(),
   equipment: z.array(z.strictObject({ group: z.number().int().positive(), option: z.string().regex(/^[a-z]$/), weapons: z.array(z.string().min(1)) })),
-  featOptionName: z.string().min(1).nullable(), skillSection: idSchema, featSection: idSchema.nullable(), equipmentSection: idSchema,
+  featOptionName: z.union([z.string().min(1), z.array(z.string().min(1)).min(2)]).nullable(), skillSection: idSchema, featSection: idSchema.nullable(), equipmentSection: idSchema,
   abilityExplanation: z.string().min(1), skillExplanation: z.string().min(1), equipmentExplanation: z.string().min(1),
   spells: readyPresetSpellsSchema.optional(),
 }).strict();
@@ -89,9 +89,15 @@ function findPresetFeatOption(start: Partial<PersFormData>, preset: ReadyPreset,
     return {};
   }
   if (!feat.featChoiceOptions.length && !preset.featOptionName) return {};
-  const option = feat.featChoiceOptions.find((entry) => entry.choiceOption.optionNameEng === preset.featOptionName);
-  if (!option) throw new Error(`Missing preset feat option: ${preset.featOptionName}`);
-  return { [option.choiceOption.groupName]: option.choiceOptionId };
+  const names = listPresetFeatOptionNames(preset);
+  const options = names.map((name) => feat.featChoiceOptions.find((entry) => entry.choiceOption.optionNameEng === name));
+  if (!names.length || options.some((option) => !option)) throw new Error(`Missing preset feat option: ${names.join(", ") || null}`);
+  const ids = options.map((option) => option!.choiceOptionId);
+  return { [options[0]!.choiceOption.groupName]: ids.length === 1 ? ids[0] : ids };
+}
+
+export function listPresetFeatOptionNames(preset: Pick<ReadyPreset, "featOptionName">): string[] {
+  return preset.featOptionName === null ? [] : [preset.featOptionName].flat();
 }
 
 function findStartingClass(start: Partial<PersFormData>, content: CreatorContent) {

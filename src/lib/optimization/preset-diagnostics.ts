@@ -9,7 +9,7 @@ import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { findCatalogKeyProblems } from "./build-catalog-keys";
 import { findProgressionProblems, type ProgressionReport } from "./progression-diagnostics";
 import { buildLevelOneDraft } from "./build-assembly";
-import { buildReadyPresetDraft, buildPresetSkillsSchema, readyPresetSchema, applyPresetBackgroundCustomization, type ReadyPreset } from "./ready-preset";
+import { buildReadyPresetDraft, buildPresetSkillsSchema, readyPresetSchema, applyPresetBackgroundCustomization, listPresetFeatOptionNames, type ReadyPreset } from "./ready-preset";
 import { buildReadyPresetOptions, type ReadyPresetOptions } from "./ready-preset-options";
 import { buildReadyPresetSkillChoices, listAvailableSkillPicks } from "./ready-preset-skills";
 import { buildPresetSpellSelection } from "./ready-preset-spells";
@@ -176,8 +176,9 @@ function findFeatOptionProblems({ preset, content }: PresetDiagnosisInput, start
   if (!feat) return preset.featOptionName ? [`featOptionName «${preset.featOptionName}» заданий, але в рецепті немає риси (featKey)`] : [];
   const names = feat.featChoiceOptions.map((entry) => entry.choiceOption.optionNameEng);
   if (!names.length) return preset.featOptionName ? [`Риса ${feat.name} не має варіантів вибору в каталозі, тож featOptionName має бути null (зараз «${preset.featOptionName}»)`] : [];
-  if (!preset.featOptionName || !names.includes(preset.featOptionName)) return [`featOptionName «${preset.featOptionName}» не належить риси ${feat.name}. Доступні: ${names.join(", ")}`];
-  return [];
+  const chosen = listPresetFeatOptionNames(preset);
+  const unknown = chosen.length ? chosen.filter((name) => !names.includes(name)) : [null];
+  return unknown.map((name) => `featOptionName «${name}» не належить риси ${feat.name}. Доступні: ${names.join(", ")}`);
 }
 
 function findSkillProblems(preset: ReadyPreset, options: ReadyPresetOptions): string[] {
