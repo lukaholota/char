@@ -65,6 +65,13 @@ function pickLastOfferedSpells(slug: string, targetLevel: number): OpenPickChoic
 }
 
 describe("request built by the preset page", () => {
+  it.each([["cleric-light-2014", 20], ["cleric-trickery-rogue-2014", 20]])("creates %s at level %i with the default picks, which skip spells the subclass already grants", async (slug, level) => {
+    const choices = fillDefaultOpenPicks(buildPageContext(slug, level));
+    const created = await createCharacterFromBuild(buildClientRequest(slug, level, choices));
+    if ("error" in created) throw new Error(created.error);
+    expect((await readSheetState(created.persId)).level).toBe(level);
+  });
+
   it("accepts the last spell the page offers in every open slot of the Eldritch Knight, including the any-school pick of level 20", async () => {
     const choices = pickLastOfferedSpells("fighter-eldritch-knight-2014", 20);
     expect(Object.keys(choices)).toEqual([buildOpenPickId(19, "knownSpells"), buildOpenPickId(20, "knownSpells")]);

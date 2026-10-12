@@ -17,10 +17,13 @@ import { buildFeatPool, buildFeatPoolEntry } from "./ready-preset-feat-pool";
 import { findExecutableLevels, listExecutableSteps } from "./build-executable-levels";
 import { findSchoolKey } from "./ready-preset-spells";
 import { buildSpellScoreFinder } from "./ready-preset-spell-scores";
+import { listSubclassGrantedSpellKeys } from "./progression-granted-spells";
 import {
   OPEN_PICK_CATEGORIES, WIZARD_CLASS_KEY, type LevelAdvancement, type LevelClassLevel, type LevelOpenPick, type LevelSpell, type LevelStep, type OpenPickCategory, type ReadyPresetLevels,
 } from "./ready-preset-levels";
 import type { BuildProgressionStep, BuildRecipe, LevelDecisions } from "./types";
+
+const MAX_CLASS_LEVEL = 20;
 
 type SpellCatalog = { byKey: Map<string, LevelSpell>; all: (LevelSpell & { spellLists: string[] })[] };
 type OptionRef = { optionNameEng: string };
@@ -236,8 +239,9 @@ function registerSpellPool(step: BuildProgressionStep, category: OpenPickCategor
   const poolId = `${step.classKey}:${subclassKey ?? ""}:${category === "cantrips" ? "cantrips" : "spells"}:${maxSpellLevel}`;
   if (!context.spellPools[poolId]) {
     const filter = findPoolFilter(step.classKey, subclassKey, category, maxSpellLevel);
+    const granted = new Set(listSubclassGrantedSpellKeys({ classKey: step.classKey, subclassKey, classLevel: MAX_CLASS_LEVEL }));
     context.spellPools[poolId] = context.spells.all
-      .filter((spell) => isSpellChoiceCandidate(filter, { spellId: 0, level: spell.level, school: null, spellLists: spell.spellLists }))
+      .filter((spell) => !granted.has(spell.key) && isSpellChoiceCandidate(filter, { spellId: 0, level: spell.level, school: null, spellLists: spell.spellLists }))
       .sort((first, second) => first.level - second.level || first.name.localeCompare(second.name, "uk"))
       .map(findSchoolLimitedSubclassKey(step, category, subclassKey) ? toSchoolLevelSpell : toLevelSpell)
       .map(withSpellScore(buildSpellScoreFinder(step.classKey, subclassKey)));

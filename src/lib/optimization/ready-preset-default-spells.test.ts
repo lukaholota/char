@@ -10,6 +10,7 @@ import {
 import { buildReadyPresetLevels } from "./ready-preset-levels.server";
 import { buildReadyPresetOptions } from "./ready-preset-options";
 import { buildRecipeSchema } from "./schema";
+import { listSubclassGrantedSpellKeys } from "./progression-granted-spells";
 
 vi.mock("server-only", () => ({}));
 
@@ -73,5 +74,21 @@ describe("default picks across the whole gallery", () => {
       if (problem) rejected.push(`${slug}: ${problem}`);
     }
     expect(rejected).toEqual([]);
+  }, 300_000);
+
+  it("never pick a spell the subclass already grants — the server refuses it (Light at level 10)", () => {
+    const repeated: string[] = [];
+    for (const fileName of readdirSync("data/rpgbot/ready-builds").filter((name) => name.endsWith(".json"))) {
+      const slug = fileName.replace(/\.json$/, "");
+      const base = buildContext(slug, 2);
+      const context = buildContext(slug, Math.max(...base.levels.targetLevels));
+      const filled = fillDefaultOpenPicks(context);
+      for (const slot of listOpenPickSlots(context.levels, context.targetLevel)) {
+        const [classKey, subclassKey] = slot.poolId.split(":");
+        const granted = listSubclassGrantedSpellKeys({ classKey, subclassKey: subclassKey || null, classLevel: 20 });
+        filled[slot.id].filter((key) => granted.includes(key)).forEach((key) => repeated.push(`${slug} ${slot.id}: ${key}`));
+      }
+    }
+    expect(repeated).toEqual([]);
   }, 300_000);
 });
