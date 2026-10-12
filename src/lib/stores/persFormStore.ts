@@ -182,7 +182,8 @@ function useDraftStorage(scope: DraftScope): boolean {
   const isActive = useSyncExternalStore(
     usePersFormStore.subscribe,
     () => isDraftStorageActive(scope),
-    () => isDraftStorageActive(scope),
+    // Сервер не бачить чернетки з localStorage: крок із нею малюється вже після гідрації (React #418).
+    () => false,
   );
 
   useLayoutEffect(() => {
