@@ -97,18 +97,25 @@ it("does not request private 2024 analysis without a session", () => {
   expect(screen.queryByRole("button")).toBeNull();
 });
 
-it("loads creator analysis only when the subclass dialog opens and matches DB names and levels", async () => {
-  const preview = (await readSlicePreview(entity))!;
-  const fetch = vi.fn(async () => ({ ok: true, json: async (): Promise<unknown> => preview }));
+function stubFetchWithoutCatalogCard(preview: unknown) {
+  const fetch = vi.fn(async (url: string) => url.startsWith("/api/reference-card")
+    ? { ok: false, status: 404, json: async (): Promise<unknown> => null }
+    : { ok: true, json: async (): Promise<unknown> => preview });
   vi.stubGlobal("fetch", fetch);
+  return { countAnalysisRequests: () => fetch.mock.calls.filter(([url]) => !url.startsWith("/api/reference-card")).length };
+}
+
+it("loads creator analysis only when the subclass dialog opens and the catalog card is unavailable", async () => {
+  const preview = (await readSlicePreview(entity))!;
+  const { countAnalysisRequests } = stubFetchWithoutCatalogCard(preview);
   const subclass = findCharacterCreatorOptions("RULES_2014").classes.find((entry) => entry.name === "MONK_2014")!.subclasses.find((entry) => entry.name === "WAY_OF_MERCY")!;
   render(<NoAiModeProvider><SessionContext.Provider value={owner}>
     <SubclassInfoModal subclass={subclass} analysisEntity={entity} trigger={<button>Деталі</button>} />
   </SessionContext.Provider></NoAiModeProvider>);
-  expect(fetch).not.toHaveBeenCalled();
+  expect(countAnalysisRequests()).toBe(0);
   fireEvent.click(screen.getByRole("button", { name: "Деталі" }));
   await screen.findByRole("button", { name: `Аналіз RPGbot: ${preview.features[0].name}` });
-  expect(fetch).toHaveBeenCalledTimes(1);
+  expect(countAnalysisRequests()).toBe(1);
   expect(screen.getAllByRole("button", { name: /^Аналіз RPGbot:/ })).toHaveLength(6);
 });
 
@@ -133,8 +140,7 @@ it("requires the creator level and resets expansion when the feature binding cha
 
 it("joins creator features by their shared native key when the Ukrainian display name differs", async () => {
   const preview = (await readSlicePreview(entity))!;
-  const fetch = vi.fn(async () => ({ ok: true, json: async (): Promise<unknown> => preview }));
-  vi.stubGlobal("fetch", fetch);
+  stubFetchWithoutCatalogCard(preview);
   const nativeSubclass = findCharacterCreatorOptions("RULES_2014").classes.find((entry) => entry.name === "MONK_2014")!.subclasses.find((entry) => entry.name === "WAY_OF_MERCY")!;
   const subclass = structuredClone(nativeSubclass);
   const renamed = subclass.features[0].feature;

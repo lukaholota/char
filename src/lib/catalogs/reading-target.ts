@@ -98,6 +98,12 @@ export function buildClassReadingHref(routePrefix: string, target: Omit<ClassRea
   return `${routePrefix}/classes?${params}`;
 }
 
+export function buildClassCardHref(ruleset: string, classId: number, subclassId: number | null = null): string | null {
+  if (!(classId > 0) || (subclassId !== null && !(subclassId > 0))) return null;
+  const subclassKey = subclassId === null ? null : String(subclassId);
+  return buildClassReadingHref(ruleset === "RULES_2024" ? "/2024" : "", { classKey: String(classId), subclassKey, featureKey: null });
+}
+
 export function buildRaceReadingHref(routePrefix: string, target: Omit<RaceReadingTarget, "section"> & { section?: RaceSection }): string {
   const section = target.section ?? findRaceSection(null, target.branch, target.featureKey);
   const params = writeRaceReadingTarget(new URLSearchParams(), { ...target, section });
@@ -145,7 +151,7 @@ type ReadableClass = {
   classId: number;
   slug: string;
   features: NamedFeature[];
-  subclasses: { slug: string; features: NamedFeature[] }[];
+  subclasses: { subclassId: number; slug: string; features: NamedFeature[] }[];
 };
 
 export type ClassReading<TClass extends ReadableClass> = {
@@ -166,7 +172,7 @@ export function findClassReading<TClass extends ReadableClass>(
   if (!characterClass) return null;
 
   const subclass = target.subclassKey
-    ? characterClass.subclasses.find((candidate) => candidate.slug === target.subclassKey) ?? null
+    ? characterClass.subclasses.find((candidate) => matchesParentKey(candidate.slug, candidate.subclassId, target.subclassKey!)) ?? null
     : null;
   if (target.subclassKey && !subclass) {
     return { characterClass, subclass: null, featureKey: null, section: "subclasses", missing: "subclass" };

@@ -25,7 +25,8 @@ import { SubclassAnalysis } from "@/components/optimization/SubclassAnalysis";
 import { BranchCover } from "@/components/catalogs/reading/BranchCover";
 import { getSubclassImagePath } from "@/lib/assets/image-manifest";
 import { translateSubclassName } from "@/lib/refs/subclass-name";
-import { findFeatureKey } from "@/lib/catalogs/reading-target";
+import { buildClassCardHref, findFeatureKey } from "@/lib/catalogs/reading-target";
+import { CatalogCardContent } from "@/components/optimization/CatalogCardContent";
 
 interface Props {
   analysisEntity?: EntityRef;
@@ -53,13 +54,8 @@ export const SubclassInfoModal = ({
     return idA - idB;
   });
 
-  return (
-    <InfoDialog
-      title={name}
-      triggerLabel={`Показати деталі ${name}`}
-      triggerClassName={triggerClassName}
-      trigger={trigger}
-    >
+  const cardHref = buildClassCardHref(subclass.ruleset, subclass.classId, subclass.subclassId);
+  const body = (
       <SubclassAnalysisProvider entity={analysisEntity} placement="creator">
       <BranchCover src={getSubclassImagePath(subclass.name)} alt={name} sizes="(min-width: 640px) 560px, 100vw" />
       {analysisEntity ? <SubclassAnalysis entity={analysisEntity} placement="creator" /> : null}
@@ -146,6 +142,17 @@ export const SubclassInfoModal = ({
         )}
       </div>
       </SubclassAnalysisProvider>
+  );
+
+  return (
+    <InfoDialog
+      title={name}
+      triggerLabel={`Показати деталі ${name}`}
+      triggerClassName={triggerClassName}
+      trigger={trigger}
+      renderContent={cardHref ? (close) => <CatalogCardContent href={cardHref} title={name} onClose={close} fallback={body} /> : undefined}
+    >
+      {body}
     </InfoDialog>
   );
 };

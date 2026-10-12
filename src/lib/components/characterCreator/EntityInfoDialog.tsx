@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { CircleHelp } from "lucide-react";
 import clsx from "clsx";
 
@@ -58,8 +58,9 @@ interface InfoDialogProps {
   subtitle?: string;
   triggerLabel: string;
   triggerClassName?: string;
-  children: ReactNode;
+  children?: ReactNode;
   trigger?: ReactNode;
+  renderContent?: (close: () => void) => ReactNode;
 }
 
 export const InfoDialog = ({
@@ -69,8 +70,10 @@ export const InfoDialog = ({
   triggerClassName,
   children,
   trigger,
+  renderContent,
 }: InfoDialogProps) => {
-  const content = (
+  const [open, setOpen] = useState(false);
+  const content = renderContent ? (open ? renderContent(() => setOpen(false)) : null) : (
     <InfoDialogContent title={title} subtitle={subtitle}>
       {children}
     </InfoDialogContent>
@@ -78,7 +81,7 @@ export const InfoDialog = ({
 
   if (trigger) {
     return (
-      <Dialog>
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <div
             data-stop-card-click
@@ -94,7 +97,7 @@ export const InfoDialog = ({
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <div
         data-stop-card-click
         onPointerDown={(e) => {

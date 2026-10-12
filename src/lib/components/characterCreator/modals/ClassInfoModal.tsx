@@ -21,6 +21,8 @@ import {
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { classTranslations, attributesUkrShort } from "@/lib/refs/translation";
 import { buildClassTable } from "@/rules/class-table";
+import { buildClassCardHref } from "@/lib/catalogs/reading-target";
+import { CatalogCardContent } from "@/components/optimization/CatalogCardContent";
 import { ClassTableView } from "@/components/classes/ClassTableView";
 import { Button } from "@/components/ui/button";
 import { Layers3 } from "lucide-react";
@@ -118,14 +120,9 @@ export const ClassInfoModal = ({
   const title =
     classTranslations[cls.name as keyof typeof classTranslations] || cls.name;
 
-  return (
-    <>
-      <InfoDialog
-        title={title}
-        triggerLabel={`Показати деталі ${title}`}
-        triggerClassName={triggerClassName}
-        trigger={trigger}
-      >
+  const cardHref = buildClassCardHref(cls.ruleset, cls.classId);
+  const body = (
+      <>
         <InfoGrid>
           <InfoPill label="Кістка хітів" value={`d${cls.hitDie}`} />
           <InfoPill
@@ -237,6 +234,19 @@ export const ClassInfoModal = ({
               </div>
             ))}
         </div>
+      </>
+  );
+
+  return (
+    <>
+      <InfoDialog
+        title={title}
+        triggerLabel={`Показати деталі ${title}`}
+        triggerClassName={triggerClassName}
+        trigger={trigger}
+        renderContent={cardHref ? (close) => <CatalogCardContent href={cardHref} title={title} onClose={close} fallback={body} /> : undefined}
+      >
+        {body}
       </InfoDialog>
 
       <ControlledInfoDialog

@@ -13,3 +13,8 @@ export function findClassTables(ruleset: Ruleset): Record<string, ClassTable> {
     ]),
   );
 }
+
+export function findClassTable(classKey: string, ruleset: Ruleset): ClassTable | undefined {
+  const characterClass = findCharacterCreatorOptions(ruleset).classes.find((candidate) => candidate.name === classKey);
+  return characterClass ? buildClassTable(characterClass, characterClass.subclasses) : undefined;
+}

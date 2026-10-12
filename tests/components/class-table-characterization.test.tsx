@@ -1,12 +1,12 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
+import type { Ruleset } from "@prisma/client";
 
-vi.mock("@/lib/actions/class-actions", () => ({ getSubclassesByClassId: vi.fn(async () => []) }));
 vi.mock("@/hooks/useModalBackButton", () => ({ useModalBackButton: () => {} }));
 
-import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
-import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
+import { ClassTableView } from "@/components/classes/ClassTableView";
+import { findClassTable } from "@/lib/catalogs/class-tables";
 
 afterEach(cleanup);
 
@@ -15,10 +15,10 @@ const CLASSES = {
   RULES_2024: ["BARD_2024", "WIZARD_2024", "MONK_2024", "PALADIN_2024"],
 } as const;
 
-function readClassTable(cls: Parameters<typeof ClassInfoModal>[0]["cls"]): string[][] {
-  render(<ClassInfoModal cls={cls} trigger={<button type="button">відкрити</button>} />);
-  fireEvent.click(screen.getByRole("button", { name: "відкрити" }));
-  fireEvent.click(screen.getByRole("button", { name: "Таблиця класу" }));
+function readClassTable(classKey: string, ruleset: Ruleset): string[][] {
+  const classTable = findClassTable(classKey, ruleset);
+  expect(classTable, classKey).toBeTruthy();
+  render(<ClassTableView table={classTable!} />);
   const table = screen.getByRole("table");
   return [...table.querySelectorAll("tr")].map((row) => [...row.querySelectorAll("th,td")].map((cell) => cell.textContent?.trim() ?? ""));
 }
@@ -27,10 +27,7 @@ describe("O44 — таблиця класу в конструкторі до в�
   for (const [ruleset, names] of Object.entries(CLASSES) as [keyof typeof CLASSES, readonly string[]][]) {
     for (const name of names) {
       it(`${name}: заголовки й клітинки`, () => {
-        const cls = findCharacterCreatorOptions(ruleset).classes.find((candidate) => candidate.name === name);
-        expect(cls, name).toBeTruthy();
-
-        expect(readClassTable(cls!)).toMatchSnapshot();
+        expect(readClassTable(name, ruleset)).toMatchSnapshot();
       });
     }
   }

@@ -82,6 +82,6 @@ export function getAllClasses(ruleset: Ruleset): ClassData[] {
   return ALL_CLASSES.filter((characterClass) => characterClass.ruleset === ruleset);
 }
 
-export function findClassBySlug(slug: string, ruleset: Ruleset): ClassData | null {
-  return getAllClasses(ruleset).find((characterClass) => characterClass.slug === slug) ?? null;
+export function findClassBySlugOrId(slugOrId: string, ruleset: Ruleset): ClassData | null {
+  return getAllClasses(ruleset).find((characterClass) => characterClass.slug === slugOrId || String(characterClass.classId) === slugOrId) ?? null;
 }

@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useState, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 import type { ClassData } from "@/lib/classesData";
+import type { ClassTable } from "@/rules/class-table";
 import type { RaceData } from "@/lib/racesData";
 import { fetchReferenceCard } from "@/lib/catalog-reads";
 import { findBranchKey, findClassReading, findRaceReading, parseClassReadingTarget, parseRaceReadingTarget, type ClassSection, type RaceBranchKind, type RaceSection } from "@/lib/catalogs/reading-target";
@@ -46,7 +47,7 @@ export function ReferenceCardView({ href, target, unavailable, onBranchChange, o
 function CardContent({ card, target, onBranchChange, onClose }: Omit<Props, "href" | "unavailable"> & { card: ReferenceCard }) {
   const is2024 = target.ruleset === "RULES_2024";
   switch (card.catalog) {
-    case "class": return <ClassReading characterClass={card.characterClass} params={target.params} is2024={is2024} onBranchChange={onBranchChange} onClose={onClose} />;
+    case "class": return <ClassReading characterClass={card.characterClass} table={card.table} params={target.params} is2024={is2024} onBranchChange={onBranchChange} onClose={onClose} />;
     case "race": return <RaceReading race={card.race} params={target.params} is2024={is2024} onBranchChange={onBranchChange} onClose={onClose} />;
     case "feat": return <FeatDetailCard feat={card.feat} is2024={is2024} />;
     case "magic-item": return <MagicItemDetailPane item={card.item} />;
@@ -76,7 +77,7 @@ function useReferenceCard(href: string): CardLoad {
 
 type ReadingProps = { params: URLSearchParams; is2024: boolean; onBranchChange: (isBranchOpen: boolean) => void; onClose: () => void };
 
-function ClassReading({ characterClass, params, is2024, onBranchChange, onClose }: ReadingProps & { characterClass: ClassData }) {
+function ClassReading({ characterClass, table, params, is2024, onBranchChange, onClose }: ReadingProps & { characterClass: ClassData; table?: ClassTable }) {
   const target = parseClassReadingTarget(params);
   const initial = target ? findClassReading([characterClass], target) : null;
   const [subclassKey, setSubclassKey] = useState(initial?.subclass?.slug ?? null);
@@ -85,7 +86,7 @@ function ClassReading({ characterClass, params, is2024, onBranchChange, onClose 
   useEffect(() => onBranchChange(!!subclass), [subclass, onBranchChange]);
   if (subclass) return <SubclassReader characterClass={characterClass} subclass={subclass} featureKey={null} focusRequest={0} is2024={is2024}
     onBack={() => { setSubclassKey(null); setSection("subclasses"); }} onClose={onClose} />;
-  return <ClassDetailCard characterClass={characterClass} is2024={is2024}
+  return <ClassDetailCard characterClass={characterClass} table={table} is2024={is2024}
     view={{ section, featureKey: null, focusRequest: 0, missing: null }}
     actions={{ onSectionChange: setSection, onOpenBranch: (key) => setSubclassKey(key), onDismissMissing: () => undefined }} />;
 }
