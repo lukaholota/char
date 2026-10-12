@@ -152,6 +152,7 @@ export const BackgroundCategory = {
   RUNE_CARVER: "RUNE_CARVER",
   GATE_WARDEN: "GATE_WARDEN",
   PLANAR_PHILOSOPHER: "PLANAR_PHILOSOPHER",
+  INVESTIGATOR_VRGTR: "INVESTIGATOR_VRGTR",
 } as const;
 export type BackgroundCategory = (typeof BackgroundCategory)[keyof typeof BackgroundCategory];
 
