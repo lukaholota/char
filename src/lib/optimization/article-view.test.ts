@@ -91,8 +91,20 @@ describe("адреси й групи", () => {
       summary("fighter", "Воїн", ["Воїн"]), summary("shadow", "Шлях тіні", ["Монах"]), summary("monk", "Монах — гайд", ["Монах"]),
       summary("feat", "Риса", ["риса"]), summary("none", "Без теми", []),
     ]);
-    expect(groups.map((group) => group.title)).toEqual(["Воїн", "Інше", "Монах", "Риса"]);
-    expect(groups[2].summaries.map((entry) => entry.slug)).toEqual(["monk", "shadow"]);
+    expect(groups.map((group) => group.title)).toEqual(["Воїн", "Монах", "Риса", "Інше"]);
+    expect(groups[1].summaries.map((entry) => entry.slug)).toEqual(["monk", "shadow"]);
+  });
+
+  it("веде від загального до конкретного: покажчики першими, клас від гайду до підкласів, теми після класів", () => {
+    const groups = groupDraftSummaries([
+      summary("races", "Орк", ["races"]), summary("race", "Людина", ["race"]), summary("index", "Покажчик", ["class"]),
+      summary("tempest", "Домен бурі", ["Клірик", "Домен бурі", "підклас"]), summary("spells", "Огляд заклинань", ["Клірик", "заклинання"]),
+      summary("subclasses", "Підкласи Клірика", ["Клірик", "підкласи"]), summary("cleric", "Клірик — класовий гайд", ["Клірик", "класовий гайд", "раси"]),
+      summary("divinity", "Божественний канал", ["Клірик", "Божественний канал"]),
+    ]);
+    expect(groups.map((group) => group.title)).toEqual(["Класи", "Клірик", "Раси"]);
+    expect(groups[1].summaries.map((entry) => entry.slug)).toEqual(["cleric", "subclasses", "spells", "divinity", "tempest"]);
+    expect(groups[2].summaries.map((entry) => entry.slug)).toEqual(["race", "races"]);
   });
 });
 

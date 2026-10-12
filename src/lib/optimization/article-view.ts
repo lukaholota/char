@@ -251,15 +251,49 @@ export function buildDraftArticleHref(ruleset: OptimizationRuleset, slug: string
 
 export type DraftGroup = { title: string; summaries: DraftSummary[] };
 
+const GROUP_TITLE_BY_TOPIC: Readonly<Record<string, string>> = {
+  optimization: "Оптимізація", class: "Класи",
+  races: "Раси", race: "Раси", раса: "Раси",
+  feats: "Риси", feat: "Риси", риси: "Риси",
+  background: "Походження", передісторії: "Походження",
+  spells: "Заклинання", spell: "Заклинання", заклинання: "Заклинання",
+  combat: "Бій", rules: "Правила", build: "Збірки",
+};
+const GROUPS_BEFORE_CLASSES = ["Оптимізація", "Класи"];
+const GROUPS_AFTER_CLASSES = ["Раси", "Риси", "Походження", "Заклинання", "Бій", "Правила", "Збірки", "Інше"];
+// Усередині класу — від загального до конкретного; невідомі статті класу стоять перед гайдами підкласів.
+const ARTICLE_KIND_ORDER = ["класовий гайд", "підкласи", "раси", "мультикласування", "заклинання", null, "підклас"] as const;
+
 export function groupDraftSummaries(summaries: readonly DraftSummary[]): DraftGroup[] {
   const byTitle = new Map<string, DraftSummary[]>();
   for (const summary of summaries) {
-    const title = capitalizeFirstLetter(summary.topics[0] ?? "Інше");
+    const title = findGroupTitle(summary);
     byTitle.set(title, [...(byTitle.get(title) ?? []), summary]);
   }
   return [...byTitle.entries()]
-    .sort(([left], [right]) => left.localeCompare(right, "uk"))
-    .map(([title, entries]) => ({ title, summaries: [...entries].sort((left, right) => left.titleUk.localeCompare(right.titleUk, "uk")) }));
+    .sort(([left], [right]) => findGroupRank(left) - findGroupRank(right) || left.localeCompare(right, "uk"))
+    .map(([title, entries]) => ({ title, summaries: [...entries].sort(compareArticles) }));
+}
+
+function findGroupTitle(summary: DraftSummary): string {
+  const topic = summary.topics[0];
+  if (!topic) return "Інше";
+  return GROUP_TITLE_BY_TOPIC[topic] ?? capitalizeFirstLetter(topic);
+}
+
+function findGroupRank(title: string): number {
+  if (GROUPS_BEFORE_CLASSES.includes(title)) return GROUPS_BEFORE_CLASSES.indexOf(title) - GROUPS_BEFORE_CLASSES.length;
+  return GROUPS_AFTER_CLASSES.includes(title) ? 1 + GROUPS_AFTER_CLASSES.indexOf(title) : 0;
+}
+
+function compareArticles(left: DraftSummary, right: DraftSummary): number {
+  return findArticleKindRank(left) - findArticleKindRank(right) || left.titleUk.localeCompare(right.titleUk, "uk");
+}
+
+function findArticleKindRank(summary: DraftSummary): number {
+  const kinds = summary.topics.slice(1);
+  const rank = ARTICLE_KIND_ORDER.findIndex((kind) => kind !== null && kinds.includes(kind));
+  return rank === -1 ? ARTICLE_KIND_ORDER.indexOf(null) : rank;
 }
 
 function capitalizeFirstLetter(value: string): string {
