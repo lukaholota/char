@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import {
@@ -13,6 +13,7 @@ import {
 import { collectHomeCardRows, collectHomeCategories } from "@/components/home/homeCategories";
 import { buildOmniSearchIndex, isCatalogShortcut } from "@/lib/omniSearchData";
 import sitemap from "@/app/sitemap";
+import { findRoutePagePath } from "../helpers/route-page";
 
 const ROOT = process.cwd();
 const APP = join(ROOT, "src/app");
@@ -39,7 +40,7 @@ function toRuleset(edition: (typeof EDITIONS)[number]) {
 
 function collectRouteDirs(base: string): string[] {
   return readdirSync(base, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory() && entry.name !== "2024" && existsSync(join(base, entry.name, "page.tsx")))
+    .filter((entry) => entry.isDirectory() && entry.name !== "2024" && findRoutePagePath(join(base, entry.name)) !== null)
     .map((entry) => entry.name);
 }
 
@@ -64,7 +65,7 @@ describe("KR36.1 — один реєстр каталогів", () => {
           continue;
         }
         expect(href, `${entry.slug} в ${edition}`).not.toBeNull();
-        expect(existsSync(join(APP, href!.replace(/^\//, ""), "page.tsx")), `${entry.slug} (${edition}) веде в ${href}, а сторінки немає`).toBe(true);
+        expect(findRoutePagePath(join(APP, href!.replace(/^\//, ""))) !== null, `${entry.slug} (${edition}) веде в ${href}, а сторінки немає`).toBe(true);
       }
     }
   });

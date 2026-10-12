@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "fs";
 import { join } from "path";
+import { findRoutePagePath } from "../helpers/route-page";
 
 /// KR22.4. Список каталогу стає динамічним від одного `await searchParams` — навіть якщо запит
 /// потрібен лише для початкового стану фільтра, який клієнт усе одно перечитує з адреси при
@@ -24,7 +25,7 @@ const DYNAMIC_BY_DESIGN = ["spells", "magic-items", "2024/spells", "2024/magic-i
 const DYNAMIC_MARKERS = [/\bawait searchParams\b/, /\bsearchParams:\s*Promise</, /\bauth\(\)/];
 
 function readListPage(route: string): string {
-  return readFileSync(join(APP, route, "page.tsx"), "utf-8");
+  return readFileSync(findRoutePagePath(join(APP, route))!, "utf-8");
 }
 
 function findDynamicMarkers(route: string): string[] {

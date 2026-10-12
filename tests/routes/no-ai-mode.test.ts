@@ -17,6 +17,7 @@ import {
 } from "@/lib/assets/asset-provenance";
 import { collectHomeCardRows, collectHomeCategories } from "@/components/home/homeCategories";
 import { getRaceImagePath } from "@/lib/assets/image-manifest";
+import { findRoutePagePath } from "../helpers/route-page";
 
 const srcDir = path.resolve(process.cwd(), "src");
 const appDir = path.join(srcDir, "app");
@@ -219,9 +220,8 @@ describe("Головна — картки категорій", () => {
     for (const edition of ["2014", "2024"] as const) {
       for (const category of collectHomeCategories(edition)) {
         const routeDir = path.join(appDir, category.href.replace(/^\//, ""));
-        const routeGroups = fs.readdirSync(routeDir).filter((name) => /^\(.+\)$/.test(name));
         expect(
-          ["", ...routeGroups].some((group) => fs.existsSync(path.join(routeDir, group, "page.tsx"))),
+          findRoutePagePath(routeDir) !== null,
           `${category.title} (${edition}) веде в ${category.href}, а сторінки немає`
         ).toBe(true);
       }
