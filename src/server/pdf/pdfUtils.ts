@@ -84,8 +84,7 @@ export async function getBrowser(): Promise<Browser> {
     const commonArgs = [
       "--no-sandbox",
       "--disable-setuid-sandbox",
-      "--single-process",
-      "--no-zygote",
+      // Без --single-process: у ньому Chromium 154 після простою висне на page.pdf назавжди (QA 12.10).
       "--disable-gpu",
       "--disable-background-networking",
       "--font-render-hinting=none",
@@ -151,6 +150,13 @@ export async function getBrowser(): Promise<Browser> {
   } finally {
     browserInitPromise = null;
   }
+}
+
+/** Браузер, що завис, не віддає вже жодного PDF: наступна спроба має підняти новий. */
+function discardBrowser(browser: Browser) {
+  if (browserInstance === browser) browserInstance = null;
+  browser.process()?.kill("SIGKILL");
+  void browser.close().catch(() => {});
 }
 
 export async function generatePdfFromHtml(
@@ -249,6 +255,7 @@ export async function generatePdfFromHtml(
   } catch (err) {
     const end = takeUsageSnapshot();
     log.error("render.error", { ...diffUsage(start, end), err, reqTotal, reqAbortedExternal, reqAbortedHeavy });
+    if (err instanceof Error && err.name === "TimeoutError") discardBrowser(browser);
     throw err;
   } finally {
     try {
