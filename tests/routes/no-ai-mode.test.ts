@@ -219,8 +219,9 @@ describe("Головна — картки категорій", () => {
     for (const edition of ["2014", "2024"] as const) {
       for (const category of collectHomeCategories(edition)) {
         const routeDir = path.join(appDir, category.href.replace(/^\//, ""));
+        const routeGroups = fs.readdirSync(routeDir).filter((name) => /^\(.+\)$/.test(name));
         expect(
-          fs.existsSync(path.join(routeDir, "page.tsx")),
+          ["", ...routeGroups].some((group) => fs.existsSync(path.join(routeDir, group, "page.tsx"))),
           `${category.title} (${edition}) веде в ${category.href}, а сторінки немає`
         ).toBe(true);
       }

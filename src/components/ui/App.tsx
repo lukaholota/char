@@ -1,15 +1,10 @@
 "use client";
 
 import React from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useIsCharacterEmbed } from "./useIsCharacterEmbed";
 
 export const App = ({ children }: { children: React.ReactNode }) => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const isEmbed =
-    (pathname.startsWith("/spells") || pathname.startsWith("/magic-items")) &&
-    searchParams.get("origin") === "character";
+  const isEmbed = useIsCharacterEmbed();
 
   return (
     <main

@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { redirectKeepingNoAiMode } from "@/lib/no-ai/no-ai-server";
 import { getAllSpells, type SpellData } from "@/lib/spellsData";
-import { SpellsClient, type SpellListItem } from "./spells-client";
+import { SpellsClient, type SpellListItem } from "../spells-client";
 
 // Static generation — data comes from generated JSON
 export default async function SpellsPage({

@@ -1,20 +1,15 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useIsCharacterEmbed } from "./useIsCharacterEmbed";
 
 export function RootGrid({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [isEmbed, setIsEmbed] = useState(false);
+  const isCharacterEmbed = useIsCharacterEmbed();
+  const [isInsideIframe, setIsInsideIframe] = useState(false);
 
-  useEffect(() => {
-    const isEmbedParam = (pathname.startsWith("/spells") || pathname.startsWith("/magic-items")) && searchParams.get("origin") === "character";
-    const isIframe = typeof window !== "undefined" && window.self !== window.top;
-    setIsEmbed(isEmbedParam || isIframe);
-  }, [pathname, searchParams]);
+  useEffect(() => setIsInsideIframe(window.self !== window.top), []);
 
-  if (isEmbed) {
+  if (isCharacterEmbed || isInsideIframe) {
     return <div className="min-h-screen w-full">{children}</div>;
   }
 

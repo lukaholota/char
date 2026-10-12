@@ -100,13 +100,11 @@ export default function RootLayout(
     <PlatformBackdrop />
     <OfflineServiceWorker />
     <Providers>
-      <Suspense fallback={null}>
-        <RootGrid>
-          <App>{ children }</App>
-          <Navigation/>
-        </RootGrid>
-        <RouterPopStateFilter />
-      </Suspense>
+      <RootGrid>
+        <App>{ children }</App>
+        <Suspense fallback={null}><Navigation/></Suspense>
+      </RootGrid>
+      <Suspense fallback={null}><RouterPopStateFilter /></Suspense>
       <GlobalModals />
       <DiceOverlay />
       <DiceTray />
