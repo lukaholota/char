@@ -120,7 +120,7 @@ describe("KR22.6 — service worker віддає збережений лист",
     const worker = startServiceWorker(async () => new Response("з мережі"));
     await worker.dispatch("install", {});
 
-    expect(worker.caches.stores.get("char-shell-v1")?.has(`${ORIGIN}/offline`)).toBe(true);
+    expect(worker.caches.stores.get("char-shell-v1")?.has(`${ORIGIN}/offline.html`)).toBe(true);
   });
 
   it("з мережею віддає свіжу сторінку і запамʼятовує її", async () => {

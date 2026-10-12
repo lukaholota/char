@@ -2,7 +2,8 @@ const SHELL_CACHE = "char-shell-v1";
 const PAGE_CACHE = "char-pages-v1";
 const MEDIA_CACHE = "char-media-v1";
 const SPELL_CARD_CACHE = "char-spell-cards-v1";
-const OFFLINE_URL = "/offline";
+// Статична, без чанків Next: свіжий кеш воркера чанків сторінки не має, і /offline падав у 500.
+const OFFLINE_URL = "/offline.html";
 const MAX_CACHED_PAGES = 60;
 const MAX_CACHED_SHELL_FILES = 600;
 const MAX_CACHED_MEDIA_FILES = 400;
