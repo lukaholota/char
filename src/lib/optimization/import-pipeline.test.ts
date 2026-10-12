@@ -1,4 +1,5 @@
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
@@ -308,7 +309,8 @@ it("counts a paginated supplement and requires its sections in the translation",
   await expect(buildCoverage(fixture.directory)).rejects.toThrow("Supplement HTML hash mismatch");
 });
 
-it("reports current manifest coverage without mistaking URL count for publications", async () => {
+// The raw rpgbot.net HTML stays out of git, so CI has no source to hash.
+it.skipIf(!existsSync("data/rpgbot/source"))("reports current manifest coverage without mistaking URL count for publications", async () => {
   const report = await buildCoverage("data/rpgbot");
   expect(report.includedSources).toBe(391);
   expect(report.publicationSlots).toBe(393);

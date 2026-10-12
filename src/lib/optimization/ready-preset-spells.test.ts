@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { buildSpellSlug } from "@/lib/spell-link";
 import { getAllSpells } from "@/lib/spellsData";
 import { buildPresetSpellOptions, buildPresetSpellSelection, findPresetSpellPreparation, findPresetSpellProblem, type ReadyPresetSpells } from "./ready-preset-spells";
@@ -13,7 +13,8 @@ const wizardPreset: ReadyPresetSpells = { classCantripKeys: ["acid-splash", "chi
   raceSpellKeys: ["prestidigitation"], preparedSpellKeys: [], sectionId: "section-levels", explanation: "Author level-one list; race assignment chosen by platform." };
 
 describe("ready preset spell selections", () => {
-  it("matches the exact cantrips and book entries in the author English level-one row", () => {
+  // The raw rpgbot.net HTML stays out of git, so CI has no source to compare against.
+  it.skipIf(!existsSync("data/rpgbot/source"))("matches the exact cantrips and book entries in the author English level-one row", () => {
     const document = JSON.parse(readFileSync("data/rpgbot/uk/rpgbot-wizard-2014.json", "utf8"));
     const source = document.sourceRevisions.find((revision: { revisionId: string }) => revision.revisionId === document.translations.at(-1).sourceRevisionId);
     const html = readFileSync(`data/rpgbot/${source.sourceFile}`, "utf8");
