@@ -51,6 +51,9 @@ export const noiseErrorMessages: RegExp[] = [
   // Попередження браузера, а не збій: ResizeObserver не встиг доставити зміни за один кадр.
   // Sentry теж відкидає його сам, у PostHog — 12 подій.
   /^(Error: )?ResizeObserver loop (completed with undelivered notifications|limit exceeded)/,
+  // Вкладка, відкрита до деплою, кличе дію за старим ID. Користувач уже бачить тост «Сайт
+  // оновився» з action-guard.ts; 2026-10-12 — 17 подій від однієї вкладки (JAVASCRIPT-NEXTJS-C).
+  /^(UnrecognizedActionError: )?Server Action "\w+" was not found on the server/,
 ];
 
 export function isNoiseSourceUrl(url: string): boolean {

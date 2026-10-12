@@ -58,6 +58,7 @@ describe("error noise filters", () => {
     ["Error", "Error invoking postMessage: Java object is gone"],
     ["Error", "Script error."],
     ["Error", "ResizeObserver loop completed with undelivered notifications."],
+    ["UnrecognizedActionError", 'Server Action "405c4ffc6fcc2a66592585d0e2976d580bafe4ae0e" was not found on the server. \nRead more: https://nextjs.org/docs/messages/failed-to-find-server-action'],
   ])("drops %s: %s", (type, value) => {
     expect(isNoiseErrorMessage(type, value)).toBe(true);
   });
