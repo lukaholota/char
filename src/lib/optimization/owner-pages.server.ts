@@ -11,6 +11,7 @@ import { listDraftSummaries, readDraftArticle } from "./draft-reader";
 import { collectBlockLinks, hydrateArticleDocument } from "./hydration-catalog";
 import { cacheInProduction } from "./production-cache";
 import { dropFetchedReferenceText } from "./reference-card-target";
+import { findArticleCatalogLinks } from "./article-catalog-links.server";
 import type { OptimizationRuleset } from "./types";
 
 export async function loadIndexPageData(ruleset: OptimizationRuleset) {
@@ -45,7 +46,7 @@ async function hydrateArticlePage(slug: string) {
   const revision = hydrated.translations[0];
   // The cache stores JSON, which would turn the Map into an empty object.
   const linkTargets = pickLinkedTargets(article.linkTargets, revision.sections.flatMap((section) => section.blocks.flatMap(collectBlockLinks)));
-  return { ...article, linkTargets, revision, contentReferences: hydrated.contentReferences.map(dropFetchedReferenceText), groups };
+  return { ...article, linkTargets, revision, contentReferences: hydrated.contentReferences.map(dropFetchedReferenceText), groups, catalogLinks: await findArticleCatalogLinks(draft.article) };
 }
 
 const readHydratedArticle = cacheInProduction(hydrateArticlePage, "rpgbot-article-page");

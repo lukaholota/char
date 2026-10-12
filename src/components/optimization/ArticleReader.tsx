@@ -15,6 +15,7 @@ import { ContentReferenceProvider } from "./ContentReferenceProvider";
 import { cn } from "@/lib/utils";
 import { findEditionAccent } from "@/styles/edition-accent";
 import { AnalystAvatar } from "./AnalystAvatar";
+import { CatalogMention } from "./CatalogMention";
 import type { BlockContext } from "./ArticleBlocks";
 import { RatingBadge } from "./RatingBadge";
 import type { RuleCategoryLink } from "./ArticleSidebar";
@@ -31,6 +32,7 @@ type ArticleReaderProps = {
   groups: DraftGroup[];
   ruleCategories: RuleCategoryLink[];
   contentReferences?: ContentReference[];
+  catalogLinks?: { headingHrefs: Record<string, string>; subjectHref: string | null };
 };
 
 const DATE_FORMAT = new Intl.DateTimeFormat("uk-UA", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Kyiv" });
@@ -41,7 +43,7 @@ const REVISION_STATUS_LABELS: Record<TranslationRevision["status"], string> = {
   stale: "переклад застарів",
 };
 
-export function ArticleReader({ article, revision, ratings, sourceRevision, sourceUrl, linkTargets, groups, ruleCategories, contentReferences }: ArticleReaderProps) {
+export function ArticleReader({ article, revision, ratings, sourceRevision, sourceUrl, linkTargets, groups, ruleCategories, contentReferences, catalogLinks }: ArticleReaderProps) {
   useScrollToUrlHash();
   const outline = buildArticleOutline(revision.sections);
   const [landingSection] = useState(findLandingSection);
@@ -60,10 +62,10 @@ export function ArticleReader({ article, revision, ratings, sourceRevision, sour
     <ReaderLayout
       ruleset={article.ruleset} currentSlug={article.slug} currentTitle={article.titleUk} groups={groups}
       sectionEntries={buildSectionTocEntries(tree)} ruleCategories={ruleCategories}
-      header={<ArticleHeaderCard article={article} revision={revision} sourceRevision={sourceRevision} sourceUrl={sourceUrl} is2024={is2024} accent={accent} />}
+      header={<ArticleHeaderCard article={article} revision={revision} sourceRevision={sourceRevision} sourceUrl={sourceUrl} subjectHref={catalogLinks?.subjectHref ?? null} is2024={is2024} accent={accent} />}
     >
       <ContentReferenceProvider references={contentReferences} surface="article_reader">
-        {tree.map((node) => <SectionCard key={node.sectionId} node={node} is2024={is2024} contextFor={contextFor} />)}
+        {tree.map((node) => <SectionCard key={node.sectionId} node={node} is2024={is2024} contextFor={contextFor} headingHrefs={catalogLinks?.headingHrefs} />)}
       </ContentReferenceProvider>
     </ReaderLayout>
   );
@@ -75,11 +77,12 @@ function findLandingSection(): string | undefined {
 }
 
 type HeaderCardProps = Pick<ArticleReaderProps, "article" | "revision" | "sourceRevision" | "sourceUrl"> & {
+  subjectHref: string | null;
   is2024: boolean;
   accent: ReturnType<typeof findEditionAccent>["solid"];
 };
 
-function ArticleHeaderCard({ article, revision, sourceRevision, sourceUrl, is2024, accent }: HeaderCardProps) {
+function ArticleHeaderCard({ article, revision, sourceRevision, sourceUrl, subjectHref, is2024, accent }: HeaderCardProps) {
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/70 p-6 shadow-2xl backdrop-blur-xl md:p-8">
       <div className="space-y-5">
@@ -99,6 +102,7 @@ function ArticleHeaderCard({ article, revision, sourceRevision, sourceUrl, is202
         </p> : null}
 
         <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 font-sans text-sm text-slate-400">
+          {subjectHref ? <><dt>Підклас</dt><dd><CatalogMention href={subjectHref} title={article.titleUk}>Опис у каталозі</CatalogMention></dd></> : null}
           <dt>Автори</dt>
           <dd>{sourceRevision.authors.join(", ")}</dd>
           <dt>Оригінал</dt>
