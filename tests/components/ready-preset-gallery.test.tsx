@@ -11,14 +11,14 @@ vi.mock("@/lib/monitoring/use-rpgbot-surface-view", () => ({ useRpgbotSurfaceVie
 vi.mock("@/components/optimization/AnalystAvatar", () => ({ AnalystAvatar: () => null }));
 
 function buildEntry(slug: string, className: string, title: string): ReadyPresetCatalogEntry {
-  return { slug, buildId: `build-${slug}`, title, description: `Опис ${title}`, className, classLabel: className, raceName: "Скельний гном", subclassName: "Майбутній підклас", startingClassKey: "CLASS_2014", startingSubclassKey: null, raceKey: "GNOME_2014", maxLevel: 20, sourceTitle: "Приклад", portraitSrc: null, subclassImageSrc: null, classImageSrc: null };
+  return { slug, buildId: `build-${slug}`, title, description: `Опис ${title}`, className, classLabel: className, raceName: "Скельний гном", baseRaceName: "Гном", subclassName: "Майбутній підклас", startingClassKey: "CLASS_2014", startingSubclassKey: null, raceKey: "GNOME_2014", maxLevel: 20, sourceTitle: "Приклад", portraitSrc: null, subclassImageSrc: null, classImageSrc: null };
 }
 
 const presets = [
   buildEntry("barbarian-a", "Варвар", "Варвар — атакер"),
   buildEntry("barbarian-b", "Варвар", "Варвар — танк"),
   buildEntry("wizard-a", "Чарівник", "Чарівник — вогонь"),
-  buildEntry("bard-a", "Бард", "Бард — дипломат"),
+  { ...buildEntry("bard-a", "Бард", "Бард — дипломат"), raceName: "Високий ельф", baseRaceName: "Ельф" },
 ];
 
 async function renderGallery(search = "") {
@@ -30,6 +30,14 @@ async function renderGallery(search = "") {
 
 beforeEach(() => { vi.resetModules(); });
 afterEach(() => { cleanup(); window.history.replaceState(null, "", "/"); });
+
+describe("ready preset gallery race filter", () => {
+  it("keeps only presets of the base race from the address and offers that race with its count", async () => {
+    await renderGallery("?race=%D0%95%D0%BB%D1%8C%D1%84");
+    expect(screen.getByRole("status").textContent).toBe("Показано 1 з 4");
+    expect(screen.getByRole("combobox", { name: "Раса" }).textContent).toBe("Ельф · 1");
+  });
+});
 
 describe("ready preset gallery landmarks and chips", () => {
   it("shows a short build title with class and race while retaining the full accessible name and search", async () => {

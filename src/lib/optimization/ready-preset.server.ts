@@ -73,7 +73,7 @@ function buildReadyPresetCatalogEntry(slug: string, preset: ReadyPreset, recipe:
     .map((key) => translateValue(content.classes.find((entry) => entry.name === key)!.name)).join(" / ");
   const portraitSrc = preset.portraitSrc && existsSync(join(process.cwd(), "public", preset.portraitSrc)) ? preset.portraitSrc : null;
   return { slug, buildId: preset.buildId, title: preset.title, description: preset.description, className: subclassClass.name,
-    subclassName: subclass.name, raceName: translateValue(variant?.name ?? subrace?.name ?? race.name), classLabel,
+    subclassName: subclass.name, raceName: translateValue(variant?.name ?? subrace?.name ?? race.name), baseRaceName: translateValue(race.name), classLabel,
     startingClassKey: recipe.startingClassKey, startingSubclassKey: subclassClass.key === recipe.startingClassKey ? subclass.key : null, raceKey: race.name,
     maxLevel: Math.max(...findExecutableLevels(recipe)), sourceTitle: recipe.title, portraitSrc,
     subclassImageSrc: subclass.imageSrc ?? null, classImageSrc: subclassClass.imageSrc };

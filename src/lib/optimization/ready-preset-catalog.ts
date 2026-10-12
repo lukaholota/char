@@ -6,6 +6,7 @@ export type ReadyPresetCatalogEntry = {
   className: string;
   subclassName: string;
   raceName: string;
+  baseRaceName: string;
   classLabel: string;
   startingClassKey: string;
   startingSubclassKey: string | null;
