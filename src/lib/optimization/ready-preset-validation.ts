@@ -19,6 +19,7 @@ export function isSavedPresetValid(draft: Partial<PersFormData>, expected: PersF
     && isSameChoiceMap(current.featChoiceSelections, expected.featChoiceSelections)
     && areChoiceGroupsValid(current, expected, options)
     && hasSameRacialChoiceGroups(current.racialBonusChoiceSchema, expected.racialBonusChoiceSchema)
+    && areRacialChoicesComplete(current.racialBonusChoiceSchema)
     && JSON.stringify(current.backgroundCustomization?.tools ?? null) === JSON.stringify(expected.backgroundCustomization?.tools ?? null)
     && arePresetSkillsValid(current, expected, options)
     && hasDistinctChoices(current.languagesSchema?.languages ?? [], options.languageCount, options.languages)
@@ -46,11 +47,14 @@ export function isSavedPresetCompatible(draft: Partial<PersFormData>, expected: 
 type RacialChoices = PersFormData["racialBonusChoiceSchema"];
 
 function hasSameRacialChoiceGroups(actual: RacialChoices, expected: RacialChoices): boolean {
-  const listGroups = (choices: RacialChoices) => [...(choices?.basicChoices ?? []), ...(choices?.tashaChoices ?? [])];
   const describeShape = (choices: RacialChoices) => JSON.stringify([choices?.basicChoices ?? [], choices?.tashaChoices ?? []]
     .map((groups) => groups.map((group) => [group.groupIndex, group.choiceCount])));
-  return describeShape(actual) === describeShape(expected)
-    && listGroups(actual).every((group) => new Set(group.selectedAbilities).size === group.selectedAbilities.length);
+  return describeShape(actual) === describeShape(expected);
+}
+
+function areRacialChoicesComplete(choices: RacialChoices): boolean {
+  return [...(choices?.basicChoices ?? []), ...(choices?.tashaChoices ?? [])]
+    .every((group) => group.selectedAbilities.length === group.choiceCount && new Set(group.selectedAbilities).size === group.choiceCount);
 }
 
 function areChoiceGroupsValid(current: PersFormData, expected: PersFormData, options: ReadyPresetOptions): boolean {

@@ -37,12 +37,14 @@ describe("ready preset with Tasha racial ability rules", () => {
     expect(listPresetChosenRacialBonuses(draft, buildPresetAbilitySources(draft, content))).toEqual([{ ability: "DEX", bonus: 2 }, { ability: "CHA", bonus: 1 }]);
   });
 
-  it("is a valid saved preset and rejects classic mode or other choices", () => {
+  it("is a valid saved preset, accepts other bonus placement and rejects classic mode or an unfinished group", () => {
     const options = buildReadyPresetOptions(draft, content);
     expect(isSavedPresetValid(draft, draft, options)).toBe(true);
     expect(isSavedPresetValid({ ...draft, isDefaultASI: true }, draft, options)).toBe(false);
     const changed = structuredClone(draft);
     changed.racialBonusChoiceSchema!.tashaChoices[1].selectedAbilities = ["STR"];
+    expect(isSavedPresetValid(changed, draft, options)).toBe(true);
+    changed.racialBonusChoiceSchema!.tashaChoices[0].selectedAbilities = ["STR"];
     expect(isSavedPresetValid(changed, draft, options)).toBe(false);
   });
 
