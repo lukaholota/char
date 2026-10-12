@@ -466,7 +466,7 @@ export function SpellsClient({
 
   const flatRows = useMemo<RowItem[]>(() => {
     const rankByRating = (list: SpellListItem[]) =>
-      areRatingsReady && ratingSelection.size > 0
+      areRatingsReady && ratings.canRate
         ? sortByBestRating(list, (spell) => findBestSpellRating(findRatingMatches(spell))?.score ?? null)
         : list;
     const grouped = new Map<number, SpellListItem[]>();
@@ -487,7 +487,7 @@ export function SpellsClient({
       ];
     });
     return rows.length ? [...rows, { kind: "attribution" as const }] : rows;
-  }, [filtered, homebrewOnly, areRatingsReady, findRatingMatches, ratingSelection]);
+  }, [filtered, homebrewOnly, areRatingsReady, findRatingMatches, ratings.canRate]);
 
   return (
     <ContentListPage<SpellListItem, RowItem>

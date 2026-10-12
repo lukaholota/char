@@ -16,7 +16,7 @@ export function RpgbotRecommendedChip({ isActive, onToggle }: Props) {
       )}
     >
       <span aria-hidden className={cn("h-2 w-2 rounded-full", isActive ? "bg-emerald-300" : "bg-slate-400")} />
-      Рекомендоване від RPGbot
+      Лише рекомендовані RPGbot (3–4)
     </button>
   );
 }
