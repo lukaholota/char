@@ -1,0 +1,384 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-abjuration-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+    "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95"
+  },
+  "exampleSection": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+  "levelTableSection": "section-levels",
+  "classKey": "ARTIFICER_2014",
+  "subclassKey": "ARMORER",
+  "raceKey": "ORC_MPMM",
+  "backgroundKey": "CUSTOM",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 15,
+    "WIS": 8,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": [
+      1
+    ],
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "cantripKeys": [
+          "mind-sliver",
+          "minor-illusion",
+          "toll-the-dead"
+        ],
+        "spellbookKeys": [
+          "absorb-elements",
+          "fog-cloud",
+          "grease",
+          "shield"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "classKey": "WIZARD_2014",
+      "subclassKey": "SCHOOL_OF_ABJURATION",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "invisibility",
+          "shatter"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "prestidigitation"
+        ],
+        "spellbookKeys": [
+          "tashas-mind-whip",
+          "web"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "counterspell",
+          "dispel-magic"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "fireball",
+          "lightning-bolt"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "phantom-steed",
+          "summon-fey"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "spellbookKeys": [
+          "summon-undead",
+          "greater-invisibility"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "sickening-radiance",
+          "summon-aberration"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "cantripKeys": [
+          "fire-bolt"
+        ],
+        "spellbookKeys": [
+          "hold-monster",
+          "rarys-telepathic-bond"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "summon-draconic-spirit",
+          "wall-of-force"
+        ]
+      }
+    },
+    {
+      "level": 13,
+      "classKey": "WIZARD_2014",
+      "featKey": "MEDIUM_ARMOR_MASTER",
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "wall-of-stone",
+          "globe-of-invulnerability"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "true-seeing",
+          "forcecage"
+        ]
+      }
+    },
+    {
+      "level": 15,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "teleport"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "antimagic-field",
+          "feeblemind"
+        ]
+      }
+    },
+    {
+      "level": 17,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "foresight",
+          "wish"
+        ]
+      }
+    },
+    {
+      "level": 19,
+      "classKey": "WIZARD_2014",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Заклинання книги на рівнях 3–20",
+      "reason": "Автор групує заклинання за колом, а не за рівнем: на 4-му рівні чотири заклинання 2-го кола, на 6-му пʼять 3-го тощо, хоч Чарівник додає до книги лише два на рівень. Пресет записує названі заклинання по два на рівень у порядку автора, не раніше, ніж Чарівник може їх вивчити; решта місць у книзі (на 3, 15, 17, 19, 20-му рівні) — вибір платформи, автор не називає; можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Підклас Винахідника",
+      "reason": "Підклас Винахідника з 3-го рівня автор не обирає, бо бере лише один рівень Винахідника; ключ підкласу в специфікації формальний.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Тривога у книзі заклинань",
+      "reason": "Автор радить мати Тривогу в книзі заклинань Чарівника, але платформа не дозволяє двічі записати заклинання, яке вже підготовлене як заклинання Винахідника; два вільні місця книги лишено гравцеві.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Майстерність заклинань і Фірмові заклинання",
+      "reason": "Автор радить Обладунок мага або Щит та Психічний батіг Таші або Друзки для Майстерності заклинань (19-й рівень), але каталог не має вибору цих заклинань, тож у пресеті їх не записано; обирає гравець на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння 11-го рівня",
+      "reason": "На 11-му рівні автор пропонує Вогняний заряд або Моторошний дотик; пресет бере перший названий — Вогняний заряд.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-abjuration-2014.webp",
+    "title": "Винахідник 1 / Чарівник — Школа огородження, Орк",
+    "description": "Мультиклас Винахідник 1 / Чарівник Школи огородження: середні обладунки й щит від Винахідника, Орк за правилами Таші, власна передісторія з Акробатикою й Непомітністю.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "INVESTIGATION"
+      ],
+      "race": [],
+      "background": [
+        "ACROBATICS",
+        "STEALTH"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": [
+        "COOKS_UTENSILS"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": [
+          "DAGGER",
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "mage-hand",
+        "guidance"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "alarm",
+        "detect-magic",
+        "expeditious-retreat"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Магічна рука й Настанова та підготовлені Тривога, Виявлення магії й Скорохід названо автором.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Орк за правилами Таші: +1 до Спритності, Статури й Інтелекту: 16/16/16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Магія й Розслідування — від Винахідника, Акробатика й Непомітність — від власної передісторії (правило PHB «Налаштування передісторії»), кухарське начиння теж від неї. Другу складову власної передісторії (мову) та мови Орка ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Лускова броня й інструменти злодія — за порадою автора (середні обладунки й інструменти злодія). Два кинджали, легкий арбалет і набір дослідника підземель ми обрали за вас — вибір платформи."
+  }
+}

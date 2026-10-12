@@ -1,0 +1,1403 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-294ef46d7ed3fee8",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+      "sourceId": "rpgbot-294ef46d7ed3fee8",
+      "fetchedAt": "2026-09-29T19:10:43.127569+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:37:11-04:00",
+      "contentHash": "ff844a1c67d00c0390e7b744a6245e39c3b64e1b479c19257bedb14aa9a4c5d2",
+      "title": "Way of the Drunken Master Monk 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-monk-drunken-master-2014",
+    "sourceId": "rpgbot-294ef46d7ed3fee8",
+    "slug": "monk-drunken-master-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях пʼяного майстра — гайд підкласу Монаха (2014)",
+    "titleEn": "Way of the Drunken Master Monk 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Монах",
+      "Шлях пʼяного майстра",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+      "articleId": "rpgbot-monk-drunken-master-2014",
+      "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монах {{Шляху пʼяного майстра|Way of the Drunken Master}} — трохи кумедний атакер за тактикою «вдарив і втік», що ще більше полегшує вам зайти, завдати шкоди й вийти. Уміння підкласу не вражають, це майже «кінь з одним трюком»{{one-trick pony}}, але трюк доволі добрий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Попри назву, у Шляху пʼяного майстра немає жодної механіки, повʼязаної з питтям. Якщо ви хочете, щоб ваш персонаж удавав, ніби пʼє, лишаючись цілком тверезим, це в межах правил. Окрім цієї дрібної дивини, підклас дуже цікавий. Він добре підходить до тактики «вдарив і втік», яка допомагає зберегти Монаху життя й тримати його поза досяжністю прямих атак, заохочуючи вас зосередитися на ролі Монаха як атакера."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте єдиний прямо наступальний варіант, який він дає, — «Спʼяніла лють»{{Intoxicating Frenzy}} на 17-му рівні. Якщо ви вважаєте, що завдасте достатньо шкоди самими лише базовими уміннями Монаха, але боїтеся не вижити, Пʼяний майстер може стати добрим вибором."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільша проблема Шляху пʼяного майстра в тому, що він майже нічого не вміє такого, чого Монах не вмів би й так. Ви все так само просто бігаєте й бʼєте кулаками, а підклас не дає жодних нових способів розвʼязувати проблеми; ви лише трохи краще користуєтеся тим, що «Бойові мистецтва» вже дають."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки підклас простий, поблажливий і економний за Кі, він чудово підходить новачкам. Якщо ви ветеран і хочете більше «кнопок», ви все одно можете виявити, що базові уміння Монаха достатньо складні, щоб вас зайняти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Монаха Шляху пʼяного майстра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Монаха Шляху пʼяного майстра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Монаха Шляху пʼяного майстра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Монаха Шляху пʼяного майстра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Монаха Шляху пʼяного майстра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Монаха Шляху пʼяного майстра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Монаха Шляху пʼяного майстра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Монаха Шляху пʼяного майстра — Гуляка",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Монаха Шляху пʼяного майстра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Монаха Шляху пʼяного майстра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Монаха Шляху пʼяного майстра",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові володіння{{Bonus Proficiencies}}: два володіння, але жодне з них не надто корисне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пʼяна техніка{{Drunken Technique}}: поєднуйте «Шквал ударів» і Відступ{{Disengage}} лише за одне очко Кі. Чудово для тактики «вдарив і втік», на яку Монахам часто доводиться покладатися, бо їхній КБ відносно слабкий, а ХП мало порівняно з іншими бойовими персонажами першої лінії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Хитка хода{{Tipsy Sway}}:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Підскок на ноги|Leap to Your Feet}}: із бонусом до швидкості Монаха ви зазвичай можете дозволити собі витратити це переміщення й усе одно рухатися стільки, скільки потрібно. Проте переміщення — важлива частина стилю гри Пʼяного майстра, і підніжка могла б стати хорошим способом перешкодити вашим рухам, якби цієї здібності не було."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Перенаправлення атаки{{Redirect Attack}}: якщо ви бʼєтеся з кількома ворогами, можливо, одна з їхніх атак завдасть більше шкоди, ніж одна з ваших. У такому разі витрата очка Кі тут дасть більше, ніж витрата цього очка на «Шквал ударів». Щоб це працювало надійно, треба стати так, щоб бути в межах 5 футів від двох ворогів, а це може бути небезпечно для Монаха й не завжди можливо, бо вороги можуть захотіти натомість битися з іншими істотами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удача пʼяниці{{Drunkard’s Luck}}: Перешкода на кубику під час ряткидка може вас убити. Якщо на кону ваше життя, 2 очки Кі — невелика ціна. Проте Перешкода на кубику не завжди проблема, тож це за задумом ситуативно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спʼяніла лють{{Intoxicated Frenzy}}: памʼятайте, що «Пʼяна техніка» дає змогу Відступати як частину «Шквалу ударів», тож ви можете використати свою неймовірну швидкість (+30 фт. понад базову швидкість вашої раси на цьому рівні), щоб оббігти весь бій і вдарити по кожному (щонайбільше по пʼятьох) одним разом бонусними атаками «Шквалу ударів» плюс двома звичайними атаками.\n\nЦе чудово проти кількох ворогів, але має сенс лише в боях із трьома чи більше супротивниками, а це не кожен бій."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Монаха Шляху пʼяного майстра",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Монаха Шляху пʼяного майстра",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Монаха Шляху пʼяного майстра",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Монаха Шляху пʼяного майстра",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Монаха Шляху пʼяного майстра",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Монаха Шляху пʼяного майстра",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Монаха Шляху пʼяного майстра — Гуляка",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поєднання Сатира з наявними захистами Монаха дає живучого й дуже рухливого атакера. На жаль, найцікавіші здібності відкриваються лише на високому рівні, але «Опір магії»{{Magic Resistance}} забезпечить потужний захист на всю карʼєру, а висока швидкість Сатира та «Веселі стрибки»{{Mirthful Leaps}} додають мобільності до й без того вражаючої швидкості Монаха."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьмемо три підвищення на +1 й вкладемо їх у кожну з важливих характеристик. На жаль, Сила 8 обмежить дальність стрибка, але для цього в нас є «Веселі стрибки»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сатир{{Satyr}}. Рухливий, живучий, стійкий до магії й трохи швидший. Крім того, не можу уявити расу, що краще підходить Пʼяному майстру, ніж фейська істота, повʼязана з міфологічними гуляннями."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Далекий мандрівник{{Far Traveler}}. Аналіз Поведінки й Уважність — чудові навички для Монаха, і ми також отримуємо Володіння музичним інструментом. Це не надто корисно, але Виступ ми отримуємо з двох джерел, а якщо використовувати Виступ і інструмент, на перевірці буде Перевага на кубику. Наша Харизма лише 8, але, може, колись це допоможе."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як Сатир, ми безплатно отримуємо Виступ і Переконання. Серед класових навичок оберемо Історію та Непомітність. Аналіз Поведінки й Уважність отримуємо від передісторії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 3-му рівні додаємо Володіння Приладдям пивовара та Виступом. На жаль, другий Виступ зайвий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні підвищуємо Спритність до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні підвищуємо Спритність до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Дробильника»{{Crusher}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо «Кухаря»{{Chef}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні підвищуємо Мудрість до 18."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист без броні, Бойові мистецтва"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Здебільшого стандартні речі Монаха. Ще зарано гуляти. На низьких рівнях, коли ваш кубик Бойових мистецтв лише 1к4, особливість Сатира «Таран»{{Ram}} дає змогу завдавати 1к6 шкоди ударами без зброї. Це дрібниця, і під час Дії ми все одно хочемо тримати спис чи палицю двома руками, але це допомагає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кі, Рух без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Із Кі в меню ми почуваємося більше схожими на Монаха."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас: Шлях пʼяного майстра, Додаткові володіння, Пʼяна техніка, Відхилення снарядів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пʼяна техніка» дає змогу користуватися «Шквалом ударів» і при цьому безпечно заходити в ближній бій та виходити з нього."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність 16 → 18, Повільне падіння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не надто цікаво, але дуже важливо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Приголомшливий удар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Десь зараз 5-й рівень, тож пора брати «Додаткову атаку»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удари, посилені Кі, Хитка хода"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Перенаправлення атаки» з уміння «Хитка хода» заохочує вас битися, коли поряд кілька ворогів, щоб ви могли користуватися «Перенаправленням атаки», а згодом і «Спʼянілою люттю»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення, Спокій розуму"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чудові захисти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не надто цікаво, але дуже важливо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Руху без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так збудьтеся, що зможете буквально бігати по стінах."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чистота тіла{{Purity of Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Корисний захист. Імунітет до стану Отруєний означає, що ви невразливі до дії алкоголю. Не надто над цим замислюйтеся"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удача пʼяниці{{Drunkard's Luck}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Корисно, коли застосовне, але іноді вартість Кі не виправдана. Приберігайте для важливих кидків, як-от ряткидки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Дробильник (Статура 16 → 17)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Проста й ефективна класика для будь-якого Монаха."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Здебільшого марне."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Алмазна душа{{Diamond Soul}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "У вас є «Опір магії» як у сатира, «Ухилення» й тепер Володіння всіма ряткидками. Якщо на ряткидку у вас Перешкода на кубику, скористайтеся «Удачею пʼяниці», щоб її скасувати. Якщо провалите — витратьте 1 Кі, щоб перекинути. Ворогам буде важко завдати вам шкоди через ряткидки. Але вони все ще можуть вас пронизати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невмируще тіло{{Timeless Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майже не має функції в грі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Кухар (Статура 17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ніхто ніколи не казав, що закуски не можуть бути рідкими. Ми не хочемо вживати їх у бою, бо наша бонусна дія й так перевантажена, але чудово освіжитися між боями й вступати в них із тимчасовими ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спʼяніла лють{{Intoxicated Frenzy}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "До 5 атак бонусною дією за 1 Кі. На жаль, потрібно націлюватися на кількох істот, тож це не вдасться використати в кожному бої. Памʼятайте, що «Пʼяна техніка» дає змогу Відступати, коли ви застосовуєте «Шквал ударів», тож ви можете безпечно переміщатися між ворогами, не провокуючи Принагідних атак, щоб завдавати ці атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Порожнє тіло{{Empty Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Навіть із нашою посиленою здатністю вільно переміщатися бути Невидимим і отримувати половину шкоди — усе одно чудове підсилення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше КБ, вища Складність ряткидка від «Приголомшливого удару»{{Stunning Fist}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досконале Я{{Perfect Self}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вступайте в кожен бій, готові використати «Порожнє тіло»."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-monk-drunken-master-2014-001",
+      "articleId": "rpgbot-monk-drunken-master-2014",
+      "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Додаткові володіння",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-drunken-master-2014-002",
+      "articleId": "rpgbot-monk-drunken-master-2014",
+      "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Пʼяна техніка",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-drunken-master-2014-003",
+      "articleId": "rpgbot-monk-drunken-master-2014",
+      "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Хитка хода",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-monk-drunken-master-2014-004",
+      "articleId": "rpgbot-monk-drunken-master-2014",
+      "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Підскок на ноги",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-drunken-master-2014-005",
+      "articleId": "rpgbot-monk-drunken-master-2014",
+      "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Перенаправлення атаки",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-drunken-master-2014-006",
+      "articleId": "rpgbot-monk-drunken-master-2014",
+      "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Удача пʼяниці",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-drunken-master-2014-007",
+      "articleId": "rpgbot-monk-drunken-master-2014",
+      "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Спʼяніла лють",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

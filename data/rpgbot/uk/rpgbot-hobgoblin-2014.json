@@ -1,0 +1,1607 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-f6aa22c887fb598e",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-f6aa22c887fb598e-0af00e2c6ad8b4bc",
+      "sourceId": "rpgbot-f6aa22c887fb598e",
+      "fetchedAt": "2026-09-29T19:25:50.309349+00:00",
+      "sourceUpdatedAt": "2025-11-04T06:50:43-05:00",
+      "contentHash": "3f3fca75637f14914045dcb1afe454474fe465ae4d159cc34aa43670de3ff523",
+      "title": "Hobgoblin: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-f6aa22c887fb598e-0af00e2c6ad8b4bc.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-hobgoblin-2014",
+    "sourceId": "rpgbot-f6aa22c887fb598e",
+    "slug": "hobgoblin-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Хобгоблін — гайд раси (2014)",
+    "titleEn": "Hobgoblin: DnD 5e Race/Species Guide",
+    "topics": [
+      "race"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "sourceRevisionId": "rpgbot-f6aa22c887fb598e-0af00e2c6ad8b4bc",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із трьох гобліноїдних рас — Ведмебая, Гобліна й Хобгобліна — останнього зазвичай показують найрозумнішим. Механіка багато разів змінювалася між редакціями, але історія переважно одна: дисципліноване військове суспільство, яке звеличує воїнів і карає слабких."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивно, що початковий Хобгоблін 5e отримав підвищення Інтелекту, схиляючись до Винахідника й Чарівника, а не суто бойових класів. У попередніх редакціях вони зневажали арканну магію, навіть називаючи її «ельфійською» як образу. Зміна дивна, але Хобгобліни зазвичай належать до «чудовиськоподібних гуманоїдів», як Гобліни, Кобольди й Орки: із ними бʼються кілька рівнів, а потім забувають. Думаю, мало хто помітив."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Початкова версія має унікальні здібності. Володіння легкими обладунками й двома бойовими видами зброї корисні багатьом класам. Інтелект схиляє до чаротворців, але це не єдиний варіант. Saving Face{{Saving Face}} може перетворити невдалий кидок на успішний, іноді компенсуючи відносно низьку Силу чи Спритність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте використання на ряткидках ускладнює виправдання витрат на кидок атаки. Дивно, що Saving Face{{Saving Face}} залежить від кількості союзників поруч, тому найкраще працює у великій групі. Якщо не отримуєте повні +5, розгляньте Пошук фамільяра [Find Familiar], подружіться з твариною тощо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З налаштуванням походження важливі переваги зводяться до Володінь зброєю й обладунками та Saving Face{{Saving Face}}. Для Володінь Гітʼянкі{{Githyanki}} й Гірський дварф{{Mountain Dwarf}} кращі. Для ряткидків Варіант людини{{Variant Human}} з Стійкий{{Resilient}} чи Щасливчик{{Lucky}} може бути ефективнішим. Хобгоблін займає проміжне місце між цими вигодами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оновлення у "
+                },
+                {
+                  "type": "link",
+                  "text": "Монстрах Мультивсесвіту",
+                  "href": "https://www.dndbeyond.com/sources/motm/fantastical-races-continued#Hobgoblin"
+                },
+                {
+                  "type": "text",
+                  "text": " майже повністю переписало расові здібності. Wizards of the Coast також змінили історію гобліноїдів: вони походять із Feywild{{Feywild}}, звідки божество Maglubiyet{{Maglubiyet}} забрало їх до армії й повело на Матеріальний план. Там вони згодом втратили тип фей. Примітка редакції: ігровий Хобгоблін MPMM — Гуманоїд, а не Фея."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нові здібності більше відображають фейське походження, ніж сучасне військове суспільство з Бестіарій (2014). Фактично це дві різні раси, і я не бачу механічної причини вважати їх однією. Якби Wizards of the Coast видали «Хобгобліна Maglubiyet» зі старою історією й «Хобгобліна Feywild» з новими здібностями, вони могли б спокійно співіснувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fey Gift{{Fey Gift}} — головна нова здібність: підтримка, що не витрачає вашу дію. Додаткові ефекти чудові, але базова Допомога{{Help}} означає, що в бою це переважно для першої лінії без постійно зайнятої бонусної дії. Заднім чаротворцям складніше, тож часто залишиться Hospitality{{Fey Gift}} поза боєм для тимчасових ХП. Попри менш військовий образ, це іронічно краще підходить Воїну й іншим бійцям першої лінії. Fortune from the Many{{Fortune from the Many}} корисна будь-якій збірці, але раджу берегти її для захисту. Примітка редакції: в оригіналі тут помилкове Gift of the Many; правильна назва — Fortune from the Many."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hobgoblin/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hobgoblin/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Версії Хобгобліна",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hobgoblin/#hobgoblin-versions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Окрема довідка: сумісність із правилами 2024",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hobgoblin/#hobgoblins-in-the-2024-dnd-rules"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Хобгоблін MPMM: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hobgoblin/#classes-mmom"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Хобгоблін з налаштуванням походження: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hobgoblin/#classes-custom-origin"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Початковий Хобгоблін: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hobgoblin/#classes-default"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hobgoblin-versions",
+          "heading": "Версії Хобгобліна",
+          "sourceAnchor": "hobgoblin-versions",
+          "blocks": [
+            {
+              "blockId": "block-section-hobgoblin-versions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є три версії Хобгобліна. Початкова вийшла у Довідник Воло з монстрів; її головні здібності — Martial Training{{Martial Training}} і Saving Face{{Saving Face}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hobgoblin-versions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друга — з опційними правилами походження. Вони дозволили зробити Хобгобліна справді придатним для бойових класів і за бажанням замінити Володіння зброєю Володіннями інструментами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hobgoblin-versions-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найновіша версія у Монстри Мультивсесвіту переосмислила расові здібності. Fortune from the Many{{Fortune from the Many}} — по суті слабша Saving Face{{Saving Face}}, а в іншому механічного перетину зі старою расою мало. Fey Gift{{Fey Gift}} заохочує Допомогу{{Help}} в бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hobgoblins-in-the-2024-dnd-rules",
+          "heading": "Окрема довідка: сумісність із правилами 2024",
+          "sourceAnchor": "hobgoblins-in-the-2024-dnd-rules",
+          "blocks": [
+            {
+              "blockId": "block-section-hobgoblins-in-the-2024-dnd-rules-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це окрема довідка автора про сумісність із редакцією 2024. Хобгобліна востаннє оновлювали у Монстри Мультивсесвіту; автор зазначає відсутність нового оновлення 2024. Для гри за правилами 2024 він радить ігнорувати расові підвищення характеристик і взяти їх із походження тієї редакції. Основний гайд і модалки використовують 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hobgoblins-in-the-2024-dnd-rules-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З виданням Забуті Королівства: Герої Фаеруну Допомога{{Help}} бонусною дією Хобгобліна MPMM стала дуже сильною. Нові риси, як "
+                },
+                {
+                  "type": "link",
+                  "text": "Harper Agent",
+                  "href": "https://rpgbot.net/2024-dnd/feats/harper-agent/"
+                },
+                {
+                  "type": "text",
+                  "text": ", додають ефекти до Допомоги. Поєднання з Hospitality{{Fey Gift}} істотно посилює одну бонусну дію. Примітка редакції: це окремий коментар автора про матеріали редакції 2024; ці риси не додаються до MVP 2014."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-mmom",
+          "heading": "Хобгоблін MPMM: вибір класу",
+          "sourceAnchor": "classes-mmom",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fortune from the Many{{Fortune from the Many}} разом із Flash of Genius{{Flash of Genius}} добре рятують невдалі кидки. Втім, знайти бонусну дію для Fey Gift{{Fey Gift}} складно: Винахідник майже завжди має застосування, наприклад Homunculus Servant{{Homunculus Servant}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато підкласів використовують бонусну дію щохід під час Люті{{Rage}}, але їхній ефект може поступатися Fey Gift{{Fey Gift}}, тож іноді замінювати його не страшно. Принаймні Hospitality{{Fey Gift}} дає додатковий шар тимчасових ХП, особливо зі Стійкістю до шкоди під час Люті. Fortune from the Many{{Fortune from the Many}} допомагає складним ряткидкам, насамперед ментальним, які часто усувають Варвара з бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fey Gift{{Fey Gift}} природно доповнює підтримку Барда. Bardic Inspiration{{Bardic Inspiration}} має обмежені використання між відпочинками, тому ви отримуєте ще один ресурс. Але для Допомоги{{Help}} атаці треба бути за 5 футів від ворога, а більшості Бардів там небезпечно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звичне застосування бонусної дії майже на всіх рівнях — Духовна зброя [Spiritual Weapon]. Поза боєм Hospitality{{Fey Gift}} дає тимчасові ХП, коли допомагаєте союзнику, наприклад із перевіркою навички."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато Друїдів рідко використовують бонусну дію, залишаючи місце Fey Gift{{Fey Gift}}. Головна проблема: для Допомоги{{Help}} атаці потрібно бути за 5 футів від ворога, що погано для більшості Друїдів. Коло місяця{{Circle of the Moon}} мабуть найкраще: після Wild Shape{{Wild Shape}} бонусна дія зазвичай вільна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшість Воїнів не використовують бонусну дію щохід, а в ближньому бою постійно перебувають там, де можна Допомогти{{Help}} атаці союзника. Fortune from the Many{{Fortune from the Many}} страхує складні ряткидки до Indomitable{{Indomitable}} на 9-му рівні; потім обидві здібності можна поєднати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монах у бою використовує бонусну дію кожного ходу. Hospitality{{Fey Gift}} дає тимчасові ХП перед боєм, але, на мою думку, цього замало. Fortune from the Many{{Fortune from the Many}} корисна для ряткидків, проте не вони спричиняють головну крихкість Монаха."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як Воїн, Паладин не використовує бонусну дію щохід, хоча нею накладаються багато його заклинань. Fey Gift{{Fey Gift}} легко застосувати в бою як підтримку, що не потребує влучання. Fortune from the Many{{Fortune from the Many}} додає захист поверх Aura of Protection{{Aura of Protection}}, роблячи вас дуже стійким."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопит активно використовує бонусну дію, тому Fey Gift{{Fey Gift}} складно застосувати в бою. Hospitality{{Fey Gift}} прийнятна, але якщо потрібна лише вона, автор радить Варіант людини{{Variant Human}} з Містичний адепт{{Eldritch Adept}} для Fiendish Vigor{{Fiendish Vigor}}. Примітка редакції: риса 2014 вимагає Spellcasting{{Spellcasting}} або Pact Magic{{Pact Magic}}. Слідопит 1-го рівня не має жодної з них, тож цей вибір на старті йому недоступний."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бонусна дія йде на Cunning Action{{Cunning Action}}, бій двома видами зброї, інколи здібності підкласу. Місце для Fey Gift{{Fey Gift}} часом знайдеться, але Пройдисвіту потрібна Перевага для Sneak Attack{{Sneak Attack}}, тому логічніше, щоб інший член групи допомагав вам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Чародій",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор розглядає Fey Gift{{Fey Gift}} суто як підтримку поза боєм. Це оцінка доцільності, а не заборона застосування в бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для Відьмацького клинка{{Hexblade}} Fey Gift{{Fey Gift}} може працювати як для Воїна чи Паладина. Іншим Чорнокнижникам складніше застосувати її в бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes-mmom",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор розглядає Fey Gift{{Fey Gift}} суто як підтримку поза боєм. Якщо хочете Допомагати{{Help}} в бою, візьміть сову-фамільяра."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-custom-origin",
+          "heading": "Хобгоблін з налаштуванням походження: вибір класу",
+          "sourceAnchor": "classes-custom-origin",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-custom-origin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут використовуємо опційні правила «"
+                },
+                {
+                  "type": "link",
+                  "text": "Налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": "» з книги Казан Таші з усім. Якщо ними не користуєтеся, перейдіть до наступного розділу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-artificer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Винахідник",
+          "sourceAnchor": "custom-origin-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Face{{Saving Face}} — єдина помітна перевага для Винахідника. Так, вона хороша й поєднується з Flash of Genius{{Flash of Genius}}, але цього замало. За бажанням обміняйте Володіння зброєю на додаткові інструменти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-barbarian",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Варвар",
+          "sourceAnchor": "custom-origin-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Face{{Saving Face}} — єдина помітна здібність. Вона приємна, але сама по собі недостатня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-bard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Бард",
+          "sourceAnchor": "custom-origin-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Face{{Saving Face}} — єдина помітна здібність. Вона приємна, але сама по собі недостатня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-cleric",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Клірик",
+          "sourceAnchor": "custom-origin-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навіть без Володіння бойовою зброєю від домену два види зброї раптом не зроблять вас хорошим бійцем. Краще користуватися замовляннями. Тоді єдина помітна перевага — Saving Face{{Saving Face}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-druid",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Друїд",
+          "sourceAnchor": "custom-origin-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навіть Друїд зі зброєю користуватиметься Кийок [Shillelagh], тому Володіння марнуються, а Saving Face{{Saving Face}} недостатньо, щоб виправдати расу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-fighter",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Воїн",
+          "sourceAnchor": "custom-origin-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Face{{Saving Face}} — єдина помітна здібність. Вона приємна, але сама по собі недостатня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-monk",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Монах",
+          "sourceAnchor": "custom-origin-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Володіння бойовою зброєю майже не важливі. Якщо Монах хоче таку зброю, можна взяти Шлях кенсея{{Way of the Kensei}} чи опційну Dedicated Weapon{{Dedicated Weapon}}. Володіння обладунками марне. Залишається Saving Face{{Saving Face}}, якої знову недостатньо. Примітка редакції: в оригіналі помилкове Dedication Weapon; офіційна назва — Dedicated Weapon."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-paladin",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Паладин",
+          "sourceAnchor": "custom-origin-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Face{{Saving Face}} — єдина помітна здібність. Вона приємна, але сама по собі недостатня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-ranger",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Слідопит",
+          "sourceAnchor": "custom-origin-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Face{{Saving Face}} — єдина помітна здібність. Вона приємна, але сама по собі недостатня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-rogue",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "custom-origin-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Face{{Saving Face}} — єдина помітна здібність. Вона приємна, але сама по собі недостатня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-sorcerer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чародій",
+          "sourceAnchor": "custom-origin-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Легкі обладунки й Saving Face{{Saving Face}} дають потрібну витривалість. Здібністю можна врятувати цінну атаку заклинанням, особливо на низьких рівнях із малою кількістю комірок. Обладунок мага [Mage Armor] замінює легкі обладунки й дає кращий КБ, але звільнити одне з дуже обмежених відомих заклинань Чародія спокусливо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-warlock",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "custom-origin-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Saving Face{{Saving Face}} — єдина помітна здібність. Вона приємна, але сама по собі недостатня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-wizard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чарівник",
+          "sourceAnchor": "custom-origin-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Легкі обладунки й Saving Face{{Saving Face}} додають потрібну витривалість. На низьких рівнях Чарівник менше залежить від атак заклинаннями, ніж Чародій, і значно легше виділяє підготовлене заклинання на Обладунок мага [Mage Armor]. Тому расові переваги тут менш корисні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-default",
+          "heading": "Початковий Хобгоблін: вибір класу",
+          "sourceAnchor": "classes-default",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-default-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут припускаємо, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не"
+                },
+                {
+                  "type": "text",
+                  "text": " використовуєте опційне налаштування походження з Казан Таші з усім чи оновлену расу з Монстри Мультивсесвіту. Якщо використовуєте, поверніться до попереднього розділу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-artificer",
+          "parentSectionId": "section-classes-default",
+          "heading": "Винахідник",
+          "sourceAnchor": "classic-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект — усе необхідне. Два Володіння бойовою зброєю приємні Бойовому ковалю{{Battle Smith}}, але лише до 3-го рівня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-barbarian",
+          "parentSectionId": "section-classes-default",
+          "heading": "Варвар",
+          "sourceAnchor": "classic-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без підвищення Сили Saving Face{{Saving Face}} не вистачає для ефективного Варвара."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-bard",
+          "parentSectionId": "section-classes-default",
+          "heading": "Бард",
+          "sourceAnchor": "classic-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічого корисного для Барда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-cleric",
+          "parentSectionId": "section-classes-default",
+          "heading": "Клірик",
+          "sourceAnchor": "classic-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічого корисного для Клірика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-druid",
+          "parentSectionId": "section-classes-default",
+          "heading": "Друїд",
+          "sourceAnchor": "classic-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічого корисного для Друїда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-fighter",
+          "parentSectionId": "section-classes-default",
+          "heading": "Воїн",
+          "sourceAnchor": "classic-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура й Інтелект могли б відповідати Потойбічному лицарю{{Eldritch Knight}}, але без Сили чи Спритності ви відставатимете. Saving Face{{Saving Face}} недостатньо, щоб усе компенсувати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-monk",
+          "heading": "Монах",
+          "sourceAnchor": "classic-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Невдалий розподіл підвищень характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-paladin",
+          "heading": "Паладин",
+          "sourceAnchor": "classic-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Невдалий розподіл підвищень характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-ranger",
+          "heading": "Слідопит",
+          "sourceAnchor": "classic-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Невдалий розподіл підвищень характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-rogue",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "classic-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура й Інтелект можуть відповідати Містичному пройдисвіту{{Arcane Trickster}}, але без підвищення Спритності ви відставатимете в нападі. Saving Face{{Saving Face}} компенсує бонус атаки, якщо досить часто відпочиваєте для її відновлення, проте КБ відставатиме від інших Пройдисвітів, а шкода, ймовірно, теж буде нижчою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-sorcerer",
+          "heading": "Чародій",
+          "sourceAnchor": "classic-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Харизми."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-warlock",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "classic-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Харизми."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-wizard",
+          "heading": "Чарівник",
+          "sourceAnchor": "classic-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Легкі обладунки й Saving Face{{Saving Face}} — чудовий захист. Більше не потрібно витрачати ресурси на Обладунок мага [Mage Armor], а Saving Face корисна в багатьох ситуаціях, зокрема ряткидках для підтримання Концентрації."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-hobgoblin-2014-001",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-002",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-003",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-004",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-005",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-006",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-007",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-008",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-009",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-010",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-011",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-012",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-013",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-014",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-artificer",
+      "targetBlockId": "block-section-custom-origin-artificer-1",
+      "optionId": "section-custom-origin-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-custom-origin-artificer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-015",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-barbarian",
+      "targetBlockId": "block-section-custom-origin-barbarian-1",
+      "optionId": "section-custom-origin-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-custom-origin-barbarian-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-016",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-bard",
+      "targetBlockId": "block-section-custom-origin-bard-1",
+      "optionId": "section-custom-origin-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-custom-origin-bard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-017",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-cleric",
+      "targetBlockId": "block-section-custom-origin-cleric-1",
+      "optionId": "section-custom-origin-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-custom-origin-cleric-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-018",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-druid",
+      "targetBlockId": "block-section-custom-origin-druid-1",
+      "optionId": "section-custom-origin-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-custom-origin-druid-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-019",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-fighter",
+      "targetBlockId": "block-section-custom-origin-fighter-1",
+      "optionId": "section-custom-origin-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-custom-origin-fighter-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-020",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-monk",
+      "targetBlockId": "block-section-custom-origin-monk-1",
+      "optionId": "section-custom-origin-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-custom-origin-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-021",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-paladin",
+      "targetBlockId": "block-section-custom-origin-paladin-1",
+      "optionId": "section-custom-origin-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-custom-origin-paladin-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-022",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-ranger",
+      "targetBlockId": "block-section-custom-origin-ranger-1",
+      "optionId": "section-custom-origin-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-custom-origin-ranger-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-023",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-rogue",
+      "targetBlockId": "block-section-custom-origin-rogue-1",
+      "optionId": "section-custom-origin-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-custom-origin-rogue-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-024",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-sorcerer",
+      "targetBlockId": "block-section-custom-origin-sorcerer-1",
+      "optionId": "section-custom-origin-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-custom-origin-sorcerer-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-025",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-warlock",
+      "targetBlockId": "block-section-custom-origin-warlock-1",
+      "optionId": "section-custom-origin-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-custom-origin-warlock-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-026",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-custom-origin-wizard",
+      "targetBlockId": "block-section-custom-origin-wizard-1",
+      "optionId": "section-custom-origin-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-custom-origin-wizard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-027",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-artificer",
+      "targetBlockId": "block-section-classic-artificer-1",
+      "optionId": "section-classic-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-classic-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-028",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-barbarian",
+      "targetBlockId": "block-section-classic-barbarian-1",
+      "optionId": "section-classic-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-classic-barbarian-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-029",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-bard",
+      "targetBlockId": "block-section-classic-bard-1",
+      "optionId": "section-classic-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-classic-bard-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-030",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-cleric",
+      "targetBlockId": "block-section-classic-cleric-1",
+      "optionId": "section-classic-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-classic-cleric-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-031",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-druid",
+      "targetBlockId": "block-section-classic-druid-1",
+      "optionId": "section-classic-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-classic-druid-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-032",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-fighter",
+      "targetBlockId": "block-section-classic-fighter-1",
+      "optionId": "section-classic-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-classic-fighter-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-033",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-monk",
+      "targetBlockId": "block-section-classic-monk-1",
+      "optionId": "section-classic-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-classic-monk-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-034",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-paladin",
+      "targetBlockId": "block-section-classic-paladin-1",
+      "optionId": "section-classic-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-classic-paladin-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-035",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-ranger",
+      "targetBlockId": "block-section-classic-ranger-1",
+      "optionId": "section-classic-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-classic-ranger-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-036",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-rogue",
+      "targetBlockId": "block-section-classic-rogue-1",
+      "optionId": "section-classic-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-classic-rogue-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-037",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-sorcerer",
+      "targetBlockId": "block-section-classic-sorcerer-1",
+      "optionId": "section-classic-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-classic-sorcerer-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-038",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-warlock",
+      "targetBlockId": "block-section-classic-warlock-1",
+      "optionId": "section-classic-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-classic-warlock-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hobgoblin-2014-039",
+      "articleId": "rpgbot-hobgoblin-2014",
+      "translationRevisionId": "translation-rpgbot-hobgoblin-2014-draft1",
+      "sectionId": "section-classic-wizard",
+      "targetBlockId": "block-section-classic-wizard-1",
+      "optionId": "section-classic-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-classic-wizard-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

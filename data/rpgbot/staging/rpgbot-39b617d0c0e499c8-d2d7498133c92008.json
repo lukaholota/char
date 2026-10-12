@@ -1,0 +1,2223 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "d2d7498133c920081739578d98fd869553b6cc115696fd281a40774c9d84a1e2",
+  "sourceRevision": {
+    "revisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+    "sourceId": "rpgbot-39b617d0c0e499c8",
+    "fetchedAt": "2026-09-29T19:11:46.782023+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:30:12-04:00",
+    "contentHash": "ac2cfc4498c7a4f8e931e91435ba5dae3821400abb7c57826ec6c8b2cbfdff36",
+    "title": "Knowledge Domain Cleric 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-39b617d0c0e499c8-d2d7498133c92008.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knowledge Clerics are one of the more interesting choices for a Green rating on our subclass list. They aren’t particularly flashy, but they’re even more versatile than most Clerics, and that’s saying quite a bit. Meant to be one of the ways to have a more Wizard flavor to your Cleric, they have access to some traditionally Arcane-only divination spells which nicely augment the Cleric’s innate capacity to go straight to nigh-omniscient beings for answers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Combined with Expertise in a couple skills and the Cleric’s heavily supportive magic options, you end up with a character that can know everything and do nearly anything well at a moment’s notice. Scholar, Scout, and Face are all easily fakeable on a moment’s notice with the right spell selection."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only real active ability of the class doesn’t work in many combats, though, so the domain can feel a little boring if you don’t spend much time in civilization. Hopefully you don’t let that stop you from reading through and piloting the example build which was the entire reason I wrote this article. The internet sure is an interesting place."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Knowledge Domain Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Knowledge Domain Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Knowledge Domain Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Knowledge Domain Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Knowledge Domain Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Knowledge Domain Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Knowlege Cleric Build – Oh nowo",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#example-knowlege-cleric-build-oh-nowo"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Knowledge Domain Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Domain Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A handful of good\n\t\t\tdivinations, but the majority of the spells are very situational, and can\n\t\t\ttypically wait for a long rest for you to prepare them.\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st Level"
+              },
+              {
+                "type": "text",
+                "text": ": Command can be very\n\t\t\t\t\thelpful if you use the right command, but Identify is very\n\t\t\t\t\talways an excellent addition if we’re missing a Wizard to ritual cast it out of a spellbook."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Suggestion is a great way\n\t\t\t\t\tto handle a lot of problems if you use it well. Augury is easily one\n\t\t\t\t\tof my favorite divinations, though it takes a bit of practice and\n\t\t\t\t\tfamiliarity with your DM to really make it work. If your group is ever\n\t\t\t\t\tstuck arguing about how to proceed, Augury can be used to quickly\n\t\t\t\t\tnarrow your possibilities by eliminating options which yield “woe”\n\t\t\t\t\tresults."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are very\n\t\t\t\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Arcane eye is a very\n\t\t\t\t\teffective way to scout nearby areas which might be dangerous or\n\t\t\t\t\tdifficult to access normally. Confusion is a difficult spell to use,\n\t\t\t\t\tbut if your targets will reliably fail the Wisdom saving throw, they\n\t\t\t\t\tlose 80% of their turns for the duration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Legend Lore and Scrying\n\t\t\t\t\tare very situational options which see infrequent use, and can nearly\n\t\t\t\t\talways wait for you to take a long rest to prepare them on the rare\n\t\t\t\t\toccasions that you need them."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blessings of Knowledge"
+              },
+              {
+                "type": "text",
+                "text": ": Two languages\n\t\t\tare nice, but quickly stop mattering when you gain access to Tongues. The\n\t\t\ttwo free Knowledge skills are much more important, especially since you\n\t\t\tget to add double your proficiency bonus, easily making up for a\n\t\t\tpotentially poor Intelligence score."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity: Knowledge of the Ages"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t\tThis is a fantastic utility ability. Forgot to bring a Rogue? Grab some\n\t\t\tthieves’ tools, cast Guidance, and you’re ready to go."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity: Read Thoughts"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t\tReading minds is situationally useful, but Suggestion can be very\n\t\t\teffective, especially because activating this effect has no outwardly visible effect, and they automatically fail the save against Suggestion, so you don’t have to worry about what someone might do if you cast a spell at them and it doesn’t work."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Potent Spellcasting"
+              },
+              {
+                "type": "text",
+                "text": ": By this level you\n\t\t\tcan easily have 20 Wisdom, giving an excellent boost to your damage\n\t\t\toutput. Note that this only applies to Cleric cantrips, so you can’t use\n\t\t\tit in conjunction with Magic Initiate or cantrips gained by\n\t\t\tmulticlassing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Visions of the Past"
+              },
+              {
+                "type": "text",
+                "text": ": This is very hard\n\t\t\tto rate. If your DM is creative and open-minded, this could grant you\n\t\t\tprofound insight into the plot of the game, and can provide a very potent\n\t\t\tstory-telling tool. If your DM is tight-lipped, and doesn’t like giving up\n\t\t\tsecrets, you may find this ability to be difficult to use effectively."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-knowledge-domain-ability-scores",
+      "heading": "Knowledge Domain Ability Scores",
+      "sourceAnchor": "knowledge-domain-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-knowledge-domain-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-knowledge-domain-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Fill out your medium armor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-knowledge-domain-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Dying is suboptimal, plus you have several of the best Concentration spells in the game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-knowledge-domain-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Since we get expertise on two knowledge skills and we’re a SAD class, we can afford to bump Int to back those checks up."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-knowledge-domain-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": The Cleric’s spells are powered by Wisdom"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-knowledge-domain-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-knowledge-domain-ability-scores-7",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-knowledge-domain-races",
+      "heading": "Knowledge Domain Races",
+      "sourceAnchor": "knowledge-domain-races",
+      "blocks": [
+        {
+          "blockId": "block-section-knowledge-domain-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from the standard "
+            },
+            {
+              "type": "link",
+              "text": "Cleric Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-knowledge-domain-feats",
+      "heading": "Knowledge Domain Feats",
+      "sourceAnchor": "knowledge-domain-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-knowledge-domain-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from the standard "
+            },
+            {
+              "type": "link",
+              "text": "Cleric Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-knowledge-domain-weapons",
+      "heading": "Knowledge Domain Weapons",
+      "sourceAnchor": "knowledge-domain-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-knowledge-domain-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from the standard "
+            },
+            {
+              "type": "link",
+              "text": "Cleric Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-knowledge-domain-armor",
+      "heading": "Knowledge Domain Armor",
+      "sourceAnchor": "knowledge-domain-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-knowledge-domain-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from the standard "
+            },
+            {
+              "type": "link",
+              "text": "Cleric Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing combos with proficiency on demand and mind reading, so just stick to Cleric."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-knowlege-cleric-build-oh-nowo",
+      "heading": "Example Knowlege Cleric Build – Oh nowo",
+      "sourceAnchor": "example-knowlege-cleric-build-oh-nowo",
+      "blocks": [
+        {
+          "blockId": "block-section-example-knowlege-cleric-build-oh-nowo-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Did you know that Thoth is literally mentioned in the PHB? “The gods of knowledge — including Oghma, Boccob, Gilean, Aureon, and Thoth — value learning and understanding above all.” Did you know that Thoth, when written in ancient Greek, is spelled Θώθ? I bet you can see where this is going."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As described above. We’ll put our +2 into Wisdom and our +1 into Constitution to set us up for Resilient (Constitution)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tabaxi. A) We need to be a cat and B) tabaxis give you enough rogue to feel like you’re doing rogue things without needing to resort to trickery. Also, being able to sprint into position when you turn on Spirit Guardians is pretty great."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Sage for the Researcher feature, then immediately drop every proficiency it provides for Animal Handling, Nature, Herbalism Kit, and Thieves’ Tools. Did I largely just rebuild Hermit but with a different background feature? Yes, I did. But it’s super thematic, and we just really want to put our high Wisdom to good use while filling out the rest of the Knowledge skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Race gives us Perception (to notice those bulging sacks of treasure) and Stealth (to steal them), Background gives us Nature, Animal Handling, Herbalism Kit, and Thieves’ tools, and Cleric gives us Insight and Religion. At first level, we get Arcana and History (with expertise no less) from the domain."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 4 gets us Telekinetic. Now we’re not just pretending to be any rogue, we’re pretending to be an arcane trickster"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 8 caps Wisdom to 20"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 12 gets us Resilient (Con)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 16 gets us Metamagic Adept"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 19 gets us Skulker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "strong",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sacred Flame"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Toll the Dead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blessings of Knowledge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The "
+                },
+                {
+                  "type": "link",
+                  "text": "Twickewy Domain",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/"
+                },
+                {
+                  "type": "text",
+                  "text": " does a gweat job of making a cwewic that kinda feews wike a wogue, but the Knowwedge domain is better for mechanicawwy "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "being"
+                },
+                {
+                  "type": "text",
+                  "text": " a wogue wepwacement. You have access to any skiww at the dwop of a "
+                },
+                {
+                  "type": "text",
+                  "text": "hat"
+                },
+                {
+                  "type": "text",
+                  "text": " howy symbol and know quite a bit about things to be able to teww you what you might need to fake. Thwow a Guidance on top and you’we even bettew at evewything than Bawds. Eventuawwy you’ww be able to pewfowm the Scout wole better than most things thanks to divinations. Fow now, do wow wevew cwewic things. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dear lord, that’s enough of that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Perhaps most importantly, though, we have Identify always prepared, allowing us to spend 11 minutes as a ritual to ask our deity to grant us knowledge of the object in front of us with the most reverent of verbal components: “Θώθ, what’s this?”"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Knowledge of the Ages"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You already have Thieves’ Tools as the rogue replacement, but you can just give yourself proficiency on whatever you need as things come up. Burglary gone wrong? Get acrobatic and shimmy your way to freedom. About to go diplomacize the mayor and no one brought a Face? Throw on some bonus to cover your low Charisma and go nuts."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Second level spells get us Enhance Ability, furthering our capacity to "
+                },
+                {
+                  "type": "link",
+                  "text": "Mary Sue",
+                  "href": "https://en.wikipedia.org/wiki/Mary_Sue"
+                },
+                {
+                  "type": "text",
+                  "text": " our way through challenges. It also gets us Augury, letting us know which creatures are too dangerous to give huggy wuggies to. Basically, “Θώθ, how’s this going to work out?”"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Telekinetic (Wis)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Oh look, free "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": ". I’ve talked about this feat in "
+                },
+                {
+                  "type": "link",
+                  "text": "many",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/bladesinging/"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "of",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "the",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/armorer/"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "subclass",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/"
+                },
+                {
+                  "type": "text",
+                  "text": " guides I’ve written. Rocco also described a masterful use of this feat combined with the Cleric staple Spirit Guardians in the "
+                },
+                {
+                  "type": "link",
+                  "text": "Peace Domain Cleric Handbook",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/peace-domain/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spirit Guardians! Summon ghostly images of your favorite deviant artist to support you in battle."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel: Read Thoughts"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity 2/rest"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reading someone’s mind is already very good in social situations for letting you know what kind of thing you may have to magic up the ability to be good at, but also just Suggestion is incredibly powerful if used correctly. It says they won’t do anything obviously self-harmful. It doesn’t say they won’t do anything flagrantly illegal. Tell the shopkeeper to go tell the guards that he’s been plotting to murder the local authority figure and then sign a confession. Loot the heck out of their store while they’re doing that thing and walk away much richer."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sure, your Perception and Stealth are both pretty good, but Arcane Eye removes all room for error."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divination, on the other hand, is for asking Thoth the rest of the question words."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wis 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Potent Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A small but welcome DPR gain."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now you can Commune with Thoth directly. Since it’s a ritual, you can just keep asking questions until he finally gives you the silent treatment for the day."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Concentration, maybe it’s time to upgrade to "
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Celestial",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-celestial"
+                },
+                {
+                  "type": "text",
+                  "text": " and have a giant version of you pounce on things. Remember that it already makes two attacks per turn (which can go up to three in a couple levels), so Radiant Mace can distribute temp hp like a Twilight Cleric."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Intervention"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thaumaturgy"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10% of the time, it works every time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It probably works better if you rawr X3 times louder than normal when you’re asking though."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s worth noting that Word of Recall doesn’t require you to be on the same plane as the sanctuary, so it can be an interesting way to set a point on a different plane as something very easy to travel to even if you can’t find the appropriate tuning fork for Plane Shift."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient (Con)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Very boring and super effective."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Say, what if you can’t find some place sacred to Thoth for Word of Recall? Just spend a year reupping Temple of the Gods. Problem solved."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Holy Aura takes that warm feeling inside you and spreads it to your whole party. Finally, they also understand the joy of knowing what things are."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Metamagic Adept:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Subtle Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Extend Spell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The only problem with Channel: Read Thoughts is that the Suggestion at the end still has components. But what if it didn’t instead? Now no one knows you’ve done literally anything to accomplish your near-mind-control."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Feel free to spend your other Sorcery Point in a day doing something fun like Extending Command (Flee) or an 8th-level Summon Celestial to get you through another couple fights."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Visions of the Past"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Like the sad high-level cleric we are, we prepare Mass Heal and look longingly at everything that can cast Wish."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can also cast a weird version of Legend Lore for free now, though, so please work with your DM to make sure this is impactful."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel 3/rest"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you’re having 3 fights between short rests, something has probably gone wrong. Fortunately, you have the channels to help mitigate that."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skulker"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Removing the disadvantage while only seeing with our Darkvision is nice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Intervention Improvement."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "When you’re out of options, Thoth will still be there for you."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Knowledge Domain Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Domain Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 7th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blessings of Knowledge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Channel Divinity: Knowledge of the Ages"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Channel Divinity: Read Thoughts"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Potent Spellcasting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Visions of the Past"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-yellow Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-knowledge-domain-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-knowledge-domain-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-knowledge-domain-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-knowledge-domain-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-knowledge-domain-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-knowledge-domain-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-knowledge-domain-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-knowledge-domain-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-knowledge-domain-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-knowledge-domain-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-knowledge-domain-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-knowlege-cleric-build-oh-nowo-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    }
+  ],
+  "metrics": {
+    "words": 2214,
+    "sections": 17,
+    "blocks": 33,
+    "tables": 3,
+    "ratingSignals": 22
+  },
+  "status": "needs-editorial-review"
+}

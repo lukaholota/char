@@ -17,6 +17,9 @@ import {
 } from "@/lib/catalogs/catalog-registry";
 import { searchUserPersAndFolders } from "@/server/db/pers-search-actions";
 import { searchHomebrewEntries } from "@/server/db/homebrew-search-actions";
+import { buildAnalyticsQuery } from "@/lib/search/searchQuery";
+import { fetchRpgbotSectionMatches } from "@/lib/search/rpgbotSectionSearch";
+import { findRpgbotSearchResult } from "@/lib/search/rpgbotSearchData";
 import { useActiveEdition } from "@/components/ui/PersEditionPin";
 import { useNoAiHref } from "@/components/no-ai/NoAiModeProvider";
 import type { Edition } from "@/rules/route-helpers";
@@ -57,19 +60,25 @@ export function OmniSearchPanel({ onClose }: Props) {
   );
   const personalResults = personalSearch.hits;
   const homebrewResults = homebrewSearch.hits;
-  const isServerSearchPending = personalSearch.isPending || homebrewSearch.isPending;
+  const rpgbotSearch = useDeferredServerSearch(query,
+    useCallback((trimmed: string) => fetchRpgbotSectionMatches(trimmed, ruleset), [ruleset]));
+  const isServerSearchPending = personalSearch.isPending || homebrewSearch.isPending || rpgbotSearch.isPending;
 
   const { rows, otherEdition } = useMemo(
-    () => buildOmniSearchPanelRows({ query, ruleset, activeCategory, personalResults, homebrewResults }),
-    [query, ruleset, activeCategory, personalResults, homebrewResults],
+    () => buildOmniSearchPanelRows({ query, ruleset, activeCategory, personalResults, homebrewResults,
+      rpgbotResults: ruleset === "RULES_2014" ? rpgbotSearch.hits : [] }),
+    [query, ruleset, activeCategory, personalResults, homebrewResults, rpgbotSearch.hits],
   );
 
   useEffect(() => {
     const trimmed = query.trim();
     if (!trimmed || isServerSearchPending) return;
-    const resultCount = rows.filter((row) => row.kind === "item").length;
+    const items = rows.flatMap((row) => (row.kind === "item" ? [row.item] : []));
+    const resultCount = items.length;
+    const rpgbotResultCount = items.filter((item) => item.category === "rpgbot").length;
     const timer = window.setTimeout(() => capturePostHogEvent("search_performed", {
-      edition, category: activeCategory, query_length: trimmed.length, result_count: resultCount,
+      edition, category: activeCategory, query_length: trimmed.length, result_count: resultCount, rpgbot_result_count: rpgbotResultCount,
+      ...(resultCount === 0 && { query: buildAnalyticsQuery(trimmed) }),
     }), 700);
     return () => window.clearTimeout(timer);
   }, [query, activeCategory, edition, rows, isServerSearchPending]);
@@ -109,11 +118,13 @@ export function OmniSearchPanel({ onClose }: Props) {
 
   const handleSelect = useCallback(
     (item: OmniSearchItem) => {
-      capturePostHogEvent("search_result_selected", { category: item.category, edition: item.edition ?? edition });
+      const position = rows.findIndex((row) => row.kind === "item" && row.item.id === item.id);
+      const rpgbotResult = item.category === "rpgbot" ? findRpgbotSearchResult(item.id) : null;
+      capturePostHogEvent("search_result_selected", { category: item.category, edition: item.edition ?? edition, ...(rpgbotResult && { ...rpgbotResult, position }) });
       setPendingItemId(item.id);
       navigateTo(item.href);
     },
-    [navigateTo, edition]
+    [navigateTo, edition, rows]
   );
 
   const openCatalog = useCallback(

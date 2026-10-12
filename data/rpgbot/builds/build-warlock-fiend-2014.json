@@ -1,0 +1,1002 @@
+{
+  "buildId": "build-warlock-fiend-2014",
+  "revisionId": "build-warlock-fiend-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад збірки Чорнокнижника — Тифлінг, Чорнокнижник (Почвара)",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+      "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WARLOCK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "FIEND"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          },
+          {
+            "optionNameEng": "Fiendish Vigor"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "protection-from-evil-and-good"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Chain"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "darkness"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Voice of the Chain Master"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fly"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "burning-hands",
+          "add": "fireball"
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "counterspell",
+            "dispel-magic"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Repelling Blast"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wall-of-fire"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "banishment"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Whispers of the Grave"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true,
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Mind"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Witch Sight"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Shrouded in Shadow"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true,
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+          "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "FIEND",
+    "raceKey": "TIEFLING_2014",
+    "backgroundKey": "NOBLE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 11
+      },
+      {
+        "ability": "WIS",
+        "value": 11
+      },
+      {
+        "ability": "CHA",
+        "value": 14
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Оскільки ми не користуємося рисами, мало стимулів витрачати додаткові очки, щоб починати з Харизмою 15, тож ми трохи скоригуємо наведені вище характеристики, щоб вичавити максимум із наших очок. Ви можете перерозподілити кілька очок, щоб підвищити Інтелект і/або Мудрість, але жодна з них не важлива для збірки, тож ми не перейматимемося цим.\n\n  Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 14 14 Інтелект 11 12 Мудрість 11 11 Харизма 14 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Тифлінг{{Tiefling}}. Підвищення характеристик Тифлінга добре підходять Чорнокнижнику, а його расові заклинання — приємне доповнення до обмежених слотів заклинань Чорнокнижника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Із такою високою Харизмою легко збудувати Чорнокнижника як «обличчя», тож візьмемо Обман і Залякування.\n\nЯкщо у вашій групі вже є «обличчя», може бути корисно скоригувати характеристики, щоб підвищити Інтелект, а тоді взяти варіанти на кшталт Магії, Історії, Природи чи Релігії.\n\nТакож памʼятайте, що деякі «Потойбічні виклики»{{Eldritch Invocations}} можуть давати вам володіння додатковими навичками.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "На жаль, жодний із варіантів в Основних правилах не є особливо вдалим для нас як «обличчя». Злочинець{{Criminal}} дає надлишкове володіння Обманом, яке ми можемо обміняти на Переконання, а Аристократ{{Noble}} дає Переконання сам по собі, тож підійде будь-який із двох. Якщо оберете Злочинця, володіння інструментами злодія та Непомітність допоможуть вам виконувати роль розвідника вашої групи.\n\nЯкщо ви вирішили наголосити на навичках знань, а не на навичках «обличчя», розгляньте Послушника{{Acolyte}} чи Мудреця{{Sage}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Зважаючи на єдиний наголос на Харизмі й початкове значення 16, у цій збірці є багато місця для рис. «Адепт стихій (Вогонь)»{{Elemental Adept (Fire)}} і «Полумʼя Флегетосу»{{Flames of Phlegethos}} допоможуть зберегти корисність ваших варіантів шкоди вогнем, а «Посвячений у магію»{{Magic Initiate}} може доповнити ваші варіанти чаротворства.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Потойбічний покровитель (Почвара)\nБлагословення пекла\nМагія пакту\nВідомі заклинання:\n– Палючі долоні\n– Пекельна відсіч\nЗамовляння:\n– Позамежний заряд\n– Магічна рука",
+        "notes": "Як стартове спорядження візьміть легкий арбалет і 20 болтів, {{мішечок із компонентами|component pouch}} або чаротворчий фокус (мені подобається фокус, бо він здається крутішим, хоч функціонально вони однакові), будь-який набір, шкіряний обладунок, будь-яку просту зброю на ваш смак (ви нею не користуватиметеся) і кинджал. Чорнокнижник з самого початку має стосунки зі своїм патроном. Це означає, що ви можете вивчати заклинання зі списку заклинань вашого патрона (за умови, що вони мають рівень, який ви можете накладати), і отримуєте уміння патрона. У нашому випадку це «Благословення пекла»{{Dark One’s Blessing}}. Це чудовий спосіб підсилити ваші ХП, і хоч на цьому рівні ви отримуєте лише 4 тимчасові ХП, це все одно майже половина вашого звичайного максимуму ХП (на цьому рівні — 10).\n\n«Магія пакту»{{Pact Magic}} починається повільно. Ви знаєте лише два заклинання й маєте лише один слот заклинання на обидва, тож вашому слоту доведеться багато працювати між короткими відпочинками. Зазвичай я рекомендую Проклін [hex] як основний варіант на цьому рівні, але Прокліну [hex] немає в Основних правилах чи SRD, тож шукатимемо щось інше. Використовуйте Палючі долоні [Burning Hands] проти кількох ворогів або збережіть слот заклинання для Пекельної відсічі [Hellish Rebuke], якщо хтось зчепиться з вами в ближньому бою. Для замовлянь візьміть Позамежний заряд [Eldritch Blast] для бою й Магічну руку [Mage Hand] для утиліти. Я б зазвичай сказав Штукарство [Prestidigitation], але як Тифлінг ви безкоштовно отримуєте Дивотворство [Thaumaturgy], що, на мою думку, дає достатньо магічної різноманітності, щоб вам вистачило її на весь 1-й рівень.\n\nКоли починається бій, ваш основний варіант — або Позамежний заряд [Eldritch Blast], або арбалет. Арбалет завдасть більше шкоди (1к8+2, у середньому 6,5 проти 1к10, у середньому 5,5), але ваш Позамежний заряд [Eldritch Blast] крутіший і буде трохи точнішим. Різниця невелика, тож надто не переймайтеся вибором. Якщо вас якось затягне в ближній бій, кинджалом ви орудуєте пристойно, але якщо ви поранені, краще втекти, ніж намагатися активувати Пекельну відсіч [Hellish Rebuke]. Зазвичай я рекомендую Проклін [hex] як хороше заклинання 1-го рівня для Чорнокнижника, бо з одного слота заклинання можна вичавити так багато користі. На жаль, Прокліну [hex] немає в SRD, тож для цієї збірки пропустимо його.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Потойбічний виклик:\n– Мучливий вибух\nНове відоме заклинання: Захист від зла й добра",
+        "notes": "На цьому рівні ви отримуєте другий слот заклинання й «Мучливий вибух»{{Agonizing Blast}}. «Мучливий вибух» додає ваш бонус Харизми до шкоди від Позамежного заряду [Eldritch Blast], що робить його справді вашим основним варіантом для бою. На жаль, третього слота заклинання ви не отримаєте до 11-го рівня, тож звикайте розпоряджатися двома наявними між відпочинками. На цьому рівні розгляньте вивчення Захисту від зла й добра [Protection from Evil and Good]. Це надійне, перевірене захисне заклинання, яке завжди добре мати напоготові, навіть якщо воно не знадобиться деякий час.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Дар пакту (Пакт ланцюга)\nНове відоме заклинання: Темрява",
+        "notes": "На 3-му рівні ви обираєте «Дар пакту»{{Pact Boon}}. «Пакт гримуара»{{Pact of the Tome}}, імовірно, найефективніший вибір, але задум цієї збірки — зосередитися на простих, але ефективних варіантах, тож ми візьмемо «Пакт ланцюга»{{Pact of the Chain}}. Щоб підійти до теми нашого чорнокнижника з патроном-Почварою, візьмемо імпа{{Imp}}. Імп — безперечно найкращий варіант фамільяра з доступних. Дивіться нашу оцінку «Пакту ланцюга» вище.\n\nНа цьому рівні ви можете розглянути відправлення свого імпа в атаку замість накладання Позамежного заряду [Eldritch Blast]. Якщо імп влучить, він завдасть 1к4+3+3к6 (у середньому 16) шкоди проти лише 1к10+3 (у середньому 8,5) від Позамежного заряду [Eldritch Blast], а у вас з імпом однаковий бонус атаки +5. Проте це ще й наражає вашого фамільяра на небезпеку, а багаторазове витрачання 10 зм, щоб накласти Пошук фамільяра [Find Familiar], може стати тягарем для ваших обмежених коштів.\n\nЦей рівень піднімає ваші слоти заклинань до 2-го рівня, тож ви можете почати вивчати заклинання 2-го рівня. Ми взяли виклик «Зір диявола»{{Devil's Sight}} на 2-му рівні, щоб ви могли бачити в магічній темряві, тож вивчіть Темряву [Darkness] на цьому рівні, щоб почати використовувати ці два разом. Памʼятайте, що ваші союзники, імовірно, не бачать у магічній темряві, тож якщо ви накладаєте Темряву [Darkness], очікуйте, що значну частину роботи доведеться робити самому. Відправте свого фамільяра виконати дію Допомога, щоб допомогти союзникам, що компенсує Перешкоду на кубику під час атак у темряві.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Харизма 16 → 18)\nНове замовляння: Будь-яке\nНове відоме заклинання: Невидимість",
+        "notes": "Ваша перша прибавка Харизми дуже багато вам дає. Ваш бонус атаки з Позамежним зарядом [Eldritch Blast] тепер вищий за бонус атаки вашого імпа, але ви все ще можете захотіти посилати імпа в атаку заради його значно вищої шкоди, якщо це виявилося для вас хорошою тактикою. На цьому рівні ви вивчаєте нове замовляння. Раджу утилітарний варіант на кшталт Малої ілюзії [Minor Illusion] чи Штукарства [Prestidigitation], але якщо чомусь вам дуже потрібно більше наступальних варіантів, можна взяти Моторошний дотик [Chill Touch]. До цього рівня в нас є захисне заклинання (Пекельна відсіч [Hellish Rebuke]), заклинання області (Палючі долоні [Burning Hands]) і заклинання контролю території (Темрява [Darkness]), тож утилітарне заклинання чи заклинання контролю натовпу стане чудовим доповненням до нашого арсеналу. Раджу Невидимість [Invisibility], але Захоплива промова [Enthrall] і Павуче лазіння [Spider Climb] теж чудові варіанти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Новий потойбічний виклик: Голос майстра ланцюгів\nНове відоме заклинання: Політ\nПеренавчання заклинання: Палючі долоні → Вогнекуля",
+        "notes": "На 5-му рівні вам відкриваються нові варіанти викликів. Є кілька чудових, але я дуже хочу зробити ставку на те, наскільки чудовий ваш фамільяр, тож візьмемо «Голос майстра ланцюгів»{{Voice of the Chain Master}}. Це відкриває кумедну комбінацію: «Голос майстра ланцюгів» дозволяє говорити через вашого фамільяра. Дивотворство [Thaumaturgy] (яке ви отримуєте як расове заклинання) дозволяє втричі збільшити гучність вашого голосу. Ваш імп може ставати невидимим. Тож ви можете змусити імпа стати невидимим, полетіти кудись, а самі говорити через нього, як через моторошний невидимий мегафон. Я не знаю точно, для чого це можна використати, але сам факт, що це можливо, робить мене безмежно щасливим.\n\n5-й рівень приносить заклинання 3-го рівня, що справді захоплює. У SRD немає жодних захопливих наступальних варіантів у списку Чорнокнижника, але ваш патрон дає доступ до Вогнекулі [Fireball], тож ми замінимо Палючі долоні [Burning Hands] на Вогнекулю [Fireball]. Як нове відоме заклинання візьмемо Політ [Fly], бо літати — дуже круто. На цьому рівні ви отримуєте здатність накладати Темряву [Darkness] як расове заклинання. Це добрий привід перенавчити Темряву [Darkness] на інше нове заклинання, але доведеться зачекати ще рівень, бо на цьому рівні ми перенавчаємо Палючі долоні [Burning Hands]. Нарешті, 5-й рівень додає другий промінь до Позамежного заряду [Eldritch Blast]. Два промені по 1к10+4 шкоди легко перевершують імпа, тож час імпові повернутися до ролі підтримки замість наступальної.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Власна удача бісів\nНове відоме заклинання: Контрчари\nПеренавчання заклинання: Темрява → Розвіювання магії",
+        "notes": "«Власна удача бісів»{{Dark One’s Own Luck}} додає приємну страховку, коли ви погано кидаєте ряткидок. Звісно, к10 дуже сильно коливається в значенні, тож не завжди можна покластися на нього як на порятунок. На цьому рівні ми перенавчимо Темряву [Darkness] і додамо до арсеналу два вирішальні утилітарні варіанти. Заклинання Контрчари [Counterspell] дозволяє заглушити ворожих заклинателів (хоч це відчуватиметься як розчаровуючий спосіб витратити слот заклинання), а Розвіювання магії [Dispel Magic] дозволить прибрати проблемні магічні ефекти, що тривають.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Новий потойбічний виклик: Відштовхувальний вибух\nНове відоме заклинання: Стіна вогню",
+        "notes": "7-й рівень приносить заклинання 4-го рівня й ще один виклик. На жаль, варіанти заклинань 4-го рівня в SRD не чудові, а особливо цікавих викликів на цьому рівні мало. Ми вивчимо Стіну вогню [Wall of Fire] і «Відштовхувальний вибух»{{Repelling Blast}}, щоб ви могли ставити стіну вогню й за допомогою Позамежного заряду [Eldritch Blast] штовхати в неї ворогів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Харизма 18 → 20)\nНове відоме заклинання: Вигнання",
+        "notes": "На цьому рівні в нас максимальна Харизма. Більше атаки й шкоди з Позамежним зарядом [Eldritch Blast] і вищий СК ряткидків для всього іншого. Більше нічого особливого на цьому рівні немає. Візьміть Вигнання [Banishment], щоб розправлятися з потужними позапланарними ворогами одним заклинанням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Новий потойбічний виклик: Шепіт могили\nНове відоме заклинання: Стримування монстра",
+        "notes": "На цьому етапі у вас багато варіантів викликів, і вибрати може бути дуже складно. «Шепіт могили»{{Whispers of the Grave}} — приємний варіант, який підходить усім. Пригоди передбачають убивство багатьох істот, а іноді ці істоти знають те, що ви хочете знати.\n\nНарешті ми дісталися заклинань 5-го рівня. Саме тут ваші слоти заклинань досягають максимальної ефективності. Далі ви й надалі вивчатимете більше заклинань, але памʼятайте, що ваші звичайні відомі заклинання можуть бути лише 5-го рівня чи нижче. Коли закінчаться добрі заклинання 5-го рівня на вибір, придивіться до заклинань нижчих рівнів, які все ще корисні, як-от утилітарні варіанти чи заклинання, що масштабуються з рівнем слота заклинання. На цьому рівні ми вивчимо Стримування монстра [Hold Monster]. Воно працює майже в будь-якому бою, а іноді може навіть запобігти бою.\n\nЦей рівень також позначає поворотний момент у тому, як просувається Чорнокнижник. Ви більше не здобуваєте нових рівнів заклинань, а цікаві нові класові уміння отримуєте повільніше. Навіть на 20-му рівні ваші слоти заклинань 5-го рівня — найважливіша частина вашого чаротворного арсеналу поза Позамежним зарядом [Eldritch Blast], тож будьте готові шукати творчі способи застосування своїх заклинань, коли зіткнетеся з новими викликами.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Бісівська стійкість\nНове замовляння: Будь-яке",
+        "notes": "«Бісівська стійкість»{{Fiendish Resilience}} — складне для використання уміння. Ви можете змінювати опір до шкоди під час відпочинку, але часто важко знати заздалегідь, із чим доведеться зіткнутися. Якщо ви не певні, обирайте ріжучу шкоду. З обмеженими варіантами в SRD ми швидко вичерпуємо цікаві варіанти відомих заклинань. Далі вам захочеться повернутися до заклинань нижчих рівнів і пошукати там добрі варіанти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Містичний арканум: Масове навіювання\nНове відоме заклинання: Будь-яке",
+        "notes": "Наш перший «Містичний арканум»{{Mystic Arcanum}} привчає нас до цієї механіки. Ви можете накладати кожне зі своїх заклинань «Містичного арканума» раз на день, тож вам потрібно, щоб кожен варіант був широко корисним. У цьому випадку я пропоную Масове навіювання [Mass Suggestion]. У нас багато варіантів, щоб перешкоджати ворогам і вбивати їх, але дуже мало менш смертоносних. Масове навіювання [Mass Suggestion] дозволяє зручно прибрати 12 істот. Скажіть їм піти на довгу прогулянку, чи вийти з підземелля назбирати їжі, чи що завгодно інше, що зручно прибирає їх, не завдаючи їм шкоди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик (Будь-яка)\nНовий потойбічний виклик: Будь-який",
+        "notes": "На цьому етапі важко дати конкретні поради. У вас уже є все необхідне для роботи. Якщо хочете більше КБ, розгляньте підвищення Спритності, інакше, імовірно, варто підвищувати Статуру. Ви можете обрати будь-який виклик із доступних на цей момент, і, сподіваюся, до цього часу є варіанти, на які ви вже давно поглядаєте.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Містичний арканум: Силова кліть\nНове відоме заклинання: Будь-яке",
+        "notes": "Силова кліть [Forcecage] — справді круте заклинання. Її дуже легко використати, щоб усунути одиночних ворогів чи групи ворогів, а в разі потреби її можна використати як місце, де сховатися, як міст, щоб заблокувати коридор або навіть як місце для короткого відпочинку (тривалість зручно становить 1 годину, як і короткий відпочинок).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Кидок у Пекло{{Hurl Through Hell}}",
+        "notes": "«Кидок у Пекло»{{Hurl Through Hell}} — підсилення шкоди раз на день. Воно застосовується поверх ефекту атаки, але обмежень на вид атаки немає, тож можна застосувати його до цілі, по якій влучив ваш Позамежний заряд [Eldritch Blast] або будь-яке інше заклинання, що вимагає кидка атаки.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Новий потойбічний виклик: Відьомський зір\nМістичний арканум: Підкорення монстра\nНове відоме заклинання: Будь-яке",
+        "notes": "15-й рівень відкриває найвищий щабель варіантів «Потойбічних викликів»{{Eldritch Invocations}}. Зазвичай я б порадив «Видіння далеких царств»{{Visions of Distant Realms}}, але більшу частину цієї функції ви можете отримати від свого фамільяра завдяки «Голосу майстра ланцюгів»{{Voice of the Chain Master}}. Для «Містичного арканума»{{Mystic Arcanum}} цього рівня візьмемо Підкорення монстра [Dominate Monster]. Як і Масове навіювання [Mass Suggestion], воно дозволяє нам прибрати проблемну істоту без смертельних наслідків, але дає вам більш пряму владу над ціллю. Якщо все зробити правильно, можна підкорити одного монстра й водити його в наступні одне-два зіткнення як додаткового члена групи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик (Будь-яка)",
+        "notes": "На цьому рівні нічого особливого.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Містичний арканум: Будь-яке\nНове відоме заклинання: Будь-яке",
+        "notes": "Це найпомітніший рівень за довгий час. 17-й рівень додає четвертий і останній промінь до Позамежного заряду [Eldritch Blast], а ви отримуєте свій останній «Містичний арканум»{{Mystic Arcanum}}. Раджу Передбачення [Foresight] чи Істинне перевтілення [True Polymorph], але якщо вам просто хочеться вбивати, беріть Слово сили: Смерть [Power Word Kill].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Новий потойбічний виклик: Будь-який",
+        "notes": "Ваш останній слот «Потойбічного виклику»{{Eldritch Invocation}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик (Будь-яка)\nНове відоме заклинання: Будь-яке",
+        "notes": "На цьому рівні ваша Харизма дорівнює 20, і ви отримали ще два Покращення Характеристик, тож ваші характеристики мають бути чудовими. Цей рівень також дає вам останнє нове відоме заклинання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Містичний майстер{{Eldritch Master}}",
+        "notes": "20-й рівень, на жаль, трохи сухуватий. «Містичний майстер»{{Eldritch Master}} дозволяє раз на день випросити назад ваші слоти заклинань без завершення короткого відпочинку, що заощаджує вам 59 хвилин раз на день.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Потойбічний виклик на 2-му рівні",
+        "reason": "Автор називає лише Мучливий вибух, а 2-й рівень дає два виклики; другий пресет бере типовим (Fiendish Vigor, вибір платформи), гравець може змінити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Перенавчання Темряви на 6-му рівні",
+        "reason": "Автор замінює Темряву на Розвіювання магії, але тифлінг на 5-му рівні отримує Темряву від раси, і платформа не дозволяє її замінити; пресет записує Контрчари та Розвіювання магії як нові заклинання (Темрява лишається расовою).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Вибори «будь-який / будь-яка» на 12–19-му рівнях",
+        "reason": "Автор пише «будь-яка» для Покращення Характеристик на 12, 16 і 19-му (типово Статура +2) та «будь-який» потойбічний виклик на 12 і 18-му (типово Eldritch Mind і Shrouded in Shadow); гравець може змінити. Нові замовляння на 4 і 10-му та відомі заклинання «будь-які» на 11, 13, 15, 17 і 19-му лишено на вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Містичний арканум (11–17-й рівні)",
+        "reason": "Автор називає Масове навіювання (11-й), Силову клітку (13-й), Підкорення монстра (15-й) і «будь-яке» на 17-му; платформа не записує вибір арканума.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+            "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

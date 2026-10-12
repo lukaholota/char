@@ -1,0 +1,1725 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-0e8556e292560f5f",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-0e8556e292560f5f-4012037c37abdaee",
+      "sourceId": "rpgbot-0e8556e292560f5f",
+      "fetchedAt": "2026-09-29T19:08:49.095067+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:41:50-04:00",
+      "contentHash": "77e6316506e8416b3ce5a27ec3ff1ef4934c2f041b8d3347dc1372ad71d89fb6",
+      "title": "Crossbow Master, Polearm Master, and Weaponized Bonus Actions: DnD 5e Feat Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-0e8556e292560f5f-4012037c37abdaee.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-weaponized-bonus-actions-2014",
+    "sourceId": "rpgbot-0e8556e292560f5f",
+    "slug": "weaponized-bonus-actions-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Атаки бонусною дією (2014)",
+    "titleEn": "Crossbow Master, Polearm Master, and Weaponized Bonus Actions: DnD 5e Feat Guide",
+    "topics": [
+      "combat"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-weaponized-bonus-actions-2014-draft1",
+      "articleId": "rpgbot-weaponized-bonus-actions-2014",
+      "sourceRevisionId": "rpgbot-0e8556e292560f5f-4012037c37abdaee",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У D&D 5e економіка дій — ключ до успіху в бою. Тому Майстер древкової зброї{{Polearm Master}} та Експерт з арбалетів{{Crossbow Expert}}, які перетворюють бонусну дію на атаку, стали основою оптимізованих збірок. Обидві риси чудові й мають додаткові переваги, але якщо потрібна лише бонусна атака, є ще кілька варіантів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зокрема, у книзі Еберрону прихована зброя Double-Bladed Scimitar{{Double-Bladed Scimitar}}. Її властивість Спеціальна{{Special}} дозволяє бонусну атаку, що на перший погляд сильно. Порівняємо її з іншими вкладеннями в бонусні атаки через розрахунки шкоди за раунд за різного рівня інвестицій."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бонусна дія для бою",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#weaponizing-the-bonus-action"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Експерт з арбалетів",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#crossbow-expert"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Double-Bladed Scimitar",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#doublebladed-scimitar"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Revenant Blade",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#revenant-blade"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бій двома зброями",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#twoweapon-fighting"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Боєць з двома зброями",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dual-wielder"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бойові мистецтва",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#martial-arts"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Майстер древкової зброї",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#polearm-master"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Порівняння шкоди за раунд",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чи дозволяти Double-Bladed Scimitar за вашим столом?",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#should-you-allow-doublebladed-scimitar-at-your-table"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                0,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weaponizing-the-bonus-action",
+          "heading": "Бонусна дія для бою",
+          "sourceAnchor": "weaponizing-the-bonus-action",
+          "blocks": [
+            {
+              "blockId": "block-section-weaponizing-the-bonus-action-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є кілька помітних способів регулярно перетворювати бонусну дію на атаку. Примітка редакції: автор називає їх атаками ближнього бою, але Експерт з арбалетів дає дальню атаку, а Майстер щита й Телекінетик — переміщення цілі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weaponizing-the-bonus-action-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Експерт з арбалетів{{Crossbow Expert}}"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Double-Bladed Scimitar{{Double-Bladed Scimitar}}"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бій двома зброями{{Two-Weapon Fighting}}"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойові мистецтва{{Martial Arts}}"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер древкової зброї{{Polearm Master}}"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер щита{{Shield Master}}"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Телекінетик{{Telekinetic}}"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-weaponizing-the-bonus-action-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є також менш практичні способи, які не розглядатимемо докладно, але згадаємо для повноти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weaponizing-the-bonus-action-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Пришвидшене заклинання{{Quickened Spell}} + Гримучий Клинок [Booming Blade] або Клинок Зеленого Полумʼя [Green-Flame Blade]"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер важкої зброї{{Great Weapon Master}} + критичне влучання"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шал{{Frenzy}} Берсерка"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Домен війни{{War Domain}} — Бойовий священик{{War Priest}}"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-crossbow-expert",
+          "parentSectionId": "section-weaponizing-the-bonus-action",
+          "heading": "Експерт з арбалетів",
+          "sourceAnchor": "crossbow-expert",
+          "blocks": [
+            {
+              "blockId": "block-section-crossbow-expert-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Експерт з арбалетів{{Crossbow Expert}} дозволяє дальні атаки без Перешкоди через близького ворога, ігнорує властивість Заряджання{{Loading}} арбалетів і, головне тут, дозволяє бонусною дією стріляти з ручного арбалета після дії Атака одноручною зброєю, включно із самим ручним арбалетом. Примітка редакції: правило про боєприпаси залишається, тому для заряджання одноручної зброї потрібна вільна рука."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-doublebladed-scimitar",
+          "parentSectionId": "section-weaponizing-the-bonus-action",
+          "heading": "Double-Bladed Scimitar",
+          "sourceAnchor": "doublebladed-scimitar",
+          "blocks": [
+            {
+              "blockId": "block-section-doublebladed-scimitar-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Double-Bladed Scimitar{{Double-Bladed Scimitar}} — дворучна зброя з "
+                },
+                {
+                  "type": "link",
+                  "text": "Еберрон: Постання з Останньої Війни",
+                  "href": "https://www.dndbeyond.com/sources/erftlw/character-creation#DoubleBladedScimitar"
+                },
+                {
+                  "type": "text",
+                  "text": ". Традиційна зброя ельфів Valenar має властивості Дворучна{{Two-Handed}} й Спеціальна{{Special}}. Остання дозволяє бонусну атаку, якщо дією Атака ви атакували цією зброєю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-revenant-blade",
+          "parentSectionId": "section-doublebladed-scimitar",
+          "heading": "Revenant Blade",
+          "sourceAnchor": "revenant-blade",
+          "blocks": [
+            {
+              "blockId": "block-section-revenant-blade-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Revenant Blade{{Revenant Blade}} — расова риса лише для Ельфів, без Напівельфів. Вона додає Double-Bladed Scimitar властивість Вправна{{Finesse}} та +1 КБ; найближче порівняння — Боєць з двома зброями{{Dual Wielder}}. Риса не потрібна для користування зброєю, якщо ви не хочете застосовувати нею Скриту атаку{{Sneak Attack}}, що часто й мотивує бій двома зброями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-revenant-blade-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ще один хороший випадок — Слідопити, яким зазвичай складно будуватися на Силі. Звичайний бій двома зброями залишає проблему вільної руки для соматичних компонентів; дворучну зброю можна відпустити однією рукою для заклинання. Якщо не потрібне використання Спритності, рису можна пропустити й користуватися зброєю будь-якій расі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-twoweapon-fighting",
+          "parentSectionId": "section-weaponizing-the-bonus-action",
+          "heading": "Бій двома зброями",
+          "sourceAnchor": "twoweapon-fighting",
+          "blocks": [
+            {
+              "blockId": "block-section-twoweapon-fighting-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви дією Атака атакуєте легкою зброєю ближнього бою, можете бонусною дією атакувати іншою легкою зброєю ближнього бою в другій руці. Модифікатор характеристики до шкоди бонусної атаки не додається, якщо він не відʼємний. "
+                },
+                {
+                  "type": "link",
+                  "text": "Бойовий стиль «Бій двома зброями»",
+                  "href": "https://rpgbot.net/dnd5/characters/fighting-styles/"
+                },
+                {
+                  "type": "text",
+                  "text": " дозволяє додавати цей модифікатор."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dual-wielder",
+          "parentSectionId": "section-twoweapon-fighting",
+          "heading": "Боєць з двома зброями",
+          "sourceAnchor": "dual-wielder",
+          "blocks": [
+            {
+              "blockId": "block-section-dual-wielder-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Боєць з двома зброями{{Dual Wielder}} дозволяє одноручну зброю ближнього бою без вимоги Легка{{Light}}, збільшуючи типову кістку шкоди з 1к6 до 1к8. Для максимальних витівок довгий спис{{Lance}} на верховій тварині можна тримати однією рукою, завдаючи 1к12. Риса дає +1 КБ, коли в кожній руці є окрема зброя ближнього бою, та дозволяє діставати чи прибирати дві зброї однією взаємодією з предметом. Це хороший спосіб трохи збільшити шкоду за раунд для бою двома зброями."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-martial-arts",
+          "parentSectionId": "section-weaponizing-the-bonus-action",
+          "heading": "Бойові мистецтва",
+          "sourceAnchor": "martial-arts",
+          "blocks": [
+            {
+              "blockId": "block-section-martial-arts-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бойові мистецтва{{Martial Arts}} дозволяють Монаху один беззбройний удар бонусною дією, якщо цього ходу він дією Атака атакував без зброї або монашою зброєю. Потрібно бути без обладунку та щита й користуватися лише монашою зброєю або залишатися беззбройним."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-polearm-master",
+          "parentSectionId": "section-weaponizing-the-bonus-action",
+          "heading": "Майстер древкової зброї",
+          "sourceAnchor": "polearm-master",
+          "blocks": [
+            {
+              "blockId": "block-section-polearm-master-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майстер древкової зброї{{Polearm Master}} дозволяє бонусну атаку зворотним кінцем конкретної древкової зброї з тексту риси після дії Атака лише цією зброєю. Саме цей варіант серед порівнюваних дозволяє щит, одноручну або важку зброю, відкриваючи "
+                },
+                {
+                  "type": "link",
+                  "text": "Бойовий стиль «Дуель»",
+                  "href": "https://rpgbot.net/dnd5/characters/fighting-styles/"
+                },
+                {
+                  "type": "text",
+                  "text": " чи "
+                },
+                {
+                  "type": "link",
+                  "text": "Майстер великої зброї",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/#great-weapon-master"
+                },
+                {
+                  "type": "text",
+                  "text": ". Примітка редакції: список бонусної атаки 2014 — глефа, алебарда, палиця або спис; піка до нього не входить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-polearm-master-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крім того, Майстер древкової зброї дає провоковану атаку, коли ворог входить у вашу досяжність. Те, що це саме провокована атака, а не просто атака реакцією, чудово поєднується з Вартовий{{Sentinel}} та Бойовий заклинатель{{War Caster}}. Для декого це головна перевага риси, а бонусний удар — доповнення. Разом вони визначають деякі сильні збірки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dpr-comparisons",
+          "heading": "Порівняння шкоди за раунд",
+          "sourceAnchor": "dpr-comparisons",
+          "blocks": [
+            {
+              "blockId": "block-section-dpr-comparisons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Порівняємо шкоду за раунд на кількох рівнях. Для зброї стандартний приклад — Воїн-Людина (варіант), для Бойових мистецтв — Монах. Для кожного рівня додамо контрольну колонку, де бонусна дія зайнята іншим: це дозволяє чесно порівняти з дворучним мечем."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кожному варіанту дамо потрібні для роботи риси або Підвищення характеристик."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "До рис усі приклади мають Силу 16 на 1-му рівні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монах на 12-му рівні бере Посвячений у бій{{Fighting Initiate}} для стилю Дуель{{Dueling}}. Тоді шкода Бойових мистецтв 1к8 дорівнює дворучній шкоді списа, а перехід на одну руку додає шкоду завдяки рисі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бій двома зброями має два рядки, обидва з рисою Боєць з двома зброями{{Dual Wielder}}: із бойовим стилем та без нього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майстер древкової зброї має чотири рядки:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перший використовує спис однією рукою зі щитом і стилем Оборона{{Defense}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Другий — спис однією рукою зі щитом і стилем Дуель{{Dueling}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Третій — піку двома руками. Примітка редакції: бонусна атака Polearm Master 2014 не працює з пікою. Наведені авторські числа для цього рядка збережено, але для законного прикладу потрібна глефа чи алебарда з тією самою кісткою 1к10."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Четвертий — піку двома руками, а з 4-го рівня бере "
+                },
+                {
+                  "type": "link",
+                  "text": "Майстер великої зброї",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/#great-weapon-master"
+                },
+                {
+                  "type": "text",
+                  "text": " й завжди використовує рису. Примітка редакції: та сама помилка з пікою; замініть її глефою або алебардою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для дворучного меча показано шкоду з Майстром великої зброї та без нього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Експерт з арбалетів використовує стиль Стрільба{{Archery}}, бере Влучний стрілець{{Sharpshooter}} на 4-му рівні й використовує Спритність скрізь, де інші Воїни використовують Силу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-13",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіант"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риса Людини (варіант)"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зброя"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойовий стиль"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 1, без бонусної дії"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 6"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 6, без бонусної дії"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 12"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 12, без бонусної дії"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 20"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 20, без бонусної дії"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Double-Bladed Scimitar"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рубака{{Slasher}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Double-Bladed Scimitar"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборона{{Defense}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.45"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.88"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14.50"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "32.00"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.00"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бій двома зброями"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Боєць з двома зброями{{Dual Wielder}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Два моргенштерни"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бій двома зброями{{Two-Weapon Fighting}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.63"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25.60"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "32.00"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25.60"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бій двома зброями"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Боєць з двома зброями{{Dual Wielder}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Два моргенштерни"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "—"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17.13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22.35"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25.60"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойові мистецтва{{Martial Arts}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Проколювач{{Piercer}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спис + беззбройний удар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "—"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.03"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.33"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11.95"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15.85"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24.45"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17.35"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Древкова зброя, одна рука"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер древкової зброї{{Polearm Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спис"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборона{{Defense}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17.63"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22.80"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Древкова зброя, одна рука"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер древкової зброї{{Polearm Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спис"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуель{{Dueling}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.70"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.70"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.83"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15.05"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.00"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "34.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.00"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Древкова зброя, дві руки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер древкової зброї{{Polearm Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Піка (помилка оригіналу)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборона{{Defense}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.50"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.63"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14.20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "26.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "33.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.40"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Древкова зброя + Майстер великої зброї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер древкової зброї{{Polearm Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Піка (помилка оригіналу)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборона{{Defense}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.50"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22.88"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16.15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "32.55"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25.42"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "41.02"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "33.90"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дворучний меч + Майстер великої зброї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер важкої зброї{{Great Weapon Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дворучний меч"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборона{{Defense}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.35"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.50"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.45"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "36.60"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дворучний меч без застосування риси"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер важкої зброї{{Great Weapon Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дворучний меч"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборона{{Defense}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6.85"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17.50"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24.45"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "32.60"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експерт з арбалетів + Влучний стрілець"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експерт з арбалетів{{Crossbow Expert}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ручний арбалет"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стрільба{{Archery}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.05"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "26.78"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17.85"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "37.70"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.28"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "47.13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "37.70"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Таблиця дає кілька важливих висновків про різницю між варіантами. Double-Bladed Scimitar добре працює, коли ви не можете вкластися в риси чи бойові стилі, потрібні конкурентам."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-15",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Після вкладень у Дуель і Майстра древкової зброї вона програє спису зі щитом на кілька пунктів шкоди за раунд, а також втрачає додатковий +1 КБ, який щит дає порівняно зі стилем Оборона. Це чудово для тих, хто не може ефективно користуватися важкою зброєю, як Малі персонажі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-16",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для інших піка чи подібна зброя з Майстром великої зброї дає найбільшу шкоду, але вимагає двох рис. Дворучний меч показує цікаве: з лише однією рисою, Майстром великої зброї, він перевершує все, крім поєднання двох древкових рис, навіть без бонусної атаки. Це найкраща шкода для збірок, де бонусна дія вже сильно зайнята. Примітка редакції: порівняння із двома рисами коректне для глефи або алебарди, а не піки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-17",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є й інші змінні, як клас. Для Паладинів розрив між древковою рисою й Double-Bladed Scimitar був би набагато меншим, а дворучний меч відставав би: замість додаткових атак Паладини з 11-го рівня отримують додаткову променеву шкоду при кожному влучанні зброєю ближнього бою. Бій двома зброями теж відстав би, бо Паладинам недоступний відповідний бойовий стиль. Паладин особливо виграє від Double-Bladed Scimitar: відсутність обовʼязкових допоміжних рис дозволяє більше вкладати Підвищень характеристик у Харизму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-18",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але читачі попросили додати Експерта з арбалетів, і всі варіанти ближнього бою раптом втратили значення завдяки Стрільбі. Ось що робить зайвий +2 до влучання порівняно з конкурентами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-should-you-allow-doublebladed-scimitar-at-your-table",
+          "parentSectionId": "section-dpr-comparisons",
+          "heading": "Чи дозволяти Double-Bladed Scimitar за вашим столом?",
+          "sourceAnchor": "should-you-allow-doublebladed-scimitar-at-your-table",
+          "blocks": [
+            {
+              "blockId": "block-section-should-you-allow-doublebladed-scimitar-at-your-table-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коротка відповідь автора: так."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-should-you-allow-doublebladed-scimitar-at-your-table-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше: Double-Bladed Scimitar трохи сильніша за іншу зброю без вкладень, але програє після вкладень у конкурентів. Із часом її наздоганяє навіть дворучний меч без рис. Ви ж не просили заборонити дворучний меч, хоча він майже наздоганяє піку з лише Майстром древкової зброї. Значущих подальших вкладень для Double-Bladed Scimitar немає: її сила від початку приблизно досягає максимуму. Примітка редакції: приклад із пікою в оригіналі має зазначену вище помилку."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-weaponized-bonus-actions-2014-001",
+      "articleId": "rpgbot-weaponized-bonus-actions-2014",
+      "translationRevisionId": "translation-rpgbot-weaponized-bonus-actions-2014-draft1",
+      "sectionId": "section-crossbow-expert",
+      "targetBlockId": "block-section-crossbow-expert-1",
+      "optionId": "section-crossbow-expert",
+      "context": "Експерт з арбалетів",
+      "explanationBlockId": "block-section-crossbow-expert-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-weaponized-bonus-actions-2014-002",
+      "articleId": "rpgbot-weaponized-bonus-actions-2014",
+      "translationRevisionId": "translation-rpgbot-weaponized-bonus-actions-2014-draft1",
+      "sectionId": "section-revenant-blade",
+      "targetBlockId": "block-section-revenant-blade-1",
+      "optionId": "section-revenant-blade",
+      "context": "Revenant Blade",
+      "explanationBlockId": "block-section-revenant-blade-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-weaponized-bonus-actions-2014-003",
+      "articleId": "rpgbot-weaponized-bonus-actions-2014",
+      "translationRevisionId": "translation-rpgbot-weaponized-bonus-actions-2014-draft1",
+      "sectionId": "section-dual-wielder",
+      "targetBlockId": "block-section-dual-wielder-1",
+      "optionId": "section-dual-wielder",
+      "context": "Боєць з двома зброями",
+      "explanationBlockId": "block-section-dual-wielder-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weaponized-bonus-actions-2014-004",
+      "articleId": "rpgbot-weaponized-bonus-actions-2014",
+      "translationRevisionId": "translation-rpgbot-weaponized-bonus-actions-2014-draft1",
+      "sectionId": "section-polearm-master",
+      "targetBlockId": "block-section-polearm-master-1",
+      "optionId": "section-polearm-master",
+      "context": "Майстер древкової зброї",
+      "explanationBlockId": "block-section-polearm-master-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

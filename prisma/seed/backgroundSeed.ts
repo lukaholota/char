@@ -192,7 +192,7 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'Звичайний одяг', quantity: 1 },
                 { name: 'зм', quantity: 10 }            ],
             specialAbilityName: 'Дослідник',
-            description: 'Коли ти намагаєшся дізнатися або згадати частину знань, якщо ти не знаєш цієї інформації, ти часто знаєш, де і від кого ти можеш отримати її. Зазвичай ця інформація надходить з бібліотеки, скрипторіуму, університету або від іншого вченого або особи, яка володіє знаннями. Твій DM може вирішити, що знання, які ти шукаєш, приховані в майже недоступному місці, або що їх просто неможливо знайти.'
+            description: 'Коли ви намагаєтеся дізнатися або пригадати певні відомості й не знаєте цієї інформації, ви часто знаєте, де й від кого можна її отримати. Зазвичай її можна знайти в бібліотеці, скрипторіумі, університеті або в мудреця чи іншої обізнаної особи або істоти. Ваш Майстер може вирішити, що потрібні вам знання приховані в майже недоступному місці або що їх узагалі неможливо знайти. Розкриття найглибших таємниць мультивсесвіту може потребувати пригоди або навіть цілої кампанії.'
         },
         {
             name: BackgroundCategory.SAILOR,
@@ -733,8 +733,8 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'Шкільна форма', quantity: 1 },
                 { name: 'зм', quantity: 15 }
             ],
-            specialAbilityName: 'Історичні Знання',
-            description: 'Як студент Лорхолда, ти маєш доступ до архівів коледжу та можеш досліджувати історичні записи. Інші історики та археологи визнають твою освіту. Твоє розуміння минулого дає тобі унікальний погляд на сучасні події.',
+            specialAbilityName: "Lorehold Initiate",
+            description: "Ви отримуєте рису Посвячений Стріксхейвена (Лорхолд){{Strixhaven Initiate (Lorehold)}} і маєте обрати в ній Lorehold.\n\nЯкщо ви маєте здібність Чаротворення{{Spellcasting}} або Магія угоди{{Pact Magic}}, заклинання з наведеного нижче списку додаються до списку заклинань вашого чаротворчого класу. Якщо ви мультикласовий персонаж із кількома списками заклинань, вони додаються до всіх цих списків.\n\n1-й рівень: <a href=\"/spells/comprehend-languages\">Розуміння мов [Comprehend Languages]</a>, <a href=\"/spells/identify\">Розпізнавання [Identify]</a>.\n\n2-й рівень: <a href=\"/spells/borrowed-knowledge\">Позичене знання [Borrowed Knowledge]</a>, <a href=\"/spells/locate-object\">Пошук предмета [Locate Object]</a>.\n\n3-й рівень: <a href=\"/spells/speak-with-dead\">Розмова з мертвими [Speak with Dead]</a>, <a href=\"/spells/spirit-guardians\">Духи захисники [Spirit Guardians]</a>.\n\n4-й рівень: <a href=\"/spells/arcane-eye\">Арканне око [Arcane Eye]</a>, <a href=\"/spells/stone-shape\">Форма каменю [Stone Shape]</a>.\n\n5-й рівень: <a href=\"/spells/flame-strike\">Полумʼяний удар [Flame Strike]</a>, <a href=\"/spells/legend-lore\">Знання легенд [Legend Lore]</a>.\n\nПоміркуйте, як змінити вигляд ваших заклинань під час накладання. Заклинання Lorehold можуть створювати видовища золотого світла. Як чаротворчий фокус ви можете використовувати книгу або сувій, а ефекти заклинань можуть нагадувати довідники, які ви вивчаєте.",
             gainsFeats: {
                 connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_LOREHOLD, ruleset: ACTIVE_RULESET } }]
             }
@@ -752,8 +752,8 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'Шкільна форма', quantity: 1 },
                 { name: 'зм', quantity: 10 }
             ],
-            specialAbilityName: 'Артистична Експресія',
-            description: 'Твоя освіта в Прізмарі дала тобі розуміння мистецтва та магії. Ти можеш виступати в коледжі та маєш доступ до студій та творчих просторів. Твоя здатність поєднувати магію та мистецтво створює вражаючі результати.',
+            specialAbilityName: "Prismari Initiate",
+            description: "Ви отримуєте рису Посвячений Стріксхейвена (Прізмарі){{Strixhaven Initiate (Prismari)}} і маєте обрати в ній Prismari.\n\nЯкщо ви маєте здібність Чаротворення{{Spellcasting}} або Магія угоди{{Pact Magic}}, заклинання з наведеного нижче списку додаються до списку заклинань вашого чаротворчого класу. Якщо ви мультикласовий персонаж із кількома списками заклинань, вони додаються до всіх цих списків.\n\n1-й рівень: <a href=\"/spells/chromatic-orb\">Кольорова кулька [Chromatic Orb]</a>, <a href=\"/spells/thunderwave\">Громова хвиля [Thunderwave]</a>.\n\n2-й рівень: <a href=\"/spells/flaming-sphere\">Палюча сфера [Flaming Sphere]</a>, <a href=\"/spells/kinetic-jaunt\">Кінетичний скік [Kinetic Jaunt]</a>.\n\n3-й рівень: <a href=\"/spells/haste\">Прискорення [Haste]</a>, <a href=\"/spells/water-walk\">Ходіння по воді [Water Walk]</a>.\n\n4-й рівень: <a href=\"/spells/freedom-of-movement\">Свобода рухів [Freedom of Movement]</a>, <a href=\"/spells/wall-of-fire\">Стіна вогню [Wall of Fire]</a>.\n\n5-й рівень: <a href=\"/spells/cone-of-cold\">Конус холоду [Cone of Cold]</a>, <a href=\"/spells/conjure-elemental\">Зʼява стихійника [Conjure Elemental]</a>.\n\nПоміркуйте, як змінити вигляд ваших заклинань під час накладання. Заклинання Prismari можна супроводжувати динамічними рухами й жестами: це водночас танець і соматичний компонент. Навіть спалах вогню у ваших руках стає витвором мистецтва, а стихійні сили складаються у грандіозні візерунки. Після розсіювання заклинань ці сили можуть залишатися декоративними елементами на вашому тілі чи одязі: іскри танцюють у волоссі, а дотик залишає сліди інею.",
             gainsFeats: {
                 connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_PRISMARI, ruleset: ACTIVE_RULESET } }]
             }
@@ -772,8 +772,8 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'Шкільна форма', quantity: 1 },
                 { name: 'зм', quantity: 15 }
             ],
-            specialAbilityName: 'Математична Точність',
-            description: 'Твоє навчання в Квандриксі дало тобі глибоке розуміння математики та природних законів. Ти маєш доступ до наукових лабораторій та бібліотек коледжу. Твоє розуміння патернів та чисел дає тобі перевагу в аналітичних задачах.',
+            specialAbilityName: "Quandrix Initiate",
+            description: "Ви отримуєте рису Посвячений Стріксхейвена (Квандрікс){{Strixhaven Initiate (Quandrix)}} і маєте обрати в ній Quandrix.\n\nЯкщо ви маєте здібність Чаротворення{{Spellcasting}} або Магія угоди{{Pact Magic}}, заклинання з наведеного нижче списку додаються до списку заклинань вашого чаротворчого класу. Якщо ви мультикласовий персонаж із кількома списками заклинань, вони додаються до всіх цих списків.\n\n1-й рівень: <a href=\"/spells/entangle\">Обплутування [Entangle]</a>, <a href=\"/spells/guiding-bolt\">Спрямований заряд [Guiding Bolt]</a>.\n\n2-й рівень: <a href=\"/spells/enlarge-reduce\">Збільшення/Зменшення [Enlarge/Reduce]</a>, <a href=\"/spells/vortex-warp\">Вихрове переміщення [Vortex Warp]</a>.\n\n3-й рівень: <a href=\"/spells/aura-of-vitality\">Аура живучості [Aura of Vitality]</a>, <a href=\"/spells/haste\">Прискорення [Haste]</a>.\n\n4-й рівень: <a href=\"/spells/control-water\">Контроль води [Control Water]</a>, <a href=\"/spells/freedom-of-movement\">Свобода рухів [Freedom of Movement]</a>.\n\n5-й рівень: <a href=\"/spells/circle-of-power\">Коло сили [Circle of Power]</a>, <a href=\"/spells/passwall\">Створити прохід [Passwall]</a>.\n\nПоміркуйте, як змінити вигляд ваших заклинань під час накладання. Заклинання Quandrix можуть проявлятися серед калейдоскопічних вихорів фрактальних візерунків, які підсилюють найменші рухи ваших соматичних компонентів. Коли магія створює або змінює істот, вона може ненадовго оточувати цілі мерехтливими фрактальними чи мозаїчними візерунками.",
             gainsFeats: {
                 connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_QUANDRIX, ruleset: ACTIVE_RULESET } }]
             }
@@ -791,8 +791,8 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'Шкільна форма', quantity: 1 },
                 { name: 'зм', quantity: 15 }
             ],
-            specialAbilityName: 'Риторична Майстерність',
-            description: 'Як студент Срібного Пера, ти навчений мистецтву переконання та красномовства. Твої слова мають вагу, і ти маєш доступ до літературних ресурсів коледжу. Твоя здатність формулювати аргументи та впливати на інших високо цінується.',
+            specialAbilityName: "Silverquill Initiate",
+            description: "Ви отримуєте рису Посвячений Стріксхейвена (Сілверквіл){{Strixhaven Initiate (Silverquill)}} і маєте обрати в ній Silverquill.\n\nЯкщо ви маєте здібність Чаротворення{{Spellcasting}} або Магія угоди{{Pact Magic}}, заклинання з наведеного нижче списку додаються до списку заклинань вашого чаротворчого класу. Якщо ви мультикласовий персонаж із кількома списками заклинань, вони додаються до всіх цих списків.\n\n1-й рівень: <a href=\"/spells/dissonant-whispers\">Дисонуючий шепіт [Dissonant Whispers]</a>, <a href=\"/spells/silvery-barbs\">Сріблясті шпильки [Silvery Barbs]</a>.\n\n2-й рівень: <a href=\"/spells/calm-emotions\">Вгамування емоцій [Calm Emotions]</a>, <a href=\"/spells/darkness\">Темрява [Darkness]</a>.\n\n3-й рівень: <a href=\"/spells/beacon-of-hope\">Маяк надії [Beacon of Hope]</a>, <a href=\"/spells/daylight\">Денне світло [Daylight]</a>.\n\n4-й рівень: <a href=\"/spells/compulsion\">Примушування [Compulsion]</a>, <a href=\"/spells/confusion\">Спантеличення [Confusion]</a>.\n\n5-й рівень: <a href=\"/spells/dominate-person\">Підкорення особистості [Dominate Person]</a>, <a href=\"/spells/rarys-telepathic-bond\">Телепатичний звʼязок Рері [Rary's Telepathic Bond]</a>.\n\nПоміркуйте, як змінити вигляд ваших заклинань під час накладання. Заклинання Silverquill можуть супроводжуватися зображеннями чорнильних плям або хвилями золотого світла. Звукові ефекти часто нагадують посилене відлуння вашого голосу, який вимовляє вербальні компоненти заклинань, навіть серед гуркоту блискавок чи вогняного виверження.",
             gainsFeats: {
                 connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_SILVERQUILL, ruleset: ACTIVE_RULESET } }]
             }
@@ -811,8 +811,8 @@ export const seedBackground = async (prisma: PrismaClient) => {
                 { name: 'Шкільна форма', quantity: 1 },
                 { name: 'зм', quantity: 15 }
             ],
-            specialAbilityName: 'Знання Життя та Смерті',
-            description: 'Твоє навчання в Візерблум дало тобі розуміння життєвої сили та некромантії. Ти маєш доступ до ботанічних садів, алхімічних лабораторій та гербаріїв. Твоє розуміння балансу між життям та смертю дає тобі унікальні можливості.',
+            specialAbilityName: "Witherbloom Initiate",
+            description: "Ви отримуєте рису Посвячений Стріксхейвена (Візерблум){{Strixhaven Initiate (Witherbloom)}} і маєте обрати в ній Witherbloom.\n\nЯкщо ви маєте здібність Чаротворення{{Spellcasting}} або Магія угоди{{Pact Magic}}, заклинання з наведеного нижче списку додаються до списку заклинань вашого чаротворчого класу. Якщо ви мультикласовий персонаж із кількома списками заклинань, вони додаються до всіх цих списків.\n\n1-й рівень: <a href=\"/spells/cure-wounds\">Лікування ран [Cure Wounds]</a>, <a href=\"/spells/inflict-wounds\">Завдання ран [Inflict Wounds]</a>.\n\n2-й рівень: <a href=\"/spells/lesser-restoration\">Мале відновлення [Lesser Restoration]</a>, <a href=\"/spells/wither-and-bloom\">Вʼянення і цвітіння [Wither and Bloom]</a>.\n\n3-й рівень: <a href=\"/spells/revivify\">Відродження [Revivify]</a>, <a href=\"/spells/vampiric-touch\">Вампіричний дотик [Vampiric Touch]</a>.\n\n4-й рівень: <a href=\"/spells/blight\">Усихання [Blight]</a>, <a href=\"/spells/death-ward\">Захист від смерті [Death Ward]</a>.\n\n5-й рівень: <a href=\"/spells/antilife-shell\">Оболонка проти живих [Antilife Shell]</a>, <a href=\"/spells/greater-restoration\">Більше відновлення [Greater Restoration]</a>.\n\nПоміркуйте, як змінити вигляд ваших заклинань під час накладання. Для заклинань Witherbloom можна використовувати матеріальні компоненти або чаротворчий фокус із болотного середовища цього коледжу, а їхні ефекти можуть нагадувати ці природні елементи. Серед ефектів ваших заклинань можуть виникати примарні обриси болотних тварин чи рослин.",
             gainsFeats: {
                 connect: [{ name_ruleset: { name: Feats.STRIXHAVEN_INITIATE_WITHERBLOOM, ruleset: ACTIVE_RULESET } }]
             }

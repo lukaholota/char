@@ -1,0 +1,367 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-evoker-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+    "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04"
+  },
+  "exampleSection": "section-example-school-of-evocation-build-the-grenadiers-march",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_EVOCATION",
+  "raceKey": "HUMAN_2014",
+  "variantKey": "HUMAN_VARIANT",
+  "backgroundKey": "SAGE",
+  "featKey": "RESILIENT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 15,
+    "WIS": 8,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "subclassKey": "SCHOOL_OF_EVOCATION",
+      "spells": {
+        "spellbookKeys": [
+          "absorb-elements",
+          "tashas-caustic-brew"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "spells": {
+        "spellbookKeys": [
+          "shatter",
+          "tashas-mind-whip"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "classKey": "WIZARD_2014",
+      "featKey": "WAR_CASTER",
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "misty-step",
+          "web"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "fireball",
+          "lightning-bolt"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "melfs-minute-meteors",
+          "fly"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "hypnotic-pattern",
+          "sickening-radiance"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "spellbookKeys": [
+          "wall-of-fire",
+          "greater-invisibility"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "polymorph",
+          "cone-of-cold"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "dawn",
+          "synaptic-static"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "wall-of-force",
+          "wall-of-stone"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "spellbookKeys": [
+          "chain-lightning",
+          "sunbeam"
+        ]
+      }
+    },
+    {
+      "level": 13,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "otilukes-freezing-sphere",
+          "disintegrate"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "true-seeing",
+          "crown-of-stars"
+        ]
+      }
+    },
+    {
+      "level": 15,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "delayed-blast-fireball",
+          "whirlwind"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "spellbookKeys": [
+          "forcecage",
+          "plane-shift"
+        ]
+      }
+    },
+    {
+      "level": 17,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "maddening-darkness",
+          "sunburst"
+        ]
+      }
+    },
+    {
+      "level": 18,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "clone",
+          "maze"
+        ]
+      }
+    },
+    {
+      "level": 19,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "spellbookKeys": [
+          "wish",
+          "meteor-swarm"
+        ]
+      }
+    },
+    {
+      "level": 20,
+      "classKey": "WIZARD_2014",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Володіння флейтою замість мови",
+      "reason": "Автор створює власну передісторію на основі Мудреця й обмінює одну мову на флейту; пресет не записує обмін мов на інструменти, тому лишається стандартний Мудрець з двома мовами.",
+      "section": "section-background"
+    },
+    {
+      "field": "Покращення здібності (4-й рівень)",
+      "reason": "На 4-му рівні автор називає три заклинання (Покращення здібності, Туманний крок, Павутиння), хоч Чарівник додає до книги два, а Покращення здібності немає у списку Чарівника. Пресет бере Туманний крок і Павутиння.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання книги на рівнях 5–20",
+      "reason": "Автор місцями називає по три заклинання на рівень (5-й, 9-й, 11-й, 13-й), хоч Чарівник додає до книги лише два. Пресет записує названі заклинання по два на рівень у порядку автора, не раніше доступного кола; зайві переходять на наступні рівні, а вільні місця (замовляння 4-го та 10-го рівнів і місця наприкінці) — вибір платформи, автор не називає; можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Майстерність заклинань і Фірмові заклинання",
+      "reason": "Автор називає Щит і Туманний крок для Майстерності заклинань (18-й рівень) та Вогнекулю й Заряд блискавки для Фірмових заклинань (20-й), але каталог не має вибору цих заклинань, тож гравець обирає їх на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-evoker-2014.webp",
+    "title": "Чарівник Школи втілення — Варіант людини",
+    "description": "Варіант людини з рисою «Стійкий (Статура)» на 1-му рівні: Спритність 16, Інтелект 16, Статура 16 і володіння ряткидком Статури. Три наступальні замовляння й шість заклинань у книзі.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "INT"
+    ],
+    "skills": {
+      "selectedClass": [
+        "INVESTIGATION",
+        "RELIGION"
+      ],
+      "race": [
+        "NATURE"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DRACONIC",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": "Resilient (Constitution)",
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "mind-sliver",
+        "thunderclap",
+        "toll-the-dead"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "magic-missile",
+        "mage-armor",
+        "shield",
+        "silvery-barbs",
+        "sleep",
+        "thunderwave"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "mage-armor",
+        "magic-missile",
+        "shield",
+        "thunderwave"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Три замовляння й шість заклинань книги взято з авторського старту 1-го рівня. Початкову підготовку чотирьох заклинань з цієї книги ми обрали за вас: автор її не називає.",
+      "platformChoices": [
+        "preparedSpells"
+      ]
+    },
+    "abilityExplanation": "Варіант людини з +1 до Спритності й Інтелекту та рисою «Стійкий (Статура)» (+1 до Статури), як у таблиці автора: Спритність 16, Інтелект 16, Статура 16.",
+    "skillExplanation": "Автор радить Розслідування й Релігію від класу, Природу від Варіанта людини, Магію та Історію від Мудреця. Три мови (одну від раси, дві від Мудреця) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Кинджал, мішечок із компонентами й набір ученого ми обрали за вас; їх можна змінити."
+  }
+}

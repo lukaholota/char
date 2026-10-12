@@ -1,0 +1,920 @@
+{
+  "buildId": "build-bugbear-fiend-warlock-2014",
+  "revisionId": "build-bugbear-fiend-warlock-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "Збірка 3: Ведмебай-Чорнокнижник",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+      "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+      "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+      "sectionId": "section-example-2",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WARLOCK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "FIEND"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "PERCEPTION",
+          "STEALTH"
+        ],
+        "multiclassSkills": [
+          "INSIGHT"
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Archery"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          },
+          {
+            "optionNameEng": "Devil's Sight"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "DRACONIC_BLOODLINE",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Red Dragon (Fire)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 4
+          },
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Quickened Spell"
+          },
+          {
+            "optionNameEng": "Subtle Spell"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Chain"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ALERT",
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ASSASSIN",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Repelling Blast"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Spear"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Fiendish Vigor"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+          "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+          "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+          "sectionId": "section-levels-3",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Mask of Many Faces"
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "FIEND",
+    "raceKey": "BUGBEAR_MPMM",
+    "backgroundKey": "SAILOR",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-3",
+        "title": "Характеристики",
+        "text": "Спираємося на Харизму, але потрібна Спритність для ініціативи. Доводимо Спритність, Статуру й Харизму до 16. Для риси з +1 характеристики можна перенести расовий +1 зі Статури до Харизми. Примітка редакції: звіряйте фактичну таблицю нижче — авторський текст і числа можуть відрізнятися.\n\n Базові Підвищені Сила 8 8 Спритність 15 16 Статура 15 16 Інтелект 8 8 Мудрість 8 8 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-ability-scores-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-4",
+        "title": "Риси",
+        "text": "Пильний{{Alert}}. Підвищень мало; примноження користі Харизми важко проміняти на щось менш важливе.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-feats-4",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Otherworldly Patron: Почвара Dark One’s Blassing",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Експертиза – Perception – Непомітність Підступна атака +1d6 Thieves’ Cant",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Бойовий Стиль (На вибір) Друге дихання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Invocations – Мучливий вибух [Agonizing Blast] – На вибір 1",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Сплеск дій{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Чаротворення Походження чародія: На вибір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Джерело магії{{Font of Magic}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Метамагія – Пришвидшене заклинання – Приховане заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Дар пакту{{Pact Boon}}: На вибір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Feat: Пильний",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Хитра дія{{Cunning Action}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Assassinate{{Assassinate}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Звернення: – На вибір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Власна удача бісів{{Dark One’s Own Luck}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Звернення: – На вибір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Підвищення характеристик: Харизма 16 -> 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Звернення: – На вибір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Бісівська стійкість{{Fiendish Resilience}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Mystic Arcanum: На вибір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Підвищення характеристик: Харизма 18 -> 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Мультиклас Чорнокнижник/Пройдисвіт/Воїн/Чародій: вибори, яких автор не називає",
+        "reason": "Порядок рівнів за таблицею статті: Чорнокнижник 1, Пройдисвіт 1, Воїн 1, Чорнокнижник 2, Воїн 2, Чародій 1–3, Чорнокнижник 3–4 (Пильний на 10-му), Пройдисвіт 2–3 (Убивця), Чорнокнижник 5–12 (Харизма +2 на 16-му й 20-му). Автор пише «На вибір» без назв, тож за вас обрано: Бойовий стиль Воїна — Archery; походження чародія — Draconic Bloodline, предок Red Dragon (Fire); Дар пакту — Pact of the Chain; звернення Devil's Sight (на 4-му), Repelling Blast, Eldritch Spear, Fiendish Vigor і Mask of Many Faces (на 20-му; кожне з цих — відкрите на листі); заклинання й замовляння Чорнокнижника та Чародія лишено відкритими для вибору на листі. Містичний арканум 6-го кола (19-й рівень) не названий автором: рівень пройдено, заклинання обирається на листі. Це вибір платформи, автор його не називає; після створення можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Експертиза Пройдисвіта (2-й рівень)",
+        "reason": "Автор бере експертизу в Уважності та Непомітності. Уважність (як навичку) отримано з передісторії Моряка, а Непомітність — від Ведмебая; експертиза збігається з авторською.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-levels-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Походження та спорядження",
+        "reason": "Автор не називає передісторію, навички, мови й спорядження; названо лише расу Ведмебай з +1 до Спритності, Статури й Харизми та легкий арбалет до Мучливого вибуху. Передісторію Моряка (потрібна Уважність для експертизи), мову й спорядження обрано як вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-ability-scores-3",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Навичка при вході в клас Пройдисвіт (2-й рівень)",
+        "reason": "Пройдисвіт, взятий другим класом, дає одну навичку зі свого списку. Автор її не називає, тому Проникливість обрано за вас (вибір платформи); після створення її можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+            "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+            "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+            "sectionId": "section-ability-scores",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

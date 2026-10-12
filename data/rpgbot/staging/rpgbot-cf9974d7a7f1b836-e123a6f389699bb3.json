@@ -1,0 +1,2563 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e123a6f389699bb39e25152098a070f4b96f574cd5804aef15c6a1783848316d",
+  "sourceRevision": {
+    "revisionId": "rpgbot-cf9974d7a7f1b836-e123a6f389699bb3",
+    "sourceId": "rpgbot-cf9974d7a7f1b836",
+    "fetchedAt": "2026-09-29T19:22:31.531370+00:00",
+    "sourceUpdatedAt": "2026-03-14T15:05:13-04:00",
+    "contentHash": "200a4ce2eea8ab07fa9f301d24baff304e3b4294411c4b9e5b5d68ac0ff2b669",
+    "title": "DnD 5e Warlock Eldritch Invocations Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-cf9974d7a7f1b836-e123a6f389699bb3.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Invocations offer a powerful way to customize your warlock, adding passive buffs, new features, new spellcasting options, and other effects. Selecting your invocations is as important as picking your patron, and knowing what options are available and how to use them is crucial if you want to succeed as a warlock."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While Eldritch Invocations are primarily a Warlock class feature, they’re also available with the Eldritch Adept feat. Options available with Eldritch Adept are addressed below the main Invocations section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Invocations",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 1",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-1"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 3 (Requires Pact Boon)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-3"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 5",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-5"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 7",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-7"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 9",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-9"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 12",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-12"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 15",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-15"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Eldritch Adept Feat",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#eldritch-adept"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-invocations",
+      "heading": "Eldritch Invocations",
+      "sourceAnchor": "invocations",
+      "blocks": [
+        {
+          "blockId": "block-section-invocations-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Invocations frequently have level prerequisites, and are organized below by level. Higher-level invocations aren’t necessarily better than low-level ones, so don’t feel compelled to choose the highest-level invocations that you can get at any given point."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-invocations-level-1",
+      "parentSectionId": "section-invocations",
+      "heading": "Level 1",
+      "sourceAnchor": "invocations-level-1",
+      "blocks": [
+        {
+          "blockId": "block-section-invocations-level-1-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This invocations have no level requirement, so they’re available as soon as you can get them. While most warlocks can’t get an invocation until level 2, races which offer a feat at 1st level allow access to these invocations via the Eldritch Invocation feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-invocations-level-1-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Agonizing Blast",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#AgonizingBlast"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Nearly every Warlock takes this. The damage is simply too good to pass\n\t\tup. The damage grows multiplicatively as you get additional rays, so the\n\t\ttotal additional damage will range from +3 at low levels to a maximum +20 at\n\t\t17th level."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Armor of Shadows",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#ArmorofShadows"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": You already get light armor, and Mage Armor is only +1 AC over studded\n\t\tleather. You don’t get enough invocations to justify wasting one on this.\n\t\tHexblades might consider this to close the AC gap between light/medium and\n\t\theavy armor, but I’m not convinced that this is better than multiclassing to\n\t\tget heavy armor proficiency."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beast Speech",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#BeastSpeech"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Very situational."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beguiling Influence",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#BeguilingInfluence"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Very helpful if you want to be a Face, but you already get Deception as a\n\t\tclass skill option, and you can pick up Persuasion from your background."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Devil’s Sight",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#DevilsSight"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision can be an immense tactical advantage, but it’s negated by a\n\t\ttorch. Devil’s Sight allows you to use magical darkness, including the\n\t\tDarkness spell, to gain a massive advantage over your foes. However, keep in\n\t\tmind that your allies may still struggle to fight in magical darkness so\n\t\tusing this option can often lead to selfish tactics which are frustrating\n\t\tfor your allies.\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Devil’s Sight notably\n\t\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "doesn’t affect how you see in dim light",
+                "href": "https://twitter.com/jeremyecrawford/status/957031642979221504"
+              },
+              {
+                "type": "text",
+                "text": ", so you can get into weird cases where you have trouble seeing things\n\t\t\t\tnear candles, and the right of dim light around many light sources\n\t\t\t\t(torches, etc.) creates a donut of mild inconvenience."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Mind",
+                "href": "https://www.dndbeyond.com/sources/tcoe/warlock#EldritchMind"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Warlocks get very few spell slots, and many of their best spells require\n\t\tConcentration. Advantage on saves to maintain Concentration is a massive\n\t\tasset. Hexblades should consider the War Caster feat instead, but other\n\t\twarlocks will find that Eldritch Mind is sufficient."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Sight",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#EldritchSight"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Nearly every full spellcaster gets Detect Magic, and it can be cast as a\n\t\tritual. The only advantage you get with this is that it works faster than\n\t\tspending 10 minutes to cast it as a Ritual."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Spear",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#EldritchSpear"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": 120 feet is usually enough for most encounters. If the encounter takes\n\t\tplace at greater range than that, you can always move closer."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eyes of the Rune Keeper",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#EyesoftheRuneKeeper"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Pick up Book of Ancient Secrets or the Ritual Caster feat and cast\n\t\tComprehend Languages."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Fiendish Vigor",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#FiendishVigor"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": At a 1-hour duration and without requiring Concentration, you can cast\n\t\tthis repeatedly until you roll the maximum hit points every time you have a\n\t\tfew rounds to do so. Unless you’re sleeping, you should always have this\n\t\trunning. The amount of additional hit points is basically an additional hit\n\t\tdie, so this goes a long way to improve your durability, making this an\n\t\texcellent option for hexblades and any other warlock planning to spend time\n\t\tin melee, but may not be as useful for other warlocks who spend their time\n\t\tfighting at range where they’re (relatively) safe. There are also more\n\t\teffective options like Inspiring Leader wich can provide larger pools of hit\n\t\ttemporary hit points, so if you have room for those options you might take\n\t\tthis early in your career then retrain it to another Invocation."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gaze of Two Minds",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#GazeofTwoMinds"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Very situational. I can’t think of a time to use this repeatedly."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Grasp of Hadar",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#GraspofHadar"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re using Eldritch Blast enough to justify investing in it, you\n\t\tgenerally want to keep enemies away from you. However, the option to pull\n\t\tenemies closer may be helpful for your allies, and you may be able to use\n\t\tthis to keep enemies inside ongoing are effects like Hunger of Hadar."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Lance of Lethargy",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#LanceofLethargy"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A minor nuisance. Effects don’t stack with themselves, so you can’t use\n\t\tthis to repeatedly reduce the target’s speed. The best case I can think of\n\t\tfor this is if you’re heavily reliant on area control spells like Hunger of\n\t\tHadar or Sickening Radiance which rely on ongoing damage being applied over\n\t\tseveral rounds. In those cases, reducing creatures’ speed can help keep\n\t\tenemies in the area. Of course, you can accomplish the same thing by moving\n\t\ttargets with Grasp of Hadar or Repelling Blast, and since Repelling Blast\n\t\tcan work more than once per target they’re likely to be more effective."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Mask of Many Faces",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#MaskofManyFaces"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": In a game involving stealth or intrigue the ability to disguise yourself\n\t\tis a big advantage. The ability to do it at a moment’s notice at no cost\n\t\tallows you to be anyone any time."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Misty Visions",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#MistyVisions"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A clever player with a DM who is willing to play along can accomplish a\n\t\tlot with even a basic illusion. A 15-foot cube is a huge amount of space,\n\t\ttoo. Place illusory walls, doors, statues, or other objects which creatures\n\t\tdon’t expect to move or produce other stimuli like heat or smells, and in\n\t\tmany cases that’s just as good as creating something. If creatures don’t\n\t\trealize that your illusory wall is an illusion, they’re going to treat it\n\t\tlike a wall."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Repelling Blast",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#RepellingBlast"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This can be especially nice as you gain additional rays to keep enemies\n\t\twell out of melee range, but it’s not always useful and at low levels the 10\n\t\tfoot push won’t make a huge difference unless you’re using it to break a\n\t\tgrapple."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Thief of Five Fates",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#ThievofFiveFates"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A passable debuff, but not worth a spell slot. At low levels it may not\n\t\taffect enough creatures to be worth the spell slot and at high levels you\n\t\tshould be doing much more than just penalizing attacks if you’re going to\n\t\tspend one of your precious spell slots."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-invocations-level-3",
+      "parentSectionId": "section-invocations",
+      "heading": "Level 3 (Requires Pact Boon)",
+      "sourceAnchor": "invocations-level-3",
+      "blocks": [
+        {
+          "blockId": "block-section-invocations-level-3-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These invocations don’t technically have a level requirement, but they require Pact Boon which is a 3rd-level feature, so there’s a practical level requirement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-invocations-level-3-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Aspect of the Moon",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#AspectoftheMoon"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Tome) If you really feel like you need this, you should have played an elf or a race that doesn’t sleep like the Warforged.\nEven then, the benefits here are extremely minor compared to most invocations."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Book of Ancient Secrets",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#BookofAncientSecrets"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Tome) This is essentially the Ritual Caster feat. The\n\t\teffects of a feat for the cost of an invocation is pretty great, and since\n\t\tyou are your party’s Wizard-equivalent you might need to be able to access\n\t\timportant ritual spells like Detect Magic. It also replaces the need for\n\t\tseveral of the invocations which give you access to ritual spells, including\n\t\tBeast Speech and Eyes of the Rune Keeper."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gift of the Ever-Living Ones",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#GiftoftheEverLivingOnes"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Chain) This includes healing spells like Healing Word and\n\t\tCure Wounds, but it also includes Hit Dice rolled while resting. This is\n\t\tgood, especially if you take damage a lot, but you shouldn’t be drawing\n\t\tenough fire that this is important."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Improved Pact Weapon",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#ImprovedPactWeapon"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Blade) In a campaign with no magic items, this could be\n\t\treally great. Even if magic items are available, many magic weapons don’t\n\t\toffer +1 to attacks and damage, and any bonus to attack rolls is great. The\n\t\tability to conjure longbows also means that melee warlocks can easily switch\n\t\tto ranged combat, and can entirely forgo Eldritch Blast and the invocations\n\t\twhich warlocks typically spend to optimize it."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Investment of the Chain Master",
+                "href": "https://www.dndbeyond.com/sources/tcoe/warlock#InvestmentoftheChainMaster"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Chain) Essentially required for Pact of the Chain. It’s\n\t\tsimply too good to forgo. Without this, your familiar is a slightly fancier\n\t\tpet than other familiars. Investment of the Chain Master turns it into a\n\t\tpowerful ally.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Weird advice: pick the swim speed. Every familiar worth having already\n\t\t\thas a way to get a fly speed of 40 ft. or greater."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Rebuke of the Talisman",
+                "href": "https://www.dndbeyond.com/sources/tcoe/warlock#RebukeoftheTalisman"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Talisman) Most warlocks don’t have many good uses for their\n\t\tReaction, so this is an interesting option. It also makes the decision about\n\t\twho wears your talisman a bit more impactful. Sure, you can keep it on\n\t\tyourself and use this to push enemies away from you if they attack you. But\n\t\tyou could also put it on a front line ally who’s going to be taking hits\n\t\tconsistently, allowing you to to deal consistent, reliable damage without\n\t\trisking your own safety. Keep in mind that the push effect is mandatory if\n\t\tyou deal the damage, so your melee allies may get annoyed when you make them\n\t\tchase enemies, but you may also force enemies out of their own reach and\n\t\tnegate some of their attacks if they don’t have enough movement to get back\n\t\tinto position to attack."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Voice of the Chain Master",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#VoiceoftheChainMaster"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Chain) Familiars make great scouts, so exploring dangerous\n\t\tplaces through your familiar is a great way to do things. It’s also helpful\n\t\tfor communicating with other creatures at a safe distance. Take Investment\n\t\tof the Chain Master first, but give this some consideration after that."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-invocations-level-5",
+      "parentSectionId": "section-invocations",
+      "heading": "Level 5",
+      "sourceAnchor": "invocations-level-5",
+      "blocks": [
+        {
+          "blockId": "block-section-invocations-level-5-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Cloak of Flies",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#CloakofFlies"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This remains in effect until you dismiss it, making it an excellent buff\n\t\tboth offensively and defensively. Melee warlocks can capitalize on this by\n\t\tdiving into groups of enemies and attempting to catch as many as possible in\n\t\tthe area. If enemies attempt to flee, take opportunity attacks, then chase\n\t\tthem down on the following turn. Against enemies that are especially hard to\n\t\thit, force them into a corner, block their escape, stand next to them, and\n\t\tDodge. The damage is guaranteed and doesn’t allow a save, so against many\n\t\tenemies you can stand still and wait for them to fall over. Still, I\n\t\twouldn’t take this on any warlock except the Hexblade, and Poison damage is\n\t\tcommonly resisted so you can’t always count on it to be effective."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Smite",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#EldritchSmite"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Blade) This is rarely worth a spell slot to activate. The\n\t\tdamage is decent, but you can usually do a lot more by using that spell slot\n\t\tto cast a spell, even if the spell only does damage. Knocking enemies prone\n\t\tis tempting, but it also makes them hard for you to hit with ranged attacks,\n\t\tincluding Eldritch Blast. Your best bet is to reserve this for when you\n\t\tscore a critical hit, at which point you can choose to use Eldritch Smite\n\t\tand double the damage dice."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Far Scribe",
+                "href": "https://www.dndbeyond.com/sources/tcoe/warlock#FarScribe"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Tome) Very cool, but very situational. I love the way that\n\t\tthis invocation works, but it’s just not very useful for most warlocks. Your\n\t\tDM could make this appealing by adding powerful NPCs to the pool of\n\t\tcreatures with whom you can communicate, but that’s heavily dependent both\n\t\ton your DM’s willingness to play along and on those NPCs being conscious,\n\t\thelpful, and willing to respond at any given point. If you’re repeatedly\n\t\tSending “You up?” to people at all hours of the night, they’re eventually\n\t\tgoing to get sick of you.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "As a DM, I would consider adding the warlock’s patron to the list of\n\t\t\tcreatures. That would be a really interesting way to provide semi-direct\n\t\t\tinteraction with the Warlock’s patron, and it could give the DM a great\n\t\t\tway to feed the players information or just generally mess with them."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gift of the Depths",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#GiftoftheDepths"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Only useful in aquatic campaigns, and if you’re in an aquatic campaign\n\t\tyou probably want the ability to function underwater much sooner than 5th\n\t\tlevel."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Maddening Hex",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#MaddeningHex"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": 5 damage as a Bonus Action to the target and targets of your choice\n\t\twithin 5 feet. If you run Hex all day long, this will be constitent, nearly\n\t\tfree damage during most rounds."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Mire the Mind",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#MireoftheMind"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Slow is a good spell, but it doesn’t scale with spell slot and you only\n\t\tget to use it once per day. Save your spell slots for more powerful\n\t\toptions."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "One with Shadows",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#OnewithShadows"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Invisibility is extremely useful. Unfortunately, you need to remain in\n\t\tone place and not do anything to remain invisibile, but you can move, turn\n\t\tinvisible until your next turn, then repeat."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sign of Ill Omen",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#SignofIllOmen"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Bestow Curse is a great single-target debuff with some challenges. It\n\t\tonly affects one target and since you can only cast it once per day with\n\t\tSign of Ill Omen your best bet is to cast it on powerful single targets.\n\t\tHowever, it requires Concentration and allows a saving throw, so there’s a\n\t\tgood chance that the target passes their save and your once-per-day Bestow\n\t\tCurse is wasted. Even if it does work, you’re stuck Concentrating on it and\n\t\tunlike Hex you can’t move the effect between targets. Hex has some overlap\n\t\twith Bestow Curse, providing a similar debuff to ability scores and a\n\t\tsimilar damage buff, but Hex doesn’t allow the target a saving throw and\n\t\tallows you to move the spell between targets so you get considerably more\n\t\tbenefit from your tiny number of spell slots."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Thirsting Blade",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#ThirstingBlade"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Blade) Crucial for Hexblades to keep pace with more\n\t\tconventional melee characters who get Extra Attack at 5th level, but you may\n\t\tdo better with a melee cantrip like Booming Blade unless you’re also looking\n\t\tat options like Great Weapon Master or Sharpshooter. See my article on\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Melee Cantrips vs. Extra Attack",
+                "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tfor a breakdown of the math comparing melee cantrip spells to normal martial\n\t\tattacks."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Tomb of Levistus",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#TombofLevistus"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This is a great panic option, and at 10 temporary hit points per warlock\n\t\tlevel it should be able to absorb basically anything that hits you unless\n\t\tyou’re fighting something with a CR well above your level. However, you’re\n\t\tincapacitated for the turn after you use this, which means you give up your\n\t\tturn to use it. Unless your allies can come to your aid, that could be a\n\t\tserious problem. Because 5e’s death mechanics are so gentle, it may actually\n\t\tbe safer to take the damage and fall unconscious, and have an ally heal you\n\t\tlater."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undying Servitude",
+                "href": "https://www.dndbeyond.com/sources/tcoe/warlock#UndyingServitude"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": You get one skeleton or zombie, and not even a cool one. It’s a generic\n\t\thumanoid skeleton/zombie. CR 1/4. You can’t upcast the spell to get more of\n\t\tthem since you’re not using a spell slot. I guess they could carry your loot\n\t\tor something? Set off traps? If you want a pet, go get a familiar. If you\n\t\twant an undead warrior, cast Summon Undead. I honestly can’t explain why\n\t\tthey didn’t just add Animate Dead to the Warlock’s spell list."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-invocations-level-7",
+      "parentSectionId": "section-invocations",
+      "heading": "Level 7",
+      "sourceAnchor": "invocations-level-7",
+      "blocks": [
+        {
+          "blockId": "block-section-invocations-level-7-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Bewitching Whispers",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#BewitchingWhispers"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Compulsion is a fun crowd-control effect, but it doesn’t scale with spell\n\t\tslot level, you only get to use it once per day, and it’s not effective\n\t\tenough to justify an Invocation."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Dreadful Word",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#DreadfulWord"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Confusion is an unreliable debuff in the best of cases. I would take Mire\n\t\tthe Mind over this any day of the week."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ghostly Gaze",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#GhostlyGaze"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to see through walls, even with limited range, is a huge\n\t\tbenefit for adventurers. Knowing what’s in the next room of a dungeon can\n\t\toften turn a difficult fight into a cakewalk, or it might help you totally\n\t\tcircumvent a problematic encounter."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Protection of the Talisman",
+                "href": "https://www.dndbeyond.com/sources/tcoe/warlock#ProtectionoftheTalisman"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Talisman) Adds an average of +2.5 to a roll. It may be hard\n\t\tto figure out the DC of a save unless your DM is kind enough to tell you,\n\t\tunfortunately, so using this will often be a gamble. If you do figure out\n\t\tthe save DC, you can easily weigh how far you are from success when deciding\n\t\twhether or not to spend the attempt. If you’re off by 1 or 2, definitely do\n\t\tit. If you’re off by 3, do it if the consequences for failure are severe\n\t\t(lots of damage, paralysis, etc.). If you’re off by 4, generally only roll\n\t\tif you’re desperate."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Relentless Hex",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#RelentlessHex"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Potentially useful for melee warlocks. Your movement is typically\n\t\tsufficient, but if an enemy is especially fast or there are barriers in the\n\t\tway you may find this situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickster’s Escape",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#TricktersEscape"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Situational. Freedom of Movement is occasionally great, but you don’t get\n\t\tenough Invocation options or to make this an easy choice, and the fact that\n\t\tyou can only target yourself doesn’t help."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sculptor of Flesh",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#SculptorofFlesh"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Even once per day, Polymorph is a fantastic single-target save-or-suck\n\t\tspell combined with a fantastic utility spell. Turn your enemies into\n\t\tharmless animals, or turn yourself or an ally into something which allows\n\t\tyou to escape, explore, or fight better. However, remember that the target’s\n\t\tmental statistics change, so don’t go turning your allies into animals or\n\t\tthey might forget who they are temporarily."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-invocations-level-9",
+      "parentSectionId": "section-invocations",
+      "heading": "Level 9",
+      "sourceAnchor": "invocations-level-9",
+      "blocks": [
+        {
+          "blockId": "block-section-invocations-level-9-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Ascendant Step",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#AscendantStep"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Warlocks get access to Fly, but it’s hard to justify spending your\n\t\tprecious few spell slots on a buff for yourself. Levitate gets you the\n\t\tbiggest benefit of flight (distance from the ground) at much lower cost.\n\t\tHowever, you still need to concentrate."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gift of the Protectors",
+                "href": "https://www.dndbeyond.com/sources/tcoe/warlock#GiftoftheProtectors"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Tome) Imagine the Half-Orc’s Relentless Endurance trait, but\n\t\tshared between your entire party. While it won’t help you actively\n\t\taccomplish anything, this is a great support option that any party should\n\t\twelcome."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Minions of Chaos",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#MinionsofChaos"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": There are summon spells on the Warlock’s spell list now, so this is\n\t\tobsolete."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Otherworldly Leap",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#OtherworldlyLeap"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Jump is a 1st-level spell, and by this level you can cast Fly."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Whispers of the Grave",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#WhispersoftheGrave"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Speak with Dead is one of my favorite divinations because it grants you\n\t\teasy access to information which is otherwise lost forever. With the ability\n\t\tto cast it at will with no cost means that you can interrogate every random\n\t\tmook you kill in your long, sordid career of murder-hoboing. But keep in\n\t\tmind that the target isn’t compelled to tell you anything helpful, so this\n\t\tisn’t always reliable."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-invocations-level-12",
+      "parentSectionId": "section-invocations",
+      "heading": "Level 12",
+      "sourceAnchor": "invocations-level-12",
+      "blocks": [
+        {
+          "blockId": "block-section-invocations-level-12-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Bond of the Talisman",
+                "href": "https://www.dndbeyond.com/sources/tcoe/warlock#BondoftheTalisman"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Talisman) Teleporting as an Action is often hard to justify\n\t\tin combat. The unlimited range is nice, but if you’re far enough from your\n\t\ttalisman for that to matter you’re doing something very unusual."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Lifedrinker",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#LifeDrinker"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Blade) A must for Blade Warlocks. The bonus stacks with your\n\t\tCharisma (for Hexblades) or Strength/Dexterity (for everyone else) to\n\t\tdamage, so you’re going to have a very solid static damage bonus to your\n\t\tattacks."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-invocations-level-15",
+      "parentSectionId": "section-invocations",
+      "heading": "Level 15",
+      "sourceAnchor": "invocations-level-15",
+      "blocks": [
+        {
+          "blockId": "block-section-invocations-level-15-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Chains of Carceri",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#ChainsofCarceri"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": (Pact of the Chain) Hold Monster is really good, but limiting the targets\n\t\tto three specific creature types dramatically reduces how useful it is. You\n\t\tdo get to use this at will, though, which is tempting. You can’t use it on\n\t\tthe same target until you complete a long rest, but if you’re facing\n\t\tcreatures of the right types you can use this several times in a day, making\n\t\tit a go-to option similar to Eldritch Blast. But, again, it’s limited to\n\t\tjust three creature types."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Master of Myriad Forms",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#MasterofMyriadForms"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you want to disguise yourself, Mask of Many Faces has been available\n\t\tfor a long time. By this level the natural weapons option is terrible, and\n\t\tthe aquatic adaptation option is too situation to make this worthwhile. You\n\t\tmight choose to replace Mask of Many Faces with this since Alter Self’s\n\t\tChange Appearance options has some advantages over Disguise Self (it’s not\n\t\tan allusion), but remember that Alter Self requires Concentration so it’s\n\t\tnot strictly better in every way."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Shroud of Shadow",
+                "href": "https://www.dndbeyond.com/sources/xgte/subclasses#ShroudofShadow"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you have a free moment, you should turn invisible. The only times you\n\t\tshould be visible are when you’re talking to people or when you’ve broken\n\t\tinvisibility."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Visions of Distant Realms",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#VisionsofDistantRealms"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Arcane Eye is one of my favorite scouting options, and the ability to\n\t\tcast it at will makes it even better. Never go into a room without knowing\n\t\texacty what’s inside."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Witch Sight",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#WitchSight"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Invisibility is an illusion, and locating invisibile creatures is\n\t\timportant for a class so dependent on ranged attacks. The 30-foot range is a\n\t\tbig problem, unfortunately, and by this level you’ve had plenty of time to\n\t\tlearn how to handle invisible creatures with AOE spells like Hunger of Hadar\n\t\tand Sickening Radiance."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-eldritch-adept",
+      "heading": "The Eldritch Adept Feat",
+      "sourceAnchor": "eldritch-adept",
+      "blocks": [
+        {
+          "blockId": "block-section-eldritch-adept-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For warlocks, Eldritch Adept gets you an extra invocation. While warlocks get several already, there are enough good options that one more could be very helpful. There’s also the option of taking Eldritch Adept at first level thanks to the Custom Lineage and Variant Human, and starting at first level with something like Agonizing Blast can be very effective. For warlocks taking Eldritch Adept, see the Eldritch Invocations section, above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-eldritch-adept-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For non-warlocks, Eldritch Adept offers a way to get access to an Eldritch Invocation without taking warlock levels. This offers some very interesting options, but the limitations on invocations with prerequisites means that you have a very limited pool of options to choose from. This section offers advice on those invocations specifically intended for non-warlocks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-eldritch-adept-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Armor of Shadows",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#ArmorofShadows"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Take Magic Initiate. Mage Armor’s duration is 8 hours, so one casting\n\t\twill get you through the day.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The one use case for this is School of Abjuration wizards, who can use\n\t\t\tthis to repeatedly cast Mage Armor in order to recharge your Arcane Ward\n\t\t\twithout spending spell slots."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beast Speech",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#BeastSpeech"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Very situational. I would consider a level of druid long before spending\n\t\ta feat to get this."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beguiling Influence",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#BeguilingInfluence"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Take the Skilled feat or the Skill Expert feat, instead."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Devil’s Sight",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#DevilsSight"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Do you have allies who like to use Magical Darkness? This will make that\n\t\tless of a problem."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Mind",
+                "href": "https://www.dndbeyond.com/sources/tcoe/warlock#EldritchMind"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent on nearly any spellcaster, but War Caster provides the same\n\t\tbenefit plus some other stuff."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Sight",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#EldritchSight"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Nearly every full spellcaster gets Detect Magic, and it can be cast as a\n\t\tritual. The only advantage you get with this is that it works faster than\n\t\tspending 10 minutes to cast it as a Ritual."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eyes of the Rune Keeper",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#EyesoftheRuneKeeper"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Cast Comprehend Languages."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Fiendish Vigor",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#FiendishVigor"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The temporary hit points are really tempting, but they don’t scale since\n\t\tyou always cast False Life at first level, so a Constitution increase, the\n\t\tChef feat, the Inspiring Leader feat, or the Tough feat will be more\n\t\teffective ways to pad your hit points."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gaze of Two Minds",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#GazeofTwoMinds"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Very situational. I can’t think of a time to use this repeatedly unless\n\t\tyou were a spellcaster with a familiar or something, in which case you could\n\t\tsolve the same problem by numerous other means including divination\n\t\tspells."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Mask of Many Faces",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#MaskofManyFaces"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you want to cast Disguise Self, take Magic Initiate. If you want\n\t\tconstant disguises, either get proficienct with the Disguise Kit or play a\n\t\tchangeling."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Misty Visions",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#MistyVisions"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A clever player with a DM who is willing to play along can accomplish a\n\t\tlot with even a basic illusion. A 15-foot cube is a huge amount of space,\n\t\ttoo. Place illusory walls, doors, statues, or other objects which creatures\n\t\tdon’t expect to move or produce other stimuli like heat or smells, and in\n\t\tmany cases that’s just as good as creating something. If creatures don’t\n\t\trealize that your illusory wall is an illusion, they’re going to treat it\n\t\tlike a wall."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Thief of Five Fates",
+                "href": "https://www.dndbeyond.com/sources/phb/classes#ThievofFiveFates"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Technically you can select this without having warlock spell slots, which\n\t\tmeans that it’s totally useless. Don’t do that. It’s amusing that you can do\n\t\tit, but it’s a terrible idea."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Agonizing Blast"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Armor of Shadows"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Beast Speech"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Beguiling Influence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Devil’s Sight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Eldritch Mind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Eldritch Sight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Eldritch Spear"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Eyes of the Rune Keeper"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Fiendish Vigor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Gaze of Two Minds"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Grasp of Hadar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Lance of Lethargy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Mask of Many Faces"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Misty Visions"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Repelling Blast"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Thief of Five Fates"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Aspect of the Moon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Book of Ancient Secrets"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Gift of the Ever-Living Ones"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Improved Pact Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Investment of the Chain Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Rebuke of the Talisman"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Voice of the Chain Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Cloak of Flies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Eldritch Smite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Far Scribe"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Gift of the Depths"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Maddening Hex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Mire the Mind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green One with Shadows"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Sign of Ill Omen"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Thirsting Blade"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Tomb of Levistus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Undying Servitude"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Bewitching Whispers"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Dreadful Word"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Ghostly Gaze"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Protection of the Talisman"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Relentless Hex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Trickster’s Escape"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Sculptor of Flesh"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Ascendant Step"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Gift of the Protectors"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Minions of Chaos"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Otherworldly Leap"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Whispers of the Grave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Bond of the Talisman"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Lifedrinker"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Chains of Carceri"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Master of Myriad Forms"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Shroud of Shadow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Visions of Distant Realms"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Witch Sight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Armor of Shadows"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Beast Speech"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Beguiling Influence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Devil’s Sight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Eldritch Mind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Eldritch Sight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Eyes of the Rune Keeper"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Fiendish Vigor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Gaze of Two Minds"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Mask of Many Faces"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Misty Visions"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Thief of Five Fates"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-invocations-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-invocations-level-1-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-invocations-level-1-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-invocations-level-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-invocations-level-3-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-invocations-level-5-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-invocations-level-7-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-invocations-level-9-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-invocations-level-12-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-invocations-level-15-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-eldritch-adept-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-eldritch-adept-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-eldritch-adept-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    }
+  ],
+  "metrics": {
+    "words": 4172,
+    "sections": 12,
+    "blocks": 20,
+    "tables": 0,
+    "ratingSignals": 70
+  },
+  "status": "needs-editorial-review"
+}

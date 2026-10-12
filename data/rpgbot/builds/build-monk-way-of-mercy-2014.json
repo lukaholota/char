@@ -1,0 +1,825 @@
+{
+  "buildId": "build-monk-way-of-mercy-2014",
+  "revisionId": "build-monk-way-of-mercy-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— Застряг на півдорозі",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-way-of-mercy-2014",
+      "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+      "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+      "sectionId": "section-example-build-stuck-halfway",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAY_OF_MERCY",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SLASHER",
+        "featOptions": [
+          {
+            "optionNameEng": "SLASHER Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_METALLIC_DRAGON"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-way-of-mercy-2014",
+          "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+          "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "raceKey": "HALF_ELF_2014",
+    "backgroundKey": "ACOLYTE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Як описано вище.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 17 Статура 15 16 Інтелект 8 8 Мудрість 15 16 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "{{Напівельф (лісовий)|Half-wood elf}}. Беремо заміну «Ельфійської зброї»{{Elven Weapon Training}}, потім змінюємо її далі, обмінявши Володіння довгим мечем на Володіння батогом, а Володіння коротким луком — на Інструменти злодія, бо наші висока Спритність і Мудрість означають, що ми, імовірно, розвідник групи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Послушник{{Acolyte}} має сенс як навчання в монастирі, тож беремо його й обмінюємо Володіння навичками на Уважність і Виживання, щоб скористатися високою Мудрістю. Якщо ж ваш Майстер вигадуватиме проблеми через витрату 52 зм при створенні персонажа Монахом, візьміть «Переслідуваного»{{Haunted One}}, зробіть той самий обмін навичок і продайте безкоштовний набір, щоб профінансувати спорядження.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від класу отримуємо Акробатику й Непомітність, від передісторії — Уважність і Виживання, а від раси — Володіння Інструментами злодія. На 3-му рівні додамо Аналіз Поведінки, Медицину й Набір травника, гарно доповнивши застосування нашої високої Мудрості. Як «тематичний» інструмент, який ми отримуємо від того, що ми Монах, оберіть інструменти чинбаря, щоб змайструвати собі маску.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Гібридна риса, яку ви берете на 4-му рівні, дуже залежатиме від вашого столу. Якщо ваш стіл дозволяє фланкування або має інший спосіб легко отримувати Перевагу на кубику, як-от Варвар Шляху тотемного воїна з Вовком, беріть Ельфійську точність. У такому разі ви будете значно попереду кривої кидків атаки до кінця гри, тож на 8-му й 12-му рівнях підвищуйте Мудрість до максимуму, потім беріть «Дарунок металевого дракона» на 16-му, щоб краще захищати групу, і нарешті доведіть Спритність до 19.\n\nЯкщо легкого способу отримати Перевагу на кубику немає, беріть натомість Рубаку, перенесіть підвищення Спритності на 8-й рівень, а все інше — на крок пізніше.\n\nЦя збірка припускає, що легкого джерела Переваги на кубику у вас немає, бо фланкування — необовʼязкове правило (хоча більше моїх груп його використовували, ніж ні).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Захист без броні, Бойові мистецтва",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Кі, Присвячена зброя, Рух без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Знаряддя милосердя, Рука зцілення, Рука шкоди, Відхилення снарядів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Рубака (Спритність), Повільне падіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Приголомшливий удар, кубик Бойових мистецтв к4 → к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Удари, посилені Кі, Дотик лікаря",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення, Спокій розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Спритність 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Покращення Руху без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Чистота тіла{{Purity of Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Шквал зцілення та шкоди, кубик Бойових мистецтв к6 → к8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Мудрість 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Алмазна душа{{Diamond Soul}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Невмируще тіло{{Timeless Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Мудрість 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Рука найвищого милосердя, кубик Бойових мистецтв к8 → к10",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Порожнє тіло{{Empty Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Дарунок металевого дракона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Досконале Я{{Perfect Self}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Раса",
+        "reason": "Автор бере напівельфа з лісовим походженням і заміною Універсальності навичок на «Ельфійську зброю». Окремого лісового різновиду в каталозі немає, але у Напівельфа є вибір «Ельфійське бойове навчання» (довгий меч, короткий меч, короткий лук, довгий лук); узято його разом із правилами Таші для підвищень (Спритність +2, Статура +1, Мудрість +1), як у таблиці автора.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Володіння зброєю й інструментами раси",
+        "reason": "Автор міняє володіння довгим мечем на батіг, а коротким луком — на інструменти злодія. Платформа записує лише готовий набір «Ельфійського бойового навчання», тому довгий меч і короткий лук лишаються, а батога й інструментів злодія немає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти",
+        "reason": "Автор радить інструменти чинбаря як інструмент Монаха (для маски). Вибір інструмента Монаха пресет не записує; його можна обрати на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Спорядження",
+        "reason": "На 1-му рівні автор грає з довгим луком; пресет бере стандартний набір Монаха (короткий меч, Набір дослідника підземель, дротики) без покупки довгого лука. Запасний варіант із Переслідуваним (продаж набору за золото) не відтворено.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риса 4-го рівня",
+        "reason": "Автор дає дві гілки: Ельфійська точність (якщо стіл має легку Перевагу) або Рубака. Узято Рубаку, як у таблиці рівнів і за припущенням автора.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-way-of-mercy-2014",
+            "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+            "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

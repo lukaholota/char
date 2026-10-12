@@ -1,0 +1,140 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-war-domain-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+    "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79"
+  },
+  "exampleSection": "section-example-war-cleric-build-die-kriegerin-der-zerstorung",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "WAR_DOMAIN",
+  "raceKey": "DRAGONBORN_CHROMATIC",
+  "backgroundKey": "SAGE",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2},
+    {"level": 3},
+    {"level": 4, "featKey": "RESILIENT", "featOptions": [{"optionNameEng": "Resilient (Constitution)"}], "spells": {"cantripKeys": ["light"]}, "section": "section-feats"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 9},
+    {"level": 10, "spells": {"cantripKeys": ["thaumaturgy"]}},
+    {"level": 11},
+    {"level": 12, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "featKey": "GIFT_OF_THE_CHROMATIC_DRAGON", "section": "section-feats"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}], "section": "section-feats"},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [],
+  "incomplete": [
+    {
+      "field": "Підготовлені заклинання 2–20 рівнів",
+      "reason": "Автор називає підготовлені заклинання по рівнях, але підготовку Клірика на вищих рівнях плану не веде жоден модуль платформи; їх готують на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/cleric-war-2014.webp",
+    "title": "Клірик — Домен війни, Хроматичний дракононароджений",
+    "description": "Клірик ближнього бою в кольчузі зі щитом і бойовим молотом: зелений дракононароджений із Статурою 17 та Мудрістю 16. Мудрець додає Магію й Історію.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CON",
+      "WIS",
+      "CON"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Зелений дракон"
+    ],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "c",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Хроматичний дракононароджений за правилами Таші додає +2 до Статури й +1 до Мудрості, як у таблиці автора (Статура 17, Мудрість 16); це вже враховано.",
+    "skillExplanation": "Аналіз поведінки та Релігію автор бере від Клірика, Магію й Історію — від Мудреця. Зелений родовід вказано автором. Дві мови Мудреця ми обрали за вас — автор каже лише «будь-які, що пасують до кампанії».",
+    "equipmentExplanation": "Щит, кольчуга й бойовий молот взяті з авторського прикладу. Легкий арбалет і набір священика ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "toll-the-dead",
+        "word-of-radiance"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Настанова, Дзвін небіжчика й Слово сяйва — авторський рядок 1-го рівня. Підготовлені заклинання Спрямований заряд, Цілюще слово та Захист від зла й добра названо автором; Божу милість і Щит віри автор теж радить, але їх дає домен війни автоматично.",
+      "platformChoices": [],
+      "preparedSpellKeys": [
+        "guiding-bolt",
+        "healing-word",
+        "protection-from-evil-and-good"
+      ]
+    }
+  }
+}

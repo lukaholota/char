@@ -1,0 +1,3404 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "efb6fb74c26c2f427db473b2028516b9062e0b45584f6ffe913affe2babad176",
+  "sourceRevision": {
+    "revisionId": "rpgbot-129418e5b60ef73a-efb6fb74c26c2f42",
+    "sourceId": "rpgbot-129418e5b60ef73a",
+    "fetchedAt": "2026-09-29T19:09:15.936046+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:42:44-04:00",
+    "contentHash": "a32dccb47a28067186f969dcab58fd5d55d1d3f6794dc68555a277314a7cdd66",
+    "title": "MCDM’s DnD 5e Monstrous Companions Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-129418e5b60ef73a-efb6fb74c26c2f42.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Monstrous Companions Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "MCDM Productions’\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Beastheart and Monstrous Companions",
+              "href": "https://shop.mcdmproductions.com/collections/featured/products/beastheart-companions"
+            },
+            {
+              "type": "text",
+              "text": "\n\tintroduces Monstrous Companions, a system for bringing a monster into the\n\tparty as a pet. The system is a bit more complex than using the official\n\tSidekick rules, but that additional complexity brings some fun mechanics which\n\tcan make it very satisfying to play with a companion in the party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tasha’s Cauldron of Everything gave us a satisfying solution for the Beast\n\tMaster Ranger, and the Drakewarden Ranger gave us a way to get a pet dragon.\n\tThe sidekick rules gave us a way to bring many low-CR creatures into the party\n\tin a generic fashion, but only works for creatures of CR up to 1/2, which\n\tseverely limits your options. Monstrous Companions offers a system for making\n\tmonsters work in the party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As of writing this article, we’ve only seen 15 companion options, but that’s\n\talready an impressively diverse roster. The existing options fit a broad range\n\tof personal tastes and tactical options, and MCDM has done a good job of\n\tmaking each creature function in a way that’s thematically and mechanically\n\tunique."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While I wouldn’t bring this rules into every game, I like the advice offered\n\tin the document of comparing the companion to a powerful magic item. If one of\n\tyour players doesn’t have enough buttons to push in combat (maybe they’re\n\tplaying a very simple build like a champion fighter), a Monstrous Companion\n\tcan be both a wonderful storytelling device and a great mechanical addition to\n\ta character. Unfortunately, the optimization aspect may make it difficult for\n\tevery character to be a good caretaker, but if you really want to go this\n\troute you could give your player proficiency in Animal Handling somehow."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Monstrous Companions Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding the Mechanics",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#understanding-the-mechanics"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Caregiver",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#the-caregiver"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Commanding the Companion",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#commanding-the-companion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ferocity and Rampage",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#ferocity-and-rampage"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ferocity Actions",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#ferocity-actions"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Barding",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#barding"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Riding Your Companion",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#riding-your-companion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Monstrous Companion Options",
+                "href": "https://rpgbot.net/dnd5/characters/mcdm-monstrous-companions/#monstrous-companion-options"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-understanding-the-mechanics",
+      "heading": "Understanding the Mechanics",
+      "sourceAnchor": "understanding-the-mechanics",
+      "blocks": [
+        {
+          "blockId": "block-section-understanding-the-mechanics-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re familiar with the Beast Companion Options presented as an Optional\n\tRule for the Ranger in Tasha’s Cauldron of Everything, many parts of the\n\tMonstrous Companion will feel familiar. Much like the Beast Companion, the\n\tMonstrous Companion’s stats are modified by the Caregiver’s level and\n\tProficiency Bonus, and commanding them works the same way."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-caregiver",
+      "parentSectionId": "section-understanding-the-mechanics",
+      "heading": "The Caregiver",
+      "sourceAnchor": "the-caregiver",
+      "blocks": [
+        {
+          "blockId": "block-section-the-caregiver-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each Monstrous Companion will have exactly one caregiver. The caregiver is\n\tresponsible for commanding the companion and for preventing it from going on a\n\trampage. While anyone in the party can fill this role, a few criteria can help\n\tthe party select who makes the best caregiver."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-caregiver-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Animal Handing. Wisdom (Animal Handling) checks are used to prevent\n\t\trampages, so a high bonus is essential."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bonus Actions. Commanding the companion requires a Bonus Action unless you\n\t\tjust want to let it rampage, so characters who lean on their Bonus Action\n\t\theavily are a poor choice for caregiver."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "High Level. The companion’s stats are dependent on the caretaker’s level\n\t\tand Proficiency Bonus, so in parties with varying level it’s help for the\n\t\thighest-level character to be the caretaker."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-the-caregiver-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The criteria mean that a cleric, a druid, or a ranger are often good\n\tcandidates for caregiver depending on their build and their combat tactics.\n\tAnd of course, the Beastheart is built around Monstrous Companions, so they’re\n\tan obvious choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-commanding-the-companion",
+      "parentSectionId": "section-understanding-the-mechanics",
+      "heading": "Commanding the Companion",
+      "sourceAnchor": "commanding-the-companion",
+      "blocks": [
+        {
+          "blockId": "block-section-commanding-the-companion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Commanding the Monstrous Companion takes a Bonus Action. If the companion\n\tdoesn’t receive commands, it will act on its own. Unlike official pet\n\tmechanics (more recent summoning spells, Beast Companions, etc.), the\n\tMonstrous Companion is not limited to the Dodge action. The Monstrous\n\tCompanion can Dash, Dodge, or Disengage on its own, it can take its Bonus\n\tAction on its own. There’s also the possibility of a Rampage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-commanding-the-companion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because companions takes their turn during the Caretaker’s turn, the\n\tCaretaker can intersperse their own actions with their companion’s. For\n\texample, the Caretaker might move, command their companion as a Bonus Action\n\t(which causes their companion to then take their turn), move a bit more, spend\n\ttheir own Action to do something, then move some more."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-and-rampage",
+      "parentSectionId": "section-understanding-the-mechanics",
+      "heading": "Ferocity and Rampage",
+      "sourceAnchor": "ferocity-and-rampage",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-and-rampage-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ferocity is the Monstrous Companion’s in-combat resource pool. It accumulates\n\twhen the Caretaker and the Companion’s shared turn starts, and is spent when\n\tthe companion takes a Ferocity Action, when a Beastheart uses a Primal\n\tExploit, when it completes a Rampage, or when combat ends. Managing the pool\n\tof ferocity is a crucial part of playing a caregiver."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ferocity-and-rampage-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generally you want your companion’s Ferocity as high as possible, but 10 or\n\thigher gets into dangerous territory because it can trigger a rampage. The\n\thigher your Animal Handling bonus is, the safer you are at 10 Ferocity or\n\tmore. Fortunately, if your companion is surrounded by enemies who are causing\n\tits Ferocity to add up, a rampage will typically result in it attacking an\n\tadjacent enemy, so other than losing Ferocity the danger is minimal unless you\n\thave allies fighting adjacent to the companion or riding it. The damage bonus\n\tfrom their lost Ferocity also makes this attack a little bit more impactful\n\tthan usual, so a rampage isn’t a total loss."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ferocity-and-rampage-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In order to collect Ferocity as quickly as possible, it’s helpful to position\n\tyour companion adjacent to multiple foes. Ferocity Actions cost 2, 5, or 8\n\tFerocity, so if you can keep an enemy in melee with your companion, that will\n\tmean that you can almost always use a Ferocity Action rather than resorting to\n\tthe companion’s Signature Attack (the minimum Ferocity gained is 1d4+1 with\n\tone adjacent enemy). You start combat with your companion at 0 Ferocity, so\n\ttheir first turn will almost certainly be spent moving into melee and maybe\n\tmaking a Signature Attack if they don’t need to Dash."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ferocity-and-rampage-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At the end of combat your companion heals an amount equal to their current\n\tFerocity, so if you were amassing Ferocity and didn’t use it, don’t feel bad\n\tabout it. Your companion needs to not be dying, but if they’re stabilized\n\t(grab a Healer’s Kit) and have some Ferocity, they’ll stand up at the end of\n\tcombat with a few hit points. That feels a little silly, but that’s 5e for\n\tyou. It’s no sillier than using Healing Word every round so your fighter can\n\tbe repeatedly beaten unconscious without consequence."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ferocity-and-rampage-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cleverly, MCDM has included a sidebar on the “Bag of Rats” abuse case. They\n\tdon’t want players using that to abuse the Ferocity rules, and encourage DMs\n\tto tell players that it simply doesn’t work. This is good DM advice, and I’m\n\thappy that MCDM was smart enough to encourage a social fix to the abuse case\n\trather than imposing some convoluted mechanical solution to prevent me from\n\twaving rats over my pet basilisk to intentionally make them mad in combat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions",
+      "parentSectionId": "section-understanding-the-mechanics",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each companion has three Ferocity Actions which consume Ferocity in order to\n\tdo something cooler than their Signature Attack. These are all performed as an\n\tAction, so your companion can only do one per turn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ferocity-actions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The first Ferocity Action is immediately available and costs 2 Ferocity. It’s\n\tbasically your companion’s Signature Attack, but spicy. It’ll apply the\n\tcaretaker’s Proficiency Bonus as additional damage (meaning that you’ll add PB\n\tto damage twice for that attack), plus it will have a secondary effect like\n\trepositioning the target."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ferocity-actions-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The second Ferocity Action unlocks when the caretaker reaches level 3 and\n\tcosts 5 Ferocity. These Ferocity Actions are more unique to the companion than\n\ttheir first Ferocity Action, and they’re much more impactful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ferocity-actions-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The third Ferocity Action unlocks when the caretaker reaches level 5 and\n\tcosts 8 Ferocity. The high cost makes these actions difficult to use early in\n\ta fight, but if you can raise Ferocity to 8 or more within one fight, the\n\teffects are excellent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-barding",
+      "parentSectionId": "section-understanding-the-mechanics",
+      "heading": "Barding",
+      "sourceAnchor": "barding",
+      "blocks": [
+        {
+          "blockId": "block-section-barding-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The sidebar on page 6 describes the rules used for barding for Monstrous\n\tCompanions. Normally your companion adds the caregiver’s Proficiency Bonus to\n\ttheir AC, but barding replaces that bonus. A character’s Proficiency Bonus\n\twill be at most +6 (+7 if you have an Ioun Stone of Master, but that’s a\n\tLegendary item), so for some companions you should consider armor just as you\n\twould for a player character."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-barding-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Many companions will have a high base AC, such as the Basilisk Companion,\n\twhich has an impressive 15+PB AC. For those companions, armor isn’t especially\n\thelpful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-riding-your-companion",
+      "parentSectionId": "section-understanding-the-mechanics",
+      "heading": "Riding Your Companion",
+      "sourceAnchor": "riding-your-companion",
+      "blocks": [
+        {
+          "blockId": "block-section-riding-your-companion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "5e’s Mounted Combat rules are one of my favorite punching bags (See my\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Mounted Combat",
+              "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+            },
+            {
+              "type": "text",
+              "text": "\n\tand\n\t"
+            },
+            {
+              "type": "link",
+              "text": "RPGBOT.Podcast Episode 2",
+              "href": "https://rpgbot.net/rpgbot-podcast-episode-2/"
+            },
+            {
+              "type": "text",
+              "text": "), and I think MCDM managed to find a workable solution."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-riding-your-companion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "First, and perhaps most important, companions and caretakers take their turns\n\tat the same time. No more worrying about timing and readying actions just to\n\tmake a mount work in melee. Even better, your companion can move and take the\n\tDash, Dodge, and Disengage actions without you spending a Bonus Action to\n\tcommand it! That means that you can use your companion for hit-and-run melee\n\tattacks without cutting into your action economy."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-riding-your-companion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you use your Bonus Action, you can even have your companion attack. This is especially effective for companions like the bulette which can forcibly move enemies and for the deinonychus which can prevent the target from taking Reactions. Just keep in mind that hit-and-run tactics will typically leave your companion out of melee with enemies (that’s the whole point of hit-and-run tactics) so they won’t be accumulating ferocity as quickly. They still get 1d4 per turn, but if you want more you’ll need to stick around in melee."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-monstrous-companion-options",
+      "heading": "Monstrous Companion Options",
+      "sourceAnchor": "monstrous-companion-options",
+      "blocks": [
+        {
+          "blockId": "block-section-monstrous-companion-options-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Mystic Connection feature is exclusive to the Beastheart, and they\n\trecieve the feature at level 9. Other caretakers cannot benefit from this\n\tfeature and shouldn’t consider it when picking a companion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-12",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Basilisk",
+      "blocks": [
+        {
+          "blockId": "block-section-12-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With 15+PB AC and good hit points, the basilisk is a sturdy melee threat. Its\n\tattacks aren’t especially dangerous, and their Ferocity Actions rely on poison\n\tand Constitution saves, both of which face challenges dues to the prevalence\n\tof poison resistance/immunity and due to Constitution saves being consistently\n\thigh, which doesn’t help in the face of monstrous companions’ meager 10+PB\n\tsave DC. Even the Basilisk’s Heavy Glare Reaction targets a Constitution\n\tsave."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-12-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Basilisk is notably proficient in Athletics, shoving enemies prone is an\n\toption. It won’t keep up with a character for Athletics, but honestly it\n\tdoesn’t need to if you just need it to occasionally knock someone over."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-12-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Altogether, the basilisk is a good option for parties that need an additional\n\tfront-line character, but many of its features won’t be reliable for anyone\n\texcept a Beastheart who can raise its save DCs with Master Caregiver."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-12-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heavy Glare"
+            },
+            {
+              "type": "text",
+              "text": ": This can help frail allies\n\tescape melee and keep melee enemies from moving into reach, provided that the\n\tConstitution saves aren’t a problem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-12-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Absolutely amazing. Use\n\tthis, jump in front of your party, and draw attacks."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-2",
+      "parentSectionId": "section-12",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-2",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Poison Spittle"
+              },
+              {
+                "type": "text",
+                "text": ": A bit of extra damage to\n\t\tthe main target and some damage to a secondary target. Poison resistance is\n\t\tcommon, unfortunately, and the positioning can be difficult since the\n\t\tsecondary target needs to be within 5 feet of the primary target."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Poison Gaze"
+              },
+              {
+                "type": "text",
+                "text": ": I like that this targets 3\n\t\tcreatures, because it means that something might actually fail the Con save\n\t\tagainst your companion’s low save DC. Even so, it face issues with poison\n\t\tresistance/immunity being common on top of Monstrous Companion’s typically\n\t\tpoor save DC and Constitution saves being high on average."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lesser Petrifying Gaze"
+              },
+              {
+                "type": "text",
+                "text": ": For the cost, this\n\t\tis disappointingly unreliable. Constitution saves tend to be high and your\n\t\tcompanions save DCs are low, so enemies passing this save should be the\n\t\texpectation. I understand why the designers didn’t want to give players a\n\t\tsave-or-suck option that could be recharged by standing still, but I don’t\n\t\tthink this is worth the Ferocity unless you’re a beastheart and raise the save DC."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-14",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Blood Hawk",
+      "blocks": [
+        {
+          "blockId": "block-section-14-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A great striker, but very frail. Fewer hit points than most companions, and\n\tit’s riding entirely on Dexterity for AC. If you DM allows it, grab it the\n\theaviest medium armor you can get. Putting a hawk into half plate feels\n\tabsolutely ridiculous, but 17 AC will exceed its unarmored AC for a long time.\n\tFlight is a powerful advantage for the Blood Hawk, but remember that Ferocity\n\tonly recharges while within 5 feet of an enemy, so your companion will need to\n\tspend time in melee rather than relying entirely on hit-and-run attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Blood Hawk’s Reaction allows it to take a hit in place of its caretaker.\n\tThis is thematically excellent, and the caretaker will almost certainly be\n\tmore effective than the companion, so having the hawk take damage to prevent\n\tthe caretaker from dropping to 0 is a good tactical decision.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While it’s only proficient in one skill, the Blood Hawk’s proficiency in\n\tPerception and Keen Sight make it excellent at locating enemies. Coupled with\n\tflight, it’s easy to have your hawk fly above the party to watch for\n\tdanger."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Blood Hawk is an easy fit into almost any party since additional damage\n\toutput is always welcome. The hawk is frail and locked into melee, especially\n\tif you want to charge Ferocity, so you need to be careful about not letting\n\tyour companion draw too many attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Swoop In"
+            },
+            {
+              "type": "text",
+              "text": ": Having your companion tank a hit\n\tfor you is a risky move for most caretakers, so use it cautiously. For the\n\tBeastheart, it takes one minute to bring your companion back to life, so if\n\tthey “die” it’s really not a big deal as long as you and your party can get\n\tthrough the rest of the fight in one piece."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": An hour of flight will\n\tget you through several encounters and over or around many obstacles. It’s not\n\tquite enough for long-distance travel, but for basically anything else this is\n\tfantastic."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-3",
+      "parentSectionId": "section-14",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-3",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Distracting Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Great if your party\n\t\thas big single attacks to follow this with. If you have a rogue in the party\n\t\tor if someone has high-damage attack spells like Inflict Wounds, this is an\n\t\teasy way to grant Advantage in a hurry."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swooping Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Situational. Most\n\t\tenemies don’t hold items. Against the ones who do, disarming them of a\n\t\tweapon, spellcasting focus, or potentially a shield can seriously hinder\n\t\tthem."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Storm of Talons"
+              },
+              {
+                "type": "text",
+                "text": ": Good damage and\n\t\tpotentially blind the target. Against big melee foes (which frequently have\n\t\tpoor Dexterity saves) this is an excellent option. Keep in mind that your\n\t\thawk is left within reach of the target, so unless they’re blinded the hawk\n\t\tmoving away will provoke opportunity attacks."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-16",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Bulette",
+      "blocks": [
+        {
+          "blockId": "block-section-16-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Good AC, tremorsense, a burrow speed, and you can ride it while it burrows.\n\tThe Bulette’s attack options are good, but mostly rely on moving creatures or\n\tknocking them prone."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-16-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is a great addition for a melee-heavy party, and despite its 30-foot\n\tspeed the Bulette is a great mount option. Just remember that you don’t gain\n\tany special ability to breath underground."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-16-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Plated Protection"
+            },
+            {
+              "type": "text",
+              "text": ": The ability to ride your\n\tbulette while it burrows is an amazing tactical advantage. Just remember that\n\tyou can probably neither breath nor see while underground."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-16-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Most creatures can’t do\n\tanything to you while you’re underground, so a burrow speed is a fantastic way\n\tto get in or out of a place undetected, to hide from dangerous enemies, or\n\tgenerally just to travel without being bothered. This is somewhat redundant\n\tsince you can just ride your bulette, but if someone else is riding them or if\n\tit’s not safe for you to ride them at the moment, this is a great substitute.\n\tKeep in mind that you don’t have any additional ability to see or breath while\n\tburrowing, so you’ll need to pop your head out of the ground periodically like\n\tgiant gopher to take a breath, look around, and shout commands to your\n\tcompanion. Conveniently, 5e’s rules allow you to stay buried between rounds,\n\tmove above ground to act, then dart back underground before your turn ends,\n\tmaking you hard to target and infuriating your DM beyond belief."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-4",
+      "parentSectionId": "section-16",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-4",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-4-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Violent Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Repositioning enemies\n\t\tisn’t always necessary, but it’s a useful tactical option at a low cost. You\n\t\tcan reposition enemies to break grapples or to move them away from your\n\t\tcompanion so that it can avoid opportunity attacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Burrowing Trip"
+              },
+              {
+                "type": "text",
+                "text": ": Unless you have allies\n\t\twho can capitalize on the targets being prone, this isn’t helpful.\n\t\tCaretakers share turns with their companion so at least the caretaker can\n\t\trush in to make a melee attack, but otherwise it comes down to where your\n\t\tmelee allies landed in the initiative order."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deadly Leap"
+              },
+              {
+                "type": "text",
+                "text": ": A 30-foot leap on top of the\n\t\tbulette’s movement should get it into melee. If you can target multiple\n\t\tenemies with this, you’ll put the bulette in a good position to recharge its\n\t\tFerocity. The damage is decent, especially if you can hit more than one\n\t\ttarget, but it’s not going to win any fights on its own, so be sure to\n\t\tfollow this with attacks by the rest of the party."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-18",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Deinonychus",
+      "blocks": [
+        {
+          "blockId": "block-section-18-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A striker, plain and simple. The Deinonychus’s AC is poor, and putting it in\n\tmedium or heavy armor will make Clever Girl unreliable. Breastplate will raise\n\tits AC to 16, but that’ll be matched by its unarmored AC once you hit level 5,\n\tso there’s a narrow window where you can buy your dinosaur slightly better\n\tarmor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-18-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Deinonychus makes a good mount for a small rider. With 40-foot move speed it’ll outrun most things (not horses). Overwhelming Attack makes it easy to break melee, Clever Girl is a great way to ambush targets, and Keep Them Down holds foes prone so that you can beat on them with Advantage from the comfort of the saddle."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-18-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Part of the Pack"
+            },
+            {
+              "type": "text",
+              "text": ": Technically situational,\n\tbut undeniable effective. Normally, removing those conditions requires a spell\n\tcast as an Action. You don’t need to spend actions to command your Monstrous\n\tCompanion to use their Bonus Action, so you can even use this while\n\tstunned."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-18-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Neat, but it doesn’t\n\twork often enough that you can make this a staple part of your tactics. More\n\tlikely you’ll use this when you’re injured and need to get out of harm’s way,\n\tor when stealth is unusually helpful for some reason."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-5",
+      "parentSectionId": "section-18",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-5",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-5-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Overwhelming Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Not always\n\t\timportant, but this does allow your whole party to move away from the target\n\t\tsafely, which can get frail allies out of melee or allow your party to rush\n\t\tback-line enemies more easily."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Clever Girl"
+              },
+              {
+                "type": "text",
+                "text": ": The intent here is to hide,\n\t\tmove, then attack with Advantage, or to attack, knock the target prone, then\n\t\trun away and hide. Either option is good, and knocking the target prone\n\t\twithout a further check or save is excellent. However, it encourages\n\t\thit-and-run attacks which can make it difficult to accumulate Ferocity."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Keep Them Down"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent way to\n\t\teliminate single targets, including big melee brutes that are often good at\n\t\tavoiding grapples. The damage is excellent compared to other 5th-level\n\t\tFerocity Actions, and it leaves the target extremely vulnerable to other\n\t\tmelee attacks. The text “A creature knocked prone by this feature can’t\n\t\tstand up until they are no longer grappled.” is unnecessary since that’s\n\t\talready true. You can’t expend movement with a speed of 0, so you can’t\n\t\tstand."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-20",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Dragon Wyrmling",
+      "blocks": [
+        {
+          "blockId": "block-section-20-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Good AC. Flight, but not very fast. A ranged attack and a breath weapon, but\n\tlittle tactical application beyond damage. The companion gets a damage\n\timmunity and grants resistance to the caretaker. The wyrmling is a decent all\n\taround companion that will fit into any party, but it doesn’t excel in any\n\tspecific capacity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-20-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since it’s medium and can fly, the wyrmling makes a suitable mount for small\n\tcreatures. Just keep in mind that if you keep it out of melee it won’t\n\trecharge Ferocity very quickly. If you’re okay with that, you and your dragon\n\tcan fight at range safely using Spit Breath and whatever ranged weapon you\n\twant to wave about."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-20-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re familiar with dragons in Dungeons and Dragons, the fact that the\n\twyrmling only has 5 Intelligence is a little bit odd. Dragon wyrmlings are\n\ttypically at least human-level intelligent and already speak draconic (except\n\tfor white dragons, who are barely smarter than most animals), so this wyrmling\n\tis apparently so freshly hatched that it’s less intelligent than a typical\n\twyrmling. Just ignore it. You want a dragon in your party? You’ll need to make\n\tsome compromises."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-20-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shared Resistance"
+            },
+            {
+              "type": "text",
+              "text": ": Persistent damage\n\tresistance is always nice. Getting the resistance constantly may be enough to\n\tjustify picking fire or poison as youre companion’s damage type."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-20-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": 1d10 is a decent damage\n\tboost, and curiously this feature doesn’t require you to be the one to use the\n\tweapon, just that you’re the one holding it when you use this. Borrow your\n\tparty’s Fighter’s weapon, set it on fire (or acid or whatever) and hand it\n\tback. The 10-minute duration will get you through a fight or two with enough\n\twiggle room that you can activate this ahead of time and go looking for\n\ttrouble."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-6",
+      "parentSectionId": "section-20",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-6",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-6-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Spit Breath"
+              },
+              {
+                "type": "text",
+                "text": ": A little extra damage and it\n\t\tworks at range. Unfortunately you can’t use it in melee without suffering\n\t\tDisadvantage, so your companion will need to pull itself out of melee to\n\t\tmake this effective. Fortunately, the 1d4 Ferocity generated each turn\n\t\twithout being in melee with generate 2.5 Ferocity on average, so you can use\n\t\tthis nearly every turn and keep your dragon at a safe distance."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Frightful Presence"
+              },
+              {
+                "type": "text",
+                "text": ": Really good crowd\n\t\tcontrol. Frightening targets, even for just one or two rounds, can give your\n\t\tparty a huge advantage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Breath Weapon"
+              },
+              {
+                "type": "text",
+                "text": ": Go for a cone AOE. Using a\n\t\tline is hard enough, and using it from above is basically a single-target\n\t\tattack. The damage isn’t great, so you want to hit multiple targets if\n\t\tyou’re going to spend this much Ferocity."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-22",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Earth Elemental",
+      "blocks": [
+        {
+          "blockId": "block-section-22-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A good front-line tank, but it’s ineffective against fast foes and ranged\n\tattackers. Between Darkvision, Tremorsense, and Earth Walk, it can go and\n\tfunction anywhere on the ground, and in a game that frequently moves\n\tunderground the Earth Elemental will be very effective."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-22-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Earth Elemental has a lot of overlap with the Bulette. They share\n\tTremorsense and an ability which knock foes prone, but the Earth Elemental is\n\tless useful as a mount (if you can ride it at all), and trades that capability\n\tfor better crowd control. The Earth Elemental excels are keeping enemies from\n\tmoving freely while also making it easy of their caretaker to get around,\n\tespecially with Toss Me."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-22-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Earth Elemental has Earth Glide, allowing it to move through stone.\n\tThat’s a fantastically powerful capability, but your companion has 5\n\tintelligence and can only understand enough language to obey simple commands,\n\tso it can be difficult to make Earth Glide consistently useful. Usually the\n\tbest you can do is command it to move through obstacles to push buttons or\n\tattack single foes or other simple tasks like that."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-22-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Toss Me"
+            },
+            {
+              "type": "text",
+              "text": ": Sadly this only works on the\n\tCaretaker. You can use this to get over small obstacles that you can’t jump\n\tover, and in combat it can get you some extra move speed, but the distance\n\tisn’t huge so it’s rarely going to impress you. It is fun, though."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-22-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Walk through the walls of\n\tcastles, dungeons, and caves. This is an amazing way to infiltrate or escape\n\tsomewhere that might otherwise be impenetrable without spells like Passwall or\n\tDisintegrate or teleportation of some kind. All those times that other\n\tcaretakers wish that their elemental companion was smart enough to follow\n\tcomplex instructions, you can turn this on and say “Look at me. I’m the earth\n\telemental now.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-7",
+      "parentSectionId": "section-22",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-7",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-7-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Stretch Attack"
+              },
+              {
+                "type": "text",
+                "text": ": A great way for your\n\t\tcompanion to pull foes into melee with it so that it can rapidly gain\n\t\tFerocity. If enemies don’t move away, follow with Earthshaker to knock them\n\t\tprone, then have your party beat on them in melee."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Earthshaker"
+              },
+              {
+                "type": "text",
+                "text": ": Not as easy to apply as the\n\t\tBulette’s Burrowing Trip or Deadly Leap since it doesn’t give the Earth\n\t\tElemental extra movement, but if you can march your companion into a crowd\n\t\tit’s still effective. Just be sure that the rest of your party capitalizes\n\t\ton the targets being prone before they get back up."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Transmute Ground"
+              },
+              {
+                "type": "text",
+                "text": ": Many enemies have poor\n\t\tStrength saves, and those same enemies generally are no proficient in\n\t\tAthletics, so once those enemies are under this effect they’re going to be\n\t\tstuck there for a long time."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-24",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Gelatinous Cube",
+      "blocks": [
+        {
+          "blockId": "block-section-24-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Terrible AC and it can’t wear armor, but at least it has decently high hit\n\tpoints. The cube is also hard to notice if it hasn’t moved or attacked, so if\n\tyou can set the cube in the middle of a room before combat starts, it can\n\taccumulate Ferocity until it’s ready to Engulf things."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-24-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The cube’s blindsight makes it effective at locating invisible enemies, and\n\tif it can Engulf them the cube can frequently handle those threats on its own.\n\tThe Restrained condition negates the Disadvantage to hit invisible creatures,\n\tso the Caretaker can move into the cubes space and attack unimpeded."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-24-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Gelatinous Cube is complex, and has a sort of high-risk high-reward play\n\tstyle. Slime Showed works against crowds while Engulf works against single\n\tfoes, but both leave the Gelatinous Cube vulnerable despite the conditions\n\tapplied to the Cube’s targets. Expect to spend a lot of time protecting and\n\thealing your Gelatinous Cube"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-24-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Well this is profoundly\n\tweird, but you somehow made friends with an ooze, so I guess wierd is the\n\torder of the day. Tiny objects might include things like weapons, keys,\n\tpotions, or contraband. That’s a fun utility, but you’ll need to be creative\n\tto make it matter. The easier part is the acid damage countermeasure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-8",
+      "parentSectionId": "section-24",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-8",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-8-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Burning Acid"
+              },
+              {
+                "type": "text",
+                "text": ": Most creatures can’t heal\n\t\tin combat, so the primary function here is reach, which is only\n\t\tsituationally important. In most cases you can just walk closer."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slime Shower"
+              },
+              {
+                "type": "text",
+                "text": ": March your slime into a\n\t\tcrowd and spam this every turn. If you can, assist your slime by shoving\n\t\tenemies prone. With 0 speed, they can’t stand up, and they’ll have\n\t\tDisadvantage on attacks so they’ll struggle to hit your slime. The damage is\n\t\tminor and the DC isn’t great, so unfortunately enemies will pass the save\n\t\tfrequently, but against crowds of relatively week foes this is decent crowd\n\t\tcontrol."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Engulf"
+              },
+              {
+                "type": "text",
+                "text": ": Brutally effective. The damage\n\t\tisn’t amazing and the DC isn’t especially high, but once a creature is\n\t\tengulfed it’s in serious trouble. Escaping takes an action and a Strength\n\t\tcheck (not a save), and even strength-based creatures will frequently have\n\t\tpoor odds of succeeding on that check, and they take damage automatically\n\t\twith no save every round while the Gelatinous Cube can still fight other\n\t\tthings (though retreating to safely digest its meal is often a good choice).\n\t\tEngulfed creatures can attack the Gelatinous Cube, but since they’re\n\t\tRestrained they do so at Disadvantage. Even so, the Gelatinous Cube’s horrid\n\t\tAC may be a problem. The Caretaker can attack engulfed creatures safely, so\n\t\tcapitalize on Engulf by moving into the Cube’s space and attacking whatever\n\t\tit engulfs."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-26",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Giant Spider",
+      "blocks": [
+        {
+          "blockId": "block-section-26-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Low AC and low hit points, so you want to get this thing armor if you can.\n\tIt’s build for Stealth, so a breastplate will raise its AC to 16, which will\n\thelp until your Proficiency Bonus increases to +3 at level 5. With Darkvision\n\tand Stealth proficiency, this thing is built to sneak around in the dark and\n\tambush people. Of course, you might abandon that idea and stick it in full\n\tplate since it has enough Strength that doing so won’t slow it down."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-26-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Giant Spider’s tactics are pretty simple: ambush one weak target. Hold\n\tthem down with Destabilizing Attack, which will offset the Giant Spider’s poor\n\tAC. Once that target is down, Web another target, then move to them and\n\trepeat, ideally eliminating them before they can escape the web. If the spider\n\tgets mobbed, use Bite Frenzy and either run away or press the attack depending\n\ton how things are going."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-26-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It also serves as a weirdly effective mount. Since spiders can walk on\n\tceilings, you can ride it on ceilings. Throw full plate on it, take the\n\tMounted Combatant feat, or get Fighting Style (Protection), and you can\n\timprove your spider’s durability. The spider’s tactics don’t really change if\n\tyou’re riding it, so grab a lance and some javelins and expect to throw\n\tweapons on turns when the spider is too far away from anything to get into\n\tmelee."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-26-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sticky Stuff"
+            },
+            {
+              "type": "text",
+              "text": ": Effectively Spider Climb once\n\tper long rest. It’s better than a climb speed, and if you prefer to fight with\n\tranged weapons it’s a great way to stay on the ceiling, safely out of reach.\n\tIt can’t compete with flight, but it’s close."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-26-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Good on any character,\n\tbut not as impactful for a martial character as it is for a spellcaster. Use\n\tthis to get your companion into melee quickly so that you can start\n\taccumulating Ferocity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-9",
+      "parentSectionId": "section-26",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-9",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-9-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Destabilizing Attack"
+              },
+              {
+                "type": "text",
+                "text": ": The spider’s go-to\n\t\toption for unrestrained targets, imposing Disadvantage on the target’s next\n\t\tattack can compensate for the Spider’s poor durability, but creatures with\n\t\tmultiple attacks and crowds remain a problem."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Web"
+              },
+              {
+                "type": "text",
+                "text": ": Good range, and many enemies\n\t\t(spellcasters, Strength-based brutes, etc.) have poor Dexterity saves, so\n\t\tyou can easily restrain them at a safe distance and either leave them for\n\t\tlater or rush over to take advantage of their compromised position. Escaping\n\t\ttakes an action and a Strength check (not a save), and even strength-based\n\t\tcreatures will frequently have poor odds of succeeding on that check despite\n\t\tthe relatively low save DC. Since this works at range, it’s also a great way\n\t\tto counter flying enemies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bite Frenzy"
+              },
+              {
+                "type": "text",
+                "text": ": The Giant Spider’s only\n\t\toption for handling crowds. Poisoned is an excellent status condition, but\n\t\tit’s also a common resistance/immunity. The Caretaker needs to know when\n\t\tit’s time to go all out with Bite Frenzy and when it’s time to Disengage,\n\t\tclimb to safety, and use that Ferocity for Web to keep enemies from grouping\n\t\tup on the spider."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-28",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Giant Toad",
+      "blocks": [
+        {
+          "blockId": "block-section-28-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unimpressive AC, and not a lot of Dexterity, so putting your frog in full\n\tplate is a good idea. Weirdly, this also makes it harder for swallowed enemies\n\tto escape. I don’t know, maybe your frog swallows some its full plate."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-28-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Frog is good at eliminating single targets. Move it into melee, then use\n\tFast Food to grab an enemy and reposition it to somewhere dangerous. It\n\tdoesn’t handle crowds at all, but it’s also great at escaping crowds. It’s\n\tlarge and strong enough that it could serve as a mount, and between Standing\n\tLeap and Fast Food it’s almost as mobile as a flying mount."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-28-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Psychedelic skin"
+            },
+            {
+              "type": "text",
+              "text": ": Neat, but at once per day\n\tit’s not super impactful, especially if you’re not a Beastheart so the DC\n\tpoor. Poison resistance/immunity is also common. Weirdly, as-written you can\n\tuse it with a bow. It makes sense from a game balance perspective, but just\n\ttry not to think about it too much."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-28-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Some additional\n\tmovement options. The swim speed won’t matter in most campaigns, but it is\n\tnice the few times that you need to fight in water. The standing jump option\n\tis neat if you’re worried about difficult terrain, but otherwise not\n\tespecially important."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-10",
+      "parentSectionId": "section-28",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-10",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-10-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Stretch Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Helpful for breaking\n\t\tgrapples, but otherwise not especially impactful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fast Food"
+              },
+              {
+                "type": "text",
+                "text": ": Repositioning enemies this way\n\t\tbreak grapples, pull enemies into dangerous positions like ongoing spell\n\t\teffects, or just bring them closer your party for a group beat down. This\n\t\tdoesn’t allow a check or a save or anything, which in some ways make it\n\t\tbetter than similar effects like Vortex Warp. This notably also prevents\n\t\topportunity attacks, so it’s a great way to avoid your frog being\n\t\tswarmed."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swallow"
+              },
+              {
+                "type": "text",
+                "text": ": Similar in many ways to the\n\t\tGelatinous Cube’s Engulf, but the target is also blinded. Being blinded\n\t\tprevents casting many spells and using many features which only target\n\t\tcreatures that the user can see. However, it’s still fairly easy for\n\t\tswallowed creatures to escape simply by damaging the frog. Unless you buff\n\t\tyour frog’s AC, anything with multiattack is going to easily escape just by\n\t\tforcing multiple rolls."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-30",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Giant Weasel",
+      "blocks": [
+        {
+          "blockId": "block-section-30-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Good speed, several skill proficiencies, keen hearing and smell, treasure\n\tsense and Darkvision. The Giant Weasel’s AC isn’t great and it’s not strong\n\tenough for heavy armor if you still want that 40 ft. speed, but it’s still a\n\tgreat mount and a decent combat threat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-30-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Treasure Sense"
+            },
+            {
+              "type": "text",
+              "text": ": I don’t understand why the\n\tGiant Weasel gets this. The range is tiny, so this is only useful if you have\n\tenough time to walk in a carefully-planned circuit to case an area."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-30-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": This likely does more\n\tdamage than anything you could do with a weapon (ignoring Primal Strike), and\n\tsince it’s a Bonus Action to use the bite you can still use your Action to\n\tAttack nornally."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-11",
+      "parentSectionId": "section-30",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-11",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-11-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Overwhelming Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Not always\n\t\timportant, but this does allow your whole party to move away from the target\n\t\tsafely, which can get frail allies out of melee or allow your party to rush\n\t\tback-line enemies more easily."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Clamp Down"
+              },
+              {
+                "type": "text",
+                "text": ": Amazing for eliminating single\n\t\ttargets. Even if the creature is good at grappling, it either needs to spend\n\t\tan Action to escape, kill the weasel, or break the grapple by some other\n\t\tmethod. If you and your allies can attack the target before it can do that,\n\t\tRestrained gives you Advantage to hit it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bite Frenzy"
+              },
+              {
+                "type": "text",
+                "text": ": The Giant Weasel’s only\n\t\toption for handling crowds. Knocking foes prone will give them Disadvantage\n\t\ton opportunity attacks if you decide to retreat after making this attack,\n\t\tbut using Disengage is still safer. It’s more likely that you’ll use this\n\t\twhile the Caretaker is riding the Giant Weasel, then follow it with melee\n\t\tattacks by the Caretaker."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-32",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Hell Hound",
+      "blocks": [
+        {
+          "blockId": "block-section-32-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Average hit points and AC, but also fire resistance and Darkvision. With\n\tunimpressive Dexterity and no Stealth proficiency, the Hell Hound definitely\n\twants full plate. With an impressive 50 ft. move speed and Brutal Charge to\n\tget through reach safely, the Hell Hound makes an effective mount for small\n\triders."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-32-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Consult Hell"
+            },
+            {
+              "type": "text",
+              "text": ": This is just Augury with\n\tbarking instead of throwing bones. Augury is one of my favorite divination\n\tspells, but it’s not because it’s effective. This is fun, but it’s not very\n\tgood."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-32-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Useful when you’re being\n\tswarmed, but many enemies will quickly decide that attacking you to trigger\n\tthe damage is a poor choice unless they have fire resistance/immunity, which\n\tis frustratingly commong."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-12",
+      "parentSectionId": "section-32",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-12",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-12-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Lava Spittle"
+              },
+              {
+                "type": "text",
+                "text": ": A bit of extra damage to\n\t\tthe main target and some damage to a secondary target. Fire resistance is\n\t\tcommon, unfortunately, and the positioning can be difficult since the\n\t\tsecondary target needs to be within 5 feet of the primary target."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Brutal Charge"
+              },
+              {
+                "type": "text",
+                "text": ": Not always important, but\n\t\tit prevents your hound from being swarmed, and if you’re riding it you’ll be\n\t\table to ride past enemies without issue."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire Breath"
+              },
+              {
+                "type": "text",
+                "text": ": The AOE isn’t very big and\n\t\tthe damage isn’t amazing, but if you can catch two or three target it’s\n\t\tstill decent damage."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-34",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Mimic",
+      "blocks": [
+        {
+          "blockId": "block-section-34-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Mimic is great offensively, but has little utility. It has Darkvision and\n\tcan mimic mundane objects, but other than lay around unnoticed it’s basically\n\tjust a combat pet. But hey, maybe that’s what you want, in which case the\n\tmimic will do fine. The Mimic’s AC isn’t impressive, and tragically it doesn’t\n\tdo well in armor, so you’re stuck with that problem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-34-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wearable Companion"
+            },
+            {
+              "type": "text",
+              "text": ": Advantage on Dexterity\n\t(Stealth) checks is a significant advantage, but you want to end this effect\n\tas soon as you get into combat or you and your companion are going to take a\n\tbunch of damage that would otherwise only affect one of you at a time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-34-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Other than hiding an\n\tobject that someone else wants or sneaking an object into a place where it\n\tshouldn’t go, I can’t think of common ways to use this. The usage is\n\tsituational at best, and the wording is restrictive to prevent abuse, which\n\tunfortunately also makes this extremely limited in utility. You could disguise\n\tone coin as a different variety of coin, but you can’t disguise the original\n\titem as something more valuable so you can’t turn copper into platinum. You\n\tmight be able to change one weapon into a similar weapon, and maybe you could\n\tturn a pot into a helmet or vice versa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-13",
+      "parentSectionId": "section-34",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-13",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-13-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Distracting Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Great if your party\n\t\thas big single attacks to follow this with. If you have a rogue in the party\n\t\tor if someone has high-damage attack spells like Inflict Wounds, this is an\n\t\teasy way to grant Advantage in a hurry."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Adhesive Pseudopods"
+              },
+              {
+                "type": "text",
+                "text": ": Good, but dangerous.\n\t\tGrappling multiple enemies will keep them from moving away from the Mimic,\n\t\tbut it doesn’t protect the Mimic from retaliation. If your companion\n\t\tsuccessfully keeps several enemies grappled, consider having it Dodge while\n\t\tit keeps them in place."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "I’m You"
+              },
+              {
+                "type": "text",
+                "text": ": Great against powerful single\n\t\tfoes. If you can, try to get your companion Advantage before making this\n\t\tattack so that you improve the odds of success. If the attack is successful,\n\t\tthe target is massively vulnerable for the following round."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-36",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Owlbear",
+      "blocks": [
+        {
+          "blockId": "block-section-36-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A good all-around companion, the Owlbear has two saves, two skills,\n\tDarkvision, Keen Sight and Smell, and and interesting mix of tactical options\n\tin its Ferocity Actions. With 13+PB AC and no need for stealth, it’s a good\n\tidea to put the Owlbear in Full Plate."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-36-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Give a Hoot"
+            },
+            {
+              "type": "text",
+              "text": ": A nice, scaling pool of\n\ttemporary hit points that’s useful in any situation. The hit points don’t have\n\ta listed duration, so they last until you take a long rest. They won’t stack\n\twith Mystic Connection (temporary hit points don’t stack), but once you’ve\n\tgone through the temporary hit points from the Owlbear’s Mystic Connection (or\n\tif you’re not a Beastheart) this is still a great pool of temporary hp."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-36-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": Excellent, especially in\n\tlarge parties or parties that like to summon creatures. The temporary hit\n\tpoints don’t have a listed duration, so you can use this long before you go\n\tinto a fight and walk around all day with them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-14",
+      "parentSectionId": "section-36",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-14",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-14-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Violent Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Repositioning enemies\n\t\tisn’t always necessary, but it’s a useful tactical option at a low cost. You\n\t\tcan reposition enemies to break grapples or to move them away from your\n\t\tcompanion so that it can avoid opportunity attacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Owlie Oop"
+              },
+              {
+                "type": "text",
+                "text": ": Similar to the Bulette’s\n\t\tDeadly Leap, but shorter range and you can’t land on creatures. It’ll be\n\t\tdifficult to hit more than two creatures simply because finding a 10-foot\n\t\tsquare in the middle of multiple enemies is difficult. Knocking foes prone\n\t\twon’t keep them prone, so usually you want the Caretaker to capitalize on\n\t\tthis by following up with melee attacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bear Hug"
+              },
+              {
+                "type": "text",
+                "text": ": A great way to eliminate single\n\t\ttargets. The damage is good, and making the target Restrained until they\n\t\tbreak the grapple makes them vulnerable to attacks from the rest of your\n\t\tparty."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-38",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Sporeling",
+      "blocks": [
+        {
+          "blockId": "block-section-38-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Sporeling has two immunities, which is surprising for a Monstrous\n\tCompanion. They sacrifice AC to get them, so consider full plate for your\n\tsporeling. People may rightly ask “hey, why is that completely mundane\n\tmushroom covered in armor”, but that’s their problem. It’s your right to armor\n\tfoliage, and don’t let anyone tell you otherwise."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-38-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Invigorating Spores"
+            },
+            {
+              "type": "text",
+              "text": ": A nice defensive buff\n\tthat will last the duration of a fight, and since it’s a Bonus Action it’s\n\teasy to bring into play. If you’re facing enemy spellcasters or enemies which\n\trely on saving throws like dragons, Invigorating Spores is good protection."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-38-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": The effect is good, but\n\tonce per Short Rest isn’t going to have a huge tactical impact. Your best bet\n\tis to use this on powerful martial enemies, especially if they have\n\tmultiattack, and I recommend using this as soon as it will be impactful so\n\tthat you don’t miss your chance to make this matter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-15",
+      "parentSectionId": "section-38",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-15",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-15-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Destabilizing Attack"
+              },
+              {
+                "type": "text",
+                "text": ": The Sporeling’s\n\t\tgo-to option, imposing Disadvantage on the target’s next attack can\n\t\tcompensate for the Sporeling’s poor durability, but creatures with multiple\n\t\tattacks and crowds remain a problem. If you’re facing crowds, use Spore\n\t\tBurst or Disengage and relocate."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spore Burst"
+              },
+              {
+                "type": "text",
+                "text": ": Poisoned is a great debuff,\n\t\tbut Monstrous Companions have low saved DC’s, poison resistance/immunity is\n\t\tcommon, Constitution saves tend to be high, and the 5-foot range puts the\n\t\tSporeling in a dangerous position if you want to hit multiple targets. You\n\t\tshould rarely rush to use this, but against crowds of weak enemies or if\n\t\tyour party is being swarmed, it can be a helpful reprieve."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hallucinogenic Spores"
+              },
+              {
+                "type": "text",
+                "text": ": With 10-foot range\n\t\tyou can hit a decent number of enemies, and this doesn’t face issues with\n\t\tpoison immunity which Spore Burst does. If you’re facing a packed crowd of\n\t\tenemies, make them spend their reactions to hit each other, then have the\n\t\tSporeling move to safety since your enemies have already spent their\n\t\tReaction."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-40",
+      "parentSectionId": "section-monstrous-companion-options",
+      "heading": "Worg",
+      "blocks": [
+        {
+          "blockId": "block-section-40-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Purpose-built as a mount, the Word’s impressive 50-foot speed and Move as One\n\tmake it easy to jump on and off of it in combat and move to engage\n\thigh-priority enemies. However, it has just 13+PB AC despite not getting a\n\tdamage immunity (maybe Move as One was considered comparable, which makes\n\tsense), so get your worg into full plate as soon as possible. Move as One\n\talready makes Opportunity Attacks less of a problem as do both Brutal Charge\n\tand Overwhelming Attack, so if you want extra protection for your worg,\n\tconsider Fighting Style (Interception) to mitigate the damage dealt by attacks\n\twhich make it through Disadvantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-40-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Word has an Intelligence of 7, making it the smartest of the published\n\tMonstrous Companions. It still doesn’t understand language fully, but it’s\n\talmost as smart as the dumbest person in your party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-40-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlike most Monstrous Companions, the Worg doesn’t get an additional action.\n\tA lot of their power budget is tied up in Move as One, so if you’re not riding\n\tyour worg you’re really missing out on what makes the Worg special."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-40-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Move as One"
+            },
+            {
+              "type": "text",
+              "text": ": If your mount is going to\n\tmove out of a creatures’ reach, you should really use Brutal Charge or\n\tOverwhelming Attack to try to prevent Opportunity Attacks altogether. If\n\tthat’s not an option, have your worg Disengage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-40-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mystic Connection"
+            },
+            {
+              "type": "text",
+              "text": ": More move speed is\n\tnice, but only occasionally impactful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ferocity-actions-16",
+      "parentSectionId": "section-40",
+      "heading": "Ferocity Actions",
+      "sourceAnchor": "ferocity-actions-16",
+      "blocks": [
+        {
+          "blockId": "block-section-ferocity-actions-16-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Overwhelming Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Not always\n\t\timportant, but this does allow your whole party to move away from the target\n\t\tsafely, which can get frail allies out of melee or allow your party to rush\n\t\tback-line enemies more easily. Move as One and Brutal Charge make this less\n\t\timportant if you just want to ride past an enemy, so reserve this for when\n\t\tyou actually need to move the target or when you just need the extra PB\n\t\tdamage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Brutal Charge"
+              },
+              {
+                "type": "text",
+                "text": ": Not always important, but\n\t\tit prevents your companion from being swarmed when you’re not ready to use\n\t\tBite Frenzy and you’re not willing to risk Opportunity Attacks even with\n\t\tMove as One."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bite Frenzy"
+              },
+              {
+                "type": "text",
+                "text": ": The Worg’s only option for\n\t\thandling crowds. Knocking foes from will give them Disadvantage on\n\t\topportunity attacks if you decide to retreat after making this attack, but\n\t\tusing Disengage is still safer. It’s more likely that you’ll use this while\n\t\tthe Caretaker is riding the Giant Weasel, then follow it with melee attacks\n\t\tby the Caretaker."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[7]",
+      "detail": "rating-orange Basilisk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Heavy Glare"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Poison Spittle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Poison Gaze"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Lesser Petrifying Gaze"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[8]",
+      "detail": "rating-blue Blood Hawk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Swoop In"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Distracting Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Swooping Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Storm of Talons"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[9]",
+      "detail": "rating-green Bulette"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Plated Protection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Violent Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Burrowing Trip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Deadly Leap"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[10]",
+      "detail": "rating-green Deinonychus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Part of the Pack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Overwhelming Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Clever Girl"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Keep Them Down"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[11]",
+      "detail": "rating-blue Dragon Wyrmling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Shared Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Spit Breath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Frightful Presence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Breath Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[12]",
+      "detail": "rating-green Earth Elemental"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Toss Me"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Stretch Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Earthshaker"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Transmute Ground"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[13]",
+      "detail": "rating-green Gelatinous Cube"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Burning Acid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Engulf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[14]",
+      "detail": "rating-blue Giant Spider"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Sticky Stuff"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Destabilizing Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Web"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bite Frenzy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[15]",
+      "detail": "rating-green Giant Toad"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Psychedelic skin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Stretch Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fast Food"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Swallow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[16]",
+      "detail": "rating-green Giant Weasel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Treasure Sense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Overwhelming Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Clamp Down"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bite Frenzy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[17]",
+      "detail": "rating-green Hell Hound"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Consult Hell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Lava Spittle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Brutal Charge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fire Breath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[18]",
+      "detail": "rating-blue Mimic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wearable Companion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Distracting Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Adhesive Pseudopods"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue I’m You"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[19]",
+      "detail": "rating-green Owlbear"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Give a Hoot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Violent Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Owlie Oop"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bear Hug"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[20]",
+      "detail": "rating-green Sporeling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Invigorating Spores"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Destabilizing Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Spore Burst"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hallucinogenic Spores"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[21]",
+      "detail": "rating-green Worg"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Move as One"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Mystic Connection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Overwhelming Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Brutal Charge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bite Frenzy"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-understanding-the-mechanics-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-the-caregiver-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-the-caregiver-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-the-caregiver-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-commanding-the-companion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-commanding-the-companion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-ferocity-and-rampage-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-ferocity-and-rampage-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ferocity-and-rampage-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-ferocity-and-rampage-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-ferocity-and-rampage-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-ferocity-actions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-ferocity-actions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-ferocity-actions-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-ferocity-actions-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-barding-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-barding-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-riding-your-companion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-riding-your-companion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-riding-your-companion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-monstrous-companion-options-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[7]",
+      "detail": "section-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-12-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-12-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-12-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-12-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-12-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-ferocity-actions-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[8]",
+      "detail": "section-14"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-14-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-14-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-14-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-14-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-14-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-14-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-ferocity-actions-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[9]",
+      "detail": "section-16"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-16-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-16-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-16-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-16-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-ferocity-actions-4-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[10]",
+      "detail": "section-18"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-18-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-18-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-18-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-18-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-ferocity-actions-5-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[11]",
+      "detail": "section-20"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-20-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-20-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-20-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-20-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-20-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-ferocity-actions-6-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[12]",
+      "detail": "section-22"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-22-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-22-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-22-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-22-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-22-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-ferocity-actions-7-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[13]",
+      "detail": "section-24"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-24-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-24-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-24-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-24-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-ferocity-actions-8-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[14]",
+      "detail": "section-26"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-26-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-26-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-26-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-26-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-26-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-ferocity-actions-9-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[15]",
+      "detail": "section-28"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-28-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[67]",
+      "detail": "block-section-28-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[68]",
+      "detail": "block-section-28-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[69]",
+      "detail": "block-section-28-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[11]",
+      "detail": "block-section-ferocity-actions-10-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[16]",
+      "detail": "section-30"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[70]",
+      "detail": "block-section-30-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[71]",
+      "detail": "block-section-30-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[72]",
+      "detail": "block-section-30-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[12]",
+      "detail": "block-section-ferocity-actions-11-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[17]",
+      "detail": "section-32"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[73]",
+      "detail": "block-section-32-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[74]",
+      "detail": "block-section-32-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[75]",
+      "detail": "block-section-32-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[13]",
+      "detail": "block-section-ferocity-actions-12-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[18]",
+      "detail": "section-34"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[76]",
+      "detail": "block-section-34-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[77]",
+      "detail": "block-section-34-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[78]",
+      "detail": "block-section-34-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[14]",
+      "detail": "block-section-ferocity-actions-13-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[19]",
+      "detail": "section-36"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[79]",
+      "detail": "block-section-36-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[80]",
+      "detail": "block-section-36-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[81]",
+      "detail": "block-section-36-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[15]",
+      "detail": "block-section-ferocity-actions-14-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[20]",
+      "detail": "section-38"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[82]",
+      "detail": "block-section-38-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[83]",
+      "detail": "block-section-38-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[84]",
+      "detail": "block-section-38-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[16]",
+      "detail": "block-section-ferocity-actions-15-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[21]",
+      "detail": "section-40"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[85]",
+      "detail": "block-section-40-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[86]",
+      "detail": "block-section-40-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[87]",
+      "detail": "block-section-40-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[88]",
+      "detail": "block-section-40-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[89]",
+      "detail": "block-section-40-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[17]",
+      "detail": "block-section-ferocity-actions-16-1"
+    }
+  ],
+  "metrics": {
+    "words": 7426,
+    "sections": 41,
+    "blocks": 107,
+    "tables": 0,
+    "ratingSignals": 92
+  },
+  "status": "needs-editorial-review"
+}

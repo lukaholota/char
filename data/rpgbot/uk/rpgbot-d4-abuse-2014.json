@@ -1,0 +1,2312 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-1532f05108b2ca37",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+      "sourceId": "rpgbot-1532f05108b2ca37",
+      "fetchedAt": "2026-09-29T19:09:22.086743+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:36:48-04:00",
+      "contentHash": "b3e930c36c28038cf8d10a92bc16acb78031a8e9b0883297285578e4a111e555",
+      "title": "A Fistful of d4s: A DnD 5e Multiclass Build Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-1532f05108b2ca37-5beae02cc103c46b.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-d4-abuse-2014",
+    "sourceId": "rpgbot-1532f05108b2ca37",
+    "slug": "d4-abuse-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Пригорща к4 — гайд бонусів до к20 (2014)",
+    "titleEn": "A Fistful of d4s: A DnD 5e Multiclass Build Guide",
+    "topics": [
+      "rules"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+      "articleId": "rpgbot-d4-abuse-2014",
+      "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коли вийшов Казан Таші з усім, автор одразу здійняв галас довкола "
+                },
+                {
+                  "type": "link",
+                  "text": "Клірика Домену миру",
+                  "href": "https://rpgbot.net/ban-5es-peace-domain/"
+                },
+                {
+                  "type": "text",
+                  "text": ". У підкласу, на його думку, багато проблем, але перша — можливість складати додаткові к4 до атак і ряткидків. Це підриває математичні припущення 5e й порушує баланс. Та проблема цим не обмежується."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Настанова [Guidance] і Бардове натхнення{{Bardic Inspiration}} існують ще з Книга Гравця (2014). З часом до гри додалося більше способів додавати кістки до кидків к20: D&D можна перетворити на гру з цілим запасом кісток, викинувши "
+                },
+                {
+                  "type": "link",
+                  "text": "базову математику",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": " у вікно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тож скористаймося проблемою: зберімо всі способи додати кістку до к20 й подивімося, наскільки сильно можна зламати систему. Шукатимемо все, що додає кістки до атак, перевірок чи ряткидків."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи й підкласи",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Винахідник — Алхімік",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#artificer-alchemist"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бард — Колегія красномовства",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#bard-college-of-eloquence"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Клірик — Домен миру",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#cleric-peace-domain"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чародій — Божественна душа",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#sorcerer-divine-soul"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чорнокнижник — Fiend або будь-який покровитель",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#warlock-fiend-or-any"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#spells"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Магічні предмети",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#magic-items"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — автоматичний роздавач к4",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#example-build-fully-automated-d4-dispensing-robot"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси збірки",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#feats-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#levels"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Запас кісток",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#the-dice-pool"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Класи й підкласи",
+          "sourceAnchor": "features",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-artificer-alchemist",
+          "parentSectionId": "section-features",
+          "heading": "Винахідник — Алхімік",
+          "sourceAnchor": "artificer-alchemist",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-alchemist-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібен Experimental Elixir{{Experimental Elixir}}, варіант Boldness — фактично Благословення для однієї цілі. На 3-му рівні отримуєте один безкоштовний еліксир, але випадковий. Натомість плануйте витрачати слоти 1-го рівня, створюючи потрібні додаткові еліксири. Таких слотів мало, тому знадобиться мультиклас Чародія заради Джерело магії{{Font of Magic}} або дедалі вищі слоти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artificer-alchemist-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Союзники можуть випити еліксири самостійно. Якщо не збираєтеся залишити все собі, роздавайте їх заздалегідь."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artificer-alchemist-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Алхіміки також можуть вивчити Настанова [Guidance] та Опір [Resistance], а Вливаннями{{Infuse Item}} створювати зброю й обладунки +1. Усе це чудово."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artificer-alchemist-4",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси й здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Magical Tinkering{{Magical Tinkering}}; Чаротворення{{Spellcasting}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вивчіть Настанову. Опір ігноруйте."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Infuse Item{{Infuse Item}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Корисно будь-якій групі. Enhanced Defense{{Enhanced Defense}} та Enhanced Weapon{{Enhanced Weapon}} легко дають бонуси +1. Примітка редакції: джерело називає перше Enhanced Armor; офіційна назва — Enhanced Defense."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Алхімік{{Alchemist}}; Tool Proficiency{{Tool Proficiency}}; Alchemist Spells{{Alchemist Spells}}; Experimental Elixir{{Experimental Elixir}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потрібен Experimental Elixir, варіант Boldness."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик{{Ability Score Improvement}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard-college-of-eloquence",
+          "parentSectionId": "section-features",
+          "heading": "Бард — Колегія красномовства",
+          "sourceAnchor": "bard-college-of-eloquence",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-college-of-eloquence-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бардове натхнення{{Bardic Inspiration}} дає "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "будь-кому, крім вас"
+                },
+                {
+                  "type": "text",
+                  "text": " кістку до атаки, перевірки чи ряткидка протягом наступних десяти хвилин. Кількість використань дорівнює модифікатору Харизми між тривалими відпочинками, а з 5-го рівня відновлюється й після короткого; розмір кістки поступово зростає. Чудовий спосіб підсилити к20. Єдина проблема — не працює на вас самих. Примітка редакції: мінімум одне використання; кістка додається до одного кидка за умовами здібності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-bard-college-of-eloquence-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси й здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення{{Spellcasting}}; Бардове натхнення{{Bardic Inspiration}} (к6)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бардове натхнення — основна причина цього вибору. На жаль, себе надихнути не можна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер на всі руки{{Jack of All Trades}}; Song of Rest{{Song of Rest}} (к6)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер на всі руки допомагає в усьому, особливо з пригорщею кісток. Примітка редакції: тільки перевірки, до яких ще не додається Бонус Майстерності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Колегія красномовства{{College of Eloquence}}; Silver Tongue{{Silver Tongue}}; Unsettling Words{{Unsettling Words}}; Експертиза{{Expertise}} (дві навички)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Silver Tongue встановлює мінімум 10 для результату к20 у перевірках Обману й Переконання. Це не головна стратегія статті, але чудова можливість."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик{{Ability Score Improvement}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бардове натхнення{{Bardic Inspiration}} (к8); Font of Inspiration{{Font of Inspiration}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Font of Inspiration допомагає розтягнути ресурс на тривалий день пригод."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Unfailing Inspiration{{Unfailing Inspiration}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо союзник із Бардовим натхненням усе ж провалить кидок, кістка не витрачається."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric-peace-domain",
+          "parentSectionId": "section-features",
+          "heading": "Клірик — Домен миру",
+          "sourceAnchor": "cleric-peace-domain",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-peace-domain-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підклас, який надихнув цю затію. Навіть один рівень Клірика Домену миру може бути найвпливовішим вибором статті. Emboldening Bond{{Emboldening Bond}} звʼязує кількість істот, рівну Бонусу Майстерності: протягом десяти хвилин кожна може додати к4 до атаки, перевірки чи ряткидка один раз за хід. Це рідше за Благословення, зате діє й на перевірки та не потребує Концентрації. Примітка редакції: істота має бути в межах 30 футів від іншої істоти цього звʼязку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cleric-peace-domain-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Застосувань між тривалими відпочинками теж стільки, скільки становить Бонус Майстерності. І кількість цілей, і кількість застосувань зростають із загальним рівнем персонажа, випереджаючи розвиток власне класу Клірика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cleric-peace-domain-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також отримуємо доступ до Благословення [Bless], Настанова [Guidance] та Опір [Resistance]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cleric-peace-domain-4",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси й здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення{{Spellcasting}}; Домен миру{{Peace Domain}}; Implement of Peace{{Implement of Peace}}; Emboldening Bond{{Emboldening Bond}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потрібен Emboldening Bond; заодно вивчіть Настанову й Благословення."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer-divine-soul",
+          "parentSectionId": "section-features",
+          "heading": "Чародій — Божественна душа",
+          "sourceAnchor": "sorcerer-divine-soul",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-divine-soul-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародій Божественної душі{{Divine Soul}} має доступ до заклинань Клірика, зокрема Настанови й Благословення. Favored by the Gods{{Favored by the Gods}} дозволяє додати 2к4 до атаки чи ряткидка один раз між короткими або тривалими відпочинками. Обидві можливості корисні. Примітка редакції: бонус застосовується після невдалої атаки або проваленого ряткидка й може змінити результат."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcerer-divine-soul-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте головна причина взяти Чародія — Джерело магії: більше слотів 1-го рівня для Благословення чи Experimental Elixir. Максимум Очок чародійства{{Sorcery Points}} дорівнює рівню Чародія. Якщо перетворюєте вищі слоти на очки, варто мати понад три рівні класу, щоб не втрачати очки від слотів 3-го рівня й вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcerer-divine-soul-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси й здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення{{Spellcasting}}; Божественна душа{{Divine Soul}}; Divine Magic{{Divine Magic}}; Favored by the Gods{{Favored by the Gods}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Favored by the Gods додає 2к4 після невдалої атаки чи проваленого ряткидка один раз між відпочинками. Доступ до заклинань Клірика дає Настанову й Благословення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії{{Font of Magic}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перетворюйте вищі слоти на слоти 1-го рівня, щоб частіше накладати Благословення."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock-fiend-or-any",
+          "parentSectionId": "section-features",
+          "heading": "Чорнокнижник — Fiend або будь-який покровитель",
+          "sourceAnchor": "warlock-fiend-or-any",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-fiend-or-any-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Внесок Чорнокнижника зʼявляється поступово й спирається на часто недооцінений Pact of the Talisman{{Pact of the Talisman}}. До того ж можна отримати Позамежний заряд [Eldritch Blast] з Agonizing Blast{{Agonizing Blast}} — імовірно, нашу основну атаку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-fiend-or-any-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Покровитель Fiend не обовʼязковий: потрібна здібність підкласу відкривається лише на 6-му рівні, а ви можете не піти так далеко. Якщо йдете, візьміть і 7-й рівень заради Protection of the Talisman{{Protection of the Talisman}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-fiend-or-any-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси й здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покровитель Fiend{{Fiend}}; Dark One's Blessing{{Dark One's Blessing}}; Магія угоди{{Pact Magic}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічні інвокації{{Eldritch Invocations}} — будь-які дві"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Pact of the Talisman{{Pact of the Talisman}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+1к4 після проваленої перевірки характеристики; кількість застосувань дорівнює Бонусу Майстерності між тривалими відпочинками."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик{{Ability Score Improvement}}; Rebuke of the Talisman{{Rebuke of the Talisman}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Маємо талісман, тож беремо Rebuke of the Talisman для більшої користі. Можна перевчити інвокацію на нього вже на 3-му рівні, якщо так зручніше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Dark One's Own Luck{{Dark One's Own Luck}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Один раз між короткими або тривалими відпочинками додаєте к10 до перевірки чи ряткидка після перегляду кидка, до визначення результату."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Protection of the Talisman{{Protection of the Talisman}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додайте к4 після проваленого ряткидка; кількість застосувань дорівнює Бонусу Майстерності між тривалими відпочинками."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Автогном{{Autognome}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SAiS",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Built for Success{{Built for Success}} неймовірно простий і природно підходить збірці: +1к4 до атаки, перевірки чи ряткидка після перегляду кидка, кількість застосувань дорівнює Бонусу Майстерності між тривалими відпочинками. Примітка редакції: застосовується до визначення ефекту кидка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дампір{{Dhampir}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Вампірський укус{{Vampiric Bite}} може дати бонус до атаки чи перевірки характеристики. Він буває значно більшим за к4 і зростає зі шкодою укусу, проте його не можна додати заднім числом чи до ряткидка. Порівняно з Автогномом є плюси й мінуси. Примітка редакції: позначка джерела VGtM в оригіналі помилкова; Дампір опублікований у Путівник Ван Ріхтена по Равенлофту. Бонус дорівнює колотій шкоді укусу й витрачається на наступну перевірку або атаку."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells",
+          "heading": "Заклинання",
+          "sourceAnchor": "spells",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Благословення [Bless]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1к4 до атак і ряткидків; три цілі, хвилина, Концентрація. Чудове майже в будь-якому бою на будь-якому рівні. Доступне Клірику й Паладину."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Настанова [Guidance]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1к4 до однієї перевірки характеристики; хвилина, Концентрація. Поза боєм використовуйте якнайчастіше, коли є час на підготовку перевірки. Доступне Винахіднику, Клірику й Друїду. Примітка редакції: згадка атаки в джерелі неправильна — Настанова не підсилює кидки атак."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Опір [Resistance]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1к4 до одного ряткидка; хвилина, Концентрація. Важко вгадати момент, а за Концентрацію конкурує з кращими варіантами на кшталт Благословення. Доступне Винахіднику, Клірику й Друїду."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивно, але таких рис немає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-magic-items",
+          "heading": "Магічні предмети",
+          "sourceAnchor": "magic-items",
+          "blocks": [
+            {
+              "blockId": "block-section-magic-items-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Clockwork Amulet{{Clockwork Amulet}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": один раз на день дозволяє взяти 10 замість кидка к20 для атаки. Звичайний предмет без налаштування. Якщо можете, дістаньте цілу купу. Примітка редакції: предмет не можна використати так, коли атака має Перевагу або Перешкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Stone of Good Luck{{Stone of Good Luck}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "DMG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": технічно не кістка, проте +1 до всіх перевірок і ряткидків усе одно дуже добре."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+          "heading": "Приклад збірки — автоматичний роздавач к4",
+          "sourceAnchor": "example-build-fully-automated-d4-dispensing-robot",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-fully-automated-d4-dispensing-robot-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збірка передусім спеціалізується на навичках і підтримці. Атаки за всю карʼєру поліпшуються мало: шкода приблизно відповідає Чорнокнижнику з Позамежним зарядом, який забув про Проклін [hex]. Але ми тут заради іншого."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-fully-automated-d4-dispensing-robot-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нам потрібна пригорща к4 для додавання до к20. Нові можливості поширюються й на союзників, роблячи нас сильним підсилювачем групи. Залежно від джерела кістки додаються до атак, перевірок чи ряткидків: група стає неймовірно точною й надто добре проходить ряткидки. Поза боєм запас кісток підсилює перевірки так, що навіть Володіння й Експертиза{{Expertise}} здаються скромними."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збірка залежить від багатьох характеристик. Дуже багатьох! Потрібно щонайменше 13 в Інтелекті, Мудрості й Харизмі для мультикласування, Спритність 14 для максимуму середніх обладунків і висока атакувальна характеристика. Тут це Харизма, бо більшість чаротворення походить від Чародія й Чорнокнижника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Після підвищення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автогном{{Autognome}}: потрібен Built for Success{{Built for Success}}. КБ 13 + модифікатор Спритності теж приємна, доки не дістанемо нагрудник."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Будь-яке походження: для цієї збірки неважливо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для самої збірки вибір не принциповий. На високих рівнях бонуси до перевірок настільки великі, що Володіння здаватимуться дрібницею."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+          "heading": "Риси збірки",
+          "sourceAnchor": "feats-2",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Маємо місце лише для однієї риси. Візьмемо Щасливчик{{Lucky}}, щоб остаточно довести ситуацію до абсурду."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Клірик 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення{{Spellcasting}}; Домен миру{{Peace Domain}}; Implement of Peace{{Implement of Peace}}; Emboldening Bond{{Emboldening Bond}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Поки ми дивний Клірик. Уникайте атакувальних заклинань: головний внесок — Emboldening Bond і Благословення. Можна стріляти з арбалета: ці бонуси дають вищу середню шкоду, ніж звичайному стрільцю зі Спритністю 16. До ряткидків уже додаємо 2к4, а за потреби ще Built for Success. Спритність 14 + звʼязок + Благословення: середній бонус атаки +9; шкода арбалета за раунд 5,75 за умовами автора."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Чорнокнижник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покровитель Fiend{{Fiend}}; Dark One's Blessing{{Dark One's Blessing}}; Магія угоди{{Pact Magic}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вивчіть Позамежний заряд, але поки арбалет кращий до 3-го рівня. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Слоти Чорнокнижника можна витрачати на звичайні заклинання Чаротворення",
+                      "href": "https://www.dndbeyond.com/sources/phb/customization-options#Spellcasting"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", зокрема Благословення. Звичайні слоти Клірика бережіть для Цілюще слово [healing word], а слоти угоди — для Благословення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Чорнокнижник 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічні інвокації{{Eldritch Invocations}}: Agonizing Blast{{Agonizing Blast}}; ще одна на вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Позамежний заряд з Agonizing Blast підтримуватиме нашу шкоду більшу частину карʼєри. Вона не чудова, але достатня для прямого внеску в бій."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Чорнокнижник 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Pact of the Talisman{{Pact of the Talisman}}; перевчіть інвокацію на Rebuke of the Talisman{{Rebuke of the Talisman}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Талісман додає к4 після проваленої перевірки, використань стільки, скільки Бонус Майстерності між тривалими відпочинками. Можна віддати його союзнику, але автор не радить. Настанова, Emboldening Bond, талісман і Built for Success разом можуть дати до 4к4, у середньому +10, до однієї перевірки. Rebuke of the Talisman реакцією завдає шкоди й відштовхує ворога, що влучив у носія; це наша основна реакція. На жаль, базова математика росте без нас: підвищення характеристик немає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Винахідник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Magical Tinkering{{Magical Tinkering}}; Чаротворення{{Spellcasting}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Від чаротворення Винахідника потрібно мало. Для мультикласових слотів його рівні діляться навпіл з округленням угору, тому розвиток трохи швидший, ніж із Паладином. На 5-му рівні персонажа звичайні слоти відповідають чаротворцю 2-го рівня. Замовляння посилюються, Бонус Майстерності стає +3: більше цілей і застосувань звʼязку, Built for Success та талісмана."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Винахідник 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Infuse Item{{Infuse Item}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зброя +1 не потрібна, бо використовуємо заклинання. Натомість можна створити нагрудник +1, узяти Щит{{Shield (armor)}} й отримати КБ 20, зберігши можливість накладати заклинання. Примітка редакції: компоненти й вільна рука все одно мають відповідати правилам."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Винахідник 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Алхімік{{Alchemist}}; Tool Proficiency{{Tool Proficiency}}; Alchemist Spells{{Alchemist Spells}}; Experimental Elixir{{Experimental Elixir}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час створювати еліксири! Є звичайні слоти 1-го рівня й слоти Магії угоди, що легко відновлюються після короткого відпочинку. Кілька еліксирів для себе доступні, але на всіх може не вистачити. Благословення, Boldness і Emboldening Bond додають до ряткидка 3к4, у середньому +7,5; Built for Success за потреби ще к4. Поза боєм уже доступні попередні 4к4 до перевірки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Чародій 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення{{Spellcasting}}; Божественна душа{{Divine Soul}}; Divine Magic{{Divine Magic}}; Favored by the Gods{{Favored by the Gods}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звичайні слоти відповідають чаротворцю 4-го рівня. Харизма дозволяє використовувати заклинання Чародія для атаки. До ряткидка маємо 3к4, а Built for Success і Favored by the Gods можуть додати ще 3к4: разом середній бонус +15. Позамежний заряд усе ще кращий за інші замовляння, але Кольорова кулька [Chromatic Orb] чи Спрямований заряд [Guiding Bolt] слотом 2-го рівня дають пристойну шкоду. Завдяки 3к4 до атаки й запасному Built for Success точність висока, хоч атакувальна характеристика відстає на два пункти від базової математики."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Чародій 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії{{Font of Magic}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії дає більше низьких слотів для еліксирів і Благословення. Уже доступні слоти 3-го рівня, але максимум Очок чародійства лише два: перетворюючи такий слот, втратимо одне очко. Залиште його для посилення заклинань. Слот 2-го рівня дає два очки, достатні для одного слота 1-го рівня; без конкретної потреби цей обмін не вигідний. Бонус Майстерності +4: більше застосувань усіх відповідних здібностей."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Чародій 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія{{Metamagic}} — будь-які дві можливості"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Можемо вивчити заклинання 2-го рівня й зберігати три Очки чародійства. Вивчіть Духовна зброя [Spiritual Weapon]: бонусна дія досі мало використовувалася, а атака зброєю отримує наші додаткові к4 без Концентрації. Дія залишається для інших завдань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Чародій 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Харизма 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чотири Очки чародійства, посилення замовлянь, слоти 4-го рівня й нарешті вища Харизма. Чудовий рівень. Далі очевидний вибір — ще Чародій: кращі заклинання й вищі слоти. Автор визнає його добрим, але ми тут заради кісток, тому повертаємося до Чорнокнижника."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Чорнокнижник 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Харизма 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наздоганяємо базову математику із запізненням рівно на чотири рівні. Не так уже й погано."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Чорнокнижник 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання й слоти Чорнокнижника 3-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Чорнокнижник 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Dark One's Own Luck{{Dark One's Own Luck}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Один раз між короткими або тривалими відпочинками додаємо к10 до перевірки чи ряткидка після перегляду кидка, до визначення результату."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Чорнокнижник 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Protection of the Talisman{{Protection of the Talisman}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання й слоти Чорнокнижника 4-го рівня. Добре, що Чародій має чотири рівні: два слоти угоди 4-го рівня можна перетворити на чотири слоти 1-го рівня й створити чотири еліксири — досить на групу. Талісман тепер має окремі запаси к4 для провалених перевірок і ряткидків. Варіантів уже важко відстежувати. Від Чорнокнижника отримали все потрібне; залишилося рівно пʼять рівнів. Якби ж був клас із чимось цікавим на пʼятому…"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Бард 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення{{Spellcasting}}; Бардове натхнення{{Bardic Inspiration}} (к6)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звичайні слоти розвиваються далі. Бардове натхнення лише для друзів, але союзники зі звʼязком, еліксиром і Благословенням навряд чи скаржитимуться на додаткові кістки. Мабуть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Бард 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер на всі руки{{Jack of All Trades}}; Song of Rest{{Song of Rest}} (к6)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слоти 5-го рівня. Майстер на всі руки дає +3 до перевірок, до яких ще не додається Бонус Майстерності. Із купою к4 Володіння здається не таким важливим. Примітка редакції: джерело помилково каже «до всіх перевірок»; цей бонус не складається зі звичайним Володінням або Експертизою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Бард 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Колегія красномовства{{College of Eloquence}}; Silver Tongue{{Silver Tongue}}; Unsettling Words{{Unsettling Words}}; Експертиза{{Expertise}} (дві навички)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Silver Tongue встановлює мінімум 10 на к20 для Обману й Переконання. Автор додає +3 від Майстра на всі руки й +5 Харизми, отримуючи мінімум 18, а потім до 4к4. Також отримуємо Експертизу. Примітка редакції: Perception у джерелі — помилка, потрібна Persuasion. +3 діє лише без Володіння: з Володінням тут бонус +6, а з Експертизою +12; Майстер на всі руки до них не додається. Автоматичного успіху це не гарантує."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Бард 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Щасливчик{{Lucky}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слоти 6-го рівня й надзвичайно дратівливий Щасливчик. Провалити кидок дедалі важче. Проте найвищі відомі заклинання — 4-го рівня Магії угоди та 2-го рівня звичайного Чаротворення. Звикайте посилювати улюблені низькорівневі заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Бард 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бардове натхнення{{Bardic Inspiration}} (к8); Font of Inspiration{{Font of Inspiration}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Font of Inspiration — дивна завершальна здібність для такої збірки, але маємо що маємо."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-dice-pool",
+          "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+          "heading": "Запас кісток",
+          "sourceAnchor": "the-dice-pool",
+          "blocks": [
+            {
+              "blockId": "block-section-the-dice-pool-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підсумуймо джерела додаткових кісток і подивімося, скільки можна додати до кожного типу кидка к20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-dice-pool-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Благословення [Bless]: +1к4 до атак і ряткидків, діє хвилину. Примітка редакції: джерело помилково додає обмеження «раз за хід»; заклинання його не має."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Built for Success{{Built for Success}}: +1к4 до атаки, перевірки чи ряткидка; кількість застосувань дорівнює Бонусу Майстерності між тривалими відпочинками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Dark Oneʼs Own Luck{{Dark One's Own Luck}}: +1к10 до перевірки чи ряткидка один раз між короткими або тривалими відпочинками. Примітка редакції: виправлено помилку Luick у назві джерела."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Emboldening Bond{{Emboldening Bond}}: +1к4 до атаки, перевірки чи ряткидка раз за хід; діє десять хвилин, застосувань стільки, скільки становить Бонус Майстерності між тривалими відпочинками. Потрібен інший учасник звʼязку в межах 30 футів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Experimental Elixir — Boldness{{Experimental Elixir}}: +1к4 до атак і ряткидків, діє хвилину. Примітка редакції: у джерелі помилково вказано «раз за хід»; ефект еліксиру такого обмеження не має."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Favored by the Gods{{Favored by the Gods}}: +2к4 після невдалої атаки чи проваленого ряткидка один раз між короткими або тривалими відпочинками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Настанова [Guidance]: +1к4 до однієї перевірки характеристики. Примітка редакції: згадка атак у джерелі неправильна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Pact of the Talisman{{Pact of the Talisman}}:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базовий ефект: +1к4 після проваленої перевірки характеристики, застосувань стільки, скільки становить Бонус Майстерності між тривалими відпочинками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Protection of the Talisman{{Protection of the Talisman}}: +1к4 після проваленого ряткидка, окремий запас застосувань, рівний Бонусу Майстерності між тривалими відпочинками."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-the-dice-pool-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бардове натхнення варте згадки, проте його не можна використати на себе."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-dice-pool-4",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "к20"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Постійні бонуси"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові за вибором"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Максимум"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Середній максимум"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевірка характеристики"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2d4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2d4+1d10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4d4+1d10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+15.5"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кидок атаки — помилка підсумку джерела: Dark Oneʼs Own Luck не діє на атаки; правильно максимум 6к4, середній бонус +15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3d4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3d4+1d10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6d4+1d10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+20.5"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ряткидок — підсумок джерела не враховує Dark Oneʼs Own Luck; з ним максимум 7к4 + к10, середній бонус +23"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3d4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4d4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7d4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+17.5"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-d4-abuse-2014-001",
+      "articleId": "rpgbot-d4-abuse-2014",
+      "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-1",
+      "optionId": "section-races-block-section-races-1-item-0",
+      "context": "Автогном",
+      "explanationBlockId": "block-section-races-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-d4-abuse-2014-002",
+      "articleId": "rpgbot-d4-abuse-2014",
+      "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-1",
+      "optionId": "section-races-block-section-races-1-item-1",
+      "context": "Дампір",
+      "explanationBlockId": "block-section-races-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-d4-abuse-2014-003",
+      "articleId": "rpgbot-d4-abuse-2014",
+      "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-0",
+      "context": "Благословення [Bless]PHB",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-d4-abuse-2014-004",
+      "articleId": "rpgbot-d4-abuse-2014",
+      "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-1",
+      "context": "Настанова [Guidance]PHB",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-d4-abuse-2014-005",
+      "articleId": "rpgbot-d4-abuse-2014",
+      "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-2",
+      "context": "Опір [Resistance]PHB",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-d4-abuse-2014-006",
+      "articleId": "rpgbot-d4-abuse-2014",
+      "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+      "sectionId": "section-magic-items",
+      "targetBlockId": "block-section-magic-items-1",
+      "optionId": "section-magic-items-block-section-magic-items-1-item-0",
+      "context": "Clockwork Amulet",
+      "explanationBlockId": "block-section-magic-items-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-d4-abuse-2014-007",
+      "articleId": "rpgbot-d4-abuse-2014",
+      "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+      "sectionId": "section-magic-items",
+      "targetBlockId": "block-section-magic-items-1",
+      "optionId": "section-magic-items-block-section-magic-items-1-item-1",
+      "context": "Stone of Good Luck",
+      "explanationBlockId": "block-section-magic-items-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

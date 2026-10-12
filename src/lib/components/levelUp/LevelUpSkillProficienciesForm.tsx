@@ -25,7 +25,7 @@ type Skill = (typeof SkillsEnum)[number];
 const isSkill = (value: unknown): value is Skill =>
   typeof value === "string" && (SkillsEnum as readonly string[]).includes(value);
 
-type SkillChoiceFeature = { featureId: number; name: string; choiceCount: number; options: Skill[] };
+type SkillChoiceFeature = { featureId: number | string; name: string; choiceCount: number; options: Skill[] };
 
 type NormalizedSkillProficiency =
   | { type: "fixed"; skills: Skill[] }
@@ -160,7 +160,7 @@ export const LevelUpSkillProficienciesForm = ({
       .filter((s) => options.includes(s as Skill)) as Skill[];
   };
 
-  const toggleSkill = (featureId: number, skill: Skill) => {
+  const toggleSkill = (featureId: number | string, skill: Skill) => {
     const current = (selections[featureId] || []) as Skill[];
     const has = current.includes(skill);
     const next = has ? current.filter((s) => s !== skill) : [...current, skill];

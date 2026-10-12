@@ -1,0 +1,1641 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-ea40be98cdd52810",
+      "rulesets": [
+        "RULES_2024"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+      "sourceId": "rpgbot-ea40be98cdd52810",
+      "fetchedAt": "2026-09-29T19:24:39.506144+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:51:31-04:00",
+      "contentHash": "d08d10d1a277ef4452a083ad5f755e85d594106e860b581b43456494f4a16fef",
+      "title": "DnD 5.5 Warrior of the Open Hand Monk Subclass Guide | 2024 DnD",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-monk-open-hand-2024",
+    "sourceId": "rpgbot-ea40be98cdd52810",
+    "slug": "monk-open-hand-2024",
+    "ruleset": "RULES_2024",
+    "titleUk": "Воїн Відкритої Долоні — гайд підкласу Монаха (2024)",
+    "titleEn": "DnD 5.5 Warrior of the Open Hand Monk Subclass Guide | 2024 DnD",
+    "topics": [
+      "Монах",
+      "Воїн Відкритої Долоні",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+      "articleId": "rpgbot-monk-open-hand-2024",
+      "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільш «типовий» із підкласів Монаха, {{Воїн Відкритої Долоні|Warrior of the Open Hand}}, мабуть, найкраще показує, що таке Монах як клас. Він сильно спирається на базові уміння Монаха: доповнює ефекти «Шквалу ударів»{{Flurry of Blows}}, робить наголос на здатності Монаха переміщувати ворогів і послаблювати їх та ще більше розширює й без того винятково високу мобільність Монаха."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Воїн Відкритої Долоні|Warrior of the Open Hand}} майже нічого не додає до шкоди чи живучості Монаха. Натомість «Техніка відкритої долоні»{{Open Hand Technique}} дає трохи контролю над натовпом. До ролей Монаха — розвідника й атакера — «Відкрита долоня» додає трохи контролера: ви можете силоміць переміщувати ворогів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця додаткова здатність контролера робить {{Воїна Відкритої Долоні|Warrior of the Open Hand}} ефективним множником сили{{force multiplier}}. Уміння і збивати ворогів із ніг, і переміщувати їх на значні відстані робить його сильним активом для групи з нюкерами, які стабільно завдають шкоди по області. Особливо добре підходять Чарівники підкласу {{Заклинач Стихій|Evoker}}, але будь-хто з дихальною зброєю чи чимось подібним теж зрадіє вашій компанії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця стаття — для правил D&D 5e 2024 року. Для правил 2014 року див. наш "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд із підкласу Монаха «Шлях відкритої долоні» (2014)",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#backgrounds"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#species"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Атакувальне табаксі-таксі",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Воїна Відкритої Долоні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#species"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Володіння навичками й інструментами",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#skill-and-tool-proficiencies"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси та покращення характеристик",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#feats-and-ability-score-increases"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/open-hand/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поради в цій статті спираються на "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 2024",
+                  "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на час останнього оновлення статті. Памʼятайте, що стан мети час від часу змінюється з виходом нових матеріалів, тож статтю буде оновлено за першої нагоди. Також періодично перевіряйте "
+                },
+                {
+                  "type": "link",
+                  "text": "виправлення правил",
+                  "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Воїна Відкритої Долоні",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Техніка відкритої долоні"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Open Hand Technique}}: це різко покращує вигоди від витрати очок Зосередження на «Шквал ударів»{{Flurry of Blows}} замість того, щоб покладатися на бонусну атаку «Бойових мистецтв»{{Martial Arts}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спантеличення{{Addle}}: якщо вам треба вийти з ближнього бою, заборона цілі виконувати реакції не дає їй зробити принагідну атаку, тож зазвичай можна використати «Шквал ударів»{{Flurry of Blows}} замість «Кроку вітру»{{Step of the Wind}} для Відступу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Поштовх{{Push}}: це відштовхує ворогів «від себе», а не «безпосередньо від себе». Угору під кутом — це теж «від себе», тож можна запустити ворогів у повітря, щоб вони отримали шкоду від падіння й упали повалені. Якщо ваша перша атака за хід — від «Шквалу ударів»{{Flurry of Blows}}, цим можна збити ворогів із ніг, а решту ходу атакувати їх із Перевагою. Якщо в цілі є бодай пристойні шанси провалити ряткидок, «Поштовх» легко перевершує «Спантеличення»{{Addle}} і «Повалення»{{Topple}}. Відштовхнути ворога за межі досяжності й повалити його шкодою від падіння — означає, що ви не спровокуєте принагідної атаки, а ціль лежатиме повалена, тож ви поєднуєте переваги «Спантеличення» та «Повалення». Зауважте: на відміну від більшості ефектів відштовхування, це уміння "
+                  },
+                  {
+                    "type": "link",
+                    "text": "навмисно ігнорує розмір істоти",
+                    "href": "https://www.dndbeyond.com/sources/dnd/sae/sage-advice-compendium#SAC-Monk2"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Повалення{{Topple}}: чудовий спосіб збити з ніг ворогів із високою Силою. Саме такі вороги можуть надійно проходити ряткидки, щоб опиратися «Поштовху»{{Push}} або вашій спробі збити їх з ніг беззбройним ударом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Цілісність тіла|Wholeness of Body}}: по суті, запас додаткових кубиків здоровʼя. У бою користуватися нею категорично не варто — лікування надто мізерне. Якщо вам загрожує небезпека, краще виконайте Ухиляння й запобіжіть вхідній шкоді, ніж намагайтеся залатати її, поки ви й далі активно отримуєте шкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Прудка хода{{Fleet Step}}: фактично безкоштовний Ривок щоходу, що значно покращує вашу мобільність. Скористайтеся цим, щоб силоміць переставляти ворогів комбінацією «Техніки відкритої долоні»{{Open Hand Technique}} і захоплення. Зберіть усіх ворогів в охайну акуратну кульку, а тоді дайте «пʼять» нюкеру вашої групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тремтяча долоня{{Quivering Palm}}: 10к12 шкоди — у середньому 65. Створення вібрацій коштує 4 очки Зосередження, а потім потрібна ще одна атака під час дії Атака, щоб запустити шкоду. Ціль робить ряткидок Статури, а ряткидки Статури зазвичай високі, тож слід очікувати, що вороги його пройдуть. Чи варте це витрачених очок Зосередження? За 4 очки можна двічі застосувати «Шквал ударів»{{Flurry of Blows}} і двічі «Приголомшливий удар»{{Stunning Blow}}. Ці 4 додаткові атаки порівняно з «Бойовими мистецтвами»{{Martial Arts}} завдадуть по 1к12+5 шкоди кожна. Якщо влучать усі чотири, це в середньому 46 шкоди без урахування можливих критичних влучань, шкоди від падіння через «Техніку відкритої долоні»{{Open Hand Technique}} тощо. Два застосування «Приголомшливого удару»{{Stunning Fist}} можуть позбавити ціль двох ходів. Прямо порівняти «Тремтячу долоню» з іншими нашими варіантами складно. «Тремтяча долоня» може дати величезний «нюк» шкоди, завданий дуже швидко, але ряткидкам Статури я не довіряю достатньо, щоб часто йти на таку ставку. Особисто я б радше використав «Приголомшливий удар» і витратив хід на побиття цілі, поки вона не може дати відсічі."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-backgrounds",
+          "heading": "Походження Воїна Відкритої Долоні",
+          "sourceAnchor": "backgrounds",
+          "blocks": [
+            {
+              "blockId": "block-section-backgrounds-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/2024-monk/#backgrounds"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-species",
+          "heading": "Раси Воїна Відкритої Долоні",
+          "sourceAnchor": "species",
+          "blocks": [
+            {
+              "blockId": "block-section-species-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/2024-monk/#species"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Воїна Відкритої Долоні",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/2024-monk/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Воїна Відкритої Долоні",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого варіанти рис для {{Воїна Відкритої Долоні|Warrior of the Open Hand}} нічим не відрізняються від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/2024-monk/#species"
+                },
+                {
+                  "type": "text",
+                  "text": ". Вирізняють його лише кілька синергій із «Технікою відкритої долоні»{{Open Hand Technique}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Дробильник{{Crusher}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": примусове переміщення від «Дробильника» дуже добре поєднується зі здатністю «Техніки відкритої долоні»{{Open Hand Technique}} відштовхувати ворогів."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Воїна Відкритої Долоні",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/2024-monk/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ". У переважній більшості випадків ви все одно воюєте без зброї."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Воїна Відкритої Долоні",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/2024-monk/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": ". Ви й далі воюєте без обладунків."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Воїна Відкритої Долоні",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/2024-monk/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки — Атакувальне табаксі-таксі",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "«Тайлере, чому ти завжди знаходиш спосіб стати автобусом?» —"
+                },
+                {
+                  "type": "link",
+                  "text": "Рендом Павелл",
+                  "href": "https://rpgbot.net/author/harlequin/"
+                },
+                {
+                  "type": "emphasis",
+                  "text": ", близько 2022 року"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наш "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд із Шляху відкритої долоні (2014)",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": " ґрунтувався на семантичній суперечці: «від себе» — це не те саме, що «безпосередньо від себе». Приблизно через 6 місяців після публікації того гайда ті самі поради почали зʼявлятися в ТікТоці, на Ютубі та інших платформах, де творці D&D-контенту обговорюють оптимізацію персонажів. Невдовзі після цього WotC помітили це й почали експериментувати з «горизонтально від себе» в плейтесті «Відкритої Аркани»{{Unearthed Arcana}} для правил 2024 року, зрештою зупинившись на «безпосередньо від себе», що краще передає задуманий ефект. Переважна більшість ефектів відштовхування в правилах 2024 року тепер використовують «безпосередньо від себе»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивно, але WotC залишили варіант відштовхування в «Техніці відкритої долоні»{{Open Hand Technique}} без змін. У формулюванні досі просто сказано «від себе». Незрозуміло, чи WotC просто пропустили одне місце, чи побачили, що я зробив із правилами 2014 року, і сказали: «Знаєте що? Це найбільш монаше, що ми бачили. Лишаємо». Так чи інакше, це означає, що наші витівки з правилами 2014 року працюють майже без жодних змін."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але я не збираюся повторно використовувати ті самі тактики. Це нудно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я збираюся вчинити "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "набагато гірше"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка — дуже мобільний контролер ближнього бою, що покладається на відштовхування й захоплення, щоб переміщувати ворогів. Як і наша збірка Монаха Відкритої долоні{{Open Hand}} за правилами 2014 року, вона розквітає в парі з дружнім нюкером. Але, на відміну від збірки 2014 року, ця значно краще пристосована до розумного використання місцевості. Велика частина гри за цю збірку залежатиме від вашої власної уважності до навколишнього світу, що часто сягає значно далі"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цілком стандартно для Монаха. На жаль, ми не встигнемо довести Спритність і Мудрість до 20, поки не дійдемо до 20-го рівня."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Скориговане значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Моряк{{Sailor}}. Нам потрібен «Забіяка з таверни»{{Tavern Brawler}}, а ще збільшення характеристик нам підходять."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-species-2",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "species",
+          "blocks": [
+            {
+              "blockId": "block-section-species-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Табаксі{{Tabaxi}}. Навички чудові, але ми тут заради «Котячої спритності»{{Feline Agility}}. Памʼятайте, що за правилами 2024 року ми ігноруємо збільшення характеристик від старих рас."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skill-and-tool-proficiencies",
+          "parentSectionId": "section-example",
+          "heading": "Володіння навичками й інструментами",
+          "sourceAnchor": "skill-and-tool-proficiencies",
+          "blocks": [
+            {
+              "blockId": "block-section-skill-and-tool-proficiencies-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Моряка{{Sailor}} ми отримуємо Акробатику й Уважність. Від Табаксі{{Tabaxi}} — Уважність і Непомітність. Із класових навичок Монаха беремо будь-які 2. Для цієї збірки це не має значення. Історія й Аналіз Поведінки — непогані варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skill-and-tool-proficiencies-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На жаль, у правилах 2024 року немає правила про дубльовані володіння, як було в правилах 2014 року, тож, схоже, ми справді втрачаємо одне володіння."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-and-ability-score-increases",
+          "parentSectionId": "section-example",
+          "heading": "Риси та покращення характеристик",
+          "sourceAnchor": "feats-and-ability-score-increases",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні ми отримуємо «Забіяку з таверни»{{Tavern Brawler}} від нашого походження. Перекидання одиниць на кубиках шкоди беззбройного удару — приємна дрібниця, але ми тут заради здатності «Поштовх»{{Push}}: раз за хід, коли ми влучаємо беззбройним ударом, можна відштовхнути ворога на 5 футів від себе. Зверніть увагу: саме «раз за хід», а не «раз у кожен ваш хід»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Борця»{{Grappler}} і +1 до Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо +2 до Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Швидкого»{{Speedy}} і +1 до Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо +2 до Мудрості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо «Дар Швидкості»{{Boon of Speed}} і +1 до Спритності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойові мистецтва\nЗахист без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми — цілком стандартний Монах. Колійте ворогів списом, лупцюйте їх бонусною атакою й намагайтеся не померти з 10 ХП і КБ 16."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зосередження Монаха\nРух без броні + 10 фт\nНадприродний метаболізм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Зосередження Монаха»{{Monk’s Focus}} дає нам невеликий смак майбутнього. «Шквал ударів»{{Flurry of Blows}} зʼїдатиме більшість наших очок Зосередження, але можна також поєднати «Крок вітру»{{Step of the Wind}} із «Котячою спритністю»{{Feline Agility}}, щоб ненадовго рухатися неймовірно швидко.\n\n«Надприродний метаболізм»{{Uncanny Metabolism}} — на випадок, коли вас втягують у бій дорогою до наступного короткого відпочинку. Не використовуйте його як відмовку, щоб не відпочивати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відхилення атак\nПідклас: Воїн Відкритої Долоні\nТехніка відкритої долоні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Відхилення атак»{{Deflect Attacks}} дуже ускладнює вбивство Монаха в двобої один на один. Скористайтеся цим, щоб зчепитися в ближньому бою з великими ворогами й тримати їх зайнятими, поки ваша група вирішує інші проблеми й не зможе прийти вам на допомогу.\n\n«Техніка відкритої долоні»{{Open Hand Technique}} — ось де ми починаємо почуватися круто. Вона спрацьовує лише тоді, коли ми використовуємо «Шквал ударів»{{Flurry of Blows}}, тож обовʼязково бережіть очки Зосередження для шквалів.\n\nДля нас особливо важлива «Техніка відкритої долоні» (Поштовх). Вона дозволяє відштовхнути ворога на відстань до 15 футів, зокрема вгору, у повітря. У поєднанні з відштовхуванням раз за хід від «Забіяки з таверни»{{Tavern Brawler}} ми можемо підкинути ворога на 20 футів угору, унаслідок чого він упаде, отримає 2к6 шкоди й приземлиться повалений."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Борець\nСпритність 17 → 18\nПовільне падіння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Борець»{{Grappler}} — фантастична риса для Монаха. Влучіть у ворога беззбройним ударом і схопіть його (памʼятайте, що для Складності ряткидка можна використовувати Спритність), а решту ходу атакуйте його з Перевагою.\n\nЯкою б крутою не була Перевага, справжня причина, чому ми тут, — це «Швидкий борець»{{Fast Wrestler}} від «Борця». Здатність переміщувати схопленого дозволяє точно переставляти схоплених ворогів, а обмежує нас лише те, як далеко ми можемо рухатися за хід. «Крок вітру»{{Step of the Wind}} дає змогу використати Ривок бонусною дією без витрат очок Зосередження, і, поєднавши це з «Рухом без броні»{{Unarmored Movement}} та «Котячою спритністю»{{Feline Agility}}, ми отримуємо 160 футів руху, не витрачаючи дію. Цього досить, щоб поставити схопленого ворога куди завгодно, навіть далеко в окрему кімнату, звідки йому знадобиться два ходи Ривку, щоб повернутися в бій.\n\nЯкщо у вас є союзник, що вміє накладати Проростання шипів [Spike Growth], вся гра переходить у легкий режим. Пропускайте свої проблеми крізь сирну тертку на надшвидкості.\n\nПамʼятайте, що «Котяча спритність» відновлюється лише тоді, коли ви проводите хід без руху, тож назад вам, можливо, доведеться добиратися зі звичайною швидкістю. Або ж ви з вашим невільним пасажиром можете витратити хід на двобій один на один (що часто виграшне рішення завдяки «Відхиленню атак»{{Deflect Attacks}}), перш ніж надшвидко повернутися до групи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака\nПриголомшливий удар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Додаткова атака»{{Extra Attack}} — фантастика. Хоч ми й не можемо використати «Борця»{{Grappler}}, щоб завдати шкоди й схопити більше ніж однією атакою, ми все одно можемо схопити по одній істоті на кожну порожню руку, а отже, силоміць вивезти двох ворогів із сутички на {{табаксі-таксі|Tabaxi taxi}}, залишивши решту групи розбиратися з тим, що лишилося, поки ми мчимо назад на допомогу.\n\nБудьте обережні з цим. Залишитися наодинці з двома ворогами — означає стати дуже вразливим до ефектів контролю або несподіваних критичних влучань. Також це може дозволити ворогам піти й приєднатися до інших груп ворогів, ускладнивши подальші зіткнення. Якщо ви збираєтеся вивести ворогів із бою, робіть це десь, де їм це незручно, а вам — відносно безпечно.\n\nЯкщо вороги надто великі, щоб їх схопити, запустіть їх на 20 футів у повітря. «Техніці відкритої долоні»{{Open Hand Technique}} байдуже, наскільки вони великі.\n\nТакож памʼятайте, що ці тактики схоплення не обовʼязково застосовувати суто в нападі. Істоти можуть добровільно провалити ряткидок, тож ви можете схопити союзників, щоб переставити їх. У вас швидкість більша, ніж у будь-кого в групі, тож у сутичці з великим простором перетягування союзників може схилити шальки терезів на вашу користь так, що вороги нічого не зможуть протиставити.\n\nНа цьому ж рівні стає доступне заклинання Прискорення [Haste]. Якщо союзник накладе на вас Прискорення [Haste], усе це стає вдвічі ефективнішим."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рух без броні + 15 фт\nПідсилені удари\nЦілісність тіла"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Підсилені удари»{{Empowered Strikes}} дозволяють обійти майже всі опори до шкоди.\n\n«Цілісність тіла»{{Wholeness of Body}} дає краплю лікування. Цього замало, щоб це було захопливо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Завжди чудово."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нам справді хочеться більше рис, але Спритність також украй потрібна, щоб підтримувати всі наші витівки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Акробатичний рух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Задум цього уміння — дозволити Монахам виконувати неймовірні подвиги фізичної майстерності й без магії долати будь-яку місцевість. Саме це ми й збираємося робити. Ну, майже.\n\n«Акробатичному руху»{{Acrobatic Movement}} байдуже, що ми тримаємо когось у захопленні. Тепер ми можемо використати «Акробатичний рух», щоб тягти ворогів по рідких поверхнях або вгору по вертикальних. Так, ми можемо схопити ворогів і вибігти з ними прямо по стіні.\n\nЗ 45 футами руху, Ривком бонусною дією та «Котячою спритністю»{{Feline Agility}} ми маємо 180 футів руху. Схопіть ворога, затягніть його на найвищу вертикальну споруду, яку знайдете, і скиньте. Якщо вам не вистачає руху, щоб збігти по стіні назад, то нічого страшного. У вас є «Повільне падіння»{{Slow Fall}}, і на цьому рівні воно гасить 45 одиниць шкоди від падіння. Максимальна шкода від падіння — 20к6 (у середньому 70), тож ви мчите до здатності гасити середню шкоду від падіння з кінцевою швидкістю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рух без броні + 20 фт\nПідвищене зосередження\nСамовідновлення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Підвищене зосередження»{{Heightened Focus}} ще більше розширює наші можливості табаксі-таксі. Якщо ви витрачаєте очко Зосередження, застосовуючи «Крок вітру»{{Step of the Wind}}, тепер можна взяти із собою охочу істоту. Можна схопити по одному союзнику в кожну руку й потягти третього за собою «Кроком вітру», перевозячи групу з чотирьох зі швидкістю табаксі-таксі. Якщо в той самий хід виконати Ривок дією й скористатися «Котячою спритністю»{{Feline Agility}}, можна пронести всю групу 300 футів за 6 секунд — це приблизно 34 милі на годину. Ви — табаксі-таксі, що їде зі швидкістю справжнього таксі (хай і недовго).\n\n«Підвищене зосередження» також збільшує «Шквал ударів»{{Flurry of Blows}} із 2 до 3 атак, роблячи «Техніку відкритої долоні»{{Open Hand Technique}} ще крутішою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Прудка хода"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "До цього моменту ми часто користувалися «Кроком вітру»{{Step of the Wind}}. Тепер можна повернутися до того, щоб завжди бити бонусною дією, бо безкоштовний Ривок ми й так отримуємо.\n\nНа цей момент у нас достатньо швидкості й атак, щоб почати возити ворогів на табаксі-таксі партіями. У нас усього 5 атак, тож теоретично можна схопити й перемістити 5 ворогів, скидаючи їх по дорозі, щоб тут же бігти по нових. Можна стягнути всіх ворогів в охайну акуратну кульку, а тоді примчати назад у безпеку, перш ніж ваша група накриє їх усіх Вогнекулею [Fireball]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Швидкий\nСтатура 15 → 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+10 футів швидкості доводять нас до 60 футів, піднімають наш модифікатор Статури до +3, і тепер ми почуваємося значно безпечніше, пробігаючи крізь досяжність ворогів, коли працюємо табаксі-таксі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відхилення енергії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так, тепер ви можете відхиляти Позамежний заряд [Eldritch Blast]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рух без броні + 25 фт\nЗагартований дисципліною"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння всіма ряткидками, зокрема ряткидками від смерті. До того ж ми стаємо ще швидшими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досконале зосередження"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Техніка відкритої долоні»{{Open Hand Technique}} вимагає використовувати «Шквал ударів»{{Flurry of Blows}}, тож починати бій без очок Зосередження дуже обмежувально."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нудно, зате вагомо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тремтяча долоня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "65 шкоди в обмін на 2 атаки й 4 очки Зосередження, із ряткидком Статури на половину шкоди. Якщо витратити ці очки на «Шквал ударів»{{Flurry of Blows}} і «Приголомшливий удар»{{Stunning Strike}}, у тривалому бою користі буде більше.\n\nПривабливість «Тремтячої долоні»{{Quivering Palm}} — у швидкості. Використовуйте її, щоб швидко прибрати пріоритетні цілі, коли треба швидко щось знищити «нюком». Це не основна тактика, але це інструмент у вашому ящику з інструментами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рух без броні + 30 фт\nВищий захист"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наша швидкість тепер 70 футів.\n\n«Вищий захист»{{Superior Defense}} буде потрібен нечасто. Берегти його варто для справді важких боїв."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Епічний Дар: Дар Швидкості\nСпритність 20 → 21"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще 30 футів швидкості різко розширюють радіус, у якому ми можемо витворяти наші витівки з табаксі-таксі.\n\nЗі швидкістю 100 футів (до врахування підсилень на кшталт Скорохода [Longstrider] і Прискорення [Haste]) і гарантованим Ривком щоходу ми можемо отримати 400 футів руху, не витрачаючи дію, а отже, легко пронести двох ворогів 200 футів угору по стіні, скинути їх, завдавши по 20к6 шкоди кожному, спуститися вниз, гасячи шкоду від падіння, потім, можливо, знову схопити їх і "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "ще раз"
+                    },
+                    {
+                      "type": "text",
+                      "text": " затягти по стіні вгору. Якщо вам це вдасться, раджу збігти назад до висоти 5 футів від землі, щоб не отримати шкоди від падіння й не впасти повалені.\n\nПодумати лишень. Інші Монахи просто бʼють людей, а ви завдаєте 20к6 двом цілям і "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "ще й"
+                    },
+                    {
+                      "type": "text",
+                      "text": " бʼєте людей.\n\nЗвісно, для цього потрібна вертикальна поверхня заввишки 200 футів, а такі трапляються зникомо рідко. Але будь-що заввишки 30 футів чи більше вже виправдовує те, щоб возити ворога на табаксі-таксі вгору по стіні замість того, щоб просто його бити. Якщо поблизу є водойма, можна пронести їх 200 футів від берега й змусити пливти назад із половинною швидкістю.\n\nА якщо цих варіантів немає, ми все одно можемо смішно далеко відтягти ворогів у незручні місця й або розібратися з ними наодинці, або кинути їх там."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тіло і розум"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ця математика така приємна. Ми не довели Мудрість до 20, тож у нас не 25 Спритності й 24 Мудрості, але 25/22 — теж цілком круто."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-monk-open-hand-2024-001",
+      "articleId": "rpgbot-monk-open-hand-2024",
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Спантеличення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-open-hand-2024-002",
+      "articleId": "rpgbot-monk-open-hand-2024",
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Поштовх",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-open-hand-2024-003",
+      "articleId": "rpgbot-monk-open-hand-2024",
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Повалення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-open-hand-2024-004",
+      "articleId": "rpgbot-monk-open-hand-2024",
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Цілісність тіла",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-open-hand-2024-005",
+      "articleId": "rpgbot-monk-open-hand-2024",
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Прудка хода",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-open-hand-2024-006",
+      "articleId": "rpgbot-monk-open-hand-2024",
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Тремтяча долоня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-open-hand-2024-007",
+      "articleId": "rpgbot-monk-open-hand-2024",
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-0",
+      "context": "Дробильник",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

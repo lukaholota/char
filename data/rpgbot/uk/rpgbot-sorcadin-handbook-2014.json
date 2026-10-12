@@ -1,0 +1,1231 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-25196e2bd419ddf8",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+      "sourceId": "rpgbot-25196e2bd419ddf8",
+      "fetchedAt": "2026-09-29T19:10:23.719623+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:28:58-04:00",
+      "contentHash": "5e1b47b4520ac21a5ccc68d4399f02574b73305866a328ac07a374cba44d2b04",
+      "title": "Sorcadin: Smite Like Clockwork: DnD 5e Multiclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-sorcadin-handbook-2014",
+    "sourceId": "rpgbot-25196e2bd419ddf8",
+    "slug": "sorcadin-handbook-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Чародин — гайд мультикласу (2014)",
+    "titleEn": "Sorcadin: Smite Like Clockwork: DnD 5e Multiclass Guide",
+    "topics": [
+      "combat"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+      "articleId": "rpgbot-sorcadin-handbook-2014",
+      "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-sorcadin-introduction",
+          "heading": "Вступ до чародина",
+          "sourceAnchor": "sorcadin-introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcadin-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Виявляється, якщо створити бойовий клас на Харизмі та ще три чаротворчі класи на ній, гравці залюбки поєднуватимуть їх у чародинів та інших «-адінів». Для переговорника або персонажа з мечем і магією, який завдає багато шкоди "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "без"
+                },
+                {
+                  "type": "text",
+                  "text": " простого рішення «Чарівник із мечем», ця пара класів була відповіддю на "
+                },
+                {
+                  "type": "link",
+                  "text": "Школу співу клинків",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/bladesinging/"
+                },
+                {
+                  "type": "text",
+                  "text": ". А потім, як пише автор, у Таші зʼявився "
+                },
+                {
+                  "type": "link",
+                  "text": "Hexblade",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+                },
+                {
+                  "type": "text",
+                  "text": ", напала нація вогню, і ми отримали "
+                },
+                {
+                  "type": "link",
+                  "text": "цього монстра",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/"
+                },
+                {
+                  "type": "text",
+                  "text": " — імовірно, найпопулярніший архетип мультикласування. Примітка редакції: історія джерела неточна: Hexblade опублікований у Довідник Занатара про все, а первісна Школа співу клинків — у Путівник по Узбережжю Мечів, після виходу базових правил 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcadin-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Та збірка тяжіє до Потойбічного лицаря: меч і магія присутні, але головний саме меч. А якщо хочеться бути якнайкращим Паладином, узявши якнайменше його рівнів? Спочатку визначимо критерії: Паладин має часто застосовувати Божественну кару{{Divine Smite}}, бути витривалим і захищати союзників. Ви запитаєте: «А як же аури?» Автор відповість: «Зараз накладу на вас руки — це досить паладинське?» Спойлер: лікування не буде."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcadin-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Hexadin уже є провідним представником того краю спектра, тож тут зосередимося на великій кількості чародійства в латах. Підказка автора: це приведе до найкращої фінальної здібності гри. Примітка редакції: наведена збірка має помилки передумов і доступності заклинань, які позначено далі; без виправлення вона не є готовим законним білдом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ до чародина",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#sorcadin-introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Варіанти підкласів",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#subclass-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чародій",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#sorcerer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Паладин",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#paladin"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — кара щохід як годинник",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#example-build-smiting-every-turn-like-clockwork"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-subclass-options",
+          "heading": "Варіанти підкласів",
+          "sourceAnchor": "subclass-options",
+          "blocks": [
+            {
+              "blockId": "block-section-subclass-options-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обидва класи мають плюси й мінуси: Паладин пропонує кілька хороших варіантів залежно від мети, Чародій — теж. Поради "
+                },
+                {
+                  "type": "link",
+                  "text": "практичного гайду мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/"
+                },
+                {
+                  "type": "text",
+                  "text": " здебільшого залишаються чинними, але тут є додаткові нюанси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-subclass-options",
+          "heading": "Чародій",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це доповнення до пояснення основних здібностей Чародія в "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/#bard"
+                },
+                {
+                  "type": "text",
+                  "text": ". Розглядаємо лише підкласи, що особливо доречні чародину. Інші теж можуть бути чудовими, але не потребують додаткового пояснення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcerer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Механічна душа{{Clockwork Soul}}"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": найважливіша перевага не така очевидна. Bastion of Law{{Bastion of Law}} і Trance of Order{{Trance of Order}} чудові, особливо коли часто атакуєте. Проте головна цінність прихована в описі розширеного списку: його заклинання можна перевчати на будь-яке заклинання Захисту чи Перетворення відповідного рівня зі списків Чародія, Чорнокнижника або Чарівника. На 1-му рівні у списку Чорнокнижника є надзвичайно сильний і важкодоступний Обладунок Агатіса [Armor of Agathys]. За ціну відмови від Тривога [Alarm] отримуємо його з майже повноцінним розвитком слотів."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Драконячий родовід{{Draconic Bloodline}}"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": так автор збирав би варіант з "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Ельфійською точністю",
+                    "href": "https://rpgbot.net/oops-all-elves/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Для мультикласування з Паладина потрібна Сила 13, якою ви не користуватиметеся, зате не обовʼязково доводити її до 15 заради лат і нормальної швидкості: підклас дає КБ без обладунків. Пізніше зʼявляються крила. Автор також пропонує Таврувальна кара [Branding Smite] як дешевий спосіб додати Харизму до шкоди та отримати опір. Примітка редакції: назва Draconic Soul у джерелі помилкова. Elemental Affinity 2014 працює лише з типом шкоди драконячого предка, а Таврувальна кара завдає променевої шкоди, якої немає серед цих типів. Ця комбінація не працює; для вогняного предка може підійти Searing Smite."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-subclass-options",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це доповнення до основних здібностей Паладина в "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/#paladin"
+                },
+                {
+                  "type": "text",
+                  "text": ". Розглядаємо лише явно доречні чародину підкласи. Інші теж можуть бути чудовими без додаткових пояснень."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-paladin-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Клятва помсти{{Oath of Vengeance}}"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Vow of Enmity{{Vow of Enmity}} легко дає Перевагу, але лише один раз між відпочинками. Саме цей варіант автор узяв би для Ельфійської точності, щоб не турбуватися про джерело Переваги. Тільки відпочивайте коротко після кожного бою — як Чорнокнижник, яким ви точно не є."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Клятва завоювання{{Oath of Conquest}}"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": автор не планує стільки Паладина, але якби йшов до 5-го рівня заради підвищення характеристик і Додаткової атаки{{Extra Attack}}, обрав би цей підклас. Духовна зброя [Spiritual Weapon] настільки добра, що її "
+                  },
+                  {
+                    "type": "link",
+                    "text": "послабили",
+                    "href": "https://rpgbot.net/one-dd-playtest-unearthed-arcana-the-cleric-and-revised-species/#spiritual-weapon"
+                  },
+                  {
+                    "type": "text",
+                    "text": " в тестовій One D&D UA, а в цієї збірки іншого доступу до неї немає. Якщо вже дійшли так далеко, беріть Паладина 7 заради аури, а потім Чародія, щоб частіше за звичайного Паладина накладати Страх [Fear]. Примітка редакції: посилання на UA — історичний контекст, не правило 2014."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Клятва спокути{{Oath of Redemption}}"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": саме вона у прикладі нижче. Якщо беремо лише Паладина 3, потрібні сильні можливості Божественного каналу{{Channel Divinity}} та хороші заклинання 1-го рівня. Тут обидва варіанти каналу чудові: неймовірно приємно повернути ворогу шкоду критичного влучання по союзнику, а якщо бій не скоро — отримати великий бонус до соціальних перевірок. Святилище [Sanctuary] захищає істоту бонусною дією без Концентрації. Сон [Sleep] до цього рівня вже малокорисний, але решта настільки добра, що це прийнятно."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-smiting-every-turn-like-clockwork",
+          "heading": "Приклад збірки — кара щохід як годинник",
+          "sourceAnchor": "example-build-smiting-every-turn-like-clockwork",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-smiting-every-turn-like-clockwork-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "«Відчуваю це душею: вашу недосконалість слід стерти з буття»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-smiting-every-turn-like-clockwork-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поєднання Механічної душі й Клятви спокути відчувається як просвітлений Потойбічний лицар."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-smiting-every-turn-like-clockwork-3",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Після підвищення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-smiting-every-turn-like-clockwork",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Людина, варіант{{Variant Human}}: потрібні і характеристики, і риса."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-smiting-every-turn-like-clockwork",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор починає з Бойовий заклинатель{{War Caster}}, щоб постійно тримати Щит{{Shield (armor)}} і Палицю{{Quarterstaff}}. Риса підтримує ряткидки Концентрації, бо аури Паладина не буде, а Гримучий Клинок [Booming Blade] по ворогу, що йде від вас, — класика. Примітка редакції: Бойовий заклинатель потребує здатності накладати хоча б одне заклинання. Людина — Паладин 1 у цій збірці її ще не має, тому початкова риса незаконна. Можливе виправлення — поміняти порядок із Майстром древкової зброї, узявши Бойового заклинателя після появи чаротворення; таблиця джерела нижче збережена."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 7-му рівні персонажа, Чародій 4, автор бере Майстер древкової зброї{{Polearm Master}}. Вибір здається дивним, але пояснення попереду."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні персонажа, Чародій 16, беремо Дробильник{{Crusher}}, доводячи Статуру до парного значення й пересуваючи ворогів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-smiting-every-turn-like-clockwork",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Паладин 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння; Divine Sense{{Divine Sense}}; Lay on Hands{{Lay on Hands}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звичайний Паладин 1: важкі обладунки, щит, удари палицею."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Паладин 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль Дуель{{Dueling}}; підготовані заклинання: Благословення [Bless], Лікування ран [Cure Wounds], Виклик на дуель [Compelled Duel], Громова кара [Thunderous Smite]; Божественна кара{{Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо Дуель, бо пізніше багато ходів додаватимемо її бонус шкоди тричі. Заклинання поєднують підтримку, лікування й шкоду. Громова кара — найкращий спосіб використати бонусну дію для шкоди до Майстра древкової зброї на 7-му рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Паладин 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Клятва спокути{{Oath of Redemption}}; Divine Health{{Divine Health}}; Божественний канал{{Channel Divinity}}: Emissary of Peace{{Emissary of Peace}}, Rebuke the Violent{{Rebuke the Violent}}; заклинання клятви"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас однаково добре почувається в латах і з благальним поглядом. Emissary of Peace робить і без того сильне Переконання недосяжним для більшості інших збірок, коли потрібно. Rebuke the Violent дає чудову реакцію раз між короткими відпочинками, повертаючи шкоду нападнику: чекайте великого влучання. Примітка редакції: реакція потребує ряткидка Мудрості, а при успіху завдає половину шкоди; це не автоматичне повернення всього критичного удару."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Чародій 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Restore Balance{{Restore Balance}}; нові замовляння: Гримучий Клинок [Booming Blade], "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука [Mage Hand",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "], Розщеплення Розуму [Mind Sliver], Штукарство [Prestidigitation]; нові заклинання: "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки [Silvery Barbs",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "], Магічний дротик [Magic Missile], Тривога [Alarm], Захист від зла й добра [Protection from Evil and Good] (Концентрація)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Залишаємо Паладина й починаємо справжнє чаротворення. Зараз середня шкода нижча за інші мультикласи Паладина, але пізніше масштабування "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "дуже"
+                    },
+                    {
+                      "type": "text",
+                      "text": " сильне. Для ролі танка беремо Гримучий Клинок. Ви можете запитати, навіщо він, якщо згодом буде Майстер древкової зброї: пояснення попереду. Restore Balance, Сріблясті колючки та Божественний канал уже дають кілька чудових реакцій. Поки Сріблясті колючки відбирають цінні слоти, але тримайте їх напоготові."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Чародій 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії{{Font of Magic}}; нове заклинання: Щит [Shield]; перевчіть Тривога [Alarm] на Обладунок Агатіса [Armor of Agathys]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткової атаки чи Вогняної кулі ще немає, зате доступні слоти 2-го рівня: чотири 1-го й два 2-го. Автор припускає три бої на день по три раунди, тобто девʼять бойових ходів; це його модель, а не обовʼязковий розклад із правил. Очки чародійства поки витрачаємо на слоти 1-го рівня. Автор стверджує, що Божественна кара можлива майже щохід, крім останнього ходу останнього бою, ціною відмови від інших заклинань. Примітка редакції: два наявні очки дають лише один додатковий слот 1-го рівня — загалом сім кар, а не вісім із девʼяти. Можна швидше витрачати слоти заради вибухової шкоди. Будь-який слот 1-го рівня може стати Громовою карою: разом із Гримучим Клинком ворог після проваленого ряткидка ризикує отримати додаткову шкоду, повертаючись до вас добровільним рухом."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Чародій 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія{{Metamagic}}: Підвищене заклинання{{Heightened Spell}}, Пришвидшене заклинання{{Quickened Spell}}; нові заклинання: Підтримка [Aid], Мале відновлення [Lesser Restoration], Туманний крок [Misty Step]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищене заклинання знадобиться, коли слоти почнемо витрачати й на справжні заклинання: допоможе компенсувати неоптимальну Харизму. Пришвидшене заклинання теж стане у пригоді."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Чародій 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер древкової зброї{{Polearm Master}}; нове замовляння: Спалах Мечів [Sword Burst]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Є Бойовий заклинатель і Майстер древкової зброї: автор пропонує зустрічати Гримучим Клинком ворога, який підходить до нас. Інша перевага Майстра запрацює наступного рівня. Примітка редакції: заміна спровокованої Майстром атаки заклинанням є спірною взаємодією задуму й тексту; погодьте її з Майстром. Для Гримучого Клинка потрібна законна ціль у межах 5 футів. Також отримуємо два слоти 3-го рівня. Можна накладати Туманний крок, посилювати Поглинання стихій [Absorb Elements] або берегти слоти для критичних кар. Обладунок Агатіса дає 15 тимчасових ХП й по 15 холодової шкоди при кожному влучанні ближнього бою, доки ці ХП лишаються. Два спрацювання можуть бути "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "ефективнішими"
+                    },
+                    {
+                      "type": "text",
+                      "text": " за звичайний хід із карою, а годинна тривалість дозволяє підготуватися. Можна й перетворити слоти на низькі для Сріблястих колючок, Щита чи Поглинання стихій. Примітка редакції: Поглинання стихій згадане, але не вивчене в таблиці; потрібне окреме місце у відомих заклинаннях."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Чародій 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання: Прискорення [Haste]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Доступні заклинання 3-го рівня й три слоти цього рівня завдяки мультикласуванню. Автор починає кожен бій із Прискорення [Haste] на себе. Прискорення дозволяє в один хід накласти Гримучий Клинок "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "і"
+                    },
+                    {
+                      "type": "text",
+                      "text": " виконати окрему дію Атака з однією атакою зброєю; це запускає бонусну атаку Майстра древкової зброї. Більше атак — більше шансів криту. З рештою слотів і двома слотами 1-го рівня з очок автор отримує девʼять слотів для кар за день. Середню шкоду оцінює майже у 25, попри відставання характеристик. Зовнішня точність — опціональне оточення чи чуже Благословення — підвищує її особливо помітно. Примітка редакції: Прискорення потребує Концентрації, а його завершення позбавляє вас переміщення й дій до кінця наступного ходу; розрахунок залежить від тривалості боїв і збереження ефекту."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Чародій 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Bastion of Law{{Bastion of Law}}; нове заклинання: Вогнекуля [Fireball]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Bastion of Law чудово поєднується з Обладунком Агатіса, посиленим новим слотом 4-го рівня. Накладіть барʼєр на себе й знижуйте вхідну шкоду, продовжуючи холодову відповідь. Автор радить залишати малу ненульову шкоду. Примітка редакції: для відповіді Обладунка Агатіса достатньо влучання атакою ближнього бою за наявності його тимчасових ХП; ненульова шкода не є вимогою. Барʼєр створюється дією й триває до тривалого відпочинку або повторного створення, тому підготуйте його завчасно. За потреби Обладунок Агатіса можна пришвидшити, відмовившись цього ходу від бонусної атаки палицею. Вогняна куля запізнилася, але добре відповідає на натовпи; слоти вищі за рівень найкращих відомих заклинань дозволяють посилювати її. Формально шкода атак не змінюється, але відповідь Агатіса потенційно додає 20 за спрацювання, якщо вороги атакують вас. Це умовна, не гарантована щохід шкода."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Чародій 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання: Вигнання [Banishment], "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик конструкту [Summon Construct",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-creature-spells"
+                    },
+                    {
+                      "type": "text",
+                      "text": "]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Минуло два рівні — вистачить очок на ще один слот 1-го рівня. Автор пропонує натомість витратити три очки, щоб ціль Вигнання [Banishment] кинула ряткидок із Перешкодою й пропустила бій. Примітка редакції: це Підвищене заклинання, не Empowered Spell, як помилково написано в оригіналі. Також можна пришвидшити Зʼяву конструкта. Призови добре масштабуються, а сповільнювальна аура камʼяного конструкта допомагає танку. Але вона конкурує за Концентрацію з Прискоренням: якщо потрібні додаткові атаки для кар, обирайте його замість призову."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Чародій 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Сила 16 → 18; нове відоме заклинання: "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення [Polymorph",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гримучий Клинок посилюється, бонус атаки й шкоди зростає на +1, майже наздоганяючи базову математику. Автор оцінює шкоду самих атак у 32. За дозволеного опціонального оточення пришвидшений конструкт по інший бік ворога, за його оцінкою, дає 41. Примітка редакції: призов не можна підтримувати одночасно з Прискоренням, тому не складайте дві схеми атак. Ефективний рівень чаротворця для слотів — девʼятий: доступні три слоти 4-го й один 5-го. Автор пропонує два бої з призовом і слот 5-го для Обладунка Агатіса: 25 тимчасових ХП і 25 шкоди при кожному належному влучанні. Для більшості персонажів це майже межа, але наша збірка масштабує його далі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Чародій 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання: Синаптичний розряд [Synaptic Static]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо сильне послаблення без Концентрації. Це також другий слот 5-го рівня: можна частіше мати великий Обладунок Агатіса або перетворити слот на очки для Bastion of Law, довше зберігаючи вже наявний. Шкода атак поки майже не змінюється, якщо не рахувати витрачання високих слотів на кари замість конструктів. Так теж можна грати, особливо без оточення або якщо хочете битися самостійно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Чародій 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія: Спарене заклинання{{Twinned Spell}}; нове відоме заклинання: Стримування монстра [Hold Monster]; нове замовляння: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спарене заклинання дозволяє накласти Прискорення на себе й Пройдисвіта, щоб він застосовував трюк із двома Підступними атаками{{Sneak Attack}} за раунд. Це не пряме збільшення вашої шкоди, але додаткова шкода виникла завдяки вам. Примітка редакції: Підступна атака дозволена раз за хід, не раз за раунд; для другої потрібна окрема атака в чужий хід, наприклад підготована дія й реакція, зі звичайними умовами здібності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Чародій 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: Розщеплення [Disintegrate]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Іноді треба просто щось знищити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Чародій 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Сила 18 → 20; нове відоме заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досягли Сили 20 й наздогнали математичні очікування. Є три слоти 4-го рівня й два 5-го: разом 22 Очки чародійства при перетворенні, достатні для одинадцяти слотів 1-го рівня. Примітка редакції: максимум очок — 12, тому створюйте й витрачайте їх послідовно, не накопичуйте 22 одночасно; кожний обмін займає бонусну дію. Тепер можна застосовувати кару до кожного влучання Гримучим Клинком "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "і"
+                    },
+                    {
+                      "type": "text",
+                      "text": " атаки Прискорення. Автор оцінює самостійну шкоду у 43 за раунд."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Чародій 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: Драконяче перетворення [Draconic Transformation]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо ворогів дуже багато, можливо, краще перетворитися на дракона, ніж кілька разів накладати Вогняну кулю. Повторне використання дихання — бонусна дія, тому основною дією можна продовжувати атаки й кари. Примітка редакції: Драконяче перетворення [Draconic Transformation] потребує Концентрації й замінює Прискорення; дихання конкурує з бонусною атакою Майстра древкової зброї."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Чародій 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Trance of Order{{Trance of Order}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Trance of Order різко поліпшує точність: для ваших атак, перевірок і ряткидків результат к20 9 або нижче можна вважати 10, а атаки проти вас не отримують Перевагу. За очікуваної автором КБ це прибирає промахи й підвищує розрахункову шкоду на 60%. Гримучий Клинок також отримує фінальне посилення. Авторський підсумок — приблизно 69. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Приємно",
+                      "href": "https://www.youtube.com/watch?v=5nZnPoCvBds"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Одне застосування безкоштовне між тривалими відпочинками, кожне наступне коштує пʼять очок; для трьох боїв потрібно ще десять. Нові слоти можна перетворити на очки. Примітка редакції: ефект триває хвилину й не гарантує влучання по будь-якій КБ; цифра 69 залежить від авторської моделі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Чародій 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "До 20-го рівня шкода, за моделлю автора, майже не змінюється; тільки доступні кращі слоти для кар на критичних влучаннях."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Чародій 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дробильник{{Crusher}} (Статура); нове заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дробильник доводить Статуру до 16, додаючи ХП і поліпшуючи ряткидки. Автор поєднує його з Майстром древкової зброї та Бойовим заклинателем: Гримучий Клинок реакцією по ворогу, що наближається, потім переміщення на пʼять футів назад. Якщо ворог знову добровільно наближається, спрацьовує додаткова громова шкода. Подібне можна робити останньою атакою власного ходу. Автор оцінює цю додаткову шкоду у 22,5. Примітка редакції: примусове переміщення саме не запускає Гримучий Клинок; ворог може не рухатися. Дробильник працює раз за хід лише при дробильній шкоді та має обмеження розміру цілі. Реакційна комбінація потребує погодження згаданої взаємодії рис."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Чародій 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання [Wish",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "]; перевчання невживаного заклинання на Передбачення [Foresight] — помилка джерела, для цього Чародія недоступне"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Автор вважає, що Передбачення додає лише чотири до шкоди через уже сильний Trance of Order, доводячи підсумок до 73. Примітка редакції: Передбачення — заклинання 9-го рівня поза списком Чародія 2014. Перевчання Clockwork Magic обмежене заклинаннями 1–5-го рівнів відповідних шкіл і не відкриває його. Бажання без ризикованих додаткових ефектів дублює лише заклинання до 8-го рівня включно. Тому наведене здобуття Передбачення й фінальна шкода 73 не обґрунтовані цією збіркою."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": []
+}

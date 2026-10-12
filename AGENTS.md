@@ -41,6 +41,7 @@ do not create a separate Codex memory or change Claude's setup to accommodate Co
   and apply its new-term approval gate before a batch. The Claude skill is linked to the same
   repository skill; do not keep a second version.
 - No `Co-Authored-By` commit trailers.
+- For user-facing UI work, invoke the repository `ui-craft` skill.
 
 ## Discovery and durable context
 

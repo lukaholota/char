@@ -1,0 +1,1882 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-07aa684b655a93fe",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+      "sourceId": "rpgbot-07aa684b655a93fe",
+      "fetchedAt": "2026-09-29T19:08:20.517082+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:30:01-04:00",
+      "contentHash": "fae3a4bafde668a3da97cd319e3793221b0879638c5fdbf9683ed6b075c0b047",
+      "title": "Grave Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-07aa684b655a93fe-7ec8691593bfc738.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-grave-2014",
+    "sourceId": "rpgbot-07aa684b655a93fe",
+    "slug": "cleric-grave-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен могили — гайд підкласу Клірика (2014)",
+    "titleEn": "Grave Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен могили",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик Домену могили{{Grave Domain}} задуманий як здорове поєднання підтримувальної шкоди й підтримувального лікування: він не дає тим, про кого ви дбаєте, зійти до ранньої могили, а ворогам показує найшвидшу дорогу туди. На відміну від багатьох доменів, головна сила тут походить не від уміння, а від вашого варіанта «Каналу божественності»{{Channel Divinity}}. «Шлях до могили»{{Path to the Grave}} — справжня потужність: він дає величезний приріст шкоди однієї атаки будь-кому з вашої групи. Через це клас може здаватися загнаним у роль механічно дещо нудного клірика-сапорта на задній лінії, чия головна робота — щоб усі інші почувалися в безпеці та могутніми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви цілком можете грати так і отримати купу задоволення. Власне, в ідеалі саме так "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "слід"
+                },
+                {
+                  "type": "text",
+                  "text": " грати всім заклинателям, бо інакше ви просто затьмарюватимете бійців від 5-го рівня й далі. Але зрештою ви кілька разів зіграєте такого персонажа, або, можливо, це просто не той тип персонажа, який вас цікавить. Якщо це так, і вас не бентежить бути похмурим пафосним персонажем, що любить тинятися цвинтарями, бо його бог так попросив, то в мене є для вас зовсім інший шлях."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Домену могили",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Домену могили",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Домену могили",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Домену могили",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Домену могили",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Домену могили",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клірика могили — «Один удар»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#example-grave-cleric-build-one-punch"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Домену могили",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: Відмінні, хоча є жменька заклинань, які не будуть особливо корисними на регулярній основі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Удаване життя [False life] дає тимчасові ХП на годину. Як заклинання 1-го рівня, згодом воно стане тривіальною витратою вашого щоденного чаротворства. Коли ви досягнете високих рівнів, накладати його перед першим боєм і після кожного бою — чудове використання слота заклинання. О, і ви ще отримуєте якесь інше заклинання, яке вже є у вашому списку заклинань і яке мені не подобається."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Обидва заклинання ситуативні, і жодне не особливо добре."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Відродження [Revivify] — це «податок Клірика»{{Cleric Tax}}: його має взяти кожен Клірик, бо він надто хороший, щоб не взяти. Вампіричний дотик [Vampiric Touch] — чудовий варіант, якщо вас затягнули в ближній бій, але намагайтеся не потрапляти в таку ситуацію."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Пристойний варіант шкоди, якого немає у списку заклинань Клірика, і вирішальне підсилення з приємною довгою тривалістю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Оболонка проти живих [Antilife shell] — фантастичний захисний варіант, що тримає ворогів ближнього бою на відстані, поки ви вбиваєте їх дальніми заклинаннями. Те, що вас щодня обтяжують Оживленням мерців [Raise Dead], безглуздо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Коло смертності|Circle of Mortality}}: Це робить Лікування ран [Cure Wounds] значно привабливішим, коли союзник опускається до 0 ХП. Різниця в обсязі зцілення між Лікуванням ран [Cure Wounds] і Цілющим словом [healing word] може бути значною, особливо якщо накладати заклинання вищим слотом. Саме по собі це чудово, але лише незначно покращує тактичну користь зцілення в бою. Здатність використовувати Милість до вмирущого [Spare the Dying] на відстані бонусною дією покликана замінити Цілюще слово [healing word], щоб Лікування ран [Cure Wounds] було привабливішим, але особисто я все ж вважаю, що Цілюще слово [healing word] — кращий тактичний варіант у більшості випадків. Зокрема, ви можете накладати Милість до вмирущого [Spare the Dying] або дією, або бонусною дією, що зручно, якщо ви хочете, скажімо, у той самий хід накласти Священне полумʼя [Sacred Flame] (дія). Просто памʼятайте: якщо ви накладаєте будь-яке заклинання бонусною дією, зокрема замовляння, у цей хід ви не можете накладати заклинання з рівнями. «Коло смертності» можна використати не за призначенням: брати союзників із дуже малою кількістю ХП і бити їх до непритомності, щоб отримати додаткове безкоштовне зцілення. Це може стати чудовою розрядкою, але ваші союзники можуть нервувати, дозволяючи вам таке, а ваш Майстер може вигадати якийсь недолік."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Очі могили|Eyes of the Grave}}: Виявлення зла та добра [Detect evil and good] є у списку заклинань Клірика й робить те саме, але виявляє більше істот. Звісно, зона менша, але цього, здається, недостатньо, щоб це мало значення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Шлях до могили|Channel Divinity: Path to the Grave}}: Використовуйте це з пройдисвітом або із заклинателем, чиє заклинання з високою шкодою потребує атаки, як-от Завдання ран [Inflict Wounds]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Вартовий біля смерті|Sentinel at Death's Door}}: Критичні влучання по ваших союзниках можуть перетворити важкий бій на нищівну поразку одним кидком. Умінь, що помʼякшують критичні влучання, обмаль, що робить це рідкісним і потужним захисним варіантом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Потужне заклинання{{Potent Spellcasting}}: До цього рівня ви легко можете мати 20 Мудрості, що дає чудове підвищення вашої шкоди. Зауважте, що це стосується лише замовлянь Клірика, тож ви не можете поєднувати це з рисою «Посвячений у магію»{{Magic Initiate}} чи замовляннями, здобутими мультикласуванням."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Хранитель душ|Keeper of Souls}}: Імовірно, це не дасть значного обсягу зцілення, але це весела пасивна здатність, і вона навіть може дозволити врятувати союзника з 0 ХП, не витрачаючи ваші дії у ваш хід."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-grave-domain-ability-scores",
+          "heading": "Характеристики Домену могили",
+          "sourceAnchor": "grave-domain-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-grave-domain-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших кліриків у середніх обладунках."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grave-domain-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grave-domain-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: доведіть до 14 і забудьте про неї назавжди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grave-domain-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: захищає від найважливішого негативного ефекту — смерті."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grave-domain-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grave-domain-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: заклинання й класові уміння Клірика живляться Мудрістю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grave-domain-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grave-domain-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-grave-domain-races",
+          "heading": "Раси Домену могили",
+          "sourceAnchor": "grave-domain-races",
+          "blocks": [
+            {
+              "blockId": "block-section-grave-domain-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших кліриків."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-grave-domain-feats",
+          "heading": "Риси Домену могили",
+          "sourceAnchor": "grave-domain-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-grave-domain-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Залежно від складу групи, є одна риса, що для кліриків могили сяє яскравіше за інші: «Адепт метамагії»{{Metamagic Adept}}. Хоч дія вашого Каналу триває до кінця вашого наступного ходу, можливість одразу продовжити його пришвидшеним заклинанням із великою шкодою може вирішити, проживе ворог достатньо довго, щоб зробити цілий додатковий хід шкоди, чи ні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-grave-domain-weapons",
+          "heading": "Зброя Домену могили",
+          "sourceAnchor": "grave-domain-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-grave-domain-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від більшості інших "
+                },
+                {
+                  "type": "link",
+                  "text": "кліриків",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ". Зброя здебільшого лише для вигляду, а ви майже завжди тримаєте щит і руку, вільну для чаротворства."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-grave-domain-armor",
+          "heading": "Обладунки Домену могили",
+          "sourceAnchor": "grave-domain-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-grave-domain-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших "
+                },
+                {
+                  "type": "link",
+                  "text": "кліриків",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": " у середніх обладунках. Вирушайте в лускатому обладунку{{Scale Mail}}, а {{Напівлати|Half Plate}} купуйте, щойно зможете."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "До речі, памʼятаєте трюк із пришвидшенням, про який я згадував вище? Він працює набагато краще, якщо ви отримуєте більше ніж 2 очки чародійства{{Sorcery Points}} на день. Зокрема, він чудово працює, якщо взяти два рівні Чародія{{Sorcerer}} (додаткові варіанти метамагії не потрібні — лише здатність перетворювати слоти на очки). Якого різновиду Чародія? За іронією, Божественна душа{{Divine Soul}} справді найкраща, бо «Улюбленець богів»{{Favored by the Gods}} може перетворити низький кидок атаки на успіх і допомогти завдати вирішальну купу шкоди."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-grave-cleric-build-one-punch",
+          "heading": "Приклад збірки Клірика могили — «Один удар»",
+          "sourceAnchor": "example-grave-cleric-build-one-punch",
+          "blocks": [
+            {
+              "blockId": "block-section-example-grave-cleric-build-one-punch-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Я хочу стати наймогутнішим героєм."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-grave-cleric-build-one-punch-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Jam Project",
+                  "href": "https://www.youtube.com/watch?v=QImBolnTVH8"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-grave-cleric-build-one-punch-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка зосереджена на поєднанні «Каналу божественності»{{Channel Divinity}} із заклинанням, що вимагає кидка атаки й має найвище масштабування шкоди в грі: Завдання ран [Inflict Wounds]. Наша мета — вирубати одним ударом усе, на що ми націлимося, бо найкращий спосіб запобігти шкоді для вашої групи — прибрати її джерело, поки воно не встигло діяти. Для цього ми мультикласуватимемо так, як описано вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-grave-cleric-build-one-punch-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви не хочете мультикласувати, збірку можна грати як значно більш підтримувального персонажа, який лише раз на день отримує змогу влаштувати «Фалкон-панч»{{Falcon Punch}}, а не (зрештою) у більшості раундів. У такому разі ви витрачаєте значно більше часу на узгодження використань Каналу з союзниками, особливо з тими, хто має величезні одиничні атаки, як-от Пройдисвіти{{Rogue}}. Розгляньте вкладення в покращення кидків ініціативи (риса «Пильний»{{Alert}}, Щит вартового{{Sentinel Shield}} тощо), щоб діяти рано й підняти «Шлях до могили»{{Path to the Grave}} до першого ходу ваших союзників."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-grave-cleric-build-one-punch",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від «Своєї раси»{{Custom Lineage}} ми отримуємо лише збільшення на +2, і вкладаємо його в Мудрість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-grave-cleric-build-one-punch",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Своя раса{{Custom Lineage}}. Старт з «Адептом метамагії»{{Metamagic Adept}} означає, що ми можемо почати свої витівки вже з 2-го рівня й усе одно не відставати від "
+                },
+                {
+                  "type": "link",
+                  "text": "Фундаментальної математики",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Fundamental Math}}. Беріть Темнозір, бо додаткові навички нам не потрібні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-grave-cleric-build-one-punch",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беріть Відлюдник{{Hermit}} і замініть навички на Уважність і Переконання. Ми здебільшого просто хочемо, щоб усі нас лишили в спокої й ми могли зосередитися на вигідних угодах про мʼясо на ринку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-grave-cleric-build-one-punch",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із класу беремо Аналіз Поведінки й Медицину, щоб доповнити корисні навички Мудрості, а Набір травника{{Herbalism Kit}} від передісторії стане в пригоді для виготовлення зілль під час мандрів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-grave-cleric-build-one-punch",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні ми починаємо з «Адептом метамагії»{{Metamagic Adept}} завдяки «Своїй расі»{{Custom Lineage}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4-й рівень дає нам «Доторк феї»{{Fey Touched}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні Клірика, загальний рівень 10, беремо Покращення Характеристик і доводимо Мудрість до максимуму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні Клірика, загальний рівень 14, отримуємо «Стійкого (Статура)»{{Resilient (Con)}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні Клірика, загальний рівень 18, отримуємо «Надихаючого лідера»{{Inspiring Leader}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-grave-cleric-build-one-punch",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 – Клірик 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння:\n– Священне полумʼя\n– Настанова\n– Дзвін небіжчика\nЗаклинання домену:\n– Зурочення\n– Удаване життя\nКоло смертності\nОчі могили\nАдепт метамагії:\n– Пришвидшене заклинання\n– Подовжене заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ви майже не відрізняєтеся від більшості інших кліриків, окрім того, що раз на день можете виконати славний трюк: пришвидшити Завдання ран [Inflict Wounds], а відразу після цього накласти Дзвін небіжчика [Toll the Dead] на щойно поранену ціль, завдавши в середньому 23 шкоди, якщо влучать обидві частини. Якщо хочете, щоб це були два бойові трюки, можна натомість подовжити накладання Наказу [Command] до двох раундів. Використання варіанта «Тікай» на цілі протягом двох раундів замість одного — це майже заклинання вбивства, бо ціль вибуде з бою на довше, ніж триває середній бій (памʼятайте, що їй треба ще й добігти назад, а це займе стільки ж часу). «Коло смертності»{{Circle of Mortality}} означає, що можна підготувати Лікування ран [Cure Wounds] замість Цілющого слова [healing word] і витиснути більше лікування з піднімання когось на ноги після бою. На цьому рівні 11 ХП (за вашої Мудрості 17) повернуть повне здоровʼя всім, крім наймасивніших персонажів, і це можна зробити на ході, коли ви не намагаєтеся когось підпалити чи нагадати йому, по кому дзвонить дзвін. «Очі могили»{{Eyes of the Grave}} означають, що нам не… жартую, ніхто б ніколи не готував це заклинання виявлення. Ми стартуємо в лускатому обладунку{{Scale Mail}} і зі щитом, маючи загалом КБ 18, тож ми на рівні зі стандартним бійцем першої лінії й не боїмося лізти в гущу та наносити ці дотикові удари Завданням ран [Inflict Wounds]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 – Клірик 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественність: Шлях до могили"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер усе зводиться до того, щоб знайти найбільшу істоту на полі бою й сказати їй, що «Шлях до могили»{{Path to the Grave}} — це ваш кулак, повний некротичної шкоди. 33 середньої шкоди від звʼязки Канал → пришвидшене Завдання ран [Inflict Wounds] достатньо, щоб убити одним ударом цілих 75% монстрів з ПН 2 і нижче; якщо рахувати лише монстрів з ПН 2, ми все одно за один хід убиваємо понад третину опублікованих монстрів. Поки що ми можемо робити це лише раз на день, але через кілька рівнів це виправимо. А тим часом, коли наш Канал відновиться під час доволі ймовірного короткого відпочинку протягом дня, використайте його для потужної атаки ваших друзів-бійців. Оскільки головна особливість цієї збірки — ваш Канал, наполегливо відстоюйте короткі відпочинки між боями. Без Каналів ваші розрахунки почнуть дуже сильно розвалюватися. Це також потрібно для відновлення Очок чародійства{{Sorcery Points}} згодом, бо протягом усієї карʼєри ви ніколи не зможете тримати більше 4 одночасно, а подальші розрахунки припускають, що ви витрачаєте всі 4 у кожному бою. Памʼятайте: поки ваш «Канал божественності»{{Channel Divinity}} на перезарядці, ви все одно клірик. Ви все одно можете покладатися на класичні кліриківські заклинання, як-от Благословення [Bless], Духовна зброя [Spiritual Weapon] і Духи захисники [Spirit Guardians]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 – Клірик 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Нетлінні рештки\n– Промінь ослаблення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ви можете почати зустрічати істот, що мають опір до некротичної шкоди. Це здебільшого нежить, але в будь-якому разі кількість істот, що опираються цій шкоді "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "і"
+                    },
+                    {
+                      "type": "text",
+                      "text": " променевій, — це майже виключно НІП{{NPC}}, які є аазимарами{{Aasimar}}. Якщо натрапите на щось, що, на вашу думку, може бути настільки глибоко темним, що опиратиметься вашому Завданню ран [Inflict Wounds], вдарте його натомість Спрямованим зарядом [Guiding Bolt]. До речі, про заклинання: ви отримуєте слоти 2-го рівня. Ви також отримуєте заклинання 2-го рівня, але, на диво, заклинань вище 1-го рівня, що вимагають кидка атаки й завдають усієї шкоди одразу, немає. Кислотна стріла Мельфа [Melf's Acid arrow] завдає найбільше шкоди одразу, а Розпечений промінь [Scorching Ray] — більше загальної шкоди, але формулювання «Шляху до могили»{{Path to the Grave}} таке, що він діє на одну Атаку, а не на одну подію-тригер. Це означає, що ми можемо підготувати класичні Мале відновлення [Lesser Restoration] і Духовна зброя [Spiritual Weapon], але завжди хотітимемо зберегти слот найвищого рівня для підсиленого Завдання ран [Inflict Wounds]. Відтепер я почну використовувати DPR (тобто з урахуванням влучності) замість просто середньої шкоди, бо на низьких рівнях усе дуже залежить від кубиків, але нам треба порівняти себе зі справжніми атакерами й побачити, як ми справляємося. DPR за один раунд для Каналу, що переходить у пришвидшене Завдання ран [Inflict Wounds], зростає з 23 до 30 на цьому рівні із Завданням ран [Inflict Wounds] 2-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 – Клірик 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Доторк феї (+1 Мудрість):\n– Проклін"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Памʼятаєте, як нам треба взяти одну атаку й зробити її величезною? Проклін [hex] — саме те, що для цього потрібно просто зараз. Перший хід: накласти Проклін [hex] на когось, а Священним полумʼям [Sacred Flame] вдарити когось іншого (бо Священне полумʼя [Sacred Flame] усе одно не застосовує шкоду від Прокліна [hex], а ми повʼязані честю атакувати ціль лише раз), наступного ходу — вдарити по ній найпотужніше. Це піднімає DPR за один хід до 35,5."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 – Клірик 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Відродження\n– Вампіричний дотик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Я фізично не можу завадити вам підготувати Духи захисники [Spirit Guardians] і перетворити бій на сповільнений блендер, але хотів би спробувати. Один славний трюк: завдяки формулюванню Вампіричного дотику [Vampiric Touch], якщо пришвидшити його, на тому ж ході, коли ви його накладаєте, можна витратити дію, щоб атакувати ним удруге, отримавши 6к6 можливої шкоди (у середньому 21) і, відповідно, 10 одиниць лікування назад."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 – Клірик 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 1/2)\nКанал божественності (2/відпочинок)\nВартовий біля смерті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Вартовий біля смерті»{{Sentinel at Death's Door}} — неймовірне уміння, доки не станеться "
+                    },
+                    {
+                      "type": "link",
+                      "text": "OneD&D",
+                      "href": "https://rpgbot.net/one-dd-playtest-unearthed-arcana-character-origins/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " і, можливо, не зробить його буквально безкорисним. Принаймні поки що ви можете захищати свою групу від випадкових критичних влучань. Те, що кількість таких використань на день масштабується, майже не має значення, але це точно приємно — заткнути Майстра, коли він на хвилі успіху або коли до дверей підходить НІП{{NPC}} — Асасин{{Assassin}}. Важливіше те, що ми отримуємо другий Канал за короткий відпочинок. Це означає, що ми можемо застосувати вразливість двічі за бій, потенційно значно збільшуючи шкоду, яку можемо завдати. Але пришвидшувати ми все ще можемо лише раз на день. Як це виправити?"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 – Чародій 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння:\n– Штукарство\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Справжній удар\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Формування води",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nЗаклинання:\n– Благословення\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Лікування ран (Спорідненість)\nУлюбленець богів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невже я щойно вписав Справжній удар [True Strike] у серйозний гайд з оптимізації? Так, вписав. У хід перед тим, як ми хочемо завдати свого великого удару, дія Справжній удар [True Strike] і бонусна дія Проклін [hex] (накладання чи перенесення) готують підґрунтя. Далі завершуємо Каналом → пришвидшеним Завданням ран [Inflict Wounds] 4-го рівня, що дає приголомшливі 62 середньої шкоди (це лише ледь більше за фактичний DPR 61,38, бо перевага значно підвищує шанс влучання й крита). Учасник нашого "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Discord патронів",
+                      "href": "https://www.patreon.com/rpgbot"
+                    },
+                    {
+                      "type": "text",
+                      "text": " вказав мені, що це насправді не працює, бо Справжній удар [True Strike] чомусь є заклинанням Концентрації, ніби й так було недостатньо погано. З одного боку, оскільки Проклін [hex] дає лише 2к6 шкоди за 3-ходовий бій, ви, імовірно, отримаєте більше шкоди від Справжнього удару [True Strike], бо перевага на величезному числі значно впливовіша. З іншого боку, можливо, вдасться переконати Майстра просто дозволити вам обидва, бо це навряд чи зламає гру, особливо коли ви робите це замість того, щоб бути ведмебаєм{{Bugbear}}, що стріляє "
+                    },
+                    {
+                      "type": "link",
+                      "text": "мільйоном лазерів",
+                      "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#example-build-1-ambush-caster"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Ви слушно можете зауважити, що це в середньому дає лише 30 DPR за перші два раунди, а ми "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "все ще"
+                    },
+                    {
+                      "type": "text",
+                      "text": " можемо робити це лише раз на день. Ви праві, але вислухайте мене. «Улюбленець богів»{{Favored by the Gods}} означатиме, що воно практично ніколи не схибить (DPR насправді вищий за середню шкоду, якщо припустити, що ми застосовуватимемо його, коли потрібно), і навіть 30 DPR виводить нас у діапазон «високого DPR» на цьому рівні. Тоді нам лишається хід, щоб підтримати групу наприкінці середнього бою: бонусною дією стабілізувати когось, а Дзвін небіжчика [Toll the Dead] добити когось пораненого (не нами, ми вбили свою ціль)."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 – Чародій 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання:\n– Поглинання стихій\nДжерело магії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "emphasis",
+                      "text": "Ого."
+                    },
+                    {
+                      "type": "text",
+                      "text": " Отже, тепер ми природно маємо 4 Очки чародійства{{Sorcery Points}} на день і можемо перетворювати слоти заклинань на ще більше їх. Як я розповідав у "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Довіднику Чародія-паладина",
+                      "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Sorcadin Handbook}}, ми припустимо, що за день буває девʼять раундів бою. Спалення всіх слотів, крім одного слота 1-го рівня й одного слота 2-го рівня, на очки доводить нас до 13, що дозволяє пришвидшувати 6 разів на день, лишаючи одне очко на випадок, якщо щось треба буде Подовжити. Зручно, що в нас лишається 8 слотів різних рівнів. Витратьте один слот 3-го рівня на Проклін [hex] на цілий день і використайте решту так. Перший і другий раунди виглядають так, як я описав вище. Третій раунд тепер — Канал на іншу ціль, а далі ще одне пришвидшене Завдання ран [Inflict Wounds], цього разу з підтримкою «Улюбленця богів»{{Favored by the Gods}}, бо переваги від Справжнього удару [True Strike] у вас немає. Слоти, які ми на це маємо, — два 4-го рівня, два 3-го і два 2-го. За розрахунками виходить трохи менше ніж 40 DPR у перших двох боях (враховуючи підготовчий хід із нульовою шкодою) і трохи більше ніж 32 в останньому, що разом дає понад 37. Чому це число важливе? Бо воно означає, що ми на 20% випереджаємо «високий DPR» за таблицею зі сторінки "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Фундаментальної математики",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Fundamental Math}}, хоча й відстаємо від власної фундаментальної математики та робимо це по одній цілі, що набагато цінніше, бо означає, що ми можемо ставити нудні Духи захисники [Spirit Guardians] "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "або"
+                    },
+                    {
+                      "type": "text",
+                      "text": " вбивати речі, як-от Пройдисвіт{{Rogue}}. На жаль, мушу зауважити, що накладання Духи захисники [Spirit Guardians] і витрата наступних ходів на Канал для справжнього Пройдисвіта дає суттєво більший DPR за цей, якщо цей Пройдисвіт хоч трохи оптимізований, але ми тут не для цього. Ми тут заради смертельного удару пʼятьма пальцями. Особлива примітка: якщо в останньому бою вдасться витратити слот, що залишився, на Сріблясті шпильки [Silvery Barbs] між вашим другим і третім ходами, можна трохи підняти DPR, давши собі вищий шанс крита."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 – Клірик 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Усихання\n– Захист від смерті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якби ж Усихання [Blight] вимагало кидка атаки. Як би там не було, ми отримуємо додатковий слот 4-го рівня й слот 5-го рівня. Це збільшує наш загальний DPR на 27%, виводячи нас над базовий рівень. Також нагадую, що ми досягаємо цього, завдаючи в середньому понад 80 шкоди на другому ході. На жаль, це експоненціальна гра, а ви намагаєтеся конкурувати з лінійною прогресією. На щастя, на минулому рівні ми дізналися, що можемо робити звичайні удари поспіль. У пошуку монстрів на D&D Beyond усе ще є 5 записів із ПН 9, яких можна вбити одним ударом із цією середньою шкодою, але один із них імунний до некротичної шкоди (хоча зручно, що вже вразливий до променевої, що усуває потребу в Каналі, бо вразливим двічі бути не можна), а три інші, з якими ви справді мали б справу в бою, — усі НІП{{NPC}}, що є чарівниками."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 – Клірик 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість 18 → 20\nЗнищення нежиті (ПН 1)\nПотужне заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Збільшення DPR на 4,3% від досягнення максимуму Мудрості та збільшення DPR на 8,7% від слотів заклинань у сумі дають трохи більше 13% (бо математика), чого досить, щоб тримати нас над базовим рівнем наступні 3 рівні. Ми також маємо більше слотів низьких рівнів, які можна кинути в Сріблясті шпильки [Silvery Barbs], допомагаючи собі чи члену групи частіше крітити. Якщо ж у вас є дружній простолюдин, якому не шкода кидати в вас флакони з кислотою, Поглинання стихій [Absorb Elements] справді спрацьовує на будь-яку атаку ближнього бою (зокрема заклинання), тож можна вкласти стільки слотів, скільки лишилося, у посилення ваших ударів. Як варіант, можна облити себе «Алхімічним вогнем»{{Alchemist’s Fire}}, провести бій у вогні, а тоді загасити себе, коли всі мертві (окрім, сподіваймося, вас). Єдина проблема в тому, що вогняна шкода — тип, до якого дуже часто є опір, а кислотна — значно рідше. Просто майте це на увазі. Раніше я на цьому не наголошував через обмеження слотів заклинань. Саме на цьому рівні у вас зʼявиться простір, щоб це відчувалося чудовим використанням ресурсів, а не залишало вас без пального."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 – Клірик 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Оболонка проти живих\n– Оживлення мерців"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR зростає ще на 8%, до 58,5."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 – Клірик 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове замовляння:\n– Дивотворство\nБожественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 – Клірик 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR без зловживання Поглинання стихій [Absorb Elements] зростає до 65, приблизно на 40% вище «високого DPR». За цих умов ми триматимемося в межах 5–10% від цього до кінця карʼєри. Проте це, на щастя, той рівень, на якому у вас є 6 додаткових слотів для витрат: 1-го рівня, два 2-го, один 3-го й два 4-го. Якщо вкинути їх усі в підсилене накладання Поглинання стихій [Absorb Elements], це додаткові 15к6 (подвоєних) кислотної шкоди на день, що разом дає ще 10 DPR, тобто 75. Нагадую: підсилене накладання Поглинання стихій [Absorb Elements] не підвищує ефективність опору, але збільшує кількість додаткових кубиків стихійної шкоди наступної атаки ближнього бою. Загалом це не вигідний обмін, бо ви використовуєте його заради захисту. У цій збірці з цими слотами заклинань це 1к6, 2к6, 2к6, 3к6, 4к6 і 4к6, що разом дає згадані вище 15к6 додаткової шкоди. «Середній найкращий Один удар»{{Average Best One Punch}} (СНОУ): 134. Помітні істоти з ПН 13, яких це вбиває одним ударом: ракшаси{{Rakshasa}}, нарзугони{{Narzugon}}, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "нинішній Чорнопосох",
+                      "href": "https://forgottenrealms.fandom.com/wiki/Blackstaff"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Blackstaff}} і джабервок{{Jabberwock}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 – Клірик 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стійкий (Статура)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Значно підніміть ряткидок Статури й перестаньте хвилюватися через втрату Прокліна [hex]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 – Клірик 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перетасування слотів заклинань дає нам додатково к10 і к6 до СНОУ, піднімаючи його до 152."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 – Клірик 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 – Клірик 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знову перетасування слотів заклинань дає нам додатково к10 і к6 до СНОУ; тепер це 170. На жаль, цього вистачає, щоб убити одним ударом лише один запис із ПН 17: якогось бідолашного боса з якоїсь серії пригод."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 – Клірик 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надихаючий лідер"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Роздавайте купи тимчасових ХП на тих коротких відпочинках, яких ви вимагаєте. Бачу, ви кличете «Бойового заклинателя»{{War Caster}}, але оскільки ми щоходу використовуємо реакцію, щоб перетворювати золото на шкоду, і з огляду на те, що нам не потрібно тримати нічого, крім щита зі священним символом (а отже, фокуса), усе, що це дасть, — перевагу на ряткидках Концентрації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 – Клірик 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хранитель душ{{Keeper of Souls}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не знаю, чи колись зміг би виправдати підсилення Завдання ран [Inflict Wounds] до слота 9-го рівня, але якби ви це зробили, ваш СНОУ разом із Поглинанням стихій [Absorb Elements] 4-го рівня сягнув би 188. Веселе, відповідне рівню, що можна вбити одним ударом: сібрієкс{{Sibriex}}. Тепер, коли ви бʼєте щось так сильно, що воно помирає, ви можете захопити його душу й вилікувати нею друга. Обмежень на це немає, а щури мають кубик здоровʼя. Давіть їх у руці по одному, щоб дуже повільно лікувати групу, не витрачаючи жодних ресурсів, крім мішка щурів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 – Клірик 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наше завершальне уміння — здатність витримати бій, що триває трохи довше за середній, або перетворити його на додатковий слот заклинання, якщо ваш Майстер дозволяє використовувати додаткове класове уміння{{Optional Class Features}}."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-grave-2014-001",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-002",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-003",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-004",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-005",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-006",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-007",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Коло смертності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-008",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Очі могили",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-009",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-010",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Вартовий біля смерті",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-011",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Потужне заклинання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-012",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Хранитель душ",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-013",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-grave-domain-ability-scores",
+      "targetBlockId": "block-section-grave-domain-ability-scores-2",
+      "optionId": "section-grave-domain-ability-scores-block-section-grave-domain-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-grave-domain-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-014",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-grave-domain-ability-scores",
+      "targetBlockId": "block-section-grave-domain-ability-scores-3",
+      "optionId": "section-grave-domain-ability-scores-block-section-grave-domain-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-grave-domain-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-015",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-grave-domain-ability-scores",
+      "targetBlockId": "block-section-grave-domain-ability-scores-4",
+      "optionId": "section-grave-domain-ability-scores-block-section-grave-domain-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-grave-domain-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-016",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-grave-domain-ability-scores",
+      "targetBlockId": "block-section-grave-domain-ability-scores-5",
+      "optionId": "section-grave-domain-ability-scores-block-section-grave-domain-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-grave-domain-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-017",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-grave-domain-ability-scores",
+      "targetBlockId": "block-section-grave-domain-ability-scores-6",
+      "optionId": "section-grave-domain-ability-scores-block-section-grave-domain-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-grave-domain-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-grave-2014-018",
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sectionId": "section-grave-domain-ability-scores",
+      "targetBlockId": "block-section-grave-domain-ability-scores-7",
+      "optionId": "section-grave-domain-ability-scores-block-section-grave-domain-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-grave-domain-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

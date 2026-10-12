@@ -1,0 +1,1683 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-e24e1161d37c1764",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+      "sourceId": "rpgbot-e24e1161d37c1764",
+      "fetchedAt": "2026-09-29T19:23:59.768188+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:38:11-04:00",
+      "contentHash": "add811ea448f022274931dfed559c1d1097f6b5b68d87d4bf9472bc3d9cbd1c3",
+      "title": "Way of the Four Elements Monk 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-e24e1161d37c1764-f0e199f062d2821e.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-monk-four-elements-2014",
+    "sourceId": "rpgbot-e24e1161d37c1764",
+    "slug": "monk-four-elements-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях чотирьох стихій — гайд підкласу Монаха (2014)",
+    "titleEn": "Way of the Four Elements Monk 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Монах",
+      "Шлях чотирьох стихій",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монах {{Шляху чотирьох стихій|Way of the Four Elements}} дуже гнучко налаштовується, але тут чимало пасток і викликів. У Монахів проблеми з польотом і натовпами, і Шлях чотирьох стихій намагається ці проблеми розвʼязати.\n\nПроте на будь-якому ступені є лише жменька добрих варіантів, що значною мірою нівелює налаштовність, а здібності дуже швидко витрачають ваше Кі, конкуруючи з базовими варіантами Монаха на кшталт «Шквалу ударів» і «Приголомшливого удару»{{Stunning Fist}} і часто спричиняючи швидке вичерпання Кі, доки ви не навчитеся зважувати витрати й вигоди накладання заклинання замість того, щоб просто бити кулаками."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Додаткове класове уміння «Атака, посилена Кі»{{Ki-Fueled Attack}} надзвичайно важливе для Шляху чотирьох стихій. Оскільки всі «Стихійні дисципліни»{{Elemental Disciplines}} використовують вашу Дію, ви зазвичай не можете виконати дію Атака («Ікла вогняної змії» — виняток) і, отже, не можете використати бонусну дію для атаки Бойовими мистецтвами чи «Шквалом ударів». «Атака, посилена Кі» розвʼязує цю проблему, даючи вагоме підсилення вашої шкоди. Цього недостатньо, щоб виправити підклас, але допомагає чимало."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви отримуєте заклинання приблизно в тому ж темпі, що й Потойбічний лицар, хоч і маєте доступ до одного заклинання 5-го рівня («Конус холоду [Cone of Cold]»), а Шлях чотирьох стихій отримує доступ до заклинань найвищого рівня на два рівні раніше за Потойбічного лицаря. Монах відстає в загальній кількості заклинань, які може накласти за день.\n\nОскільки вартість в очках Кі швидко зростає, ви, імовірно, зможете накласти лише від двох до чотирьох заклинань між Короткими відпочинками, і замовлянь у вас немає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки деякі здібності дозволяють накласти заклинання, ви вразливі до контрзаклинання та до проблем на кшталт опору чи імунітету до заклинань. Ви можете підсилювати заклинання та додавати шкоду іншим дисциплінам, витрачаючи більше Кі, але є стеля, і це рідко виправдовує вартість, тож ви зазвичай накладаєте заклинання низьких рівнів довго після того, як інші заклиначі отримали до них доступ."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір «Стихійної дисципліни» у вас лише з чотирьох, тож налаштування менше, ніж хотілося б, і варіантів буде дуже мало. До 6-го рівня ваш підклас по суті зводиться до здатності накласти одне заклинання 1-го рівня (або скористатися рівноцінною здібністю) кілька разів за Короткий відпочинок, тож сподіваюся, вам "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "справді"
+                },
+                {
+                  "type": "text",
+                  "text": " подобаються «Палючі долоні [Burning Hands]»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як швидке виправлення Шляху чотирьох стихій, рекомендую три зміни:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-7",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кожна дисципліна 3-го рівня, крім «Співзвуччя зі стихіями»{{Elemental Attunement}}, також дає Монаху замовляння тієї ж стихії. Так, «Ікла вогняної змії»{{Fangs of the Fire Snake}} могли б давати «Створення вогню [Produce Flame]», а «Надання форми плинній ріці»{{Shape of the Flowing River}} — «Формування води [Shape Water]». Це дає Монаху недорогі способи користуватися магією, не спалюючи одразу Кі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Монах вивчає додаткову дисципліну на 3-му, 8-му та 14-му рівнях. Це дає йому всього 7 на 17-му рівні замість 4, додаючи трохи гнучкості й дозволяючи Монаху виправдати щось, що не отримало б синьої оцінки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Користуйтеся додатковим класовим умінням «Атака, посилена Кі», щоб Монах не був змушений пропускати хід, перестаючи бути Монахом, щоб погано накладати заклинання."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Монаха Шляху чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Монаха Шляху чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Монаха Шляху чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Монаха Шляху чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Монаха Шляху чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Монаха Шляху чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Монаха Шляху чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Монаха Шляху чотирьох стихій — Знищувач капусти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Монаха Шляху чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Монаха Шляху чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Монаха Шляху чотирьох стихій",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Учень стихій|Disciple of the Elements}}: це фактично весь підклас, і воно визначає ваше «не зовсім чаклування». Справді цікаві частини — ваш вибір «Стихійної дисципліни»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стихійні дисципліни:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Співзвуччя зі стихіями|Elemental Attunement}}: це здебільшого колорит і дрібні фокуси. Але ж воно безкоштовне!"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Ікла вогняної змії|Fangs of the Fire Snake}}: справді корисні лише якщо вам потрібна вогняна шкода або ви не можете стояти впритул до цілі. Витрачати додаткове Кі на 1к10 шкоди — погана інвестиція вище дуже низького рівня, але, оскільки це додаткова шкода, вона множиться при критичному влучанні, подібно до «Божественної кари».\n\nНа жаль, «Ікла вогняної змії» треба активувати на початку вашої Дії, а не чекати, поки випаде критичне влучання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Кулак чотирьох громів|Fist of the Four Thunders}}: відкидати ворогів від себе вам мало допомагає, бо можна витратити Кі на Відступ, а крихітна область «Громової хвилі [Thunderwave]» рідко зачепить більше однієї істоти. Масштабування шкоди пристойне порівняно з багатьма іншими «Стихійними дисциплінами», але це все одно фактично заклинання першого рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Кулак непорушного повітря|Fist of Unbroken Air}}: пристойні дальність і шкода, і він і відкидає ціль, і повалює її. Шкода трохи краща, ніж від двох ударів без зброї Монаха високого рівня (2к10+10*65% шансу влучити проти 3к10, середнє: 13,65 проти 16,5), а повалення літаючих цілей ще й змушує їх падати, дозволяючи вам протидіяти літаючим ворогам, самому не літаючи. Особливо корисно продовжити це «Атакою, посиленою Кі», бо ви, імовірно, зможете атакувати вже повалену ціль."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Натиск духів бурі|Rush of the Gale Spirits}}: дуже ситуативно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Надання форми плинній ріці|Shape of the Flowing River}}: працює подібно до «Формування води [Shape Water]», одного з моїх найулюбленіших замовлянь, але корисне лише ситуативно, бо змістовно скористатися ним можна, лише коли поблизу багато льоду чи води. Якщо під рукою озеро чи щось подібне, можна повністю змінити поле бою, але як часто ви бʼєтеся на озері, біля нього чи на льодовику?"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розмашистий попелястий удар{{Sweeping Cinder Strike}}: добра область дії із солідною шкодою й пристойним масштабуванням. Конус малий, але ви все одно зможете стабільно зачіпати двох істот, бігаючи в ближньому бою. На низьких рівнях це чудовий спосіб витратити Кі порівняно зі «Шквалом ударів», але очікуйте, що вам доведеться замінити цей вибір, коли ви підвищуватимете рівень."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Водяний батіг{{Water Whip}}: подібний до «Кулака непорушного повітря», але можна або повалити ціль, або притягнути її на відстань удару."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стихійні дисципліни:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Хватка північного вітру|Clench of the North}}: параліч — це кнопка вимкнення для одного ворога. Вимкніть його, а потім ідіть і добре побʼєте. На жаль, це лише «Стримування особи [Hold Person]», тож воно корисне лише ситуативно через обмеження за типом істот."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Гонг вершини|Gong of the Summit}}: наступне найкраще після «Вогнекулі [Fireball]» й найкраща шкода по області, яку можна отримати, доки на 11-му рівні не зʼявляться «Полумʼя фенікса». Якщо можна зачепити двох цілей, це, імовірно, варте Кі. Якщо трьох — це безумовно варте Кі. Проте воно працює на ряткидку Статури, а вони зазвичай високі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стихійні дисципліни:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Полумʼя фенікса|Flames of the Phoenix}}: чудова шкода на великій відстані. «Вогнекуля» — найкраща миттєва шкода по області в грі, доки не зʼявляться заклинання 9-го рівня. Вартість у Кі висока, і ви отримуєте це на 6 рівнів пізніше за Чарівника, але часто воно все одно виправдовує вартість, якщо можна зачепити групу ворогів.\n\nШкода масштабується лінійно, і додаткові 1к6 шкоди здаються малими, але порівняйте 1к6 шкоди по 3+ цілях із додатковою шкодою від однієї додаткової атаки «Шквалу ударів». Якщо можна зачепити велику групу ворогів, воно може бути варте того, щоб вкласти в це стільки Кі, скільки вам дозволено витратити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стійка туману{{Mist Stance}}: добрий варіант для втечі й проникнення, а з тривалістю 1 година можна багато зробити за вартість у Кі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Осідлати вітер|Ride the Wind}}: політ — визначальна частина бою на високих рівнях. Якщо ви застрягли на землі, ви пропускаєте половину бою, якщо тільки «Кулак непорушного повітря» чи «Водяний батіг» не збивають деяких ворогів на ваш рівень. На вищих рівнях цим можна навіть підсилити «Політ [Fly]» і вплинути на союзників."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стихійні дисципліни:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Подих зими|Breath of Winter}}: лише трохи більше шкоди, ніж «Полумʼя фенікса», але без привабливості чудової дальності. Конуси можуть працювати для Монаха, особливо тому, що висока швидкість дає змогу легко зайняти позицію для їхнього застосування, але «Полумʼя фенікса» дешевше й простіше у застосуванні, тож важко виправдати вивчення цього, коли дисциплін так мало."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Захист вічної гори{{Eternal Mountain Defense}}: тривалість 1 година для чудового захисного варіанту, і матеріальний компонент не потрібен. "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "АЛЕ"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ви за один рівень від «Порожнього тіла», яке зробить це цілком застарілим. Також зауважте, що необхідний рівень змінено в ерраті з 12-го на 17-й."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Ріка голодного полумʼя|River of Hungry Flame}}: чудовий контроль зони на будь-якому рівні, але підтримувати Концентрацію може бути важко, опір вогню поширений, а на цьому рівні шкода може бути не надто ефективною. «Хвиля рухомої землі» може бути кращим вибором просто тому, що крізь стіну не можна пройти, не зруйнувавши її."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Хвиля рухомої землі|Wave of Rolling Earth}}: назва не зовсім логічна, але «Стіна з каменю [Wall of Stone]» чудова і як контроль зони, і як допоміжний інструмент."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Монаха Шляху чотирьох стихій",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Монаха Шляху чотирьох стихій",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Монаха Шляху чотирьох стихій",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Монаха Шляху чотирьох стихій",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Монаха Шляху чотирьох стихій",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Монаха Шляху чотирьох стихій",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Монаха Шляху чотирьох стихій — Знищувач капусти",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка намагається знайти змістовний спосіб зробити Монаха Чотирьох стихій корисним. Наш найкращий шанс — грати як контролер і використовувати наші уміння, щоб примусово переміщувати ворогів у позиції, вигідні нам і нашій групі. Зрештою ми отримуємо «Вогнекулю» і можемо накладати її досить часто, бо відновлюємо Кі після Короткого чи Довгого відпочинку, але ми точно не Чорнокнижник."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми будуємо "
+                },
+                {
+                  "type": "link",
+                  "text": "абсолютно найгірший підклас Монаха",
+                  "href": "https://youtu.be/c6gJvRj8UP8"
+                },
+                {
+                  "type": "text",
+                  "text": ", тож припустимо, що всі додаткові класові уміння доступні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вкладіть +1 у Спритність/Статуру/Мудрість. Цілком типове для Монаха."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гоблін із MotM{{Goblin}}. «Спритна втеча»{{Nimble Escape}} дублює деякі наші класові уміння, але, що показово, не витрачає Кі. Нам треба розтягувати Кі якомога більше, щоб звільнити місце для умінь підкласу. Також можна застосовувати бонус шкоди «Люті маленького»{{Fury of the Small}} до наших заклинань проти однієї цілі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відлюдник{{Hermit}}. Монастирське життя звучить доречно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не має значення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо виключно підвищення характеристик, щоб якнайшвидше довести Спритність і Мудрість до 20. Спритність потрібна, щоб наші атаки працювали, а Мудрість — щоб наші Складності ряткидків були достатньо високими для підтримки наших Складностей ряткидків."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист без броні, Бойові мистецтва"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ви дуже типовий Монах."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кі, Рух без броні, Присвячена зброя"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замініть спис на довгий меч чи щось таке."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас: Шлях чотирьох стихій, Учень стихій, Стихійна дисципліна: Кулак непорушного повітря, Відхилення снарядів, Атака, посилена Кі"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми отримуємо підклас і одразу страждаємо. «Кулак непорушного повітря», що показово, не має максимуму витрат Кі, бо це не заклинання. Він коштує 2 Кі базово й додає 1к10 шкоди за кожне додаткове витрачене Кі. Можна спалити все своє Кі на один масивний удар. На 20-му рівні 20 Кі завдадуть 21к10 шкоди (у середньому 115,5).\n\nЦе жахлива ідея, але приємно, що це можливо. Що важливіше, «Кулак непорушного повітря» дає нам спосіб примусово переміщувати й збивати ворогів із неба, повалюючи їх. Примусове переміщення може бути нашим найвпливовішим варіантом ще довго, даючи змогу розривати захоплення, {{керувати повітрям|airbend (закреслено в оригіналі)}} і тягнути ворогів у неприємні позиції.\n\nПамʼятайте використовувати «Атаку, посилену Кі» щоразу, коли користуєтеся «Кулаком непорушного повітря». Його можна застосовувати зі зброєю Монаха, тож киньте дротик, якщо треба атакувати здалеку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність 16 → 18, Повільне падіння, Швидке зцілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тримаємося «Фундаментальної математики». Це все, що в нас є."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Приголомшливий удар, Зосереджене прицілювання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Принаймні бити ми все ще вміємо добре."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удари, посилені Кі, Стихійна дисципліна: Гонг вершини"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Гонг вершини» дає нам варіант шкоди по області, який можна застосовувати на значно більшій відстані, ніж «Палючі долоні». Це наша перша нагода замінити «Стихійну дисципліну», але варіантів 6-го рівня лише два, а «Хватка північного вітру» корисна лише ситуативно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення, Спокій розуму"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Добрі захисти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще більше математики."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Руху без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бігайте по стінах."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чистота тіла{{Purity of Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще один гарний захист."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стихійна дисципліна: Полумʼя фенікса, Заміна стихійної дисципліни: Гонг вершини → Осідлати вітер"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Вогнекуля» чудова на будь-якому рівні, і це значно ефективніше використання Кі, ніж «Шквал ударів». Памʼятайте, що можна витратити додаткове Кі, щоб підсилити заклинання на 13-му й 17-му рівнях. Тепер, коли в нас є «Полумʼя фенікса», замінимо «Гонг вершини» на «Осідлати вітер», щоб накладати «Політ [Fly]» на себе."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час підвищити наші Складності ряткидків, щоб вороги справді могли провалювати ряткидки проти умінь нашого підкласу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Марне для Монаха."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Алмазна душа{{Diamond Soul}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще один чудовий захист."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невмируще тіло{{Timeless Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Практично жодного механічного ефекту."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "КБ 20 і максимальні Складності ряткидків."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стихійна дисципліна: Ріка голодного полумʼя"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Запустіть «Стіну вогню [Wall of Fire]», а потім «Кулаком непорушного повітря» та «Водяним батогом» раз у раз заганяйте ворогів у неї. Або просто кидайте в них «Вогнекулю»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Порожнє тіло{{Empty Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ваша кнопка бою на високих рівнях. Натисніть її й ідіть лупцювати все підряд."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нам потрібні ХП і +1 до ряткидків Статури, щоб допомогти підтримувати Концентрацію на «Стіні вогню»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досконале Я{{Perfect Self}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Достатньо Кі, щоб використати будь-яку з наших «Стихійних дисциплін» принаймні раз за зустріч."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-monk-four-elements-2014-001",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Учень стихій",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-002",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Співзвуччя зі стихіями",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-003",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Ікла вогняної змії",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-004",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Кулак чотирьох громів",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-005",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Кулак непорушного повітря",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-006",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Натиск духів бурі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-007",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Надання форми плинній ріці",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-008",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Розмашистий попелястий удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-009",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Водяний батіг",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-010",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Хватка північного вітру",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-011",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "Гонг вершини",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-012",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-14",
+      "context": "Полумʼя фенікса",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-013",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-15",
+      "context": "Стійка туману",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-014",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-16",
+      "context": "Осідлати вітер",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-015",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-18",
+      "context": "Подих зими",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-016",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-19",
+      "context": "Захист вічної гори",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-017",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-20",
+      "context": "Ріка голодного полумʼя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-four-elements-2014-018",
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-21",
+      "context": "Хвиля рухомої землі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

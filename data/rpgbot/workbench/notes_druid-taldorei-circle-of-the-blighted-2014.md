@@ -1,0 +1,6 @@
+- block-section-levels-1/row/7/1: джерело пише «Ability Score Increase (Wis 16 -> 8)» — очевидна описка (має бути 18); перекладено як написано: «Мудрість 16 → 8».
+- block-section-levels-1/row/1/2: у джерелі текст обривається на «We technically can use»; перекладено обірваним: «Технічно ми можемо використовувати».
+- block-section-levels-1/row/2/2: джерело пише «Define Ground» замість Defile Ground; перекладено як назву уміння «Осквернення землі».
+- block-section-levels-1/row/3/2: джерело пише «Blighted Ground» (мабуть, Defile Ground); перекладено як написано: «оскверненої землі».
+- block-section-features-1/item/2: «a fail, disposable combat pet» і «be replace» — описки (frail; be replaced); перекладено за змістом «тендітний, одноразовий … якого легко замінити».
+- block-section-levels-1/row/4/2: «enemies count as hard corners» — про рух по діагоналі повз ворогів; передано як «вороги вважаються твердими кутами».

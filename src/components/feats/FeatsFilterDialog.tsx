@@ -49,17 +49,19 @@ export function FeatsFilterDialog({
       is2024={is2024}
       onClear={clearFilters}
     >
-      <FilterGroup title="Категорія">
-        {CATEGORIES.map((cat) => (
-          <FilterChip
-            key={cat}
-            is2024={is2024}
-            selected={selectedCategories.has(cat)}
-            onClick={() => toggleCategory(cat)}
-            label={featCategoryTranslations[cat]}
-          />
-        ))}
-      </FilterGroup>
+      {is2024 && (
+        <FilterGroup title="Категорія">
+          {CATEGORIES.map((cat) => (
+            <FilterChip
+              key={cat}
+              is2024={is2024}
+              selected={selectedCategories.has(cat)}
+              onClick={() => toggleCategory(cat)}
+              label={featCategoryTranslations[cat]}
+            />
+          ))}
+        </FilterGroup>
+      )}
 
       <FilterGroup title="Особливості">
         <FilterChip

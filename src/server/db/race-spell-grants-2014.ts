@@ -22,7 +22,8 @@ export async function saveRaceSpellGrants2014(client: DatabaseClient, input: Rac
 }
 
 export async function findRaceSpellGrants2014(client: DatabaseClient, input: RaceAtLevel2014): Promise<SubclassSpellGrants> {
-  const earned = findEarnedRaceSpells2014(input);
+  const chosenRaceOptionNames = await loadChosenRaceOptionNames(client, input.persId);
+  const earned = findEarnedRaceSpells2014({ ...input, chosenRaceOptionNames });
   if (!earned.length) return { created: [], adopted: [] };
 
   const [spells, owned] = await Promise.all([
@@ -36,6 +37,11 @@ export async function findRaceSpellGrants2014(client: DatabaseClient, input: Rac
     return spellId ? [{ spellId, sourceKey: spell.sourceKey, sourceName: translateRaceSource(spell.sourceKey), ability: null }] : [];
   });
   return splitGrantsByOwnership(granted, owned);
+}
+
+async function loadChosenRaceOptionNames(client: DatabaseClient, persId: number): Promise<string[]> {
+  const options = await client.raceChoiceOption.findMany({ where: { perses: { some: { persId } } }, select: { optionName: true } });
+  return options.map((option) => option.optionName);
 }
 
 export async function writeRaceSpellGrants2014(

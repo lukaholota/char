@@ -1,0 +1,1781 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-39b617d0c0e499c8",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+      "sourceId": "rpgbot-39b617d0c0e499c8",
+      "fetchedAt": "2026-09-29T19:11:46.782023+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:30:12-04:00",
+      "contentHash": "ac2cfc4498c7a4f8e931e91435ba5dae3821400abb7c57826ec6c8b2cbfdff36",
+      "title": "Knowledge Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-39b617d0c0e499c8-d2d7498133c92008.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-knowledge-domain-2014",
+    "sourceId": "rpgbot-39b617d0c0e499c8",
+    "slug": "cleric-knowledge-domain-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен знань — гайд підкласу Клірика (2014)",
+    "titleEn": "Knowledge Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен знань",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірики домену знань — один із цікавіших варіантів із зеленою оцінкою в нашому списку підкласів. Вони не надто ефектні, але ще універсальніші за більшість Кліриків, а це вже чимало. Задумані як один зі способів додати вашому Клірикові більше чарівницького присмаку, вони мають доступ до заклинань Ворожіння, що традиційно були лише арканними й чудово доповнюють вроджену здатність Клірика звертатися по відповіді просто до майже всезнаючих істот."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У поєднанні з «Експертизою»{{Expertise}} у кількох навичках і дуже підтримувальними магічними варіантами Клірика ви отримуєте персонажа, який може знати все й за першої потреби добре робити майже будь-що. Ролі вченого, розвідника й «обличчя» можна миттєво вдати за правильного добору заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте єдина справжня активна здатність підкласу не працює в багатьох боях, тож домен може здаватися трохи нудним, якщо ви не проводите багато часу в цивілізації. Сподіваюся, ви не дозволите цьому завадити вам прочитати й пограти за прикладом збірки, заради якого я, власне, й написав цю статтю. Інтернет таки цікаве місце."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Домену знань",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Домену знань",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Домену знань",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Домену знань",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Домену знань",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Домену знань",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#knowledge-domain-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клірика знань — Ой, ні-ОвО",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#example-knowlege-cleric-build-oh-nowo"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/knowledge-domain/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Домену знань",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: Кілька добрих заклинань Ворожіння, але більшість заклинань дуже ситуативні й зазвичай можуть зачекати довгого відпочинку, щоб ви їх підготували."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Наказ [Command] може бути дуже корисним, якщо обрати правильний наказ, але Розпізнавання [Identify] завжди чудове доповнення, якщо нам бракує Чарівника, який накладав би його як ритуал зі своєї книги заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Навіювання [Suggestion] — чудовий спосіб розвʼязати чимало проблем, якщо користуватися ним добре. Пророкування [Augury] — безперечно одне з моїх улюблених ворожінь, хоч щоб воно справді працювало, потрібна практика й знання вашого Майстра. Якщо ваша група коли-небудь застряє в суперечках, як діяти далі, Пророкування [Augury] можна використати, щоб швидко звузити можливості, відсіявши варіанти, що дають результат «лихо»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Обидва варіанти дуже ситуативні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Арканне око [Arcane eye] — дуже ефективний спосіб розвідати найближчі місця, які можуть бути небезпечними чи важкодоступними звичайним шляхом. Спантеличення [Confusion] — складне у використанні заклинання, але якщо ваші цілі надійно провалюватимуть ряткидок Мудрості, вони втрачатимуть 80% ходів протягом тривалості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Знання легенд [Legend Lore] і Стеження [Scrying] — дуже ситуативні варіанти, якими користуються нечасто, і майже завжди можуть зачекати довгого відпочинку, щоб ви їх підготували в ті рідкісні випадки, коли вони потрібні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Благословення знань|Blessings of Knowledge}}: Дві мови — це приємно, але вони швидко перестають мати значення, коли ви здобуваєте доступ до Мов [Tongues]. Дві безкоштовні навички знань набагато важливіші, особливо тому, що ви додаєте подвійний Бонус Майстерності, що легко компенсує потенційно слабкий Інтелект."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Знання віків|Channel Divinity: Knowledge of the Ages}}: Це фантастична утилітарна здатність. Забули взяти Пройдисвіта? Візьміть інструменти злодія, накладіть Настанову [Guidance] — і ви готові до роботи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Читання думок|Channel Divinity: Read Thoughts}}: Читання думок корисне ситуативно, але Навіювання [Suggestion] може бути дуже ефективним, особливо тому, що активація цього ефекту не має зовнішніх видимих проявів, а ціль автоматично провалює ряткидок проти Навіювання [Suggestion], тож вам не доведеться хвилюватися, що хтось може вчинити, якщо ви накладете на нього заклинання, а воно не спрацює."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Потужне заклинання{{Potent Spellcasting}}: До цього рівня ви легко можете мати 20 Мудрості, що дає чудове підвищення вашої шкоди. Зауважте, що це стосується лише замовлянь Клірика, тож ви не можете поєднувати це з рисою «Посвячений у магію»{{Magic Initiate}} чи замовляннями, здобутими мультикласуванням."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Видіння минулого|Visions of the Past}}: Це дуже важко оцінити. Якщо ваш Майстер творчий і відкритий до нового, це може дати вам глибоке розуміння сюжету гри й стати дуже потужним інструментом оповіді. Якщо ж ваш Майстер небалакучий і не любить розкривати секрети, вам може бути важко ефективно використовувати цю здатність."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-knowledge-domain-ability-scores",
+          "heading": "Характеристики Домену знань",
+          "sourceAnchor": "knowledge-domain-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-knowledge-domain-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбайте її."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knowledge-domain-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: доберіть стільки, щоб повністю використати середні обладунки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knowledge-domain-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: помирати неоптимально, а ще у вас кілька найкращих заклинань Концентрації в грі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knowledge-domain-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: оскільки ми отримуємо експертизу в двох навичках знань і ми клас, залежний від однієї характеристики (SAD), можемо дозволити собі підняти Інтелект, щоб підкріпити ці перевірки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knowledge-domain-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: заклинання Клірика живляться Мудрістю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knowledge-domain-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбайте її."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knowledge-domain-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-knowledge-domain-races",
+          "heading": "Раси Домену знань",
+          "sourceAnchor": "knowledge-domain-races",
+          "blocks": [
+            {
+              "blockId": "block-section-knowledge-domain-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-knowledge-domain-feats",
+          "heading": "Риси Домену знань",
+          "sourceAnchor": "knowledge-domain-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-knowledge-domain-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-knowledge-domain-weapons",
+          "heading": "Зброя Домену знань",
+          "sourceAnchor": "knowledge-domain-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-knowledge-domain-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-knowledge-domain-armor",
+          "heading": "Обладунки Домену знань",
+          "sourceAnchor": "knowledge-domain-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-knowledge-domain-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ніщо не поєднується з володінням на вимогу й читанням думок, тож просто тримайтеся Клірика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-knowlege-cleric-build-oh-nowo",
+          "heading": "Приклад збірки Клірика знань — Ой, ні-ОвО",
+          "sourceAnchor": "example-knowlege-cleric-build-oh-nowo",
+          "blocks": [
+            {
+              "blockId": "block-section-example-knowlege-cleric-build-oh-nowo-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Знали, що Тот{{Thoth}} буквально згаданий у PHB? «Боги знань — зокрема Оґма{{Oghma}}, Бокоб{{Boccob}}, Гілеан{{Gilean}}, Аурейон{{Aureon}} і Тот — над усе цінують навчання й розуміння». А знали, що давньогрецькою Тот пишеться Θώθ? Закладаюся, ви вже бачите, до чого це йде."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як описано вище. Вкладемо +2 у Мудрість і +1 у Статуру, щоб підготуватися до «Стійкого (Статура)»{{Resilient (Constitution)}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Табаксі{{Tabaxi}}. А) Нам треба бути котом, і Б) табаксі дають достатньо пройдисвіта, щоб ви відчували, що робите пройдисвітські речі, не вдаючись до хитрощів. До того ж можливість рвонути на позицію, коли ви активуєте Духів захисників [Spirit Guardians], — доволі чудова."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть Мудреця{{Sage}} заради уміння «Дослідник»{{Researcher}}, а тоді негайно замініть усі володіння, які воно дає, на Поводження з тваринами, Природу, Набір травника й Інструменти злодія. Чи не відтворив я здебільшого Відлюдника{{Hermit}}, лише з іншим умінням передісторії? Так, відтворив. Але це дуже тематично, а нам просто дуже хочеться з користю застосувати нашу високу Мудрість, заповнюючи решту навичок знань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раса дає нам Уважність (щоб помічати ті розпухлі мішки зі скарбами) і Непомітність (щоб їх поцупити), передісторія дає Природу, Поводження з тваринами, Набір травника й Інструменти злодія, а Клірик дає Аналіз Поведінки й Релігію. На першому рівні від домену ми отримуємо Магію й Історію (до того ж з експертизою)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні отримуємо «Телекінетика»{{Telekinetic}}. Тепер ми не просто вдаємо будь-якого пройдисвіта, а вдаємо містичного спритника{{Arcane Trickster}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8-й рівень доводить Мудрість до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Стійкого (Статура)»{{Resilient (Con)}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні отримуємо «Адепта метамагії»{{Metamagic Adept}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні отримуємо «Скритного»{{Skulker}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-knowlege-cleric-build-oh-nowo",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння:\n– Священне полумʼя\n– Настанова\n– Дзвін небіжчика\nБлагословення знань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Домен підступності",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Trickery Domain}} чудово сплавляється зі стволенням клілика, який тлохи відчувається плойдисвітом, але Домен знань клаще підходить для того, щоб механічно "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "бути"
+                    },
+                    {
+                      "type": "text",
+                      "text": " заміною плойдисвіта. Ви маєте доступ до будь-якої навички за пелшої-ліпшої потлеби, ледь тільки впустите {{капелюх|hat (закреслено в оригіналі)}} священний символ, і знаєте чимало пло лечі, щоб підказати, що саме вам може знадобитися вдати. Накиньте звелху Настанову [Guidance] — і ви в усьому ще клащі за Балдів. Згодом ви зможете виконувати лоль лозвідника клаще за більшість інших завдяки заклинанням воложіння. А поки лобіть клілицькі штуки низьких лівнів. Боже, цього вже досить. Але, мабуть, найважливіше те, що Розпізнавання [Identify] у нас завжди підготовлене, і ми можемо витратити 11 хвилин на ритуал, щоб попросити наше божество дарувати нам знання про предмет перед нами з найшанобливішим вербальним компонентом: «Θώθ, що це?»"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественність: Знання віків"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інструменти злодія у вас уже є як заміна пройдисвіта, але ви можете просто дати собі володіння чим завгодно, коли щось виникає. Пограбування пішло не так? Станьте акробатом і протисніться на волю. Збираєтеся йти дипломатити з мером, а ніхто не взяв «обличчя»? Накиньте якийсь бонус, щоб прикрити низьку Харизму, і вперед, на повну."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня дають нам Покращення здібності [Enhance Ability], що ще більше розширює нашу здатність проходити випробування, мов "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Мері Сью",
+                      "href": "https://en.wikipedia.org/wiki/Mary_Sue"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Також воно дає Пророкування [Augury], що дозволяє знати, яким істотам надто небезпечно дарувати обіймашки. По суті, «Θώθ, як це все складеться?»"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Телекінетик (Мудрість)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "О, дивіться, безкоштовна "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Про цю рису я вже говорив у "
+                    },
+                    {
+                      "type": "link",
+                      "text": "багатьох",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/wizard/bladesinging/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "link",
+                      "text": "гайдах",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "link",
+                      "text": "із",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/artificer/armorer/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "link",
+                      "text": "підкласів",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", які я написав. Рокко також описав майстерне використання цієї риси разом із класичним заклинанням Клірика — Духами захисниками [Spirit Guardians] — у "
+                    },
+                    {
+                      "type": "link",
+                      "text": "гайді з Клірика домену миру",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/peace-domain/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті{{Destroy Undead}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Духи захисники [Spirit Guardians]! Викличте примарні образи вашого улюбленого девіантного художника вам на підтримку в бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественність: Читання думок\nКанал божественності 2/відпочинок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Читання чужих думок і саме по собі дуже добре в соціальних ситуаціях, бо підказує, у чому саме вам, можливо, доведеться магічно здобути вміння, але ще й просто Навіювання [Suggestion] неймовірно потужне, якщо користуватися ним правильно. Заклинання каже, що ціль не робитиме нічого очевидно шкідливого для себе. Воно не каже, що ціль не робитиме нічого відверто незаконного. Накажіть крамареві піти до вартових і сказати, що він замислював убити місцевого очільника, а тоді підписати зізнання. Обчистіть його крамницю до нитки, поки він цим займається, і йдіть геть значно багатшими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звісно, ваші Уважність і Непомітність обидві доволі добрі, але Арканне око [Arcane eye] не залишає жодного місця для помилки. А Віщування [Divination] натомість — щоб запитувати Тота{{Thoth}} решту питальних слів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість 18 → 20\nПотужне заклинання\nПокращення Знищення нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невеликий, але приємний приріст DPR."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ви можете накласти Звернення [Commune] і напряму поспілкуватися з Тотом{{Thoth}}. Оскільки це ритуал, можна просто ставити питання, доки він нарешті не вдасться до мовчанки й не ігноруватиме вас до кінця дня. Для Концентрації, можливо, настав час перейти на "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик небожителя",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-celestial"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", щоб гігантська версія вас накидалася на ворогів. Памʼятайте, що вона вже робить дві атаки за хід (за кілька рівнів їх може стати три), тож «Променева булава»{{Radiant Mace}} може роздавати тимчасові ХП, як Клірик домену сутінків{{Twilight Domain}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне втручання\nНове замовляння:\n– Дивотворство"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "У 10% випадків це працює щоразу. Хоча, мабуть, працює краще, якщо під час прохання ви гарчите «ррр-р Х3» утричі гучніше, ніж зазвичай."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Знищення нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Варто зауважити, що Слово повернення [Word of Recall] не вимагає, щоб ви були на тому самому плані, що й святилище, тож це може бути цікавий спосіб позначити точку на іншому плані як щось дуже легке для переміщення, навіть якщо ви не можете знайти відповідний камертон для Планарного переходу [Plane Shift]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуже нудно й суперефективно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "А що, як ви не можете знайти місце, священне для Тота{{Thoth}}, щоб скористатися Словом повернення [Word of Recall]? Просто витратьте рік на повторне накладання Храму богів [Temple of the Gods]. Проблему вирішено."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Знищення нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Свята аура [Holy aura] бере це тепле почуття всередині вас і поширює його на всю вашу групу. Нарешті вони теж розуміють радість знати, що є що."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Адепт метамагії:\n– Приховане заклинання\n– Подовжене заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Єдина проблема «Божественності: Читання думок»{{Channel Divinity: Read Thoughts}} у тому, що Навіювання [Suggestion] наприкінці все одно має компоненти. А що, як їх не буде? Тепер ніхто не знає, що ви взагалі щось зробили, щоб досягти свого майже-контролю над розумом. Можете без вагань витратити своє друге Очко чародійства{{Sorcery Point}} за день на щось веселе, як-от подовження Наказу [Command] («Тікай»), або на Виклик небожителя [Summon Celestial] 8-го рівня, щоб протягнути ще кілька боїв."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Видіння минулого\nПокращення Знищення нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як і належить сумному клірикові високого рівня, яким ми є, ми готуємо Масове зцілення [Mass Heal] і з тугою дивимося на все, що вміє накладати Бажання [Wish]. Проте тепер ми можемо безкоштовно накласти й химерну версію Знання легенд [Legend Lore], тож, будь ласка, домовтеся з вашим Майстром, щоб це мало вагу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності 3/відпочинок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо у вас 3 бої між короткими відпочинками, імовірно, щось пішло не так. На щастя, у вас є використання «Каналу божественності»{{Channel Divinity}}, щоб це помʼякшити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Скритний"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Усунення Перешкоди на кубику, коли ми бачимо лише Темним зором, — це приємно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращене божественне втручання."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Коли варіанти закінчилися, Тот{{Thoth}} усе одно буде поруч."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-001",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-002",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-003",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-004",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-005",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-006",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-007",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Благословення знань",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-008",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-009",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-010",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Потужне заклинання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-011",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Видіння минулого",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-012",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-knowledge-domain-ability-scores",
+      "targetBlockId": "block-section-knowledge-domain-ability-scores-1",
+      "optionId": "section-knowledge-domain-ability-scores-block-section-knowledge-domain-ability-scores-1",
+      "context": "Сила",
+      "explanationBlockId": "block-section-knowledge-domain-ability-scores-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-013",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-knowledge-domain-ability-scores",
+      "targetBlockId": "block-section-knowledge-domain-ability-scores-2",
+      "optionId": "section-knowledge-domain-ability-scores-block-section-knowledge-domain-ability-scores-2",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-knowledge-domain-ability-scores-2"
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-014",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-knowledge-domain-ability-scores",
+      "targetBlockId": "block-section-knowledge-domain-ability-scores-3",
+      "optionId": "section-knowledge-domain-ability-scores-block-section-knowledge-domain-ability-scores-3",
+      "context": "Статура",
+      "explanationBlockId": "block-section-knowledge-domain-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-015",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-knowledge-domain-ability-scores",
+      "targetBlockId": "block-section-knowledge-domain-ability-scores-4",
+      "optionId": "section-knowledge-domain-ability-scores-block-section-knowledge-domain-ability-scores-4",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-knowledge-domain-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-016",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-knowledge-domain-ability-scores",
+      "targetBlockId": "block-section-knowledge-domain-ability-scores-5",
+      "optionId": "section-knowledge-domain-ability-scores-block-section-knowledge-domain-ability-scores-5",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-knowledge-domain-ability-scores-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-knowledge-domain-2014-017",
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sectionId": "section-knowledge-domain-ability-scores",
+      "targetBlockId": "block-section-knowledge-domain-ability-scores-6",
+      "optionId": "section-knowledge-domain-ability-scores-block-section-knowledge-domain-ability-scores-6",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-knowledge-domain-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

@@ -1,0 +1,2285 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "94ee58c95d0d005c5cd0077fbba7fb648d7f9512a07058066797babb30ab1782",
+  "sourceRevision": {
+    "revisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+    "sourceId": "rpgbot-3acc00e4b349f2bc",
+    "fetchedAt": "2026-09-29T19:11:49.965166+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:32:37-04:00",
+    "contentHash": "f37fa7482cf510011c3c95920cc9c5ae65ca53919e66bff053e68d0ebe614ff7",
+    "title": "Hexbuckler of the Astral Seas: DnD 5e Multiclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While writing the "
+            },
+            {
+              "type": "link",
+              "text": "Swashbuckler Rogue handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/"
+            },
+            {
+              "type": "text",
+              "text": ", I accidentally started making Peter Pan as the example build, which quickly spiraled a bit far from a proper example of Swashbuckler. Instead of throwing the whole thing out, we’ve put that alternative multiclass build here for you to enjoy. Maybe you’ll find this to be a fine addition to one of those Spelljammer crews I’ve heard forming lately upon the Rock of Bral."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build, The Boy Who Wouldn’t Grow Up, uses a four level dip into Hexblade Warlock, becoming a Hexbuckler if you will, in order to get better AC from Medium Armor and a Shield and to use Charisma for melee attacks. While it loses 2d6 in Sneak Attack damage, and many Rogue features show up later than normal, the additional sturdiness and access to weapon cantrips like Booming Blade and Green-Flame Blade are a good trade for those losses."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We hope you’ll enjoy this themed build and consider using it either as-is or as an inspiration for your own PC. Additional considerations to note, we chose the Pact of the Chain for theming. Can’t have Peter Pan without Tinkerbell, but taking the Pact of the Blade with Improved Blade Pact would give an additional +1 to attack and damage rolls."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Please feel free to leave us feedback, tell us if you end up using this build in your game and how you like or don’t like the way it plays. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hexbuckler Build – The Boy Who Wouldn't Grow Up",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/#hexbuckler-build-the-boy-who-wouldnt-grow-up"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexbuckler/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-hexbuckler-build-the-boy-who-wouldnt-grow-up",
+      "heading": "Hexbuckler Build – The Boy Who Wouldn’t Grow Up",
+      "sourceAnchor": "hexbuckler-build-the-boy-who-wouldnt-grow-up",
+      "blocks": [
+        {
+          "blockId": "block-section-hexbuckler-build-the-boy-who-wouldnt-grow-up-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "You’re just a lost boy"
+            },
+            {
+              "type": "emphasis",
+              "text": "With your head up in the clouds"
+            },
+            {
+              "type": "emphasis",
+              "text": "You’re just a lost boy"
+            },
+            {
+              "type": "emphasis",
+              "text": "Never keep your feet on the ground"
+            },
+            {
+              "type": "text",
+              "text": "Kelsea Ballerini – "
+            },
+            {
+              "type": "link",
+              "text": "Peter Pan",
+              "href": "https://www.youtube.com/watch?v=JmU0b8bxlG8"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-hexbuckler-build-the-boy-who-wouldnt-grow-up-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While Swashbuckler on its own is a fine class, adding a splash of Hexblade allows us to use Charisma for our weapons and Initiative, as well as granting access to Medium Armor and shields. This gives us the flexibility to invest a little less into Dexterity, and more into Constitution. Additionally, we gain cantrips such as Booming Blade and Green-Flame Blade to put a little extra punch onto our swings."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-hexbuckler-build-the-boy-who-wouldnt-grow-up",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll be taking Custom Lineage for this build as we want the bonus feat and the single +2 does more for us. If we were not multiclassing, Variant Human would be our choice instead, as we’d need more investment into Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Racial Adjustments"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "STR"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "DEX"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "CON"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "INT"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "WIS"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "CHA"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We take point buy, and, in contrast to the more typical ability spread from above, we only put 14 into Dexterity due to the medium armor we’ll be getting from Hexblade. The +2 from Custom Lineage goes into Charisma. Because we have points left over, we bump Wisdom up to remove any penalties to any checks like Insight or Perception."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-hexbuckler-build-the-boy-who-wouldnt-grow-up",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re using Custom Lineage to get a bonus feat, Fey Touched for +1 Charisma and choosing the Bless spell, and using the +2 to improve Charisma. For our Variable Trait, we’re taking Darkvision because it’s very useful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-hexbuckler-build-the-boy-who-wouldnt-grow-up",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Feylost is the perfect background for what is basically Peter Pan. It comes with Deception and Survival, as well as a Musical Instrument of our choice. The Pan Flute seems more than appropriate. As for the bonus language, while I usually leave that up to the reader as these choices are more campaign-dependent, I will suggest Sylvan, language of the fairies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-hexbuckler-build-the-boy-who-wouldnt-grow-up",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Rogue, we get Acrobatics, Insight, Perception, Persuasion, and Thieves’ Tools. From Feylost we get Deception, Survival, and Pan Flute."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For Expertise, we pick Acrobatics and Persuasion at first level, and Insight and Perception at 6th level."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-hexbuckler-build-the-boy-who-wouldnt-grow-up",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because we multiclass carefully, only our first Feat comes late by one level. We then get as many ASIs as a typical rogue, though they are all shifted back a few levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Custom Lineage, we get to pick a bonus feat at first level and we pick Fey Touched, getting +1 to Charisma and choosing the Bless spell."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fifth level, Rogue fourth, we take Warcaster, primarily so we can make opportunity attacks with Booming Blade, but also so our Rapier and Shield don’t inhibit any somatic components of spells like Shield. Because we started with 18 Charisma, we’re already ahead on fundamental math, allowing us to take this defensive boost early without hurting our offense."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth level, Warlock fourth, we take an ASI for +2 Charisma. (18=>20)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelveth level, Rogue eighth, Resilient (Constitution) for +1 Constitution and proficiency in those saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourteenth level, Rogue tenth, we take the Tough feat, so we can roll with the punches."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixteenth level, Rogue twelveth, we take an ASI for +2 Constitution. (16=>18)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twentieth level, Rogue sixteenth, we take another ASI for +2 Constitution. (18=>20)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-why-the-bless-spell-with-fey-touched",
+      "parentSectionId": "section-feats",
+      "heading": "Why the Bless Spell with Fey Touched?",
+      "sourceAnchor": "why-the-bless-spell-with-fey-touched",
+      "blocks": [
+        {
+          "blockId": "block-section-why-the-bless-spell-with-fey-touched-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bless is a very powerful spell. Like, breaking the Fundamental Math good. But why take it on what is allegedly a Rogue? Well, the simple answer is that, by offloading Bless duty onto the Rogue, a Cleric in the party can instead concentrate on something like Spirit Guardians."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-hexbuckler-build-the-boy-who-wouldnt-grow-up",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sneak Attack"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1- Rogue 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sneak Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Persuasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Survival"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Persuasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus Feat: Fey Touched"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Bless (c)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Misty Step"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We start out as a Rogue, and 1st-level is a bit rough for everyone, but we’re going out with 14 Dexterity because we’ll be picking up Hexblade Warlock at 2nd-level. We’ll be slightly behind the fundamental math, but it’s only for one level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As a Custom Lineage, we get a bonus feat, so we have Bless and Misty Step once per long rest thanks to Fey Touched. This also gives us an 18 in Charisma."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Skills, we’re pretty well equipped as a Face."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2- Warlock 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hexblade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Hexblade’s Curse"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Hex Warrior"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Booming Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Eldritch Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-1st-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Protection from Evil and Good (c)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level, we take a dip into Warlock, using Hexblade to make our attack rolls Charisma based."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This also gives us the Hexblade’s Curse ability, which is a nice bump to damage that will grow with our PB."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Finally we also gain proficiency in Medium Armor and Shields. Because we’re not going to increase Dexterity beyond 14, we’ll want to wear Medium armor anyways, and we’ll want to hold a shield. Fights don’t always go our way, sometimes we’ll be caught out of position and we’ll be glad to have actual AC when that happens."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Pact Magic, we take the Booming Blade and Eldritch Blast Cantrips. Booming Blade is a straight increase to damage because Rogues don’t get Extra Attack, and Eldritch Blast is a backup for rare situations that we can’t reach someone and want to do more than nothing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For 1st-level spells, we learn Protection from Evil and Good and Shield. If we’re in a bad situation with the right kind of foes, Protection from E&G is the same benefit as the target Dodging every turn, and it also ends charm/fear/possession from the creatures affected by the spell if your ally is already having trouble. Shield on the other hand is good for those attacks that just barely hit us."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll only have one Pact Magic spell slot for a few levels though. It might make more sense to use it on Bless, which we know from Fey Touched, to boost the attacks of multiple allies."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember, we’re not primarily a spellcaster, we’re a Rogue who happens to have a few magical tricks that supplement our primary occupation."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3- Rogue 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cunning Action"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With Cunning Action we can Dash or Disengage as a bonus action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We could also make a Stealth check to Hide, but this build was a little tight on skills and didn’t choose Stealth as a proficiency."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4- Rogue 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Swashbuckler"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Fancy Footwork"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Rakish Audacity"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Swashbuckler comes with a lot as soon as it’s acquired."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fancy Footwork is like a free disengage against any target we make a melee attack against, hit or miss."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rakish Audacity does two things. First it adds our Charisma modifier to our Initiative checks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Secondly, it also applies our Sneak Attack damage to targets as long as the target is the only creature within 5 feet of us."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5- Rogue 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: War Caster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have the ability to use a Shield thanks to Hexblade, and some spells, like Shield, have Somatic components."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Because we’re about to head back into Warlock for three levels to get a few more magical tricks, this is a good time to get this."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In addition to the Somatic Solution, this feat also allows for those occasional opportunity attacks to be made with Booming Blade. One more feature is that we have Advantage on Concentration saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6- Warlock 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Armor of Shadows"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Fiendish Vigor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-1st-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Hellish Rebuke"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is the level we get Invocations, and, unlike most builds with a Warlock dip, those are not important "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "at this level"
+                },
+                {
+                  "type": "text",
+                  "text": ". Invocations will be important in the next two levels however, as we’re going to be using the ability to trade them out for ones that require us to have a specific Pact Boon."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our additional known spell is also less important right now, as we’ll be trading it out for an extra 2nd-level spell next level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sorry this level is kind of boring."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7- Warlock 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "Pact of the Chain",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#chain"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invocation Swap"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Remove Armor of Shadows"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Gain Gift of the Ever Living Ones"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-2nd-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Mirror Image"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Spider Climb (c)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Forget 1st-level Spell Hellish Rebuke"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "But hey this level is far more interesting."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re taking Pact of the Chain because how can you build Peter Pan without "
+                },
+                {
+                  "type": "link",
+                  "text": "Tinkerbell",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#chain-familiars-sprite"
+                },
+                {
+                  "type": "text",
+                  "text": "?"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Invocations, trade out one of the filler choices from the last level and get Gift of the Ever Living Ones. This will maximize any healing we receive, either from magic or from hit dice on short rests. That’s an incredible amount of extra sturdiness."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get to learn a new spell, and Mirror Image is a great defensive buff that doesn’t use Concentration."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also trade out the filler spell we learned last level for Spider Climb. Yes, this does use Concentration, but, oh what kinds of Swashbuckling nonsense can we get into by standing on the ceiling, the walls, or running straight up the mast of a pirate spelljammer?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8- Warlock 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Charisma (18=>20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invocation Swap"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Remove Fiendish Vigor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Gain Voice of the Chain Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Green-Flame Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-2nd-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Invisibility (c)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take an ASI for Charisma, which caps us thanks to Custom Lineage being able to hit 18 at 1st-level, so we’re at level 8 with two feats and still on track with the Fundamental Math."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also swap the other Invocation we chose two levels ago for Voice of the Chain Master. Now if we have to split up the party, our familiar can go with the other half and function as a cell phone."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Voice also pairs well with Invisibility, allowing us to go somewhere we shouldn’t and give an in-progress report back to the team."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9- Rogue 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Uncanny Dodge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Uncanny Dodge is a great tool that halves the damage we take on an attack by spending a reaction."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We have Shield, but we have only two spell-slots, so if we need those for something else or Shield won’t save us from the hit, then we can use this instead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Another consideration is that Shield will remain up for the whole turn, so if we’re facing multiple attackers or something with multiple attacks, Shield is stronger, but also consider using Protection from G&E with Uncanny Dodge if possible instead of Shield in those situations."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10- Rogue 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The reason we grab Expertise in Insight and Perception is that our Wisdom is average, and this will compensate for that."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11- Rogue 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Evasion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A little later than other Rogues get it, but it’s not like we don’t still make Dexterity saving throws."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12- Rogue 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient (Constitution) (15=>16)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "While we could have taken this earlier, it was more important to get War Caster as early as we did. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Delaying this till now simply means that our Constitution saves go up by 5, +1 from hitting 16 and +4 from PB."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13- Rogue 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Panache"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Panache is a nice taunt ability, with opposed checks, our Persuasion vs the target’s Insight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I didn’t choose Hex as one of our spells mostly because we make one attack instead of several Eldritch Blasts, but this is one of the potential synergies if you choose to lean deeper into Warlock. Use Hex to Disadvantage their Wisdom (Insight) checks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14- Rogue 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Tough"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We just learned how to taunt a target so we should probably also get some more hit points."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15- Rogue 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reliable Talent"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is one of the bigger sacrifices of our Warlock dip. This ability is really good, and we’re getting it four levels later than other Rogues."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Any ability check with proficiency always is a minimum of 10+bonuses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16- Rogue 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Constitution (16=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Constitution, more HP."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17- Rogue 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elegant Maneuver"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Advantage on Acrobatics and Athletics for a turn. It’s ok, but Reliable Talent is kind of like Advantage where one of the dice is always a 10."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18- Rogue 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Blindsense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Find things we can’t see. Pretty handy, even this late."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19- Rogue 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Slippery Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Proficiency in Wisdom saves. Those are particularly dangerous saves to fail. It comes on late, but is still welcome at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20- Rogue 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Constitution (18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "And for a capstone, we cap our Constitution at 20."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Together with Tough this puts us at 243 Hit Points. That’s not too shabby."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Could we have gotten there without the dip? Yeah, we could have focused on Dexterity and Constitution. With a single-classed Rogue, instead of taking the spellcasting focused feats like Fey Touched and Warcaster, we could have the same hit points with a 20 in Dexterity and an 18 in Charisma. If we instead want the 20 in Charisma, we can lower the Constitution score to 18 and have 20 fewer hit points."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But then our AC would be 17 because we don’t have proficiency with shields, and we wouldn’t have a handful of spells on the side."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-hexbuckler-build-the-boy-who-wouldnt-grow-up-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-style-plain has-small-font-size is-layout-flow wp-block-quote-is-layout-flow\"><p><em>You’re just a lost boy</em></p><p><e"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-hexbuckler-build-the-boy-who-wouldnt-grow-up-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-abilities-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-why-the-bless-spell-with-fey-touched-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2615,
+    "sections": 11,
+    "blocks": 28,
+    "tables": 2,
+    "ratingSignals": 4
+  },
+  "status": "needs-editorial-review"
+}

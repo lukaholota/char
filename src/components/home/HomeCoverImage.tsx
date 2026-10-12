@@ -30,6 +30,7 @@ export function HomeCoverImage({ src, noAiSrc, alt, sizes, priority, className }
           fill
           sizes={sizes}
           priority={priority}
+          draggable={false}
           onError={() => setIsMissing(true)}
           className={cn("object-cover", className)}
         />

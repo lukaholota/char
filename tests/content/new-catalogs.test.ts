@@ -13,11 +13,11 @@ import { Sword, Shield, Wrench, Eye, Swords, ShieldCheck, Crosshair, Target, Boo
 
 describe("KR9.2 — New Entity Catalogs (Weapons, Armor, Infusions, Invocations)", () => {
   describe("1. Weapons Catalog", () => {
-    it("returns 48 weapons for RULES_2014 and 38 weapons for RULES_2024", () => {
+    it("returns 49 weapons for RULES_2014 and 38 weapons for RULES_2024", () => {
       const weapons2014 = getAllWeapons("RULES_2014");
       const weapons2024 = getAllWeapons("RULES_2024");
 
-      expect(weapons2014.length).toBe(48);
+      expect(weapons2014.length).toBe(49);
       expect(weapons2024.length).toBe(38);
     });
 

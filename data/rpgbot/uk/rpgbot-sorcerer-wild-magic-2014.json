@@ -1,0 +1,1528 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-2834b745f2e1c811",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-2834b745f2e1c811-56def9e92003d218",
+      "sourceId": "rpgbot-2834b745f2e1c811",
+      "fetchedAt": "2026-09-29T19:10:37.927422+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:56:58-04:00",
+      "contentHash": "739db5a05c7bd21a305ba0273ae4d83b5c1a97a759fd6c4b41c86def693f5f7f",
+      "title": "Wild Magic Sorcerer 5e: DnD Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-2834b745f2e1c811-56def9e92003d218.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-sorcerer-wild-magic-2014",
+    "sourceId": "rpgbot-2834b745f2e1c811",
+    "slug": "sorcerer-wild-magic-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Дика магія — гайд підкласу Чародія (2014)",
+    "titleEn": "Wild Magic Sorcerer 5e: DnD Subclass Guide",
+    "topics": [
+      "Чародій",
+      "Дика магія",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-sorcerer-wild-magic-2014-draft1",
+      "articleId": "rpgbot-sorcerer-wild-magic-2014",
+      "sourceRevisionId": "rpgbot-2834b745f2e1c811-56def9e92003d218",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародій Дикої магії{{Wild Magic}} непередбачуваний, а отже ненадійний і тому неефективний. Але це дуже весело, тож якщо ваша група переживе те, що ви не вичавлюєте максимум зі збірки, це додасть вашій грі елемент дивакуватої веселості. Просто переконайтеся, що ваш Майстер готовий підіграти, інакше матимете проблеми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільша проблема Дикої магії{{Wild Magic}} у тому, що користування таблицею дикої магії віддано на розсуд Майстра. Майстер може змусити вас кидати щоразу, коли ви накладаєте заклинання з рівнем, і може змусити кидати знову, щоб відновити «Приплив хаосу»{{Tides of Chaos}} — єдине корисне уміння вашого підкласу на першому рівні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майстер може вирішити, що Дика магія{{Wild Magic}} надто дратує, або просто забути про неї. Або ж він може пуститися берега й застосувати і звичайний «Сплеск дикої магії»{{Wild Magic Surge}} (для нього треба викинути 1 на к20, щоб щось сталося), і механіку відновлення «Припливу хаосу»{{Tides of Chaos}}, адже ці два результати одне одного не виключають. Тож за одне заклинання можна двічі кинути за таблицею дикої магії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб полагодити Дику магію{{Wild Magic}}, навіть не потрібно змінювати правила підкласу: достатньо чіткої домовленості про те, як часто відбуватимуться кидки за таблицею дикої магії. Ось що я раджу: чародій "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "завжди"
+                },
+                {
+                  "type": "text",
+                  "text": " кидає к20 для «Сплеску дикої магії»{{Wild Magic Surge}}, коли накладає заклинання з рівнем. Якщо «Приплив хаосу»{{Tides of Chaos}} не відновлено, чародій натомість автоматично кидає за таблицею дикої магії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так Дика магія{{Wild Magic}} спрацьовуватиме достатньо часто, щоб відчуватися значущою, але навряд чи щораунду. Так само «Приплив хаосу»{{Tides of Chaos}} має дуже чіткий ризик у разі використання. Так, користуватися ним можна часто, але майже одразу після цього ви кидатимете за таблицею дикої магії, а це створює захопливу механіку ризику й винагороди. Цей ризик значно зменшується, коли на 14-му рівні починає діяти «Керований хаос»{{Controlled Chaos}}, але на той час небезпечні ефекти здебільшого й так стають дрібними прикрощами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "В епізоді нашого RPGBOT.Podcast про "
+                },
+                {
+                  "type": "link",
+                  "text": "оптимізацію чародіїв",
+                  "href": "https://rpgbot.net/sorcerers-levels-1-4-good-to-evil-a-guide-to-building-a-magical-being-rpgbot-podcast-s4e22/"
+                },
+                {
+                  "type": "text",
+                  "text": " Еш пропонує починати зі СК 20 і зменшувати це число щоразу, коли Чародій кидає к20, щоб, можливо, запустити сплеск, а коли сплеск таки трапляється, повертати число до 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Чародія Дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чародія Дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Чародія Дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чародія Дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Чародія Дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Чародія Дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Чародія Дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Чародія Дикої магії — Максимальний хаос",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "\n\n"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чародія Дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чародія Дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Чародія Дикої магії",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Сплеск дикої магії{{Wild Magic Surge}}: Якщо ваш Майстер забуде попросити вас кинути, це не має значення. Але це ключовий компонент підкласу, тож як Майстер я б змушував вас кидати щоразу, коли ви накладаєте відповідне заклинання (якщо тільки ми не намагалися швидко пройти зустріч). Ефекти варіюються від комічних до катастрофічних і фантастичних, тож це справді неможливо оцінити. Приблизно 7 із 50 варіантів у таблиці потенційно шкідливі для вас чи ваших союзників, тож більшість ефектів доброякісні. Мабуть, найвідоміший варіант у таблиці — накладання Вогнекулі [Fireball] з центром на вас, що майже напевно вбʼє цілу групу низького рівня. На щастя, шанс цього при киданні на таблиці — лише 1 з 50. (хоча зі мною таке траплялося, і кілька членів групи знепритомніли, а нас ледь не вигнали з корчми)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Приплив хаосу|Tides of Chaos}}: Наскільки це корисно, повністю залежить від того, як часто Майстер вимагатиме кидок дикої магії, щоб ви могли відновити «Приплив хаосу». Майстрові абсолютно дозволено ніколи не запускати механіку відновлення, обмежуючи вас одним використанням на день. Або він може дозволити відновлювати «Приплив хаосу» після кожного накладання заклинання з рівнем, що дозволяє використовувати його часто. Найнадійніше припускати, що ви отримуватимете це раз на день, а можливо й частіше, якщо Майстер у примхливому настрої. У такому разі використовувати це на кидки атаки — абсолютна марнотратність, але використання на ряткидки може врятувати вам життя."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Викривлення удачі{{Bend Luck}}: Коли ваші союзники провалюють ряткидок від смерті на 1 чи 2, це краяє серце. Витратьте очки чародійства{{Sorcery Points}} і станьте найкращим другом усіх. Два очки чародійства — дорого, але життя ваших союзників того варті. Якщо ваша група користується магічними предметами, наполегливо розгляньте Флакон кроводжерела{{Bloodwell Vial}}, щоб мати додаткові очки для витрат."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Керований хаос{{Controlled Chaos}}: Це значно зменшує загрозу таблиці дикої магії і робить її радше джерелом непередбачуваних підсилень і комічної розрядки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вибух закляття{{Spell Bombardment}}: Це трохи додаткової шкоди для багатьох ваших заклинань шкоди. Заклинання з великими кубиками на кшталт Дзвону небіжчика [Toll the Dead] рідше запускають бонус, але додаткова шкода в середньому вища. Заклинання, що кидають безліч малих кубиків (як-от маленька гора к6 у Рої метеорів [Meteor Swarm]), частіше його отримують, але додаткові 3,5 шкоди відчуваються справді незначними для такого високорівневого класового уміння. Більше шкоди, звісно, приємно; просто це не надто захопливо, бо «Підсилене заклинання»{{Empowered Spell}} доступне вже 15 рівнів. Памʼятайте, що це застосовується щоразу, коли ви кидаєте шкоду заклинання, а не лише вперше, як більшість умінь, що підвищують шкоду. Це означає, що ви можете застосовувати цю перевагу багато разів для заклинань, що завдають шкоди кілька разів. Це лише раз за хід, звісно, але більшість заклинань, що виграють у такий спосіб, кидають шкоду лише раз за хід. Наприклад: Їдке Вариво Таші [Tasha's Caustic Brew] завдає шкоди на початку ходу цілі. Цього може бути достатньо, щоб виправдати вибір заклинань, які конкретно від цього виграють."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Чародія Дикої магії",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Чародія Дикої магії",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Чародія Дикої магії",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Чародія Дикої магії",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Чародія Дикої магії",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#sorcerer"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Чародія Дикої магії",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Чародія Дикої магії — Максимальний хаос",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоча в Чародія Дикої магії{{Wild Magic}} є кілька механік, які можна оптимізувати, усі вони замкнені за суцільним хаосом «Сплеску дикої магії»{{Wild Magic Surge}}, тож ми повністю зануримося в хаос і зберемо чародія, що спричиняє якнайбільше хаосу. Здебільшого це означатиме накладання хаотичних, непередбачуваних заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це означатиме вибір багатьох заклинань, які ми оцінюємо невисоко в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі списку заклинань Чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Непередбачуваність за своєю природою ефективна лише ненадійно. Дика магія{{Wild Magic}} і так вимагає, щоб увесь ваш стіл був готовий до купи хаосу, тож ми зробимо на нього повну ставку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не хвилюйтеся. Ми все одно оптимізуватимемо те, як усім користуємося. Я знаю, що роблю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Приклад "
+                },
+                {
+                  "type": "link",
+                  "text": "мініатюри напіврослика-чародія",
+                  "href": "https://www.heroforge.com/load_config%3D514314543/"
+                },
+                {
+                  "type": "text",
+                  "text": " від наших друзів із Heroforge. ("
+                },
+                {
+                  "type": "link",
+                  "text": "партнерське посилання",
+                  "href": "https://rpgbot.net/about/faq#what-are-affiliate-links-and-why-do-you-use-them"
+                },
+                {
+                  "type": "text",
+                  "text": ")"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут у нас багато простору для гнучкості, тож або починайте з характеристик, які радить наш гайд Чародія, або візьміть по 15 у Спритності, Статурі й Харизмі, а решту занедбайте. +2 вкладіть у Харизму, а +1 — у щось, щоб довести його до парного значення й підняти модифікатор. Поки ваша Харизма висока, а Спритність і Статура — 14 чи більше, ви в хорошій формі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я хочу зібрати це з найхаотичнішою расою. Я навіть запитав найхаотичніше місце, яке знаю, — інтернет, — яка раса найхаотичніша. Думок було багато, і всі однаково слушні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "А це означає, що всі інші помиляються, бо найхаотичніша раса — Напіврослик{{Halfling}}. Самої лише «Удачі»{{Lucky}} досить, щоб основні припущення гри стали непередбачуваними, а ще можна додати до суміші риси «Щедра удача»{{Bountiful Luck}} і «Другий шанс»{{Second Chance}}, щоб зробити все ще менш передбачуваним. Також скористаємося правилами налаштованого походження{{Custom Origin}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це майже не впливає на збірку, але ми візьмемо Придворного{{Courtier}}. Він дає Аналіз Поведінки, Переконання та дві мови."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Двома класовими навичками оберемо Обман і Залякування, і це дає нам усі навички «обличчя»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо расову рису Напіврослика «Другий шанс»{{Second Chance}}. Вона дає і +1 до Харизми, і корисний захисний варіант."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо «Доторк феї»{{Fey Touched}}, що дає ще +1 до Харизми й кілька додаткових відомих заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні розділимо Покращення Характеристик, щоб підняти Статуру до 16, а Харизму до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо «Щедру удачу»{{Bountiful Luck}}, щоб поділитися нашою рисою «Удача»{{Lucky}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні маємо вільне місце. Можна взяти «Удачу»{{Lucky}} — стандартну відповідь на «не знаю, що тут робити», але для цього в нас є «Приплив хаосу»{{Tides of Chaos}}. За замовчуванням беріть +2 до Статури, якщо тільки не хочете чогось іншого, як-от «Надихаючий лідер»{{Inspiring Leader}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Походження чародія: Дика магія\nСплеск дикої магії\nПриплив хаосу\nЧаротворство\nВідомі замовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Розщеплення Розуму\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Мала ілюзія",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Промінь холоду\nВідомі заклинання:\n– Снаряд хаосу\n– Обладунок мага"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння — це більша частина нашої наступальної сили. Ряткидок Інтелекту від Розщеплення Розуму [Mind Sliver] надзвичайно надійний, а Промінь холоду [Ray of Frost] дає добру шкоду, чудову дальність і невелике послаблення для контролю поля бою. Серед заклинань з рівнями ми обираємо Снаряд хаосу [Chaos Bolt] замість чогось стабільнішого й надійнішого на кшталт Кольорової кульки [Chromatic Orb] чи Магічного дротика [Magic missile]. Шанс, що Снаряд хаосу [Chaos Bolt] перестрибне на іншу ціль, — лише 1 із 8, і він масштабується гірше за Кольорову кульку [Chromatic Orb], але протягом більшої частини карʼєри ми можемо накладати його слотом 1-го рівня як недороге джерело одноцільової шкоди. Скористайтеся «Припливом хаосу»{{Tides of Chaos}}, щоб отримати Перевагу на кидок атаки. Спрацьовування «Сплеску дикої магії»{{Wild Magic Surge}} буде надзвичайно рідким, якщо ви з Майстром не домовитеся, коли він змушуватиме до сплеску, щоб відновити «Приплив хаосу». Коли ж це трапляється, більшість ефектів доброякісні (не обовʼязково корисні, але принаймні не шкідливі). Звісно, є кілька жахливих винятків, але переважно все гаразд. Також візьмемо Обладунок мага [Mage Armor]. Ця збірка — навіжений монстр хаосу, а не прагнення смерті."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії\nНові відомі заклинання:\n– Їдке Вариво Таші"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мабуть, моє улюблене заклинання шкоди по області у формі лінії. Шкода не вражає, але швидко накопичується, і істоти можуть або терпіти шкоду, що стрімко росте, або витратити дію, щоб зняти ефект. Витратити слот заклинання 1-го рівня, щоб позбавити істоту її дії, — чудовий обмін."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія\n– Пришвидшене заклинання\n– Спарене заклинання\nНові відомі заклинання:\n– Пустощі Натайра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пришвидшене заклинання»{{Quickened Spell}} майже виключно потрібне, щоб комбінувати заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}} з Розщепленням Розуму [Mind Sliver]. «Спарене заклинання»{{Twinned Spell}} потрібне, щоб розтягнути ефективність Снаряда хаосу [Chaos Bolt]. Погляньмо на математику: Розпечений промінь [Scorching Ray] завдає 6к6 шкоди. Спарений Снаряд хаосу [Chaos Bolt] завдає 4к8+2к6 шкоди й може перестрибнути на додаткові цілі за менші витрати ресурсів. Два снаряди підвищують шанс перестрибування з 12,5% (1/8) до 23,44% (майже 1/4). Навіть без перестрибування спарений Снаряд хаосу [Chaos Bolt] кращий, тож брати Розпечений промінь [Scorching Ray] нам не потрібно. Пустощі Натайра [Nathair's Mischief] — суто хаотична забаганка."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Другий шанс (Харизма 17 → 18)\nНове відоме замовляння:\nНові відомі заклинання:\n– Вихрове переміщення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Другий шанс»{{Second Chance}} дозволяє раз за сутичку змусити перекинути кидок, коли по нас влучають. Він не замінить пристойний КБ, але це добра страховка, а ще він дає збільшення характеристики на +1. Використайте Вихрове переміщення [Vortex Warp], щоб узяти члена групи й поставити його куди завгодно. В ідеалі кудись корисне, але я вам не указ."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання:\n– Достаток ворогів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Достаток ворогів [Enemies Abound] чудово працює в зіткненнях із кількома ворогами. Він далеко не такий точний, як «Підкорення X», але має значно нижчий рівень, і ним усе одно можна налаштувати ворога проти його союзників. Ще краще: у справді великих зіткненнях його можна спарити для подвійного хаосу!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Викривлення удачі\nНові відомі заклинання:\n– Завірюха"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Викривлення удачі»{{Bend Luck}} дозволяє врятувати атаки, ряткидки й перевірки, яким ледь не вистачило, або перетворити ледь успішні кидки ворогів на провали. Це один із елементів нашої статті про "
+                    },
+                    {
+                      "type": "link",
+                      "text": "зловживання к4",
+                      "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", і на відміну від багатьох бонусів і штрафів к4, застосовувати його до кидка не обовʼязково. Це лише к4, та ще й коштує 2 очки чародійства{{Sorcery Points}}, тож постійно користуватися ним не варто, але воно чудове, коли кидок відрізняється від порогу успіху на 1 чи 2, а це 10% випадків. Це звучить нечасто, але якщо група з 4 персонажів і 1 монстр кидають по одному к20 за раунд, є 40,95% шансу, що хоча б один кидок відрізнятиметься від порогу на 1 чи 2. «Викривлення удачі» також додається до штрафу к4 від Розщеплення Розуму [Mind Sliver]. Відняти 2к4 від ряткидка — це в середньому -5, а це величезне послаблення. На цьому рівні це буквально більше за ваш модифікатор характеристики. Через це ваша СК заклинань стає математично непрохідною для багатьох істот, якщо тільки ви не цілитеся в їхні найкращі ряткидки, і це лишається правдою на всьому діапазоні рівнів. Ще гірше: можна "
+                    },
+                    {
+                      "type": "link",
+                      "text": "додати до суміші Зурочення",
+                      "href": "https://tvtropes.org/pmwiki/pmwiki.php/Main/DeadHorseTrope"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Bane] для ще одного штрафу -1к4 до ряткидків. Завірюха [Sleet Storm] — дивна суміш контролю території та шкоди, а змушувати ворогів падати додолу точно додасть хаосу в зіткнення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання:\n– Спантеличення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Я не довіряю Спантеличенню [Confusion] саме через те, що воно хаотичне й непередбачуване, але уражені істоти справді мають 80% шансів не отримати дію, тож воно не таке вже й жахливе. Я б радше використав Гіпнотичний візерунок [Hypnotic Pattern], але він недостатньо хаотичний!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Доторк феї\n– Харизма 18 → 19\n– Зурочення\n– Туманний крок\nНові відомі заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Доторк феї»{{Fey Touched}} дає одне відоме заклинання 1-го рівня, і цю перевагу майже завжди забувають на користь Туманного кроку [Misty Step]. Тут я раджу Зурочення [Bane]. Це дивне заклинання, але проти невеликої кількості потужних ворогів воно або потужне довготривале послаблення, або кумедно недорогий спосіб виснажити «Легендарний опір»{{Legendary Resistance}}. Беручи тут напівризу, ми відстаємо від «Фундаментальної математики»{{Fundamental Math}} на 1, але якщо ворог колись пройде ряткидок на 1, можна скористатися «Викривленням удачі»{{Bend Luck}}. Використайте Перевтілення [Polymorph], щоб перетворити союзника на тиранозавра й спустити його з повідка. Або перетворіть ворога на щось химерне, як-от коробчасту черепаху."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання:\n– Нашестя комах"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Контроль території й тривала шкода, що виграють від «Вибуху закляття»{{Spell Bombardment}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія\n– Підвищене заклинання\nНове відоме замовляння:\n– Будь-яке\nНові відомі заклинання:\n– Позірність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Підвищене заклинання»{{Heightened Spell}}, особливо в поєднанні з пришвидшеним Розщепленням Розуму [Mind Sliver] і можливістю «Викривлення удачі»{{Bend Luck}}, дає змогу зробити наші заклинання практично неможливими для опору. Накладіть Позірність [Seeming], щоб уся ваша група виглядала як один із ваших ворогів, а тоді нехай усі бігають навколо. Спостерігайте за хаосом, коли інші вороги намагаються зрозуміти, що відбувається."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання:\n– Розкидання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "О ні, я розкидав усіх своїх ворогів прямо посеред Нашестя комах [Insect Plague]!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 15 → 16, Харизма 19 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розділимо Покращення Характеристик, щоб підняти Харизму до 20 і підвищити наш модифікатор Статури."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання:\n– Обернена гравітація"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гаразд, а що, як цей бій відбуватиметься на стелі? Не забудьте прихопити Падіння пірʼїною [Feather Fall]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Керований хаос{{Controlled Chaos}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Сплеск дикої магії»{{Wild Magic Surge}} раптом стає значно корисніший."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання:\n– Землетрус"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми такі хаотичні, що назавжди нищимо місцевість навколо себе."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Щедра удача"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Удача»{{Lucky}} захищає нас від {{натуральних 1|Natural 1}} ще з 1-го рівня, а тепер час {{зробити це проблемою для всіх інших|make it everyone else’s problem, too (закреслено в оригіналі)}} поділитися нею."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія\n– Підсилене заклинання\nНові відомі заклинання:\n– Масове перевтілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Підсилене заклинання»{{Empowered Spell}} добре працює з «Вибухом закляття»{{Spell Bombardment}}, який ми отримаємо на наступних рівнях. Перекидання найнижчих кубиків означає ще один шанс викинути найбільше число на кубику. Перетворіть ворогів на мишей. Перетворіть групу на котів. Насолоджуйтеся хаосом, що настане. (Насправді так не робіть. Перетворіть ворогів на слимаків і закиньте їх в інший план існування.) Можливо, перенавчіть щось на Бажання [Wish], якщо вам усе ще потрібне "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вибух закляття{{Spell Bombardment}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Через це всі наші заклинання тривалої шкоди раптом стають значно привабливішими. Візьмімо Їдке Вариво Таші [Tasha's Caustic Brew] як приклад: якщо накласти його лише слотом 2-го рівня, то ми маємо 68,36% шансу викинути 4 принаймні на одному кубику щоразу, коли заклинання завдає шкоди, а чим вище накладаємо, тим імовірніше отримати додаткову шкоду. Перспективи заклинань контролю території, як-от Стіна вогню [Wall of Fire] і Нашестя комах [Insect Plague], можуть бути ще кращими завдяки більшій кількості цілей і більшим та численнішим кубикам шкоди. Також у «Вибуху закляття»{{Spell Bombardment}} цікава взаємодія з Магічним дротиком [Magic missile]. Офіційне розʼяснення таке: ви кидаєте к4 один раз і використовуєте його для кожного снаряда, тож для кожного снаряда є 1 шанс із 4 завдати 1к4+5 (2к4+1, де один кубик викинув 4). Цього недостатньо, щоб робити це основною тактикою, але про це цікаво подумати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут у нас вільне місце. +2 до Статури — чудовий вибір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відновлення чарівництва{{Sorcerous Restoration}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не вражає."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-sorcerer-wild-magic-2014-001",
+      "articleId": "rpgbot-sorcerer-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Сплеск дикої магії",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-sorcerer-wild-magic-2014-002",
+      "articleId": "rpgbot-sorcerer-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Приплив хаосу",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-wild-magic-2014-003",
+      "articleId": "rpgbot-sorcerer-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Викривлення удачі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-wild-magic-2014-004",
+      "articleId": "rpgbot-sorcerer-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Керований хаос",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-wild-magic-2014-005",
+      "articleId": "rpgbot-sorcerer-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Вибух закляття",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

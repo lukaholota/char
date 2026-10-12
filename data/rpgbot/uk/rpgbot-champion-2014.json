@@ -1,0 +1,1799 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-e1dfd2af8cc8b487",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+      "sourceId": "rpgbot-e1dfd2af8cc8b487",
+      "fetchedAt": "2026-09-29T19:23:55.364698+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:35:33-04:00",
+      "contentHash": "155faa4820e9ad1b7cd38dba1780661e6ce3fb5688a506b0a949991223ac0888",
+      "title": "Champion Fighter 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-e1dfd2af8cc8b487-36024c9170bdd384.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-champion-2014",
+    "sourceId": "rpgbot-e1dfd2af8cc8b487",
+    "slug": "champion-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Чемпіон — гайд підкласу Воїна (2014)",
+    "titleEn": "Champion Fighter 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Воїн",
+      "Чемпіон",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "articleId": "rpgbot-champion-2014",
+      "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чемпіон — чи не найзвичайніший Воїн, якого можна уявити. Йому майже не треба натискати ніяких «кнопок», робити доводиться ледь один вибір, а освоїти його настільки просто, що саме цей підклас за замовчуванням використано в "
+                },
+                {
+                  "type": "link",
+                  "text": "базовому гайді Воїна",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Його визначальна особливість — критичні влучання трапляються частіше, ніж у більшості персонажів, завдяки ширшому діапазону результатів на кубику. Сама по собі це лише добавка до середньої шкоди за раунд (DPR). А розглядати щось саме по собі — не зовсім оптимізація."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пʼять із половиною років тому вийшов «Довідник Занатара про все» й приніс одну з найсильніших рис гри — "
+                },
+                {
+                  "type": "link",
+                  "text": "Ельфійську точність",
+                  "href": "https://rpgbot.net/oops-all-elves/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Здається, вона мала б чудово поєднуватися з Чемпіоном. Багато хто шукав спосіб, але доводилося вдаватися до мультикласування: Wizards of the Coast напрочуд ретельно передбачили, як гравці можуть легко зібрати цю пару, й перекрили більшість шляхів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшість, але не всі. Дочитайте й дізнайтеся про жахливий білд, який я створив, дотримавшись усіх обмежень наших гайдів підкласів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця стаття стосується правил 2014 року. Для правил 2024 року дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд підкласу Чемпіона для Воїна 2024",
+                  "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Особливості Чемпіона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чемпіона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси для Чемпіона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси для Чемпіона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Чемпіона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Чемпіона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Висновок",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#conclusion"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад білда — лорд Форестуок",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#example-build-lord-forestwalk"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу оцінок, яку легко зрозуміти з першого погляду. Вона допомагає гравцям обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані чи марні варіанти або вкрай ситуативні. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: добрі варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, часто потрібні для роботи персонажа. Корисні дуже часто."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поради нижче спираються на "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e за правилами 2014 року",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на дату останнього оновлення статті. З виходом нових матеріалів картина періодично змінюється, і статтю оновлюють за наявності часу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайди офіційного контенту ми не додаємо матеріали сторонніх видавців, Unearthed Arcnaa чи домашні правила: не можна припускати, що ваша група їх дозволить."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Особливості Чемпіона",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Покращений критичний удар|Improved Critical}}: критичні влучання в D&D 5e важливі, а ця особливість подвоює шанс на них. Памʼятайте, що крит подвоює лише кубики шкоди: для максимального ефекту потрібна велика зброя з великим кубиком або кубиками шкоди й магічні предмети, що додають кубики, як-от мечі з полумʼяним язиком. Покращений критичний удар також добре поєднується з Дикими атаками напіворка, тому Чемпіон-напіворк популярний серед новачків."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вражаючий атлет{{Remarkable Athlete}}: половина бонусу володіння до Акробатики, Атлетики, Спритності рук, Непомітності, ініціативи й низки інших перевірок характеристик. Це гірше за Майстра на всі руки, проте дає змогу не брати володіння деякими із цих навичок, а натомість обрати щось корисне поза боєм."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додатковий стиль бою{{Additional Fighting Style}}: для багатьох білдів єдиний стиль, що поєднується з першим, — Захист. Після появи риси Посвячений у бій це стало ще менш цікавим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вища критика{{Superior Critical}}: надзвичайно широкий діапазон критичних влучань, особливо з кількістю атак Воїна. Якщо поєднати захоплення і штовхання та втримувати ворога лежачим, завдяки перевазі й високому шансу крита ви критуватимете в 27,7% атак. Не забудьте взяти рису, що дає додаткову користь від критичних влучань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виживальник{{Survivor}}: постійне зцілення майже знецінює Друге дихання й дає змогу битися практично безкінечно."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-champion-ability-scores",
+          "heading": "Характеристики Чемпіона",
+          "sourceAnchor": "champion-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-champion-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: імовірно, ваша головна характеристика для атак."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-champion-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: варто носити важкий обладунок, якщо тільки ви не обрали зброю з властивістю «фехтувальна» чи дистанційну зброю — наприклад, заради Ельфійської точності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-champion-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: ХП нам до вподоби."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-champion-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: можна знизити до мінімуму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-champion-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: найчастіша ціль серед ментальних ряткидків. Вкладіть решту очок сюди й, мабуть, колись візьміть для неї рису Стійкий: зайві нагоди взяти рису в нас будуть."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-champion-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: можна знизити до мінімуму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-champion-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля очками"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-champion-races",
+          "heading": "Раси для Чемпіона",
+          "sourceAnchor": "champion-races",
+          "blocks": [
+            {
+              "blockId": "block-section-champion-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дикі атаки напіворка вже згадані в розборі підкласу, а риса Ороча лють робить їх іще кращими. Якщо хочете простий білд, це очевидний вибір. Ельфів надзвичайно важко використати без мультикласування, але якщо знайти спосіб поєднати їх з Ельфійською точністю, результат чудовий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-champion-feats",
+          "heading": "Риси для Чемпіона",
+          "sourceAnchor": "champion-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-champion-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Дробильник, Проколювач і Рубака",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+                },
+                {
+                  "type": "text",
+                  "text": " очевидно поєднуються з підкласом, але не забувайте, що Майстер важкої зброї теж дає додаткову атаку після критичного влучання. В інших випадках сторінка з розбором підкласу радить додати складності через Майстра древкової зброї та Вартового. Якщо витівки, які я описую нижче, вам не до душі, можна натомість узяти Борця, підвищити Силу (і Спритність, якщо все ще прагнете Ельфійської точності), схопити когось і без упину колоти Рапірою чи дворучним мечем. "
+                },
+                {
+                  "type": "link",
+                  "text": "Вільна рука потрібна лише на початку захоплення, а не для його підтримання",
+                  "href": "https://rpgbot.net/dnd5/characters/grapple/#:~:text=However%2C%20if%20you%20fight%20unarmed,to%20keep%20that%20hand%20free."
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-champion-weapons",
+          "heading": "Зброя Чемпіона",
+          "sourceAnchor": "champion-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-champion-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Імовірно, ви будуватимете персонажа навколо однієї з щойно згаданих рис, тож оберіть найкращу зброю для неї за поясненнями тут або в гайді Воїна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-champion-armor",
+          "heading": "Обладунки Чемпіона",
+          "sourceAnchor": "champion-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-champion-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут усе як у будь-якого Воїна. Якщо спираєтеся на Силу, починайте в лускатому обладунку й купіть лати, коли зможете. Інакше носіть проклепаний шкіряний обладунок до кінця."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цьому розділі стисло розглянуто кілька очевидних і привабливих варіантів мультикласування, але не весь широкий набір комбінацій. Більше — в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чемпіон буквально проситься взяти трохи іншого класу, якщо ви хочете поєднати його з Ельфійською точністю: єдині атаки, що не підходять для цієї риси, спираються на Силу. Найшвидше рішення — один рівень Чорнокнижника заради "
+                },
+                {
+                  "type": "link",
+                  "text": "Відьмацького клинка",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Бо, звісно ж. Атаки від Харизми значно легше поєднати з Ельфійською точністю. До того ж так ви одразу отримуєте Чарівний камінь [Magic Stone], а на 3-му рівні — навіть фамільяра для безглуздого танцю, який я опишу далі. Це зекономить одну рису й очки характеристик."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїд або Слідопит зі стилем Друїдичний воїн теж добрі варіанти: вони дадуть і Кийок [Shillelagh], і Чарівний камінь [Magic Stone]. На початку кожного бою доведеться витратити бонусну дію, але це не обовʼязково проблема, якщо інших її застосувань ви собі не запланували."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна натомість узяти 3 рівні Пройдисвіта й додаткову особливість Стійке прицілювання, якщо вона доступна. Тоді бонусна дія дасть перевагу на одну атаку. Утім, на цьому етапі можна просто стати Вбивцею й усе одно мати перевагу в першому раунді. Якщо ці варіанти не приваблюють, 3 рівні Винахідника з підкласом "
+                },
+                {
+                  "type": "link",
+                  "text": "Бойовий коваль",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/"
+                },
+                {
+                  "type": "text",
+                  "text": " або "
+                },
+                {
+                  "type": "link",
+                  "text": "Зброяр",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/armorer/"
+                },
+                {
+                  "type": "text",
+                  "text": " дадуть змогу атакувати від Інтелекту. Та обидва варіанти зроблять вас більше Винахідником, ніж Чемпіоном; це знову вибір між оптимізацією й образом персонажа."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-conclusion",
+          "heading": "Висновок",
+          "sourceAnchor": "conclusion",
+          "blocks": [
+            {
+              "blockId": "block-section-conclusion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лише вдруге серед цих білдів мені доводиться поговорити з вами перед самим білдом. Шановний читачу, я годинами думав, як стабільно запускати Ельфійську точність проти будь-якої цілі без сторонньої допомоги. Зрештою все звелося до такого хитромудрого плану:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основа: щоб застосувати дію Допомога, треба бути поруч із ціллю. Залишатися поруч аж до використання переваги не потрібно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підготовка: стиль бою Стрільба, щоб поки не перейматися підвищенням характеристик. На 4-му рівні — Ельфійська точність, на 6-му — Ритуальний заклинатель для Пошуку фамільяра [Find Familiar], на 8-му — Дробильник, на 12-му — Посвячений у винахідництво, щоб нарешті отримати Чарівний камінь [Magic Stone]. Чарівний камінь не потребує концентрації та діє хвилину, тож до початку бою ви весь час жонглюєте 30 магічними камінцями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Результат: фамільяр готує Допомогу поруч із ворогом. Ви підходите до ворога й запускаєте цю дію, потім продовжуєте рух і відходите. Перевага на першу атаку по ньому зберігається, а перешкода для дистанційної атаки зблизька зникає. Перша атака має 27,7% шансу на крит, що запускає Дробильника й дає перевагу на всі наступні атаки по цій цілі в поточному раунді."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так трохи частіше ніж у чверті випадків усі ваші атаки за раунд матимуть посилену перевагу від Ельфійської точності — проти будь-якої цілі, незалежно від її розміру й дій, без мультикласування. Нарешті святий Ґрааль! Щоправда, я пропустив це через калькулятор DPR: на кожному рівні результат гірший за білд у базовому гайді класу, який узагалі не бере рис."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тож натомість я дам вам персонажа, який спирається на Силу й Спритність, "
+                },
+                {
+                  "type": "link",
+                  "text": "тримає цілі нерухомо й раз по раз коле їх",
+                  "href": "https://www.youtube.com/watch?v=E_lmtYPw6ro"
+                },
+                {
+                  "type": "text",
+                  "text": ". Оскільки основа цього білда — захоплення, обовʼязково прочитайте наш "
+                },
+                {
+                  "type": "link",
+                  "text": "практичний гайд",
+                  "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                },
+                {
+                  "type": "text",
+                  "text": " із цієї теми. Зауважте: це працює лише проти цілей щонайбільше на один розмір більших за вас. Я вас попередив."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ваша група користується необовʼязковим правилом фланкування або поруч є друг-Варвар з Вовчим тотемом і вам легко отримувати перевагу, будь ласка, не повторюйте цей білд. Візьміть Ельфійську точність, Проколювача й Рапіру або довгий лук та завдавайте величезної шкоди від критів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-lord-forestwalk",
+          "heading": "Приклад білда — лорд Форестуок",
+          "sourceAnchor": "example-build-lord-forestwalk",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-lord-forestwalk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«…а тоді я застосовую Gaea’s Liege до твоєї землі й оголошую бій»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-lord-forestwalk",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для захоплень потрібна достатня Сила, але можна залишити її на 16, а решту компенсувати Експертом у навичках: подвійний бонус володіння до Атлетики."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Після підвищення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-lord-forestwalk",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підійде будь-який різновид ельфа. Замовляння Чарівника — це добре, як і телепортація бонусною дією, але нам потрібне насамперед походження. Я б, мабуть, обрав шадар-кая за опір шкоді й Темнозір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-lord-forestwalk",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми лорд, який любить битися, тому беремо походження Лицар, а дві навички від нього одразу міняємо на Непомітність і Уважність. Спритність підтримуватиме Непомітність, проклепаний шкіряний обладунок носитимемо завжди, а володіння Уважністю згодом буде кращим за обмежену Мудрість. Володіння ігровим набором міняємо на злодійські інструменти: готуємося стати розвідником."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-lord-forestwalk",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Воїна беремо Акробатику й Атлетику, а від походження — Уважність, Непомітність і злодійські інструменти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-lord-forestwalk",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо Ельфійську точність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 6-му рівні беремо Проколювача."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо Експерта у навичках."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо Борця."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 14-му рівні беремо Дарунок хроматичного дракона."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо Дарунок металевого дракона."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо Вбивцю магів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-lord-forestwalk",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й особливості"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стиль бою: Дуель; Друге дихання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Воїн від Спритності однаково ефективний із Рапірою та довгим луком. Якщо можна, тримайтеся позаду, але не бійтеся дістати Рапіру й щит, коли ворог підійде. Зі стартового спорядження оберіть шкіряний обладунок і лук, дворучний меч і Рапіру, а також легкий арбалет. Продайте арбалет, меч і шкіряний обладунок; купіть проклепаний шкіряний обладунок і щит."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Коліть, а тоді коліть ще раз."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращений критичний удар{{Improved Critical}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Поки що ми нічим не відрізняємося від білда з базового гайда Воїна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ельфійська точність; Спритність 17 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не віриться, що я пишу таке в гайді з оптимізації, але нам конче потрібна перевага. Зараз, коли за хід є лише одна атака, найкращий спосіб — так добре відігравати персонажа, щоб отримати Натхнення. Використовуйте кожну нагоду ефектно діяти й жертвувати чимось поза боєм, аби заслужити омріяну позначку в листі персонажа: «Колю, кидаючи 3к20»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бах, бах. Ще трохи — і це стане справжнім білдом."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Проколювач; Спритність 18 → 19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спершу я поставив сюди Борця, але навіть вдале захоплення коштує 2 DPR (понад 17%) у раунді початку. До того ж на цьому рівні не так багато боїв проти однієї страшної цілі. Візьміть Проколювача, щоб критичне влучання завдавало більше шкоди. Сам лише повторний кидок додає приблизно 1 шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вражаючий атлет{{Remarkable Athlete}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Здібність усе ще доволі посередня, особливо для білда, який уже бере більшість відповідних навичок. Та вона допоможе, наприклад, вирватися з Павутиння [Web] та інших заклинань, що після проваленого ряткидка вимагають перевірок у наступні ходи. Бонус до ініціативи теж не зайвий."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експерт у навичках; Спритність 19 → 20; експертиза в Атлетиці; Виживання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захоплення все ще зменшує DPR, навіть коли перша перевірка успішна. Проте це наша основна тактика, тож варто робити її добре. Мудрість у нас не відʼємна, і ми пробуємо бути схожими на Пройдисвіта: візьмімо навичку, яка може стати в пригоді."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність{{Indomitable}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Можете вдавати "
+                    },
+                    {
+                      "type": "link",
+                      "text": "легендарну істоту",
+                      "href": "https://rpgbot.net/dnd5/dungeonmasters/legendary-creatures/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стиль бою: Бій наосліп"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Було б прикро, якби звичайна невидимість ворога заважала колоти його з перевагою. Усуньмо цю можливість. Якщо союзники люблять Темряву [Darkness] чи Туманну хмару [Fog Cloud], перевага дістанеться легко: ви «бачите», а вороги — ні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще одна додаткова атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Проведіть рівень, атакуючи тричі за хід, і скоро наш білд нарешті складеться."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Борець"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми ще жодного разу не радили рису Борець, тож нагадаю: її перший пункт дає перевагу на атаки по цілі, яку ви захопили. Зазвичай ми радимо поєднувати захоплення зі штовханням, але тут хочемо витратити якнайбільше атак саме на удари. Якщо одну витратити на штовхання, DPR помітно впаде. Підійдіть, почніть захоплення з модифікатором Атлетики +11 (на наступному рівні +13), а дві решта атаки проведіть з Ельфійською точністю. Це нарешті дає більше DPR, ніж просто три удари: 27, приблизно на 25% вище за цільовий DPR цього рівня. До того ж ми непогано контролюємо ворога, тримаючи його на місці. І це вперше більше, ніж показник «Дуелі» з базового гайда. Розрахунок припускає, що кожного раунду ми витрачаємо одну атаку на початок захоплення й що захоплення вдається. Якщо всі три атаки спрямувати на вже захоплену ціль, фактичний DPR бою сягне 35 — посередині між цільовим і високим DPR. Для цього білда час застосування Сплеску дій важливіший, ніж для більшості Воїнів. Якщо вдалося схопити ворога, застосуйте його одразу: це ще 40 DPR у цьому раунді, або в середньому +13,5 за весь бій, майже рівень високого DPR. Звісно, ціль мусить і піддаватися захопленню, і пережити пʼять ударів, а таке поєднання трапляється нечасто."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність (2 використання)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Крутимо, крутимо, крутимо, крутимо — ну ж бо!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дарунок хроматичного дракона"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знаєте, що чудово працює в білді на крити? Додаткові кубики шкоди. На один бій це піднімає DPR понад 33, а середнє за день — до 29. На цьому рівні сильні стихійні атаки також стають частішими й страшнішими, тому опір кільком із них дуже доречний."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вища критика{{Superior Critical}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це підвищує середній DPR першого раунду майже до 32, а в бою, де ми застосовуємо хроматичну силу до Рапіри, — до 36. За день виходить 33."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дарунок металевого дракона"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "А якби можна було отримати Щит [Shield] як рису? Ось він. Тепер ми також здатні підняти союзника, якщо в бою впадуть усі інші цілителі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій (2 використання); Непохитність (3 використання)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Ще",
+                      "href": "https://www.youtube.com/watch?v=uNy_MLr8mXA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Виживальник{{Survivor}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Памʼятаєте, ми взяли Дарунок металевого дракона на випадок, якщо всі інші впадуть у бою? Тепер шанс пережити ситуацію, яка інакше могла б завершитися загибеллю всієї групи, значно вищий. Ми зможемо підняти справжнього цілителя, щоб той повернув до тями решту."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вбивця магів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаклуни високого рівня страшні. Але приємно вдарити того, хто виходить із вашого захоплення через Туманний крок [Misty Step], особливо коли через ваш великий крит він матиме перешкоду на ряткидок для збереження концентрації. Якщо спершу не втече, ви ще й матимете перевагу проти його заклинань, зокрема на повторному кидку від Непохитності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Третя додаткова атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Завершуємо карʼєру із середнім DPR 46 — упевнено на 30% вище за цільовий показник."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-champion-2014-improved-critical",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "improved-critical",
+      "context": "Покращений критичний удар",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-champion-2014-remarkable-athlete",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "remarkable-athlete",
+      "context": "Вражаючий атлет",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-champion-2014-additional-fighting-style",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "additional-fighting-style",
+      "context": "Додатковий стиль бою",
+      "score": 2,
+      "sourceColor": "orange",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-champion-2014-superior-critical",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "superior-critical",
+      "context": "Вища критика",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-champion-2014-survivor",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "survivor",
+      "context": "Виживальник",
+      "score": 4,
+      "sourceColor": "blue",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-champion-2014-str",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-champion-ability-scores",
+      "targetBlockId": "block-section-champion-ability-scores-1",
+      "optionId": "str",
+      "context": "Сила",
+      "score": 4,
+      "sourceColor": "blue",
+      "explanationBlockId": "block-section-champion-ability-scores-1"
+    },
+    {
+      "ratingId": "rating-champion-2014-dex",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-champion-ability-scores",
+      "targetBlockId": "block-section-champion-ability-scores-2",
+      "optionId": "dex",
+      "context": "Спритність",
+      "score": 2,
+      "sourceColor": "orange",
+      "explanationBlockId": "block-section-champion-ability-scores-2"
+    },
+    {
+      "ratingId": "rating-champion-2014-con",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-champion-ability-scores",
+      "targetBlockId": "block-section-champion-ability-scores-3",
+      "optionId": "con",
+      "context": "Статура",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-champion-ability-scores-3"
+    },
+    {
+      "ratingId": "rating-champion-2014-int",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-champion-ability-scores",
+      "targetBlockId": "block-section-champion-ability-scores-4",
+      "optionId": "int",
+      "context": "Інтелект",
+      "score": 1,
+      "sourceColor": "red",
+      "explanationBlockId": "block-section-champion-ability-scores-4"
+    },
+    {
+      "ratingId": "rating-champion-2014-wis",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-champion-ability-scores",
+      "targetBlockId": "block-section-champion-ability-scores-5",
+      "optionId": "wis",
+      "context": "Мудрість",
+      "score": 2,
+      "sourceColor": "orange",
+      "explanationBlockId": "block-section-champion-ability-scores-5"
+    },
+    {
+      "ratingId": "rating-champion-2014-cha",
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sectionId": "section-champion-ability-scores",
+      "targetBlockId": "block-section-champion-ability-scores-6",
+      "optionId": "cha",
+      "context": "Харизма",
+      "score": 1,
+      "sourceColor": "red",
+      "explanationBlockId": "block-section-champion-ability-scores-6"
+    }
+  ]
+}

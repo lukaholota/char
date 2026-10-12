@@ -1,0 +1,1744 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-4718a42b238e3c2d",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-4718a42b238e3c2d-ee7ed6e64d296402",
+      "sourceId": "rpgbot-4718a42b238e3c2d",
+      "fetchedAt": "2026-09-29T19:12:40.806880+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:49:50-04:00",
+      "contentHash": "2cdf80c65f390053b75bb5102210a90f1dfcadb0db8598bb613434e1fc6dce1f",
+      "title": "Songs of the Spellbound Sea Protean Warlock Subclass Guide | DnD 5e",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-4718a42b238e3c2d-ee7ed6e64d296402.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-warlock-protean-2014",
+    "sourceId": "rpgbot-4718a42b238e3c2d",
+    "slug": "warlock-protean-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Протей — гайд підкласу Чорнокнижника (2014)",
+    "titleEn": "Songs of the Spellbound Sea Protean Warlock Subclass Guide | DnD 5e",
+    "topics": [
+      "Чорнокнижник",
+      "Протей",
+      "підклас",
+      "сторонній контент",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "sourceRevisionId": "rpgbot-4718a42b238e3c2d-ee7ed6e64d296402",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опублікований у "
+                },
+                {
+                  "type": "link",
+                  "text": "«Пісні зачарованого моря» (Songs of the Spellbound Sea)",
+                  "href": "https://www.kickstarter.com/projects/somanyrobots/songs-of-the-spellbound-sea-new-player-options-for-5e"
+                },
+                {
+                  "type": "text",
+                  "text": " від "
+                },
+                {
+                  "type": "link",
+                  "text": "SoManyRobots",
+                  "href": "https://www.somanyrobots.com/"
+                },
+                {
+                  "type": "text",
+                  "text": ", {{Чорнокнижник-Протей|Protean Warlock}} служить покровителю з позбавлених світла глибин океану. Вашим покровителем може бути аболет{{Aboleth}}, кракен{{Kraken}} або якийсь інший водяний жах. Уміння підкласу багато чого роблять із водними заклинаннями, кислотою, слизами й щупальцями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця стаття розглядає контент сторонніх видавців. Обовʼязково обговоріть використання цього контенту зі своїм столом, перш ніж припускати, що він вам доступний."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Протея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Протея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Протея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Протея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Протея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Протея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Протея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Чорнокнижника-Протея — Слизьке тіло, їдкий характер",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Протея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Протея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/songs-of-the-spellbound-sea-protean-warlock/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Протея",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання покровителя|Expanded Spell List}}: чудова добірка заклинань із великим акцентом на воду й слизи. Тут є заклинання прямої шкоди, заклинання контролю області, заклинання контролю натовпу, один виклик і навіть заклинання перетворення. Це чудовий мікс, що підійде для різних збірок і стилів гри, і в цій добірці немає жодного поганого заклинання, але й надпотужних теж немає. SoManyRobots докладає серйозних зусиль, щоб заклинання були збалансованими (дивіться їхній проєкт "
+                  },
+                  {
+                    "type": "link",
+                    "text": "«Заклинання, що не підводять»",
+                    "href": "https://www.gmbinder.com/share/-NR0OWlW60yv2EfA3qQp"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Spells That Don’t Suck}}), тож логічно, що тут немає нічого надпотужного. Зауважте, що всі перелічені заклинання опубліковані в «Піснях зачарованого моря»{{Songs of the Spellbound Sea}}, окрім Виклику слизу [Summon Ooze], який опубліковано в "
+                  },
+                  {
+                    "type": "link",
+                    "text": "«Компендіумі заклинань Кіббла»",
+                    "href": "https://www.gmbinder.com/share/-MNCb8aGYVO_NBsP3v2Q"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Kibbles’ Casting Compendium}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Прибійна хвиля [Crashing Wave]: шкода не чудова, але ефект відштовхування хороший. Легко порівняти це з Громовою хвилею [Thunderwave], але Прибійна хвиля [Crashing Wave] націлюється на ряткидки Сили замість проблематично високих ряткидків Статури. На жаль, багато ворогів, створених для ближнього бою, усе одно матимуть хороші ряткидки Сили."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виклик слизу [Summon Ooze]: досить типове заклинання виклику, що слідує дизайну заклинань «Виклик …» із «Казана Таші з усім»{{Tasha’s Cauldron of Everything}}. Слиз дуже живучий завдяки численним опорам до шкоди, але його швидкість лише 10 футів, а за межами радіуса його 10 футів сліпозору{{Blindsight}} він сліпий. Більшість викликаних істот легко таскати за собою протягом 1-годинної тривалості заклинання, але слиз рухається так повільно, що корисний лише в тісних просторах на кшталт підземель,"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пристосування [Adaptation]: універсальне й з довгою тривалістю, але це все одно поєднання ефектів, корисних лише ситуативно. Можливість виростити природну зброю намагається зробити заклинання привабливим для всіх, але для Чорнокнижника воно марне, бо Чорнокнижники не отримують «Додаткової атаки»{{Extra Attack}}, а у ваших союзників, імовірно, є кращі варіанти атак. Пристосування [Adaptation] написане як заміна для Зміни вигляду [Alter self]. Це безперечно краще заклинання, але воно все одно посідає нішу заклинання, що вміє закривати кілька випадків використання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Танцююча хвиля [Dancing Wave]: схожа на Палючу сферу [Flaming Sphere], але вона може збивати цілі з ніг і створює складну місцевість замість того, щоб завдавати шкоди істотам, які залишаються поруч зі сферою. Можливість переміщувати ефект означає, що ви можете пересувати складну місцевість, потенційно завдаючи шкоди й збиваючи з ніг істоту на шляху рухомої хвилі. На жаль, вона не масштабується з рівнем заклинання, що робить її менш корисною для Чорнокнижників."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Водяна гармата [Water Cannon]: лінії — не найкращий варіант дії по області, бо важко влучити більш ніж у двох істот, але ця справді чудова. За замовчуванням Водяна гармата [Water Cannon] завдає на 2к6 шкоди менше, ніж Заряд блискавки [Lightning Bolt], обмінюючи цю шкоду на можливість відштовхнути цілі аж до кінця області лінії. Якщо ви влучите у двох чи більше цілей, одна істота (гадаю, найближча до кінця) зупиняється на клітинці одразу за кінцем лінії. Решта істот виявлять, що на кінці лінії немає вільного місця, і отримають ще 2к6 шкоди (як від Заряду блискавки [Lightning Bolt]) та впадуть Повалені."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Водяний мур [Water Wall]: складне, але дуже цікаве. Основний ефект стіни — трохи дроблячої шкоди істотам усередині стіни плюс потрійна вартість руху крізь неї, що робить її гідним стримувальним чинником для ворогів. Взаємодія з ефектами холоду й блискавки теж цікава. В описі заклинання спеціально вжито слова «коли вони проходять крізь», що натякає на те, що вони проходять вільно (хоча атаки все одно матимуть Перешкоду й завдаватимуть половинної шкоди). Можна, наприклад, накласти Крижаний кинджал [Ice Knife] на скупчення ворогів біля стіни або вистрілити Зарядом блискавки [Lightning Bolt] крізь стіну й вдарити струмом істот, що торкаються будь-якої частини стіни. Розумне розташування й правильні заклинання можуть зробити це дуже ефективним, але потрібне планування наперед."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Плавлення плоті [Melt Flesh]: шкода чудова, якщо спрацює двічі, але ряткидки Статури стабільно високі, тож це малоймовірно. Це дуже високий ризик і висока нагорода. Якщо у вас є способи послабити ряткидки цілі, як-от Розщеплення Розуму [Mind Sliver], це може бути дуже ефективним."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вируюча вода [Whirling Water]: утримання ворогів у сфері може бути надзвичайно впливовим, а витрачання кількох ходів на збирання ворогів усередині кулі буде дуже ефективним, якщо ви чи союзник можете закинути в кулю ефекти шкоди по області. Важливо враховувати, коли істоти стають Скованими й коли вони роблять ряткидки. Вони роблять ряткидок Сили на початку свого ходу, щоб стати або лишитися Скованими сферою. Це означає, що істоти з пристойною Силою мають непогані шанси вирватися, тож, можливо, доведеться ганятися за ними зі сферою, щоб упіймати знову. Якщо ви використаєте бонусну дію заклинання, можна підкинути істоту в повітря, завдавши 4к6 дроблячої шкоди плюс шкоду від падіння, після чого вона приземлиться просто назад у сферу, де їй усе одно доведеться робити ще один ряткидок на початку свого ходу. Це гарантована шкода ціною вашої бонусної дії. Шкода не чудова й не масштабується. Ви тут насамперед заради ефекту Скованості й можливості тягати істот у сфері. Оскільки більшість своїх Дій ви, імовірно, витрачатимете на катання сфери, розраховуйте на союзників у шкоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Слизова форма [Oozeform]: чудово працює разом з умінням «Їдка шкіра»{{Corrosive Skin}} {{Чорнокнижника-Протея|Protean Warlock}}. З часом ви додаватимете подвійний (інколи почетверений) Бонус Майстерності до 2к4 шкоди від Слизової форми [Oozeform]. Огорніть істоту (чи кількох істот), і ви станете найочевиднішою ціллю для атак, що призведе до величезної кількості шкоди у відповідь. Якщо вони не хочуть атакувати вас, то або отримують шкоду, що триває, або мусять витратити Дію, щоб спробувати вирватися. Оскільки огортання захоплює істот, ви вільні рухатися й тягати огорнутих істот із собою. Ви рухаєтеся з половинною швидкістю, але це може дозволити огорнути кількох істот. Якщо ви вмієте літати, можна підняти ворогів у повітря й повільно їх розплавляти, поки вони не вирішать вирватися й не приймуть шкоду від падіння. З тривалістю 10 хвилин ви легко можете накласти це заклинання перед тим, як заходити в небезпечні ситуації. Тут доведеться вгадувати, якого розміру воно вам знадобиться, але майже завжди це буде Великий, хіба що ваші вороги надто великі для огортання. Зауважте, що огорнуті істоти можуть вирішити робити дальні атаки замість атак ближнього бою. Вони вже Скуті, тож Перешкода в обох випадках однакова."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Водоверть [Whirlpool]: шкода за хід не вражає, але радіус 30 футів величезний. Багато істот мають швидкість 30 футів, тож їм довелося б зробити Ривок, щоб вийти із зони за один хід. Якщо ні, вони застрягають, постійно роблячи ряткидки, щоб їх знову затягло в середину. Якщо ви та ваші союзники можете примусово переміщувати ворогів, наприклад завдяки рисі «Телекінетик»{{Telekinetic}} або захопленню, можна повертати втеклих ворогів назад у Водоверть [Whirlpool], якщо вони таки зуміють вирватися. Єдина проблема в тому, що вороги всередині ефекту все ще небезпечні, якщо можуть накладати заклинання чи атакувати здалеку. Голод Хадара [Hunger of Hadar] засліплює істот усередині зони, що є значно кращим контролем натовпу попри меншу шкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Форма Протея{{Protean Form}}: бойове підсилення бонусною дією. Усі ефекти хороші й залишатимуться ефективними протягом усієї вашої карʼєри."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Бонус до КБ|AC Bonus}}: +1 до КБ завжди приємний."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Псевдоподія{{Pseudopod}}: досяжність може бути дуже корисною, якщо ви будуєте збірку на зброю, але, схоже, вона діє на всі атаки, тож можна використовувати й атаки заклинаннями ближнього бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкості пересування{{Move Speeds}}: і швидкість лазіння, і швидкість плавання, що дозволяє пристосовуватися до різних середовищ. Але за потреби плавати можна також накласти Пристосування [Adaptation]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Їдка шкіра{{Corrosive Skin}}: пристойна кількість шкоди у відповідь. Цього недостатньо, щоб ворогам хотілося уникати атак по вас, але досить, щоб мати вплив. Поєднайте це з Обладунком Агатіса [Armor of Agathys], і ви завдасте купу шкоди будь-кому, хто нерозумно вирішить вас атакувати. Проте Чорнокнижник, що добре воює здалеку, довго не бачитиме, як це спрацьовує."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дарунки Протея{{Protean Gifts}}: «Дарунок Протея» здебільшого призначений для вас самих, але може виявитися, що на союзнику він ефективніший."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мерзенне щупальце{{Vile Tentacle}}: працює лише кілька разів на день, але цього досить. Вразливість до наступного джерела шкоди може дати величезну кількість шкоди, якщо ваша група може застосувати великі одиничні джерела шкоди, як-от «Підступна атака»{{Sneak Attack}} чи заклинання на кшталт Розщеплення [Disintegrate]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Досконала форма{{Perfected Form}}: до цього рівня ваша «Їдка шкіра»{{Corrosive Skin}} завдає 10 шкоди за влучання, а подвоєння до 20 — це дуже круто. Два ефекти від «Форми Протея»{{Protean Form}} теж приємні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Протея",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Протея",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races"
+                },
+                {
+                  "type": "text",
+                  "text": ". У «Піснях зачарованого моря»{{Songs of the Spellbound Sea}} є кілька справді веселих нових варіантів рас і спадщин."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Протея",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Протея",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Протея",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Протея",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Чорнокнижника-Протея — Слизьке тіло, їдкий характер",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Чорнокнижник-Протей|Protean Warlock}} створений, щоб робити круті речі з кислотою та водою, і загалом це підклас, зосереджений на чаротворстві, з невеликою домішкою всього іншого. Ми сильно зосередимося на частині цього «всього іншого» й перетворимося на найнепереварнішу, найменш придатну для обіймів і загалом найїдкішу істоту, якою тільки зможемо стати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка зосереджена переважно на шкоді й розрахована на ближній бій. Це незвичний підхід до Чорнокнижника, але результати доволі чудові."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо у вашій грі доступні магічні предмети, шукайте адамантиновий обладунок{{Adamantine Armor}}. Ми хочемо, щоб по нас влучали якомога частіше, але щоб ми отримували якомога менше шкоди. Критичні влучання будуть для нас дуже дорогими й ризикованими, тож перетворення їх на звичайні влучання — величезна перевага."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви відкриті до мультикласування, 2 рівні {{Чарівника Школи огородження|Abjuration Wizard}} — чудовий варіант. Використання «Арканної варти»{{Arcane Ward}} як додаткового шару ХП перед Обладунком Агатіса [Armor of Agathys] розтягне ефективність заклинання, Обладунок Агатіса [Armor of Agathys] перезаряджає варту, а слоти заклинань Чарівника можна витратити на Поглинання стихій [Absorb Elements] і Пекельну відсіч [Hellish Rebuke]. Це вимагатиме вкладень в Інтелект, і варта матиме невелику місткість, але принаймні це варто розглянути."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це одна з найдивніших збірок, які я коли-небудь писав. "
+                },
+                {
+                  "type": "link",
+                  "text": "Переносна боксерська груша — Бардадин",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/bardadin-punching-bag/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{The Portable Punching Bag Bardadin}} багато в чому перегукується з нею, але ця збірка — шалене поєднання численних варіантів з помаранчевою оцінкою, які якимось чином ідеально складаються в… щось. Шкода напрочуд висока, з огляду на те, що ми по суті ігноруємо все, що робимо на власному ході. Крім того, тут кілька відкритих точок вибору, тож є купа простору, щоб налаштувати збірку й додати їй інші можливості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Атксайотль{{Atxayotl}} дає нам +1 до Статури й +2 до Мудрості або Харизми на вибір, тож ми оберемо Харизму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Атксайотль{{Atxayotl}}. Збільшення характеристик добре нам підходять, а ще нам потрібна здатність Сухопутного{{Landbound}} робити Ривок бонусною дією. «Острівні звичаї»{{Island Customs}} дають додаткове володіння навичкою, а «Вроджена регенерація»{{Innate Regeneration}} і «Відрощування кінцівок»{{Limb Regrowth}} стануть чудовими для наших витівок у стилі «бий мене в обличчя». «Вроджена регенерація» робить наші кубики здоровʼя трохи ефективнішими, що допоможе відновлюватися між боями, не покладаючись на союзників із магічним лікуванням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо це не здається привабливим, чудово підійде голіаф{{Goliath}}. «Витривалість каменю»{{Stone's Endurance}}, що помʼякшує вхідну шкоду, значно розтягне ефективність Обладунку Агатіса [Armor of Agathys]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для збірки неважлива. Якщо хочете триматися передісторій із «Пісень зачарованого моря»{{Songs of the Spellbound Sea}}, добре підійде «Швидкосталевий торговець»{{Quicksteel Trader}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Одну навичку (імовірно, Переконання) ми отримаємо від раси, дві навички — від передісторії та ще 2 класові навички Чорнокнижника. Обирайте, що вам до вподоби, бо для збірки це не критично."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Дарунок самоцвітного дракона»{{Gift of the Gem Dragon}} і підвищуємо Харизму до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні піднімаємо Харизму до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Стійкого (Статура)»{{Resilient (Constitution)}}, щоб покращити нашу Концентрацію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му й 19-му рівнях у нас є вільне місце. «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}} був би чудовим, щоб послабити стихійну шкоду, але +2 до Статури теж були б чудовими."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Протей\nЗаклинання покровителя\nФорма Протея\nМагія пакту\nВідомі замовляння:\n– Спалах Клинків*\n– Гримучий Клинок\nВідомі заклинання:\n– Прибійна хвиля*\n– Проклін"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми цілком типовий Чорнокнижник. Можна використати «Форму Протея»{{Protean Form}}, щоб отримати +1 до КБ на 1 хвилину, що приємно, бо наш КБ, імовірно, у кращому разі 14. На цьому рівні наші модифікатори Спритності й Харизми однакові, тож з арбалетом на відстані ми завдамо більше шкоди, ніж Позамежним зарядом [Eldritch Blast], тому в ролі дальньої атаки використовуватимемо Проклін [hex] з арбалетом. У ближньому бою застосовуватимемо Спалах Клинків [Blade Burst] чи Гримучий Клинок [Booming Blade], але намагатимемося триматися подалі від ближнього бою. Спалах Клинків [Blade Burst] багато в чому схожий на Спалах Мечів [Sword Burst], але він у «Піснях зачарованого моря»{{Songs of the Spellbound Sea}}, тож використаємо саме його. Також візьмемо Прибійна хвиля [Crashing Wave] на випадок, якщо вороги підступлять упритул і нам знадобиться простір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічні виклики\n– Потойбічний розум\n– будь-який\nНове відоме заклинання:\n– Обладунок Агатіса"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми починаємо розповідати людям, що наша шкіра постійно холодна й липка на дотик. «Потойбічний розум»{{Eldritch Mind}} буде корисним усю нашу карʼєру, бо ми не залишаємо місця для «Бойового заклинателя»{{War Caster}}. Обладунок Агатіса [Armor of Agathys] — наше перше знайомство з тим, як збірка працюватиме у довгостроковій перспективі. Ми сподіваємося притягувати атаки ближнього бою від ворогів і завдавати якомога більше шкоди у відповідь."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дар пакту:\nНове відоме заклинання:\n– Пакт талісмана\nПеренавчання викликів:\n– будь-який → Відплата талісмана"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Незвичний вибір, але «Пакт талісмана»{{Pact of the Talisman}} — єдиний захисний варіант пакту, а нам більше за все, що пропонують інші пакти, потрібна живучість. Як ми писали в нашому "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Гайді про Дари пакту",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", «ви можете виявити, що талісман ефективніший, якщо позичити його союзникові, який приймає на себе багато атак». У цьому випадку багато атак приймаємо ми самі. «Пакт клинка»{{Pact of the Blade}} теж підійшов би для цієї збірки, якщо ви хочете більше зосередитися на нападі. Вільних слотів викликів достатньо, щоб це добре спрацювало. Другий виклик ми перенавчаємо на «Відплату талісмана»{{Rebuke of the Talisman}}. Вона працює як Пекельна відсіч [Hellish Rebuke] чи «Дарунок самоцвітного дракона»{{Gift of the Gem Dragon}}, але безкоштовна й не завдає багато шкоди. Це здебільшого запасний варіант, коли бракує ресурсів. Пекельна відсіч [Hellish Rebuke] завдасть значно більше шкоди, але вона дуже дорога, коли в нас лише 2 слоти заклинань, які ми насамперед бережемо для Обладунку Агатіса [Armor of Agathys]. На цьому етапі ви можете почати навмисно заходити в ближній бій. Обладунок Агатіса [Armor of Agathys] дає вам 10 тимчасових ХП"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Дарунок самоцвітного дракона (Харизма 17 → 18)\nНове відоме замовляння:\n– Ласо блискавки\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми додаємо до опису нашого персонажа «схоже, що він може бути споріднений з драконами, але з одним із "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "дивних"
+                    },
+                    {
+                      "type": "text",
+                      "text": " різновидів драконів». «Дарунок самоцвітного дракона»{{Gift of the Gem Dragon}} дає нам +1 до Харизми й ще один варіант Реакції. 2к8 шкоди легко перевершать шкоду від «Відплати талісмана»{{Rebuke of the Talisman}}, але при цьому дозволяють ряткидок, щоб опиратися ефекту відштовхування. Користуйтеся тим, що краще підходить до ситуації. Тепер, коли ми почуваємося в ближньому бою впевненіше, додаємо Ласо блискавки [Lightning Lure], щоб мати спосіб притягувати ворогів поблизу до себе в ближній бій, не ризикуючи дальнім кидком атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Плащ мух\nНове відоме заклинання:\n– Водяна гармата"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми додаємо до опису персонажа «смердить тухлою рибою», і до нас злітається відповідно щільна хмара мух. «Плащ мух»{{Cloak of Flies}} завдає автоматичної шкоди істотам, що починають свій хід поруч із нами. Це отруйна шкода, що не вражає, але навіть попри те, наскільки поширені опори та імунітети, вони не повсюдні. Водяна гармата [Water Cannon] — покращення порівняно з Прибійною хвилею [Crashing Wave]. Вона знадобиться нам нечасто, але іноді відкинути кількох ворогів на 60 футів — це може дати круті результати, як-от вибити їх у вікно чи зі скелі. Також ніщо не заважає вам зайти в ближній бій і націлити лінію трохи вгору, щоб підкинути ворогів у повітря заради легкої шкоди від падіння."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Їдка шкіра\nДарунки Протея\nНове відоме заклинання:\n– Вампіричний дотик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми додаємо до опису нашого персонажа «від дотику до них шкіра горить» і «те, що в них є, схоже, заразне». «Їдка шкіра»{{Corrosive Skin}} — концептуальне серце збірки. З активним Обладунком Агатіса [Armor of Agathys] у нас тепер повне комбо. Якщо на цьому рівні по нас влучить атака ближнього бою, ми завдамо 15 холодної шкоди й 6 кислотної (памʼятайте, що це подвійний Бонус Майстерності), а потім можемо витратити Реакцію на «Відплату талісмана»{{Rebuke of the Talisman}} або на «Телекінетичну відплату»{{Telekinetic Reprisal}} з «Дарунка самоцвітного дракона»{{Gift of the Gem Dragon}}. Згідно з "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Фундаментальною математикою",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Fundamental Math}}, ми досягаємо цільового DPR без Реакції, без «Плаща мух»{{Cloak of Flies}} і навіть не витрачаючи свого ходу. Якщо додати шкоду від «Плаща мух» та/або удари по ворогах замовлянням, ви молодці. Якщо треба притягнути атаки, можна відійти за межі досяжності, щоб навмисно спровокувати Принагідні атаки. Памʼятайте, що Сухопутний Атксайотль{{Landbound Atxayotl}} ще й може робити Ривок бонусною дією. Наше найбільше обмеження — тимчасові ХП від Обладунку Агатіса [Armor of Agathys]. Очікуйте, що час від часу доведеться накладати його посеред бою, щоб комбо не переривалося. Якщо у вас є союзник із Бойовим Стилем{{Fighting Style}} «Перехоплення»{{Interception}}, він ваш найкращий друг, і вам слід носити його на спині, якщо потрібно, аби тримати його поруч. Вампіричний дотик [Vampiric Touch] дає нам пристойний наступальний варіант, що ще й перетворює нас на танка з регенерацією. Якщо ми спалимо Обладунок Агатіса [Armor of Agathys], можна або накласти його знову, або використати Вампіричний дотик [Vampiric Touch] і почати висмоктувати ХП з ворогів. Ми все одно завдаватимемо шкоду у відповідь від «Їдкої шкіри» та Реакцій, а «Плащ мух» і далі завдаватиме шкоди. На цьому рівні ми також отримуємо «Дарунки Протея»{{Protean Gifts}}. Ми, імовірно, мало користуємося «Формою Протея»{{Protean Form}} для себе, але можемо накласти цей +1 до КБ на союзника."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Захист талісмана\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми притягуємо багато уваги, і зрештою нас змусять робити ряткидки. «Захист талісмана»{{Protection of the Talisman}} значно полегшить їх для нас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма 18 → 20\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дивно бути таким огидним і водночас таким чарівливим. Максимальна Харизма робить ваші заклинання надійнішими й підвищує шкоду від «Плаща мух»{{Cloak of Flies}} і «Відплати талісмана»{{Rebuke of the Talisman}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Гробниця Левістуса\nНове відоме заклинання:\n– Слизова форма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні можна додати до нашого опису «імовірно, споріднений із рибою-краплею» і «амфібія із заледенілих глибин пекла». Я жодного разу не ставив «Гробницю Левістуса»{{Tomb of Levistus}} у збірку, але вислухайте: «Їдка шкіра»{{Corrosive Skin}} і «Плащ мух»{{Cloak of Flies}} усе ще працюють, тож вороги, що намагатимуться прокусити й проскребти шлях крізь стіну тимчасових ХП, і далі отримуватимуть шкоду. Це абсолютно панічний варіант на випадок, коли все пішло шкереберть, але ми намагаємося перетворити клас із к8 ХП на боксерську грушу, тож ми вже на дуже дивній території. Я дуже захоплений Слизовою формою [Oozeform]. Вона триває до 10 хвилин, якщо ми утримуємо Концентрацію (саме тому в нас є «Потойбічний розум»{{Eldritch Mind}}), і весь цей час ми — жахливе слизьке створіння, схоже на рибу-краплю. Ми додаємо ще 2к4 шкоди у відповідь, а тепер можемо використовувати Дію, щоб огортати інших істот. Поки вони огорнуті, істоти отримують автоматичну шкоду і від Слизової форми [Oozeform], і від «Плаща мух», і вони Скуті. Вони можуть витратити Дію, щоб повторити ряткидок, і тоді ви просто огорнете їх знову на своєму наступному ході. Ми можемо й далі рухатися (хоч і з половинною швидкістю, щоб утримувати захоплення), потенційно огортаючи більше ворогів. Якщо ворогів не лишиться, можна сидіти на місці й або Ухилятися, або використати Спалах Клинків [Blade Burst] для ще більшої шкоди. Дивно, але істоти, яких ви огорнули, не отримують жодного укриття. Ваші союзники вільні й далі атакувати їх, поки ви їх перетравлюєте. Єдині проблеми тут у тому, що вам доведеться утримувати Концентрацію лише з +3 і Перевагою, а ще що ви можете огортати істот лише до Великого розміру. Усе ще здійсненно, але точно не надійно. Проте якщо у вас активний Обладунок Агатіса [Armor of Agathys], вороги, що влучають по вас, отримають 2к4+53 шкоди (2к4 кислотної від Слизової форми [Oozeform], 45 холодної від Обладунку Агатіса [Armor of Agathys], 8 кислотної від «Їдкої шкіри») плюс або «Відплата талісмана»{{Rebuke of the Talisman}} на 5 шкоди, або «Телекінетична відплата»{{Telekinetic Reprisal}} на 2к8 шкоди. Відштовхування в обох необовʼязкове, тож їх безпечно використовувати суто заради шкоди. 58 шкоди в середньому — це вже цілком у діапазоні високого DPR, і це ще до врахування нашої Реакції, «Плаща мух», 8к4 шкоди від огортання чи потенційно іншої Дії на нашому ході. Також, якщо наші ХП опустяться низько, поки ми в Слизовій формі [Oozeform], ми все ще можемо використати «Гробницю Левістуса»{{Tomb of Levistus}}. Вороги не позбавлені можливості втекти, коли ми це робимо, але вони все одно отримують шкоду, поки ми дрімаємо у відносній безпеці за 90 тимчасовими ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мерзенне щупальце\nНове відоме замовляння:\n– Розщеплення Розуму"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Мерзенне щупальце»{{Vile Tentacle}} чудове. Якщо у вас є союзник, що може завдати купу шкоди одним ударом, це ідеально. Якщо ні, спробуйте спровокувати Принагідну атаку. Розщеплення Розуму [Mind Sliver] — для ворогів, яких ми огорнули. Якщо вони спробують вирватися, вони роблять ряткидок зі штрафом -1к4. Якщо вони атакують вас, то з Перешкодою, бо вони Скуті. Так чи інакше, вони у величезній халепі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум:\n– будь-яке\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо ви розглядаєте мультикласове занурення в {{Чарівника Школи огородження|Abjuration Wizard}}, розгляньте його десь зараз."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура 16 → 17)\nНовий потойбічний виклик:\n– будь-який"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Величезне підсилення Концентрації. На цьому рівні нам, імовірно, прилітають більші удари, через що важко утримувати Концентрацію на Слизовій формі [Oozeform]. Тепер ми маємо загалом +7 і Перевагу, що настільки надійно, наскільки можна сподіватися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум:\n– Промінь смерті\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Промінь смерті [Death Ray] — заміна для Пальця смерті [Finger of Death], опублікована в «Заклинаннях, що не підводять»{{Spells That Don’t Suck}} і в «Піснях зачарованого моря»{{Songs of the Spellbound Sea}}. Вона значно підсилена. Користуйтеся тим заклинанням, яке дозволяє ваш Майстер. Промінь смерті [Death Ray] / Палець смерті [Finger of Death] — це велика купа шкоди по одній цілі, а саме її ми й хочемо використовувати з «Мерзенним щупальцем»{{Vile Tentacle}}. Коли потрібно за один хід знищити щось, вдарте ціль щупальцем, а потім уразіть Променем смерті [Death Ray] зі шкодою, що подвоїться. Подвоєння 8к10+40 (7к8+30 для Пальця смерті [Finger of Death]) — це величезна купа шкоди. Зробити так можна лише раз на день, але розправитися із зіткненням одним ударом раз на день абсолютно варте витрати ресурсу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досконала форма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час перестати ділитися «Формою Протея»{{Protean Form}}. Подвоєння шкоди від «Їдкої шкіри»{{Corrosive Skin}} надто добре, щоб від нього відмовлятися. Це ще 10 шкоди за влучання на цьому рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– будь-який\nМістичний арканум:\n– будь-яке\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум:\n– будь-яке\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "З нашою максимальною Харизмою й нашим Бонусом Майстерності, що тепер теж на максимумі, подивімося на нашу остаточну шкоду у відповідь: 45 від Обладунку Агатіса [Armor of Agathys], 24 від «Їдкої шкіри»{{Corrosive Skin}}, 2к4 від Слизової форми [Oozeform] і або 5, або 2к8 залежно від того, яку Реакцію ми обрали. Це в сумі в середньому 74 до Реакції і, знову ж таки, це "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "поза нашим ходом"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Під час нашого ходу Слизова форма [Oozeform] усе ще ходовий варіант у більшості зіткнень. Огортайте ворогів і чітко дайте зрозуміти, що всі їхні вибори погані. 8к4 шкоди (у середньому 20) на цьому рівні не вражає, але огорнуті вороги Скуті й Схоплені, тож ви та ваші союзники можете кидати в них усе, що завгодно, з мінімальним ризиком."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– будь-який"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний майстер"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нам потрібні ці слоти заклинань для Обладунку Агатіса [Armor of Agathys] і Слизової форми [Oozeform]. Треба ж тримати себе і холодними, і слизькими."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-warlock-protean-2014-001",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання покровителя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-002",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Прибійна хвиля [Crashing Wave]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-003",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Виклик слизу [Summon Ooze]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-004",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Пристосування [Adaptation]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-005",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Танцююча хвиля [Dancing Wave]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-006",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Водяна гармата [Water Cannon]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-007",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Водяний мур [Water Wall]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-008",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Плавлення плоті [Melt Flesh]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-009",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Вируюча вода [Whirling Water]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-010",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Слизова форма [Oozeform]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-011",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Водоверть [Whirlpool]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-012",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Форма Протея",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-013",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "Бонус до КБ",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-014",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-13",
+      "context": "Псевдоподія",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-015",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-14",
+      "context": "Швидкості пересування",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-016",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-15",
+      "context": "Їдка шкіра",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-017",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-16",
+      "context": "Дарунки Протея",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-018",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-17",
+      "context": "Мерзенне щупальце",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-protean-2014-019",
+      "articleId": "rpgbot-warlock-protean-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-protean-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-18",
+      "context": "Досконала форма",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

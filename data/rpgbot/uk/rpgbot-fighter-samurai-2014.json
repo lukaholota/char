@@ -1,0 +1,2318 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-5778d896b80f693d",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-5778d896b80f693d-1c98c2148d119d61",
+      "sourceId": "rpgbot-5778d896b80f693d",
+      "fetchedAt": "2026-09-29T19:13:29.984726+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:36:21-04:00",
+      "contentHash": "fd6791422118ab2319d367c93d2369b9ac371e5bc0d6e351e2391a1d454fffe5",
+      "title": "Samurai Fighter 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-5778d896b80f693d-1c98c2148d119d61.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-fighter-samurai-2014",
+    "sourceId": "rpgbot-5778d896b80f693d",
+    "slug": "fighter-samurai-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Самурай — гайд підкласу Воїна (2014)",
+    "titleEn": "Samurai Fighter 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Воїн",
+      "Самурай",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "sourceRevisionId": "rpgbot-5778d896b80f693d-1c98c2148d119d61",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Самурай. Титул. Клас. Професія. Саме слово викликає певні ідеї й образи того, що таке Самурай, що Самурай робить і як Самурай бʼється. Не дозволяйте цим образам вас обмежувати. Самурай як підклас Воїна не привʼязаний до слова «самурай». Це не означає, що ви не можете зробити свого Самурая точно таким, як його тезка з реального світу, якщо захочете, — це залежить від вас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно Самурай — потужна сила завдяки здатності просто вирішити «у мене Перевага на кубику цього ходу» кілька разів на день. Використання вашої Переваги на вимогу — ключ до гри за Самурая, і ми обговоримо способи цього, переглядаючи варіанти класу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наш приклад збірки — не лише чудовий спосіб показати різноманітні варіанти побудови Самурая, а й вправа зі смаку. Якщо ви подивитеся на неї й подумаєте «Як це Самурай?», то я зробив свою справу. Якщо подивитеся й подумаєте «Так, це саме те, що таке Самурай», то ви в темі посилання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Самурая",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Самурая",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Самурая",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бойові Стилі Самурая",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-fighting-styles"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Самурая",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Самурая",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Самурая",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Самурая — За жменю Переваги",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#example-samurai-build-a-fistful-of-advantage"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Примітка про вогнепальну зброю",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#a-note-about-firearms"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Самурая",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткова майстерність{{Bonus Proficiency}}: безкоштовне володіння навичкою чи мовою. Обирайте навичку. Мови можна розвʼязати магією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойовий дух{{Fighting Spirit}}: те, що потрібна бонусна дія, означає, що в тому ж раунді не можна використати бій двома зброями, тож найкраще будувати збірку навколо дворучної зброї. Гарантована Перевага на кубику на всі ваші атаки означає, що такі риси, як «Майстер важкої зброї» й «Влучний стрілець», стають надзвичайно спокусливими.\n\nТимчасові ХП також полегшують життя без щита. Однак із лише трьома використаннями на день ви не можете розраховувати використовувати це в кожному бою, доки не отримаєте «Невтомний дух»{{Tireless Spirit}} на 10-му рівні. Якщо ваш стіл використовує необовʼязкові правила фланкування, це менш важливо для ближніх збірок, бо Перевагу на кубику отримати набагато легше, але для бою на відстані воно лишається чудовим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вишуканий придворний{{Elegant Courtier}}: можливість використовувати Мудрість на додачу до Харизми для перевірок Харизми (Переконання) означає, що ви можете виконувати роль «обличчя» без високої Харизми. Додаткове володіння ряткидком ще краще, бо більшість персонажів ніколи не мають більше двох володінь ряткидками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Невтомний дух{{Tireless Spirit}}: щойно ви його отримаєте, плануйте починати кожен бій з «Бойового духу». Вийдіть на бій із розмахом і завдайте багато шкоди одразу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкий удар{{Rapid Strike}}: Перевага на кубику приємна, бо ви кидаєте двічі й берете більше. «Швидкий удар» дозволяє лишити "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "обидва"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", тож якщо пощастить і обидва кидки високі, можна влучити двічі. Ви можете робити це лише раз на хід, але це означає, що за один хід можна зробити чотири атаки (5, коли досягнете 20-го рівня, і більше, якщо маєте «Прискорення [Haste]», користуєтеся боєм двома зброями, активуєте «Сплеск дій» тощо).\n\nГарантована Перевага від «Бойового духу» — легкий спосіб спровокувати «Швидкий удар», але памʼятайте, що «Бойовий дух» працює лише тричі на день. Надійніша тактика — Штовхнути супротивника додолу перед атакою, або якщо союзник може накласти «Стримування особи [Hold Person]» чи «Стримування монстра [Hold Monster]», тоді всі атаки мають Перевагу, а всі ближні атаки — автоматичні критичні влучання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сила перед смертю{{Strength before Death}}: цілий хід. "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Цілий хід."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Випийте зілля, використайте «Друге дихання»{{Second Wind}}. Будь-що, щоб здобути трохи ХП і лишитися при свідомості. Інакше виконайте дію Атака й помстіться! Якщо ви близько до 0 на власному ході й маєте якийсь спосіб завдати собі достатньо шкоди від падіння, щоб це спрацювало лише вашим пересуванням, ви в теорії можете виконати повний хід зі «Сплеском дій» і «Швидким ударом», підживленим «Бойовим духом», упасти, щоб спрацювала «Сила перед смертю», а потім зробити все те саме знову в тому самому раунді.\n\nІ цікавий факт: якщо ми робимо це на власному ході й уже використали «Бойовий дух», то «Бойовий дух» усе ще активний (там сказано «перериваючи поточний хід»), бо хід, на якому ми його використали, ще не закінчився. Ще божевільніше: можна знову активувати «Сплеск дій» під час цього проміжного бонусного ходу. Якщо не знайдете способу впасти, завжди можна використати останню атаку на себе, якщо ви достатньо близько до 0."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-samurai-ability-scores",
+          "heading": "Характеристики Самурая",
+          "sourceAnchor": "samurai-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-samurai-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як Воїн, ми маємо варіанти. Можна вибрати Силу чи Спритність основною характеристикою атаки, і вміння підкласу однаково добре працюють із ближніми й дальніми варіантами. Тож оберіть, що хочете, лишіть іншу позаду, а решту очок вкладіть у Статуру й Мудрість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-samurai-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: можна використати її й розмахувати великою важкою дворучною зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-samurai-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: або використати її й стріляти здалеку, маючи фінесну зброю, щоб бути в безпеці в ближньому бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-samurai-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: не дозволяйте їй відставати. Смерть — неоптимальна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-samurai-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: ми не знавці."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-samurai-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: ми отримаємо володіння цими ряткидками на 7-му рівні, тож, можливо, використайте залишкові очки при створенні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-samurai-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: нам потрібно забагато очок в інших місцях, щоб справді на цьому зосередитися, але в нас є кілька здібностей «обличчя», тож якщо ви кидаєте характеристики й отримуєте четверту добру, це може бути місце для неї."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-samurai-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 (8)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 (12)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 (15)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 (15)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-samurai-races",
+          "heading": "Раси Самурая",
+          "sourceAnchor": "samurai-races",
+          "blocks": [
+            {
+              "blockId": "block-section-samurai-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чесно кажучи, від основного Воїна "
+                },
+                {
+                  "type": "link",
+                  "text": "способу діяти",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/races/"
+                },
+                {
+                  "type": "text",
+                  "text": " мало що змінюється."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-samurai-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ельфи{{Elves}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Що? Раса, яка має рису для Супер-Переваги, хороша для підкласу, що може просто вирішити, що має Перевагу на кубику? Не може бути."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кобольд{{Kobold}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чи ми маємо Спадщину з «Тактикою зграї», чи MMoM із «Драконячим криком»{{Draconic Cry}}, деякі наші вміння дають додаткові переваги за Перевагу на кубику, тоді як «Бойовий дух» ми можемо використати лише тричі на день, тож додаткові способи отримати Перевагу на кубику не такі зайві, як ви могли б спершу подумати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Калаштар{{Kalashtar}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "ERLW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у нас буде володіння ряткидками Мудрості, тож подвоєння Перевагою на кубику на ряткидки Мудрості — просто чудовий спосіб сказати багатьом жахливим заклинанням «ряткидок або страждай» піти геть."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-samurai-fighting-styles",
+          "heading": "Бойові Стилі Самурая",
+          "sourceAnchor": "samurai-fighting-styles",
+          "blocks": [
+            {
+              "blockId": "block-section-samurai-fighting-styles-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Самурая справді можна збирати як завгодно, доки ваша стратегія не розвалюється лише через те, що вам потрібна бонусна дія для «Бойового духу»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-samurai-fighting-styles-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Стрільба з лука|Archery}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +2 понад рішення мати Перевагу на кубику означає, що риса на кшталт «Влучного стрільця» може дуже багато вирішувати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бій наосліп{{Blind Fighting}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": скасування Перешкоди на кубику від стану Засліплений означає, що ніщо не заважає Перевазі від «Бойового духу»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Бій двома зброями|Two-Weapon Fighting}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Бойовий дух» і бій двома зброями конкурують за нашу бонусну дію. Утім, «Бойового духу» ми маємо лише три на день, тож якщо ви рішуче налаштовані на бій двома зброями, це лише незначна незручність."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-samurai-feats",
+          "heading": "Риси Самурая",
+          "sourceAnchor": "samurai-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-samurai-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Експерт з арбалетів|Crossbow Expert}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": непоганий варіант, якщо нам потрібна дальня зброя. Ігнорування Заряджання для арбалетів. Ігнорування Перешкоди на кубику при стрільбі в ближньому бою. Атака ручним арбалетом бонусною дією, несумісна з «Бойовим духом». Мабуть, тому вона зелена."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ельфійська точність{{Elven Accuracy}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Я це не пояснюватиму.",
+                    "href": "https://rpgbot.net/oops-all-elves/"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер важкої зброї{{Great Weapon Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хоч вона все ще хороша, оскільки ми використовуємо бонусну дію для здобуття Переваги на кубику, ми іноді втрачаємо ту половину цієї риси, що дає додаткову атаку (Cleave). Не критично, але варто врахувати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стрілець{{Gunner}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": тож "
+                  },
+                  {
+                    "type": "link",
+                    "text": "різниця в DPR між видами дальньої зброї не така вже велика",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", особливо якщо можна користуватися Довгим луком. Смішна річ у цій рисі: частина про ігнорування Перешкоди на кубику працює з будь-якою дальньою атакою, а не лише з вогнепальною. А ця риса дає нам +1 до Спритності замість переваг Арбалета. А справжні самураї були кінними лучниками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стійкий{{Resilient}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Самураї здобувають володіння ряткидками Мудрості, а отже, якби нам треба було вирівняти непарну Спритність, використання цієї риси і підвищило б модифікатор, і дало б володіння на великій трійці."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Влучний стрілець|Sharpshooter}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Перевага на кубику означає, що ми можемо надійно завдавати бонусну шкоду навіть зі штрафом -5. До того ж можна використовувати нашу Перевагу на більших дистанціях, не даючи їй бути скасованою Перешкодою на кубику."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-samurai-weapons",
+          "heading": "Зброя Самурая",
+          "sourceAnchor": "samurai-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-samurai-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут мало що додати. Просто слідуйте"
+                },
+                {
+                  "type": "link",
+                  "text": " довіднику Воїна",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#fighter-weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-samurai-armor",
+          "heading": "Обладунки Самурая",
+          "sourceAnchor": "samurai-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-samurai-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так само, як вище. "
+                },
+                {
+                  "type": "link",
+                  "text": "Довідник Воїна",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#fighter-armor"
+                },
+                {
+                  "type": "text",
+                  "text": " вас охоплює."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-samurai-build-a-fistful-of-advantage",
+          "heading": "Приклад збірки Самурая — За жменю Переваги",
+          "sourceAnchor": "example-samurai-build-a-fistful-of-advantage",
+          "blocks": [
+            {
+              "blockId": "block-section-example-samurai-build-a-fistful-of-advantage-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чи знали ви, що "
+                },
+                {
+                  "type": "link",
+                  "text": "ковбої",
+                  "href": "https://en.wikipedia.org/wiki/The_Magnificent_Seven"
+                },
+                {
+                  "type": "text",
+                  "text": " та "
+                },
+                {
+                  "type": "link",
+                  "text": "самураї",
+                  "href": "https://en.wikipedia.org/wiki/Seven_Samurai"
+                },
+                {
+                  "type": "text",
+                  "text": " — це по суті"
+                },
+                {
+                  "type": "link",
+                  "text": " те саме",
+                  "href": "https://en.wikipedia.org/wiki/Remakes_of_films_by_Akira_Kurosawa"
+                },
+                {
+                  "type": "text",
+                  "text": "?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-a-note-about-firearms",
+          "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+          "heading": "Примітка про вогнепальну зброю",
+          "sourceAnchor": "a-note-about-firearms",
+          "blocks": [
+            {
+              "blockId": "block-section-a-note-about-firearms-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так, вогнепальна зброя — необовʼязкове правило. Так, вогнепальної зброї немає в кожній кампанії. Так, ця збірка працює точно так само, якщо користуватися луком (навіть риса «Стрілець»). Але ми беремо Кобольда, тож він застряг із Коротким луком 1к6, бо властивість Важка — дурна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-a-note-about-firearms-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "І ось чому я даю Кобольду рушницю.",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми будуємо Воїна-стрільця з дальніми атаками. Це означає, що ми віддамо пріоритет Спритності й скинемо Силу. Оскільки купівля характеристик дає достатньо очок для трьох характеристик, ми вкладемо трохи й у Мудрість, щоб справді скористатися володінням ряткидками Мудрості, яке мають Самураї."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Причина, чому ми ставимо 10 в Інтелект замість 15 у Мудрість, у тому, що ми не плануємо нічого, що вирівняло б ці 15. Можна й прибрати -1. Так само легко перекласти це в Харизму. Це не має значення й цілком залежить від вас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 (8)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 (8)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 (10)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 (10)"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кобольд{{Kobold}} з MMoM. Спадщина кобольдів теж чудово підійшла б, але «Драконячий крик» майже як додаткові використання «Бойового духу», тільки для всієї вашої команди. Спадщина кобольдів також доволі приємна (хотілося б, щоб вони обрали менш двозначну назву)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо «Драконячу магію»{{Draconic Sorcery}} заради замовляння «Захист від зброї [Blade Ward]». Воно насправді досить корисне як заміна «Ухиляння», коли бонуси атаки ворогів сягають +10 і вище й "
+                },
+                {
+                  "type": "link",
+                  "text": "«Ухиляння» стає менш надійним",
+                  "href": "https://www.youtube.com/watch?v=GQfB_pTVstM"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як варіант, «Непокора»{{Defiance}} дала б нам Перевагу на кубику проти ефектів Страху. Бути Наляканим погано, тож бути кращим проти таких ефектів — чудово."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Далекий мандрівник{{Far Traveler}} дає все, що нам потрібно, щоб бути тим мандрівним {{ронін|ronin (закреслено в оригіналі)}} стрільцем, що приходить у місто, рятує ситуацію й зникає. Ми отримуємо володіння Непомітністю й Уважністю. Як інструмент мусимо взяти володіння Набором гральних карт. Це просто обовʼязково. Ми добре граємо в карти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічого від раси. Від Воїна беремо Виживання й Акробатику. Самурай дає додатковий вибір на 3-му рівні, тож беремо Аналіз Поведінки, бо маємо трохи Мудрості. Як зазначено вище, наша передісторія дає Непомітність і Уважність, а також Набір гральних карт."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воїни мають більше покращень характеристик, ніж інші класи, і ми беремо всі двадцять рівнів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На четвертому беремо «Стрільця»{{Gunner}}. Як описано вище, якщо наша кампанія не дозволяє вогнепальну зброю, ми все одно використаємо це з Коротким луком, бо це дозволяє нам просто бути впритул до супротивників, щоб використовувати «Драконячий крик»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На шостому беремо «Стійкого»{{Resilient}} (Спритність). Те, що Воїн має додаткові покращення характеристик, означає, що ми можемо підкинути додаткові Гібридні риси на 6-му й 8-му, на відміну від інших класів, що змушені брати +2 на 8-му. Ми обираємо «Стійкого» зі Спритністю, бо Воїн отримує Статуру, а Самураї — Мудрість, то чому б не мати велику трійку?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як варіант, «Експерт у навичках»{{Skill Expert}} підійшов би, якщо вам потрібна ще якась навичка й трохи Експертизи для вашого Самурая. «Ельфійська точність»{{Elven Accuracy}} теж добре пасувала б, якби ви обрали бути Ельфом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На восьмому беремо «Проколювача»{{Piercer}}, щоб довести Спритність до 20 і дати перекидання кубиків шкоди. Також, оскільки ми користуємося Мушкетом із кубиком шкоди 1к12, ми отримуємо 3к12 при критичному влучанні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На дванадцятому «Влучний стрілець»{{Sharpshooter}} дає чудове підвищення шкоди й вичавлює трохи більше дальності з нашого Мушкета. Навіть із цим максимальна дальність нашого Мушкета на 30 футів менша, ніж може Довгий лук без цієї риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На чотирнадцятому, шістнадцятому й девʼятнадцятому беремо +2 Статури двічі й рису «Здоровань»{{Tough}} у будь-якому порядку. Для цієї збірки ми взяли «Здоровань» останньою, щоб вирівняти ряткидки Статури. Завдяки цьому на 20-му рівні маємо 264 ХП. Як варіант, можна розглянути риси на кшталт «Удачі»{{Lucky}}, що легко вписуються в будь-яку збірку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання, Темний зір, Драконячий крик, Спадщина кобольдів, Драконяча магія: Захист від зброї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми — звичайний воїн-лучник. Ми влучаємо трохи частіше завдяки Бойовому Стилю «Стрільба з лука». Одягніть середній обладунок і візьміть легкий арбалет. Він послужить достатньо добре, доки ми не отримаємо володіння вогнепальною зброєю від риси «Стрілець». Властивість Заряджання має значення лише тоді, коли ми маємо додаткову атаку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Сплеск дій» такий сильний, що деякі інші класи беруть два рівні Воїна замість своїх 19-го й 20-го, бо це просто краще."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Військовий Архетип{{Martial Archetype}}: Самурай, Додаткова майстерність: Аналіз Поведінки, Бойовий дух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми отримуємо підклас Самурая. Ми отримуємо безкоштовне володіння навичкою й беремо Аналіз Поведінки, бо маємо показник Мудрості, щоб це використовувати. «Бойовий дух» чудовий. У нас уже була схожа здатність від «Драконячого крику», але «Бойовий дух» дасть трохи тимчасових ХП і працює з будь-якої дистанції, тоді як «Драконячий крик» обмежений 10 футами.\n\nМи можемо використовувати ці здібності в різних ситуаціях, тож чудово мати обидві. Принаймні вважайте «Драконячий крик» додатковими використаннями «Бойового духу» на день."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стрілець, Спритність +1 (17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гаразд, відкладіть цей арбалет, Енні, і хапайте рушницю. Тепер у нас немає проблем зі стрільбою, коли вороги підбігають до нас, що зручно підводить їх у зону «Драконячого крику». Наша Спритність теж зростає до 18."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Подвійний постріл. Дякуємо, «Стрілець»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Спритність), Спритність +1 (18 → 19)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння ряткидками Спритності допомагає нам краще ухилятися від набридливих «Вогнекуль» і всього подібного."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вишуканий придворний{{Elegant Courtier}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми можемо додавати Мудрість до перевірок Переконання. Також отримуємо володіння ряткидками Мудрості, що допомагає відбиватися від виснажливих ефектів від поганих {{бандитів|bandits (закреслено в оригіналі)}} заклиначів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Проколювач, Спритність +1 (19 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Проколювач» на к12 — чудово. Перекидання дає приблизно "
+                    },
+                    {
+                      "type": "link",
+                      "text": "+2 до DPR",
+                      "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/#piercer"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", а бонус при критичному влучанні такий великий, як тільки може бути."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність{{Indomitable}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми маємо володіння чотирма ряткидками, і тепер можемо спробувати знову раз на день, якщо все ж провалимося. Це й називають справжньою витримкою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невтомний дух{{Tireless Spirit}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо ми починаємо бій без жодного використання «Бойового духу», ми одне повертаємо. Це означає, що в кожному бою ми маємо використовувати його принаймні раз. Між цим і «Драконячим криком» протягом типового пригодницького дня (6–8 бойових зіткнень по приблизно 3 раунди з 2 Короткими відпочинками між ними) ми маємо мати Перевагу на кубику частіше, ніж не мати. Крім того, тимчасові ХП від «Бойового духу» зростають із 5 до 10 на цьому рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака (2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Напівавтомат."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Влучний стрілець"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер у нас справді пристойна дальність із цією зброєю. До того ж між Перевагою на кубику та «Стрільбою з лука» штраф -5 заради +10 до шкоди майже завжди нам вигідний."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність (2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер можна повторити ряткидок Спритності, щоб уникнути скрипучої дошки підлоги, і ряткидок Статури, щоб утримати червʼяка з текіли, перш ніж доведеться відпочивати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 до Статури (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми дійшли до 14-го рівня, перш ніж взяти звичайне покращення характеристик. Очки вкладаємо в Статуру, щоб мати більше ХП і кращі ряткидки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Швидкий удар{{Rapid Strike}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Коли ми атакуємо з Перевагою на кубику, ми атакуємо ще швидше, обмінюючи Перевагу на одній атаці на дві звичайні атаки. Зазвичай цей прийом називають стрільбою «віялом». «Бойовий дух» також покращується з 10 до 15 тимчасових ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 до Статури (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знову у Статуру заради ХП і ряткидків."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій (2), Непохитність (3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тягнемося до неба й зриваємо з нього більше «Сплеску дій» і здатність перекидати більше провалених ряткидків. Чудовий рівень."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила перед смертю{{Strength Before Death}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замість смерті ми витрачаємо реакцію, щоб просто виконати цілий хід посеред іншого ходу. Навіть власного, якщо ми якось опустилися до 0 під час нього. Знаєте, як ми близько до 0 і просто стріляємо собі в обличчя останньою атакою зі «Сплеску дій» і отримуємо безкоштовний хід."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Здоровань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП, менше смерті."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака (3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мушкет? Радше автоматична гвинтівка."
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-levels-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На двадцятому існує два способи виміряти теоретичний максимальний хід. Різниця в тому, чи робимо ми якісь витівки, щоб активувати «Силу перед смертю» посеред власного ходу, чи ні. Через точний розрахунок часу всього, що треба виконати, щоб отримати з цього максимальну силу, не померши, ми не використовуватимемо цього під час нашого ходу на повну потужність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-levels-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Використані ресурси: «Сплеск дій» і «Драконячий крик» або «Бойовий дух»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-levels-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Припустимо, що в нас немає магічної зброї +X."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-levels-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Починаємо хід з активації «Крику» або «Духу» залежно від дальності до цілі. Оголошуючи дію Атака, оскільки ми маємо Перевагу на кубику, можемо обміняти одну з наших атак на дві атаки без Переваги завдяки «Швидкому удару». Ми маємо Бойовий Стиль «Стрільба з лука» і рису «Влучний стрілець», тож згідно з "
+                },
+                {
+                  "type": "link",
+                  "text": "Фундаментальною математикою",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": " нам треба викинути 11 на к20, щоб завдати 1к12+5+10.\n\nТакож через рису «Проколювач» ми завдаємо додатковий 1к12 при критичному влучанні. Ми маємо дві атаки без Переваги чи Перешкоди на кубику й три атаки з Перевагою на кубику."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-levels-6",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кубики"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкий удар"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Перевага"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Разом"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к12+5+10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11.08*2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17.39*3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "74.33"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-levels-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Далі можна використати «Сплеск дій», щоб зробити ще одну дію Атака. Проте ми вже використали «Швидкий удар» цього ходу. Наша друга дія Атака натомість складатиметься з чотирьох атак із Перевагою на кубику."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-levels-8",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кубики"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Перевага"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Разом"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к12+5+10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17.39*4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "69.57"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-levels-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Разом це складає 143,9. Оскільки ми маємо два «Сплески дій» за Короткий відпочинок і завжди маємо принаймні один «Бойовий дух» на бій, за типового пригодницького дня (6–8 бойових зіткнень по приблизно 3 раунди з 2 Короткими відпочинками між ними) ми можемо робити це шість разів на день, бо матимемо стільки «Сплесків дій» протягом відпочинків дня."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-levels-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але це теоретичний соло-DPR. D&D рідше нагадує «Йоджімбо» і частіше «Чудову сімку». Якщо командна робота дозволяє нам отримувати Перевагу на кубику, ми можемо зберегти «Драконячий крик» і «Бойовий дух» на коли вони знадобляться."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-fighter-samurai-2014-001",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Додаткова майстерність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-002",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Бойовий дух",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-003",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Вишуканий придворний",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-004",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Невтомний дух",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-005",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Швидкий удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-006",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Сила перед смертю",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-007",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-ability-scores",
+      "targetBlockId": "block-section-samurai-ability-scores-2",
+      "optionId": "section-samurai-ability-scores-block-section-samurai-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-samurai-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-008",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-ability-scores",
+      "targetBlockId": "block-section-samurai-ability-scores-3",
+      "optionId": "section-samurai-ability-scores-block-section-samurai-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-samurai-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-009",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-ability-scores",
+      "targetBlockId": "block-section-samurai-ability-scores-4",
+      "optionId": "section-samurai-ability-scores-block-section-samurai-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-samurai-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-010",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-ability-scores",
+      "targetBlockId": "block-section-samurai-ability-scores-5",
+      "optionId": "section-samurai-ability-scores-block-section-samurai-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-samurai-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-011",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-ability-scores",
+      "targetBlockId": "block-section-samurai-ability-scores-6",
+      "optionId": "section-samurai-ability-scores-block-section-samurai-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-samurai-ability-scores-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-012",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-ability-scores",
+      "targetBlockId": "block-section-samurai-ability-scores-7",
+      "optionId": "section-samurai-ability-scores-block-section-samurai-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-samurai-ability-scores-7",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-013",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-races",
+      "targetBlockId": "block-section-samurai-races-2",
+      "optionId": "section-samurai-races-block-section-samurai-races-2-item-0",
+      "context": "Ельфи",
+      "explanationBlockId": "block-section-samurai-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-014",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-races",
+      "targetBlockId": "block-section-samurai-races-2",
+      "optionId": "section-samurai-races-block-section-samurai-races-2-item-1",
+      "context": "Кобольд",
+      "explanationBlockId": "block-section-samurai-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-015",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-races",
+      "targetBlockId": "block-section-samurai-races-2",
+      "optionId": "section-samurai-races-block-section-samurai-races-2-item-2",
+      "context": "Калаштар",
+      "explanationBlockId": "block-section-samurai-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-016",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-fighting-styles",
+      "targetBlockId": "block-section-samurai-fighting-styles-2",
+      "optionId": "section-samurai-fighting-styles-block-section-samurai-fighting-styles-2-item-0",
+      "context": "Стрільба з лукаPHB",
+      "explanationBlockId": "block-section-samurai-fighting-styles-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-017",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-fighting-styles",
+      "targetBlockId": "block-section-samurai-fighting-styles-2",
+      "optionId": "section-samurai-fighting-styles-block-section-samurai-fighting-styles-2-item-1",
+      "context": "Бій наосліп",
+      "explanationBlockId": "block-section-samurai-fighting-styles-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-018",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-fighting-styles",
+      "targetBlockId": "block-section-samurai-fighting-styles-2",
+      "optionId": "section-samurai-fighting-styles-block-section-samurai-fighting-styles-2-item-2",
+      "context": "Бій двома зброямиPHB",
+      "explanationBlockId": "block-section-samurai-fighting-styles-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-019",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-feats",
+      "targetBlockId": "block-section-samurai-feats-1",
+      "optionId": "section-samurai-feats-block-section-samurai-feats-1-item-0",
+      "context": "Експерт з арбалетівPHB",
+      "explanationBlockId": "block-section-samurai-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-020",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-feats",
+      "targetBlockId": "block-section-samurai-feats-1",
+      "optionId": "section-samurai-feats-block-section-samurai-feats-1-item-1",
+      "context": "Ельфійська точність",
+      "explanationBlockId": "block-section-samurai-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-021",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-feats",
+      "targetBlockId": "block-section-samurai-feats-1",
+      "optionId": "section-samurai-feats-block-section-samurai-feats-1-item-2",
+      "context": "Майстер важкої зброї",
+      "explanationBlockId": "block-section-samurai-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-022",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-feats",
+      "targetBlockId": "block-section-samurai-feats-1",
+      "optionId": "section-samurai-feats-block-section-samurai-feats-1-item-3",
+      "context": "Стрілець",
+      "explanationBlockId": "block-section-samurai-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-023",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-feats",
+      "targetBlockId": "block-section-samurai-feats-1",
+      "optionId": "section-samurai-feats-block-section-samurai-feats-1-item-4",
+      "context": "Стійкий",
+      "explanationBlockId": "block-section-samurai-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-samurai-2014-024",
+      "articleId": "rpgbot-fighter-samurai-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+      "sectionId": "section-samurai-feats",
+      "targetBlockId": "block-section-samurai-feats-1",
+      "optionId": "section-samurai-feats-block-section-samurai-feats-1-item-5",
+      "context": "Влучний стрілецьPHB",
+      "explanationBlockId": "block-section-samurai-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

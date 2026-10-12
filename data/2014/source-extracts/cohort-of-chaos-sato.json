@@ -1,0 +1,79 @@
+{
+  "sourceUrl": "https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/e5f3e77b303a92df10487207857200245e71957c/data/feats.json",
+  "revision": "e5f3e77b303a92df10487207857200245e71957c",
+  "fileSha256": "a06e99bdc529e58acb7f3f3ff902c0941e83ba8003cc2caffcccd0c46a804338",
+  "feat": {
+    "name": "Cohort of Chaos",
+    "source": "SatO",
+    "page": 10,
+    "prerequisite": [
+      {
+        "level": 4,
+        "feat": [
+          "scion of the outer planes|sato|scion of the outer planes (chaotic outer plane)"
+        ]
+      }
+    ],
+    "ability": [
+      {
+        "choose": {
+          "from": [
+            "str",
+            "dex",
+            "con",
+            "int",
+            "wis",
+            "cha"
+          ],
+          "amount": 1
+        }
+      }
+    ],
+    "entries": [
+      "You can channel cosmic forces of chaos to gain these benefits:",
+      {
+        "type": "list",
+        "style": "list-hang-notitle",
+        "items": [
+          {
+            "type": "item",
+            "name": "Chaotic Flare",
+            "entries": [
+              "When you roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. Roll a d4 and consult the Chaotic Flares table to determine what happens. A flare lasts until the end of your next turn, and a new flare can't occur until after the first flare ends.",
+              {
+                "type": "table",
+                "caption": "Chaotic Flares",
+                "colStyles": [
+                  "col-2 text-center",
+                  "col-10"
+                ],
+                "colLabels": [
+                  "d4",
+                  "Flare"
+                ],
+                "rows": [
+                  [
+                    "1",
+                    "{@b Battle Fury.} A creature of your choice that you can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks."
+                  ],
+                  [
+                    "2",
+                    "{@b Disruption Field.} Waves of energy ripple around you. Every creature that starts its turn within 5 feet of you, or that moves into that area for the first time on a turn, takes {@damage 1d8} force damage."
+                  ],
+                  [
+                    "3",
+                    "{@b Unbound.} When you move, you can use some or all of your walking speed to teleport yourself once, along with any equipment you're wearing or carrying, up to the distance used to an unoccupied space that you can see."
+                  ],
+                  [
+                    "4",
+                    "{@b Wailing Winds.} Winds swirl in a 15-foot-radius sphere centered on you. You and any other creatures in that area have disadvantage on Wisdom saving throws."
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "browser": "Chrome 154.0.8037.58 and Playwright WebKit",
+  "standalone": "navigator.standalone injected; not native install",
+  "visibility": "visible visibilitychange dispatched with advanced clock",
+  "checks": [
+    {
+      "scenario": "real builds A → B: creator only offers update on repeated focus",
+      "passed": true
+    },
+    {
+      "scenario": "real builds A → B: home reloads only after offer and next focus",
+      "passed": true
+    },
+    {
+      "scenario": "visible back after Next navigation",
+      "passed": true
+    },
+    {
+      "scenario": "WebKit standalone visible modal Back closes one history entry",
+      "passed": true
+    },
+    {
+      "scenario": "WebKit visible back from cold deep link falls back to characters",
+      "passed": true
+    }
+  ]
+}

@@ -52,6 +52,11 @@ type Props = {
   toggleConc: () => void;
   toggleRitual: () => void;
   clearFilters: () => void;
+  ratingFilter?: {
+    facets: { value: string; label: string }[];
+    selected: Set<string>;
+    toggle: (score: string) => void;
+  };
 };
 
 const SPELL_COMPONENTS = Object.keys(SPELL_COMPONENT_LABELS) as SpellComponent[];
@@ -90,6 +95,7 @@ export function SpellsFilterDialog({
   toggleConc,
   toggleRitual,
   clearFilters,
+  ratingFilter,
 }: Props) {
   const [classFilter, setClassFilter] = useState("");
   const [subclassFilter, setSubclassFilter] = useState("");
@@ -141,6 +147,14 @@ export function SpellsFilterDialog({
                 )
               )}
             </Section>
+
+            {ratingFilter && (
+              <Section title="Оцінка RPGbot" hint="за розбором RPGbot для вашого класу">
+                {ratingFilter.facets.map((facet) =>
+                  chip(facet.value, facet.label, ratingFilter.selected.has(facet.value), () => ratingFilter.toggle(facet.value))
+                )}
+              </Section>
+            )}
 
             <Section
               title="Класи"

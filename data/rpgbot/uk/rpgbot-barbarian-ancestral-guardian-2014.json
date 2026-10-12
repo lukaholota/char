@@ -1,0 +1,1733 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-12fd08c88513f38f",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+      "sourceId": "rpgbot-12fd08c88513f38f",
+      "fetchedAt": "2026-09-29T19:09:18.990019+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:25:57-04:00",
+      "contentHash": "b57726012f17a81281509e8fb6f4d14ea4ec1dd607b00facff92141031cf3213",
+      "title": "Path of the Ancestral Guardian Barbarian 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-12fd08c88513f38f-13703f80957bf346.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+    "sourceId": "rpgbot-12fd08c88513f38f",
+    "slug": "barbarian-ancestral-guardian-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях предків-охоронців — гайд підкласу Варвара (2014)",
+    "titleEn": "Path of the Ancestral Guardian Barbarian 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Варвар",
+      "Шлях предків-охоронців",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оптимізація танків — особливий виклик у D&D. Ми часто говоримо про «"
+                },
+                {
+                  "type": "link",
+                  "text": "хибу танка",
+                  "href": "https://rpgbot.net/the-tank-fallacy/"
+                },
+                {
+                  "type": "text",
+                  "text": "»{{Tank Fallacy}}, коли монстри перестають намагатися витягти жилаве мʼясо з дуже важкої для відкривання консервної банки й натомість проходять повз вас до чарівно ніжного чарівника. Різні класи мають різні способи з цим упоратися. Паладини мають «Виклик на дуель [Compelled Duel]». "
+                },
+                {
+                  "type": "link",
+                  "text": "Рунічні лицарі розвʼязують проблему суплексами ворогів",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/rune-knight/"
+                },
+                {
+                  "type": "text",
+                  "text": " (навіть якщо ці вороги — потяги). «Клятва завоювання»{{Oath of Conquest}} розвʼязує цю проблему, "
+                },
+                {
+                  "type": "link",
+                  "text": "паралізуючи ворогів страхом",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/oath-of-conquest/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У Варварів, з іншого боку, є кілька варіантів. Кілька підкласів Варвара тяжіють до образу «завдавай стільки шкоди, що мене не можна ігнорувати», але один натомість дає інструменти, щоб справді захищати друзів: Предок-охоронець. До слова, ми все ще Варвари, тож заглибимося в те, як якнайкраще розрубувати лиходіїв на шматки, не підпускаючи їх до нашої групи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви обираєте цей підклас, ви тут не заради оптимізації шкоди. Ми все одно "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "будемо"
+                },
+                {
+                  "type": "text",
+                  "text": " оптимізувати шкоду, бо план не в тому, щоб бути лише губкою для атак: ви хочете вміти триматися в бою, не покладаючись на членів групи, які вбивали б замість вас.\n\nАле це другорядне порівняно з тим, щоб ми були витривалими й підтримували групу, захищаючи її членів і водночас маючи чудову корисність та пристойну шкоду.\n\nДо того ж ви стаєте однією з украй небагатьох речей, що завжди мають застосування для вашої реакції в раунді, що досить круто."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Предка-охоронця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Предка-охоронця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Предка-охоронця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Предка-охоронця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Предка-охоронця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Предка-охоронця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Лютий через посередню Силу",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#example-build-furious-about-mediocre-strength"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ancestral-guardian-features",
+          "heading": "Уміння Предка-охоронця",
+          "sourceAnchor": "ancestral-guardian-features",
+          "blocks": [
+            {
+              "blockId": "block-section-ancestral-guardian-features-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Духи-предки|Ancestral Protectors}}: це приголомшлива механіка «провокації». Звісно, ціль може атакувати інших, але робить це з Перешкодою на кубику й завдає вдвічі менше шкоди. Тоді атакувати будь-кого, крім вас, здається безглуздим. Вам потрібно по чомусь влучити, щоб це спрацювало, тож неодмінно користуйтеся «Безрозсудною атакою», щоб якомога сильніше підвищити шанси влучити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Щит духів{{Spirit Shield}}: жодних обмежень на частоту використання, крім того, що воно витрачає вашу реакцію. Це "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "величезне"
+                  },
+                  {
+                    "type": "text",
+                    "text": " підвищення живучості вашої групи, і навіть якби воно ніколи не масштабувалося, воно все одно було б чудовим. Єдина проблема — ви не можете використати його на собі, але на щастя, ви отримуєте опір до шкоди від «Люті»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Порада духів|Consult the Spirits}}: «Пророкування [Augury]» і «Підглядання [Clairvoyance]» — два мої улюблені ворожіння, бо вони прості, але надзвичайно корисні. Користуйтеся «Пророкуванням» щоразу, коли ухвалюєте важливе рішення з невідомими ризиками. Користуйтеся «Підгляданням», щоб розвідувати за рогами, за дверима тощо.\n\nНа цьому рівні справжні заклинателі зможуть робити це без зусиль, але ви можете користуватися цим умінням раз за Короткий відпочинок без витрат слотів заклинань, тож робити це самому може бути дешевше для групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Месники-пращури|Vengeful Ancestors}}: реакцією відобразіть до 4к6 шкоди, спрямованої на союзника, назад на нападника. Чудово. Ви можете навіть підштовхувати союзників приймати удар, щоб користуватися цим, особливо проти ворогів із кількома атаками з малою шкодою, щоб надійно відобразити всю шкоду або її більшість від однієї атаки."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ancestral-guardian-ability-scores",
+          "heading": "Характеристики Предка-охоронця",
+          "sourceAnchor": "ancestral-guardian-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ancestral-guardian-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: живить наші атаки й, нагадаю, нам треба по чомусь влучати, щоб застосувати дебаф танкування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ancestral-guardian-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: ми хочемо заповнити лише середні обладунки, якщо тільки ви не кидаєте кубики на характеристики й не отримуєте три високі результати. Якщо так, можна скористатися унікальною версією «Захисту без обладунків», яку дає клас, і зробити всі три фізичні характеристики якомога вищими."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ancestral-guardian-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: чим більше Статури, тим краще. Ми стимулюємо ворогів атакувати нас і маємо витримувати ці удари."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ancestral-guardian-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ancestral-guardian-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: усе, що лишиться, вкладайте сюди, щоб поширений розумовий ефект не вивів вас із бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ancestral-guardian-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ancestral-guardian-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ancestral-guardian-races",
+          "heading": "Раси Предка-охоронця",
+          "sourceAnchor": "ancestral-guardian-races",
+          "blocks": [
+            {
+              "blockId": "block-section-ancestral-guardian-races-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Аазимар-Бич|Scourge Aasimar}}: якщо вам вдасться переконати Майстра дозволити стару версію, але налаштувати її за правилами Таші, це має особливо добру нішу для вас. «Променеве спалювання»{{Radiant Consumption}}, що завдає вам шкоди щоходу, підтримуватиме вашу лють, навіть якщо ви схибите всюди й вас не атакують, — дуже рідкісна й корисна властивість."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Хобгоблін{{Hobgoblin}}: Предок-охоронець — один із підкласів, що за замовчуванням не має способу використовувати бонусну дію щоходу під час люті, а оскільки ми виконуємо роботу танка, можна додати туди й трохи підтримки."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ancestral-guardian-feats",
+          "heading": "Риси Предка-охоронця",
+          "sourceAnchor": "ancestral-guardian-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-ancestral-guardian-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ельфійська точність{{Elven Accuracy}}: вислухайте мене. Якщо ви маєте якийсь спосіб отримувати надійну Перевагу на кубику (наприклад, якщо ваш стіл використовує "
+                  },
+                  {
+                    "type": "link",
+                    "text": "варіантне правило флангування",
+                    "href": "https://rpgbot.net/rpgbot-podcast-episode-season-2-episode-1/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), ви насправді можете занедбати Силу, зробити основною Спритність, другою — Статуру й користуватися рапірою та щитом. Ви, очевидно, втрачаєте частину шкоди, але натомість ніколи не користуєтеся «Безрозсудною атакою» (вона працює лише з Силою) і стаєте "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "неймовірно"
+                  },
+                  {
+                    "type": "text",
+                    "text": " витривалим, а з супер-Перевагою на кубику ви значно частіше завдаєте критичних влучань, що запускають «Брутальний крит» і допомагають компенсувати менший кубик шкоди й відсутність бонусу до шкоди від люті."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ancestral-guardian-weapons",
+          "heading": "Зброя Предка-охоронця",
+          "sourceAnchor": "ancestral-guardian-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-ancestral-guardian-weapons-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Велика сокира|Greataxe}}: якщо ви будете звичайним Варваром, це все ще золотий стандарт через «Брутальний крит»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рапіра{{Rapier}}: якщо ви робите дивакуваті танківські речі, це найбільший кубик шкоди серед зброї з властивістю «Спритність»."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ancestral-guardian-armor",
+          "heading": "Обладунки Предка-охоронця",
+          "sourceAnchor": "ancestral-guardian-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-ancestral-guardian-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як описано вище, ви або хочете застосувати свою Спритність 14 в «Нагруднику», або ходити без обладунків."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн{{Fighter}}: класична пара, кілька рівнів Воїна можуть вам дуже допомогти. Буквально кожен персонаж любить «Сплеск дій»{{Action Surge}}, а якщо взяти додатковий рівень, можна перетворитися на Чемпіона, тобто завдавати критичних влучань удвічі частіше. Або можна стати Лицарем луни й насолоджуватися перевагами «Безрозсудної атаки» по ворогу з 30 футів."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-furious-about-mediocre-strength",
+          "heading": "Приклад збірки — Лютий через посередню Силу",
+          "sourceAnchor": "example-build-furious-about-mediocre-strength",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Шадар-Кай",
+                  "href": "https://rpgbot.net/dnd5/characters/races/shadar-kai/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Shadar-Kai}} із "
+                },
+                {
+                  "type": "link",
+                  "text": "«Монстрів Мультивсесвіту»",
+                  "href": "https://www.dndbeyond.com/sources/motm/fantastical-races-continued#Shadarkai"
+                },
+                {
+                  "type": "text",
+                  "text": " чудовий, як описано в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рас для Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Він також ельф."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оберіть Артиста{{Entertainer}}. Обміняйте Виступ на Непомітність, а володіння Набором для гриму на Інструменти злодія. Вітаю, ви — роуді."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки наш Інтелект пристойний, беремо Природу й Розслідування. Разом із навичками з передісторії (Акробатика й Непомітність) ми стаємо напрочуд добрим Розвідником і заміною Пройдисвіта. Хоча ми занедбуємо і Мудрість, і Харизму, додаткові володіння від додаткового класового уміння «Первісне знання» можуть стати в пригоді, якщо ви колись захочете залякувати людей чи тварин."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збірка тримається на "
+                },
+                {
+                  "type": "link",
+                  "text": "«Ельфійській точності»",
+                  "href": "https://rpgbot.net/oops-all-elves/"
+                },
+                {
+                  "type": "text",
+                  "text": ", тож беремо її на 4-му. Далі стає дивно. Ми насправді не отримуємо наступне підвищення характеристик до 10-го рівня персонажа, але ми жорстоко ламаємо фундаментальну математику, щоб "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "насправді"
+                },
+                {
+                  "type": "text",
+                  "text": " не відставати. Один дивний рівень, де ми підвищуємо і Спритність, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "і"
+                },
+                {
+                  "type": "text",
+                  "text": " Статуру, а потім «Кухар», щоб заокруглити це до парного числа."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 – Варвар 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист без обладунків, Лють"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Візьміть стартове золото й вийдіть із рапірою, щитом і коротким луком. Технічно це на 10 золотих понад середнє, але якщо Майстер буде буркотуном із цього приводу, можна відмовитися від короткого лука й сподіватися здобути його як здобич. Ми виходимо зі стандартним оптимізованим КБ 18 разом зі щитом, але ми також феноменальні в ряткидках Статури й набагато кращі в ряткидках Спритності, ніж маємо право бути як Варвар. «Лють» зараз — лише інструмент для отримання опору до дробячої/колючої/ріжучої шкоди. Вмикайте її, якщо переживаєте за свою живучість у бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 – Варвар 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безрозсудна атака, Відчуття небезпеки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми ніколи не використовуємо «Безрозсудну атаку». «Відчуття небезпеки» дуже приємне, бо наша Спритність і так висока сама по собі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 – Варвар 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Духи-предки{{Ancestral Protectors}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер нам треба впадати в лють у кожному бою. До речі, на цьому рівні ми отримуємо ще одну. Переконайтеся, що кожного ходу ви бʼєте рапірою щось страшне, щоб накласти дебаф і підтримувати лють."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 – Варвар 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ельфійська точність (+1 Спритність)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ви витратите один рівень, дуже засмучуючись, що більша частина цієї риси нечасто щось вам дає. Проте у вас є темний зір, тож якщо можна битися з тим, хто його не має, у темному місці, це спрацює."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 – Чарівник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічне відновлення; нові замовляння: Гримучий Клинок, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Формування води",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "; підготовлені заклинання: Негайний відступ, Падіння пірʼїною, Захист від зла й добра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Магічне відновлення» — приємна дрібниця, але, чесно кажучи, ми тут не для того, щоб накладати заклинання. Ми тут, тому що на додачу до трьох підготовлених заклинань у вас у книзі заклинань є ще три. Усі вони мають бути ритуалами. Два з них можна підбирати під потреби групи (наполегливо рекомендую «Виявлення магії [Detect Magic]» і «Розпізнавання [Identify]», але якщо у вас уже є справжній чарівник, можна обрати інші), а останнє — «Пошук фамільяра [Find Familiar]».\n\nЩойно ви отримаєте свою сову, вона сидить у вас на плечі й щохода використовує дію Допомога, щоб дати вам Перевагу на кубику на перший кидок атаки. Це щохода спрацьовуватиме «Ельфійську точність» без жодних інших вимог.\n\nТакож ваш фамільяр може вилити на ваше плече флакон кислоти, щоб підтримувати вашу лють, якщо ви витрачаєте хід на пересування коридорами чи щось таке й не можете атакувати з короткого лука. Заклинання, які ми "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "таки"
+                    },
+                    {
+                      "type": "text",
+                      "text": " беремо, — з дуже конкретної причини: ви не можете накладати заклинання й підтримувати Концентрацію на них під час люті. «Негайний відступ» корисний, щоб наздоганяти ворогів до початку бою або поза боєм просто дуже швидко бігти 10 хвилин. «Падіння пірʼїною» є на випадок, якщо ми впадемо з чогось поза боєм, а «Захист від зла й добра» — через здатність знімати стани поза боєм.\n\nІз замовлянь здебільшого утилітарні, а «Гримучий Клинок» там, щоб я міг робити розрахунки DPR на вищих рівнях."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 – Варвар 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Швидкий рух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо говорити про швидкість, і наша рапіра, і наші ноги на цьому рівні стають швидшими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 – Варвар 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Щит духів (2к6)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Я вже казав, як це добре, і стою на своєму. Лише памʼятайте, що дальність лише 30 футів, тож треба лишатися в зоні дії, щоб захищати союзників."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 – Чарівник 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканне відхилення, Тактична кмітливість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Арканне відхилення» — це реакція на випадок, коли вороги попадуться на нашу схему танкування й вирішать атакувати нас. Або особливо якщо вони спробують вивести нас із гри ряткидком Мудрості. Недолік буквально відсутній, бо ми все одно не можемо накладати заклинання. «Тактична кмітливість» починає створювати невеличку проблему.\n\nТехнічно ваш фамільяр кидає окрему ініціативу від вас і не може Допомагати, якщо ще не діяв. Звісно, ніщо, крім пристойності, не заважає вашому фамільяру постійно готувати дію, щоб використати «Допомогу», коли він у межах 5 футів від ворога."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 – Варвар 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дикий інстинкт{{Feral Instinct}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це стає ще важливішим тепер, коли у вас є Перевага на кубику і +6 до ініціативи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 – Варвар 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність 17 → 19"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 – Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль (Дуель), Друге дихання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вас може спокушати Бойовий Стиль «Оборона», але чомусь він працює лише тоді, коли на вас обладунок, а на нас його немає. Тож ми просто сильніше колемо. Тепер це як отримати постійний бонус до шкоди від люті низького рівня. «Друге дихання» — нормальне, якщо ми не робимо нічого іншого бонусною дією на своєму ході."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 – Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це може компенсувати хід на початку бою, коли у нас не буде Переваги на кубику, якщо ваш фамільяр ще не діяв. Використайте його на 4 атаки замість двох — майже так само добре."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 – Воїн 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращений критичний удар{{Improved Critical}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Два помахи за хід з «Ельфійською точністю» і «Покращеним критичним ударом» дають нам майже 50 % шансу критичного влучання. Проте за замовчуванням наша сова-помічник дає нам Перевагу на кубику лише на першу атаку, тож наш реальний шанс критичного влучання становить лише близько 30 % за хід самотужки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 – Воїн 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура 16 → 17, Спритність 19 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще більше підвищуємо і КБ, і ХП, ми наближаємося до піку живучості."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 – Варвар 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит{{Brutal Critical}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Памʼятаєте, як ми завдаємо критичного влучання приблизно раз на три ходи? Тож це означає, що коли ми це робимо, воно бʼє ще на 4,5 середньої шкоди. Це означає, що в цій збірці це варте приблизно 1,5 DPR. Порівняйте це з безрозсудною атакою заради Переваги на кубику з великою сокирою, що дає лише близько 0,5 DPR"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 – Варвар 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Порада духів, Щит духів (3к6)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Уявіть, що ви продовжили Чарівником, і використайте заклинання ворожіння раз за Короткий відпочинок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 – Варвар 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невпинна лють{{Relentless Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Я не зовсім певен, "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "як"
+                    },
+                    {
+                      "type": "text",
+                      "text": " щось могло б опустити вас до 0 ХП, але про всяк випадок: ви, найімовірніше, пройдете ряткидок Статури принаймні перші два рази, кидаючи з +9.\n\nТакож ніщо не заважає вам використати «Арканне відхилення» на цьому ряткидку, що зрівнює ваш бонус із "
+                    },
+                    {
+                      "type": "link",
+                      "text": "тим іншим безглуздим прикладом збірки",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Це також рівень, на якому замовляння досягають максимуму. Якщо з якоїсь причини ви не в люті, «Гримучий Клинок» завдасть функціонально ідентичної DPR, що й дві атаки, приблизно 29.\n\nПроте якщо ваша ціль потім рухається, це число зростає до 46. Може, у вас закінчилися люті. Може, це перший раунд, і ви хочете застосувати «Гримучий Клинок», «Сплеск дій», «Лють» і зробити дві атаки, перш ніж вийти з досягу, упевнено, що ваш величезний КБ і ХП не зважатимуть на Принагідну атаку. Це, безперечно, виглядає мені досить чудовим ходом."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 – Варвар 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кухар (+1 Статура)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На жаль, ми ніколи не зможемо довести Статуру до максимуму, але весь досвід, набутий у пригодах, ми перетворюємо на смачні ласощі, щоб дати групі тимчасові ХП — приємний буфер, який ми все ще можемо захищати (а згодом перетворювати на шкоду) за допомогою «Щита духів»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 – Варвар 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит (два кубики)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще 1,5 DPR завдяки нашому величезному шансу критичного влучання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 – Варвар 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Месники-пращури{{Vengeful Ancestors}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Феноменальне завершення цієї збірки. Якщо щось вирішує атакувати нас, воно має впоратися з абсурдними захистами, описаними вище. Якщо щось атакує нашого друга, у нього справді поганий день. Це як мати нескінченні накладання «Обладунку Агатіса [Armor of Agathys]» на інших людей реакцією."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-001",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-features",
+      "targetBlockId": "block-section-ancestral-guardian-features-1",
+      "optionId": "section-ancestral-guardian-features-block-section-ancestral-guardian-features-1-item-0",
+      "context": "Духи-предки",
+      "explanationBlockId": "block-section-ancestral-guardian-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-002",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-features",
+      "targetBlockId": "block-section-ancestral-guardian-features-1",
+      "optionId": "section-ancestral-guardian-features-block-section-ancestral-guardian-features-1-item-1",
+      "context": "Щит духів",
+      "explanationBlockId": "block-section-ancestral-guardian-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-003",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-features",
+      "targetBlockId": "block-section-ancestral-guardian-features-1",
+      "optionId": "section-ancestral-guardian-features-block-section-ancestral-guardian-features-1-item-2",
+      "context": "Порада духів",
+      "explanationBlockId": "block-section-ancestral-guardian-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-004",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-features",
+      "targetBlockId": "block-section-ancestral-guardian-features-1",
+      "optionId": "section-ancestral-guardian-features-block-section-ancestral-guardian-features-1-item-3",
+      "context": "Месники-пращури",
+      "explanationBlockId": "block-section-ancestral-guardian-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-005",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-ability-scores",
+      "targetBlockId": "block-section-ancestral-guardian-ability-scores-1",
+      "optionId": "section-ancestral-guardian-ability-scores-block-section-ancestral-guardian-ability-scores-1",
+      "context": "Сила",
+      "explanationBlockId": "block-section-ancestral-guardian-ability-scores-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-006",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-ability-scores",
+      "targetBlockId": "block-section-ancestral-guardian-ability-scores-2",
+      "optionId": "section-ancestral-guardian-ability-scores-block-section-ancestral-guardian-ability-scores-2",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-ancestral-guardian-ability-scores-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-007",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-ability-scores",
+      "targetBlockId": "block-section-ancestral-guardian-ability-scores-3",
+      "optionId": "section-ancestral-guardian-ability-scores-block-section-ancestral-guardian-ability-scores-3",
+      "context": "Статура",
+      "explanationBlockId": "block-section-ancestral-guardian-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-008",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-ability-scores",
+      "targetBlockId": "block-section-ancestral-guardian-ability-scores-4",
+      "optionId": "section-ancestral-guardian-ability-scores-block-section-ancestral-guardian-ability-scores-4",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-ancestral-guardian-ability-scores-4",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-009",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-ability-scores",
+      "targetBlockId": "block-section-ancestral-guardian-ability-scores-5",
+      "optionId": "section-ancestral-guardian-ability-scores-block-section-ancestral-guardian-ability-scores-5",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-ancestral-guardian-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-010",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-ability-scores",
+      "targetBlockId": "block-section-ancestral-guardian-ability-scores-6",
+      "optionId": "section-ancestral-guardian-ability-scores-block-section-ancestral-guardian-ability-scores-6",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-ancestral-guardian-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-011",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-races",
+      "targetBlockId": "block-section-ancestral-guardian-races-1",
+      "optionId": "section-ancestral-guardian-races-block-section-ancestral-guardian-races-1-item-0",
+      "context": "Аазимар-Бич",
+      "explanationBlockId": "block-section-ancestral-guardian-races-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-012",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-races",
+      "targetBlockId": "block-section-ancestral-guardian-races-1",
+      "optionId": "section-ancestral-guardian-races-block-section-ancestral-guardian-races-1-item-1",
+      "context": "Хобгоблін",
+      "explanationBlockId": "block-section-ancestral-guardian-races-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-013",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-feats",
+      "targetBlockId": "block-section-ancestral-guardian-feats-1",
+      "optionId": "section-ancestral-guardian-feats-block-section-ancestral-guardian-feats-1-item-0",
+      "context": "Ельфійська точність",
+      "explanationBlockId": "block-section-ancestral-guardian-feats-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-014",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-weapons",
+      "targetBlockId": "block-section-ancestral-guardian-weapons-1",
+      "optionId": "section-ancestral-guardian-weapons-block-section-ancestral-guardian-weapons-1-item-0",
+      "context": "Велика сокира",
+      "explanationBlockId": "block-section-ancestral-guardian-weapons-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-015",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-ancestral-guardian-weapons",
+      "targetBlockId": "block-section-ancestral-guardian-weapons-1",
+      "optionId": "section-ancestral-guardian-weapons-block-section-ancestral-guardian-weapons-1-item-1",
+      "context": "Рапіра",
+      "explanationBlockId": "block-section-ancestral-guardian-weapons-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-ancestral-guardian-2014-016",
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-1",
+      "optionId": "section-multiclassing-block-section-multiclassing-1-item-0",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-multiclassing-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

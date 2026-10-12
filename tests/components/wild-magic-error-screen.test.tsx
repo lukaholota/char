@@ -1,18 +1,34 @@
 // @vitest-environment jsdom
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
+
+const { SurgeTableDialog } = vi.hoisted(() => ({ SurgeTableDialog: vi.fn() }));
 
 vi.mock("@/lib/components/problemReport/ReportProblemDialog", () => ({
   ReportProblemDialog: ({ open }: { open: boolean }) => (open ? <div>Діалог скарги відкритий</div> : null),
 }));
 
-vi.mock("@/components/errors/WildMagicSurgeTableDialog", () => ({
-  WildMagicSurgeTableDialog: ({ open }: { open: boolean }) => (open ? <div>Таблиця Дикої магії відкрита</div> : null),
-}));
+vi.mock("@/components/errors/WildMagicSurgeTableDialog", () => ({ WildMagicSurgeTableDialog: SurgeTableDialog }));
+
+vi.mock("@/lib/monitoring/report-error", () => ({ reportBoundaryError: vi.fn() }));
 
 import { WildMagicErrorScreen } from "@/components/errors/WildMagicErrorScreen";
 import { WILD_MAGIC_ERROR_COPIES, findSeededCopyIndex } from "@/components/errors/wild-magic-error-copy";
+
+beforeEach(() => {
+  SurgeTableDialog.mockReset();
+  SurgeTableDialog.mockImplementation(({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) =>
+    open ? (
+      <div>
+        Таблиця Дикої магії відкрита
+        <button type="button" onClick={() => onOpenChange(false)}>
+          Закрити таблицю
+        </button>
+      </div>
+    ) : null,
+  );
+});
 
 afterEach(cleanup);
 
@@ -62,10 +78,42 @@ describe("Сторінка помилки — екран Сплеску дико
     expect(screen.getByText("Діалог скарги відкритий")).toBeTruthy();
   });
 
-  it("діапазон у таблиці Дикої магії відкриває модалку на error-екрані", () => {
+  it("діапазон у таблиці Дикої магії відкриває модалку на error-екрані", async () => {
     render(<WildMagicErrorScreen seed="x" onRetry={() => {}} />);
     fireEvent.click(screen.getByRole("button", { name: /У таблиці Дикої магії випало/ }));
+    expect(await screen.findByText("Таблиця Дикої магії відкрита")).toBeTruthy();
+  });
+
+  it("діалог таблиці не мунтується, поки його не відкрили: його чанка може не бути в офлайн-кеші", async () => {
+    render(<WildMagicErrorScreen seed="x" onRetry={() => {}} />);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(SurgeTableDialog).not.toHaveBeenCalled();
+  });
+
+  it("після першого відкриття діалог лишається змонтованим: закриття лише ховає його, повторне відкриття миттєве", async () => {
+    render(<WildMagicErrorScreen seed="x" onRetry={() => {}} />);
+    fireEvent.click(screen.getByRole("button", { name: /У таблиці Дикої магії випало/ }));
+    fireEvent.click(await screen.findByRole("button", { name: "Закрити таблицю" }));
+
+    expect(screen.queryByText("Таблиця Дикої магії відкрита")).toBeNull();
+    expect(SurgeTableDialog).toHaveBeenLastCalledWith(expect.objectContaining({ open: false }), undefined);
+
+    fireEvent.click(screen.getByRole("button", { name: /У таблиці Дикої магії випало/ }));
     expect(screen.getByText("Таблиця Дикої магії відкрита")).toBeTruthy();
+  });
+
+  it("якщо чанка таблиці немає, екран помилки лишається на місці й каже про це", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    SurgeTableDialog.mockImplementation(() => {
+      throw new Error("Failed to load chunk /_next/static/chunks/4d06c63f6d8d6809.js from module 154596");
+    });
+    render(<WildMagicErrorScreen seed="x" onRetry={() => {}} />);
+
+    fireEvent.click(screen.getByRole("button", { name: /У таблиці Дикої магії випало/ }));
+
+    expect(screen.getByRole("heading", { level: 1 })).toBeTruthy();
+    expect((await screen.findByRole("status")).textContent).toContain("ще не збережена");
+    expect(screen.getByRole("button", { name: "Спробувати ще раз" })).toBeTruthy();
   });
 
   it("без reset лишається тільки повернення на головну", () => {

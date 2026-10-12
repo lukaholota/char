@@ -1,0 +1,2067 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-70747a40b02abe28",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-70747a40b02abe28-4c9f6423a357d26d",
+      "sourceId": "rpgbot-70747a40b02abe28",
+      "fetchedAt": "2026-09-29T19:14:59.913073+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:26:40-04:00",
+      "contentHash": "d7d28d5298e91687b91160a6da4c7e34366bef8ef2cd0e73a811c4456d38a6f4",
+      "title": "Path of the Zealot Barbarian 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-70747a40b02abe28-4c9f6423a357d26d.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-barbarian-zealot-2014",
+    "sourceId": "rpgbot-70747a40b02abe28",
+    "slug": "barbarian-zealot-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях фанатика — гайд підкласу Варвара (2014)",
+    "titleEn": "Path of the Zealot Barbarian 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Варвар",
+      "Шлях фанатика",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "sourceRevisionId": "rpgbot-70747a40b02abe28-4c9f6423a357d26d",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвар Шляху фанатика — це безрозсудний розбишака, що кидається в бій, не переймаючись нічим на світі. Грати за такого — тонкий баланс між посиленням шкоди й тим, щоб не бути надто великим тягарем для групи. Не висушуйте безпричинно ресурси зцілення, бо, не помиляйтеся, ви не танк, а лише важкий нанесник шкоди, що не зупиняється. Тож вивільніть свою (не)святу лють на ворогів і йдіть Шляхом фанатика в імʼя [вставте обране божество]!"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч у Фанатиків лише одне уміння для шкоди — «Божественна лють»{{Divine Fury}}, — воно добре масштабується з рівнями Варвара. Атакуючи двічі з «Безрозсудною атакою», якщо ми дотримуємося "
+                },
+                {
+                  "type": "link",
+                  "text": "фундаментальної математики",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", ми застосуємо цю шкоду в 98,5 % випадків, а з «Майстром важкої зброї» — у 87 %.\n\nУміння на кшталт «Фанатичної стійкості»{{Fanatical Focus}} і «Люті по той бік смерті»{{Rage Beyond Death}}, замість прямого збільшення шкоди, роблять майже неможливим зупинити лють Фанатика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найдивніше уміння Фанатика, безперечно, — «Воїн богів»{{Warrior of the Gods}}. Нагорода за відданість — триматися подалі від богів якомога довше, вільно повертаючись до життя, щоб ніколи не пізнати мирного спокою смерті. Досить кумедно, але й досить корисно.\n\nЯкщо перемогу можна здобути безрозсудністю, то ціна перемоги може становити не більше ніж слот заклинання 3-го рівня, звісно, якщо союзник знає «Відродження [Revivify]»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наша збірка-приклад, Зірковарвар, не робить нічого надто вигадливого. Найрадикальніша відмінність від типового Варвара — те, що ми обрали Астрального ельфа{{Astral Elf}} як расу, бо колорит надто чудовий. Астральні ельфи — це ельфи, які полетіли в космос, щоб бути ближчими до своїх богів, тож, звісно, Варвар-Фанатик ідеально підходить.\n\nОкрім веселого расового вибору, ми маємо доступну збірку, яка в більшості боїв не змушує ухвалювати широкі стратегічні рішення. «Божественна лють» просто автоматично працює під час люті, а «Крок Зоряного Світла»{{Starlight Step}} Астральних ельфів дає кілька веселих тактичних варіантів у бою, що дозволяє справді доступне рубай-коси задоволення від мʼясорубки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Шляху фанатика",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Шляху фанатика",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#path-of-the-zealot-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Шляху фанатика",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#path-of-the-zealot-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Шляху фанатика",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#path-of-the-zealot-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Шляху фанатика",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#path-of-the-zealot-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Шляху фанатика",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#path-of-the-zealot-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Шляху фанатика — Зірковарвар",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#example-path-of-the-zealot-build-starbarian"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/zealot/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Шляху фанатика",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественна лють{{Divine Fury}}: купа бонусної шкоди, а варіанти типів шкоди справді добрі. Користуватися цим можна лише раз за кожен ваш хід (поза власним ходом не можна), тож якщо ви користуєтеся «Безрозсудною атакою», вам, ймовірно, не треба метушитися за додатковими спробами атаки, щоб гарантувати надійне завдання цієї шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Воїн богів|Warrior of the Gods}}: загалом смерть — те, чого ви докладаєте величезних зусиль, щоб уникнути, але якщо хтось і помре в бою, то це Варвар. Заклинання, що воскрешають мертвих, мають дорогі матеріальні компоненти, а це дозволяє їх обійти. Якщо ви дружите з достатньо високорівневим кліриком, вам не треба хвилюватися через передчасну смерть.\n\nНайнижчий варіант — «Відродження [Revivify]», але навіть на високих рівнях «Відродження» буде кращим варіантом, ніж витрачати слот заклинання вищого рівня на щось на кшталт «Оживлення мерців [Raise Dead]». Заохочуйте членів групи отримати «Відродження» якомога раніше й робіть усе, що потрібно, щоб вони були задоволені цим вибором. Подумайте, може, купити їм піцу чи щось таке."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Фанатична стійкість{{Fanatical Focus}}: чудово проти ефектів «врятуйся або страждай» і, оскільки діє раз за лють, ви можете використати його кілька разів за один день."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Запал присутності{{Zealous Presence}}: раз на день, воно не діє на вас і триває лише один раунд, але надання союзникам Переваги на кубику на всі атаки на раунд усе одно потужне. Воно стає кориснішим із розміром групи, тож заохочуйте союзників прикликати істот, мати улюбленців тощо. Якщо їм до того ж треба робити ряткидки, можна вважати це бонусом, бо головна мета цієї здатності — Перевага на кубику на кидки атаки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Лють по той бік смерті|Rage beyond Death}}: випийте «Зілля лікування [Potion of Healing]» прямо перед тим, як лють закінчиться, і ви функціонально не можете померти від втрати ХП, поки вона триває. Ви не можете опуститися нижче 0 ХП, тож поки ви повертаєтеся вище 0 (знову ж «Зілля лікування») до завершення люті, усе гаразд, тож щойно ви досягли 0 ХП, вам більше не треба турбуватися про отримання шкоди.\n\nЄ ефекти, як-от «Розщеплення [Disintegrate]» і «Слово сили: Смерть [Power Word Kill]», що стають дуже страшними, але в іншому разі все гаразд."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-zealot-ability-scores",
+          "heading": "Характеристики Шляху фанатика",
+          "sourceAnchor": "path-of-the-zealot-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-zealot-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і більшість Варварів, ми хочемо Силу, Статуру й Спритність і не надто дбаємо про інші характеристики."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-zealot-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: ми завдаємо шкоди. Це дозволяє нам її завдавати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-zealot-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: нам потрібно достатньо для середніх обладунків. Навіть із «Захистом без обладунків» важко мати достатньо і Статури, і Спритності, не жертвуючи Силою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-zealot-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: не померти — все ще оптимальніше, ніж покладатися на «Воїна богів»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-zealot-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: хтось інший може щось знати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-zealot-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: хтось інший може бути уважним до речей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-zealot-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: хтось інший може розмовляти з речами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-zealot-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-zealot-races",
+          "heading": "Раси Шляху фанатика",
+          "sourceAnchor": "path-of-the-zealot-races",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-zealot-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як Варвар, ми будемо досить міцними, а Фанатик уже приносить пристойну кількість шкоди, тож ми цінимо расові риси, що додають корисності. Зокрема, Фанатик мало покладається на бонусну дію, окрім увімкнення люті й використання «Запалу присутності»{{Zealous Presence}} раз на день. Усе, чого немає нижче, можна знайти в "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рас для Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-zealot-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Астральний ельф{{Astral Elf}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SJ:AiS",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": телепорт бонусною дією дуже приємний для Варвара. Якщо обираєте цей варіант, добре вибрати замовляння «Світло [Light]» як додаткову корисність. Навіть із Темним зором для бачення кольорів потрібне світло."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Своя раса{{Custom Lineage}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": з бонусною рисою на першому рівні можна зробити багато."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Еладрін{{Eladrin}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": телепорт бонусною дією з додатковими ефектами, як-от телепортація союзника замість себе чи трохи вогняної шкоди, дуже приємний для нас, бо ми небагато навантажуємо бонусні дії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шадар-Кай{{Shadar-Kai}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": телепорт бонусною дією з додатковим зменшенням шкоди після телепорту. Хоч лють дає деякі опори, це дає всі опори й навіть може бути зручним, якщо ми бережемо використання люті для іншого бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіант людини{{Variant Human}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": з бонусною рисою на першому рівні можна зробити багато."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-zealot-feats",
+          "heading": "Риси Шляху фанатика",
+          "sourceAnchor": "path-of-the-zealot-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-zealot-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як завжди, про все, чого тут немає, див. "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-zealot-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Майстер древкової зброї|Polearm Master}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у нас немає сталого застосування бонусної дії, тож перетворення її на зброю — велике підсилення шкоди."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-zealot-weapons",
+          "heading": "Зброя Шляху фанатика",
+          "sourceAnchor": "path-of-the-zealot-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-zealot-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так само, як у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-zealot-armor",
+          "heading": "Обладунки Шляху фанатика",
+          "sourceAnchor": "path-of-the-zealot-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-zealot-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-path-of-the-zealot-build-starbarian",
+          "heading": "Приклад збірки Шляху фанатика — Зірковарвар",
+          "sourceAnchor": "example-path-of-the-zealot-build-starbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-example-path-of-the-zealot-build-starbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Зникли в спалаху до нашого часу"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Разом у небесах"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Обітниця, яку ми дали, тримала нас сильними"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Не згасай, настав час сяяти"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "link",
+                  "text": "Burning Bright",
+                  "href": "https://www.youtube.com/watch?v=HXUBQP3ypyk"
+                },
+                {
+                  "type": "text",
+                  "text": " – Star Guardians (League of Legends)"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-path-of-the-zealot-build-starbarian-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З днів давніх, з нерозвіданих регіонів дикого космосу приходить легенда. Легенда про доступний підклас Варвара, що не просить від гравця майже нічого, окрім усіх звичних речей Варвара, як-от лють.\n\nДеяким іншим Варварам доводиться дбати про позиціювання, щоб допомагати союзникам, або використовувати бонусну дію для активації додаткових сил, але ми відмовляємося від складності заради простої бонусної шкоди раз за хід."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-path-of-the-zealot-build-starbarian",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Починаємо з нетипового розподілу: 15 у Силі й Статурі, але 14 у Спритності, а залишок очок — у Мудрості 10, щоб прибрати штрафи для Уважності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Додаткові очки Мудрості не потрібні для нічого особливого, тож їх можна вкласти в будь-яку з розумових характеристик на ваш вибір."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У нас є варіант піти іншим шляхом. Якщо замість цього поставити 15 у Спритність і лишити Мудрість на 8, можна вкласти 3 +1 у фізичні характеристики. Обираючи цей варіант, нам довелося б відмовитися від гібридної риси, запланованої на восьмий рівень, на користь підвищення характеристики на +2 Сили, але натомість наш КБ був би на одиницю вищим надалі, і ми могли б покладатися на «Захист без обладунків» з самого початку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-path-of-the-zealot-build-starbarian",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми використовуємо Астрального ельфа як расу заради колориту й тому, що телепорт бонусною дією приємний. Астральні ельфи мають вибір із трьох замовлянь, і ми беремо «Світло», бо можемо скористатися корисністю: Темний зір не бачить кольорів у темряві."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви хотіли б грати цією расою майже так само, але з іншими ельфами, Шадар-Кай і Еладрін теж цілком підійдуть. Гаренгони також мають варіант руху бонусною дією, але це не телепорт. Космічний ельф, надісланий богами з космосу, — це просто надто весело."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-path-of-the-zealot-build-starbarian",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо передісторію Морського піхотинця{{Marine}}. Хоч вона зазвичай дає Атлетику й Виживання, ми обиратимемо їх зі списку Варвара, що дозволяє обрати будь-які навички на заміну повторюваним із нашої передісторії. Це дає змогу отримати Аналіз Поведінки й Релігію, що тримає нас у темі Воїна богів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-background-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я не можу використовувати передісторії сеттингів у збірці-прикладі, але якщо ви можете, натомість візьміть передісторію Дикого космонавта{{Wildspacer}} зі Spelljammer. Навички ті самі, але передісторія дає рису «Здоровань»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-path-of-the-zealot-build-starbarian",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Астральний ельф дає володіння Уважністю й плаваюче володіння, яке можна змінювати щодовгого відпочинку. Поки що скажемо Непомітність. Воно корисне. Від Варвара беремо Атлетику й Виживання. Від Морського піхотинця (чи Дикого космонавта) беремо Аналіз Поведінки й Релігію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-path-of-the-zealot-build-starbarian",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На четвертому рівні беремо рису «Майстер важкої зброї». З «Безрозсудною атакою» ми можемо надійніше влучати зі штрафом. Альтернативно можна взяти «Майстра древкової зброї» і махати глефою. Завдяки легкій Перевазі на кубику від «Безрозсудної атаки» різниця в DPR між двома варіантами досить мала.\n\nУ нас є кілька важливих речей, що мають використовувати бонусну дію, зокрема активація люті, тож реальний результат залежить від того, як часто спрацьовує реакція «Майстра древкової зброї»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На восьмому рівні беремо рису «Рубака», вкладаючи +1 у Силу. Уповільнення ворогів, коли ми бʼємося, дуже корисне, щоб зіпсувати їхнє позиціювання. Якщо ви беретеся за альтернативні характеристики, обговорені вище, це натомість було б підвищення характеристики на +2 Сили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На дванадцятому рівні беремо підвищення характеристик на +2 Сили, щоб дійти до 20. Ми наздоганяємо "
+                },
+                {
+                  "type": "link",
+                  "text": "Фундаментальну математику",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", щоб якнайкраще завдавати шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На шістнадцятому рівні беремо підвищення характеристик на +2 Статури. Оскільки «Захист без обладунків» дає КБ від Статури, це чудовий спосіб підвищити і ХП, і КБ разом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На девʼятнадцятому рівні беремо ще одне підвищення характеристик на +2 Статури. Так само, як і попереднє."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-path-of-the-zealot-build-starbarian",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Люті/Шкода"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лють, Захист без обладунків\nНавички: Атлетика, Аналіз Поведінки, Уважність, Релігія, Непомітність, Виживання\nІнструменти: Транспорт (суша), Транспорт (вода)\nЗамовляння: Світло\nКрок Зоряного Світла"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо дворучний меч і розмахуємо ним. З «Захистом без обладунків» починаємо з КБ 15, що нормально для цього рівня. Згодом можемо взяти напівлати, щоб носити, доки Статура не стане 20. Окрім того, використовуйте лють у важких боях або коли потрібна додаткова Сила.\n\nБеремо «Світло», бо воно триває годину й не вимагає Концентрації, і не забувайте про телепорт бонусною дією від «Кроку Зоряного Світла».\n\nDPR з великою сокирою, Лють +2: 7,8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відчуття небезпеки, Безрозсудна атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевага на кубику на ряткидки Спритності, які ми бачимо. Добре. Перевага на кубику на кидки атаки, коли ми хочемо: чудово. Те, що по нас легше влучати в обмін на цю Перевагу, — несправедлива угода; ми бʼємо сильніше за них.\n\nDPR з великою сокирою, Лють +2, Безрозсудна атака: 10,73"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шлях фанатика\n– Божественна лють\n– Воїн богів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо шлях Фанатика й отримуємо додаткову шкоду під час люті. Ми можемо зробити її Некротичною або Променевою, і Променева — і тематично, і механічно кращий варіант для цього персонажа. «Воїн богів» — непогане уміння, і ми, безперечно, не хочемо "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "мусити"
+                    },
+                    {
+                      "type": "text",
+                      "text": " ним користуватися, але приємно мати страховку.\n\nDPR з великою сокирою, Лють +2, Безрозсудна атака, Божественна лють 1к6+1: 15,02"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Майстер важкої зброї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стабільна Перевага на кубику від «Безрозсудної атаки» означає, що штраф −5 болить значно менше, ніж інакше. Я включу розрахунки DPR для тієї самої збірки з увімкненим і вимкненим «Майстром важкої зброї». Обмін атаки на шкоду на цьому рівні дає дуже скромне підсилення шкоди, але воно зростає протягом нашої карʼєри, зрештою даючи приріст DPR приблизно +7.\n\nЗвісно, це не враховує жодних бонусних атак, зроблених через те, що ви завдали критичного влучання або довели істоту до 0, тож є певна користь понад голу математику DPR.\n\nDPR з великою сокирою, Лють +2, Безрозсудна атака, Божественна лють 1к6+2: 15,26\nDPR з великою сокирою, Лють +2, Безрозсудна атака, Божественна лють 1к6+2, Майстер важкої зброї: 16,57"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Швидкий рух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бʼємо двічі. Біжимо швидко. Загалом чудовий рівень. Це перший раз, коли ми потрапляємо в діапазон «Високого DPR».\n\nDPR з великою сокирою, Лють +2, Безрозсудна атака, Божественна лють 1к6+2: 27,39\nDPR з великою сокирою, Лють +2, Безрозсудна атака, Божественна лють 1к6+2, Майстер важкої зброї: 31,78"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Фанатична стійкість{{Fanatical Focus}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перекиньте будь-який провалений ряткидок раз за лють. Це чудова страховка від складних ряткидків, що цілять у ваші низькі характеристики.\n\nDPR з великою сокирою, Лють +2, Безрозсудна атака, Божественна лють 1к6+3: 28,51\nDPR з великою сокирою, Лють +2, Безрозсудна атака, Божественна лють 1к6+3, Майстер важкої зброї: 32,70"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дикий інстинкт, Інстинктивний стрибок (за бажанням)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевага на кубику на перевірки ініціативи приємна. Виводить нас на позицію рано. Можливість додати рух тією самою бонусною дією, що починає лють, приємна. Наче половина додаткового «Кроку Зоряного Світла» на початку кожної люті. Зміни DPR немає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Рубака\n+1 Сила (17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми вже рухаємося швидше за більшість "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "і"
+                    },
+                    {
+                      "type": "text",
+                      "text": " можемо телепортуватися. Робити ворогів "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "повільнішими"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — просто підло.\n\nDPR з великою сокирою, Лють +2, Безрозсудна атака, Божественна лють 1к6+4: 31,31\nDPR з великою сокирою, Лють +2, Безрозсудна атака, Божественна лють 1к6+4, Майстер важкої зброї: 34,77"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додатковий кубик при критичному влучанні. Непогано, але й не часта подія.\n\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+4, Брутальний крит 1: 34,26\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+4, Майстер важкої зброї, Брутальний крит 1: 37,19"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Запал присутності{{Zealous Presence}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дайте до десяти союзникам Перевагу на кубику на кидки атаки й ряткидки на хід. Нам доведеться ретельно зважувати, коли це використовувати. Максимум користі залежить від того, скільком союзникам у наступному раунді доведеться робити кидки атаки. Якщо це випадково ще й захистить їх від неприємних ряткидків, це приємно, але набагато менш передбачувано.\n\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+5, Брутальний крит 1: 35,38\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+5, Майстер важкої зброї, Брутальний крит 1: 38,11"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невпинна лють{{Relentless Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Робіть ряткидки, щоб не померти. Добре уміння. Зміни DPR немає, що, на жаль, означає, що ми трохи не дотягуємо до Високого DPR.\n\nЗвідси ми потроху повернемося до Високого DPR на рівнях 12 і 13, а потім триматимемося на самій верхівці діапазону Цільового DPR до кінця діапазону рівнів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Сила +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стаємо сильнішими, бʼємо дужче.\n\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+6, Брутальний крит 1: 39,43\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+6, Майстер важкої зброї, Брутальний крит 1: 43,82"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це ще більше шкоди за критичне влучання, але воно все ще ненадійне.\n\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+6, Брутальний крит 2: 40,70\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+6, Майстер важкої зброї, Брутальний крит 2: 45,09"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лють по той бік смерті{{Rage Beyond Death}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми просто не помираємо звичайними способами, поки лють активна, і лишаємося мертвими наприкінці, лише якщо нас ще не зцілили до завершення люті. Під «звичайними» я маю на увазі ефекти, що дозволяють ряткидки від смерті. Нас усе ще можна розщепити, наприклад, або вбити чимось іще, що оминає ряткидки від смерті.\n\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+7, Брутальний крит 2: 41,84\nDPR з великою сокирою, Лють +3, Безрозсудна атака, Божественна лють 1к6+7, Майстер важкої зброї, Брутальний крит 2: 46,06"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Постійна лють{{Persistent Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "До цього часу «Лють» мала умову: щохода ми мали отримати шкоду або зробити атаку по ворожій істоті, інакше ми не отримуємо повної хвилини. Це прибирає цю частину. Зміни DPR немає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП. Більше КБ. Це піднімає «Захист без обладунків» до КБ 16. На одиницю менше, ніж у напівлатів.\n\nDPR з великою сокирою, Лють +4, Безрозсудна атака, Божественна лють 1к6+8, Брутальний крит 2: 43,59\nDPR з великою сокирою, Лють +4, Безрозсудна атака, Божественна лють 1к6+8, Майстер важкої зброї, Брутальний крит 2: 47,34"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6/+5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Критичні влучання справді приємні, але все ще надто ненадійні.\n\nDPR з великою сокирою, Лють +4, Безрозсудна атака, Божественна лють 1к6+8, Брутальний крит 3: 46,0\nDPR з великою сокирою, Лють +4, Безрозсудна атака, Божественна лють 1к6+8, Майстер важкої зброї, Брутальний крит 3: 49,59"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6/+5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Незламна міць{{Indomitable Might}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сума, яку ми викидаємо на будь-якій перевірці Сили, тепер не може бути нижчою за 20. Приємно для захоплення, лазіння й плавання, гадаю.\n\nDPR з великою сокирою, Лють +4, Безрозсудна атака, Божественна лють 1к6+9, Брутальний крит 3: 47,14\nDPR з великою сокирою, Лють +4, Безрозсудна атака, Божественна лють 1к6+9, Майстер важкої зброї, Брутальний крит 3: 50,56"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6/+5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер «Захист без обладунків» дорівнює напівлатам, тож можна скинути обладунок. Зміни DPR немає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Необмежено/+5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Первісний чемпіон\nСила +4 (20 → 24)\nСтатура +4 (20 → 24)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наші Сила й Статура тепер мають модифікатори +7. Це чудово і для влучності, і для шкоди наших атак, але просто приголомшливо для нашого «Захисту без обладунків», який тепер дає КБ 19.\n\nDPR з великою сокирою, Лють +4, Безрозсудна атака, Божественна лють 1к6+10, Брутальний крит 3: 54,19\nDPR з великою сокирою, Лють +4, Безрозсудна атака, Божественна лють 1к6+10, Майстер важкої зброї, Брутальний крит 3: 61,34"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-barbarian-zealot-2014-001",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Божественна лють",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-002",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Воїн богів",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-003",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Фанатична стійкість",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-004",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Запал присутності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-005",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Лють по той бік смерті",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-006",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-ability-scores",
+      "targetBlockId": "block-section-path-of-the-zealot-ability-scores-2",
+      "optionId": "section-path-of-the-zealot-ability-scores-block-section-path-of-the-zealot-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-path-of-the-zealot-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-007",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-ability-scores",
+      "targetBlockId": "block-section-path-of-the-zealot-ability-scores-3",
+      "optionId": "section-path-of-the-zealot-ability-scores-block-section-path-of-the-zealot-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-path-of-the-zealot-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-008",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-ability-scores",
+      "targetBlockId": "block-section-path-of-the-zealot-ability-scores-4",
+      "optionId": "section-path-of-the-zealot-ability-scores-block-section-path-of-the-zealot-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-path-of-the-zealot-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-009",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-ability-scores",
+      "targetBlockId": "block-section-path-of-the-zealot-ability-scores-5",
+      "optionId": "section-path-of-the-zealot-ability-scores-block-section-path-of-the-zealot-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-path-of-the-zealot-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-010",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-ability-scores",
+      "targetBlockId": "block-section-path-of-the-zealot-ability-scores-6",
+      "optionId": "section-path-of-the-zealot-ability-scores-block-section-path-of-the-zealot-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-path-of-the-zealot-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-011",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-ability-scores",
+      "targetBlockId": "block-section-path-of-the-zealot-ability-scores-7",
+      "optionId": "section-path-of-the-zealot-ability-scores-block-section-path-of-the-zealot-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-path-of-the-zealot-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-012",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-races",
+      "targetBlockId": "block-section-path-of-the-zealot-races-2",
+      "optionId": "section-path-of-the-zealot-races-block-section-path-of-the-zealot-races-2-item-0",
+      "context": "Астральний ельф",
+      "explanationBlockId": "block-section-path-of-the-zealot-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-013",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-races",
+      "targetBlockId": "block-section-path-of-the-zealot-races-2",
+      "optionId": "section-path-of-the-zealot-races-block-section-path-of-the-zealot-races-2-item-1",
+      "context": "Своя раса",
+      "explanationBlockId": "block-section-path-of-the-zealot-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-014",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-races",
+      "targetBlockId": "block-section-path-of-the-zealot-races-2",
+      "optionId": "section-path-of-the-zealot-races-block-section-path-of-the-zealot-races-2-item-2",
+      "context": "Еладрін",
+      "explanationBlockId": "block-section-path-of-the-zealot-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-015",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-races",
+      "targetBlockId": "block-section-path-of-the-zealot-races-2",
+      "optionId": "section-path-of-the-zealot-races-block-section-path-of-the-zealot-races-2-item-3",
+      "context": "Шадар-Кай",
+      "explanationBlockId": "block-section-path-of-the-zealot-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-016",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-races",
+      "targetBlockId": "block-section-path-of-the-zealot-races-2",
+      "optionId": "section-path-of-the-zealot-races-block-section-path-of-the-zealot-races-2-item-4",
+      "context": "Варіант людини",
+      "explanationBlockId": "block-section-path-of-the-zealot-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-zealot-2014-017",
+      "articleId": "rpgbot-barbarian-zealot-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+      "sectionId": "section-path-of-the-zealot-feats",
+      "targetBlockId": "block-section-path-of-the-zealot-feats-2",
+      "optionId": "section-path-of-the-zealot-feats-block-section-path-of-the-zealot-feats-2-item-0",
+      "context": "Майстер древкової зброї PHB",
+      "explanationBlockId": "block-section-path-of-the-zealot-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

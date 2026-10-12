@@ -1,0 +1,212 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "paladin-oath-of-the-watchers-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+    "sourceRevisionId": "rpgbot-740e864d9997128c-e70b545bcfd50c95"
+  },
+  "exampleSection": "section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATH_OF_THE_WATCHERS",
+  "raceKey": "HARENGON_MPMM",
+  "backgroundKey": "FEYLOST",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Great Weapon Fighting"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "subclassKey": "OATH_OF_THE_WATCHERS"
+    },
+    {
+      "level": 4,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (STR)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (INTIMIDATION)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (ATHLETICS)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Шабля з двома лезами (double-bladed scimitar)",
+      "reason": "Автор радить double-bladed scimitar, але цього предмета платформа ще не має (є лише звичайна шабля); замість нього взято найближче: шаблю та глеф для Бою великою зброєю. Для Майстра древкової зброї (запасний варіант автора) глеф підходить.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Музичний інструмент Загубленого у Світі Фей",
+      "reason": "Автор називає музичний інструмент на вибір від передісторії; у каталозі передісторія Загублений у Світі Фей його не містить, тож він не записаний.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Альтернативні риси Рубака та Майстер древкової зброї",
+      "reason": "Автор лише згадує Рубаку і Майстра древкової зброї як альтернативу Експерту у навичках; в основі лишається Експерт у навичках.",
+      "section": "section-feats"
+    }
+  ],
+  "preset": {
+    "title": "Паладин Клятви вартових — Гаренгон",
+    "description": "Паладин Клятви вартових-гаренгон за правилами Таші: Сила 17 і Харизма 16, Бій великою зброєю, Обман і Виживання від Загубленого у Світі Фей, Аналіз поведінки замість расової Уважності.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR",
+      "CHA",
+      "STR"
+    ],
+    "racialAbilityRules": "tasha",
+    "freeRaceSkills": true,
+    "skills": {
+      "selectedClass": [
+        "ATHLETICS",
+        "PERSUASION"
+      ],
+      "race": [
+        "INSIGHT"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": [
+          "SCIMITAR",
+          "GLAIVE"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Гаренгон за правилами Таші: +2 до Сили й +1 до Харизми, як у таблиці автора (Сила 17, Харизма 16). Це вже враховано.",
+    "skillExplanation": "Атлетику й Переконання бере Паладин, Обман і Виживання — Загублений у Світі Фей, а Аналіз поведінки автор бере замість расової Уважності через налаштування походження. Дві мови (расову й від передісторії) ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор радить шаблю з двома лезами й кольчугу; такої шаблі в платформи немає, тож шаблю й глеф узято як найближче, а кольчугу, пʼять списів і набір священика ми обрали за вас — вибір платформи."
+  }
+}

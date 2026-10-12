@@ -1,0 +1,2494 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-0c370626b4827817",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+      "sourceId": "rpgbot-0c370626b4827817",
+      "fetchedAt": "2026-09-29T19:08:36.739409+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:41:28-04:00",
+      "contentHash": "3ba9acae7ee5cd004e5f4017dad181eb6f5f2fd9470af3805b72efa9815f41d7",
+      "title": "Hunter Ranger 5e: DnD Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-0c370626b4827817-c06b415d3208af22.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-ranger-hunter-2014",
+    "sourceId": "rpgbot-0c370626b4827817",
+    "slug": "ranger-hunter-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Конклав мисливця — гайд підкласу Слідопита (2014)",
+    "titleEn": "Hunter Ranger 5e: DnD Subclass Guide",
+    "topics": [
+      "Слідопит",
+      "Конклав мисливця",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мисливця легко відкинути з першого погляду. Зрештою, це один із початкових підкласів «Книги гравця»{{Player’s Handbook}}, він є в SRD і давно існує — напевно ж нові підкласи кращі? Не обовʼязково. Мисливець може бути не видовищним, зате неймовірно послідовний: завдає багато шкоди зброєю кожного ходу, і здалеку, і в ближньому бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У групі архетип Мисливця зосереджений на власній шкоді та виживанні. Але кожне вміння дає вибір, тож конкретні переваги визначає сам Мисливець. Наприклад, {{Вбивця колосів|Colossus Slayer (Hunter)}} додає 1к8 раз за хід при влучанні атакою зброї, а {{Вбивця велетнів|Giant Killer (Hunter)}} дозволяє атакувати реакцією, коли Мисливця атакує Велика чи більша істота, незалежно від влучання або промаху цієї атаки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Справді вирізняє Мисливця {{Мультиатака|Multiattack (Hunter)}}. Більшість архетипів Слідопита на 11-му рівні отримують якесь посилення атаки, зазвичай додаткову шкоду або одну додаткову атаку. Мисливець натомість отримує удар ближнього бою по кожній сусідній цілі або далекобійну атаку по кожній цілі в радіусі 10 футів від точки в межах дальності. Це множить користь додаткової шкоди, зокрема від {{Влучний стрілець|Sharpshooter}} чи Стихійна зброя [Elemental Weapon]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Приклад персонажа робить кілька безглуздих виборів, щоб носити важкі обладунки, частково бути Кліриком і випускати всі можливі стріли. Якщо хочете завдавати шкоди з невеликим доповненням підтримки, він покаже веселий спосіб це зробити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Мисливця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Мисливця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#hunter-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#hunter-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#hunter-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#hunter-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Ближній бій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#melee"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Далекобійний бій",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#ranged"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#hunter-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#hunter-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад персонажа — Клинки Gunnhildr",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#example-hunter-build-gunnhildrs-blades"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класові вміння",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#class-features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Мисливця",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Здобич мисливця|Hunter’s Prey}}: як і вибір бойового стилю, визначає спосіб бою Слідопита. Підбір ворогів, проти яких ваш варіант Здобичі мисливця найефективніший, — центральна частина тактики. Уважно обирайте цілі замість бігти на найближчого ворога."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вбивця колосів{{Colossus Slayer (Hunter)}}: завжди надійний і ефективний. Безкоштовні 1к8 шкоди за раунд — приємне посилення, приблизно рівне бонусам інших підкласів Слідопита. Більшість істот швидко отримують хоч якусь шкоду, тож бонус легко активувати. Він не потребує бонусної дії, як деякі підкласові підсилення, тому бій двома зброями та {{Експерт з арбалетів|Crossbow Expert}} залишаються доречними.\n\nЗазвичай найкращий варіант Здобичі мисливця для ближнього бою: такі персонажі змушені зосереджуватися на одному ворогові, бо зміна цілі часто означає провоковану атаку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вбивця велетнів{{Giant Killer (Hunter)}}: багато ворогів Великі або більші, особливо сильні бійці на кшталт звірів, драконів і поганців. Ціль має атакувати вас, але з пристойним КБ і здатністю пережити кілька атак це чудове джерело шкоди. На жаль, працює не проти всіх ворогів, тож у численних сутичках може не дати користі. Якщо кампанія має багато великих ворогів, як-от «Storm King’s Thunder»{{Storm King’s Thunder}}, це хороший вибір. Інакше можна просто задовольнитися користю лише час від часу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Знищувач орд|Horde Breaker (Hunter)}}: проти численних ворогів істотно підвищує шкоду, але додаткова атака має суворі вимоги. Погано поєднується зі звичними можливостями Слідопита на кшталт Мисливська мітка [Hunter's Mark] і {{Мічений ворог|Favored Foe}}, які заохочують убивати цілі по черзі, а не розподіляти шкоду. Натомість розгляньте підсилення всіх атак зброї, як Стихійна зброя чи Вартовий природи [Guardian of Nature]. Ближньому бою складно застосовувати без збільшеної досяжності, особливо коли вороги атакують союзників, а не оточують вас. Далекобійним персонажам простіше: легко перейти на будь-яких ворогів, які стоять досить близько один до одного."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Оборонна тактика|Defensive Tactics}}: усі варіанти технічно ситуативні, але в девʼяти випадках із десяти я обрав би Захист від мультиатаки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Втеча від орди|Escape the Horde (Hunter)}}: Слідопити витриваліші за Пройдисвітів, тож зазвичай не потребують тікати від ворогів. Якщо потрібно, розгляньте дію Відступ. Якщо тікаєте часто, розгляньте {{Рухливий|Mobile}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Захист від мультиатаки|Multiattack Defense (Hunter)}}: великі поодинокі вороги часто мають кілька атак, особливо на вищих рівнях. Цей бонус КБ часто спрацьовуватиме й запобігатиме великій шкоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Сталева воля|Steel Will (Hunter)}}: ефекти страху поширені, але зазвичай не вбивають. Такий захист також доступний із багатьох джерел, наприклад {{Хоробрість|Brave}} Піврослика."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мультиатака{{Multiattack (Hunter)}}: обидва варіанти чудові. Для максимальної користі шукайте ефекти, які додають шкоду кожній атаці, як-от Магічна зброя [Magic Weapon] або {{Майстер важкої зброї|Great Weapon Master}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Залп|Volley (Hunter)}}: очевидний вибір для далекобійних персонажів. Не надто виграє від Мисливської мітки чи Міченого ворога, але влучання по трьох чи більше ворогах зазвичай завдає більше шкоди, ніж зосередження на одній позначеній цілі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Вихор удару|Whirlwind Attack (Hunter)}}: найбільше виграють персонажі ближнього бою, які не покладаються на дві зброї. Їхні звичайні атаки завдають більше шкоди, а оскільки це не дія Атака, атакувати бонусною дією другою зброєю не можна. На жаль, обмежено істотами в межах 5 футів: збільшена досяжність не додає цілей. Проте навіть персонажі з двома зброями можуть отримати стільки ж атак без витрат бонусної дії та використати її, наприклад, для заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Захист вищого мисливця|Superior Hunter’s Defense}}: Неймовірна спритність явно найкраща, але {{Ухиляння|Evasion (Hunter)}} теж хороше."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Ухиляння|Evasion (Hunter)}}: із високою Спритністю та володінням її ряткидками робить вас практично невразливим до шкоди по області на кшталт Вогнекуля [Fireball] і подихів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Стійкість проти течії|Stand Against the Tide (Hunter)}}: у більшості ситуацій дуже складно правильно розташуватися. А щойно вороги це побачать, логічно розійдуться, щоб не дозволити повторити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Неймовірна спритність|Uncanny Dodge (Hunter)}}: більшість отриманої в грі шкоди походить від атак. Разом із Захистом від мультиатаки можете зменшити шкоду першого влучання, а потім сильно знизити ймовірність наступних."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hunter-ability-scores",
+          "heading": "Характеристики Мисливця",
+          "sourceAnchor": "hunter-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-hunter-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мисливці можуть просто дотримуватися гайда Слідопита й почуватися добре. Або обрати Силу й дворучний меч для поєднання Знищувача орд і Вихору удару. Головна проблема персонажів на Силі — мінімальні характеристики для мультикласування Слідопита: Спритність і Мудрість 13."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сил: частіше обираємо Спритність, але є цікаві персонажі на Силі, тому оцінка помаранчева."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спр: у девʼяти випадках із десяти визначає все важливе. Навіть персонажу на Силі потрібна для середніх обладунків або мінімумів мультикласування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ста: потрібні ХП та концентрація на дуже важливих заклинаннях."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інт: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Муд: Уважність, Виживання, СК ряткидків і мінімум мультикласування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хар: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-ability-scores-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Таблиця припускає персонажа на Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-ability-scores-9",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля очками"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hunter-races",
+          "heading": "Раси",
+          "sourceAnchor": "hunter-races",
+          "blocks": [
+            {
+              "blockId": "block-section-hunter-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд рас Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ": потреби підкласу суттєво не відрізняються."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hunter-feats",
+          "heading": "Риси",
+          "sourceAnchor": "hunter-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-hunter-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо всього, чого тут немає, читайте "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Експерт з арбалетів{{Crossbow Expert}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": може здаватися хорошим вибором, але атака бонусною дією несумісна із Залпом, бо Залп — не дія Атака. Проте це стосується лише рівнів після появи Залпу на 11-му. Можна перейти на важкий арбалет, але тоді риса ще більше програє {{Стрілець|Gunner}}, який також дає +1 до Спритності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Майстер важкої зброї|Great Weapon Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": оскільки отримуємо додаткові атаки по додаткових ворогах, фіксований бонус шкоди дуже хороший."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стрілець{{Gunner}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": навіть без вогнепальної зброї працює з луком, ігноруючи перешкоду за стрільбу зблизька й даючи +1 до Спритності. На високих рівнях Швидкий сагайдак [Swift Quiver] надасть єдину відсутню перевагу Експерта з арбалетів. При цьому Швидкий сагайдак не обмежений Залпом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Важкоозброєний|Heavily Armored}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": для персонажа на Силі без мультикласування стає дуже приємним вибором."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hunter-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "hunter-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-hunter-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Персонажі-Мисливці поділяються між далекобійними та ближніми варіантами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-melee",
+          "parentSectionId": "section-hunter-weapons",
+          "heading": "Ближній бій",
+          "sourceAnchor": "melee",
+          "blocks": [
+            {
+              "blockId": "block-section-melee-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопити володіють усією бойовою зброєю, тож для ближнього бою можна обґрунтувати Силу й важку зброю. Наведені оцінки важкої зброї припускають персонажа на Силі з Вихором удару та Майстром великої зброї."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-melee-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Глефа / Алебарда / Піка: Вихор удару працює лише по істотах у межах 5 футів, але Знищувач орд виграє від збільшеної досяжності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дворучний меч / Дворучний молот: 2к6 за атаку Вихору можуть пошматувати багатьох ворогів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Батіг: для ближнього бою на Спритності може використовувати {{Дуель|Dueling}}. Хоча не отримує шкоди Майстра важкої зброї, це означає, що рису не потрібно брати."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranged",
+          "parentSectionId": "section-hunter-weapons",
+          "heading": "Далекобійний бій",
+          "sourceAnchor": "ranged",
+          "blocks": [
+            {
+              "blockId": "block-section-ranged-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для далекобійного персонажа зазвичай перший вибір — луки, потім вогнепальна зброя. Арбалети не жахливі, але Експерт з арбалетів програє Стрільцю при використанні Залпу. Додатково бонусна дія Слідопита потрібна Мисливській мітці та Швидкому сагайдаку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ranged-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ручний арбалет: до 11-го рівня прийнятний з Експертом з арбалетів. Перейдіть на важкий арбалет, коли почнете використовувати Залп."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Важкий арбалет: проблема в тому, що навіть із Залпом потрібен Експерт з арбалетів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Довгий лук: найгнучкіша зброя, не привʼязана до конкретної риси. Стрілець корисний, якщо хочете стріляти зблизька."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мушкет: найбільша шкода серед далекобійної зброї, але потрібна риса Стрілець."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пістоль: удвічі дешевший за мушкет приблизно на 1 меншу шкоду за раунд."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Короткий лук: ви володієте довгим луком."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hunter-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "hunter-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-hunter-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Гайд Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": " відповідає потребам Мисливців на Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-armor-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "А для Мисливців на Силі з Вихором удару:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hunter-armor-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Латний обладунок: знайдіть спосіб отримати володіння, якщо підвищуєте Силу. Простий спосіб — Важкоозброєний. Складний — мультикласування, яке все ще вимагає Спритності принаймні 13 для виходу зі Слідопита; із таким значенням ви вже майже повністю використовуєте середні обладунки."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hunter-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "hunter-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-hunter-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": ": значних відмінностей немає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-hunter-build-gunnhildrs-blades",
+          "heading": "Приклад персонажа — Клинки Gunnhildr",
+          "sourceAnchor": "example-hunter-build-gunnhildrs-blades",
+          "blocks": [
+            {
+              "blockId": "block-section-example-hunter-build-gunnhildrs-blades-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ваші руки свідчать: ваша вправність у стрільбі з лука далеко не звичайна. Yoichinoyumi зручно ляже у вашій упевненій руці. — Ghebben ("
+                },
+                {
+                  "type": "link",
+                  "text": "FFXI",
+                  "href": "https://www.youtube.com/watch?v=5i6Jb5dWt-c"
+                },
+                {
+                  "type": "text",
+                  "text": ")"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-hunter-build-gunnhildrs-blades-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мисливець може обрати і ближній, і далекобійний бій, і обидва працюють добре. Але далекобійний дає трохи більше завдяки власним перевагам. Приклад працює з довгим луком або мушкетом, бо Стрілець дозволяє стріляти зблизька навіть без вогнепальної зброї. Обираємо Леоніна насамперед за швидкість 35 і темнозір."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-hunter-build-gunnhildrs-blades-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Швидша раса потрібна, бо додамо рівень Клірика й важкі обладунки. Із Силою 8 втратимо 10 футів швидкості, але "
+                },
+                {
+                  "type": "link",
+                  "text": "опціональне класове вміння",
+                  "href": "https://rpgbot.net/dnd5/dungeonmasters/optional-class-features/"
+                },
+                {
+                  "type": "text",
+                  "text": " Вправний дослідник на 6-му рівні додає 5. Разом отримуємо швидкість ходи 30 футів у важких обладунках. Безглуздо, але працює й смішно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-hunter-build-gunnhildrs-blades-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також беремо Міченого ворога як опціональне вміння, просто бо {{Улюблений ворог|Favored Enemy}} не надто хороший. Це запасний варіант на рідкі випадки з однією ціллю й без концентрації на чомусь важливішому."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-hunter-build-gunnhildrs-blades",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раса — Леонін. Правила власного походження дозволяють перенести +2 у Спритність, а +1 — у Мудрість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищені"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 20"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-hunter-build-gunnhildrs-blades",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для прикладу обрано Леоніна, але підійде будь-яка раса зі швидкістю ходи понад 30 футів. Кігті нас майже не цікавлять, зате темнозір приємний, і можна спробувати Грізний рик{{Daunting Roar}}, який викликає страх."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інші варіанти:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Кентавр"
+                },
+                {
+                  "type": "text",
+                  "text": ": швидкість 40 футів перевищує потреби, що не погано, але втрата темнозору може завадити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Дампір"
+                },
+                {
+                  "type": "text",
+                  "text": ": деякі навички, швидкість лазіння, рівна швидкості ходи, та темнозір. Цілком придатний для цього персонажа."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Лісовий ельф"
+                },
+                {
+                  "type": "text",
+                  "text": ": замість кігтів має чотири володіння бойовою зброєю, які за правилами власного походження можна замінити будь-якими чотирма інструментами або скімітарами чи батогами, як запропоновано вище."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-hunter-build-gunnhildrs-blades",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Гладіатора{{Gladiator}} або Артиста{{Entertainer}}, які, до речі, однакові: попри нібито залежність від Спритності, Слідопити не можуть обрати Акробатику. Якщо можна передісторію Стріксхейвена, Студент Прізмарі{{Prismari Student}} дає ті самі навички й додаткові заклинання. Якщо Стріксхейвен не дозволений, але Равніка дозволена, Культист Ракдосу{{Rakdos Cultist}} має ті самі навички й інший список додаткових заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-background-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо обираємо Прізмарі, від Посвяченого Стріксхейвена (Прізмарі) беремо Штукарство [Prestidigitation] та Промінь холоду [Ray of Frost]. Заклинанням 1-го рівня обираємо Щит [Shield] зі списку Чародія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-hunter-build-gunnhildrs-blades",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Леоніна беремо Виживання. Від Слідопита — Поводження з тваринами, Уважність та Аналіз поведінки, з експертністю в Уважності від Вправного дослідника. Передісторія дає Акробатику, Кухарське начиння та Виступ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-hunter-build-gunnhildrs-blades",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 2-му рівні додамо рівень Клірика Домену життя, що відкладе Покращення характеристик і риси на один рівень."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо доступні передісторії Стріксхейвена, Студент Прізмарі на 1-му рівні дає {{Посвячений Стріксхейвена (Прізмарі)|Strixhaven Initiate (Prismari)}}, як описано вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 5-му рівні беремо Стрільця: +1 до Спритності та можливість стріляти довгим луком зблизька без перешкоди. Якщо доступна вогнепальна зброя, пістоль або мушкет добре замінять довгий лук. Але риса чудово працює і зі Стрільбою з лука."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 9-му рівні беремо Влучного стрільця для більшої шкоди проти слабко броньованих цілей і атак на великій відстані. Стрільба з лука компенсує і штраф Влучного стрільця, і відкладене Покращення характеристик."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 13-му рівні Покращенням характеристик максимізуємо Спритність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 17-му рівні беремо {{Стійкий|Resilient}} зі Статурою, округлюючи її та посилюючи ряткидки концентрації."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 20-му рівні беремо Покращення характеристик для +2 до Статури."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-class-features",
+          "parentSectionId": "section-example-hunter-build-gunnhildrs-blades",
+          "heading": "Класові вміння",
+          "sourceAnchor": "class-features",
+          "blocks": [
+            {
+              "blockId": "block-section-class-features-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мисливець має вибір для кожного вміння підкласу, тож цей розділ пояснює наші вибори."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-class-features-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 3-му рівні Слідопита зі Здобичі мисливця обираємо Знищувача орд — безкоштовні додаткові атаки. Вбивця колосів трохи послідовніший, бо Знищувач орд вимагає сусідніх цілей. Але будь-який бонус шкоди атаки, як-от Влучний стрілець чи магічний бонус, працює й на безкоштовну атаку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-class-features-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 7-му рівні Слідопита з Оборонної тактики беремо Захист від мультиатаки. Так, для спрацювання по нас мають спершу влучити, але це все ще корисніше за інші варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-class-features-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 11-му рівні Слідопита з Мультиатаки обираємо Залп, бо бʼємо здалеку. Важливо: Залп може активувати Знищувача орд, дозволяючи двічі влучити по комусь, якщо сусідні істоти опинилися в одному Залпі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-class-features-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 15-му рівні Слідопита із Захисту вищого мисливця беремо Неймовірну спритність. Якщо знаємо Щит від передісторії з Посвяченим Стріксхейвена, натомість беремо {{Ухиляння|Evasion (Hunter)}}: Щит краще використовує реакцію, бо бонус КБ триває весь раунд."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-hunter-build-gunnhildrs-blades",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Слідопит 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Навички: Поводження з тваринами, Акробатика, Аналіз поведінки, Уважність, Виступ, Виживання; інструменти: Кухарське начиння; {{Вправний дослідник - Кмітливий|Deft Explorer - Canny}}: експертність в Уважності; Мічений ворог (1к4)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо стартове спорядження Слідопита. "
+                    },
+                    {
+                      "type": "strong",
+                      "text": "Слідопит"
+                    },
+                    {
+                      "type": "text",
+                      "text": ": лускатий обладунок — пристойні середні обладунки для початку; дві зброї ближнього бою — переважно для допомоги в дикій місцевості, маленька сокира й ніж: кинджал і ручна сокира; Набір мандрівника{{Explorer’s Pack}}; довгий лук і стріли — основна зброя, 1к8 + Спр."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Клірик 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Домен життя: важкі обладунки; заклинання домену: Благословення [Bless], Лікування ран [Cure Wounds]; {{Учень життя|Disciple of Life}}; {{Чаротворство (Клірик)|Spellcasting (Cleric)}}: замовляння Світло [Light], Лагодження [Mending], Слово сяйва [Word of Radiance]; заклинання Клірика 1-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Одразу додаємо рівень Клірика Домену життя заради володіння важкими обладунками та Учня життя. Згодом вдягнемо латний обладунок, але найбільше цікавить Учень життя. Наступного рівня, повернувшись до Слідопита, оберемо Доброягода [Goodberry]. Кожна ягода отримує бонус лікування — чудово між боями. Разом це 40 ХП лікування за слот 1-го рівня. Також отримуємо три замовляння Клірика: Світло, Лагодження та Слово сяйва. Клірики щодня можуть готувати нові заклинання, тож хороші варіанти шукайте в "
+                    },
+                    {
+                      "type": "link",
+                      "text": "аналізі заклинань Клірика",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/cleric/spells/#spells-1"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Особисто я обрав би Цілюще слово [healing word], Захист від зла й добра [Protection from Evil and Good] та Щит віри [Shield of Faith]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Слідопит 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Стрільба з лука|Archery}}; {{Чаротворство (Слідопит)|Spellcasting (Ranger)}}: заклинання Слідопита 1-го рівня — Туманна хмара [Fog Cloud], Доброягода"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зачекайте, помітили? Мисливської мітки немає. Хіба Слідопити не зобовʼязані її брати за законом? Швидко перегляньмо заклинання з концентрацією. Домен життя завжди готує Благословення, яке посилює трьох цілей у нападі й захисті. Також маємо три види захисту: Захист від зла й добра, Щит віри та Туманну хмару. Туманну хмару створюйте позаду себе в далекобійному бою, а поза своїм ходом стійте на кілька футів усередині неї. Якщо нічого з цього не потрібно, Мічений ворог замінить Мисливську мітку. Як згадано, Доброягода з Учнем життя дає найбільше лікування зі слота 1-го рівня. Ба більше, ягоди тривають 24 години: перед сном витратьте всі залишкові слоти на завтрашні ягоди. Навіть вищі слоти, бо кожен рівень додає +1 ХП на ягоду від Учня життя.\n\nРедакційна примітка: Туманна хмара не дає вільного переміщення поза вашим ходом. Авторський задум потребує переміщення у свій хід або іншої окремої можливості рухатися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Слідопит 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архетип Слідопита: Мисливець; Здобич мисливця — Знищувач орд; {{Первісне усвідомлення|Primeval Awareness}}; чаротворство: заклинання Слідопита 1-го рівня — Скорохід [Longstrider]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримуємо підклас Мисливця й обираємо Знищувача орд: додаткова атака сусідньої до першої цілі. Це одна з причин відмови від Мисливської мітки, яка працює лише по одній цілі, тоді як Благословення допомагає кожній атаці. Скорохід дає більше швидкості. За кілька рівнів Вправний дослідник надасть швидкості лазіння й плавання, рівні швидкості ходи, які він теж посилить. Якщо "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "дуже"
+                    },
+                    {
+                      "type": "text",
+                      "text": " хочете Мисливську мітку, візьміть замість Скорохода, але рекомендую замінити її Стихійною зброєю з появою заклинань 3-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Слідопит 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стрілець; +1 Спритність (17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стрілець округлює Спритність до модифікатора +4. Навіть без вогнепальної зброї стрільба зблизька працює для будь-якої далекобійної атаки. Нових заклинань не вивчаємо, але через рівень Клірика маємо чотири слоти 1-го рівня та два 2-го, чудові для посиленого Благословення або Скорохода."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Слідопит 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Додаткова атака|Extra Attack (Ranger)}}; чаротворство: заклинання Слідопита 2-го рівня — Кінетичний скік [Kinetic Jaunt] або Переміщення без сліду [Pass without Trace]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Випускаємо більше стріл. Важливіше — отримуємо заклинання 2-го рівня. Якщо дозволений Студент Прізмарі, Кінетичний скік чудово виводить із небезпеки. Інакше Переміщення без сліду чудове для найвищих перевірок Непомітності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Слідопит 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мічений ворог (1к6); {{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мандрівний покращує швидкість ходи й дає рівні їй швидкості лазіння та плавання. Головне: з важкими обладунками, цим умінням і базовою швидкістю 35 маємо 30 футів, як більшість ігрових рас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Слідопит 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборонна тактика — Захист від мультиатаки; чаротворство: заклинання Слідопита 2-го рівня — Переміщення без сліду"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Разом із латами це має зменшити кількість влучань. Особливо для Студента Прізмарі зі Щитом. Переміщення без сліду корисне навіть з обладунками, які дають перешкоду на Непомітність: +10 допоможе її компенсувати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Слідопит 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Влучний стрілець; {{Стежка землі|Land's Stride}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Влучний стрілець дає потрібне посилення атаки. Особливо за кілька рівнів із Залпами це означає багато додаткової шкоди. Благословення та Стрільба з лука легко компенсують штраф атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Слідопит 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство: заклинання Слідопита 3-го рівня — Стихійна зброя"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо брали Мисливську мітку й замінюєте Стихійною зброєю, також візьміть Відродження [Revivify]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Слідопит 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Сховатися на видноті|Hide in Plain Sight}}; {{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сховатися на видноті дозволяє ховатися за легкої заслоненості. Через важкі обладунки ми, мабуть, не найнепомітніший Слідопит, але спробувати можна. Невтомний дає невелике підсилення: застосовуйте між боями, щоб починати з тимчасовими ХП.\n\nРедакційна примітка: опис Сховатися на видноті тут помилковий. Правила 2014 вимагають хвилину на маскування й дають +10 до Непомітності, доки ви не рухаєтеся й не виконуєте дій; довільне ховання за легкої заслоненості ця здібність не надає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Слідопит 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мультиатака — Залп; чаротворство: заклинання Слідопита 3-го рівня — Відродження"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Залп — одна з найкращих можливостей бійця: атака по області. Відродження потрібне, коли Клірик припускається помилки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Слідопит 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Спритність (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимізуємо Спритність для модифікатора +5."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Слідопит 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство: заклинання Слідопита 4-го рівня — Вартовий природи"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вартовий природи у формі Великого дерева дає перевагу на всі наші далекобійні атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Слідопит 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Зникнення|Vanish}}; Мічений ворог (1к8)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не найцікавіше вміння. Пройдисвіти можуть робити це на 2-му рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Слідопит 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист вищого мисливця — {{Ухиляння|Evasion (Hunter)}} або Неймовірна спритність; чаротворство: заклинання Слідопита 4-го рівня — Свобода рухів [Freedom of Movement]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо ми Студент Прізмарі, який вивчив Щит на 1-му рівні, беремо {{Ухиляння|Evasion (Hunter)}} через конкуренцію реакцій. Інакше обираємо Неймовірну спритність, бо більшість шкоди походить від атак."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Слідопит 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий зі Статурою; +1 Статура (15 → 16)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Просто полегшує підтримання концентрації після влучань по нас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Слідопит 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство: заклинання Слідопита 5-го рівня — Швидкий сагайдак"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На відміну від Експерта з арбалетів, Швидкий сагайдак не залежить від нашої дії. Просто отримуємо дві атаки бонусною дією, навіть після Залпу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Слідопит 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Дикі почуття|Feral Senses}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дивний різновид сліповиду, який долає лише невидимість. Прийнятно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Слідопит 19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Статура (16 → 18); чаротворство: заклинання Слідопита 5-го рівня — Більше відновлення [Greater Restoration]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищуємо Статуру для трохи більшої кількості ХП."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-ranger-hunter-2014-001",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Здобич мисливця",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-002",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Вбивця колосів",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-003",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Вбивця велетнів",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-004",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Знищувач орд",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-005",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Оборонна тактика",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-006",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Втеча від орди",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-007",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Захист від мультиатаки",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-008",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Сталева воля",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-009",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Мультиатака",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-010",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Залп",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-011",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Вихор удару",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-012",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Захист вищого мисливця",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-013",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "Ухиляння",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-014",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-13",
+      "context": "Стійкість проти течії",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-015",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-14",
+      "context": "Неймовірна спритність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-016",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-ability-scores",
+      "targetBlockId": "block-section-hunter-ability-scores-2",
+      "optionId": "section-hunter-ability-scores-block-section-hunter-ability-scores-2",
+      "context": "Сил",
+      "explanationBlockId": "block-section-hunter-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-017",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-ability-scores",
+      "targetBlockId": "block-section-hunter-ability-scores-3",
+      "optionId": "section-hunter-ability-scores-block-section-hunter-ability-scores-3",
+      "context": "Спр",
+      "explanationBlockId": "block-section-hunter-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-018",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-ability-scores",
+      "targetBlockId": "block-section-hunter-ability-scores-4",
+      "optionId": "section-hunter-ability-scores-block-section-hunter-ability-scores-4",
+      "context": "Ста",
+      "explanationBlockId": "block-section-hunter-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-019",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-ability-scores",
+      "targetBlockId": "block-section-hunter-ability-scores-5",
+      "optionId": "section-hunter-ability-scores-block-section-hunter-ability-scores-5",
+      "context": "Інт",
+      "explanationBlockId": "block-section-hunter-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-020",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-ability-scores",
+      "targetBlockId": "block-section-hunter-ability-scores-6",
+      "optionId": "section-hunter-ability-scores-block-section-hunter-ability-scores-6",
+      "context": "Муд",
+      "explanationBlockId": "block-section-hunter-ability-scores-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-021",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-ability-scores",
+      "targetBlockId": "block-section-hunter-ability-scores-7",
+      "optionId": "section-hunter-ability-scores-block-section-hunter-ability-scores-7",
+      "context": "Хар",
+      "explanationBlockId": "block-section-hunter-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-022",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-feats",
+      "targetBlockId": "block-section-hunter-feats-2",
+      "optionId": "section-hunter-feats-block-section-hunter-feats-2-item-0",
+      "context": "Експерт з арбалетів",
+      "explanationBlockId": "block-section-hunter-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-023",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-feats",
+      "targetBlockId": "block-section-hunter-feats-2",
+      "optionId": "section-hunter-feats-block-section-hunter-feats-2-item-1",
+      "context": "Майстер важкої зброїPHB",
+      "explanationBlockId": "block-section-hunter-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-024",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-feats",
+      "targetBlockId": "block-section-hunter-feats-2",
+      "optionId": "section-hunter-feats-block-section-hunter-feats-2-item-2",
+      "context": "Стрілець",
+      "explanationBlockId": "block-section-hunter-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-025",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-feats",
+      "targetBlockId": "block-section-hunter-feats-2",
+      "optionId": "section-hunter-feats-block-section-hunter-feats-2-item-3",
+      "context": "ВажкоозброєнийPHB",
+      "explanationBlockId": "block-section-hunter-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-026",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-melee",
+      "targetBlockId": "block-section-melee-2",
+      "optionId": "section-melee-block-section-melee-2-item-0",
+      "context": "Глефа / Алебарда / Піка",
+      "explanationBlockId": "block-section-melee-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-027",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-melee",
+      "targetBlockId": "block-section-melee-2",
+      "optionId": "section-melee-block-section-melee-2-item-1",
+      "context": "Дворучний меч / Дворучний молот",
+      "explanationBlockId": "block-section-melee-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-028",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-melee",
+      "targetBlockId": "block-section-melee-2",
+      "optionId": "section-melee-block-section-melee-2-item-2",
+      "context": "Батіг",
+      "explanationBlockId": "block-section-melee-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-029",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-ranged",
+      "targetBlockId": "block-section-ranged-2",
+      "optionId": "section-ranged-block-section-ranged-2-item-0",
+      "context": "Ручний арбалет",
+      "explanationBlockId": "block-section-ranged-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-030",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-ranged",
+      "targetBlockId": "block-section-ranged-2",
+      "optionId": "section-ranged-block-section-ranged-2-item-1",
+      "context": "Важкий арбалет",
+      "explanationBlockId": "block-section-ranged-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-031",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-ranged",
+      "targetBlockId": "block-section-ranged-2",
+      "optionId": "section-ranged-block-section-ranged-2-item-2",
+      "context": "Довгий лук",
+      "explanationBlockId": "block-section-ranged-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-032",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-ranged",
+      "targetBlockId": "block-section-ranged-2",
+      "optionId": "section-ranged-block-section-ranged-2-item-3",
+      "context": "Мушкет",
+      "explanationBlockId": "block-section-ranged-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-033",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-ranged",
+      "targetBlockId": "block-section-ranged-2",
+      "optionId": "section-ranged-block-section-ranged-2-item-4",
+      "context": "Пістоль",
+      "explanationBlockId": "block-section-ranged-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-034",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-ranged",
+      "targetBlockId": "block-section-ranged-2",
+      "optionId": "section-ranged-block-section-ranged-2-item-5",
+      "context": "Короткий лук",
+      "explanationBlockId": "block-section-ranged-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-hunter-2014-035",
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sectionId": "section-hunter-armor",
+      "targetBlockId": "block-section-hunter-armor-3",
+      "optionId": "section-hunter-armor-block-section-hunter-armor-3-item-0",
+      "context": "Латний обладунок",
+      "explanationBlockId": "block-section-hunter-armor-3",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

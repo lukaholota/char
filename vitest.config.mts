@@ -5,7 +5,10 @@ import { CORPUS_TEST_FILES } from "./vitest.corpus-files.mts";
 import { QUARANTINE_TEST_FILES } from "./vitest.quarantine-files.mts";
 
 export default defineConfig({
-  resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
+  resolve: { alias: {
+    "@": fileURLToPath(new URL("./src", import.meta.url)),
+    "server-only": fileURLToPath(new URL("./tests/helpers/server-only-stub.ts", import.meta.url)),
+  } },
   test: {
     environment: "node",
     include: [

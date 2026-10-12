@@ -1,0 +1,844 @@
+{
+  "buildId": "build-fighter-purple-dragon-knight-2014",
+  "revisionId": "build-fighter-purple-dragon-knight-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "Лицаря Пурпурового Дракона — Зрадник Корони",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+      "sectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "BANNERET",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "DRAGON_FEAR",
+        "featOptions": [
+          {
+            "optionNameEng": "DRAGON_FEAR Ability (Charisma)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "UNDEAD",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "eldritch-blast"
+          ],
+          "knownSpellKeys": [
+            "hex"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          },
+          {
+            "optionNameEng": "Repelling Blast"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH"
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "BANNERET",
+    "raceKey": "DRAGONBORN_GEM",
+    "backgroundKey": "FACELESS",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ставимо +2 у Спритність і +1 у Статуру. Ми навмисно лишаємо Харизму непарною, щоб підвищити її гібридною рисою на 4-му.\n\n Базове значення Підвищене значення 20-й рівень Сила 8 8 8 Спритність 14 16 16 Статура 15 16 20 Інтелект 8 8 8 Мудрість 10 10 10 Харизма 15 15 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Самоцвітний дракононароджений{{Gem Dragonborn}}. Так, ми — Пурпуровий (Аметистовий) Дракон, Лицар Пурпурового Дракона. Так, я обрав це, бо це смішно. Формально підійде будь-який різновид Дракононароджених Фізбана. Зброя дихання силовою шкодою — зручно солідний вибір.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо Безликого, щоб одразу отримати володіння Обманом і Залякуванням. Набір для маскування нормальний, але можна замінити його, якщо хочете. Оберіть мови, що годяться вашій кампанії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Воїна оберемо Акробатику й Аналіз Поведінки. Разом із навичками передісторії це дає більшість типових навичок «обличчя». Коли ми досягнемо Воїна 7, «Королівський посланець» дасть нам Переконання з Експертизою — останню потрібну навичку.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Як зазначено вище, ми навмисно лишили Харизму непарною при створенні. Це щоб ми могли обрати рису «Драконячий страх»{{Dragon Fear}}, яка дає альтернативне використання нашої Зброї дихання, щоб накласти Наляканого. Потім ця збірка майже одразу відхиляється в Чорнокнижника-Невмерлого на два рівні перед поверненням у Воїна, підбираючи «Позамежний заряд» як ще одну причину підвищувати Харизму на Воїні 6 і 8, трохи позаду Фундаментальної математики, але не надто далеко й не надовго.\n\nНа Воїні 4 беремо «Драконячий страх» і піднімаємо Харизму до 16.\n\nНа Воїні 6 беремо покращення характеристик на +2 до Харизми, досягаючи 18.\n\nНа Воїні 8 беремо ще одне покращення характеристик на +2 до Харизми, досягаючи 20.\n\nЦе лишає нашу Спритність на 16 і, здається, нелогічно зводить нанівець переваги Зброї дихання Фізбана, що є частиною дії Атака. Адже ми побудовані користуватися «Позамежним зарядом» із захистами Воїна. Не хвилюйтеся. Завдяки Бойовому Стилю «Стрільба з лука» ми ніколи не відстаємо від математики з луком. Нам доведеться використовувати Зброю дихання лише кілька разів на день, і в ті раунди ми просто стрілятимемо з лука замість «Позамежного заряду».\n\nНа Воїні 12 у нас є варіанти. Цей приклад бере покращення характеристик на +2 до Статури, до 18, бо воно підвищує і наші ХП, і Складність ряткидка Зброї дихання. Як альтернатива, можна взяти «Бойового заклинателя»{{War Caster}}, щоб додати захист Концентрації на «Проклін [Hex]», або «Здоровань»{{Tough}}, якщо хочемо більше ХП швидше.\n\nТретій варіант — додати потужніший вибуховий раунд раз на день — «Адепт метамагії»{{Metamagic Adept}} для пришвидшеного заклинання.\n\nНа Воїні 14 продовжуємо покращення Статури ще +2, досягаючи 20.\n\nНа Воїні 16 беремо «Здоровань», але будь-яка з альтернатив, згаданих на 12-му рівні, все ще лишається на столі залежно від ваших вподобань.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-multiclassing",
+        "title": "Мультикласування",
+        "text": "Ця збірка вирішує мультикласувати з міркувань смаку, пірнаючи в Чорнокнижника-Невмерлого. Можна було б узяти всі рівні у Воїні й обрати «Влучного стрільця» разом з «Експертом з арбалетів», замість підвищення Харизми до 20. «Майстер древкової зброї» із «Майстром важкої зброї» теж слушний вибір. Або ж можна повернутися в Чорнокнижника після отримання «Натхненного натиску», якщо хочете Дари пакту й більше Потойбічних викликів.\n\nЦе підкреслює добру частину Лицаря Пурпурового Дракона: вміння не зважають на те, яким бойовим стилем ви користуєтеся. Ми використовуватимемо «Сплеск дій» трохи стратегічніше, утримуючи його, доки союзник не буде готовий використати надану реакцію, і, можливо, притримаємо «Друге дихання», щоб лікування могли отримати кілька людей.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-multiclassing",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання, Навички: Акробатика, Обман, Аналіз Поведінки, Залякування",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Сплеск дій{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас: Лицар Пурпурового Дракона, Надихаючий крик",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Драконячий страх +1 до Харизми (16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Підклас: Невмерлий Покровитель, Магія пакту: Позамежний заряд, Проклін, Обличчя жаху",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Потойбічні виклики{{Eldritch Invocations}}: Мучливий вибух, Відштовхувальний вибух",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Додаткова атака{{Extra Attack}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Харизма +2 (18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Королівський посланець — Експертиза в Переконанні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Покращення Характеристик: Харизма +2 (20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Непохитність{{Indomitable}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Натхненний натиск{{Inspiring Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Додаткова атака (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Покращення Характеристик: Статура +2 (18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Непохитність (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Статура +2 (20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Опора",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Риса: Здоровань",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Сплеск дій (2), Непохитність (3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Натхненний натиск (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Середній обладунок",
+        "reason": "Автор радить взяти середній обладунок і довгий лук; стартовий набір Воїна середнього обладунку не містить, тож пресет бере довгий лук і шкіряний обладунок з групи 1.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Королівський посланець: експертиза в Переконанні",
+        "reason": "На 9-му рівні автор отримує Переконання з Королівським посланцем; платформа не моделює експертизу цього вміння (каталог дає 0 виборів експертизи), тож Переконання й експертиза в пресеті відсутні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

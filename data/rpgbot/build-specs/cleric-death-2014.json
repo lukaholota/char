@@ -1,0 +1,235 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-death-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+    "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "DEATH_DOMAIN",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "FACTION_AGENT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Стартове золото замість набору",
+      "reason": "Автор радить обрати золото (у середньому 125 зм) замість стартових предметів і купити рапіру, арбалет, щит та обладунок; пресет бере стандартний набір класу.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Удаване життя",
+      "reason": "Автор радить розглянути Удаване життя в ближньому бою, але лишає це на пізніше: узято лише Цілюще слово й Благословення, які він називає основними.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія з риси «Адепт метамагії»",
+      "reason": "На 19-му рівні автор бере Адепта метамагії зі Спрямованим заклинанням (Seeking Spell) і ще однією метамагією; у каталозі риса без опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Замовляння Клірика на 4-му та 10-му рівнях",
+      "reason": "Автор не називає нових замовлень Клірика на 4-му й 10-му рівнях, тож це вибір платформи: гравець обирає їх сам.",
+      "section": "section-levels"
+    }
+  ],
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3
+    },
+    {
+      "level": 4,
+      "featKey": "TELEKINETIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEKINETIC Ability (Wisdom)"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "WAR_CASTER",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "LUCKY",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "METAMAGIC_ADEPT",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/cleric-death-2014.webp",
+    "title": "Клірик — Домен смерті, Напівельф",
+    "description": "Клірик ближнього бою зі Спритністю 16: Напівельф зі спадком високого ельфа (Гримучий Клинок), Домен смерті та Агент фракції з Аналізом поведінки й Уважністю.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "HISTORY",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": [
+        "INSIGHT",
+        "PERCEPTION"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Замовляння"
+    ],
+    "languages": [
+      "DWARVISH",
+      "GOBLIN",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "word-of-radiance",
+        "toll-the-dead"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [
+        "booming-blade"
+      ],
+      "classOptionSpellKeys": [
+        "chill-touch"
+      ],
+      "preparedSpellKeys": [
+        "healing-word",
+        "bless"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Автор називає пʼять замовлянь: Настанову, Слово сяйва, Дзвін небіжчика, Моторошний дотик і Гримучий Клинок. Гримучий Клинок дає спадок Напівельфа, Моторошний дотик — Жнець (некромантія з будь-якого списку), решту — клас. Цілюще слово й Благословення підготовлено, бо автор називає їх основними.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Напівельф за правилами Таші: +1 до Спритності й Статури та +2 до Мудрості, тож 16/16/17, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Історія й Релігія — від Клірика, Аналіз поведінки — від Агента фракції. Автор називає для Агента фракції Аналіз поведінки й Уважність, тоді як каталог фіксує Переконання; тому Уважність записано як налаштований вибір, а мови (три) ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор радить золото замість набору, але пресет бере стандартний набір класу: булаву, лускову броню, легкий арбалет, набір священика, щит і святий символ ми обрали за вас — вибір платформи.",
+    "backgroundCustomization": {
+      "tools": []
+    }
+  },
+  "revision": 2
+}

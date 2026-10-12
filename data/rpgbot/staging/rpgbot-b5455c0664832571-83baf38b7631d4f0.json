@@ -1,0 +1,2439 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "83baf38b7631d4f0f2fb8b56e0f7115706cdacc003628820726623ad6b2e2293",
+  "sourceRevision": {
+    "revisionId": "rpgbot-b5455c0664832571-83baf38b7631d4f0",
+    "sourceId": "rpgbot-b5455c0664832571",
+    "fetchedAt": "2026-09-29T19:20:16.702883+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:24:34-04:00",
+    "contentHash": "2f779d4cf6f024664118f98c25832e6f4aa1889d57dc043d2a873194aa2aaf18",
+    "title": "Alchemist Artificer 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-b5455c0664832571-83baf38b7631d4f0.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Alchemist is the back-row support option for artificers, focusing on healing, buffs, and utility. It fills a role somewhere between a cleric-equivalent and a wizard-equivalent, making it a good option in small parties, but it will often be outshined in parties with multiple full casters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Alchemist adds a number of excellent healing and support options to the Artificer, but doesn’t fundamentally change how the core class functions. You won’t be able to match the healing power of a full caster like the Cleric, but you’ll be able to cover those capabilities well enough to replace a cleric in most parties, and Experimental Elixir expands your magical options to help support and protect your allies with temporary elixirs which are consumed like potions. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, the unpredictable nature of your free Experimental Elixirs and the heavy resource constraints mean that you’ll face constant resource strain."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Alchemist Artificer Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Alchemist Artificer Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#alchemist-artificer-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Alchemist Artificer Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#alchemist-artificer-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Alchemist Artificer Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#alchemist-artificer-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Alchemist Artificer Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#alchemist-artificer-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Alchemist Artificer Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#alchemist-artificer-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Here, Drink This",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#example-build-here-drink-this"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/alchemist/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Alchemist Artificer Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Tool Proficiency"
+              },
+              {
+                "type": "text",
+                "text": ": Alchemical items are\n\t\tgood, though there is an admittedly limited menu of them in 5e."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Alchemist Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A good variety of\n\t\toptions, including staples like Healing Word, some situational buffs, and\n\t\toffensive options which are generally AOE spells with a debuff effect. None\n\t\tof the spells are on the Artificer spell list, so this adds a lot of new\n\t\tfunctionality.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Healing Word is among the\n\t\t\t\tmost essential spells in the game. Ray of Sickness is bad."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Decent offensive options,\n\t\t\t\tbut nothing spectacular."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are useful in\n\t\t\t\textremely common situations."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th Level"
+              },
+              {
+                "type": "text",
+                "text": ": A decent single-target\n\t\t\t\tdamage option and an absolutely crucial buff."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Raise Dead is\n\t\t\t\tsituational, and by this level other spellcasters have much better ways\n\t\t\t\tto raise the dead. Cloudkill is decent damage, but only if you can find\n\t\t\t\ta way to hold enemies in the area."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Experimental Elixir"
+              },
+              {
+                "type": "text",
+                "text": ": This is intentionally\n\t\thard to predict, which makes it hard to rely upon. When you get multiple\n\t\telixirs you’ll have several chances to get effects you care about, but the\n\t\tfree elixirs are still random. Since you roll the effects of the elixirs\n\t\twhen they’re created, you at least know what their effects will be, so\n\t\tyou’re not passing out random mystery cocktails to your party.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You can also spend a spell slot to create an additional elixir, which\n\t\t\tmeans that these are something like 1st-level spells. Think of the free\n\t\t\telixirs like a surprise that might be exactly what you need, but\n\t\t\tdon’t count on them. Instead, expect to spend spell slots for elixirs."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Healing"
+              },
+              {
+                "type": "text",
+                "text": ": Basically a Potion of\n\t\t\t\tHealing. Nothing fancy, but always nice to have. When you later gain\n\t\t\t\tRestorative Reagents, this can be a great option because it both\n\t\t\t\trestores lost hit points and grants a pad of temporary hit points.\nThis provides as much healing as casting Cure Wounds as a 1st-level\n\t\t\t\t\tspell, but you also have the option of giving the elixir to an ally so\n\t\t\t\t\tthat they could use it themselves, and once you get Restorative Reagents\n\t\t\t\t\tit becomes much more powerful than anything that a 1st-level spell\n\t\t\t\t\tslot could replicate."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swiftness"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, but the\n\t\t\t\tduration is nice and long and it stacks with things like Longstrider."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resilience"
+              },
+              {
+                "type": "text",
+                "text": ": Similar to Shield of\n\t\t\t\tFaith, but half the effect and more costly to start (an action to drink\n\t\t\t\tthe elixir vs. a Bonus Action to cast Shield of Faith). Still, with a\n\t\t\t\t10-minute duration, the recipient can drink it ahead of time.\n\t\t\t\tA good buff for your party’s melee characters, especially if they’re\n\t\t\t\tworking with relatively poor AC (barbarians, two-handed weapon users, etc.)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boldness"
+              },
+              {
+                "type": "text",
+                "text": ": Similar to Bless for a\n\t\t\t\tsingle target, and it notably stacks with Bless. With a 1-minute\n\t\t\t\tduration, the recipient will need to drink it immediately\n\t\t\t\tbefore combat starts or during combat, which is a hard way to spend\nand Action.\n\t\t\t\tI would happily spend 1st-level spell slots to buff my party’s\n\t\t\t\tmartial characters with this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flight"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to fly, even at\n\t\t\t\tsuch low speed, can solve a ton of problems."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Transformation"
+              },
+              {
+                "type": "text",
+                "text": ": Situational. Alter\n\t\t\t\tSelf normally requires Concentration, so the fact that this doesn’t\n\t\t\t\tis great despite the shorter duration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Alchemical Savant"
+              },
+              {
+                "type": "text",
+                "text": ": Add your Intelligence\n\t\tmodifier to things like Healing Word, but also to things like Acid Splash,\n\t\tFire Bolt, and Poison Spray. This makes Acid Splash a very exciting cantrip\n\t\tbecause applying that damage to two targets is very effective, but you still\n\t\twant Fire Bolt as your go-to damage option for single targets."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Restorative Reagents"
+              },
+              {
+                "type": "text",
+                "text": ": Easy access to\n\t\tLesser Restoration without expending your extremely limited spell slots is\n\t\tnice, and the temporary hit points are a welcome addition to Experimental\n\t\tElixir because it means that even the least-useful elixir still provides a\n\t\ttangible benefit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Chemical Mastery"
+              },
+              {
+                "type": "text",
+                "text": ": Two damage resistances,\n\t\tand you can cast two extremely powerful healing spells for free each day\n\t\twithout material components."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-alchemist-artificer-ability-scores",
+      "heading": "Alchemist Artificer Ability Scores",
+      "sourceAnchor": "alchemist-artificer-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-alchemist-artificer-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical artificer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-alchemist-artificer-races",
+      "heading": "Alchemist Artificer Races",
+      "sourceAnchor": "alchemist-artificer-races",
+      "blocks": [
+        {
+          "blockId": "block-section-alchemist-artificer-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical artificer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#races"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-alchemist-artificer-feats",
+      "heading": "Alchemist Artificer Feats",
+      "sourceAnchor": "alchemist-artificer-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-alchemist-artificer-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Chef"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tThe temporary hit points won’t stack with those from Experimental Elixir once you get\nRestorative Reagents. It may be helpful to pass all of your snacks to your party’s Defender if\nthey don’t already have a good use for their Bonus Action, but the benefits of Chef are definitely less\nimpactful than they would be for other characters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Adept"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Acid or fire will\nmake many of your best damage spells more reliable."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-alchemist-artificer-weapons",
+      "heading": "Alchemist Artificer Weapons",
+      "sourceAnchor": "alchemist-artificer-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-alchemist-artificer-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alchemists are built to rely on spellcasting. Do that."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-alchemist-artificer-armor",
+      "heading": "Alchemist Artificer Armor",
+      "sourceAnchor": "alchemist-artificer-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-alchemist-artificer-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical artificer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              },
+              {
+                "type": "text",
+                "text": ": Death domain’s Reaper feature works even if you’re not casting the cantrip as a cleric spell. Combined with the Alchemist’s Alchemical Savant, you can add your Intelligence to the damage of Chill Touch and Toll the Dead while targeting two adjacent creatures. What does this have to do with alchemy? Alternatively, you could go for Peace Cleric for Emboldening Bond. Combine that with Bless and Experimental Elixir (Boldness), and you can add 3d4 to attack rolls and saving throws. Beyond the 1st-level subclass features, there’s not a lot to be gained from a dip into Cleric since alchemists already get comparable 1st-level spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sorcerer"
+              },
+              {
+                "type": "text",
+                "text": ": You can create an Experimental Elixir by spending a spell slot of any level, which means that melting down high-level spell slots for more elixirs may be helpful. Two levels should do the trick, but three for metamagic is nice, too."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warlock"
+              },
+              {
+                "type": "text",
+                "text": ": Spell slots that recharge on a short rest. Turn them into Experimental Elixirs, then take a nap and repeat."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-here-drink-this",
+      "heading": "Example Build – Here, Drink This",
+      "sourceAnchor": "example-build-here-drink-this",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-here-drink-this-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "“I know it smells awful. Just trust me and drink it.”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-here-drink-this-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to lean hard into what the Alchemist has to offer. It’s not the best subclass, and the fact that Experimental Elixir is unpredictable drives me absolutely insane, but we’re going to build a support artificer anyway. This is technically a back-row support caster, but you’re as durable as a cleric before considering infusions and elixirs, so it’s entirely possible that you can wade into melee alongside your friends."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-here-drink-this-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our "
+            },
+            {
+              "type": "link",
+              "text": "staple build",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#example"
+            },
+            {
+              "type": "text",
+              "text": " is also an alchemist, but this build goes further afield, embracing the full range of available options rather than sticking to the SRD and Basic Rules."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-here-drink-this",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll go for the ability scores suggested for ranged artificers in our "
+            },
+            {
+              "type": "link",
+              "text": "Artificer Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/"
+            },
+            {
+              "type": "text",
+              "text": ". We’ll be in light armor so that we can fly, so we want some Dexterity to pad our AC, but we’re going to be fighting at range and using a shield, so we have room to focus on Intelligence and feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-here-drink-this",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fairy. Flight is awesome, and saves us an infusion which we couldn’t get until level 10 anyway. The innate spellcasting is mostly redundant, but it gives us effectively two extra spells slots and two additional prepared spells per day, both of which are welcome since our spell slots will be under additional pressure and since artificers get to prepare so few spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-here-drink-this",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Investigator from Van Richten’s Guide to Ravenloft. We’ll choose Insight and Investigation for our skills, and we disguise kit and thieve’s tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-here-drink-this",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From our class we’ll learn Arcana so that we can make spell scrolls and Perception because it’s just a really good skill. Artificer also gives us thieves’ tools, tinker’s tools, and an artisan’s tool of our choice. We get Insight, investigation, disguise kit, and thieves’ tools from our background. We’ll replace the redundant thieves’ tools with another tool of our choice like herbalist’s kit."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll pick up proficiency in alchemist’s tools at level 3."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-here-drink-this",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Alchemist has no use for their Bonus Action built into the subclass features, and really only needs Intelligence, so we have lots of room for feats and for ways to capitalize on our action economy. We also want to pad our limited spellcasting where possible to leave more room for Experimental Elixir."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4, we’ll take Fey Touched. For the 1st-level spell, we’ll select Bless. Stacking the d4 bonus to attacks and saves with Experimental Elixir (Boldness) is a huge mathematical advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12, we’ll take War Caster. By this level we’re becoming extremely durable, so even though we’re building a back-row support character, we can start to walk into melee to help our party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our level 16 and 19 ASI’s are open. We could take Elemental Adept to help mitigate common fire resistance and still lean into one of our favorite damage types, but Elemental Bane solves the same problem. We could take Chef and pass out the snacks for when the temporary hp from Experimental Elixir are expended. We could skip the +2 Intelligence at level 8 and pick up more hybrid feats like Shadow Touched and Gift of the Gem Dragon. Use what makes sense after playing for a few levels."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-here-drink-this",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Tinkering"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Acid Splash"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting gear, take two daggers, a light crossbow and 20 bolts, studded leather, thieves’ tools, and a dungeoneering pack. The crossbow is useful when enemies are outside of your cantrip range, but you’ll have better results if you sell it and use the gold to buy a shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Acid Splash is our primary source of damage output for a while. It’s not as much damage as Fire Bolt, but it can affect two adjacent targets, which is really fun when it happens, and when we get Alchemical Savant at level 5 we can apply the damage to both targets."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infuse Item"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infused Items: 2"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infusions Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enhanced Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enhanced Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Homunculus Familiar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Replicate Magic Item (Alchemy Jug)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Most days, you’ll want Homunculus Familiar and either Enhanced Defense or Enhanced Weapon. We’re relying on saving throws for our offensive spells, so Enhanced Arcane Focus isn’t helpful for us. Instead, we’ll share our second infusion with a friend."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "On days that you’re not expecting to fight, bring an Alchemy Jug and use it to stockpile acid."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Artificer Specialist: Alchemist"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The Right Tool for the Job"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tool Proficiency: Alchemist’s Supplies"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Alchemist Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Experimental Elixir (1)"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "Alchemist’s Supplies",
+                  "href": "https://rpgbot.net/dnd5/characters/tools/"
+                },
+                {
+                  "type": "text",
+                  "text": " allows you to craft "
+                },
+                {
+                  "type": "link",
+                  "text": "acid",
+                  "href": "https://www.dndbeyond.com/equipment/acid-vial"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "link",
+                  "text": "alchemist’s fire",
+                  "href": "https://www.dndbeyond.com/equipment/alchemists-fire-flask"
+                },
+                {
+                  "type": "text",
+                  "text": ", and a few other items once per long rest. Alchemist’s fire is a nice damage over time effect, so having a few handy can be helpful in long fights or against enemies with regeneration."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our alchemist spells give us Healing Word, which is fantastic. Keep a spell slot around for emergencies."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Experimental Elixir is very frustrating at this level. You only get one, the effect is determined at random, and you don’t have enough spell slots to spend making a bunch more. As a 1/2 caster, you never really get enough of them to feel comfortable, so manage them carefully. Try to fit two fights into the 10-minute durations if your party can handle that."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Fey Touched (Bless, Intelligence17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fey Touched gets us access to Bless and Misty Step without cutting into our precious spell slots. Bless notably stacks with Experimental Elixir (Boldness), which means that we’ve effectively recreated the "
+                },
+                {
+                  "type": "link",
+                  "text": "Peace Domain Cleric",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/peace-domain/"
+                },
+                {
+                  "type": "text",
+                  "text": "‘s horrifying math problem."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alchemical Savant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th level is awesome for alchemists. You get both a subclass feature "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and"
+                },
+                {
+                  "type": "text",
+                  "text": " 2nd-level spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level, Alchemical Savant is a +4 bonus to one roll per spell. Your cantrips also improve at this level, so you go from 1d6 with Acid Splash to 2d6+4, which is a massive increase, especially since you might hit two targets. Your leveled spells benefit, too; Healing Word is now 1d4+8 instead of 1d4+4."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now that we have access to 2nd-level spells, start preparing Aid. Aid can function like Mass Healing Word in a pinch, and the additional maximum hit points make part of our party much more durable. Throw Bless and Experimental Elixir (Boldness) on them to cover attacks and saves, and they’re punching far above their weight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll ignore our 2nd-level subclass spells because our Bonus Action is dedicated to our Homunculus (so no Flaming Sphere) and Melf’s Acid Arrow is weak. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tool Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Experimental Elixir (2)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infused Items: 3"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Infusions Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Resistant Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Spell-Refueling Ring"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better infusions and a second experimental elixir. With our new infusion we’ll get a Spell-Refueling Ring on most days unless we’re expecting to encounter a specific damage type repeatedly. The ring is intended to be for us, but you might share it temporarily if your party has a full spellcaster with good 3rd-level spells. Once your party’s full casters are casting 5th-level spells, ask for the ring back."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Flash of Genius"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+4 at this level and about to be +5."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Intelligence increase gets us better spellcasting and another prepared spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Restorative Reagents"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is a great level. 3rd-level spells, and Restorative Reagents makes our Experimental Elixir much more impactful. The free elixirs are still unpredictable, which is annoying, but you can burn spell slots for extras if you want something specific."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Even at this level, you have just 9 spell slots total, so you need to really make them count. Avoid passing out all of your elixirs on the first encounter of the day."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic item Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Green-Flame Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infused Items: 4"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Infusions Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Replicate Magic Item (Cloak of Protection)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Replicate Magic Item (Winged Boots)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Winged Boots is for your allies in case they haven’t already found a way to fly. If you don’t need it, learn something else."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You finally get a third cantrip at this level, too. We’ll grab Green-Flame Blade in preparation for War Caster in a couple levels. It’s not the perfect solution here because we can’t apply the secondary damage and it doesn’t have Booming Blade’s deterrent effect, but it does apply the damage bonus from Alchemical Savant."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell-Storing Item"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell-Storing Item is just stunningly good and it’s so much fun to use. Obvious examples include staple buffs like Invisibility or healing options like Lesser Restoration, but the more you lean into this, the more powerful it gets."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember: anyone can use this item, including your Homunculus Familiar. Since other creatures explicitly aren’t you, when they cast the spell, they’re the one potentially concentrating. This is great for having everyone in the party pass the item to cast Invisibility, or you can have your homunculus concentrate on buffs like Enhance Ability."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The Alchemist gets Flaming Sphere as a subclass spell, and we’ve ignored it until now. You know who never uses their Bonus Action? Our homunculus. Hand our homunculus our spell-storing item with Flaming Sphere, and now as a Bonus Action we can command our Homunculus both to shoot something and to roll their sphere around."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: War Caster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Advantage on Concentration checks, and we can cast single-target spells in place of opportunity attacks. Green-Flame Blade is our go-to, but if you have some save-or-suck options like Otiluke’s Resilient Sphere (which you can get next level) also work."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level spells bring a few cool options. Arcane Eye is an excellent scouting option. Elemental Bane can be a big pile of damage quickly if you and your allies can agree on a single damage type to deal repeatedly. Remember that the extra damage is once per turn, so you can apply it on your turn, your homunculus’s turn, your target’s turn, and each of your ally’s turns."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our subclass spells give us Blight (mediocre damage on a Con save) and Death Ward. Death Ward is an excellent defensive buff, especially if you’re facing undead. With an 8-hour duration, it’s easy to pre-cast this and let it monopolize your 4th-level spell slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Savant"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infused Items: 5"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Infusions Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Gem of Seeing"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Ring of Protection"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Savant lets you attune to 5 items, and conveniently you can now infuse 5 items. Hopefully by now you’ve found some permanent magic items so that you can share infusions with your friends, but if you need to pile infusions onto yourself, you’ll be doing just fine. Adding Ring of Protection to your infusion options means that we can stack it with Cloak of Protection for truly impressive defenses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chemical Mastery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Experimental Elixir (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chemical Mastery is excellent, making you more durable and also allowing you to fill in for a cleric even more effectively."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get a third randomized elixir each day."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "See above under Feats."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th-level spells! Our subclass spells at this level won’t see a lot of use, but they’re prepared for free, so you don’t need to worry about it. 5th-level gets you access to Greater Restoration, but try to rely on Chemical Mastery instead. Wall of Stone is likely your go-to option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infused Items: 6"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Infusions Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6 attuned items! By this level, in a "
+                },
+                {
+                  "type": "link",
+                  "text": "typical game",
+                  "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#wealth-by-level-table"
+                },
+                {
+                  "type": "text",
+                  "text": " you’ll have around 5 “major” magic items. Typically not all of those will require attunement, so you’ll likely want to reserve some infusions for yourself to fill all 6 slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "See above under Feats."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Soul of Artifice"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nice and tanky! Wander up to the front lines and make yourself a problem. With Cloak and Ring of Protection and any 4 other attuned items you’re looking at +2 AC, +8 to saves, and Flash of Genius if you still fail a save somehow. Throw down a problematic Concentration spell like upcast Tasha’s Caustic Brew and dare our enemies to take a swing at you."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Alchemist Artificer Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Tool Proficiency"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Alchemist Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 13th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 17th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Experimental Elixir"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Healing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Swiftness"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Resilience"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Boldness"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Flight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Transformation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Alchemical Savant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Restorative Reagents"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Chemical Mastery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Chef"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Elemental Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Warlock"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-alchemist-artificer-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-alchemist-artificer-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-alchemist-artificer-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-alchemist-artificer-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-alchemist-artificer-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-example-build-here-drink-this-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-build-here-drink-this-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-build-here-drink-this-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3344,
+    "sections": 17,
+    "blocks": 30,
+    "tables": 2,
+    "ratingSignals": 27
+  },
+  "status": "needs-editorial-review"
+}

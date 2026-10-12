@@ -16,6 +16,7 @@ import {useRouter} from "next/navigation";
 import {Button} from "@/components/ui/button";
 import {classTranslations, subclassTranslations} from "@/lib/refs/translation";
 import { listCatalogSubclassNames } from "@/lib/logic/spell-catalog-subclass-filter";
+import { collectPersRatedCasters, formatRatedCastersParam } from "@/lib/optimization/spell-rating-casters";
 import {getSpellcastingCountsLines} from "@/lib/logic/spellcasting-progression";
 import {
   getEffectiveExcludeFromKnownCount,
@@ -317,6 +318,8 @@ export default function AddSpellDialog({pers, isReadOnly, triggerClassName}: Add
     if (knownExcludedSpellIds.size > 0) {
       params.set("knownExcluded", Array.from(knownExcludedSpellIds).sort((a, b) => a - b).join(","));
     }
+    const ratedCastersParam = is2024 ? "" : formatRatedCastersParam(collectPersRatedCasters(pers));
+    if (ratedCastersParam) params.set("rpgbotFor", ratedCastersParam);
 
     if (applyFilters) {
       if (maxSpellLevel > 0) params.set("maxSpellLevel", String(maxSpellLevel));

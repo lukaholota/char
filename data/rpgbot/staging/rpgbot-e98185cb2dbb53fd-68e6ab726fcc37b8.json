@@ -1,0 +1,2790 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "68e6ab726fcc37b83568f1b6963c2fc564103ee66515f21722ca08e4f680ddbb",
+  "sourceRevision": {
+    "revisionId": "rpgbot-e98185cb2dbb53fd-68e6ab726fcc37b8",
+    "sourceId": "rpgbot-e98185cb2dbb53fd",
+    "fetchedAt": "2026-09-29T19:24:29.876191+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:46:39-04:00",
+    "contentHash": "75e3e1bbfba3976706ad6a47b2215852a33890f404e14dc2a74b966716437184",
+    "title": "School of Enchantment Wizard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-e98185cb2dbb53fd-68e6ab726fcc37b8.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "School of Enchantment has some great points, but also some major challenges. Split Enchantment is the most exciting feature it provides, especially once you have some really good save-or-suck enchantment spells. Enchantment spells include many of the best save-or-suck options across the full level range (Tasha’s Hideous Laughter, Hold Monster, etc.). Enchantment also has magical options like Charm Person which can allow you to (briefly) serve as your party’s Face without the benefits of high Charisma and suitable skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re looking beyond save-or-suck spells and plan to enjoy the full benefits of School of Enchantment, the best way to do so is to get comfortable with spells like Charm Person and work on your “play acting” skills as a player. This is as close as you can get to being a Face without picking a class with Face skills, and you should expect to spend a lot of time conversing with creatures that you’ve influenced with spells. You may even invest some of your skills from your background and/or race in Charisma-based skills to support your efforts."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "School of Enchantment’s biggest challenge is that every feature except Split Enchantment relies on the Charmed condition. While that’s fine much of the time, many creatures are resistant or immune to Charmed. Be sure to diversify your spell list so that you’re ready to handle those foes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Enchantment Wizard Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Enchantment Wizard Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#school-of-enchantment-wizard-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Enchantment Wizard Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#school-of-enchantment-wizard-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Enchantment Wizard Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#school-of-enchantment-wizard-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Enchantment Wizard Armor and Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#school-of-enchantment-wizard-armor-and-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Say the Magic Word(s)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#example-build-say-the-magic-words"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/enchantment/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "School of Enchantment Wizard Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Enchantment Savant"
+              },
+              {
+                "type": "text",
+                "text": ": Standard for PHB\n\t\twizard subclasses. Strangely, this feature incentivizes you to use your two\n\t\tfree spells learned per level to learn literally anything except spells from\n\t\tyour favorite school."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hypnotic Gaze"
+              },
+              {
+                "type": "text",
+                "text": ": As a Wizard you should not\n\t\tspend a whole lot of time 5 feet away from enemies. But if you find yourself\n\t\tface to face with something unfriendly, flash those baby blues and hit it\n\t\twith your Hypnotic Gaze. This allows you to indefinitely lock down a single\n\t\ttarget, provided that you remain within range and that the target\n\t\tconsistently fails the initial saving throw. In an encounter where your allies\n\t\toutnumber the enemies (or at least the significant ones) this is a great way\n\t\tto tilt the balance of the encounter in your favor, even if this also takes\n\t\tyou out of the encounter. Using this to incapacitate enemies also means that\n\t\tthey release you if they were grappling you, and you can safely move away\n\t\twithout provoking Opportunity Attacks if you don’t want to stand there until\n\t\tyour party can come tie up whatever you’ve hypnotized. You can use this once\n\t\tper target per long rest, so a brave wizard might use this as a go-to tactic\n\t\tin place of expensive resources like spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Instinctive Charm"
+              },
+              {
+                "type": "text",
+                "text": ": This is a great way to\n\t\tmake enemy ranged attackers hit their own allies (or at least your more\n\t\tdurable allies if the enemy doesn’t have friends nearby). Since you can use\n\t\tthis repeatedly on the same target until they pass a save, you can expect to use this repeatedly in\n\t\tencounters where enemies are relying on ranged attacks. However, since this\n\t\tis difficult to use against melee attacks, you may still want Shield unless an\nally is willing to stand next to you to take the hits for you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Split Enchantment"
+              },
+              {
+                "type": "text",
+                "text": ": Many of the best\n\t\tEnchantment spells are single-target, which is a problem in encounters with\n\t\tmore than one enemy. This functionally doubles your spell output with your\n\t\tbest spells, including powerful options like Dominate Monster and Power Word\n\t\tKill."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Alter Memories"
+              },
+              {
+                "type": "text",
+                "text": ": This is the only Wizard\n\t\tfeature anywhere which cares about your Charisma, and it’s both extremely situational\n\t\tand disappointingly ineffective. The ability to erase part of the creature’s\n\t\tmemory of its time spent Charmed means that you can hit the creature with\n\t\tCharm Person or Charm Monster, spend an hour or more questioning it, then\n\t\tmake it forget that your conversation. Unfortunately, the spells which\n\t\tbenefit from Alter Memories are extremely few in number, so expect to lean\n\t\theavily on Charm X/Dominate X. Even the spell Friends doesn’t actually make\n\t\tthe target Charmed, so your options are pitifully small."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-enchantment-wizard-ability-scores",
+      "heading": "School of Enchantment Wizard Ability Scores",
+      "sourceAnchor": "school-of-enchantment-wizard-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enchanters are little different from other wizards, but you may want some Charisma to support Alter Memories and to support possible Face skills. Don’t go too crazy, of course."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": AC, Dexterity saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Hit points, Constitution saves including Concentration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Wisdom saves. You’re already proficient, which helps."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Alter Memories and maybe some Face skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-enchantment-wizard-races",
+      "heading": "School of Enchantment Wizard Races",
+      "sourceAnchor": "school-of-enchantment-wizard-races",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want Face skills to capitalize on charming creatures, strongly consider something that gets you extra skills. Otherwise, stick to anything that works well for "
+            },
+            {
+              "type": "link",
+              "text": "a typical wizard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-enchantment-wizard-feats",
+      "heading": "School of Enchantment Wizard Feats",
+      "sourceAnchor": "school-of-enchantment-wizard-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For the most part, enchanters benefit from the same feats as "
+            },
+            {
+              "type": "link",
+              "text": "other wizards",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-enchantment-wizard-armor-and-weapons",
+      "heading": "School of Enchantment Wizard Armor and Weapons",
+      "sourceAnchor": "school-of-enchantment-wizard-armor-and-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-enchantment-wizard-armor-and-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Just don’t."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bard"
+              },
+              {
+                "type": "text",
+                "text": ": One level allows you to attune to an Instrument of the Bards. If you play an Instrument of the Bards (any of the 7 options) while casting a spell that makes the target(s) Charmed, they suffer Disadvantage on the save. That’s a massive increase in effectiveness for spells which impose the Charmed condition, but that’s surprisingly few spells. Even so, powerful high-level options like Modify Memory and Dominate Monster rely on the Charmed condition, and when you can both impose Disadvantage and then target two creatures thanks to Split Enchantment, the whole combination is very powerful. If you wanted to lean further into this combination, three levels would let you join the College of Eloquence for Unsettling Words while still reaching Wish as a capstone, though you do give up Spell Mastery."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-say-the-magic-words",
+      "heading": "Example Build – Say the Magic Word(s)",
+      "sourceAnchor": "example-build-say-the-magic-words",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-say-the-magic-words-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I frequently discuss the issue of “Caster Supremacy”: the idea that spellcasters are generally more powerful than non-spellcasters, and that the divide grows larger depending on how much magic any individual character can do. I typically point to wizards as the perfect example of that issue: given the right spells, a wizard can replace one or more other classes in a party which are nominally purpose-built for that purpose. A wizard who knows knock and invisibility can often replace a rogue. A wizard who can summon a beefy creature to stand in melee can replace a fighter. Healing the party is mostly out of reach aside from specific build exceptions, but it’s one of few examples where the Wizard can’t simply replace their party members with a spell or two."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-say-the-magic-words-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The other major example where wizards fall short is Face skills. With no Charisma dependency and no Charisma-based skills on their class list, being a Face looks difficult at a glance. But as 5e has progressed and we’ve seen new character options, that hurdle has become much easier to clear."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-say-the-magic-words-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So, in this build, we’re going to create a wizard who is equal parts save-or-suck caster (covering the Controller and Striker roles) and Face. Don’t get me wrong: we’re still a horrifying save-or-suck caster. But we can also carry a conversation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-say-the-magic-words",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re still mostly a typical wizard, but we’re going to take a splash of Charisma to support our Face skills and eventually Alter Memories. We want to be sure that our Dex and Con are decent because we need the durability in case Hypnotic Gaze doesn’t work out and we find ourselves stuck in melee. We’ll use three +1 increases to get Intelligence to 16 and 3 other ability scores to 14."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-say-the-magic-words",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We have a lot of flexibility here. I want to lean into Face skills, so a race with additional skill proficiencies is an easy choice. We’re also adding a weird amount of MAD to the Wizard, so three ability score increases is helpful. That gives us a lot of options including lineages in Van Richten’s or races from Monsters of the Multiverse."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kenku is a good choice here. Kenku Recall gives you two skill proficiencies and the ability to give yourself Advantage a few times per day. If you don’t have time to set up buffs like Enhance Ability, that’s extremely useful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Dhampir and the Half-Elf would also make good candidates."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-say-the-magic-words",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Courtier. Insight and Persuasion fit our skill needs, and two languages means that we can play a Face with less reliance on Comprehend Languages and Tongues."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-say-the-magic-words",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll select Arcana and Insight from our two class skills. Insight becomes redundant with our background, so we’ll trade it for Deception. We’ll use our two kenku skill proficiencies to get Intimidation and either History or Religion depending on our party’s needs. We end up with Arcana, Deception, Insight, Intimidation, Persuasion, and either History or Religion, covering two Intelligence-based knowledge skills and the full suite of Face skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you went for a race that’s short on skills, consider the spell Borrowed Knowledge to make up the gap."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-say-the-magic-words",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to take two hybrid feats at levels 4 and 8. If you start with 17 Intelligence, you may only want one hybrid feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we’ll take telekinetic. This gives us a bottomless use of our Bonus Action to go alongside Hypnotic Gaze."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we want another hybrid feat, but it’s hard to decide what to take. Skill Expert and Fey Touched are easy go-to options. Telepathic would allow us to walk into melee, hypnotize a creature, and talk to them (one way) silently. Gift of the Gem Dragon provides another defensive option similar to Instinctive Enchantment. Linguist gets you more languages without spending a spell slot on Tongues."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We have more for feats at levels 16 and 19, and there’s nothing that we really need. Staples like Resilient (Constitution) are great. You might consider War Caster so that you can Charm or Dominate enemies as an opportunity attack if they run scared after seeing Hypnotic Gaze in action. Inspiring Leader could be nice, too."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-say-the-magic-words",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arcane Recovery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Something to attack with (Fire Bolt, Ray of Frost, etc.)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Friends"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Charm Person"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Familiar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mage Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sleep"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tasha’s Hideous Laughter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting equipment, take a dagger, a component pouch or spellcasting focus, either pack, and a spellbook."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We want Find Familiar and Mage Armor as staples immediately. Find Familiar is just universally great, and Mage Armor boosts our AC to 15, which is going to be crucial when we start diving into melee at level 2."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Offensively, we go straight to spells which remove enemies from fights. Sleep is great for crowds of low-hp enemies or for big enemies who have taken a few hits. Tasha’s Hideous Laughter takes a single enemy out of a fight like a low-budget version of Hold Person."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Outside of combat, we have Friends and Charm Person to help us in social situations. Our 14 Charisma isn’t far behind Charisma-based characters at this level, but we’re still behind and we need to get accustomed to using magic to complement our natural charm."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Friends notably doesn’t allow a save, but only lasts a minute and the creature becomes hostile toward you when it ends. Aside from using this to stir up trouble by driving random, unsuspecting creatures to violence, it’s a dangerous and short-term solution for social situations where you need something quickly and are willing to endure the consequences. Friends notably doesn’t rely on the Charmed condition, which makes it useful against creatures resistance or immune to being charmed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Charm Person is more straightforward. It lasts an hour, leaving you plenty of time to talk to the creature and do whatever you need. However, since the spell has no visual effect, you may not know if the spell succeeded or failed. And, when the spell ends, the target knows that it was charmed by you, which could come with consequences. Plan accordingly."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "School of Enchantment"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Enchantment Savant"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hypnotic Gaze"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hypnotic Gaze is an interesting option. If you can get within 5 feet of a target and force them to fail the save, they’re basically out of commission until you decide to stop spending your Action to hold them there. The creature is Incapacitated and it can’t take actions, so it can’t act or move. You can’t do much other than use your bonus action and walk in a circle around the creature, but if your party outnumbers your enemies, that’s still a win."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This gives us an unlimited, albeit high-risk, save-or-suck option. If you have a worthwhile enemy which you think will have poor Wisdom saves, it’s absolutely worth the risk to dive into melee with them and try to eliminate them in one action. We’ll grab Absorb Elements and Shield as defensive measures to make this strategy less suicidal."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now we just need something to let us repeatedly use our Bonus Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Outside of combat, Hypnotic Gaze still works, and it solves many of the problems faced by spells like Charm Person. While it only works on a single target once per day, it doesn’t allow the target to know that they were charmed, so you can use it safely in social situations. It notably doesn’t require Concentration, so you can use it alongside spells, which is going to be really awesome later. But even now, we’re proficient in all of the Face skills, and Advantage will keep us roughly equivalent to characters with Expertise for a while."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enhance Ability"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tasha’s Mind Whip"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Enhance Ability can immediately replace Charm Person in many situations. Giving yourself Advantage on all Charisma checks means all the benefits of Charm Person in social situations, but against every creature and with none of the risk, and without the need to walk within 5 feet of a target to hypnotize them. Use the right tool for the situation."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tasha’s Mind Whip is a really fun debuff with a tiny splash of damage. It’s on an Intelligence save, which is the lowest save across the whole level spectrum. Targets get their choice of movement, an Action, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "or"
+                },
+                {
+                  "type": "text",
+                  "text": " a Bonus Action on its turn and denying the ability to use Reactions, massively limiting what the target can do. Against melee-only enemies, you and your party can step 5 feet out of reach and make yourselves totally untouchable. Better still, this tactic never stops working, so Tasha’s Mind Whip remains a brutally effective way to win encounters with very little effort."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mind whip also gives us a way to get out of melee if Hypnotic Gaze isn’t working out. Whip the adjacent creature(s) then walk away while they can’t make Reactions."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Telekinetic (Int 16 -> 17)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Person"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Suggestion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember how we needed a good use for our Bonus Action? Well, here’s Telekinetic. Hypnotize your enemy, then move them 5 feet each turn so that you can slowly drag them wherever you want them to go like a very lazy dog on a leash. Your allies could also grapple them and drag them (while being sure to keep them within 5 feet of you), but they’re not going to do that in combat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hold Person is objectively better than Tasha’s Hideous Laughter, provided that your target is a humanoid. Paralyze them and have your party pile on the attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enemies Abound"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "In an encounter with multiple enemies, cast Enemies Abound on the biggest threat and let it do the work for you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pick whatever you like for your second spell. Fireball wouldn’t hurt, but strongly consider a summon spell or something."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Instinctive Charm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fast Friends"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tongues"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Instinctive Charm is a neat defense, especially when we’re diving into melee to use Hypnotic Gaze."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fast Friends is like Suggestion, except that you can make numerous requests within the spells 1-hour duration. Ask enemies for directions, hand-drawn maps, gossip about their allies, etc. Like many enchantment spells, what “conflicts with the creature’s normal activities and desires” is intentionally vague, but if you can word things in a way that sounds agreeable to your target, your DM might let it slip without an additional save."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tongues removes language barriers for an hour at a time."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Rhaulothim’s Psychic Lance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dominate Person becomes an option at this level, but you already have Hold Person to handle humanoids and Enemies Abound to force enemies to attack each other."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rhaulothim’s Psychic Lance is, in some ways, a linear upgrade from Tasha’s Mind Whip. Mind whip’s debuff is basically a worse version of Incapacitated, and of course mind whip’s damage is much lower, but the use cases are very similar. Psychic lance has better range, can target a creature by name, and prevents actions so you don’t need to worry about positioning to avoid a possibly hostile action. Still better, once we pick up Split Enchantment in a few levels it will target two creatures. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: See right (Int 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Banishment"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "But just in case those two options don’t work, grab Banishment so that you can also target Charisma saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our feat choice is hard, but not because there’s a lack of good options. In fact, the abundance of good options is exactly the issue. We need something with a +1 Intelligence increase, but it’s hard to decide what to pick. See the Feats section of the example build, above."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Alter Memory"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hey enemy guard, do you remember that time about 5 minutes ago when you stepped away to use the bathroom? That happened. Not that thing where I magically charmed you with Fast Friends and had you draw me a detailed map of the area and tell me all about the other defensive measures. You don’t remember that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hold Monster is a win condition for anything that can’t reliably pass the initial save, provided that your party has a few heavy hitters who rely on attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Split Enchantment"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Rary’s Telepathic Bond"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Skill Empowerment"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Many of our single-target spells, such as Hold Monster, can target additional creatures if we cast them at a higher spell level. This allows us to target two creatures for the price of one. Other spells like Alter Memory and Geas only target one creature normally, but now can target two, opening up some truly terrifying possibilities. It’s basically Twinned Spell, but all the time and for free (Limit: one additional target. Enchantment spells only. Spell slot necessary. Void where prohibited by antimagic field.)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take Rary’s Telepathic Bond so that you can cast a ritual and never verbally speak to your friends again. Speech is for people you plan to magically Charm."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skill Empowerment is the last piece of our Face Wizard setup. We have proficiency, we can get Advantage from Hypnotic Gaze, and now we add Skill Empowerment for what is effectively Expertise. We’re not quite as good as a bard, but it’s a difference of just +3 and we’re still a wizard."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mass Suggestion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Otto’s Irresistible Dance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otto’s Irresistible Dance is so named because it takes effect immediately, and the creature is forced to dance. They don’t get a save until they spend their Action to make a save to end the effect. If they fail the initial save, you can spend later turns hitting them with Mind Spike to debuff their save and hopefully keep them dancing while your party beats on them."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also, you can target two creatures thanks to Split Enchantment."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It’s totally reasonable to ask yourself “is that better than Hold Monster?” The answer is “maybe,” which isn’t especially helpful. Otto’s Irresistible Dance is great because it skips the initial save, but follow-up saves are timed just like Hold Monster. Hold Monster is great because the target is paralyzed, so they’re bait for automatic critical hits rather than simply granting Advantage. If you’re not worried about the initial save, use Hold Monster. Otherwise, use Otto’s Irresistible Dance."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Int 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Maxed Intelligence! Our best offensive options target Wisdom and Intelligence, and while Wisdom saves are one of the high ones, Intelligence is consistently the lowest. Even high-CR enemies may reliably fail saves against our spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Power Word Pain is the only 7th-level enchantment spell and it’s bad. Hitting two targets helps, but Con saves tend to be high so even if this works it won’t last long. Use Hold Monster instead and learn some non-enchantment 7th-level spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alter Memories"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alter Memories is our subclass capstone, and it’s a weird one. It’s Charisma-based, but we planned for that. We have +2."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Previously we’ve been casting Modify Memory to handle memories, and that’s been working just fine. But now we can use any spell which applies the Charmed condition, including Charm Monster or even Crown of Madness (not a great spell, but it’s the lowest-level spell which applies Charmed without a creature type restriction). Once the spell is in place, spend an Action and we can wipe three full hours of the target’s memories."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dominate Monster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Power Word Stun"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Why yes, you "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "can"
+                },
+                {
+                  "type": "text",
+                  "text": " dominate or stun two creatures with Split Enchantment."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any (see above)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Feeblemind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feeblemind is a semi-permanent off switch for enemies that rely on spells, and even non-spellcasting enemies won’t be intelligent enough to threaten you once you’ve left the area. It’s an Intelligence save, so, other than wizards, many enemies will still struggle to pass the save. You can target two creatures thanks to Split Enchantment, but it’s touch range, so that may be difficult unless you can cleverly position your familiar."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Power Word Kill"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Power Word Kill isn’t fantastic, but it’s hard to pass up the novelty of insta-killing two creatures. You’ll still need to beat them up a bit to get them below 100 hp in most cases."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Mastery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Silvery Barbs"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tasha’s Mind Whip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Silvery Barbs is an obvious choice for Spell Mastery. Tasha’s Mind Whip remains a powerful and reliable way to mostly incapacitate enemies with an extremely reliable save. Split Enchantment won’t affect Silvery Barbs, but it does affect Tasha’s Mind Whip, so encounters with two or fewer enemies are basically never a problem."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hold Person is another choice for the same purpose, but the humanoid-only limitation is simply too restrictive."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this point, consider multiclassing. You have everything you need from wizard. A level of bard to get access to Instrument of the Bards is very powerful when combined with all of our subclass features. Imagine casting Dominate Monster, targeting two creatures (Split Enchantment), both of them have Disadvantage on the initial save (Instrument of the Bards), and you can wipe their memory of their actions once before the spell ends as an Action."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any (see above)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nothing exciting here."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Signature Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fast Friends"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Signature Spells is neat but not really impactful."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "rating- wp-block-heading School of Enchantment Wizard Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Enchantment Savant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hypnotic Gaze"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Instinctive Charm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Split Enchantment"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Alter Memories"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bard"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-school-of-enchantment-wizard-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-school-of-enchantment-wizard-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-school-of-enchantment-wizard-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-school-of-enchantment-wizard-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-school-of-enchantment-wizard-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-school-of-enchantment-wizard-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-school-of-enchantment-wizard-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-school-of-enchantment-wizard-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-school-of-enchantment-wizard-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-school-of-enchantment-wizard-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-school-of-enchantment-wizard-armor-and-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-build-say-the-magic-words-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-build-say-the-magic-words-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-build-say-the-magic-words-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4185,
+    "sections": 16,
+    "blocks": 38,
+    "tables": 3,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

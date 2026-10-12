@@ -1,0 +1,789 @@
+{
+  "buildId": "build-druid-stars-loxodon-2014",
+  "revisionId": "build-druid-stars-loxodon-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Друїда Кола зірок — «Енергія слонячого мозку»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+      "sectionId": "section-example-circle-of-stars-druid-build-elephant-brain-energy",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "DRUID_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "DRUID_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "DRUID_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CIRCLE_OF_STARS",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "DRUID_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "DRUID_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "shape-water"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "DRUID_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "DRUID_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "DRUID_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "DRUID_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "DRUID_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "DRUID_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "druidcraft"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "DRUID_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "DRUID_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "DRUID_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "DRUID_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "DRUID_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "DRUID_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "DRUID_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "DRUID_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "DRUID_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "DRUID_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-stars-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+          "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CIRCLE_OF_STARS",
+    "raceKey": "LOXODON_GGTR",
+    "backgroundKey": "SAGE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 10
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 14
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "У друїда зірок є кілька цікавих прийомів. Ми візьмемо локсодона{{Loxodon}}, щоб КБ залежав від Статури й можна було перекинути частину очок в Інтелект заради навичок знань, які добре поєднуються з Драконом{{Dragon}} зі «Зоряної форми»{{Starry Form}}. Хоч це можна зробити й за допомогою черепахи{{Tortle}}, у локсодонів є расова риса «Могутня статура»{{Powerful Build}}, тож ми не відчуватимемо обмежень за вагою через Силу 8.\n\n Базове значення Підвищене значення 20-й рівень Сила 8 8 8 Спритність 10 10 10 Статура 15 17 20 Інтелект 14 14 14 Мудрість 15 16 20 Харизма 8 8 8\n\nОскільки ми взагалі не збираємося підвищувати Інтелект, можна лишити його на 14, а Спритність підняти до 10, щоб прибрати -1 від кидків ініціативи. Оскільки ми хочемо взяти «Стійкого (Статура)»{{Resilient (Constitution)}}, нам підходить віддати +2 Статурі замість Мудрості; Мудрість ми підвищуватимемо на +2 через Покращення Характеристик, тож вона й так буде парною.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми обрали локсодона{{Loxodon}}, щоб КБ дорівнював 12+модифікатор Статури, і можна було занедбати Спритність на користь Інтелекту.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Передісторія «Мудрець»{{Sage}} дає нам володіння Магією та Історією, що дозволяє бути ученим{{Scholar}} групи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від локсодона{{Loxodon}} ми не отримуємо ні навичок, ні інструментів. Друїд дає нам Природу й Релігію, а також Набір травника{{Herbalism Kit}}. Передісторія «Мудрець»{{Sage}} дає нам Магію та Історію.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Цього разу без мультикласування, тож усі Покращення Характеристик ми отримаємо вчасно.\n\nНа 4-му рівні беремо Покращення Характеристик на +2 Мудрості.\n\nНа 8-му рівні беремо рису «Стійкий (Статура)»{{Resilient (Constitution)}}, що дає володіння ряткидками Статури й підіймає нашу Статуру до 18.\n\nНа 12-му рівні отримуємо ще одне Покращення Характеристик на +2 Мудрості, що доводить її до 20.\n\nНа 16-му рівні беремо ще одне Покращення Характеристик, цього разу на +2 Статури, доводячи її до 20.\n\nНа 19-му рівні беремо «Здоровань»{{Tough}}, щоб зміцнити наші ХП.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "{{Друїдична мова|Druidic}}\nЧаротворство{{Spellcasting}}\nВідомі замовляння:\n– Первісна дикість\n– Створення вогню\nЗаклинання 1-го рівня:\n– Поглинання стихій\n– Вогники фей\n– Доброягода\n– Цілюще слово",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Коло друїдів{{Druid Circle}}: Коло зірок\nЗоряна мапа:\n– Настанова\n– Спрямований заряд\nЗоряна форма:\n– Стрілець\n– Кубок\n– Дракон\nДика форма",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Заклинання 2-го рівня:\n– Темний зір\n– Покращення здібності\n– Переміщення без сліду\n– Проростання шипів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Мудрість 16 → 18)\nПокращення Дикої форми\nНове відоме замовляння:\n– Формування води",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Заклинання 3-го рівня:\n– Розвіювання магії\n– Стихійна зброя\n– Відродження",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Космічне знамення{{Cosmic Omen}}:\n– Благовість\n– Лиховість",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Заклинання 4-го рівня:\n– Перевтілення\n– Форма каменю\n– Стіна вогню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Стійкий (Статура 17 → 18)\nПокращення Дикої форми",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Заклинання 5-го рівня:\n– Більше відновлення\n– Вир\n– Стіна з каменю",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Блискучі сузірʼя\nНове відоме замовляння:\n– Ремесло друїдів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Заклинання 6-го рівня:\n– Зцілення\n– Бенкет героїв\n– Вбрання льоду\n– Перехід крізь рослини",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Мудрість 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Заклинання 7-го рівня:\n– Драконяче перетворення\n– Планарний перехід\n– Обернена гравітація",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Сповнені зірок{{Full of Stars}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Заклинання 8-го рівня:\n– Цунамі",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Статура 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Заклинання 9-го рівня:\n– Передбачення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Заклинання звіра{{Beast Spells}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Здоровань",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Архі-друїд{{Archdruid}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Заклинання 3–17 рівнів",
+        "reason": "Автор називає підготовлені заклинання по рівнях, але підготовку Друїда на вищих рівнях плану не веде жоден модуль платформи; їх готують на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-stars-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+            "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

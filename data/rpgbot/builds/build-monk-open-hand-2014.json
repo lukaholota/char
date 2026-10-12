@@ -1,0 +1,1043 @@
+{
+  "buildId": "build-monk-open-hand-2014",
+  "revisionId": "build-monk-open-hand-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Пусковий майданчик",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-open-hand-2014",
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+      "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+      "sectionId": "section-example-build-the-launch-pad",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [
+    "race",
+    "background",
+    "feat"
+  ],
+  "choices": [
+    {
+      "choiceId": "race",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-race",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "race-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "race",
+            "entityKey": "HUMAN_2014"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2014",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+              "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+              "sectionId": "section-race",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Варіант людини{{Variant Human}}. Доступ до риси на першому рівні надзвичайно корисний для Монаха, бо це, по суті, єдиний спосіб отримати її, не завдавши собі математичної шкоди. Ми також отримуємо додаткову навичку, що приємно.",
+          "dependsOn": []
+        },
+        {
+          "alternativeId": "race-custom-lineage",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "race",
+            "entityKey": "CUSTOM_LINEAGE_TCE"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2014",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+              "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+              "sectionId": "section-race",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Натомість можна взяти «Свою расу»{{Custom Lineage}}, щоб отримати Темнозір, а підвищення характеристик 4-го рівня розділити між Спритністю та Мудрістю. Після цього єдина різниця між збірками — одна навичка проти Темнозору.",
+          "dependsOn": [],
+          "levelOverrides": [
+            {
+              "characterLevel": 4,
+              "text": "Покращення характеристик: +1 до Спритності, +1 до Мудрості",
+              "abilityChanges": [
+                {
+                  "ability": "DEX",
+                  "increase": 1
+                },
+                {
+                  "ability": "WIS",
+                  "increase": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "choiceId": "background",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-background",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "background-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "background",
+            "entityKey": "URCHIN"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2014",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+              "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+              "sectionId": "section-background",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Тут добре працюватиме будь-яка з передісторій, запропонованих у нашому гайді Монаха. Мені особливо до вподоби передісторія «Безпритульний»{{Urchin}}, бо вона так спрощує Монаху роль еквівалента Пройдисвіта в групі.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "feat",
+            "entityKey": "CRUSHER"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2014",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+              "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+              "sectionId": "section-feats",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Беремо «Дробильника» на першому рівні. Це дає змогу одразу починати переміщувати ворогів і виконувати для групи функцію сапорта, але також добре поєднується з «Технікою відкритої долоні», як ми розглянемо нижче.",
+          "dependsOn": []
+        }
+      ]
+    }
+  ],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAY_OF_THE_OPEN_HAND",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WAY_OF_THE_OPEN_HAND",
+    "raceKey": "HUMAN_2014",
+    "variantKey": "HUMAN_VARIANT",
+    "backgroundKey": "URCHIN",
+    "featKey": "CRUSHER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-example-build-the-launch-pad",
+        "title": "Приклад збірки — Пусковий майданчик",
+        "text": "Шлях відкритої долоні майже цілковито визначається «Технікою відкритої долоні», тож відкрийте розум (і долоню, мабуть) для можливостей, які вона нам дає: ми будемо відправляти речі кулаком у небо.\n\nПопри всю чудовість цієї можливості, ця збірка не позбавлена труднощів. Проблеми Монаха із залежністю від багатьох характеристик (MAD) тримають вашу Складність ряткидка низькою більшу частину карʼєри, через що фірмовий фокус цієї збірки може бути дратівливим і ненадійним. Магічні предмети багато допомагають, але навіть тоді в цій збірці мало простору для зміни прогресії підвищень характеристик.\n\nУ цій збірці ми скористаємося деякими з додаткових класових умінь Монаха. Як ми рекомендували в гайді Монаха, використаємо «Присвячену зброю»{{Dedicated Weapon}} (яка насправді нам не допоможе), «Швидке зцілення» і «Зосереджене прицілювання»{{Focused Aim}}. «Присвячена зброя» розширює варіанти зброї й дає невелике підвищення шкоди. «Швидке зцілення» дублює «Цілісність тіла», тож майже не знадобиться. «Зосереджене прицілювання» — добра запасна опція, але не є суттєвою для збірки.\n\nЦя збірка — одна з наших 10 улюблених збірок D&D 5e.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-example-build-the-launch-pad",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-lets-discuss-semantics",
+        "title": "Обговоримо семантику",
+        "text": "Перш ніж заглиблюватися в саму збірку, обговоримо визначення слова «від себе»{{away}}, зокрема в контексті переміщення чогось від чогось іншого. У цьому контексті «від себе» просто означає, що воно опиниться на більшій відстані, ніж було раніше. У тексті правил, що показово, немає слова «безпосередньо», як у «безпосередньо від себе», а це означає, що коли ви відсуваєте щось від чогось іншого, ви можете рухати це під кутом, якщо після цього переміщення воно опиняється на більшій відстані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-lets-discuss-semantics",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-lets-discuss-geometry-and-physics",
+        "title": "Обговоримо геометрію й фізику",
+        "text": "Ви розумієте, що збірка збирається втнути щось безглузде, коли вона починається з обговорень семантики, геометрії та фізики.\n\nЗа замовчуванням D&D 5e не робить діагональне переміщення на сітці дорожчим за горизонтальне. Якщо уявити бейсбольний діамант, 1-ша, 2-га та 3-тя бази вважаються однаково віддаленими від дому. Це також означає, що сфери — це куби, але ми тут не заради цього. Важливо памʼятати це правило, коли істот відсувають від інших істот. Можливість переміщувати істоту по діагоналі на таку саму кількість клітинок спрощує роботу переміщення.\n\nD&D 5e також жодним чином не обробляє параболічний рух (обіцяю, це важливо) і не має поняття імпульсу. Це не симуляція фізики: це фентезійні шахи з високими ставками та акторською грою. Памʼятайте про це, коли істоту переміщують у повітря: підйом у повітря й подальше падіння — фактично два незалежні рухи, де ціль починає й закінчує у спокої.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-lets-discuss-geometry-and-physics",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-is-this-really-allowed",
+        "title": "Чи це справді дозволено?",
+        "text": "За буквальним прочитанням правил (RAW) — так. Не зовсім зрозуміло, чи розробники мали на увазі, що ефекти на кшталт «Дробильника» і «Техніки відкритої долоні» дозволяють переміщувати істот по вертикалі, чи ця можливість узагалі розглядалася. Ваш Майстер цілком резонно може постановити, що «від себе» означає «безпосередньо від себе», і хоча це дещо обмежує наші варіанти, воно лише змінює нашу прямокутну область, куди ми можемо скидати ворогів, на бублик.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-is-this-really-allowed",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-is-this-going-to-cause-problems",
+        "title": "Чи це створить проблеми?",
+        "text": "Можливо, але комбінація Захоплення/Штовхання дратівливіша, надійніша й ефективніша, особливо коли ви починаєте рухати захопленого, щоб тягнути ворогів до небезпек. Комбінація, від якої залежить ця збірка, має строго обмежену ресурсну вартість (очки Кі) і дозволяє ряткидок Сили. Ряткидки Сили зазвичай високі для більшості істот, на які це спрямоване, а для всього іншого захопити їх було б значно легше й надійніше.\n\nЯ брав цю збірку в гру. Було кумедно, коли комбінація спрацьовувала, але це жодним чином не чудова збірка.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-is-this-going-to-cause-problems",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Використаємо характеристики, рекомендовані вище. Оскільки ми починаємо з двох підвищень +1 і +1 до Статури від «Дробильника», фактично ми отримуємо три підвищення +1.\n\n Купівля характеристик Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 16 Інтелект 8 8 Мудрість 15 16 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Варіант людини{{Variant Human}}. Доступ до риси на першому рівні надзвичайно корисний для Монаха, бо це, по суті, єдиний спосіб отримати її, не завдавши собі математичної шкоди. Ми також отримуємо додаткову навичку, що приємно.\n\nНатомість можна взяти «Свою расу»{{Custom Lineage}}, щоб отримати Темнозір, а підвищення характеристик 4-го рівня розділити між Спритністю та Мудрістю. Після цього єдина різниця між збірками — одна навичка проти Темнозору.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Тут добре працюватиме будь-яка з передісторій, запропонованих у нашому гайді Монаха. Мені особливо до вподоби передісторія «Безпритульний»{{Urchin}}, бо вона так спрощує Монаху роль еквівалента Пройдисвіта в групі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Оберемо Аналіз Поведінки та Непомітність як дві навички Монаха. Від передісторії «Безпритульний» отримуємо Спритність рук, Непомітність, Набір для гриму та Інструменти злодія. Оскільки Непомітність дублюється, її можна замінити будь-якою іншою навичкою, щоб обійти обмежені варіанти навичок Монаха, і ми візьмемо натомість Уважність.\n\nЩе одну навичку на наш вибір отримуємо від Варіанта людини, і її можна вкласти будь-куди. Усі добрі навички на основі Спритності й Мудрості в нас уже є, тож це не дуже важливо. Акробатика підійде.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Беремо «Дробильника» на першому рівні. Це дає змогу одразу починати переміщувати ворогів і виконувати для групи функцію сапорта, але також добре поєднується з «Технікою відкритої долоні», як ми розглянемо нижче.\n\nДодаткових рис ми не зможемо дозволити собі до високого рівня. Нам потрібно 4 підвищення характеристик, щоб довести і Спритність, і Мудрість до 20, тож місце для додаткової риси буде лише на 19-му рівні, коли можна робити практично що завгодно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "– Захист без броні – Бойові мистецтва – Риса: Дробильник",
+        "notes": "Для стартового спорядження візьміть короткий меч, будь-який набір і 10 дротиків. Продайте короткий меч за 12,5 зм — і ви матимете стільки золота, ніби обрали стартове золото, плюс безкоштовний набір і 10 дротиків. Ви також отримуєте ще 10 зм від передісторії плюс кілька дрібниць, зокрема одяг. Використайте це золото, щоб купити собі палицю.\n\nПочинаємо з КБ 16 і 11 ХП. Бойові мистецтва дають нам дві атаки за хід, і з палицею в руках ваша шкода дуже солідна. Важливо розуміти, наскільки корисний спис, особливо на цьому рівні. Його можна тримати двома руками й завдавати ударів без зброї, бʼючи людей ногою чи чимось таким, тож ви отримуєте одну атаку, що завдає 1к8+3, а ваша додаткова атака Бойових мистецтв завдає 1к4+3. «Дробильник» дає змогу одразу почати виконувати певні функції контролера.\n\nПереміщення істоти на 5 футів часто достатньо, щоб розірвати захоплення, вивести ворогів із ближнього бою з вашими дальніми союзниками і зсунути ворогів достатньо близько, щоб ваша група отримала більше шкоди від малих зон ураження на кшталт «Палючих долонь [Burning Hands]» чи дихальної зброї дракононародженого. У вас також є два шанси спровокувати ефект критичного влучання, але це варто вважати приємним сюрпризом, а не тим, заради чого ви докладаєте зусиль.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "– Кі – Рух без броні – Додатково: Присвячена зброя",
+        "notes": "У вас лише 2 очки, і хоча вони відновлюються після Короткого відпочинку, використовувати їх щораунду ви не можете собі дозволити. Типовий день пригод — це 6–8 зустрічей, що тривають у середньому приблизно по 3 раунди, із двома Короткими відпочинками між ними. Це означає приблизно 6–9 раундів бою між кожним відпочинком. Звикайте керувати Кі рано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "– Монастирська Традиція: Шлях відкритої долоні – Техніка відкритої долоні – Відхилення снарядів",
+        "notes": "«Техніка відкритої долоні» — причина, чому ми тут, і саме тут ця збірка по-справжньому злітає. Перший варіант «Техніки відкритої долоні» дає змогу відсунути істот на 15 футів від себе, коли ми влучаємо по них атакою від «Шквалу ударів». Саме тут стають у пригоді всі ті розмови про семантику й геометрію. Ви також можете спровокувати «Дробильника» тим самим влучанням, переміщуючи істоту загалом до 20 футів.\n\nПравила одночасних ефектів (див. «Довідник Занатара про все») дозволяють вам обрати, в якому порядку застосовувати ці два ефекти. «Дробильник», що показово, не обмежує, в якому напрямку можна пересунути ціль. За бажання можна пересунути ціль прямо вгору. Тоді це, що показово, робить переміщення її прямо в повітря «від себе».\n\nСаме так: ви можете вдарити апперкотом (чи дропкіком, чи ще чимось) істоту на 20 футів прямо вгору. Падіння настає одразу, змушуючи істоту впасти й отримати 2к6 шкоди, зазвичай приземляючись Поваленою.\n\nАле це ще не все. Через дивні спрощені правила геометрії 5e ви можете перемістити ціль над будь-якою клітинкою в межах 20 футів від початкової точки за допомогою цієї комбінації, скинувши її куди завгодно в межах цієї квадратної зони 45 футів. Скиньте їх у ближній бій із членом групи. Скиньте в яму. Скиньте в наявний ефект заклинання.\n\nВикиньте їх у вікно. Проявіть фантазію. Проте «Техніка відкритої долоні» має обмеження: вам треба влучити по цілі, і ціль має провалити ряткидок Сили. Дві точки провалу означають, що це жодним чином не гарантія. У вас є два шанси, щоб це сталося, щоразу, коли ви використовуєте «Шквал ударів», але ймовірність провалу все одно цілком реальна.\n\nЯкщо вам дуже пощастить, можна застосувати «Техніку відкритої долоні» двічі за хід, хоча ефект переміщення «Дробильника» працює лише раз за хід, тож удруге ви не зможете закинути істот так далеко. Якщо ви стикаєтеся з ворогами з високою Силою (а таких багато), можна натомість спробувати збити їх з ніг. Більшість ворогів із високою Силою мають слабкі ряткидки Спритності, тож це часто безпечніше, навіть якщо менш вражає.\n\nЯкщо у вашій групі є бійці ближнього бою, що діятимуть перед вашою ціллю, легка Перевага на кубику на їхні атаки завжди доречна. Також зважайте на власну позицію щодо цілі. Якщо ви використовуєте «Дробильника» та/або «Техніку відкритої долоні», щоб пересунути істоту та/або збити її з ніг, відхід від них може фактично позбавити ворогів ближнього бою ходу.\n\nЯкщо ви відійдете на 35 футів, а швидкість вашого ворога лише 30 футів, ви можете опинитися достатньо далеко, щоб вони не змогли до вас дістатися без Ривка. Це, очевидно, не спрацює в тісних місцях або якщо ваші союзники не розташовані так, щоб це мало сенс, але ті кілька разів, коли це спрацює, будуть чудовими.\n\nТакож памʼятайте, що істоти мають витратити половину швидкості, щоб підвестися, тож вам, можливо, не доведеться відходити особливо далеко. За всі мої роки в D&D я бачив, як спрацьовує «Відхилення снарядів», може, тричі. Це відчувається неймовірно, коли трапляється, але практично ніколи не трапляється, бо так мало ворогів користуються метальною зброєю на кшталт луків чи метальних списів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "– Покращення Характеристик (Спритність 16 → 18) – Повільне падіння – Додатково: Швидке зцілення",
+        "notes": "Маючи до трьох атак за хід, підвищення Спритності дає чимало користі. Воно також, що вирішально, тримає наші шанси влучити «Шквалом ударів» у ногу з «Фундаментальною математикою»{{Fundamental Math}}, тож ми рідше провалюємо першу точку провалу нашої комбінації з «Технікою відкритої долоні». Монахи, що показово, — єдиний клас, який отримує нове класове уміння на 4-му рівні, що приємно, але мало що змінює.\n\nЯкщо ви знайдете «Черевики кроку й стрибка [Boots of Striding and Springing]» (або «Перстень стрибків [Ring of Jumping]», але вони обʼєктивно гірші), ви зможете підстрибнути в повітря, «Технікою відкритої долоні» збити літаючих ворогів на землю, а потім безпечно повернутися вниз «Повільним падінням».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "– Додаткова атака – Приголомшливий удар – Додатково: Зосереджене прицілювання",
+        "notes": "Додаткова атака дає вам 3 атаки майже щоходу, а з 5 очками Кі між Короткими відпочинками ви можете дозволити собі частіше застосовувати «Шквал ударів» (хоча все ще не щоходу). Додаткова атака також означає, що ви частіше користуєтеся кращим кубиком шкоди вашого молота, а шкода ваших ударів без зброї зростає до 1к6, тож ваші атаки від Бойових мистецтв і «Шквалу ударів» і далі покращуються. «Приголомшливий удар» вирішальний для ефективної гри за Монаха.\n\nПриголомшення позбавляє істоту ходу, вона автоматично провалює ряткидки Сили та Спритності, а ви отримуєте Перевагу на кубику в атаках по ній до кінця вашого наступного ходу.\n\nПроте, оскільки ряткидки Статури зазвичай високі, «Приголомшливий удар» часто буває дратівливим і ненадійним. Якщо вам пощастило приголомшити когось, закріпіть це «Технікою відкритої долоні». Ціль автоматично провалює ряткидки Сили та Спритності, тож ви можете запускати її куди заманеться.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "– Удари, посилені Кі – Цілісність тіла",
+        "notes": "На цьому рівні вороги з опором до шкоди від немагічних атак зброєю трапляються дедалі частіше, а оскільки удари без зброї не є зброєю, вони не можуть скористатися заклинаннями на кшталт «Магічної зброї [Magic Weapon]». Якщо ви ще не знайшли магічну зброю (є три магічні посохи звичайної рідкості, тож це справді нескладно), у деяких випадках вам може довестися вдаватися до ударів без зброї для всіх атак. «Цілісність тіла» не надто захопливе, але це велика порція зцілення дією, тож у скруті її можна використати й у бою.\n\nЯкщо ви в справді скрутному становищі, використайте «Цілісність тіла» і витратьте очко Кі, щоб виконати Ухиляння бонусною дією.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "– Ухилення – Спокій розуму",
+        "notes": "Як персонаж ближнього бою на передовій, ви ставатимете ціллю ефектів шкоди по області. «Ухилення» допомагає помʼякшити шкоду, що чудово, бо у вас немає Кубика Здоровʼя к10 Воїна. «Спокій розуму» кращий, ніж можна очікувати. Величезна кількість ефектів робить істоту Причарованою, зокрема багато тих, що не схожі на ефекти зачарування, і це дає змогу легко уникати таких ефектів.\n\nПроте є й багато ефектів, що скасовуються імунітетом до причарування без використання стану Причарований, і тут це не допомагає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "– Покращення Характеристик (Спритність 18 → 20)",
+        "notes": "Максимізація Спритності підвищує ваш КБ до 18, що відповідає Воїну в латному обладунку, а з до чотирьох атак за хід ваша шкода значно вища. Якщо у вас немає проблем із влучанням (можливо, ваша група дуже любить «Благословення [Bless]» або ви часто отримуєте Перевагу на кубику), розгляньте натомість підвищення Мудрості, щоб зробити «Техніку відкритої долоні» й «Приголомшливий удар»{{Stunning Fist}} надійнішими.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "– Покращення Руху без броні",
+        "notes": "Покращена версія «Руху без броні» дає змогу рухатися вертикальними поверхнями, як-от стіни, і по поверхні води. Хочеться завершувати хід на твердій землі, але з підвищеною швидкістю Монаха, «Кроком вітру» та Ривком можна за один хід пробігти 135 фт. прямо вгору по стіні. Якщо ви кмітливі, можна вибігти по стіні, виконати довгий стрибок зі стіни, щоб дістати літаючого ворога, збити його з ніг «Технікою відкритої долоні», а потім безпечно впасти «Повільним падінням». Цей прийом відомий як «Магічний гравітаційний ліктьовий удар»{{the Magical Gravity People’s Elbow}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "– Чистота тіла",
+        "notes": "Отрута поширена на всьому діапазоні рівнів, а імунітет до неї допомагає розтягнути ваші ХП із Кубика Здоровʼя к8.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "– Спокій",
+        "notes": "«Спокій» дає вам змогу бути пацифістом. Ваша Складність не зрівняється зі Складністю заклинача, але її має вистачати, щоб інколи вас захищати. Памʼятайте, що після першої атаки ви на сьогодні закінчили грати пацифіста, тож у деякі дні вам, можливо, доведеться прокинутися й одразу обрати насильство.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "– Покращення Характеристик (Мудрість 16 → 18)",
+        "notes": "Покращуйте свої Складності та КБ. Ряткидки Сили зростали разом із вашими рівнями, тож до цього часу ви, сподіваємося, навчилися добре обирати цілі для «Техніки відкритої долоні» та «Приголомшливого удару». Покращення Складності робить це трохи менш вирішальним.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "– Язик Сонця і Місяця",
+        "notes": "Ми занедбали Харизму. Уникайте розмов.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "– Алмазна душа",
+        "notes": "Між «Алмазною душею», «Ухиленням», «Спокоєм розуму» та добрими характеристиками вас винятково важко поранити. Найкращий шанс ворогів — атакувати вас, але з КБ 19 (і, можливо, деякими магічними предметами) по вас досить важко влучити. На цьому рівні у вас 14 очок Кі, тож не вагайтеся використовувати «Алмазну душу», щоб перекинути ряткидок.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "– Невмируще тіло",
+        "notes": "«Невмируще тіло» мало на що впливає, але є кілька ефектів, що можуть убити вас, магічно постаривши.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "– Покращення Характеристик (Мудрість 18 → 20)",
+        "notes": "З максимальною Мудрістю ваш КБ тепер становить 20 без магічних предметів, що відповідає персонажу в латному обладунку зі щитом. Це також робить нашу Складність ряткидка для «Техніки відкритої долоні» та «Приголомшливого удару» доволі надійною. Усе одно варто обережно обирати цілі, щоб максимізувати шанси на успіх.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "– Тремтяча долоня",
+        "notes": "«Тремтяча долоня» — це ефект «ряткидок або смерть», просто й ясно. 3 очки Кі — це багато, але воно того варте. Ми вже довели Мудрість до максимуму, тож ваша Складність ряткидка не гірша, ніж у повного заклинача. Навіть якщо ціль проходить ряткидок, це в середньому 55 шкоди, чого достатньо, щоб стати серйозною проблемою для істоти, що вже отримала багато шкоди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "– Порожнє тіло",
+        "notes": "Памʼятайте, що це невидимість як стан, а не як заклинання «Невидимість». Ви вільні атакувати скільки завгодно, зазвичай із Перевагою на кубику, бо вороги зазвичай не зможуть вас бачити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "– Покращення Характеристик: будь-яке",
+        "notes": "На цьому етапі можна робити що завгодно. Більше Статури не завадить, але риса, імовірно, цікавіша.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "– Досконале Я",
+        "notes": "На цьому рівні у вас 20 очок Кі, тож ви, мабуть, витрачаєте очко Кі щоходу. «Досконале Я» допомагає, якщо вас застала зненацька зустріч, поки ви не встигли відпочити й відновитися. Не чудово, але допомагає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Покращення характеристик на 19-му рівні",
+        "reason": "Автор пише «Покращення Характеристик: будь-яке»; пресет бере типове +2 до Статури, гравець може змінити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Додаткові (необовʼязкові) уміння класу",
+        "reason": "Автор позначає «Присвячену зброю» (2-й), «Швидке зцілення» (4-й) і «Зосереджене прицілювання» (5-й) як додаткові; платформа не має вибору таких необовʼязкових умінь, тож вони не записані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Альтернатива «Своя раса»",
+        "reason": "Автор радить як альтернативу Свою расу (Темнозір, підвищення Спритності й Мудрості по +1 на 4-му рівні); пресет бере Варіант людини.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2014",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+            "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1749 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-a203a4e6889ca915",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-a203a4e6889ca915-83f53911442d15af",
+      "sourceId": "rpgbot-a203a4e6889ca915",
+      "fetchedAt": "2026-09-29T19:18:54.556994+00:00",
+      "sourceUpdatedAt": "2024-08-16T10:51:37-04:00",
+      "contentHash": "d0ab22506b26bf1d9624f55a6423f1bda92b2247e8b64ca2b1b79f6b255c32af",
+      "title": "2024 DnD Super Mario Jump Attack Build Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-a203a4e6889ca915-83f53911442d15af.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-super-mario-jump-2014",
+    "sourceId": "rpgbot-a203a4e6889ca915",
+    "slug": "super-mario-jump-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Стрибкова атака в стилі Супер Маріо — приклад білда (2014)",
+    "titleEn": "2024 DnD Super Mario Jump Attack Build Guide",
+    "topics": [
+      "Варвар",
+      "Монах",
+      "Чарівник",
+      "стрибки",
+      "мультикласування",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-super-mario-jump-2014-draft1",
+      "articleId": "rpgbot-super-mario-jump-2014",
+      "sourceRevisionId": "rpgbot-a203a4e6889ca915-83f53911442d15af",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви майже напевно знаєте Супер Маріо від Nintendo та його звичку перемагати ворогів, стрибаючи їм на голови. У D&D є стрибки. Є й вороги. Перевірмо, чи можна створити персонажа, який повторює цю тактику Маріо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця стаття використовує правила 2014 року. Правил магічних предметів 2024 року ми ще не бачили, тож за правилами 2024 цей білд поки не зробити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-rules-of-jumping-and-falling-on-things",
+          "heading": "Правила стрибків і падіння на істот",
+          "sourceAnchor": "the-rules-of-jumping-and-falling-on-things",
+          "blocks": [
+            {
+              "blockId": "block-section-the-rules-of-jumping-and-falling-on-things-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть "
+                },
+                {
+                  "type": "link",
+                  "text": "«Книгу Гравця» (2014)",
+                  "href": "https://www.dndbeyond.com/sources/dnd/phb-2014/adventuring#Jumping"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "link",
+                  "text": "«Довідник Занатара про все»",
+                  "href": "https://www.dndbeyond.com/sources/dnd/xgte/dungeon-masters-tools#Falling"
+                },
+                {
+                  "type": "text",
+                  "text": " і "
+                },
+                {
+                  "type": "link",
+                  "text": "«Казан Таші з усім»",
+                  "href": "https://www.dndbeyond.com/sources/dnd/tcoe/dungeon-masters-tools#FallingontoaCreature"
+                },
+                {
+                  "type": "text",
+                  "text": ". Нам потрібні правила стрибка у висоту, падіння та падіння на інших істот. В ідеалі ми завдаватимемо ворогам якомога більше шкоди, а собі — якомога менше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-rules-of-jumping-and-falling-on-things-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За правилами швидкості падіння з «Довідника Занатара» за один раунд ми падаємо щонайбільше на 500 футів. Це абсолютна стеля для висоти нашого стрибка, але навряд чи вона стане проблемою. Наша ціль — 200 футів: тоді шкода від падіння досягне максимуму 20к6."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-rules-of-jumping-and-falling-on-things-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За «Книгою Гравця» під час стрибка у висоту з розбігу ми піднімаємося на 3 + модифікатор Сили футів. Навіть із Силою 20 цього трохи не вистачає на два квадрати над землею. Десятифутовий розбіг і кожен фут стрибка витрачають наш обмежений запас руху. Отже, треба збільшити висоту стрибка та швидкість. Якщо стрибнути в межах досяжності ворога, це ще й провокує принагідні атаки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-lateral-movement",
+          "parentSectionId": "section-the-rules-of-jumping-and-falling-on-things",
+          "heading": "Рух убік",
+          "sourceAnchor": "lateral-movement",
+          "blocks": [
+            {
+              "blockId": "block-section-lateral-movement-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Треба врахувати й рух убік. Правила стрибка у висоту не пояснюють горизонтального переміщення. Немає навіть натяку, як це працює. Щедро припустімо, що можна стрибати вгору під кутом 45 градусів і пролетіти горизонтально стільки ж, скільки вертикально."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lateral-movement-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На жаль, не можна припускати, що ваш Майстер вирішить так само. Через це весь білд важко застосувати за ігровим столом. Сприймайте статтю радше як мисленнєвий експеримент, ніж як практичний приклад персонажа."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-falling-on-creatures",
+          "parentSectionId": "section-the-rules-of-jumping-and-falling-on-things",
+          "heading": "Падіння на істот",
+          "sourceAnchor": "falling-on-creatures",
+          "blocks": [
+            {
+              "blockId": "block-section-falling-on-creatures-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поговорімо про шкоду від падіння на іншу істоту. Якщо істота падає на істоту, шкода від падіння ділиться між ними порівну — за умови, що друга істота провалила ряткидок Спритності зі Складністю 15. Отже, ворогу ми завдамо щонайбільше приблизно 10к6."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-falling-on-creatures-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отримувати 10к6 шкоди самим — не чудова ідея. Не раджу. Потрібно знайти способи її зменшити. Але тут виникає цікаве питання: якщо ми зменшимо власну шкоду, що станеться зі шкодою другої істоти?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-falling-on-creatures-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ключове питання — коли саме ділиться шкода; правила цього не пояснюють. Формулювання про шкоду, що виникла від падіння, не дає відповіді. Найпростіше рішення: спершу розділити кубики, а тоді кожна істота окремо застосовує свої опори. Але можна доводити й протилежне: опір діє до поділу, бо «шкода від падіння» — це остаточне число ХП, яке ви втратите. Однозначної відповіді немає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-falling-on-creatures-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заради нашого аргументу припустімо, що шкода ділиться до будь-якого зменшення чи опору. Це веселіший варіант."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-falling-on-creatures-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Повторю: це радше мисленнєвий експеримент, а не справді корисний білд. Ми просто розважаємося. D&D явно не розрахована на таку тактику, але ми все одно її спробуємо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-mitigating-falling-damage",
+          "parentSectionId": "section-the-rules-of-jumping-and-falling-on-things",
+          "heading": "Зменшення шкоди від падіння",
+          "sourceAnchor": "mitigating-falling-damage",
+          "blocks": [
+            {
+              "blockId": "block-section-mitigating-falling-damage-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є кілька способів зменшити шкоду. Памʼятайте: будь-яке віднімання від шкоди застосовується перед опором. Через це їхнє поєднання не таке вражаюче, як можна сподіватися. Розгляньмо варіанти:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-mitigating-falling-damage-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Лють Варвара",
+                    "href": "https://www.dndbeyond.com/classes/9-barbarian#Rage-51"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": опір дробильній шкоді захистить нас від падіння."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Падіння пірʼїною [Feather Fall]",
+                    "href": "https://dndbeyond.com/spells/feather-fall"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": заклинання має цілком прибрати шкоду від падіння, якщо істота приземлиться до завершення його дії. Швидкість падіння падає до 60 футів за раунд, тож до максимального удару по цілі доведеться неквапом спускатися чотири раунди. Те саме стосується "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Персня падіння пірʼїною",
+                    "href": "https://www.dndbeyond.com/magic-items/4721-ring-of-feather-falling"
+                  },
+                  {
+                    "type": "text",
+                    "text": " та схожих предметів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Планерування манти симікського гібрида|Manta Glide}}: дозволяє планерувати під час падіння й запобігає шкоді за 100 футів. Утім, пролетіти 200 футів убік за шість секунд, а тоді вдарити когось на швидкості 22 милі за годину — боляче всім учасникам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Повільне падіння Монаха|Slow Fall}}: зменшує шкоду від падіння, яку ви отримуєте, на пʼятикратний рівень Монаха. Попри назву, швидкість падіння не зменшується — ви все ще можете пролетіти до 500 футів за раунд. Ефект застосовується перед опором, але це все одно чудово. Середня шкода 10к6 — 35, тож сім рівнів Монаха знімають її в середньому, а десять стабільно приберуть усю нашу шкоду від падіння."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-defying-gravity",
+          "heading": "Долаємо тяжіння",
+          "sourceAnchor": "defying-gravity",
+          "blocks": [
+            {
+              "blockId": "block-section-defying-gravity-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як уже сказано, висота стрибка у висоту з розбігу дорівнює 3 + модифікатор Сили футів. Цього замало. Навіть із Силою 20 недостатньо для шкоди. Треба подолати мінімум 10 футів, а в ідеалі — 200. Ось можливості:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-defying-gravity-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Черевики кроку й стрибка [Boots of Striding and Springing]",
+                    "href": "https://www.dndbeyond.com/magic-items/4590-boots-of-striding-and-springing"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": потроюють дистанцію стрибка."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Монах — Крок вітру",
+                    "href": "https://www.dndbeyond.com/classes/11-monk"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": бонусною дією дає Ривок або Відступ і подвоює дистанцію стрибка на хід. Для цього білда необхідний."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Варвар Шляху звіра — Звіряча душа",
+                    "href": "https://www.dndbeyond.com/classes/9-barbarian#PathoftheBeast"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": шість рівнів дають варіант стрибка. Раз за хід можна зробити перевірку Сили (Атлетика) й додати її результат до дистанції стрибка."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Стрибок [Jump]",
+                    "href": "https://www.dndbeyond.com/spells/2161-jump"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": на хвилину потроює дистанцію стрибка. Його можна отримати від Персня стрибків [Ring of Jumping] чи інших предметів або через покликання Потойбічний стрибок. Але брати девʼять рівнів Чорнокнижника заради цього, коли є кращий незвичайний предмет, ми не будемо. Гітʼянкі також може мати це заклинання від народження."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-defying-gravity-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе це залежить від двох основних незвичайних магічних предметів. За таблицею "
+                },
+                {
+                  "type": "link",
+                  "text": "добробуту за рівнем",
+                  "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#character-wealth-by-level"
+                },
+                {
+                  "type": "text",
+                  "text": " їх можна очікувати приблизно на 8-му рівні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-defying-gravity-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поєднувати всі ці множники складно: у D&D 5e немає загального правила для множення множників, тож незрозуміло, як саме вони взаємодіють. Я хотів написати «як задумано», але щиро сумніваюся, що розробники щось тут задумували. D&D — не гра про стрибання на черепах."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-defying-gravity-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За найщедрішого тлумачення спершу додаємо сталі числові бонуси, а потім перемножуємо множники. Із Силою 20 отримуємо (3 + 5 + перевірка Атлетики) × 3 × 3 × 2. Загальний множник ×18 означає, що вкладатися в Атлетику майже не треба. Мінімальний результат кубика — 1, до нього +5 від Сили: 14 × 18 = 252 фути навіть без бонусу володіння."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-defying-gravity-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найгірше тлумачення стає дедалі гіршим, якщо чіплятися до кожного слова. Черевики кроку й стрибка кажуть, що можна стрибати втроє далі за звичайне; Стрибок [Jump] потроює дистанцію стрибка; Крок вітру її подвоює. Єдине трохи подібне правило, яке я пригадую, — складна місцевість: у клітинці враховується найгірша її частина. За цією логікою лишається лише один множник ×3. Можна піти ще далі й додати Звірячу душу (стрибок) уже після множення. Тоді для перевірки Сили (Атлетика) потрібно викинути 176. Це вам не Pathfinder — такого не буде."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-defying-gravity-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У третій редакції множники додавалися б, тож замість ×18 ми отримали б ×6. Це значно розумніше. Але D&D 5e вдає, ніби множення не виходить за ×2, і навіть через десять років та нову «Книгу Гравця» ми досі не маємо правила складання множників."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-defying-gravity-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Припустімо, що ми переконали Майстра дозволити множник ×6 і додавати Звірячу душу (стрибок) перед ним. Щоб досягти 204 футів, до множення потрібна дистанція 34 фути. Віднімімо базові 8 футів за звичайними правилами стрибка: тоді перевірка Сили (Атлетика) має дати 28. Кожен пункт нижче цієї межі забирає 6 футів висоти, приблизно одну клітинку, тож результат треба отримувати якомога стабільніше."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-olympianlevel-athletics",
+          "heading": "Атлетика олімпійського рівня",
+          "sourceAnchor": "olympianlevel-athletics",
+          "blocks": [
+            {
+              "blockId": "block-section-olympianlevel-athletics-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оптимізація навичок — не новина. Нам потрібні великий модифікатор і перевага. Володіння, Експертиза та Сила 20 — базові умови. Перевагу дасть Лють."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-olympianlevel-athletics-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із перевагою середній результат на к20 — десь 13. Модифікатор Сили плюс бонус володіння й Експертиза зростають від +5 на 1-му рівні до +17 на 20-му. На дуже високих рівнях середній результат перевірки — 30, легко більше за цільові 28. Але мінімальний результат — 18, а це лише 108 футів стрибка. Треба підняти нижню межу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-olympianlevel-athletics-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інші числові модифікатори трапляються рідко, але вони зроблять перевірку Сили (Атлетика) надійнішою. Завдяки перевазі розподіл результатів уже тяжіє до середини, та кубики все ще вирішують."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-olympianlevel-athletics-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Настанова [Guidance]",
+                    "href": "https://www.dndbeyond.com/spells/2132-guidance"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1к4."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Камінь удачі [Stone of Good Luck]",
+                    "href": "https://www.dndbeyond.com/magic-items/4773-stone-of-good-luck-luckstone"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1 до перевірок характеристик."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Камінь Йона (майстерність) [Ioun Stone (Mastery)]",
+                    "href": "https://www.dndbeyond.com/magic-items/4938-ioun-stone-of-mastery"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1 до Бонусу Майстерності. З Експертизою це +2 до перевірки, але предмет легендарний."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-olympianlevel-athletics-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зібравши всі ці бонуси, ми підвищимо мінімальний результат перевірки на +4. Тепер мінімум — 22, а мінімальна висота стрибка — 132 фути. Із Настановою [Guidance] та перевагою середній результат зміститься ще вище, приблизно до 35."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-achieving-terminal-velocity",
+          "heading": "Досягнення граничної швидкості",
+          "sourceAnchor": "achieving-terminal-velocity",
+          "blocks": [
+            {
+              "blockId": "block-section-achieving-terminal-velocity-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб стрибнути на 200 футів, потрібні 200 футів руху плюс 5 чи 10 на розбіг. Якщо дією зробити Ривок, нам потрібна швидкість 105 футів. Якщо ще й бонусною дією зробити Ривок, достатньо швидкості 70 футів. В ідеалі дію варто лишити для інших справ, якщо ми збираємося грати таким персонажем по-справжньому."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-achieving-terminal-velocity-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хто б подумав, що високий стрибок потребує ще й рекорду швидкості бігу? Я б сказав «я», але це нечесно: я ж пишу статтю. Гадаю, ви теж здогадалися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-achieving-terminal-velocity-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На жаль, більшість магічних предметів для збільшення швидкості — черевики, тому вибір обмежений."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-achieving-terminal-velocity-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Винахідник-Алхімік 3 — Експериментальний еліксир (швидкість)",
+                    "href": "https://www.dndbeyond.com/classes/252717-artificer#Alchemist"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +10 футів швидкості на годину. По суті, другий Скорохід [Longstrider]."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Хода Ашардалона [Ashardalon's Stride]",
+                    "href": "https://www.dndbeyond.com/spells/ashardalons-stride"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +20 футів швидкості та шкода істотам, повз яких ви рухаєтеся. Але це заклинання 3-го рівня, тож можна просто накласти Прискорення [Haste]. Кінетичний скік [Kinetic Jaunt] схожий на дешевший варіант із меншим бонусом. Доступне Винахіднику, Слідопиту, Чародію й Чарівнику; можна також використати сувій."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риса Атлет",
+                    "href": "https://dndbeyond.com/feats/athlete"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зменшення необхідного розбігу з 5 до 10 футів нібито залишає ще 5 футів руху. Саме по собі це не варте риси, але вона дає +1 до Сили й дозволяє підвестися за 5 футів руху — корисно, якщо падіння завдасть шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Варвар — Швидкий рух",
+                    "href": "https://www.dndbeyond.com/classes/9-barbarian#FastMovement-62"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +10 футів швидкості."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чарівник-Співець клинка 2 — Пісня клинка",
+                    "href": "https://www.dndbeyond.com/classes/8-wizard#Bladesinging"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +10 футів швидкості, поки триває Пісня клинка."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Кентавр",
+                    "href": "https://www.dndbeyond.com/races/centaur"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": базова швидкість 40 футів."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Прискорення [Haste]",
+                    "href": "https://www.dndbeyond.com/spells/haste"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": майже легкий режим для всього задуму. Значно спрощує справу, але це заклинання 3-го рівня, яке важко вмістити в білд. Зілля швидкості допоможе, але воно дороге."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Кінетичний скік [Kinetic Jaunt]",
+                    "href": "https://www.dndbeyond.com/spells/kinetic-jaunt"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +10 футів швидкості руху на хвилину з концентрацією; заклинання 2-го рівня для Винахідника, Слідопита, Чародія й Чарівника."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Скорохід [Longstrider]",
+                    "href": "https://www.dndbeyond.com/spells/longstrider"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +10 футів руху. Доступний Винахіднику, Барду, Друїду, Слідопиту й Чарівнику."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Людина з Міткою подорожей{{Mark of Travel Human}}: базова швидкість 35 футів."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Монах 2 — Крок вітру",
+                    "href": "https://www.dndbeyond.com/classes/11-monk#Ki-228"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": бонусною дією Ривок або Відступ і подвоєння дистанції стрибка на хід. Для білда необхідний."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Монах 2 — Рух без броні",
+                    "href": "https://www.dndbeyond.com/classes/11-monk#UnarmoredMovement-229"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": бонус до швидкості зростає з рівнем. Це також пояснює, чому Маріо не носить нічого захиснішого за комбінезон і кепку."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риса Рухливий",
+                    "href": "https://www.dndbeyond.com/feats/34-mobile"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +10 футів швидкості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зілля швидкості{{Potion of Speed}}: Прискорення [Haste] на хвилину без концентрації."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Слідопит 6 — Блукач",
+                    "href": "https://www.dndbeyond.com/classes/5-ranger#OptionalClassFeatures"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": залежно від умов +5 футів швидкості. Слідопит також може накладати Скорохід [Longstrider], тому варіант цікавий."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Пройдисвіт 2 — Хитра дія (Ривок)",
+                    "href": "https://www.dndbeyond.com/classes/12-rogue#CunningAction-345"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дозволяє зробити Ривок бонусною дією. Утім, Крок вітру робить те саме й додатково подвоює стрибок."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Спритність коротуна",
+                    "href": "https://www.dndbeyond.com/feats/83-squat-nimbleness"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": опублікована за часів, коли малі раси мали базову швидкість 25 футів, тому додає +5 футів."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Табаксі (котяча спритність)",
+                    "href": "https://www.dndbeyond.com/races/30-tabaxi"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": подвоює швидкість на один раунд, але повторно скористатися нею можна лише після раунду без руху."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Удар Зефіра [Zephyr Strike]",
+                    "href": "https://www.dndbeyond.com/spells/zephy-strike"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": на один раунд дає +30 футів швидкості, але для запуску потрібно атакувати зброєю."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-achieving-terminal-velocity-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зі Скороходом [Longstrider] та Швидким рухом Варвара маємо +20 футів. Залишається місце до 14 рівнів Монаха, які дадуть іще +25. Для людини з базовою швидкістю 30 це 75 футів. Чесно кажучи, я думав, буде важче. Можна відмовитися від чотирьох рівнів Монаха й усе одно мати 70 футів — саме стільки треба для двох Ривків за хід. Тоді лишиться місце для кількох рівнів Слідопита: більше слотів для Скорохода й Експертиза в Атлетиці."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-achieving-terminal-velocity-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Та в ідеалі хочеться швидкості 100 футів, щоб вистачало одного Ривка за хід. Нападник може компенсувати розбіг, але нам однаково потрібно 100, тож округлімо до цього числа. Базові 30 футів із Варваром 6 / Монахом 14 дають 65. Скорохід піднімає до 75, Рухливий — до 85, Спритність коротуна — до 90. Можна втратити до восьми рівнів Монаха, а з ними 10 футів швидкості, щоб узяти рівні іншого класу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-achieving-terminal-velocity-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Винахідник або Слідопит дадуть заклинання 1-го й 2-го рівнів і доступ до Кінетичного скіку [Kinetic Jaunt]. Винахідник-Алхімік може дати Експериментальний еліксир, але під час створення його ефект визначає кубик, тож розраховувати на нього не будемо. Слідопит дасть Експертизу й постійні +5 футів руху від Блукача, а Кінетичний скік додасть ще +10: разом 95."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-achieving-terminal-velocity-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підійде і повний заклинач. Якщо перейти на Ходу Ашардалона [Ashardalon's Stride] та взяти Експерта у навичках заради Експертизи в Атлетиці, це дасть ще +20 футів швидкості — до 20. Найкраще пасує Чарівник."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-achieving-terminal-velocity-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отже, склад класів виходить Варвар 6 / Монах 6 / Чарівник 6, і лишаються два рівні. Ще два рівні Монаха додадуть 10 пунктів зменшення шкоди від падіння й 2 очки Кі за короткий відпочинок. Нехай остаточний варіант — Варвар 6 / Монах 8 / Чарівник 6."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+          "heading": "Приклад білда — це я, юридично відмінна від Маріо особа",
+          "sourceAnchor": "example-build-its-ame-legally-distinct-person-named-mario",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ой, ніт!"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наостанок повторімо наші припущення щодо правил:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Можна стрибнути вгору прямо або під кутом до 45 градусів, щоб упасти в клітинку іншої істоти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зменшення шкоди від падіння застосовується після її поділу між істотами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Множники дистанції стрибка додаються один до одного й застосовуються після сталих модифікаторів дистанції."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ці припущення не можна вважати надійними. Я б сам не вів гру за такими правилами. Ще раз: це мисленнєвий експеримент, а не справді корисний білд."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "До слова, я розумію, що з іншим видом це було б простіше. Кентавр значно полегшив би справу; табаксі міг би стрибати набагато далі через раунд. Але Маріо не кентавр і зазвичай не заклинач. Тож почнімо!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей білд залежить від багатьох характеристик. Нам потрібні щонайменше 13 Сили, Спритності й Мудрості, а потім треба довести Силу до максимуму. Загалом будуємо персонажа майже як Варвара."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підвищення характеристик через риси тут виявляється проблемою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Після підвищення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Індивідуальне походження. Маріо — просто звичайний хлопець. Обираємо малий розмір, +2 вкладаємо в Силу, а як рису беремо Посвяченого у магію (Друїд)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не має значення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо володіння Атлетикою, а коли отримаємо Експерта у навичках — Експертизу в ній. Решта для цієї статті неважлива."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Через мультикласування риси ми отримуємо на незвичних рівнях."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні беремо Посвяченого у магію (Друїд), а з ним — Настанову [Guidance], Створення вогню [Produce Flame] і Скорохід [Longstrider]. Настанова допоможе стрибати, Створення вогню — жартувати про вогняні квіти, а Скорохід дасть +10 футів швидкості задовго до рівнів Чарівника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо Атлета."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 10-му рівні беремо Рухливого."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 14-му рівні беремо Експерта у навичках."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 18-му рівні беремо Спритність коротуна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й особливості"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Варвар 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лють; Захист без броні; Майстерність зброї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Візьміть молот або бойовий молот і тримайте двома руками. Схоже на Маріо, чи не так? Звичайну бойову тактику опущу й зосереджуся на стрибках. Скороходом [Longstrider] можна користуватися вже з 1-го рівня, але памʼятайте: він діє лише годину."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Варвар 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чуття небезпеки; Безрозсудна атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "—"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Варвар 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас: Шлях звіра; Форма звіра; Первісне знання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "—"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Варвар 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Атлет; Сила 17 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Коротший розбіг і дешевше підведення з лежачого положення роблять увесь задум зручнішим."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Варвар 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака; Швидкий рух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Приблизно на цьому рівні можна очікувати перший "
+                    },
+                    {
+                      "type": "link",
+                      "text": "основний незвичайний магічний предмет",
+                      "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#character-wealth-by-level"
+                    },
+                    {
+                      "type": "text",
+                      "text": ": Черевики кроку й стрибка [Boots of Striding and Springing] або Перстень стрибків [Ring of Jumping]. Із Атлетом, множником ×3 та модифікатором Сили +4 достатньо 5 футів розбігу, щоб підстрибнути на 21 фут і впасти на ворога, поділивши між нами 2к6 шкоди. Лють дає опір дробильній шкоді, та в середньому ми все одно отримуємо приблизно 1 шкоди й падаємо ниць. На щастя, за 5 футів руху можна підвестися. Разом витрачаємо на це 30 футів і маємо ще 20 від Скорохода та Швидкого руху для маневрів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Варвар 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звіряча душа (стрибок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ось тут наші стрибки справді набирають висоту. Модифікатор Атлетики зараз +7; із перевагою від Люті середній додаток до базової висоти перед множенням становить +20. Навіть якщо на к20 випаде 1, ми додамо 8 футів. Тоді мінімальна висота стрибка — 45 футів. Із розбігом 5 футів можна стрибнути на 40 футів, лишивши 5 футів швидкості на підведення після поділу 4к6 шкоди. Можна додати Настанову [Guidance], але ми вже вперлися в межу руху."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Монах 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойові мистецтва; Захист без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Поки небагато користі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Монах 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кі; Рух без броні +10 футів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Приблизно тепер у вас може бути два основні незвичайні магічні предмети: і Черевики кроку й стрибка [Boots of Striding and Springing], і Перстень стрибків [Ring of Jumping]. Рух без броні, Швидкий рух і Скорохід [Longstrider] дають швидкість 60 футів. Крок вітру дозволяє зробити Ривок бонусною дією та подвоює дистанцію стрибка. З обома предметами множник стає ×6 — памʼятайте, за нашим припущенням множники додаються. Мінімальна висота зростає з 45 до 90 футів, а середня могла б бути 162, якщо вистачить руху. Один Ривок дає 120 футів руху, два — 180. До 120 ми дістанемо стабільно, а до 180 у середньому не дійдемо навіть із Настановою. Я збирався витратити дію на атаку, але стрибнув надто високо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Монах 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відхилення снарядів; будь-який підклас"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Модифікатор Атлетики зростає до +8."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Монах 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Рухливий; Повільне падіння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рухливий підвищує швидкість до 70 футів. Повільне падіння стає головним способом зменшення шкоди: тепер прибирає до 20 шкоди й посилюється з кожним рівнем Монаха."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Монах 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака; Приголомшливий удар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Приблизно тепер можна очікувати перший основний рідкісний магічний предмет. Можна взяти замість нього незвичайний Камінь удачі [Stone of Good Luck]. Новий камінець підвищує модифікатор Атлетики до +9, а мінімальну висоту стрибка — на 12 футів до 102."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Монах 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рух без броні +15 футів; удари, посилені Кі; особливість підкласу"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Швидкість тепер 75 футів. Один Ривок дає 150 футів руху, два — 225: майже переганяємо самих себе, мов у Mario Kart."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Монах 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення; Спокій розуму"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Модифікатор Атлетики зростає до +10, а мінімальна висота стрибка ще на 12 футів — до 114."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Монах 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках; Сила 18 → 19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза додає до модифікатора Атлетики +5 на цьому рівні, а до стрибків — 30 футів. Мінімальна висота тепер 138 футів, значно більше за запас руху з одним Ривком. Середній результат перевірки Атлетики 28 плюс базові 7 футів, помножені на ×6, дають середню висоту 210 футів. Нарешті досягаємо максимальної шкоди від падіння — 20к6. Повільне падіння тепер прибирає 40 шкоди, легко перекриваючи середні 35 шкоди, які отримали б ми. Ворогам же дістаються їхні 35 шкоди за провалений ряткидок Спритності зі Складністю 15."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Чарівник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладання заклинань; Арканне відновлення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Згодом Арканне відновлення дасть нам додатковий слот 3-го рівня для Ходи Ашардалона [Ashardalon's Stride]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Чарівник 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас: Співець клинка; навчання війни й пісні; Пісня клинка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бонус +10 футів від Пісні клинка підвищує швидкість до 85 футів: один Ривок дає 170 футів руху, два — 255. Для стрибка на 200 футів місця вже вдосталь. Користуватися Піснею клинка можна стільки разів на день, скільки становить Бонус Майстерності: зараз 5, а на наступному рівні буде 6. Тож нам вистачить."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Чарівник 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зі зростанням Бонусу Майстерності на 17-му рівні модифікатор Атлетики стає +17. Мінімальна висота стрибка додає ще 12 футів і сягає 150. Це збігається із запасом руху від одного Ривка, але для розбігу памʼятаймо ще 5 футів. Якщо знайти Камінь Йона (майстерність) [Ioun Stone (Mastery)], мінімум стане 174. До 200 футів гарантовано не дотягнемо, проте на к20 вистачить результату 4. На цьому рівні можна також накласти Кінетичний скік [Kinetic Jaunt] і підвищити швидкість до 100 футів. Він потребує концентрації, тож доведеться відмовитися від Люті й Настанови. Стрибки стануть менш надійними, але результату 4 на к20 достатньо для 200 футів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Чарівник 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Спритність коротуна; Сила 19 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність коротуна — відчайдушна спроба витиснути останні +5 футів швидкості, але вона піднімає її до 90. Рису можна взяти лише тому, що ми малі. Технічно можна обійтися без неї з Прискоренням [Haste], проте вона дозволяє користуватися Кінетичним скіком як дешевшим варіантом, коли бракує слотів 3-го рівня. Можна також розділити підвищення характеристик, щоб виправити Статуру 11."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Чарівник 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер можна накладати Прискорення [Haste], яке подвоює швидкість до 180 футів. Один Ривок дає 360 футів руху; додаткова дія від заклинання теж може піти на Ривок, залишаючи нам цілий хід для інших справ. Цього з головою вистачить на стрибок у 200 футів і максимальну шкоду. Без розбігу можна стрибнути лише на половину звичайної дистанції. Ефективний множник падає з ×6 до ×3, тому для 200 футів угору перед множенням потрібно 67 футів. Базове правило дає 8; отже, перевірка Атлетики й Настанова [Guidance] разом мають додати 59. З Каменем Йона та Каменем удачі наш модифікатор Атлетики +20. Залишається викинути… 39 на 1к20 + 1к4. Попри всі зусилля для максимальної висоти таки потрібен розбіг. На щастя, швидкості вдосталь. Можна стрибати кілька разів: Звіряча душа (стрибок) працює лише раз за хід, але звичайні стрибки у висоту необмежені. Із базових 8 футів та множника ×6 виходить 48 футів. Скоротімо до 40 футів заради 4к6 шкоди; додамо 5 футів розбігу й 5, щоб підвестися після падіння. Малий стрибок коштує 50 футів руху. Якщо зробити три Ривки, загальний запас руху — 720 футів. На великий стрибок витрачаємо 210, лишається 510; цього вистачить іще на десять малих. Перший завдасть ворогу 35 шкоди, яку ми знімемо Повільним падінням. Потім поділимо ще 40к6 шкоди, у середньому 140, між собою й ціллю або цілями: приблизно 70 шкоди їм і стільки ж нам. А все тому, що ми надто високо застрибнули. Слухайте, я ніколи не казав, що це добра ідея."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Чарівник 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "—"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер Арканним відновленням можна отримати ще один слот заклинання 3-го рівня."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": []
+}

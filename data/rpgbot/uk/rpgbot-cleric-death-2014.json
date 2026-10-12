@@ -1,0 +1,1478 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-221c1fd52ae09448",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+      "sourceId": "rpgbot-221c1fd52ae09448",
+      "fetchedAt": "2026-09-29T19:10:13.355236+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:29:36-04:00",
+      "contentHash": "6ff8540d9f9678d11f266778a0cf46711799d349f869464cf7e7b210a4be857c",
+      "title": "Death Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-221c1fd52ae09448-2252e9533c457358.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-death-2014",
+    "sourceId": "rpgbot-221c1fd52ae09448",
+    "slug": "cleric-death-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен смерті — гайд підкласу Клірика (2014)",
+    "titleEn": "Death Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен смерті",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "articleId": "rpgbot-cleric-death-2014",
+      "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик домену смерті{{Death Domain}}, формально призначений для злих кліриків — НІП{{NPC}}, захований у «Посібнику Майстра»{{Dungeon Master’s Guide}}. Гра за Клірика смерті зазвичай означає поклоніння злому божеству, що в більшості кампаній швидко може стати проблемою, бо гравці зазвичай мають бути «героями» історії. Проте механічно немає причин забороняти доступ до Домену смерті."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик домену смерті{{Death Domain}} — дуже наступальний підклас: він додає володіння бойовою зброєю й кілька варіантів завдання некротичної шкоди. Проте в домену майже немає підтримувальних чи утилітарних варіантів, тож для цих можливостей доведеться покладатися на звичайні заклинання й основні уміння Клірика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клірика домену смерті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клірика домену смерті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клірика домену смерті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клірика домену смерті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клірика домену смерті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клірика домену смерті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Клірика домену смерті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клірика домену смерті — Колюча, вбивча Смерть",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клірика домену смерті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клірика домену смерті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клірика домену смерті",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: Багато дуже добрих варіантів, частина яких не входить до списку заклинань Клірика. Варіанти 3-го рівня — найгірша частина домену, але решта списку заклинань чудова."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Удаване життя [False life] — фантастичне підсилення на будь-якому рівні. ХП небагато, але з тривалістю в годину ви можете дозволити собі витрачати слот заклинання 1-го рівня кілька разів на день, щоб зменшити потребу лікувати союзників. Промінь хвороби [Ray of Sickness] у найкращому разі посередній."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Обидва ефекти тривають лише хвилину й дозволяють повторні ряткидки. Якщо ви не можете майже гарантувати, що ціль провалить ряткидок, це ненадійні дебафи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Підіймання мерців [Animate Dead] у 5e потребує частого повторного накладання, тож мати його підготовленим щодня безкоштовно приємно. Вампіричний дотик [Vampiric Touch] — чудовий спосіб поєднати зцілення й шкоду, і зазвичай він недоступний Клірикам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Усихання [Blight] завдає пристойної шкоди, особливо рослинам, але не надто добре масштабується й не має цікавого вторинного ефекту. Захист від смерті [Death Ward] здається жахливо недоречним у домені смерті, але це чудове підсилення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Оболонка проти живих [Antilife shell] — чудовий спосіб захистити себе, але Вбивча хмара [Cloudkill] дуже важко використовувати, бо ви не можете змінити її шлях, а шкода не виправдана, якщо вона вражає ворогів лише раз."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові майстерності{{Bonus Proficiency}}: Бойова зброя — це приємно, але різниця між булавою й довгим мечем незначна, бо Клірики ніколи не отримують «Додаткової атаки»{{Extra Attack}}. Імовірно, ви також не захочете користуватися зброєю з довгим досягом, бо у вас немає важких обладунків, щоб тримати КБ високим, коли ви відмовляєтеся від щита, хоч Батіг може бути вартим винятком."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Жнець{{Reaper}}: Замовлянь Некромантії небагато, і багато з них уже є у списку заклинань Клірика, як-от Дзвін небіжчика [Toll the Dead]. Моторошний дотик [Chill Touch] теж добрий вибір: він має кращу дальність, ніж наступальні замовляння Клірика (Священне полумʼя [Sacred Flame] і Дзвін небіжчика [Toll the Dead] мають дальність лише 60 фт.), а шкода добра. Ви захочете користуватися Дзвоном небіжчика [Toll the Dead], якщо можете підійти на дальність, але розширена дальність збільшує шанси дістати двох ворогів у межах 5 футів один від одного. Найбільша проблема «Жнеця» в тому, що важко контролювати, коли вороги опиняться поруч. Допомогти може риса «Телекінетик»{{Telekinetic}}, але це не ідеальне рішення. Це буде набагато впливовіше, якщо у вас є союзники з варіантами примусового переміщення або ті, хто любить захоплювати. Хоч очевидне використання наступальне, «Жнець» працює і з Милістю до вмирущого [Spare the Dying]. Звісно, якщо ви накладаєте Милість до вмирущого [Spare the Dying] на двох істот, вам, імовірно, краще накласти Підтримку [Aid] або Масове цілюще слово [Mass Healing Word]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Дотик смерті|Channel Divinity: Touch of Death}}: Це справді небагато шкоди. Це приємне підсилення шкоди, але ви хочете, щоб ваш «Канал божественності»{{Channel Divinity}} був впливовішим. Якщо ваша група користується додатковими класовими уміннями, ви майже напевно отримаєте кращі результати, використовуючи «Спрямування божественної сили»{{Harness Divine Power}}, щоб здобути ще один слот заклинання. Втім, воно працює з будь-якою атакою ближнього бою, тож його можна використовувати з Завданням ран [Inflict Wounds], Вампіричним дотиком [Vampiric Touch] та Духовною зброєю [Spiritual Weapon]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Невідворотне знищення{{Inescapable Destruction}}: Зважаючи на те, що ви, імовірно, взяли Моторошний дотик [Chill Touch] та/або Дзвін небіжчика [Toll the Dead] і що деякі з основних заклинань Клірика для шкоди по одній цілі завдають некротичної шкоди, опір некротичній шкоді може стати проблемою. Імунітет усе ще проблема, але повний імунітет до некротичної шкоди трапляється рідко й зазвичай обмежений дуже високорівневими істотами (лічами тощо). Утім, найбільші джерела шкоди Клірика зазвичай завдають променевої шкоди, тож у рідкісних випадках, коли ви таки стикаєтеся з опором чи імунітетом до некротичної шкоди, легко перемкнутися на променеву."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественний удар{{Divine Strike}}: Некротична шкода — один із найнадійніших типів шкоди, тож для «Божественного удару» важко знайти кращий варіант. Дивіться також: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Божественний удар проти замовлянь",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#divine-strike-vs-cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": " вище."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удосконалений жнець{{Improved Reaper}}: Багато заклинань Некромантії, як-от Завдання ран [Inflict Wounds] і Усихання [Blight], діють на одну ціль. Здатність вразити дві цілі одним накладанням подвоює їхню ефективність, хоча вимога, щоб цілі були поруч, суттєво обмежує, як часто це можна застосувати. Памʼятайте, що це не суто наступальне: воно працює й з Удаваним життям [False life]!"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Клірика домену смерті",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Клірика домену смерті",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Клірика домену смерті",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Клірика домену смерті",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мало чим відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": " з бойовою зброєю, хоча більшість кліриків із бойовою зброєю отримують і важкі обладунки, тож ви радше користуватиметеся зброєю на основі Спритності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Клірика домену смерті",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мало чим відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": ". Якщо ви робите ставку на зброю, будуйте збірку навколо Спритності, але не дозволяйте цьому штовхнути вас до легких обладунків. Вам знадобиться Спритність 20, щоб зрівнятися з {{напівлатами|Half Plate}}, а це важко виправдати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Клірика домену смерті",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Клірика домену смерті — Колюча, вбивча Смерть",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це збірка, націлена на напад: вона робить ставку на шкоду в ближньому бою. У душі це все ще Клірик, і вона цілком може процвітати на типовій тактиці Клірика (увімкнути Духів захисників [Spirit Guardians] і чекати), але насамперед спирається на те, що Домен смерті{{Death Domain}} зосереджений на некротичній шкоді."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка не припускає жодних додаткових класових умінь{{Optional Class Features}}, крім розширеного списку заклинань. «Благословенні удари»{{Blessed Strikes}} були б тут чудовим покращенням, але ми рекомендуємо їх для підкласів із червоною й помаранчевою оцінкою, а я намагаюся дотримуватися порад, які ми публікуємо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вкладаємося повністю в Спритність, Статуру й Мудрість. Ми плануємо бути в ближньому бою в середніх обладунках, тож нам потрібна живучість. Перерозподіляємо +2/+1/+1 Напівельфа{{Half-Elf}}, що дає нам чудову відправну точку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф{{Half-Elf}} із налаштованим походженням{{Custom Origin}} і варіантом Високого ельфа{{High Elf}}. Це дозволяє переставити +2/+1/+1 як нам завгодно, а додаткові навички Напівельфа ми міняємо на замовляння Чарівника, яке використаємо для Гримучого Клинка [Booming Blade]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Агент фракції{{Faction Agent}}. Якої фракції? Імовірно, якоїсь підступної. Дає володіння Аналізом Поведінки, Уважністю та двома мовами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дві класові навички Клірика ми використаємо, щоб отримати володіння Історією й Релігією, а Аналіз Поведінки й Уважність отримаємо від передісторії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Телекінетика»{{Telekinetic}} і підвищуємо Мудрість до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні підвищуємо Мудрість до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Бойового заклинателя»{{War Caster}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо «Удачу»{{Lucky}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо «Адепта метамагії»{{Metamagic Adept}}, щоб отримати «Спрямоване заклинання»{{Seeking Spell}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественний домен{{Divine Domain}}: Смерть\nЗаклинання домену\nДодаткові майстерності\nЖнець\nЧаротворство\nЗамовляння:\n– Моторошний дотик\n– Настанова\n– Слово сяйва\n– Гримучий Клинок*\n– Дзвін небіжчика*"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження обирайте золото замість запропонованих стартових предметів. Ви отримаєте в середньому 125 зм, а цього цілком досить на рапіру, арбалет (можливо, навіть важкий арбалет), щит, обладунок і будь-яке інше спорядження, що може знадобитися. Обовʼязково розмістіть священний символ на щиті й памʼятайте, що середній обладунок, імовірно, дасть кращий КБ, бо ми не підвищуватимемо Спритність вище 16. Домен смерті{{Death Domain}} дає володіння бойовою зброєю, що заохочує нас користуватися зброєю. Стримайте спокусу взяти косу. Ми все одно в середніх обладунках, тож плануйте зброю на основі Спритності, як-от рапіри й арбалети. У ближньому бою плануйте рапіру й щит. На відстані користуйтеся важким арбалетом, доки не досягнете 5-го рівня й шкода замовлянь не зросте. Гримучий Клинок [Booming Blade] ми отримуємо від раси, і користуватимемося ним у ближньому бою. Щойно в нас зʼявиться «Божественний удар»{{Divine Strike}}, це стане непоганим поєднанням. Безкоштовне замовляння Некромантії від «Жнеця»{{Reaper}} ми використаємо, щоб узяти Дзвін небіжчика [Toll the Dead], бо цей вибір ми робимо раз і назавжди. Також ми вивчимо Моторошний дотик [Chill Touch], тож у вас буде обидва дозволені наступальні замовляння. Використовуйте Моторошний дотик [Chill Touch], якщо потрібна дальність або хочете застосувати «Божественність: Дотик смерті»{{Channel Divinity: Touch of Death}}, а в інших випадках — Дзвін небіжчика [Toll the Dead]. «Жнець» також працює з Милістю до вмирущого [Spare the Dying], але шанси, що це стане в пригоді, смішно малі. Наші заклинання з рівнями цілком типові. Беріть основні, як-от Цілюще слово [healing word] і Благословення [Bless]. Розгляньте Удаване життя [False life], якщо збираєтеся битися в ближньому бою, але, можливо, його доведеться приберегти до часу, коли слотів заклинань буде більше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (1/відпочинок)\n– Дотик смерті\n– Вигнання нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Вигнання нежиті»{{Turn Undead}} у Клірика, що задуманий злим, відчувається дивно. У старіших редакціях можна було натомість отримати «Докір нежиті»{{Rebuke Undead}}, що дозволяло упокорювати нежить і навіть підкоряти її. Іноді мені цього бракує. «Дотик смерті»{{Touch of Death}} підсилює вашу шкоду разом з іншою некротичною шкодою, але сам по собі не діє. Він працює з будь-якою атакою ближнього бою, тож і заклинання, і атаки зброєю підходять. Наша рапіра з Гримучим Клинком [Booming Blade] і «Дотиком смерті» — пристойна атака. «Дотик смерті» не множиться на криті, тож не заморочуйтеся приберегти його на випадок, коли вам пощастить."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сліпота/глухота [Blindness/Deafness] — чудовий дебаф, але він цілить у ряткидки Статури, які стабільно високі на всьому діапазоні рівнів. Надійнішим, ніж зараз, він уже не буде, тож насолоджуйтеся ним, наскільки можете. Окрім нього, тримайтеся основних заклинань Клірика. Духовна зброя [Spiritual Weapon] може застосовувати «Божественність: Дотик смерті»{{Channel Divinity: Touch of Death}}, тож вам не доведеться атакувати зброєю, якщо не хочете."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Телекінетик (Мудрість 17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нам потрібне «Телекінетичне штовхання»{{Telekinetic Shove}}, щоб зсувати ворогів так, щоб вони опинялися поруч, а тоді вражати їх «Жнецем»{{Reaper}}. На високих рівнях це стає ще кращим, коли ми зможемо використовувати «Удосконаленого жнеця»{{Improved Reaper}} з потужнішими заклинаннями."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 1/2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цей рівень приносить Вампіричний дотик [Vampiric Touch], що дуже добре поєднується з «Божественність: Дотик смерті»{{Channel Divinity: Touch of Death}}. Оскільки він додає більше некротичної шкоди, ви й лікуватиметеся більше! Також на цьому рівні можна взяти Духів захисників [Spirit Guardians]. Вампіричний дотик [Vampiric Touch] — для одиничних ворогів, Духи захисники [Spirit Guardians] — для натовпів. Типове для Клірика. Наш підкласовий список дає Підіймання мерців [Animate Dead] на цьому рівні. Розгляньте варіант завести кількох скелетів-улюбленців. Нехай вони виконують за вас завдання або стоять позаду бою й стріляють по ворогах із луків — це може бути доволі ефективним за мінімального ризику для них. Про їхню безпеку можна не турбуватися, але вартість матеріальних компонентів для підіймання нових скелетів може набриднути."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невідворотне знищення\nКанал божественності (2/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Деякі істоти (особливо нежить) мають опір некротичній шкоді, але імунітет майже не трапляється. «Невідворотне знищення»{{Inescapable Destruction}} зробить ваші наступальні заклинання на кшталт Дзвону небіжчика [Toll the Dead], Завдання ран [Inflict Wounds] і Духів захисників [Spirit Guardians], а також «Божественність: Дотик смерті»{{Channel Divinity: Touch of Death}} ще надійнішими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня. Наші підкласові заклинання дають Усихання [Blight] (жахливе) і Захист від смерті [Death Ward]. Захист від смерті [Death Ward] чудовий, але ви можете не захотіти витрачати на нього слот найвищого рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 18 → 20\nБожественний удар +1к8\nЗнищення нежиті (ПН 1)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимальна Мудрість! «Божественний удар»{{Divine Strike}} робить наші атаки ближнього бою трохи кращими. Поєднавши Гримучий Клинок [Booming Blade], «Божественний удар» і «Божественність: Дотик смерті»{{Channel Divinity: Touch of Death}}, ми можемо змусити атаку завдавати пристойну шкоду. Але ваші атаки заклинаннями надійніші, тож нахиляйтеся до Завдання ран [Inflict Wounds] і Духовної зброї [Spiritual Weapon], якщо можете виправдати слоти заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наші підкласові заклинання на цьому рівні не надто чудові, тож відхилень від типової тактики Клірика небагато. Розгляньте накладання Виклику небожителя [Summon Celestial]. Можливо, це не в дусі Клірика злого божества, але правила 5e, схоже, не заперечують."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне втручання{{Divine Intervention}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо ви Клірик смерті, про що ви просите своє божество? «Дорогий боже, не міг би ти вбити цього типа замість мене?»"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні, на жаль, немає цікавих комбінацій. Накладання Завдання ран [Inflict Wounds] вищим слотом разом із «Божественність: Дотик смерті»{{Channel Divinity: Touch of Death}} і надійніше, і завдає більше шкоди, ніж Шкода [Harm]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Бойовий заклинатель"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цілком типовий вибір для Клірика. Покращення Концентрації — це чудово, а ще ми можемо вдарити ворога Гримучим Клинком [Booming Blade] чи чимось іншим неприємним замість Принагідної атаки. На жаль, не думаю, що можна використовувати «Жнеця»{{Reaper}} разом із «Бойовим заклинателем»{{War Caster}}. Якщо ви націлюєте замовляння Некромантії на другу істоту через «Жнеця», воно більше не відповідає умовам для використання з «Бойовим заклинателем»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественний удар +2к8\nЗнищення нежиті (ПН 3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наша атака з Гримучим Клинком [Booming Blade] тепер просто чудова. 1к6 + 3 + 2к8 некротичної + 2к6 громової шкоди, у середньому 22,5, до того ж «Дотик смерті»{{Touch of Death}} додає ще 16, і ми можемо отримати вторинну шкоду Гримучого Клинка [Booming Blade] теж."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Удача"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Удача»{{Lucky}} потрібна для використання з «Удосконаленим жнецем»{{Improved Reaper}}. Підготувати все, щоб вразити двох ворогів одним накладанням Завдання ран [Inflict Wounds] 5-го рівня й «Удосконаленим жнецем», а потім схибити — відчуття жахливе. Також можна використовувати «Удачу» для ряткидків, якщо потрібно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удосконалений жнець\nЗнищення нежиті (ПН 4)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На жаль, ваші варіанти заклинань тут дуже обмежені: це має бути заклинання Некромантії, яке під час накладання цілить лише в одну істоту, що виключає Вампіричний дотик [Vampiric Touch]. Попри це, у вас є кілька добрих варіантів:\n– Сліпота/глухота [Blindness/Deafness]: можна накласти вищим слотом, щоб отримати більше цілей, але можна й використати «Удосконаленого жнеця», щоб отримати 2 цілі зі слотом заклинання 2-го рівня.\n– Усихання [Blight]: приблизно стільки ж шкоди, як Завдання ран [Inflict Wounds], але це ряткидок Статури, тож менш надійно.\n– Зараження [Contagion]: накладіть жахливий дебаф на ваш вибір. Мені подобається «Слизька загибель»{{Slimy Doom}}, бо ваша група може тримати уражену істоту в постійному стані Приголомшений, поки триває заклинання.\n– Завдання ран [Inflict Wounds]: накладене на 5-й рівень дає середню шкоду трохи менше 40, і можна додати «Божественність: Дотик смерті»{{Channel Divinity: Touch of Death}}.\n– Удаване життя [False life]: поділіться підсиленням із другом!\n– Підіймання мерців [Animate Dead] / Оживлення мерців [Raise Dead]: гадаю, їх теж можна використовувати, але технічно мертве тіло — це предмет, тож я не зовсім певен. Здається, так і задумано, але {{за правилами як написано|RAW}} так бути не повинно.\n\nНа жаль, не думаю, що можна використовувати «Удосконаленого жнеця» разом із «Бойовим заклинателем». Якщо ви цілите в другу істоту заклинанням, воно більше не відповідає умовам для використання з «Бойовим заклинателем». Це була б чудова комбінація, але, гадаю, це не дозволено. Проте, наскільки я можу судити, «Дотик смерті» можна застосувати до кожної цілі (це все одно витрачає два використання «Каналу божественності», як зазвичай)."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше «Дотику смерті»{{Touch of Death}} між відпочинками! Це 20 шкоди за використання — пристойне підсилення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Адепт метамагії\n– Підсилене заклинання\n– Спрямоване заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Спрямоване заклинання»{{Seeking Spell}} — додаткова страховка на випадок, якщо атака заклинанням піде погано. Використовуйте його перед «Удачею»{{Lucky}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращене божественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ви: «Боже, дай мені силу покінчити з цим дурнем». Ваш бог: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "«…тоді метни ти {{Святу ручну гранату Антіохії|Holy Hand Grenade of Antioch}} на ворога свого, який, будучи неслухняним у Моїх очах, відкине копита»"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-death-2014-001",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-002",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-003",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-004",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-005",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-006",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-007",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Додаткові майстерності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-008",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Жнець",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-009",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-010",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Невідворотне знищення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-011",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Божественний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-death-2014-012",
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Удосконалений жнець",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

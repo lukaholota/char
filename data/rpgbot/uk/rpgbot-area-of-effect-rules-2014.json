@@ -1,0 +1,1797 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-f7cd0d81cbca5e54",
+      "rulesets": [
+        "RULES_2014",
+        "RULES_2024"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-f7cd0d81cbca5e54-4d3b31c661b37104",
+      "sourceId": "rpgbot-f7cd0d81cbca5e54",
+      "fetchedAt": "2026-09-29T19:25:58.372761+00:00",
+      "sourceUpdatedAt": "2025-05-21T09:57:24-04:00",
+      "contentHash": "e2c9864bf4d9274f511fe1b0361de3396ff9b42b41a6c8a17a229ac3b5eae72b",
+      "title": "DnD 5e’s Area of Effect Rules – A Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-f7cd0d81cbca5e54-4d3b31c661b37104.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-area-of-effect-rules-2014",
+    "sourceId": "rpgbot-f7cd0d81cbca5e54",
+    "slug": "area-of-effect-rules-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Області дії — порівняльний гайд (основа 2014, відмінності 2024)",
+    "titleEn": "DnD 5e’s Area of Effect Rules – A Guide",
+    "topics": [
+      "rules"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-area-of-effect-rules-2014-draft1",
+      "articleId": "rpgbot-area-of-effect-rules-2014",
+      "sourceRevisionId": "rpgbot-f7cd0d81cbca5e54-4d3b31c661b37104",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У травні 2025 року зʼявилася перша добірка відповідей команди розробників D&D для нового Sage Advice. Замість PDF на "
+                },
+                {
+                  "type": "link",
+                  "text": "wizards.com",
+                  "href": "http://wizards.com/"
+                },
+                {
+                  "type": "text",
+                  "text": " їх публікують у "
+                },
+                {
+                  "type": "link",
+                  "text": "Sage Advice",
+                  "href": "https://www.dndbeyond.com/sources/dnd/sae/sage-advice-compendium"
+                },
+                {
+                  "type": "text",
+                  "text": " на D&D Beyond як запитання й відповіді. Примітка редакції: це історичний вступ автора до порівняльної статті. Далі використовуються книги обох редакцій; розділи 2024 явно позначені й не змінюють правила 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ретельно переглянувши першу добірку, я натрапив на конкретне запитання про "
+                },
+                {
+                  "type": "link",
+                  "text": "Хмара кинджалів [Cloud of Daggers",
+                  "href": "https://www.dndbeyond.com/sources/dnd/sae/sage-advice-compendium#SAC-Spells-CloudofDaggers1"
+                },
+                {
+                  "type": "text",
+                  "text": "]:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Запитання: якщо використовувати квадрати зі стороною 5 футів, чи діє Хмара кинджалів [Cloud of Daggers] лише на один квадрат?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Відповідь: "
+                },
+                {
+                  "type": "link",
+                  "text": "Хмара кинджалів [Cloud of Daggers",
+                  "href": "https://www.dndbeyond.com/spells/2618974-cloud-of-daggers"
+                },
+                {
+                  "type": "text",
+                  "text": "]"
+                },
+                {
+                  "type": "emphasis",
+                  "text": " — Куб зі стороною 5 футів — може впливати на кілька квадратів сітки, якщо Майстер не вимагає привʼязувати ефекти до сітки. Цей "
+                },
+                {
+                  "type": "link",
+                  "text": "Куб",
+                  "href": "https://www.dndbeyond.com/sources/dnd/free-rules/rules-glossary#CubeAreaofEffect"
+                },
+                {
+                  "type": "emphasis",
+                  "text": " можна розмістити багатьма способами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спершу мені здалося, що відповідь відхиляється від тексту правил, і я був дещо спантеличений. Коли я порушив питання в соцмережах, отримав дивну суміш відповідей: одні завжди так грали, інші вважали це безглуздям, а решта були десь посередині. Тож я заново дослідив правила простору, розташування й областей дії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо коротко передати результат: майже всі, включно зі мною, десь роблять це неправильно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб повністю розібратися з цими правилами, автор залучає Посібник Майстра (2014), Довідник Занатара про все, а також Книга Гравця (2024) і Посібник Майстра (2024). Так, це виглядає надмірним. Тут наведено якомога більше інформації, щоб зекономити вам клопіт і, можливо, купівлю книги. Примітка редакції: це порівняльний матеріал. Формулювання 2024 не є автоматичним виправленням чи доповненням правил 2014; для гри за 2014 застосовуйте саме вибрані правила цієї редакції."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-three-methods-for-handling-space-and-areas-of-effect",
+          "heading": "Три способи працювати з простором і областями дії",
+          "sourceAnchor": "three-methods-for-handling-space-and-areas-of-effect",
+          "blocks": [
+            {
+              "blockId": "block-section-three-methods-for-handling-space-and-areas-of-effect-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я виділив приблизно три способи працювати з мапами, простором, розташуванням і областями дії. Кожен — компроміс між правдоподібністю, зручністю та послідовною справедливістю. Жоден не обовʼязково кращий за інші, але група зазвичай обирає один і дотримується його. Примітка редакції: хоча автор спочатку називає способи офіційно підтримуваними, нижче сам зауважує, що третій не має окремої офіційної процедури в 5e."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-method-1-theater-of-the-mind",
+          "parentSectionId": "section-three-methods-for-handling-space-and-areas-of-effect",
+          "heading": "Спосіб 1: уявна сцена",
+          "sourceAnchor": "method-1-theater-of-the-mind",
+          "blocks": [
+            {
+              "blockId": "block-section-method-1-theater-of-the-mind-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Умовний стандарт — уявляти сцену без мапи. Це найгнучкіший підхід, але він потребує значної довіри між гравцями й Майстром, щоб вороги не опинялися на відстані 5 футів і 1 дюйма саме тоді, коли потрібно атакувати. Для груп, які не зосереджуються на тактичному бою, цього часто достатньо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-method-1-theater-of-the-mind-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Однак коли потрібно, наприклад, спрямувати Заряд блискавки [Lightning Bolt] між союзниками, підхід починає буксувати. Без точного розташування всіх істот кількість цілей ефекту повністю визначає Майстер. Це не гарантує послідовної справедливості: навіть сумлінне рішення може залишити гравців із відчуттям, що їх обділили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-method-1-theater-of-the-mind-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уявна сцена цілком працює, але найкраще — коли в сутичці мало істот. Із великими групами ситуація стає надто заплутаною та довільною."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-method-1-theater-of-the-mind-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для областей дії я рекомендую орієнтуватися на таблицю «"
+                },
+                {
+                  "type": "link",
+                  "text": "Цілі в області дії",
+                  "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+                },
+                {
+                  "type": "text",
+                  "text": "» у Посібник Майстра (2014)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-method-2-the-grid",
+          "parentSectionId": "section-three-methods-for-handling-space-and-areas-of-effect",
+          "heading": "Спосіб 2: сітка",
+          "sourceAnchor": "method-2-the-grid",
+          "blocks": [
+            {
+              "blockId": "block-section-method-2-the-grid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найсуворіший варіант — "
+                },
+                {
+                  "type": "link",
+                  "text": "мініатюри на сітці",
+                  "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/running-the-game#Miniatures"
+                },
+                {
+                  "type": "text",
+                  "text": ", докладно описані в Керівництві Майстра. Один квадрат або гекс відповідає 5 футам. Багато ігрових відстаней задано кроками по 5 футів, щоб було зручно грати на сітці; під цей спосіб також проєктують чимало пригод і мап. Примітка редакції: твердження джерела, що всі відстані D&D завжди кратні 5 футам, надто категоричне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-method-2-the-grid-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей спосіб найпослідовніший і найсправедливіший, але найменш гнучкий. Ви обмінюєте точне реалістичне пересування на жорсткі ігрові процедури, які щоразу працюють однаково."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-method-2-the-grid-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоча технічно це опційне правило, його часто сприймають як стандарт гри в D&D. На думку автора, складні бої важко вести без структури бойової сітки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-method-3-miniatures-but-no-grid",
+          "parentSectionId": "section-three-methods-for-handling-space-and-areas-of-effect",
+          "heading": "Спосіб 3: мініатюри без сітки",
+          "sourceAnchor": "method-3-miniatures-but-no-grid",
+          "blocks": [
+            {
+              "blockId": "block-section-method-3-miniatures-but-no-grid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Первісний спосіб D&D, успадкований від настільних військових ігор: 5 футів відповідають 1 дюйму на бойовій мапі. Середні істоти мають круглі підставки діаметром 1 дюйм, які позначають зайнятий простір. Це дає дуже правдоподібне відтворення розташування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-method-3-miniatures-but-no-grid-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спосіб гнучкий, але має проблеми з точністю. Незначна різниця у вимірюванні може залишити істоту ледь усередині або поза досяжністю чи областю дії. Прикро, коли Воїну бракує 1/8 дюйма, щоб атакувати чудовисько. Водночас можна, наприклад, повністю перекрити коридор завширшки 15 футів двома персонажами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-method-3-miniatures-but-no-grid-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На жаль, правила 5e не надають окремої офіційної процедури для цього способу. Далі автор пропонує домовленості для столу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-areas-of-effect",
+          "heading": "Області дії: порівняння редакцій",
+          "sourceAnchor": "areas-of-effect",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-point-of-origin",
+          "parentSectionId": "section-areas-of-effect",
+          "heading": "Точка початку",
+          "sourceAnchor": "point-of-origin",
+          "blocks": [
+            {
+              "blockId": "block-section-point-of-origin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "«Область дії потрібно перенести на квадрати або гекси, щоб визначити можливі цілі всередині неї. Якщо область має точку початку, оберіть перетин квадратів або гексів як цю точку, а далі дотримуйтеся звичайних правил області»."
+                },
+                {
+                  "type": "text",
+                  "text": " Примітка редакції: це процедура гри на сітці; вона не визначає розташування для кожного іншого способу гри."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-point-of-origin-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розміщуючи область дії, спочатку оберіть її точку початку й відштовхуйтеся від неї. Точна процедура залежить від способу гри та форми області."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-how-much-must-an-aoe-affect-a-space-to-have-an-effect",
+          "parentSectionId": "section-areas-of-effect",
+          "heading": "Яке перекриття потрібне для ураження місця?",
+          "sourceAnchor": "how-much-must-an-aoe-affect-a-space-to-have-an-effect",
+          "blocks": [
+            {
+              "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Залежить від обставин. Так, я чую ваші зітхання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 1 це фактично рішення Майстра відповідно до описаної сцени."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За описаного тут способу 2 область має покривати щонайменше половину квадрата зі стороною 5 футів, щоб впливати на нього. Примітка редакції: не змішуйте окремі процедури. DMG2014 прямо застосовує поріг половини до круглої області; шаблони XGTE використовують іншу процедуру — уражають істоту, чия підставка перекриває шаблон. Наведена нижче загальна цитата походить із DMG2024."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 3 однозначної відповіді немає, бо немає відповідного офіційного тексту. За деякими столами достатньо, щоб область лише торкнулася підставки цілі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "«Якщо область дії покриває щонайменше половину квадрата або гекса, вона впливає на весь цей квадрат або гекс»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "— Посібник Майстра (2024), розділ 2: ведення бою."
+                },
+                {
+                  "type": "text",
+                  "text": " Це правило редакції 2024, наведене для порівняння."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-visualising-areas-of-effect",
+          "parentSectionId": "section-areas-of-effect",
+          "heading": "Візуалізація областей дії",
+          "sourceAnchor": "visualising-areas-of-effect",
+          "blocks": [
+            {
+              "blockId": "block-section-visualising-areas-of-effect-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо використовуєте мініатюри, дуже зручно візуально показувати області дії на бойовій мапі. Це допомагає швидко визначати уражені місця й істот. "
+                },
+                {
+                  "type": "link",
+                  "text": "Довідник Занатара про все",
+                  "href": "https://www.dndbeyond.com/sources/dnd/xgte/dungeon-masters-tools#AreasofEffectonaGrid"
+                },
+                {
+                  "type": "text",
+                  "text": " докладно пояснює, як це робити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-visualising-areas-of-effect-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коротко: Ксанатар пропонує два способи візуалізувати області дії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-template-method",
+          "parentSectionId": "section-visualising-areas-of-effect",
+          "heading": "Спосіб із шаблонами",
+          "sourceAnchor": "the-template-method",
+          "blocks": [
+            {
+              "blockId": "block-section-the-template-method-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спосіб із шаблонами використовує фізичні форми для областей дії. Можна намалювати на папері Конус завдовжки 15 футів, вирізати його й прикладати при накладанні Палючі долоні [Burning Hands]. Можна й купити готові шаблони, особливо якщо паперові швидко зношуються. Спосіб гнучкий, швидкий і дозволяє дуже точне розташування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-template-method-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Однак виникають питання, коли область лише частково перекриває місце. Автор застосовує описаний вище поріг половини квадрата зі стороною 5 футів. Але як швидко порахувати половину для незручних трикутників і кіл? Ніхто не має розвʼязувати складні геометричні задачі під час бою. Це ж не "
+                },
+                {
+                  "type": "link",
+                  "text": "Pathfinder",
+                  "href": "https://aonprd.com/FeatDisplay.aspx?ItemName=Sacred%20Geometry"
+                },
+                {
+                  "type": "text",
+                  "text": ". Примітка редакції: поріг половини тут — поєднання процедур автора. Метод шаблонів XGTE сам визначає ураження за перекриттям підставки мініатюри, а не універсальним порогом половини клітинки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-template-method-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шаблони особливо добре працюють зі способом 3. Без обмежень сітки готові вирізані форми природно позначають ефекти на бойовій мапі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-token-method",
+          "parentSectionId": "section-visualising-areas-of-effect",
+          "heading": "Спосіб із жетонами",
+          "sourceAnchor": "the-token-method",
+          "blocks": [
+            {
+              "blockId": "block-section-the-token-method-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Спосіб із жетонами",
+                  "href": "https://www.dndbeyond.com/sources/dnd/xgte/dungeon-masters-tools#TokenMethod"
+                },
+                {
+                  "type": "text",
+                  "text": " зображає все квадратами. Автор вважає його найпростішим і найсправедливішим способом показувати області дії: послідовним, простим і надійним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-token-method-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коротко: покладіть жетон у кожний квадрат, на який діє область. На ілюстраціях це к6, хоча типовий к6 менший за дюйм і не заповнює клітинку. Клітинка або уражена, або ні: немає «половини квадрата» чи «вигнутого шматочка в кутку». Усе зручно й квадратне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-token-method-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Водночас цей спосіб перетворює кола на квадрати, а Конуси легко розміщувати лише за сторонами світу чи точними діагоналями. Ви обмінюєте гнучкість на точність і надійність. Примітка редакції: подальші зсуви жетонів і підрахунки половин клітинок — розширення автора, яке потрібно узгодити; стандартний спосіб XGTE працює з цілими квадратами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-square-circles",
+          "parentSectionId": "section-the-token-method",
+          "heading": "Квадратні кола",
+          "sourceAnchor": "square-circles",
+          "blocks": [
+            {
+              "blockId": "block-section-square-circles-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Жетони перетворюють круглі, сферичні й циліндричні області на квадрати. Це спрощує гру, але кумедно накласти Вогнекуля [Fireball] і отримати «вогняний куб»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-square-circles-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Причина в тому, що стандартна процедура 5e на сітці не збільшує вартість діагонального пересування. У 4e теж були квадратні кола, але ця редакція набагато виразніше розраховувала на гру на сітці."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-square-circles-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У 3.x діагональ коштувала трохи більше: кожна друга діагональна клітинка рахувалася як 2 клітинки пересування. Кола виходили круглішими, ціною додаткового підрахунку заради правдоподібності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-square-circles-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо хочете користуватися жетонами й зберегти круглі кола, розгляньте таке правило діагоналей. Раджу застосовувати його і до пересування, і до областей дії, інакше діагональний рух стає непропорційно вигідним способом утекти від ефекту. Примітка редакції: у DMG2014 також є опційна процедура діагоналей; це вибір способу гри, а не обовʼязкова зміна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-snapping-to-the-grid",
+          "parentSectionId": "section-visualising-areas-of-effect",
+          "heading": "Привʼязка до сітки",
+          "sourceAnchor": "snapping-to-the-grid",
+          "blocks": [
+            {
+              "blockId": "block-section-snapping-to-the-grid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Текст правил прямо не вимагає «привʼязувати до сітки» кожну область дії. Гравці часто роблять це автоматично, бо на сітці так природно. Саме так я люблю грати: послідовно, просто й надійно, без зайвих переміщень, суперечок та геометрії. Примітка редакції: загальна відповідь Sage Advice не скасовує конкретну процедуру обраного способу, зокрема цілих клітинок у способі жетонів XGTE."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-snapping-to-the-grid-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без такої привʼязки можна розмістити область так, щоб вона частково перекривала кілька місць. Автор пропонує навіть зсувати жетони на межу сусідніх клітинок. Згадана у вступі відповідь про "
+                },
+                {
+                  "type": "link",
+                  "text": "Хмара кинджалів [Cloud of Daggers",
+                  "href": "https://www.dndbeyond.com/sources/dnd/sae/sage-advice-compendium#SAC-Spells-CloudofDaggers1"
+                },
+                {
+                  "type": "text",
+                  "text": "] обговорює розташування куба між клітинками. Примітка редакції: зсув жетонів — авторське поєднання способів, а не дослівна процедура жетонів XGTE."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-snapping-to-the-grid-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна зсунути квадратну чи кубічну область на половину клітинки й збільшити кількість частково покритих клітинок. Якщо застосовуєте поріг половини й кожна крайня клітинка його досягає, вона теж уражена. Наприклад, Хмара кинджалів [Cloud of Daggers] — Куб зі стороною 5 футів; розташування на межі двох квадратів може уражати два квадрати замість одного. Примітка редакції: застосування порогу половини до куба в грі 2014 потребує узгодженої процедури; DMG2014 прямо згадує цей поріг для круглої області."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cones",
+          "parentSectionId": "section-areas-of-effect",
+          "heading": "Конуси",
+          "sourceAnchor": "cones",
+          "blocks": [
+            {
+              "blockId": "block-section-cones-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Конус — область дії, що простягається прямими лініями від точки початку в напрямку, обраному її творцем. Ширина Конуса в будь-якій точці дорівнює відстані цієї точки від початку. Наприклад, на відстані 15 футів Конус має ширину 15 футів. Ефект указує максимальну довжину Конуса."
+                },
+                {
+                  "type": "text",
+                  "text": " Примітка редакції: цитата з визначення 2024; форма Конуса також є у правилах 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cones-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 1 користуйтеся таблицею «"
+                },
+                {
+                  "type": "link",
+                  "text": "Цілі в області дії",
+                  "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+                },
+                {
+                  "type": "text",
+                  "text": "» і власним судженням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cones-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із шаблонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cones-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Прикладіть вузький кінець шаблона Конуса до перетину ліній сітки, обраного як точка початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спрямуйте Конус у потрібний бік."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Визначте, які місця щонайменше наполовину покриті шаблоном: за описаною автором процедурою вони уражені."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-cones-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із жетонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cones-6",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть перетин ліній сітки як точку початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть основний або діагональний напрямок: північ, північний схід тощо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Викладіть жетони в лінію на довжину Конуса: наприклад, 3 жетони для Конуса завдовжки 15 футів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Починаючи з будь-якого кінця Конуса, додавайте жетони так, щоб кожна наступна від початку клітинка збільшувала ширину на один жетон."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "За привʼязки до сітки кожен другий ряд природно матиме парну кількість жетонів, тож на цій відстані Конус буде асиметричним. Визначте, в який бік — праворуч чи ліворуч — додаєте зайві жетони, і дотримуйтеся вибору."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Без привʼязки можна зсувати жетони й частково перекривати квадрати. Форма більше нагадуватиме трикутник, але сусідні відрізки Конуса можуть мати однакову ширину. Фактично вона змінюватиметься кожні 10 футів, а не 5; уражені квадрати утворять східчасту, а не трикутну піраміду. Примітка редакції: це запропонована автором модифікація способу жетонів."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-cones-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 3 оберіть доречну точку початку, зазвичай на межі простору джерела області, й прикладіть шаблон, щоб визначити уражені цілі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cones-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Точка початку Конуса не входить до області дії, якщо його творець не вирішить інакше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cones-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "може"
+                },
+                {
+                  "type": "text",
+                  "text": " означати, що ви здатні включити себе до області. Наприклад, Чарівник може включити себе в Палючі долоні [Burning Hands]. За способу 2 точка початку — перетин ліній сітки, тож саме включення математичної точки не додає механічного ефекту. Примітка редакції: це міркування автора; включення власної клітинки залежить від фактичного перекриття та обраної процедури."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cubes",
+          "parentSectionId": "section-areas-of-effect",
+          "heading": "Куби",
+          "sourceAnchor": "cubes",
+          "blocks": [
+            {
+              "blockId": "block-section-cubes-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Куб — область дії, що простягається прямими лініями від точки початку, розташованої будь-де на одній із його граней. Ефект указує розмір Куба — довжину кожного ребра."
+                },
+                {
+                  "type": "text",
+                  "text": " Примітка редакції: цитата з визначення 2024; Куб також є у правилах 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cubes-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 1 користуйтеся таблицею «"
+                },
+                {
+                  "type": "link",
+                  "text": "Цілі в області дії",
+                  "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+                },
+                {
+                  "type": "text",
+                  "text": "» і власним судженням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cubes-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із шаблонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cubes-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть перетин ліній сітки як точку початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розмістіть шаблон так, щоб будь-яка сторона чи кут його квадрата торкалися точки початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Памʼятайте: квадрат можна вільно повертати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Визначте, які місця щонайменше наполовину покриті шаблоном: за описаною автором процедурою вони уражені."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-cubes-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із жетонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cubes-6",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть перетин ліній сітки як точку початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Визначте, чи квадрат стоятиме паралельно сітці, чи буде повернутий на 45 градусів. Примітка редакції: у цьому пункті джерело має «5 degrees», але наступний пункт описує саме 45 градусів; це очевидна неузгодженість оригіналу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розташуйте квадрат паралельно сітці так, щоб будь-яка його сторона чи кут торкалися точки початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Технічно квадрат можна повернути на 45 градусів і отримати ромб. За словами автора, для Куба менше ніж 20 футів це все одно дає квадратний набір клітинок; для більших форм геометрія заплутується й часто виходить асиметричний ромб. Примітка редакції: це авторська порада про відображення на сітці, а не окреме правило форми Куба."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-cubes-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 3 оберіть доречну точку початку, зазвичай на межі простору джерела області, й прикладіть шаблон, щоб визначити уражені цілі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cubes-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Точка початку Куба не входить до області дії, якщо його творець не вирішить інакше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cubes-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "може"
+                },
+                {
+                  "type": "text",
+                  "text": " означати можливість включити себе в область. Автор наводить приклад із Гуркіт грому [Thunderclap]. За способу 2 точка початку — перетин ліній сітки, і саме включення точки нічого механічно не додає. Примітка редакції: Гуркіт грому [Thunderclap] 2014 не створює Куба й не уражає самого заклинателя. Тож цей приклад не пояснює правило Куба й не дозволяє змінювати цілі замовляння."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cylinders",
+          "parentSectionId": "section-areas-of-effect",
+          "heading": "Циліндри",
+          "sourceAnchor": "cylinders",
+          "blocks": [
+            {
+              "blockId": "block-section-cylinders-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Циліндр — область дії, що простягається прямими лініями від точки початку в центрі круглої верхньої чи нижньої основи. Ефект указує радіус основи та висоту Циліндра."
+                },
+                {
+                  "type": "text",
+                  "text": " Примітка редакції: цитата з визначення 2024; Циліндр також є у правилах 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cylinders-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Точка початку Циліндра входить до області дії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cylinders-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 1 користуйтеся таблицею «"
+                },
+                {
+                  "type": "link",
+                  "text": "Цілі в області дії",
+                  "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+                },
+                {
+                  "type": "text",
+                  "text": "» і власним судженням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cylinders-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із шаблонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cylinders-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть перетин ліній сітки як точку початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть, чи точка початку лежить на верхній чи нижній основі Циліндра."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть напрямок, у якому Циліндр простягатиметься від точки початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Визначте, які місця щонайменше наполовину покриті шаблоном: за описаною автором процедурою вони уражені."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-cylinders-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із жетонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cylinders-7",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть перетин ліній сітки як точку початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть, чи точка початку лежить на верхній чи нижній основі Циліндра."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть напрямок, у якому Циліндр простягатиметься від точки початку."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-cylinders-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 3 оберіть доречну точку початку, зазвичай на межі простору джерела області, й прикладіть шаблон, щоб визначити уражені цілі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-emanations",
+          "parentSectionId": "section-areas-of-effect",
+          "heading": "Випромінювання — лише редакція 2024",
+          "sourceAnchor": "emanations",
+          "blocks": [
+            {
+              "blockId": "block-section-emanations-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Випромінювання{{Emanation}} — область дії, що простягається прямими лініями від істоти чи предмета в усіх напрямках. Ефект указує відстань, на яку воно поширюється."
+                },
+                {
+                  "type": "text",
+                  "text": " Примітка редакції: це окрема форма редакції 2024. У правилах 2014 не підміняйте нею опис аури чи конкретного заклинання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Випромінювання рухається разом з істотою чи предметом, від яких походить, якщо ефект не миттєвий і не нерухомий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Джерело Випромінювання — істота чи предмет — не входить до області дії, якщо його творець не вирішить інакше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Випромінювання — особливий випадок: відстань відмірюють від межі простору істоти чи предмета, а не від перетину сітки. Примітка редакції: у джерельному реченні суперечливе заперечення; наступні інструкції автора прямо вимагають вимірювання від межі простору."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 1 користуйтеся таблицею «"
+                },
+                {
+                  "type": "link",
+                  "text": "Цілі в області дії",
+                  "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+                },
+                {
+                  "type": "text",
+                  "text": "» і власним судженням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із шаблонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-7",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Розташуйте шаблон так, щоб істота чи предмет опинилися в його центрі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вимірюйте відстань від межі простору істоти чи предмета."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Визначте, які місця щонайменше наполовину покриті шаблоном: за описаною автором процедурою вони уражені."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із жетонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-9",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Викладіть жетони квадратною областю навколо істоти чи предмета так, щоб вона простягалася в усі боки на відстань Випромінювання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Наприклад, Духи захисники [Spirit Guardians] у редакції 2024 має Випромінювання на 15 футів. Розмістіть жетони на 3 клітинки в кожний бік від заклинателя. Для істоти, що займає одну клітинку, це квадрат завширшки 7 клітинок: 1 під істотою й по 3 з обох боків. Примітка редакції: опис Духи захисники [Spirit Guardians] 2014 має власне формулювання та інші тригери шкоди; цей приклад не переносить механіку 2024 до 2014."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 3:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-emanations-11",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Розташуйте шаблон так, щоб істота чи предмет опинилися в його центрі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вимірюйте відстань від межі простору істоти чи предмета."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Визначте, які місця щонайменше наполовину покриті шаблоном: за описаною автором процедурою вони уражені."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-lines",
+          "parentSectionId": "section-areas-of-effect",
+          "heading": "Лінії",
+          "sourceAnchor": "lines",
+          "blocks": [
+            {
+              "blockId": "block-section-lines-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Лінія — область дії, що простягається прямим шляхом від точки початку на свою довжину й покриває місце, визначене шириною. Ефект указує довжину й ширину Лінії."
+                },
+                {
+                  "type": "text",
+                  "text": " Примітка редакції: цитата з визначення 2024; Лінія також є у правилах 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lines-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Точка початку Лінії не входить до області дії, якщо її творець не вирішить інакше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lines-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лінії майже завжди мають ширину 5 футів, хоча зрідка трапляються винятки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lines-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 1 користуйтеся таблицею «"
+                },
+                {
+                  "type": "link",
+                  "text": "Цілі в області дії",
+                  "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+                },
+                {
+                  "type": "text",
+                  "text": "» і власним судженням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lines-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із шаблонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lines-6",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть перетин ліній сітки як точку початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розташуйте середину початкового краю шаблона в точці початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зверніть увагу: якщо спрямувати Лінію за основною стороною світу, шаблон лежатиме по обидва боки межі між клітинками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спрямуйте шаблон у потрібний бік."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Визначте, які місця щонайменше наполовину покриті шаблоном: за описаною автором процедурою вони уражені."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-lines-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із жетонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lines-8",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть перетин ліній сітки як точку початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Покладіть жетон для першої частини Лінії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "За привʼязки до сітки оберіть клітинку, один із кутів якої торкається точки початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Без привʼязки покладіть жетон так, щоб точка початку опинилася в середині однієї з його сторін. Він перекриє кілька місць, але більшість матимуть лише маленький перекритий кут і за описаною процедурою не будуть уражені."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додавайте жетони, доки не досягнете довжини Лінії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "За привʼязки до сітки Лінія, спрямована не за основною стороною світу, може пройти між двома діагонально сусідніми істотами, не зачепивши жодної."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Визначте місця, щонайменше наполовину покриті жетонами: за авторською процедурою вони уражені. Примітка редакції: часткове перекриття жетонами — модифікація, а не стандартний спосіб жетонів XGTE."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1,
+                1,
+                0,
+                1,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-lines-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 3 оберіть доречну точку початку, зазвичай на межі простору джерела області, й прикладіть шаблон, щоб визначити уражені цілі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spheres",
+          "parentSectionId": "section-areas-of-effect",
+          "heading": "Сфери",
+          "sourceAnchor": "spheres",
+          "blocks": [
+            {
+              "blockId": "block-section-spheres-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Сфера — "
+                },
+                {
+                  "type": "link",
+                  "text": "область дії",
+                  "href": "https://www.dndbeyond.com/sources/dnd/br-2024/rules-glossary#AreaofEffect"
+                },
+                {
+                  "type": "emphasis",
+                  "text": ", що простягається прямими лініями від точки початку в усіх напрямках. Ефект указує відстань поширення як радіус Сфери."
+                },
+                {
+                  "type": "text",
+                  "text": " Примітка редакції: цитата з визначення 2024; Сфера також є у правилах 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spheres-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Точка початку Сфери входить до її області дії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spheres-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 1 користуйтеся таблицею «"
+                },
+                {
+                  "type": "link",
+                  "text": "Цілі в області дії",
+                  "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+                },
+                {
+                  "type": "text",
+                  "text": "» і власним судженням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spheres-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із шаблонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spheres-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть перетин ліній сітки як точку початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розташуйте центр шаблона в точці початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Визначте, які місця щонайменше наполовину покриті шаблоном: за описаною автором процедурою вони уражені."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-spheres-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 2 із жетонами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spheres-7",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Оберіть перетин ліній сітки як точку початку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Викладайте жетони, доки навколо точки початку не утвориться квадрат відповідного розміру."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Памʼятайте: спосіб жетонів перетворює кола на квадрати."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-spheres-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За способу 3 оберіть доречну точку початку, зазвичай на межі простору джерела області, й прикладіть шаблон, щоб визначити уражені цілі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-conclusion",
+          "heading": "Підсумкові поради",
+          "sourceAnchor": "conclusion",
+          "blocks": [
+            {
+              "blockId": "block-section-conclusion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе це здається заплутаним. Те, що для пояснення приблизно 2–3 сторінок офіційних правил знадобилася така довга стаття, показує, наскільки неясною може бути тема при докладному розгляді. Але ваша група, найімовірніше, вже має улюблений спосіб. Він, вірогідно, близький до одного з офіційних варіантів, навіть якщо не кожна деталь збігається."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я зазвичай раджу дотримуватися написаних правил, а коли вони проблемні — їхнього задуму. Однак тут правила свідомо залишають місце різним стилям гри. Оберіть те, що працює за вашим столом. Примітка редакції: зафіксуйте редакцію та конкретну процедуру, щоб порівняльні цитати й авторські поєднання не змінювали правила посеред сутички."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": []
+}

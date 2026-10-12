@@ -1,0 +1,1705 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-e1e4407e85088ee0",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-e1e4407e85088ee0-7a9ecac31b9ad359",
+      "sourceId": "rpgbot-e1e4407e85088ee0",
+      "fetchedAt": "2026-09-29T19:23:56.813466+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:26:47-04:00",
+      "contentHash": "01cdada98a2f088db3d428e21bf8ea85548336e9384cb5892aca429a05a2856a",
+      "title": "Path of Wild Magic Barbarian 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-e1e4407e85088ee0-7a9ecac31b9ad359.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+    "sourceId": "rpgbot-e1e4407e85088ee0",
+    "slug": "barbarian-path-of-wild-magic-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях дикої магії — гайд підкласу Варвара (2014)",
+    "titleEn": "Path of Wild Magic Barbarian 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Варвар",
+      "Шлях дикої магії",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "sourceRevisionId": "rpgbot-e1e4407e85088ee0-7a9ecac31b9ad359",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мабуть, не дивно з огляду на мою любов до створення гайдів зі збірками-гішами, коли хтось у нашому Discord попросив Варвара Шляху дикої магії, я відповів «"
+                },
+                {
+                  "type": "link",
+                  "text": "так, шефе",
+                  "href": "https://www.youtube.com/watch?v=Kx55Rkynhtk"
+                },
+                {
+                  "type": "text",
+                  "text": "». Хоч це зараз може не мати великого сенсу, бо сам клас насправді не має магії, він і тематично відчувається дуже магічним, і, як ви побачите в моїх нотатках про мультикласування, має одну-дві справді чудові пари, що можуть підняти враження від гри за цей чудовий підклас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навіть сам по собі він промовляє до людей, яких не цікавить супержорстка оптимізація або які вже зробили всю оптимізацію, яку вважають потрібною, і тепер просто шукають розваги.\n\nТе, що основна ідентичність підкласу ґрунтується на умінні, яке за природою неконтрольоване, означає: хоч я можу допомогти з оптимізацією, нагадуючи, що тримати в голові, і підказуючи, що робити в кожному випадку, фактичне керування цим персонажем може дати зовсім інший досвід, ніж той, для якого я пишу, хоч як точно ви йому слідуватимете."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але ви прийшли сюди, вже знаючи це, тож почнімо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Шляху дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Шляху дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Шляху дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Шляху дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Шляху дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Шляху дикої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — «Він що, щойно ляснув мене велетенською ложковилкою?»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#example-build-did-he-just-slap-me-with-a-giant-spork"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Шляху дикої магії",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Чуття магії{{Magic Awareness}}: по суті, «Виявлення магії [Detect Magic]» по колу. В ідеалі у вас у групі буде заклинач, який із цим впорається, бо ви не надто пристосовані щось робити з тим, що дізнаєтеся, але це може полегшити життя заклиначам, що вивчають заклинання назавжди, якщо вони єдині заклинателі у вашій групі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дикий сплеск{{Wild Surge}}: Таблиця дикої магії Шляху дикої магії повсюдно корисна. Те, що випаде на таблиці, може змусити вас переглянути тактику, але зі швидким мисленням ви зможете перетворити будь-який ефект на велику перевагу. Памʼятайте, що багато активованих ефектів використовують вашу бонусну дію, тож уникайте варіантів персонажа, що використовують бонусну дію, як-от бій двома зброями."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підсилююча магія{{Bolstering Magic}}: додавання к3 до кидків атаки звучить непереконливо, але це все одно в середньому +2 до всіх ваших атак, воно триває 10 хвилин і не потребує Концентрації, як ефекти на кшталт «Благословення [Bless]». У поєднанні з «Безрозсудною атакою» ви можете майже гарантувати, що ваші атаки влучать, навіть якщо терпите штраф від «Майстра важкої зброї».\n\nВаріант відновлення слотів заклинань класний для союзників, що не покладаються на атаки, але вплив ще одного слота низького рівня зменшуватиметься зі зростанням рівня (хоча Чорнокнижники ніколи не поскаржаться), тоді як +1к3 до атак буквально завжди корисне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нестабільний відкат{{Unstable Backlash}}: використання цього як реакції, коли ви отримуєте шкоду або провалюєте ряткидок, означає, що ви, імовірно, можете користуватися цим щораунду (особливо якщо навмисно завдаєте собі шкоди). Якщо ваш поточний ефект дикої магії вам не подобається, шукайте кращий варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Керований хаос{{Controlled Surge}}: хоч жоден з ефектів на Таблиці дикої магії Шляху дикої магії не негативний, можливість вибирати між двома ефектами (або будь-якими, якщо пощастить) означає, що ви можете вибрати той, що найкраще відповідає вашим поточним потребам. Це також працює з «Нестабільним відкатом», тож ви можете повторно вирішувати перекидати результат, доки нарешті не отримаєте той, що вас влаштує."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-wild-magic-ability-scores",
+          "heading": "Характеристики Шляху дикої магії",
+          "sourceAnchor": "path-of-wild-magic-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-wild-magic-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: усе ще основна характеристика Варвара."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-wild-magic-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: ми хочемо заповнити лише середні обладунки, якщо тільки ви не кидаєте кубики на характеристики й не отримуєте три високі результати. Якщо так, можна скористатися унікальною версією «Захисту без обладунків», яку дає клас, і зробити всі три фізичні характеристики якомога вищими."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-wild-magic-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: бійцям ближнього бою це потрібно навіть більше, ніж більшості речей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-wild-magic-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-wild-magic-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: усе, що лишиться, вкладайте сюди, щоб поширений розумовий ефект не вивів вас із бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-wild-magic-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-wild-magic-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-wild-magic-races",
+          "heading": "Раси Шляху дикої магії",
+          "sourceAnchor": "path-of-wild-magic-races",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-wild-magic-races-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Аазимар-Бич|Scourge Aasimar}}: якщо вам вдасться переконати Майстра дозволити стару версію, але налаштувати її за правилами «власного походження» Таші, це має особливо добру нішу для вас. «Променеве спалювання»{{Radiant Consumption}}, що завдає вам шкоди щоходу, підтримуватиме вашу лють, навіть якщо ви схибите всюди й вас не атакують, — дуже рідкісна й корисна властивість."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-wild-magic-feats",
+          "heading": "Риси Шляху дикої магії",
+          "sourceAnchor": "path-of-wild-magic-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-wild-magic-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Три варіанти з Таблиці дикої магії дають повторювані використання нашої бонусної дії, тож стимулів брати рису, що дає таку, значно менше."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-wild-magic-weapons",
+          "heading": "Зброя Шляху дикої магії",
+          "sourceAnchor": "path-of-wild-magic-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-wild-magic-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-wild-magic-armor",
+          "heading": "Обладунки Шляху дикої магії",
+          "sourceAnchor": "path-of-wild-magic-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-wild-magic-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як описано вище, ви або хочете застосувати свою Спритність 14 в «Нагруднику» чи напівлатах, або ходити без обладунків."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навіть один рівень заклинального класу з доступом до "
+                },
+                {
+                  "type": "link",
+                  "text": "«Сріблястих шпильок»",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Silvery Barbs}} стає неймовірним способом використати «Підсилюючу магію». Звісно, можна дати собі +2 до атак, але як щодо того, щоб скасувати Перевагу на кубику, яку отримав хтось через вдале становище, а потім віддати цю Перевагу своєму другові-Пройдисвіту?\n\nДля цього довелося б повозитися з характеристиками, але я б, мабуть, додав Чародія Механічної душі{{Clockwork Soul}} і довів його до 4-го рівня, щоб отримати кращі слоти й доступ до підсилення «Обладунку Агатіса [Armor of Agathys]» вищим слотом, що завжди добра ідея для бійця."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Очевидно, ви не можете робити це "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "під час"
+                },
+                {
+                  "type": "text",
+                  "text": " люті, але ніщо не заважає накласти «Обладунок Агатіса» перед входом у бій чи кинути якісь «Сріблясті шпильки» на когось перед тим, як увімкнути лють."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви не хочете йти цим шляхом, Воїн заради Бойового Стилю й «Сплеску дій» — завжди приємно й має чудове застосування, описане нижче."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+          "heading": "Приклад збірки — «Він що, щойно ляснув мене велетенською ложковилкою?»",
+          "sourceAnchor": "example-build-did-he-just-slap-me-with-a-giant-spork",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як угорі, так і внизу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми все одно застрягли в середніх обладунках, чому б не літати? Крилатий тифлінг{{Winged Tiefling}} також дає темний зір і опір до дуже поширеного типу шкоди (що також буде несподіваним інструментом, який допоможе нам пізніше)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для збірки це не має значення, але подати «Переслідуваного»{{Haunted One}} як оточеного хаосом замість духів — доволі весело. Це також дає нам додаткові гроші на оновлення до нагрудника.\n\nЗамініть навички на Непомітність і Виживання (щоб ви могли ховатися в шафах від усіх, крім Дреджа{{the Dredge}}), а одну мову замініть на Інструменти злодія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Між навичками, які ми щойно взяли з передісторії, й Атлетикою та Уважністю від Варвара ми виходимо досить добрим запасним Розвідником."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4-й рівень дає нам «Дробильника»{{Crusher}}, щоб наша «Безрозсудна атака» мала пристойний шанс дати Перевагу на кубику всій нашій команді."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8-й рівень дає нам «Майстра важкої зброї»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "12-й рівень доводить Силу до максимуму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "16-й рівень підвищує Статуру до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "19-й рівень доводить Статуру до максимуму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "20-й рівень також доводить до максимуму Силу й Статуру."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист без обладунків, Лють"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Візьміть велику сокиру й ручні сокири, продайте велику сокиру й набір мисливця на монстрів{{Monster Hunter’s Pack}} із передісторії, купіть дворучний молот, кольчужну сорочку (або лускатий обладунок, якщо у вас є справжній Розвідник) і ще кілька ручних сокир. Чому ручні сокири? До цього ми дійдемо. Робіть речі Варвара до 3-го рівня.\n\nОдна весела тактика, яку ми можемо виконувати негайно, — химерна версія захоплення/штовхання. З нашим великим показником Атлетики (і Перевагою на кубику на перевірки Сили під час люті) ми маємо пристойний шанс почати захоплення. Якщо потім злетіти на 10 футів прямо вгору й відпустити захоплення, наша ціль упаде на 10 футів, завдавши 1к6 шкоди й стану Повалений, що дозволяє іншим атакерам ближнього бою атакувати з Перевагою на кубику.\n\nВикористовуйте це, якщо у вашій групі є кілька інших людей, що не користуються дальніми атаками, бо це, ймовірно, збільшить DPR групи загалом навіть з урахуванням того, що ви відмовляєтеся від своєї атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безрозсудна атака, Відчуття небезпеки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Безрозсудна атака» рідко буває поганою ідеєю, а якщо нас більше турбує купа вхідних атак, ніж наші друзі, ми завжди можемо атакувати безрозсудно, а потім злетіти вгору просто за межі досягу, провокуючи Принагідну атаку, але не даючи ворогам шансу мультиатакувати нас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чуття магії, Дикий сплеск"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Чуття магії» навряд чи матиме значення, але його приємно мати. «Дикий сплеск», з іншого боку, — це все, що відрізняє цей підклас. Зважаючи на те, що кілька здібностей згадують цілі в межах 30 футів від вас, найкраще опинитися посеред кількох ворогів, коли ви вмикаєте «Лють».\n\nЦе буде стіна тексту, і я б перепросив, але саме заради цього ви, імовірно, тут. Поговорімо про кожен із можливих кидків.\n\n1: одноразове, найкраще працює, коли ви вже в бійці. Див. пораду з останнього абзацу.\n\n2: ніщо не заважає телепортуватися вгору, поки місце не зайняте. Для більшості речей це погана ідея, але не для крилатих тифлінгів. Використайте це, щоб застосувати «Безрозсудну атаку» й «бамф» у безпечне місце.\n\n3: не думаю, що мені треба казати вам цілитися в зграї, коли ви прикликаєте свого пінгвіна-піксі загибелі, але це стаття про оптимізацію, тож я все одно це скажу. Якщо можливо, скористайтеся примусовим переміщенням «Дробильника», щоб штовхнути додаткові цілі в зону дії ефекту, щойно візьмете його на 4-му рівні.\n\n4: це дає кілька цікавих речей, і саме про це я збираюся говорити найбільше. Зброя, що набуває властивості «Кидальна», дозволить вам робити веселі речі, як-от «Дробити» людей за десятки футів одне від одного з легкістю, навіть у польоті. Усе це добре, але те, що ця зброя ще й набуває властивості «Легка», означає, що тепер ви можете битися двома зброями: дворучним молотом і чимось іще. Наприклад, тими ручними сокирами, які ми купили на 1-му рівні.\n\nВластивість «Дворучна» вимагає, щоб ви використовували дві руки, щоб атакувати зброєю, але не лише щоб її тримати. Правила бою двома зброями кажуть, що одна чи обидві атаки можуть бути метальною зброєю, якщо вона має цю властивість. Жбурніть свій молот (двічі, коли минете 5-й рівень), візьміть ручну сокиру як взаємодію за хід і метніть її.\n\nАбо, якщо ви хочете скористатися «Безрозсудною атакою», усе одно змахніть молотом, візьміть ручну сокиру й атакуйте нею (будьте готові скинути її наприкінці ходу) і зберіть усе назад, коли бій закінчиться. Це прихований спосіб, яким цей запис таблиці перетворюється ще й на шкоду бонусною дією.\n\nЩо це означає для нас? Це означає, що, серед іншого, якщо ви хотіли витратити рису, щоб узяти Бойовий Стиль (Бій двома зброями) замість «Майстра важкої зброї», ви могли б майже подвоїти свій додатковий DPR, користуючись цим варіантом. Ще легше: можна взяти рівень-два Воїна або до Варвара, щоб отримати обладунок безкоштовно, або на 7-му, щоб можна було скористатися «Сплеском дій» і атакувати навіть після використання «Підсилюючого дотику» на собі. Якщо ви вкладаєтеся в цю тактику, вам захочеться націлитися на отримання 4, коли пізніше зʼявляться варіанти на кшталт «Нестабільного відкату» й «Керованого хаосу».\n\n5: це ще більше стимулює «Безрозсудну атаку». Шукайте когось, хто дасть вам тимчасові ХП через заклинання «Героїзм [Heroism]», рису «Кухар» (попросіть у них вафлі) або рису «Надихаючий лідер», бо ми, здається, рекомендуємо одне з цього майже в кожному гайді. Або зробіть це самі з «Обладунком Агатіса», якщо займаєтеся мультикласуванням, як я пропонував вище.\n\n6: ура.\n\n7: це може перетворити вас на дуже потужного танка зі стримування території. Мабуть, не літайте, поки це робите, бо це сфера, якщо не сказано, що ні, а отже, ви отримаєте лише квадрат прямо під собою, якщо ви на 10 футів вище (хіба що ваш стіл вважає сфери кубами, бо в 5e немає поняття, що діагоналі довші).\n\n8: він націлюється на найгірший ряткидок, але додатковий ефект справді добрий. Якщо ви викинули це в бою лише з міцними цілями, імовірно, спробуйте перекинути, щойно отримаєте таку здатність."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дробильник (Сила 17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер наша тактика вдарив-і-втік ще безпечніша. Вдарте когось, використайте останню атаку за хід (що матиме значення, починаючи з наступного рівня), щоб відсунути його «Дробильником» на 5 футів, що виводить багатьох за межі вашого досягу, а потім злетіть на 10 футів прямо вгору.\n\nЗвісно, не робіть цього, якщо ви єдине, що стоїть між розлюченими мішками з ХП і вашим чарівником, але памʼятайте, що це те, що ви "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "можете"
+                    },
+                    {
+                      "type": "text",
+                      "text": " робити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Швидкий рух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Згідно з цим "
+                    },
+                    {
+                      "type": "link",
+                      "text": "твітом Кроуфорда",
+                      "href": "https://twitter.com/JeremyECrawford/status/618278294912286721"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", бонус до руху застосовується і до нашої швидкості польоту. Зум-зум. Зім-зім? Ні-ні, це надто випадково.\n\nОскільки тепер ми можемо атакувати двічі за хід, якщо ми завдамо критичного влучання першою атакою й захочемо полювати на крит по другій цілі, щоб застосувати дебаф «Дробильника», ми можемо просто перелетіти до неї посеред атаки. Ми все ще дозволяємо речам робити по нас Принагідну атаку, коли віддаляємося, але це зазвичай усе одно кращий варіант, як описано вище."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підсилююча магія{{Bolstering Magic}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Приємно, що ми отримуємо це тричі на день і наразі очікуємо щонайбільше три бої на день для більшості груп. Якщо в нашого цілителя якимось чином закінчилися слоти заклинань і йому потрібен слот назад для «Цілющого слова [Healing Word]», не вагайтеся. Це набагато важливіше, ніж бій із +к3 до атак."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дикий інстинкт{{Feral Instinct}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Памʼятайте, що кожному, кого ми атакуємо й хто ще не діяв, доведеться використати свій клас броні в стані «застигнутого зненацька» — ні, стоп, не та редакція."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер важкої зброї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Маючи Перевагу на кубику на вимогу й додатковий +к3 до влучання, ми можемо дозволити собі не триматися фундаментальної математики й узяти штраф до влучання заради великого збільшення шкоди.\n\nПолювання на крити чи розсікання дозволить нам використати бонусну дію, якщо у нас уже немає ввімкненої здібності, що дає нею щось робити, тож стежте за такими нагодами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит{{Brutal Critical}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Менш весело з дворучним молотом, ніж з великою сокирою, але все ще безкоштовний DPR."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нестабільний відкат{{Unstable Backlash}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "До цього рівня у вас, імовірно, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "більше грошей, ніж ви знаєте, що з ними робити",
+                      "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#wealth-by-level-table"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Зручно, що я знаю, що з ними робити.\n\nМи стійкі до шкоди від вогню. «Алхімічний вогонь»{{Alchemist’s Fire}} коштує 50 зм. Тримайте з десяток при собі й на будь-якому ході, коли треба підтримати лють, але ви не можете атакувати, просто підпаліть себе. Ми стійкі, тож ніколи не отримаємо більше 2 шкоди за хід від нього, і це підтримуватиме лють.\n\nТепер ця тактика була вам доступна відтоді, як у вас зʼявилися зайві гроші. Чому це важливо на цьому рівні? Бо це також може запустити «Нестабільний відкат», дозволяючи змінити ваш ефект (а отже, отримати ефект кидка) на 75 % ходів реакцією, на додачу до того, що ви все ще можете щось робити бонусною дією.\n\nЧому лише 75 % ходів? Бо опір таки перетворює шкоду на половину з округленням вниз. Якщо викинути 1, ви не отримаєте жодної шкоди. Просто щось, що слід памʼятати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невпинна лють{{Relentless Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Станьте "
+                    },
+                    {
+                      "type": "link",
+                      "text": "надто розлюченим, щоб померти",
+                      "href": "https://knowyourmeme.com/memes/man-literally-too-angry-to-die"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Сила 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Давайте, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "бийте так, ніби ви це серйозно",
+                      "href": "https://old.reddit.com/r/wow/comments/115w5d6/a_sentence_that_makes_complete_sense_to_a_wow/j97pkfs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Брутального крита"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невпинна лють{{Relentless Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підпалювати себе — усе ще пристойна ідея, якщо вам подобається націлюватися на конкретний запис таблиці, як-от номер 4, або якщо ви просто хочете оптимізувати й свої реакції."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Здорвʼя",
+                      "href": "https://knowyourmeme.com/memes/helth"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Брутального крита"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Незламна міць{{Indomitable Might}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Найбезглуздіша версія «Надійного таланту», що робить вас надзвичайно стабільним у піднятті людей захопленням, щоб злетіти з ними в повітря й скинути їх із шкодою від падіння на термінальній швидкості."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Первісний чемпіон{{Primal Champion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Я став "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Беном Сволом",
+                      "href": "https://knowyourmeme.com/memes/ben-swolo"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Зняти наш каптур-обладунок, щоб показати нашу остаточну форму, тепер оптимально, бо «Захист без обладунків» дає нам КБ 19, що вище, ніж ми отримуємо від середніх обладунків."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-001",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Чуття магії",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-002",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Дикий сплеск",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-003",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Підсилююча магія",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-004",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Нестабільний відкат",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-005",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Керований хаос",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-006",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-path-of-wild-magic-ability-scores",
+      "targetBlockId": "block-section-path-of-wild-magic-ability-scores-1",
+      "optionId": "section-path-of-wild-magic-ability-scores-block-section-path-of-wild-magic-ability-scores-1",
+      "context": "Сила",
+      "explanationBlockId": "block-section-path-of-wild-magic-ability-scores-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-007",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-path-of-wild-magic-ability-scores",
+      "targetBlockId": "block-section-path-of-wild-magic-ability-scores-2",
+      "optionId": "section-path-of-wild-magic-ability-scores-block-section-path-of-wild-magic-ability-scores-2",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-path-of-wild-magic-ability-scores-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-008",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-path-of-wild-magic-ability-scores",
+      "targetBlockId": "block-section-path-of-wild-magic-ability-scores-3",
+      "optionId": "section-path-of-wild-magic-ability-scores-block-section-path-of-wild-magic-ability-scores-3",
+      "context": "Статура",
+      "explanationBlockId": "block-section-path-of-wild-magic-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-009",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-path-of-wild-magic-ability-scores",
+      "targetBlockId": "block-section-path-of-wild-magic-ability-scores-4",
+      "optionId": "section-path-of-wild-magic-ability-scores-block-section-path-of-wild-magic-ability-scores-4",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-path-of-wild-magic-ability-scores-4",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-010",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-path-of-wild-magic-ability-scores",
+      "targetBlockId": "block-section-path-of-wild-magic-ability-scores-5",
+      "optionId": "section-path-of-wild-magic-ability-scores-block-section-path-of-wild-magic-ability-scores-5",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-path-of-wild-magic-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-011",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-path-of-wild-magic-ability-scores",
+      "targetBlockId": "block-section-path-of-wild-magic-ability-scores-6",
+      "optionId": "section-path-of-wild-magic-ability-scores-block-section-path-of-wild-magic-ability-scores-6",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-path-of-wild-magic-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-wild-magic-2014-012",
+      "articleId": "rpgbot-barbarian-path-of-wild-magic-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+      "sectionId": "section-path-of-wild-magic-races",
+      "targetBlockId": "block-section-path-of-wild-magic-races-1",
+      "optionId": "section-path-of-wild-magic-races-block-section-path-of-wild-magic-races-1-item-0",
+      "context": "Аазимар-Бич",
+      "explanationBlockId": "block-section-path-of-wild-magic-races-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

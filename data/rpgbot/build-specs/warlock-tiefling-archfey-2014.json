@@ -1,0 +1,136 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-archfey-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+    "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e"
+  },
+  "exampleSection": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+  "levelTableSection": "section-levels",
+  "classKey": "WARLOCK_2014",
+  "subclassKey": "ARCHFEY",
+  "raceKey": "TIEFLING_2014",
+  "variantKey": "TIEFLING_VARIANT_DEVILS_TONGUE_SCAG",
+  "backgroundKey": "COURTIER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 10,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 3,
+  "levels": [
+    {"level":2,"classOptions":[{"optionNameEng":"Fiendish Vigor"},{"optionNameEng":"Misty Visions"}],"spells":{"knownSpellKeys":["unseen-servant"]}},
+    {"level":3,"classOptions":[{"optionNameEng":"Pact of the Chain"}],"spells":{"knownSpellKeys":["misty-step"]},"replaceSpell":{"drop":"sleep","add":"calm-emotions"},"replaceOptions":[{"drop":{"optionNameEng":"Fiendish Vigor"},"add":{"optionNameEng":"Investment of the Chain Master"}}]},
+    {"level":4,"featKey":"INSPIRING_LEADER","spells":{"cantripKeys":["minor-illusion"],"knownSpellKeys":["invisibility"]}},
+    {"level":5,"classOptions":[{"optionNameEng":"Voice of the Chain Master"}],"spells":{"knownSpellKeys":["hunger-of-hadar"]}},
+    {"level":6,"spells":{"knownSpellKeys":["counterspell"]},"replaceSpell":{"drop":"invisibility","add":"dispel-magic"}},
+    {"level":7,"classOptions":[{"optionNameEng":"Sculptor of Flesh"}],"spells":{"knownSpellKeys":["banishment"]}},
+    {"level":8,"abilityScoreIncrease":[{"ability":"DEX","amount":1},{"ability":"CHA","amount":1}],"spells":{"knownSpellKeys":["greater-invisibility"]}},
+    {"level":9,"classOptions":[{"optionNameEng":"Whispers of the Grave"}],"spells":{"knownSpellKeys":["hold-monster"]}},
+    {"level":10,"spells":{"cantripKeys":["prestidigitation"]}},
+    {"level":11,"spells":{"knownSpellKeys":["seeming"]}},
+    {"level":12,"abilityScoreIncrease":[{"ability":"CHA","amount":2}],"classOptions":[{"optionNameEng":"Eldritch Mind"}],"openClassOptions":true},
+    {"level":13,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":14},
+    {"level":15,"classOptions":[{"optionNameEng":"Shrouded in Shadow"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":16,"abilityScoreIncrease":[{"ability":"CON","amount":2}],"openAdvancement":true},
+    {"level":17,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":18,"classOptions":[{"optionNameEng":"Witch Sight"}]},
+    {"level":19,"abilityScoreIncrease":[{"ability":"DEX","amount":2}],"openAdvancement":true,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":20}
+  ],
+  "incomplete": [
+    {
+      "field": "Містичний арканум (11–17-й рівні)",
+      "reason": "Автор називає Масове навіювання (11-й), Планарний перехід (13-й), Впевненість (15-й) і Передбачення (17-й); платформа не записує вибір арканума.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Вибори «будь-який / будь-яке» на 12–19-му рівнях",
+      "reason": "Автор пише «будь-який» для потойбічного виклику на 12-му рівні, «будь-яке» для відомого заклинання на 13, 15, 17 і 19-му, «Покращення Характеристик або риса» на 16-му та «будь-яка» на 19-му. Пресет бере типове: виклик Eldritch Mind, Статура +2 на 16-му, Спритність +2 на 19-му, заклинання лишено на вибір гравця; гравець може змінити їх.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-tiefling-archfey-2014.webp",
+    "title": "Чорнокнижник Архіфея — Тифлінг (диявольський язик)",
+    "description": "«Найледачіший чорнокнижник у світі»: підтримка з Вогниками фей, Пакт ланцюга пізніше. Харизма 17, Спритність 15.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": [
+          "CLUB"
+        ]
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Тифлінг (диявольський язик) за правилами налаштованого походження: +2 до Харизми й +1 до Спритності, як у авторській таблиці (Харизма 17, Спритність 15); це вже враховано.",
+    "skillExplanation": "Обман і Залякування — від Чорнокнижника, Аналіз Поведінки й Переконання — від Придворного, як радить автор. Мови — ельфійську та сільван — автор називає прикладом.",
+    "equipmentExplanation": "Автор радить легкий арбалет із болтами, чаротворчий фокус (він віддає йому перевагу), будь-який набір, шкіряний обладунок, будь-яку просту зброю й кинджал. Набір вченого та кийок як просту зброю ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "mage-hand",
+        "mind-sliver"
+      ],
+      "knownSpellKeys": [
+        "faerie-fire",
+        "sleep"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Замовляння й заклинання названі автором. Злісне глузування тифлінг отримує від раси автоматично.",
+      "sectionId": "section-levels"
+    }
+  }
+}

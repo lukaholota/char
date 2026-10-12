@@ -1,0 +1,307 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcerer-lunar-sorcery-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+    "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "SORCERER_2014",
+  "subclassKey": "LUNAR_SORCERY",
+  "raceKey": "SHIFTER_MPMM",
+  "backgroundKey": "HERMIT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Кольорові бризки",
+      "reason": "Автор називає Кольорові бризки серед нових відомих заклинань, але їх безкоштовно дає Повний місяць Місячної магії; друге відоме заклинання автор не називає, його обрано за вас.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риса 16-го рівня: Картомант",
+      "reason": "Автор бере на 16-му рівні рису «Картомант» (Cartomancer), якої немає в каталозі платформи; 16-й рівень додано без риси й підвищення, їх можна обрати на листі. Рівні 17–20 додані за планом автора.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Перенавчання Кольорової кульки",
+      "reason": "На 3-му рівні автор міняє Кольорову кульку на Розпечений промінь, але ця кулька вже безкоштовна від Повного місяця й не є відомим заклинанням, яке можна замінити; замість неї замінено Магічний дротик (вибір платформи 1-го рівня), тож Розпечений промінь у персонажа є.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/sorcerer-lunar-sorcery-2014.webp",
+    "title": "Чародій — Місячна магія, Перевертень",
+    "description": "Чародій Місячної магії з Перевертнем (Звіроша шкіра): Харизма 17, Відлюдник з Уважністю й Аналізом поведінки, Сон і Кольорові бризки.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "CON",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "PERSUASION"
+      ],
+      "race": [
+        "INTIMIDATION"
+      ],
+      "background": [
+        "PERCEPTION",
+        "INSIGHT"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Звіроша шкіра"
+    ],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "create-bonfire",
+        "fire-bolt",
+        "mage-hand",
+        "shape-water"
+      ],
+      "knownSpellKeys": [
+        "sleep",
+        "magic-missile"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Створення багаття, Вогняний заряд, Магічна рука й Формування води та заклинання Сон названо автором; Священне полумʼя, Щит і Кольорові бризки дає Місячна магія (Повний місяць), тому Кольорові бризки автора вже є безкоштовно, а друге відоме заклинання (Магічний дротик) ми обрали за вас — вибір платформи.",
+      "platformChoices": [
+        "knownSpells"
+      ]
+    },
+    "abilityExplanation": "Перевертень за правилами Таші: +2 до Харизми й +1 до Статури, тож Харизма 17, Статура 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Обман і Переконання — від Чародія, Залякування — від Перевертня (Звіроша шкіра — вибір автора). Автор бере Відлюдника й замінює Медицину та Релігію на Уважність і Аналіз поведінки (правило PHB «Налаштування передісторії»); набір травника лишається. Дві мови (расову й від Відлюдника) ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор не називає стартового спорядження: легкий арбалет, сумку з компонентами, набір дослідника підземель і два кинджали ми обрали за вас — вибір платформи."
+  },
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "silent-image"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Quickened Spell"
+        },
+        {
+          "optionNameEng": "Extended Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "invisibility"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "magic-missile",
+        "add": "scorching-ray"
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "RUNE_SHAPER",
+      "section": "section-feats-2",
+      "spells": {
+        "cantripKeys": [
+          "minor-illusion"
+        ],
+        "knownSpellKeys": [
+          "phantasmal-force"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "sleep",
+        "add": "web"
+      }
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "fireball"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "silvery-barbs"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "polymorph"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "featKey": "TELEPATHIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEPATHIC Ability (Charisma)"
+        }
+      ],
+      "section": "section-feats-2",
+      "spells": {
+        "knownSpellKeys": [
+          "fly"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "cloudkill"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Twinned Spell"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "ray-of-frost"
+        ],
+        "knownSpellKeys": [
+          "enhance-ability"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "disintegrate"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "delayed-blast-fireball"
+        ]
+      }
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "dominate-monster"
+        ]
+      }
+    },
+    {
+      "level": 16
+    },
+    {
+      "level": 17,
+      "classOptions": [
+        {
+          "optionNameEng": "Subtle Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "wish"
+        ]
+      }
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "INSPIRING_LEADER",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "revision": 2
+}

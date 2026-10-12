@@ -1,0 +1,864 @@
+{
+  "buildId": "build-cleric-life-lifeberry-2014",
+  "revisionId": "build-cleric-life-lifeberry-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "— Лайфберрі, паровозик-танк",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+      "sectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "LIFE_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "DRUID_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "mending",
+            "shape-water"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "light"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "DRUID_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CIRCLE_OF_STARS",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (WIS)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (PERCEPTION)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (PERCEPTION)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH"
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-life-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "LIFE_DOMAIN",
+    "raceKey": "DWARF_2014",
+    "backgroundKey": "MARINE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 14
+      },
+      {
+        "ability": "DEX",
+        "value": 10
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Як расу ми обираємо Гірського дворфа{{Mountain Dwarf}}, що дає нам +2 до Статури й +2 до Мудрості.\n\n Базове значення Підвищене значення 20-й рівень Сила 14 14 14 Спритність 10 10 10 Статура 15 17 18 Інтелект 8 8 8 Мудрість 15 17 20 Харизма 8 8 8\n\nСила нам не обовʼязкова. Як Дворф{{Dwarf}}, ми можемо ігнорувати вимоги до Сили для важких обладунків, але нам, можливо, доведеться мати справу з проблемами вантажопідйомності через ці важкі обладунки, тож беремо 14. Також ставимо 10 у Спритність, щоб не мати −1 до перевірок Ініціативи чи ряткидків Спритності. Решта має бути зрозуміла: висока Статура, щоб не померти, висока Мудрість для СК Клірика, а Інтелект і Харизму скидаємо.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Гірський дворф{{Mountain Dwarf}} із налаштованим походженням{{Custom Origin}} — наш вибір раси, бо ми можемо обміняти всі володіння, а ще маємо два збільшення характеристик на +2. До того ж ми використовуємо Дворфа як привід змінити опис дурного ельфійського меча на круту дворфійську сокиру. Для розваги. Бо розвага — це оптимально.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо передісторію Морського піхотинця{{Marine}} заради Атлетики, Виживання та й наземного, й водного транспорту.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Дворфи мають багато володінь зброєю, а Гірські дворфи додають до цієї купи ще й володіння легкими та середніми обладунками. Усе це ми можемо обміняти на інструменти. Для цього прикладу, оскільки ми беремо передісторію Морського піхотинця, ми обираємо кілька повʼязаних інструментів: інструменти тесляра, інструменти картографа, інструменти каменяра, інструменти навігатора, ковальські інструменти й інструменти злодія (можливо, замініть їх на щось інше, якщо ваша група вже це покрила). Це всі володіння, крім одного, яке ми обміняємо на шаблю з двома лезами заради колориту. Згадана передісторія Морського піхотинця дасть нам наземний і водний транспорт.\n\nЗ навичок обираємо Аналіз Поведінки й Релігію від Клірика, а Атлетику й Виживання отримуємо від Морського піхотинця.\n\nНа 8-му рівні риса «Експерт у навичках»{{Skill Expert}} дає нам і володіння Уважністю, і «Експертизу» в ній.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-multiclassing",
+        "title": "Мультикласування",
+        "text": "Ми зануримо в цю збірку трохи {{Друїда Кола зірок|Stars Druid}}, щоб отримати Доброягоду [Goodberry] і здобути Зоряну форму{{Starry Form}}. Перший рівень Друїда візьмемо на другому рівні персонажа, бо рання Доброягода [Goodberry] дуже корисна. Другий рівень Друїда відкладемо до шостого рівня персонажа, щоб надто не відсувати наше перше Покращення Характеристик. Як варіант, можна відкласти це до десятого рівня персонажа, щоб поставити його одразу після нашого другого Покращення Характеристик.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-multiclassing",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні Клірика, 5-му загалом, беремо «Стійкого (Статура)»{{Resilient (Constitution)}}, якщо ми не вирішили взяти «Експерта у навичках»{{Skill Expert}} раніше заради Мудрості. Беремо це замість підвищення Мудрості, бо воно покращує нижню межу нашої Зоряної форми{{Starry Form}} «Дракон», коли ми її отримаємо. Це своєю чергою зробить майже неможливим те, що ми рано втратимо Духів захисників [Spirit Guardians].\n\nЯк згадувалося вище, беремо «Експерта у навичках»{{Skill Expert}} на 8-му рівні Клірика (10-му рівні персонажа), обираючи Уважність і для володіння, і для Експертизи. Як варіант, якщо в групі вже вдосталь Уважності, «Кухар»{{Chef}} — хороший вибір і тематично пасує до нашого рішення робити надто багато доброягід [Goodberry].\n\nНа 12-му рівні Клірика, 14-му загалом, беремо Покращення Характеристик на +2 до Мудрості.\n\nНа 16-му рівні Клірика, 18-му загалом, «Здоровань»{{Tough}} підсилює наші ХП. Як побачите нижче, +1 до ряткидків Статури від збільшення Статури на +2 не матиме великого значення.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-why-did-we-delay-wisdom-in-favor-of-resilient-constitution",
+        "title": "Чому ми відклали Мудрість на користь «Стійкого (Статура)»?",
+        "text": "Хоча в Клірика є добра добірка заклинань «пройди-ряткидок-або-страждай»{{save-or-suck}}, цей клірик цілком про підтримання Концентрації на Духах захисниках [Spirit Guardians], бо це весело й завдає доброї шкоди. Важливіше було підвищити нижню межу Концентрації Зоряної форми{{Starry Form}} «Дракон» через «Стійкого (Статура)»{{Resilient (Constitution)}}, ніж змусити ворогів отримувати повну шкоду від заклинання на 5% частіше.\n\nУявіть, що ми поспішили з Мудрістю й підійшли, щоб зловити трьох противників у Духах захисниках [Spirit Guardians] 4-го рівня на повну шкоду, але вони зуміли зламати нашу Концентрацію вже після одного ходу. Ми завдали 4к8 кожній цілі. А що, якщо натомість ми підійшли, і вони всі пройшли ряткидок, але не змогли зламати нашу Концентрацію до кінця бою на 4 раунди. Тоді ми завдали 2к8*4=8к8 кожній цілі.\n\nА як щодо справжньої математики? Припустимо, що на 7-му рівні, якщо ми не відстаємо з Покращеннями Характеристик, цілі мають 60% шанс провалити ряткидок від Духів захисників [Spirit Guardians] і 55%, якщо ми взяли «Стійкого (Статура)»{{Resilient (Con)}}.\n\nФормула DPR для половини шкоди при ряткидку така: ([Середнє кубиків]*([Шанс провалу ряткидка]+0,5*(1-[Шанс провалу ряткидка])))\n\nШанс провалу (повна шкода) Духи захисники 4-го рівня, накладені вищим слотом, 4к8=18 Загальний DPR 60% (18*(0.6+0.5*(1-0.6))) 14.4 55% (18*(0.55+0.5*(1-0.55))) 13.95\n\nОбравши кращий ряткидок Статури перед кращою Мудрістю, ми втрачаємо 0,45 DPR (на ціль) від Духів захисників [Spirit Guardians], але можемо очікувати, що вона триватиме довше, перш ніж ми втратимо Концентрацію, і отримаємо більше реальної шкоди зі слота заклинання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-why-did-we-delay-wisdom-in-favor-of-resilient-constitution",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественний домен{{Divine Domain}}: Життя\n– Учень життя\n– Важкі обладунки\nНавички:\n– Атлетика\n– Аналіз Поведінки\n– Релігія\n– Виживання\nІнструменти:\n– Інструменти тесляра\n– Інструменти картографа\n– Інструменти каменяра\n– Інструменти навігатора\n– Ковальські інструменти\n– Інструменти злодія\n– Наземний транспорт\n– Водний транспорт\nЧаротворство\nЗамовляння:\n– Дзвін небіжчика\n– Слово сяйва\nЗаклинання Клірика 1-го рівня:\n– Благословення\n– Лікування ран\n– Цілюще слово",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Чаротворство\nЗамовляння:\n– Лагодження\n– Формування води\nЗаклинання Друїда 1-го рівня:\n– Поглинання стихій\n– Вогники фей\n– Доброягода",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Канал божественності{{Channel Divinity}}:\n– Збереження життя\n– Вигнання нежиті\nСпрямування божественної сили",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Чаротворство\nЗаклинання Клірика 2-го рівня:\n– Мале відновлення\n– Духовна зброя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Риса: Стійкий (Статура) (17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Коло друїдів{{Druid Circle}}: Коло зірок\n– Зоряна форма\n– Зоряна мапа\n— Настанова\n— Спрямований заряд",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Знищення нежиті (ПН 1)\nЧаротворство\nЗаклинання Клірика 3-го рівня:\n– Маяк надії\n– Відродження\n– Духи захисники",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Блаженний цілитель\nКанал божественності: 2 за відпочинок",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Чаротворство\nЗаклинання Клірика 4-го рівня:\n– Вигнання\n– Захист від смерті\n– Свобода рухів\n– Вартовий віри",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Риса: Експерт у навичках\n– Мудрість +1 (17 → 18)\n– Уважність\n– Експертиза в Уважності\nБлагословенні удари",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Чаротворство\nЗаклинання Клірика 5-го рівня:\n– Більше відновлення\n– Священна зброя\n– Масове лікування ран\n– Оживлення мерців",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Божественне втручання{{Divine Intervention}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Знищення нежиті (ПН 2)\nЧаротворство\nЗаклинання Клірика 6-го рівня:\n– Зцілення\n– Бенкет героїв",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Покращення Характеристик: Мудрість +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Чаротворство\nЗаклинання Клірика 7-го рівня:\n– Планарний перехід",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Знищення нежиті (ПН 3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Чаротворство\nЗаклинання Клірика 8-го рівня:\n– Свята аура",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Риса: Здоровань",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Знищення нежиті (ПН 4)\nЧаротворство\nЗаклинання Клірика 9-го рівня:\n– Масове зцілення\n– Слово сили: Зцілення\nНайвище лікування",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Канал божественності (3 за відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Інструменти",
+        "reason": "Автор міняє всі расові володіння Гірського дворфа (зброя, легкі й середні обладунки) на шість наборів інструментів — тесляра, картографа, каменяра, навігатора, ковальські й злодія — та шаблю з двома лезами; сервер і лист завжди видають расові володіння каталогу, тому цих інструментів у пресеті немає, а расові володіння зброєю й обладунками лишаються.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підготовлені заклинання на рівнях 2+",
+        "reason": "Автор називає підготовлені заклинання Друїда (Поглинання стихій, Вогники фей, Доброягода) і Клірика на кожному рівні; платформа не записує підготовлені заклинання на рівнях підвищення, їх готують на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 5-му й 12-му рівні",
+        "reason": "Автор не називає четверте й пʼяте замовлення Клірика. На 5-му рівні взято Світло — вибір платформи (щоб воно не збіглося з Настановою, яку Зоряна мапа Друїда дає на 6-му); на 12-му рівні замовлення обирає гравець.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Необовʼязкові уміння",
+        "reason": "Спрямування божественної сили (3-й рівень) і Благословенні удари (10-й) автор бере як необовʼязкові уміння; у каталозі цих умінь немає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-life-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

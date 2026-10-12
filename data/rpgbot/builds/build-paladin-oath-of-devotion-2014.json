@@ -1,0 +1,817 @@
+{
+  "buildId": "build-paladin-oath-of-devotion-2014",
+  "revisionId": "build-paladin-oath-of-devotion-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— Паладин Клятви відданості",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+      "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "PALADIN_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "PALADIN_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "PALADIN_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Blessed Warrior"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "PALADIN_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "OATH_OF_DEVOTION",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WILD_MAGIC",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "booming-blade",
+            "fire-bolt",
+            "prestidigitation",
+            "shape-water"
+          ],
+          "knownSpellKeys": [
+            "silvery-barbs",
+            "shield"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "absorb-elements"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "PALADIN_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "PALADIN_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "PALADIN_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "PALADIN_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "PALADIN_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GREAT_WEAPON_MASTER"
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "PALADIN_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "PALADIN_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "PALADIN_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "PALADIN_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELVEN_ACCURACY",
+        "featOptions": [
+          {
+            "optionNameEng": "ELVEN_ACCURACY Ability (Charisma)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "PALADIN_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "PALADIN_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "PALADIN_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "PALADIN_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "PALADIN_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "PALADIN_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "OATH_OF_DEVOTION",
+    "raceKey": "ASTRAL_ELF_SPELLJAMMER",
+    "backgroundKey": "HAUNTED_ONE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Візьмімо запропоновану вище купівлю характеристик очками, а тоді додаймо +2 до Харизми й +1 до Статури.\n\n Початкове значення Після підвищення Сила 15 15 Спритність 8 8 Статура 15 16 Інтелект 8 8 Мудрість 8 8 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Є кілька хороших варіантів, але жоден не дає нам чогось особливого для цієї збірки, тож візьмімо Астрального ельфа{{Astral Elf}}. Це також чудова нагода зіграти за Юань-ті{{Yuan-ti}}, якщо ви ще ніколи не пробували; тактика майже не зміниться, просто на 1-му рівні доведеться краще стежити за позицією.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Ми мусимо взяти {{Переслідуваного|Haunted One}}, бо починаємо за Темного пориву{{Dark Urge}} — зачекайте, це не та гра. А якщо серйозно, для такого дешевого аналога {{Відьмацького клинка|Hexblade}} немає особливої причини не вибрати цю передісторію. Замініть навички на Обман, щоб удавати, ніби вас не проклято, і Залякування: в описі прямо сказано, що люди стривожені й допомагають вам, хоча цієї навички немає серед варіантів. Мови обирайте відповідно до кампанії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Атлетика й Переконання від класу приєднуються до Уважності від нашого ельфійського зору та згаданих вище Обману й Залякування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Оскільки до бонусу атаки додаються модифікатори Сили й Харизми, нам не потрібно підвищувати характеристики, щоб не відставати від базових розрахунків. З часом ми все одно це зробимо, але не через Силу.\n\n6-й рівень (4-й рівень Паладина): «Адепт метамагії»{{Metamagic Adept}}\n\n10-й рівень (8-й рівень Паладина): «Майстер важкої зброї»{{Great Weapon Master}}\n\n14-й рівень (12-й рівень Паладина): «Ельфійська точність»{{Elven Accuracy}}\n\nНа 18-му рівні (16-й рівень Паладина) доводимо Харизму до максимуму.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественне відчуття\nЦілющі руки\nСвященне полумʼя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Бойовий стиль: — Благословенний воїн{{Blessed Warrior}}\nЗамовляння: — Настанова — Слово сяйва\nНові підготовлені заклинання: — Виклик на дуель — Лікування ран — Щит віри",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Божественне здоровʼя{{Divine Health}}\nКанал божественності: — Священна зброя{{Sacred Weapon}} — {{Вигнання нечестивих|Turn the Unholy}}\nНові завжди підготовлені заклинання: — Захист від зла й добра — Святилище",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Сплеск дикої магії\nПриплив хаосу\nНові замовляння: — Гримучий Клинок — Вогняний заряд — Штукарство — Формування води\nВідомі заклинання: — Сріблясті шпильки — Щит",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Джерело магії\nВідоме заклинання: — Поглинання стихій",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Риса: Адепт метамагії{{Metamagic Adept}}: — Пришвидшене заклинання — Подовжене заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Додаткова атака\nНові підготовлені заклинання: — Пошук скакуна — Героїзм — Мале відновлення — Зона правди",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "{{Аура захисту|Aura of Protection}}\nНове підготовлене заклинання: — будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "{{Аура відданості|Aura of Devotion}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Риса: Майстер важкої зброї{{Great Weapon Master}}\nНове підготовлене заклинання: — будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нові підготовлені заклинання: — Відродження — Маяк надії — Розвіювання магії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "{{Аура мужності|Aura of Courage}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Покращена божественна кара{{Improved Divine Smite}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Ельфійська точність{{Elven Accuracy}} (Харизма)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Нові підготовлені заклинання: — Пошук вищого скакуна — Захист від смерті — Свобода рухів — Вартовий віри",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Очищувальний дотик{{Cleansing Touch}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "{{Чистота духу|Purity of Spirit}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Покращення Характеристик (Харизма)\nНове підготовлене заклинання: — будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Нові підготовлені заклинання: — Священна зброя — Руйнівна хвиля — Звернення — Полумʼяний удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращення Аур{{Aura Improvements}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить продати зайвий дворучний меч і метальні списи; пресет не записує продаж, тож лишено два дворучні мечі й спис-метальні зі стартових груп.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Благословенного воїна",
+        "reason": "Автор бере на 2-му рівні Настанову й Слово сяйва як замовляння Благословенного воїна; платформа не записує замовлення цього бойового стилю, тому їх треба додати на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Адепт метамагії: Пришвидшене й Подовжене заклинання",
+        "reason": "На 6-му рівні автор бере «Адепта метамагії» з метамагіями Пришвидшене та Подовжене заклинання; у каталозі риса не має опцій (BUG-O49-METAMAGIC-ADEPT), тому метамагії не записані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

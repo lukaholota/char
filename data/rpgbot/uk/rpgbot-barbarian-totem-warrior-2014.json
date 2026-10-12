@@ -1,0 +1,2568 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-a52bf037e6d0c1ef",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-a52bf037e6d0c1ef-9db757499f29ee06",
+      "sourceId": "rpgbot-a52bf037e6d0c1ef",
+      "fetchedAt": "2026-09-29T19:19:18.367407+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:26:33-04:00",
+      "contentHash": "7e4813e87c45c8109773c7caf0c5f861059fa9a5789fa0a91f91089956a2634e",
+      "title": "Path of the Totem Warrior Barbarian 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-a52bf037e6d0c1ef-9db757499f29ee06.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-barbarian-totem-warrior-2014",
+    "sourceId": "rpgbot-a52bf037e6d0c1ef",
+    "slug": "barbarian-totem-warrior-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях тотемного воїна — гайд підкласу Варвара (2014)",
+    "titleEn": "Path of the Totem Warrior Barbarian 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Варвар",
+      "Шлях тотемного воїна",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "sourceRevisionId": "rpgbot-a52bf037e6d0c1ef-9db757499f29ee06",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Варвар Шляху тотемного воїна: гайд підкласу D&D 5e",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Надворі зимової ночі, коли починає падати дощ\nУ повітрі холод і виття вовка, а дощ бʼється у двері\nСемеро королів помчать на вітрі до високих гір\nІ єдиний звук, що розірве повітря, — гіркий крик воїна\n"
+                },
+                {
+                  "type": "link",
+                  "text": "Starfire",
+                  "href": "https://www.youtube.com/watch?v=mOQTYnGyweE"
+                },
+                {
+                  "type": "text",
+                  "text": " – Dragonforce"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвар Шляху тотемного воїна отримує список настроюваних умінь, що дозволяє збірці тяжіти до кількох різних ролей. Ви можете бути непереможним велетнем, що відмахується від шкоди, або трохи блукачем, що вишукує ізольованих відсталих, або надавати трохи незначної підтримки, даючи Перевагу на кубику на кидки атаки союзників, поки ви звʼязуєте ворогів боєм.\n\nВибір там змішаний, тож вам варто читати далі, щоб побачити, які здібності чудові, а які не встигатимуть."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можливо, ви хочете просто ігнорувати шкалу здоровʼя й лупцювати речі. Це можна. Можливо, ви хочете просто заявити, що вся ваша команда має Перевагу на кубику. Це можна. Ви хочете влетіти, як вантаж для знесення, і вдарити ще раз бонусною дією. Навіть це можна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наша збірка-приклад, «Що таке поклик природи?», обирає командну синергію тотема Вовка замість додаткового опору тотема Ведмедя. Якщо ви хочете дати Перевагу на кубику всім союзникам у ближньому бою, зазирніть у цю збірку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ж ви хочете подивитися на мультикласову збірку з більшою кількістю витівок, зазирніть у нашу збірку Тотемоломача, "
+                },
+                {
+                  "type": "link",
+                  "text": "«Лихо природи»",
+                  "href": "https://rpgbot.net/dnd5/characters/totembreaker/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Шляху тотемного воїна",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Шляху тотемного воїна",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#path-of-the-totem-warrior-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Шляху тотемного воїна",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#path-of-the-totem-warrior-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Шляху тотемного воїна",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#path-of-the-totem-warrior-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Шляху тотемного воїна",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#path-of-the-totem-warrior-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Шляху тотемного воїна",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#path-of-the-totem-warrior-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Тотемного воїна — Що таке поклик природи?",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#example-totem-warrior-build-what-is-natures-call"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Шляху тотемного воїна",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Шукач духів{{Spirit Seeker}}: дуже ситуативно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дух тотема{{Totem Spirit}}: «Дух тотема» визначає вашу бойову тактику. Ведмідь — для танків, Орел — для атакерів, а Вовк — для Варварів, у групі яких є інші атакери."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмідь{{Bear}}: ви, по суті, непереможна купа опору до шкоди й ХП. Це основний варіант на цьому рівні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Орел{{Eagle}}: бігати між ворогами — не те, що Варвар робить регулярно, особливо якщо ви єдиний танк групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лось{{Elk}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Варвари вже мають «Швидкий рух», тож ваша швидкість має бути нормальною. Якщо вам справді здається, що це потрібно, поговоріть із Майстром про додаткове класове уміння «Інстинктивний стрибок»{{Instinctive Pounce}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тигр{{Tiger}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": стрибки майже не мають значення в грі, де можна отримати магічний політ. Це особливо прикро, бо працює лише коли ви в люті."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вовк{{Wolf}}: надзвичайно корисне для персонажів у вашій групі, що сильно залежать від атак, як-от Слідопити й Пройдисвіти. Пройдисвіти можуть отримати «Підступну атаку» при атаці ворогів, яким загрожує союзник, тож Перевага на кубику не обовʼязкова, але надання їм Переваги на кубику робить їх значно надійнішими й дає величезне підвищення середньої шкоди.\n\nНа жаль, це не дає вам прямої користі, але дія як множник сили для вашої групи може бути впливовішою, особливо у великій групі. У тексті уміння сказано, що воно діє на ваших «друзів», а не «союзників», що дивна неузгодженість. Наскільки я можу судити, це була помилка, і вам насправді не обовʼязково дружити з союзниками, щоб вони отримували користь."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Аспект звіра|Aspect of the Beast}}: памʼятайте, що не потрібно обирати ту саму тварину, яку ви обрали для «Духа тотема». Варіанти з PHB здебільшого для антуражу, але варіанти, представлені в «Путівнику по Узбережжю Мечів»{{Sword Coast Adventurer’s Guide}}, значно кращі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмідь{{Bear}}: вантажопідйомність зазвичай ігнорується, і ви завжди можете купити мула, щоб носити важкі речі, або грати расою на кшталт Голіафа, що отримує ту саму перевагу до вантажопідйомності. Перевага на кубику на перевірки Сили стосується лише предметів, а ламання предметів — нечаста діяльність у більшості кампаній."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Орел{{Eagle}}: тьмяне світло накладає Перешкоду на кубику на перевірки Уважності, тож навіть якщо у вас є Темний зір, ви вразливі до засідок, якщо темно. Це вирішує цю проблему, тож якщо ви збираєтеся проводити багато часу в боях під землею чи вночі (знаєте, як це роблять орли), це може бути значною перевагою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лось{{Elk}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": подорожі по суходолу зазвичай відбуваються в сюжетному часі, тож у більшості кампаній це не матиме помітного ефекту. Але якщо за вашим столом відстежують час подорожі, це дуже добре."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тигр{{Tiger}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Варвари мають дуже обмежені можливості поза боєм, тож додаткові дві навички можуть дуже зробити вас кориснішим для групи. Проте якщо вам украй потрібно більше навичок, спершу поговоріть із Майстром про додаткове класове уміння «Первісне знання»{{Primal Knowledge}}. Ви навіть можете поєднати обидва, якщо справді хочете багато навичок."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вовк{{Wolf}}: стосується лише вас, і навіть тоді переваги вкрай ситуативні й їх краще забезпечує Лось. Подвоїти темп подорожі з Лосем, а потім зменшити вдвічі, щоб рухатися скрадливо, — те саме, що не зменшувати швидкість для скрадливого руху."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мандрівник духів{{Spirit Walker}}: «Звернення до природи [Commune with Nature]» не надто потужне як ворожіння, але може бути дуже корисним під час дослідження нової місцевості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Настроювання на тотем|Totemic Attunement}}: «Настроювання на тотем» — це покращення вашої бойової тактики, закладеної «Духом тотема»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмідь{{Bear}}: змушуйте найближчих ворогів атакувати вас замість ваших союзників. Вони все ще можуть відійти від вас, але це спричинить Принагідну атаку від величезного жахливого Варвара."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Орел{{Eagle}}: летіть над ворогами. Злітайте в повітря, щоб вдарити літаючого чарівника, а потім приземліться на щось до наступного ходу. Це може навіть виглядати як бойові мистецтва ушу, якщо зробити правильно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лось{{Elk}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це крута механіка підніжки, що дозволяє повалити ворога, не урізаючи ваші атаки. Її треба застосовувати на великих або менших ворогах, що охоплює більшість, але на високих рівнях ви часто зустрічатимете дуже великих ворогів, на яких ця здатність не діє, і це справді прикро — зіткнутися з великими небезпечними ворогами й не змогти використати вашу найунікальнішу тактику."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тигр{{Tiger}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": по суті риса «Нападник», але краща. Ви не лише все ще можете використовувати «Додаткову атаку», а й отримуєте додаткову атаку бонусною дією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вовк{{Wolf}}: повалення ворога дає вам Перевагу на кубику на атаки проти нього, зокрема на другу атаку з «Додатковою атакою». Союзники, що загрожують цьому ворогу, вже можуть отримувати Перевагу на кубику від вас, якщо ви обрали Вовка для «Духа тотема», а Перевагу можна отримати і від «Безрозсудної атаки», тож це може бути не дуже корисно."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-totem-warrior-ability-scores",
+          "heading": "Характеристики Шляху тотемного воїна",
+          "sourceAnchor": "path-of-the-totem-warrior-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми — Варвари. Ми сильно бʼємо речі. Дуже-дуже сильно. І нас бʼють речі. Не так сильно, але так само часто."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: хоч як мені хочеться пожартувати, просто вкладайте сюди стільки очок, скільки можете."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: ми можемо носити Середні обладунки, тож нам треба лише 14."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: річ у тому, що «Безрозсудна атака» означає, що нас часто бʼють, а ми б не хотіли померти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: ми не отримуємо прямої користі. Див. розділ про мультикласування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: Поводження з тваринами, Уважність, Виживання. Якщо у нас є зайві очки, вкладайте їх спершу сюди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: ми не отримуємо прямої користі. Див. розділ про мультикласування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-totem-warrior-races",
+          "heading": "Раси Шляху тотемного воїна",
+          "sourceAnchor": "path-of-the-totem-warrior-races",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усі варіанти з "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/races/"
+                },
+                {
+                  "type": "text",
+                  "text": " усе ще працюють, але деякі помітні виняткові добре поєднуються з нашими уміннями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Калаштар{{Kalashtar}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "ERLW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": тотем Ведмедя лишає опір до психічної шкоди як дірку з міркувань атмосфери, і Калаштар може заповнити цю дірку, ще й маючи Перевагу на кубику на ряткидки Мудрості. Непоганий варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дракононароджений (Смарагдовий)|Dragonborn (Emerald)}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "FToD",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": той самий опір до психічної шкоди, що й вище, але з крутим конусоподібним диханням і зручним типом шкоди.\n\nА якщо ви не берете тотем Ведмедя (або навіть якщо берете) заради опорів, інші Самоцвітні варіанти теж чудові, з іншими добрими незвичними типами шкоди і для опору, і для дихання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ґіт{{Gith}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": непогані варіанти, якщо вам хочеться трохи магічної атмосфери разом із опором до психічної шкоди."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-totem-warrior-feats",
+          "heading": "Риси Шляху тотемного воїна",
+          "sourceAnchor": "path-of-the-totem-warrior-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усі стандартні "
+                },
+                {
+                  "type": "link",
+                  "text": "риси для важкого ближнього бою",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#barbarian-feats"
+                },
+                {
+                  "type": "text",
+                  "text": " добре працюють для Тотемних воїнів. Однак варварство потребує чимало підвищень характеристик для роботи, тож ми, можливо, візьмемо щонайбільше одну-дві риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер важкої зброї{{Great Weapon Master}}: у нас є кілька варіантів зброї, що чудово поєднуються з цією рисою й тяжіють до різних варіантів тотема."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмідь{{Bear}}: увесь цей опір означає, що ми жертвуємо менше, не маючи Щита, але якщо у нас ще й зброя з досягом, ми просто ще дужче їх тиснемо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вовк{{Wolf}}: ми захочемо щільно притиснутися до ворогів, щоб дати нашій команді Перевагу на кубику, тож беріть одну зі зброї без досягу з вищою шкодою, як-от дворучний молот чи велика сокира."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Майстер древкової зброї|Polearm Master}}: деякі тотеми мають бонусні дії, що конкурують із цією рисою, але інші варіанти просто шукають, чим приємним користуватися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмідь{{Bear}}: якщо ми хочемо посилити захист щитом, ця риса сумісна зі списами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Орел{{Eagle}}: хоч тотем дозволяє Ривок бонусною дією, на багатьох ходах не знадобиться стільки додаткового руху."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Настроювання на тотем (Лось, Тигр або Вовк)|Elk, Tiger, or Wolf Attunement}}: ці варіанти, на жаль, вимагають бонусних дій для активації й кінець кінцем конкуруватимуть із «Майстром древкової зброї»."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-totem-warrior-weapons",
+          "heading": "Зброя Шляху тотемного воїна",
+          "sourceAnchor": "path-of-the-totem-warrior-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайді Варвара про це є чимало, але розгляньте й таке:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-weapons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Довгий спис|Lance}}: довгий спис можна тримати в одній руці, якщо ви верхи, що дозволяє мати і щит, і к12 кубик шкоди. Хоч це нічого нового, він добре працюватиме з «Брутальним критом» і навіть із «Проколювачем», якщо ми оберемо цю рису."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-totem-warrior-multiclassing",
+          "heading": "Мультикласування Шляху тотемного воїна",
+          "sourceAnchor": "path-of-the-totem-warrior-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отже, «Лють» кумедна. Ви не можете накладати заклинання, не можете концентруватися й не можете носити Важкі обладунки. О, хіба що можна цілком носити Важкі обладунки й втрачати лише те, що спеціально сказано, що перестає працювати, коли ви носите Важкі обладунки.\n\nБо Важкі обладунки не заважають «Люті», вони заважають лише певним перевагам «Люті». Щоправда, усі базові переваги «Люті», як-от шкода від люті, опір і Перевага на кубику на Силу, входять у список заборонених."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Причина, чому я порушую це тут, у тому, що якщо ми почнемо з класу, що має володіння Важкими обладунками, це дає нам можливість пограти трохи дивним Варваром у Латах."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-multiclassing-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Речі, що все ще працюють під час люті в Латах:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-multiclassing-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Тотем Ведмедя"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тотем Вовка"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тотем Тигра"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кожне Настроювання на тотем"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Речі, що не є заклинаннями, навіть якщо коштують слот заклинання"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-totem-warrior-multiclassing-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Чарівник Бойової магії|War Wizard}}: єдина ціна використання реакції «Арканне відхилення» заради +2 до КБ чи +4 на ряткидку — не накладати заклинання наступного ходу. Ми вже в люті, тож і так не накладаємо заклинання наступного ходу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижник{{Warlock}}: чорнокнижники — вічно популярне занурення, бо отримують так багато на першому рівні. Зокрема Відьмацький клинок{{Hexblade}} може проклясти ціль заради критів на 19 і бонусної шкоди, що поєднується з «Брутальним критом».\n\nПокровителі-Джини, з іншого боку, дають таку саму бонусну шкоду, як і Відьмацький клинок, але лише раз за хід кожного ходу замість усіх атак по одній цілі протягом хвилини. Також якщо взяти Джина до 6-го рівня, можна без Концентрації літати («Політ [Fly]») 10 хвилин Бонус Майстерності разів на день."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Паладин{{Paladin}}: ви можете застосовувати «Божественну кару»{{Divine Smite}} під час люті. Ви можете накладати «Пошук скакуна [Find Steed]», що не вимагає Концентрації. Ви отримуєте Бойовий Стиль."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-totem-warrior-build-what-is-natures-call",
+          "heading": "Приклад збірки Тотемного воїна — Що таке поклик природи?",
+          "sourceAnchor": "example-totem-warrior-build-what-is-natures-call",
+          "blocks": [
+            {
+              "blockId": "block-section-example-totem-warrior-build-what-is-natures-call-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка — загалом доволі стандартний Тотемний воїн. Ми беремо тотем Вовка, щоб дати союзникам Перевагу на кубику на атаки ближнього бою, хоча ця збірка легко могла б використати Ведмедя, якщо у нас небагато союзників у ближньому бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-totem-warrior-build-what-is-natures-call",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Використовуємо купівлю характеристик на по 15 Сили, Спритності й Статури. Потім отримуємо 3 +1 від расового вибору й додаємо їх, щоб почати з трьома 16."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Завдяки «Первісному чемпіону», вершині Варвара, ця збірка може закінчити з 24 Сили й Статури."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-totem-warrior-build-what-is-natures-call",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для цієї збірки ми обрали Еладріна{{Eladrin}}, бо телепортація бонусною дією — дуже зручна риса. Хоч Шадар-Кай теж спокусливий вибір, у нас уже є опори до шкоди від «Люті», а корисність форми Весняного еладріна дуже зручна.\n\nТелепортувати охочого союзника бонусною дією — це найближче до "
+                },
+                {
+                  "type": "link",
+                  "text": "«спецкидка фастбол»",
+                  "href": "https://tvtropes.org/pmwiki/pmwiki.php/Main/FastballSpecial"
+                },
+                {
+                  "type": "text",
+                  "text": ", що ми можемо отримати, і це занадто весело, щоб пропустити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-totem-warrior-build-what-is-natures-call",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми обрали Чужинця{{Outlander}}, що дає володіння Атлетикою й Виживанням, а також музичним інструментом на наш вибір."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-background-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Втім, порада: якщо можете, замініть його на Дикого космонавта{{Wildspacer}}, щоб отримати ті самі навички, але ще й безкоштовну рису «Здоровань». Ці додаткові ХП чудові."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-totem-warrior-build-what-is-natures-call",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Еладріна ми отримуємо Уважність. Від Варвара обираємо Залякування й Природу. Від Чужинця отримуємо Атлетику й Виживання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-totem-warrior-build-what-is-natures-call",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На четвертому рівні беремо «Майстра древкової зброї». "
+                },
+                {
+                  "type": "link",
+                  "text": "Приріст DPR",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#polearm-master"
+                },
+                {
+                  "type": "text",
+                  "text": " від цієї риси не слід недооцінювати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На восьмому рівні беремо підвищення характеристик на +2 Сили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На дванадцятому рівні беремо підвищення характеристик на +2 Сили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На шістнадцятому рівні беремо підвищення характеристик на +2 Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На девʼятнадцятому рівні беремо підвищення характеристик на +2 Статури."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-totem-warrior-build-what-is-natures-call",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Люті/Шкода"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лють, Захист без обладунків\nНавички: Атлетика, Залякування, Природа, Уважність, Виживання\nФейський крок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Одразу ми можемо покладатися на наш «Захист без обладунків» 16 завдяки 16 у Спритності й Статурі. Як стартове спорядження можна взяти алебарду як бойову зброю, спис як безплатну просту зброю, а наша передісторія дає палицю, що охоплює всі три базові типи шкоди зброєю, сумісною з «Майстром древкової зброї». Якщо можемо витратити 10 золотих, варто також купити щит для ще +2 до КБ.\n\nБережіть «Лють» для важких боїв; на цьому рівні у нас їх лише дві.\n\nЯк Еладріни, ми маємо «Фейський крок», що дозволяє телепортуватися на 30 футів бонусною дією Бонус Майстерності разів на день. Якщо ми у формі Весни, натомість можна відправити охоче створіння на 30 футів, і це форма, в якій ми радимо лишатися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відчуття небезпеки, Безрозсудна атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Відчуття небезпеки» приємне, дає Перевагу на кубику на більшість ряткидків Спритності. Але найважливіше на цьому рівні — «Безрозсудна атака». Тепер ми можемо мати Перевагу на кубику на атаки ціною того, що ворогам теж легше влучати по нас. Добре, що ми — стіна мʼяса й опору до шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шлях тотемного воїна\nДух тотема: Вовк\nШукач духів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо Тотемного воїна й обираємо Вовка як «Духа тотема». З Вовком наші союзники матимуть Перевагу на кубику на атаки ближнього бою по будь-яких ворогах у межах 5 футів від нас. Ми також отримуємо обмежене ритуальне чаклування для заклинань «Тваринне чуття [Beast Sense]» і «Розмова з тваринами [Speak with Animals]». Непогано, але не наш фокус."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Майстер древкової зброї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо бабахнути на 1к4+Сила шкоди бонусною дією. Це чудово, бо також додає нашу шкоду від люті.\n\nКрім того, Принагідні атаки, які це дозволяє робити, також отримають шкоду від люті, ще більше збільшуючи нашу шкоду."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Швидкий рух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Штрик. Штрик. Бабах. Зум. Зум."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аспект звіра\n– Орел"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більшість Аспектів дуже незначні, але Орел чудово поєднується з темним зором, прибираючи останню частку штрафу, який немагічна темрява може накладати на наш зір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інстинктивний стрибок (за бажанням), Дикий інстинкт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Стрибок» приємний, дає трохи зайвої відстані на ході, коли ми входимо в лють. «Інстинкт» дає Перевагу на кубику на кидки ініціативи. Це доволі зручно, щоб здобути перевагу над конкурентами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Сила +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стаємо міцнішими. Бʼємо сильно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит{{Brutal Critical}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це непогане підсилення, коли ми завдаємо критичного влучання. Приємно, але буде не так часто, а приріст DPR не значний"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мандрівник духів{{Spirit Walker}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще одне ритуальне заклинання. Знову ж таки, не марне, просто й не корисне."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невпинна лють{{Relentless Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зробіть ряткидок Статури з фіксованою СК, щоб не померти. Ми в них добрі. Час бути ще безрозсуднішими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Сила +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимальна Сила. Поки що…"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще один крихітний приріст DPR."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Настроювання на тотем\n– Орел"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Політ чудовий, навіть якщо обмежений короткими ривками на 40 футів. Збивайте птахів із неба кулаком."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Постійна лють{{Persistent Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер наша лють завжди триватиме 1 хвилину, навіть якщо ми ні в що не влучаємо й нас ніхто не бʼє. Це корисно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5/+4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Приріст ХП і КБ. Нічого ефектного, просто приємно мати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6/+5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Усе ще украй ненадійно, але, ей, шкода справді приємна, коли це трапляється."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6/+5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Незламна міць{{Indomitable Might}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це схоже на «Надійний талант» Пройдисвіта, але базується на сумі кидка, а не на кубику. Це класна страховка під час захоплення чи штовхання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6/+5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП. Більше КБ. Наш «Захист без обладунків» поки що так само добрий, як Лати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Необмежено/+5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Первісний чемпіон{{Primal Champion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це досить божевільна вершина, якщо подумати. +4 до Сили й Статури. З уже обмеженими показниками обидва отримують модифікатори +7. Це робить «Захист без обладунків» ще сильнішим за Лати.\n\nАтаки не лише мають додаткові +2 шкоди, а й додаткові +2 до кидків атаки, що полегшує влучання."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-001",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Шукач духів",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-002",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Дух тотема",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-003",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Ведмідь",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-004",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Орел",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-005",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Лось",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-006",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Тигр",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-007",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Вовк",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-008",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Аспект звіра",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-009",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Ведмідь",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-010",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Орел",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-011",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Лось",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-012",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Тигр",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-013",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "Вовк",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-014",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-13",
+      "context": "Мандрівник духів",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-015",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-14",
+      "context": "Настроювання на тотем",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-016",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-15",
+      "context": "Ведмідь",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-017",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-16",
+      "context": "Орел",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-018",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-17",
+      "context": "Лось",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-019",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-18",
+      "context": "Тигр",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-020",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-19",
+      "context": "Вовк",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-021",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-ability-scores",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-ability-scores-2",
+      "optionId": "section-path-of-the-totem-warrior-ability-scores-block-section-path-of-the-totem-warrior-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-022",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-ability-scores",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-ability-scores-3",
+      "optionId": "section-path-of-the-totem-warrior-ability-scores-block-section-path-of-the-totem-warrior-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-023",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-ability-scores",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-ability-scores-4",
+      "optionId": "section-path-of-the-totem-warrior-ability-scores-block-section-path-of-the-totem-warrior-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-ability-scores-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-024",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-ability-scores",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-ability-scores-5",
+      "optionId": "section-path-of-the-totem-warrior-ability-scores-block-section-path-of-the-totem-warrior-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-025",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-ability-scores",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-ability-scores-6",
+      "optionId": "section-path-of-the-totem-warrior-ability-scores-block-section-path-of-the-totem-warrior-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-026",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-ability-scores",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-ability-scores-7",
+      "optionId": "section-path-of-the-totem-warrior-ability-scores-block-section-path-of-the-totem-warrior-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-027",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-races",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-races-2",
+      "optionId": "section-path-of-the-totem-warrior-races-block-section-path-of-the-totem-warrior-races-2-item-0",
+      "context": "Калаштар",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-028",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-races",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-races-2",
+      "optionId": "section-path-of-the-totem-warrior-races-block-section-path-of-the-totem-warrior-races-2-item-1",
+      "context": "Дракононароджений",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-029",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-races",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-races-2",
+      "optionId": "section-path-of-the-totem-warrior-races-block-section-path-of-the-totem-warrior-races-2-item-2",
+      "context": "Ґіт",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-races-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-030",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-feats",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "optionId": "section-path-of-the-totem-warrior-feats-block-section-path-of-the-totem-warrior-feats-2-item-0",
+      "context": "Майстер важкої зброї",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-031",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-feats",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "optionId": "section-path-of-the-totem-warrior-feats-block-section-path-of-the-totem-warrior-feats-2-item-1",
+      "context": "Ведмідь",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-032",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-feats",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "optionId": "section-path-of-the-totem-warrior-feats-block-section-path-of-the-totem-warrior-feats-2-item-2",
+      "context": "Вовк",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-033",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-feats",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "optionId": "section-path-of-the-totem-warrior-feats-block-section-path-of-the-totem-warrior-feats-2-item-3",
+      "context": "Майстер древкової зброї",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-034",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-feats",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "optionId": "section-path-of-the-totem-warrior-feats-block-section-path-of-the-totem-warrior-feats-2-item-4",
+      "context": "Ведмідь",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-035",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-feats",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "optionId": "section-path-of-the-totem-warrior-feats-block-section-path-of-the-totem-warrior-feats-2-item-5",
+      "context": "Орел",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-036",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-feats",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "optionId": "section-path-of-the-totem-warrior-feats-block-section-path-of-the-totem-warrior-feats-2-item-6",
+      "context": "Настроювання на тотем",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-feats-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-037",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-weapons",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-weapons-2",
+      "optionId": "section-path-of-the-totem-warrior-weapons-block-section-path-of-the-totem-warrior-weapons-2-item-0",
+      "context": "Довгий спис",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-weapons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-038",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-multiclassing",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-multiclassing-5",
+      "optionId": "section-path-of-the-totem-warrior-multiclassing-block-section-path-of-the-totem-warrior-multiclassing-5-item-0",
+      "context": "Чарівник Бойової магії",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-multiclassing-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-039",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-multiclassing",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-multiclassing-5",
+      "optionId": "section-path-of-the-totem-warrior-multiclassing-block-section-path-of-the-totem-warrior-multiclassing-5-item-1",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-multiclassing-5",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-totem-warrior-2014-040",
+      "articleId": "rpgbot-barbarian-totem-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-totem-warrior-2014-draft1",
+      "sectionId": "section-path-of-the-totem-warrior-multiclassing",
+      "targetBlockId": "block-section-path-of-the-totem-warrior-multiclassing-5",
+      "optionId": "section-path-of-the-totem-warrior-multiclassing-block-section-path-of-the-totem-warrior-multiclassing-5-item-2",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-path-of-the-totem-warrior-multiclassing-5",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

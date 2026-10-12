@@ -1,0 +1,911 @@
+{
+  "buildId": "build-ranger-fey-wanderer-2014",
+  "revisionId": "build-ranger-fey-wanderer-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Приклад персонажа — Мандрівний Мандрівник Фей",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+      "sectionId": "section-example-build-wandering-fey-wanderer",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "RANGER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "RANGER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "RANGER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Druidic Warrior"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "ensnaring-strike",
+            "longstrider"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "RANGER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "FEY_WANDERER",
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Primal Awareness"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "zephyr-strike"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "RANGER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_GEM_DRAGON",
+        "featOptions": [
+          {
+            "optionNameEng": "GIFT_OF_THE_GEM_DRAGON Ability (Wisdom)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "RANGER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "RANGER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "RANGER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "RANGER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "RANGER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "ashardalons-stride"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "RANGER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Hide in Plain Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "RANGER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "RANGER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "RANGER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "guardian-of-nature"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "RANGER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "RANGER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "RANGER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "RANGER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "steel-wind-strike"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "RANGER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "RANGER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true,
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "RANGER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-fey-wanderer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+          "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "FEY_WANDERER",
+    "raceKey": "SATYR_MPMM",
+    "backgroundKey": "CUSTOM",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 12
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores",
+        "title": "Характеристики",
+        "text": "+2 вкладемо в Мудрість, а +1 — у Статуру.\n\n Базові Підвищені Сил 8 8 Спр 14 14 Ста 14 15 Інт 8 8 Муд 15 16 Хар 12 12",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-ability-scores",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Сатир. Важко знайти кращого Мандрівника Фей, ніж справжня фея. До того ж отримуємо підвищену швидкість, дві навички, інструмент і {{Опір магії|Magic Resistance}}. Загалом нас дуже складно втримати в бою, і для всього іншого ми теж добре споряджені.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Не надто важливо. Хотілося б використати Загубленого у Світі Фей{{Feylost}} з «Диких меж Відьомського Світла»{{The Wild Beyond the Witchlight}}, але перевернути задум: ми фея, яка заблукала й застрягла на Матеріальному плані. У будь-якому разі змінимо передісторію, щоб отримати дві навички та два інструменти або мови.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від раси отримуємо Виступ, Переконання та один музичний інструмент. Від передісторії візьмемо дві навички й дві мови на ваш смак: навички вкладемо в Аналіз поведінки і Залякування, залишивши Обман для Потойбічного гламуру на 3-му рівні. Із класових навичок візьмемо Природу, Уважність й Виживання.\n\nПрирода, Виступ і Виживання не надто допоможуть, але всі важливі для нас навички на Харизмі й Мудрості вже є.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Уникаємо рис із бонусною дією, бо вона потрібна для Кийка та кількох інших заклинань, зокрема Удару Зефіра. Потрібна одна риса, яка також підвищує Мудрість, тож візьмемо {{Дарунок самоцвітного дракона|Gift of the Gem Dragon}}, але майже будь-який відповідний варіант підійде. {{Експерт у навичках|Skill Expert}} легко замінить його.\n\nМаємо два вільні місця для Покращення характеристик або рис. Пильний зробив би пасивні навички абсурдно високими. Експерт у навичках зробив би ще одну соціальну навичку абсурдно доброю. Посвячений у бій із Дуелю підійде, але +2 шкоди на 16-му й 19-му рівнях виглядають досить кумедно поруч із підсмажуванням ворогів за допомогою Хода Ашардалона [Ashardalon's Stride]. Дробильник може бути веселим, але не дивовижним. {{Рухливий|Mobile}} додає швидкості, проте більшість його переваг нам не потрібні, бо отримуємо їх від заклинань.\n\nРедакційна примітка: описане тут підвищення пасивних навичок належить Спостережливому, а не Пильному.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "{{Мічений ворог|Favored Foe}}; {{Вправний дослідник - Кмітливий|Deft Explorer - Canny}}: Переконання та 2 мови",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Друїдичний воїн: Створення вогню, Кийок; {{Чаротворство|Spellcasting}}; відомі заклинання: Обплутуючий удар [Ensnaring Strike], Скорохід [Longstrider]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Архетип Слідопита: Мандрівник Фей; Жахливі удари (1к4); Магія мандрівника фей; Потойбічний гламур; {{Первородне усвідомлення|Primal Awareness}}; нові відомі заклинання: Причарування особи (безкоштовно), Розмова з тваринами [Speak with Animals] (безкоштовно), Удар Зефіра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Дарунок самоцвітного дракона (Муд 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "{{Додаткова атака|Extra Attack}}; нові відомі заклинання: Тваринне чуття [Beast Sense] (безкоштовно), Туманний крок (безкоштовно), Покращення здібності",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "{{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Блукаючий розум; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення характеристик: Муд 18 → 20; {{Стежка землі|Land's Stride}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нові відомі заклинання: Розвіювання магії [Dispel Magic] (безкоштовно), Розмова з рослинами [Speak with Plants] (безкоштовно), Хода Ашардалона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Жахливі удари (1к6); {{Сховатися на видноті|Hide in Plain Sight}}; {{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Фейське підкріплення; нові відомі заклинання: Виклик феї (безкоштовно), будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: {{Стійкий|Resilient}} (Ста 15 → 16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нові відомі заклинання: Двері між вимірами (безкоштовно), Пошук істоти [Locate Creature] (безкоштовно), Вартовий природи [Guardian of Nature]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "{{Зникнення|Vanish}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Туманний мандрівник; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення характеристик або риса: будь-які",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нові відомі заклинання: Звернення до природи [Commune with Nature] (безкоштовно), Ошуканство [Mislead] (безкоштовно), Удар сталевого вітру [Steel Wind Strike]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "{{Дикі почуття|Feral Senses}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення характеристик або риса: будь-які; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "{{Убивця ворогів|Foe Slayer}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Замовляння Друїдичного воїна",
+        "reason": "Автор бере Створення вогню й Кийок як замовляння Друїдичного воїна; платформа не записує замовлення цього бойового стилю, тож їх треба додати на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить продати два короткі мечі та за можливості купити щит; пресет не записує продаж, тож лишено лускатий обладунок, два короткі мечі, довгий лук і набір на вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання «будь-яке» і риса «будь-яка»",
+        "reason": "Автор не називає заклинання на 7, 11, 15 і 19-му рівнях (заклинання лишено відкритим вибором гравця) і пише «Покращення характеристик або риса: будь-які» на 16-му й 19-му: пресет бере типове Спритність +2 (вибір платформи, автор не називає); гравець може змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Покращення здібності (5-й рівень)",
+        "reason": "Автор бере на 5-му рівні Покращення здібності (Enhance Ability), але його немає в списку заклинань Слідопита, тож платформа не приймає це заклинання; на 5-му рівні заклинання лишено відкритим вибором гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-fey-wanderer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+            "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -16,6 +16,7 @@ import {
   isAiGeneratedImage,
 } from "@/lib/assets/asset-provenance";
 import { collectHomeCardRows, collectHomeCategories } from "@/components/home/homeCategories";
+import { getRaceImagePath } from "@/lib/assets/image-manifest";
 
 const srcDir = path.resolve(process.cwd(), "src");
 const appDir = path.join(srcDir, "app");
@@ -70,6 +71,18 @@ describe("Режим без ШІ — адреса", () => {
 });
 
 describe("Режим без ШІ — походження зображень", () => {
+  it.each([
+    ["HADOZEE_SPELLJAMMER", "hadozee"],
+    ["THRI_KREEN_SPELLJAMMER", "thri_kreen"],
+    ["AUTOGNOME_SPELLJAMMER", "autognome"],
+  ])("новий портрет %s має книжкову заміну без ШІ", (race, filename) => {
+    const src = getRaceImagePath(race);
+    expect(src).toMatch(new RegExp(`^/images/races/${filename}-[a-f0-9]+\\.webp$`));
+    expect(findVisibleImageSrc({ src, isNoAiMode: false })).toBe(src);
+    expect(findVisibleImageSrc({ src, isNoAiMode: true })).toBe(`/images/manual/races/${filename}.webp`);
+    expect(fs.existsSync(path.join(process.cwd(), "public", src!))).toBe(true);
+  });
+
   it("фільтрує лише згенероване", () => {
     expect(findImageProvenance("/images/categories/spells.webp")).toBe("ai");
     expect(findImageProvenance("/images/home/characters.webp")).toBe("drawn");
@@ -94,6 +107,18 @@ describe("Режим без ШІ — походження зображень", (
     expect(isAiGeneratedImage("/images/home/characters.webp")).toBe(false);
     expect(isAiGeneratedImage("/images/home/spells.webp")).toBe(false);
     expect(isAiGeneratedImage("/images/home/bestiary.webp"), "обкладинка бестіарію — кроп плитки").toBe(true);
+  });
+
+  /// Власник, 2026-10-03: плитка RPGbot — лише зі ШІ, піксельний аналітик — в обох режимах.
+  it("плитка RPGbot ховається без ШІ, а піксельний аналітик лишається", () => {
+    const tile = "/images/categories/rpgbot.webp";
+    const analyst = "/images/rpgbot/analyst-none.png";
+    expect(findVisibleImageSrc({ src: tile, isNoAiMode: true })).toBeNull();
+    expect(findVisibleImageSrc({ src: tile, isNoAiMode: false })).toBe(tile);
+    expect(findVisibleImageSrc({ src: analyst, isNoAiMode: true })).toBe(analyst);
+    expect(findVisibleImageSrc({ src: analyst, isNoAiMode: false })).toBe(analyst);
+    expect(fs.existsSync(path.resolve(process.cwd(), "public", tile.slice(1)))).toBe(true);
+    expect(fs.existsSync(path.resolve(process.cwd(), "public", analyst.slice(1)))).toBe(true);
   });
 });
 

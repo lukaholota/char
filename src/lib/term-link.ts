@@ -10,6 +10,7 @@
 
 import type { Ruleset } from "@prisma/client";
 import { dispatchLocationChange } from "@/lib/spell-link";
+import { goBackInHistory, waitForPendingHistoryBack } from "@/lib/history-back";
 import ruleTermLinks from "@/lib/refs/rule-term-links.json";
 
 export type TermLink = { original: string; ruleset: Ruleset };
@@ -18,7 +19,7 @@ export type TermLink = { original: string; ruleset: Ruleset };
 /// (`<a href="/rules/conditions#condition-paralyzed">`), як у заклинань (KR34.2). Реєстр
 /// `rule-term-links.json` каже, який термін стоїть за адресою, тож редакція береться з адреси,
 /// а не зі сторінки.
-export type RuleTermLinkEntry = { original: string; RULES_2014?: string; RULES_2024?: string };
+export type RuleTermLinkEntry = { original: string; RULES_2014?: string; RULES_2024?: string; markerOnly?: boolean };
 
 const RULESETS: Ruleset[] = ["RULES_2014", "RULES_2024"];
 const NO_AI_PREFIX = "/no-ai";
@@ -88,22 +89,36 @@ export function isSameTermLink(a: TermLink | null, b: TermLink | null): boolean 
 
 export function openTermLink(link: TermLink, term = ""): void {
   if (typeof window === "undefined") return;
+  void waitForPendingHistoryBack().then(() => {
+    const url = new URL(window.location.href);
+    writeTermLinkToSearch(url.searchParams, link);
+    const state = window.history.state as Record<string, unknown> | null;
+    window.history.pushState({ ...state, [TERM_HISTORY_DEPTH_KEY]: readTermHistoryDepth() + 1 }, "", url);
+    window.dispatchEvent(
+      new CustomEvent(TERM_OPEN_EVENT, { detail: { original: link.original, ruleset: link.ruleset, term } })
+    );
+    dispatchLocationChange();
+  });
+}
 
-  const url = new URL(window.location.href);
-  writeTermLinkToSearch(url.searchParams, link);
-  window.history.pushState({}, "", url);
-  window.dispatchEvent(
-    new CustomEvent(TERM_OPEN_EVENT, { detail: { original: link.original, ruleset: link.ruleset, term } })
-  );
-  dispatchLocationChange();
+const TERM_HISTORY_DEPTH_KEY = "__termModalDepth";
+
+function readTermHistoryDepth(): number {
+  const depth = (window.history.state as Record<string, unknown> | null)?.[TERM_HISTORY_DEPTH_KEY];
+  return typeof depth === "number" ? depth : 0;
 }
 
 export function closeTermLink(): void {
   if (typeof window === "undefined") return;
+  const depth = readTermHistoryDepth();
+  if (depth > 0) {
+    goBackInHistory(depth);
+    return;
+  }
 
   const url = new URL(window.location.href);
   writeTermLinkToSearch(url.searchParams, null);
-  window.history.replaceState({}, "", url);
+  window.history.replaceState(window.history.state, "", url);
   dispatchLocationChange();
 }
 

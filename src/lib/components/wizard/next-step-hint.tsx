@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useId, useMemo, useState, type ReactNode } from "react";
 
-type SetNextStepHint = (publisherId: string, hint: string | null) => void;
+export type SetNextStepHint = (publisherId: string, hint: string | null) => void;
 
 const NextStepHintContext = createContext<SetNextStepHint>(() => {});
 

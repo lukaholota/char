@@ -1,0 +1,2053 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "617c8241aca5d4a3da924727eda3d93b78d7e737b9ad24afc51ecb46c711f2c3",
+  "sourceRevision": {
+    "revisionId": "rpgbot-f318c133f6e44c69-617c8241aca5d4a3",
+    "sourceId": "rpgbot-f318c133f6e44c69",
+    "fetchedAt": "2026-09-29T19:25:36.207534+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:37:36-04:00",
+    "contentHash": "0bdcf61434222b63c4c27c2d0120a2e60c5df44643893cae89b867ba1c1aca99",
+    "title": "Way of the Long Death Monk 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-f318c133f6e44c69-617c8241aca5d4a3.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Exceptionally tanky, Way of the Long Death makes the Monk very difficult to kill, but lacks useful offensive or utility options. This allows the Monk to serve as a Defender more easily than they can typically manage with their d8 hit dice and slowly scaling AC (typically 15 or 16 at level 1, up to 20 eventually compared to a fighter who can start at 19)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Way of the Long Death is very mechanically simple. Of the four features, only two are active abilities, so there’s very little additional complexity on top of the Monk’s already-complex core features. It’s a great option for new players, and experienced players will find that the tactical benefits of Hour of Reaping are enticing enough to keep them occupied since “punch stuff” isn’t their only tactical option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Long Death Monk Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Long Death Monk Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#way-of-the-long-death-monk-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Long Death Monk Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#way-of-the-long-death-monk-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Long Death Monk Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#way-of-the-long-death-monk-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Long Death Monk Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#way-of-the-long-death-monk-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Long Death Monk Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#way-of-the-long-death-monk-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Vulture",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#example-build-vulture"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Way of the Long Death Monk Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Touch of Death"
+              },
+              {
+                "type": "text",
+                "text": ": If you can bring this into\n\t\tplay even once or twice a day, it’s potentially a huge boost to your\n\t\tdurability. When combat starts, look for weak enemies to pick off before\n\t\tengaging enemies who are going to eat through your hit points.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This ability can be abused by reducing innocent creatures to 0 hit\n\t\t\tpoints, so carry around a bag of rats and knock one unconscious between\n\t\t\tcombats to keep your temporary hit points running."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hour of Reaping"
+              },
+              {
+                "type": "text",
+                "text": ": Great when you’re\n\t\toutnumbered, or just when your party is facing enemies with poor Wisdom\n\t\tsaves. Prevent your enemies from approaching and hinder their attacks while\n\t\tyour party kills them at range. The duration is only until the end of your\n\t\tnext turn, but this can be used as often as you like so you can just stand\n\t\tthere menacingly and win the fight for your party without spending any\n\t\tlimited resources."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mastery of Death"
+              },
+              {
+                "type": "text",
+                "text": ": As long as you have Ki,\n\t\tyou have hit points."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Touch of the Long Death"
+              },
+              {
+                "type": "text",
+                "text": ": Very expensive\n\t\tfor how much damage you deal. Punching things won’t be as fast, but it’s\n\t\tcheaper and much more reliable. Save this for single enemies right before\n\t\tyou rest, and expect enemies to pass the Constitution save since\n\t\tConstitution saves tend to be high."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-long-death-monk-ability-scores",
+      "heading": "Way of the Long Death Monk Ability Scores",
+      "sourceAnchor": "way-of-the-long-death-monk-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-long-death-monk-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from "
+            },
+            {
+              "type": "link",
+              "text": "typical monks",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-long-death-monk-races",
+      "heading": "Way of the Long Death Monk Races",
+      "sourceAnchor": "way-of-the-long-death-monk-races",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-long-death-monk-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from "
+            },
+            {
+              "type": "link",
+              "text": "typical monks",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#races"
+            },
+            {
+              "type": "text",
+              "text": ", but Touch of Death makes temporary hit points from your race more complicated. You might look at racial sources of temp hp (ex: the Orc’s Adrenaline Surge) as complementary to Touch of Death, or you might see them as redundant, and which is the answer often comes down to how your game is paced and how willing your DM is to tolerate your bag of rats."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-long-death-monk-feats",
+      "heading": "Way of the Long Death Monk Feats",
+      "sourceAnchor": "way-of-the-long-death-monk-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-long-death-monk-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from "
+            },
+            {
+              "type": "link",
+              "text": "typical monks",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-long-death-monk-weapons",
+      "heading": "Way of the Long Death Monk Weapons",
+      "sourceAnchor": "way-of-the-long-death-monk-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-long-death-monk-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from "
+            },
+            {
+              "type": "link",
+              "text": "typical monks",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-long-death-monk-armor",
+      "heading": "Way of the Long Death Monk Armor",
+      "sourceAnchor": "way-of-the-long-death-monk-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-long-death-monk-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don’t."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Druid"
+              },
+              {
+                "type": "text",
+                "text": ": An extremely unusual choice, but with some benefits. Shillelagh is decently useful for monks, though it doesn’t solve your MAD issues. More likely, you’re here for the Wild Companion Optional Class Feature. The ability to summon a disposable familiar means that you can then eat it to fuel Touch of Death. Two per short rest is a tempting substitute for a bag of rats, but rats are also annoyingly common anywhere that you can find people, so it’s not really necessary."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-vulture",
+      "heading": "Example Build – Vulture",
+      "sourceAnchor": "example-build-vulture",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-vulture-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "What happens when you take a bird of prey and make them look gaunt, half-dead, and predatory? You get a vulture. We’re going to lean into the spooky, death-adjacent vibes, and build ourselves a rat-eating dhampir monk."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-vulture-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This thing is not built for high damage output. It is instead focused on getting into melee with enemies and holding them there while absorbing damage, and occasionally going on the offensive to farm some temporary hp when an enemy is close to dropping and you don’t have a rat to snack on. We’re much more akin to a fighter than we are to a rogue or a similar high-damage Striker."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-vulture-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As recommended in our "
+            },
+            {
+              "type": "link",
+              "text": "Monk Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#optional-class-features"
+            },
+            {
+              "type": "text",
+              "text": ", we’ll assume no optional class features except for Focused Aim."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-vulture",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take three +1 increases to max Dex/Con/Wis."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-vulture",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dhampir with the Monsters of the Multiverse Aarakocra as our base race. That gets us the aarakocra’s flight (so no two free skills), Darkvision, Spider Climb, and Vampiric Bite, adding a bunch of options for our monk."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We dug into the mechanics of Vampiric Bite in our "
+            },
+            {
+              "type": "link",
+              "text": "dhampir handbook",
+              "href": "https://rpgbot.net/dnd5/characters/races/dhampir/#vampiric-bite"
+            },
+            {
+              "type": "text",
+              "text": ". I strongly recommend reading that section before continuing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-vulture",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any. It doesn’t particularly impact the build. You’ll have ample Dexterity and Wisdom, so backgrounds which provide associated skills work well. Proficiency in Thieves’ Tools is a great choice, and proficiency in "
+            },
+            {
+              "type": "link",
+              "text": "Cook’s Tools",
+              "href": "https://rpgbot.net/dnd5/characters/tools/#cooks-tools"
+            },
+            {
+              "type": "text",
+              "text": " to improve your short rest healing also helps."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-vulture",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Insight and Stealth from our monk skills, plus two skills and two tools from our background."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While we don’t have many skills, we can use Vampiric Bite to empower our skills, allowing us to give ourselves a hefty bonus which will easily offset lack of proficiency for a few checks per day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-vulture",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monks struggle to fit feats into their build because they’re so MAD, and this build doesn’t solve that problem. I’ve chosen to focus on Constitution so that our bite attacks are effective and our pool of hit points is large, and focusing on that over Dexterity means that we arguably have even less room for feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Piercer at 12 and Gift of the Gem Dragon at 19. Both are hybrid feats, which makes them a bit easier to take without cutting into our ability scores as we progress. Piercer provides a surprisingly large damage boost, plus the additional damage die on crit means that when we empower our skills with Vampiric Bite we get an even larger bonus. Gift of the Gem Dragon isn’t strictly necessary, but it’s easy to fit into the build and adds something to do with our reaction a few times a day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-vulture",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For our starting gear, take a spear, either pack, and the 10 darts. For the moment, using a spear two-handed is our best attack option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ki"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Two ki barely changed our tactics. Unarmored Movement notably improves our land speed, our fly speed, and our climb speed from spider climb."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Monastic Tradition: Way of the Long Death"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Touch of Death"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Deflect Missiles"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Touch of Death starts giving us 6 temporary hp and improves from here. That temporary hp easily makes up the gap between the Monk’s d8 hit die and the d10 hit die common to other front-line martial classes."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Find yourself a bag of rats and have a snack after every fight. If you’re feeling ambitious (and your DM is patient enough to allow it), keep some unconscious rats in your pockets and pull them out mid-combat to snack on so that you can continually refresh your temporary hp."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Con 16 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Slow Fall"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More hit points and better vampiric bite. At this point, switch from your spear to biting stuff and try to hang out just below half hp whenever you feel safe doing so. Getting easy Advantage with your attacks is a huge boost to your DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Your Bonus Action attacks are still Dexterity-based unarmed strikes, but that’s fine. They’re not far behind your bite, and if you’re worried, you can apply Stunning Strike to your bite(s) and get Advantage with your remaining attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Not increasing Dex or Wis does mean that our AC isn’t advancing, which is admittedly very risky. If things get bad, fly out of reach and eat a rat before you dive back into melee."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stunning Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts 1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A big boost to your damage output. We’re not quite at high DPR unless you successfully stun your target, but this subclass is about being durable, not about dealing a mountain of damage. Unfortunately, our DPR improves very little from here."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, martial arts: 17.92"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, flurry of blows: 22.0"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, advantage with flurry of blows: 25.45"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ki-Empowered Strikes"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hour of Reaping"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The fact that Hour of Reaping doesn’t have a cost or a usage limitation is crazy. You can spend an entire encounter flying just out of reach and repeatedly scaring crowds of creatures to control where they can move and to disadvantage their checks and attacks. Just try not to scare your party."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, we’re not going to bother improving Wisdom, so the DC will be slightly behind full casters. Even so, you’re going to use this against crowds, so some enemies are likely to fail due to sheer numbers."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Evasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stillness of Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Two great defenses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Con 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re about as durable as we could possibly get. Most characters never get their Con to 20 because feats are so appealing, so you may actually have more hp than comparable characters like fighters and rangers."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, since we’re neglecting our Dexterity, our damage with our bonus action attacks does fall behind a bit."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, martial arts: 21.9"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, flurry of blows: 26.25"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, advantage with flurry of blows: 26.25"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored Movement Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can now run on walls/liquids, fly, and climb on ceilings. With our exceptionally high move speed, enemies can’t escape us except by burrowing or by magic."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Purity of Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another great defense."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mastery of Death"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts 1d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mastery of Death makes dying easy to avoid, but keep a close eye on your remaining Ki Points and consider skipping Flurry of Blows when things get dangerous."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1d8 damage die gets us a little bit more DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, martial arts: 19.35"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, flurry of blows: 23.1"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, advantage with flurry of blows: 30.39"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Piercer (Dex 16 -> 17)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With Advantage on our bite attacks, Piercer is a weirdly large DPR boost. Unfortunately, it doesn’t apply to our bonus action attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, martial arts: 29.8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, flurry of blows: 34.15"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, advantage with flurry of blows: 38.29"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re using Ki-Fueled Attack, the DPR isn’t any better than using Flurry of Blows despite having Advantage and Piercer. You’re not missing much by not having the Optional Class Feature."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on three bite attacks: 38.17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tongue of the Sun and Moon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Diamond Soul"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Proficiency in all saves and easy rerolls."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Timeless Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dex 17 ->18, Wis 16 -> 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More AC, more DPR. We could take another hybrid feat to improve our Dexterity here, but there aren’t any good options for it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, martial arts: 30.77"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, flurry of blows: 36.1"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, advantage with flurry of blows: 40.6"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Touch of the Long Death"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts 1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Touch of the Long Death is the most damage that a monk can do with a single action, maxing out at 20d10 damage (average 110). That’s a stunning amount of damage from a resource that recharges on a short rest, but Con saves are almost universally high, so you need to expect enemies to pass the save unless you have a way to debuff them (Mind Sliver, Bane, etc.). The 10 Ki Point cost for this big damage nuke is prohibitively high, so only use it when you’re very likely to succeed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1d10 unarmed strikes means a little bit more DPR. This is as high as we go under normal circumstances, and it doesn’t quite hit High DPR. Again: we’re here to tank and control the battlefield, not to be a Striker."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, martial arts: 35.13"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, flurry of blows: 41.1"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on bite attacks, advantage with flurry of blows: 46.19"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Empty Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Invisibility and resistance to non-force damage makes us hugely resilient, but we don’t do much as a Defender, so if your party is expecting you to stand and take hits, you might not benefit from Empty Body."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Assuming that you do use Empty Body, it gets you a small boost to DPR without relying on Stunning Strike to get Advantage on your bonus action attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on all attacks, martial arts: 37.67"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with advantage on all attacks, flurry of blows: 46.19"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Gift of the Gem Dragon (Wis 17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More AC, higher DCs for our features, and Telekinetic Reprisal because we know we’re going to get hit anyway. We could instead raise Dexterity to 20, but the improvement to our DPR is minor."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Perfect Self"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Enough Ki to fuel Empty Body."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Way of the Long Death Monk Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Touch of Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hour of Reaping"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mastery of Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Touch of the Long Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Druid"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-way-of-the-long-death-monk-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-way-of-the-long-death-monk-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-way-of-the-long-death-monk-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-way-of-the-long-death-monk-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-way-of-the-long-death-monk-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-example-build-vulture-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-build-vulture-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-build-vulture-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2472,
+    "sections": 17,
+    "blocks": 28,
+    "tables": 2,
+    "ratingSignals": 10
+  },
+  "status": "needs-editorial-review"
+}

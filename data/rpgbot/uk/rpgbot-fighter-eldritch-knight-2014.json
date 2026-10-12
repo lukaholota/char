@@ -1,0 +1,1879 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-81169bd5697e5036",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-81169bd5697e5036-b3223bafa218534b",
+      "sourceId": "rpgbot-81169bd5697e5036",
+      "fetchedAt": "2026-09-29T19:16:15.440124+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:35:51-04:00",
+      "contentHash": "ce251ec4e20dbda7cd2357947c2ff46d832bbdc8d6bf3314555d4b292969bcd6",
+      "title": "Eldritch Knight Fighter 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-81169bd5697e5036-b3223bafa218534b.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-fighter-eldritch-knight-2014",
+    "sourceId": "rpgbot-81169bd5697e5036",
+    "slug": "fighter-eldritch-knight-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Потойбічний лицар — гайд підкласу Воїна (2014)",
+    "titleEn": "Eldritch Knight Fighter 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Воїн",
+      "Потойбічний лицар",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "sourceRevisionId": "rpgbot-81169bd5697e5036-b3223bafa218534b",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як я описував у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді про Співця клинка",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/bladesinging/"
+                },
+                {
+                  "type": "text",
+                  "text": ", це підклас для Воїнів, які хочуть кидати заклинання. Вибір заклинань обмежений, але лише двома школами, що чудово повʼязані з тим, що намагається робити Воїн. З можливістю брати по одному заклинанню за рівень поза обмеженнями та з огляду на те, що вміння класу не підлаштовані під якийсь один стиль гри, ви отримуєте підклас, що приносить Воїну напрочуд багато корисності, а також збільшує шкоду на пристойну величину."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оптимізація Потойбічного лицаря охоплює чимало речей. Вибір заклинань критичний, особливо якщо ви плануєте використовувати наступальну магію, окрім ближніх замовлянь. «Містичний удар»{{Eldritch Strike}} — чудове вміння, але воно зʼявляється лише на 10-му рівні. До цього ви мучитиметеся, намагаючись, щоб опорні заклинання типу «пройди-ряткидок-або-страждай»{{save-or-suck}} діяли на цілях, тож найкраще думати про цей підклас як про спосіб зміцнити можливості Воїна магічними здатностями, до яких не має доступу жоден інший підклас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обовʼязково дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "огляд списку заклинань Воїна",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця стаття — для правил 2014 року. Для правил 2024 дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд підкласу Воїна-Потойбічного лицаря D&D 2024",
+                  "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Потойбічного лицаря",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Потойбічного лицаря",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#eldritch-knight-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Потойбічного лицаря",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#eldritch-knight-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Потойбічного лицаря",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#eldritch-knight-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Потойбічного лицаря",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#eldritch-knight-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Потойбічного лицаря",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#eldritch-knight-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Гарне шотландське імʼя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#example-build-a-good-scottish-name"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Потойбічного лицаря",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Чаротворство містичного лицаря{{Spellcasting (Eldritch Knight)}}: чаротворство — те, що визначає Потойбічного лицаря. Ви майже повністю обмежені заклинаннями Захисту й Втілення, але вони пропонують багато варіантів, що працюють для Воїна. Обовʼязково візьміть наступальне замовляння на кшталт «Гримучого Клинка [Booming Blade]», яке можна використовувати разом з атаками зброєю завдяки «Бойовій магії»{{War Magic}}.\n\nВи отримаєте лише по одному заклинанню кожного рівня, не обмеженому Захистом/Втіленням, тож будьте "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "дуже"
+                  },
+                  {
+                    "type": "text",
+                    "text": " обережні, вибираючи їх. Допомогу з вибором заклинань дивіться в нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "огляді списку заклинань Воїна",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/spells"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Звʼязок зі зброєю|Weapon Bond}}: дуже круто, але рідко має механічний вплив, якщо ви не плануєте кидати зброю або не хочете виглядати беззбройним. Накладання заклинань на кшталт «Світла [Light]» чи «Темряви [Darkness]» на вашу звʼязану зброю перед киданням означає, що ви можете розмістити ефект заклинання на більшій відстані й повернути зброю, щоб кинути її знову.\n\nАле ця комбінація і працеємніша, і менш ефективна за більшість методів зловживання магічною темрявою. Можна провернути дивні витівки, як-от звʼязати зброю надлишкових розмірів чи навіть облогову, щоб вільно телепортувати до себе величезний обʼєкт, але будьте обережні щодо того, скільки ваш Майстер стерпить, перш ніж ваш звʼязаний требушет зʼявиться над вашою головою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойова магія{{War Magic}}: з додаванням нових замовлянь у «Путівнику по Узбережжю Мечів» «Бойова магія» краща, ніж будь-коли. Використання «Гримучого Клинка [Booming Blade]» чи «Клинка Зеленого Полумʼя [Green-Flame Blade]» разом з атакою бонусною дією від «Бойової магії» завдає більше загальної шкоди, ніж воїн зі звичайними атаками на будь-якому рівні (за умови, що ви можете спровокувати вторинну шкоду від будь-якого із замовлянь), і пропонує тактичні варіанти, які просто не відтворити, махаючи зброєю.\n\nДивіться нашу статтю про "
+                  },
+                  {
+                    "type": "link",
+                    "text": "ближні замовляння проти Додаткової атаки",
+                    "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", де розібрано математику порівняння ближніх замовлянь зі звичайними атаками бійців."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Містичний удар{{Eldritch Strike}}: оскільки ваш Інтелект не буде таким високим, як у справжнього Чарівника, Складності ряткидків можуть бути серйозною проблемою. Накладання Перешкоди на кубику зробить ваші заклинання значно ефективнішими. Це відкриває цікаві комбінації, як-от вдарити купу сусідніх ворогів, а на наступному ході вдарити їх «Спалахом Мечів [Sword Burst]», або обстріляти купу ворогів з лука, а потім наступного ходу накрити їх «Вогнекулею [Fireball]».\n\nЯкщо ви стикаєтеся з одиночними цілями, можна влучати по них щораунду «Дзвоном небіжчика [Toll the Dead]» і атакою зброєю завдяки «Бойовій магії». Шукайте можливості це застосувати, але памʼятайте, що «Бойова магія» все ще ваша визначальна тактика."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Арканний кидок{{Arcane Charge}}: це стільки ж пересування, скільки дає Ривок, тож у поєднанні зі «Сплеском дій» ви можете зробити майже стільки, скільки за цілий додатковий хід (другої бонусної дії ви все одно не отримаєте)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Покращена бойова магія{{Improved War Magic}}: накиньте величезне заклинання, а потім заколіть чи застрельте когось. Наступного ходу скористайтеся «Містичним ударом», щоб накласти Перешкоду на кубику й вразити ціль ще одним заклинанням."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-eldritch-knight-ability-scores",
+          "heading": "Характеристики Потойбічного лицаря",
+          "sourceAnchor": "eldritch-knight-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-eldritch-knight-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: імовірно, ваша основна характеристика атаки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-knight-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: нам слід носити важкі обладунки, якщо ви не вирішите користуватися фінесною зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-knight-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: ви, імовірно, не лише персонаж першої лінії, а й мусите робити ряткидки Концентрації."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-knight-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: важливо, щоб він був принаймні 14, але на цьому можна зупинитися, як описано вище. Математично цілі матимуть таку саму частку успіху проти ваших ряткидків з Інтелектом 14 і Перешкодою від «Містичного удару», як проти когось із максимальною характеристикою заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-knight-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: найчастіше застосовуваний ментальний ряткидок. Давайте їй те, що лишилося."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-knight-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: скидаємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-knight-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-eldritch-knight-races",
+          "heading": "Раси Потойбічного лицаря",
+          "sourceAnchor": "eldritch-knight-races",
+          "blocks": [
+            {
+              "blockId": "block-section-eldritch-knight-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Бойова магія» оцінить додаткове замовляння від Високого ельфа, але двох замовлянь Воїну, мабуть, достатньо. З огляду на це і на те, що «Містичний удар» зʼявляється лише на 10-му рівні, нічим не відрізняється від інших Воїнів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-eldritch-knight-feats",
+          "heading": "Риси Потойбічного лицаря",
+          "sourceAnchor": "eldritch-knight-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-eldritch-knight-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Очевидна пропозиція тут — «Бойовий заклинатель»{{War Caster}}, бо накладання «Гримучого Клинка [Booming Blade]», коли щось намагається піти від вас, — неймовірно ефективна техніка для танка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-knight-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Дробильник»{{Crusher}} добре синергує з «Гримучим Клинком» (вдарити ціль і відштовхнути її на 5 футів, щоб вона мусила рухатися, аби повернутися в ближній бій), але атака бонусною дією від «Бойової магії» відбувається після цього, тож ефект переміщення треба застосовувати на атаці бонусною дією, а не на атаці «Гримучого Клинка»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-knight-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зауважте, що ці риси антисинергічні. Якщо ви відштовхнете щось із вашого безпечного бублика, воно може зірвати «Гримучий Клинок» і просто обійти вас, тож Принагідна атака не спрацює."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-eldritch-knight-weapons",
+          "heading": "Зброя Потойбічного лицаря",
+          "sourceAnchor": "eldritch-knight-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-eldritch-knight-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки «Гримучий Клинок» буде нашим основним бойовим варіантом, використання зброї з досяжністю — нежиттєздатна тактика. Тож нам здебільшого просто потрібна зброя, що дозволить бити найсильніше. Якщо хочете додаткового захисту щита, довгі мечі з «Дуеллю» — золотий стандарт однорукої зброї й працюють з «Рубакою»{{Slasher}}, тож ворогам буде ще важче відходити від вас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-knight-weapons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інакше Бойовий Стиль «Бій великою зброєю» дозволяє перекидати й початкову шкоду громом від «Гримучого Клинка», роблячи його гарною комбінацією з Дворучним мечем."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-eldritch-knight-armor",
+          "heading": "Обладунки Потойбічного лицаря",
+          "sourceAnchor": "eldritch-knight-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-eldritch-knight-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від будь-якого іншого Воїна. Якщо ви на Силі, виходьте в Лускатому обладунку, купуйте Лати, коли зможете. Інакше вічно носіть Проклепаний шкіряний обладунок."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не думаю, що колись грав би чистим Потойбічним лицарем. Я б довів його до 10-го рівня заради «Містичного удару», а потім узяв Чарівника до 10-го з підкласом "
+                },
+                {
+                  "type": "link",
+                  "text": "«Бойова магія»",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/war-magic/"
+                },
+                {
+                  "type": "text",
+                  "text": ", щоб вершиною була «Стійка магія»{{Durable Magic}}. Чи це загалом оптимізований персонаж? Ні.\n\nАле це відчувається доволі добре, зберігаючи смак Потойбічного лицаря, і, мабуть, ефективніше за останні 10 рівнів Потойбічного лицаря. Якщо хочете більше рівнів воїна, рівні 11 («Додаткова додаткова атака»), 12 (покращення характеристик), 17 («Сплеск дій» ×2) і 18 («Покращена бойова магія») — чудові точки, щоб зупинитися й мультикласувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо вам більше до вподоби Спритність, "
+                },
+                {
+                  "type": "link",
+                  "text": "Співець клинка",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/bladesinging/"
+                },
+                {
+                  "type": "text",
+                  "text": " також добре працює. З однією зброєю можна отримати той самий DPR, що й при бою двома зброями, бо можна користуватися версією «Додаткової атаки» Співця клинка і поєднувати її з «Бойовою магією» (вмінням, а не підкласом), щоб отримати дві атаки й замовляння за хід, лишивши руку вільною для щита.\n\nЦе потребує воїнів на Спритності, бо «Пісня клинка» працює лише в легких обладунках без щита. Я б, імовірно, робив це як Потойбічний лицар 7/Співець клинка X."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо жоден із варіантів Чарівника вам не підходить, 3 рівні Винахідника — або "
+                },
+                {
+                  "type": "link",
+                  "text": "Бойового коваля",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/"
+                },
+                {
+                  "type": "text",
+                  "text": ", або "
+                },
+                {
+                  "type": "link",
+                  "text": "Зброяра",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/armorer/"
+                },
+                {
+                  "type": "text",
+                  "text": " — дозволять не перейматися Силою, використовуючи Інтелект для атак, а отже, ваші заклинання теж матимуть значно більше шансів спрацювати.\n\nАле будь-який із цих варіантів просто змусить вас почуватися більше Винахідником, ніж Потойбічним лицарем, тож це знову випадок оптимізації проти ідентичності персонажа."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-a-good-scottish-name",
+          "heading": "Приклад збірки — Гарне шотландське імʼя",
+          "sourceAnchor": "example-build-a-good-scottish-name",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-a-good-scottish-name-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Гей, це свого роду магія!"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-a-good-scottish-name-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "— Коннор Маклауд"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-a-good-scottish-name-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Використання широкого меча та шкоди громом дасть непоганий DPR завдяки згаданій вище комбінації. Без захисту щита вам лишається сподіватися, що ви зможете повернутися після першої смерті (а можливо, й інших), як потрібно. На щастя, D&D дає магію, щоб це зробити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-a-good-scottish-name",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як обговорювалося вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-a-good-scottish-name",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Своя раса{{Custom Lineage}}. Ми народилися від людських батьків, навіть якщо станемо чимось значно більшим. Важливо, що нам потрібно кілька рис швидко."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-a-good-scottish-name",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми безперечно народний герой, але більше з категорії «веде атаку у війні кланів», ніж тим, що дало б Поводження з тваринами й Виживання. Замінимо їх навичками, що добре використовують наш високий Інтелект, а саме Магією та Розслідуванням."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-a-good-scottish-name",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Атлетику й Історію від Воїна, додаючи до цього Магію, Розслідування, наземний транспорт та інструменти тесляра з передісторії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-a-good-scottish-name",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні виходимо з «Рубакою»{{Slasher}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4-й рівень дає «Бойового заклинателя»{{War Caster}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6-й рівень дає «Доторк феї»{{Fey Touched}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8-й рівень максимізує Силу"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "12-й рівень дає «Кухаря»{{Chef}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "14-й рівень дає «Ритуального заклинателя»{{Ritual Caster}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "16-й рівень дає «Дарунок металевого дракона»{{Gift of the Metallic Dragon}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "19-й рівень дає «Рухливого»{{Mobile}}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-a-good-scottish-name",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  },
+                  {
+                    "type": "strong",
+                    "text": " "
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль: Бій великою зброєю, Друге дихання, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Рубака",
+                      "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/#slasher"
+                    },
+                    {
+                      "type": "text",
+                      "text": " (Сила)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Своя раса» — єдине, що після патча MMotM для Змінника дозволяє вийти з 18 у характеристиці при купівлі характеристик. Ми добре це використовуємо й одразу отримуємо наш перший інструмент танка: штраф до швидкості на першому, по кому влучили за раунд. Сповільнювати інших майже як прискорювати себе. Як зазначено вище, ми багато користуватимемося перекиданням кубиків шкоди, тож візьмемо найбільший меч, який тільки можна.\n\nДо слова, виходьте з кольчугою, двома дворучними мечами та легким арбалетом. Продайте арбалет і запасний дворучний меч на метальні списи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На відміну від "
+                    },
+                    {
+                      "type": "link",
+                      "text": "«Сили перед смертю»",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", «Сплеск дій» насправді не дає додаткового ходу, тож ви все ще можете застосувати послаблення від «Рубаки» лише раз, перш ніж настане ваша ініціатива знову."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові замовляння: Гримучий Клинок, Спалах Мечів. Нові заклинання: Щит, Поглинання стихій, Пошук фамільяра. Звʼязок зі зброєю"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отже, накладання заклинань із дворучним мечем у руках. Властивість «дворучна» в зброї лише каже, що її треба тримати двома руками, щоб "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "атакувати"
+                    },
+                    {
+                      "type": "text",
+                      "text": " нею. Тож можна просто носити її в одній руці, робити знаки іншою рукою й повертати цю руку на руківʼя для атаки. «Гримучий Клинок» тепер основний варіант для бойових атак і лишатиметься таким до 5-го рівня.\n\nНе забудьте перекидати 1 і 2 на цій шкоді громом. Жодне із заклинань тут не потребує багато опису, але обовʼязково прочитайте про використання сови-фамільяра для надання Переваги на кубику в огляді списку заклинань Воїна. «Звʼязок зі зброєю» тут дивна штука. Дивно, але найкраще застосування, яке я бачу, — накласти його на пару метальних списів і носити з собою лише ці два списи як дальню зброю, поки не знадобиться третій на 11-му рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий заклинатель, Нове заклинання: Захист від зла й добра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Через формулювання властивості «дворучна», яке я описував минулого рівня, ми тут єдине заради можливості вдарити «Гримучим Клинком» щось, що відходить від вас.\n\nОднак ми витрачаємо на це цілу рису (плюс Перевага на кубику на ряткидки Концентрації, які нам колись доведеться робити), бо вона "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "справді "
+                    },
+                    {
+                      "type": "text",
+                      "text": "хороша. Примітка про використання «Гримучого Клинка» з «Бойовим заклинателем». Ви захочете ставати між ціллю й вашою задньою лінією ще більше, ніж зазвичай. Якщо ви можете змусити ціль пройти 5 футів усередині вашого безпечного бублика, це спровокує вторинну шкоду.\n\nЯкщо вона потім залишить ваш безпечний бублик наступними 5 футами пересування, це спровокує Принагідну атаку, що дозволить знову вдарити «Гримучим Клинком» завдяки «Бойовому заклинателю». Якщо ви неправильно виставите позицію, ви отримаєте вторинну шкоду лише раз, бо Принагідна атака відбувається "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "до"
+                    },
+                    {
+                      "type": "text",
+                      "text": " дії, що її спричиняє, тобто вони ще не пересунулися, тобто ви накладаєте «Гримучий Клинок» на ціль, що ще має дійний «Гримучий Клинок», який не накопичується."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бац, бац. Навіть із зростанням шкоди замовлянь на цьому рівні це повертає "
+                    },
+                    {
+                      "type": "link",
+                      "text": "математику",
+                      "href": "https://rpgbot.net/dnd5/characters/melee_cantrips/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " на користь просто двох атак, поки ми не отримаємо «Бойову магію» на 7-му."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Доторк феї (Інтелект)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми можемо накладати «Туманний крок [Misty Step]» лише раз на день з риси, бо більше слотів потрібного рівня в нас немає, але це нормально. Зате «"
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Silvery Barbs]», які ми безкоштовно здобули з цієї риси, ми точно можемо накладати іншими слотами заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойова магія, Нове заклинання: Темрява"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бойова магія» чудова й означає, що ви назавжди повертаєтеся до «Гримучого Клинка»/«Спалаху Мечів» і атаки бонусною дією. Ви втрачаєте лише 3 DPR, якщо ціль не рухається, а виграєте чимало, якщо рухається. На цьому рівні в вас уже має бути повний латний обладунок, тож можна вдарити когось «Гримучим Клинком» і просто піти, змусивши його отримати додаткову шкоду, якщо він захоче піти за вами в помсту. «Темрява» — єдине заклинання в межах шкільних обмежень, яке мені спадає на думку й було б корисним.\n\nВи не бачите крізь неї, але ваш теоретичний друг-чорнокнижник, імовірно, бачить, а «Спалах Мечів» не вимагає бачити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: Бачення невидимого, Покращення Характеристик: Сила 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Про жодне з цього нічого особливого сказати, але обидва чудово мати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність{{Indomitable}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ви можете вдавати з себе "
+                    },
+                    {
+                      "type": "link",
+                      "text": "легендарну істоту.",
+                      "href": "https://rpgbot.net/dnd5/dungeonmasters/legendary-creatures/"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний удар, Нове замовляння: Дзвін небіжчика, Нове заклинання: Сковуючий лід Райма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це вже досить добре для кидання метального списа в когось, а наступного ходу запитати в нього ряткидок Мудрості з Перешкодою на кубику, щоб не отримати к12 шкоди. На наступному рівні стане ще краще, коли можна ще більше розвинути математику багатьох цілей, описану в нашій "
+                    },
+                    {
+                      "type": "link",
+                      "text": "статті про ближні замовляння проти атак",
+                      "href": "https://rpgbot.net/dnd5/characters/melee_cantrips/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". На 11-му рівні ви можете атакувати три цілі однією дією, а наступного ходу «Спалахом Мечів» змусити всіх, по кому влучили, робити ряткидки з Перешкодою на кубику.\n\nХоч «Сковуючий лід» цілить у найгірший ряткидок, його шкода відповідає «Друзкам [Shatter]», і він марнує дію на кожну ціль, що провалить ряткидок. Якщо поєднати його з «Містичним ударом», щоб накласти Перешкоду на кубику, можна зробити так, щоб він працював хоч якось надійно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова додаткова атака, Нове заклинання: Захисний вітер"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Головна риса «Захисного вітру» — створення складної місцевості. Між нею та «Рубакою» цілком можливо взагалі не дати істотам рухатися. Якщо так, просто атакуйте тричі замість «Гримучого Клинка»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кухар (+1 до Статури)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищуємо Статуру до круглого числа й водночас здобуваємо здатність трохи захищати й лікувати групу поза боєм. Їжте закуски з тимчасовими ХП між боями, а не намагайтеся втиснути ще одну бонусну дію у свої ходи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: Вогнекуля, Непохитність (2 використання)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це дуже пізно отримувати «Вогнекулю»? Так. Чи «Вогнекуля» на цьому рівні все ще неймовірне заклинання? Теж так."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: Політ, Ритуальний заклинатель: Розуміння мов, Розпізнавання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Взяття «Ритуального заклинателя» на цьому рівні дозволяє використати частину грошей, що ми копили, щоб купити те, чого не вивчив бідолашний Бард/Чорнокнижник/Чародій у цій групі, як-от «Леомундова крихітна хатинка [Leomund's Tiny Hut]», «Дихання водою [Water Breathing]» і «Телепатичний звʼязок Рері [Rary's Telepathic Bond]».\n\nЯкщо у вашій групі вже є Чарівник, чесно кажучи, я б радив обрати інший різновид гіша, навколо якого будувати персонажа. Можливо, спробуйте "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Відьмацький клинок",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " чи Барда Колегії доблесті, щоб додати групі можливості «обличчя». Визнаю, що жоден із них не відчувається таким сильним у головній ролі танка, як Воїн, але вони обидва приносять іншу користь, що це компенсує."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканний кидок{{Arcane Charge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Супер-безкоштовний «Туманний крок» ще важче заперечити, ніж звичайний безкоштовний «Туманний крок»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дарунок металевого дракона, Нове заклинання: Піщана стіна"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми на рівнях, де вороги можуть навмисно цілити у ваших цілителів. Ось хороший спосіб допомогти їм підвестися після падіння. До того ж це дає інструмент, щоб узагалі не дати їм (чи вам) упасти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій (2 використання), Непохитність (3 використання)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Більше",
+                      "href": "https://www.youtube.com/watch?v=uNy_MLr8mXA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращена бойова магія{{Improved War Magic}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер можна накласти «Політ [Fly]» і ще вдарити мечем (раз) за раунд. Або додати 2к6+5 до вашої «Вогнекулі»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рухливий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Приз",
+                      "href": "https://www.youtube.com/watch?v=4AoOa-Fz2kw"
+                    },
+                    {
+                      "type": "text",
+                      "text": " за те, що дійшли аж до 19-го: ви швидше ходите. Не уявляю, чому людей так цікавили ці штуки з прискоренням."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова додаткова додаткова атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вершина суперечить основній ідентичності підкласу, який дуже хоче накладати замовляння, а потім замахуватися ще раз завдяки «Бойовій магії». Функціонально вона нічого не робить, якщо ви не думаєте, що зможете змусити ціль піти після того, як ударите її «Гримучим Клинком»."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-001",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Чаротворство містичного лицаря",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-002",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Звʼязок зі зброєю",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-003",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Бойова магія",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-004",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Містичний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-005",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Арканний кидок",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-006",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Покращена бойова магія",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-007",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-eldritch-knight-ability-scores",
+      "targetBlockId": "block-section-eldritch-knight-ability-scores-1",
+      "optionId": "section-eldritch-knight-ability-scores-block-section-eldritch-knight-ability-scores-1",
+      "context": "Сила",
+      "explanationBlockId": "block-section-eldritch-knight-ability-scores-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-008",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-eldritch-knight-ability-scores",
+      "targetBlockId": "block-section-eldritch-knight-ability-scores-2",
+      "optionId": "section-eldritch-knight-ability-scores-block-section-eldritch-knight-ability-scores-2",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-eldritch-knight-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-009",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-eldritch-knight-ability-scores",
+      "targetBlockId": "block-section-eldritch-knight-ability-scores-3",
+      "optionId": "section-eldritch-knight-ability-scores-block-section-eldritch-knight-ability-scores-3",
+      "context": "Статура",
+      "explanationBlockId": "block-section-eldritch-knight-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-010",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-eldritch-knight-ability-scores",
+      "targetBlockId": "block-section-eldritch-knight-ability-scores-4",
+      "optionId": "section-eldritch-knight-ability-scores-block-section-eldritch-knight-ability-scores-4",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-eldritch-knight-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-011",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-eldritch-knight-ability-scores",
+      "targetBlockId": "block-section-eldritch-knight-ability-scores-5",
+      "optionId": "section-eldritch-knight-ability-scores-block-section-eldritch-knight-ability-scores-5",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-eldritch-knight-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-eldritch-knight-2014-012",
+      "articleId": "rpgbot-fighter-eldritch-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+      "sectionId": "section-eldritch-knight-ability-scores",
+      "targetBlockId": "block-section-eldritch-knight-ability-scores-6",
+      "optionId": "section-eldritch-knight-ability-scores-block-section-eldritch-knight-ability-scores-6",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-eldritch-knight-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

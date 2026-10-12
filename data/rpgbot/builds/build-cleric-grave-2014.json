@@ -1,0 +1,1106 @@
+{
+  "buildId": "build-cleric-grave-2014",
+  "revisionId": "build-cleric-grave-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Клірика могили — «Один удар»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-grave-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+      "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+      "sectionId": "section-example-grave-cleric-build-one-punch",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "GRAVE_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FEY_TOUCHED",
+        "featOptions": [
+          {
+            "optionNameEng": "FEY_TOUCHED Ability (Wisdom)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "DIVINE_SOUL",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "prestidigitation",
+            "mage-hand",
+            "true-strike",
+            "shape-water"
+          ],
+          "knownSpellKeys": [
+            "silvery-barbs",
+            "absorb-elements"
+          ],
+          "spellbookKeys": []
+        },
+        "classOptionSpellKeys": [
+          "cure-wounds"
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "thaumaturgy"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-grave-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+          "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "GRAVE_DOMAIN",
+    "raceKey": "CUSTOM_LINEAGE_TCE",
+    "backgroundKey": "HERMIT",
+    "featKey": "METAMAGIC_ADEPT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 13
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 13
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Від «Своєї раси»{{Custom Lineage}} ми отримуємо лише збільшення на +2, і вкладаємо його в Мудрість.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 13 13 Інтелект 8 8 Мудрість 15 17 Харизма 13 13",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Своя раса{{Custom Lineage}}. Старт з «Адептом метамагії»{{Metamagic Adept}} означає, що ми можемо почати свої витівки вже з 2-го рівня й усе одно не відставати від Фундаментальної математики{{Fundamental Math}}. Беріть Темнозір, бо додаткові навички нам не потрібні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беріть Відлюдник{{Hermit}} і замініть навички на Уважність і Переконання. Ми здебільшого просто хочемо, щоб усі нас лишили в спокої й ми могли зосередитися на вигідних угодах про мʼясо на ринку.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Із класу беремо Аналіз Поведінки й Медицину, щоб доповнити корисні навички Мудрості, а Набір травника{{Herbalism Kit}} від передісторії стане в пригоді для виготовлення зілль під час мандрів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 1-му рівні ми починаємо з «Адептом метамагії»{{Metamagic Adept}} завдяки «Своїй расі»{{Custom Lineage}}.\n\n4-й рівень дає нам «Доторк феї»{{Fey Touched}}.\n\nНа 8-му рівні Клірика, загальний рівень 10, беремо Покращення Характеристик і доводимо Мудрість до максимуму.\n\nНа 12-му рівні Клірика, загальний рівень 14, отримуємо «Стійкого (Статура)»{{Resilient (Con)}}.\n\nНа 16-му рівні Клірика, загальний рівень 18, отримуємо «Надихаючого лідера»{{Inspiring Leader}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Замовляння:\n– Священне полумʼя\n– Настанова\n– Дзвін небіжчика\nЗаклинання домену:\n– Зурочення\n– Удаване життя\nКоло смертності\nОчі могили\nАдепт метамагії:\n– Пришвидшене заклинання\n– Подовжене заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Божественність: Шлях до могили",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Заклинання домену:\n– Нетлінні рештки\n– Промінь ослаблення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Доторк феї (+1 Мудрість):\n– Проклін",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Заклинання домену:\n– Відродження\n– Вампіричний дотик",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Знищення нежиті (ПН 1/2)\nКанал божественності (2/відпочинок)\nВартовий біля смерті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Замовляння:\n– Штукарство\n– Магічна рука\n– Справжній удар\n– Формування води\nЗаклинання:\n– Благословення\n– Сріблясті шпильки\n– Лікування ран (Спорідненість)\nУлюбленець богів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Нове заклинання:\n– Поглинання стихій\nДжерело магії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Заклинання домену:\n– Усихання\n– Захист від смерті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Мудрість 18 → 20\nЗнищення нежиті (ПН 1)\nПотужне заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Заклинання домену:\n– Оболонка проти живих\n– Оживлення мерців",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Нове замовляння:\n– Дивотворство\nБожественне втручання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Знищення нежиті (ПН 2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Стійкий (Статура)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Знищення нежиті (ПН 3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Надихаючий лідер",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Хранитель душ{{Keeper of Souls}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Канал божественності (3/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Метамагія Адепта метамагії",
+        "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Мультиклас у Чародія",
+        "reason": "Автор мультикласить у Чародія після 1-го рівня Клірика (риси на рівнях Клірика 8, 12, 16, загальний рівень 10, 14, 18); пресет описує лише старт 1-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія Адепта метамагії",
+        "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+        "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му рівні",
+        "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія Адепта метамагії",
+        "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+        "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му рівні",
+        "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія Адепта метамагії",
+        "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+        "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му рівні",
+        "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Благословення від Чародія (Божественна магія)",
+        "reason": "На 7-му рівні автор вивчає Благословення (Bless) зі списку Клірика, який відкриває Божественна душа; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на цьому місці відкритий вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія Адепта метамагії",
+        "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+        "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му рівні",
+        "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Благословення від Чародія (Божественна магія)",
+        "reason": "На 7-му рівні автор вивчає Благословення (Bless) зі списку Клірика, який відкриває Божественна душа; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на цьому місці відкритий вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія Адепта метамагії",
+        "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+        "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му рівні",
+        "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Благословення від Чародія (Божественна магія)",
+        "reason": "На 7-му рівні автор вивчає Благословення (Bless) зі списку Клірика, який відкриває Божественна душа; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на цьому місці відкритий вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія Адепта метамагії",
+        "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+        "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му рівні",
+        "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Благословення й Поглинання стихій (Чародій 1–2)",
+        "reason": "Автор вивчає на 7-му рівні Благословення (Bless) зі списку Клірика, який відкриває Божественна душа, а на 8-му Поглинання стихій (Absorb Elements). Платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), а відкритий вибір 7-го рівня збігається з названим пізніше заклинанням; тому Поглинання стихій записано вже на 7-му рівні, а на 8-му лишено один відкритий вибір гравця замість Благословення.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-grave-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+            "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

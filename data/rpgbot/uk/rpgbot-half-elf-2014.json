@@ -1,0 +1,1209 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-8e24634bcaa5675d",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-8e24634bcaa5675d-3d803963d963b2cb",
+      "sourceId": "rpgbot-8e24634bcaa5675d",
+      "fetchedAt": "2026-09-29T19:17:12.730100+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:41:06-04:00",
+      "contentHash": "baca0d2391ac5fce79b59a8890799b496362bf348a483fdf6dfd6b3684b1d1f9",
+      "title": "Half-Elf: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-8e24634bcaa5675d-3d803963d963b2cb.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-half-elf-2014",
+    "sourceId": "rpgbot-8e24634bcaa5675d",
+    "slug": "half-elf-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Напівельф — гайд раси (2014)",
+    "titleEn": "Half-Elf: DnD 5e Race/Species Guide",
+    "topics": [
+      "race"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "articleId": "rpgbot-half-elf-2014",
+      "sourceRevisionId": "rpgbot-8e24634bcaa5675d-3d803963d963b2cb",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф — одна з найсильніших рас базових правил. Для кількох класів це найкращий вибір, а для інших щонайменше робочий. Два гнучкі підвищення характеристик і два довільні Володіння навичками корисні майже кожному; також є Темнозір{{Darkvision}} і +2 Харизми. Якщо це не підходить, Путівник по Узбережжю Мечів має варіанти обміну частини расових здібностей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За звичайними правилами головний конкурент — Людина (варіант){{Варіант людини|Human Variant}} зі схожими підвищеннями та гнучкістю риси. Вона часто дає ту саму свободу збірки. Якщо потрібно багато чогось одного, як замовлянь чи навичок, Людина краща; якщо потроху всього — часто Напівельф."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З налаштуванням походження Напівельф стає рятівником збірок із кількома головними характеристиками. Три підвищення полегшують створення Монаха чи Паладина, а дві навички лишаються чудовим доповненням будь-кому."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-custom-origin",
+          "heading": "Класи — налаштування походження",
+          "sourceAnchor": "classes-custom-origin",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-custom-origin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ передбачає "
+                },
+                {
+                  "type": "link",
+                  "text": "налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": " з Казан Таші з усім. Якщо не використовуєте цю опцію, перейдіть до наступного розділу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-artificer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Винахідник",
+          "sourceAnchor": "custom-origin-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Винахіднику не потрібні три високі характеристики. Додаткові навички приємні, але важливих навичок Інтелекту мало: частина використовуватиме слабші характеристики."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-barbarian",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Варвар",
+          "sourceAnchor": "custom-origin-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для Захисту без обладунків{{Unarmored Defense (Barbarian)}} три підвищення дуже корисні. Щоб дорівнятися напівлатам, доведеться підвищити Спритність чи Статуру; старт 16/16 це полегшує. Дві навички урізноманітнюють позабойові можливості, а Фейське походження{{Fey Ancestry}} захищає від причарування, яке часто виводить Варвара з бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-bard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Бард",
+          "sourceAnchor": "custom-origin-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дві навички не завадять, але залежно від колегії можна обміняти Skill Versatility{{Skill Versatility}}. Для ближнього бою розгляньте варіант високого ельфійського походження{{Half-Elf (Moon Elf or Sun Elf Descent)}} й Гримучий Клинок [Booming Blade]: автор вважає його шкоду стабільно вищою за Додаткову атаку. Бойовий Бард усе ще складний, але три підвищення допомагають. Примітка редакції: в оригіналі речення «If you» обірване; перевага Booming Blade залежить від рівня, влучання й спрацювання шкоди за добровільний рух, не гарантована завжди."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-cleric",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Клірик",
+          "sourceAnchor": "custom-origin-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик рідко потребує три високі характеристики, але для зброї разом із магією три підвищення чудові. Домен підступності{{Trickery Domain}} виграє від Спритності й навичок, дозволяючи простіше замінити Пройдисвіта."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-druid",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Друїд",
+          "sourceAnchor": "custom-origin-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність допомагає КБ Друїда, але три підвищення не кращі за два, тому основна перевага витрачається марно. Коло спор{{Circle of Spores}} може виграти для зброї ближнього бою, але мала різниця характеристик не дуже впливова."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-fighter",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Воїн",
+          "sourceAnchor": "custom-origin-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крім Потойбічного лицаря{{Eldritch Knight}}, Воїну не потрібні три високі характеристики; навіть йому часто вистачає Інтелекту 14. Навички допомагають поза боєм, але якщо потрібні лише вони, автор спершу обрав би Людину (варіант)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-monk",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Монах",
+          "sourceAnchor": "custom-origin-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монаху три високі характеристики потрібні як рибі вода. Почніть зі Спритності, Статури й Мудрості 16, отримавши й дві навички. Вони скорочують розрив із Пройдисвітом і полегшують роль розвідника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-paladin",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Паладин",
+          "sourceAnchor": "custom-origin-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Паладину потрібні три високі характеристики: чудовий вибір. Легко бути обличчям групи, а дві навички дозволяють узяти всі соціальні й залишити місце для Атлетики."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-ranger",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Слідопит",
+          "sourceAnchor": "custom-origin-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Три підвищення полегшують Слідопита, особливо на Силі. Дві навички скорочують розрив із Пройдисвітом для розвідки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-rogue",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "custom-origin-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф-Пройдисвіт може почати з вісьмома Володіннями навичками. Якщо шести вистачає, варіант високого ельфійського походження{{Half-Elf (Moon Elf or Sun Elf Descent)}} дає Гримучий Клинок [Booming Blade], підсилюючи ближній бій без планів на бій двома зброями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-custom-origin-rogue-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На думку автора, Пройдисвіт найкраще використовує Ельфійська точність{{Elven Accuracy}}. Якщо Перевага постійно забезпечує Скриту атаку{{Sneak Attack}}, додаткова кістка збільшує ймовірність природної 20 з 9,75% до 14,26%. Критична Скритa атака означає багато захопливих кісток."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-sorcerer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чародій",
+          "sourceAnchor": "custom-origin-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "+1 Спритності, +1 Статури, +2 Харизми. З навичками легко бути обличчям групи або взяти позабойові навички, щоб замінити Пройдисвіта. Варіанти дають мало нового: ще одне замовляння Чарівника не надто потрібне Чародію, який має багато замовлянь і значний перетин списків, хіба дуже їх любите."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-warlock",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "custom-origin-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштування походження майже нічого не змінює: поєднання вже ідеальне. +1 Спритності, +1 Статури, +2 Харизми — чудово. Дві навички розширюють соціальні можливості, але можна обміняти їх на варіант дроуського походження{{Half-Elf (Drow Descent)}} для магії, особливо Темрява [Darkness]. Примітка редакції: +1 Харизми в оригіналі — помилка; стандартний Напівельф має +2."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-custom-origin-warlock-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Серйозно розгляньте Ельфійська точність{{Elven Accuracy}}: Чорнокнижник має кілька способів Переваги, а з Позамежний заряд [Eldritch Blast] це легко помітно збільшує шкоду."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-wizard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чарівник",
+          "sourceAnchor": "custom-origin-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чарівнику не потрібні три високі характеристики. Навички приємні, але важливих навичок Інтелекту мало, тож частина використовуватиме слабші характеристики."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-default",
+          "heading": "Класи — звичайні правила",
+          "sourceAnchor": "classes-default",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-default-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ передбачає, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не"
+                },
+                {
+                  "type": "text",
+                  "text": " використовуєте налаштування походження з Казан Таші з усім. Автор також згадує оновлену расу з Monsters of the Multiverse. Примітка редакції: Напівельфа в MPMM немає; це скопійоване формулювання, тут розглядаються звичайні правила PHB/SCAG/ERLW 2014."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-artificer",
+          "parentSectionId": "section-classes-default",
+          "heading": "Винахідник",
+          "sourceAnchor": "default-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-default-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підвищення працюють і навички корисні, але Людина (варіант) краща. Високе ельфійське походження{{Half-Elf (Moon Elf or Sun Elf Descent)}} дає одне замовляння Чарівника; Людина з Посвячений у магію{{Magic Initiate}} — два. Високе й лісове ельфійське походження дають зброю, але Бойовий коваль{{Battle Smith}} уже володіє нею, а іншим підкласам корисніші замовляння."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-barbarian",
+          "parentSectionId": "section-classes-default",
+          "heading": "Варвар",
+          "sourceAnchor": "default-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-default-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо хочете навички Харизми, зокрема Залякування, Напівельф-Варвар цікавий. Варіанти пропонують деякі можливості, але звичайний Напівельф зазвичай найкращий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-default-barbarian-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф-Варвар здається цікавим для Ельфійська точність{{Elven Accuracy}}, але Нерозважлива атака{{Reckless Attack}} вимагає Сили, з якою ця риса не працює."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-bard",
+          "parentSectionId": "section-classes-default",
+          "heading": "Бард",
+          "sourceAnchor": "default-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-default-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Очевидно чудово. Майже кожен вкладає довільні підвищення у Спритність і Статуру; +2 Харизми готує до будь-якої колегії. Навички розширюють можливості, але Майстер на всі руки{{Jack of All Trades}} може схилити до варіанта. Високе ельфійське походження{{Half-Elf (Moon Elf or Sun Elf Descent)}} дає замовляння Чарівника, зокрема Гримучий Клинок [Booming Blade] чи Вогняний заряд [Fire Bolt], яких немає в базовому списку Барда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-cleric",
+          "parentSectionId": "section-classes-default",
+          "heading": "Клірик",
+          "sourceAnchor": "default-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-default-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма не надто потрібна Клірику, але Переконання є в його навичках, а з додатковими навичками можна зібрати Обман, Аналіз поведінки, Залякування й Переконання. Варіанти дають ельфійську зброю для лука або замовляння Чарівника, як Гримучий Клинок [Booming Blade] для ближнього бою. Проте те саме часто ефективніше дає Людина (варіант)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-druid",
+          "parentSectionId": "section-classes-default",
+          "heading": "Друїд",
+          "sourceAnchor": "default-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-default-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Характеристики працюють, але Харизма здебільшого марна Друїду. Соціальні навички можливі, проте лише Аналіз поведінки є в класовому списку. Лісове ельфійське походження{{Half-Elf (Wood Elf Descent)}} дає Mask of the Wild{{Mask of the Wild}}, але звичайний Лісовий ельф ефективніший. Високе може підійти Колу спор, проте Людина з Посвяченим у магію краща. Напівельф не поганий, але майже для кожної збірки є трохи краща раса."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-default-druid-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мітка виявлення цікава: підвищує Мудрість і додає багато заклинань Ворожіння, інакше недоступних Друїду. Друїд сильний у деякій магії, але порівняно з Кліриком його Ворожіння обмежене; розширення суттєве."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-fighter",
+          "parentSectionId": "section-classes-default",
+          "heading": "Воїн",
+          "sourceAnchor": "default-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-default-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшості Воїнів Харизма не потрібна, але Purple Dragon Knight{{Purple Dragon Knight}} має такі здібності й може бути обличчям групи. Якщо Харизму знизити, навичок вистачає, щоб із правильним походженням і Спритністю замінити Пройдисвіта. Вундеркінд{{Prodigy}} дає Володіння й Експертизу навички для захватів і поштовхів. Дроуське походження{{Half-Elf (Drow Descent)}} додає магію, якої Воїну часто бракує."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-default-fighter-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чемпіон{{Champion}} чудово використовує Ельфійську точність. Із Перевагою, наприклад після падіння близької цілі Ничком, критична 19–20 дає 27,10%, 18–20 — 38,59%. Автор перебільшує, називаючи це майже математичною певністю. Амбітний варіант — риса, три рівні Чемпіона й багато Варвара для Brutal Critical{{Brutal Critical}}. Примітка редакції: Нерозважлива атака на Силі не поєднується з Ельфійською точністю; Перевага має надходити з іншого джерела для відповідної атаки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-monk",
+          "parentSectionId": "section-classes-default",
+          "heading": "Монах",
+          "sourceAnchor": "default-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-default-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підходить Монаху, але Харизма здебільшого зайва. Майже завжди Лісовий ельф чи Людина (варіант) кращі. Водночас є все для успішного Монаха, а замість навичок можна обрати цікаві варіантні здібності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-paladin",
+          "parentSectionId": "section-classes-default",
+          "heading": "Паладин",
+          "sourceAnchor": "default-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-default-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ідеально: Паладину потрібні три характеристики, серед них Харизма. Можна бути обличчям групи або обміняти навички на варіантні здібності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-ranger",
+          "parentSectionId": "section-classes-default",
+          "heading": "Слідопит",
+          "sourceAnchor": "default-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-default-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Непоганий Слідопит, додаткові навички скорочують розрив із Пройдисвітом. Крім навичок, Лісовий ельф зазвичай кращий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-rogue",
+          "parentSectionId": "section-classes-default",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "default-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-default-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Любите навички? Хочете "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "всі"
+                },
+                {
+                  "type": "text",
+                  "text": " навички? Зазвичай беруть Барда, але Напівельф-Пройдисвіт починає з вісьмома Володіннями. Вундеркінд{{Prodigy}} чи Експерт у навичках{{Skill Expert}} дають більше й Експертизу ще однієї навички, хоча класового набору зазвичай вистачає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-default-rogue-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На думку автора, Пройдисвіт найкраще використовує Ельфійська точність{{Elven Accuracy}}. Якщо Перевага постійно забезпечує Скриту атаку{{Sneak Attack}}, додаткова кістка збільшує ймовірність природної 20 з 9,75% до 14,26%. Критична Скритa атака означає багато захопливих кісток."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-sorcerer",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чародій",
+          "sourceAnchor": "default-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-default-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність, Статура, Харизма. Додаткові навички дозволяють бути обличчям групи або замінити Пройдисвіта через походження. Варіанти дають мало нового: додаткове замовляння Чарівника не надто потрібне Чародію з великою кількістю замовлянь і перетином списків, хіба ви дуже їх любите."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-default-sorcerer-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мітка шторму заслуговує згадки: Напівельф уже чудовий Чародій, але для тематичної Магії шторму мітка додає відповідні можливості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-warlock",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "default-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-default-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як Бард, Чорнокнижник ідеально підходить. Спритність, Статура й Харизма готують майже до будь-якої збірки. Навички розширюють можливості поза магією, але розгляньте варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-default-warlock-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Серйозно розгляньте Ельфійська точність{{Elven Accuracy}}: Чорнокнижник має кілька способів Переваги, а з Позамежний заряд [Eldritch Blast] це легко помітно збільшує шкоду."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-wizard",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чарівник",
+          "sourceAnchor": "default-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-default-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародій і Чорнокнижник краще узгоджені з характеристиками Напівельфа, але він усе одно має потрібне для успішного Чарівника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Напівельфа",
+          "sourceAnchor": "feats",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-elven-accuracyxgte",
+          "parentSectionId": "section-feats",
+          "heading": "Ельфійська точність (XGtE)",
+          "sourceAnchor": "elven-accuracyxgte",
+          "blocks": [
+            {
+              "blockId": "block-section-elven-accuracyxgte-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ельфійська точність{{Elven Accuracy}} чудова при надійному доступі до Переваги. +1 до характеристики приємне, але головне — перекочування однієї кістки при відповідній атаці з Перевагою, фактично вибір найкращого з трьох к20. Примітка редакції: автор помилково згадує перевірки й ряткидки; риса діє лише на кидки атаки, що використовують Спритність, Інтелект, Мудрість або Харизму."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-prodigyxgte",
+          "parentSectionId": "section-feats",
+          "heading": "Вундеркінд (XGtE)",
+          "sourceAnchor": "prodigyxgte",
+          "blocks": [
+            {
+              "blockId": "block-section-prodigyxgte-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вундеркінд{{Prodigy}} дає приємні додаткові Володіння, але головна причина — Експертиза. Це стандартний вибір Варвара, Воїна чи іншого бойового персонажа для захватів і відштовхувань. Якщо можете витратити Підвищення характеристик на рису, уникнете мультикласу Пройдисвіта."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dragonmarks",
+          "heading": "Мітки дракона",
+          "sourceAnchor": "dragonmarks",
+          "blocks": [
+            {
+              "blockId": "block-section-dragonmarks-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мітки дракона описані в Еберрон: Постання з Останньої Війни. Для Напівельфів це варіанти, що замінюють расові підвищення характеристик і Skill Versatility{{Skill Versatility}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-mark-of-detection",
+          "parentSectionId": "section-dragonmarks",
+          "heading": "Мітка виявлення",
+          "sourceAnchor": "mark-of-detection",
+          "blocks": [
+            {
+              "blockId": "block-section-mark-of-detection-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заміна Харизми на більше підвищення Мудрості схиляє Напівельфа Мітки виявлення{{Half-Elf (Mark of Detection)}} до Клірика й Друїда, але Монах чи Слідопит теж хороші. Класи з другорядною Мудрістю можуть працювати, але без користі розширеного списку автор не радить цей вибір. Головні кандидати — Друїд і Слідопит. Для читання правил: Magical Detection{{Magical Detection}} та повний список Заклинань мітки виявлення{{Spells of the Mark (Detection)}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-mark-of-detection-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навіть із налаштуванням походження Друїд та Слідопит виграють найбільше: багато заклинань уже є в Клірика й Чарівника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-mark-of-storm",
+          "parentSectionId": "section-dragonmarks",
+          "heading": "Мітка шторму",
+          "sourceAnchor": "mark-of-storm",
+          "blocks": [
+            {
+              "blockId": "block-section-mark-of-storm-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф Мітки шторму{{Half-Elf (Mark of Storm)}} тематично доповнює Чародія Магії шторму{{Storm Sorcery}}, але загалом нішевий. Заклинання цікаві, проте переважно ситуативні й ненадійні як основа; з Володіннями та підвищеннями теж обмеження. Опір блискавці чудовий, але не робить варіант універсальним. Для читання правил: Windwrightʼs Intuition{{Windwright's Intuition}}, Headwinds{{Headwinds}} та повний список Заклинань мітки шторму{{Spells of the Mark (Storm)}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-mark-of-storm-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштування походження значно допомагає. Клірик, імовірно, найкращий: у нього немає багатьох найкращих заклинань списку. Є перетин із Доменом бурі{{Tempest Domain}}, але найкращі заклинання Мітки шторму не серед цього перетину."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-half-elf-2014-001",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-artificer",
+      "targetBlockId": "block-section-custom-origin-artificer-1",
+      "optionId": "section-custom-origin-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-custom-origin-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-002",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-barbarian",
+      "targetBlockId": "block-section-custom-origin-barbarian-1",
+      "optionId": "section-custom-origin-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-custom-origin-barbarian-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-003",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-bard",
+      "targetBlockId": "block-section-custom-origin-bard-1",
+      "optionId": "section-custom-origin-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-custom-origin-bard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-004",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-cleric",
+      "targetBlockId": "block-section-custom-origin-cleric-1",
+      "optionId": "section-custom-origin-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-custom-origin-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-005",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-druid",
+      "targetBlockId": "block-section-custom-origin-druid-1",
+      "optionId": "section-custom-origin-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-custom-origin-druid-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-006",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-fighter",
+      "targetBlockId": "block-section-custom-origin-fighter-1",
+      "optionId": "section-custom-origin-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-custom-origin-fighter-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-007",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-monk",
+      "targetBlockId": "block-section-custom-origin-monk-1",
+      "optionId": "section-custom-origin-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-custom-origin-monk-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-008",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-paladin",
+      "targetBlockId": "block-section-custom-origin-paladin-1",
+      "optionId": "section-custom-origin-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-custom-origin-paladin-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-009",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-ranger",
+      "targetBlockId": "block-section-custom-origin-ranger-1",
+      "optionId": "section-custom-origin-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-custom-origin-ranger-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-010",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-rogue",
+      "targetBlockId": "block-section-custom-origin-rogue-1",
+      "optionId": "section-custom-origin-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-custom-origin-rogue-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-011",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-sorcerer",
+      "targetBlockId": "block-section-custom-origin-sorcerer-1",
+      "optionId": "section-custom-origin-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-custom-origin-sorcerer-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-012",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-warlock",
+      "targetBlockId": "block-section-custom-origin-warlock-1",
+      "optionId": "section-custom-origin-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-custom-origin-warlock-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-013",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-custom-origin-wizard",
+      "targetBlockId": "block-section-custom-origin-wizard-1",
+      "optionId": "section-custom-origin-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-custom-origin-wizard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-014",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-artificer",
+      "targetBlockId": "block-section-default-artificer-1",
+      "optionId": "section-default-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-default-artificer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-elf-2014-015",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-barbarian",
+      "targetBlockId": "block-section-default-barbarian-1",
+      "optionId": "section-default-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-default-barbarian-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-016",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-bard",
+      "targetBlockId": "block-section-default-bard-1",
+      "optionId": "section-default-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-default-bard-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-017",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-cleric",
+      "targetBlockId": "block-section-default-cleric-1",
+      "optionId": "section-default-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-default-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-018",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-druid",
+      "targetBlockId": "block-section-default-druid-1",
+      "optionId": "section-default-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-default-druid-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-019",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-fighter",
+      "targetBlockId": "block-section-default-fighter-1",
+      "optionId": "section-default-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-default-fighter-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-020",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-monk",
+      "targetBlockId": "block-section-default-monk-1",
+      "optionId": "section-default-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-default-monk-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-021",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-paladin",
+      "targetBlockId": "block-section-default-paladin-1",
+      "optionId": "section-default-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-default-paladin-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-022",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-ranger",
+      "targetBlockId": "block-section-default-ranger-1",
+      "optionId": "section-default-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-default-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-elf-2014-023",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-rogue",
+      "targetBlockId": "block-section-default-rogue-1",
+      "optionId": "section-default-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-default-rogue-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-024",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-sorcerer",
+      "targetBlockId": "block-section-default-sorcerer-1",
+      "optionId": "section-default-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-default-sorcerer-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-025",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-warlock",
+      "targetBlockId": "block-section-default-warlock-1",
+      "optionId": "section-default-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-default-warlock-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-elf-2014-026",
+      "articleId": "rpgbot-half-elf-2014",
+      "translationRevisionId": "translation-rpgbot-half-elf-2014-draft1",
+      "sectionId": "section-default-wizard",
+      "targetBlockId": "block-section-default-wizard-1",
+      "optionId": "section-default-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-default-wizard-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

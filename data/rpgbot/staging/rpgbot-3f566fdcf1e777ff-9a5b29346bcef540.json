@@ -1,0 +1,2353 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "9a5b29346bcef5407cb95bae1c44276ef16471d76ea6301abc2feb102ebc2f12",
+  "sourceRevision": {
+    "revisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+    "sourceId": "rpgbot-3f566fdcf1e777ff",
+    "fetchedAt": "2026-09-29T19:12:17.648747+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:36:11-04:00",
+    "contentHash": "be875825076e9add25759c1f7d22c7db628fa11721a899ee28e0790ff670a3b6",
+    "title": "Purple Dragon Knight Fighter 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-3f566fdcf1e777ff-9a5b29346bcef540.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In the nation of Cormyr, far to the East of Waterdeep and Baldur’s Gate, there is an elite military order known as the Purple Dragon Knights (or PDK for short). These highly-trained officers are one of Cormyr’s two elite military designations (the other being the "
+            },
+            {
+              "type": "link",
+              "text": "War Wizards",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/war-magic/"
+            },
+            {
+              "type": "text",
+              "text": "). The Purple Dragon Knight subclass takes inspiration from this idea of being a leader on the battlefield with elite training by upgrading the existing Fighter features with new support riders."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re looking to play a Fighter with a splash of Face and additional support tools, the PDK (also known as a Banneret outside of Cormyr) has you covered. While other subclasses might have new actions the Fighter can use on the battlefield, the PDK instead adds new support effects that activate when using the standard Fighter features of Second Wind, Action Surge, and Indomitable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The PDK works best in a balanced party. Taking on the traditional Fighter role of primarily single-target damage in combat, the subclass features work without getting in the way of your action economy. Outside of combat, the PDK becomes an excellent Face for the party due to free Expertise in Persuasion."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s true that if you wanted to have more support or a deeper investment into Face skills, another class could be better, but the PDK is how you accomplish these goals while also being a Fighter. If you want your Action Surges and your Fighter Extra Attacks and additional Feats while also having some support tools and Face skills, then you want to join the Purple Dragon Knights."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Purple Dragon Knight Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Purple Dragon Knight Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Purple Dragon Knight Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Purple Dragon Knight Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Purple Dragon Knight Weapons and Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-weapons-and-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Purple Dragon Knight Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Purple Dragon Knight Build – Traitor to the Crown",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#example-purple-dragon-knight-build-traitor-to-the-crown"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Purple Dragon Knight Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Rallying Cry"
+              },
+              {
+                "type": "text",
+                "text": ": This isn’t a ton of\n\t\thealing, but it doesn’t need to be. This is effectively Mass Healing Word\n\t\twith a few restrictions in exchange for it not being a spell. It does affect\n\t\tunconscious allies, as "
+              },
+              {
+                "type": "link",
+                "text": "the\n\t\tUnconscious condition was not intended to deafen creatures",
+                "href": "https://youtu.be/u67o2kE6InA?t=1352"
+              },
+              {
+                "type": "text",
+                "text": " according\n\t\tto Jeremy Crawford."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Royal Envoy"
+              },
+              {
+                "type": "text",
+                "text": ": Persuasion is the king of\n\t\tsocial skills, and Expertise with it will go a very long way, \ncompensating for even a more modest Charisma score. The free skill proficiency is nice, too, but if\n\t\tyou’re planning to play a Face, then you probably have both Persuasion and\n\t\tIntimidation, and quite possibly have Insight as well. Animal Handling is\n\t\tfun flavor for a knight, but not especially useful since mounted combat is\n\t\tsuch a niche option in 5e. If you start your build planning to be a Purple\n\t\tDragon Knight, you might leave Insight or Intimidation open so that you can\n\t\tmake use of this free proficiency."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Inspiring Surge"
+              },
+              {
+                "type": "text",
+                "text": ": Use this on a Rogue if at\n\t\tall possible. Rogues can Sneak Attack once "
+              },
+              {
+                "type": "emphasis",
+                "text": "per turn"
+              },
+              {
+                "type": "text",
+                "text": ", not once per\n\t\tround, so they could in theory sneak attack hundreds of times if enough\n\t\tpeople could give the Rogue a free attack on their turns. (This has been\n\t\texplained several times by WotC’s designers in various places.) Remember\n\t\tthat this needs to be a weapon attack, and it’s only one attack, so \nbarring a Rogue, anyone else that can make a big solid hit (Raging Barbarian, Ranger with Hunter’s Mark, Hexblade Warlock, Paladin with Smites, etc.) will do."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bulwark"
+              },
+              {
+                "type": "text",
+                "text": ": Rerolls on saving throws are\n\t\tfantastic, especially on mental saves which can often take you and your\n\t\tallies out of a fight."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-purple-dragon-knight-ability-scores",
+      "heading": "Purple Dragon Knight Ability Scores",
+      "sourceAnchor": "purple-dragon-knight-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-purple-dragon-knight-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The PDK is a Fighter and still wants to Fight."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-purple-dragon-knight-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": We’ll need this to hit things, unless we’re going to be a Dex Fighter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-purple-dragon-knight-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": We’ll use this for AC and maybe hitting things if we’re not a Strength Fighter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-purple-dragon-knight-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Dying isn’t very becoming of a Knight."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-purple-dragon-knight-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": I wish there were more uses for this score, but oh well that’s just 5e for you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-purple-dragon-knight-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Wisdom saves can really mess you up, but we can’t stretch our points too far."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-purple-dragon-knight-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": We’ve got a nice boost to Persuasion, but we can always use a little extra bump in the Deception and Intimidation departments."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-purple-dragon-knight-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 (8)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 (10)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 (15)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 (15)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-purple-dragon-knight-races",
+      "heading": "Purple Dragon Knight Races",
+      "sourceAnchor": "purple-dragon-knight-races",
+      "blocks": [
+        {
+          "blockId": "block-section-purple-dragon-knight-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "What "
+            },
+            {
+              "type": "link",
+              "text": "works for the Fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/races/"
+            },
+            {
+              "type": "text",
+              "text": " works for the PDK."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-purple-dragon-knight-feats",
+      "heading": "Purple Dragon Knight Feats",
+      "sourceAnchor": "purple-dragon-knight-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-purple-dragon-knight-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For the most part, you can check out the "
+            },
+            {
+              "type": "link",
+              "text": "class handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#feats"
+            },
+            {
+              "type": "text",
+              "text": " for Feat suggestions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-purple-dragon-knight-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Skill Expert"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": We’re getting Expertise in Persuasion, which is great, but we could also pick up Expertise in Insight to help in our Negotiations.\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-purple-dragon-knight-weapons-and-armor",
+      "heading": "Purple Dragon Knight Weapons and Armor",
+      "sourceAnchor": "purple-dragon-knight-weapons-and-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-purple-dragon-knight-weapons-and-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The versatile choice of "
+            },
+            {
+              "type": "link",
+              "text": "weapons",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#weapons"
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "text": "armor",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#armor"
+            },
+            {
+              "type": "text",
+              "text": " available to Fighters applies to PDKs who are not beholden to any particular fighting style."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-purple-dragon-knight-multiclassing",
+      "heading": "Purple Dragon Knight Multiclassing",
+      "sourceAnchor": "purple-dragon-knight-multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-purple-dragon-knight-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Refer to the "
+            },
+            {
+              "type": "link",
+              "text": "The Fighter Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": " for more information on Multiclassing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-purple-dragon-knight-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Warlock"
+              },
+              {
+                "type": "text",
+                "text": ": Most of our important features, Second Wind and Action Surge, come back on a Short Rest just like Pact Magic. You could choose Hexblade to pile everything into Charisma, but you don’t actually have to because nothing in our features requires us to use Weapons. You could dip 2 levels into Warlock for Eldritch Blast and Agonizing Blast. Action Surge Eldritch Blast is incredibly strong."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+      "heading": "Example Purple Dragon Knight Build – Traitor to the Crown",
+      "sourceAnchor": "example-purple-dragon-knight-build-traitor-to-the-crown",
+      "blocks": [
+        {
+          "blockId": "block-section-example-purple-dragon-knight-build-traitor-to-the-crown-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For today’s example we’ll be twisting one of Cormyr’s finest PDK into a traitor, corrupted into an Undead Warlock Pact with the dracolich "
+            },
+            {
+              "type": "link",
+              "text": "Aurgloroasa",
+              "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+            },
+            {
+              "type": "text",
+              "text": ". This gives us a ranged Striker with some control and support options."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re putting a +2 into Dexterity and +1 into Constitution. We’re intentionally leaving the Charisma score odd so that we can increase it with a hybrid feat at 4th."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gem Dragonborn. Yes, we’re a Purple (Amethyst) Dragon Purple Dragon Knight. Yes, I picked it because it was funny. Any flavor of Fizban’s Dragonborn technically works. Force Damage Breath Weapon is conveniently a solid choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re taking Faceless in order to gain Deception and Intimidation proficiencies right away. Disguise kit is ok, but you’re free to trade that out if you want. Choose languages appropriate to your campaign."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Fighter we’re going to choose Acrobatics and Insight. This allows us to start with most of the typical face skills when added to our Background skills. When we reach Fighter 7, Royal Envoy will grant us Persuasion with Expertise, the last skill we need."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As mentioned above, we’ve left Charisma intentionally odd at creation. This is so that we can choose the Dragon Fear feat, giving us an alternative use for our Breath Weapon to inflict Frightened. This build then nearly immediately detours into Undead Warlock for two levels before returning to Fighter, picking up Eldritch Blast for another reason to boost Charisma at Fighter 6 and 8, a little behind the "
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": ", but not too far and not for long."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Fighter 4th, we take Dragon Fear and bump Charisma to 16."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Fighter 6th, we take an ASI for +2 Charisma, reaching 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Fighter 8th, we take another ASI for +2 Charisma, reaching 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This leaves our Dexterity at 16 and seems to counterintuitively negate the benefits of the Fizban’s Breath Weapon, being part of an Attack Action. We are, after all, built to use Eldritch Blast with Fighter defenses. Worry not. Thanks to the Archery style we never fall behind the math with a Bow. We’ll only need to use our Breath Weapon a few times per day, and on those rounds we’ll simply fire our Bow instead of Eldritch Blast."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Fighter 12th, we have options. This example will take an ASI for +2 Constitution, to 18, as it boosts both our HP and our Breath Weapon DC. Alternatively, we could be taking War Caster to add extra protection to our Concentration on Hex or we could take the Tough feat if we want more HP faster. A third option to add a more powerful burst round once per day is Metamagic Adept for Quickened spell."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Fighter 14th, we continue our Constitution ASI with another +2, hitting 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Fighter 16th, we’ll be taking Tough but any of the alternatives discussed above at 12th level are still on the table depending on your preferences."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build chooses to multiclass for flavor reasons with an Undead Warlock dip. You could just take all your levels in Fighter and do Sharpshooter with Crossbow Expert instead of boosting Charisma to 20. Polearm Master with Great Weapon Master is also a valid choice. Alternatively, you could jump back into Warlock after picking up Inspiring Surge if you want Pact Boons and more Invocations."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This highlights the good part of Purple Dragon Knight: the features don’t care what fighting style you use. We’ll be using Action Surge with a little more strategy by holding it until an ally is ready to use the granted reaction, and we might hold back on Second Wind so that multiple people can benefit from the healing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1- Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Archery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Intimidation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grab some Medium Armor and a Longbow. Thanks to the Archery Fighting Style, we’re actually ahead of the math with this weapon."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We pickup most of the face skills now, leaving Persuasion for later when we receive it from the Royal Envoy feature."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Keep in mind that our Archery style will remain useful after we get Eldritch Blast because of the way our Breath Weapon works with the Attack Action. The +2 compensates for staying at 16 Dexterity. Shots from a bow still trigger Hex and Form of Dread after all."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2- Fighter 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge: Strongest feature in the game."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3- Fighter 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Subclass: Purple Dragon Knight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rallying Cry"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rallying Cry is basically Mass Healing Word once per short rest. We can use this in a similar situation: One or two allies have fallen to 0 HP and we need to pick them up."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4- Fighter 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Dragon Fear+1 Charisma (16)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dragon Fear gives us a new way to use our Breath Weapon charges. If we’re fighting particularly agile foes with low Wisdom saves, we can switch things up and hit them with this."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5- Warlock 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Subclass: Undead Patron"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Eldritch Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Hex"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Form of Dread"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Time for Lasers! "
+                },
+                {
+                  "type": "link",
+                  "text": "Aurgloroasa",
+                  "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+                },
+                {
+                  "type": "text",
+                  "text": " commands it!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But for real, Eldritch Blast is a great use of Action Surge. Hex is also pretty great both for the damage boost and because we can give other creatures Disadvantage on ability checks with no save (Charisma or Wisdom in social situations)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Form of Dread gives us another way to apply Frightened as well as a minor amount of temporary hit points. More importantly, it prevents us from being Frightened."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6- Warlock 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Agonizing Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Repelling Blast"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is a typical Invocation loadout:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Agonizing Blast so we can do better damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Repelling Blast so that when we Frighten targets they get stuck standing at long distance like fools."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7- Fighter 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we can make an attack and use our Breath Weapon in the same Action. If we’re not using our Breath Weapon, we’ll be using Eldritch Blast instead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8- Fighter 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Charisma +2 (18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better lasers, better Form of Dread and Dragon Fear save DCs."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9- Fighter 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Royal Envoy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Persuasion Expertise"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we’re very convincing. A right proper face. Why we’ll be able to acquire so much for the Cult of the Dragon and the glory of "
+                },
+                {
+                  "type": "link",
+                  "text": "Aurgloroasa",
+                  "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10- Fighter 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Charisma +2 (20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Same as last ASI. Better lasers and DCs."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11- Fighter 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Get a do-over for a Saving Throw. Resist those Zone of Truth spells that would have you betray her that gave you everything, "
+                },
+                {
+                  "type": "link",
+                  "text": "Aurgloroasa",
+                  "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also, important side-note: We get three lasers per cast now."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12- Fighter 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Inspiring Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We already love to use Action Surge for all the lasers. Now an ally can get in on the fun by making an attack as a reaction. Nice feature that we’ll use constantly."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13- Fighter 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we can make two attacks whenever we use our Breath Weapon. Nice I guess."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14- Fighter 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2 (18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More HP. Higher Breath Weapon save DCs."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15- Fighter 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More rerolls. Still nice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16- Fighter 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2 (20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More HP. Higher Breath Weapon save DCs. Really not much to say about these. Numbers go up."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17- Fighter 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bulwark"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now whenever we have to reroll a failed mental save, allies who failed the same save also get a reroll. It’s not bad, but it will come up a little less than Inspiring Surge and Rallying Cry because it happens from Saving Throws."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But don’t let that get you down. "
+                },
+                {
+                  "type": "link",
+                  "text": "Aurgloroasa",
+                  "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+                },
+                {
+                  "type": "text",
+                  "text": " has seen fit to let us fire four lasers per cast now."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18- Fighter 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Tough"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Get Tough, have more HP."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19- Fighter 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (2)Indomitable (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A second use per short rest of our best ability. Which means even more Inspiring Surge. Yay!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable too, I guess."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20- Fighter 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Inspiring Surge (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We just got a second use of Action Surge and by extension Inspiring Surge. Now every time we use it, two allies get to take a swing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Nice capstone."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Purple Dragon Knight Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Rallying Cry"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Royal Envoy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Inspiring Surge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bulwark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Warlock"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-purple-dragon-knight-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-purple-dragon-knight-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-purple-dragon-knight-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-purple-dragon-knight-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-purple-dragon-knight-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-purple-dragon-knight-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-purple-dragon-knight-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-purple-dragon-knight-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-purple-dragon-knight-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-purple-dragon-knight-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-purple-dragon-knight-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-purple-dragon-knight-weapons-and-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-purple-dragon-knight-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-purple-dragon-knight-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-purple-dragon-knight-build-traitor-to-the-crown-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2446,
+    "sections": 17,
+    "blocks": 41,
+    "tables": 3,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

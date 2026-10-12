@@ -1,0 +1,74 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "rogue-arcane-trickster-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+    "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db"
+  },
+  "exampleSection": "section-example-build-small-and-tricksy",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "subclassKey": "ARCANE_TRICKSTER",
+  "raceKey": "FAIRY_MPMM",
+  "backgroundKey": "HAUNTED_ONE",
+  "abilityScores": { "STR": 8, "DEX": 15, "CON": 14, "INT": 15, "WIS": 10, "CHA": 8 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 1 },
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "ARCANE_TRICKSTER", "spells": { "cantripKeys": ["booming-blade", "light"], "knownSpellKeys": ["silvery-barbs", "silent-image", "find-familiar"] } },
+    { "level": 4, "featKey": "SKILL_EXPERT", "featOptions": [{ "optionNameEng": "Skill Expert (DEX)" }, { "optionNameEng": "Skill Expert Proficiency (PERSUASION)" }, { "optionNameEng": "Skill Expert Expertise (PERSUASION)" }], "section": "section-feats", "spells": { "knownSpellKeys": ["illusory-script"] } },
+    { "level": 5 },
+    { "level": 6, "expertise": ["INVESTIGATION", "SLEIGHT_OF_HAND"] },
+    { "level": 7, "spells": { "knownSpellKeys": ["phantasmal-force"] } },
+    { "level": 8, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }], "section": "section-feats", "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 9 },
+    { "level": 10, "featKey": "FEY_TOUCHED", "featOptions": [{ "optionNameEng": "FEY_TOUCHED Ability (Intelligence)" }], "section": "section-feats", "spells": { "cantripKeys": ["prestidigitation"] }, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 11, "spells": { "knownSpellKeys": ["invisibility"] } },
+    { "level": 12, "featKey": "RESILIENT", "featOptions": [{ "optionNameEng": "Resilient (Constitution)" }], "section": "section-feats" },
+    { "level": 13, "spells": { "knownSpellKeys": ["major-image"] } },
+    { "level": 14, "spells": { "knownSpellKeys": ["haste"] } },
+    { "level": 15 },
+    { "level": 16, "featKey": "SHADOW_TOUCHED", "featOptions": [{ "optionNameEng": "SHADOW_TOUCHED Ability (Intelligence)" }], "section": "section-feats", "spells": { "knownSpellKeys": ["hypnotic-pattern"] }, "replaceSpell": { "drop": "invisibility", "add": "mirror-image" } },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "featKey": "CHEF", "featOptions": [{ "optionNameEng": "CHEF Ability (Constitution)" }], "section": "section-feats", "spells": { "knownSpellKeys": ["greater-invisibility"] } },
+    { "level": 20, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] }
+  ],
+  "incomplete": [
+    { "field": "Експертиза в інструментах", "reason": "На 1-му рівні автор бере Експертизу в інструментах злодія й Непомітності; експертиза в інструментах платформою не підтримана, тому замість інструментів злодія взято Уважність — вибір платформи.", "section": "section-skills-and-tools" },
+    { "field": "Рівень 4: Експерт у навичках", "reason": "Автор лишає навичку риси гнучкою; взято перший названий приклад: володіння й експертиза в Переконанні.", "section": "section-skills-and-tools" },
+    { "field": "Заклинання риси «Доторк феї» та «Доторк тіні»", "reason": "Автор бере обидві риси на 10-му й 16-му рівнях і не називає заклинання 1-го рівня; платформа не має вибору заклинань риси на підвищенні, тож вони на рівнях не записані.", "section": "section-feats" },
+    { "field": "Заклинання 8-го й 20-го рівня", "reason": "Автор на 8-му та 20-му рівнях пише «див. текст» і не називає заклинань; їх обирає гравець.", "section": "section-levels" },
+    { "field": "Набір мисливця на монстрів", "reason": "Безкоштовний набір мисливця на монстрів від Переслідуваного платформа не відтворює як спорядження.", "section": "section-background" }
+  ],
+  "preset": {
+    "title": "Пройдисвіт — Містичний спритник, Фея (Маленький і хитрий)",
+    "description": "Пройдисвіт-Містичний спритник з Феєю за правилами Таші та налаштованим Переслідуваним: Магія й Історія, набір фальшивомонетника замість мови, експертиза в Непомітності.",
+    "subraceKey": null,
+    "racialAbilities": ["DEX", "INT", "DEX"],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": ["PERCEPTION", "STEALTH", "INVESTIGATION", "SLEIGHT_OF_HAND"],
+      "race": [],
+      "background": ["ARCANA", "HISTORY"]
+    },
+    "backgroundCustomization": { "tools": ["FORGERY_KIT"] },
+    "expertise": ["STEALTH", "PERCEPTION"],
+    "classOptions": [],
+    "languages": ["DRACONIC", "SYLVAN"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Фея за правилами Таші: +2 до Спритності й +1 до Інтелекту, тож Спритність 17 і Інтелект 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Уважність, Непомітність, Розслідування й Спритність рук — від Пройдисвіта, Магія та Історія — від налаштованого Переслідуваного, набір фальшивомонетника замість однієї мови (правило PHB «Налаштування передісторії»), Драконяча мова — залишена за автором. Експертиза: Непомітність — за автором, а друге місце замість інструментів злодія (їх платформа не вміє) ми заповнили Уважністю за вас — вибір платформи. Другу мову (Сильванську) теж обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор згадує лук і рапіру, але набору не називає: рапіру, короткий лук, набір грабіжника, шкіряну броню, інструменти злодія й два кинджали ми обрали за вас — вибір платформи."
+  }
+}

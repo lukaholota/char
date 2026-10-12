@@ -1,0 +1,1744 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-3cce29c35783f388",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+      "sourceId": "rpgbot-3cce29c35783f388",
+      "fetchedAt": "2026-09-29T19:12:00.883581+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:51:54-04:00",
+      "contentHash": "655598043c3e847caee8874422308d27c846ab5ac442cf24957c29ae054b1040",
+      "title": "Arcane Trickster Rogue 5e: DnD Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-3cce29c35783f388-c465300616def7db.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-rogue-arcane-trickster-2014",
+    "sourceId": "rpgbot-3cce29c35783f388",
+    "slug": "rogue-arcane-trickster-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Містичний спритник — гайд підкласу Пройдисвіта (2014)",
+    "titleEn": "Arcane Trickster Rogue 5e: DnD Subclass Guide",
+    "topics": [
+      "Пройдисвіт",
+      "Містичний спритник",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Містичний спритник від самого початку був популярним архетипом. Головний недолік користувача аркана — тендітність і помітність. Містичний спритник виправляє одну з цих проблем, роблячи вас набагато менш помітним ціною того, що ви не повноцінний заклинатель. Хоч це, безумовно, висока ціна, унікальні здібності підкласу того варті для багатьох гравців, особливо можливість робити "
+                },
+                {
+                  "type": "link",
+                  "text": "круті речі з «Магічною рукою»",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Ветерани редакції 3.5 також помітять, що весь клас крадія заклять (spellthief) вкотився в уміння 17-го рівня Містичного спритника, що здається цілком доречним з огляду на те, як мало грали цим класом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей підклас дозволить вам утілити фантазію про використання магії проти нічого не підозрюючих людей — як для легковажних витівок, так і для прямого вбивства. Памʼятайте: так само, як Потойбічний лицар, ви граєте не як заклинатель. Ви граєте як Пройдисвіт, що випадково має магічні здібності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також радимо наш "
+                },
+                {
+                  "type": "link",
+                  "text": "розбір списку заклинань Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": ", що використовується виключно для Містичних спритників."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Містичного спритника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Містичного спритника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#arcane-trickster-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Містичного спритника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#arcane-trickster-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Містичного спритника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#arcane-trickster-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Містичного спритника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#arcane-trickster-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Містичного спритника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#arcane-trickster-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Маленький і хитрий",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#example-build-small-and-tricksy"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/arcane-trickster/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Містичного спритника",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Чародійство{{Spellcasting}}: визначальне уміння Містичного спритника. Для заклинань з рівнями ви майже виключно обмежені заклинаннями зачарування й ілюзії, але обидві ці школи чудово працюють для Містичних спритників. Обираючи заклинання, памʼятайте, що «Підступна атака»{{Sneak Attack}} вимагає атак зброєю на основі Спритності, тож застосувати її до заклинальних атак не можна. Натомість ви зазвичай покладатиметеся на заклинання на кшталт «Гримучого Клинка [Booming Blade]» і «Клинка тіні [Shadow Blade]». Допомогу з вибором заклинань шукайте в нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "розборі списку заклинань Пройдисвіта",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/spells/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спритність Руки Мага{{Mage Hand Legerdemain}}: керування рукою бонусною дією означає, що ви можете зламувати замки й красти з кишень, роблячи інші речі, як-от бʼючись чи накладаючи інші заклинання, а оскільки рука невидима, її можна відправити робити це непомітно, поки ви з союзниками заклопотані тим, щоб ховатися, битися, гуляти чи що ви ще робите зі своїм днем."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Магічна засідка{{Magical Ambush}}: оскільки СК ваших заклинань, імовірно, не буде такою хорошою, як у профільного заклинателя, це може дуже допомогти підвищити надійність ваших заклинань. Я все ще побоююся рекомендувати заклинання, що вимагають ряткидків, як основний варіант для Містичного спритника, але математично це має сенс. Перешкода на кубику дорівнює трохи більше ніж штрафу −3, тож якщо ваш Інтелект 14 чи вищий, ваші заклинання можуть бути приблизно такими ж надійними, як у чарівника з Інтелектом 20."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Універсальний шахрай{{Versatile Trickster}}: Перевага дозволяє завдати цілі «Підступну атаку», і це головна привабливість «Універсального шахрая». Проте в нього є проблемні обмеження через обмеження «Магічної руки [Mage Hand]». «Магічна рука» вимагає дії для накладання, а тривалість у 1 хвилину означає, що ви, імовірно, накладатимете її в бою або на безпечній відстані, перш ніж кинутися переміщати руку туди, де очікуєте бою. Це можна було б просто вирішити, дозволивши Містичному спритнику накладати «Магічну руку» бонусною дією, але ми живемо не в такому світі, а риса чи занурення в клас заради «Пришвидшеного заклинання»{{Quickened Spell}} надто дорогі, щоб це виправдати.\n\nЩойно ваша «Магічна рука» зʼявилася, вам треба тримати руку в межах дальності цілі. Ви можете використовувати «Хитру дію»{{Cunning Action}}, щоб рухати руку завдяки «Спритності Руки Мага», а вороги не знатимуть, що ви це робите, бо рука невидима. Проте це означає, що ви не користуєтеся «Хитрою дією», «Стійким прицілюванням»{{Steady Aim}} чи боєм двома зброями, і ви також не можете активувати ефект Переваги в той самий хід. Якщо ворог рухатиметься навіть трохи, він опиниться поза дальністю вашої руки, і вам доведеться знову її переміщати. По суті, ваша бонусна дія монополізована тим, що ваша рука ганяється за ворогами, щоб ви "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "іноді"
+                  },
+                  {
+                    "type": "text",
+                    "text": " могли отримати Перевагу. І це не кажучи про те, що «Магічна рука» зникає, якщо опиняється далі ніж за 30 футів від вас.\n\nУ кращому випадку це дублює додаткове класове уміння «Стійке прицілювання», і оскільки більшість Пройдисвітів робить лише одну атаку за хід, вони отримують ту саму користь. Можна використати «Універсального шахрая» із заклинальними атаками на кшталт «Розпеченого променя [Scorching Ray]», але завдати «Підступну атаку» дешевше й завдає порівнянної шкоди, тож це зазвичай погане поєднання. Набагато імовірніше, що ви використаєте руку, щоб здобути Перевагу перед атакою, коли ви з якоїсь причини не можете бути невидимими чи прихованими, а Майстер не дозволяє вам використати «Стійке прицілювання»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Крадій заклинань{{Spell Thief}}: очевидне використання — красти заклинання у ворожих заклинателів, але в грі, де ви можете кілька рівнів не бачити жодного заклинателя, кращим варіантом може бути «красти» заклинання в інших заклинателів вашої групи. На жаль, це складно, бо вони навряд чи провалять ряткидок, а це позбавляє вашого союзника відомого чи підготовленого заклинання на 8 годин, тож хоч це надійніше джерело, воно й дуже складне й дороге."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-arcane-trickster-ability-scores",
+          "heading": "Характеристики Містичного спритника",
+          "sourceAnchor": "arcane-trickster-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-arcane-trickster-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcane-trickster-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: визначальна характеристика Пройдисвітів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcane-trickster-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: оскільки два з наших найкращих заклинань вимагають ближнього бою, ми хочемо, щоб наші ХП не вичерпалися, коли наша схильність вилучати життєво важливі органи розлютить когось."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcane-trickster-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: живить ваші заклинання й усі навички на знання, які від вас очікуватимуть, бо ваші заклинання теж залежать від нього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcane-trickster-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: ми були б раді мати більше, але «Слизький розум»{{Slippery Mind}} допоможе згодом, а на це в нас немає бюджету."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcane-trickster-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcane-trickster-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-arcane-trickster-races",
+          "heading": "Раси Містичного спритника",
+          "sourceAnchor": "arcane-trickster-races",
+          "blocks": [
+            {
+              "blockId": "block-section-arcane-trickster-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раси з вродженим чаротворством будуть корисні і для розширення вашого обмеженого списку заклинань, і для використання переваг «Магічної засідки»{{Magical Ambush}}. Перешкода може зробити надійнішими заклинання, що використовують характеристику, у яку ви мало вкладаєтеся, якщо брати расу до «Казана Таші з усім», як-от будь-якого із «застарілих» тифлінгів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcane-trickster-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Феї з «Монстрів Мультивсесвіту» і так були чудовими Пройдисвітами, а Містичними спритниками вони "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "чудові"
+                },
+                {
+                  "type": "text",
+                  "text": ". Здивуйте когось «Вогниками фей [Faerie Fire]» з Перешкодою на ряткидок і насолоджуйтеся безкоштовною Перевагою на кубику й «Підступними атаками» по ньому до кінця бою. Здивуйте когось «Зменшенням» і посадіть його в коробку. Це добре проведений час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcane-trickster-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Юань-ті — ще один фантастичний вибір і завдяки вродженому «Навіюванню [Suggestion]», і через Перевагу на ряткидки проти заклинань, що є неймовірним захисним варіантом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-arcane-trickster-feats",
+          "heading": "Риси Містичного спритника",
+          "sourceAnchor": "arcane-trickster-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-arcane-trickster-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На відміну від інших Пройдисвітів, що здебільшого залежать від однієї характеристики (SAD), нам потрібен і високий Інтелект. Це означає, що для рис місця майже не буде, окрім гібридної на 4-му рівні, яку дозволяє оптимізована купівля характеристик. Якщо ви граєте Дроу, "
+                },
+                {
+                  "type": "link",
+                  "text": "«Ельфійська точність»",
+                  "href": "https://rpgbot.net/oops-all-elves/"
+                },
+                {
+                  "type": "text",
+                  "text": " — це практично чит, особливо в поєднанні з «Вогниками фей», проти яких цілі протягом другої половини вашої карʼєри робитимуть ряткидки з Перешкодою, якщо ви все робите правильно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcane-trickster-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Окрім цього, нічого, що варто виділяти порівняно з іншими Пройдисвітами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-arcane-trickster-weapons",
+          "heading": "Зброя Містичного спритника",
+          "sourceAnchor": "arcane-trickster-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-arcane-trickster-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від будь-якого іншого Пройдисвіта."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-arcane-trickster-armor",
+          "heading": "Обладунки Містичного спритника",
+          "sourceAnchor": "arcane-trickster-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-arcane-trickster-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від будь-якого іншого Пройдисвіта."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нагадування з "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Лицаря луни",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/"
+                },
+                {
+                  "type": "text",
+                  "text": ":"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воїн також може бути цікавою грою, якщо будувати його як Лицаря луни на основі Спритності. Формулювання в Лицаря луни таке: "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "ви"
+                },
+                {
+                  "type": "text",
+                  "text": " можете робити атаки, що походять із його місця. Це означає, що якщо "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "ви"
+                },
+                {
+                  "type": "text",
+                  "text": " сховані від вашої цілі, але все ще бачите її, атака матиме Перевагу на кубику, хоч це інтуїтивно безглуздо, бо Відлуння стоїть прямо поруч і фактично завдає атаки. Але за правилами «як написано» це робить завдання «підступних атак» дуже надійним, не хвилюючись про позиціонування групи чи інші чинники."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кілька рівнів Співця клинка — добре доповнення. Воно підніме ваш КБ до небес і допоможе проходити ряткидки Концентрації, але водночас відтерміновує ваше й так повільне чаротворство та рівень, на якому ви отримуєте «Магічну засідку», що для вас є неймовірним стрибком сили. Проте якщо ви відчуваєте, що ваша оборона справді хитається після 9-го рівня, це може допомогти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви готові зануритися на 3 рівні, можна стати SAD як Винахідник, ставши Зброярем чи Бойовим ковалем, що дозволить вкладати в Інтелект замість Спритності, подвійно якщо ви обираєте "
+                },
+                {
+                  "type": "link",
+                  "text": "Зброяра",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/armorer/"
+                },
+                {
+                  "type": "text",
+                  "text": " і модель броні «Лазутчик» і носите кірасу, щоб лишити Спритність на 14 без докорів сумління. Бойовий коваль дасть вам супутника, якому можна наказувати пересуватися, що дозволить відповідати вимогам «Підступної атаки», не наражаючи на небезпеку іншого персонажа гравця."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-small-and-tricksy",
+          "heading": "Приклад збірки — Маленький і хитрий",
+          "sourceAnchor": "example-build-small-and-tricksy",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-small-and-tricksy-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Історії про фейські хитрощі існують відтоді, відколи існують історії. Ми вирішили втілити ці історії в життя жахливо колючим способом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-small-and-tricksy-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Ви не можете називати мене низькорослою. Я розміром із фею.»"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-small-and-tricksy-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "— Тінкер Белл",
+                  "href": "https://www.youtube.com/watch?v=1QvmJ9KQihc"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-small-and-tricksy",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки в гайдах немає витівок із мультикласуванням, характеристики відповідають рекомендаціям вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-small-and-tricksy",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Фея{{Fairy}}. Вона хороша з усіх причин, описаних вище, і ми доводимо тактику «вдарив і втік», у якій Пройдисвіти чудові завдяки «Хитрій дії», на нові висоти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-small-and-tricksy",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми й так дуже добре робимо пройдисвітські речі й хочемо схилитися до високого Інтелекту, ми беремо Переслідуваного{{Haunted One}} заради Магії та Історії, а також безкоштовного набору мисливця на монстрів{{Monster Hunter’s Pack}}. Ми залишаємо одну мову (Драконячу) і міняємо іншу на володіння набором фальшивомонетника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-small-and-tricksy",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Будучи Пройдисвітом, ми отримуємо їх багато. Беремо володіння Уважністю, Непомітністю, Розслідуванням і Спритністю рук на першому рівні (а також безкоштовні інструменти злодія). Магія, Історія й набір фальшивомонетника походять із Переслідуваного, як зазначено вище, а на 4-му рівні ми візьмемо «Експерта у навичках»{{Skill Expert}}, щоб доповнити те, чого, на вашу думку, потребує ваша група.\n\nЦе може бути і володіння, і «Експертиза» в Переконанні, якщо вам бракує «обличчя», або розподіл володіння на іншу навичку Інтелекту, якщо вам бракує Друїда, Слідопита, Клірика чи Паладина, але все одно вкласти «Експертизу» в те, що вам важливіше, тощо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для «Експертизи» від класу ми почнемо з інструментів злодія й Непомітності, а потім риса на 4-му рівні гнучка (Спритність рук — ще один чудовий вибір, зважаючи на те, що ми щойно отримаємо «Спритність Руки Мага»). На 6-му рівні, якщо ми ще не взяли Спритність рук, зробіть це. У будь-якому разі, візьміть Розслідування."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-small-and-tricksy",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Експерт у навичках»{{Skill Expert}} на 4-му рівні й Покращення Характеристик Спритності на 8-му — не сюрприз. Оскільки Пройдисвіти отримують додаткове Покращення Характеристик порівняно з більшістю класів, 10-й — «Доторк феї»{{Fey Touched}}, іронію якого ми повністю ігноруємо. 12-й — «Стійкий»{{Resilient}} (Статура), тепер, коли у нас є заклинання Концентрації, які ми хочемо підтримувати. 16-й — «Доторк тіні»{{Shadow Touched}} заради ще більшої кількості заклинань і підтягування Інтелекту до 18, і нарешті 19-й бачить, як ми беремо «Кухаря»{{Chef}}, щоб доповнити Статуру й водночас дати груповий інструмент (обовʼязково їжте їжу, приготовану Феями, це чудова ідея)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-small-and-tricksy",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пройдисвіт один"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза\nЗлодійська мова\nПідступна атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Експертиза» в Непомітності й інструментах злодія на першому рівні — те, що робить Пройдисвіта неймовірним у стовпі дослідження, а «Підступна атака» — його великий внесок у бій. Як стартове спорядження візьміть шкіряний обладунок, рапіру, короткий лук і набір зломщика. Зробіть звичкою щовечора забивати скелелазні кілки, щоб змайструвати собі невеликий гамак для сну.\n\nУ бою ми використаємо те, що вміємо літати, щоб лишатися живими на рівні, де в нас лише 10 ХП. Лишайтеся в повітрі поза досягом істот і, якщо на вашому ході немає цілей, яким можна завдати «Підступну атаку», підготуйте дію вистрелити у ворожу істоту, щойно члени вашої групи опиняться поруч із нею."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер у вас є можливість пірнати в ближній бій і виринати з нього. Ваш перший хід має бути польотом на 15 футів над чиєюсь головою й підготовкою дії вистрелити, коли хтось наблизиться. На другому ході киньте лук, дістаньте рапіру, летячи вниз, проколіть ціль, бонусною дією зробіть Відступ і злетіть назад на 15 футів. Повторюйте за потреби."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Mage Hand]\n– Гримучий Клинок [Booming Blade]\n– Світло [Light]/Штукарство [Prestidigitation]\nЗаклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Silvery Barbs]\n– Мовчазний образ [Silent Image]\n– Пошук фамільяра [Find Familiar]\nСпритність Руки Мага"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми беремо «Магічну руку», бо її вимагає клас, але ми хотіли б її й так. Тепер ми можемо відчиняти двері й знешкоджувати пастки з 30 футів, щоб, якщо вона вибухне, вона не зачепила нас вибухом. Оскільки у вас немає Темного зору, візьміть «Світло», якщо ніхто ще не взяв, або «Штукарство», якщо взяв. Потім ми завершуємо замовляння єдиною атакою, яку ми колись робитимемо, якщо не знадобиться лук: «Гримучий Клинок». Він може застосовувати «Підступну атаку», і оскільки ми витрачаємо бонусну дію на Відступ і піднімаємося прямо вгору, ніщо, що не вміє літати, не зможе дати відсіч.\n\n«Але ж, Рендом, — скажете ви, — як це допоможе нашому члену групи, якому довелося стояти поруч із ними, щоб ми могли завдати «Підступну атаку»?» Не бійтеся. «Пошук фамільяра» й так мав бути в цьому списку, бо фамільяр може виконувати дію Допомога, щоб давати вам Перевагу на кубику на будь-яку перевірку навички під час дослідження.\n\nАле якщо взяти вашого фейського отруйного змія (так, я знаю, що насправді вона отруйна в сенсі «venomous», а не «poisonous» — звинувачуйте WotC) дух і носити його як шарф, він стає істотою, яку ваша ціль ближнього бою сприйматиме як ворога поруч із нею в момент атаки, що виконує всі передумови «Підступної атаки». Я повністю усвідомлюю, що це ще більший чит, ніж те, для чого я використовував фамільяра в гайді "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Шляху предків-охоронців",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", але за правилами «як написано» це працює.\n\nМайстер не дозволяє вам таке? Я його, власне, не звинувачую. А що, як натомість попросити когось із ваших повноцінних заклинателів використати замовляння з ряткидком, щоб ваша ціль успішно пройшла ряткидок або кидок атаки в якийсь момент раунду, застосувати «Сріблясті шпильки» на цей успіх і націлити другу половину на себе, тим самим давши Перевагу на кубику, а отже й «Підступну атаку» на ваш наступний «Гримучий Клинок».\n\n«Мовчазний образ» — останнє заклинання з рівнем, яке ми беремо на цьому рівні, і воно чудове для створення ілюзорної коробки, в якій можна ховатися в повітрі. Вважайте це дуже дешевою бойовою невидимістю. Ви зможете бачити крізь неї, а вороги — ні, якщо не витратять дію, намагаючись перевищити вашу СК перевіркою Інтелекту, найімовірніше без модифікаторів. Це означає, що ви кидаєте з Перевагою на кубику і, знову ж таки, «Підступна атака».\n\nПамʼятайте, що ви також отримуєте один безкоштовний каст «Вогників фей», а також можете використовувати слоти заклинань, щоб накласти повторно, якщо захочете. Накладіть його на щось незграбне, що, імовірно, провалить ряткидок Спритності, і тоді жодних читів не треба."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експерт у навичках (Спритність)\nЗаклинання:\n– Ілюзорний напис [Illusory Script]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми обговорили кілька варіантів «Експерта у навичках» у розділі «Риси» вступу до прикладу збірки. Що стосується заклинань, не можу придумати заклинання, що краще пасує Пройдисвітові з володінням набором фальшивомонетника, ніж це."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надприродне ухилення{{Uncanny Dodge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не впевнений, що по вас влучатиме з атаками, зважаючи на нашу тактику й відсутність польоту в більшості ворогів відповідного рівня, але ось ще одне, що ваша Реакція може робити, коли вона не «Сріблясті шпильки». Також памʼятайте, що тут ми отримуємо безкоштовне щоденне використання «Збільшення/Зменшення». У нас ще немає слотів, щоб накласти його повторно, але ви можете або робити кумедні речі, як-от зменшити себе, а отже важити приблизно 8 фунтів, що дозволить стояти на вашій невидимій «Магічній руці», або робити звичайні речі, як-от збільшити вашого танка, щоб він краще виконував контроль території."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза{{Expertise}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знову зверніться до розділу про навички вище."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення\nЗаклинання:\n– Уявна сила [Phantasmal Force]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Уявна сила» — просто неймовірне заклинання. Ряткидки Інтелекту достатньо низькі, щоб навіть на одиницю позаду «Фундаментальної математики» ваша СК, імовірно, спрацювала, і, на відміну від багатьох інших довготривалих виведень з ладу, у неї немає триваючого ряткидка. Знову ж таки, ціль може витратити свою Дію, досліджуючи, щоб розірвати ілюзію, але яка істота стане досліджувати анімовані залізні стрічки, що болісно вдавлюють її в підлогу? Навіть якщо вона це зробить, це тепер "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "перевірка"
+                    },
+                    {
+                      "type": "text",
+                      "text": " Інтелекту проти вашої СК."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність 18 → 20\nЗаклинання:\n– Див. текст"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут є кілька добрих варіантів для вашого заклинання, і все справді залежить від того, що потрібно вашій кампанії. Якщо ви намагаєтеся скрадатися в темряві й не змогли роздобути «Окуляри ночі», «Темний зір» дуже вам допоможе. Ви також підходите до рівнів, де опір до немагічної шкоди буде поширенішим. Якщо ви досі не знайшли магічної зброї, візьміть «Магічну зброю [Magic Weapon]», щоб виправити цю проблему.\n\nЯкщо жодне з цього не стосується, «Павутиння [Web]» — одне з найкращих заклинань для блокування території, особливо через те, що ми отримаємо на наступному рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічна засідка{{Magical Ambush}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це не дуже змінює вашу тактику, але безумовно робить вас набагато кращими в застосуванні заклинань «ряткидок або крах» перед боєм чи на його самому початку. Як згадано вище, математично це −3,5 на їхній кидок ряткидка, а це означає, що ви насправді попереду того, де були б повноцінні заклинателі, коли влаштовуєте магічну засідку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Доторк феї (Інтелект)\nЗамовляння:\n– Штукарство [Prestidigitation]/Розщеплення Розуму [Mind Sliver]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Причина, чому ми не взяли «Туманний крок» на 8-му рівні, хоч він і неймовірний, у тому, що ми отримуємо його тут як частину риси. Заразом ми візьмемо «Проклін [hex]» як заклинання 1-го рівня від «Доторку феї». Додаткова шкода непогана, але насамперед ми хочемо його тому, що це спосіб дати комусь Перешкоду на всі перевірки обраною характеристикою, і проти цього немає захисту.\n\nЯкщо ви готові витратити на нього слот заклинання 3-го рівня, накладіть його на щура й убийте щура на початку дня, щоб носити його з собою, бо бонусна дія для повторного застосування не потребує компонентів. Можна просто вирішити, що людина, яку ви намагаєтеся ввести в оману, погано проходить перевірки Мудрості (Аналіз Поведінки), або охоронець, повз якого ви намагаєтеся прокрастися, погано проходить перевірки Мудрості (Уважність), або навіть кандидат у мери, якого ви хочете, щоб програв дебати, погано проходить перевірки Харизми (Переконання). Справді багато можливостей.\n\nМи сумували через відсутність «Малого бажання»{{Minor Wish}} у нашому списку заклинань, тож тепер можемо додати його, якщо не взяли на першому рівні. Якщо воно в вас уже було, візьміть «Розщеплення Розуму [Mind Sliver]», щоб допомогти вашим заклинанням досягати цілі, якщо після першого ходу треба, щоб хтось зробив ряткидок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надійний талант\nЗаклинання:\n– Невидимість [Invisibility]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хоч ваша перевірка Непомітності тепер мінімум 23, бувають випадки, коли бути невидимим надто добре, щоб залишати на волю випадку. До речі про 23: це фактично нижня межа для будь-якої перевірки на основі Спритності, у якій ви маєте «Експертизу», а це, нагадуємо, 4 речі, зокрема інструменти злодія."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стійкий (Статура)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додавання +4 до ваших ряткидків Статури дуже допоможе підтримувати Концентрацію. На цьому етапі це математично краще, ніж «Бойовий заклинатель»{{War Caster}}, а ще ви так рідко опиняєтесь у позиції робити Принагідні атаки, що вам не потрібно замінювати її «Гримучим Клинком», і у вас вільна рука для компонентів, бо ви не користуєтеся щитом чи боєм двома зброями."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання:\n– Оживлений образ [Major Image]\nУніверсальний шахрай"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Оживлений образ» — неймовірний інструмент, щоб застосувати вашу творчість до світу. Нам також не потрібно брати «Достаток ворогів [Enemies Abound]» чи «Гіпнотичний візерунок», бо в нас уже є чудові виведення з ладу одиночних цілей і по області нижчих рівнів, тож свої слоти 3-го рівня ви здебільшого витрачатимете на підсилення накладання, доки не досягнете 14-го.\n\n«Універсальний шахрай» тут на той випадок, якщо ваш Майстер незадоволений вашим читом зі змієм-шарфом, а так він неважливий, бо нам не потрібна допомога з «Підступною атакою», і ми значно охочіше використаємо «Хитру дію» для Відступу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сліповідчуття\nЗаклинання:\n– Прискорення [Haste]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хоч приємно, що це сліповідчуття завжди ввімкнене, ви могли користуватися 10-футовим сліповідчуттям із 3-го рівня, бо можна просто користуватися чуттями вашого фамільяра (отруйна змія має 10-футовий сліпозір). Але приємно, що ця версія не відбирає у вас власний слух і зір. Ми — єдиний Пройдисвіт, якому не потрібна зовнішня допомога для прийому Пройдисвіт+«Прискорення».\n\nНакладіть «Прискорення» на себе. На цьому ході атакуйте додатковою Дією, застосовуючи «Підступну атаку». На наступному ході використайте додаткову Дію для «Підступної атаки», а потім Підготуйте вашу справжню Дію для Атаки, щойно те, поруч із чим ви стоїте, зробить буквально будь-що. Тепер ви на іншому ході й можете застосувати «Підступну атаку» знову."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слизький розум{{Slippery Mind}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер у вас є володіння трьома основними ряткидками."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Доторк тіні (Інтелект)\nПерепідготувати заклинання: Невидимість [Invisibility] → Віддзеркалення [Mirror Image]\nЗаклинання:\n– Гіпнотичний візерунок [Hypnotic Pattern]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Доторк тіні» підтягне ваш Інтелект до 18 і дасть нам «Маскування [Disguise Self]» на додачу до «Невидимості», що йде в комплекті. Це, у поєднанні зі «Збільшенням» від нашої раси, може дозволити нам зʼявлятися як будь-яка істота середнього розміру для пройдисвітських справ зі зливання з натовпом. «Віддзеркалення» — ще один чудовий захисний шар, якщо ми відчуваємо загрозу, і воно не потребує Концентрації. «Гіпнотичний візерунок» — інший контроль території, ніж «Павутиння», але, що важливо, він також більший і є одним з небагатьох добрих варіантів, які в нас є на цьому рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Крадій заклинань{{Spell Thief}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На жаль, оскільки це використовує вашу Реакцію, не можна «Вкрасти заклинання» в когось, а потім застосувати проти нього «Сріблясті шпильки», якщо він успішно пройде ряткидок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невловимий{{Elusive}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Фантастичний пасивний захисний баф."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кухар (Статура)\nЗаклинання:\n– Більша невидимість [Greater Invisibility]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Готуйте смачні ласощі якомога частіше, щоб розповсюджувати тимчасові ХП і тішитися тим, що ваша Статура зростає до 16. Нарешті «Більша невидимість». На жаль, на цьому етапі «Істинний зір» занадто поширений серед монстрів відповідного рівня, тож не покладайтеся на це, поки не переконаєтеся, що воно справді зробить те, що вам треба. Проте воно все одно дуже хороше.\n\nЯкщо воно вам справді не подобається (особливо оскільки ми завжди маємо звичайну «Невидимість» завдяки «Доторку тіні»), замініть його на «Уявну землю [Hallucinatory Terrain]», що є одним із найкрутіших заклинань у грі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шанс удачі\nЗаклинання:\n– Див. текст"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Шанс удачі» — гарна страховка. Щодо заклинань цього рівня, памʼятайте, що це може бути будь-яка школа. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "«Перевтілення»",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/polymorph"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Polymorph], «Чорні щупальця Еварда [Evard's Black Tentacles]» і «Двері між вимірами [Dimension Door]» — чудові варіанти залежно від того, що вам потрібно. «Форма каменю [Stone Shape]» доступна, якщо в жодного з ваших повноцінних заклинателів її немає. Якщо вам бракує тіл, візьміть «Зʼяву стихійника [Conjure Elemental]» і призвіть купу відволікань. Поганих варіантів тут небагато."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-001",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Чародійство",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-002",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Спритність Руки Мага",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-003",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Магічна засідка",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-004",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Універсальний шахрай",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-005",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Крадій заклинань",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-006",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-arcane-trickster-ability-scores",
+      "targetBlockId": "block-section-arcane-trickster-ability-scores-1",
+      "optionId": "section-arcane-trickster-ability-scores-block-section-arcane-trickster-ability-scores-1",
+      "context": "Сила",
+      "explanationBlockId": "block-section-arcane-trickster-ability-scores-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-007",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-arcane-trickster-ability-scores",
+      "targetBlockId": "block-section-arcane-trickster-ability-scores-2",
+      "optionId": "section-arcane-trickster-ability-scores-block-section-arcane-trickster-ability-scores-2",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-arcane-trickster-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-008",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-arcane-trickster-ability-scores",
+      "targetBlockId": "block-section-arcane-trickster-ability-scores-3",
+      "optionId": "section-arcane-trickster-ability-scores-block-section-arcane-trickster-ability-scores-3",
+      "context": "Статура",
+      "explanationBlockId": "block-section-arcane-trickster-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-009",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-arcane-trickster-ability-scores",
+      "targetBlockId": "block-section-arcane-trickster-ability-scores-4",
+      "optionId": "section-arcane-trickster-ability-scores-block-section-arcane-trickster-ability-scores-4",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-arcane-trickster-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-010",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-arcane-trickster-ability-scores",
+      "targetBlockId": "block-section-arcane-trickster-ability-scores-5",
+      "optionId": "section-arcane-trickster-ability-scores-block-section-arcane-trickster-ability-scores-5",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-arcane-trickster-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-rogue-arcane-trickster-2014-011",
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sectionId": "section-arcane-trickster-ability-scores",
+      "targetBlockId": "block-section-arcane-trickster-ability-scores-6",
+      "optionId": "section-arcane-trickster-ability-scores-block-section-arcane-trickster-ability-scores-6",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-arcane-trickster-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

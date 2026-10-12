@@ -1,0 +1,617 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-92e46fc6a85c6eea",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-92e46fc6a85c6eea-4bf67f566a729250",
+      "sourceId": "rpgbot-92e46fc6a85c6eea",
+      "fetchedAt": "2026-09-29T19:17:39.170756+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:39:44-04:00",
+      "contentHash": "b55d9b4b16c20e56962371aede658bc990391e658149bc86c4a0fc78ab9a4e04",
+      "title": "Skilled, Skill Expert, and Skill-Related Feats: DnD 5e Feat Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-92e46fc6a85c6eea-4bf67f566a729250.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-skill-expert-skilled-prodigy-2014",
+    "sourceId": "rpgbot-92e46fc6a85c6eea",
+    "slug": "skill-expert-skilled-prodigy-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Експерт у навичках, Умілець і Вундеркінд — гайд рис (2014)",
+    "titleEn": "Skilled, Skill Expert, and Skill-Related Feats: DnD 5e Feat Guide",
+    "topics": [
+      "feats"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-skill-expert-skilled-prodigy-2014-draft1",
+      "articleId": "rpgbot-skill-expert-skilled-prodigy-2014",
+      "sourceRevisionId": "rpgbot-92e46fc6a85c6eea-4bf67f566a729250",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У D&D 5e більшість персонажів починає з кількома володіннями навичками від раси, класу й передісторії та за всю карʼєру більше не вивчає нових. Для тих, хто хоче навчитися чогось нового, є два варіанти: мультикласування або риси. Ця стаття зосереджена на рисах для отримання володінь і коротко розглядає інші риси, що дають бонуси до навичок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Три риси дають володіння навичками: {{Умілець|Skilled}}, {{Експерт у навичках|Skill Expert}} та {{Вундеркінд|Prodigy}}. Ще кілька рис надають бонуси до навичок, відмінні від володіння. Ми докладно розглянемо переваги й недоліки перших трьох, а потім коротко порівняємо інші з простим отриманням Експертизи завдяки Експерту у навичках."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За додатковими порадами й натхненням щодо використання навичок та інструментів у грі радимо інші статті цієї серії: "
+                },
+                {
+                  "type": "link",
+                  "text": "практичний гайд інструментів",
+                  "href": "https://rpgbot.net/dnd5/characters/tools/"
+                },
+                {
+                  "type": "text",
+                  "text": " і "
+                },
+                {
+                  "type": "link",
+                  "text": "практичний гайд непрактичних перевірок навичок",
+                  "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Умілець",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#skilled"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Експерт у навичках",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#skill-expert"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Вундеркінд",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#prodigy"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інші риси для навичок",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#additional-skillrelated-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Актор",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#actor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Дослідник підземель",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#dungeon-delver"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Спостережливий",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#observant"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Скритний",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#skulker"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skilled",
+          "heading": "Умілець",
+          "sourceAnchor": "skilled",
+          "blocks": [
+            {
+              "blockId": "block-section-skilled-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перша з трьох рис зʼявилася у "
+                },
+                {
+                  "type": "link",
+                  "text": "Книзі Гравця (2014)",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": " і є найпростішою: отримайте володіння трьома навичками або інструментами. Риса давня, але досі корисна кожному, кому справді потрібні додаткові навички. Її цінність особливо залежить від того, які навички вже покриває група та скількома володієте ви."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skilled-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раси дають від 0 до 2 навичок, класи — від 2 до 4, а всі передісторії — 2. Отже, залежно від раси й класу персонаж на 1-му рівні може мати від 4 до 8 навичок. Якщо у вас лише 4, додати ще 3 — майже подвоїти можливості. Перехід від 8 до 11 також може бути корисним залежно від обраних навичок, складу групи й конкретної збірки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skilled-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна отримати володіння інструментами, але витрачати рису саме так не радимо. "
+                },
+                {
+                  "type": "link",
+                  "text": "Інструменти корисні",
+                  "href": "https://rpgbot.net/dnd5/characters/tools/"
+                },
+                {
+                  "type": "text",
+                  "text": ", проте здобути володіння ними значно легше завдяки правилам налаштування походження з "
+                },
+                {
+                  "type": "link",
+                  "text": "Казана Таші з усім",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": " та навчання під час простою з "
+                },
+                {
+                  "type": "link",
+                  "text": "Довідника Занатара про все",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Відмовитися від Покращення Характеристик заради інструментів важче виправдати, ніж заради навичок. Якщо групі справді бракує навички й ви можете закрити прогалину без шкоди для збірки через пропущене Покращення Характеристик, Умілець — чудовий варіант."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skill-expert",
+          "heading": "Експерт у навичках",
+          "sourceAnchor": "skill-expert",
+          "blocks": [
+            {
+              "blockId": "block-section-skill-expert-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На відміну від Умільця, Експерт у навичках дає лише одне володіння навичкою, але компенсує це збільшенням будь-якої характеристики на +1 — таку рису часто називають «гібридною». Додатково риса дає Експертизу в одній навичці, причому це не обовʼязково має бути навичка, володіння якою отримали від риси. Усі три переваги чудові. Хоч навичок менше, ніж у Умільця, часом потрібна лише одна. Тоді +1 до будь-якої характеристики замість двох додаткових навичок — уже хороший обмін, а Експертиза робить його ще кращим."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skill-expert-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Подвоєний Бонус Майстерності для ключової навички може стати основою багатьох збірок. Наприклад, "
+                },
+                {
+                  "type": "link",
+                  "text": "збірки на Захоплення",
+                  "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                },
+                {
+                  "type": "text",
+                  "text": " суттєво виграють від Експертизи в Атлетиці. "
+                },
+                {
+                  "type": "link",
+                  "text": "Збіркам для бою верхи",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+                },
+                {
+                  "type": "text",
+                  "text": " можуть знадобитися численні перевірки Поводження з тваринами в бою. Ключове рішення — що краще для конкретної збірки: ця риса чи "
+                },
+                {
+                  "type": "link",
+                  "text": "невелике занурення в мультиклас",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Інколи правильна відповідь — обидва варіанти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-prodigy",
+          "heading": "Вундеркінд",
+          "sourceAnchor": "prodigy",
+          "blocks": [
+            {
+              "blockId": "block-section-prodigy-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вундеркінд із Довідника Занатара про все — расова риса лише для Людей, Напівельфів і Напіворків. Як і Експерт у навичках, вона дає навичку та Експертизу. Проте не є гібридною: замість характеристики дає інструмент і мову. Порівняно з Експертом у навичках вона не дуже приваблива, а от з Умільцем — приблизно на одному рівні. Жодна не підвищує характеристику, тож вибір — між двома додатковими навичками та Експертизою, інструментом і мовою. Якщо ви Людина, Напівельф чи Напіворк і після вибору Експерта у навичках вам потрібно ще більше Експертизи, можна взяти Вундеркінда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-additional-skillrelated-feats",
+          "heading": "Інші риси для навичок",
+          "sourceAnchor": "additional-skillrelated-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-additional-skillrelated-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є й інші риси, що дають бонуси до навичок, відмінні від володіння. Коротко розглянемо їх і порівняємо з отриманням Експертизи через Експерта у навичках."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-actor",
+          "parentSectionId": "section-additional-skillrelated-feats",
+          "heading": "Актор",
+          "sourceAnchor": "actor",
+          "blocks": [
+            {
+              "blockId": "block-section-actor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Актор|Actor}} дає перевагу на Обман і Виступ, коли ви видаєте себе за когось іншого. Через вузьке застосування це не надто привабливо, тоді як Експерт у навичках може дати великий бонус до всіх перевірок Обману незалежно від обставин."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dungeon-delver",
+          "parentSectionId": "section-additional-skillrelated-feats",
+          "heading": "Дослідник підземель",
+          "sourceAnchor": "dungeon-delver",
+          "blocks": [
+            {
+              "blockId": "block-section-dungeon-delver-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Дослідник підземель|Dungeon Delver}} дає перевагу на пошук таємних дверей. Цей бонус надто вузький порівняно з Експертизою в Уважності чи Розслідуванні від Експерта у навичках. Проте решта переваг риси досить хороша у відповідній кампанії, тож перевагу на пошук дверей можна вважати приємним доповненням."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-observant",
+          "parentSectionId": "section-additional-skillrelated-feats",
+          "heading": "Спостережливий",
+          "sourceAnchor": "observant",
+          "blocks": [
+            {
+              "blockId": "block-section-observant-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Спостережливий|Observant}} дає +5 до пасивної Уважності й пасивного Розслідування. Це справді значний бонус, кращий для відповідних пасивних показників, ніж просто взяти Експерта у навичках. Риса також є гібридною: підвищує Інтелект або Мудрість."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skulker",
+          "parentSectionId": "section-additional-skillrelated-feats",
+          "heading": "Скритний",
+          "sourceAnchor": "skulker",
+          "blocks": [
+            {
+              "blockId": "block-section-skulker-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Скритний|Skulker}} дозволяє ховатися в більшій кількості ситуацій і прибирає перешкоду на Уважність за відповідних умов. Хороші переваги для двох навичок посилюють їхнє основне призначення. Це чудова риса, яка покращує Непомітність та Уважність способами, недоступними Експерту у навичках.\n\nРедакційна примітка: дозволено намагатися сховатися, коли ви злегка закриті від цілі; перешкоду на перевірки Уважності прибирають конкретно для перевірок на основі зору за тьмяного світла."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-skill-expert-skilled-prodigy-2014-001",
+      "articleId": "rpgbot-skill-expert-skilled-prodigy-2014",
+      "translationRevisionId": "translation-rpgbot-skill-expert-skilled-prodigy-2014-draft1",
+      "sectionId": "section-skilled",
+      "targetBlockId": "block-section-skilled-1",
+      "optionId": "section-skilled",
+      "context": "Умілець",
+      "explanationBlockId": "block-section-skilled-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-skill-expert-skilled-prodigy-2014-002",
+      "articleId": "rpgbot-skill-expert-skilled-prodigy-2014",
+      "translationRevisionId": "translation-rpgbot-skill-expert-skilled-prodigy-2014-draft1",
+      "sectionId": "section-skill-expert",
+      "targetBlockId": "block-section-skill-expert-1",
+      "optionId": "section-skill-expert",
+      "context": "Експерт у навичках",
+      "explanationBlockId": "block-section-skill-expert-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-skill-expert-skilled-prodigy-2014-003",
+      "articleId": "rpgbot-skill-expert-skilled-prodigy-2014",
+      "translationRevisionId": "translation-rpgbot-skill-expert-skilled-prodigy-2014-draft1",
+      "sectionId": "section-prodigy",
+      "targetBlockId": "block-section-prodigy-1",
+      "optionId": "section-prodigy",
+      "context": "Вундеркінд",
+      "explanationBlockId": "block-section-prodigy-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-skill-expert-skilled-prodigy-2014-004",
+      "articleId": "rpgbot-skill-expert-skilled-prodigy-2014",
+      "translationRevisionId": "translation-rpgbot-skill-expert-skilled-prodigy-2014-draft1",
+      "sectionId": "section-actor",
+      "targetBlockId": "block-section-actor-1",
+      "optionId": "section-actor",
+      "context": "Актор",
+      "explanationBlockId": "block-section-actor-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-skill-expert-skilled-prodigy-2014-005",
+      "articleId": "rpgbot-skill-expert-skilled-prodigy-2014",
+      "translationRevisionId": "translation-rpgbot-skill-expert-skilled-prodigy-2014-draft1",
+      "sectionId": "section-dungeon-delver",
+      "targetBlockId": "block-section-dungeon-delver-1",
+      "optionId": "section-dungeon-delver",
+      "context": "Дослідник підземель",
+      "explanationBlockId": "block-section-dungeon-delver-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-skill-expert-skilled-prodigy-2014-006",
+      "articleId": "rpgbot-skill-expert-skilled-prodigy-2014",
+      "translationRevisionId": "translation-rpgbot-skill-expert-skilled-prodigy-2014-draft1",
+      "sectionId": "section-observant",
+      "targetBlockId": "block-section-observant-1",
+      "optionId": "section-observant",
+      "context": "Спостережливий",
+      "explanationBlockId": "block-section-observant-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-skill-expert-skilled-prodigy-2014-007",
+      "articleId": "rpgbot-skill-expert-skilled-prodigy-2014",
+      "translationRevisionId": "translation-rpgbot-skill-expert-skilled-prodigy-2014-draft1",
+      "sectionId": "section-skulker",
+      "targetBlockId": "block-section-skulker-1",
+      "optionId": "section-skulker",
+      "context": "Скритний",
+      "explanationBlockId": "block-section-skulker-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

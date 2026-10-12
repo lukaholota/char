@@ -88,3 +88,18 @@ export function findExpertiseSelectionProblem(input: ExpertiseSelectionInput): s
 export function countExpertiseSelections(grants: readonly ExpertiseGrant[]): number {
   return grants.reduce((total, grant) => total + grantCount(grant), 0);
 }
+
+export type SubclassExpertiseOption = { groupName: string; effectKind: string | null };
+
+const BLESSINGS_OF_KNOWLEDGE_2014 = "Blessings of Knowledge";
+
+export function isExpertiseChosenThroughSubclassOptions(
+  feature: { engName: string | null },
+  subclassOptionsAtFirstLevel: readonly SubclassExpertiseOption[],
+): boolean {
+  if (feature.engName !== BLESSINGS_OF_KNOWLEDGE_2014) return false;
+  return subclassOptionsAtFirstLevel.some((option) => {
+    const groupName = option.groupName.toLowerCase();
+    return groupName.includes("благословення знань") || groupName.includes("blessings of knowledge") || option.effectKind === "SKILL_EXPERTISE";
+  });
+}

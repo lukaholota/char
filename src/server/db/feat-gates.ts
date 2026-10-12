@@ -8,6 +8,7 @@ import {
   type FeatRepeatCandidate,
   type FeatRepeatProblem,
 } from "@/rules/repeatable-feats";
+import { findMetamagicAdeptPickProblem } from "@/rules/feat-choice-pick-count";
 
 type FeatChoiceOptionRow = {
   choiceOptionId: number;
@@ -23,6 +24,8 @@ export type GateableFeat = {
 
 type ChoiceSelections = Record<string, number | number[]> | undefined;
 
+const METAMAGIC_GROUP_NAME = "Метамагія";
+
 export type FeatPick = { feat: GateableFeat; source: FeatChoiceSource; selections?: ChoiceSelections; choiceOptionIds?: readonly number[] };
 
 // Категорія перевіряється першою: на кроці походження неповторюваність вторинна.
@@ -31,7 +34,29 @@ export function findFeatPackageProblem(picks: readonly FeatPick[], alreadyTaken:
   if (wrongCategory) return describeCategoryProblem(wrongCategory);
 
   const repeat = findFeatRepeatProblemInBatch(picks.map(toRepeatCandidate), alreadyTaken);
-  return repeat ? describeRepeatProblem(repeat) : null;
+  if (repeat) return describeRepeatProblem(repeat);
+
+  return findMetamagicAdeptProblem(picks);
+}
+
+function findMetamagicAdeptProblem(picks: readonly FeatPick[]): string | null {
+  for (const pick of picks) {
+    if (pick.feat.name !== "METAMAGIC_ADEPT") continue;
+
+    const metamagicOptionIds = new Set(
+      pick.feat.featChoiceOptions.filter((option) => option.choiceOption?.groupName === METAMAGIC_GROUP_NAME).map((option) => option.choiceOptionId),
+    );
+    if (metamagicOptionIds.size === 0) continue;
+
+    const chosen = readChosenOptionIds(pick).filter((choiceOptionId) => metamagicOptionIds.has(choiceOptionId));
+    const problem = findMetamagicAdeptPickProblem(chosen);
+    if (problem) return `${problem} для риси «${translateValue(pick.feat.name)}».`;
+  }
+  return null;
+}
+
+function readChosenOptionIds(pick: FeatPick): readonly number[] {
+  return pick.choiceOptionIds ?? collectChoiceOptionIds(pick.selections);
 }
 
 export function toFeatInstance(persFeat: { feat: { name: string }; choices: readonly { choiceOption: { groupName: string; optionNameEng: string } | null }[] }): FeatInstance {
@@ -49,7 +74,7 @@ export function collectChoiceOptionIds(selections: ChoiceSelections): number[] {
 }
 
 function toRepeatCandidate(pick: FeatPick): FeatRepeatCandidate {
-  const chosenIds = new Set(pick.choiceOptionIds ?? collectChoiceOptionIds(pick.selections));
+  const chosenIds = new Set(readChosenOptionIds(pick));
   const choices: FeatChoicePick[] = pick.feat.featChoiceOptions.flatMap((option) =>
     chosenIds.has(option.choiceOptionId) && option.choiceOption ? [option.choiceOption] : [],
   );

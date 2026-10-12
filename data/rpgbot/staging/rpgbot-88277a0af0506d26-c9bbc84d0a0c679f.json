@@ -1,0 +1,3290 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "c9bbc84d0a0c679fcc64cdfeadc4dd15c697cabba07610dc86b6987d40c50c0c",
+  "sourceRevision": {
+    "revisionId": "rpgbot-88277a0af0506d26-c9bbc84d0a0c679f",
+    "sourceId": "rpgbot-88277a0af0506d26",
+    "fetchedAt": "2026-09-29T19:16:41.882160+00:00",
+    "sourceUpdatedAt": "2025-10-23T18:50:20-04:00",
+    "contentHash": "40f1c30a0f8820b11115bb9d18eafe1d2f5d5c20eaa9e44575c85b23c705c081",
+    "title": "DnD 5e Paladin Subclasses Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-88277a0af0506d26-c9bbc84d0a0c679f.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Paladin’s subclass doesn’t do a lot to change the mechanics of the class,\n\tbut it does a lot to define your theme. Your oaths, your spells, and your\n\tChannel Divinity options all have a significant effect on how your character\n\tpresents themselves to the world."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article is for the 2014 DnD 5e rules. For help with the 2024 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2024 DnD 5e Paladin Subclasses Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/2024-paladin/paladin-subclasses/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Paladin Subclasses – Sacred Oaths",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#subclasses"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Conquest (XGtE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#oath-of-conquest"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Devotion (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#oath-of-devotion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Glory (MOoT / TCoE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#oath-of-glory"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Redemption (XGtE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#oath-of-redemption"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of the Ancients (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#oath-of-the-ancients"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of the Crown (SCAG)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#oath-of-the-crown"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of the Watchers (TCoE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#oath-of-the-watchers"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Vengeance (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#oath-of-vengeance"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oathbreaker (DMG)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#oathbreaker"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "3rd-Party Publishers",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/#beyond-the-pale"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subclasses",
+      "heading": "Paladin Subclasses – Sacred Oaths",
+      "sourceAnchor": "subclasses",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-oath-of-conquest",
+      "parentSectionId": "section-subclasses",
+      "heading": "Oath of Conquest (XGtE)",
+      "sourceAnchor": "oath-of-conquest",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-conquest-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aside from the spell list, Oath of Conquest is excellent. It’s a fantastic\n\tmix of crowd control and offensive options, it provides meaningful\n\timprovements to the Paladin’s damage output, and it gives the Paladin several\n\tuseful abilities for handling groups of foes which other paladins often\n\tstruggle with. If anyone else in your party likes to cause fear (spells like\n\tCause Fear and Fear are great), Oath of Conquest can be incredibly\n\teffective."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-conquest-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oath of Conquest’s biggest difficulty is that is relies very heavily on Charisma. The spell list includes many spells which allow saving throws, as does Channel Divinity: Conquering Presence. Weirdly, nothing else about the subclass relies on weapon attacks until you get Invincible Conquerer at 20th level. As a result, Oath of Conquest is an excellent choice for Blessed Warrior builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-conquest-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Oath of Conquest Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/oath-of-conquest/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-conquest-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": The spells are good, but\n\t\tthey’re mostly offensive spells that require saving throws. Unless you\n\t\tinvest most of your Ability Score Increases in your Charisma (which you\n\t\tcould do with a Blessed Warrior build), you won’t have the spell DC to make\n\t\tthem reliable. And if you’re going to invest most of your resources in\n\t\toffensive spellcasting to use save-or-suck spells, why not play a Cleric or\n\t\ta Sorcerer?\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": A warlock-exclusive is\n\t\t\t\tinteresting. With a 1-hour duration, Armor of Agathys is a great buff to\n\t\t\t\tstart before you go into a fight. Command is interesting, but you\n\t\t\t\tprobably won’t have the DC to make it work reliably."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Spiritual Weapon is a\n\t\t\t\tgreat way for you to handle multiple foes, and since it’s cast as a\n\t\t\t\tbonus action it won’t cut into your attacks. It will still depend on\n\t\t\t\tyour relatively poor spellcasting ability modifier, and since you don’t\n\t\t\t\tget full spellcasting progression you won’t be able to upcast it to keep\n\t\t\t\tthe damage relevant. Hold Person is great, but it will be unreliable\n\t\t\t\tsince you won’t have a spell DC high enough to compete with full\n\t\t\t\tcasters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Good offensive options,\n\t\t\t\tbut you’re still handicapped by a relatively poor spell DC. Still, Fear\n\t\t\t\tis helpful for capitalizing on Aura of Conquest."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Stoneskin is an excellent\n\t\t\t\tbuff for a front-line character like a Paladin, but the material\n\t\t\t\tcomponent is very costly, so you don’t want to use it all the time."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Good offensive options,\n\t\t\t\tbut you’re still handicapped by a relatively poor spell DC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\texcellent, and they’re usable and effective in almost any encounter.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Conquering Presence"
+              },
+              {
+                "type": "text",
+                "text": ": Basically the\n\t\t\t\tFear spell, but in a circular AOE rather than a cone. This is an\n\t\t\t\texcellent debuff in an encounter with numerous enemies, but since the DC\n\t\t\t\tis Charisma-based it won’t keep up with spellcasters unless you’re built\n\t\t\t\taround Blessed Warrior. Expect to use this in encounters with numerous\n\t\t\t\tweak foes, but otherwise the save DC won’t be reliable enough to justify\n\t\t\t\tthe cost."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guided Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Great for when you\n\t\t\t\tabsolutely need to hit. If you use Great Weapon Master for extra damage,\n\t\t\t\tthis can be a nice way to salvage a missed attack. However, Channel\n\t\t\t\tDivinity still only works once per short rest for the Paladin, so save\n\t\t\t\tthis for when you really need it.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This notably isn’t limited to weapon attacks, so if you have a spell\n\t\t\t\t\tattack from source, you could use Guided Strike with it."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of Conquest"
+              },
+              {
+                "type": "text",
+                "text": ": Combined with Channel\n\t\tDivinity: Conquering Presence and the ability to cast Fear you have multiple\n\t\tways to make enemies frightened (provided that your save DC is passable). If\n\t\tthe enemy in question doesn’t have reach or ranged weapons, you can stand\n\t\tsafely 10 feet away and hit them with reach weapons or just wait for them to\n\t\tdie from the aura damage. Their speed is reduced to 0, so there’s very\n\t\tlittle that they can do about it. You can also Shove enemies prone,\n\t\teffectively performing the Grapple+Shove combo while using fear instead of\n\t\tgrappling."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scornful Rebuke"
+              },
+              {
+                "type": "text",
+                "text": ": Combine this with\n\t\tCompelled Duel, and consider foregoing a shield. You have plenty of healing\n\t\tcapacity."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Invincible Conqueror"
+              },
+              {
+                "type": "text",
+                "text": ": Even with a 1-minute\n\t\tduration, this is fantastic. If you’re in a serious fight, turn this on and\n\t\tstart killing stuff."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-devotion",
+      "parentSectionId": "section-subclasses",
+      "heading": "Oath of Devotion (PHB)",
+      "sourceAnchor": "oath-of-devotion",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-devotion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The “Vanilla” option, Oath of Devotion doesn’t really have a specific focus\n\tbeyond “be a Paladin”. If you’re not sure what to pick, or if you’re new and\n\ttrying to get a handle on the game, this is a fine option with a decent mix of\n\tabilities."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-devotion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oath of Devotion’s biggest challenge is that many of its features only work when facing fiends and undead. While these are great enemies for a good-aligned paladin, they’re a subset of the enemies that you’ll face. Oath of Devotion has enough other features that you’ll still be effective, but you won’t get to enjoy your subclass’s full capacity until fiends and undead show up."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-devotion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Oath of Devotion Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-devotion-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A few gems, but much of the\n\t\tlist is either situational or unnecessary.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Sanctuary has a Bonus\n\t\t\t\tAction casting time, allowing you to quickly cast it on an ally who is\n\t\t\t\tin danger. Your save DC will be low compared to a full spellcaster, but\n\t\t\t\tcombined with the target’s AC the additional layer of protection will\n\t\t\t\tfrequently negate attacks. Protection from Evil and Good is a fantastic\n\t\t\t\tdefensive buff at any level, and unlike Sanctuary the target can still\n\t\t\t\tattack while under its effects."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\tsituational, and Lesser Restoration is partially redundant with Lay on\n\t\t\t\tHands."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": I would almost almost\n\t\t\t\tnever use Beacon of Hope in combat (especially since you have Lay on\n\t\t\t\tHands, which Beacon of Hope doesn’t affect) unless you need the\n\t\t\t\tAdvantage portion of the spell. Paladins don’t have enough spell slots\n\t\t\t\tto spend them on Dispel Magic unless your party is truly desperate."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Freedom of Movement is\n\t\t\t\tsituational but very powerful. Guardian of Faith is passable area\n\t\t\t\tcontrol, but it’s a spell that you cast for the 8-hour duration, not for\n\t\t\t\tthe pitiful amount of damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Commune is a very\n\t\t\t\tpowerful divination if you’re clever enough to ask useful questions.\n\t\t\t\tFlame Strike gives Paladins a much-needed option for handling crowds of\n\t\t\t\tweak enemies, especially those which aren’t affected by Turn Whatever.\n\t\t\t\tHowever, at this level Flame Strike’s damage will be underwhelming and\n\t\t\t\tunless you’re built around Blessed Warrior your spell save DC will\n\t\t\t\tprobably be too low to make Flame Strike Reliable."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sacred Weapon"
+              },
+              {
+                "type": "text",
+                "text": ": A decent buff to your\n\t\t\t\tattacks. This works particularly well with the Great Weapon Master feat\n\t\t\t\tsince it will offset most or all of the attack penalty. One minute\n\t\t\t\tshould be enough to get through a typical fight, but remember that since\n\t\t\t\tChannel Divinity recharges on a Short Rest you’ll only be able to use\n\t\t\t\tthis three times per day at most (assuming that your party is respecting\n\t\t\t\tthe Adventuring Days rules).\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you’re built around Blessed Warrior, this is a great way to make\n\t\t\t\t\tweapons viable for a brief period. A paladin with 20 Strength and 16\n\t\t\t\t\tCharisma will have the same attack bonus as a paladin with 16 Strength\n\t\t\t\t\tand 20 Charisma, so you’re not losing much except for your damage\n\t\t\t\t\tbonus from Strength."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Turn the Unholy"
+              },
+              {
+                "type": "text",
+                "text": ": A great way to\n\t\t\t\thandle crowds of foes, but it only affects two creature types so it’s\n\t\t\t\tsituational by design."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of Devotion"
+              },
+              {
+                "type": "text",
+                "text": ": Situational by design,\n\t\tbut Charm effects are common and frequently dangerous."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Purity of Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": Protection from Evil and\n\t\tGood is an excellent defensive buff, providing thorough defenses against 6\n\t\tcreature types. Having it permanently running without needing to\n\t\tconcentrate is spectacular."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Holy Nimbus"
+              },
+              {
+                "type": "text",
+                "text": ": 10 damage isn’t a lot at\n\t\tthis level, but the area is big enough that you can clear whole rooms of\n\t\tenemies on your own with enough time. The defensive buffs are also helpful,\n\t\tthough they’re situational due to the limits on affected creature types."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-glory",
+      "parentSectionId": "section-subclasses",
+      "heading": "Oath of Glory (MOoT / TCoE)",
+      "sourceAnchor": "oath-of-glory",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-glory-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A great concept with some challenges. The spell list is too reliant on\n\tConcentration, and while the Channel Divinity options are great, their effects\n\twon’t last long and you’ll need to look for other options. The rest of the\n\tsubclass’s features are either excellent or very situational, so you’ll use\n\tsome of the subclass’s features constantly while almost never using others."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-glory-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The single best piece of advice I can give is to start with a Variant Human with the Resilient (Constitution) feat. Adding Constitution saving throw proficiency will make the spell list considerably more effective. The fact that the subclass’s spell list depends so heavily on Concentration is really frustrating for class which doesn’t get proficiency with Constitution saves and which already depends on Concentration for so many of its interesting spells (smite spells, buffs, etc.)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-glory-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Oath of Glory Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-glory/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-glory-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Many of the spells on\n\t\tthe list are fantastic, even allowing the Glory Paladin to shoulder the burden of Concentrating on some potent buffs, freeing up the party’s casters for area control or other spells. Keep in mind though, that, while Aura of Protection\n\t\thelps, the Paladin isn’t proficient in Constitution saving throws. If\n\t\tyou plan to shoulder this burden regularly in combat, consider the Resilient feat or the\n\t\tWar Caster feat to improve your success rate with Concentration saves.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Guiding Bolt is hard\n\t\t\t\tbecause paladins generally can’t invest enough in Charisma to be good at\n\t\t\t\tspell attacks. You likely won’t cast it often, but it is still a decent ranged attack spell if you’re out of melee range. Heroism is a great defensive option. At the early levels where the fear immunity is helpful, your Charisma will be too low for good temp HP, and the high levels where the temp HP isn’t relevant, you’re immune to fear."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Enhance Ability is just an\n\t\t\t\tall-around great spell, useful both in and out of combat, though your\n\t\t\t\tmost likely use case in combat is for Strength, and you can use Peerless\n\t\t\t\tAthlete for that, so save Enhance Ability for outside of combat when you\n\t\t\t\tneed things like Advantage on Charisma checks in social situations.\n\t\t\t\tMagic Weapon is great if you don’t have a permanent magic weapon, but it requires Concentration so generally you’ll want to cast something else unless you absolutely need this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Two fantastic buffs, but\n\t\t\t\tboth require Concentration. That said, self-casting haste and freely sharing it with a Find (Greater) Steed as per the steed spell allows a mount to both Dash and Disengage on every round, which quadruples its total movement and ignores opportunity attacks while still giving the Glory Paladin an extra attack. Protection From Energy is a staple defensive buff at every level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": We’re unlikely to have the Charisma to make Compulsion reliable, and the effect is not that useful. Compelling targets to run away in a direction and using our Concentration just makes fights take longer than they need to.\nFreedom of Movement is\n\t\t\t\tgreat, but only situationally useful. Fortunately, it doesn’t require Concentration, and you can share it with your steed."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": A divination which everyone\n\t\t\t\telse has been casting for 8 levels. Flame Strike is helpful for handling\n\t\t\t\tcrowds, but the damage is unremarkable at this level and your save DC is\n\t\t\t\tlikely poor compared to a full spellcaster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Peerless Athlete"
+              },
+              {
+                "type": "text",
+                "text": ": Strength (Athletics)\n\t\t\t\tincludes checks to Grapple and to Shove, both of which are staple\n\t\t\t\ttactical options for front-line melee classes like the Paladin. The fact\n\t\t\t\tthat you can activate this as a Bonus Action makes it easy to use this\n\t\t\t\twithout cutting into your attacks, and the 10-minute duration can last\n\t\t\t\tthrough several encounters if you move quickly. Using the classic\n\t\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Grapple+Shove combo",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\tis an easy way to provide Advantage for yourself\n\t\t\t\tyour other melee allies, and so Peerless Athlete can be a great way to\n\t\t\t\tmake that combo easier."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Inspiring Smite"
+              },
+              {
+                "type": "text",
+                "text": ": A decent number of\n\t\t\t\ttemporary hit points, and while usually you’ll horde them for yourself,\n\t\t\t\tthe ability to share them with allies offers a fantastic tactical\n\t\t\t\toption. Keep in mind that you need to use Divine Smite before you can\n\t\t\t\tactivate this, so be sure to keep a spell slot ready so that you can\n\t\t\t\tsmite something and trigger Inspiring Smite."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of Alacrity"
+              },
+              {
+                "type": "text",
+                "text": ": 10 ft. of extra speed\n\t\tis nice for the paladin and their mount even if it’s unreliable for allies in the middle of combat.\n\t\tOther players will likely be able to\n\t\tmove further with good positioning than by working to stay within\n\t\tthe aura’s tiny radius, but because the aura takes effect at the beginning of an ally’s turn it’s our job to get the aura in position to push our team that extra 10 feet across the finish line."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Glorious Defense"
+              },
+              {
+                "type": "text",
+                "text": ": This is a fantastic\n\t\tdefensive ability, combining the AC bonus of the spell Shield with a free\n\t\tcounterattack. Be sure to grab a ranged weapon or a weapon with Reach to\n\t\tenjoy the effect to its fullest.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of Alacrity (improvement)"
+              },
+              {
+                "type": "text",
+                "text": ": The\n\t\teffect doesn’t improve, but the radius does. The tiny radius is the biggest problem\n\t\twith positioning the aura, but 10 feet gives us plenty of wiggle room to try to get more than one ally into the aura before we end our turn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Living Legend"
+              },
+              {
+                "type": "text",
+                "text": ": The effects are all\n\t\tspectacular and broadly useful. Don’t be tempted to use this for Charisma\n\t\tchecks in social situations; you can cast Enhance Ability for that."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-redemption",
+      "parentSectionId": "section-subclasses",
+      "heading": "Oath of Redemption (XGtE)",
+      "sourceAnchor": "oath-of-redemption",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-redemption-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlike other Paladins, the Oath of Redemption Paladin emphasizes nonviolent\n\toptions. Expect to invest more in your Charisma than in your\n\tStrength/Constitution, and to rely more on spells and special abilities than\n\ton hitting stuff. It’s a weird, durable save-or-suck caster in a lot of\n\tways."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Oath of Redemption’s Oath Spells all allow saving throws, so you’ll need\n\thigh Charisma to back them up, and taking Fighting Style (Blessed Warrior) is\n\tbasically required. Be sure to invest in options that will keep you alive\n\twhile you try to end combat nonlethally. Constitution, the Tough feat, the\n\tspell Heroism, heavy armor, a shield, and protective magic items if they’re\n\tavailable. Just keep in mind that no matter how high your AC is, Aura of the\n\tGuardian doesn’t care and you’re going to take some damage for your allies, so\n\tbe sure to keep your hit point maximum high."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Despite the theme, it’s entirely possible to play Oath of Redemption like any other rip-and-tear paladin, and they’re surprisingly well-suited to it. Most of the spell list won’t be useful, but Channel Divinity: Rebuke the Violent, Aura of the Guardian, and Protective Spirit are all great for any Defender. Get in front of your allies and redeem some people with a sword in hand."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Oath of Redemption Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-5",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A lot of excellent spells.\n\t\tThey all fit the theme, and nearly all of the options are great additions to\n\t\tyour spellcasting options. However, many rely on saving throws so your\n\t\tCharisma needs to be high enough to make them reliable.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both great ways to\n\t\t\t\tdiscourage violence, but the hit point cap on Sleep makes it borderline\n\t\t\t\tuseless for a half-caster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Calm Emotions is great\n\t\t\t\tarea control and doesn’t care about spell level. Hold Person is fine,\n\t\t\t\tbut you’re left without options to address most creature types, and even\n\t\t\t\tagainst humanoids you’ll have trouble upcasting it to affect multiple\n\t\t\t\ttargets."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": If you can get\n\t\t\t\tCounterspell, you should get Counterspell. It’s one of the most powerful\n\t\t\t\tspells in the game. However, you have very few spell slots to spend it\n\t\t\t\tupon, and you only go up to 5th-level spell slots so you can’t rely on\n\t\t\t\tupcasting it to forcibly counter spells without an ability check."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Resilient Sphere is\n\t\t\t\twonderful offensively or defensively, and Stoneskin will help you to\n\t\t\t\twithstand attacks while you figure out how to end a fight, but the\n\t\t\t\tmaterial cost may be prohibitive."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": More great ways to end a\n\t\t\t\tfight nonlethally, but Hold Monster on a single creature may not feel\n\t\t\t\tsatisfying at this level compared to what full casters can do."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\texcellent, and very easy to bring into play.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Emissary of Peace"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent for a\n\t\t\t\tface, and one of very few Channel Divinity options which is meaningfully\n\t\t\t\tuseful outside of combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rebuke the Violent"
+              },
+              {
+                "type": "text",
+                "text": ": Great for\n\t\t\t\tcreatures with large single attacks or after an ally suffers a big\n\t\t\t\tcritical hit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of the Guardian"
+              },
+              {
+                "type": "text",
+                "text": ": Don’t try to combine\n\t\tthis with the Protection fighting style. Both consume your Reaction, so you\n\t\twon’t be able to use them together. You don’t want to use this constantly,\n\t\tbut when your allies start running short on hit points it’s a good idea. Be\n\t\tsure to invest in your Constitution and consider the Tough feat so that you\n\t\thave enough hit points to absorb damage for your allies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Protective Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": This makes Aura of the\n\t\tGuardian much safer to use."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Emissary of Redemption"
+              },
+              {
+                "type": "text",
+                "text": ": Expect to spend\n\t\ta lot of time grappling and tripping enemies while you try to talk them out\n\t\tof fighting you. You can’t even use Rebuke the Violent without negating this\n\t\tfeature for that creature for the day.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Note that the damage which you deal to other creatures is half of what\n\t\t\tyou take "
+              },
+              {
+                "type": "emphasis",
+                "text": "after"
+              },
+              {
+                "type": "text",
+                "text": " applying resistances, so if a creature deals 4\n\t\t\tdamage, you take 2 and they take 1. That’s not going to kill anything in a\n\t\t\thurry, but it might be abough to scare them off. If you have enough hit\n\t\t\tpoints, you could risk walking around unarmored and let people beat you\n\t\t\tuntil they get tired of taking radiant damage. Protective Spirit is\n\t\t\thealing you for 16+10 every turn when you’re below half hp, so you can\n\t\t\tafford to do this somewhat safely depending on your enemies’ damage\n\t\t\toutput."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-the-ancients",
+      "parentSectionId": "section-subclasses",
+      "heading": "Oath of the Ancients (PHB)",
+      "sourceAnchor": "oath-of-the-ancients",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-the-ancients-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Ranger of Paladins, Oath of the Ancients shares a lot of style and\n\toptions with Rangers and Druids. It includes magical options for crowd control\n\tand area control which most paladins can’t match, as well as access to Misty\n\tStep so that you can move about unhindered."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-ancients-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oath of Ancients is a reasonably easy subclass to play, and isn’t so devoted to smiting fiends as Oath of Devotion, so it may be a better go-to option for new players than many other paladin subclasses. You won’t need to learn anything more complex than the core paladin class features, and Oath of Ancients offers some useful tactical options that you can opt into when you feel ready to handle them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-ancients-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Oath of the Ancients Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/ancients/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-ancients-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": About half of the options\n\t\ton the list are bad, but you generally get one viable option from each pair\n\t\tof spells.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Speak With Animals is only\n\t\t\t\tsituationally useful and becomes less useful as you gain levels, but\n\t\t\t\tEnsnaring Strike is a great option for a bunch of reasons. If you need\n\t\t\t\tto switch targets or go help an ally, spend your bonus action and an\n\t\t\t\tattack to ensnare the target, then let them bleed out a bit while you’re\n\t\t\t\toff dealing with more pressing issues. Note that after the initial save\n\t\t\t\tit’s a Strength "
+              },
+              {
+                "type": "emphasis",
+                "text": "Check"
+              },
+              {
+                "type": "text",
+                "text": " (not a Save), so even creatures\n\t\t\t\tproficient in Strength Saves will have trouble escaping. Even better,\n\t\t\t\tthe damage scales linearly with spell level so it remains an excellent\n\t\t\t\tgo-to use for a spell slot for your whole career."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Moonbeam is difficult to\n\t\t\t\tuse unless you can restrain a creature inside its effect long enough to\n\t\t\t\tjustify the spell slot (Grapple them, for instance), and even then it’s better left to\n\t\t\t\tfull spellcasters. Misty Step is a fantastic option and solves a lot of\n\t\t\t\tmobility issues, including pits, chasms, difficult terrain, walls of\n\t\t\t\tfire and other nasty materials, enemies, etc. Misty Step to the BBEG and\n\t\t\t\twave your sword in their face."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Plant Growth is weirdly\n\t\t\t\teffective area control, and Protection From Energy is a fantastic and\n\t\t\t\tvery important defensive option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Ice Storm is a\n\t\t\t\tfrustrating combination of not enough damage and too little area\n\t\t\t\tcontrol. Stone Skin is an extremely good buff, but the 100gp component\n\t\t\t\tcost can add up quickly so you don’t want to cast it constantly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Commune With Nature is a\n\t\t\t\tuseful divination, especially in unfamiliar areas, but Tree Stride is\n\t\t\t\textremely situational and totally useless if you’re not in a forest or\n\t\t\t\tjungle."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ": Neither option will be\n\t\tconsistently useful. Talk to your DM about using the Harness Divine Power\n\t\tOptional Class Feature.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Nature’s Wrath"
+              },
+              {
+                "type": "text",
+                "text": ": Basically just\n\t\t\t\tEnsnaring Strike but worse. Nature’s Wrath allows the target to choose\n\t\t\t\teither Strength or Dexterity for its save, while Ensnaring Strike forces\n\t\t\t\tthem to use Strength. Nature’s Wrath allows the target to repeat the\n\t\t\t\tsave each turn for free, while Ensnaring Strike requires them to spend an\n\t\t\t\tAction to make a Strength "
+              },
+              {
+                "type": "emphasis",
+                "text": "check"
+              },
+              {
+                "type": "text",
+                "text": " to escape (ability checks will\n\t\t\t\ttypically be worse than saves because you don’t get to add a Proficiency\n\t\t\t\tBonus). Ensnaring Strike does damage every turn, and Nature’s Wrath\n\t\t\t\tdoesn’t do damage at all. Nature’s Wrath takes an Action, while\n\t\t\t\tEnsnaring Strike takes your Bonus Action and waits for you to\n\t\t\t\tsuccessfully hit with an attack. Ensnaring Strike’s effects improve with\n\t\t\t\tspell level, while Nature’s Wrath will never improve in any way.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Sure, you need to hit with an attack to apply Ensnaring Strike, but\n\t\t\t\t\thitting with attacks is your go-to move in combat. Ensnaring Strike’s\n\t\t\t\t\tbiggest weakness compared to Nature’s Wrath is that it requires\n\t\t\t\t\tConcentration, but even that isn’t enough to make Nature’s Wrath good\n\t\t\t\t\tby comparison."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Turn the Faithless"
+              },
+              {
+                "type": "text",
+                "text": ": Situational by\n\t\t\t\tdesign. It’s no worse than Turn Undead or something similar, but without\n\t\t\t\tanother good way to use Channel Divinity it’s rough to have such a\n\t\t\t\tsituational option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of Warding"
+              },
+              {
+                "type": "text",
+                "text": ": Resistance to damage\n\t\tfrom spells will prevent a huge amount of damage, but spellcasters are a\n\t\tminority of enemies that you’ll face in most games\n, especially with the recent move towards monsters having spell-like actions\nin Monsters of the Multiverse. This is good, but it’s\n\t\tonly situationally useful unless you have allies who don’t care about\n\t\tfriendly fire."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Undying Sentinel"
+              },
+              {
+                "type": "text",
+                "text": ": You shouldn’t need this\n\t\tfrequently, but it’s a great fallback in case of a lucky crit or a big,\n\t\tunexpected attack. I’m not sure if “death of natural causes” counts as one of the\n“drawbacks of old age”, but this makes you immortal if it does."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elder Champion"
+              },
+              {
+                "type": "text",
+                "text": ": One minute per day isn’t\n\t\ta lot, but, for that brief duration, this is very good. The ability to cast\n\t\tspells as a Bonus Action makes it easy to fit spells into your turn, so cast\n\t\tthings like Ice Storm and Death Ward, or hit enemies with Banishing Smite or Destructive Wave to\n\t\tcapitalize on Disadvantage on saves against your spells. Activating this\n\t\tdoes take an Action, but you can still fit a spell into the same turn. Just\n\t\tremember that your spell slots are limited, and burning both your capstone\n\t\tfeature and all of your spell slots will put you in a bad position to face\n\t\tthe rest of the day."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-the-crown",
+      "parentSectionId": "section-subclasses",
+      "heading": "Oath of the Crown (SCAG)",
+      "sourceAnchor": "oath-of-the-crown",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-the-crown-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oath of the Crown is a fantastic Defender build. Between Compelled Duel and\n\tChampion Challenge you have two built-in mechanics which will keep enemies\n\tfocused on you instead of your squishy allies. The oath’s other abilities\n\tallow you to take damage for your allies, reducing the need for your party to\n\tspend actions and resources healing multiple characters in combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-crown-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With no reliance on weapon attacks beyond Divine Smite, Oath of the Crown is a good candidate for Blessed Warrior builds. Building around Charisma makes spells like Compelled Duel, Spirit Guardians, and Banishment (all from Oath of the Crown’s spell list) more reliable, allowing you to complement the other subclass features with robust spellcasting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-crown-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Oath of the Crown Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-crown-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A really mixed bag; some of\n\t\tthe options are essentially required for a Paladin and you do get some gems\n\t\tfrom other spell lists, but several are situational or outright bad.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Compelled Duel is basically\n\t\t\t\ta requirement for Paladins, and Command can be very effective if you’re\n\t\t\t\tclever. Note that Compelled Duel is somewhat redundant with Champion\n\t\t\t\tChallenge, but Compelled Duel only affects single targets, while\n\t\t\t\tChampion Challenge is an area effect. Also remember that your spell save\n\t\t\t\tDC won’t be as high as a full spellcaster’s (unless you build around\n\t\t\t\tBlessed Warrior), which can make both of these spells somewhat\n\t\t\t\tunreliable."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Warding Bond is nice if\n\t\t\t\tyou have another ally who is taking a lot of damage and you’re sick of\n\t\t\t\tspending your turns healing them. Zone of Truth is very situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Aura of Vitality is an\n\t\t\t\textremely efficient use of a spell slot as far as magical healing goes,\n\t\t\t\tbut I wouldn’t use it in combat because it requires Concentration and\n\t\t\t\tmonopolizes your Bonus Action which you might need for things like smite\n\t\t\t\tspells, and outside of combat you should try to rely on short rests for healing as\n\t\t\t\tmuch as you can. Spirit Guardians is a much better option in combat,\n\t\t\t\tturning you into the center of a magical blender that deals radiant\n\t\t\t\tdamage. You’ll still need to chase enemies around to force them to take\n\t\t\t\tdamage since Champion Challenge allows enemies to remain up to 30\n\t\t\t\tfeet away, but, in close quarters, Spirit Guardians is exceptionally\n\t\t\t\tpowerful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Banishment is\n\t\t\t\tsituational and can be difficult due to the Paladin’s comparably poor\n\t\t\t\tspell save DC, but many extraplanar enemies have poor Charisma saves, so\n\t\t\t\tyou may be able to use it successfully against some enemies. Guardian of\n\t\t\t\tFaith is really only notable for its 8-hour duration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Circle of Power is an\n\t\t\t\texcellent buff when facing enemy spellcasters, especially with the Aura\n\t\t\t\tof Protection boosting all of your save bonuses. Geas is situational\n\t\t\t\tsince most of the things on which you might cast Geas can be handled\n\t\t\t\tbetter by killing them."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Champion Challenge"
+              },
+              {
+                "type": "text",
+                "text": ": This is a great\n\t\t\t\tway to keep enemies where you want them, especially in open areas\n\t\t\t\toutside of the confines of a dungeon. 30 feet is close enough for most\n\t\t\t\tcharacters to get into melee without Dashing (halflings and dwarves may\n\t\t\t\tneed a reach weapon to compensate), so, even if enemies try to run, they\n\t\t\t\tcan’t get far enough that you need to go to great lengths to chase them.\n\t\t\t\tIf you position yourself correctly, you may also be able to keep enemies\n\t\t\t\taway from your allies, allowing your allies to attack at range while\n\t\t\t\tyour enemies either struggle at the edge of your 30-foot radius or\n\t\t\t\tresign themselves to fighting you.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Enemies can escape by doing silly things like pushing or pulling each\n\t\t\t\t\tother out of the area, but if your DM tries that they are either\n\t\t\t\t\tpulling some very serious metagame shenanigans or the affected\n\t\t\t\t\tcreatures have had time to experiment and figure out how this effect\n\t\t\t\t\tworks."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The ability doesn’t allow additional saves beyond the first, and\n\t\t\t\t\tdoesn’t list a duration, so you can technically keep enemies trapped\n\t\t\t\t\twithin 30 feet of your forever as long as you don’t do something to\n\t\t\t\t\tend the effect (like walking away from them) and no one else\n\t\t\t\t\tintervenes."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Turn the Tide"
+              },
+              {
+                "type": "text",
+                "text": ": Basically Mass\n\t\t\t\tHealing Word. It does affect\n\t\tunconscious allies, as "
+              },
+              {
+                "type": "link",
+                "text": "the\n\t\tUnconscious condition was not intended to deafen creatures",
+                "href": "https://youtu.be/u67o2kE6InA?t=1352"
+              },
+              {
+                "type": "text",
+                "text": " according\n\t\tto Jeremy Crawford."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine Allegiance"
+              },
+              {
+                "type": "text",
+                "text": ": This is considerably\n\t\tbetter than the Protection combat style because it’s 100% reliable. As a\n\t\tPaladin, you are the party’s Defender, so sometimes tanking comes down to\n\t\ttaking damage destined for your weaker allies. This is a lot like Warding\n\t\tBond since it works against any damage source, but you are still limited by\n\t\tyour Reaction, so multiple hits to your allies may be a problem.\n"
+              },
+              {
+                "type": "text",
+                "text": "If you plan to use this on a regular basis, you want as many hit points as you can get and you want a reliable source of temporary hit points on top."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "This also allows you to protect a mount, which is a much-needed defensive option for mounted combat enthusiasts. Mundane mounts and mounts available via Find Steed and Find Greater Steed are notoriously prone to dying if anything thinks to attack them, and even the Mounted Combatant feat is a poor defense. Divine Allegiance may be the best option available."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unyielding Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": Between this and Aura\n\t\tof Protection, you’re nearly immuned to paralyzed/stunned. But those\n\t\tconditions aren’t common, so this is only situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Exalted Champion"
+              },
+              {
+                "type": "text",
+                "text": ": For one hour a day you\n\t\tand your allies are exceptionally difficult to kill. Most paladin capstones\n\t\tonly last for one minute, so getting literally 60 times the duration is a\n\t\tmassive improvement."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-the-watchers",
+      "parentSectionId": "section-subclasses",
+      "heading": "Oath of the Watchers (TCoE)",
+      "sourceAnchor": "oath-of-the-watchers",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-the-watchers-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Oath of the Watchers is good at what it does, but what it does is\n\tintentionally limited. In many campaigns, your paladin may go long periods of\n\ttime without facing extraplanar enemies, in which case most of Oath of the\n\tWatcher’s features will be largely useless. In campaigns where extraplanar\n\tenemies are common (maybe there’s an extraplanar incursion or you’re traveling\n\tthe planes), Oath of the Watchers is spectacular. But that is the nature of my\n\t"
+            },
+            {
+              "type": "text",
+              "text": "orange"
+            },
+            {
+              "type": "text",
+              "text": " ratings: it’s not bad, but it’s only\n\tgreat when the situation fits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-watchers-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In most published campaigns, you may have an idea of what you’ll face. Out of\n\tthe Abyss and Descent into Avernus both feature fiends, so those seem like\n\tgreat games to play an Oath of the Watchers Paladin. Curse of Strahd and\n\tTyranny of Dragons feature undead and dragons in abundance, but none of the\n\textraplanar threats which the Oath of the Watchers cares about, so you may\n\tfind yourself less useful. In a homebrew campaign, you’ll need to check with\n\tyour DM to see if the character makes sense, or if the DM can add story points\n\tto the campaign to cater to your character."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-watchers-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beyond the situational nature of the subclass, there’s also an unusually heavy dependence on Charisma. Most paladins will rush Strength or Dexterity to 20 before even thinking about raising their Charisma from where it started at level 1. This would be an interesting subclass to use in conjunction with Fighting Style (Blessed Warrior) to create a Charisma-focused paladin that relied primary on cantrips in place of weapons. However, that is certainly not the only viable way to play the subclass, and disregarding the handful of offensive spells is likely more effective than disregarding weapons and the Paladin’s Divine Smite feature."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-watchers-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Oath of the Watchers Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-the-watchers-5",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A good mix of utility and\n\t\tbuffs which will help you resist effects common to Oath of the Watchers’\n\t\tenemies. The spells (with some exceptions) work great against any creature,\n\t\tbut this is clearly a toolkit designed to solve a specific set of problems.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Two staple spells, but\n\t\t\t\thopefully you have a ritual caster in the party so you don’t need to\n\t\t\t\tspend your precious few spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": See Invisibility is\n\t\t\t\tabsolutely crucial, and a great option for a martial character who can’t\n\t\t\t\tresort to AOE damage when they can’t see their enemies. Moonbeam is\n\t\t\t\tvery situational, but it makes sense considering your intended foes.\n\t\t\t\tHowever, your save DC is likely poor so it won’t be reliable."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Counterspell is a\n\t\t\t\tfantastic spell, but unless you have the Charisma to back it up you’ll\n\t\t\t\tstruggle with the ability check to counter things. Nondetection seems\n\t\t\t\tlike an odd choice on a paladin, but many of the enemies which Oath of\n\t\t\t\tthe Watchers cares about can cast spells, including divinations."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Aura of purity offers a\n\t\t\t\tlot of useful defenses, but it’s technically situational. Banishment is\n\t\t\t\ta staple a save-or-suck spell, but you may not have the Spell Save DC to\n\t\t\t\tback it up. The only truly unfortunate thing to note about these two spells is that they are already on the Paladin spell list."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Hold Monster is a great\n\t\t\t\tsave-or-suck spell, but you may struggle with a low save DC unless\n\t\t\t\tyou’ve gotten your Charisma up to 20 by this level. Scrying is\n\t\t\t\tsituational, so it’s annoying to have prepared every day, but it’s also\n\t\t\t\tnot on the Paladin’s spell list so it’s nice that it’s available."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Watcher’s Will"
+              },
+              {
+                "type": "text",
+                "text": ": Protection from\n\t\t\t\tmental saves for one minute. Note that you are not counted in the number\n\t\t\t\tof targets, so it’s you plus a number of creatures equal to your\n\t\t\t\tCharisma modifier. The duration is only one minute, but this is still a\n\t\t\t\tgreat buff when you face enemy spellcasters or enemies with charm or\n\t\t\t\tfear abilities (both of which are common). Enemy spellcasters can\n\t\t\t\toften resort to AOE damage spells or spells which target your physical\n\t\t\t\tsaves (Strength, Dexterity, Constitution) in many cases, but at least\n\t\t\t\tthey’re not mind-controlling your party."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Abjure the Extraplanar"
+              },
+              {
+                "type": "text",
+                "text": ": Technically\n\t\t\t\tsituational, but between 5 creature types you have enough coverage to\n\t\t\t\talmost guarantee that this is useful in any campaign where it makes\n\t\t\t\tsense for an Oath of the Watchers Paladin to exist. Turning a foe takes\n\t\t\t\tthem out of combat up a full minute unless you bother them, and in group\n\t\t\t\tencounters where you’ll use this you can greatly simplify an encounter\n\t\t\t\tby removing a portion of your opponents temporarily."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of the Sentinel"
+              },
+              {
+                "type": "text",
+                "text": ": Keep your allies\n\t\tclose while in marching order. This bonus is significant. If you’re worried about being caught in an\n\t\tAOE, remember that Aura of Protection has the same 10-foot range. The range\n\t\tdoes eventually expand at the same time as your other auras (level 18), at\n\t\twhich point you’re slightly less likely to have your entire party fireballed\n\t\tat the same time. Note the specific wording of this ability, “a bonus to initiative equal to your proficiency bonus.” While you can’t add your proficiency bonus to a check more than once, if for example if a Harengon (Hare Trigger) or Bard (Jack of all Trades) are under the effects of this aura, because of the wording of the ability these abilities will stack because it’s not a proficiency bonus, it’s just a bonus reading PB to get a value.\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vigilant Rebuke"
+              },
+              {
+                "type": "text",
+                "text": ": Situational. Against\n\t\tenemies that use these effects, this is very powerful especially when\n\t\tcombined with Watcher’s Will. However, it’s absolutely useless against many\n\t\tenemies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mortal Bulwark"
+              },
+              {
+                "type": "text",
+                "text": ": Truesight is a\n\t\tfantastic ability, but the rest only applies against suitable enemies. It\n\t\talso doesn’t include a way to keep enemies banished, and at this level many\n\t\tof the affected types of creatures can cast Plane Shift."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-vengeance",
+      "parentSectionId": "section-subclasses",
+      "heading": "Oath of Vengeance (PHB)",
+      "sourceAnchor": "oath-of-vengeance",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-vengeance-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oath of Vengeance emphasizes the Paladin’s abilities as a Striker, seeking to\n\tkill enemies quickly rather than relying on defensive tactics. Between the\n\tPaladin’s natural durability and Oath of Vengeance’s capacity for killing\n\tstuff, they’re a great standalone character. However, they also have no\n\tfeatures beyond the Paladin’s core features to assist your allies, so your\n\tparty may need a secondary Defender to fill in when you’re off smiting\n\tthings."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because Oath of Vengeance is so offense-focused, it can often encourage reckless tactics like charging into combat by yourself and focusing on the target of your Vow of Enmity while your party might need you elsewhere. To succeed with Oath of Vengeance, remember that you need to be a team player even if it means that you don’t always get to go solo the boss monster while your party mops up the minions. Apply your capabilities precisely and when it’s advantageous to do so, but don’t throw Oath of Enmity at every challenge and expect to always succeed."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We wanted to provide a depiction of how something as simple as a choice of race and equipment, along with a single feat, can result in a very different playstyle, allowing a build with some innate flexibility to shine as either a dedicated striker or a battlefield controller when optimized for, so we have two handbooks for the vengeance paladin:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Oath of Vengeance Paladin Handbook",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/"
+              },
+              {
+                "type": "text",
+                "text": " – by Random"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Vengeance Paladin Handbook",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance/"
+              },
+              {
+                "type": "text",
+                "text": " – by Rocco"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-5",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Most of the spells are\n\t\tabsolutely fantastic, but a lot of them require Concentration, and the list\n\t\tstarts to fall apart at high levels.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Bane is unreliable and\n\t\t\t\trarely worth the spell slot. Hunter’s Mark is a nice damage boost\n\t\t\t\tagainst a single high-priority target, but its usefulness is limited by\n\t\t\t\tthe Paladin’s low number of attacks per round. It can still yield\n\t\t\t\tconsiderably more damage than spending the same spell slot on Divine\n\t\t\t\tSmite, but only if you can maintain Concentration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Paralysis is an off-switch\n\t\t\t\tfor an enemy, but since your spell DC is low compared to a full\n\t\t\t\tspellcaster Hold Person is unrealiable. Misty Step is a great way to get\n\t\t\t\taround the battlefield, especially since it’s a Bonus Action to\n\t\t\t\tcast."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Haste and Protection From\n\t\t\t\tEnergy are two of the most important buffs in the game."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both situational\n\t\t\t\toptions, and the appeal of Dimension Door is reduced because you already\n\t\t\t\thave Misty Step."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Hold Monster makes Hold\n\t\t\t\tPerson redundant, but it’s a significant improvement. Unfortunately,\n\t\t\t\tyour spell save DC is likely still behind full spellcasters. Scrying is\n\t\t\t\tvery situational, and your full caster allies have had it for a very\n\t\t\t\tlong time by this level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Abjure Enemy"
+              },
+              {
+                "type": "text",
+                "text": ": Similar in many ways to\n\t\t\t\tthe spell Cause Feat, but the target doesn’t get additional saves and\n\t\t\t\ttheir speed is halved for the duration. This is especially useful\n\t\t\t\tagainst fiends and undead, but it works on anything that isn’t immune to\n\t\t\t\tfear."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vow of Enmity"
+              },
+              {
+                "type": "text",
+                "text": ": One minute of\n\t\t\t\tguaranteed Advantage against one target. Very helpful against powerful\n\t\t\t\tsingle foes. Use it early, use it often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Relentless Avenger"
+              },
+              {
+                "type": "text",
+                "text": ": Absolutely fantastic\n\t\tfor a Defender build, especially if you also have Polearm Master. Look for\n\t\tways to boost you speed like magic items or spells like Haste and\n\t\tLongstrider so that moving half your speed may be enough to keep the target\n\t\twithin your reach."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Soul of Vengeance"
+              },
+              {
+                "type": "text",
+                "text": ": An extra attack\n\t\tpresents a 50% boost to your damage output (provided that you’re not using\n\t\tsomething like two-weapon fighting or Polearm Master)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Avenging Angel"
+              },
+              {
+                "type": "text",
+                "text": ": For one hour a day you can\n\t\tchase your terrified foes around and murder them. The move speed is great,\n\t\tallowing you to quickly close to melee and get enemies within the aura. Most\n\t\tpaladin subclass capstone features only last one minute, so the fact that\n\t\tthis lasts for a full hour is incredible."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oathbreaker",
+      "parentSectionId": "section-subclasses",
+      "heading": "Oathbreaker (DMG)",
+      "sourceAnchor": "oathbreaker",
+      "blocks": [
+        {
+          "blockId": "block-section-oathbreaker-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sometimes difficult to bring into many adventuring parties, but Oathbreaker has a lot of excellent options, including an AOE fear effect and options for animating and controlling undead creatures. Oathbreakers must be evil, which can be a problem, but in a non-good party that likes to do things like summoning fiends or command undead, the Oathbreaker can be a powerful asset on the party’s front line."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oathbreaker-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Oathbreaker Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oathbreaker-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Some of the options are\n\t\toutright terrible, but there are enough good options to make the spell list\n\t\tviable.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Hellish Rebuke is\n\t\t\t\tfantastic for a Defender who spends a lot of time drawing fire, and\n\t\t\t\tdeals more damage as Divine Smite for the same spell slot (provided that\n\t\t\t\tthe target fails the save, compare 2d8 from Divine Smite to 2d10 for\n\t\t\t\tHellish Rebuke). Inflict Wounds will almost never see use because your\n\t\t\t\tweapon plus Divine Smite with the same spell slot will do as much or\n\t\t\t\tmore damage (compare 1d8+3+2d8 to 3d10)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Crown of Madness is\n\t\t\t\tdifficult to use because it consumes your Action and only does anything\n\t\t\t\tif your target is adjacent to something which you want the target to\n\t\t\t\tattack at the beginning of their turn, and Darkness isn’t very helpful\n\t\t\t\tsince you can’t see inside the area."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Animate Dead is always\n\t\t\t\tnice to have, and Bestow Curse has several excellent options. Consider\n\t\t\t\tcombining the two by cursing your foe to give them disadvantage on\n\t\t\t\tStrength checks and saves, then have your undead pets grapple them and\n\t\t\t\tshove them to the ground."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Blight is decent\n\t\t\t\tsingle-target damage, especially against plants, but your spell save DC\n\t\t\t\twon’t match a full spellcaster, and by this level the damage may feel\n\t\t\t\tunderwhelming. Divine Smite does 5d8 damage for the same spell slot\n\t\t\t\tcompared to Blight’s 8d8, and Divine Smite can be doubled on a critical\n\t\t\t\thit and doesn’t allow a save for half. I have never liked Confusion\n\t\t\t\tbecause it’s so unpredictable, even though it is an AoE."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Contagion is great, but\n\t\t\t\tcomplicated, and relies on your hitting with a spell attack first Slimy\n\t\t\t\tDoom will essentially end an encounter, especially if you can apply a\n\t\t\t\tdamage over time effect to keep them perpetually stunned. Dominate\n\t\t\t\tPerson is a powerful way to temporarily gain an extra party member, but\n\t\t\t\tyour save DC may not be high enough to make it reliable."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Control Undead"
+              },
+              {
+                "type": "text",
+                "text": ": Save-or-suck an\n\t\t\t\tundead creature for up to 24 hours. Turn powerful undead into slaves.\n\t\t\t\tThey must obey your commands, they don’t get additional saves, and they\n\t\t\t\tcan’t break the effect by any means specified in the feature. Undead\n\t\t\t\taren’t every creature, so this is technically situational, but they’re\n\t\t\t\tstill a very common creature type in many games.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you’re worried about the creature’s behavior at the end of the\n\t\t\t\t\tduration and you think it might pass a save to renew the effect, you\n\t\t\t\t\tcan command the creature to destroy itself right before the duration\n\t\t\t\t\texpires. But given enough time, you can restrain the creature while\n\t\t\t\t\tyou rest, then you and your allies could hit the creature with effects\n\t\t\t\t\twhich penalize saving throws (Bane, Mind Spike, Cutting Words, etc.),\n\t\t\t\t\tthen you can re-use Control Undead to reset the duration."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dreadful Aspect"
+              },
+              {
+                "type": "text",
+                "text": ": Considerably better\n\t\t\t\tthan the Turn Whatever abilities other oaths get since it affects\n\t\t\t\teverything. This is similar in many ways to the spell Fear, but Dreadful\n\t\t\t\tAspect is a sphere rather than a cone, and creatures only get more saves\n\t\t\t\tif they move away from you. Conveniently, the feature doesn’t make foes\n\t\t\t\trun away, so they might be content to stay within 30 feet of you and\n\t\t\t\tstruggle along in hopes that the fear with wear off."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of Hate"
+              },
+              {
+                "type": "text",
+                "text": ": Not terribly helpful in an\n\t\tadventuring party unless you’ve got plenty of Undead minions,\nbut even if it only applies to you, you can get a bunch\n\t\tof extra damage on your melee weapon attacks. Between Strength and Charisma, you\n\t\tcan easily add +7 damage at this level, and with the right Ability Score\n\t\tIncreases you can raise that to +10 total.\n"
+              },
+              {
+                "type": "text",
+                "text": "If you’re using this with a bunch of Animate Dead minions, the best option is Skeletons. Unlike Zombies, Skeletons are proficient with weapons, including Shortswords, which allows for Dual Wielding to get double the bonus out of the Aura. You’ll likely have to supply your Skele Squires with their weapons though. Skeletons can also wear armor, so if you can really spare the money, Scale Mail would boost them all up to 16 AC."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Supernatural Resistance"
+              },
+              {
+                "type": "text",
+                "text": ": Permanent\n\t\tStoneskin. This makes you very difficult to kill, especially in games with\n\t\tno magic items. However, in games where magic items are common or where the\n\t\tworld is dominated by spellcasters this might be completely useless."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dread Lord"
+              },
+              {
+                "type": "text",
+                "text": ": Lots of damage, a good use for\n\t\tyour Bonus Action, and it makes it hard for enemies to see. Be sure that you\n\t\thave Darkvision so that you’re not a victim of your own effect, and strongly\n\t\tconsider using Channel Divinity: Dreadful Aspect for the ongoing damage."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beyond-the-pale",
+      "heading": "3rd-Party Publishers",
+      "sourceAnchor": "beyond-the-pale",
+      "blocks": [
+        {
+          "blockId": "block-section-beyond-the-pale-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT has covered some 3rd-party content from our favorite creators. This content is published under the Open Gaming License, under Creative Commons, or through DMsGuild, and is not considered official content. As such, it is not available in Adventurer’s League organized play, and your group may not allow it in your game. If your group wants to explore 3rd-party content, we hope that these articles will help you make them work for you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beyond-the-pale-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Keith Baker’s Oath of Veneration Paladin Handbook",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-veneration/"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Matt Mercer’s Oath of the Open Sea Paladin",
+                "href": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-oath-of-the-open-sea/"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Oath of Conquest"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Conquering Presence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Guided Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Aura of Conquest"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scornful Rebuke"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Invincible Conqueror"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Oath of Devotion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sacred Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Turn the Unholy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Aura of Devotion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Purity of Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Holy Nimbus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Oath of Glory"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Peerless Athlete"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Inspiring Smite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Aura of Alacrity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Glorious Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Aura of Alacrity (improvement)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Living Legend"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Oath of Redemption"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Emissary of Peace"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Rebuke the Violent"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Aura of the Guardian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Protective Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Emissary of Redemption"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Oath of the Ancients"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Nature’s Wrath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Turn the Faithless"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Aura of Warding"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Undying Sentinel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Elder Champion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Oath of the Crown"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Champion Challenge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Turn the Tide"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Divine Allegiance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Unyielding Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Exalted Champion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Oath of the Watchers"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Watcher’s Will"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Abjure the Extraplanar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Aura of the Sentinel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Vigilant Rebuke"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Mortal Bulwark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Oath of Vengeance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Abjure Enemy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Vow of Enmity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Relentless Avenger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Soul of Vengeance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Avenging Angel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Oathbreaker"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Control Undead"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dreadful Aspect"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Aura of Hate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Supernatural Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dread Lord"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-oath-of-conquest-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-oath-of-conquest-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-oath-of-conquest-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-oath-of-conquest-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-oath-of-devotion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-oath-of-devotion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-oath-of-devotion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[2]",
+      "detail": "block-section-oath-of-devotion-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-oath-of-glory-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-oath-of-glory-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-oath-of-glory-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[3]",
+      "detail": "block-section-oath-of-glory-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-oath-of-redemption-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-oath-of-redemption-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-oath-of-redemption-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-oath-of-redemption-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[4]",
+      "detail": "block-section-oath-of-redemption-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-oath-of-the-ancients-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-oath-of-the-ancients-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-oath-of-the-ancients-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[5]",
+      "detail": "block-section-oath-of-the-ancients-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-oath-of-the-crown-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-oath-of-the-crown-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-oath-of-the-crown-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[6]",
+      "detail": "block-section-oath-of-the-crown-4"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[1]",
+      "detail": "<li><span class=\"rating-blue\">Champion Challenge</span>: This is a great way to keep enemies where you want them, especially in open areas outside of the confines of a dungeon. 30 "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"7\"><span class=\"rating-blue\">Divine Allegiance</span>: This is considerably better than the Protection combat style because it’s 100% reliable. As a Paladin, you are the"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-oath-of-the-watchers-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-oath-of-the-watchers-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-oath-of-the-watchers-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-oath-of-the-watchers-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[7]",
+      "detail": "block-section-oath-of-the-watchers-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-oath-of-vengeance-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-oath-of-vengeance-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-oath-of-vengeance-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-oath-of-vengeance-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[8]",
+      "detail": "block-section-oath-of-vengeance-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-oathbreaker-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-oathbreaker-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[9]",
+      "detail": "block-section-oathbreaker-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-beyond-the-pale-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-beyond-the-pale-2"
+    }
+  ],
+  "metrics": {
+    "words": 7618,
+    "sections": 14,
+    "blocks": 47,
+    "tables": 0,
+    "ratingSignals": 123
+  },
+  "status": "needs-editorial-review"
+}

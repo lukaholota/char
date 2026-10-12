@@ -1,0 +1,140 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "druid-circle-of-the-shepherd-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+    "sourceRevisionId": "rpgbot-ba54053a375f58d8-45b76cd5d803826d"
+  },
+  "exampleSection": "section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat",
+  "levelTableSection": "section-levels",
+  "classKey": "DRUID_2014",
+  "subclassKey": "CIRCLE_OF_THE_SHEPHERD",
+  "raceKey": "SATYR_MPMM",
+  "backgroundKey": "FACTION_AGENT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 10,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2, "subclassKey": "CIRCLE_OF_THE_SHEPHERD"},
+    {"level": 3},
+    {"level": 4, "featKey": "FEY_TOUCHED", "featOptions": [{"optionNameEng": "FEY_TOUCHED Ability (Wisdom)"}], "openSpellPicks": [{"category": "cantrips", "count": 1}], "section": "section-feats"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 9},
+    {"level": 10, "openSpellPicks": [{"category": "cantrips", "count": 1}]},
+    {"level": 11},
+    {"level": 12, "featKey": "METAMAGIC_ADEPT", "section": "section-feats"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "featKey": "INSPIRING_LEADER", "section": "section-feats"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Дикий супутник",
+      "reason": "Автор планує додаткове класове уміння «Дикий супутник»; пресет не записує додаткових класових умінь.",
+      "section": "section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat"
+    },
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "На 12-му рівні автор бере Адепта метамагії з Подовженим заклинанням і ще однією метамагією; у каталозі риса без опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Заклинання Доторку феї",
+      "reason": "Автор не називає заклинання 1-го рівня, яке дає Доторк феї; вибір заклинань риси на підвищенні рівня план не описує.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Риса 19-го рівня і замовляння",
+      "reason": "На 19-му рівні автор пише «будь-яка риса», тож рівень виконується без вибору; замовляння 4-го та 10-го рівнів автор не називає («будь-яке»).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/druid-shepherd-satyr-2014.webp",
+    "title": "Друїд Кола пастуха — Сатир",
+    "description": "Друїд-сатир, який готується до викликів істот: Мудрість 17, Спритність 16. Починає із замовляннями Настанова й Терновий батіг; Коло пастуха відкриється на 2-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "WIS",
+      "DEX",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "NATURE",
+        "PERCEPTION"
+      ],
+      "race": [],
+      "background": [
+        "DECEPTION"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "GOBLIN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "QUARTERSTAFF"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Сатир зі змінюваним походженням за правилами Таші: +2 до Мудрості й +1 до Спритності, як в авторській таблиці (Спритність 16, Мудрість 17); це вже враховано.",
+    "skillExplanation": "Природа й Уважність — від Друїда, Виступ і Переконання — від сатира, Аналіз поведінки — від Агента фракції; повторне Переконання автор замінює Обманом. Три мови (расову й дві від передісторії) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Деревʼяний щит, палиця (пастуший ціпок), шкіряна броня, набір мандрівника й друїдичний фокус — за авторським прикладом.",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "thorn-whip"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Настанова й Терновий батіг взято з рядка 1-го рівня авторської таблиці. Підготовлених заклинань автор не називає (радить лише Цілюще слово й Вогники фей); Друїд обирає їх на аркуші персонажа."
+    }
+  }
+}

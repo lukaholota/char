@@ -1,0 +1,829 @@
+{
+  "buildId": "build-monk-four-elements-2014",
+  "revisionId": "build-monk-four-elements-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Монаха Шляху чотирьох стихій — Знищувач капусти",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-four-elements-2014",
+      "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+      "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAY_OF_THE_FOUR_ELEMENTS",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Fist of Unbroken Air (Elemental Discipline)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Gong of the Summit (Elemental Discipline)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Flames of the Phoenix (Elemental Discipline)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "River of Hungry Flame (Elemental Discipline)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-four-elements-2014",
+          "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+          "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WAY_OF_THE_FOUR_ELEMENTS",
+    "raceKey": "GOBLIN_MPMM",
+    "backgroundKey": "HERMIT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Вкладіть +1 у Спритність/Статуру/Мудрість. Цілком типове для Монаха.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 16 Інтелект 8 8 Мудрість 15 16 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Гоблін із MotM{{Goblin}}. «Спритна втеча»{{Nimble Escape}} дублює деякі наші класові уміння, але, що показово, не витрачає Кі. Нам треба розтягувати Кі якомога більше, щоб звільнити місце для умінь підкласу. Також можна застосовувати бонус шкоди «Люті маленького»{{Fury of the Small}} до наших заклинань проти однієї цілі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Відлюдник{{Hermit}}. Монастирське життя звучить доречно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Не має значення.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Беремо виключно підвищення характеристик, щоб якнайшвидше довести Спритність і Мудрість до 20. Спритність потрібна, щоб наші атаки працювали, а Мудрість — щоб наші Складності ряткидків були достатньо високими для підтримки наших Складностей ряткидків.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Захист без броні, Бойові мистецтва",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Кі, Рух без броні, Присвячена зброя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас: Шлях чотирьох стихій, Учень стихій, Стихійна дисципліна: Кулак непорушного повітря, Відхилення снарядів, Атака, посилена Кі",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик: Спритність 16 → 18, Повільне падіння, Швидке зцілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Приголомшливий удар, Зосереджене прицілювання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Удари, посилені Кі, Стихійна дисципліна: Гонг вершини",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення, Спокій розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Спритність 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Покращення Руху без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Чистота тіла{{Purity of Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Стихійна дисципліна: Полумʼя фенікса, Заміна стихійної дисципліни: Гонг вершини → Осідлати вітер",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Мудрість 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Алмазна душа{{Diamond Soul}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Невмируще тіло{{Timeless Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Мудрість 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Стихійна дисципліна: Ріка голодного полумʼя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Порожнє тіло{{Empty Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Статура 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Досконале Я{{Perfect Self}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Навички Монаха",
+        "reason": "Автор каже, що навички не мають значення, і не називає їх; дві навички Монаха обрано за платформою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Додаткові класові уміння",
+        "reason": "Автор припускає всі додаткові класові уміння (наприклад, «Присвячена зброя», «Зосереджене прицілювання»); пресет 1-го рівня їх не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-example",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заміна стихійної дисципліни (11-й рівень)",
+        "reason": "На 11-му рівні автор замінює «Гонг вершини» на «Осідлати вітер», але заміна дисципліни Монаха платформою не підтримана (BUG-O49-MONK-DISCIPLINE-REPLACEMENT), а «Осідлати вітер» недоступний раніше 11-го. Пресет лишає «Гонг вершини» (вибір платформи, автор тут інакше); «Осідлати вітер» можна взяти на листі замість нього.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-four-elements-2014",
+            "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+            "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

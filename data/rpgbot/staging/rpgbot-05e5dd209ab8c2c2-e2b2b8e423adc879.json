@@ -1,0 +1,3500 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e2b2b8e423adc879e14273dc8319d248cb31ddfe56c51c9a108f74792354f8e3",
+  "sourceRevision": {
+    "revisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+    "sourceId": "rpgbot-05e5dd209ab8c2c2",
+    "fetchedAt": "2026-09-29T19:08:01.973977+00:00",
+    "sourceUpdatedAt": "2026-04-25T16:41:54-04:00",
+    "contentHash": "69cd5d79378b5ce6668b84b7ab817b7c5c3db25ce5e8463c8ad10110ff9458eb",
+    "title": "Order of Scribes Wizard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to collect every wizard spell every published (like me), Order of Scribes is a great choice. They get some unique capabilities to address many challenges commonly faced while adventuring, but they’re not focused on any one small part of wizardry. Rather, Order of Scribes is a sort of generic wizard subclass that emphasizes, complements, and celebrates some of the best things about being a wizard (like collecting all of the spells)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Order of Scribes has a unique balancing mechanic: knowing more spells makes you more powerful. Sure, rituals work for any wizard, and having access to more spells makes you more able to adapt to challenges. But Order of Scribes goes beyond that. Having an abnormally large number of spells in your spellbook allows you to change the damage type of spells, and at high levels to negate damage by temporarily blocking off access to spells in your spellbook. Due to these unique mechanics, you’re dependent on learning as many spells as you possibly can. Expect to spend gold and time putting spells into your spellbook at every opportunity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, that unique capability comes with risk. The Wizard learns a total of just 44 spells by the time they reach 20th level unless you can add additional spells to your spellbook. Depending on the game you’re in, you may never get access to ways to add more spells to your spellbook (other wizards’ spellbooks, spell scrolls, etc.). In campaigns which take place in the wilderness or in a megadungeon, Order of Scribes is a risky choice. In games set in cities with libraries or wizard schools, easy access to spellbooks will make the Order of Scribes effective, reliable, versatile, and fun. If you don’t know the nature of the campaign, check with your DM before you commit to this. You will eventually get access to things like teleportation and then you may be able to go looking for sources of new spells, but you probably don’t want to suffer the total absence of options until that point."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Taken as a whole, Order of Scribes is very much the “wizard’s wizard”. If you like the Wizard and you’re comfortable with the mechanics which make the Wizard great, Order of Scribes is a great choice. But if you’re looking for an easy route to a powerful character that works in any campaign, Order of Scribes isn’t what you’re looking for."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order of Scribes Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Every Damage Type at Every Level",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#every-damage-type-at-every-level"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order of Scribes Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#order-of-scribes-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order of Scribes Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#order-of-scribes-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order of Scribes Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#order-of-scribes-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – RPGBOT Self-Insert",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#example-build-rpgbot-selfinsert"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/scribes/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Order of Scribes Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Wizardly Quill"
+              },
+              {
+                "type": "text",
+                "text": ": Copying a spells normally\n\t\ttakes two hours per spell level. This reduces that time considerably. Time\n\t\tspent learning spells is typically handled “off screen”, but if you’re\n\t\ttracking Downtime this means that you can copy 60 times as many spells in\n\t\tthe same amount of time as other wizards.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The quill also allows you to vandalize stuff for free. The ink doesn’t\n\t\t\tmagically adhere to things, but given time you could scribble over every\n\t\t\tbook in a library, rendering them illegible until you decide to erase your\n\t\t\tscribbles. Tragically, the free ink doesn’t make it free to add more\n\t\t\tspells to your spellbook, so expect to spend the bulk of your money on\n\t\t\tcopying new spells."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Awakened Spellbook"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to change\n\t\tthe damage type of your spells makes it much easier to use damage spells.\n\t\tLook for spells which deal damage types that are rarely resisted like Force\n\t\t(Magic Missile, Disintegrate), Thunder (Shatter), Psychic, Necrotic, and\n\t\tRadiant damage. If you know enough spells and know your enemies’\n\t\tresistances, you may go your entire career without dealing damage to a\n\t\tcreature which has resistance to that damage type. But, again, you need to\n\t\tlearn as many spells as possible to get the most out of this feature, so if\n\t\tyour DM doesn’t give your access to more spells you may struggle to make\n\t\tthis work.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The third benefit lets you cast a ritual more quickly once per day.\n\t\t\tThat’s great for options like Detect Magic and if you need them in a\n\t\t\thurry, but hopefully you won’t need it often."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Manifest Mind"
+              },
+              {
+                "type": "text",
+                "text": ": Similar in many ways to\n\t\tArcane Eye, though certainly less subtle since it’s not invisible. This\n\t\tallows you to examine distant objects, peek around corners, keep watch in\n\t\ttwo places at once, and even explore small spaces where you can’t physically\n\t\tfit. It even has Darkvision even if you don’t, so it can mostly serve in place of\n\t\tyour own eyes in dark places. Think of it like one of those quadcopter\n\t\tdrones, but your controls only work out to a range of 300 feet and you can\n\t\tshoot fireballs through it.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You also gain the ability to cast spells using your spectral mind as the\n\t\t\torigin point. This allows you to cast spells while you’re safely behind\n\t\t\tcover, or to deliver short-range spells like Burning Hands or Thunderclap\n\t\t\twithout the risk of being in near-melee range and potentially even without\n\t\t\tthe targets being aware of your presence. However, the number of times you\n\t\t\tcan do this per day is small so look for other ways to solve the same\n\t\t\tproblems if you can."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Master Scrivener"
+              },
+              {
+                "type": "text",
+                "text": ": Since you can’t share\n\t\tthis (the scroll is unintelligible to anyone else), this is basically just\n\t\ta free spell per day. Find your favorite 2nd-level spell with a decent\n\t\teffect for being upcast to 3rd level. You don’t need to have the spell\n\t\tprepared, so this is good for spells with long durations which you know you\n\t\twill cast, but which you won’t cast more than once."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "One with the Word"
+              },
+              {
+                "type": "text",
+                "text": ": Advantage on Arcana\n\t\tchecks is really nice, especially if you’re using the rules for identifying\n\t\tspells presented in Xanathar’s Guide to Everything and if your DM allows you\n\t\tto use skill checks to identify monsters and their weaknesses.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The second benefit of this feature allows you to entirely negate sources\n\t\t\tof damage. However, this comes with a steep cost and a gamble. First, it\n\t\t\teats your Reaction, so consider using Shield or Absorb Elements if either\n\t\t\tof them will suffice. Second, it dismisses your Spectral Mind, so you’ll\n\t\t\tneed to re-manifest it as a Bonus Action on a later turn."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Third, and most important, you temporarily lose access to some of the\n\t\t\tspells in your spellbook. This is honestly a pain to track, but it’s also\n\t\t\teasy to mitigate this cost. By learning a huge number of spells, you can\n\t\t\taccumulate enough spell levels worth of unused spells that you may be able\n\t\t\tto use this numerous times in succession. Just keep in mind that at an\n\t\t\taverage of 10.5 spell levels, you need to spend an average of 525gp\n\t\t\tlearning the spells to fuel a single use."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Finally, if you roll the 3d6 and roll more spell levels than you can\n\t\t\tspend, you’re immediately reduced to 0 hit points. This can prevent you\n\t\t\tfrom immediately dying due to massive damage because the original damage\n\t\t\tis still prevented, but if the original damage wasn’t going to knock you\n\t\t\tdown to 0 you’re going to feel silly for knocking yourself out because you\n\t\t\tdon’t know enough spells."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-every-damage-type-at-every-level",
+      "parentSectionId": "section-features",
+      "heading": "Every Damage Type at Every Level",
+      "sourceAnchor": "every-damage-type-at-every-level",
+      "blocks": [
+        {
+          "blockId": "block-section-every-damage-type-at-every-level-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Awakened Spellbook allows us to swap damage types for our leveled spells. While typically we’ll do fine with a few damage types like psychic and force, the ability to deal any damage type is tantalizing. If we want every damage type available at every spell level, we’ll need to collect a long list of spells to collect them all."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-every-damage-type-at-every-level-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that the damage type only needs to “appear” in the spell; the spell does not need the ability to inflict that damage type. As a result, spells which provide resistance to a damage type, or which might inflict damage to the caster (such as when you teleport into a wall and take force damage) apply. It seems odd that this would be intentional, but WotC could have written “replace its damage type with a type that could be dealt by another spell in your spellbook” so it appears that this is intentional."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-every-damage-type-at-every-level-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The following table uses spells only from the Wizard’s spell list. Awakened Spellbook only cares about what’s in your spellbook, and multiclassing, feats, and racial traits don’t put spells in your spellbook. The table also ignores dragonmarks, which do allow you to add some unusual spells to your spellbook. Dunamancy spells are also not included since I can’t assume that those are available in your game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-every-damage-type-at-every-level-4",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "1st"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "6th"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7th"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "8th"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Acid"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chromatic Orb"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dragon’s Breath"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Glyph of Warding"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Bane"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Fizban’s Platinum Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Spray"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Illusory Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Wall"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Catapult"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alter Self"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Erupting Earth"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Stoneskin"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Animate Objects"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Investiture of Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Whirlwind"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Meteor Swarm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cold"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chromatic Orb"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dragon’s Breath"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Glyph of Warding"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Bane"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cone of Cold"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fizban’s Platinum Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Spray"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Illusory Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Wall"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Fire"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chromatic Orb"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dragon’s Breath"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Glyph of Warding"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Bane"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Immolation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fizban’s Platinum Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Spray"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Illusory Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Wall"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Missile"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Kinetic Jaunt"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Dimension Door"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bigby’s Hand"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Disintegrate"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mordenkainen’s Sword"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Blade of Disaster"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Lightning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chromatic Orb"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dragon’s Breath"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Glyph of Warding"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Bane"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Fizban’s Platinum Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Spray"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Illusory Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Wall"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Necrotic"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Wither and Bloom"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spirit Shroud"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Blight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Negative Energy Flood"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Circle of Death"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finger of Death"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Illusory Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wish"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ice Knife"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alter Self"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Stoneskin"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Animate Objects"
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Poison"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chromatic Orb"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dragon’s Breath"
+                }
+              ],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Cloudkill"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fizban’s Platinum Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Spray"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Illusory Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prismatic Wall"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Psychic"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Phantasmal Force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Intellect Fortress"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Phantasmal Killer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Synaptic Static"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mental Prison"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Maddening Darkness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Psychic Scream"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Radiant"
+                }
+              ],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Spirit Shroud"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sickening Radiance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wall of Light"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sunbeam"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Crown of Stars"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sunburst"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Slashing"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Alter Self"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Stoneskin"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Animate Objects"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Investiture of Stone"
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Thunder"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chromatic Orb"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shatter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Glyph of Warding"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Bane"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              []
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-every-damage-type-at-every-level-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As you can see, there are some gaps, but we enough options that damage resistance/immunity should never be a problem. Almost nothing in the game resists magical bludgeoning damage, which covers every spell level except 8. At 8th spell level we can use either psychic or radiant damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-order-of-scribes-ability-scores",
+      "heading": "Order of Scribes Ability Scores",
+      "sourceAnchor": "order-of-scribes-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-order-of-scribes-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Order of scribes is the most wizard-y wizard there is, so our ability score needs are identical to other wizards. See our "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-order-of-scribes-races",
+      "heading": "Order of Scribes Races",
+      "sourceAnchor": "order-of-scribes-races",
+      "blocks": [
+        {
+          "blockId": "block-section-order-of-scribes-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Order of Scribes is motivated by two things: the need to put spells into their spellbook and the need to survive doing it. Innate spellcasting is still useful, but doesn’t put spells in your spellbook, so if you do pick a race like the Drow or the Fairy, remember that those spells don’t count for Awakened Spellbook."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-order-of-scribes-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beyond those considerations, order of scribes’ racial needs are the same as any other wizard. See our "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-order-of-scribes-feats",
+      "heading": "Order of Scribes Feats",
+      "sourceAnchor": "order-of-scribes-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-order-of-scribes-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Order of Scribes doesn’t have any unique interaction with feats, so the advice in our "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#feats"
+            },
+            {
+              "type": "text",
+              "text": " should suffice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Multiclassing into other spellcasting classes does not allow you to add those spells to your spellbook, so you can’t use them for Awakened Spellbook’s damage switching. That said, multiclassing can still be very helpful. See the "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-rpgbot-selfinsert",
+      "heading": "Example Build – RPGBOT Self-Insert",
+      "sourceAnchor": "example-build-rpgbot-selfinsert",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-rpgbot-selfinsert-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is absolutely self-serving, but a warforged scribes wizard is about as RPGBOT as you can get, so here we go. Wizards are my favorite class, and Order of Scribes is the most wizard-y wizard that ever did wizard, and we are going wizard our hearts out. We’re going to throw bludgeoning fireballs and shoot chain lightning that deals force damage. We’re going to nuke encounters in one spell from hundreds of feet away around several corners. We’re going negate so much damage that we might as well be the party tank."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-rpgbot-selfinsert-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is one of our "
+            },
+            {
+              "type": "link",
+              "text": "10 favorite DnD 5e builds",
+              "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-rpgbot-selfinsert",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll use the ability scores suggested in the Wizard Handbook. We’re intentionally leaving Int and Con at odd numbers so that our modifiers increase when we take hybrid feats at levels 4 and 12."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-rpgbot-selfinsert",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom origin Warforged. It adds a bunch of durability to our wizard, but doesn’t help us actively do wizard things so we’re on our own for that. We’ll be using the custom origin rules to swap the +2 to Intelligence and put the +1 into Constitution."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-rpgbot-selfinsert",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cloistered Scholar out of the Sword Coast Adventurer’s Guide works great, but Acolyte would also suffice. If you’re feeling fancy you can trade the languages for tools of some kind, but it doesn’t really matter for this build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-rpgbot-selfinsert",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get a total of 5 skills between our race, class, and background. We’ll select Arcana, History, Investigation, Nature, and Religion, giving us every Intelligence-based skill. We also get one tool, so pick something cool like calligraphy tools or something."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want more skills, learn Borrowed Knowledge."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-rpgbot-selfinsert",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to take a hybrid feat at level 4. Telekinetic, Fey Touched, and Shadow Touched are all good options. Skill Expert is an option, but it’s a weird choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-rpgbot-selfinsert",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Recovery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fire Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-Level Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Chromatic Orb"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Comprehend Languages (R)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Familiar (R)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mage Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Magic Missile"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sleep"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting equipment, take a dagger, a component pouch or spellcasting focus, either pack, and a spellbook."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mind Sliver and Fire Bolt are our go-to offensive options. Fire Bolt on enemies with poor AC, and Mind Sliver on everything else. "
+                },
+                {
+                  "type": "link",
+                  "text": "Prestidigitation",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/prestidigitation/"
+                },
+                {
+                  "type": "text",
+                  "text": " gives us some go-to utility. You could also swap that for "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "link",
+                  "text": "Shape Water",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                },
+                {
+                  "type": "text",
+                  "text": ", but those feel slightly less wizard-y in my opinion, and we want to be the most wizard-y wizard that ever did wizard."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We only have 2 spell slots and we need to not die, so one of them is committed to Mage Armor. Arcane Recovery gets us one slot back on a Short Rest, so it’s really 3 slots, but that’s still not much. Reserve those slots for when you’re going to have a big impact, like putting a bunch of weak enemies to sleep in one shot."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take two rituals at this level which will immediately provide some utility. Get an owl familiar (the best and most wizard-y familiar), and have it fly around using Help for your party. You can also use it to Help yourself before casting Chromatic Orb, which will beat the DPR of Magic Missile."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Tradition: Order of Scribes"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wizardly Quill"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Awakened Spellbook"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wizardly Quill is basically free vandalism as a class feature. Scribble on everything."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Awakened Spellbook is where we start to get fancy. You’re required to hold your spellbook to benefit from the features. If magic items are a possibility, look for an Arcane Grimoire and turn that into your Awakened Spellbook (yes, that’s allowed)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Awakened Spellbook allows us to swap damage types, which means it’s time to start collecting spells that deal additional damage types. See the table above under “every damage type at every level.” You should also start collecting rituals. Literally any spell that you can cast as a ritual should be in your spellbook as soon as you can get it without cutting into your combat spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re taking two defensive spells at this level. We’re still very short on spell slots, but spending one slot to not die is a great investment, and these spells will remain defensive staples for your whole career."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Maximilian’s Earthen Grasp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Phantasmal Force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Use Earthen Grasp for physically weak but mentally strong enemies and use Phantasmal Force for physically strong but mentally weak enemies. If you can, hit a creature with Mind Sliver the turn before you hit them with either of these spells to ensure that the initial save is likely to fail."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, this means that we’re only well equipped to handle single enemies for the moment. Spend the gold to learn extra spells and learn Web early if you can."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that you can also change the damage types on these. Changing Phantasmal Force’s damage to bludgeoning is occasionally useful."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Telekinetic (Int 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Invisibility"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Web"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Yes, we’re recommending Telekinetic on another build. It gets us +1 Int, Mage Hand, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and"
+                },
+                {
+                  "type": "text",
+                  "text": " the cool Bonus Action reposition. This build is fairly light on Bonus Action usage, so Telekinetic is easy to fit into most turns. It’s a really good feat, and it’s among the Wizard’s easiest feat choices. "
+                },
+                {
+                  "type": "link",
+                  "text": "Fey Touched",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#fey-touched"
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "link",
+                  "text": "Shadow Touched",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#shadow-touched"
+                },
+                {
+                  "type": "text",
+                  "text": " would also work in this spot. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Adding Minor Illusion to our cantrips gives us another utility option. Technically you can even use it in combat. Try summoning a 5-foot cubic crate around yourself to break line of sight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our leveled spells we take Invisibility as a utility and support option and Web as an AOE crowd control option. Web is brutally effective crowd control at any level and works on anything except creatures flying too far from a convenient wall, ceiling, etc."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Erupting Earth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fireball"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take Fireball because it’s the best AOE damage. We take Erupting Earth to make it bludgeoning damage. You don’t need to prepare Erupting Earth."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Manifest Mind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enemies Abound"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Summon Undead"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Manifest Mind is pretty great. It can scout, it has Darkvision, it can communicate what it sees and hears to you telepathically, and it’s intangible so it can’t be harmed (unless it’s dispelled). If nothing else, you can float it into a room as a distraction since it’s visible and produces light. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "More likely, you’ll send it somewhere at a distance and cast a spell with the Manifest Mind as the origin point, allowing you to do things like drop Evard’s Black Tentacles into an enclosed space but several rooms away. You only get to do this a few times per day, but honestly if the pool isn’t enough to make a huge difference you’re not thinking creatively enough."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The movement rules for Manifest Mind are "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "extremely"
+                },
+                {
+                  "type": "text",
+                  "text": " permissive. You can move the mind anywhere that you or the mind sees within the 300-foot range, so you can fly it around corners, through narrow spaces, and basically anywhere not blocked by a solid object. The mind’s dimensions aren’t specified beyond it being “tiny”, so you may be able to squeeze it under doors or through keyholes."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Enemies Abound is a great choice in encounters with one big enemy and lots of small enemies. Target the big one and let it eat the small ones for you. Of course, it competes for space with Phantasmal Force."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Summon Undead becomes a go-to choice in combat. Any time you’re not concentrating on Maximilian’s Earthen Grasp of Phantasmal Force, you should likely be concentrating on Summon Undead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "When you can, be sure to pick up Counterspell, Dispel Magic, Major Image and Leomund’s Tiny Hut. Remember to collect rituals wherever you can."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Banishment"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Polymorph"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Banishment is a Charisma-based save-or-suck and Polymorph can "
+                },
+                {
+                  "type": "link",
+                  "text": "turn you into a tyrannosaurus",
+                  "href": "https://rpgbot.net/dnd5/characters/polymorph"
+                },
+                {
+                  "type": "text",
+                  "text": ". Either can dramatically alter the outcome of a fight."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Int 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Evard’s Black Tentacles"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wall of Fire"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We max Int at this level, which feels good."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wall of Fire is excellent area control, and we can change the damage type to bludgeoning thanks to Evard’s Black Tentacles, which is also excellent area control. Technically we could make Evard’s Black Tentacles do fire damage, but… why? Unless you’re fighting plants or yetis or something."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Summon Draconic Spirit"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Synaptic Static"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Summon Draconic Spirit is equal parts mount, utility (it can find invisible enemies), and pet breath weapon. It can also cause a bunch of damage types which we can use for Synaptic Static or for upcasting Fireball."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Synaptic Static is Fireball with a massive mathematical debuff. Even against big single foes, dropping this turn 1 can trivialize encounters with anything that relies on attack rolls."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Master Scrivener"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shape Water"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Telekinesis"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wall of Force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Master Scrivener is effectively one extra 2nd-level spell. It’s upcast at 3rd level, but at this level that’s not a huge change. You don’t need to have the spell prepared, so this is good for spells with long durations which you know you will cast, but which you won’t cast more than once. Darkvision is a good example despite not benefiting from a higher spell level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shape Water can be very abusable with enough water around. Combine that with Telekinesis, and you can drop a 1,000-pound block of ice on creatures."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Or more likely you’ll just use Telekinesis to pick up an enemy. It’s a Strength "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "check"
+                },
+                {
+                  "type": "text",
+                  "text": " to resist (not a save) so even strong enemies are going to have trouble resisting. If there are multiple enemies, you can lift one into the air and drop it on another, knocking both prone. Otherwise you can just keep one floating in the air at a time while your party piles damage into them. Restrained isn’t quite Paralyzed, but it’s close."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wall of Force puts half of the encounter in a time out while you and your party deal with the other half."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Contingency"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eyebite"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "Contingency is one of my favorite spells",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/contingency/"
+                },
+                {
+                  "type": "text",
+                  "text": ". It’s limited only by your spell selection and your creativity (and the rules of the spell, but that’s not the point). If you’re short on ideas, go for something simple like “when I roll for initiative, cast Greater Invisibility.”"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient (Con) (Con 15 -> 16)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Chain Lightning"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Disintegrate"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Why yes, I "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "would"
+                },
+                {
+                  "type": "text",
+                  "text": " love to make Chain Lightning deal force damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Crown of Stars"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Reverse Gravity"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Crown of Stars lasts an hour and you fire the motes as a Bonus Action, so you should be able to fit it into most turns with little trouble. It’s also radiant damage, so you shouldn’t need to worry much about resistances."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It’s unclear how this interacts with Manifest Mind, unfortunately. The “origin point” of the spell can be the mind, but it’s self-targeted, so it may just not have any effect. Or maybe the mind becomes the target and your floating book gets a crown of stars. Or maybe the stars orbit you, but you can fire the stars from the book. It’s probably the first one, but I’m not certain."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you don’t like Crown of Stars, consider Delayed Blast Fireball. Combined with Manifest Mind, you can send your mind off somewhere with enemies, have the fireball originate from the mind, then move the mind around as a distraction while the fireball charges. It’s not much better than just upcasting Fireball, but I can’t think of a better excuse to use Delayed Blast Fireball."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Reverse Gravity is fun because even at this level a lot of things just outright can’t do anything about it. No save, no ranged attacks, nothing. Sure, they can save to grab onto something if something appropriate is nearby, but they’re still stuck there and if they let go they float into the air. Float your Manifest Mind into a room, reverse the gravity to put its inhabitants on the ceiling, then walker your party to the edge of the AOE and spend a minute shooting fish in a barrel before dropping the survivors back to the ground for falling damage,"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "One With the Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Forcecage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Teleport"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "One With the Word is "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "weird"
+                },
+                {
+                  "type": "text",
+                  "text": ". As a reaction you negate damage dealt to you. Forget Shield or Absorb Elements: One With the Word is better by a huge margin. The difficulty is in tracking the spells that you’ve used to pay this cost. It’s going to take a spreadsheet, and no I’m not saying that to be dramatic. A spreadsheet really is an asset here since you’re going to need to track randomized cooldowns for potentially hundreds of spells. Yes, hundreds, because you’ve been pouring every last bit of coin you have into learning more spells for exactly this purpose. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "And keep an eye on how many spells you’ve used to fuel One With the Word. If you use it and can’t pay the cost you go straight to 0 hit points. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "3d6 averages to 10.5, so expect to spend 11 levels worth of spells every time you use One With the Word. There are hundreds of leveled spells on the Wizard’s spell list and you should collect them like a dragon hoarding treasure. And keep your spreadsheet up to date. No one else is going to do that for you, and if you have to rebuild your spreadsheet every time you take damage, your DM is going to kill your character out of spite."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Forcecage is like casting Force Wall in a hemisphere, except that it’s larger, lasts six times as long, and crucially it doesn’t require Concentration. Drop a spell that does ongoing AOE damage like Evard’s Black Tentacles and then on your next turn drop Force Cage before your victims can escape the radius of the damage spell."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Teleport is nice because now you can teleport to your favorite library to get more spells. How many spells do you need? Silly question. "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "All of them."
+                },
+                {
+                  "type": "text",
+                  "text": " Remember: One With the Word cares about how much is in your spellbook."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Illusory Dragon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Clone"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Illusory Dragon gives you access to several damage types at this level and it’s also a pretty great spell on its own. Think of it like a short-duration combat summon."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Clone makes us immortal. The container is expensive so you probably don’t want a bunch of them, but one clone hidden away somewhere is a great idea. How do we clone a warforged? Don’t question it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI/Feat: Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Maze"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Simulacrum"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level we have lots of flexibility for our ASI. We could increase Constitution to get more HP and better Con saves, but you have One With the Word to totally negate damage and we’re already proficient in Con saves so we’re doing fine there. Hybrid feats also don’t offer much here."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Simulacrum is problematically good. Sure, the simulacrum can’t regain spell slots or gain levels, but if your party includes martial characters they probably don’t care about spell slots. Make simulacrums of your whole party. Have them keep watch while you sleep. Have them cast rituals. Have them run errands for you. The target doesn’t even need to be willing. Capture local nobility and replace them with simulacrums. By this level, "
+                },
+                {
+                  "type": "link",
+                  "text": "the 1,500gp cost to cast this is very affordable",
+                  "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#character-wealth-by-level"
+                },
+                {
+                  "type": "text",
+                  "text": ". Or you can wait one more level and use Wish to cast Simulacrum for free as a single Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Consider "
+                },
+                {
+                  "type": "link",
+                  "text": "Eldritch Adept",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/"
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "link",
+                  "text": "Metamagic Adept",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Meteor Swarm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Something silly about Meteor Swarm: Since it does both fire and bludgeoning damage, you can change damage types to either fire or bludgeoning. That also applies to Meteor Swarm, so you can use Meteor Swarm to change Meteor Swarm’s damage type to either all fire or all bludgeoning. Go for al bludgeoning."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I don’t know how Wish interacts with Awakened Spellbook’s ability to switch damage types. It either gives you every damage type or it does nothing. As a DM I would rule that it does nothing. Wish is already enough on its own."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This level also gives us access to 9th-level spells, which means that our entire spell list is on the table both to cast and to fuel One With the Word. Pick 6 9th-level spells that you absolutely do not care about and plan to learn them at levels 18, 19, and 20. Then go spend a bunch of gold to put everything else into your spellbook. A single 9th-level spell is almost enough to fuel a use of One With the Word on its own, so adding a bunch of them dramatically expands how often you can use it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Mastery:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Silvery Barbs"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Web"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Psychic Scream"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "True Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Normally I recommend Absorb Elements or Shield for use with Spell Mastery, but that’s what One With the Word is for, so suddenly we’re left with this immensely powerful resource. "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": " is about as much trouble as we can cause with a bottomless 1st-level spell, but it competes with One With the Word for our Reaction and also your DM is going to hate you. Tasha’s Hideous Laughter is a decent backup option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Web is just good area control, and with a 1-hour duration you can frequently use it to block choke points like doorways while you take a short rest or read a book or whatever."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I’ve overlooked Psychic Scream for a very long time, which was a mistake. Int saves tend to be very low even at high levels, and a stun with unlimited duration can easily win entire encounters in one shot. You can also change the damage type to bludgeoning and scream rocks at people."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI/Feat: Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I honestly don’t know what to do with this level. We’re already so insanely and untouchably powerful that there’s not much left to do. Maybe take War Caster or something?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Signature Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fireball"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tongues"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Signature Spells is still a disappointing capstone. Two extra 3rd-level spells prepared, and you can cast each of them once per day for free. We’ll take fireball because it’s still good AOE damage and Tongues so that there’s no language barrier when we spam Tasha’s Hideous Laughter."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Order of Scribes Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Wizardly Quill"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Awakened Spellbook"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Manifest Mind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Master Scrivener"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green One with the Word"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[5]",
+      "detail": "<li value=\"14\"><span class=\"rating-green\">One with the Word</span>: Advantage on Arcana checks is really nice, especially if you’re using the rules for identifying spells presented"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-every-damage-type-at-every-level-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-every-damage-type-at-every-level-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-every-damage-type-at-every-level-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-every-damage-type-at-every-level-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-every-damage-type-at-every-level-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-order-of-scribes-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-order-of-scribes-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-order-of-scribes-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-order-of-scribes-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-example-build-rpgbot-selfinsert-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-build-rpgbot-selfinsert-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 5157,
+    "sections": 16,
+    "blocks": 30,
+    "tables": 3,
+    "ratingSignals": 10
+  },
+  "status": "needs-editorial-review"
+}

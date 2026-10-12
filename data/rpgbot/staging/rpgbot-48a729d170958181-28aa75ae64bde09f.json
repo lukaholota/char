@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/feats/lordly-resolve/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "28aa75ae64bde09fd29c06d411af41d539f7c5ac585488462be3b343d9e9a78a",
+  "sourceRevision": {
+    "revisionId": "rpgbot-48a729d170958181-28aa75ae64bde09f",
+    "sourceId": "rpgbot-48a729d170958181",
+    "fetchedAt": "2026-09-29T19:12:46.506962+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:56:39-04:00",
+    "contentHash": "a953f1f6de7c469ccecf4a99afac76a78de6ab29417ffdb88753168158294d87",
+    "title": "DnD 5.5 Lordly Resolve Feat Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-48a729d170958181-28aa75ae64bde09f.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n\tThe Lordly Resolve feat gives you an exciting buff that you makes you feel\n\tlike a party leader, allowing you to bolster your party against common charm\n\tand fear effects. However, the needlessly strict usage limitation on the feat\n\tmeans that you’ll constantly stress over using it in the wrong encounter, and\n\tyou may miss opportunities to use it for fear of facing a bigger threat in the\n\tnext encounter.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lordly Resolve requires "
+            },
+            {
+              "type": "link",
+              "text": "Lords’ Alliance Agent",
+              "href": "https://rpgbot.net/2024-dnd/feats/lords-alliance-agent/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-score-increase",
+      "heading": "Ability Score Increase",
+      "sourceAnchor": "ability-score-increase",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-score-increase-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n\tLargely the same as the Ability Scores supported by the Lords’ Alliance Vassal\n\tbackground, but Intelligence is dropped from your choices, making it\n\tabundantly clear that this whole background/feat chain is intended for\n\tStrength/Charisma builds.\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-standard-bearer",
+      "heading": "Standard Bearer",
+      "sourceAnchor": "standard-bearer",
+      "blocks": [
+        {
+          "blockId": "block-section-standard-bearer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n\tThe effect is good and it feels very dramatic, but once per Long Rest is not\n\tgood enough. If you’re worried about charm/fear effects, have someone in the\n\tparty bring Calm Emotions. If you’re worried about possession, have someone\n\tbring Protection from Evil and Good. If you’re worried about allies falling\n\tprone, don’t be. Very few enemies have any meaningful way to knock you prone.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-standard-bearer-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If this was once per short rest, I would happily rate it green."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "#ability-score-increase",
+      "detail": "wp-block-heading rating-green Ability Score Increase"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#standard-bearer",
+      "detail": "wp-block-heading rating-orange Standard Bearer"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-ability-score-increase-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-standard-bearer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-standard-bearer-2"
+    }
+  ],
+  "metrics": {
+    "words": 195,
+    "sections": 3,
+    "blocks": 5,
+    "tables": 0,
+    "ratingSignals": 2
+  },
+  "status": "needs-editorial-review"
+}

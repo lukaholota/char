@@ -1,0 +1,965 @@
+{
+  "buildId": "build-bard-whispers-2014",
+  "revisionId": "build-bard-whispers-2014-v4",
+  "ruleset": "RULES_2014",
+  "title": "Барда Колегії шепотів — Майстер-шпигун",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-bard-whispers-2014",
+      "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+      "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "charm-person"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "COLLEGE_OF_WHISPERS",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "calm-emotions"
+          ],
+          "spellbookKeys": []
+        },
+        "expertise": [
+          "DECEPTION",
+          "INSIGHT"
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ACTOR",
+        "spells": {
+          "cantripKeys": [
+            "message"
+          ],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "charm-person",
+          "add": "enhance-ability"
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "tongues"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "clairvoyance"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dimension-door"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "BARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (CHA)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (STEALTH)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (PERSUASION)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "raulothims-psychic-lance"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "modify-memory"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "vicious-mockery"
+          ],
+          "knownSpellKeys": [
+            "rarys-telepathic-bond"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ],
+        "expertise": [
+          "INVESTIGATION",
+          "PERCEPTION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "BARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "mass-suggestion"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 1
+          },
+          {
+            "ability": "CHA",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "mirage-arcane"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "glibness"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "foresight"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARD_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-whispers-2014",
+          "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+          "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "COLLEGE_OF_WHISPERS",
+    "raceKey": "CHANGELING_MPMM",
+    "backgroundKey": "CHARLATAN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 13
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Почнемо з характеристик, рекомендованих у нашому посібнику Барда, але трохи зменшимо Статуру, щоб вкласти більше в Мудрість, адже ми очікуємо, що більше розмовлятимемо, ніж отримуватимемо ножові удари. Расове +2 вкладемо в Харизму, а +1 — у Спритність.\n\n Базове значення Збільшене значення Сила 8 8 Спритність 15 16 Статура 13 13 Інтелект 8 8 Мудрість 12 12 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "«Змінник»{{Changeling}} з MotM. Дві навички та «Перевертень»{{Shapechanger}} дають багато користі в будь-якій кампанії, де Колегія шепотів буде доречною. Для расових навичок оберемо Аналіз Поведінки й Переконання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "«Шарлатан»{{Charlatan}} дуже добре пасує до нашої теми. Володіння Обманом і Спритністю рук нам підходить, як і володіння набором фальшивомонетника{{Forgery Kit}}. {{Набір для гриму|Disguise Kit}} навряд чи стане в пригоді, адже ми добре маскуємося завдяки «Перевертню»{{Shapechanger}}, тож можна обміняти його на володіння інструментами злодія{{Thieves’ Tools}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Три навички від класу вкладемо в Залякування, Розслідування й Уважність. Тож у нас будуть Обман, Аналіз Поведінки, Залякування, Розслідування, Уважність, Переконання та Спритність рук. Це всі навички «обличчя» плюс кілька навичок розвідника. Непомітності не буде, але Барди можуть накладати Невидимість [Invisibility], тож, думаю, упораємося.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо рису «Актор»{{Actor}}. Завдяки «Перевертню»{{Shapechanger}}, «Актору»{{Actor}} та Експертизі{{Expertise}} наше маскування майже непроникне. Також підвищимо Харизму до 18.\n\nНа 8-му рівні беремо рису «Експерт у навичках»{{Skill Expert}}. Вона підвищить Харизму до 19 і дасть володіння Непомітністю (або іншою навичкою на ваш вибір) та Експертизу{{Expertise}} в Переконанні.\n\nНа 12-му рівні розподілимо одне Покращення Характеристик між Статурою й Харизмою, довівши їх відповідно до 14 і 20.\n\nНа 16-му рівні беремо рису «Адепт метамагії»{{Metamagic Adept}}, щоб отримати «Подовжене заклинання»{{Extended Spell}} і «Приховане заклинання»{{Subtle Spell}}.\n\nНа 19-му рівні в нас лишається вільне місце.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "{{Чаротворство|Spellcasting}}\n«Бардське натхнення»{{Bardic Inspiration}} — к6\nВідомі замовляння: – Дружба [Friends] – Мала ілюзія [Minor Illusion]\nВідомі заклинання: – Розуміння мов [Comprehend Languages] – Мовчазний образ [Silent Image] – Сон [Sleep] – Невидимий служник [Unseen Servant]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "«Майстер на всі руки»{{Jack of All Trades}}\n«Пісня відпочинку»{{Song of Rest}} — к6\nНове відоме заклинання: – Причарування особи [Charm Person]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Колегія Бардів{{Bard College}}: Бард {{Колегії шепотів|College of Whispers}}\n«Слова жаху»{{Words of Terror}}\n«Психічні леза»{{Psychic Blades}} (2к6)\nЕкспертиза{{Expertise}}: – Обман – Аналіз Поведінки\nНове відоме заклинання: – Вгамування емоцій [Calm Emotions]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: «Актор»{{Actor}} (Харизма 17 → 18)\nНове відоме замовляння: – Повідомлення [Message]\nНове відоме заклинання: – Невидимість [Invisibility]\nЗаміна відомого заклинання: – Причарування особи [Charm Person] → Покращення здібності [Enhance Ability]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} — к8\n«Джерело натхнення»{{Font of Inspiration}}\n«Психічні леза»{{Psychic Blades}} (3к6)\nНове відоме заклинання: – Мови [Tongues]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "«Контрпричарування»{{Countercharm}}\n«Мантія шепотів»{{Mantle of Whispers}}\nНове відоме заклинання: – Підглядання [Clairvoyance]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Нове відоме заклинання: – Двері між вимірами [Dimension Door]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: «Експерт у навичках»{{Skill Expert}}\nХаризма 18 → 19\nВолодіння: Непомітність\nЕкспертиза{{Expertise}}: Переконання\nНове відоме заклинання: – Психічний спис Раулотіма [Raulothim's Psychic Lance]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "«Пісня відпочинку»{{Song of Rest}} — к8\nНове відоме заклинання: – Зміна спогадів [Modify Memory]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} — к10\n«Психічні леза»{{Psychic Blades}} (5к6)\nЕкспертиза{{Expertise}}: – Розслідування – Уважність\nНове відоме замовляння: – Злісне глузування [Vicious Mockery]\nМагічні таємниці: – Арканне око [Arcane eye] – Телепатичний звʼязок Рері [Rary's Telepathic Bond]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нове відоме заклинання: – Масове навіювання [Mass Suggestion]\nНове відоме замовляння: – будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Статура 15 → 16, Харизма 19 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "«Пісня відпочинку»{{Song of Rest}} — к10\nНове відоме заклинання: – Таємничий міраж [Mirage Arcane]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "«Тіньові знання»{{Shadow Lore}}\nМагічні таємниці{{Magical Secrets}}: – Обачливість [Contingency] – Планарний перехід [Plane Shift]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} — к12\n«Психічні леза»{{Psychic Blades}} (8к6)\nНове відоме заклинання: – Впевненість [Glibness]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: «Адепт метамагії»{{Metamagic Adept}}\n«Подовжене заклинання»{{Extended Spell}}\n«Приховане заклинання»{{Subtle Spell}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "«Пісня відпочинку»{{Song of Rest}} — к12\nНове відоме заклинання: – Передбачення [Foresight]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Магічні таємниці{{Magical Secrets}}: – Перекидання [Shapechange] – Бажання [Wish]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "«Вище натхнення»{{Superior Inspiration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Набір для гриму замість інструментів злодія",
+        "reason": "Автор радить обміняти набір для гриму Шарлатана на володіння інструментами злодія; пресет не записує заміну інструментів передісторії, тож лишається стандартний Шарлатан (набір для гриму й набір фальшивомонетника).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння на 11-му рівні",
+        "reason": "Автор бере ще одне «будь-яке» замовляння на 11-му рівні, але Бард не отримує замовлянь на цьому рівні, тож його не записано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Адепт метамагії",
+        "reason": "Автор бере «Подовжене заклинання» й «Приховане заклинання»; риса в каталозі не має опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Магічні таємниці (10, 14 і 18 рівні)",
+        "reason": "Автор бере заклинання з чужих списків (Арканне око; Обачливість, Планарний перехід; Перекидання, Бажання); платформа приймає в плані лише заклинання зі списку Барда, тому на 10-му рівні записано лише Телепатичний звʼязок Рері, а решту вибору лишено гравцеві (openSpellPicks).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риса на 19-му рівнях",
+        "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (19-й: LUCKY); це вибір платформи, гравець може змінити його перед створенням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-whispers-2014",
+            "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+            "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

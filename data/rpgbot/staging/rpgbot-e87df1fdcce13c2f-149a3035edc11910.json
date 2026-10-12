@@ -1,0 +1,5535 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/spells/summoning/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "149a3035edc11910d6dcda10f3225db82c633b3c784b0525d72a80c1cd1b9693",
+  "sourceRevision": {
+    "revisionId": "rpgbot-e87df1fdcce13c2f-149a3035edc11910",
+    "sourceId": "rpgbot-e87df1fdcce13c2f",
+    "fetchedAt": "2026-09-29T19:24:22.967024+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:20:20-04:00",
+    "contentHash": "cc96b225ba1c10a8e4d1c4c5f72357f4c49250133949d8a440bfadd2a60919ec",
+    "title": "DnD 5e Summoning Spells Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-e87df1fdcce13c2f-149a3035edc11910.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magically conjuring a creature to do your bidding is a long-standing trope in\n\tfantasy stories, and spells to summon creatures have existed in Dungeons and\n\tDragons throughout its storied history. And, while these options have always\n\tbeen both powerful and fun, they have also always been complicated. While 5th\n\tedition Dungeons and Dragons is the simplest edition to play, summoning spells\n\tin 5th edition remain a frustrating and confusing part of the game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In this article, we’ll explore summoning spells not just from a character\n\toptimization perspective (how do I make this effective?), but also from a\n\tpractical perspective (how do I make this "
+            },
+            {
+              "type": "emphasis",
+              "text": "fun"
+            },
+            {
+              "type": "text",
+              "text": "?) so that you can use\n\tsummoning spells at your table without constantly thumbing through the Monster\n\tManual for just the right creature to suit your needs."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In some ways, this page may also serve as a quick reference document,\n\toffering suggestions for when and where you might summon any given type of\n\tcreature both to fit your surroundings (no underwater badgers, please) and to\n\tsuit your tactial needs. If you can avoid searching the Monster Manual to find\n\tthe creature you want, I’ll consider this article a success."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Three Types of Summon Spells",
+                "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#three-types"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Conjure Creature Spells",
+                "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#conjure-creature-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Summon Creature Spells",
+                "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-creature-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Other Summoning Spells",
+                "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#other-summoning-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-three-types",
+      "heading": "The Three Types of Summon Spells",
+      "sourceAnchor": "three-types",
+      "blocks": [
+        {
+          "blockId": "block-section-three-types-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The available spells to summon creatures can be divided into three\n\tcategories, each of which I’ll address in detail in separate sections\n\tbelow."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-three-types-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "strong",
+                "text": "Conjure Creature Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Published in the Player’s\n\t\tHandbook and Xanathar’s Guide to Everything, these options always use the\n\t\tword “Conjure” in their names, and feature several shared mechanics, most\n\t\tnotable of which is that the player doesn’t get to choose what they\n\t\tsummon."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Summon Creature Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Published in Tasha’s Cauldron of\n\t\tEverything, these spells can be quickly identified because their names start\n\t\twith “Summon” (though Summon Lesser Demos and Summon Greater Demon are\n\t\texceptions). I’m aware that “Conjure” and “Summon” are synonyms, but I\n\t\tdidn’t name the spells. Spells in this category always summon a single\n\t\tcreature."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Other Summoning Spells"
+              },
+              {
+                "type": "text",
+                "text": ": These summon options are typically\n\t\tmuch more involved and complex than the sort of spell which you’ll cast in\n\t\tcombat, and have many external considerations beyond conjuring up a creature\n\t\tto fight monsters for you. These spells include options like Find Steed and\n\t\tGate."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conjure-creature-spells",
+      "heading": "Conjure Creature Spells",
+      "sourceAnchor": "conjure-creature-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-conjure-creature-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Published in the Player’s Handbook, the original Conjure Creature spells\n\tshared a lot of common design elements. Understanding one spell gives you a\n\tfull understanding of the rules of every other spell in this category. With an\n\thour-long duration, these spells are great ways to get a useful creature\n\teither in or out of combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-creature-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All Conjure Creature Spells can be upcast to improve their effects, but the\n\tbenefits are split into two camps: roughly half of the spells will allow you\n\tto summon higher-CR creatures, while the other half allow you to summon more\n\tcreatures from the same CR range which the default level of the spell allows.\n\tThese spells are usally paired, with one low-level spell to summon numerous\n\tsmall creatures and one higher-level spell to summon powerful single\n\tcreatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-creature-spells-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nearly every spell in this category has a 1-minute casting time (Conjure\n\tAnimals and Conjure Woodland Beings are exceptions), which makes them\n\timpossible to cast in combat. This casting time was an intentional design\n\tchoice to prevent players from breaking out the Monster Manual mid-combat,\n\tthereby causing combat to grind to a halt. This means that if you want to\n\tsummon a creature for combat purposes, you need to do it ahead of time. I\n\tdon’t know why Conjure Animals and Conjure Woodland Beings are exceptions\n\tsince they have the same issues with creature selection as every other spell\n\tin this category."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-creature-spells-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Casting these spells at a higher spell level allows the spellcaster to summon\n\tcreatures of a higher Challenge Rating, allowing spellcasters access to a huge\n\tlist of potential summons. However, you don’t necessarily need to rush to cast\n\tthese spells at the highest level possible. Due to 5e’s relatively flat math,\n\teven low-CR creatures can be impactful across the full level range (though\n\ttheir hit points might not keep them around long)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-creature-spells-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Probably the biggest problem with these spells is that the Dungeon Master is\n\tresponsible for selecting the specific creature which you summon. This is\n\toften time-consuming, and the DM needs to choose a creature that’s going to be\n\thelpful (but not too helpful), and likely wants to avoid upsetting their\n\tplayers by giving them something which they don’t want. The DM can let the\n\tplayer pick, but players will pick something that will cause problems\n\t(intentionally or otherwise), or they’ll spend the next hour of play time\n\tscrutinizing monster stats to figure out which thing they want to summon and\n\tfeed to the next monster they encounter, only to start fresh a few minutes\n\tlater."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-creature-spells-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Providing a fixed list of creatures to choose from would go a long way to\n\timprove these spells, but tragically only Conjure Animals includes such a\n\tlist, and even then the DM is left to decide which creatures appear with\n\tnearly no guidance on how to do so."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conjure-animals",
+      "parentSectionId": "section-conjure-creature-spells",
+      "heading": "Conjure Animals (3rd level)PHB",
+      "sourceAnchor": "conjure-animals",
+      "blocks": [
+        {
+          "blockId": "block-section-conjure-animals-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beasts make surprisingly effective combatants, despite remaining primarily in\n\tlow single-digit CR ranges (dinosaurs being an exception). Many can serve as\n\tmounts, scouts, or trackers, but most often you’re going to summon animals to\n\ttake up space on the battle field. Some options (frog) are outright useless,\n\tbut even some CR 0 options like the Hyena and the Flying Snake can make decent\n\tcombatants. Higher-CR creatures will have more capabilities in combat and will\n\tbe more durable, but don’t make the mistake of ignoring low-CR options simply\n\tdue to their CR."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-animals-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upcasting Conjure Animals allows you to summon additional creatures. Conjure\n\tAnimals is one of the two spells in this category with a 1 Action casting\n\ttime. This is important because it allows you to summon creatures in the\n\tmiddle of combat. However, since Conjure Animals faces the same creature\n\tselection challenges that other spells in the category face, your DM needs to\n\tselect suitable creatures on the fly. I encourage you to use the table below\n\tfor quick reference."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-animals-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The table below is arranged to sort creatures roughly by habitat. I’m not a\n\tzoologist and my knowledge of animal habitats isn’t going to win me any\n\tprizes, so I won’t be offended if you disagree with me and\n\t"
+            },
+            {
+              "type": "text",
+              "text": "email me"
+            },
+            {
+              "type": "text",
+              "text": " with corrections. The added\n\tpresence of fictional creatures with scant or no ecological information (like\n\tthe giant weasel) doesn’t help, either."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-animals-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The table below has several gaps where there weren’t CR-appropriate creatures\n\tto for a given biome. In those cases, consider reskinning a creature from a\n\tdifferent biome. For example, if you’re in a coastal region and want to summon\n\tbirds, you could use stats for the Raven and call them seagulls."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-animals-5",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "CR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Count"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creatures"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "0"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Aquatic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Coastal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Desert (Arid)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Temperate)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Cold)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Grassland / Prairie / Savanah"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Jungle"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Marsh / Swamp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Mountains"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Subterranean / Cave"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Tundra"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Urban"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1/8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Aquatic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Coastal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Desert (Arid)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Temperate)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Cold)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Grassland / Prairie / Savanah"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Jungle"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Marsh / Swamp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Mountains"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Subterranean"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Tundra"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Urban"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1/4 or Lower"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Aquatic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Coastal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Desert (Arid)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Temperate)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Cold)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Grassland / Prairie / Savanah"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Jungle"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Marsh / Swamp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Mountains"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Subterranean"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Tundra"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Urban"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Aquatic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Coastal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Desert (Arid)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Temperate)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Cold)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Grassland / Prairie / Savanah"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Jungle"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Marsh / Swamp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Mountains"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Subterranean"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Tundra"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Urban"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Aquatic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Coastal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Desert (Arid)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Temperate)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Cold)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Grassland / Prairie / Savanah"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Jungle"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Marsh / Swamp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Mountains"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Subterranean"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Tundra"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Urban"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Aquatic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Coastal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Desert (Arid)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Temperate)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Forest (Cold)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Grassland / Prairie / Savanah"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Jungle"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Marsh / Swamp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Mountains"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Subterranean"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Tundra"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "strong",
+                  "text": "Urban"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conjure-celestial",
+      "parentSectionId": "section-conjure-creature-spells",
+      "heading": "Conjure Celestial (7th level)PHB",
+      "sourceAnchor": "conjure-celestial",
+      "blocks": [
+        {
+          "blockId": "block-section-conjure-celestial-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heavily hampered by the pitifully small number of published celestials which\n\tfit into the spell’s CR range, but Couatls are pretty amazing so if that’s all\n\tthat you ever summon I’d still consider this a decent spell."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-celestial-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your DM is willing to let you choose to summon a Couatl consistently,\n\tyou’ll be fine. If they pick at random you have a 50% chance of getting a cool\n\tmagical snake and an equal chance of summoning a flying horse whose only\n\tuseful feature is that it’s a flying horse."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-celestial-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upcasting Conjure Celestial allows you to summon higher-CR creatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-celestial-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, the Player’s Handbook’s only suggestion for a celestial to\n\tsummon is the Pegasus, which is frustrating because a CR 2 monster as the only\n\texample for a spell which summons up to CR 4 by default isn’t a great example\n\tof the spell’s capabilities. Of course, there are only two suitable creatures\n\tin the Monster Manual, so it was generous for WotC to list alhf of them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-celestial-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The table below omits setting-specific creatures. Mystical Odysseys of Theros\n\tadds several new suitable creatures, but your DM may choose not to allow\n\tthem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-celestial-6",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Spell Lvl"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "CR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creatures"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Unicorn",
+                  "href": "https://www.dndbeyond.com/monsters/unicorn"
+                },
+                {
+                  "type": "text",
+                  "text": ": It\n\t\t\t\t\tdoesn’t fly and it doesn’t cast spells as well as the Couatl, but it\n\t\t\t\t\thas Legendary Actions and can heal itself for free with them so it’s\n\t\t\t\t\tboth a good tank a good mount (provided that you don’t need to\n\t\t\t\t\tfly)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conjure-elemental",
+      "parentSectionId": "section-conjure-creature-spells",
+      "heading": "Conjure Elemental (5th level)PHB",
+      "sourceAnchor": "conjure-elemental",
+      "blocks": [
+        {
+          "blockId": "block-section-conjure-elemental-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conjure Elemental is primarily useful as a 5th-level spell because the\n\tclassic elementals (air elemental, etc.) are CR 5 creatures. Until we see more\n\telementals published, Conjure Elemental’s capabilities are heavily limited by\n\tthis lack of options. The CR 5 options are good, but the fact that there\n\taren’t enough options to choose from at other CRs makes it frustrating to\n\tspend resources to learn the spell when you know that it’s less versatile than\n\tmany other summoning spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-elemental-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are no elementals at CR 7 or 8 outside of the stat blocks published in\n\tspecific adventures, so check with your DM to see if they’ll allow you to\n\tsummon creatures like elemental myrmidons from Princes of the Apocalypse or\n\tthe Big Xorn from Waterdeep: Dungeon of the Mad Mage. Adding those options put\n\tConjure Elemental in line with other spells in the Conjure Creature Spells\n\tgroup."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-elemental-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Like other spells in the category, Conjure Elemental can be really good if\n\tyour DM lets you pick the creature summoned or if they pick something useful\n\tfor you, but if they pick at random or pick something unhelpful it’s a waste\n\tof a spell slot most of the time. You may be able to convince your DM to pick\n\tan elemental based on where you target the spell (a water elemental from a\n\tsource of water, and air elemental in mid-air, etc.), but talk to your DM to\n\tsee if they’re willing to let that work before you assume that they will or\n\tyou’re going to conjure fire elementals underwater and be sad about it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-elemental-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upcasting Conjure Elemental allows you to summon higher-CR creatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-elemental-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The table below omits setting-specific creatures, creatures specific to\n\tadventures, and creatures below CR 5. Since you only get one creature and\n\tcan’t choose what kind of creature you get, there is very little reason to\n\tchoose a CR below the CR 5."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-elemental-6",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Spell Lvl"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "CR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creature Name"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "None at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "None at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conjure-fey",
+      "parentSectionId": "section-conjure-creature-spells",
+      "heading": "Conjure Fey (6th level)PHB",
+      "sourceAnchor": "conjure-fey",
+      "blocks": [
+        {
+          "blockId": "block-section-conjure-fey-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conjure Fey uniquely allows you to summon both fey and beasts, making it the\n\tonly spell in this group which can summon creatures of more than one creatue\n\ttype. Fey are especially tempting because many of them have powerful special\n\tabilities or can cast spells. However, they’re also intelligent and won’t obey\n\torders which go against their alignment (which the DM is free to interpret as\n\tthey see fit), so they may be difficult to command."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-fey-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A weird quirk of the spell: Despite being published in the Player’s Handbook,\n\tthe Monster Manual contains no Fey at CR 6, 7, 8, or 9, so the primary use\n\tcase of the spell when it was published was just to summon high-CR beasts."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-fey-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are few options in Conjure Fey which are situational to the point that\n\tit’s a problem. Most of them are combat monsters for the most part, and aside\n\tfrom size problems (try squeezing a Brontosaurus into a 5-foot wide dungeon\n\thallway), they’ll serve you just fine in nearly any circumstance. There are\n\tsome uniquely appealing options like the Green Hag and the Korred which make\n\tthe spell more powerful if you can pick those options, but most of the time\n\tyou can expect to summon a combat monster with minimal complications."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-fey-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upcasting Conjure Fey allows you to summon higher-CR creatures. If you lose\n\tConcentration, the creature remains but becomes hostile toward you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-fey-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The table below omits setting-specific creatures, creatures specific to\n\tadventures, and creatures below CR 5. Since you only get one creature and\n\tcan’t choose what kind of creature you get, there is very little reason to\n\tchoose a CR below the CR 6, but CR 5 creatures are included because there are\n\tsome interesting options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-fey-6",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Spell Lvl"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "CR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creature Name"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "None at this level."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conjure-minor-elementals",
+      "parentSectionId": "section-conjure-creature-spells",
+      "heading": "Conjure Minor Elementals (4th level)PHB",
+      "sourceAnchor": "conjure-minor-elementals",
+      "blocks": [
+        {
+          "blockId": "block-section-conjure-minor-elementals-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not much utility due to the limited options, but you can summon a bunch of\n\tlow-CR combat monsters. Mephits are great if you need a swarm of nuisances to\n\tgrab items, cause trouble, spam breath weapons to force Concentration checks\n\tand saves against status conditions, or generally cause trouble but little\n\tactual damage. If you want damage, try for magmin and set everything on fire.\n\tIf you want a tank, try for gargoyles."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-minor-elementals-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While none of the options on Conjure Minor Elementals are outright bad, the\n\tinability to pick what you get makes it very difficult to use the spell\n\teffectively. If you try for low-CR mephits you’re probably going to be fine\n\twith whatever you get. But if you want magmin, there are other options at the\n\tsame CR and if your DM picks mephits you’re going to be disappointed. If you\n\tneed a flying tank and get two azers, you’ve wasted a spell slot on two\n\tcreatures with no built-in counter to flying enemies (maybe you could give\n\tthem javelins?)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-minor-elementals-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upcasting Conjure Minor Elementals allows you to summon additional\n\tcreatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-minor-elementals-4",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "CR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Count"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creature Name"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1/4 or Lower"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4x"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2x"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1x"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conjure-woodland-beings",
+      "parentSectionId": "section-conjure-creature-spells",
+      "heading": "Conjure Woodland Beings (4th level)PHB",
+      "sourceAnchor": "conjure-woodland-beings",
+      "blocks": [
+        {
+          "blockId": "block-section-conjure-woodland-beings-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Most spells in the Conjure Creatures Spells group come in pairs: One\n\tlow-level option to summon multiple low-CR creatures (Conjure Minor\n\tElementals) and one high-level option to summon high-CR creatures (Conjure\n\tElemental). Conjure Animals and Conjure Woodland beings split this low-level\n\tfunction with the same high-level analog in Conjure Fey Creature."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-woodland-beings-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conjure Woodland Beings works best when summoning low-CR creatures. All of\n\tthe low-CR options have some ridiculous special ability that’s way too good\n\tfor their CR, and when used by 8 creatures of the same type they immediately\n\tbecome a big problem for your enemies. Up to CR 1/4 you can get a squad of\n\tcombat monsters. Beyond that things get disappointing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-woodland-beings-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is one spell in the group where I don’t think you need permission from\n\tthe DM to pick or influence what creatures you summon. If you stick to CR 1/4,\n\t1/2, and 1, picking at random gets you good options that will work in most\n\tsituations (except for blink dogs, so CR 1/4 does have one trap option in it),\n\tand some of them are powerful enough that as a DM I probably wouldn’t allow\n\tyou to pick them without making some changes (seriouosly, why can pixies cast\n\tPolymorph?)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-woodland-beings-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upcasting Conjure Woodland Beings allows you to summon additional creatures\n\tConjure Woodland Beings is one of the two spells in this category with a 1\n\tAction casting time. This is important because it allows you to summon\n\tcreatures in the middle of combat. However, since Conjure Woodland Beings\n\tfaces the same creature selection challenges that other spells in the category\n\tface, your DM needs to select suitable creatures on the fly. I encourage you\n\tto use the table below for quick reference.."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-woodland-beings-5",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "CR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Count"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creature Name"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1/4 or Lower"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4x"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2x"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1x"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-creature-spells",
+      "heading": "Summon Creature Spells",
+      "sourceAnchor": "summon-creature-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-creature-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Introduced in Tasha’s Cauldron of Everything, these spells were an answer to\n\tthe challenges of the Conjure Creature Spells, seeking to provide both a way\n\tto summon a creature during combat and to provide a solution to the “Monster\n\tManual as menu” problem. Each of these spells, rather than drawing upon a deep\n\tand growing pool of possible summoned creatures, provides a handful of generic\n\tstat blocks intended to represent a broad range of potential creatures. These\n\tstat blocks are diverse enough that Summon Creature Spells offer useful\n\ttactical options within the same spell, but any interaction with the Monster\n\tManual is totally removed."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-creature-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the spell level you use doesn’t determine the creatures available to you, it is still hugely impactful for Summon Creature Spells. Creatures add the spell level to their AC and damage, and the creature’s hit points are a multiple of the spell’s level (plus a flat number depending on the creature). Perhaps most impactful, the creatures make a number of attacks equal to half the spell’s level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-creature-spells-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This means that even-numbered spell slot levels are often the most efficient use of resources, and since creatures summoned by these spells attack with your Spell Attack Modifier, even low-level spell slots can produce a creature capable of hitting reliably. It also means that your summoned creature can often make a number of attacks matching the Fighter, possibly even exceeding their damage output."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-creature-spells-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One problem which summoned creatures often face is that their attacks usually aren’t considered magic unless the Action specifies that they are or that the attack is specifically described as a Spell Attack (according "
+            },
+            {
+              "type": "link",
+              "text": "Jeremy Crawford",
+              "href": "https://www.sageadvice.eu/2016/07/15/does-a-magical-creature-attacks-count-as-magical/"
+            },
+            {
+              "type": "text",
+              "text": "). This means that creatures which rely on things like claws and teeth can run into issues with resistance or immunity to damage from non-magical attacks, which is a common resistance as you gain levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-creature-spells-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In these cases, players will normally take up magic items or use spells to make their weapons magical, but spending spells to buff your summon is typically a bad use of resources and often runs into issues with Concentration. Instead, plan to replace your summoned creature if necessary."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-creature-spells-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Summoned creatures notably have no saving throw proficiencies. That makes\n\tthem highly susceptible to spells and special abilities, even if their AC and\n\thit points would normally make them very durable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-creature-spells-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Like Conjure Creature Spells, Summon Creature Spells have a 1-hour duration\n\tand require Concentration. Your summoned creature may not last the full\n\tduration, but a pet fighter for up to an hour is well worth the cost. Since\n\tthe summoned creature’s attacks will be reliable, it’s often a good idea to\n\tsummon a creature which attacks at range and keep them behind your party’s\n\tDefender (who is almost certianly more durable than your summoned creature)\n\tand think of them more like a portable source of damage output than a\n\ttemporary member of the party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-creature-spells-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spells in this category also have an expensive material component, typically\n\tcosting several hundred gp. By the time you gain access to the spell you\n\tshould be able to comfortably afford the component, but if you rely heavily on\n\tsummoning the total cost of several of these components can be a problem."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-aberration",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Aberration (4th-level)PHB",
+      "sourceAnchor": "summon-aberration",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-aberration-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Diverse, effective, and efficient combat options. Most of the damage is\n\tpsychic (though not all of it), so avoid using this against mindless\n\tcreatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-aberration-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The summoned spirit speaks Deep Speech, allowing you to communicate with it\n\tmore easily than some other summons. This helps if you need to use your\n\tsummoned creature as a scout or a lookout."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-aberration-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There’s some contest between Summon Aberration and Summon Undead, but both\n\tare great so pick whichever you like more rather than trying to divine which\n\tis slightly more powerful. Undead have more immunities so they can be more\n\tdurable, but the special abilities of aberrations can be powerful enough that\n\tthey may be more appealing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-aberration-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Beholderkin"
+              },
+              {
+                "type": "text",
+                "text": ": Flight, hover, and ranged\n\t\tpsychic damage. Basically a flying machine gun. If all you need is damage\n\t\toutput, this is a great option. It competes for space somewhat with the\n\t\tSkeletal Undead since they’re both ranged attacks with little other utility.\n\t\tThe differences boil down to flight and psychic damage or a bunch of\n\t\timmunities and necrotic damage. Both are good, so choose what works for you\n\t\tand your party.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "With 16 Strength and medium size, your beholderkin may be able to carry\n\t\t\tyou through the air, especially if you’re small."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slaad"
+              },
+              {
+                "type": "text",
+                "text": ": Not very flashy, but if you need a\n\t\tmelee combat monster it’s hard to go wrong. The regeneration will keep your\n\t\tslaad alive without feeling the need to spend spells to heal it or re-cast\n\t\tSummon Aberration, making it an easy choice when all you need is something\n\t\tto throw into melee. However, it’s the only abberration option that worries\n\t\tabout resistance to weapon damage types, which are fairly common."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Starspawn"
+              },
+              {
+                "type": "text",
+                "text": ": Less durable than the slaad,\n\t\tbut much more lethal. The Starpawn’s attacks deal psychic damage which will\n\t\tbe more reliable than the Slaad’s claws, and the damage aura will deal\n\t\treasonably reliable damage even if you cast Summon Aberration using a\n\t\tlow-level spell slot. Of course, throwing a low-level aberration into melee\n\t\tto capitalize on its aura is likely going to result in your aberration dying\n\t\tquickly, but even then it’s drawing fire away from your allies and that’s\n\t\tone of the best things that you can get from a summoned creature."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-beast",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Beast (2nd-level)TCoE",
+      "sourceAnchor": "summon-beast",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-beast-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The lowest-level Summon spell introduced in Tasha’s Cauldron of everything,\n\tSummon Beast is an excellent spell. With a 1-hour duration you can get a ton\n\tof mileage out of a low-level spell slot, and the beasts are very effective in\n\tcombat. If you have other melee allies, throwing one of the beasts with Pack\n\tTactics alongside them can yield a lot of consistent, reliable damage. The Air\n\tbeast has Flyby, which is appealing if you need a more durable version of the\n\towl familiar’s hit-and-run Help trick, but won’t be as effective offensively\n\tas the Land and Water options since they both get Pack Tactics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-celestial",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Celestial (5th-level)TCoE",
+      "sourceAnchor": "summon-celestial",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-celestial-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flight, resistance to radiant damage, and a once per day heal. The healing\n\tisn’t much, but it’ll save a dying ally. Both summons are good, staple options\n\tthat will work well in any combat situation."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-celestial-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The summoned spirit speaks Celestial, allowing you to communicate with it\n\tmore easily than some other summons. This helps if you need to use your\n\tsummoned creature as a scout or a lookout."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-celestial-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With 16 Strength and medium size, your summoned celestial may be able to\n\tcarry you through the air, especially if you’re small."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-celestial-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Avenger"
+              },
+              {
+                "type": "text",
+                "text": ": Flying and radiant damage at\n\t\trange. Not especially exciting, but very effective."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Defender"
+              },
+              {
+                "type": "text",
+                "text": ": Tied with summoned constructs\n\t\tfor the highest AC of any creature in the Summon Creature Spells category\n\t\t(13+), its attacks deal radiant damage, and on a hit it can give targets\n\t\ttemporary hit points. There’s no usage limit on the temporary hp, so if your\n\t\tdefender is making numerous attacks you may be able to distribute temporary\n\t\thit points several times per turn. With the temporary hit points, the\n\t\tDefender can keep itself alive much longer than its hit points indicate,\n\t\tallowing it to serve as a front-line Defender (the party role, not the type\n\t\tof celestial) almost as well as real fighter."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-construct",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Construct (4th-level)TCoE",
+      "sourceAnchor": "summon-construct",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-construct-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Constructs are the most durable summon, having the highest AC at 13+ (most\n\tget 11+ with a few at 12+), and an impressive 15 hp per spell level above the\n\tdefault. They also enjoy 7 condition immunities and resistance to poison, so\n\tthey’re both difficult to attack and difficult to disable with status\n\tconditions, though they are still vulnerable to damage which requires saving\n\tthrows like every other summoned creature (remember: they have no saving throw\n\tproficiencies)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-construct-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tragically, Summon Construct’s creatures don’t share all of the capabilities\n\tof the golems for which they are named. Your summoned clay construct can’t\n\tsolo the Tarrasque."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-construct-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Clay"
+              },
+              {
+                "type": "text",
+                "text": ": If you need a big angry combat\n\t\tmonster and all that you care about is that it’s going to hit stuff and soak\n\t\tup damage, the Clay Construct is a great choice. Berserk Lashing punishes\n\t\tenemies for damaging the golem, and weirdly it doesn’t require that it be\n\t\tdamaged by an attack so even if something breaths fire on your golem it’s\n\t\tstill going to get its free attack. Just be sure that your allies are never\n\t\tadjacent to it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Metal"
+              },
+              {
+                "type": "text",
+                "text": ": Too much overlap with clay.\n\t\tIron’s Heated Body feature will only be better in cases where the golem is\n\t\tbeing attacked by numerous enemies in melee at the same time."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stone"
+              },
+              {
+                "type": "text",
+                "text": ": Stone Lethargy is the primary\n\t\tappeal. It’s very similar to the Depair Shadowspawn’s slow effect, but Stone\n\t\tLethargy is more effective for fast enemies, has a larger radius, and\n\t\tprevents Reactions. Unfortunately, it allows a saving throw, but that seems\n\t\tlike a fair trade for a better effect."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-draconic-spirit",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Draconic Spirit (5th-level)FToD",
+      "sourceAnchor": "summon-draconic-spirit",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-draconic-spirit-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Better AC than most comparable summons, large size, and flight. The spirit\n\tgets several damage resistances depending on your choice of dragon variety,\n\tand you get one of them while the spell lasts. The dragon has blindsight and\n\tcan speak draconic, allowing it to pinpoint invisible foes and tell you where\n\tthey are. Its breath weapon is basically useless (2d6 damage and it doesn’t\n\tscale), but the rend attacks are decent."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-draconic-spirit-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Compared to similar summon spells like Summon Aberration, Summon Draconic Spirit is more durable and versatile, but isn’t quite as lethal as many other summon options. For wizards who have more room to prepare spells, you might prefer to prepare multiple summon options for different situations, but for the Sorcerer the additional versatility within one spell is a great choice in the face of the Sorcerer’s limited number of spells known."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-draconic-spirit-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s large enough for medium creatures to ride, though since the it’s\n\tintelligent, it will be an uncontrolled mount, which makes it a difficult\n\tmount for melee characters."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-elemental",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Elemental (4th-level)TCoE",
+      "sourceAnchor": "summon-elemental",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-elemental-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the possible exception of the earth elemental, Summon Elemental does\n\tvery little to expand on the capabilities of other spells like Summon Undead.\n\tElementals get some damage resistances which we haven’t seen on lower-level\n\tsummon spells, but unless you’re consistently facing enemies which deal those\n\tdamage tpyes I don’t think that’s enough to justify Summon Elemental being\n\thigher level than Summon Undead."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-elemental-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The summoned spirit speaks Primordial, allowing you to communicate with it\n\tmore easily than some other summons. This helps if you need to use your\n\tsummoned creature as a scout or a lookout."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-elemental-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Air"
+              },
+              {
+                "type": "text",
+                "text": ": Good flight, two damage resistances\n\t\ton top of the elementals’ damage/condition immunities, and a slam attack.\n\t\tSummon Undead’s Ghost is similar in many ways and uses a better damage type,\n\t\tthough the Air Elemental may be more durable thanks to its damage\n\t\tresistances."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Earth"
+              },
+              {
+                "type": "text",
+                "text": ": 40 ft. burrow speed, resistance to\n\t\tthe two most common weapon damage types, and a mostly unremarkable slam\n\t\tattack. Be careful with the burrow speed: if your elemental can’t hear your\n\t\tverbal commands it might just sit underground and Dodge until the spell\n\t\tends. Still, if you need something to stand in front of you and exchange\n\t\tblows in melee, this is a solid choice. For prolonged usage you might prefer\n\t\tSummon Aberration’s Slaad due to its Regeneration, but the Earth Elemental\n\t\tis still a solid choice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire"
+              },
+              {
+                "type": "text",
+                "text": ": Immune to fire and it does fire\n\t\tdamage, so it can get around resistance to weapon damage types, but fire\n\t\tdamage is one of the most common damage resistances/immunities, so you trade\n\t\tone problem for another."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Water"
+              },
+              {
+                "type": "text",
+                "text": ": Works underwater and has acid\n\t\tresistance. Unless you’re underwater or facing enemies which deal acid\n\t\tdamage, earth is better."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-fey",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Fey (3rd-level)TCoE",
+      "sourceAnchor": "summon-fey",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-fey-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If all you want is a pet that’s going to deal damage, look elsewhere. Summon\n\tFey’s options are more unique and situational, and you’ll need to look for\n\tspecific situations which make your fey effective before you bring it into\n\tplay. That may make it difficult to capitalize on Summon Fey’s hour-long\n\tduration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-fey-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The summoned spirit speaks Sylvan, allowing you to communicate with it more\n\teasily than some other summons. This helps if you need to use your summoned\n\tcreature as a scout or a lookout."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-fey-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To use Summon Fey to its full effects, you’ll need to master Fey Step. The\n\tfun part of the spell only works after your fey teleports, so don’t expect to\n\tleave them standing still and waving their sword about."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-fey-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the summoned fey relies on attacking with a short sword, you may be\n\table to improve its attacks by providing it with a better weapon. An\n\tadamantine short sword or a magical short sword will help address damage\n\tresistances, and may also improve your fey’s attacks in other ways depending\n\ton the weapon. Your DM may allow your fey to use other weapons, but since\n\tother proficiencies aren’t listed your DM may decide that your fey is only\n\tproficient with short swords."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-fey-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fuming"
+              },
+              {
+                "type": "text",
+                "text": ": The Advantage effect only\n\t\tapplies to one attack. That makes it difficult to justify upcasting the\n\t\tspell to get more attacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mirthful"
+              },
+              {
+                "type": "text",
+                "text": ": Charm resistance/immunity are\n\t\tcommon, but against creatures without those defenses you can gradually\n\t\tprevent every enemy in an encounter from being able to attack you and your\n\t\tsummoned fey. However, the creatures break the effect if they take damage\n\t\twhich can become a problem for your allies.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The charm effect may be especially useful outside of combat. Targets\n\t\t\taren’t aware that they’ve been charmed (like they are with spells like\n\t\t\tFriends), so your fey may be able to dance around gradually charm numerous\n\t\t\tcreatures in social situations. However, just as the target isn’t aware\n\t\t\tthat they’re charmed, neither are you."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tricksy"
+              },
+              {
+                "type": "text",
+                "text": ": You could use the darkness\n\t\teffect to protect yourself, but unless you can see in magical darkness\n\t\tthat’s often as much a problem for you as it is for your enemies. You can\n\t\tuse it to force enemies to move or to protect allies who need a turn to cast\n\t\tbuffs or healing spells. You may be able to block line of sight partially,\n\t\tbut it’s pretty easy to see around a single 5-foot square."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-fiend",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Fiend (6th-level)TCoE",
+      "sourceAnchor": "summon-fiend",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-fiend-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The highest-level option in the Summon Creature Spells category. Fiends have\n\tgood AC at 12+, good hit points at +15 per extra spell level, and magic\n\tresistance so they’re better at saving throws than other summoned creatures\n\tfrom the same category of spells. Unfortunately, their attacks and offensive\n\tabilities are unremarkable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-fiend-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Demon"
+              },
+              {
+                "type": "text",
+                "text": ": A climb speed, necrotic damage,\n\t\tand it explodes when it dies. Neat, but there are plenty of better options\n\t\ton other spells if you need a better melee monsters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Devil"
+              },
+              {
+                "type": "text",
+                "text": ": A very solid ranged attacked with\n\t\tboth flight and the ability to see in magical darkness. If you can’t see in\n\t\tmagical darkness, you can command this thing to lead you through it safely\n\t\tor to deal with whatever is causing it. Unfortunately, its attacks are fire\n\t\tdamage and fire is one of the most common resistances/immunities in the\n\t\tgame."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Yugoloth"
+              },
+              {
+                "type": "text",
+                "text": ": Teleporting this frequently\n\t\tusually doesn’t help much. You may be able to chain the teleports to get\n\t\tyour summon into melee with a distant, weak enemy like a wizard, but those\n\t\tsituations are rare. Most of the time you’ll teleport your yugoloth into\n\t\tplace then leave it there."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-shadowspawn",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Shadowspawn (3rd-level)TCoE",
+      "sourceAnchor": "summon-shadowspawn",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-shadowspawn-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadowspan share resistance to necrotic damage and immunity to fear, making\n\tthem effective at standing up to undead. Their attacks deal cold damage, which\n\tis great for getting around resistance to weapon damage types, but undead also\n\tcommonly have resistance to cold damage so shadowspawn aren’t a perfect\n\tsolution to every encounter with undead. In general, the shadowspawn is a fine\n\tcombatant with some interesting tactical options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-shadowspawn-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately for Summon Shadowspan, it’s the same spell level as Summon\n\tUndead, it’s on the same spell lists, and Summon Undead has better\n\tcreatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-shadowspawn-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fear"
+              },
+              {
+                "type": "text",
+                "text": ": An ambush predator with little\n\t\treason to hide on any ongoing basis. Your shadowspan could repeatedly hide\n\t\tand attack, but that doesn’t get them much and letting your summoned\n\t\tcreature draw attacks instead of your allies is arguably the best part of\n\t\tsummoning creatures."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fury"
+              },
+              {
+                "type": "text",
+                "text": ": This capitalizes on the\n\t\tShadowspawn’s once per day Dreadful Scream ability. Used in conjunction\n\t\tthat’s very powerful. However, that will get you through one encounter and\n\t\tthen you have a shadowspawn for 59 minutes with no built-in way to scare\n\t\tyour enemies. If you use this, expect to invest in other spells that also\n\t\tfrighten creatures. If you can make fear work reliably, Fury can become a\n\t\tterrifyingly effective combat option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Despair"
+              },
+              {
+                "type": "text",
+                "text": ": There is no save on this. 30 ft.\n\t\tis pretty normal for speed, so for many creatures this is a huge debuff.\n\t\tYour shadowspawn notably has 40 ft. speed, so they’re easily capable of\n\t\tfollowing an enemy around even if the enemy dashes or has high speed. A\n\t\tcreature would need a base speed of more than 60 ft. to outrun your\n\t\tshadowspan, and even then if they’re wasting their time running from your\n\t\tsummoned creature they’re not spending that time killing you."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-undead",
+      "parentSectionId": "section-summon-creature-spells",
+      "heading": "Summon Undead (3rd-level)TCoE",
+      "sourceAnchor": "summon-undead",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-undead-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All of the options are good in most combat encounters. With a good lists of\n\timmunities, great offensive options, and powerful crowd control options, this\n\tis an easy go-to summon option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-undead-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Summon undead is notably the only Necromancy spell in the Summon Creature\n\tSpells category. If you’ve been waiting to play a necromancer until you could\n\tsummon undead pets into battle, that day has finally come."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-undead-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ghostly"
+              },
+              {
+                "type": "text",
+                "text": ": Flight, better speed than the\n\t\tother undead options, and its attacks make the target Frightened. The\n\t\tghostly undead can move through walls and such, but since it works based on\n\t\tverbal commands issued every round, it’s difficult to send it through walls\n\t\tto scout or surprise your enemies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Putrid"
+              },
+              {
+                "type": "text",
+                "text": ": The poison effect is excellent,\n\t\tand since it uses your spell save DC you can summon a putrid undead with a\n\t\tlow-level spell slot and get the same effect out of it (while the undead\n\t\tsurvives). The Putrid Undead’s claws can paralyze foes, but that requires\n\t\tfailing a Constitution save, getting hit with an attack, then failing a\n\t\tsecond Constitution save. Constitution saves tend to be high, unfortunately,\n\t\tso that’s hard to count on."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skeletal"
+              },
+              {
+                "type": "text",
+                "text": ": When I think “skeletal undead”\n\t\tI think skeletons, not necrotic lasers. But at 150 ft. range, I’m not going\n\t\tto complain. This thing is basically a pet warlock spamming Eldritch Blast\n\t\tevery turn. Sure, necrotic damage isn’t quite as good as force damage, but\n\t\tit’s pretty close. There’s very little complexity here, so if you want\n\t\tanything except ranged damage you’re not going to get it here."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-other-summoning-spells",
+      "heading": "Other Summoning Spells",
+      "sourceAnchor": "other-summoning-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-other-summoning-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each of the spells in this category is unique. With some exception, no two of\n\tthese spells work the same way so it’s difficult to offer broad guidance for\n\tthem as a category. When you cast any of these spells, expect to put some\n\tthought into them rather than pulling them out in combat and hoping things\n\twork out."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-find-familiar",
+      "parentSectionId": "section-other-summoning-spells",
+      "heading": "Find Familiar (1st level)PHB",
+      "sourceAnchor": "find-familiar",
+      "blocks": [
+        {
+          "blockId": "block-section-find-familiar-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A staple for wizards, but honestly just a great spell all around. Your\n\tchoices of familiar are extremely limited, unfortunately."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-familiar-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The best option without question is the owl. It’s sneaky, has darkvision, can\n\tfly, and has flyby. This makes it an excellent scout, but it also lets you\n\tsend your familiar into combat to use the Help option in order to help you and\n\tyour allies with your attacks. Thanks to flyby, your owl can fly in and out of\n\treach with minimal risk, allowing it to repeat this trick until your DM gets\n\tannoyed enough to shoot your familiar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-find-greater-steed",
+      "parentSectionId": "section-other-summoning-spells",
+      "heading": "Find Greater Steed (4th level)PHB",
+      "sourceAnchor": "find-greater-steed",
+      "blocks": [
+        {
+          "blockId": "block-section-find-greater-steed-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Find Steed gave the Paladin access to the only mount option in the core rules\n\tthat stayed viable once the warhorse stops being durable enough to take on\n\tadventures. However, once flight becomes common Find Steed becomes less\n\tuseful, and Find Steed only solves the durability issue by making your mount\n\teasily replaceable. Find Greater Steed addresses both problems by allowing\n\taccess to flight and by giving you stronger creatures with larger pools of hit\n\tpoints."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-greater-steed-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Find Greater Steed also introduces options which are already Intelligent and\n\twhich have an alignment. Weirdly, you still get to make your mount a\n\tcelestial, fey, or fiend. This doesn’t explicitly change your mount’s\n\talignment, so you can have a chaotic-good fiend pegasus. I think that’s an\n\toversight in the rules text, so make sure that you discuss it with your DM\n\tbefore you find yourself arguing morality and philosophy between your\n\tchaotic-evil oathbreaker paladin and your chaotic-good fiendish mount or your\n\tlawful-good vengeance paladin and your chaotic-evil celestial peryton."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-greater-steed-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Many of the Find Greater Steed options have good attacks, and at CR 2 they’re\n\tmore dangerous than the options provided by Find Steed. But keep in mind that\n\tit’s a mount first, and by the time you get this a CR 2 is not going to win\n\tfights for you by attacking. However, if you’re not riding your mount for some\n\treason they’ll still be able to attack and defend themselves, and in some\n\tsituations you might even prefer to fight alongside them rather than while\n\triding them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-greater-steed-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While there are adequate options available, there’s a ton of room to expand\n\tthis list. Hippogriffs (even though they’re basically worse griffons),\n\tnightmares (likely with Confer Fire Resistance and Ethereal Stride removed),\n\tand a number of other interesting creatures could be added to diversify the\n\toptions. The only addition we’ve seen beyond the Player’s Handbook is the\n\tDragonnel. If you want something more unique talk to your DM about what\n\tanother suitable creature of CR 2 or lower."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-greater-steed-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you do plan to explore mounted combat, see my\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Mounted Combat",
+              "href": "https://rpgbot.net/dnd5/characters/mounted_combat"
+            },
+            {
+              "type": "text",
+              "text": ". For information on Find Steed, see below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-greater-steed-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Dire Wolf"
+              },
+              {
+                "type": "text",
+                "text": ": Large size, 50 ft.\n\t\tspeed, keen hearing and smell, pack tactics, and its attacks can knock\n\t\ttargets prone if they fail a Strength save. The best non-flying option in\n\t\tterms of attacks, but Pack Tactics and the trip effect aren’t good enough to\n\t\tgive up flight by the time you can cast Find Greater Steed."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dragonnel"
+              },
+              {
+                "type": "link",
+                "text": "FToD",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Available only with DM’s permission. Large size, 30 ft. speed, 60 ft.\n\t\tflight, and 120-foot Darkvision. Already intelligent and understands both\n\t\tcommon and draconic. In many ways the Dragonnel is similar to the Griffon,\n\t\tbut it trades the Griffon’s improved speed and Keen Sight for Flyby, which\n\t\tis an excellent benefit for a martial rider so that your mount can fly in\n\t\tand out of melee reach safely."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Griffon"
+              },
+              {
+                "type": "text",
+                "text": ": Large size, 30 ft. speed, 80 ft.\n\t\tflight, Darkvision, Keen Sight. Basically the generic flying mount option.\n\t\tNothing complicated, but it works everywhere (except underwater) for any\n\t\tplayer."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pegasus"
+              },
+              {
+                "type": "text",
+                "text": ": Large size, 60 ft. speed, 90 ft.\n\t\tflight, three saving throw proficiencies, and it’s already Intelligent and\n\t\tunderstands (but can’t speak) several languages so it can communicate with\n\t\tcreatures other than you in a limited fashion. Chaotic-good alignment.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "As the only mount option with any saving throw proficiencies and the\n\t\t\tmount with the best speed both in the air and on the ground, the Pegasus\n\t\t\tis the go-to option."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Peryton"
+              },
+              {
+                "type": "text",
+                "text": ": Medium size, 60 ft. fly speed,\n\t\tresistance to nonmagical weapon damage types, flyby, keen sight and smell.\n\t\tIt’s already Intelligent and understands (but can’t speak) several languages\n\t\tso it can communicate with creatures other than you in a limited fashion.\n\t\tFlyby is the biggest selling point, allowing you to perform flying\n\t\thit-and-run attacks. Chaotic-evil alignment.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Resistance to non-magic weapon damage types is extremely useful if you\n\t\t\tdon’t have the Mounted Combatant feat. Even with a larger pool of hit\n\t\t\tpoints than the Warhorse, your mount is still frail compared to you and\n\t\t\tyour party members. The Mounted Combatant feat makes that less important\n\t\t\tsince you can redirect attacks toward yourself."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Peryton’s biggest function is hit-and-run attacks, with or without\n\t\t\tyou riding it. Use Flyby to keep your peryton out of reach as much as\n\t\t\tpossible, and if you’re not riding it be sure to use Dive Attack."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rhinoceros"
+              },
+              {
+                "type": "text",
+                "text": ": Large size, 40 ft. speed, and\n\t\tits charge ability knocks targets prone if they fail a Strength save.\n\t\tSomehow the least durable option and also tied with the Sabre-Toothed Tiger\n\t\tas the slowest."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sabre-Toothed Tiger"
+              },
+              {
+                "type": "text",
+                "text": ": Large size, 40 ft.\n\t\tspeed, keen smell, and its pounce ability knocks targets prone if they fail\n\t\ta Strength save. Not quite as good at knocking creatures prone as the\n\t\tRhinoceros, but the extra durability may be worth the trade."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-find-steed",
+      "parentSectionId": "section-other-summoning-spells",
+      "heading": "Find Steed (2nd level)PHB",
+      "sourceAnchor": "find-steed",
+      "blocks": [
+        {
+          "blockId": "block-section-find-steed-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A paladin exclusive, Find Steed offers a way to get an intelligent mount for\n\tany character who might enjoy riding one. You don’t necessarily need to ride\n\tyour mount into combat, but having a (mildly) intelligent creature with which\n\tyou can communicate telepathically from a mile away is really nice when your\n\tlegs get tired and you need to call Uber, your magical pony."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-steed-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re building for mounted combat, this is only slightly better than just buying a trained animal. The telepathy and intelligence are nice, but your steed is no more durable than a mundane animal so they’re still completely vulnerable to even tiny amounts of damage. The most durable steed option is the warhorse at just 19 hit points, so by the time you can cast this a typical fireball can take your warhorse from full hp to 0 on a roll well below average damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-steed-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Even with the Mounted Combatant feat, it doesn’t take much to kill your mount. Expect to recast Find Steed on a regular basis and hope that Aura of Protection is enough to let your mount succeed on a Dexterity saving throw once in a while."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-steed-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you do plan to explore mounted combat, see my\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Mounted Combat",
+              "href": "https://rpgbot.net/dnd5/characters/mounted_combat"
+            },
+            {
+              "type": "text",
+              "text": ". For information on Find Greater Steed, see above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-find-steed-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Camel"
+              },
+              {
+                "type": "text",
+                "text": ": Literally just a worse warhorse.\n\t\tNone of the camel’s real-world abilities to survive in arid environments\n\t\tmade it into the stat block."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elk"
+              },
+              {
+                "type": "text",
+                "text": ": Similar in many ways to the\n\t\tWarhorse, the Elk trades some of the Warhorse’s speed and hit points for a\n\t\tbetter charge option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mastiff"
+              },
+              {
+                "type": "text",
+                "text": ": The go-to option for small\n\t\triders, the Mastiff has the same speed as the pony but with better senses\n\t\tand attacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pony"
+              },
+              {
+                "type": "text",
+                "text": ": Slightly better hp and Strength\n\t\tthan the Mastiff, but that’s not enough to make it the better choice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warhorse"
+              },
+              {
+                "type": "text",
+                "text": ": The go-to option for medium\n\t\triders, at 60 ft. speed the warhorse will double the speed of most\n\t\thumanoids. On top of that, it has excellent attacks include Trampling\n\t\tCharge."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-infernal-calling",
+      "parentSectionId": "section-other-summoning-spells",
+      "heading": "Infernal Calling (5th level)XGtE",
+      "sourceAnchor": "infernal-calling",
+      "blocks": [
+        {
+          "blockId": "block-section-infernal-calling-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Infernal Calling is has a 1-minute casting time, and at a glance resembles\n\tthe spells in the Conjure Creature Spells category. However, it has several\n\tkey differences. You do not control the creature: you need to convince it to\n\tdo what you want with a Charisma check unless you can control it by other\n\tmeans like the spell Planar Binding. If you lose Concentration or choose to\n\tend the spell, the devil does not disappear: it gets 3d6 "
+            },
+            {
+              "type": "emphasis",
+              "text": "minutes"
+            },
+            {
+              "type": "text",
+              "text": " to\n\tdo what it pleases. You can summon creatures one CR above the spell level that\n\tyou use, or possibly two if you have a specific devil’s talisman and summon\n\tthat devil (finding such a talisman is far beyond the scope of this\n\tarticle)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infernal-calling-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fortunately, you do get to choose the type of devil which helps a great deal.\n\tThis allows you to select a devil with a low Insight bonus, increasing your\n\tchances of commanding it successfully. Your devil will still try to convine\n\tyou to make a pact with it, but you can basically ignore it. Let it pitch you\n\ttheir warlock power pyramid scheme or whatever, order them to kill stuff or\n\twhatever else you need, and hope that you come out on top."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infernal-calling-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Perhaps the most limiting part of this spell is who can cast it. Warlock get\n\tit on their spell list, but can’t cast it past 5th level. Wizards also get it,\n\tbut won’t have the Charisma to make the Charisma checks to command the\n\tcreatures reliably. The spell itself is really good, but no one is good at\n\tcasting it. Your best bet is a bard who learned Infernal Caling using Magical\n\tSecrets. The Bard will have high Charisma, Jack of All Trades, and Cutting\n\tWords, all of which will ease the Charisma checks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infernal-calling-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upcasting Infernal Calling allows you to summon higher-CR creatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infernal-calling-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The table below omits setting-specific creatures, creatures specific to\n\tadventures, and creatures below CR 6."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infernal-calling-6",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Spell Lvl"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "CR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creature Name"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 (5 with talisman)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 (6 with talisman)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 (7 with talisman)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 (8 with talisman)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 (only with talisman)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-planar-ally",
+      "parentSectionId": "section-other-summoning-spells",
+      "heading": "Planar Ally (6th level)PHB",
+      "sourceAnchor": "planar-ally",
+      "blocks": [
+        {
+          "blockId": "block-section-planar-ally-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This spell’s description is intentionally vague and open-ended, which makes\n\tme nervous. If you cast this, expect to spend some time negotiating with an\n\toutsider over what service you need and how they’ll be compensated. The\n\tsuggested prices for service are very high, so don’t use this on a regular\n\tbasis."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-planar-binding",
+      "parentSectionId": "section-other-summoning-spells",
+      "heading": "Planar Binding (5th level)PHB",
+      "sourceAnchor": "planar-binding",
+      "blocks": [
+        {
+          "blockId": "block-section-planar-binding-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is not a spell for the casual player. This is a complicated, dangerous,\n\tunpredictable mechanical roulette wheel. If it works, you can get a powerful\n\tally for a duration long enough to complete an adventure or two. If it doesn’t\n\twork, you’ve wasted 1,000gp. Forewarned is forearmed. Learn the spell very\n\tcarefully before you cast it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Planar Binding in appealing spelling on top of your other summoning spells\n\twhich allows you to extend the duration of your summoning spells from one hour\n\tto as much as a year and a day. On top of that, it gives you more control over\n\tthe summoned creature, allowing you better control over creatures like those\n\tsummoned with Infernal Calling and Summon Greater Demon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, Planar Binding full of mechanical traps which are easy to overlook\n\tand which make the spells extremely difficult to rely upon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The first challenge is picking a spell to use to summon your creature. This is more complex than you might think because you need to pick a spell where the creature remains even if you break Concentration. Once you start casting a spell with a casting time longer than 1 Action, you need to maintain Concentration on that spell, which forces you to break Concentration on anything else."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This creates a huge rules problem because not one of the published summoning spells (except Gate and Planar Ally) will keep the creature around long enough to finish casting Planar Binding. At this point, RAW, Planar Binding is unusable most summoning spells. Hopefully your DM will bend the rules a little to make this workable, otherwise the only options are Conjure Elemental or Conjure Fey, and I can’t imagine that WotC intended for a spell this complex to be so incredibly limited."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You "
+            },
+            {
+              "type": "emphasis",
+              "text": "might"
+            },
+            {
+              "type": "text",
+              "text": " be able to use Planar Ally here, but it’s not clear if the\n\tcreature will wait around while you cast Planar Binding so you may need to\n\tnegotiate and pay it to willingly be subject to Planar Binding, and that seems\n\tso laughably unlikely that I don’t think any creature intellectually capable\n\tof negotiating would say “sure, I’ll accept payment for one hour of standing\n\taround to then be your magical slave for up to a year.”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Once you pick a spell, you need to find a place to perform the casting.\n\tYou’ll need to be somewhere safe for a long period of time (up to 2 hours most\n\tlikely) without interruptions that could break concentration like inclement\n\tweather or enemies attacking you. Wherever you cast the spell also sets the\n\tlocation to which the summoned creature will return when they’ve completed\n\ttheir current orders, so make it somewhere easy for you to get to. A permanent\n\tbase is an obvious choice, though not the only one."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Next you need to keep the target in place for the full 1-hour casting time of Planar Binding. Typical combat summon spells will have 1-hour durations, so you need to start casting Planar Binding immediately after you finish summoning the creature. That leaves no time for you to issue commands to the creature, and there’s room to argue that the duration of the summon spell ends on the turn before you finish casting Planar Binding."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hopefully your DM will be lenient enough to let you issue one command (“stand still”) and let the durations like up enough because if your DM doesn’t allow that to happen Planar Binding is unusable with any summoning spell short of Gate unless you can extend the duration by some other means."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magic Circle is an important tool here. Creatures like demons and devils\n\taren’t obligated to follow your orders if they’re summoned with Infernal\n\tCalling or Summon Greater Demon, and using Magic Circle with its effects\n\treversed can keep the summoned creature inside for the duration. However, it\n\ttoo has a 1-hour duration and a one-minute casting time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unless you have help, you’ll need to cast Magic Circle at 4th level or higher\n\tto increase the duration. You’ll also need to avoid summoning a creature which\n\tcan teleport, and you’ll need a way to prevent the creature from attacking you\n\twhile you cast Planar Binding. They’ll be at Disadvantage, but a full hour is\n\t600 rounds and that’s plenty of time to shoot at you while you’re busy casting\n\tspells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Try to get some amount of cover without breaking line of sight, and stay at\n\tthe maximum range of 60 feet to stay out of range of things like breath\n\tweapons and other short-range abilities. Invisibility’s 1-hour duration will\n\tkeep you invisibile for most of the time you’ll be casting spells, though in\n\tyour best-case scenario it will expire one minute before you finish Planar\n\tBinding, at which point you’ll need to rely on whatever other countermeasures\n\tare in place (cover, mage armor, Magic Circle, etc.). Your best bet is to have\n\tanother ally handy who can refresh Invisibility for you, and to keep you and\n\tyour ally behind a sturdy wall with an arrow slit or a small observation\n\twindow through which you can maintain line of sight while benefiting from\n\tthree-quarters cover."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Once you have successfully set up countermeasures, summoned the creature, and\n\tcast Planar Binding, you need to get the creature to fail their saving throw.\n\tYour best bet is to summon a creature with poor Charisma saves (see my\n\taccompanying tables for summoning spells in this article, some of which\n\tspecify the creature’s Charisma saves when it’s relevant to that spell), but\n\tif you can you should also look for ways to hamper the creature’s save, though\n\tyou’ll need an ally to provide them unless you can do it yourself as a Bonus\n\tAction."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mind Sliver will apply a -1d4 penalty, as will the spell Bane. Bestow Curse\n\tcan impose Disadvantage on the save, but since it’s permanent you may not want\n\tto go that route unless Planar Binding is going to make the summoning last\n\tlong enough that you can comfortably cast Remove Curse without it being a\n\tproblem. It’s hard to overstate how important it is to get this part of the\n\tspell right because if the creatures succeeds on their save you’ve spent a\n\tbunch of time and effort to set up and plan only to waste the 1,000gp material\n\tcomponent."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Did I mention the 1,000gp material component which the spell consumes? Yeah,\n\tthat’s a thing. It’s there to keep players from abusing this. Cast at 5th\n\tlevel, Planar Binding extends your summon’s duration to 24 hours (from the end\n\tof casting Planar Binding, not from the end of casting Summon Whatever), so\n\tyou’re spending 1,000gp to have an ornery pet for one day. That’s not worth\n\tthe price. If you go to the trouble to use Planar Binding, I recommend using\n\tat least a 7th-level spell slot."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At this point, you have your creature summoned and Planar Binding is in\n\teffect. Let’s discuss what happens and how things work at this stage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "First, Concentration is gone. You broke Concentration when you started\n\tcasting Planar Binding, so you’re free to go back to concentrating on other\n\tstuff like summoning other creatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Second, the method to control your summoned creature is determined entirely\n\tby Planar Binding. Creatures will follow verbal orders, but if they’re hostile\n\tto you (and many will be when you break Concentration on the spell which\n\tsummoned them), they’re going to be a pain about it. Think “malicious\n\tcompliance”. The best way to handle it is to give specific but concise orders,\n\tbut be concious of obvious loopholes. “Kill that creature as quickly as\n\tpossible” might lead your summoned creature to collapse your house on top of\n\tthe creature because it’s marginally faster than stabbing them repeatedly."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-planar-binding-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Now that you’ve read all of that, compare the text it took me to clarify the\n\texact workings of Planar Ally to the length of the text of the spell. That is\n\thow much complexity it buried here. Again: forewarned is forearmed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spirit-of-death",
+      "parentSectionId": "section-other-summoning-spells",
+      "heading": "Spirit of Death (4th level)BoMT",
+      "sourceAnchor": "spirit-of-death",
+      "blocks": [
+        {
+          "blockId": "block-section-spirit-of-death-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spirit of Death is a good summon spell, but lacks the diverse options of other summon spells. It creates a flying undead spirit that deals necrotic damage, has Advantage on all of its attacks, and can make one creatured Frightened each round. Altogether, a decent combat pet."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spirit-of-death-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Summon Undead’s Ghostly option is very similar, but has some significant advantages. Summon Undead is available a spell level earlier. The ghostly undead is immune to the Charmed condition (not especially impactful, but it’s an odd omission from Spirit of Death’s stats), it has 10 feet faster flight, and it can frighten a target with each of its attacks rather than only frightening one creature with roundabout delayed effect from the creature’s Bonus Action. Both summons have the same AC, hit points, and damage per hit. But ythe Spirit of Death gets Advantage on all of its attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spirit-of-death-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spirit of Death is also on the Sorcerer’s spell list, and Summon Undead isn’t."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-greater-demon",
+      "parentSectionId": "section-other-summoning-spells",
+      "heading": "Summon Greater Demon (4th level)XGtE",
+      "sourceAnchor": "summon-greater-demon",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-greater-demon-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Summon Greater Demon is the high-level analog of Summon Lesser Demons,\n\tallowing you to summon a single high-CR demon. It is somehow both better and\n\tworse than Summon Lesser Demons. Unique among other spells, your summoned\n\tdemon gets to make a Charisma save at the end of each of its turn to break\n\tfree of your control. If it gets free, it remains for 1d6 rounds and is\n\thostile to you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-greater-demon-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fortunately, you do get to choose the type of demon which helps a great deal.\n\tThis allows you to select a demon with low Charisma saves, increasing your\n\tchances of maintaining control. You also notably get to choose a demon of a CR\n\tone above the spell level that you use. Of course, the high-level summon\n\toptions also have high Charisma saving throw bonuses so this benefit doesn’t\n\tmatter as much as you might hope."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-greater-demon-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upcasting Summon Greater Demon allows you to summon higher-CR creatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-greater-demon-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The table below omits setting-specific creatures, creatures specific to\n\tadventures, and creatures below CR 5."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-greater-demon-5",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Spell Lvl"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "CR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creature Name"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-summon-lesser-demons",
+      "parentSectionId": "section-other-summoning-spells",
+      "heading": "Summon Lesser Demons (3rd level)XGtE",
+      "sourceAnchor": "summon-lesser-demons",
+      "blocks": [
+        {
+          "blockId": "block-section-summon-lesser-demons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Summon Lesser Demons falls somewhere between Conjure Creatures Spells and\n\tSummon Creatures Spells, but doesn’t follow the rules of either. You don’t get\n\tto choose a CR: the CR is determined at random. You don’t get to issue orders\n\tto the demons: they’re hostile toward you. Picking creatures is handled by the\n\tDM in the same way as Conjure Creatures Spells, but with a 1-Action casting\n\ttime you can call this up in combat just like Summon Creature Spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-lesser-demons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since you’re going to cast this in combat (there is rarely a reason to do\n\totherwise), and since you can’t control the demons, you’re casting the spell\n\tto add a third faction to any given encounter and hope that they’re more\n\tharmful to your enemies than to your friends."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-lesser-demons-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upcasting Summon Lesser Demons allows you to summon additional creatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-summon-lesser-demons-4",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "CR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Count"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creature Name"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1/4 or Lower"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4x"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "None at this level, so if you roll this you just get fewer CR 1/4\n\t\t\t\tcreatures. Welcome to summoning demons."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2x"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#conjure-animals",
+      "detail": "rating-green Conjure Animals (3rd level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#conjure-celestial",
+      "detail": "rating-orange Conjure Celestial (7th level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#conjure-elemental",
+      "detail": "rating-orange Conjure Elemental (5th level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#conjure-fey",
+      "detail": "rating-green Conjure Fey (6th level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#conjure-minor-elementals",
+      "detail": "rating-orange Conjure Minor Elementals (4th level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#conjure-woodland-beings",
+      "detail": "rating-blue Conjure Woodland Beings (4th level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-aberration",
+      "detail": "rating-blue Summon Aberration (4th-level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Beholderkin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Slaad"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Starspawn"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-beast",
+      "detail": "rating-blue Summon Beast (2nd-level)TCoE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-celestial",
+      "detail": "rating-blue Summon Celestial (5th-level)TCoE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Avenger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Defender"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-construct",
+      "detail": "rating-green Summon Construct (4th-level)TCoE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Clay"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Metal"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Stone"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-draconic-spirit",
+      "detail": "rating-green Summon Draconic Spirit (5th-level)FToD"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-elemental",
+      "detail": "rating-orange Summon Elemental (4th-level)TCoE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Air"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Earth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fire"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Water"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-fey",
+      "detail": "rating-orange Summon Fey (3rd-level)TCoE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fuming"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mirthful"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tricksy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-fiend",
+      "detail": "rating-orange Summon Fiend (6th-level)TCoE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Demon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Devil"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Yugoloth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-shadowspawn",
+      "detail": "rating-green Summon Shadowspawn (3rd-level)TCoE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fear"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fury"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Despair"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-undead",
+      "detail": "rating-blue Summon Undead (3rd-level)TCoE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ghostly"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Putrid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Skeletal"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#find-familiar",
+      "detail": "rating-blue Find Familiar (1st level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#find-greater-steed",
+      "detail": "rating-blue Find Greater Steed (4th level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Dire Wolf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dragonnel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Griffon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Pegasus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Peryton"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Rhinoceros"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sabre-Toothed Tiger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#find-steed",
+      "detail": "rating-green Find Steed (2nd level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Camel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Elk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mastiff"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Pony"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Warhorse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#infernal-calling",
+      "detail": "rating-orange Infernal Calling (5th level)XGtE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green White Abishai"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Black Abishai"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Chain Devil"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Bone Devil"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Orthon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Horned Devil"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#planar-ally",
+      "detail": "rating-none Planar Ally (6th level)PHB"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#spirit-of-death",
+      "detail": "rating-green Spirit of Death (4th level)BoMT"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-greater-demon",
+      "detail": "rating-orange Summon Greater Demon (4th level)XGtE"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Barlgura"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Tanarukk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Chasme"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Vrock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Armanite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-orange Draegloth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Maurezhi"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Hezrou"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Shoosuva"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Glabrezu"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-red Yochlol"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#summon-lesser-demons",
+      "detail": "rating-orange Summon Lesser Demons (3rd level)XGtE"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-three-types-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-three-types-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-conjure-creature-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-conjure-creature-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-conjure-creature-spells-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-conjure-creature-spells-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-conjure-creature-spells-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-conjure-creature-spells-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-conjure-animals-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-conjure-animals-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-conjure-animals-3"
+    },
+    {
+      "code": "unsafe-link",
+      "location": "p/a[1]",
+      "detail": "mailt:RPGBOT@RPGBOT.net"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-conjure-animals-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[1]",
+      "detail": "block-section-conjure-animals-5"
+    },
+    {
+      "code": "table-caption-review",
+      "location": "div/table[1]",
+      "detail": "Conjure Animals Summoned Creature CR Range by Spell Level and Environment"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-conjure-celestial-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-conjure-celestial-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-conjure-celestial-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-conjure-celestial-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-conjure-celestial-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[2]",
+      "detail": "block-section-conjure-celestial-6"
+    },
+    {
+      "code": "table-caption-review",
+      "location": "div/table[2]",
+      "detail": "Conjure Celestial Summoned Creature CR Range by Spell Level"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/li[1]",
+      "detail": "li"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-conjure-elemental-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-conjure-elemental-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-conjure-elemental-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-conjure-elemental-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-conjure-elemental-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[3]",
+      "detail": "block-section-conjure-elemental-6"
+    },
+    {
+      "code": "table-caption-review",
+      "location": "div/table[3]",
+      "detail": "Conjure Elemental Summoned Creature CR Range by Spell Level"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-conjure-fey-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-conjure-fey-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-conjure-fey-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-conjure-fey-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-conjure-fey-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[4]",
+      "detail": "block-section-conjure-fey-6"
+    },
+    {
+      "code": "table-caption-review",
+      "location": "div/table[4]",
+      "detail": "Conjure Fey Summoned Creature CR Range by Spell Level"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-conjure-minor-elementals-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-conjure-minor-elementals-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-conjure-minor-elementals-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[5]",
+      "detail": "block-section-conjure-minor-elementals-4"
+    },
+    {
+      "code": "table-caption-review",
+      "location": "div/table[5]",
+      "detail": "Conjure Minor Elementals CR Range by Spell Level"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-conjure-woodland-beings-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-conjure-woodland-beings-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-conjure-woodland-beings-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-conjure-woodland-beings-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[6]",
+      "detail": "block-section-conjure-woodland-beings-5"
+    },
+    {
+      "code": "table-caption-review",
+      "location": "div/table[6]",
+      "detail": "Conjure Woodland Being CR Range by Spell Level"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-summon-creature-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-summon-creature-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-summon-creature-spells-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-summon-creature-spells-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-summon-creature-spells-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-summon-creature-spells-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-summon-creature-spells-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-summon-creature-spells-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-summon-aberration-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-summon-aberration-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-summon-aberration-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-summon-aberration-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-summon-beast-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-summon-celestial-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-summon-celestial-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-summon-celestial-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-summon-celestial-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-summon-construct-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-summon-construct-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-summon-construct-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-summon-draconic-spirit-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-summon-draconic-spirit-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-summon-draconic-spirit-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-summon-elemental-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-summon-elemental-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-summon-elemental-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-summon-fey-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-summon-fey-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-summon-fey-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-summon-fey-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-summon-fey-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-summon-fiend-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-summon-fiend-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[67]",
+      "detail": "block-section-summon-shadowspawn-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[68]",
+      "detail": "block-section-summon-shadowspawn-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-summon-shadowspawn-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[69]",
+      "detail": "block-section-summon-undead-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[70]",
+      "detail": "block-section-summon-undead-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-summon-undead-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[71]",
+      "detail": "block-section-other-summoning-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[72]",
+      "detail": "block-section-find-familiar-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[73]",
+      "detail": "block-section-find-familiar-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[74]",
+      "detail": "block-section-find-greater-steed-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[75]",
+      "detail": "block-section-find-greater-steed-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[76]",
+      "detail": "block-section-find-greater-steed-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[77]",
+      "detail": "block-section-find-greater-steed-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[78]",
+      "detail": "block-section-find-greater-steed-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[11]",
+      "detail": "block-section-find-greater-steed-6"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[5]",
+      "detail": "<li><span class=\"rating-blue\">Peryton</span>: Medium size, 60 ft. fly speed, resistance to nonmagical weapon damage types, flyby, keen sight and smell. It’s already Intelligent and"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[79]",
+      "detail": "block-section-find-steed-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[80]",
+      "detail": "block-section-find-steed-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[81]",
+      "detail": "block-section-find-steed-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[82]",
+      "detail": "block-section-find-steed-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[12]",
+      "detail": "block-section-find-steed-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[83]",
+      "detail": "block-section-infernal-calling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[84]",
+      "detail": "block-section-infernal-calling-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[85]",
+      "detail": "block-section-infernal-calling-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[86]",
+      "detail": "block-section-infernal-calling-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[87]",
+      "detail": "block-section-infernal-calling-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[7]",
+      "detail": "block-section-infernal-calling-6"
+    },
+    {
+      "code": "table-caption-review",
+      "location": "div/table[7]",
+      "detail": "Infernal Calling Creature CR Range by Spell Level"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[88]",
+      "detail": "block-section-planar-ally-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[89]",
+      "detail": "block-section-planar-binding-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[90]",
+      "detail": "block-section-planar-binding-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[91]",
+      "detail": "block-section-planar-binding-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[92]",
+      "detail": "block-section-planar-binding-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[93]",
+      "detail": "block-section-planar-binding-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[94]",
+      "detail": "block-section-planar-binding-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[95]",
+      "detail": "block-section-planar-binding-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[96]",
+      "detail": "block-section-planar-binding-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[97]",
+      "detail": "block-section-planar-binding-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[98]",
+      "detail": "block-section-planar-binding-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[99]",
+      "detail": "block-section-planar-binding-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[100]",
+      "detail": "block-section-planar-binding-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[101]",
+      "detail": "block-section-planar-binding-13"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[102]",
+      "detail": "block-section-planar-binding-14"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[103]",
+      "detail": "block-section-planar-binding-15"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[104]",
+      "detail": "block-section-planar-binding-16"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[105]",
+      "detail": "block-section-planar-binding-17"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[106]",
+      "detail": "block-section-planar-binding-18"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[107]",
+      "detail": "block-section-planar-binding-19"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[108]",
+      "detail": "block-section-spirit-of-death-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[109]",
+      "detail": "block-section-spirit-of-death-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[110]",
+      "detail": "block-section-spirit-of-death-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[111]",
+      "detail": "block-section-summon-greater-demon-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[112]",
+      "detail": "block-section-summon-greater-demon-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[113]",
+      "detail": "block-section-summon-greater-demon-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[114]",
+      "detail": "block-section-summon-greater-demon-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[8]",
+      "detail": "block-section-summon-greater-demon-5"
+    },
+    {
+      "code": "table-caption-review",
+      "location": "div/table[8]",
+      "detail": "Summon Greater Demon Creature CR Range by Spell Level"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[115]",
+      "detail": "block-section-summon-lesser-demons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[116]",
+      "detail": "block-section-summon-lesser-demons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[117]",
+      "detail": "block-section-summon-lesser-demons-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[9]",
+      "detail": "block-section-summon-lesser-demons-4"
+    },
+    {
+      "code": "table-caption-review",
+      "location": "div/table[9]",
+      "detail": "Summon Lesser Demons CR Range by Spell Level"
+    },
+    {
+      "code": "text-coverage-review",
+      "location": "root",
+      "detail": "Extracted text differs from source content"
+    }
+  ],
+  "metrics": {
+    "words": 9564,
+    "sections": 32,
+    "blocks": 139,
+    "tables": 9,
+    "ratingSignals": 81
+  },
+  "status": "needs-editorial-review"
+}

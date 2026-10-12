@@ -1,0 +1,142 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-undying-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+    "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "raceKey": "HUMAN_2014",
+  "variantKey": "HUMAN_VARIANT",
+  "backgroundKey": "SOLDIER",
+  "featKey": "HEAVY_ARMOR_MASTER",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": [
+      1
+    ],
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {"level":2,"classKey":"WARLOCK_2014","subclassKey":"UNDYING","spells":{"cantripKeys":["blade-ward","booming-blade"],"knownSpellKeys":["armor-of-agathys","hex"]}},
+    {"level":3,"classKey":"WARLOCK_2014","classOptions":[{"optionNameEng":"Beguiling Influence"},{"optionNameEng":"Eldritch Mind"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":4,"classKey":"WARLOCK_2014","classOptions":[{"optionNameEng":"Pact of the Blade"}],"spells":{"knownSpellKeys":["hellish-rebuke"]},"replaceOptions":[{"drop":{"optionNameEng":"Eldritch Mind"},"add":{"optionNameEng":"Improved Pact Weapon"}}]},
+    {"level":5,"classKey":"WARLOCK_2014","featKey":"WAR_CASTER","spells":{"cantripKeys":["green-flame-blade"]},"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":6,"classKey":"WARLOCK_2014","classOptions":[{"optionNameEng":"Cloak of Flies"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":7,"classKey":"WARLOCK_2014","openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":8,"classKey":"WARLOCK_2014","classOptions":[{"optionNameEng":"Sculptor of Flesh"}],"spells":{"knownSpellKeys":["shadow-of-moil"]}},
+    {"level":9,"classKey":"WARLOCK_2014","featKey":"SLASHER","featOptions":[{"optionNameEng":"SLASHER Ability (Strength)"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":10,"classKey":"WARLOCK_2014","classOptions":[{"optionNameEng":"Eldritch Smite"}],"openClassOptions":true,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":11,"classKey":"WARLOCK_2014","openSpellPicks":[{"category":"cantrips","count":1}]},
+    {"level":12,"classKey":"WARLOCK_2014","openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":13,"classKey":"WARLOCK_2014","featKey":"GUILE_OF_GIANTS","featOptions":[{"optionNameEng":"GUILE_OF_GIANTS Ability (Strength)"}],"classOptions":[{"optionNameEng":"Lifedrinker"}]},
+    {"level":14,"classKey":"WARLOCK_2014","openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":15,"classKey":"WARLOCK_2014"},
+    {"level":16,"classKey":"WARLOCK_2014","classOptions":[{"optionNameEng":"Thirsting Blade"}],"openClassOptions":true,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":17,"classKey":"WARLOCK_2014","abilityScoreIncrease":[{"ability":"STR","amount":2}]},
+    {"level":18,"classKey":"WARLOCK_2014","openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":19,"classKey":"WARLOCK_2014","classOptions":[{"optionNameEng":"Witch Sight"}],"openClassOptions":true},
+    {"level":20,"classKey":"WARLOCK_2014","abilityScoreIncrease":[{"ability":"CHA","amount":2}],"openSpellPicks":[{"category":"knownSpells","count":1}]}
+  ],
+  "incomplete": [
+    {
+      "field": "Заклинання «будь-які»",
+      "reason": "На 3, 5, 6, 7 і 9-му рівнях автор не називає нового відомого заклинання; це вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Містичний арканум (12–18-й рівні)",
+      "reason": "Автор називає Вбрання льоду (12-й), Силову клітку (14-й) і «будь-яке» на 16 та 18-му; платформа не записує вибір арканума.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Вибори «будь-який / будь-яке» на 10–20-му рівнях",
+      "reason": "Автор пише «будь-який» для потойбічного виклику на 10, 16 і 19-му рівнях. Пресет бере типові: Eldritch Smite, Thirsting Blade, Witch Sight (вибір платформи; гравець може змінити). Відомі заклинання «будь-які» на 10, 12, 14, 16, 18 і 20-му лишено на вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Нове замовляння 12-го рівня",
+      "reason": "Автор ставить нове замовляння «будь-яке» на 12-му рівні, але Чорнокнижник вивчає його на 10-му рівні класу (11-й рівень персонажа); записано там як відкритий вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Налаштована передісторія Солдата",
+      "reason": "Автор лише згадує можливість замінити ігровий набір і транспорт Солдата на дві мови; це необовʼязкова порада, тому передісторію лишено стандартною.",
+      "section": "section-background"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-undying-2014.webp",
+    "title": "Воїн 1 / Чорнокнижник — Невмирущий, Варіант людини",
+    "description": "Мультиклас Воїн 1 / Чорнокнижник Невмирущого у важкій броні: Майстер важких обладунків з 1-го рівня, Перехоплення, Пакт клинка.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CON",
+      "CHA"
+    ],
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "INTIMIDATION"
+      ],
+      "race": [
+        "PERCEPTION"
+      ],
+      "background": [
+        "HISTORY"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [
+      "Interception"
+    ],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "GREATSWORD",
+          "MAUL"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats-2",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Варіант людини додає +1 до Статури й Харизми, а Майстер важких обладунків — +1 до Сили; Статура 16 і Харизма 16, як у автора. Це вже враховано.",
+    "skillExplanation": "Аналіз поведінки й Залякування — від Воїна, Атлетика — від Солдата, Уважність — від Варіанта людини. Повторне Залякування Солдата замінено Історією — це вибір платформи. Обман і Переконання автор отримує пізніше від виклику «Спокусливий вплив». Мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор радить лускатий обладунок і дворучну зброю; лускатого обладунку серед стартових наборів Воїна немає, тож кольчугу, дворучний меч і молот ми обрали за вас — вибір платформи, його можна змінити. Легкий арбалет і набір дослідника підземель теж обрано за вас."
+  }
+}

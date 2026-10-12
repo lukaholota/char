@@ -1,0 +1,3225 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "8f1b60628c875a51d9fa8059d39d3ff06eca278b2a292d0c63e23dbfa6834d93",
+  "sourceRevision": {
+    "revisionId": "rpgbot-cbaa9d85a5d89f51-8f1b60628c875a51",
+    "sourceId": "rpgbot-cbaa9d85a5d89f51",
+    "fetchedAt": "2026-09-29T19:22:05.823391+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:41:27-04:00",
+    "contentHash": "bbcad30f1b9a193db6230db7dd78c23cec1c5fd038287cdc1f2b9831b19a9912",
+    "title": "DnD 5e Poisoner, Poison, and Poisoning: A Practical Guide",
+    "authors": [
+      "Colby \"Bea\" Munro"
+    ],
+    "sourceFile": "source/rpgbot-cbaa9d85a5d89f51-8f1b60628c875a51.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Poisoners are a classic character trope within the fantasy genre at large: Cunning assassins who only need to drop a small vial into their enemies food to do them in, as well as those who coat their blades with malicious substances to get an edge on their foes. As DnD attempts to represent all fantasy tropes with as much fidelity as possible, poisoners are a classic character type within the game as well. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, in the conversion from prior systems to 5th edition, the focus of poison use was diminished greatly. The unfortunate outcome was that few players actively choose to use poison. Prior to Tasha’s Cauldron of Everything, everything we knew about poisons was confined to about two pages in the DMG. Tasha’s attempted to rectify that with the Poisoner feat with some mixed success and a few unforeseen results."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Poisoner feat offers players easy access to poison as a tactical option, allowing players to craft their own poisons using clearly defined rules that don’t require hauling a box of creatures around or similar shenanigans. We’ll dig into how it works and what you can do with Poisoner below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to go an extra step and dig into poisoners beyond “Basic Poison” and the Poisoner feat, we’ve also dug into where you can find other poisons either by purchasing or harvesting them, what their effects are, and what poisons are and aren’t worth the effort."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Poisoner",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#poisoner"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Selling Your Poison ",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#selling-your-poisonnbsp"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Problems With Poison",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#the-problems-with-poison"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Poison Types",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#poison-types"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sample Poisons ",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#sample-poisonsnbsp"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Harvesting Poison",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#harvesting-poison"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Making Sense of Poison Harvesting",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#making-sense-of-poison-harvesting"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "(Possibly) Harvestable Poisons",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#possibly-harvestable-poisons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Is This a Harvestable Poison?",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#is-this-a-harvestable-poison"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Stench Poisons",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#stench-poisons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Disease “Poisons”",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#disease-poisons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weird Poisons",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#weird-poisons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Frequently Asked Questions about Poisons",
+                "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#frequently-asked-questions-about-poisons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-poisoner",
+      "heading": "Poisoner",
+      "sourceAnchor": "poisoner",
+      "blocks": [
+        {
+          "blockId": "block-section-poisoner-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Poisoner feat is not included in the SRD, therefore we cannot replicate the text in any significant way. Instead, crack open Tasha’s Cauldron of Everything (page 80) and we’ll proceed through each bullet point individually. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poisoner-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Bullet Point 1:"
+            },
+            {
+              "type": "text",
+              "text": " While the ability to ignore poison damage seems good at first glance, it does very little to solve the primary problem that poison damage users face. In the Monster Manual, only five monsters have any form of resistance to poison, while a whopping 95 of them have immunity to it. This aspect of the feat does not negate immunity, and therefore leaves a poison damage user utterly incapable of harming a great deal of foes, and only increases your effectiveness against a handful of monsters. NPCs such as dwarves will be affected, but those will make up a small portion of the creatures you’ll face in a typical campaign."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poisoner-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Bullet Point 2."
+            },
+            {
+              "type": "text",
+              "text": " Being able to apply poison to an attack per turn is an incredible boost in your combat effectiveness. As consumable items, you should expect that using this every turn will cost you monetarily. At the very least, the ability to apply a poison that loses its effectiveness in a minute to a weapon as a bonus action will reduce the burden on you in fights that were not ambushes you prepared. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poisoner-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Although you gain knowledge of a craftable poison with this feat, we suggest reading the Sample Poisons and (Possibly) Harvestable Poisons section of this guide to best understand all the other poisons you can apply with this bonus action. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poisoner-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Bullet Point 3, Line 1."
+            },
+            {
+              "type": "text",
+              "text": " Being able to use a poisoner’s kit is a nice boon, which is especially nice if you don’t have proficiency in nature checks in addition to the poisoner’s kit. While there aren’t a lot of rules governing the crafting of poisons beyond DM fiat, there are hard rules for harvesting poison, which is a DC 20 nature or poisoner’s kit check (DMG 258.) This would be nicer if it gave you expertise in the poisoner’s kit if you already had proficiency, but alas, no such luck. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poisoner-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Bullet Point 3, Line 2-4."
+            },
+            {
+              "type": "text",
+              "text": " You gain the ability to craft a fairly effective poison. Athough it acts like an injury poison, it’s not a true injury poison as by RAW it can be applied to any weapon, including bludgeoning weapons. The DC is high enough that you can expect that even high level creatures will fail sometimes, though it won’t be consistent since Constitution saves tend to be disproportionately high. The poisoned condition imposes disadvantage on all attack rolls and ability checks, which your party front-liners are going to love."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poisoner-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The price compared to other poisons is better than anything listed in the DMG, aside from perhaps harvesting poison from a captured creature. There are a few injury poisons, such as the serpent’s venom, wyvern poison, and purple worm poison that deal half damage on a save, which, unfortunately, the poisoner feat poison does not do. If they save against the DC, that’s a dose of poison expended for nothing, but you can try again next round (or until you run out of poison)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-selling-your-poisonnbsp",
+      "heading": "Selling Your Poison",
+      "sourceAnchor": "selling-your-poisonnbsp",
+      "blocks": [
+        {
+          "blockId": "block-section-selling-your-poisonnbsp-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Perhaps the most “breakable” ability in the Poisoner feat is its crafted poison’s ability to be traded. A basic poison vial’s listed market price is 100gp, and the poison you are creating with this feat is simply better than a basic poison vial on every level, aside from the basic poison’s ability to be applied to 3 pieces of ammunition."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-selling-your-poisonnbsp-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Running very conservative math, let’s assume the Poisoner feat poison’s market value is 100gp, like the basic poison. Even if you have to sell the poison at half price so the reseller can mark it up to market value, you’re selling a single dose of the poisoner feat poison for 50gp. As you can craft a number of doses equal to your proficiency bonus for 50 gold, a first level character with this feat can double their money provided they find a place to unload their inventory of poison. As your proficiency bonus increases, so does your profit margin as you craft more poison per batch. If you’re able to place the Poisoner feat poison’s market value higher than the basic poison, then you’re turning an even greater profit. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-selling-your-poisonnbsp-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unloading your inventory may be tricky, and it’s certainly morally dubious to flood a market with poison. Obviously, you’re going to have to unload your stock in civilized areas, so, in games where you’re often traveling in the wilderness, this strategy may not be as effective. Additionally, within the DMG, poisons are stated to be broadly illegal in most societies, so likely you’re going to be dealing primarily with unscrupulous criminals and merchants. It may be worth starting with the criminal background for a contact that you could reliably deal with. As a player, I’d attempt to set up a situation in which the party Face could work out a deal to sell directly to a military."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-selling-your-poisonnbsp-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a DM, I’d make sure this has consequences, such as having enemy NPCs start their opening salvos with weapons coated with the poison that you have created with your own hands. I personally think having players running an underground poison ring is interesting enough to let it play out, but exploiting one of the largest weak spots in D&D’s design (its economy) isn’t going to fly with every DM. DMs are well within their rights to make it so nobody will purchase your poison, scale up the cost of the raw materials to make poison, or throw player characters in jail, so be warned. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-problems-with-poison",
+      "heading": "The Problems With Poison",
+      "sourceAnchor": "the-problems-with-poison",
+      "blocks": [
+        {
+          "blockId": "block-section-the-problems-with-poison-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Poisons generally suffer from “the consumable item problem.” Using poison consumes the dose of poison, and a dose of poison often has hefty price tag attached. Compounded with this, the poison may still be negated with a single successful saving throw. This makes it challenging for players to know when is the best time to deploy them effectively. Because of these factors, it’s possible that a dose of poison will sit in a player’s inventory for an entire campaign. This can be negated having a lot of poison on your person, as it’s easier to expend a resource if it doesn’t feel scarce. Either by harvesting or crafting poison with the Poisoner feat, players will have enough poison to feel free to use them every combat. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-problems-with-poison-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Applying poisons to a weapon is an action, performed with the Use an Object action. This generally means that, to make effective use of your time, you should output a worse debuff or higher damage than two of your turns combined. In most cases, the best way to do this is to apply poison before you enter combat, giving you one use of poison per fight. The action use to apply poison can be turned into a bonus action use, making poison vastly more efficient. You can do this if you have the Poisoner feat or if you are a rogue with the Thief archetype (Fast Hands). "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-problems-with-poison-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, the single largest strike against poison use is that a high proportion of creatures are immune to poison damage and the poisoned condition outright. While it’s not always clear to a player which creatures will be immune, a good rule of thumb is that constructs, elementals, fiends and undead will not be affected by poison. There is nothing that can be done to circumvent this issue. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-poison-types",
+      "heading": "Poison Types",
+      "sourceAnchor": "poison-types",
+      "blocks": [
+        {
+          "blockId": "block-section-poison-types-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are four categories of poison, each with different strengths and weaknesses. Understanding what type of poison and when to apply and how to apply them will make you much more efficient in their use. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poison-types-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Contact"
+            },
+            {
+              "type": "text",
+              "text": ": Carefully slather it on a weapon, throw a glass vial of it, or grab a brush and paint it on a door handle. Unlike injury poisons, contact poisons can be applied to bludgeoning weapons. As long as a creature touches contact poison with their skin, they have to make the save. Unfortunately, there are very few sample contact poisons, and the sample poisons have low DCs. You trade ease of use for reduced reliability."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poison-types-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ingested"
+            },
+            {
+              "type": "text",
+              "text": ": The most difficult method of delivering poison to a victim. This requires you to have access to your foe’s food or drink, which happens rarely without good planning. Many ingested poisons have effects that are strong enough to partially offset that drawback, but enemies may still save out of the effects which makes it a big gamble. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poison-types-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Inhaled"
+            },
+            {
+              "type": "text",
+              "text": ": Inhaled poisons are great because they generally don’t require an attack roll, though a DM may ask for one if you throw a bottle or other container to release the poison. Inhaled poisons not requiring an attack roll is also something of a double-edged sword, as inhaled poisons can’t be applied to weapons and take an action to use. However, the Thief Rogue can use an object as a bonus action, which improves its effectiveness in combat greatly. Note that a target holding their breath doesn’t stave off the poison, and the 5-foot cloud of poison disperses immediately after use. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poison-types-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Injury"
+            },
+            {
+              "type": "text",
+              "text": ": For an injury poison to take effect, you have to hit with and deal damage with a piercing or slashing weapon. It’s worse than contact as a delivery method, but it’s reliable. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sample-poisonsnbsp",
+      "heading": "Sample Poisons",
+      "sourceAnchor": "sample-poisonsnbsp",
+      "blocks": [
+        {
+          "blockId": "block-section-sample-poisonsnbsp-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The following is a ranking of each of the sample poisons listed in the DMG, as well as the basic poison in the PHB, and the Poisoner Feat’s Poison from TCE. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sample-poisonsnbsp-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Contact:"
+            },
+            {
+              "type": "text",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sample-poisonsnbsp-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Carrion Crawler Mucus"
+              },
+              {
+                "type": "text",
+                "text": ": Think of this as the Hold Person spell delivered through a poison. Even though the DC is middling, and the affected creature gets multiple chances to save out of it, you’re giving all your front line fighters automatic critical hits and denying the target their next turn if they fail once. Just make sure to prepare an action triggered by the end of the creature’s turn so that all your allies can make attacks against it. It’s harvestable, so, if you can find a way to capture a carrion crawler alive, this is incredible, especially applying it as a bonus action with the Poisoner feat. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Oil of Taggit"
+              },
+              {
+                "type": "text",
+                "text": ": The save DC is mediocre, but this causes a foe to become poisoned and unconscious for 24 hours, the creature’s allies have to actually damage the affected creature to wake them up (which is useful if enemies are roleplayed like normal people who care about their allies, or less-than-sentient foes.) Because it’s a contact poison, you never actually need to fight the creature. Excellent for kidnapping.  "
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-sample-poisonsnbsp-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Ingested:"
+            },
+            {
+              "type": "text",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sample-poisonsnbsp-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Assassin’s Blood"
+              },
+              {
+                "type": "text",
+                "text": ": The DC is abysmally low, and the damage probably won’t kill anything but a commoner. Afflicting a creature with the poisoned condition for 24 hours is nice, but probably not worth sneaking poison into someone’s food for a listed price of 150gp. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Midnight Tears"
+              },
+              {
+                "type": "text",
+                "text": ": The DC is quite high for a poison. Because you know the exact time that the creature is going to take the poison damage, and that they will take at least half of it (provided they’re not immune) this is an excellent set up for a future ambush. If multiple doses can be added to ingested poison, it’s possible that you could dose an enemy with enough poison to kill them outright, a feat which is challenging to do with nearly any other type of poison. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pale Tincture"
+              },
+              {
+                "type": "text",
+                "text": ": The DC is solid, and the effects are very unique. An afflicted creature can’t heal by any means for seven days. If you are going up against an enemy much stronger than you and you can spend the time taking pot shots at them over the course of a week, this is a very fun way to do that. Unfortunately, a poisoned creature can always use Lesser Restoration to make it all go away. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Torpor"
+              },
+              {
+                "type": "text",
+                "text": ": The DC is good enough, and, if a creature fails against this you can kill them with ease because of the incapacitated condition. Incapacitating a creature is a great way to interrogate someone, since they can still talk. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Truth Serum"
+              },
+              {
+                "type": "text",
+                "text": ": The DC is very low, and the effect isn’t great. Because the poison replicates the effects of the Zone of Truth spell, the creature is aware of the fact that they cannot tell lies, and it’s a simple deduction from there that they’ve been poisoned. Unlike Zone of Truth, you don’t get to know if they’ve succeeded or failed on their saving throw because you’re not casting the spell."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-sample-poisonsnbsp-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Inhaled:"
+            },
+            {
+              "type": "text",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sample-poisonsnbsp-7",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Burnt Othur Fumes"
+              },
+              {
+                "type": "text",
+                "text": ": While it’s interesting that this poison continues until the affected creature succeeds three times, an initial success avoids the entire process, and the DC and damage dealt are not worth the listed price of 500gp. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Essence of Ether"
+              },
+              {
+                "type": "text",
+                "text": ": With a DC of 15, Essence of Ether has the highest save of any of the sample poisons that knock a creature unconscious. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Malice"
+              },
+              {
+                "type": "text",
+                "text": ": The save DC is fairly high and everyone benefits from not being targeted by sight-based abilities, but rogues can make the most use of this. They can hide in what would otherwise be plain view as a bonus action, obscuring the sound they make."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-sample-poisonsnbsp-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Injury:"
+            },
+            {
+              "type": "text",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sample-poisonsnbsp-9",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Basic Poison"
+              },
+              {
+                "type": "text",
+                "text": ": The DC is terrible, the damage is worse, and after being applied for a minute, it’s unusable. Why its listed price is 100gp is beyond me."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drow Poison"
+              },
+              {
+                "type": "text",
+                "text": ": At a 200gp listed price, drow poison is the cheapest way to knock a foe unconscious with poison. However the DC to knock a creature unconscious is 8, so I’d pay the extra 100 gold and spring for Essence of Ether instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Poisoner Feat Poison"
+              },
+              {
+                "type": "text",
+                "text": ": The Poisoner feat poison is a strange case. It’s not a true injury poison as it can be applied to bludgeoning weapons. The save DC is mediocre, but the damage output is decent. It’s also the cheapest poison available, though you’ll have to take a feat and craft it yourself. Like basic poison, after being applied for a minute it’s unusable. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Purple Worm Poison"
+              },
+              {
+                "type": "text",
+                "text": ": The highest DC and damage dealt of any sample poison listed. It deals damage even if the creature saves. In theory, it’s harvestable, but almost certainly only from a dead purple worm because incapacitating and imprisoning one of them would require more ingenuity than we can offer you. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Serpent Venom"
+              },
+              {
+                "type": "text",
+                "text": ": Even though the DC is quite low, you’ll deal half damage if the creature saves. Of the listed poisons that are harvestable, a giant poisonous snake is probably the easiest creature to capture, incapacitate, and potentially travel with. Giant poisonous snakes are even a valid beastmaster companion option. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wyvern Poison"
+              },
+              {
+                "type": "text",
+                "text": ": A good save DC and solid damage even if the creature saves. It’s harvestable, so capturing a wyvern alive could be a consistent source of a great deal of damage."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-harvesting-poison",
+      "heading": "Harvesting Poison",
+      "sourceAnchor": "harvesting-poison",
+      "blocks": [
+        {
+          "blockId": "block-section-harvesting-poison-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The DMG has rules for harvesting a poison, allowing you to extract poison from a dead or incapacitated poisonous creature. There are four creatures which the DMG gives as examples of their poison, but the DMG states that many poisonous creatures can be harvested this way. By RAW, the creature must be dead or incapacitated, but it stands to reason that a willing creature could allow their poison to be harvested as well. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-harvesting-poison-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Harvesting a poison takes 1d6 minutes. This requires a DC 20 nature check or a poisoner’s tools check. If you fail the check by more than 5, you expose yourself to the poison. With either the nature or poisoner’s tools check, you’re likely going to be using intelligence as the governing modifier, though there’s a potential argument for wisdom or dexterity with the poisoner tools. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-harvesting-poison-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This means prioritizing your intelligence if you foresee doing this regularly, and adding twice your proficiency to either check makes this a great deal more reliable. The Artificer makes for an excellent poison harvester, as well as rogues with a decent intelligence score, or any character with the skill expert feat. Guidance, bardic inspiration, and the Help action make this a lot more reliable at lower levels. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-making-sense-of-poison-harvesting",
+      "heading": "Making Sense of Poison Harvesting",
+      "sourceAnchor": "making-sense-of-poison-harvesting",
+      "blocks": [
+        {
+          "blockId": "block-section-making-sense-of-poison-harvesting-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, the DMG is infuriatingly vague on what “a poisonous creature” precisely is, and doesn’t distinguish between “poisonous” (the one where eating it is bad) and “venomous” (the one where it eating you is bad). The exact wording from the text is “a character can instead attempt to harvest poison from a poisonous creature, such as a snake, wyvern or carrion crawler.” We know from the sample poisons in the DMG that this also includes purple worms. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-making-sense-of-poison-harvesting-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "By looking at the sample poisons and the provided examples of harvistable creatures, we can infer a few things. At a minimum, it can be inferred that the intent is to define this as a creature that deals poison damage or causes the poisoned condition with a feature of their anatomy. Of our four clear examples given in the rules for harvesting poisons. All of the sample poisons that can be harvested from a creature are a contact or injury poison. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-making-sense-of-poison-harvesting-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "5th edition doesn’t have a difference in classification between natural and weapon attacks, so we have to define exactly what can be harvested ourselves. My chosen interpretation is that any creature that deals poison damage or causes the poisoned condition with a beard (yes, really), bite, claw, fist, slam, spit poison, sting, tail, tentacle, or touch attack, or the poisonous skin feature can be harvested. Your DM’s mileage may vary. Whether or not an inhaled poison can be extracted from a creature is neither explicitly allowed or forbidden, as there are no examples either way. See “Is This a Harvestable Poison?”, below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-making-sense-of-poison-harvesting-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Additionally, a great deal of creatures who deal poison damage do not actually require a constitution saving throw for the poison to take effect. An example of this is the Flying Snake, and we know from the provided examples that snakes are harvestable for poison. This presents a dilemma to DMs if they have players extracting poison, as allowing a player to use a poison with no save DC may be deemed overpowered. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-making-sense-of-poison-harvesting-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a house rule to address this gap, you might require all extracted poisons to have a Constitution saving throw. Doing a bit of reverse engineering of the mechanics, the DC should be equal to 8 + the harvested creature’s proficiency bonus + their Constitution modifier. If the extracted poison deals damage, have the poison deal half damage on a successful save. This is consistent with the DCs provided by nearly all creatures that deal poison damage or cause the Poisoned condition. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-making-sense-of-poison-harvesting-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "DM’s Note:"
+            },
+            {
+              "type": "text",
+              "text": " A soft nerf you can do to make it more challenging to harvest poison is to make the corpses of outsiders (celestials, fiends) turn to dust, fade away or bubble into liquid. This doesn’t prevent your players from harvesting poison, but now they have to get clever about it. If that’s still not enough, a hard nerf you can do is to have all poisons extracted replicate the effects of one of the sample poisons. You might also have poisons not listed in the DMG expire after a brief period (24 hours seems reasonable) so that players can’t stockpile them. This allows the poisons to be used briefly while also explaining why only shelf-stable poisons are available for purchase."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-possibly-harvestable-poisons",
+      "heading": "(Possibly) Harvestable Poisons",
+      "sourceAnchor": "possibly-harvestable-poisons",
+      "blocks": [
+        {
+          "blockId": "block-section-possibly-harvestable-poisons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Doing our best to interpret the vague rules on harvesting poison, the following poisons are from the creatures that are likely harvestable by both RAI and centrist’s reading of RAW, but your DM’s mileage may vary. The rules regarding which poisons can and cannot be harvested will ultimately always be their choice. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-possibly-harvestable-poisons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All poisons that deal flat damage or half damage on a save are rated green or above. They can be applied to your weapon before combat or during combat (with the Poisoner feat) and increase your damage output with almost no drawback. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-possibly-harvestable-poisons-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Basilisk’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. Deals 2d6 damage without a save. Always useful. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bearded Devil’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 12. Poisons the target and makes them unable to heal while poisoned. The effect ends after 1 minute, or until the creature makes a successful saving throw, which they can do at the end of each of their turns. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bone Devil’s Sting"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. Deals 5d6 damage without a save, which is insane, and then forces the target to make a DC 14 save against the poisoned condition, which is okay. They can save out of the condition at the end of their turn, but we’re here for the damage. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bone Naga Venom"
+              },
+              {
+                "type": "text",
+                "text": ": Injury Poison. Deals 3d6 damage without a save. Better than basilisk poison, and that was already good. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Chuul Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison. DC 13. Poisoning a creature for 1 minute or until they save out of it is bad, and the DC is low. Don’t use this unless you have no other poisons. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Couatl’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. DC 13. As a poison that knocks a creature unconscious this could be compared to drow poison, except it has a higher DC, a longer duration and damage doesn’t awaken the creature (yet somehow shaking them awake does?) This is a free kill on any isolated creature, provided they fail the save. Couatls are lawful good, and can be summoned with the "
+              },
+              {
+                "type": "link",
+                "text": "Conjure Celestial",
+                "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#conjure-celestial"
+              },
+              {
+                "type": "text",
+                "text": " spell, so you could potentially just ask to harvest some of its poison if you give it a reason why that would be in its interest. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Corpse Flower Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison. Deals 3d6 damage without a save. Always useful. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dire Troll’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. The target takes 1d10 damage without a save, which is good. It would be challenging in normal circumstances to capture a huge creature and keep it in a cage, but trolls have regeneration. Cut off its head, and carry it with you, and maybe it will keep generating more poison. It also might grow back its body, so it’s a risky play. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drider Venom"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. Deals 2d8 damage without a save."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drow Arachnomancer’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury Poison, DC 15. A good DC, 7d8 damage which is great even if the target saves for half. If the poison damage reduces a target to 0, the target is stable and paralyzed for an hour, making it one of the only ways to deal “nonlethal” damage at range, and making weapons that deal 1 point of damage like the dart or blowgun useful. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drow Arachnomancer’s Touch"
+              },
+              {
+                "type": "text",
+                "text": ": Contact Poison. 10d6 damage without a save, and it’s a contact poison. If you needed an example of why you should be using the house rule in the previous section, this is it. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ettercap’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury, DC 11. 1d8 damage is fairly low, and the DC is low enough that they’ll save out of the poisoned condition in a round unless you are very lucky, but it’s still additional damage which doesn’t require a save, so it’s worth using. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Female Steeder’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. This deals 2d8 damage without requiring a save. It’s also one of the few harvestable creatures designed as a mount, giving you an additional reason to bring it with you on adventures. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flying Snake Venom"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. This requires no saving throw and simply adds an average 3d4 damage to an attack, making it an extremely consistent poison. As a tiny creature, the snake is pretty easy to cart around in a cage on adventures for harvesting. The flying snake is also an option for beastmaster ranger companions, making it easy to gather plenty of its venom if you are a beastmaster or have one in your party. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Geryon’s Sting"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 21. The DC is very high, but that’s to be expected from an archdevil, and it’s nice considering nothing happens on a successful save. This deals a little chunk of damage (2d12), poisons a creature until it finishes a rest and reduces its maximum hit points. Reducing your enemy’s max hit points is a mechanic that’s more deadly to be on the receiving end of as a player than it is for NPCs because, in general, if the PCs choose to fight something, the fight won’t end until one side is dead, and that’s not expected to be the PCs. Like most of the archdevils and demon lord poisons, it’s underwhelming as an option for players. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Centipede Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 11.  Alright damage (3d6) and it’s a save for half, so it’s always useful, even with its low DC. This is the first poison in a series of insect and arachnid poisons that paralyze the target if it is reduced to 0 hit points by the poison damage for an hour even after regaining hit points, making it one of the few ways to deal “nonlethal” damage at range, and giving an actual use to weapons that deal 1 point of damage like darts and the blowgun. Additionally, The giant centipede is an option for beastmaster ranger companions, making it easy to gather plenty of its venom if you are a beastmaster or have one in your party. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Scorpion Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 12. This does 4d10 damage, or half on a successful save, making it a reliable poison even with its low DC. Like all save-for-halfs, it remains useful in every combat that poison could be used in. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Spider Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 11. Nearly identical to the giant centipede poison, except it does slightly less damage (2d8). Also a poison that stabilizes the target at 0, so useful for nonlethal ranged attacks.  "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Toad Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. Deals 1d10 damage without a save. Always good."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Wasp Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 11. Identical wording to the giant centipede poison. Good for nonlethal ranged attacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Wolf Spider Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 11. Similar to the giant centipede, spider and wasp, but deals the least damage of the bunch (2d6). Good for nonlethal ranged attacks. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gnoll Fang of Yeenoghu’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 12. Not a save for half, mediocre damage (2d6), no interesting additional debuffs, and the save is pretty bad. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green Abishai’s Claw"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 16. Not a save for half, but the DC is solid and the damage is good (3d10), and the target is poisoned for a minute. They can attempt to save out of the poisoned condition at the end of their turns. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grell Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison, DC 11. The DC is abysmal, but paralyzing a target, even for one round is worth the attempt. It’s a contact poison, so just slap it on something the enemy will probably touch. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grung Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison, DC 12. No damage, just the poisoned condition for a minute and the target can remake the save at the end of their turn. However, each grung color has a variant poison with more interesting effects.\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue Grung"
+              },
+              {
+                "type": "text",
+                "text": ": This forces the target to make a loud noise at the beginning and end of their turn. It could be useful if you are fighting an enemy good at hiding, but the DC is so low that it’s not going to last very long. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gold Grung"
+              },
+              {
+                "type": "text",
+                "text": ": This makes the target charmed by the grung the poison came from, who is probably long gone, so it being charmed doesn’t help you at all. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green Grung"
+              },
+              {
+                "type": "text",
+                "text": ": This makes the only movement a creature can take be jumps or climbing, and a flying creature can’t take actions unless it lands. Silly, but still good against flying creatures. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange Grung"
+              },
+              {
+                "type": "text",
+                "text": ": The target becomes frightened of its allies. This makes it unable to gang up on any creature its allies are already attacking. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Purple Grung"
+              },
+              {
+                "type": "text",
+                "text": ": This could be fun if there’s a vat of acid or huge pit with water at the bottom. It’s nice to shut down actions and movement either way. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Red Grung"
+              },
+              {
+                "type": "text",
+                "text": ": The target must eat food if it’s within arms reach. This could be a useful way to get a creature to consume an ingested poison out of your hands. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guardian Naga’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison, DC 15. 10d8 is a lot of damage, even halved, and the save is good. Plus, a guardian naga is lawful good, so if you can explain how you’ll use its poison responsibly, it might let you harvest from it. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Homunculus’ Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 10. This is a bad poison. The save is as low as possible, which means failing it by 5 basically necessitates a natural 1. You can make a homunculus with the Create Homunculus spell, which makes it fairly easy to come by, but it’s hardly worth the time invested. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hutijin’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury Poison, DC 22. This doesn’t deal a lot of damage, but the damage is not the point. This denies targets the ability to heal from damage. In a fight against a creature with regeneration or access to healing, this is great. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Imp’s Sting"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 11. 3d6 damage to the target, or half if they save. Extra damage is always nice, and this poison is very easy to come by because it’s a familiar option for the chain pact warlocks.  "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Male Steeder’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. This is virtually the same as the female steeder poison, except the target takes 1d8 instead of 2d8 poison damage. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Myconid Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison, variable DC and damage based on age category. 1d4 poison damage for sprout, 2d4 poison damage for the adult, 3d4 poison damage for the sovereign."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Neogi’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, variable DC and damage based on the age category of the neogi. DC 10 and 1d6 poison damage for hatchling, and DC 12 and 4d6 poison damage for adult. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orcus’ Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison. 2d8 poison damage. If you’ve already beat orcus, this poison is so weak it’s probably not even worth harvesting. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Phase Spider Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury Poison DC 11. This is very similar to the giant centipede or spider poison, but it deals more damage (4d8.) Useful for dealing “nonlethal” damage through ranged attacks. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pit Fiend’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury Poison, DC 21. Another poison that makes it so the target can’t heal, except this one also deals ongoing 6d6 damage with no listed end time. Targets can save out of it, but the DC is pretty high. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Poisonous Snake Venom"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 10. A measly 2d4 damage with a bad save DC, but it’s a save for half and every little bit of damage counts. As a size tiny, unintelligent creature, this is probably one of the easiest animals to take with you on an adventure and use for poison harvesting purposes. Additionally, it seems like an easy enough animal to find in the wild or purchase from a vendor in most campaigns. It’s also certainly intended as a poison harvesting target by both RAW and RAI. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pseudodragon’s Sting"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 11. The target becomes poisoned, but if they fail the save by 5 or more they are knocked unconscious. The Pseudodragon is a familiar option for the chain pact warlocks, making it easy to gather plenty of its venom if you are a chain pact warlock, or have one in the party. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Quasit’s Claw"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 10. A poor save, poor damage (2d4), and not a save for half. The quasit is a familiar option for the chain pact warlocks, but you should be harvesting from an imp if you are a chain warlock or have one in your party.  "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scorpion Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 9. The target is probably never going to fail this save, and the damage is only 1d8, but it’s a save for half, and an effective 1d4 additional damage is still a good thing. Plus, scorpions are tiny, so it’s easy to keep a container of them for poison harvesting when you are on the road.  "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sea Spawn’s Poison Quills"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 12. The target is poisoned for 1 minute, and can repeat the save at the end of each of its turns."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shoosiva’s Sting"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 14. The save DC is alright for a paralyze effect, and most parties can output a lot of damage with automatic critical hits. This is worth it, even if the target can save out of it in a turn or two. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spider Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 9. Not a save for half, only deals 1d4 damage if the target fails, and the saving throw is as bad as it gets. Don’t waste your time harvesting this. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Star Spawn Larva Mage’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison. DC 19. The save DC is great, but all you’re doing is dropping the poisoned condition for one round. You have better poisons at this point. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thri-kreen’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. DC 11. Imposes the poisoned condition unless the target fails the save by 5 or more, which would instead cause them to be paralyzed. The paralyzed condition is great, but the DC is so low this probably isn’t worth your time unless you have an NPC Thri-kreen friend willing to let you harvest poison from them. Unfortunately PC Thri-kreen can not generate this poison. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tlincalli’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury Poison. DC 14. Identical to the thri-kreen’s bite, except the DC is high enough you might want to actually use it. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Yochlol’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison plus 21 (6d6) poison damage. No save. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Yuan-ti Abomination’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. 3d6 poison without a save. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Yuan-ti Anathema’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. 4d6 poison damage without a save. Tied with Malison for the highest damage a Yuan-ti’s poison can deal.  "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Yuan-ti Malison’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. 4d6 poison damage without a save. Tied with anathema for the highest damage a Yuan-ti’s poison can deal. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Yuan-ti Mind Whisperer’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. 2d6 poison damage without a save. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Yuan-ti Pit Master’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison. 2d6 poison damage without a save. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zuggtmoy’s Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison. This does 2d8 poison damage without a save. Another entry in the underwhelming poisons to harvest from archdevils or demon lords. "
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-is-this-a-harvestable-poison",
+      "heading": "Is This a Harvestable Poison?",
+      "sourceAnchor": "is-this-a-harvestable-poison",
+      "blocks": [
+        {
+          "blockId": "block-section-is-this-a-harvestable-poison-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Things get a bit more fuzzy with some creatures, but we’ve included as many options as we can just in case. If your DM doesn’t think that a specific poison or “type” of poison can be harvested, that’s their prerogative. They’re included here so that you and your group can make that decision together. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-is-this-a-harvestable-poison-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Harvesting Inhaled Poisons"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "There’s no reason to assume inhaled poisons can’t be harvested, but neither is there a reason to assume they can be. We are not given enough examples in the DMG for creatures that are able to be harvested for poison, so this is a question that should be considered by each DM individually. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-is-this-a-harvestable-poison-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Creatures that could be harvested for inhaled poisons would have a spores or breath attack, or the stench property (which is covered later in this article.) There aren’t a lot of inhaled poisons that could be harvested, but a few of those that can are some of the strongest monster attacks in the game, which may reasonably put any DM off on letting players use them. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-is-this-a-harvestable-poison-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Dretch’s Fetid Cloud"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison, DC 11. Causes the poisoned condition, and doesn’t allow the target to use both an action and a bonus action on the same turn. Also the target can’t take reactions. The latter part is probably the most useful, since not a lot of monsters have bonus actions. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green Dragon Breath"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison. DC and damage based on the age category of the dragon. This ranges from a DC 11 and 6d6 damage with wyrmling, all the way to DC 17 and 22d6 damage with an ancient dragon. All of them allow a creature to save for half damage. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Iron Golem Breath"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison. DC 19. This deals 10d8 poison damage on a failed save and half as much on a success. It’s great. Plus the Manual of Golems allows the creation of an iron golem who will follow your commands, though the price to build one is a whopping 100,000gp and 120 days of work. On the off chance you can do this, you have access to a near infinite supply of what is essentially nerve gas."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Myconid’s Euphoria Spores"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison, DC 11 (Adult) or 12 (Sovereign). This makes the target poisoned, which is fine, but after the poisoned condition, it gains a level of exhaustion. Exhaustion debuffs are really hard to come by, but they do stack and the effects get very bad for the target. Hit someone with this, and then drop Sickening Radiance on them. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vegepygmy Chief’s Spores"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled Poison. DC 12. Imposes the poisoned condition on the target, and then an ongoing 2d8 poison damage. A target can attempt to save out at the end of its turn. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vrock’s Spores"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled Poison. DC 14. Imposes the poisoned condition on the target, and then an ongoing 1d10 poison damage. A target can attempt to save out at the end of its turn. "
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-stench-poisons",
+      "parentSectionId": "section-is-this-a-harvestable-poison",
+      "heading": "Stench Poisons",
+      "sourceAnchor": "stench-poisons",
+      "blocks": [
+        {
+          "blockId": "block-section-stench-poisons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Continuing with inhaled poisons, this is a section I imagine more DMs may take issue with, as defining “stench” as a poison is a challenging assertion. Stench does cause the Poisoned condition, but not every DM will see it as a poison. With no examples in the DMG stating one way or the other, it’s up to each DM to decide for themselves. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stench-poisons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stench basically all operates the same way, aside from the creatures affected and the range of the stench (always 5 or 10 feet.) We can ignore the range of the stench if we’re harvesting it, since we’ll be delivering it as an inhaled poison, which always only occupies a 5-foot space. All of these are fairly lackluster as an object to use as an action, as they only last until the start of the creature’s turn, and the creature is immune to the effects of the stench for 24 hours on a successful saving throw. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stench-poisons-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Catoblepas Stench"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison, DC 16. Inflicts the poisoned condition on any creature other than a catoblepas. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Corpse Flower Stench"
+              },
+              {
+                "type": "text",
+                "text": ": inhaled poison, DC 14. Inflicts the poisoned condition on any creature that isn’t a construct or undead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ghast Stench"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled, DC 10. Inflicts the poisoned condition on any creature. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hezrou Stench"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison, DC 14. Inflicts the poisoned condition on any creature."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jubilex’s Foul"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison, DC 21. Inflicts the poisoned condition on any creature. Unlike other stench, creatures are not immune to it after succeeding on a save. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Leucrotta Stench"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison. DC 12. Inflicts the poisoned condition on any creature other than a leucrotta or gnoll. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stench Kow Stench"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison. DC 12. Inflicts the poisoned condition on any creature other than stench kows. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Troglodyte Stench"
+              },
+              {
+                "type": "text",
+                "text": ": Inhaled poison, DC 12. Inflicts the poisoned condition on any creature other than troglodytes. "
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disease-poisons",
+      "parentSectionId": "section-is-this-a-harvestable-poison",
+      "heading": "Disease “Poisons”",
+      "sourceAnchor": "disease-poisons",
+      "blocks": [
+        {
+          "blockId": "block-section-disease-poisons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In a similar vein to stench poisons, It’s unclear if diseases that cause the target to take poison damage or suffer from the poisoned condition count as poisons exactly. Certainly, we have real life examples of people weaponizing diseases (anthrax is a good example of this), but we’re definitely leaning into a more liberal interpretation of what a poison is at this point. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disease-poisons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bulezau’s Barbs"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 13. This lowers the target’s maximum hit points by 1d8 every 24 hours. The target is covered in flies, sheds it’s rotting skin and coughs up flies, which is a pretty horrible thing to subject someone to. Reducing a creature’s maximum hit points over the course of days isn’t usually tactically advantageous for a player."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Death Dog’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 13. This is like the bulezau’s barbs, minus all the body horror. Every 24 hours the target’s max hit points are reduced by 1d10."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gas Spore’s Touch"
+              },
+              {
+                "type": "text",
+                "text": ": Contact poison, DC 10. This deals 1 poison damage, and subjects the target to death in a number of hours equal to 1d12+ the target’s constitution score. When the creature dies, it sprouts 2d4 tiny gas spores, from which you can harvest more poison. This can be useful for assassinations against targets without access to lesser restoration, or genociding an entire settlement, but that’s really the only tactical use. The latter will almost certainly constitute an alignment change to evil. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Otyug’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 15. Identical to the death dog’s bite. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rutterkin’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Injury poison, DC 13. The target is poisoned. It can repeat the save after each long rest. If the target is reduced to 0 hit points, it becomes an abyssal wretch, which might be useful against a few creatures that resurrect upon death. "
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weird-poisons",
+      "parentSectionId": "section-is-this-a-harvestable-poison",
+      "heading": "Weird Poisons",
+      "sourceAnchor": "weird-poisons",
+      "blocks": [
+        {
+          "blockId": "block-section-weird-poisons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Some creatures poison with very strange effects or interactions that probably weren’t ever meant to be harvested, but perhaps still could be with a liberal interpretation of RAW, and in some cases a little bit of homebrew. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weird-poisons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Clockwork Iron Cobra’s Bite"
+              },
+              {
+                "type": "text",
+                "text": ": DC 13, Injury poison. This would be a normal poison, except you roll a d6 to see if the target is confused (on a result of 1-2), paralyzed (on a result of 3-4) or takes 3d8 poison damage. All of these results are pretty great. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flumph’s Stench Spray"
+              },
+              {
+                "type": "text",
+                "text": ": No Save, Contact poison. This one’s really strange because while it seems like it should be an inhaled poison, the flumph’s stench spray attack uses a dexterity saving throw instead of a constitution saving throw, implying all it needs to do to take effect is to touch a creature. It would otherwise it would be included in the inhaled section. It’s easily the most interesting “stench poison”, as it poisons every creature within 5 feet of it without a save. This might be unwieldy to use, but at a 1d4 hour duration, it’s very funny. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Kraken’s Ink: Of every poison a monster creates in the core books, this one needs to be homebrewed the most for a character to use. It deals 3d10 damage, has a DC 23 save and because it seemingly only works underwater, it’s completely unclear as to whether it is a contact or inhaled poison. Ask your DM how/if it works the next time you kill a kraken. "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wrastilith’s Foul Water"
+              },
+              {
+                "type": "text",
+                "text": ": Ingested poison, DC 18. This deals 4d6 damage on its first save, and after a minute the target must make an additional save or take 4d8 damage and be poisoned until it takes a long rest. Not technically harvestable, but could still be collected as the Wrastilith generates it unconsciously. It’s the only poison from a monster I can find in the core books that would count as an ingestible poison. Plus it can heal demons, which is kind of fun if you have a quasit familiar. "
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-frequently-asked-questions-about-poisons",
+      "heading": "Frequently Asked Questions about Poisons",
+      "sourceAnchor": "frequently-asked-questions-about-poisons",
+      "blocks": [
+        {
+          "blockId": "block-section-frequently-asked-questions-about-poisons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Due to the general ambiguity surrounding a lot of the poison rules, I thought it prudent to have a section with questions. These are also questions I have, and will likely remain ambiguous until Jeremy Crawford deigns to answer them on twitter. Still, everything noted here is important for you to consider, and perhaps ask your DM which way they would rule. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-17",
+      "parentSectionId": "section-frequently-asked-questions-about-poisons",
+      "heading": "How often can a poison be harvested from an incapacitated creature?",
+      "blocks": [
+        {
+          "blockId": "block-section-17-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unclear, and totally up to your DM, though you probably shouldn’t expect more than a handful of times a day. In real life (according to the National Institute of Health) venom can be harvested from snakes every 60 days, but that’s not entirely consistent with how much venom snakes seem capable of producing in game. As a DM, this is one of the tools you can use to make sure that players don’t harvest so much poison that it becomes problematic. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-18",
+      "parentSectionId": "section-frequently-asked-questions-about-poisons",
+      "heading": "Do effects that stem from the poisoned condition stack on top of each other? Do multiple ongoing poisons of the same type stack?",
+      "blocks": [
+        {
+          "blockId": "block-section-18-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spells with ongoing effects of the same type cannot affect a creature twice. Poisons are not spells. That being said, you also can’t get the poisoned condition twice, and the poisoned condition underlies most ongoing poison effects. This is a double-edged sword though: If DMs rule this way, they should prepare for players to have their characters get drunk before battles with venomous creatures, so that they won’t be affected by the creature’s poisoned condition effects."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-19",
+      "parentSectionId": "section-frequently-asked-questions-about-poisons",
+      "heading": "For ingested poison, if a dose is added to a communal food container, how many people are affected by it?",
+      "blocks": [
+        {
+          "blockId": "block-section-19-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is DM fiat, though the rules on inhaled poisons do say that the DM can choose for a partial dose to affect creatures with a reduced effect, either by granting them advantage on the save or lessening the damage dealt. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-20",
+      "parentSectionId": "section-frequently-asked-questions-about-poisons",
+      "heading": "Can I harvest poison from transmuted or conjured creatures?",
+      "blocks": [
+        {
+          "blockId": "block-section-20-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is totally outside the range of material covered in the rules, so the answer is it’s totally up to your DM. If you are a player, you should try it. If you are a DM you should always make the poison disappear when the spell ends."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-21",
+      "parentSectionId": "section-frequently-asked-questions-about-poisons",
+      "heading": "How much can I sell a poison I harvested for?",
+      "blocks": [
+        {
+          "blockId": "block-section-21-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Assume resellers will buy poison from you at half the market value, so 100gp for Serpent Venom, 150gp for Carrion Crawler Mucus, 600gp for Wyvern Poison, and 1000gp for Purple Worm Poison. The market value of a basic poison is 100gp, and pretty much every poison you can harvest is better than it. However, DMs are totally within their rights to change the market value of things or to make them difficult to sell since most honest people don’t have a use for poison."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Contact"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Ingested"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Inhaled"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Injury"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Carrion Crawler Mucus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Oil of Taggit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Assassin’s Blood"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Midnight Tears"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Pale Tincture"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Torpor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Truth Serum"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Burnt Othur Fumes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Essence of Ether"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Malice"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Basic Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Drow Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Poisoner Feat Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Purple Worm Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Serpent Venom"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wyvern Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Basilisk’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bearded Devil’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bone Devil’s Sting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bone Naga Venom"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Chuul Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Couatl’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Corpse Flower Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dire Troll’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Drider Venom"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Drow Arachnomancer’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Drow Arachnomancer’s Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ettercap’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Female Steeder’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Flying Snake Venom"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Geryon’s Sting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Centipede Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Scorpion Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Spider Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Toad Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Wasp Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Wolf Spider Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Gnoll Fang of Yeenoghu’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green Abishai’s Claw"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Grell Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Grung Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Blue Grung"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Gold Grung"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Green Grung"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange Grung"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Purple Grung"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Red Grung"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Guardian Naga’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Homunculus’ Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hutijin’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Imp’s Sting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Male Steeder’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Myconid Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Neogi’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Orcus’ Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Phase Spider Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Pit Fiend’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Poisonous Snake Venom"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Pseudodragon’s Sting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Quasit’s Claw"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scorpion Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sea Spawn’s Poison Quills"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shoosiva’s Sting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Spider Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Star Spawn Larva Mage’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Thri-kreen’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tlincalli’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Yochlol’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Yuan-ti Abomination’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Yuan-ti Anathema’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Yuan-ti Malison’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Yuan-ti Mind Whisperer’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Yuan-ti Pit Master’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Zuggtmoy’s Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Dretch’s Fetid Cloud"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Green Dragon Breath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Iron Golem Breath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Myconid’s Euphoria Spores"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Vegepygmy Chief’s Spores"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Vrock’s Spores"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Catoblepas Stench"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Corpse Flower Stench"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Ghast Stench"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Hezrou Stench"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Jubilex’s Foul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Leucrotta Stench"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Stench Kow Stench"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Troglodyte Stench"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Bulezau’s Barbs"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Death Dog’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Gas Spore’s Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Otyug’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Rutterkin’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Clockwork Iron Cobra’s Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Flumph’s Stench Spray"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Wrastilith’s Foul Water"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-poisoner-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-poisoner-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-poisoner-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-poisoner-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-poisoner-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-poisoner-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-poisoner-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-selling-your-poisonnbsp-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-selling-your-poisonnbsp-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-selling-your-poisonnbsp-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-selling-your-poisonnbsp-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-the-problems-with-poison-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-the-problems-with-poison-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-the-problems-with-poison-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-poison-types-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-poison-types-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-poison-types-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-poison-types-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-poison-types-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-sample-poisonsnbsp-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-sample-poisonsnbsp-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-sample-poisonsnbsp-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-sample-poisonsnbsp-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-sample-poisonsnbsp-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-sample-poisonsnbsp-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-sample-poisonsnbsp-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-sample-poisonsnbsp-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-sample-poisonsnbsp-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-harvesting-poison-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-harvesting-poison-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-harvesting-poison-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-making-sense-of-poison-harvesting-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-making-sense-of-poison-harvesting-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-making-sense-of-poison-harvesting-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-making-sense-of-poison-harvesting-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-making-sense-of-poison-harvesting-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-making-sense-of-poison-harvesting-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-possibly-harvestable-poisons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-possibly-harvestable-poisons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-possibly-harvestable-poisons-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-is-this-a-harvestable-poison-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-is-this-a-harvestable-poison-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-is-this-a-harvestable-poison-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-is-this-a-harvestable-poison-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-stench-poisons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-stench-poisons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-stench-poisons-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-disease-poisons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-disease-poisons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-weird-poisons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-weird-poisons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-frequently-asked-questions-about-poisons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[1]",
+      "detail": "section-17"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-17-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[1]",
+      "detail": "section-18"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-18-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[1]",
+      "detail": "section-19"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-19-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[1]",
+      "detail": "section-20"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-20-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[1]",
+      "detail": "section-21"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-21-1"
+    }
+  ],
+  "metrics": {
+    "words": 7966,
+    "sections": 21,
+    "blocks": 66,
+    "tables": 0,
+    "ratingSignals": 104
+  },
+  "status": "needs-editorial-review"
+}

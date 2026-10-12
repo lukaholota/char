@@ -183,7 +183,7 @@ export const CHOICE_POOL_RULES: ChoicePoolRule[] = [
     scope: "subclass",
     subclassName: "WAY_OF_THE_FOUR_ELEMENTS",
     groupName: CHOICE_GROUPS.FOUR_ELEMENTS_DISCIPLINES,
-    // PHB 2014: 2 disciplines at lvl3, +1 at 6/11/17
-    picksAtLevel: mapPicks({ 3: 2, 6: 1, 11: 1, 17: 1 }),
+    // PHB 2014: Elemental Attunement is granted as a feature; 1 chosen discipline at lvl3, +1 at 6/11/17
+    picksAtLevel: mapPicks({ 3: 1, 6: 1, 11: 1, 17: 1 }),
   },
 ];

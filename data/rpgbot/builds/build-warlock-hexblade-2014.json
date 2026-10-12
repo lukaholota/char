@@ -1,0 +1,976 @@
+{
+  "buildId": "build-warlock-hexblade-2014",
+  "revisionId": "build-warlock-hexblade-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "— Високий ельф, Чорнокнижник",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-hexblade-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+      "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WARLOCK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "HEXBLADE"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Fiendish Vigor"
+          },
+          {
+            "optionNameEng": "Devil's Sight"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "protection-from-evil-and-good"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Blade"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "armor-of-agathys"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "protection-from-evil-and-good",
+          "add": "blur"
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Fiendish Vigor"
+            },
+            "add": {
+              "optionNameEng": "Improved Pact Weapon"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELVEN_ACCURACY",
+        "featOptions": [
+          {
+            "optionNameEng": "ELVEN_ACCURACY Ability (Charisma)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "mage-hand"
+          ],
+          "knownSpellKeys": [
+            "darkness"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Thirsting Blade"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fly"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "counterspell"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Smite"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "phantasmal-killer"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GREAT_WEAPON_MASTER",
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "shadow-of-moil"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "banishing-smite"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "wrathful-smite",
+          "add": "cone-of-cold"
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "green-flame-blade"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "classOptions": [
+          {
+            "optionNameEng": "Lifedrinker"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Visions of Distant Realms"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Witch Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-hexblade-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+          "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "HEXBLADE",
+    "raceKey": "HALF_ELF_2014",
+    "backgroundKey": "FACTION_AGENT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Візьмемо запропоновані вище значення характеристик за методом купівлі балів. {{Напівельф зі спадком високого ельфа|Half High Elf}} дає нам +2 до Харизми, +1 до Спритності й +1 до Статури.\n\n  Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 16 Інтелект 8 8 Мудрість 8 8 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "{{Напівельф зі спадком високого ельфа|Half High Elf}} дає нам легкий доступ до замовляння Гримучий Клинок [Booming Blade], тож ми можемо взяти його, Спалах Мечів [Sword Burst] і Позамежний заряд [Eldritch Blast] й завдавати оптимальної шкоди в будь-якій ситуації. Також це робить нас ельфом із погляду передумов рис і дає чудовий розподіл характеристик.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Візьміть Агента фракції{{Faction Agent}}, щоб отримати Володіння Аналізом поведінки, а Залякування замінити на Переконання. Залиште одну відповідну кампанії мову, а замість другої візьміть Володіння інструментами злодія. З такою високою Спритністю ви також можете бути непоганим розвідником, якщо у вашій групі такого немає. Якщо хочете більше зосередитися на розвідці, відмовтеся від Аналізу поведінки, сподівайтеся, що Майстер не надто часто брехатиме вам, візьміть Непомітність і вдягніть нагрудник.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Візьміть Обман і Залякування від Чорнокнижника. Від передісторії ми отримуємо Аналіз поведінки, Переконання й одну мову — маємо повний набір навичок для «обличчя» групи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Ельфійську точність»{{Elven Accuracy}} і відразу починаємо нею зловживати. Також це підвищить Харизму до 18.\n\nНа 8-му рівні беремо «Майстра важкої зброї»{{Great Weapon Master}}.\n\nНа 12-му рівні доводимо Харизму до максимуму.\n\nНа 16-му рівні беремо «Бойового заклинателя»{{War Caster}}.\n\nНа 19-му рівні підвищуємо Статуру рисою Покращення Характеристик.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Потойбічний покровитель (Відьмацький клинок)\n«Прокляття Відьмацького Клинка»{{Hexblade’s Curse}}\n«Воїн Прокляття»{{Hex Warrior}}\nМагія пакту\nВідомі заклинання:\n– Гнівна кара\n– Проклін\nЗамовляння:\n– Гримучий Клинок\n– Позамежний заряд\n– Спалах Мечів (від раси)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Потойбічні виклики:\n– «Вогняна енергійність»{{Fiendish Vigor}}\n– «Зір диявола»{{Devil’s Sight}}\nНове відоме заклинання:\n– Захист від зла й добра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Дар пакту («Пакт клинка»{{Pact of the Blade}})\nНове відоме заклинання:\n– Обладунок Агатіса\nЗамінити виклик: «Вогняна енергійність»{{Fiendish Vigor}} → «Покращена пактова зброя»{{Improved Pact Weapon}}\nЗамінити заклинання:\n– Захист від зла й добра → Розмиття",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Ельфійська точність{{Elven Accuracy}} (Харизма 17 → 18)\nНове замовляння:\n– Магічна рука\nНове відоме заклинання:\n– Темрява",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Новий потойбічний виклик:\n– «Спрагле лезо»{{Thirsting Blade}}\nНове відоме заклинання:\n– Політ",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Проклята примара{{Accursed Specter}}\nНове відоме заклинання:\n– Контрчари",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Новий потойбічний виклик:\n– «Містична кара»{{Eldritch Smite}}\nНове відоме заклинання:\n– Фантомний вбивця",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Майстер важкої зброї{{Great Weapon Master}}\nНове відоме заклинання:\n– Тінь Мойла",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Новий потойбічний виклик:\n– «Мучливий вибух»{{Agonizing Blast}}\nНове відоме заклинання:\n– Кара вигнання\nЗамінити заклинання:\n– Гнівна кара → Конус холоду",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "{{Панцир прокляття|Armor of Hexes}}\nНове замовляння:\n– Клинок Зеленого Полумʼя або Гримучий Клинок",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Містичний арканум:\n– Зʼява феї\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Харизма 18 → 20\nНовий потойбічний виклик:\n– «Життєпийця»{{Lifedrinker}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Містичний арканум:\n– Силова кліть\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "{{Майстерство проклять|Master of Hexes}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Новий потойбічний виклик:\n– «Видіння далеких царств»{{Visions of Distant Realms}}\nМістичний арканум:\n– Підкорення монстра\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Бойовий заклинатель{{War Caster}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Містичний арканум:\n– Передбачення\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Новий потойбічний виклик:\n– «Відьомський зір»{{Witch Sight}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Статура 16 → 18\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Містичний майстер{{Eldritch Master}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Стартове золото замість набору",
+        "reason": "Автор радить узяти гроші замість стандартного набору й купити лускатий обладунок, довгий меч і щит; пресет бере стандартний набір Чорнокнижника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти злодія замість мови",
+        "reason": "Автор радить залишити одну мову за кампанією, а замість другої мови Агента фракції взяти володіння інструментами злодія; пресет не записує обмін мови на інструменти, тому всі три мови обрано за платформою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Містичний арканум",
+        "reason": "Автор називає Зʼяву феї (11-й), Силову клітку (13-й), Підкорення монстра (15-й) і Передбачення (17-й); платформа не записує вибір арканума, тож їх слід додати вручну.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання «будь-які»",
+        "reason": "На 11, 13, 15, 17 і 19-му рівнях автор не називає нового відомого заклинання; це вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-hexblade-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+            "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

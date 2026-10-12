@@ -1,0 +1,170 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-illusion-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-illusion-2014-draft1",
+    "sourceRevisionId": "rpgbot-0fa4a2c8dd9556db-41eb02d9e458d773"
+  },
+  "exampleSection": "section-example-build-everything-is-cake-an-illusion",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_ILLUSION",
+  "raceKey": "KENKU_MPMM",
+  "backgroundKey": "CRIMINAL",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 8,
+    "CHA": 12
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 3,
+  "levels": [
+    {"level":2,"subclassKey":"SCHOOL_OF_ILLUSION","openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":3,"spells":{"spellbookKeys":["invisibility","phantasmal-force"]}},
+    {"level":4,"featKey":"TELEKINETIC","featOptions":[{"optionNameEng":"TELEKINETIC Ability (Intelligence)"}],"spells":{"spellbookKeys":["mirror-image"]},"openSpellPicks":[{"category":"cantrips","count":1},{"category":"spellbook","count":1}]},
+    {"level":5,"spells":{"spellbookKeys":["hypnotic-pattern","major-image"]}},
+    {"level":6,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":7,"spells":{"spellbookKeys":["greater-invisibility","phantasmal-killer"]}},
+    {"level":8,"abilityScoreIncrease":[{"ability":"INT","amount":2}],"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":9,"spells":{"spellbookKeys":["creation","seeming"]}},
+    {"level":10,"spells":{"spellbookKeys":["mislead"]},"openSpellPicks":[{"category":"cantrips","count":1},{"category":"spellbook","count":1}]},
+    {"level":11,"spells":{"spellbookKeys":["mental-prison","programmed-illusion"]}},
+    {"level":12,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":13,"spells":{"spellbookKeys":["mirage-arcane","project-image"]}},
+    {"level":14,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":15,"spells":{"spellbookKeys":["illusory-dragon"]},"openSpellPicks":[{"category":"spellbook","count":1}]},
+    {"level":16,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":17,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":18,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":19,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":20,"openSpellPicks":[{"category":"spellbook","count":2}]}
+  ],
+  "incomplete": [
+    {
+      "field": "Четверте замовлення",
+      "reason": "Автор називає чотири замовляння (Магічна рука, Розщеплення Розуму, Мала ілюзія та ще одне на вибір), а Чарівник 1-го рівня знає три; платформа залишила перші три, а четверте «будь-яке» можна додати замість будь-якого з них. Автор також вважає Малу ілюзію расовою від Кенку, але Кенку її не дає, тож вона лишається замовленням Чарівника.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Пʼять заклинань «будь-які»",
+      "reason": "Автор називає лише Мовчазний образ, а решту пʼяти заклинань книги лишає на вибір; їх обрала платформа.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Ігровий набір",
+      "reason": "Злочинець дає володіння ігровим набором і інструментами злодія; автор не називає набору, а пресет не записує вибір ігрового набору.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Заклинання й замовляння «будь-які»",
+      "reason": "На рівнях 2, 4, 6, 8, 10, 12, 14–20 частина нових заклинань книги «будь-яка» (замовлення 10-го рівня автор не згадує зовсім); це вибір гравця. Додаткове замовлення 2-го рівня, яке автор бере через Удосконалену Малу ілюзію, лишається в наздоганянні наступного підвищення за Р53.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риси 12, 16 і 19-го рівнів",
+      "reason": "Таблиця ставить на 12-му Містичного адепта (Туманні видіння), а на 16-му Адепта метамагії, текст про риси — навпаки, на 19-му «будь-яка»; Адепт метамагії не має опцій у каталозі (BUG-O49-METAMAGIC-ADEPT), тож риси цих рівнів не записано.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Майстерність заклинань і Підписні заклинання",
+      "reason": "На 18-му рівні автор обирає «будь-яке» заклинання 1-го рівня і Уявну силу, на 20-му — Гіпнотичний візерунок і Оживлений образ; платформа не записує ці вибори.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-illusion-2014.webp",
+    "title": "Чарівник Школи ілюзії — Кенку",
+    "description": "Кенку-Злочинець зі змінюваним походженням: Інтелект 17, Спритність 15, навички розвідника й Мовчазний образ з першого рівня.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "DEX",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "INVESTIGATION"
+      ],
+      "race": [
+        "PERCEPTION",
+        "HISTORY"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "mage-hand",
+        "mind-sliver",
+        "minor-illusion"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "silent-image",
+        "magic-missile",
+        "mage-armor",
+        "shield",
+        "sleep",
+        "find-familiar"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "silent-image",
+        "mage-armor",
+        "magic-missile",
+        "shield"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Автор називає чотири замовляння, а Чарівник 1-го рівня знає три: платформа залишила перші три за порядком автора, четверте «будь-яке» можна додати замість будь-якого з них. Мовчазний образ обрав автор; решту пʼяти заклинань книги (серед них Магічний дротик і Обладунок мага, які автор радить як добрий вибір) і початкову підготовку чотирьох заклинань ми обрали за вас.",
+      "platformChoices": [
+        "classCantrips",
+        "spellbook",
+        "preparedSpells"
+      ]
+    },
+    "abilityExplanation": "Автор розподіляє підвищення Кенку як +2 до Інтелекту й +1 до Спритності (Інтелект 17, Спритність 15); це вже враховано за правилами Таші.",
+    "skillExplanation": "Магію й Розслідування автор бере від класу, Обман і Непомітність дає Злочинець, Уважність та Історію — Кенку. Мову раси ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор радить кинджал, мішечок із компонентами або фокус, будь-який набір і книгу заклинань. Кинджал, мішечок із компонентами й набір ученого ми обрали за вас; їх можна змінити."
+  }
+}

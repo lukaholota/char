@@ -1,0 +1,5578 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "d1c38a869a40df313a476013d790302443fcbdaae7b214a4557fcda8cbeaa7b9",
+  "sourceRevision": {
+    "revisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+    "sourceId": "rpgbot-6582d5bddc223fb7",
+    "fetchedAt": "2026-09-29T19:14:25.203076+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:56:44-04:00",
+    "contentHash": "084d703dc3ca25e1b03fb95b9abb07d50cb5ba83690abde5a5dcb336e2ac5103",
+    "title": "Storm Sorcery Sorcerer 5e: DnD Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-6582d5bddc223fb7-d1c38a869a40df31.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Storm Sorcery Sorcerer is an interesting subclass heavily hampered by the lack of decent spells to support it. Playing a Storm Sorcerer is difficult and risky, constantly forcing you to put yourself in harm’s way to apply class features which only work at short range while providing essentially no protection from inevitable counterattacks. This is a hard subclass to build and play."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Throughout this handbook, I’ll repeatedly voice my frustrations with elements\n\tof the subclass. I want to be extremely clear about where the problems lie,\n\tand by highlighting those pain points I hope to provide some insight into\n\twhere the subclass falls short and where you as the player will need to\n\tcompensate. Knowing your weaknesses will keep you alive."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The introduction of the new Metamagic Transmuted Spell in Tasha’s Cauldron of\n\tEverything is perhaps the single greatest addition to the subclass, allowing\n\tyou to expand your spell options beyond the pitifully small number of spells\n\twhich already deal lightning and thunder damage, but it does present a\n\tfrustrating tax on your sorcery points."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want a fix for Storm Sorcery, you need to solve one of two problems:\n\tSpells known, and Tempestuous Magic.\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Giving the Storm Sorcerer some spells known",
+              "href": "https://rpgbot.net/blog/dnd-5e-expanded-spell-lists-for-non-tashas-sorcerer-subclasses"
+            },
+            {
+              "type": "text",
+              "text": "\n\tthat will trigger Heart of the Storm makes the subclass functional at a bare\n\tminimum because players can’t accidently negate an entire subclass feature.\n\tYou could also adjust Tempestuous Magic to work with cantrips which deal\n\tlightning or thunder damage (currently only Booming Blade, Shocking Grasp, and\n\tThunderclap), which allows the Storm Sorcerer to use Tempestuous Magic more\n\tfrequently so that they can practice the hit-and-run tactics built into the\n\tclass right from level 1."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Storm Sorcery Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Lineages",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#lineages"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races of Eberron",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#races-of-eberron"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Common Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-common"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Uncommon Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-uncommon"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Rare Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-rare"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Very Rare Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-very-rare"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Legendary Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-legendary"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "1st-Level Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "2nd-Level Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "3rd-Level Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "4th-Level Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "6th-Level Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "7th-Level Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Aarakocra Storm Sorcerer",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#example-build-aarakocra-storm-sorcerer"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#feats-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Storm Sorcerer/Tempest Cleric",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#example-build-storm-sorcerertempest-cleric"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#abilities-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#race-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#skills-and-tools-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#background-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#feats-3"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#levels-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Storm Sorcery Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Storm Sorcery’s features aren’t great, and they ask you to do a lot of things\n\tthat are both frustrating and dangerous."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-features-2",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Wind Speaker"
+              },
+              {
+                "type": "text",
+                "text": ": Essentially four free\n\t\tlanguages. Especially nice if you are your party’s Face."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tempestuous Magic"
+              },
+              {
+                "type": "text",
+                "text": ": 10 feet of flight\n\t\twon’t get you anywhere interesting. The primary function is to remove you\n\t\tfrom melee combat without drawing opportunity attacks. This will quickly\n\t\tstop being exciting once you can pick up Misty Step as a 2nd-level spell.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The fact that it’s free is nice, especially if you like to run into close\n\t\t\tquarters to deliver spells like Thunder Wave. If this worked with cantrips\n\t\t\tit would be a defining feature of the subclass, but limiting it to leveled\n\t\t\tspells makes this a situational novelty."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Heart of the Storm"
+              },
+              {
+                "type": "text",
+                "text": ": Being within 10 feet\n\t\tof foes is rarely a good idea for a Sorcerer. The resistances are great, but\n\t\tit’s hard to bring the bonus damage into play without seriously endangering\n\t\tyourself.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The damage bonus is pretty good so if you can manage shuffling into melee\n\t\t\tor flying just over your targets’ heads you can do quite a bit of damage.\n\t\t\tCombined with Tempestuous Magic you can rush in, trigger Heart of the\n\t\t\tStorm, and fly safely out of reach. You’ll still need to do something to\n\t\t\tprevent enemies from walking over and killing you, but at least you didn’t\n\t\t\tend your turn within reach."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Storm Guide"
+              },
+              {
+                "type": "text",
+                "text": ": Unless you’re in a seafaring\n\t\tcampaign, this will almost certainly never matter."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Storm’s Fury"
+              },
+              {
+                "type": "text",
+                "text": ": This is very helpful since\n\t\tyou’re apparently expected to stand within 10 feet of foes. Of course,\n\t\tknocking them 20 feet away means that you’ll need to follow them to continue\n\t\tapplying Heart of the Storm."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wind Soul"
+              },
+              {
+                "type": "text",
+                "text": ": Flight for your entire party at\n\t\tEssentially no cost and without Concentration."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Storm Sorcerer isn’t much different from other sorcerers, so the ability\n\tscore needs are no different. If you plan to multiclass to get armor\n\tproficiencies, you may be able to dump Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": AC and Dexterity saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Hit points."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Wisdom saves are common."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Your spellcasting stat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str: 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Str: 8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex: 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dex: 14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con: 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Con: 13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int: 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Int: 10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis: 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wis: 12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha: 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cha: 15"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Improvements to your durability (AC bonuses, etc.) and improved mobility are\n\tessential for the Storm Sorcerer. You need to be able to get in and out of\n\tmelee quickly, and you need to be able to take a few hits when you can’t get\n\tfar enough away after using Heart of the Storm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-aarakocra",
+      "parentSectionId": "section-races",
+      "heading": "AarakocraEEPC",
+      "sourceAnchor": "races-aarakocra",
+      "blocks": [
+        {
+          "blockId": "block-section-races-aarakocra-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": +2/+1 increases and\n\tflight. Excellent, but the Winged Tiefling is better."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-aarakocra-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Permanent nonmagical flight\n\tis great, but you’ll lag offensively."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-goblin",
+      "parentSectionId": "section-races",
+      "heading": "GoblinVGtM",
+      "sourceAnchor": "races-goblin",
+      "blocks": [
+        {
+          "blockId": "block-section-races-goblin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": Nimble Escape makes\n\tTempestuous Magic mostly pointless."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-human",
+      "parentSectionId": "section-races",
+      "heading": "Human",
+      "sourceAnchor": "races-human",
+      "blocks": [
+        {
+          "blockId": "block-section-races-human-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-human-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Standard"
+              },
+              {
+                "type": "text",
+                "text": ": With perfect ability scores on\n\t\tthe table for every race, there is no reason to play the Standard Human."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant"
+              },
+              {
+                "type": "text",
+                "text": ": The Customizing Your Origin rules\n\t\tmake no change to the Variant Human."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-human-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-human-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Standard"
+              },
+              {
+                "type": "text",
+                "text": ": Sorcerers really only need\n\t\tCharisma, so most of the bonuses are outright wasted."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant"
+              },
+              {
+                "type": "text",
+                "text": ": You still get a crucial bonus to\n\t\tyour Charisma, and you get a feat."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-tiefling",
+      "parentSectionId": "section-races",
+      "heading": "TieflingPHB",
+      "sourceAnchor": "races-tiefling",
+      "blocks": [
+        {
+          "blockId": "block-section-races-tiefling-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Winged Tiefling can fill the same niche as the Aarakocra, but trades the\n\tAarakocra’s speed (which is suprisingly import for the Storm Sorcerer) for the\n\tability to wear medium armor. If you plan to multiclass to get armor\n\tproficiencies, the Winged Tiefling may be a better choice, but for\n\tsingle-class builds the Aarakocra’s speed will help keep you at a safe\n\tdistance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-lineages",
+      "parentSectionId": "section-races",
+      "heading": "Lineages",
+      "sourceAnchor": "lineages",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-races-of-eberron",
+      "parentSectionId": "section-races",
+      "heading": "Races of Eberron",
+      "sourceAnchor": "races-of-eberron",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-races-eberron-dragonmarks",
+      "parentSectionId": "section-races-of-eberron",
+      "heading": "Dragonmarks",
+      "sourceAnchor": "races-eberron-dragonmarks",
+      "blocks": [
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the design intent for Dragonmarks was that they would offer some innate spellcasting for everyone, every dragonmark includes an expanded spell list which is arguably a more significant benefit than most of the provided racial traits. Because the expanded spell options are such an important part of the dragonmarks, if you’re not playing a spellcaster you’re giving up a huge part of your racial traits, which makes it exceptionally difficult to justify playing a dragonmark character who can’t cast spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-dragonmarked-half-elf",
+      "parentSectionId": "section-races-eberron-dragonmarks",
+      "heading": "Dragonmarked Half-ElfERLW",
+      "sourceAnchor": "races-dragonmarked-half-elf",
+      "blocks": [
+        {
+          "blockId": "block-section-races-dragonmarked-half-elf-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmark traits replace some of your normal racial traits, as described in\n\tthe entry for each Dragonmark."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-dragonmarked-half-elf-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-dragonmarked-half-elf-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Storm"
+              },
+              {
+                "type": "text",
+                "text": ": The dragonmark spells are\n\t\talready on the Sorcerer’s spell list and the other benefits are far too\n\t\tsituational. This feels like a great choice for Storm Sorcery, but you still\n\t\tneed to spend spells known to learn these spells, so the benefits are\n\t\textremely minor."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-dragonmarked-half-elf-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-dragonmarked-half-elf-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Storm"
+              },
+              {
+                "type": "text",
+                "text": ": The ability increases\n\t\twork, but most of the dragonmark spells are already on the Sorcerer’s spell\n\t\tlist. This feels like a great choice for Storm Sorcery, but you still need\n\t\tto spend spells known to learn these spells, so the benefits are extremely\n\t\tminor"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Adept"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If ever there was a build that could benefit from Elemental Adept, it’s\n\t\tthe Storm Sorcerer, but even the Storm Sorcerer doesn’t need it. For the\n\t\tsame cost you can get Metamagic Adept and learn Transmute Spell, which will\n\t\tsolve the same problem better for the Sorcerer."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Metamagic Adept"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Storm Sorcerer needs to eat a lot of sorcery points to feed\n\t\tTransmuted Spell, so two extra points and two new metamagic options is\n\t\tpretty great."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mobile"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Redundant with Tempestuous Magic, but it does allow you to do hit-and-run\n\t\tstuff without spending a spell slot."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sorcerers rarely need weapons, but since the Storm Sorcerer spends a lot of\n\ttime at close range, a weapon might occasionally be useful for opportunity\n\tattacks. If possible, a reach weapon like a whip is a good choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sorcerers don’t get armor proficiency. If you want armor, take a level of\n\tcleric with a domain that gives you heavy armor proficiency. That will get you\n\tboth heavy armor and shields, dramatically improving your AC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": One level and the Tempest domain does a lot for the Storm Sorcerer. Heavy\n\t\tarmor, shields, martial weapons, new cantrips (stick to utility options),\n\t\tand access to staple low-level cleric spells like Bless and Healing Word. A\n\t\tsecond level gets you Channel Divinity: Destructive Wrath, allowing you to\n\t\tmaximize the damage of the spells that define the Storm Sorcerer."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items",
+      "heading": "Magic Items",
+      "sourceAnchor": "magic-items",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section only covers items with unique benefits for the Storm Sorcerer.\n\tFor full coverage on magic items, see my\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Sorcerer Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items-common",
+      "parentSectionId": "section-magic-items",
+      "heading": "Common Magic Items",
+      "sourceAnchor": "magic-items-common",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-common-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": ":\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items-uncommon",
+      "parentSectionId": "section-magic-items",
+      "heading": "Uncommon Magic Items",
+      "sourceAnchor": "magic-items-uncommon",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-uncommon-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Broom of Flying"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Already and amazing item, but especially helpful for storm sorcerers who\n\t\tdon’t have racial flight. The broom’s flight doesn’t prevent you from using\n\t\tTempestuous Magic, and unlike a mount you don’t need to worry about flying\n\t\toff of your mount when you use Tempestuous Magic since the broom is an\n\t\titem."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items-rare",
+      "parentSectionId": "section-magic-items",
+      "heading": "Rare Magic Items",
+      "sourceAnchor": "magic-items-rare",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-rare-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Essence Shard (Air)"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Basically Tempestuous Magic, but 6 times the distance and it doesn’t\n\t\tconsume your Bonus Action."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wand of Lightning Bolts"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Using this will trigger Heart of the Storm and Tempestuous Magic, but it\n\t\tdoesn’t solve the problems with Lightning Bolt."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items-very-rare",
+      "parentSectionId": "section-magic-items",
+      "heading": "Very Rare Magic Items",
+      "sourceAnchor": "magic-items-very-rare",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-very-rare-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": ":\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items-legendary",
+      "parentSectionId": "section-magic-items",
+      "heading": "Legendary Magic Items",
+      "sourceAnchor": "magic-items-legendary",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-legendary-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": ":\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells",
+      "heading": "Spells",
+      "sourceAnchor": "spells",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Storm Sorcery’s biggest pain point is the spellcasting, which is immensely\n\tfrustrating because spellcasting is the central function of the Sorcerer. You\n\tnot get any suitable spells automatically, and the pitifully small number of\n\tspells which deal lightning or thunder damage means that you’re stuck with the\n\thandful of decent spells available to you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section will specifically focus on the spells which trigger Heart of the\n\tStorm, limiting us to leveled spells (so no cantrips) which deal lightning or\n\tthunder damage. Any leveled spell will suffice to trigger Tempestuous Magic,\n\tbut to get the full intended effect of Storm Sorcery, you want to trigger\n\tHeart of the Storm as often as possible. For full coverage on sorcerer spells,\n\tsee my\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Sorcerer Spell List Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/spells/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spells-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You’ll note that the spell levels stop at 7 in the list below. This is\n\tfrustrating, but also accurate. Spells like Dragon’s Breath, True Polymorph,\n\tsummon spells, etc. don’t deal the suitable damage types as part of the\n\tspell’s effects (Dragon’s Breath’s effect is to grant a breath weapon, True\n\tPolymorph’s effect is to change your form, etc.), so they don’t qualify to\n\ttrigger Heart of the Storm. They’re still great spells, but they don’t meet\n\tthe criteria for this list."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-1",
+      "parentSectionId": "section-spells",
+      "heading": "1st-Level Spells",
+      "sourceAnchor": "spells-1",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Absorb Elements"
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": An absolutely essential spell, but I’m not certain if it triggers Heart\n\t\tof the Storm. It doesn’t deal damage, instead giving your melee attack on\n\t\tthe following turn a damage boost. As a DM I would rule that it doesn’t\n\t\ttrigger Heart of the Storm, but Jeremy Crawford has ruled that Dragon’s\n\t\tBreath qualifies, so maybe this qualifies if you use it to resist lightning\n\t\tdamage. Discuss it with your DM. If this is allowed, you could repeatedly\n\t\thit yourself with lightning damage to trigger this and trigger Heart of the\n\t\tStorm more frequently."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Chaos Bolt"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A fun spell, but you only have a 50% chance to deal one of the two damage\n\t\ttypes that we want, so it’s not reliable, Use Chromatic Orb instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Chromatic Orb"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The cheapest and most reliable way to trigger Heart of the Storm. Even at\n\t\thigh levels, using Sorcery Points to get extra 1st-level spell slots to cast\n\t\tthis may be a better choice than casting cantrips like Fire Bolt."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thunderwave"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Unusually good for the Storm Sorcerer since you’re encourage to dart in\n\t\tand out of close range. The knockback effect makes it easier to move back to\n\t\ta safe position after delivering the spell, and Heart of the Storm reaches\n\t\tmost of Thunderwave’s 15-foot area of effect so you can frequently affect\n\t\tall of your targets with both."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Witch Bolt"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Just not a great spell. Twinned Spell might redeem it, but it’s not worth\n\t\tthe Action cost to re-trigger the damage every round in the vast majority of\n\t\tcases."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-1-2",
+      "parentSectionId": "section-spells",
+      "heading": "2nd-Level Spells",
+      "sourceAnchor": "spells-1",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Dragon’s Breath"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Not a great spell for the Sorcerer. Jeremy Crawford has confirmed that\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Dragon’s Breath can trigger Heart of the Storm",
+                "href": "https://twitter.com/JeremyECrawford/status/929094035892867072?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E929094035892867072%7Ctwgr%5E%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.sageadvice.eu%2Fif-a-storm-sorcerer-casts-dragons-breath-lightning-damage-does-that-initial-casting-trigger-the-extra-damage-from-heart-of-the-storm%2F"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tif you choose for the breath weapon to deal lightning damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shatter"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Your easiest and often safest AOE damage option, but it’s on a\n\t\tConstitution save so many enemies will frequently pass their save."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-1-3",
+      "parentSectionId": "section-spells",
+      "heading": "3rd-Level Spells",
+      "sourceAnchor": "spells-1",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Lightning Bolt"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": It’s typically very difficult to catch more than two targets in the area\n\t\tof effect of a 5-foot wide line. Using Transmuted Spell with Fireball is\n\t\tnearly always more effective."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thunder Step"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Misty Step is usually a better choice, but Thunder Step has some unique\n\t\tinteractions for the Storm Sorcerer. Tempestuous Magic can be used\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "before"
+              },
+              {
+                "type": "text",
+                "text": " casting a leveled spell, so you can combine it with your\n\t\tregular movement to dart into the middle of a crowd of enemies, use\n\t\tTempestuous Magic to avoid Opportunity Attacks if necessary, then cast\n\t\tThunder Step and trigger Heart of the Storm. The AOE for both is 10 feet, so\n\t\tthey perfectly overlap, allowing you to deal some decent damage as you\n\t\tteleport away. However, Thunder Step’s 3d10 damage will be dramatically less\n\t\tthan Fireball, even with the addition of Heart of the Storm. As cool as this\n\t\tcombo is (and it is astoundingly cool), generally you only want to do this\n\t\tif you need to rescue an ally who is in trouble."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-1-4",
+      "parentSectionId": "section-spells",
+      "heading": "4th-Level Spells",
+      "sourceAnchor": "spells-1",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1-4-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Storm Sphere"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This is a weak spell. Casting Sickening Radiance will be more effective,\n\t\teven with the addition of Heart of the Storm, and Sickening Radiance won’t\n\t\teat your Bonus Action every turn."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-1-5",
+      "parentSectionId": "section-spells",
+      "heading": "6th-Level Spells",
+      "sourceAnchor": "spells-1",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1-5-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Chain Lightning"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Probably the Storm Sorcerer’s best spell without considering Transmute\n\t\tSpell. The damage is decent, you get four targets, and you don’t need to\n\t\tworry about hitting yourself or your allies so you can drop it at close\n\t\trange to also trigger Heart of the Storm."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-1-6",
+      "parentSectionId": "section-spells",
+      "heading": "7th-Level Spells",
+      "sourceAnchor": "spells-1",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1-6-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Prismatic Spray"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": There is a chance that this will deal lightning damage. Against one\n\t\ttarget, it’s a little better than 12.5% (the math is complicated). Against\n\t\ttwo targets is a little better than 25%. That’s just not enough."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-aarakocra-storm-sorcerer",
+      "heading": "Example Build – Aarakocra Storm Sorcerer",
+      "sourceAnchor": "example-build-aarakocra-storm-sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-aarakocra-storm-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "Why isn’t there a storm equivalent for the phoenix? Thunderbird? That’s the\n\t\tbest we’ve got? Oof. Okay, fine, we’re Zapdos now."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-aarakocra-storm-sorcerer-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is probably the best that can be done for a single-class storm sorcerer.\n\tYou’ll spend a lot of time being just like every other sorcerer, but at level\n\t6 you’ll develop an addiction to running in and out of melee combat to trigger\n\tHeart of the Storm. Expect your party’s healer to be concerned for your safety\n\tat all times."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll use the point buy ability scores recommended above, and put our +2/+1\n\tinto Charisma and Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For a single-class build, racial flight is the easiest way to make the build\n\twork, so building around the Aarakocra is a good choice. I’m going to use the\n\tcustom origin rules here, but if you’re not using them you’ll do just fine\n\twith the Winged Tiefling instead."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anything that works for the Sorcerer works fine here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": " Anything that works for the Sorcerer works fine here. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+      "heading": "Feats",
+      "sourceAnchor": "feats-2",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We can hit 20 Charisma by level 8, so there’s plenty of room for feats here.\n\tMetamagic Initiate is helpful, but beyond that it’s hard to find an easy\n\tchoice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Create Bonfire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Magic Missile"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Tasha’s Caustic Brew"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Tempestuous Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Wind Speaker"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "For your starting gear, take a light crossbow, a component pouch or\n\t\t\t\t\t\tarcane focus, either pack, and two daggers."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level, you’re little different from any other sorcerer.\n\t\t\t\t\t\tTempestuous Magic only functions when you cast a leveled spell, and\n\t\t\t\t\t\twith just two spell slots that means Tempestuous Magic only works\n\t\t\t\t\t\ttwice per day. Your best bet is to stay out of reach using your\n\t\t\t\t\t\tracial flight and attack at range. If you do get dragged into melee\n\t\t\t\t\t\tsomehow, use Tempestuous Magic to get out of reach, cast a leveled\n\t\t\t\t\t\tspell (remember that Tempestuous Magic must be used immediately\n\t\t\t\t\t\tbefore or after casting a leveled spell), then use your movement to\n\t\t\t\t\t\tget to a safe distance."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "You’ll note that none of our spells deal lightning or thunder\n\t\t\t\t\t\tdamage. Until we get Heart of the Storm at 6th level, our damage\n\t\t\t\t\t\ttype doesn’t matter any more than it does for any other sorcerer.\n\t\t\t\t\t\tUntil you hit level 6, Tempestuous Magic is a “get out of melee\n\t\t\t\t\t\t(mostly) free” card, but otherwise you just need to be a really good\n\t\t\t\t\t\tsorcerer."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "For cantrips, I’ve suggested two offensive options: Create Bonfire\n\t\t\t\t\t\tand Mind Sliver. Create Bonfire is good, cheap area control so it’s\n\t\t\t\t\t\ta good way to use your Concentration. Mind Sliver is excellent, but\n\t\t\t\t\t\tthe range is short. If you need to hit foes outside of Mind Sliver’s\n\t\t\t\t\t\trange, use your crossbow or cast Magic Missile. If you can get two\n\t\t\t\t\t\tor more foes in a line, use Tasha’s Caustic Brew."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Chromatic Orb would be a great spell at this level, but the 50gp\n\t\t\t\t\t\tmaterial component is frustratingly expensive. Even if you choose to\n\t\t\t\t\t\ttake gold instead of the normal starting equipment, you’ll get an\n\t\t\t\t\t\taverage of 75gp, which means that you can afford the gem and\n\t\t\t\t\t\tbasically nothing else. The ability to choose lightning or thunder\n\t\t\t\t\t\tdamage also doesn’t much at this level, so Chromatic Orb isn’t\n\t\t\t\t\t\tessential. We’ll use Magic Missile for now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Chromatic orb"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level, Font of Magic is just an extra 1st-level spell slot\n\t\t\t\t\t\tevery Long Rest."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "We add Chromatic Orb here, but you might choose something defensive\n\t\t\t\t\t\tlike Absorb Elements or Shield instead. If you want to, you can\n\t\t\t\t\t\tretrain Magic Missile into something that we’ll want to keep\n\t\t\t\t\t\tpermanently."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Transmute Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Twinned Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Shatter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Twinned Spell is our primary metamagic choice. You’re going to\n\t\t\t\t\t\tspend a lot of time casting twinned Chromatic Orb, and you can start\n\t\t\t\t\t\tdoing that right away."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Transmute Spell won’t be immediately helpful, but it’s crucial for\n\t\t\t\t\t\tthe Storm Sorcerer. Once you hit level 6, the ability to deal\n\t\t\t\t\t\tlightning and thunder damage whenever you want is essential to the\n\t\t\t\t\t\tbuild."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Shatter is decent, inexpensive AOE thunder damage. The biggest\n\t\t\t\t\t\tproblem is that it targets Constitution saves, which makes it\n\t\t\t\t\t\tunreliable. If you find that Shatter isn’t working out, trade it for\n\t\t\t\t\t\tsomething else like Maximilian’s Earthen Grasp."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Charisma 16 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrips Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Fire Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Enhance Ability"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "The ability score increase puts your spells ahead of your crossbow,\n\t\t\t\t\t\tespecially with the damage increase right around the corner et level\n\t\t\t\t\t\t5, so it’s time to grab Fire Bolt for our long-range damage needs.\n\t\t\t\t\t\tEnhance Ability isn’t useful in combat, but it’s absolutely amazing\n\t\t\t\t\t\teverywhere else."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Fireball"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrip damage increases and we get access to 3rd-level spells. For\n\t\t\t\t\t\tnow, Fireball is excellent unmodified. It remains a staple damage\n\t\t\t\t\t\tspell for your whole career, and for now we don’t need to worry\n\t\t\t\t\t\tabout the damage type unless you’re facing damage resistances."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Heart of the Storm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Storm Guide"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "This is where our subclass actually gets interesting. Heart of the\n\t\t\t\t\t\tStorm is probably the Storm Sorcerer’s most defining feature, and\n\t\t\t\t\t\tusing it defines the Storm Sorcerer’s signature tactics. This is\n\t\t\t\t\t\twhere our damage type finally starts to matter, so this is where\n\t\t\t\t\t\tTransmute Spell starts to matter. Use Transmute Spell with Fireball\n\t\t\t\t\t\tand other such spells to trigger Heart of the Storm for the easy\n\t\t\t\t\t\tdamage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "However, the 10-foot range on Heart of the Storm requires rushing\n\t\t\t\t\t\tin and out of close range, which is why Tempestuous Magic is so\n\t\t\t\t\t\tcrucial. Your go-to tactic for a single turn is to rush into range,\n\t\t\t\t\t\ttrigger Heart of the Storm (casting Chromatic Orb is enough, but any\n\t\t\t\t\t\tof your damage spells work thanks to Transmuted Spell), use\n\t\t\t\t\t\tTempestuous Magic to fly out of reach, then use whatever movement\n\t\t\t\t\t\tyou have left to retreat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "All of that just to trigger Tempestuous Magic, which deals a truly\n\t\t\t\t\t\tstunning 3 points of damage per target. It’s very exciting\n\t\t\t\t\t\tconceptually, but you’ll need to live with the reality that the\n\t\t\t\t\t\tdamage isn’t great. Still, it’s guaranteed damage with no save, and\n\t\t\t\t\t\tif you can hit multiple targets that will add up quickly."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "And since someone will ask me: No, twinning a spell does not\n\t\t\t\t\t\ttrigger Heart of the Storm twice. You’re adding a target, not\n\t\t\t\t\t\tcasting the spell a second time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "We already have Fireball at this level, so consider other spells\n\t\t\t\t\t\tdepending on your role in the party. Support and utility spells like\n\t\t\t\t\t\tClairvoyance, Counterspell, Dispel Magic, and Haste are all good\n\t\t\t\t\t\tchoices. Ashardalon’s Step is a good choice offensively because it\n\t\t\t\t\t\tboosts your speed, provides another source of damage output, and\n\t\t\t\t\t\tremoves the need to rely on Tempestuous Magic. If you transmute it,\n\t\t\t\t\t\tyou can even trigger Tempestuous Magic with it, leaving your Action\n\t\t\t\t\t\tfor a cantrip. If you go this route, you might pick up Swordburst to\n\t\t\t\t\t\tuse as you fly through crowds of enemies."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Wall of Fire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any spell will suffice here, but I really like Wall of Fire. It’s\n\t\t\t\t\t\tgreat area control, and you may be able to use to pen enemies into a\n\t\t\t\t\t\tsmall area so that you can fly just overhead and hit them with Heart\n\t\t\t\t\t\tof the Storm repeatedly. If you transmute it, you can trigger Heart\n\t\t\t\t\t\tof the Storm (though only when it’s cast since Heart of the Storm\n\t\t\t\t\t\tonly triggers when you cast the spell)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Alternatively, you might go for improved invisibility so that you\n\t\t\t\t\t\tcan remain close to enemies mostly undetected. Plus, you can\n\t\t\t\t\t\tcontinue to cast twinned Chromatic Orb and make the attacks at\n\t\t\t\t\t\tAdvantage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Under no circumstance should you learn Storm Sphere."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Charisma 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "20 Charisma feels good. No tactical changes here."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "There aren’t any spells that 5th level that play into the Storm\n\t\t\t\t\t\tSorcerer’s tactics especially well. Take anything you like."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrips Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Do whatever you like here. Quickened Spell is the go-to metamagic\n\t\t\t\t\t\toption, and that’s likely what I would take here. Once you get\n\t\t\t\t\t\tAshardalon’s Stride running, you can fly in, cast a quickened\n\t\t\t\t\t\tcantrip like Sword Burst (which you might learn at this level if you\n\t\t\t\t\t\thadn’t already) and a leveled spell like transmuted Fireball or\n\t\t\t\t\t\tChromatic Orb to trigger Heart of the Storm, and you’re dealing a\n\t\t\t\t\t\tbig pile of damage very quickly. It’ll eat your Sorcery Points,\n\t\t\t\t\t\tthough, so mind your resources carefully."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Chain Lightning"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Chain Lightning is a good spell. Fireball will deal more damage for\n\t\t\t\t\t\tthe same spell slot, but Chain Lightning doesn’t worry about\n\t\t\t\t\t\tfriendly fire or burning down houses or anything, and if you pick\n\t\t\t\t\t\tyour target right you can frequently hit targets in a wider area\n\t\t\t\t\t\tthan you could with Fireball. You can use this at point-blank range\n\t\t\t\t\t\tto trigger Heart of the Storm, then either use Tempestuous Magic or\n\t\t\t\t\t\tkeep Ashardalon’s Stride running to get safely out of reach."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Feat: Metamagic Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic Adept will give you two more metamagic options and two\n\t\t\t\t\t\tmore Sorcery Points. The Sorcery Points are probably more helpful,\n\t\t\t\t\t\tbut you might also enjoy diversifying your metamagic options. If\n\t\t\t\t\t\tMetamagic Adept doesn’t appeal to you at this point, take whatever\n\t\t\t\t\t\tyou like."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Draconic Transformation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Jeremy Crawford has ruled the Dragon’s Breath triggers Heart of the\n\t\t\t\t\t\tStorm, so Draconic Transformation (which also does damage\n\t\t\t\t\t\timmediately when you cast it) should trigger it, too. Draconic\n\t\t\t\t\t\tTransformation gives you a consistent use for your Bonus Action\n\t\t\t\t\t\tevery turn, so Tempestuous Magic will once again take a back seat to\n\t\t\t\t\t\tyour spells. Start Draconic Transformation early in fight, stay just\n\t\t\t\t\t\tclose enough to trigger Heart of the Storm with your Action by\n\t\t\t\t\t\tcasting a leveled spell, and spend your Bonus Action to use the\n\t\t\t\t\t\tbreath weapon every turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Storm’s Fury"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "This build works very hard to keep out of melee reach, so hopefully\n\t\t\t\t\t\tStorm’s Fury never matters."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Again, no great spells for the Storm Sorcerer at this level, so go\n\t\t\t\t\t\tfor whatever works for any other sorcerer."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement or Feat"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Take whatever you want."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Learn whatever you like here. Wish is always a good choice, or you\n\t\t\t\t\t\tcan transmute Meteor Swarm if you just want to blow stuff up."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Wind Soul"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Now your friends can fly, too!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement or Feat"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Sorcerous Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Recovering sorcery points on a short rest will help fuel your\n\t\t\t\t\t\tresource-hungry tactics."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-storm-sorcerertempest-cleric",
+      "heading": "Example Build – Storm Sorcerer/Tempest Cleric",
+      "sourceAnchor": "example-build-storm-sorcerertempest-cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-storm-sorcerertempest-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "Look everybody, it’s Thor!"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-storm-sorcerertempest-cleric-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is a series of complicated trades. We trade two sorcerer levels\n\tfor two cleric levels, and in that fairly small build change our tactics can\n\tchange quite a bit. The addition of heavy armor, shields, and martial weapons\n\topens some interesting tacical options in addition to dramatically improving\n\tour durability."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-storm-sorcerertempest-cleric-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since we’re multiclassing into a full caster class, our spell slots will\n\tprogress at the normal rate. However, our spells known will be one level\n\tbehind our highest-level spell slot, so expect to upcast spells to use those\n\thigh-level slots."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-storm-sorcerertempest-cleric-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To be clear up front: This build is not significantly better than the\n\tsingle-class build. Combining Storm Sorcery and Tempest Domain is thematically\n\tobvious and feels fun because Destructive Wrath makes lighting and thunder\n\tspells more deadly, but I’m not convinced that heavy armor (which comes at the\n\tcost of easy flight) and Destructive Wrath (which comes at the cost of\n\tknowledge of higher-level spells) are worth the trades that you make to get\n\tthem."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities-2",
+      "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities-2",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since we’re going for a heavily-armored build that still depends on movement,\n\twe need 15 Strength to avoid the speed penalty. We also need 13 Wisdom at\n\tminimum to allow us to multiclass into (or out of) cleric. This makes the\n\tbuild unusually MAD for a sorcerer, and I don’t like standing in or close to\n\tmelee with only 12 Constitution."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race-2",
+      "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+      "heading": "Race",
+      "sourceAnchor": "race-2",
+      "blocks": [
+        {
+          "blockId": "block-section-race-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since we’re building around heavy armor, our race options change. The\n\tAarakocra and the Fairy can only fly in light armor, and even the Winged\n\tTiefling can only fly in medium armor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Instead, we’ll look at options that work on the ground. The Centaur’s speed\n\tis tempting, but the Centaur is too strictly focus on melee. The Variant Human\n\tand the Custom Lineage both offer feats, which offers some very enticing\n\toptions. The Half-Elf’s three ability score increases are also tempting,\n\taddressing our MAD issues."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We have several good options here, but we’ll go with Variant Human for the\n\tfeat in this example."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools-2",
+      "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools-2",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anything that works for the Sorcerer works fine here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background-2",
+      "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+      "heading": "Background",
+      "sourceAnchor": "background-2",
+      "blocks": [
+        {
+          "blockId": "block-section-background-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anything that works for the Sorcerer works fine here. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-3",
+      "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+      "heading": "Feats",
+      "sourceAnchor": "feats-3",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-3-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since this build is more MAD than the single-class build, it’s a bit harder\n\tto fit feats into the build unless we get them from our race."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels-2",
+      "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+      "heading": "Levels",
+      "sourceAnchor": "levels-2",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-2-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Sorcerer 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Feat: Metamagic Initiate\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Transmute Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Twinned Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Create Bonfire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Magic Missile"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Tasha’s Caustic Brew"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Tempestuous Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Wind Speaker"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "For your starting gear, take a light crossbow (which you’ll likely\n\t\t\t\t\t\tsell almost immediately), a component pouch or arcane focus, either\n\t\t\t\t\t\tpack, and two daggers."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level, our build is mostly the same as the single-class\n\t\t\t\t\t\tbuild. We’re starting with Sorcerer for proficiency in Constitution\n\t\t\t\t\t\tsaves and because the Sorcerer’s skill options suit the build\n\t\t\t\t\t\tbetter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "I’ve suggested Metamagic Initiate as our feat at first level. It’s\n\t\t\t\t\t\tnot crucial to the build, but it gets us Metamagic 3 levels early,\n\t\t\t\t\t\tand offsets the loss of Sorcery Point progression due to\n\t\t\t\t\t\tmulticlassing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Cleric 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Domain (Tempest)\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus Proficiencies"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Wrath of the Storm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any 2 others"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Our cleric spellcasting is extremely limited. You cabn prepare just\n\t\t\t\t\t\t2 leveled cleric spells, and you don’t want to use cleric spells\n\t\t\t\t\t\toffensively, so stick to utility options. I recommend preparing\n\t\t\t\t\t\tHealing Word and something like Bless or Heroism. Your cantrip\n\t\t\t\t\t\tchoices don’t matter much, but get Guidance. It’s really good."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Our first level in cleric also gives us heavy armor, sheilds, and\n\t\t\t\t\t\tmartial weapons. Grab a shield and some full plate, and your AC goes\n\t\t\t\t\t\tstraight to 20. You could use a weapon, but juggling weapons to\n\t\t\t\t\t\thandle spell components and spell foci can be difficult."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "If you insist on holding a weapon, consider taking War Caster at\n\t\t\t\t\t\tfirst level instead of Metamagic Initiate."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Tragically, Wrath of the Storm will only work once per Long Rest,\n\t\t\t\t\t\tand the DC will be bad, but we have to make sacrifices somewhere.\n\t\t\t\t\t\tIt’s still cool, but it’s not going to be a major deterrent."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Cleric 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (1/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Destructive Wrath"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Turn Undead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Destructive Wrath boosts the damage on our big lightning/thunder\n\t\t\t\t\t\tdamage spells. Max damage is a little less than double average\n\t\t\t\t\t\tdamage, which is great when you’re using your highest-level spell\n\t\t\t\t\t\tslot. Save this for big AOE damage spells like transmuted Fireball.\n\t\t\t\t\t\tYou can only do this once per Short Rest, but that’s generally\n\t\t\t\t\t\tenough to consume all of your highest-level spell slots regardless\n\t\t\t\t\t\tof your level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Sorcerer 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Chromatic orb"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "If you took Metamagic Initiate at first level, Font of Magic is\n\t\t\t\t\t\tmore useful at this level than for the typical sorcerer. With a\n\t\t\t\t\t\ttotal of 4 sorcery points, you can twin Chromatic Orb 4 times per\n\t\t\t\t\t\tday."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Since we’re built to stand in melee a bit better, consider\n\t\t\t\t\t\tretraining Magic Missile for Thunderwave. It’s a great choice to\n\t\t\t\t\t\tupcast and use with Destructive Wrath. Alternatively, you might\n\t\t\t\t\t\tretrain it for Absorb Elements or Shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Sorcerer 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Any 2"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Shatter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Shatter is basically Thunderwave at range. Your tactics don’t\n\t\t\t\t\t\tchange much, but now you can drop Destructive Wrath on crowds at a\n\t\t\t\t\t\tdistance."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6+"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "At 6th level and beyond, our build is very similar to the\n\t\t\t\t\t\tsingle-class build. Follow the build and tactics above, but expect\n\t\t\t\t\t\tto spend a lot of time standing 10 feet away from enemies rather\n\t\t\t\t\t\tthan flying about 10 feet above their heads."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "As you gain levels, look forward to using Destructive Wrath in\n\t\t\t\t\t\tconjunction with transmuted Fireball, Chain Lightning, and\n\t\t\t\t\t\teventually transmuted Meteor Swarm."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Storm Sorcery Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wind Speaker"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tempestuous Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Heart of the Storm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Storm Guide"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Storm’s Fury"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Wind Soul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Standard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Variant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Standard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Variant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mark of Storm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Mark of Storm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Elemental Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Metamagic Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Mobile"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Broom of Flying"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elemental Essence Shard (Air)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Wand of Lightning Bolts"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Absorb Elements"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Chaos Bolt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Chromatic Orb"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Thunderwave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Witch Bolt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Dragon’s Breath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shatter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Lightning Bolt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Thunder Step"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Storm Sphere"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Chain Lightning"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Prismatic Spray"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-races-aarakocra-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-races-aarakocra-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-races-goblin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-races-human-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-races-human-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-races-human-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-races-human-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-races-tiefling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-lineages-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-races-eberron-dragonmarks-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-races-dragonmarked-half-elf-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-races-dragonmarked-half-elf-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-races-dragonmarked-half-elf-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-races-dragonmarked-half-elf-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-races-dragonmarked-half-elf-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-magic-items-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-magic-items-common-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-magic-items-uncommon-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-magic-items-rare-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[11]",
+      "detail": "block-section-magic-items-very-rare-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[12]",
+      "detail": "block-section-magic-items-legendary-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-spells-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[13]",
+      "detail": "block-section-spells-1-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#spells-1",
+      "detail": "section-spells-1 -> section-spells-1-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[14]",
+      "detail": "block-section-spells-1-2-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#spells-1",
+      "detail": "section-spells-1 -> section-spells-1-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[15]",
+      "detail": "block-section-spells-1-3-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#spells-1",
+      "detail": "section-spells-1 -> section-spells-1-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[16]",
+      "detail": "block-section-spells-1-4-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#spells-1",
+      "detail": "section-spells-1 -> section-spells-1-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[17]",
+      "detail": "block-section-spells-1-5-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#spells-1",
+      "detail": "section-spells-1 -> section-spells-1-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[18]",
+      "detail": "block-section-spells-1-6-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-example-build-aarakocra-storm-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-example-build-aarakocra-storm-sorcerer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "table-nested-list-review",
+      "location": "figure/table[1]",
+      "detail": "List markup in table cells is preserved as inline text"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-example-build-storm-sorcerertempest-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-example-build-storm-sorcerertempest-cleric-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-example-build-storm-sorcerertempest-cleric-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-example-build-storm-sorcerertempest-cleric-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-abilities-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-race-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-race-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-race-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-skills-and-tools-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-background-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-feats-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-2-1"
+    },
+    {
+      "code": "table-span-review",
+      "location": "tr/td[2]",
+      "detail": "<td colspan=\"2\"> <p>At 6th level and beyond, our build is very similar to the single-class build. Follow the build and tactics above, but expect to spend a lot of time standing 10 "
+    },
+    {
+      "code": "table-nested-list-review",
+      "location": "figure/table[1]",
+      "detail": "List markup in table cells is preserved as inline text"
+    },
+    {
+      "code": "ragged-table-review",
+      "location": "figure/table[1]",
+      "detail": "Cell counts: 3,3,3,3,3,3,2"
+    }
+  ],
+  "metrics": {
+    "words": 5352,
+    "sections": 45,
+    "blocks": 76,
+    "tables": 5,
+    "ratingSignals": 49
+  },
+  "status": "needs-editorial-review",
+  "correctionOf": "staging/rpgbot-6582d5bddc223fb7-d1c38a869a40df31.json"
+}

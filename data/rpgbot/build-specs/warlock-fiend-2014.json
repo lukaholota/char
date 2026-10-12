@@ -1,0 +1,345 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-2014-draft1",
+    "sourceRevisionId": "rpgbot-48d8b9707167ea85-08d4669e8689d41c"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "WARLOCK_2014",
+  "subclassKey": "FIEND",
+  "raceKey": "TIEFLING_2014",
+  "backgroundKey": "NOBLE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 11,
+    "WIS": 11,
+    "CHA": 14
+  },
+  "recipeTitle": "Приклад збірки Чорнокнижника — Тифлінг, Чорнокнижник (Почвара)",
+  "levelPlans": {
+    "levels": "all",
+    "notes": true,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Agonizing Blast"
+        },
+        {
+          "optionNameEng": "Fiendish Vigor"
+        }
+      ],
+      "openClassOptions": true,
+      "spells": {
+        "knownSpellKeys": [
+          "protection-from-evil-and-good"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Pact of the Chain"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "darkness"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "invisibility"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "classOptions": [
+        {
+          "optionNameEng": "Voice of the Chain Master"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "fly"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "burning-hands",
+        "add": "fireball"
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "counterspell",
+          "dispel-magic"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classOptions": [
+        {
+          "optionNameEng": "Repelling Blast"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "wall-of-fire"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "banishment"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "classOptions": [
+        {
+          "optionNameEng": "Whispers of the Grave"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hold-monster"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true,
+      "classOptions": [
+        {
+          "optionNameEng": "Eldritch Mind"
+        }
+      ],
+      "openClassOptions": true
+    },
+    {
+      "level": 13,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "classOptions": [
+        {
+          "optionNameEng": "Witch Sight"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 17,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "classOptions": [
+        {
+          "optionNameEng": "Shrouded in Shadow"
+        }
+      ],
+      "openClassOptions": true
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Потойбічний виклик на 2-му рівні",
+      "reason": "Автор називає лише Мучливий вибух, а 2-й рівень дає два виклики; другий пресет бере типовим (Fiendish Vigor, вибір платформи), гравець може змінити.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Перенавчання Темряви на 6-му рівні",
+      "reason": "Автор замінює Темряву на Розвіювання магії, але тифлінг на 5-му рівні отримує Темряву від раси, і платформа не дозволяє її замінити; пресет записує Контрчари та Розвіювання магії як нові заклинання (Темрява лишається расовою).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Вибори «будь-який / будь-яка» на 12–19-му рівнях",
+      "reason": "Автор пише «будь-яка» для Покращення Характеристик на 12, 16 і 19-му (типово Статура +2) та «будь-який» потойбічний виклик на 12 і 18-му (типово Eldritch Mind і Shrouded in Shadow); гравець може змінити. Нові замовляння на 4 і 10-му та відомі заклинання «будь-які» на 11, 13, 15, 17 і 19-му лишено на вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Містичний арканум (11–17-й рівні)",
+      "reason": "Автор називає Масове навіювання (11-й), Силову клітку (13-й), Підкорення монстра (15-й) і «будь-яке» на 17-му; платформа не записує вибір арканума.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-fiend-2014.webp",
+    "title": "Чорнокнижник Почвари — Тифлінг",
+    "description": "Харизматичний чорнокнижник із вогняною магією патрона-Почвари. Покровителя обрано вже на 1-му рівні.",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "subraceKey": null,
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": [
+          "QUARTERSTAFF"
+        ]
+      }
+    ],
+    "abilityExplanation": "Розподіл характеристик узято з прикладу RPGbot. Бонуси тифлінга дають Харизму 16 та Інтелект 12.",
+    "skillExplanation": "Автор радить Обман і Залякування. Аристократа автор допускає як передісторію, і його навички — Історія та Переконання — не повторюються.",
+    "equipmentExplanation": "Легкий арбалет, окультний фокус, шкіряна броня і кинджали взяті з авторського прикладу. Набір вченого, просту зброю й додаткову мову ми обрали за вас — це вибір платформи.",
+    "featSection": "section-feats-2",
+    "featOptionName": null,
+    "racialAbilities": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "skillSection": "section-skills-and-tools",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "eldritch-blast",
+        "mage-hand"
+      ],
+      "knownSpellKeys": [
+        "burning-hands",
+        "hellish-rebuke"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Замовляння та обидва заклинання названі автором. Дивотворство тифлінг отримує від раси автоматично.",
+      "sectionId": "section-levels"
+    }
+  }
+}

@@ -1,0 +1,2794 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "b55488891ffd4958d4406d4cde8da7418a70e1a68d67cbc1b5a2a8dfe22ade8c",
+  "sourceRevision": {
+    "revisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+    "sourceId": "rpgbot-839048df69689e1a",
+    "fetchedAt": "2026-09-29T19:16:24.436512+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:36:57-04:00",
+    "contentHash": "955376f0bc82974ff6c1904df0745dd9364be0a02c866543996ebb8efb31bdc8",
+    "title": "Way of the Astral Self Monk 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-839048df69689e1a-b55488891ffd4958.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wielding the manifestation of inner will as a weapon in battle are those Monks who follow the Way of the Astral Self. Powered by Wisdom, these Monks are able to push their Attack stat and Stunning Strike DC early on, giving an advantage over other Monks who must push Dexterity first to "
+            },
+            {
+              "type": "link",
+              "text": "keep up with the fundamental math of the game",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": " while their DC atrophies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But maybe you’re still undecided, so ask yourself this? Should a master of unarmed martial arts be able to grapple an opponent and wrestle them to the ground? Well most Monks end up dumping Strength and can’t Grapple their way out of a paper bag. Or well, they usually can escape the Grapple with Dex and Acrobatics. But with the Way of the Astral Self, Wisdom is used in place of Strength for Grappling, and anything else you could possibly use Athletics for. Is that portcullis the only thing between your party and freedom? Lift it, with Wisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Perhaps though, you’re not here to be a Monk. Perhaps you’re just perusing multiclass options. Good news, we have a couple suggestions down in that section about leveraging the Wisdom-first way this subclass handles things. Maybe a little Druid, maybe a little Cleric."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Astral Self Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Astral Grapplemancy",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#astral-grapplemancy"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Astral Self Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#way-of-the-astral-self-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Astral Self Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#way-of-the-astral-self-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Astral Self Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#way-of-the-astral-self-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Astral Self Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#way-of-the-astral-self-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Yes, This IS A Jojo’s Reference",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#example-build-nbspyes-this-is-a-jojos-reference"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Playstyle and Tactics",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#playstyle-and-tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Way of the Astral Self Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Arms of the Astral Self"
+              },
+              {
+                "type": "text",
+                "text": ": The subclass’s\n\t\tsignature feature, managing Arms of the Astral Self is the core of Way of\n\t\tthe Astral Self’s combat tactics. Turning this on puts you into your\n\t\tpreferred combat mode, and while it does consume a precious Ki Point the\n\t\t10-minute duration can easily carry you through one or two combats if you’re\n\t\tquick. The ability is complex despite a fairly small amount of rules text,\n\t\tso bear with me through the following pile of text.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "When and where to activate Arms of the Astral Self is an important\n\t\t\tchoice. When you activate it, you get an AOE damage effect against targets\n\t\t\tof your choice within 10 feet. The damage is roughly equivalent to one\n\t\t\tunarmed strike (double your martial arts die is roughly equal to one die\n\t\t\tplus your modifier), and with a 10-foot radius you should be able to hit\n\t\t\tseveral foes if you move between them."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "It may be worthwhile to spend your Action to Disengage so that you can\n\t\t\tmove without provoking Opportunity Attacks so that you can position\n\t\t\tyourself in the middle of a group of enemies. But there’s a risk/reward\n\t\t\tconsideration here: your AC and hit points need to be able to hold up to\n\t\t\tbeing surrounded by enemies and since you’re using your Bonus Action to\n\t\t\tactivate Arms of the Astral Self you can’t also use it for Patient\n\t\t\tDefense. You might also try spending your Action to Dodge since\n\t\t\tDisadvantage on attacks against you will apply to both Opportunity Attacks\n\t\t\tagainst you and any other attacks made against you until the start of your\n\t\t\tnext turn."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Once active, Arms of the Astral Self provides several benefits which\n\t\t\tshould be discussed individually."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Using Wisdom in place of Strength for Athletics checks helps with\n\t\t\tgrapples, both ones that you start and ones that are forced upon you. You\n\t\t\tcan always use Dexterity (Acrobatics) to escape a grapple (typically the\n\t\t\tbest way for the Monk to do so), but this reduces the need for Acrobatics.\n\t\t\tMaking Athletics viable in combat means that you can use the Grapple+Shove\n\t\t\tcombo to force enemies prone and hold them there without investing\n\t\t\tStrength."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The second benefit allows you to make unarmed strikes. Like I said above:\n\t\t\t“punch ghost”. While this isn’t flashy, it’s arguably the primary reason\n\t\t\tfor this ability to exist. You can’t use weapons with your astral arms,\n\t\t\tunfortunately, so using your arms during your Attack action will mean\n\t\t\tslightly less damage than other monks until your Martial Arts die\n\t\t\tscales."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The third benefit adds reach for your unarmed strikes. Reach is a huge\n\t\t\tbenefit for the monk because you can fight from outside the reach of many\n\t\t\tenemies then use your high movement speed to move out of range of their\n\t\t\tmovement. It also helps with targeting multiple foes who might not be\n\t\t\tconveniently adjacent to you. However, this only applies to your Unarmed\n\t\t\tStrikes, so you can’t use this reach to Grapple or Shove."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The final benefit allows you to use Wisdom in place of Strength/Dexterity\n\t\t\tfor your Unarmed Strikes and makes them deal Force damage so you’re no\n\t\t\tlonger crippled by resistance/immunity to bludgeoning damage. If you forgo\n\t\t\tweapons, raising Wisdom to 20 before switching to Dexterity can be a great\n\t\t\tidea for the Way of the Astral Self Monk. This also helps to capitalize on\n\t\t\tStunning Strike because the DC is Wisdom-based. However, when you run out\n\t\t\tof Ki and can’t summon your astral arms, you’re going to be in trouble.\n\t\t\tManage your Ki very carefully and try to keep a point in reserve in case\n\t\t\tyou’re surprised by combat before your next rest."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Visage of the Astral Self"
+              },
+              {
+                "type": "text",
+                "text": ": Situational\n\t\tby design, Visage of the Astral Self costs a Ki Point to activate and can be\n\t\tused separately or in conjunction with Arms of the Astral Self. You won’t\n\t\tneed this in every combat, but when you need it you can turn it on without\n\t\tcutting into your action economy any further than you would by activating\n\t\tArms of the Astral Self.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Astral Sight"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision by any means\n\t\t\t\tis great, and though the 10-minute duration won’t match permanent\n\t\t\t\tDarkvision or the Darkvision spell, neither of those allow you see in\n\t\t\t\tmagical darkness and neither allow you to see 120 ft. (Superior\n\t\t\t\tDarkvision gives 120 ft. range but it’s not a common racial trait). This\n\t\t\t\talone is the most likely reason to activate Visage of the Astral\n\t\t\t\tSelf."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wisdom of the Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": Time to take\n\t\t\t\tyour magical punch ghost into a social situation? Here you go. Insight\n\t\t\t\tis likely the only contribution you’ll be making to conversations since\n\t\t\t\tnearly every monk dumps Charisma. Monks are too MAD to invest any\n\t\t\t\tserious resources outside of Dex/Con/Wis."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Word of the Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": Roughly mimics\n\t\t\t\tthe effects of Message for whispering and Thaumaturgy for shouting.\n\t\t\t\tNeat, but not very impactful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Body of the Astral Self"
+              },
+              {
+                "type": "text",
+                "text": ": One good\n\t\tdefensive option and one good offensive option. You need to summon both your\n\t\tarms and your visage, so you’ll need to adjust to spending two Ki Points\n\t\teach time you get ready for combat, but the benefits are frequently worth\n\t\tthe expense.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deflect Energy"
+              },
+              {
+                "type": "text",
+                "text": ": Damage of these types\n\t\t\t\tcomes up all the time, and the list of affected damage types includes\n\t\t\t\tthunder, which is a rarity. The damage reduction won’t match Resistance\n\t\t\t\tin most cases, but the amount of damage you prevent will add up quickly.\n\t\t\t\tFor comparison: The average damage you’ll prevent (1d10+Wis) will exceed\n\t\t\t\tthe amount of hit points you gain when you gain a level (1d8+Con) unless\n\t\t\t\tyour Constitution is really high compared to your Wisdom, and retaining\n\t\t\t\ta level’s worth of hit points at the cost of Reaction is a great trade.\n\t\t\t\tPlus, if you need this once in an encounter you’re going to need it\n\t\t\t\tseveral times."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Empowered Arms"
+              },
+              {
+                "type": "text",
+                "text": ": A small damage boost,\n\t\t\t\tbut it will add up reliably, and after applying twice (once on each of\n\t\t\t\tyour turns, so two turns worth of attacks) it will offset the action\n\t\t\t\tcost of activating Arms of the Astral Self instead of using Martial Arts\n\t\t\t\tfor one turn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Awakened Astral Self"
+              },
+              {
+                "type": "text",
+                "text": ": This is expensive,\n\t\tbut remember that it’s 5 Ki Points instead of the 2 which you’ve become\n\t\taccustomed to spending normally thanks to Body of the Astral Self. The\n\t\teffects are excellent, providing both the additional attack and the AC bonus\n\t\tprovided by Haste, which are the most important parts of the spell in most\n\t\tcases. With a 10-minute duration and your Ki Points recharging on a Short\n\t\tRest you could use your Ki for this and literally nothing else and do very\n\t\twell in combat.\n"
+              },
+              {
+                "type": "text",
+                "text": "When considering the cost, remember that for 1 Ki point, we can attack twice as a Bonus Action with Flurry of Blows, so for 3 Ki points above our previous cost of 2, we could have made 6 attacks. Instead, we can make an extra attack on every round for ten minutes, and we can still use our Bonus Action for a single standard Martial Arts attack. When looking at it that way, this is basically the same as removing the Ki cost of using Flurry for ten minutes."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This also stacks with Haste, so if you have somone in your party who can\n\t\t\tcast Haste on you, you can get up to 6 attacks per turn with Flurry of\n\t\t\tBlows and enjoy an AC of 24 (+5 Dex, +5 Wis, +2 Awakened Astral Self, +2\n\t\t\tHaste) without magic items."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-astral-grapplemancy",
+      "heading": "Astral Grapplemancy",
+      "sourceAnchor": "astral-grapplemancy",
+      "blocks": [
+        {
+          "blockId": "block-section-astral-grapplemancy-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the Arms of the Astral Self allow us to use Wisdom for Athletics, for all Strength Checks and Strength Saves really, we have better access to Grappling than other Monks. But what is the right way to go about a Grapple attempt? We could always read the "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Grapple",
+              "href": "https://rpgbot.net/dnd5/characters/grapple/"
+            },
+            {
+              "type": "text",
+              "text": ", and, while that is a great place to start, we can be more Monk specific."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-astral-grapplemancy-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Assuming our arms are already active from a previous turn and we are high enough level for an Extra Attack, we declare the Attack Action. We then replace our first attack to make an opposed Athletics Check to Shove and we choose Target is Prone. We then replace our second attack with another Athletics Check to Grapple. For most classes, we’re out of attacks, but we are Monk and we made the Attack Action on our turn. Flurry of Blows doesn’t care what our Attack Action did, Flurry gonna punch twice regardless, and our target is Prone next to us, so we have Advantage. We may not be "
+            },
+            {
+              "type": "link",
+              "text": "the best at grappling",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/rune-knight/"
+            },
+            {
+              "type": "text",
+              "text": ", but we’re in the top five at least."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-astral-self-ability-scores",
+      "heading": "Way of the Astral Self Ability Scores",
+      "sourceAnchor": "way-of-the-astral-self-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-astral-self-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Way of the Astral Self builds much like any other Monk. We still want both Dexterity and Wisdom, but we are able to use our first few ASIs on Wisdom over Dexterity thanks to Arms of the Astral Self."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-astral-self-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": We can dump this, we’re not some hulking Barbarian with a Maul."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-astral-self-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Half of our AC calculation and our Attack stat if Astral Self is down."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-astral-self-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": We like hit points and not dying."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-astral-self-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump. Let someone else be the Scholar."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-astral-self-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Half of our AC calculation, our Attack stat when running Astral Self, and sets the DC for a few of our abilities."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-astral-self-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump. Let someone else be the Face."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-astral-self-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-astral-self-races",
+      "heading": "Way of the Astral Self Races",
+      "sourceAnchor": "way-of-the-astral-self-races",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-astral-self-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For our first two levels, we won’t have access to our Astral Self, which is a point in favor of races with Natural Weapons to give a small boost very early, however that window is very small. Optionally a race like Warforged or Simic Hybrid have a +1 to AC that we could very much use."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-astral-self-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Simic Hybrid"
+              },
+              {
+                "type": "text",
+                "text": ": Our first adaptation can be whichever would work for the campaign, swimming in an aquatic or seafaring campaign, climbing in a dungeon crawl, and the gliding adaptation can be used for interesting tricks since our Athletics is Wisdom based so we can jump with ghost power to give us an unusual trick of jumping and gliding. For our second adaptation, Acid Spit is a novelty, but Grappling Appendages or Carapace could both benefit our abilities. Mentioned above, Athletics is Wisdom for us and that gives us a reason to try Grappling which we can do as a Bonus Action with the grapple arms, and that would be useful if we didn’t already have the ability to use Martial Arts to make an attack as a Bonus action to make up for a Grapple attempt replacing one of our attacks. Carapace on the other hand is +1 AC and that’s just really good to have as a Monk."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warforged"
+              },
+              {
+                "type": "text",
+                "text": ": Decent protections from Constructed Resilience and +1 AC. Just solid for not getting killed."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Duergar"
+              },
+              {
+                "type": "text",
+                "text": ": If your size goes up, the number of targets you can fit within 10 feet of you goes up and Duergar have access to Enlarge/Reduce."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fizban’s Dragonborn Variants"
+              },
+              {
+                "type": "text",
+                "text": ": While we have respectable damage from our attacks, being able to pepper in a Breath Weapon in place of one attack is great, and because this is still the Attack Action we can still use Flurry of Blows even if the only thing we do with our Attack Action is a breath weapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shifter"
+              },
+              {
+                "type": "text",
+                "text": ": A Wildhunt Shifter has Advantage on Wisdom checks while shifted, but read Arms of the Astral Self very carefully. Using our Wisdom modifier in place of our Strength modifier does not turn a Strength check into a Wisdom check."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giff"
+              },
+              {
+                "type": "link",
+                "text": "SJAiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": As mentioned right above, because the check is still a Strength check even though it’s replacing Strength with Wisdom, Hippo Build will apply Advantage to the check. Also Firearm Proficiency is good to add to any monk, especially because Astral Spark doesn’t apply to Unarmed Strikes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Plasmoid"
+              },
+              {
+                "type": "link",
+                "text": "SJAiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Now, even if your table wants to read Arms of the Astral Self in such a way that the Strength check does become a Wisdom check, the Amorphous trait is the answer by providing Advantage on all Grapple related checks. Also you can flavor the ghost punches as pseudopod punches."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dhampir"
+              },
+              {
+                "type": "text",
+                "text": ": You know why this is on this list. Ok, but seriously, we start with an extra 5 move speed before we add Monk speed, and we get a ridiculous spider climbing ability. What keeps Dhampir green though is that the bite attack cannot be used as an Unarmed Attack."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-astral-self-feats",
+      "heading": "Way of the Astral Self Feats",
+      "sourceAnchor": "way-of-the-astral-self-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-astral-self-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Skill Expert"
+              },
+              {
+                "type": "text",
+                "text": ": We can use this to bump our Wisdom and get Expertise in Athletics, which would let us "
+              },
+              {
+                "type": "link",
+                "text": "try to Grapple,",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/"
+              },
+              {
+                "type": "text",
+                "text": " something that Monks should be good at, but don’t typically have the Strength they would need to build for that."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Telekinetic"
+              },
+              {
+                "type": "text",
+                "text": ": While it might seem odd, and we have a lot of other options for our Bonus Action, thematically calling the Mage Hand an extension of your Astral Self is just plain cool and "
+              },
+              {
+                "type": "link",
+                "text": "Mage Hand has plenty of utility you can bring to the team.",
+                "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tavern Brawler"
+              },
+              {
+                "type": "text",
+                "text": ": In theory, starting a grapple as a bonus action would be great for a lot of grapple builds, but we have a better way to get a grapple started and the rest of this feat does nothing for us."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crossbow Expert"
+              },
+              {
+                "type": "text",
+                "text": ": No really, sometimes enemies won’t be within 10 feet for ghost punching but will also be outside of the 20 feet range of Throwing Darts, and nothing prevents us from ghost punching while holding a Light Crossbow because of Dedicated Weapon. If we’re some sort of race with a free Martial Weapon proficiency we could even have a Hand Crossbow to get that Bonus Action attack. It’s kind of a low priority because we’re likely pumping Wisdom first, but we don’t "
+              },
+              {
+                "type": "emphasis",
+                "text": "have"
+              },
+              {
+                "type": "text",
+                "text": " to build that way, using Wisdom for our ghost punching is an option, not a requirement."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-astral-self-weapons",
+      "heading": "Way of the Astral Self Weapons",
+      "sourceAnchor": "way-of-the-astral-self-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-astral-self-weapons-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Eldritch Claw Tattoo"
+              },
+              {
+                "type": "text",
+                "text": ": Not really a weapon, but because we can’t use weapons with our punch ghost this is the closest thing to a +1 weapon for unarmed strikes and the Eldritch Maul power is sorta like an extra use of punch ghost once a day with slightly longer range."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crossbow, Light"
+              },
+              {
+                "type": "text",
+                "text": ": If it’s our dedicated weapon, holding it won’t interfere with using the Arms of the Astral Self so we can remain armed against long range combatants."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shortbow"
+              },
+              {
+                "type": "text",
+                "text": ": While a Light Crossbow has a d8 right out of the gate, we don’t need a feat to have Extra Attack function with a Shortbow."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Darts and Slings"
+              },
+              {
+                "type": "text",
+                "text": ": The primary issue with Darts is the 20 foot short range and the 60 foot maximum range. Slings do a little better, reaching to 30 feet before having Disadvantage, but we can already use a Shortbow instead."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As far as multiclassing, we have to weigh having less Ki points for each non-Monk level we take against any benefits from the multiclass. Our Astral Self is going to cost us 1-2 Ki per fight for most of our career, which limits the benefits of our Wisdom primary Sunning Strike DCs if we cut our Ki pool too short."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Astral 8/Cleric X"
+              },
+              {
+                "type": "text",
+                "text": ": For example, we could leave the class at eighth level with our 8 Ki and 20 Wisdom and start taking Cleric levels, being some kind of SAD Melee Cleric. Eight Ki is plenty to always keep some around to activate Wisdom attacks in every fight and maybe attempt a Stun every now and then."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Astral 8/Moon Druid 12"
+              },
+              {
+                "type": "text",
+                "text": ": Similar to the Cleric above, leaving at 8 leaves us enough Ki to have Astral Arms in most fights if we want, but unlike Cleric, Druids have the right to Bear Arms."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Astral 18/Stars Druid 2"
+              },
+              {
+                "type": "text",
+                "text": ": "
+              },
+              {
+                "type": "link",
+                "text": "Circle of Stars Druid",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/"
+              },
+              {
+                "type": "text",
+                "text": " gives laser attacks that run off of Wisdom."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-nbspyes-this-is-a-jojos-reference",
+      "heading": "Example Build – Yes, This IS A Jojo’s Reference",
+      "sourceAnchor": "example-build-nbspyes-this-is-a-jojos-reference",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-nbspyes-this-is-a-jojos-reference-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’m going to level with you, the best Monk is still less impressive than most middle of the road builds. We’re somewhat hamstrung by our Ki pool being so shallow and the costs being somewhat high for some mediocre effects. But that’s not important. We’re here because we want cool Astral Arms that can punch dudes from slightly farther away. We’re here to have fun. You expected the most optimized DPR build with tons of math to back it up, but it was me, DIO!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-playstyle-and-tactics",
+      "parentSectionId": "section-example-build-nbspyes-this-is-a-jojos-reference",
+      "heading": "Playstyle and Tactics",
+      "sourceAnchor": "playstyle-and-tactics",
+      "blocks": [
+        {
+          "blockId": "block-section-playstyle-and-tactics-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At lower levels, we’re going to mostly rely on our Monk weapon to do some reasonable damage. When we take the subclass at third level, we have the option to stand at 10 feet with 1d4+Wis damage or close to 5 feet for 1d8+Dex damage if we’re using Quarterstaff or Spear. Having that kind of flexibility is great. As we level up and prioritize Wisdom, the Astral Arms will get stronger, being 1d6 at fifth level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-playstyle-and-tactics-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The main reason we do use Wisdom over Dexterity in this build is that our Athletics becomes a Wisdom skill, allowing us the option to Grapple. Should we go into every combat and expect to start wrestling monsters to the ground? No, we should be expecting to evaluate the combat and if we need to grapple a target then we have the option where other Monk subclasses just can’t even try. When we’re not grappling, we’ve still got another advantage over the other subclasses by having Force damage fists, a very reliable damage type."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-nbspyes-this-is-a-jojos-reference",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to use point buy to get three 15s, and then from Dhampir we take three +1s to have three 16s at the start."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-nbspyes-this-is-a-jojos-reference",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No, we didn’t just pick Dhampir because memes. Dhampir has a couple of nice racial features we like. First off, we get 35 feet base move before Monk speed is added, and all of that also contributes to our Climb speed. But we don’t just have regular Climb, Dhampir have Spider Climb, allowing us to traverse any surface."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "On top of that we have a strange Bite attack. Unlike many natural weapons, these cannot make unarmed attacks, and they use Constitution for attack rolls and damage. It does count as a simple melee weapon lacking the Heavy or Two Handed Property so they are a Monk Weapon by default, though there is some debate on whether or not being a Monk weapon allows us to use Dexterity with the bite because Martial Arts states “use Dexterity instead of Strength.” We would still get to have an increased damage die from Martial Arts when biting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-nbspyes-this-is-a-jojos-reference",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Round out Skills or Tools at your preference."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-nbspyes-this-is-a-jojos-reference",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dhampir gives us any two skills, so we take Insight and Perception, while Monk gives us another two, where we take Athletics and Stealth. From our Background, Survival and Sleight of Hand would be fine choices since our mixture of Stealth and Climb Speed are great for infiltration tasks."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-nbspyes-this-is-a-jojos-reference",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Fourth level, we’ll be putting our ASI into Wisdom, because "
+            },
+            {
+              "type": "link",
+              "text": "math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Eighth, we’ll be taking Skill Expert so we can have Athletics Expertise. This works well with our Astral Arms giving us Wisdom to Athletics. We’ll also gain Proficiency in Investigation for improved scouting. Our Hybrid stat point goes into Wisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Twelfth we take Observant to improve our Passive Perception and Investigation. Put the Hybrid stat into Wisdom, raising it to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Sixteenth and Nineteenth levels we grab Dexterity ASIs to bring both our Dexterity and AC to 20."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-nbspyes-this-is-a-jojos-reference",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmoured Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts (1d4)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "As we start our Monkhood, we don’t have much at first level, but our AC is 16, which is about the most a starting character would have in either Breastplate or Chain Mail."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Starting out, picking up a quarterstaff or a spear and using it two-handed will give us a d8 to work with while we get through these early levels. We’ll also want to have a Shortbow on hand because doing something against long ranged flying targets is better than doing nothing. Far too many melees just forget to have any backup weapons."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmoured Movement (10ft)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Ki"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alright, we get extra speed, which applies to our climb speed, and we have a Ki pool now which will always equal our Monk level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level we struggle a bit like most melee in early levels."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deflect Missiles"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Way of the Astral Self"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arms of the Astral Self"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we have our Astral Arms and we can finally use Wisdom as our attack stat. That doesn’t matter right away as our Wis and Dex are equal, but they won’t remain that way for long."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Wis +2 (16->18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Slow Fall"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Like I said, Wis and Dex won’t remain equal for long. We’re taking Wis ASI here for a few reasons."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "First off, we want to keep on the math curve for now. We could in all honesty take the Skill Expert and Observant feats at fourth and eighth then take the ASI at twelvth, but then we’re behind on math for eight levels instead of only four."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Secondly, there’s far less feat support for Monk’s traditional unarmed fighting style than for anything else, so we don’t have many good options to take instead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get Slow Fall. Spend reaction while falling to take Monk level times five less damage. Not dying is great."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stunning Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts (1d6)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More punching, harder punching."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get the standard extra attack at fifth level common to most martial classes, but we also get Stunning Strike."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stunning Strike is one of the nicer things with Astral Self, since making attacks with Wisdom allows us to keep the DC up for Stunning Strike."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That said, we have to beat AC, then beat the enemy saving throw, and spend a point of Ki. We’ll want to be specific with this and look for threatening foes that might fail a Constitution check, like a Wizard or something."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ki Empowered Strikes"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Visage of the Astral Self"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmoured Movement (15ft)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our unarmed attacks count as magic to beat resistances."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We now have the second part of our Astral Self. This is mostly a utility upgrade. Advantage on Intimidation and Insight is okay and Super Whispering and Shouting is comical but also has useful applications. Astral Sight however, is the Devil’s Sight Invocation, and not figuratively but literally word for word the same functionality."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This can allow us some team synergy if we’re working alongside a Ball of Darkness Warlock."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Evasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stillness of Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Evasion is great, changing Dexterity saves to half on fail and none on save."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stillness of Mind is okay, changing fears and charms into “lose one action” instead of whatever the normal effect was."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Investigation Proficiency"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Athletics Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Wisdom"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Here at eighth, we take the Skill Expert feat so we can take better advantage of using Wisdom for Grappling and Shoving by gaining Expertise in Athletics."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmoured Movement"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wall Running"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This isn’t really important to us as we already have a climb speed so we could already move around on walls just fine. We might still find some use for the water running part."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Purity of Body"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmoured Movement (20ft)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Immunity to Disease and Poison. Not a bad defensive boost."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Body of the Astral Self"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts (1d8)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get a couple new abilities here for our Astral parts. At this level if we activate both the Arms and Visage, we gain the Body as well for no additional cost, giving us a bit more damage and some energy resistance."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level, our Ki pool is 11 between short rests. Assuming we have 3 fights between short rests and have the worst timing so we can’t fit two fights inside 10 minutes, if we budget 6 Ki to our astral form, we have 5 to spend on Flurry of Blows or Stunning Strike across three fights. That’s not great and we have to be strategic about how we spend the Ki or improve our time management skills."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Feat"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Observant"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Wisdom"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take Observant to improve our scouting capabilities and push our Wisdom to 20."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This helps us catch back up with the one point we’ve been behind on math while also raising our Stunning Strike DC another point."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tongue of the Sun and Moon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Speak and understand in all languages. It’s permanent Tongues. It’s ok, and not useless, but casters have been able to do this for the brief times it would be helpful since fifth level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Diamond Soul"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Proficiency in every save. We like this. Getting a second chance to save at the cost of 1 Ki. We’re ok with this too. Also, not that I would recommend burning extra Ki, but there’s not really a limit to how many times you can retry on the same save."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Timeless Body"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dexterity +2 (16->18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More AC is nice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Awakened Astral Self"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can now use the full power of our Final Form. At the cost of 5 Ki when activating all the parts together, we gain +2 AC and a second Extra Attack. From a cost analysis, if we fight for six rounds in the next ten minutes, we already make back the extra 3 Ki that we could have spent using Flurry of Blows."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Going back to our budget, now we have 17 Ki per rest, if we spent 5 Ki turning this on in three fights, while that leaves us with only 2 Ki, we can just not Flurry anymore and still find something to Stunning Strike."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Empty Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spend 4 Ki, become invisible for a minute. Not invisible as the spell, the invisible condition. In addition we have resistance to everything but Force damage during this time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We would have to weigh our budget very carefully, but this is one of the best survival tools available. If we’re fighting something that lacks Blindsight, True Sight, or other similar traits we have Advantage on all attacks and attacks against us have Disadvantage and we have Resistance."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also for 8 Ki we can cast Astral Projection. Nice to have if we need that, but not really gonna use it that much."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dexterity +2 (18->20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our base AC is 20 now between Dexterity and Wisdom, and 22 when Awakened."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Perfect Self"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is kinda neat, but we’d either need to go off our budget or get into an extra fight for this to do anything for us. It’s just unfortunate that we need 5 Ki to use our best ability."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "rating- wp-block-heading Way of the Astral Self Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Arms of the Astral Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Visage of the Astral Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Astral Sight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wisdom of the Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Word of the Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Body of the Astral Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Deflect Energy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Empowered Arms"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Awakened Astral Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Simic Hybrid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Warforged"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Duergar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fizban’s Dragonborn Variants"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Shifter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giff"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Plasmoid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dhampir"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Telekinetic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Tavern Brawler"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Crossbow Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Eldritch Claw Tattoo"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Crossbow, Light"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shortbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Darts and Slings"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Astral 8/Cleric X"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Astral 8/Moon Druid 12"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Astral 18/Stars Druid 2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Arms of the Astral Self</span>: The subclass’s signature feature, managing Arms of the Astral Self is the core of Way of the Astral Self’s c"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[4]",
+      "detail": "<li value=\"17\"><span class=\"rating-blue\">Awakened Astral Self</span>: This is expensive, but remember that it’s 5 Ki Points instead of the 2 which you’ve become accustomed to spend"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-astral-grapplemancy-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-astral-grapplemancy-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-way-of-the-astral-self-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-way-of-the-astral-self-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-way-of-the-astral-self-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-way-of-the-astral-self-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-way-of-the-astral-self-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-way-of-the-astral-self-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-way-of-the-astral-self-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-way-of-the-astral-self-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-way-of-the-astral-self-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-way-of-the-astral-self-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-way-of-the-astral-self-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-way-of-the-astral-self-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-build-nbspyes-this-is-a-jojos-reference-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-playstyle-and-tactics-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-playstyle-and-tactics-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4899,
+    "sections": 18,
+    "blocks": 39,
+    "tables": 3,
+    "ratingSignals": 39
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,3319 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-d787b8db6f66662b",
+      "rulesets": [
+        "RULES_2024"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+      "sourceId": "rpgbot-d787b8db6f66662b",
+      "fetchedAt": "2026-09-29T19:23:01.070386+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:51:14-04:00",
+      "contentHash": "62d2d9cb9e6f2ed929afdbab3a36df5fa2f8c19eae4861202bb38e66e2e41b4f",
+      "title": "DnD 5.5 Warrior of the Elements Monk Subclass Guide | 2024 DnD",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-d787b8db6f66662b-e7c1093dd01cdf16.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-monk-elements-2024",
+    "sourceId": "rpgbot-d787b8db6f66662b",
+    "slug": "monk-elements-2024",
+    "ruleset": "RULES_2024",
+    "titleUk": "Воїн Стихій — гайд підкласу Монаха (2024)",
+    "titleEn": "DnD 5.5 Warrior of the Elements Monk Subclass Guide | 2024 DnD",
+    "topics": [
+      "Монах",
+      "Воїн Стихій",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "articleId": "rpgbot-monk-elements-2024",
+      "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Воїн Стихій — гайд підкласу Монаха (2024)",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монах — {{Воїн Стихій|Warrior of the Elements}}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хочете кулаками бити грім, а ногами — вогонь, мов утілення стихійної сили? Спробуйте {{Воїна Стихій|Warrior of the Elements}}. Він не має нічого спільного з Монахом {{Шляху чотирьох стихій|Way of the Four Elements}} минулих десятиліть: це справжня сила природи, що спускає на поле бою лють Стихійних планів. Дотягніться до ворогів і вдаріть їх стихійною шкодою або пошліть кулю енергії через усе поле, вільно пересуваючись землею, морем чи повітрям. Якщо ці здібності вам до вподоби, спробуйте Воїна Стихій просто зараз."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наш приклад збірки — герой стихій, якого не треба представляти. Він бореться за гармонію зі світом і зриває плани небезпечно недалекоглядних лиходіїв. Станьте могутнім аватаром стихій і заохочуйте свою команду обʼєднати сили, щоб перемогти попри нерівні шанси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Воїна Стихій",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження Воїна Стихій",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#backgrounds"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Воїна Стихій",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Воїна Стихій",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Воїна Стихій",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси походження з рекомендованих походжень",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#origin-feats-from-suggested-backgrounds"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Загальні риси",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#general-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Епічні дари",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#epic-boons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Воїна Стихій",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Воїна Стихій",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Воїна Стихій — Обʼєднаймо наші сили",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Воїна Стихій",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#species"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Володіння навичками й інструментами",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#skill-and-tool-proficiencies"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси та підвищення характеристик",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#feats-and-ability-score-increases"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/monk/monk-subclasses/the-elements/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поради в цій статті спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 2024",
+                  "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час. Також періодично перевіряйте "
+                },
+                {
+                  "type": "link",
+                  "text": "виправлення правил",
+                  "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Воїна Стихій",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Стихійне єднання{{Elemental Attunement}}: воно не потребує дії й коштує лише 1 Очко Зосередження, тож достатньо дешеве, щоб користуватися ним майже в кожній сутичці."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Досяжність{{Reach}}: додаткові 10 футів досяжності виводять вас далеко за межі досяжності інших істот. Не зовсім зрозуміло, чи це впливає на вашу досяжність для принагідних атак, але я думаю, що так і задумано."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стихійні удари{{Elemental Strikes}}: зміна типу шкоди дає змогу легко обходити опір шкоді. Ефекти відштовхування й притягування дозволяють розривати захоплення, переміщувати ворогів у небезпечні позиції й виставляти їх під шкоду по області. У тексті також сказано «до себе або від себе», але слова «прямо» там немає, тож, схоже, цим можна "
+                  },
+                  {
+                    "type": "link",
+                    "text": "підняти ворогів із землі",
+                    "href": "https://www.youtube.com/shorts/IrivNxb952g?feature=share"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", щоб легко завдати їм шкоди від падіння."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Керування стихіями{{Manipulate Elements}}: із замовлянням Володіння стихіями [Elementalism] весело гратися, але механічного ефекту воно практично не має."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стихійний вибух{{Elemental Burst}}: радіус як у Вогнекулі [Fireball], і можна змінювати тип шкоди, але шкоди менше, а дальність коротша. Можна використати «Шквал ударів»{{Flurry of Blows}} зі «Стихійними ударами»{{Elemental Strikes}}, щоб притягнути чи відштовхнути ворогів в область, надійно зачепивши багато цілей."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Хода стихій|Stride of the Elements}}: летіть на 15 футів над ворогами, бийте їх із досяжністю 15 футів, піднімайте в повітря, скидайте — і це 1к6 шкоди від падіння. Скористайтеся «Шквалом ударів»{{Flurry of Blows}}, щоб робити так 5 разів за хід."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Уособлення стихій{{Elemental Epitome}}"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ще більше доповнень до «Стихійного єднання»{{Elemental Attunement}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Опір шкоді{{Damage Resistance}}: простий і гнучкий опір шкоді. Багаторазово змінювати тип шкоди посеред бою рідко корисно, але вороги без заклинань нечасто завдають кількох типів шкоди, окрім шкоди від зброї."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Руйнівна хода{{Destructive Stride}}: перетворює «Крок вітру»{{Step of the Wind}} на спосіб промчатися повз ворогів, завдавши автоматичної шкоди. На жаль, шкода по кожній цілі слабка, тож це має сенс, лише коли багато ворогів зібралося на такій невеликій площі, що можна зачепити відразу кількох. А в такому разі здебільшого краще скористатися «Стихійним вибухом»{{Elemental Burst}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підсилені удари{{Empowered Strikes}}: додаткові 1к12 шкоди раз на хід."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-backgrounds",
+          "heading": "Походження Воїна Стихій",
+          "sourceAnchor": "backgrounds",
+          "blocks": [
+            {
+              "blockId": "block-section-backgrounds-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монахи використовують Спритність, щоб влучати, а Мудрість визначає Складність ряткидків умінь Монаха й ще додається до їхнього КБ. Додайте трохи Статури для рівноваги — і все гаразд. Щодо походження, наш пріоритет — Спритність і Мудрість: нам треба влучати, а ще є кілька Складностей ряткидків, які ми хочемо мати високими. Також можна зробити ставку на Спритність і Статуру, якщо дуже хочеться якоїсь конкретної риси. Спритність і Мудрість дають Провідник{{Guide}}, Моряк{{Sailor}}, Писар{{Scribe}} і Мандрівник{{Wayfarer}}. Спритність і Статуру дають Шарлатан{{Charlatan}}, Злочинець{{Criminal}}, Провідник і Солдат{{Soldier}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-backgrounds-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Шарлатан{{Charlatan}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Шарлатан і Писар{{Scribe}} обидва дають «Умільця»{{Skilled}}, а Мудрість корисніша нам за Статуру."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Злочинець{{Criminal}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Пильний»{{Alert}} допомагає частіше ходити першим і займати кращу позицію. Єдине, що стримує Злочинця для нас, — відсутність Мудрості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Провідник{{Guide}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": має Мудрість і Спритність, а якщо хочете трохи справжньої магії у своєму Монахові, з Провідником не прогадаєте. Щоб по-справжньому жити життям Монаха, оберіть Лагодження [Mending] і Доброягода [Goodberry] — тоді вам ніколи не доведеться купувати їжу чи одяг."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Моряк{{Sailor}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Спритність, Мудрість і кілька покращень наших беззбройних атак від «Забіяки з таверни»{{Tavern Brawler}}. Досить гарний вибір."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Писар{{Scribe}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": додаткові навички завжди корисні, а ще можна отримати Спритність і Мудрість."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Солдат{{Soldier}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми не користуємося зброєю, а «Жорстокий нападник»{{Savage Attacker}} працює лише зі зброєю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мандрівник{{Wayfarer}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": безкоштовна Перевага чи Перешкода кілька разів на день від походження, що дає Спритність і Мудрість. По-моєму, звучить непогано."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-backgrounds-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відомості й поради щодо рис походження, зокрема тих, що дає ваше походження, дивіться нижче в розділі «Риси Воїна Стихій»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Воїна Стихій",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Аазимар "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": політ ми отримаємо від «Ходи стихій»{{Stride of the Elements}}, тож політ, який можна здобути від Аазимара, трохи зайвий. Опір і Темнозір{{Darkvision}} інколи можуть стати в пригоді, але ряткидок від «Некротичного покривала»{{Necrotic Shroud}} залежить від Харизми, яку ми, імовірно, занедбаємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дракононароджений "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": ми кулаками бʼємо грім, а ногами — вогонь, але можемо мати й змогу дихати стихією. На жаль, як і в Аазимара, політ зрештою стає зайвим. Можна обрати Зеленого дракононародженого — з отруйним подихом і опором отруті, що не перетинається зі «Стихійним єднанням»{{Elemental Attunement}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дворф "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": замість Зеленого дракононародженого можна стати Дворфом — заради опору отруті, додаткових ХП і Темнозору{{Darkvision}} з більшою дальністю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ельф "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": серед варіантів Ельфів найбільше нам дає Лісовий ельф{{Wood Elf}}. Додаткова швидкість приємна, Ремесло друїдів [Druidcraft] — веселе допоміжне замовляння, Скорохід [Longstrider] дає ще більше швидкості на годину на день, а Переміщення без сліду [Pass without Trace] — величезний бонус до Непомітності, теж до години."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гном "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": Перевага на ряткидки Інтелекту, Мудрості й Харизми непогано захищає від жахливих ефектів. Замовляння — веселі допоміжні варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Голіаф "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": деякі з цих велетнів мають стихійну тематику й дають додаткову шкоду кілька разів на день, а «Збиття пагорбів»{{Hill’s Tumble}} — чудовий спосіб повалити ціль, не давши їй ряткидка, щоб цього уникнути. «Велика форма»{{Large Form}} додає швидкості й дозволяє нам захопити ціль аж до Величезного розміру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напіврослик "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": Перевага на ряткидки проти стану Наляканий — це добре. Можливість проходити крізь простір більших істот чудово поєднується з «Терплячим захистом»{{Patient Defense}} чи «Кроком вітру»{{Step of the Wind}}, тож можна стрімко перетинати поле найпрямішими лініями, не провокуючи принагідних атак. «Удача»{{Lucky}} корисна кожному. «Природна непомітність»{{Naturally Stealthy}} спершу може здатися не надто корисною, але ми можемо сховатися за союзником, а тоді скористатися «Бойовими мистецтвами»{{Martial Arts}} з досяжністю і бонусною дією завдати беззбройного удару з Перевагою, поки лишаємося прихованими."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Людина "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": додаткова навичка й додаткова риса походження можуть нам дуже придатися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Орк "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": «Викид адреналіну»{{Adrenaline Rush}} дублює «Крок вітру»{{Step of the Wind}}. Темнозір{{Darkvision}} — це добре. «Невгамовна витривалість»{{Relentless Endurance}} — приємна страховка для відносно тендітного бойового класу, але самої її замало."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тифлінг "
+                },
+                {
+                  "type": "superscript",
+                  "text": "("
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": ")"
+                },
+                {
+                  "type": "text",
+                  "text": ": «Хтонічна»{{Chthonic}} спадщина з опором некротичній шкоді — приємний бонус. Якщо привʼязати ряткидки до Мудрості, з часом вона буде досить високою, але, чесно кажучи, ми воліли б розвʼязувати проблеми кулаками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Воїна Стихій",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: завдяки «Бойовим мистецтвам»{{Martial Arts}} ми використовуємо Спритність майже для всього, що робить Сила, крім перевірок Сили, які зазвичай є Атлетикою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: «Бойові мистецтва» перетворюють її на нашу характеристику майже для всього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: вона потрібна, щоб не померти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: якщо хочемо користуватися якимись навичками знань, можемо вділити сюди трохи очок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: це половина нашого КБ, а ще вона визначає Складність ряткидка для всіх наших умінь Монаха."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: якщо хочемо якихось соціальних навичок, можемо вділити сюди трохи очок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Воїна Стихій",
+          "sourceAnchor": "feats",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-origin-feats-from-suggested-backgrounds",
+          "parentSectionId": "section-feats",
+          "heading": "Риси походження з рекомендованих походжень",
+          "sourceAnchor": "origin-feats-from-suggested-backgrounds",
+          "blocks": [
+            {
+              "blockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Шарлатан (Умілець)|Charlatan (Skilled)}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": більше навичок — це чудово, але можна просто обрати Писаря{{Scribe}} — і навички, "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "і"
+                  },
+                  {
+                    "type": "text",
+                    "text": " Мудрість."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Злочинець (Пильний)|Criminal (Alert)}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Пильний»{{Alert}} і Спритність як головна характеристика чудово підходять, щоб часто ходити першим. Навички й інструменти теж чудові. Головний недолік — збільшення Статури замість Мудрості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Провідник (Посвячений у магію (друїд))|Guide (Magic Initiate (Druid))}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Спритність і Мудрість — характеристики, які нам потрібні. Для «Посвяченого у магію»{{Magic Initiate}} раджу Лагодження [Mending] і Доброягода [Goodberry], щоб ніколи не голодувати й не купувати новий одяг."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Моряк (Забіяка з таверни)|Sailor (Tavern Brawler)}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми тільки те й робимо, що лупимо людей. Частину з 1к4 перекриває наш кубик «Бойових мистецтв»{{Martial Arts}}, зате перекидання чудові, а «Поштовх»{{Push}} корисний, бо не має ряткидка. Також це один із варіантів зі Спритністю та Мудрістю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Писар (Умілець)|Scribe (Skilled)}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": більше навичок, Спритність і Мудрість. Нічого поганого."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Солдат (Жорстокий нападник)|Soldier (Savage Attacker)}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Жорстокий нападник»{{Savage Attacker}} працює лише зі зброєю. Ми зброєю не користуємося."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мандрівник (Щасливчик)|Wayfarer (Lucky)}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": безкоштовна Перевага (або Перешкода для атак ворогів) стільки разів на день, скільки становить ваш Бонус Майстерності. Досить добре."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-general-feats",
+          "parentSectionId": "section-feats",
+          "heading": "Загальні риси",
+          "sourceAnchor": "general-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-general-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Атлет{{Athlete}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зрештою ми літатимемо, але до того швидкість лазіння приємна. Монахи мають бонус до швидкості, тож «Швидкий підйом»{{Hop Up}}, що дозволяє втрачати менше швидкості, коли треба підвестися, — це добре. Стрибки теж непогані."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нападник{{Charger}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми можемо виконувати Ривок бонусною дією, тож +10 до швидкості під час Ривка — приємно. Якщо одночасно скористаємося «Кроком вітру»{{Step of the Wind}}, щоб виконати Відступ, можна відійти від цілі й повернутися для «Атаки наскоком»{{Charge attack}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дробильник{{Crusher}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хоч ми все ще можемо бити звичайною дроблячою шкодою, свої круті уміння ми застосовуємо лише зі стихійною шкодою, тож відмовляємося від більшої частини користі цієї риси."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Борець{{Grappler}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": наші беззбройні удари мають досяжність 15 футів, тож можемо схоплювати з 15 футів. Нам потрібна вся ця риса. Вдаріть і схопіть ціль — і матимете Перевагу на всі подальші атаки в раунді. А щоб додати образи до кривди, можемо бонусною дією виконати Ривок зі «Швидким борцем»{{Fast Wrestler}} і скидати людей зі скель або протягти бідолаху по Проростанню шипів [Spike Growth] союзника, як по тертці для сиру."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкий{{Speedy}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Монахи й так швидкі, але можемо бути ще швидшими. А головне, оскільки ми можемо виконувати Ривок бонусною дією, то й ігнорувати складну місцевість можемо бонусною дією. Гарний варіант."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-epic-boons",
+          "parentSectionId": "section-feats",
+          "heading": "Епічні дари",
+          "sourceAnchor": "epic-boons",
+          "blocks": [
+            {
+              "blockId": "block-section-epic-boons-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар бойової майстерності|Boon of Combat Prowess}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": вирішуєте влучити замість промаху. Добре для того, хто постійно лупить кулаками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар мандрів вимірами|Boon of Dimensional Travel}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудово, якщо ми воліємо бити бонусною дією, а не користуватися «Терплячим захистом»{{Patient Defense}} чи «Кроком вітру»{{Step of the Wind}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар опору стихіям|Boon of Energy Resistance}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми щойно отримали уміння «Вищий захист»{{Superior Defense}}, яке за 3 Очки Зосередження дає на хвилину опір усьому, крім силової шкоди. А ще ми можемо протягом 10 хвилин опиратися базовим стихійним типам шкоди — вогняній, холодній, блискавичній, кислотній і громовій — за 1 Очко Зосередження. Якщо у вашій кампанії постійно трапляється некротична, психічна, променева чи отруйна шкода, цей дар варто взяти, щоб постійно захищатися від одного з цих типів, а не спалювати Очки Зосередження на хвилинний щит від усього, крім силової шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар витривалості|Boon of Fortitude}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": більше ХП, щоб не померти. Більше відновлення від більшості джерел лікування. Добра риса."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар незворотного нападу|Boon of Irresistible Offense}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми вже обходимо ці опори, завдаючи стихійної шкоди, тож цікавить нас лише бонус на натуральних 20, а він не надто надійний."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-epic-boons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар відновлення|Boon of Recovery}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": безкоштовне зцілення, коли ХП падають до 0, раз на день — приємно, і запас кубиків лікування к10 теж, але «Дар витривалості»{{Boon of Fortitude}} краще, щоб до 0 узагалі не опускатися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар майстерності|Boon of Skill}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо вам просто потрібне підвищення характеристики, яке можна вкласти будь-куди, володіння всім і одна Експертиза — непоганий варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар швидкості|Boon of Speed}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми вже можемо виконувати Відступ бонусною дією, і ще 30 футів руху нам не обовʼязково потрібні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар духу ночі|Boon of the Night Spirit}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ставати Невидимим бонусною дією — круто, але невидимість спадає, щойно ми робимо щось корисне. Опір майже до всього в темряві потенційно корисний, якщо ніхто не стверджуватиме, що ваше «Стихійне єднання»{{Elemental Attunement}} сиплеться іскрами й освітлює кімнату."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дар істинного зору{{Boon of Truesight}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми бачимо "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "все"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Воїна Стихій",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Просто бийте все кулаками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Воїна Стихій",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У нас є «Захист без броні»{{Unarmored Defense}}. Але ще й одягніть мантію та чарівницький капелюх, щоб усі думали, що ви {{Заклинач Стихій|Evoker}}. Буде смішно, обіцяю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Воїна Стихій — Обʼєднаймо наші сили",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Земля! Вогонь! Вітер! Вода! Серце! Вперед, Плането! "
+                },
+                {
+                  "type": "link",
+                  "text": "Планетяни",
+                  "href": "https://www.youtube.com/watch?v=OiYjTb3opAA"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хто ще вміє літати й керувати стихіями, щоб боротися зі Злом? Ви ж не чекали Аватара, правда?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільше нас цікавить Спритність, але й Мудрість важлива. Решту очок вкладаємо в Статуру, а потім обираємо походження, що дозволяє підвищити Спритність на +2 і Мудрість на +1. Для нас це Мандрівник{{Wayfarer}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бонус походження"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обираємо Мандрівника{{Wayfarer}}, бо Капітан Планета ніби живе скрізь. До того ж герої мультфільмів 90-х зроблені з неприродної удачі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-species",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "species",
+          "blocks": [
+            {
+              "blockId": "block-section-species-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обираємо Людину, бо Сила — "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "ваша"
+                },
+                {
+                  "type": "text",
+                  "text": ". До того ж це дає додаткову рису походження — «Пильний»{{Alert}} — і бонусне володіння навичкою: Уважність."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skill-and-tool-proficiencies",
+          "parentSectionId": "section-example",
+          "heading": "Володіння навичками й інструментами",
+          "sourceAnchor": "skill-and-tool-proficiencies",
+          "blocks": [
+            {
+              "blockId": "block-section-skill-and-tool-proficiencies-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мандрівник дає нам Аналіз Поведінки й Непомітність, а також злодійські інструменти. Від Монаха додамо Акробатику, щоб виконувати польотні трюки, й Історію, щоб розповідати глядачам історію переробки відходів. Людина дозволяє взяти Уважність."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-and-ability-score-increases",
+          "parentSectionId": "section-example",
+          "heading": "Риси та підвищення характеристик",
+          "sourceAnchor": "feats-and-ability-score-increases",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Походження: «Щасливчик»{{Lucky}} — запас безкоштовної Переваги на атаках чи швидкого ухиляння, що росте, дає нам куди більше відчуття супергероя з мультфільму 90-х."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Людина: «Пильний»{{Alert}} — з високою Спритністю та Бонусом Майстерності до Ініціативи ми встигнемо врятувати світ у самий останній момент."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні: «Борець»{{Grappler}} — наші беззбройні удари мають досяжність 15 футів, а оскільки Захоплення тепер є різновидом беззбройного удару, ми можемо схоплювати людей із відстані 15 футів. Тож можемо спробувати схопити ціль першим ударом за хід і, якщо вдасться, матимемо безкоштовну Перевагу на кожну подальшу атаку. «Швидкий борець»{{Fast Wrestler}} — це вишенька на торті: як Монах ми маємо швидкий рух і навіть можемо виконувати Ривок бонусною дією, щоб тягти людей на абсурдні відстані, зокрема в повітря, коли отримаємо швидкість польоту. +1 до Спритності, 17 → 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні: Покращення Характеристик — +2 до Спритності, 18 → 20. Тепер хочемо довести Спритність до межі, щоб наступного разу взятися за Мудрість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні: «Експерт у навичках»{{Skill Expert}} — станемо вправними в Розслідуванні, щоб краще знаходити речі. Візьмемо Експертизу в Аналізі Поведінки, бо щоб по-справжньому бути Капітаном Планетою, треба втілити силу Серця. +1 до Мудрості, 16 → 17."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні: Покращення Характеристик — +2 до Мудрості, 17 → 19. Памʼятайте: Мудрість — ключ до наших Складностей ряткидків і половина нашого КБ. Готуємо ґрунт для Епічного Дару, яким доведемо Мудрість до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні: «Дар істинного зору»{{Boon of Truesight}} — тепер ми маємо той класичний зір супергероя, що бачить усе. +1 до Мудрості, 19 → 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойові мистецтва\nЗахист без броні\nЩасливчик\nПильний\nНавички та інструменти:\n– Акробатика\n– Історія\n– Аналіз Поведінки\n– Уважність\n– Непомітність\n– Злодійські інструменти"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бойові мистецтва»{{Martial Arts}} означають, що Спритність замінює Силу для беззбройних ударів, Захоплення та Штовхання. Також вони дають змогу бити людей бонусною дією. Це трохи сильніше, ніж бій двома зброями, бо до шкоди ми все одно додаємо модифікатор Спритності. «Захист без броні»{{Unarmored Defense}} просто додає нашу Мудрість до Спритності для КБ. Зараз це дає нам КБ 16. «Щасливчик»{{Lucky}} дозволяє кілька разів на день отримати Перевагу й накласти Перешкоду, і кількість зростає з Бонусом Майстерності. Тож поки що двічі на день. «Пильний»{{Alert}} допомагає нам — або союзникові, якщо ми вирішимо помінятися Ініціативою, — частіше ходити першими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зосередження Монаха:\n– Шквал ударів\n– Терплячий захист\n– Крок вітру\nРух без броні\nНадприродний метаболізм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очки Зосередження — це паливо, яким ми вмикаємо багато сил Монаха, але є й кілька безкоштовних варіантів, які можна підсилити Очками Зосередження. «Терплячий захист»{{Patient Defense}} дає змогу виконати Відступ бонусною дією, а за одне очко ще й додати Ухиляння. «Крок вітру»{{Step of the Wind}} дає змогу виконати Ривок бонусною дією, а за одне очко ще й додати Відступ. «Шквал ударів»{{Flurry of Blows}} — це по суті покращення «Бойових мистецтв»{{Martial Arts}}: якщо витратити очко, можна вдарити двічі за бонусну дію. «Рух без броні»{{Unarmored Movement}} дає змогу рухатися швидше, якщо ми не носимо обладунків. «Надприродний метаболізм»{{Uncanny Metabolism}} дає змогу раз на день відновити всі Очки Зосередження під час кидка Ініціативи, якщо ми не встигли на короткий відпочинок до початку бою. Чудове уміння, щоб в екстреному випадку долити пального в бак, не дозволяючи Монаху спалити за один бій більше за свій добовий запас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відхилення атак\nВоїн Стихій:\n– Стихійне єднання\n– Керування стихіями"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми можемо зменшувати вхідну дробильну, колючу чи рубальну шкоду реакцією, а якщо зменшимо її до 0, то можемо витратити Очко Зосередження, щоб спрямувати атаку в іншу ціль. Обравши підклас, ми одразу отримуємо досить добре уміння. За одне Очко Зосередження, яке ми витрачаємо вільною дією на початку свого ходу, ми отримуємо досяжність 15 футів, стихійну шкоду для беззбройних ударів і здатність відштовхувати чи притягувати цілі щоразу, коли завдаємо цієї стихійної шкоди. На десять хвилин. Цього досить, щоб, можливо, провести дві сутички. Оскільки це вільна дія, воно не заважає нічому з того, що нам треба робити своєю дією чи бонусною дією."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Борець\nСпритність +1 (17 → 18)\nПовільне падіння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "З «Борцем»{{Grappler}} і вовки ситі, і вівці цілі — принаймні для одного беззбройного удару за хід. За звичайних обставин доводиться обирати між шкодою та тим, щоб схопити ціль, але з «Борцем» можна й те, й інше. Щойно нам вдається схопити ціль, ми маємо проти неї Перевагу. Для більшості Монахів це добре, але оскільки наші беззбройні удари мають досяжність, ми ще й можемо схоплювати з набагато безпечнішої відстані в 15 футів. «Повільне падіння»{{Slow Fall}} — добрий запобіжник на випадок падіння. Тепер у нас КБ 17."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака\nПриголомшливий удар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бʼємо двічі (дією). Не зважайте, що ми вже й так били двічі (витративши Очко Зосередження на бонусну дію). З «Приголомшливим ударом»{{Stunning Strike}} ціль має пройти ряткидок, інакше стане Приголомшеною. У разі успіху ціль натомість сповільнюється до половини швидкості, а наступна атака проти неї має Перевагу. Це дуже добре."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підсилені удари\nСтихійний вибух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для беззбройних ударів ми отримуємо силову шкоду як варіант. Це приємно, коли нам потрібна силова шкода, але памʼятайте: здатність відштовхувати й притягувати залежить від інших типів стихійної шкоди. За 2 Очки Зосередження можемо метнути вогнекулю [Fireball] змінного типу шкоди, зі шкодою, що дорівнює трьом кубикам бойових мистецтв. Час від часу це стане в пригоді, коли доведеться розбиратися з великими натовпами слабших ворогів. Якщо можете зачепити трьох чи більше ворогів, майже напевно варто використати «Стихійний вибух»{{Elemental Burst}}. Якщо влучите менше ніж у трьох, ефективніше може бути витратити ці очки на щось інше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми краще проходимо ряткидки Спритності. Вилазити з небезпечних халеп — звичайна справа для супергероїв 90-х, вони займаються цим щодня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Покращення Характеристик\nСпритність +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут доводимо Спритність до межі, бо так наступною рисою зможемо почати покращувати Мудрість. Це також піднімає наш КБ до 18."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Акробатичний рух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми можемо бігти по стінах і воді, але не можемо на них стояти. Мультиплікаційна фізика для мультиплікаційного героя на кшталт Капітана Планети."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищене зосередження:\n– Шквал ударів\n– Терплячий захист\n– Крок вітру\nСамовідновлення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наші основні сили на Очках Зосередження отримують покращення. Більше ударів із «Шквалом ударів»{{Flurry of Blows}}. Тимчасові ХП із «Терплячим захистом»{{Patient Defense}} — для тієї супергеройської живучості. Можливість по-супергеройськи віднести когось у безпечне місце за допомогою «Кроку вітру»{{Step of the Wind}}. Прибирати стани Причарований, Наляканий чи Отруєний наприкінці нашого ходу. Чудові стани, щоб їх знімати. А ще ми більше не отримуємо штрафів за відсутність їжі. Але спати все одно треба."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хода стихій"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо літати (і плавати). Завдяки «Борцю»{{Grappler}} чи «Підвищеному зосередженню»{{Heightened Focus}} ми можемо нести істот у безпечне місце небом, як справжній супергерой."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках\nВолодіння: Розслідування\nЕкспертиза: Аналіз Поведінки\nМудрість +1 (16 → 17)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми не можемо захищати довкілля, якщо не знайдемо еколиходіїв, тож беремо Розслідування, щоб збирати докази забруднення. Решту стихій ми вже маємо, тож тепер Експертиза в Аналізі Поведінки — наша сила Серця."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відхилення енергії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо застосовувати «Відхилення атак»{{Deflect Attacks}} проти всіх типів шкоди. Приємне покращення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Загартований дисципліною"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння всіма ряткидками звучить по-супергеройськи. А ще можна перекинути провалений ряткидок за Очко Зосередження."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досконале зосередження"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми не можемо розпочати жодного бою менш ніж із 4 Очками Зосередження. Зручно, що бути у «Стихійному єднанні»{{Elemental Attunement}} десять хвилин усе ще коштує лише 1 Очко Зосередження, тож літати в бою можемо завжди. Супергеройство 24/7."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Покращення Характеристик\nМудрість +2 (17 → 19)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Просто готуємо Мудрість, щоб Епічний Дар підняв її до 20. Наш КБ тепер 19."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Уособлення стихій"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Поки діє «Стихійне єднання»{{Elemental Attunement}}: ми отримуємо опір, який можна змінювати на початку кожного ходу. Ми можемо завдавати шкоди істоті, до якої підходимо впритул під час «Кроку вітру»{{Step of the Wind}}. Раз на хід ми завдаємо додаткової шкоди беззбройним ударом. А оскільки це все — частина того «Стихійного єднання» за 1 Очко Зосередження вільною дією, ми зможемо користуватися цим у кожному бою у війні із забрудненням."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вищий захист"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо опору лише до однієї стихії замало, ми можемо отримати опір до всього, крім силової шкоди, на хвилину за 3 Очки Зосередження. Це справді супергеройська стійкість."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Епічний Дар: Дар істинного зору\nМудрість +1 (19 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Піднімаємо Мудрість до 20, отримуємо КБ 20 і ще 60 футів Істинного зору, щоб завжди бачити все. Жодне забруднення не сховається від Капітана Планети!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тіло і розум\nСпритність +4 (20 → 24)\nМудрість +4 (20 → 24)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тож наш КБ був 20, а тепер 24, бо Спритність і Мудрість зросли на 4 пункти кожна. Наш бонус атаки тепер +17, а Складність ряткидка для умінь на Очках Зосередження й ефектів беззбройного удару — 21. Вперед, Плането!"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-monk-elements-2024-001",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Стихійне єднання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-002",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Досяжність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-003",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Стихійні удари",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-004",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Керування стихіями",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-005",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Стихійний вибух",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-006",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Хода стихій",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-007",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Опір шкоді",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-008",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Руйнівна хода",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-009",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Підсилені удари",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-010",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-backgrounds",
+      "targetBlockId": "block-section-backgrounds-2",
+      "optionId": "section-backgrounds-block-section-backgrounds-2-item-0",
+      "context": "Шарлатан",
+      "explanationBlockId": "block-section-backgrounds-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-011",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-backgrounds",
+      "targetBlockId": "block-section-backgrounds-2",
+      "optionId": "section-backgrounds-block-section-backgrounds-2-item-1",
+      "context": "Злочинець",
+      "explanationBlockId": "block-section-backgrounds-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-012",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-backgrounds",
+      "targetBlockId": "block-section-backgrounds-2",
+      "optionId": "section-backgrounds-block-section-backgrounds-2-item-2",
+      "context": "Провідник",
+      "explanationBlockId": "block-section-backgrounds-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-013",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-backgrounds",
+      "targetBlockId": "block-section-backgrounds-2",
+      "optionId": "section-backgrounds-block-section-backgrounds-2-item-3",
+      "context": "Моряк",
+      "explanationBlockId": "block-section-backgrounds-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-014",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-backgrounds",
+      "targetBlockId": "block-section-backgrounds-2",
+      "optionId": "section-backgrounds-block-section-backgrounds-2-item-4",
+      "context": "Писар",
+      "explanationBlockId": "block-section-backgrounds-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-015",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-backgrounds",
+      "targetBlockId": "block-section-backgrounds-2",
+      "optionId": "section-backgrounds-block-section-backgrounds-2-item-5",
+      "context": "Солдат",
+      "explanationBlockId": "block-section-backgrounds-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-016",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-backgrounds",
+      "targetBlockId": "block-section-backgrounds-2",
+      "optionId": "section-backgrounds-block-section-backgrounds-2-item-6",
+      "context": "Мандрівник",
+      "explanationBlockId": "block-section-backgrounds-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-017",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-1",
+      "optionId": "section-races-block-section-races-1",
+      "context": "Аазимар",
+      "explanationBlockId": "block-section-races-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-018",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2",
+      "context": "Дракононароджений",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-019",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-3",
+      "optionId": "section-races-block-section-races-3",
+      "context": "Дворф",
+      "explanationBlockId": "block-section-races-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-020",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-4",
+      "optionId": "section-races-block-section-races-4",
+      "context": "Ельф",
+      "explanationBlockId": "block-section-races-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-021",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-5",
+      "optionId": "section-races-block-section-races-5",
+      "context": "Гном",
+      "explanationBlockId": "block-section-races-5",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-022",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-6",
+      "optionId": "section-races-block-section-races-6",
+      "context": "Голіаф",
+      "explanationBlockId": "block-section-races-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-023",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-7",
+      "optionId": "section-races-block-section-races-7",
+      "context": "Напіврослик",
+      "explanationBlockId": "block-section-races-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-024",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-8",
+      "optionId": "section-races-block-section-races-8",
+      "context": "Людина",
+      "explanationBlockId": "block-section-races-8",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-025",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-9",
+      "optionId": "section-races-block-section-races-9",
+      "context": "Орк",
+      "explanationBlockId": "block-section-races-9",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-026",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-10",
+      "optionId": "section-races-block-section-races-10",
+      "context": "Тифлінг",
+      "explanationBlockId": "block-section-races-10",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-027",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-1",
+      "optionId": "section-ability-scores-block-section-ability-scores-1",
+      "context": "Сила",
+      "explanationBlockId": "block-section-ability-scores-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-028",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-2",
+      "optionId": "section-ability-scores-block-section-ability-scores-2",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-029",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-3",
+      "optionId": "section-ability-scores-block-section-ability-scores-3",
+      "context": "Статура",
+      "explanationBlockId": "block-section-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-030",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-4",
+      "optionId": "section-ability-scores-block-section-ability-scores-4",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-ability-scores-4",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-031",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-5",
+      "optionId": "section-ability-scores-block-section-ability-scores-5",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-ability-scores-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-032",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-6",
+      "optionId": "section-ability-scores-block-section-ability-scores-6",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-033",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-origin-feats-from-suggested-backgrounds",
+      "targetBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "optionId": "section-origin-feats-from-suggested-backgrounds-block-section-origin-feats-from-suggested-backgrounds-1-item-0",
+      "context": "Шарлатан",
+      "explanationBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-034",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-origin-feats-from-suggested-backgrounds",
+      "targetBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "optionId": "section-origin-feats-from-suggested-backgrounds-block-section-origin-feats-from-suggested-backgrounds-1-item-1",
+      "context": "Злочинець",
+      "explanationBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-035",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-origin-feats-from-suggested-backgrounds",
+      "targetBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "optionId": "section-origin-feats-from-suggested-backgrounds-block-section-origin-feats-from-suggested-backgrounds-1-item-2",
+      "context": "Провідник",
+      "explanationBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-036",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-origin-feats-from-suggested-backgrounds",
+      "targetBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "optionId": "section-origin-feats-from-suggested-backgrounds-block-section-origin-feats-from-suggested-backgrounds-1-item-3",
+      "context": "Моряк",
+      "explanationBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-037",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-origin-feats-from-suggested-backgrounds",
+      "targetBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "optionId": "section-origin-feats-from-suggested-backgrounds-block-section-origin-feats-from-suggested-backgrounds-1-item-4",
+      "context": "Писар",
+      "explanationBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-038",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-origin-feats-from-suggested-backgrounds",
+      "targetBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "optionId": "section-origin-feats-from-suggested-backgrounds-block-section-origin-feats-from-suggested-backgrounds-1-item-5",
+      "context": "Солдат",
+      "explanationBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-039",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-origin-feats-from-suggested-backgrounds",
+      "targetBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "optionId": "section-origin-feats-from-suggested-backgrounds-block-section-origin-feats-from-suggested-backgrounds-1-item-6",
+      "context": "Мандрівник",
+      "explanationBlockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-040",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-general-feats",
+      "targetBlockId": "block-section-general-feats-1",
+      "optionId": "section-general-feats-block-section-general-feats-1-item-0",
+      "context": "Атлет",
+      "explanationBlockId": "block-section-general-feats-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-041",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-general-feats",
+      "targetBlockId": "block-section-general-feats-1",
+      "optionId": "section-general-feats-block-section-general-feats-1-item-1",
+      "context": "Нападник",
+      "explanationBlockId": "block-section-general-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-042",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-general-feats",
+      "targetBlockId": "block-section-general-feats-1",
+      "optionId": "section-general-feats-block-section-general-feats-1-item-2",
+      "context": "Дробильник",
+      "explanationBlockId": "block-section-general-feats-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-043",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-general-feats",
+      "targetBlockId": "block-section-general-feats-1",
+      "optionId": "section-general-feats-block-section-general-feats-1-item-3",
+      "context": "Борець",
+      "explanationBlockId": "block-section-general-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-044",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-general-feats",
+      "targetBlockId": "block-section-general-feats-1",
+      "optionId": "section-general-feats-block-section-general-feats-1-item-4",
+      "context": "Швидкий",
+      "explanationBlockId": "block-section-general-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-045",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-1",
+      "optionId": "section-epic-boons-block-section-epic-boons-1-item-0",
+      "context": "Дар бойової майстерності",
+      "explanationBlockId": "block-section-epic-boons-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-046",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-1",
+      "optionId": "section-epic-boons-block-section-epic-boons-1-item-1",
+      "context": "Дар мандрів вимірами",
+      "explanationBlockId": "block-section-epic-boons-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-047",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-1",
+      "optionId": "section-epic-boons-block-section-epic-boons-1-item-2",
+      "context": "Дар опору стихіям",
+      "explanationBlockId": "block-section-epic-boons-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-048",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-1",
+      "optionId": "section-epic-boons-block-section-epic-boons-1-item-3",
+      "context": "Дар витривалості",
+      "explanationBlockId": "block-section-epic-boons-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-049",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-1",
+      "optionId": "section-epic-boons-block-section-epic-boons-1-item-4",
+      "context": "Дар незворотного нападу",
+      "explanationBlockId": "block-section-epic-boons-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-050",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-2",
+      "optionId": "section-epic-boons-block-section-epic-boons-2-item-0",
+      "context": "Дар відновлення",
+      "explanationBlockId": "block-section-epic-boons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-051",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-2",
+      "optionId": "section-epic-boons-block-section-epic-boons-2-item-1",
+      "context": "Дар майстерності",
+      "explanationBlockId": "block-section-epic-boons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-052",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-2",
+      "optionId": "section-epic-boons-block-section-epic-boons-2-item-2",
+      "context": "Дар швидкості",
+      "explanationBlockId": "block-section-epic-boons-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-053",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-2",
+      "optionId": "section-epic-boons-block-section-epic-boons-2-item-3",
+      "context": "Дар духу ночі",
+      "explanationBlockId": "block-section-epic-boons-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-elements-2024-054",
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sectionId": "section-epic-boons",
+      "targetBlockId": "block-section-epic-boons-2",
+      "optionId": "section-epic-boons-block-section-epic-boons-2-item-4",
+      "context": "Дар істинного зору",
+      "explanationBlockId": "block-section-epic-boons-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

@@ -1,0 +1,2899 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "3d9d1b8b560f6d90815a49aced579a207b7904acb8917aa61c560aa43dd92cb3",
+  "sourceRevision": {
+    "revisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+    "sourceId": "rpgbot-16e9e6804185c4fa",
+    "fetchedAt": "2026-09-29T19:09:28.706503+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:44:31-04:00",
+    "contentHash": "eaf9895b6b097c4623c3fbc2406b739059aed772c7726cb0448278f68d685f5c",
+    "title": "Undead Warlock 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Undead does a lot of things that I really like. From a design perspective, it’s an excellent subclass. The theme and the mechanics align perfectly, and the whole thing has a nice spooky feel (which makes sense considering the sourcebook that it came from). The subclass also handles complexity well, introducing few additional resources to track while also making those resources useful and exciting, and gradually adding complexity to the subclass as the player gains levels. This gradual ramp in complexity makes the Undead approachable for new players and players who don’t handle resource management well, but still includes enough buttons to press that veteran players will find the subclass exciting and impactful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Many of the Undead’s subclass features work when combined with Eldritch Blast. Form of Dread is the signature feature of the subclass, and it’s a powerful boost to your attacks right from level 1, supporting either Eldritch Blast builds or weapon builds. Later features like Grave Touched gradually add additional benefits to attacks alongside defensive benefits like damage resistance and on-hit healing. However, Form of Dread has a limited usage pool, so, once you’re out of uses, you’ll need to fall back on core Warlock class features."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the Undead grants temporary hit points when you activate Form of Dread, the Undead can be more durable than most warlocks. This, combined with the damage boost from Grave Touched, is enough to support weapon-using builds, but doesn’t make melee an easy choice like the Hexblade does. A greataxe could add a second d12 of damage when you hit with it once on each of your turns, which is a significant boost to damage output."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Grave Touched’s damage boost is less useful with common weapon-using warlock builds like Crossbow Expert where you’re using a weapon with a small damage die and counting on multiple attacks, and your temporary hit points won’t last long in light armor with no shield. Once you get Spirit Projection, the damage resistance helps, but, since you need to maintain Concentration, it can be hard to stay in melee with a weapon in hand. More likely you’ll use a heavy crossbow via Improved Pact Weapon. As much as I would like it, firearms are off limits unless you find a magic one due to the weapon limitations of Pact of the Blade."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undead Warlock Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undead Warlock Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undead Warlock Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undead Warlock Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undead Warlock Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undead Warlock Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undead Warlock Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Ghosts with Guns",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Undead Warlock Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Bane isn’t a great\n\t\t\t\tspell and False Life both won’t stack with the temporary hp from Form of Dead\nand is a worse source of temporary hit points than Armor of Agathys. Both spells scale with spell level, which is a great\n\t\t\t\toption for the Warlock, but they’re still not good enough options that I\n\t\t\t\twould rush to cast them. False Life cast using a spell does notably\n\t\t\t\tallow you to produce temporary hit points right before taking a Short\n\t\t\t\tRest, so you could finish a Long Rest, cast False Life, then immediately\n\t\t\t\tshort rest and have a big pile of temporary hp. You can also get\n\t\t\t\ttemporary hit points from Form of Dread, so even with this abuse case it\n\t\t\t\tmay be hard to justify spending a spell known to get False Life."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\tgood and cover different use cases. Blindness/Deafness targets\n\t\t\t\tConstitution saves and adds additional targets with spell level, so it’s\n\t\t\t\tgood for low-Constitution targets like spellcasters and for crowds.\n\t\t\t\tPhantasmal Force targets Intelligence and is single-target, so it’s good\n\t\t\t\tfor single enemies with poor Intelligence (most martial foes)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\tonly situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\texcellent. Death Ward is a powerul defensive buff, and with an 8-hour\n\t\t\t\tduration you can use all of your spell slots to cast it one multiple\n\t\t\t\tmembers of your party, then immediately take a Short Rest to regain your\n\t\t\t\tspell slots and get right back to adventuring. Greater Invisibility is\n\t\t\t\tan absolutely fantastic spell for many reasons, but Shadow of\n\t\t\t\tMoil may be more appealing in combat.\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both decent\n\t\t\t\toptions. Antilife Shell can make it easy to corner and eliminate foes\n\t\t\t\twith limited reach and no ranged options. Cloudkill is decent, but\n\t\t\t\tHunger of Hadar will frequently be both easier to use and more\n\t\t\t\teffective."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Form of Dread"
+              },
+              {
+                "type": "text",
+                "text": ": A great combat buff, and, as\n\t\tyou add subclass features, you’ll gain additional benefits. At this level it\n\t\tadds temporary hp (the temporary hit points expire when Form of Dread ends\n\t\tsince you get them “while transformed”) and the ability to make the target\n\t\tFrightened of you, allowing you to repeatedly debuff one creature per turn.\n\t\tThe target does get a save, and, weirdly, the text doesn’t specify a save DC,\n\t\tso I assume that it uses your spell save DC like everything else.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "With a Bonus Action activation time, it’s easy to turn this on when you\n\t\t\tneed it without cutting into your Eldritch Blast time. Since it grants\n\t\t\ttemporary hit points and immunity to fear, it’s a great option after\n\t\t\tyou’ve taken damage or if you’re currently Frightened (becoming immune to\n\t\t\ta condition removes the condition). If you’re not worried about those\n\t\t\tconditions, it’s great to activate it early in a fight to keep\n\t\t\tan enemy perpectually Frightened."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since your number of uses per day for Form of Dread is tied to your\n\t\t\tProficiency Bonus, you can technically use it back-to-back, reactivating\n\t\t\tit immediately after it expires, or using it in back-to-back encounters. I\n\t\t\tdon’t recommend this until your Proficiency Bonus improves a bit,\n\t\t\totherwise you’ll get through the first few encounters in a day and find\n\t\t\tyourself short on resources."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grave Touch"
+              },
+              {
+                "type": "text",
+                "text": ": While not using Form of\n\t\tDread, Grave Touch is minimally impactful. Changing the damage type of one\n\t\tattack per turn usually won’t make a big difference, especially if you’re\n\t\tusing Eldritch Blast (while necrotic damage isn’t as good as Force damage,\n\t\tit’s still one of the best damage types in the game). If you’re using a\n\t\tweapon, changing your damage type from slashing etc. to necrotic can help\n\t\tovercome common damage resistances to weapon damage types, but resistance to\n\t\tmagic weapon damage is almost non-existent, and with Improved Pact Weapon\n\t\tyou’re guaranteed to have a magic weapon if you’re building around Pact of\n\t\tthe Blade.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The improvement to Form of Dread is more significant. An additional\n\t\t\tdamage die once on one each of your turns is only a minor boost. An\n\t\t\textra d10 once per turn with Eldritch Blast is a reliable damage\n\t\t\timprovement to your DPR, especially as you add additional attacks because\n\t\t\tyou have more opportunities to apply the once-per-turn damage boost, but\n\t\t\tit’s still only 1d10 per turn. The damage boost is worded as “extra\n\t\t\tdamage”, so it’s multiplied on critical hits like Divine Smite, Sneak\n\t\t\tAttack, and other similar damage boosts. Since you only benefit from this\n\t\t\tboost while using Form of Dread (which you can only use a few times per\n\t\t\tday), you’re working with core Warlock class features the rest of the\n\t\t\tday."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The ability to change an attack’s damage type once per turn appears to\n\t\t\taffect all of the attack’s damage types, so if you have multiple damage\n\t\t\ttypes, such as Force from Eldritch Blast and Fire from Spirit Shroud, you\n\t\t\twould change both damage types to Necrotic. Since this options is once per\n\t\t\tturn, you can also use it for Opportunity Attacks."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Necrotic Husk"
+              },
+              {
+                "type": "text",
+                "text": ": The damage resistance is\n\t\tnice, but necrotic damage isn’t especially common unless you’re facing a lot\n\t\tof undead enemies. The second half of the feature is more interesting: The\n\t\tdamage is decent, though not enough to win a fight, but the AOE is respectable, and\n\t\tit’s enough that you may be able to eliminate weakened foes. The 1d4-long-rests\ncooldown is odd, but probably not a problem unless you’re frequently\n\t\tbeing reduced to 0 hit points. If that’s the case, you should reconsider\n\t\tyour tactics. You’re not a Defender. The Exhaustion is annoying, but one\n\t\tlevel of Exhaustion is minimally impactful for most spellcasters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spirit Projection"
+              },
+              {
+                "type": "text",
+                "text": ": Where Form of Dread is\n\t\ta dedicated combat buff with a small usage pool, Spirit Projection is a\n\t\tonce-per-day combination of defense, utility, and combat buff. It provides a\n\t\tcombination of exciting effects with a variety of uses, and combining Spirit\n\t\tProjection with Form of Dread can be exceptionally powerful.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While using Spirit Projection, you need to keep track of both your body\n\t\t\tand your spirit. Your spirit doesn’t duplicate your equipment, which I\n\t\t\tthink RAW means that your spirit is a spiritual projection of yourself in\n\t\t\tthe nude. Fortunately, I think you can loot your own body to get your\n\t\t\titems, though it’s not totally clear to me if that’s intentional. Just\n\t\t\tkeep in mind that you have a time limit, so it may save you time to strip\n\t\t\tyourself naked before activating Spirit Projection. Remember when facing\n\t\t\tinclement conditions like extreme cold, your spirit doesn’t get any sort\n\t\t\tof protection, so your body and your spirit may both need separate outfits\n\t\t\tto keep yourself from suffering the effects of the climate."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You don’t need to breath thanks to Grave Touch, so you can shove your\n\t\t\tbody into a bag of holding if you need a safe place to store it. If you’re\n\t\t\tlow on hit points or otherwise need to get out of a bad spot, you can\n\t\t\tteleport back to your body to escape to safety."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While projected, you have resistance to weapon damage types, making you\n\t\t\texceptionally resilient. Combined with resistance to necrotic damage and\n\t\t\tpotentially damage resistances from other sources (your race, items, etc.)\n\t\t\tyou can be alarmingly durable for a warlock. However, you need to maintain\n\t\t\tConcentration to maintain Spirit Projection, and without proficiency in\n\t\t\tConstituton saves that’s a hard prospect even with damage resistances."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You effectively have a built-in spellcasting focus for Conjuration and\n\t\t\tNecromancy spells, though if you looted your body that’s probably not\n\t\t\timpactful. You can fly and move through objects similar to the Etheralness\n\t\t\tspell, allowing you to scout, inflitrate, and escape in ways that normally\n\t\t\trequire extremely high-level spells. With proficiency in Stealth, you can\n\t\t\tbe an extremely effective scout."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The final bullet provides a way to heal yourself by dealing damage, but\n\t\t\tit only works while combining both Spirit Projection and Form of Dread.\n\t\t\tYou heal for half of the necrotic damage dealt, so use Grave Touch to\n\t\t\tchange the damage type and add extra damage like Eldritch Smite if you\n\t\t\tneed more healing in a hurry. If you’re close to the end of Spirit Projection\n\t\t\tand you’re short on hit points, consider activating Form of Dread and digging\n\t\t\tout your bag of rats to give you easy targets to farm hit points."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Undead Warlock Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Undead Warlock Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Undead Warlock Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Undead Warlock Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Undead Warlock Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Undead Warlock Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Build – Ghosts with Guns",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Form of Dread’s Fear effect, Grave Touched’s damage bonus, and Spirit Projection’s hp theft all depend on you hitting with attack rolls. This means that we have two build options: a Pact of the Blade build or yet another Eldritch Blast build. Even with Thirsting Blade and Crossbow Expert, Pact of the Blade’s number of attacks is outpaced by Eldritch Blast without relying on your Bonus Action which will frequently be used for Form of Dread or Hex."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So let’s try something super weird: We’re going to build around Gunner. Grave Touched provides an extra damage die once per turn, so a d10 weapon like a heavy crossbow or a d12 weapon like a musket is perfect. We can’t use a musket unless we find a magic one (even with the Gunner feat), but we want to be able to use ranged weapons effectively in melee."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sure, we could build yet another Eldritch Blast build, but that’s been done so many times that "
+            },
+            {
+              "type": "link",
+              "text": "we’re literally using it as a formula",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/#lets-talk-damage"
+            },
+            {
+              "type": "text",
+              "text": " to show common DPR progressions. So, instead, we’re going to grab a heavy crossbow and try to do as much damage with a single hit as possible so that we can heal ourselves with Spirit Projection for an absurd amount."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When we have all of our buffs running, our DPR easily exceeds an Eldritch Blast build from levels 4 through 20, but this build is extremely resource-hungry, relying on the Aasimar’s daily transformation, Form of Dread, Eldritch Smite, and potentially Spirit Shroud. You can still exceed the DPR of Eldritch Blast builds without the Aasimar transformation, but the gap isn’t as big."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This also requires us to largely neglect our spellcasting, so you’ll need to avoid spells that allow saving throws. Instead, look for buffs and utility options, but be cautious about spending spell slots since we’re relying on Eldritch Smite."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, 5e has very few mechanics which further capitalize on the Frightened status condition. The only example I know of is "
+            },
+            {
+              "type": "link",
+              "text": "Oath of Conquest",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll put our racial +2 into Dexterity and our +1 into Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re leaning into a crazy idea here, so let’s go with a crazy race. Custom Origin Fallen Aasimar (the version from Volo’s Guide to Monsters). The MotM version will work, too, but Necrotic Shroud’s damage got a major nerf."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drow Half-Elf is another strong contender here. Faerie Fire and Darkness as innate spells both provide additional sources of Advantage without cutting into our class resources, and access to Elven Accuracy is extremely tempting alongside Eldritch Smite."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not especially important to the build. Pick an easy Warlock option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You’re a warlock, so you’re probably going for Face skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 4 we take Gunner. The +1 Dexterity gets us to 18, then we add Improved Pact Weapon and we’re ahead of the Fundamental Math. Note that we can still only use a firearm as our pact weapon if we find one that’s permanently magic. More on that below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 8 we take Sharpshooter for the damage boost."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 12 we take Fighting Initiate to get Fighting Style (Archery)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 16 we take +2 Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 19 we finally remember that we’re a spellcaster and increase our Charisma."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otherworldly Patron: The Undead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Form of Dread"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Armor of Agathys"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hex"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eldritch Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re basically a normal warlock at this level. Armor of Agathys to pad our hit points, Hex for damage, Eldritch Blast to serve as our go-to offensive option until we can use a musket effectively."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Form of Dread gives us a little bit of control, but the action cost instead of casting Hex does cut into our DPR. You’ll need to weigh which to use based on individual encounters. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Agonizing Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Devil’s Sight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Agonizing Blast is temporary, I promise. Devil’s Sight is so that we can abuse Darkness."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Necrotic Shroud"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Boon: Pact of the Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Agonizing Blast -> Improved Pact Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Darkness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is a great level. We get our Aasimar transformation, our pact, and we get to retrain into Improved Pact Weapon. Use a crossbow very briefly until we get Gunner at level 4."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Put Darkness on a rock in your pocket. Pull it out as an item interaction, then shoot people from your nice, safe ball of Darkness. Guaranteed Advantage. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "From here onward, juggling all of our turn 1 buffs becomes a problem. Form of Dread is a Bonus Action. Necrotic Shroud is an Action. We could reasonably use another Bonus Action buff at the start of our next turn, but if we already have Darkness running, there’s little reason to spend another spell slot just to get Advantage a different way or to reduce our accuracy in favor of a damage boost like Hex or Spirit Shroud."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our Concentration also becomes a problem. We need to constantly decide between something that gets us Advantage or something which adds damage or does something else useful, but we’ll default to getting Advantage by some means."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Gunner (Dex 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grab your +1 heavy crossbow and get to work."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Gunner gets us to 18 Dexterity and allows us to make ranged attacks in melee without suffering Disadvantage. This is helpful throughout our career, but becomes especially useful once we get Spirit Projection at level 14 and start actively trying to fight in melee."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Note that we can still only use a firearm as our pact weapon if we find one that’s permanently magic. Improved Pact Weapon doesn’t solve that limitation. If that’s not a possibility in your game, you might take Piercer here instead. Piercer will be less impactful once we get Grave Touched and half of our attacks are dealing Necrotic damage, but it’s still a minor boost to our second attack once we get Thirsting Blade, and since we’re almost always rolling with Advantage we’ll crit more often than most characters."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "From here on, we’ll start tracking some numbers to measure our effectiveness. This will assume that we have Form of Dread and Necrotic Shroud running. If you need to start both of those on turn 1, you’re giving up a full turn of damage output to do it, and that’s generally a bad thing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Biggest single attack: 1d10 + 4 Dex + 4 Necrotic Shroud + 1 Improved Pact Weapon: 1d10+9 (avg. 14.5)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 11.18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 14.74"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thirsting Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Spirit Shroud"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We buy ourselves Extra Attack. We deserve it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spirit Shroud is the biggest damage boost that we’ll get from a spell. The DPR improvement is surprisingly close to what we get from Advantage on our attacks at this level. Of course, the gap widens over time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Biggest single attack: 1d10 + 1d8 Spirit Shroud + 4 Dex + 5 Necrotic Shroud + 1 Improved Pact Weapon: 1d10+1d8+10 (avg. 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 23.75"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 31.30"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Spirit Shroud (1d8): 30.50"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grave Touched"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Speak with Dead"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grave Touched gives us a damage boost when we’re in Form of Dread and changes an attack’s damage type to necrotic. The additional d12 of damage once per turn boosts our DPR by nearly 7, which is more than I expected when I went into this build."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Speak with Dead is a great utility option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Biggest single attack: 2d10 + 1d8 Spirit Shroud + 4 Dex + 6 Necrotic Shroud + 1 Improved Pact Weapon: 2d10+1d8+11 (avg. 25.5)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 32.12"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 41.80"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Spirit Shroud (1d8): 38.87"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eldritch Smite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Improved Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I normally avoid Eldritch Smite because it’s an expensive use of a spell slot, but we’re looking for massive damage on a single attack to eventually heal ourselves with, so we’re taking it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our DPR calculations, we’ll assume that we only use Eldritch Smite on a crit. I will include it in the “biggest single hit” calculation for when we get Spirit projection."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sure, you could use Shadow of Moil and be hard to hit. Or you could cast Improved Invisibility and be hard to target and still get the offensive advantages. Or you could continue to run around in your mobile sphere of Darkness, which has 10 times the duration for the same spell slot cost. But it might minorly inconvenience your allies, of course. Be a good team player."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Biggest single attack: 2d10 + 1d8 Spirit Shroud + 5d8 Eldritch Smite + 4 Dex + 7 Necrotic Shroud + 1 Improved Pact Weapon: 2d10+6d8+23 (avg. 51)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 38.02"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 52.40"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Spirit Shroud (1d8): 44.77"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sharpshooter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have several methods to get Advantage consistently, plus the +1 enhancement bonus from Improved Pact Weapon, so we’re mostly comfortable being a tiny bit behind the Fundamental Math. But we also have some complicated calculations."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sharpshooter is a huge damage boost, but the accuracy cost actually makes our DPR "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "worse"
+                },
+                {
+                  "type": "text",
+                  "text": " unless we have Advantage, especially since we’re now matching the Fundamental Math even with our weapon’s +1."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Biggest single attack: 2d10 + 1d8 Spirit Shroud + 5d8 Eldritch Smite + 4 Dex + 8 Necrotic Shroud + 1 Improved Pact Weapon + 10 Sharpshooter: 2d10+6d8+23 (avg. 61)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 34.57"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 56.63"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Spirit Shroud (1d8): 42.67"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sculptor of Flesh"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sculptor of Flesh is a bit of a panic option. If you get into combat and aren’t set up to succeed (Darkness in your pocket, etc.), activate Form of Dread as a Bonus Action, then cast Polymorph as your Action and turn into a T-Rex. Then you get to be an extra scary T-rex! Form of Dread is a buff, and like any other buff, it persists when you change forms."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spirit Shroud improves to 2d8 at this level. It still doesn’t keep pace with Advantage from concentrating on a different spell, especially since Eldritch Smite also improves with a new spell slot level, so critting becomes even more impactful."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, this is the last significant DPR jump for a while. Necrotic Shroud keeps improving our DPR every level, but not by much. Spirit Shroud is clearly falling well behind anything that provides Advantage, so I’ll stop including it in the DPR calculations."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Biggest single attack: 2d10 + 2d8 Spirit Shroud + 6d8 Eldritch Smite + 4 Dex + 9 Necrotic Shroud + 1 Improved Pact Weapon + 10 Sharpshooter: 2d10+7d8+23 (avg. 71)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 36.27"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 59.67"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Spirit Shroud (2d8): 44.37"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Necrotic Husk"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Necrotic Husk is purely defensive, so it has no impact on our tactics."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Any "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We don’t need our Mystic Arcanum offensively, so this is a great build for Create Undead. Get yourself some ghouls to stand between you and enemies until you get Spirit Projection at level 14 and turn into a tank."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get our third spell slot at this level, which feels great."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Dexterity 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Lifedrinker"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We haven’t increased our Charisma at all, but +3 damage from Lifedrinker is still great. Between that and a feat or ASI at this level, we get a huge jump in DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We now need to decide between Fighting Initiate to get Fighting Style (Archery) or +2 Dexterity. Whichever you pick, plan to take the other at level 16."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Biggest single attack: 2d10 + 2d8 Spirit Shroud + 6d8 Eldritch Smite + 4 or 5 Dex + 12 Necrotic Shroud + 1 Improved Pact Weapon + 10 Sharpshooter +3 Lifedrinker: 2d10+8d8+27 (avg. 72 or 73)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Fighting Style (Archery):"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 48.35"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 74.67"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With +2 Dex:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 45.23"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 71.98"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Archery is the winner, but not by a ton. Plan to take Archery now and +2 Dex at level 16 unless you find yourself making a lot of skill checks which require Dex, or feel frustrated with your relatively low AC."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Forcecage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Use Forcecage to put enemies in time out so you can shoot their friends first."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spirit Projection"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A huge buff. Separating your spirit and body for an hour makes you very durable, then you get on-hit healing, too. The healing is once per turn and only when you deal Necrotic damage, which is convenient because we can turn one attack into Necrotic damage each turn. It’s like they planned that or something…"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In all seriousness, this is what we’ve been building toward. We have just over 100 hp on average, and, with an average of 76 damage on our biggest single attack, we can heal roughly 3/4 of our hit point maximum in one attack. Between that and resistance to weapon damage types, you’re suddenly exceptionally durable."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Biggest single attack: 2d10 + 2d8 Spirit Shroud + 6d8 Eldritch Smite + 4 Dex + 14 Necrotic Shroud + 1 Improved Pact Weapon + 10 Sharpshooter: 2d10+8d8+29 (avg. 74)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Realistically, you’re not going to use Spirit Shroud. Instead, you’re probably running something that gets you Advantage on attacks because the DPR is so much better. You’re probably also not using Eldritch Smite every turn. That does drop our expected damage per big hit to just 40. But if you told a Fighter that they could heal for 40 hp every turn for a full minute several times per day, they would probably sell their soul to a dubious undead creature, too."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 55.64"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 83.13"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re still getting any mileage out of Polymorph, you can make your bite deal 5d12+7 necrotic damage and heal yourself for that amount, which should keep you in Polymorph at least through the 1-minute duration of Form of Dread, provided that you don’t lose Concentration."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Glibness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shroud of Shadow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re a little light on Charisma compared to other warlocks, so Glibness is a nice improvement to our Charisma checks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Use Shroud of Shadow to turn invisible until you find enemies. Activate Form of Dread and Necrotic Shroud while you’re invisible, then cast Shadow of Moil as a Bonus Action and start shooting."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Dexterity 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another DPR increase, but it’s not a big jump on top of Necrotic Shroud steadily increasing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR: 57.84"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage: 86.32"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Foresight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We stuck it out long enough to get 9th-level spells, and Foresight is absolutely worth the wait. For 8 hours, we get Advantage on stuff and enemies get Disadvantage to hit us. No more juggling Darkness or Improved Invisibility or whatever else. With our Concentration free, we can now justify using Spirit Shroud to add another 2d8 damage to our attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Advantage and Spirit Shroud (2d8): 104.02"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This doesn’t quite get us to “Dude Stop” DPR, but we get pretty close."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this point there is very little that we need from the Warlock, so now is a great time to multiclass. Champion Fighter does great things for this build. If you plan this dip ahead of time, you can skip Fighting Initiate at level 12. One level gets us a Fighting Style. Two gets us Action Surge. 3 gets us Improved Critical, which becomes our 20th-level capstone, jumping our DPR from 108.81 to 123.31."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Charisma 16 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally a Charisma increase!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Literally always a disappointing capstone."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Undead Warlock Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Form of Dread"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Grave Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Necrotic Husk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spirit Projection"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"1\"><span class=\"rating-blue\">Form of Dread</span>: A great combat buff, and, as you add subclass features, you’ll gain additional benefits. At this level it adds tempora"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"6\"><span class=\"rating-green\">Grave Touch</span>: While not using Form of Dread, Grave Touch is minimally impactful. Changing the damage type of one attack per turn usua"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[5]",
+      "detail": "<li value=\"14\"><span class=\"rating-blue\">Spirit Projection</span>: Where Form of Dread is a dedicated combat buff with a small usage pool, Spirit Projection is a once-per-day combi"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-example-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-6"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4714,
+    "sections": 17,
+    "blocks": 34,
+    "tables": 2,
+    "ratingSignals": 15
+  },
+  "status": "needs-editorial-review"
+}

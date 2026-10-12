@@ -1,0 +1,172 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-transmutation-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-transmutation-2014-draft1",
+    "sourceRevisionId": "rpgbot-691b13b488a88cd1-e11b98f88e3de8bc"
+  },
+  "exampleSection": "section-example-build-polymorph-into-a-problem",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_TRANSMUTATION",
+  "raceKey": "DWARF_2014",
+  "backgroundKey": "SAGE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 15,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {"level":2,"subclassKey":"SCHOOL_OF_TRANSMUTATION","spells":{"spellbookKeys":["jump","longstrider"]}},
+    {"level":3,"spells":{"spellbookKeys":["darkvision","maximilians-earthen-grasp"]}},
+    {"level":4,"abilityScoreIncrease":[{"ability":"INT","amount":2}],"spells":{"spellbookKeys":["knock","levitate"]},"openSpellPicks":[{"category":"cantrips","count":1}]},
+    {"level":5,"spells":{"spellbookKeys":["fireball","slow"]}},
+    {"level":6,"spells":{"spellbookKeys":["fly","tiny-servant"]}},
+    {"level":7,"spells":{"spellbookKeys":["polymorph","fire-shield"]}},
+    {"level":8,"abilityScoreIncrease":[{"ability":"CON","amount":1},{"ability":"INT","amount":1}],"spells":{"spellbookKeys":["fabricate","stone-shape"]}},
+    {"level":9,"spells":{"spellbookKeys":["animate-objects","telekinesis"]}},
+    {"level":10,"openSpellPicks":[{"category":"cantrips","count":1},{"category":"spellbook","count":2}]},
+    {"level":11,"spells":{"spellbookKeys":["contingency","create-homunculus"]}},
+    {"level":12,"featKey":"RESILIENT","featOptions":[{"optionNameEng":"Resilient (Constitution)"}],"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":13,"spells":{"spellbookKeys":["draconic-transformation","reverse-gravity"]}},
+    {"level":14,"spells":{"spellbookKeys":["simulacrum"]},"openSpellPicks":[{"category":"spellbook","count":1}]},
+    {"level":15,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":16,"featKey":"METAMAGIC_ADEPT","openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":17,"spells":{"spellbookKeys":["true-polymorph","wish"]}},
+    {"level":18,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":19,"featKey":"WAR_CASTER","openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":20,"openSpellPicks":[{"category":"spellbook","count":2}]}
+  ],
+  "incomplete": [
+    {
+      "field": "Четверте замовлення",
+      "reason": "Автор називає чотири замовляння (Вогняний заряд, Розщеплення Розуму, Штукарство, Формування води), а Чарівник 1-го рівня знає три; платформа залишила перші три, четверте (Формування води) можна змінити замість будь-якого з них.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Обмін володінь зброєю на інструменти",
+      "reason": "Автор за правилами власного походження обмінює 4 володіння зброєю Пагорбового дворфа на інструменти; пресет не записує володіння зброєю й інструментами, тому ця заміна не застосована.",
+      "section": "section-race"
+    },
+    {
+      "field": "Три заклинання «будь-які»",
+      "reason": "Автор називає лише Катапульту, Удаване життя й Пошук фамільяра, а решту трьох заклинань книги лишає на вибір; їх обрала платформа.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання й замовляння «будь-які»",
+      "reason": "Нове замовляння 4-го рівня «будь-яке», замовлення 10-го рівня автор не згадує, а на рівнях 10, 12, 14, 15, 16, 18, 19 і 20 частина заклинань книги «будь-яка»; це вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Істинне перевтілення або Перекидання",
+      "reason": "На 17-му рівні автор називає Істинне перевтілення «або» Перекидання; записано перше назване (Істинне перевтілення).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Адепт метамагії",
+      "reason": "На 16-му рівні автор бере Адепта метамагії (Пришвидшене й Приховане заклинання); риса не має опцій у каталозі (BUG-O49-METAMAGIC-ADEPT), тому метамагію слід обрати вручну.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Майстерність заклинань і Підписні заклинання",
+      "reason": "На 18-му рівні автор обирає «будь-які» два заклинання, на 20-му — «будь-які» підписні заклинання; платформа не записує ці вибори.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-transmutation-2014.webp",
+    "title": "Чарівник Школи трансмутації — Пагорбовий дворф",
+    "description": "Пагорбовий дворф зі змінюваним походженням: Інтелект 17, Статура 16, додаткові ХП і стійкість до отрути. Удаване життя й Пошук фамільяра в книзі.",
+    "subraceKey": "DWARF_HILL_2014",
+    "racialAbilities": [
+      "INT",
+      "CON"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INVESTIGATION",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DRACONIC"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "mind-sliver",
+        "prestidigitation"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "catapult",
+        "false-life",
+        "find-familiar",
+        "absorb-elements",
+        "magic-missile",
+        "shield"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "catapult",
+        "find-familiar",
+        "magic-missile",
+        "shield"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Автор називає чотири замовляння, а Чарівник 1-го рівня знає три: платформа залишила перші три за порядком автора, четверте (Формування води) можна змінити замість будь-якого з них. Катапульту, Удаване життя й Пошук фамільяра обрав автор; решту трьох заклинань книги (Поглинання стихій, Магічний дротик і Щит, які автор радить як звичні варіанти) і початкову підготовку чотирьох заклинань ми обрали за вас.",
+      "platformChoices": [
+        "classCantrips",
+        "spellbook",
+        "preparedSpells"
+      ]
+    },
+    "abilityExplanation": "Пагорбовий дворф із власним походженням за правилами Таші: +2 до Інтелекту й +1 до Статури, як у таблиці автора (Інтелект 17, Статура 16); це вже враховано.",
+    "skillExplanation": "Автор радить «будь-які 4 навички»: Магію та Історію дає Мудрець, а Розслідування й Релігію від класу ми обрали за вас. Дві мови від Мудреця ми теж обрали за вас.",
+    "equipmentExplanation": "Автор радить кинджал, мішечок із компонентами або фокус, будь-який набір і книгу заклинань. Кинджал, мішечок із компонентами й набір ученого ми обрали за вас; їх можна змінити."
+  }
+}

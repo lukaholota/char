@@ -1,0 +1,1724 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-95c20bb6267243d9",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+      "sourceId": "rpgbot-95c20bb6267243d9",
+      "fetchedAt": "2026-09-29T19:18:04.503700+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:29:27-04:00",
+      "contentHash": "ac4fa61697a5166ff75aa5cf72aa0f7562bff3df3e9d03039b80b35ad6f63672",
+      "title": "Arcana Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-arcana-domain-2014",
+    "sourceId": "rpgbot-95c20bb6267243d9",
+    "slug": "cleric-arcana-domain-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен магії — гайд підкласу Клірика (2014)",
+    "titleEn": "Arcana Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен магії",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик домену магії запозичує в Чарівника деякі утилітарні заклинання й навички, що дає Клірикові чимало справді чудових утилітарних і підтримувальних можливостей. Доступ до замовлянь Чарівника, нехай навіть обмеженої кількості, дає домену магії легкий доступ до типів шкоди замовлянь, що виходять за межі некротичної та променевої шкоди, які зазвичай є основою арсеналу Клірика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви також додаєте низку заклинань з рівнями, що охоплюють широкий спектр варіантів: наступальні підсилення, утилітарні заклинання, атакувальні заклинання та ворожіння для розвідки, а на високих рівнях можете назавжди обрати чотири заклинання Чарівника й додати їх до свого списку заклинань. Уміння підкласу додають володіння ще однією навичкою й додаткові замовляння, розширюючи ваші можливості на багато ладів і дозволяючи легше виконувати в групі ролі ученого{{Scholar}} й утилітарного заклинача{{Utility Caster}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо вам по-справжньому подобається чаротворство, домен магії — чудовий вибір: він поєднує живучість, лікування й підтримку Клірика з дещицею утилітарних можливостей Чарівника. Це чудовий варіант, якщо вам важко обрати між арканним заклинателем на кшталт Чарівника й божественним заклинателем на кшталт Клірика. Якщо ви більше схиляєтеся до арканного заклинателя, схожу нішу посідає "
+                },
+                {
+                  "type": "link",
+                  "text": "Чародій Божественної душі",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З погляду механіки єдина складність домену магії — обрати правильні заклинання Чарівника, які запозичити на 1-му й 17-му рівнях. Усі обрані заклинання стають для вас заклинаннями Клірика, тож ви не стикаєтеся з жодними труднощами, які накладають варіанти на кшталт «Посвяченого у магію»{{Magic Initiate}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клірика домену магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клірика домену магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клірика домену магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клірика домену магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клірика домену магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клірика домену магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Клірика домену магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клірика домену магії — Соліст",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клірика домену магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клірика домену магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/arcana-domain/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клірика домену магії",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: Кілька дуже добрих варіантів, зокрема чудові утилітарні заклинання, і всі вони запозичені зі списку заклинань Чарівника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Виявлення магії [Detect Magic] — одне з найкорисніших і найважливіших заклинань Ворожіння в грі, і оскільки воно у вас завжди підготовлене, ви завжди можете накласти його як ритуал. Магічний дротик [Magic missile] — фантастичний надійний варіант шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Магічна зброя [Magic Weapon] — добре підсилення, якщо вашій групі потрібна магічна зброя, щоб подолати опір до шкоди, а ви ще жодної не знайшли. Проте воно потребує Концентрації, а у Клірика вже й так купа чудових підсилень на Концентрації, як-от Благословення [Bless], що можуть бути числово ефективнішими."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Розвіювання магії [Dispel Magic] — надзвичайно важливий інструмент, але Магічне коло [Magic Circle] дуже ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Арканне око [Arcane eye] — фантастичний спосіб розвідати місця, які може бути важко чи небезпечно досліджувати особисто. Таємна скриня Леомунда [Leomund's Secret Chest] — дивний варіант, яким багато хто мало користується, але це чудовий спосіб зберігати цінні чи небезпечні предмети, як-от предмети для завдань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Планарне поневолення [Planar Binding] дуже ситуативне. Допомогу з ним шукайте в моєму "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Практичному гайді із заклинань виклику",
+                    "href": "https://rpgbot.net/dnd5/characters/summoning.html#planar-binding"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Коло телепортації [Teleportation Circle] — чудовий варіант телепортації, якщо ви знаєте достатньо пунктів призначення, але здебільшого його замінить Планарний перехід [Plane Shift], щойно ви зможете накладати заклинання 7-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Арканний адепт{{Arcane Initiate}}: Безкоштовна навичка й "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "два"
+                  },
+                  {
+                    "type": "text",
+                    "text": " замовляння! У Чарівників дуже різноманітний набір варіантів із чудовими ефектами. Не відчувайте, що вам треба одразу бігти до варіантів шкоди, хоч вони безперечно спокусливі. Утилітарні замовляння мають що запропонувати, особливо такі, як Штукарство [Prestidigitation] і Формування води [Shape Water]. Якщо ж ви обираєте наступальні варіанти, беріть ті, що розширюють ваші типи шкоди, як-от Розщеплення Розуму [Mind Sliver], або ті, що покращують ваші атаки зброєю ближнього бою, як-от Гримучий Клинок [Booming Blade], якщо плануєте битися в ближньому бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Арканне відганяння|Channel Divinity: Arcane Abjuration}}: Ситуативно, але потойбічні істоти (Небожителі, Елементалі, Феї та Почвари) — дуже поширені вороги, що становлять величезну частку «Бестіарію»{{Monster Manual}}. Це впливає лише на одну ціль, тож зазвичай варто застосовувати його на найбільшу істоту в кімнаті, навіть якщо ви не можете її вигнати. Ефект вигнання жахливий, зважаючи на те, як легко мало б бути вбити істот, на яких він діє. Він задуманий як відповідник здатності знищувати нежить низького рівня, але оскільки «Арканне відганяння» діє на одну ціль, а не по області, воно ледве варте уваги."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ламання заклять{{Spell Breaker}}: Якщо у вас підготовлене Цілюще слово [healing word] (а воно має бути), ви можете підняти його рівень до такого, що дозволить зняти будь-який дебаф бонусною дією. Треба зняти заклинання з кількох союзників? Спробуйте Масове цілюще слово [Mass Healing Word]. На жаль, це стосується лише заклинань, а ворожі заклинателі становлять невелику частку істот, з якими ви зіткнетеся в типовій кампанії, тож це корисно лише ситуативно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Потужне заклинання{{Potent Spellcasting}}: Це й так чудово для більшості Кліриків, але особливо добре для Клірика домену магії, бо ваші два замовляння Чарівника вважаються замовляннями Клірика, тож вони теж отримують бонусну шкоду! Якщо ваші замовляння вражають кілька цілей (що вже можливо для Клірика завдяки Слову сяйва [Word of Radiance]), ця бонусна шкода застосовується до всіх. У Кислотних бризок [Acid splash] бонус діє на обидві цілі, а якщо ви використовуєте Клинок Зеленого Полумʼя [Green-Flame Blade], Джеремі Кроуфорд "
+                  },
+                  {
+                    "type": "link",
+                    "text": "підтвердив у Twitter",
+                    "href": "https://twitter.com/JeremyECrawford/status/756203803339173888"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", що бонус спершу застосовується до другої цілі, а щойно ви досягнете 5-го рівня й Клинок Зеленого Полумʼя [Green-Flame Blade] додає вогняну шкоду до вашої атаки зброєю — до обох цілей. Конкретної відповіді я не знайшов, але припускаю, що те саме стосується Гримучого Клинка [Booming Blade], тож бонус до шкоди застосовується і при початковому влученні, і до вторинної шкоди, якщо ціль зрушить з місця."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Арканне оволодіння{{Arcane Mastery}}: Це абсурдно універсально. Кількість потенційних варіантів величезна. Ви, очевидно, оберете Бажання [Wish] як заклинання 9-го рівня (див. мій "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Практичний гайд із Бажання",
+                    "href": "https://rpgbot.net/dnd5/characters/wish"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), а для інших рівнів заклинань дивіться мій "
+                  },
+                  {
+                    "type": "link",
+                    "text": "розбір списку заклинань Чарівника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Бажання [Wish] можна використати для будь-яких ситуативних заклинань чи заклинань із дорогими компонентами (напр., Клон [Clone]), тож для заклинань 6-го, 7-го й 8-го рівнів тримайтеся заклинань, якими зможете користуватися часто."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Клірика домену магії",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "стандартного Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Клірика домену магії",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "стандартного Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#races"
+                },
+                {
+                  "type": "text",
+                  "text": ". Раса з вродженим чаротворством тематично доречна, але домен магії нічого додаткового від таких рас не отримує."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Клірика домену магії",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "стандартного Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Клірика домену магії",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "стандартного Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ". Домен магії зосереджений на чаротворстві, тож цілком імовірно, що ви ніколи не користуватиметеся зброєю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Клірика домену магії",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "стандартного Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": ". Домен магії не дає важких обладунків, тож беріть {{напівлати|half plate}} і щит."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Клірика домену магії",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "стандартного Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Клірика домену магії — Соліст",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірики — клас, що може виконувати майже будь-яку роль у групі, але зазвичай не всі одразу. Тож зробімо так, щоб усі одразу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нагадаю пояснення ролей у групі з нашого "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичного гайда зі складу групи",
+                  "href": "https://rpgbot.net/dnd5/players/party-composition/"
+                },
+                {
+                  "type": "text",
+                  "text": ":"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Нюкер: шкодить усім. Це забезпечать Полумʼяний удар [Flame Strike], Вогняний шторм [Fire Storm] і Сонячний спалах [Sunburst]. На жаль, вони зʼявляються не раніше 9-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Контролер: контролює поле бою та/або істот. Клірики мають варіанти контролю натовпу, як-от Наказ [Command], уже з 1-го рівня, а згодом отримують і такі, як Клинковий барʼєр [Blade Barrier]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Танк: не дає ворогам шкодити союзникам. Використаємо Кийок [Shillelagh], Гримучий Клинок [Booming Blade] і «Бойового заклинателя»{{War Caster}}, щоб стати «липкими» в ближньому бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Обличчя»: соціальні навички. Клірикові це важко, тож доведеться покладатися на Позичене знання [Borrowed Knowledge] і Покращення здібності [Enhance Ability]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Цілитель: ХП і стани. Ми ж будуємо клірика."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Учений{{Scholar}}: навички на основі Інтелекту. Клірикові це важко, тож доведеться покладатися на Позичене знання [Borrowed Knowledge] і Покращення здібності [Enhance Ability]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розвідник: непомітність, дослідження, пастки. Клірикові це важко, тож по змозі доведеться покладатися на заклинання ворожіння."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Атакер: усунення одиночних цілей. Клірики мають добру шкоду по одній цілі та заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}}, як-от Стримування особи [Hold Person] і Вигнання [Banishment]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сапорт: підсилення. Клірики отримують чудові підсилення, як-от Настанова [Guidance] і Благословення [Bless], уже з 1-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Утилітарний заклинач{{Utility Caster}}: магічне розвʼязання проблем. Протягом карʼєри Клірики отримують кілька чудових утилітарних варіантів, як-от Форма каменю [Stone Shape]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-example-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе це вимагатиме певної творчості, але наше чаротворство покриває чимало. Найбільші виклики — «обличчя», учений{{Scholar}} і розвідник, але з магією й терпінням (хоча здебільшого з магією) навіть їх можна здолати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "І перш ніж ви спитаєте: так, цю збірку можна було б зробити ще одним ботом на основі Духів захисників [Spirit Guardians], але де в цьому веселощі? Давайте розсунемо логічні межі гри іншими способами!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштоване походження{{Custom Origin}} дає лише одне +2."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштоване походження{{Custom Origin}}. Беремо +2 до Мудрості, Темний зір і середній розмір, щоб нас не проковтнули цілком гігантські жаби. Якщо воліте бути малим заради портативності, теж нормально. Мені дуже хочеться взяти навичку замість Темного зору, але Темного зору [Darkvision] немає у списку заклинань Клірика, тож він нам потрібен."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна було б знову обрати Варіант людини{{Variant Human}}, але де в цьому веселощі?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштуємо передісторію. Мудрець{{Sage}} відчувається тематично доречним, але нам дуже потрібні володіння Уважністю й Непомітністю, а жодної опублікованої передісторії з таким набором немає, тож змайструємо власну. Для володінь мовами та інструментами візьмемо інструменти злодія й одну мову."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Магію ми отримуємо безкоштовно на 1-му рівні, Уважність і Непомітність — від передісторії, а Історію й Переконання візьмемо зі своїх двох класових навичок. Це дає пристойне покриття навичок, а прогалини за потреби можна закрити за допомогою Позиченого знання [Borrowed Knowledge]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Приділіть особливу увагу Магії, бо вона, імовірно, робить більше, ніж ви очікуєте. Нею можна і "
+                },
+                {
+                  "type": "link",
+                  "text": "розпізнавати заклинання",
+                  "href": "https://www.dndbeyond.com/sources/xgte/dungeon-masters-tools#IdentifyingaSpell"
+                },
+                {
+                  "type": "text",
+                  "text": ", і "
+                },
+                {
+                  "type": "link",
+                  "text": "створювати сувої заклинань",
+                  "href": "https://www.dndbeyond.com/sources/xgte/downtime-revisited#ScribingaSpellScroll"
+                },
+                {
+                  "type": "text",
+                  "text": ". Якщо у вас достатньо вільного часу, ви"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні беремо «Посвяченого у магію»{{Magic Initiate}} (Друїд) майже виключно заради Кийка [Shillelagh]. Нам треба якось бути добрими зі зброєю, і це єдиний спосіб, що не жахливий. Також візьмемо Настанову [Guidance], щоб заощадити собі слот замовляння Клірика, і Поглинання стихій [Absorb Elements], бо його немає у списку заклинань Клірика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Телекінетика»{{Telekinetic}}. Нам потрібні і +1 до характеристики, і можливість пересувати ворогів бонусною дією."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо «Бойового заклинателя»{{War Caster}}. Перевага на кубику на ряткидках Концентрації — чудова, а можливість вразити ворогів заклинанням як Принагідною атакою ускладнює їм самотужки вийти з ближнього бою з нами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо Покращення Характеристик, щоб довести Мудрість до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо «Стійкого»{{Resilient}} (Статура). Разом із «Бойовим заклинателем»{{War Caster}} наші ряткидки Концентрації будуть надзвичайно надійними. Це також підвищує нашу Статуру до 15."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо «Експерта у навичках»{{Skill Expert}}, щоб отримати +1 до Статури, Експертизу в Переконанні й ще одну навичку на свій вибір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Посвячений у магію (Друїд)\n– Настанова\n– Кийок\n– Поглинання стихій\nБожественний домен: Домен магії\nЗаклинання домену:\n– Виявлення магії\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічний дротик",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/magic-missile/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nЧаротворство\nВідомі замовляння:\n– Світло\n– Дзвін небіжчика\n– Слово сяйва\nАрканний адепт\n– Гримучий Клинок\n– Магічна рука"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1-й рівень, а ми вже затіваємо пустощі. Навіть витівки! Як стартове спорядження беремо булаву, лускатий обладунок, легкий арбалет із болтами, набір священика, а також щит і священний символ{{Holy Symbol}}. Продайте булаву й легкий арбалет. Вони вам ніколи не знадобляться. Купіть палицю, щоб користуватися нею разом із Кийком [Shillelagh]. Настанова [Guidance] дозволяє підсилювати себе на перевірках характеристик, завдяки чому з навичками ми значно ефективніші, ніж були б лише за рахунок власних характеристик. У бою в нас уже купа варіантів. Кийок [Shillelagh] + Гримучий Клинок [Booming Blade] — наш основний вибір проти одиночних ворогів. Слово сяйва [Word of Radiance] робить нас загрозою для натовпів. Дзвін небіжчика [Toll the Dead] працює на відстані. З-поміж заклинань з рівнями беріть основні заклинання кліриків, як-от Благословення [Bless] і Цілюще слово [healing word]. Якщо ви єдиний танк у вашій групі, розгляньте Героїзм [Heroism] або Щит віри [Shield of Faith], щоб підвищити живучість. Якщо хочете великої шкоди на відстані, користуйтеся Магічним дротиком [Magic missile]. Для контролю натовпу — Наказ [Command]. Памʼятайте, що клірики можуть накладати будь-які підготовлені заклинання-ритуали, а що Виявлення магії [Detect Magic] у вас підготовлене завжди, ви завжди можете накласти його як ритуал."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (1/відпочинок)\nБожественність: Арканне відганяння\nВигнання нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні, на жаль, не так багато цікавого."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Магічна зброя\n– Ністулова магічна аура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічна зброя [Magic Weapon] ставить перед нами цікавий вибір. Це чудове підсилення зброї завдяки обмеженій математиці 5e, і триває воно годину. У поєднанні з Кийком [Shillelagh] і Гримучим Клинком [Booming Blade] ви розмахуєте більшим києм, ніж майже будь-хто. Але чи варте воно слота заклинання порівняно з Духовною зброєю [Spiritual Weapon]? Якщо ви чекаєте короткого бою — так, особливо коли у вас лише один-два слоти 2-го рівня. Інакше, можливо, ні. Цей рівень також відкриває доступ до Позиченого знання [Borrowed Knowledge], що дає змогу опанувати навичку на годину, і до Покращення здібності [Enhance Ability]. Разом вони дають і володіння, і Перевагу на кубику, дозволяючи легко виконувати будь-яку роль, залежну від навичок, по годині за раз. Це закриває наші ролі «обличчя», ученого{{Scholar}} й розвідника — три, за які ми хвилювалися найбільше. На цьому рівні воно не варте слотів заклинань, але з набуттям рівнів це виправдати буде легше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Телекінетик (Мудрість 17 → 18)\nНове відоме замовляння:\n– Священне полумʼя"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Телекінетик»{{Telekinetic}} додає ще більше витівок. Якщо поєднати його з нашою надпотужною звʼязкою Кийка [Shillelagh] й Гримучого Клинка [Booming Blade], можна вдарити ворогів, а тоді відсунути їх за межі досяжності «Телекінетичним штовханням»{{Telekinetic Shove}}. Недорогий контроль однієї цілі. Памʼятайте, що через те, що «Телекінетик» займає вашу бонусну дію, Духовною зброєю [Spiritual Weapon] стає важко користуватися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 1/2)\nЗаклинання домену:\n– Розвіювання магії\n– Магічне коло"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня приносять Духів захисників [Spirit Guardians]. Знаю, фу, знову. Але, чесно, Духів захисників [Spirit Guardians] не переплюнеш. Вмикайте його, пірніть у ближній бій, лупіть ворогів Гримучим Клинком [Booming Blade] і використовуйте «Телекінетика», щоб відсувати їх за межі досяжності, залишаючи в області дії заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (2/відпочинок)\nЛамання заклять"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Ламання заклять»{{Spell Breaker}} дозволяє знімати проблемні заклинання із союзників. Якщо їх вразило чимось неприємним, скористайтеся Цілющим словом [healing word] будь-якого потрібного рівня. Стримування особи [Hold Person]? Цілюще слово [healing word] 2-го рівня. Готово."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Арканне око\n– Таємна скриня Леомунда"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканне око [Arcane eye] одразу дозволяє взяти на себе роль розвідника менш небезпечним для себе способом. Це, безперечно, моє улюблене ворожіння: Арканне око [Arcane eye] дає змогу пілотувати своє невеличке невидиме око на великі відстані, заглядаючи куди завгодно й легко пролізаючи крізь вузькі проходи. Серед заклинань 4-го рівня також є Вигнання [Banishment] як «пройди-ряткидок-або-страждай»{{save-or-suck}} і Форма каменю [Stone Shape] для утилітарних потреб."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Бойовий заклинатель",
+                      "href": "https://rpgbot.net/dnd5/characters/feats/war-caster/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nЗнищення нежиті (ПН 1)\nПотужне заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бойовий заклинатель»{{War Caster}} і «Потужне заклинання»{{Potent Spellcasting}} роблять нашу тактику на передовій значно ефективнішою. Якщо вороги спробують вийти за межі нашої досяжності, ми можемо вдарити їх нашим Гримучим Клинком [Booming Blade] з Кийком [Shillelagh] або чимось більшим, як-от Стримування особи [Hold Person] чи Завдання ран [Inflict Wounds]. «Потужне заклинання» писали тоді, коли замовляння завдавали шкоди лише раз, і я вважаю, що задум досі такий. Як Майстер, я б застосовував бонусну шкоду, коли Гримучий Клинок [Booming Blade] влучає вперше, а не до обох — і первинної, і вторинної шкоди, — і не дозволяв би гравцеві обирати. Так чи інакше, ваш Гримучий Клинок [Booming Blade] тепер завдає величезної шкоди, бо ми двічі додаємо Мудрість. Зауважте, що Кийок [Shillelagh] не отримує користі від «Потужного заклинання». Ефект заклинання — змінити предмет; саме замовляння шкоди не завдає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Планарне поневолення\n– Коло телепортації"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня приносять варіанти на кшталт Полумʼяний удар [Flame Strike], що дозволяє нам заповнити роль нюкера в групі. Це не фантастичне заклинання, але воно працює й не їсть Концентрацію. Ми також отримуємо доступ до Виклику небожителя [Summon Celestial], першого бойового виклику Клірика. Викличте друга, що битиметься в ближньому бою, і вам більше не доведеться бути танком групи, якщо не хочете. Заклинання домену в більшості ситуацій мало чим допомагають, але Коло телепортації [Teleportation Circle] — корисний утилітарний варіант, якщо потрібно мандрувати на великі відстані."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне втручання\nНове відоме замовляння:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Серед заклинань 6-го рівня є Клинковий барʼєр [Blade Barrier] — поєднання шкоди по області й контролю області, що дає нам більше варіантів нюкера/контролера."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знову на Фундаментальній математиці!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Серед заклинань 7-го рівня є Вогняний шторм [Fire Storm], що для нас — покращення порівняно з Полумʼяним ударом [Flame Strike]. Шкода не вражає, але форма області значно краща за стовп через дивні правила 5e щодо стовпів. Так чи інакше: більше нюкера!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинань 8-го рівня у Клірика дуже мало, але ми отримуємо і Святу ауру [Holy aura], і Сонячний спалах [Sunburst]. Свята аура [Holy aura] — чудовий захист, а Сонячний спалах [Sunburst] — пристойний варіант шкоди по області."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стійкий (Статура 14 → 15)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння ряткидками Статури робить нашу Концентрацію надзвичайно надійною, що чудово, коли ми топчемося в ближньому бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканне оволодіння\n– 6-й: "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Обачливість",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/contingency/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– 7-й: Силова кліть\n– 8-й: Лабіринт\n– 9-й: "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цей рівень шалений. Ми отримуємо і заклинання 9-го рівня, і можливість обрати кілька заклинань високого рівня зі списку Чарівника. Беремо Бажання [Wish] зі слотом 9-го рівня, бо, звісно ж, беремо. Маючи Бажання [Wish], ми можемо повторити будь-яке заклинання 8-го рівня чи нижче раз на день, тож нам потрібні заклинання 6-го, 7-го й 8-го рівнів, які ми справді хочемо накладати щодня. Тримаємося основних варіантів Чарівника. Вони основні, бо чудові. На цьому етапі збірка функціонально завершена. Якщо плануєте мультикласування, ви втрачаєте дуже мало, окрім гарантованого успіху «Божественного втручання»{{Divine Intervention}} на 12-му рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експерт у навичках\n– Статура 15 → 16\n– Навичка: будь-яка\n– Експертиза: будь-яка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо Позичене знання [Borrowed Knowledge] і Настанова [Guidance] не справляються, допоможе Експертиза. Також ми отримуємо купу додаткових ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращене божественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-001",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-002",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-003",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-004",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-005",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-006",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-007",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Арканний адепт",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-008",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-009",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Ламання заклять",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-010",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Потужне заклинання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-arcana-domain-2014-011",
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Арканне оволодіння",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

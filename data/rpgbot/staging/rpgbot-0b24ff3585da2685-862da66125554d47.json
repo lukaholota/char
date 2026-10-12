@@ -1,0 +1,2314 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "862da66125554d47cef19372daedc8c6e2bc96188367f9cc40570e78ebd16771",
+  "sourceRevision": {
+    "revisionId": "rpgbot-0b24ff3585da2685-862da66125554d47",
+    "sourceId": "rpgbot-0b24ff3585da2685",
+    "fetchedAt": "2026-09-29T19:08:32.898329+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:35:43-04:00",
+    "contentHash": "0a1e3e2624c3027e4ef25f6476e9a096fac651dd8936a2c4597b80d906100894",
+    "title": "Echo Knight Fighter 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-0b24ff3585da2685-862da66125554d47.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Echo Knight almost feels out of place as a fighter subclass, but then again I can’t really think of a better place to put it beyond making a new class and sticking every Gish flavor there. Most other subclasses are some kind of paragon of martial and physical excellence (Eldritch and Rune Knights aside, but they have very tangible, intuitive sources of their power). The Echo Knight is a wild departure. It’s a very "
+            },
+            {
+              "type": "emphasis",
+              "text": "fun"
+            },
+            {
+              "type": "text",
+              "text": " departure, however, and it’s that very distinct flavor that has helped it capture the imaginations of players since its release."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mechanically, Echo Knight is a powerhouse. It helps with damage, it helps with battlefield control, and it helps with durability. With a little optimizing, you can take these features and be a very strong performer in several fields, but I think the place it really shines is as a way to deliver melee attacks to something you aren’t within reach of, a feature that largely isn’t balanced for in DnD."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Echo Knight Fighter Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Echo Knight Fighter Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Echo Knight Fighter Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Echo Knight Fighter Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Echo Knight Fighter Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Echo Knight Fighter Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Dioscuri",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#example-build-dioscuri"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Echo Knight Fighter Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Manifest Echo"
+              },
+              {
+                "type": "text",
+                "text": ": This is the Echo Knight’s\n\t\tsignature feature, and, while it gains some extra stuff over time, the core\n\t\tability never really changes. Get really comfortable using it, because\n\t\tit’s going to take your Bonus Action to recreate if need be for the rest of your career. You\n\t\tcan move your echo for free once per turn in addition to recreating it in a\n\t\tnew place or switching places with it, and unlike moving your own character,\n\t\tyour echo doesn’t have specific movement types so you can move it 30 feet in\n\t\tany direction,\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "including vertically into the air",
+                "href": "https://twitter.com/JeremyECrawford/status/1242507818986422272"
+              },
+              {
+                "type": "text",
+                "text": "!\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Remember that your echo disappears if you move too far away, but it costs\n\t\t\tyou nothing except a Bonus Action to recreate, so in many cases it may be\n\t\t\tmore effective to intentionally walk away from your Echo and recreate it\n\t\t\tthan to try to move it along with you. You can also teleport to switch\n\t\t\tplaces with your echo, allowing you to escape grapples, difficult terrain,\n\t\t\tand bindings with little effort (though it does also cost part of your\n\t\t\tmovement for the turn). There is no limitation on how often you can create\n\t\t\tyour echo, so recreating it every round is basically expected\nif yours has been destroyed by an attack or moved too far away."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "There is some confusion around how this works since the Grappled\n\t\t\tcondition reduces your speed to 0, which means that you don’t have 15 feet\n\t\t\tof movement to spend. I think RAI you’re intended to be able to teleport\n\t\t\tout of a grapple, but RAW you definitely can’t since the effect doesn’t\n\t\t\tspecify a rules exception around grapples the way that the spell Freedom\n\t\t\tof Movement does. That said, Jeremy Crawford had a\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "discussion on Twitter",
+                "href": "https://twitter.com/JeremyECrawford/status/932413630305275904"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\tin which he discusses Freedom of Movement’s interaction with the Grapple\n\t\t\trules. He points out that once you’re no longer grappled, your speed is no\n\t\t\tlonger 0, so it makes sense that you could pay the 5-foot cost to escape a\n\t\t\tgrapple using Freedom of Movement even though your speed is 0 when you do\n\t\t\tso. We can apply that same logic to the Echo’s teleportation, and so long\n\t\t\tas you will have 15 feet of movement to spend after teleporting you can\n\t\t\tpay the cost. However, the Echo Knight’s text doesn’t specify an exception\n\t\t\tto the grapple rules, so it’s not perfectly clear. Discuss this with your\n\t\t\tDM to see how they would like to handle things."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Manifest Echo doesn’t specify, but\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "the echo is an object",
+                "href": "https://twitter.com/JeremyECrawford/status/1240669629661380609"
+              },
+              {
+                "type": "text",
+                "text": ". It can be targeted by things like attacks and spells, but weirdly RAW\n\t\t\tthat means that it can’t be targeted or damaged by many spells. Even\n\t\t\toptions like Meteor Swarm RAW only damage creatures, but I think a\n\t\t\treasonable DM will rule that the echo qualifies as a valid target for such\n\t\t\tthings and takes damage appropriately. This thing is already insanely\n\t\t\tpowerful, and it doesn’t need broad immunity to damage to keep it\n\t\t\tpowerful.\nIf that’s the case though, it also makes it a valid target for beneficial spells like Shield of Faith, Blur, etc. That means that it’s a valid target for Sanctuary, which is busted because the Echo never actually attacks, it just allows you to use its location."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unleash Incarnation"
+              },
+              {
+                "type": "text",
+                "text": ": Up to 5 extra\n\t\tattacks per day. Not a huge boost in damage, but fantastic when you really\n\t\tneed it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Echo Avatar"
+              },
+              {
+                "type": "text",
+                "text": ": You can walk/float your echo\n\t\tup to 1,000 ft. away from you and see/hear through it. Unfortunately,\n\t\taccording to Jeremy Crawford\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "you’re not allowed to attack through it",
+                "href": "https://twitter.com/JeremyECrawford/status/1242199682534608896"
+              },
+              {
+                "type": "text",
+                "text": ", but the text explaining that was allegedly omitted from the first\n\t\tprinting of the book and Wizards of the Coast hasn’t issued errata. That\n\t\tmeans that you can’t send your Echo Avatar to attack people according to\n\t\tCrawford, but apparently it’s not enough of a problem that WotC actually\n\t\tcares to correct it, so RAW you can send your echo a few hundred feet into\n\t\tthe air and rain arrows on everything in range."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadow Martyr"
+              },
+              {
+                "type": "text",
+                "text": ": In many ways this is like\n\t\tthe Protection fighting style, but it works on any creature you can see.\n\t\tLimiting use to once per rest means that you need to be cautious about when\n\t\tyou use it, and save it for when it will be really impactful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reclaim Potential"
+              },
+              {
+                "type": "text",
+                "text": ": With just 1 hit point\n\t\tyour echo is going to die constantly if it’s targeted, so this is an easy way to get\n\t\ttemporary hit points whenever you don’t have them. 2d6+Con is a decent\n\t\tamount, too, and you get enough uses per day that it’s a significant\n\t\timprovement to your total capacity to endure damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Legion of One"
+              },
+              {
+                "type": "text",
+                "text": ": Two echos means that you\n\t\tcan fill two additional spaces on the battlefield, offering additional\n\t\tchances to make Opportunity Attacks, and creating more targets to draw\n\t\tattacks which would otherwise be directed at you and your allies."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-echo-knight-fighter-ability-scores",
+      "heading": "Echo Knight Fighter Ability Scores",
+      "sourceAnchor": "echo-knight-fighter-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-echo-knight-fighter-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Likely your primary attack stat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-echo-knight-fighter-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": We should be wearing heavy armor unless you’re choosing to use finesse weapons."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-echo-knight-fighter-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": As Rocco is fond of saying, dying is suboptimal. Also, this powers a class feature."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-echo-knight-fighter-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-echo-knight-fighter-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": The most commonly targeted mental save. Give it whatever you have left over."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-echo-knight-fighter-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-echo-knight-fighter-ability-scores-7",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-echo-knight-fighter-races",
+      "heading": "Echo Knight Fighter Races",
+      "sourceAnchor": "echo-knight-fighter-races",
+      "blocks": [
+        {
+          "blockId": "block-section-echo-knight-fighter-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might be tempted to take High Elf and try to Booming Blade with your Echo, but sadly the Echo can only be the origin of your attacks if you’re actually using the Attack action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-echo-knight-fighter-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Fizban’s Dragonborn might have an interesting interaction where you could breathe out of your Echo since you’re replacing one of the attacks in an attack action with it, but that’s a little more open to interpretation than the multiclass shenanigans I get into below. Personally, I wouldn’t allow this at my table because you can use the Echo as the location to attack from, and dragonborn breath can be used in place of an attack when you take the Attack action but is not, itself, an attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-echo-knight-fighter-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With those in mind, nothing different than any other Fighter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-echo-knight-fighter-feats",
+      "heading": "Echo Knight Fighter Feats",
+      "sourceAnchor": "echo-knight-fighter-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-echo-knight-fighter-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since the echo allows us to make opportunity attacks when things leave its safety donut (note that this ability requires the target to be adjacent to your echo and then leave that area, regardless of your weapon’s actual reach. Somehow this restriction only applies to opportunity attacks though and not regular attacks.), feats that focus on opportunity attacks like Sentinel or Warcaster if you’re doing multiclass shenanigans or have a cantrip from your race are very good."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-echo-knight-fighter-weapons",
+      "heading": "Echo Knight Fighter Weapons",
+      "sourceAnchor": "echo-knight-fighter-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-echo-knight-fighter-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different than any other Fighter, although do note the weirdness of the wording of the opportunity attack section like I mentioned above. Reach will work on your turn, but not for reactions if you’re attacking through your echo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-echo-knight-fighter-armor",
+      "heading": "Echo Knight Fighter Armor",
+      "sourceAnchor": "echo-knight-fighter-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-echo-knight-fighter-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different than any other Fighter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Barbarians are a staple, and for good reason. I called out in the "
+            },
+            {
+              "type": "link",
+              "text": "Ancestral Guardian handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/"
+            },
+            {
+              "type": "text",
+              "text": " that these classes play very well together, and you’re going to see that optimized below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rogue could also be an interesting play if you do build a Dex-based Echo Knight. The wording on Echo Knight is that "
+            },
+            {
+              "type": "emphasis",
+              "text": "you"
+            },
+            {
+              "type": "text",
+              "text": " can make attacks originating from its location. This means that if "
+            },
+            {
+              "type": "emphasis",
+              "text": "you"
+            },
+            {
+              "type": "text",
+              "text": " are hidden from your target but can still see them, the attack will have advantage, even though this is intuitively nonsense because the Echo is right next to them and actually delivering the attack. But RAW, this makes delivering sneak attacks very reliable without having to worry about party positioning or other factors."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alternatively, as a Dex-based Echo Knight, you could dip 5 levels into Bladesinger so that you "
+            },
+            {
+              "type": "emphasis",
+              "text": "could"
+            },
+            {
+              "type": "text",
+              "text": " cantrip from the Echo’s location. That almost makes better sense as a 3-level dip into Fighter for Bladesinger so you could still end up casting Wish, but at that point you’re just delaying your access to Wish which is hardly ever the right idea."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-dioscuri",
+      "heading": "Example Build – Dioscuri",
+      "sourceAnchor": "example-build-dioscuri",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-dioscuri-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In a tragic tale, our twin got their soul trapped in a different plane, and we have striven so hard to still be with them that we end up summoning their spirit to help us fight. Sadly, this madness has made it so that our love of riding is no longer represented in our build apart from the training we already had in it. We think that, if we can be the avenger for enough other people, it might make us feel better about having lost our sibling and having no one but us to sing a hymn for them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-dioscuri-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is one of our "
+            },
+            {
+              "type": "link",
+              "text": "10 favorite DnD 5e builds",
+              "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-dioscuri",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Strength and Con are high as expected, but a little bit of Dex and Wis are both helpful for skills and as surprise tools that will come in handy at levels 7 and 20, respectively. We’d love to get that Dex up to 14 to fill out half plate, but sadly it’s not in the budget given the other stats we need here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-dioscuri",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom Lineage. None of the flavors of Aasimar are close enough to what we want of being "
+            },
+            {
+              "type": "link",
+              "text": "a literal child of a deity",
+              "href": "https://en.wikipedia.org/wiki/Castor_and_Pollux"
+            },
+            {
+              "type": "text",
+              "text": ", so we have to fake it. Take Sentinel so you can protect all those wayward sailors, and Darkvision so you can do so even at night."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-dioscuri",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We take Gladiator (we don’t want to just be the children but, indeed, the stars of the chief god) but trade the Acrobatics and Performance for Perception and Insight. Gotta be able to see and intuit what your opponents are doing. Then trade the Disguise Kit proficiency for Cartographer’s Tools so you can be the guardians of navigation and prevent sailors from crashing into things."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-dioscuri",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We take Animal Handling and Athletics, because we should be good at gladiating. Also, we have the spare Wisdom to be passable with animals."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-dioscuri",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oh boy. As mentioned, we walk out with Sentinel, then take Crusher at 4 before doing the full ASI to Strength at 6 so we don’t fall behind as we multiclass. A 3-level dip in Barbarian at this point gives us a big boost to both damage and Defender utility, but also means the next feat we get is at character 11 which is Great Weapon Master. 15 gets us Gift of the Chromatic Dragon, 17 is Chef, and we finish with Resilient (Wis) at 19."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-dioscuri",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1- Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Great Weapon Fighting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sentinel"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sentinel is an incredible feat and a staple in Defender builds. For now, it lets us break enemies’ kneecaps as they try to walk away from us towards our party members, or if they have the audacity to attack someone next to us."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You’re the rare Defender that the Armored fighting style isn’t as great on, because, in just a couple levels, we’re going to spend a good chunk of our time preventing the scariest monsters from getting anywhere near us or our party. Also, we’re using a bludgeoning greatsword (a maul) so the math is as good as possible."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Speaking of, walk out with chainmail, a maul, a greatsword, and a light crossbow. Sell the weapons that aren’t mauls and turn them into a pile of javelins for when you need a quick answer to an enemy at range. It feels like we really should be using some kind of saber, but I guess this will have to do."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2- Fighter 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3- Fighter 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Manifest Echo"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unleash Incarnation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At last, we get to summon our noble, phantasmal sibling. The text above covered a lot, but it’s worth remembering a few things:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– The Echo is an object, which means by definition it isn’t you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– When you take Attack action you get to use its positioning, but you’re still the one making the attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– When something walks away from it, you’re also the one making the opportunity attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For now, what this means is that you get to apply the effects of Sentinel through your Echo. If something tries to walk away from it, use your maul as a kneecap buster."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unleash Incarnation is already good, but it will get even better in a few levels."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4- Fighter 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Crusher (+1 Str)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alright, step one online. Our Echo is next to something. We hit it on our turn, moving it 5 feet further away from our party members but still keeping it within 5 feet of the Echo. Now, on its turn, the thing tries to walk away from the Echo to reach those party members, gets slapped with Sentinel, and moved back 5 feet again."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5- Fighter 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Whack, Whack."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6- Fighter 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI- Str 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "As mentioned above, getting ahead of the "
+                },
+                {
+                  "type": "link",
+                  "text": "fundamental math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": " since otherwise we’d be behind for three levels and accuracy is about to get a whole lot more important."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7- Barbarian 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "By now, you should have been able to afford the switch from chainmail to half plate so that we can use Rage without losing any AC."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rage is an excellent feature, even if we don’t use it to the fullest. The resistance is nice, although hopefully we’re still locking the scariest things down with the tactics described above. We do very much appreciate the damage bonus, because we make all the attacks, even if they come from the Echo’s location. We don’t really make a ton of Strength checks, but that’s ok."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored defense, on the other hand, does nothing for us at all."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8- Barbarian 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reckless Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Danger Sense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ok, so here’s the pedantic wording starting to come into play. "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "You"
+                },
+                {
+                  "type": "text",
+                  "text": " have advantage on strength-based attacks. "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "You"
+                },
+                {
+                  "type": "text",
+                  "text": " make the attacks, but from the Echo’s location. Attacks made against "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "you"
+                },
+                {
+                  "type": "text",
+                  "text": " (your Echo is not you) have advantage. Swing Recklessly, safe in the knowledge that whatever your Echo is next to will have to either get Sentineled when it tries to walk to you, or maybe won’t even get the chance. Because the cost of breaking the 30ft distance to your Echo is so low, if your target has a lot of attacks and could afford to put a small one into the Echo before moving over and delivering the rest into you, you can just put it in a place to attack, attack, then simply walk out of its range."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Another great thing about Reckless Attack is that, if we crit, which now has about a 19% chance of happening on any given turn, we’ll grant advantage on attacks against the target to our whole team."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Advantage on (most) Dexterity saves is almost as good as proficiency."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9- Barbarian 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ancestral Protectors"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The culmination of all of our arts. Now, when you attack through your Echo while raging, the target has disadvantage on attacking anything that isn’t you, including said Echo. If it tries to walk away to get to the real twin, it gets attacked and held in place by Sentinel. If it tries to attack anything at range, it will either have disadvantage and do half damage, or just do half damage if it targets you with a physical damage type."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10- Fighter 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Echo Avatar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No combat effects, but we described its utility for scouting, etc. above under the subclass features. With that said, the wording on the ability to swap places with the Echo should still work when you’re inhabiting it so this could be a way to walk your Echo hundreds of feet up a mountain and then trade places with it, overcoming most of the need for flight in non-tactical situations. Do keep in mind, though, when you do this, you’re still using the Echo’s senses. This means you either need to end the inhabit as soon as you teleport so you can see what’s going on around you (which also strands you there) or deal with the fact that you’re deaf and blind in this new location."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11- Fighter 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Great Weapon Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Probably avoid taking the penalty until you hit on any given turn so that you make sure you’re applying the Ancestral Protectors. After that, though, go nuts. Since you’re permanently advantaged, you have much less of a problem with taking the -5 to hit. Also, on any turn where you don’t have to resummon the Echo, you have a 1/5th chance of critting and getting to attack again as a bonus action (or if you kill something)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For a little bit of math on that, a regular attack against the fundamental math has a 65% chance to hit. An attack with the penalty and advantage from Reckless Attack is nearly identical, 64% or so. But if you don’t take the penalty and just swing with advantage, it’s an 88% chance to hit."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now, "
+                },
+                {
+                  "type": "link",
+                  "text": "as Rocco pointed out",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/"
+                },
+                {
+                  "type": "text",
+                  "text": ", the DPR still goes up in this case but not by an enormous amount, and we’re really interested in making sure at least one attack lands so we get the Ancestral Protectors debuff going."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12- Fighter 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Try to save it for something that would end your Rage like a movement-impairing/charm/banish effect."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13- Fighter 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shadow Martyr"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Do you really need to give your friend a way to evade an attack? Throw your Echo under the bus. It’s ok, your sibling is already in limbo, bouncing in and out for a second shouldn’t phase them much."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is also a good way to move your Echo across the battlefield outside your turn if, for example, the thing it was next to died and you want to apply its Sentinel aura somewhere else."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14- Fighter 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Whack, Whack, Whack. Now our chance of getting a crit in a turn is up to 26.5%. This will apply the Crusher debuff to the target and let us swing again. If we cleave something to death and get an opportunity attack trigger, that goes up to a staggering 40% chance of a crit in a round."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15- Fighter 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gift of the Chromatic Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Need help killing a troll? Got a round with nothing to do with your bonus action? Found a monster that’s vulnerable to an energy type? Throw on a buff and have at."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also useful is the reaction if we don’t think anything is likely to try to walk away from our Echo, or if something hits us with so big a damage source that we need it anyway."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16- Fighter 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (2 uses)"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17- Fighter 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chef (+1 Con)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Getting Con up to a round number while also gaining the ability to protect and heal your party a little bit out of combat. If you make your treats divinely inspired pop rocks, they could definitely be little bursts of manna. Just don’t leave them around for so long that they become ancient."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18- Fighter 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reclaim Potential"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Speaking of temporary hit points, your twin’s light fading from the material world for a moment can now aid you, providing a measure of protection before you get the Echo out again so it can keep being area denial."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19- Fighter 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Resilient (Wis)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Here, have a +7 on wisdom saves. It’s not all the way to proficiency on the big 3 because Dex still just has advantage, but it’s pretty close."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20- Cleric 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Light"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thaumaturgy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bless"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Detect Poison and Disease"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Healing Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Emboldening Bond"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Implement of Peace"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Performance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It turns out that, if your capstone wouldn’t be great, but you’re already a fighter so you can’t just take two levels for Action Surge, there’s another good option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For your final ascension, you pick up the holy grail of multiclass features: something that only cares about proficiency bonus. Emboldening Bond at this level will let you take your whole party and get swole for 10 minutes at a time, and you can use it more times than you’re likely to have fights in a day. Throw it on some social interactions too for good measure."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sadly, neither Sanctuary or Shield of Faith can be used on your Echo because, again, it’s an object, not a creature. You’ve been enjoying the benefits of this all game where it can’t be targeted with many spells, but now it’s slightly inconvenient. So, instead, we take a detect spell no one else is going to bring and just ritual cast it as needed. But also Bless. If you’re running both at once (which is pretty easy given Bond’s many uses per day and long duration), and with Reckless Attack, you have a staggering literal 99% chance to hit against the expected average AC for a CR 20 creature. This could easily be accomplished by walking around with Bond up, using Bless on turn one of combat, Action Surge, walk your Echo into position and go to town. Between proficiency in Con saves and your +4 bonus, you’re incredibly likely to be able to carry that bonus all the way through a fight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also, increase your performance bonus. Maybe it’s a quick performance. Maybe it’s an arts performance. Whatever the case may be, you get a +6 to it now."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Echo Knight Fighter Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Manifest Echo"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Unleash Incarnation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Echo Avatar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shadow Martyr"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Reclaim Potential"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Legion of One"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Manifest Echo</span>: This is the Echo Knight’s signature feature, and, while it gains some extra stuff over time, the core ability never re"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-echo-knight-fighter-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-echo-knight-fighter-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-echo-knight-fighter-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-echo-knight-fighter-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-echo-knight-fighter-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-echo-knight-fighter-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-echo-knight-fighter-ability-scores-7"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-echo-knight-fighter-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-echo-knight-fighter-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-echo-knight-fighter-races-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-echo-knight-fighter-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-echo-knight-fighter-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-echo-knight-fighter-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-multiclassing-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-build-dioscuri-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-build-dioscuri-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3993,
+    "sections": 17,
+    "blocks": 34,
+    "tables": 3,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,216 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "fighter-arcane-archer-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+    "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "ARCANE_ARCHER",
+  "raceKey": "ELF_2014",
+  "backgroundKey": "URCHIN",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Знання містичного лучника: навичка Магія",
+      "reason": "Автор бере на 3-му рівні Штукарство (записано) і навичку Магія; вибір навички цього уміння платформа в плані рівнів не записує.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риса «будь-яка» (14, 16, 19-й рівні)",
+      "reason": "Автор залишає «вільні місця» без назв: пресет бере типові риси Пильний, Удача та Здоровань (вибір платформи, автор не називає); гравець може змінити їх на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Арканний постріл «будь-який» (15 і 18-й рівні)",
+      "reason": "На 15-му рівні автор не називає постріл: пресет бере Вибухову стрілу (вибір платформи, автор не називає; можна змінити на листі). На 18-му рівні автор додає ще один Арканний постріл, але каталог не дає вибору пострілу на цьому рівні (компілятор: «рівень 18: Опція «Enfeebling Arrow (Arcane Shot)» недоступна на рівні 18. На цьому рівні класу вибору опцій немає»), тож шостий постріл не записано.",
+      "section": "section-levels"
+    }
+  ],
+  "revision": 3,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "ARCANE_ARCHER",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Piercing Arrow (Arcane Shot)"
+        },
+        {
+          "optionNameEng": "Shadow Arrow (Arcane Shot)"
+        }
+      ],
+      "classOptionSpellKeys": [
+        "prestidigitation"
+      ]
+    },
+    {
+      "level": 4,
+      "featKey": "ELVEN_ACCURACY",
+      "featOptions": [
+        {
+          "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "featKey": "SHARPSHOOTER",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 7,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Grasping Arrow (Arcane Shot)"
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "featKey": "PIERCER",
+      "featOptions": [
+        {
+          "optionNameEng": "PIERCER Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Seeking Arrow (Arcane Shot)"
+        }
+      ]
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "GUNNER",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "featKey": "ALERT",
+      "openAdvancement": true,
+      "section": "section-feats-2"
+    },
+    {
+      "level": 15,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Bursting Arrow (Arcane Shot)"
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "featKey": "LUCKY",
+      "openAdvancement": true,
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "TOUGH",
+      "openAdvancement": true,
+      "section": "section-feats-2"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/fighter-arcane-archer-2014.webp",
+    "title": "Воїн — Містичний лучник, Лісовий ельф",
+    "description": "Лісовий ельф за правилами Таші зі Спритністю 17 та Інтелектом 16: довгий лук і Бойовий стиль «Стрільба з лука» з першого рівня.",
+    "subraceKey": "ELF_WOOD_2014",
+    "racialAbilities": [
+      "DEX",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "SURVIVAL"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [
+      "Archery"
+    ],
+    "languages": [],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "RAPIER",
+          "SHORTSWORD"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Лісовий ельф за правилами Таші: +2 до Спритності й +1 до Інтелекту, як у таблиці автора (Спритність 17, Інтелект 16). Це вже враховано.",
+    "skillExplanation": "Уважність — від ельфа, Спритність рук і Непомітність — від Безпритульного, Аналіз поведінки й Виживання — від Воїна, як радить автор.",
+    "equipmentExplanation": "Довгий лук, 20 стріл і шкіряний обладунок узяті з авторського прикладу (Бойовий стиль «Стрільба з лука»). Дві бойові зброї (рапіру й короткий меч), ручні сокири й Набір дослідника підземель ми обрали за вас — автор їх не називає; їх можна змінити."
+  }
+}

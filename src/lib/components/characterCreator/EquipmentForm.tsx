@@ -1,4 +1,4 @@
-import {equipmentSchema} from "@/lib/zod/schemas/persCreateSchema";
+import {equipmentSchema, type PersFormData} from "@/lib/zod/schemas/persCreateSchema";
 import {useStepForm} from "@/hooks/useStepForm";
 import {BackgroundI, ClassI, RaceI} from "@/lib/types/model-types";
 import {useCallback, useEffect, useMemo, useState} from "react";
@@ -29,8 +29,10 @@ import {
   type EquipmentPackView,
 } from "@/lib/components/characterCreator/equipment-choices";
 import { findBackgroundStartingItems, hasGoldAlternative, GOLD_ITEM_NAME } from "@/rules/background-equipment";
+import { useEquipmentDraftSync } from "./use-equipment-draft-sync";
 
 interface Props {
+  initialSelection?: PersFormData["equipmentSchema"]
   race: RaceI
   selectedClass: ClassI
   background?: BackgroundI
@@ -47,7 +49,7 @@ const constToCamel: Record<string, WeaponKindType> = {
   MARTIAL_WEAPON: "meleeMartial",  
 }
 
-export const EquipmentForm = ({selectedClass, background, weapons, formId, onNextDisabledChange}: Props) => {
+export const EquipmentForm = ({selectedClass, background, weapons, formId, onNextDisabledChange, initialSelection}: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
 
   const formatDiceUkr = (value: string): string => {
@@ -63,7 +65,8 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
   const {form, onSubmit} = useStepForm(equipmentSchema, (data) => {
     updateFormData({ equipmentSchema: data });
     nextStep();
-  });
+  }, initialSelection);
+  useEquipmentDraftSync(form, initialSelection !== undefined);
 
   const choiceGroupToId = (form.watch('choiceGroupToId') ?? {}) as Record<string, number[]>
   const anyWeaponSelection = (form.watch('anyWeaponSelection') ?? {}) as Record<string, number[]>

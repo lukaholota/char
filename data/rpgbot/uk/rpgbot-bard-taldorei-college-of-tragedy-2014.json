@@ -1,0 +1,1382 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-ba30875f8dd91031",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-ba30875f8dd91031-592cb65c2daf5436",
+      "sourceId": "rpgbot-ba30875f8dd91031",
+      "fetchedAt": "2026-09-29T19:20:31.556139+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:29:00-04:00",
+      "contentHash": "bc22083db053bc6882df6df42f1ad112b9934235e6867ab0af7ba52d3d9db356",
+      "title": "Tal’Dorei College of Tragedy Bard: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-ba30875f8dd91031-592cb65c2daf5436.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-bard-taldorei-college-of-tragedy-2014",
+    "sourceId": "rpgbot-ba30875f8dd91031",
+    "slug": "bard-taldorei-college-of-tragedy-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Колегія трагедії Барда (ТалʼДорей) — гайд підкласу D&D 5e 2014",
+    "titleEn": "Tal’Dorei College of Tragedy Bard: DnD 5e Subclass Guide",
+    "topics": [
+      "Бард",
+      "підклас",
+      "Колегія трагедії",
+      "ТалʼДорей",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-bard-taldorei-college-of-tragedy-2014-draft1",
+      "articleId": "rpgbot-bard-taldorei-college-of-tragedy-2014",
+      "sourceRevisionId": "rpgbot-ba30875f8dd91031-592cb65c2daf5436",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У книзі "
+                },
+                {
+                  "type": "link",
+                  "text": "«ТалʼДорей: Відроджений сеттинг кампанії»",
+                  "href": "https://www.dndbeyond.com/sources/tcsr"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Tal’Dorei: Campaign Setting Reborn}} є підклас Барда — {{Колегія трагедії|College of Tragedy}}. Це чудова тема з цікавими механічними ідеями: підклас додає нові варіанти підтримки класу, який і без того славиться вмінням підтримувати групу. Він дуже потужний і майже не потребує допомоги, щоб працювати, тож його легко вручити будь-якому гравцеві зі словами: «Тримай, зроби так, щоб усім було сумно»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Колегія трагедії майже повністю реактивна, а це незвично й зазвичай погано. Персонажі, які можуть лише реагувати на обставини, зазвичай насилу розвʼязують проблеми, а натомість допомагають трохи довше їх витримувати. Колегія трагедії, схоже, є винятком із цього правила. Хоча майже всі вміння підкласу спрацьовують у відповідь на щось, вони не конфліктують із ресурсами чи економікою дій, які можна було б використати активно, тож навички й чаротворство Барда лишаються цілком вільними для наступу. «Поезія в нещасті»{{Poetry in Misery}} робить відновлення Бардського натхнення{{Bardic Inspiration}} дуже легким, тож майже кожного ходу можна витрачати бонусну дію, щоб надавати Бардське натхнення{{Bardic Inspiration}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Реакції будуть зайняті, зате інші можливості лишаються відкритими, тож решту збірки можна цілком присвятити активним рішенням: атакувальним заклинанням, рисам, навичкам тощо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Втім, із балансом є проблеми. «Поезія в нещасті»{{Poetry in Misery}} вкрай легко зловживається: вона дає Барду практично бездонний запас Бардського натхнення{{Bardic Inspiration}}, яким можна звести нанівець будь-який небойовий виклик, а потім заходити в сутички з таким запасом натхнення, що група матиме величезну математичну перевагу. «Сумна доля»{{Sorrowful Fate}} так само дає групі змогу раз за відпочинок звести нанівець загрозу від одного сильного ворога, через що важко кинути групі виклик у бою. У розборі вмінь підкласу я запропонував виправлення, з якими мені було б комфортно використовувати Колегію трагедії за своїм столом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Колегії трагедії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Барда Колегії трагедії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Барда Колегії трагедії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Барда Колегії трагедії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Барда Колегії трагедії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Барда Колегії трагедії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Стендап-трагік",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#example-build-stand-up-tragedian"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Колегії трагедії",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Поезія в нещасті{{Poetry in Misery}}: вкрай легко зловживається. Знайдіть будь-який випадковий абсурдний привід для перевірки характеристики й повторюйте її, доки не відновите всі витрачені застосування Бардського натхнення{{Bardic Inspiration}}. Очевидно, що вміння задумане для бою, ситуацій із високими ставками або принаймні для гри з Майстром, який казатиме вам, коли кидати кубик, а коли ні, але за буквою правил воно вкрай легко зловживається. Цьому вмінню потрібні запобіжники, щоб воно було безпечним за столом. Якщо вся група зможе спільно домовитися не зловживати ним, воно може бути потужним, але не проблемним. Якщо запобіжники все ж потрібні, обмежте «Поезію в нещасті»{{Poetry in Misery}} кількістю застосувань на день, що дорівнює вашому Бонусу Майстерності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сумна доля{{Sorrowful Fate}}: більшість істот жахливо справляються з ряткидками Харизми, тож вона може зробити чимало заклинань «пройди-ряткидок-або-страждай»{{save-or-suck}} майже нездоланними. Вона діє лише на одну істоту й доступна раз за відпочинок, але все одно приголомшлива й легко може визначити результат цілих сутичок. Ціль таки зазнає трохи психічної шкоди й, можливо, мусить сказати кілька крутих останніх слів, але це не впливає на механіку — та й не повинно. Мабуть, вона надто потужна, щоб дозволяти її без певних змін. Якби вона витрачала реакцію Барда й лише накладала Перешкоду на ряткидок, я б усе одно поставив їй синю оцінку, але не нервував би, дозволяючи цей підклас."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Оповідь про пиху{{Tale of Hubris}}: дуже ефектна, але непослідовна й непередбачувана. Ворог може впасти ще до того, як вона матиме якийсь вплив."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Неминуче лихо{{Impending Misfortune}}: Бард не зробить нічого цікавого з одним кидком атаки, тож приберігайте його для ряткидків. Щойно використаєте бонус +10, попросіть союзника вдарити вас замовлянням із ряткидком, щоб позбутися штрафу −10."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Німб пафосу|Nimbus of Pathos}}: кращий за більшість умінь Паладина найвищого рівня. Це чудове підсилення. Мені подобається, що його не можна припинити раніше часу: після бою отримувач може майже хвилину стояти й слухати трагічну музику, від якої не втекти."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-tragedy-ability-scores",
+          "heading": "Характеристики Барда Колегії трагедії",
+          "sourceAnchor": "college-of-tragedy-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-tragedy-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-tragedy-races",
+          "heading": "Раси Барда Колегії трагедії",
+          "sourceAnchor": "college-of-tragedy-races",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-tragedy-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-tragedy-feats",
+          "heading": "Риси Барда Колегії трагедії",
+          "sourceAnchor": "college-of-tragedy-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-tragedy-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майже нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+                },
+                {
+                  "type": "text",
+                  "text": ", але краще уникати варіантів, що витрачають бонусну дію, адже Бардське натхнення{{Bardic Inspiration}} можна буде використовувати так часто."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-tragedy-weapons",
+          "heading": "Зброя Барда Колегії трагедії",
+          "sourceAnchor": "college-of-tragedy-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-tragedy-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-tragedy-armor",
+          "heading": "Обладунки Барда Колегії трагедії",
+          "sourceAnchor": "college-of-tragedy-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-tragedy-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Будь-який варіант, що добре працює для "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+                },
+                {
+                  "type": "text",
+                  "text": ", добре працюватиме й для Колегії трагедії, з кількома застереженнями: уникайте всього, що витрачає бонусну дію чи реакцію, бо вони мають лишатися вільними для «Поезії в нещасті»{{Poetry in Misery}} та «Оповіді про пиху»{{Tale of Hubris}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-stand-up-tragedian",
+          "heading": "Приклад збірки — Стендап-трагік",
+          "sourceAnchor": "example-build-stand-up-tragedian",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-stand-up-tragedian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут майже немає чого оптимізувати. Підклас сам по собі дуже потужний, тож досить обрати заклинання й риси — і все. Оскільки основну роботу за нас уже зробив підклас, ми щосили зіграємо на темі й оберемо заклинання, що поширюють нещастя. Я не братиму нічого марного, але якщо ви не хочете, щоб усі ваші заклинання були в трагічній темі, зазирніть у "
+                },
+                {
+                  "type": "link",
+                  "text": "розбір списку заклинань Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-build-stand-up-tragedian",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розподілимо характеристики так, щоб якнайкраще використати унікальні збільшення характеристик Напівельфа{{Half-Elf}}. У нас лишиться Харизма 17, а це чудово для гібридних рис."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Збільшене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-stand-up-tragedian",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф. Особливих синергій із підкласом немає, тож напівельф — надійний вибір. Також можна розглянути варіант напівельфа-напівдроу або щось на кшталт Дампіра{{Dhampir}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-stand-up-tragedian",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Усміхнений»{{Grinner}} («Путівник дослідника по Вайлдмаунту»{{Explorer’s Guide to Wildemount}}). Володіння Обманом, Виступом, одним інструментом і однією мовою. Тема передісторії в тому, що ми мандруємо й несемо надію, а контраст із підкласом здається кумедним."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-stand-up-tragedian",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від передісторії отримаємо Обман і Виступ, а також загалом пʼять навичок на вибір від раси й класу. Візьмемо Залякування, Аналіз Поведінки, Уважність, Переконання й Непомітність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також отримаємо загалом чотири інструменти. Можемо самі скласти струнний квартет! Або змінити передісторію й обміняти додаткове володіння інструментом на володіння інструментами злодія{{Thieves’ Tools}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-stand-up-tragedian",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні вже можна взяти гібридну рису, щоб підвищити Харизму до 18. Слід остерігатися всього, що намагатиметься монополізувати наші реакції чи бонусні дії, тож «Телекінетик»{{Telekinetic}} відпадає. Якщо відкинути расові риси, лишаються «Доторк феї»{{Fey Touched}}, «Дарунок самоцвітного дракона»{{Gift of the Gem Dragon}} і «Доторк тіні»{{Shadow Touched}}. Найочевидніший вибір тут — «Доторк феї»{{Fey Touched}}, хоч і нудно обирати його вже в черговій збірці."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні візьмемо «Надихаючого лідера»{{Inspiring Leader}}. За тоном це зовсім не пасує, але обʼєктивно це чудовий варіант для багатьох Бардів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-stand-up-tragedian",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство{{Spellcasting}}\n«Бардське натхнення»{{Bardic Inspiration}} (к6)\nВідомі замовляння: – Мала ілюзія [Minor Illusion] – Злісне глузування [Vicious Mockery]\nНове відоме заклинання: – Зурочення [Bane] – Дисонуючий шепіт [Dissonant Whispers] – Мовчазний образ [Silent Image] – Невидимий служник [Unseen Servant]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми граємо за надзвичайно прямолінійного Барда."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Майстер на всі руки»{{Jack of All Trades}}\n«Пісня відпочинку»{{Song of Rest}} (к6)\nНове відоме заклинання: – "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Silvery Barbs]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ну от, рівно один рівень ми протрималися, не обираючи знову Сріблясті шпильки [Silvery Barbs]. Час зробити всіх нещасними, викравши успіх в останню можливу мить."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза{{Expertise}}: – Переконання – Непомітність\n{{Колегія Бардів|Bard College}}: {{Колегія трагедії|College of Tragedy}}\n{{Поезія в нещасті|Poetry in Misery}}\n{{Сумна доля|Sorrowful Fate}}\nНове відоме заклинання: – Сліпота/глухота [Blindness/Deafness]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Поезія в нещасті»{{Poetry in Misery}} робить Бардське натхнення{{Bardic Inspiration}} практично бездонним, якщо ми маємо кілька хвилин поза часом, щоб група стояла й безглуздо кидала перевірки характеристик або кидки атаки. «Сумна доля»{{Sorrowful Fate}} раз за відпочинок перетворює одне заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}} на величезну проблему для цілі. Тепер збірка перетворюється на пошук правильних заклинань. Нам потрібні такі, що дозволяють лише один ряткидок (або принаймні лише один упродовж трьох раундів, які триває типовий бій) і націлюються тільки на одну істоту. На жаль, у Бардів таких заклинань небагато. Сліпота/глухота [Blindness/Deafness] — чудовий приклад. Якби воно не цілилося в ряткидки Статури, було б неймовірним. «Сумна доля»{{Sorrowful Fate}} розвʼязує єдину проблему цього заклинання, тож Сліпота/глухота [Blindness/Deafness] зводить нанівець загрозу від одного сильного ворога щоразу після відпочинку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: «Доторк феї»{{Fey Touched}} (Харизма 17 → 18)\nНове відоме замовляння: – Повідомлення [Message]\nНове відоме заклинання: – Уявна сила [Phantasmal Force]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 1-го рівня для «Доторку феї»{{Fey Touched}} оберіть на власний смак. Благословення [Bless] — чудовий варіант, хоч і не пасує до теми. Із замовлянь вивчимо Повідомлення [Message], щоб нашіптувати людям сумні факти на відстані. Також візьмемо Уявну силу [Phantasmal Force], щоб вони бачили щось сумне, від чого хочеться лягти й відчути глибокі емоції."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бардське натхнення»{{Bardic Inspiration}} (к8)\n«Джерело натхнення»{{Font of Inspiration}}\nНове відоме заклинання: – Достаток ворогів [Enemies Abound]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Джерело натхнення»{{Font of Inspiration}} здається безглуздим, бо в нас є «Поезія в нещасті»{{Poetry in Misery}}. Вивчимо Достаток ворогів [Enemies Abound], щоб нагадувати ворогам, що кожен у цьому світі самотній і має відповісти на це усвідомлення насильством."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Оповідь про пиху»{{Tale of Hubris}}\n«Неминуче лихо»{{Impending Misfortune}}\nНове відоме заклинання: – Наділити прокляттям [Bestow Curse]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Оповідь про пиху»{{Tale of Hubris}} й «Неминуче лихо»{{Impending Misfortune}} — суто захисні вміння, що працюють майже без нюансів. Наділити прокляттям [Bestow Curse] чудове: і вкрай неприємне, і майже постійне."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання: – Фантомний вбивця [Phantasmal Killer]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Убивайте людей їхнім найбільшим страхом: бути змушеними згадати щось ніякове з дитинства."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Хар 18 → 20)\nНове відоме заклинання: – "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Polymorph]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладіть Перевтілення [Polymorph] на себе й станьте чимось крутим, як-от тиранозавр, — і майже завжди саме тиранозавром. Ворогів перетворюйте на тварину, життя якої було б значно простішим, а тоді завершуйте заклинання, щойно вони звикнуть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пісня відпочинку»{{Song of Rest}} (к8)\nНове відоме заклинання: – Синаптичний розряд [Synaptic Static]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Засмутіть усіх у кімнаті, щоб вони почувалися кепсько й цілу хвилину мали штрафи до кидків атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бардське натхнення»{{Bardic Inspiration}} (к10)\nЕкспертиза{{Expertise}}: – Аналіз Поведінки – Уважність\nМагічні таємниці{{Magical Secrets}}: – Пружна сфера Отілюка [Otiluke's Resilient Sphere] – Виклик аберації [Summon Aberration]\nНове відоме замовляння: – будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пружна сфера Отілюка [Otiluke's Resilient Sphere] — це «тайм-аут» для однієї істоти, щоб вона лишилася наодинці зі своїми думками. Якщо ваша ціль може пройти ряткидок Спритності, змініть його на Харизму. Виклик аберації [Summon Aberration] дає змогу викликати щось огидне й неприємне."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання: – Проклятуще око [Eyebite]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Присипляйте людей щоходу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: «Надихаючий лідер»{{Inspiring Leader}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Виголосіть усім депресивну промову й надайте тимчасові ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пісня відпочинку»{{Song of Rest}} (к10)\nНове відоме заклинання: – Етерність [Etherealness]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладіть Етерність [Etherealness], щоб непомітно проникати в місця й шепотіти людям сумні речі уві сні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічні таємниці{{Magical Secrets}}: – Планарний перехід [Plane Shift] – Симулякр [Simulacrum]\n«Німб пафосу»{{Nimbus of Pathos}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Візьміть бумбокс і ввімкніть «Двобій долі» [Duel of the Fates] у мінорній тональності, бо настав час сумної бойової музики. Накладіть «Німб пафосу»{{Nimbus of Pathos}} на головного користувача зброї у вашій групі й відкиньтеся назад, щоб ділитися гнітючими коментарями. В інших боях відправляйте ворогів у {{Царство тіней|Shadowfell}} за допомогою Планарного переходу [Plane Shift] — це найпохмуріший план. Скористайтеся Симулякром [Simulacrum], щоб отримати бек-вокаліста. Він, що важливо, відновлюватиме Бардське натхнення{{Bardic Inspiration}} з тією самою швидкістю й у той самий час, тож у вас буде не лише вдвічі більше Бардського натхнення{{Bardic Inspiration}}, а й можливість ділитися ним вдвічі швидше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бардське натхнення»{{Bardic Inspiration}} (к12)\nНове відоме заклинання: – Слабоумство [Feeblemind]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Влучайте по всьому заклинанням Слабоумство [Feeblemind], а «Сумну долю»{{Sorrowful Fate}} застосуйте, якщо ціль добре проходить ряткидки Інтелекту."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пісня відпочинку»{{Song of Rest}} (к12)\nНове відоме заклинання: – Психічний крик [Psychic Scream]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Психічний крик [Psychic Scream] може назавжди приголомшити істот — це справді схоже на вінець усієї збірки. Подумайте про щось трагічне й мовчки закричіть так сильно, щоб голови істот вибухнули."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічні таємниці{{Magical Secrets}}: – "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Істинне перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [True Polymorph] – "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Wish]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладіть Істинне перевтілення [True Polymorph] на друзів, щоб перетворити їх на щось краще, як-от піт фіндів і стародавніх драконів. Подумайте про те, щоб самому лишитися сумним Бардом, бо перевтілення означало б відмовитися від здатності засмучувати інших. Бажання [Wish] тут, бо це фактично обовʼязковий вибір. Використайте його, наприклад, щоб загадати Пошук вищого скакуна [Find Greater Steed] або створити власний клон, аби ваша трагічна чутливість жила вічно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Вище натхнення»{{Superior Inspiration}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не знаю, як ми взагалі опинимося в ситуації, де в нас не лишилося жодного застосування Бардського натхнення{{Bardic Inspiration}}."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-bard-taldorei-college-of-tragedy-2014-001",
+      "articleId": "rpgbot-bard-taldorei-college-of-tragedy-2014",
+      "translationRevisionId": "translation-rpgbot-bard-taldorei-college-of-tragedy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features",
+      "context": "Уміння Колегії трагедії",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-taldorei-college-of-tragedy-2014-002",
+      "articleId": "rpgbot-bard-taldorei-college-of-tragedy-2014",
+      "translationRevisionId": "translation-rpgbot-bard-taldorei-college-of-tragedy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Поезія в нещасті",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-taldorei-college-of-tragedy-2014-003",
+      "articleId": "rpgbot-bard-taldorei-college-of-tragedy-2014",
+      "translationRevisionId": "translation-rpgbot-bard-taldorei-college-of-tragedy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Сумна доля",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-taldorei-college-of-tragedy-2014-004",
+      "articleId": "rpgbot-bard-taldorei-college-of-tragedy-2014",
+      "translationRevisionId": "translation-rpgbot-bard-taldorei-college-of-tragedy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Оповідь про пиху",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-bard-taldorei-college-of-tragedy-2014-005",
+      "articleId": "rpgbot-bard-taldorei-college-of-tragedy-2014",
+      "translationRevisionId": "translation-rpgbot-bard-taldorei-college-of-tragedy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Неминуче лихо",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-taldorei-college-of-tragedy-2014-006",
+      "articleId": "rpgbot-bard-taldorei-college-of-tragedy-2014",
+      "translationRevisionId": "translation-rpgbot-bard-taldorei-college-of-tragedy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Німб пафосу",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

@@ -1,0 +1,2283 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/ravnica-backgrounds/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "9acf28d0aee192447f3fb4e4cd10822d4dc3a23dc85298780d764a68ee2e8eb9",
+  "sourceRevision": {
+    "revisionId": "rpgbot-cc4324e85b68a0e2-9acf28d0aee19244",
+    "sourceId": "rpgbot-cc4324e85b68a0e2",
+    "fetchedAt": "2026-09-29T19:22:07.328820+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:41:23-04:00",
+    "contentHash": "0c838fd9f0b85abb2e7426a0cb949c9d541368fb4e56e5f217181f8e20493d4d",
+    "title": "DnD 5e Ravnica Backgrounds Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-cc4324e85b68a0e2-9acf28d0aee19244.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-ravnica-backgrounds-introduction",
+      "heading": "Ravnica Backgrounds Introduction",
+      "sourceAnchor": "ravnica-backgrounds-introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-ravnica-backgrounds-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Guildmaster’s Guide to Ravnica",
+              "href": "https://smile.amazon.com/Dungeons-Dragons-Guildmasters-Guide-Ravnica/dp/0786966599?keywords=guildmasters+guide+to+ravnica&qid=1648596608&s=books&sprefix=guildmaster%2Cstripbooks%2C479&sr=1-1&linkCode=ll1&tag=rpgbot-20&linkId=e56c1fb3a97ef8d923b1fe0524c76a02&language=en_US&ref_=as_li_ss_tl"
+            },
+            {
+              "type": "text",
+              "text": "\n\t("
+            },
+            {
+              "type": "link",
+              "text": "affiliate link",
+              "href": "https://rpgbot.net/about/faq#what-are-affiliate-links-and-why-do-you-use-them"
+            },
+            {
+              "type": "text",
+              "text": ") introduced 10 new backgrounds representing the 10 guilds of Ravnica. This\n\tprovides a great way to tie your character into the setting. But, unlike\n\tprevious backgrounds, Ravnica’s backgrounds provide and expanded spell list,\n\tmaking these backgrounds another way to optimize your character."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ravnica-backgrounds-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because these backgrounds expand your spell list but provide not benefit to martial characters, they disproportionately benefit spellcasters, especially spellcasters who don’t have a limited number of spells known. Your fellow players might justifiably look at this with a skeptical eye, so be sure to discuss it with your party during "
+            },
+            {
+              "type": "link",
+              "text": "Session 0",
+              "href": "https://rpgbot.net/rpgbot-podcast-s2e10/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ravnica-backgrounds-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To be absolutely clear: I do not think that these backgrounds are intended for use outside of a Ravnica game, and I do not encourage you to use them outside of a Ravnica game. They present some clear power creep, and unfairly benefit spellcasters over non-spellcasters. If you want to include the spell list expansions in non-Ravnica games or you want to reduce how much these backgrounds favor spellcasters, consider using them in place of class/subclass features which expand a character’s spell list such as cleric domains or warlock patrons."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ravnica-backgrounds-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide will also largely ignore any lore of theming around the guilds.\n\tThe lore does not align well with optimization concerns, and you’re not\n\treading this article for my middling storytelling capabilities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-backgrounds",
+      "heading": "Backgrounds",
+      "sourceAnchor": "backgrounds",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-4",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Azorius Functionary",
+      "blocks": [
+        {
+          "blockId": "block-section-4-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Azorius’s skills cater to Charisma-based characters, and their spell list includes a lot of crowd control options taken primarily from the Sorcerer/Wizard spell lists. Sorcerers and warlocks are most likely to benefit from the skills, while other spellcasters (except the wizard) will benefit more from the spell list. Paladins might benefit from both, but get access to new spells slow enough that they’re not especially helpful. That leaves warlocks as the best candidates."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-4-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Excellent skills for a Face character."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-4-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-4-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Only situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Both are good crowd control options which remain useful for a very long time."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Two more good crowd control options. Arcane Lock is an interesting utility, but rarely useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Clairvoyance is a decent divination for scouting and spying. Counterspell can be very powerful, but very few classes have it on their spell list."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Divination is a great divination spell, provided that your DM is willing to predict the future a little bit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Only situationally useful because humanoids make up a relatively small portion of the enemies you will face at this level."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-5",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Boros Legionnaire",
+      "blocks": [
+        {
+          "blockId": "block-section-5-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Boros caters to martial casters, offering both defensive buffs and attack options. The skill proficiencies strongly resemble the Soldier background, which fits the theme well. Thematically this is all great, but there is no character who will enjoy every benefit of the background. Instead, you’ll likely pick Boros Legionnaire for a subset of the options offered. Even with only partial options, you may still find a lot to enjoy."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Artificers will enjoy the spell list, which includes mostly new options for them. Bards will enjoy the meaningful attack options and the buffs from the Cleric spell list. Clerics will enjoy new offensive options, including tings like Blinding Smite which offer a passable reason for clerics to own a weapon. Druids will enjoy the whole spell list since it’s almost entirely new options, but will find the skills largely useless. Sorcerers and Warlocks will enjoy proficiency in Intimidate and many of the spells, though many of Boros’s spells are already on their spell list. Wizards get a handful of cleric spells and two skills that they can’t use effectively, making Boros a difficult choice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For arcane tricksters, eldritch knights, paladins, and rangers, the spells offer some interesting options that may be difficult to use. Because so many of the spells are attack options, getting them slower than full casters will frequently mean that they’re obsolete by the time that you can cast them, which is a shame because those classes feel the most thematically appropriate."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Thematically this makes a lot of sense, but in optimization terms it really only works for paladins and purple dragon knight fighters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-6",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Two of the best offensive cantrips in the game."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent options, especially at low level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Aid is a spectacular but easily-overlooked spell. Scorching Ray is decent, but becomes obsolete pretty quickly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Blinding Smite is a great spell for weapon users."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": A powerful defensive buff and one of the best area control spells in the game."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": The next best thing to fireball."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-6",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Dimir Operative",
+      "blocks": [
+        {
+          "blockId": "block-section-6-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Perfect for a character planning to play a spy. In a typical dungeon fantasy game that means a Scout. Dimir gives you skills and spells to sneak in and out of places undetected, ideally intending to collect information, but sometimes things get stabby."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The most obvious beneficiaries are spellcasters than can manage to invest in both Dexterity and Charisma to support Stealth and Charisma-based skill like Deception. Bards, sorcerers, and warlocks make natural choices. Trickery clerics might also find some useful things here, but it’s a difficult build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rogues, especially arcane tricksters, make sense here, but they already get most of the spells on the Dimir spell list, and Dimir Operative doesn’t change the school restrictions on which spells the Arcane Trickster can learn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Perfect skills for a spy, but you’ll need to invest in both Dexterity and Charisma to make them both work."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-6",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Encode Thoughts is a hard spell to use most of the time, but in a game where you’re actually spying on people it may be useful. Mage Hand is consistently good utility."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Disguise Self ironically makes your proficiency in Disguise Kits redundant. Sleep can be hard to use, but when it works it’s amazing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent options for stealth any spying."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Gaseous Form is great for sneaking in or out of somewhere, but the other options are only situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Arcane Eye is my favorite spell for scouting. Freedom of Movement is only situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Very situational, but also very appropriate for the guild."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-7",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Golgari Agent",
+      "blocks": [
+        {
+          "blockId": "block-section-7-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The benefits of Golgari Agent could easily be described as “50% amazing and 50% trash”. It’s a weird background. The proficiencies include good options like Nature and a language, but also Survival (notoriously difficult to use) and Poisoner’s Kit (poison is weak for players). The spells are almost exactly half options that we rate "
+            },
+            {
+              "type": "text",
+              "text": "red"
+            },
+            {
+              "type": "text",
+              "text": " and half that we rate "
+            },
+            {
+              "type": "text",
+              "text": "blue"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The skills and spells are drawn primarily from the druid and ranger spell lists, offering some of that flavor for other spellcaster classes. Bards, sorcerers, and warlocks will struggle to make any of the skill proficiencies useful, but artificers, clerics, and wizards should find some use from the skills and will certainly enjoy the spell list. Partial casters like arcane tricksters will likely find that their spells are obsolete or difficult to use by the time that they’re available."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Nature is a good knowledge skill, but Survival is notoriously very difficult to use. Poisoner’s Kits are also difficult because poison is such a weak option for players, and a language won’t be much use to a background clearly catering to Int/Wis builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-5",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Dancing lights is a decent utility, but Spare the Dying is borderline useless since Healer’s Kits can do the same thing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Entangle is good area control, but Ray of Sickness is horrible."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Protection from Poison is a useful defense at any level, and Spider Climb is a good cheep alternative to flight."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Both spells are good, but they’re also great ways to get yourself into trouble, so use them responsibly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Giant Insect is basically a summon spell, and a really good one at that, but you may need to keep a collection of bugs on your person to make it viable, and I just can’t bring myself to do that."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": A weird combination. These spells both have the same purpose, but Insect Plague is outright better than Cloudkill, so there’s basically no reason to learn Cloudkill."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-8",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Gruul Anarch",
+      "blocks": [
+        {
+          "blockId": "block-section-8-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gruul Anarch’s spells and proficiencies are an eclectic mix of options from the Druid and the Ranger’s spell list with a splash of paladin for some reason. The proficiencies aren’t great, but might appeal to Strength-based rangers. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The most likely beneficiaries of the Gruul spell list art artificers and heavily-armored clerics. Other full spellcasters will struggle to make the new options meaningful, and partial casters won’t get many of the spells at levels where they’re still consistently useful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Animal Handling is a hard skill to use, Athletics only appeals to Strength-based martial characters, and the Herbalism Kit quickly stops being helpful once you can afford the 50gp or have cost for healing potions. In short, the proficiencies aren’t very good and only appeal to a tiny subset of characters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-5",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Fire Bolt and also worse Fire Bolt."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Compelled Duel is a paladin exclusive and it’s absolutely stellar for tanky front-line characters like artificers and heavily-armor clerics. The other spells are fine but only situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Shatter is decent low-level AOE damage but it becomes obsolete quickly. Beast Sense is extremely situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Conjure Animals is a good (if challenging) summoning spell, but Conjure Barrage is a cheap AOE for rangers and basically any full caster will have better AOE damage options, including Shatter provided by this spell list."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Dominate Beast is only situationally useful, and beasts have mostly fallen out of the CR range by this level. Stoneskin is really good, but very expensive so you likely won’t use it consistently until much higher level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": A good short-range AOE, but the Constitution save can make it unreliable."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-9",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Izzet Engineer",
+      "blocks": [
+        {
+          "blockId": "block-section-9-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The most likely members of Izzet are artificers and wizards, and they’re the ones with the least to gain here. The spell list is primarily taken from the artificer/wizard spell lists, and the Intelligence-based skills are difficult choices for most characters since Intelligence is near-universally a dump stat. Even if you struggle along with a different class, the spell list just isn’t very good."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-9-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Great for Intelligence-based characters like artificers and wizards, but potentially difficult for anyone else."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-9-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-9-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Decent offensive options, but nothing exciting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Decent, but not exciting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Heat Metal is basically guaranteed death for armored opponents, but most monsters don’t wear armor. Rope Trick is nice for taking a Short Rest safely, but that’s about it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Fine, but nothing exciting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Resilient Sphere is a good save-or-suck spell and Divination can be a great way to gather information."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Both spells are good, but not great."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-10",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Orzhov Representative",
+      "blocks": [
+        {
+          "blockId": "block-section-10-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Orhoz’s spells are primarily utility options, and many are extremely situational, but they’re also not the sort of spells that become obsolete, so their value remains consistent regardless of the level at which you gain access. Paladins are a natural fit here, but since other Charisma-based spellcasters learn their spells permanently it’s hard to justify learning Orhov’s weird, situational spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-10-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": A Face skill and two languages are a great fit. Religion may be somewhat harder to combine with Face skills, but it’s still a good skill."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-10-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-10-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Friends is awful, Guidance is great."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Command is a great crowd control option, but Illusory Script is extremely situational,"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, bad, and situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Two great offensive options and a good utility."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Death Ward is really good, but it’s the only good option here."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-11",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Rakdos Cultist",
+      "blocks": [
+        {
+          "blockId": "block-section-11-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The spell list is great for an offensive caster, but the proficiencies are useless and you don’t get much except damage options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-11-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Almost entirely useless."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-11-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-11-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent offensive options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Burning Hands will become obsolete after a few levels, but the other spells remain useful for your whole career."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Flaming Sphere is decent."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Both are excellent in combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Wall of Fire is among the best area control spells in the game."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Only situationally useful because humanoids make up a relatively small portion of the enemies you will face at this level."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-12",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Selesnya Initiate",
+      "blocks": [
+        {
+          "blockId": "block-section-12-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Very few good options, and the whole collections is difficult to put to good use."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-12-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": The options are fine individually, but there’s no way to build a character that can use them all to good effect."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-12-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-12-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Awful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Two charm options that will be frequently useful at low levels, but may fall out of favor as you gain levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Four spells, and three of them are fantastic."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Use Plant Growth to make an are basically impassable, then use Speak With Plants to command the plants."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Only situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Only situationally useful."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-13",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Simic Scientist",
+      "blocks": [
+        {
+          "blockId": "block-section-13-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Some of the spell list is very good. For non-wizards, there’s a lot to be had here. The skill proficiencies can be somewhat difficult, but bards, sorcerers, and warlocks will enjoy knowing a bit about how magic works and two languages with which to apply their Face skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-13-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Pretend medicine doesn’t exist because it’s useless. Arcana is fine for Intelligence-based characters and characters like sorcerers and warlocks are often expected to know a bit about magic."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-13-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-13-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Acid Splash is okay, but in the majority of cases other cantrips will be more effective."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": All very situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Some good buffs."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Good utility options, but nothing amazing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Polymorph is really good."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Creation is really good for a creative player."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[1]",
+      "detail": "rating-green Azorius Functionary"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[2]",
+      "detail": "rating-green Boros Legionnaire"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[3]",
+      "detail": "rating-green Dimir Operative"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[4]",
+      "detail": "rating-green Golgari Agent"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[2]",
+      "detail": "rating-blue blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[5]",
+      "detail": "rating-orange Gruul Anarch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[6]",
+      "detail": "rating-orange Izzet Engineer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[7]",
+      "detail": "rating-orange Orzhov Representative"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[8]",
+      "detail": "rating-orange Rakdos Cultist"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[9]",
+      "detail": "rating-red Selesnya Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[10]",
+      "detail": "rating-green Simic Scientist"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-ravnica-backgrounds-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-ravnica-backgrounds-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-ravnica-backgrounds-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-ravnica-backgrounds-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[1]",
+      "detail": "section-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-4-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-4-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-4-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-4-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[2]",
+      "detail": "section-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-5-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-5-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-5-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-5-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-5-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[2]",
+      "detail": "block-section-5-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[3]",
+      "detail": "section-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-6-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-6-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-6-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-6-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-6-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[3]",
+      "detail": "block-section-6-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[4]",
+      "detail": "section-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-7-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-7-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-7-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-7-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[4]",
+      "detail": "block-section-7-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[5]",
+      "detail": "section-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-8-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-8-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-8-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-8-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[5]",
+      "detail": "block-section-8-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[6]",
+      "detail": "section-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-9-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-9-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-9-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[6]",
+      "detail": "block-section-9-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[7]",
+      "detail": "section-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-10-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-10-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-10-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[7]",
+      "detail": "block-section-10-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[8]",
+      "detail": "section-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-11-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-11-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-11-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[8]",
+      "detail": "block-section-11-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[9]",
+      "detail": "section-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-12-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-12-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-12-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[9]",
+      "detail": "block-section-12-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[10]",
+      "detail": "section-13"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-13-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-13-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-13-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[10]",
+      "detail": "block-section-13-4"
+    }
+  ],
+  "metrics": {
+    "words": 2453,
+    "sections": 13,
+    "blocks": 54,
+    "tables": 0,
+    "ratingSignals": 86
+  },
+  "status": "needs-editorial-review"
+}

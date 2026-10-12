@@ -1,0 +1,979 @@
+{
+  "buildId": "build-bard-glamour-2014",
+  "revisionId": "build-bard-glamour-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Барда Колегії гламуру — Маршал",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-bard-glamour-2014",
+      "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+      "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+      "sectionId": "section-example-build-college-of-glamour-bard-build-the-marshal",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Archery"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "identify"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "COLLEGE_OF_GLAMOUR",
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ],
+        "expertise": [
+          "INSIGHT",
+          "PERCEPTION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CROSSBOW_EXPERT",
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "enhance-ability"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dispel-magic"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "BATTLE_MASTER",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Commander's Strike (Maneuver)"
+          },
+          {
+            "optionNameEng": "Commanding Presence (Maneuver)"
+          },
+          {
+            "optionNameEng": "Maneuvering Attack (Maneuver)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "freedom-of-movement"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "raulothims-psychic-lance"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-restoration"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ],
+        "expertise": [
+          "INTIMIDATION",
+          "PERSUASION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "forcecage"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-glamour-2014",
+          "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "raceKey": "CUSTOM_LINEAGE_TCE",
+    "backgroundKey": "FAR_TRAVELER",
+    "featKey": "TELEKINETIC",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-playstyle-and-tactics",
+        "title": "Стиль гри й тактика",
+        "text": "У цьому прикладі розглянемо, як за допомогою вміння підкласу «зламати» рух і розташування в бою. Обрані нами засоби дають кілька способів переміщати союзників у свій хід і відкривають простір для цікавих тактичних рішень.\n\nСкажімо, наш Чарівник хоче накласти Вогнекулю [Fireball] на ворогів, але наша передня лінія зчепилася з ними в ближній сутичці. Ми можемо застосувати «Мантію натхнення»{{Mantle of Inspiration}} і перемістити всю групу просто перед влученням вогнекулі. Способів творчо й корисно застосовувати ці засоби набагато більше, ніж можна вмістити в цьому гайді.\n\nЯкщо ж вам не до душі такий набір засобів, не хвилюйтеся: це далеко не єдиний спосіб грати цим підкласом. Можна пройти всі 20 рівнів Барда; основний посібник і розбір списку заклинань чудово прислужаться, якщо ви обираєте цей шлях. Тоді ви лише зрідка застосовуватимете Мантію{{Mantle}} для тимчасових ХП, а переважно роздаватимете свої кістки для звичайного Бардського натхнення{{Bardic Inspiration}}. Ви все одно залишитеся одним із найсильніших класів у грі — самим фактом свого існування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-playstyle-and-tactics",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Для цієї збірки ми візьмемо Свою расу{{Custom Lineage}}, щоб і гібридна риса, і бонус +2 пішли в Харизму: так ми почнемо з 18. Після Харизми пріоритет матимуть Спритність і Статура, а залишок балів піде в Мудрість.\n\n Базове значення Збільшене значення Сила 8 8 Спритність 14 14 Статура 14 14 Інтелект 8 8 Мудрість 12 12 Харизма 15 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Як згадувалося вище, для цієї збірки ми обираємо Свою расу{{Custom Lineage}}. Бонус +2 спрямовуємо на Харизму. Наша риса — «Телекінетик»{{Telekinetic}}, гібридна риса, яка додає ще +1 до Харизми. Як змінну особливість{{variable trait}} беремо Темнозір{{Darkvision}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "За передісторію беремо Далекого мандрівника{{Far Traveller}}: передусім заради Аналізу Поведінки й Уважності, але ще й заради володіння інструментом — {{набором для драконячих шахів|Dragonchess Set}}, що тематично пасує до нашого образу бойового стратега.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Починаючи як Бард, ми здобуваємо володіння трьома навичками на вибір; беремо Обман, Залякування й Переконання. Разом із навичками від передісторії це дає нам усі навички для ролі «обличчя» й Уважність.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Оскільки в цій збірці є мультикласування, риси ми здобуватимемо через нерівні проміжки рівнів.\n\nНа 1-му рівні беремо рису «Телекінетик»{{Telekinetic}}: вона дає +1 до Харизми, замовляння Магічна рука [Mage Hand] і змогу бонусною дією перемістити істоту на 5 футів. Як альтернатива, можна взяти «Доторк феї»{{Fey Touched}}: він теж дає +1 до Харизми, а ще заклинання Благословення [Bless] — одне з найефективніших заклинань підтримки у грі. Докладніше читайте тут — про те, чому середній бонус +2,5 до влучання ламає гру.\n\nНа 4-му рівні Барда, тобто на 5-му рівні персонажа загалом, беремо «Експерта з арбалетів»{{Crossbow Expert}}. Це дає додаткову атаку, коли ми не витрачаємо бонусну дію на інше вміння. Можна також сильніше зосередитися на ролі підтримки й узяти «Посвяченого у бій»{{Martial Initiate}} («Вища техніка»{{Superior Technique}}), щоб отримати більше кубиків і маневр.\n\nІнший варіант — тепер узяти +2 до Харизми, а на 4-му рівні Воїна вибрати «Військового адепта»{{Martial Adept}}: так ми матимемо додатковий кубик к8 замість к6, який отримали б, узявши цю рису до підкласу {{Майстра бойових мистецтв|Battle Master}}, плюс ще два маневри.\n\nНа 4-му й 6-му рівнях Воїна — тобто на 9-му й 11-му рівнях персонажа — спершу беремо +2 до Харизми, щоб довести її до максимуму, а потім +2 до Спритності, аби посилити атаки з арбалета й КБ.\n\nНа 8-му й 12-му рівнях Барда, тобто на 14-му й 18-му рівнях персонажа, далі додаємо по +2 до Спритності й доводимо її до 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бонусна риса Своєї раси{{Custom Lineage}}: «Телекінетик»{{Telekinetic}}\n«Бардське натхнення»{{Bardic Inspiration}} (к6)\nЧаротворство{{Spellcasting}}\nВідомі замовляння: – Магічна рука [Mage Hand] – Злісне глузування [Vicious Mockery] – Мала ілюзія [Minor Illusion]\nВідомі заклинання: – Розуміння мов [Comprehend Languages] – Вогники фей [Faerie fire] – Цілюще слово [healing word] – Сріблясті шпильки [Silvery Barbs]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Бойовий Стиль{{Fighting Style}} («Стрільба з лука»{{Archery}})\n«Друге дихання»{{Second Wind}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "«Майстер на всі руки»{{Jack of All Trades}}\n«Пісня відпочинку»{{Song of Rest}} (к6)\nВідомі заклинання: – Розпізнавання [Identify]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Підклас: {{Колегія гламуру|College of Glamour}}\n«Мантія натхнення»{{Mantle of Inspiration}} (5 тимчасових ХП)\n«Зачаровуючий виступ»{{Enthralling Performance}}\nЕкспертиза{{Expertise}}: – Аналіз Поведінки – Уважність\nВідомі заклинання: – Збільшення/Зменшення [Enlarge/Reduce]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Риса: «Експерт з арбалетів»{{Crossbow Expert}}\nВідомі заклинання: – Покращення здібності [Enhance Ability]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "«Мантія натхнення»{{Mantle of Inspiration}} (8 тимчасових ХП)\n«Бардське натхнення»{{Bardic Inspiration}} (к8)\n«Джерело натхнення»{{Font of Inspiration}}\nВідомі заклинання: – Розвіювання магії [Dispel Magic]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "«Сплеск дій»{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Підклас: {{Майстер бойових мистецтв|Battle Master}}\nКубики переваги{{Superiority Dice}} (4к8)\n«Учень війни»{{Student of War}}: Інструменти лудильника{{Tinker Tools}}\nВідомі маневри: – «Наказ атакувати»{{Commander's Strike}} – «Владна присутність»{{Commanding Presence}} – «Маневровий удар»{{Maneuvering Attack}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Покращення Характеристик: +2 до Харизми (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "«Додаткова атака»{{Extra Attack}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Покращення Характеристик: +2 до Спритності (14 → 16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "«Контрпричарування»{{Countercharm}}\n«Мантія величі»{{Mantle of Majesty}}\nВідомі заклинання: – Масове цілюще слово [Mass Healing Word]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Відомі заклинання: – Свобода рухів [Freedom of Movement]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Покращення Характеристик: +2 до Спритності (16 → 18)\nВідомі заклинання: – Психічний спис Раулотіма [Raulothim's Psychic Lance]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "«Пісня відпочинку»{{Song of Rest}} (к8)\nВідомі заклинання: – Більше відновлення [Greater Restoration]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "«Мантія натхнення»{{Mantle of Inspiration}} (11 тимчасових ХП)\n«Бардське натхнення»{{Bardic Inspiration}} (к10)\nЕкспертиза{{Expertise}}: – Залякування – Переконання\nМагічні таємниці{{Magical Secrets}}: – Пошук вищого скакуна [Find Greater Steed] – Швидкий сагайдак [Swift Quiver]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Відомі заклинання: – Бенкет героїв [Heroes' Feast]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Покращення Характеристик: +2 до Спритності",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "«Пісня відпочинку»{{Song of Rest}} (к10)\nВідомі заклинання: – Силова кліть [Forcecage]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "«Незламна велич»{{Unbreakable Majesty}}\nМагічні таємниці{{Magical Secrets}}: – Зцілення [Heal] – Планарний перехід [Plane Shift]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Таблиця рівнів",
+        "reason": "Розділ «Рівні» статті — одна комірка суцільного тексту з рядками «Рівень і клас» (Бард та Воїн), а не таблиця; рівні персонажа розібрано вручну за цими рядками (Бард 1, Воїн 1, Бард 2–5, Воїн 2–6, Бард 6–14), і текстовий план рівнів у рецепті не збирається.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Набір для драконячих шахів",
+        "reason": "Автор бере Далекого мандрівника заради набору для драконячих шахів, але в каталозі передісторія фіксує музичний інструмент; прибрати його чи додати набір платформа не вміє, тож драконячі шахи не записано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти лудильника",
+        "reason": "Вміння «Учень війни» Майстра бойових мистецтв на 8-му рівні дає вибрати інструменти (автор бере інструменти лудильника); платформа цього вибору не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання поза списком Барда",
+        "reason": "Автор називає Збільшення/Зменшення (4-й рівень), Масове цілюще слово (12-й) і Бенкет героїв (17-й), яких немає в списку Барда 2014 платформи, а також Магічні таємниці з чужих списків: Пошук вищого скакуна і Швидкий сагайдак (16-й), Зцілення і Планарний перехід (20-й); платформа приймає Магічні таємниці лише зі списку Барда. Усі ці місця лишено вільними для вибору гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Нові замовляння Барда без назви",
+        "reason": "На 5-му і 16-му рівнях персонажа Бард отримує ще по одному замовленню, яких автор не називає; їх обирає гравець.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Рівні вище 20",
+        "reason": "Автор описує лише 20 рівнів персонажа (Бард 14 і Воїн 6).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-glamour-2014",
+            "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

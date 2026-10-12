@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-09",
+  "test": "tests/actions/rpgbot-ready-preset-idempotency.test.ts",
+  "baseline": {
+    "passed": 1
+  },
+  "deliberateBreak": {
+    "tree": "/private/tmp/o49-creation-break-20261009",
+    "change": "createdPers written via prisma.pers.create outside interactive transaction",
+    "expectedFailure": "pers.count expected 0 received 1",
+    "failed": 1
+  },
+  "productionSourceBroken": false,
+  "database": "local PostgreSQL17 per-worker test copies"
+}

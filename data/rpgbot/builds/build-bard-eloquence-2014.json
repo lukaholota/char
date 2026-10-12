@@ -1,0 +1,998 @@
+{
+  "buildId": "build-bard-eloquence-2014",
+  "revisionId": "build-bard-eloquence-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "Барда Колегії красномовства — Приязний Джек",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-bard-eloquence-2014",
+      "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+      "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+      "sectionId": "section-example-build-college-of-eloquence-bard-build-amiable-jack",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "silvery-barbs"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "COLLEGE_OF_ELOQUENCE",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "crown-of-madness"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "charm-person",
+          "add": "phantasmal-force"
+        },
+        "expertise": [
+          "PERSUASION",
+          "DECEPTION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FEY_TOUCHED",
+        "featOptions": [
+          {
+            "optionNameEng": "FEY_TOUCHED Ability (Charisma)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "mage-hand"
+          ],
+          "knownSpellKeys": [
+            "lesser-restoration"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hypnotic-pattern"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dispel-magic"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "sleep",
+          "add": "leomunds-tiny-hut"
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "charm-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "BARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "crown-of-madness",
+          "add": "polymorph"
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ],
+        "replaceSpell": {
+          "drop": "lesser-restoration",
+          "add": "greater-restoration"
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ],
+        "expertise": [
+          "INTIMIDATION",
+          "PERCEPTION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "BARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "eyebite"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "forcecage"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "leomunds-tiny-hut",
+          "add": "mordenkainens-magnificent-mansion"
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dominate-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "true-polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARD_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-eloquence-2014",
+          "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+          "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "COLLEGE_OF_ELOQUENCE",
+    "raceKey": "SATYR_MPMM",
+    "backgroundKey": "CHARLATAN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Як описано вище. Статура лишається непарною (з урахуванням расового бонусу), щоб згодом можна було взяти рису «Стійкий»{{Resilient}}.\n\n Базове значення Збільшене значення Сила 8 8 Спритність 14 14 Статура 14 15 Інтелект 10 10 Мудрість 10 10 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Сатир{{Satyr}}. Барди-сатири — не лише усталене кліше: ця раса вивільняє наш вибір навичок, щоб здобути більше володінь, і дає неймовірний захист від заклинань — дуже корисна риса для того, хто здебільшого тримається на краю бою. До того ж, кому не подобається бути швидшим за більшість ігрових рас?",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Шарлатан{{Charlatan}}. Сирітське дитинство залишило нам удосталь часу, щоб вигадувати, ким ми є і як здобувати те, чого інакше не дістати. До того ж, коли ви сатир, хто двічі подумає, почувши від вас, що ви герцог Фейвайлду{{Feywild}}?",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Ми будемо обличчям групи, тож і поводимося відповідно. Завдяки расі, передісторії й класу ми отримуємо аж 7 володінь навичками, які розподіляємо між Обманом, Залякуванням, Уважністю, Виступом, Переконанням, Спритністю рук і Непомітністю. Також ми отримуємо доступ до 4 музичних інструментів: волинки — щоб дратувати нашу групу, ручного барабана — бо я люблю музику бодрана, лютні — бо нам потрібна лютня Досс{{Doss Lute}}, і флейти Пана — бо… ми сатири. Завдяки достатньо високим Непомітності й Уважності ми також можемо виконувати роль розвідника. Якщо оберете цей шлях, візьміть замість цього передісторію Безпритульний{{Urchin}} або Злочинець{{Criminal}}, щоб отримати володіння інструментами злодія{{Thieves’ Tools}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Доторк феї»{{Fey Touched}}, щоб отримати більше заклинань.\n\nНа 8-му рівні піднімаємо Харизму до граничних 20.\n\nНа 12-му рівні беремо «Надихаючого лідера»{{Inspiring Leader}}.\n\nНа 16-му рівні беремо рису {{Стійкий (Статура)|Resilient (Con)}}.\n\nНа 19-му рівні можна взяти практично будь-що. Усі ці варіанти життєздатні, залежно від того, що переживає ваш персонаж: «Містичний адепт»{{Eldritch Adept}} заради «Зору диявола»{{Devil's Sight}}, «Щасливчик»{{Lucky}} або будь-який із двох — «Здоровань»{{Tough}} чи «Оборонний дуелянт»{{Defensive Duelist}} — для додаткового захисту.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Замовляння:\n– Штукарство [Prestidigitation]\n– Злісне глузування [Vicious Mockery]\n\nВідомі заклинання:\n– Причарування особи [Charm Person]\n– Виявлення магії [Detect Magic]\n– Цілюще слово [healing word]\n– Сон [Sleep]\n\nБардське натхнення{{Bardic Inspiration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Заклинання:\n– Сріблясті шпильки [Silvery Barbs]\n\nМайстер на всі руки{{Jack of All Trades}}\n\n{{Пісня відпочинку|Song of Rest}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Відоме заклинання:\n– Корона шаленства [Crown of Madness]\n\nЗаміна заклинання: Причарування особи [Charm Person] → Уявна сила [Phantasmal Force]\n\nЕкспертиза{{Expertise}}:\n– Переконання\n– Обман\n\nСрібний язик{{Silver Tongue}}\n\nТривожні слова{{Unsettling Words}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Замовляння:\n– Магічна рука [Mage Hand]\n\nВідоме заклинання:\n– Мале відновлення [Lesser Restoration]\n\nДоторк феї{{Fey Touched}} (Харизма)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Нове заклинання:\n– Гіпнотичний візерунок [Hypnotic Pattern]\n\n{{Джерело натхнення|Font of Inspiration}}\n\nПокращення Бардського натхнення{{Bardic Inspiration Improvement}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Нове заклинання:\n– Розвіювання магії [Dispel Magic]\n\nЗаміна заклинання: Сон [Sleep] → Леомундова крихітна хатинка [Leomund's Tiny Hut]\n\nБезвідмовне натхнення{{Unfailing Inspiration}}\n\nУніверсальна мова{{Universal Speech}}\n\nКонтрпричарування{{Countercharm}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Нове заклинання:\n– Причарування монстра [Charm Monster]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Харизма 18 → 20\n\nНове заклинання:\n– Більша невидимість [Greater Invisibility]\n\nЗаміна заклинання:\nКорона шаленства [Crown of Madness] → Перевтілення [Polymorph]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нове заклинання:\n– Масове цілюще слово [Mass Healing Word]\n\nЗаміна заклинання: Мале відновлення [Lesser Restoration] → Більше відновлення [Greater Restoration]\n\n{{Покращення Пісні відпочинку|Song of Rest Improvement}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Покращення Бардського натхнення{{Bardic Inspiration Improvement}}\n\nЕкспертиза{{Expertise}}:\n– Залякування\n– Уважність\n\nНове замовляння:\n– Мала ілюзія [Minor Illusion]\n\nНові заклинання:\n– Відродження [Revivify]\n– Пошук вищого скакуна [Find Greater Steed]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нове заклинання:\n– Проклятуще око [Eyebite]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Надихаючий лідер{{Inspiring Leader}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове заклинання:\n– Силова кліть [Forcecage]\n\nЗаміна заклинання:\nЛеомундова крихітна хатинка [Leomund's Tiny Hut] → Розкішний особняк Морденкайнена [Mordenkainen's Magnificent Mansion]\n\n{{Покращення Пісні відпочинку|Song of Rest Improvement}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Нові заклинання:\n– Зцілення [Heal]\n– Симулякр [Simulacrum]\n\nЗаразливе натхнення{{Infectious Inspiration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Покращення Бардського натхнення{{Bardic Inspiration Improvement}}\n\nНове заклинання:\n– Підкорення монстра [Dominate Monster]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "{{Стійкий (Статура)|Resilient (Con)}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "{{Покращення Пісні відпочинку|Song of Rest Improvement}}\n\nНове заклинання:\n– Істинне перевтілення [True Polymorph]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Нові заклинання:\n– Бажання [Wish]\n– Обачливість [Contingency]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Щасливчик{{Lucky}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Вище натхнення{{Superior Inspiration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Стартове золото замість набору",
+        "reason": "Автор радить узяти золото й купити проклепаний шкіряний обладунок, рапіру, флейту Пана та інструменти злодія; пресет бере стандартний набір класу, а не купівлю за золото.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Музичні інструменти",
+        "reason": "Автор називає волинку, ручний барабан, лютню Досс і флейту Пана; пресет не записує вибір музичних інструментів (лютня є в стандартному наборі).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти злодія для ролі розвідника",
+        "reason": "Для ролі розвідника автор радить замінити Шарлатана на Безпритульного або Злочинця заради інструментів злодія; пресет лишає Шарлатана, як у основному прикладі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Магічні таємниці (10, 14 і 18 рівні)",
+        "reason": "Автор бере заклинання з чужих списків (Відродження, Пошук вищого скакуна; Зцілення, Симулякр; Бажання, Обачливість); платформа приймає в плані лише заклинання зі списку Барда, тому вибір лишено гравцеві (openSpellPicks).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання «Доторку феї»",
+        "reason": "Автор не називає заклинання 1-го рівня від «Доторку феї»; воно не входить до `levels`.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риса на 19-му рівні",
+        "reason": "Автор пропонує кілька рівноцінних варіантів (Містичний адепт, Щасливчик, Здоровань, Оборонний дуеліст); записано перший названий у таблиці рівнів — Щасливчик.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Масове цілюще слово на 9-му рівні",
+        "reason": "Автор бере Масове цілюще слово, але його немає в списку заклинань Барда в каталозі, тож платформа його не приймає; нове заклинання 9-го рівня лишено гравцеві (openSpellPicks).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-eloquence-2014",
+            "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+            "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

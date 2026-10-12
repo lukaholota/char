@@ -1,0 +1,946 @@
+{
+  "buildId": "build-sorcerer-silver-dragonborn-draconic-bloodline-2014",
+  "revisionId": "build-sorcerer-silver-dragonborn-draconic-bloodline-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Чародія Драконячого родоводу — «Підземелля й декілька драконів»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+      "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "SORCERER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "DRACONIC_BLOODLINE"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "ice-knife"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Heightened Spell"
+          },
+          {
+            "optionNameEng": "Transmuted Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dragons-breath"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "SORCERER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELEMENTAL_ADEPT",
+        "featOptions": [
+          {
+            "optionNameEng": "Elemental Adept (Fire)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "rimes-binding-ice"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "SORCERER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "SORCERER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "ashardalons-stride"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wall-of-fire"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_CHROMATIC_DRAGON",
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "raulothims-psychic-lance"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "summon-draconic-spirit"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Quickened Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "mind-sliver"
+          ],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "otilukes-freezing-sphere"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "SORCERER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_METALLIC_DRAGON"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "SORCERER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "draconic-transformation"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "SORCERER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "SORCERER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dominate-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "SORCERER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_GEM_DRAGON",
+        "featOptions": [
+          {
+            "optionNameEng": "GIFT_OF_THE_GEM_DRAGON Ability (Charisma)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "SORCERER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Careful Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wish"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "SORCERER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "SORCERER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "SORCERER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+          "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "DRACONIC_BLOODLINE",
+    "raceKey": "DRAGONBORN_METALLIC",
+    "backgroundKey": "NOBLE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Ця збірка стартує з характеристик, які радить наш гайд Чародія, але ми занедбаємо Інтелект, щоб мати базову Статуру 15, а тоді вкладемо +1 у Статуру, а +2 — у Харизму.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 15 16 Інтелект 8 8 Мудрість 10 10 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Дракононароджений Фізбана{{Fizban’s Dragonborn}} (металічний, срібний). Це дає нам опір до холоду й зброю дихання, що завдає шкоди холодом. Для збільшень характеристик беремо +2/+1. На 5-му рівні отримуємо «Металеве дихання»{{Metallic Breath Weapon}} — класний варіант дихання раз на день, що гарно доповнює наше чаротворство.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Аристократ{{Noble}}. Ми ж, зрештою, вишукана драконяча особа. Це дає нам володіння Історією й Переконанням. Чесно кажучи, тут підійде будь-яка передісторія. Придворний{{Courtier}} теж міг би бути цікавим.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "З класових навичок беремо Аналіз Поведінки й Залякування. З Історією та Переконанням від передісторії в нас немає всіх навичок «обличчя», але без обману людей ми якось проживемо.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Адепт стихій»{{Elemental Adept}}.\n\nНа 8-му рівні беремо «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}}. У нас постійний опір до холоду, а опір до вогню ми можемо отримувати на 1 годину за раз, але інколи нас застукають зненацька або вдарять іншою стихією, тож нам потрібен додатковий захист, що не зʼїдає слотів заклинань на накладання Поглинання стихій [Absorb Elements].\n\nНа 12-му рівні беремо «Дарунок металевого дракона»{{Gift of the Metallic Dragon}}. Лікування ран [Cure Wounds] інколи стає в пригоді, а змога захистити себе й союзників поблизу від атак може зменшити частину вхідної шкоди. Проте, оскільки наш КБ навряд чи перевищить 15, на це не завжди можна покладатися. Натомість розгляньте «Доторк феї»{{Fey Touched}} або +2 до Харизми.\n\nНа 16-му рівні беремо «Дарунок самоцвітного дракона»{{Gift of the Gem Dragon}}, щоб підняти Харизму до 20 і завершити набір драконячих рис. Реакція-відплата може виявитися надійнішою за «Дарунок металевого дракона»{{Gift of the Metallic Dragon}}.\n\nНа 19-му рівні беремо «Удачу»{{Lucky}}, бо драконячі риси в нас закінчилися, а риси лише для Дракононароджених{{Dragonborn}} нам, власне, не потрібні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Походження чародія{{Sorcerous Origin}}: Драконячий родовід\nДракон-предок\nДраконяча стійкість\nЧаротворство\nЗамовляння:\n– Кислотні бризки\n– Вогняний заряд\n– Магічна рука\n– Штукарство\nВідомі заклинання:\n– Кольорова кулька\n– Щит",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Джерело магії\nНові відомі заклинання:\n– Крижаний кинджал",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Метамагія{{Metamagic}}:\n– Підвищене заклинання\n– Перетворене заклинання\nНові відомі заклинання:\n– Подих Дракона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Адепт стихій\nНове відоме замовляння:\n– будь-яке\nНові відомі заклинання:\n– Сковуючий лід Райма",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Нові відомі заклинання:\n– Вогнекуля",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Стихійна спорідненість\nНові відомі заклинання:\n– Хода Ашардалона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Нові відомі заклинання:\n– Стіна вогню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Дарунок хроматичного дракона (Харизма 17 → 18)\nНові відомі заклинання:\n– Психічний спис Раулотіма",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нові відомі заклинання:\n– Виклик духу дракона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Метамагія{{Metamagic}}:\n– Пришвидшене заклинання\n– Спарене заклинання\nНове відоме замовляння:\n– Розщеплення Розуму\nНові відомі заклинання:\n– Стримування монстра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нові відомі заклинання:\n– Крижана куля Отілюка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Дарунок металевого дракона (Харизма 18 → 19)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нові відомі заклинання:\n– Драконяче перетворення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Крила дракона{{Dragon Wings}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Нові відомі заклинання:\n– Підкорення монстра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Дарунок самоцвітного дракона (Харизма 19 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нові відомі заклинання:\n– Бажання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Драконяча присутність{{Draconic Presence}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Удача",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Відновлення чарівництва{{Sorcerous Restoration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Стихія Адепта стихій на 4-му рівні",
+        "reason": "Автор не називає стихії; оскільки драконячого предка вогняної стихії ми вже обрали за вас (червоний дракон), Адепта стихій узято на вогонь. Це вибір платформи, його можна змінити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння 4-го рівня",
+        "reason": "Автор пише «будь-яке» нове замовлення на 4-му рівні, тому це відкритий вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Харизма від Дарунку хроматичного дракона",
+        "reason": "Автор рахує +1 до Харизми від Дарунку хроматичного дракона (17 до 18), а в каталозі платформи ця риса не підвищує характеристик; підвищення не додане. Те саме з Дарунками металевого й самоцвітного дракона: Харизма 19 і 20 з таблиці автора на платформі не зростає від Дарунку металевого дракона; Дарунок самоцвітного дракона підвищує Харизму на 1.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія на 10-му рівні",
+        "reason": "Автор на 10-му називає дві метамагії (Quickened Spell і Twinned Spell), а Чародій на цьому рівні вивчає лише одну, і про заміну автор не пише. Платформа бере Quickened Spell як вибір платформи (гравець може змінити), Twinned Spell не записано. Заміна метамагії платформою не підтримується. Містичний арканум з 11-го автор не бере. На 17-му автор метамагію не називає: типова Careful Spell, вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Ігровий набір Аристократа",
+        "reason": "Пресет не записує вибір ігрового набору передісторії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-draconic-bloodline-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+            "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

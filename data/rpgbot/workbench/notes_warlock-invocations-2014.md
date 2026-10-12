@@ -1,0 +1,9 @@
+- level-1-1: джерело пише «via the Eldritch Invocation feat»; такої риси немає (це Eldritch Adept), і «This invocations» — описка. Переклад вірний джерелу.
+- level-1 item/4 (Devil’s Sight): «the right of dim light» — очевидно «ring»; переклад «кільце тьмяного світла».
+- level-1 item/11 (Grasp of Hadar): «ongoing are effects» — очевидно «area effects».
+- level-1 item/9 (Fiendish Vigor): «hit temporary hit points» і «wich» — описки; «retrain» передано як «замінити».
+- level-5 item/9 (Tomb of Levistus): «incapacitated for the turn after you use this» перекладено дослівно, у книзі ефект триває до кінця наступного ходу.
+- level-15 item/1: «it’s not an allusion» — очевидно «illusion»; «too situation» — «too situational».
+- Alter Self у каталозі: «Зміна вигляду», варіант Change Appearance там — «Зміна зовнішності».
+- Shroud of Shadow: каталожне engName «Shrouded in Shadow» не збігається з назвою з книги; чотири виклики PHB (Thief of Five Fates, Mire the Mind, Bewitching Whispers, Dreadful Word) є лише в сиді classFeatureSeed.ts, не в generated-каталозі викликів.
+- Перший абзац вступу: «Invocations» без «Eldritch» передано загальним «виклики» без маркера.

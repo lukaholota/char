@@ -1,0 +1,131 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "druid-circle-of-dreams-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-druid-circle-of-dreams-2014-draft1",
+    "sourceRevisionId": "rpgbot-74b04a9032e03f34-9e19f374cd8de714"
+  },
+  "exampleSection": "section-example-circle-of-dreams-druid-build-lucidity",
+  "levelTableSection": "section-level",
+  "classKey": "DRUID_2014",
+  "subclassKey": "CIRCLE_OF_DREAMS",
+  "raceKey": "GITHZERAI_MPMM",
+  "backgroundKey": "FAR_TRAVELER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 10,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2, "subclassKey": "CIRCLE_OF_DREAMS"},
+    {"level": 3},
+    {"level": 4, "featKey": "CHEF", "featOptions": [{"optionNameEng": "CHEF Ability (Wisdom)"}], "openSpellPicks": [{"category": "cantrips", "count": 1}], "section": "section-feats"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 9},
+    {"level": 10, "openSpellPicks": [{"category": "cantrips", "count": 1}]},
+    {"level": 11},
+    {"level": 12, "featKey": "RESILIENT", "featOptions": [{"optionNameEng": "Resilient (Constitution)"}], "section": "section-feats"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "featKey": "SKILL_EXPERT", "featOptions": [{"optionNameEng": "Skill Expert (CON)"}, {"optionNameEng": "Skill Expert Proficiency (STEALTH)"}, {"optionNameEng": "Skill Expert Expertise (PERCEPTION)"}], "section": "section-feats"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}], "section": "section-feats"},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [],
+  "incomplete": [
+    {
+      "field": "Заклинання 2–20 рівнів",
+      "reason": "Автор називає підготовлені заклинання по рівнях, але підготовку Друїда на вищих рівнях плану не веде жоден модуль платформи; їх готують на листі.",
+      "section": "section-level"
+    },
+    {
+      "field": "Замовляння 4-го та 10-го рівнів",
+      "reason": "Друїд отримує нове замовлення на 4-му й 10-му рівнях, а автор їх не називає, тож вибір лишено гравцеві.",
+      "section": "section-level"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/druid-dreams-githzerai-2014.webp",
+    "title": "Друїд Кола сновидінь — Ґітцерай",
+    "description": "Друїд з Мудрістю 17 і Статурою 16. Починає із замовляннями Створення вогню та Терновий батіг; Коло сновидінь відкриється на 2-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "WIS",
+      "CON",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "NATURE",
+        "SURVIVAL"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-level",
+    "abilityExplanation": "Ґітцерай зі змінюваним походженням за правилами Таші: +2 до Мудрості й +1 до Статури, як у авторській таблиці (Статура 16, Мудрість 17); це вже враховано.",
+    "skillExplanation": "Природа й Виживання — від Друїда, Аналіз поведінки й Уважність — від Далекого мандрівника, як радить автор. Дві мови (расову й від передісторії) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Деревʼяний щит, шаблю, шкіряну броню, набір мандрівника й друїдичний фокус ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "produce-flame",
+        "thorn-whip"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "absorb-elements",
+        "healing-word",
+        "faerie-fire",
+        "thunderwave"
+      ],
+      "sectionId": "section-level",
+      "explanation": "Замовляння Створення вогню й Терновий батіг узято з рядка 1-го рівня авторської таблиці. Підготовлені заклинання Поглинання стихій, Цілюще слово, Вогники фей і Громова хвиля названо автором."
+    }
+  }
+}

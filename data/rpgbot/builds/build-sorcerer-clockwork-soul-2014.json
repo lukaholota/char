@@ -1,0 +1,970 @@
+{
+  "buildId": "build-sorcerer-clockwork-soul-2014",
+  "revisionId": "build-sorcerer-clockwork-soul-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— «Точна інженерія»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+      "sectionId": "section-example-clockwork-soul-build-precision-engineering",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "SORCERER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CLOCKWORK_SOUL"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "silvery-barbs"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Twinned Spell"
+          },
+          {
+            "optionNameEng": "Extended Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "tashas-mind-whip"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "SORCERER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FEY_TOUCHED",
+        "featOptions": [
+          {
+            "optionNameEng": "FEY_TOUCHED Ability (Charisma)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [
+            "web"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "SORCERER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hypnotic-pattern"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "SORCERER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fly"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "sleep",
+          "add": "fireball"
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wall-of-stone"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Quickened Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "blade-ward"
+          ],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "true-seeing"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "SORCERER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Wisdom)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "SORCERER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "draconic-transformation"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "SORCERER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "SORCERER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "sunburst"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "SORCERER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (WIS)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (PERCEPTION)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (ARCANA)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "SORCERER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Careful Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "blade-of-disaster"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "magic-missile",
+          "add": "wish"
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "SORCERER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "SORCERER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "SORCERER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CLOCKWORK_SOUL",
+    "raceKey": "DWARF_2014",
+    "backgroundKey": "GUILD_ARTISAN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми беремо Гірського дворфа{{Mountain Dwarf}} із кількох причин, а приємний побічний ефект — +2/+2 до характеристик. Вкладемо їх у Статуру й Харизму. Завдяки расовим рисам, що дають нам володіння середніми обладунками, можна обмежитися Спритністю 14, а Статуру теж поставимо на 14, щоб після +2 вийшло парне число. Тоді вистачає вільних очок, щоб трохи підняти Мудрість і допомогти проти тих жахливих ряткидків Мудрості.\n\n Базове значення Підвищене значення Рівень 20 Сила 8 8 8 Спритність 14 14 14 Статура 14 16 18 Інтелект 8 8 8 Мудрість 12 12 14 Харизма 15 17 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Гірський дворф{{Mountain Dwarf}} із налаштованим походженням{{Custom Origin}} дає нам добрий обладунок, а ще купу володінь зброєю, які ми міняємо на інструменти. Які саме? Усі, що знадобляться, щоб будувати годинники.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо передісторію Гільдійський ремісник{{Guild Artisan}}: отримуємо Аналіз Поведінки{{Insight}}, Переконання{{Persuasion}} і вільний вибір одного з інструментів ремісника. Беремо Інструменти лудильника{{Tinker’s Tools}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "З навичок на першому рівні маємо Магію{{Arcana}}, Аналіз Поведінки{{Insight}}, Залякування{{Intimidation}} і Переконання{{Persuasion}}. Пізніше додаємо Уважність{{Perception}}, коли беремо рису «Експерт у навичках»{{Skill Expert}}.\n\nЗ інструментів маємо Інструменти тесляра{{Carpenter’s Tools}}, Інструменти склодува{{Glassblower’s Tools}}, Інструменти ювеліра{{Jeweler’s Tools}}, Інструменти чинбаря{{Leatherworker’s Tools}}, Інструменти каменяра{{Mason’s Tools}} та Інструменти лудильника{{Tinker’s Tools}}. Разом це все, що потрібно, щоб робити настінні й наручні годинники. Бо кумедно, коли Чародій Механічної душі{{Clockwork Soul}} буквально годинникар.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Доторк феї»{{Fey Touched}}: +1 до Харизми й заклинання Дисонуючий шепіт [Dissonant Whispers]. Це добрий варіант, щоб зіпсувати ворогові позиціонування, а безкоштовне накладання можна наче підвищити за рівнем, застосувавши метамагію «Спарене заклинання»{{Twinned Spell}}.\n\nНа 8-му рівні беремо Покращення Характеристик на +2 до Харизми, що доводить її до 20.\n\nНа 12-му рівні беремо «Стійкий (Мудрість)»{{Resilient (Wisdom)}}, щоб зміцнити захист від тих неймовірно виснажливих ефектів.\n\nНа 16-му рівні беремо «Експерт у навичках»{{Skill Expert}}, додаючи +1 до Мудрості, щоб вирівняти її. Беремо навичку Уважність{{Perception}} і Експертизу в Магії{{Arcana}}.\n\nНа 19-му рівні беремо ще одне Покращення Характеристик на +2 до Статури.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Середні обладунки\nПоходження чародія: Механічна душа\n– Відновлення балансу\nЧаротворство\nЗамовляння:\n– Вогняний заряд\n– Магічна рука\n– Розщеплення Розуму\n– Штукарство\nЗаклинання 1-го рівня:\n– Тривога\n– Магічний дротик\n– Сон\n– Захист від зла й добра (К)\nНавички:\n– Магія\n– Аналіз Поведінки\n– Залякування\n– Переконання\nІнструменти:\n– Інструменти тесляра\n– Інструменти склодува\n– Інструменти ювеліра\n– Інструменти чинбаря\n– Інструменти каменяра\n– Інструменти лудильника",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Джерело магії\nЧаротворство\nЗаклинання 1-го рівня:\n– Щит\n– Сріблясті шпильки\nПрибрано:\n– Тривога",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Метамагія\n– Спарене заклинання\n– Подовжене заклинання\nЧаротворство\nЗаклинання 2-го рівня:\n– Підтримка\n– Мале відновлення\n– Психічний Батіг Таші",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Доторк феї\n– +1 до Харизми (17 → 18)\n– Дисонуючий шепіт\n– Туманний крок\nЧаротворство\nЗамовляння:\n– Мала ілюзія\nЗаклинання 2-го рівня:\n– Павутиння (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Чаротворство\nЗаклинання 3-го рівня:\n– Розвіювання магії\n– Гіпнотичний візерунок (К)\n– Захист від енергії (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Бастіон закону\nЧаротворство\nЗаклинання 3-го рівня:\n– Контрчари\n– Вогнекуля\n– Політ (К)\nПрибрано:\n– Розвіювання магії\n– Сон",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Чаротворство\nЗаклинання 4-го рівня:\n– Свобода рухів\n– Виклик конструкту (К)\n– Більша невидимість (К)\nЗаклинання 2-го рівня:\n– Покращення здібності (К)\nПрибрано:\n– Підтримка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Харизма 18 → 20)\nЧаротворство\nЗаклинання 4-го рівня:\n– Перевтілення (К)\n– Виготовлення\nПрибрано:\n– Виклик конструкту",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Чаротворство\nЗаклинання 5-го рівня:\n– Більше відновлення\n– Стіна енергії (К)\n– Стіна з каменю (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Метамагія\n– Пришвидшене заклинання\nЧаротворство\nЗамовляння:\n– Захист від зброї\nЗаклинання 5-го рівня:\n– Стримування монстра (К)\n– Створити прохід (необовʼязкове)\nПрибрано:\n– Більше відновлення (необовʼязкове)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Чаротворство\nЗаклинання 6-го рівня:\n– Істинний зір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Стійкий (Мудрість)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Чаротворство\nЗаклинання 7-го рівня:\n– Драконяче перетворення (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Транс порядку{{Trance of Order}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Чаротворство\nЗаклинання 8-го рівня:\n– Сонячний спалах",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Експерт у навичках\n– Уважність\n– Експертиза в Магії\n– +1 до Мудрості",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Чаротворство\nЗаклинання 9-го рівня:\n– Клинок катастрофи (К)\n– Бажання\nПрибрано:\n– Магічний дротик",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Кавалькада годинника{{Clockwork Cavalcade}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: +2 до Статури (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Відновлення чарівництва{{Sorcerous Restoration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Інструменти",
+        "reason": "Автор міняє володіння зброєю Дворфа на шість наборів інструментів (тесляра, склодува, ювеліра, чинбаря, каменяра, лудильника). Платформа не вміє обмінювати расові володіння; пресет має лише інструмент Гільдійського ремісника й інструмент Дворфа, а решту інструментів додайте на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Стартова броня",
+        "reason": "Автор радить Лускатий обладунок за зібрані гроші; пресет бере стандартний набір Чародія без покупки.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заміни заклинань Механічної душі",
+        "reason": "Автор міняє заклинання, які дає підклас: Тривога на Щит (2-й), Розвіювання магії на Контрчари (6-й), Підтримка на Покращення здібності (7-й), Виклик конструкту на Виготовлення (8-й), необовʼязково Більше відновлення на Створити прохід (10-й). Платформа не вміє міняти заклинання, які дав підклас, тому ці заміни не записано: Щит, Контрчари, Покращення здібності й Виготовлення в пресеті немає, а Тривога, Розвіювання магії, Підтримка й Виклик конструкту лишаються.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси «Доторк феї»",
+        "reason": "На 4-му рівні автор бере Дисонуючий шепіт; вибір заклинань риси на підвищенні рівня пресет не записує, тож Дисонуючого шепоту немає (Туманний крок риса дає сама).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія 17-го рівня",
+        "reason": "Автор пише лише «Метамагія» без назви. Пресет бере Careful Spell (вибір платформи); гравець може змінити перед створенням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

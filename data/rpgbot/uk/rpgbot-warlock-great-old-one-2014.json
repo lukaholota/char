@@ -1,0 +1,1584 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-06ba5c62edff4d97",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+      "sourceId": "rpgbot-06ba5c62edff4d97",
+      "fetchedAt": "2026-09-29T19:08:05.268473+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:44:04-04:00",
+      "contentHash": "4f2560a8cf9dcb1dee97fc21122dad2325cf97dc3683bd1cf6b5a969c2f9e7b0",
+      "title": "Great Old One Warlock 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-warlock-great-old-one-2014",
+    "sourceId": "rpgbot-06ba5c62edff4d97",
+    "slug": "warlock-great-old-one-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Прадавній — гайд підкласу Чорнокнижника (2014)",
+    "titleEn": "Great Old One Warlock 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чорнокнижник",
+      "Прадавній",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Строката суміш варіантів: Прадавній зосереджений на тому, щоб черпати силу з чогось непізнаваного й належним чином божеволіти. Деякі вміння дуже потужні, але не менше й ситуативних, які майже не знадобляться. У підсумку Чорнокнижник-Прадавній (його часто скорочують до «Прадавкнижник»{{GooLock}}) дуже нагадує {{Чарівника Школи чарування|Enchanter Wizard}}, але моторошніший, ніж {{Чорнокнижник-Архіфея|Fey Warlock}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Важко сказати, який підклас Чорнокнижника найбільше втілює сам клас, але, на мою думку, Прадавній — серйозний претендент. Заклинання — гарна суміш варіантів, уміння дають кілька чудових інструментів для розвʼязання найрізноманітніших проблем, а моторошне, культове відчуття від отримання сили від давньої істоти просто пасує Чорнокнижнику. Водночас підклас не надто складний, тож він доступний новачкам, але приносить задоволення й досвідченим гравцям, не будучи надзвичайно потужним. Механічно це не бойовий монстр, але він може процвітати в найрізноманітніших ситуаціях, а в бою — спиратися на основні уміння Чорнокнижника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гра за Чорнокнижника-Прадавнього вимагає більше абстрактного мислення, ніж типова збірка на Позамежному заряді [Eldritch Blast]. Заклинання підкласу — не великі наступальні варіанти, а уміння підкласу мають мало застосувань у бою. Натомість ви побачите, що можете підходити до проблем не так прямолінійно, часто знешкоджуючи чи підриваючи їх ще до початку бою. А на високих рівнях ви отримуєте змогу зібрати армію рабів. І хто не любить збирати армію?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей гайд стосується Чорнокнижника-Прадавнього за правилами 2014 року. Допомогу з правилами 2024 року шукайте в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді з підкласу Чорнокнижника-Прадавнього D&D 2024",
+                  "href": "https://rpgbot.net/2024-dnd/classes/warlock/warlock-subclasses/great-old-one/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Прадавнього",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Прадавнього",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Прадавнього",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Прадавнього",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Прадавнього",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Прадавнього",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Прадавнього",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Ігри розуму",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Прадавнього",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Прадавнього",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Прадавнього",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання покровителя|Expanded Spell List}}: дуже різноманітна суміш дебафів, заклинань контролю території й утиліт. Дивно, але з накладання на вищому рівні виграють лише Підкорення звіра [Dominate Beast] 4-го рівня й обидва заклинання 5-го рівня, тож список майже не отримує вигоди від унікального масштабування «Магії пакту»{{Pact Magic}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 1-го рівня: два чудові ефекти контролю однієї цілі, але за межами низьких рівнів вони застаріють, бо не масштабуються від накладання на вищому рівні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 2-го рівня: обидва варіанти ситуативні, але можуть бути надзвичайно потужними, якщо проявити кмітливість."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 3-го рівня: Підглядання [Clairvoyance] — фантастичний варіант розвідки, якщо у вас звичайна кількість слотів заклинань, як буквально в будь-якого іншого заклинателя, але Чорнокнижникам справді потрібно берегти слоти для чогось значущішого й вагомішого. Послання [Sending] дуже ситуативне, і ви навряд чи зможете виправдати його використання в день пригод, якщо тільки ваша група не готова дати вам Короткий відпочинок."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 4-го рівня: Підкорення звіра [Dominate Beast] дуже ситуативне, особливо з огляду на те, що до моменту, коли ви зможете накладати заклинання 4-го рівня, вам не часто траплятимуться звірі. Чорні щупальця Еварда [Evard's Black Tentacles] — одне з найкращих заклинань контролю території, але воно може не так остаточно завершувати сутичку, як Голод Хадара [Hunger of Hadar]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 5-го рівня: Підкорення особистості [Dominate Person] — одне з найкращих заклинань контролю/дебафу однієї цілі в грі, але воно корисне лише ситуативно, бо гуманоїди становлять невелику меншість ворогів, з якими ви зіткнетеся в більшості кампаній. Телекінез [Telekinesis] — чудова утиліта, і за його допомогою можна підіймати в повітря ворогів, що вміють битися лише в ближньому бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пробуджений розум{{Awakened Mind}}: це по суті безплатні постійні Мови [Tongues] у поєднанні з «Телепатичним звʼязком»{{Telepathic Link}}. З високою Харизмою й доступом до навичок «обличчя» ви зможете часто цим користуватися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ентропійний захист{{Entropic Ward}}: менш надійний за інші механіки, що реагують на атаку, як-от заклинання Щит [Shield], але накладання Перешкоди робить вас математично імунним до критичних влучань, а оскільки ваш КБ, імовірно, перевищуватиме КБ схожих заклинателів на кшталт Чародія й Чарівника, ви з більшою ймовірністю змусите атаки по вас схибити. Перевага на вашу наступну атаку — це приємно, але оскільки вона лише на одну атаку, з Позамежним зарядом [Eldritch Blast] від неї мінімум користі, а в репертуарі Чорнокнижника дуже мало заклинальних атак, окрім замовлянь. Можете розглянути вивчення ще одного атакувального замовляння на кшталт Вогняного заряду [Fire Bolt] саме для використання з «Ентропійним захистом», але якщо ви не обрали «Пакт гримуара»{{Pact of the Tome}}, важко виправдати витрату одного зі своїх небагатьох відомих замовлянь на комбо, яке можна застосувати раз за Короткий або Довгий відпочинок."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Щит думок{{Thought Shield}}: обидва ефекти ситуативні. Психічна шкода трапляється вкрай рідко, але якщо натрапите на мізкожерів, ви отримаєте масу задоволення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Створення раба{{Create Thrall}}: це може бути важко застосувати. Найкращий шанс — вплинути на ціль, поки вона спить. Щойно ви зробите ціль Причарованою, стан Причарований дає вам Перевагу на перевірки характеристик, щоб «взаємодіяти соціально» з істотою, а маючи постійний телепатичний звʼязок із нею, ви легко можете переконати її зробити майже все, що завгодно. Це не ефект «підкорення», тож ви не можете точно керувати діями істоти, але можете вмовити її обрати конкретні лінії поведінки (принеси мені ту річ, розкажи, що бачиш, шпигуй за союзниками, звільни полонених, нагодуй мого пса, полий мої рослини, убий короля, перевір пошту тощо). Не забудьте спитати дозволу, перш ніж застосовувати це на союзниках. Накладання ефекту Причарований може призвести до проблемних взаємодій у групі, але всі ви виграєте від того, що матимете між собою легкі телепатичні звʼязки."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Прадавнього",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Прадавнього",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Прадавнього",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Прадавнього",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Прадавнього",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Прадавнього",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки — Ігри розуму",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Прадавній — не бойовий підклас. Це не {{відьмацький клинок|Hexblade}}, що прагне накопичувати великі числа шкоди чи розмахувати магічним мечем. Це не Почвара{{Fiend}}, що прагне накласти Вогнекулю [Fireball], а потім добити тих, хто вижив. Прадавній пропонує більше утиліти поза боєм, але дуже мало того, що допоможе вам вижити в боях. Натомість варто прагнути вигравати бої ще до того, як кинуто ініціативу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Замість бойового монстра ми збудуємо підступне, лукаве «обличчя», яким можна плутати й вводити в оману інших істот, домінуючи в соціальних ситуаціях і подекуди помʼякшуючи бойові, розладнуючи можливих ворогів ще до початку насильства. У бою нам доведеться покладатися на основні уміння Чорнокнижника, але поза боєм ми наганятимемо жах."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Памʼятайте: ця збірка вимагає згоди вашого Майстра. Якщо ваш Майстер не готовий дозволити вам телепатично переконувати вартових піти геть чи змушувати огрів сваритися між собою, ця збірка буде неймовірно дратувати. Водночас, якщо Майстер готовий підіграти, намагайтеся не зловживати. Якщо ви можете розвʼязати будь-яку проблему, телепатично дошкуляючи іншим істотам, гра доволі швидко перестає бути випробуванням. Також вам варто серйозно розглянути використання "
+                },
+                {
+                  "type": "link",
+                  "text": "інструментів безпеки",
+                  "href": "https://ttrpgsafetytoolkit.com/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{safety tools}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Расове +2 вкладемо в Харизму, а +1 — у Спритність. По суті, стандарт для Чорнокнижників. Мудрість занедбувати не хочемо, бо Аналіз Поведінки стане в пригоді."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кенку{{Kenku}}. Ми зробимо ставку на хитрі витівки, а здатність ідеально імітувати звуки тематично чудова й дає масу задоволення за столом. Ми також отримуємо дві навички, що чудово. Візьмемо Обман і Непомітність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На жаль, імітація не працюватиме з нашою телепатією. За словами Джеремі Кроуфорда, "
+                },
+                {
+                  "type": "link",
+                  "text": "під час телепатичної розмови ваш голос звучить як ваш власний",
+                  "href": "https://twitter.com/JeremyECrawford/status/711981264740331521?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E711981264740331521%7Ctwgr%5E217cbfe1bfa6db529387460390ddfd2bc53ab4ce%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.sageadvice.eu%2Fwould-my-voice-from-awakened-mind-sound-like-me%2F"
+                },
+                {
+                  "type": "text",
+                  "text": ", але це не має значення, якщо ціль ніколи не чула вашого справжнього голосу, бо решту часу ви говорите виключно через імітацію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шарлатан{{Charlatan}}. Ідеально за темою. Обман дублюватиме володіння навичкою від раси, тож замініть його на Аналіз Поведінки, бо від класу ми її не отримаємо. Спритність рук не надто корисна, тож її можна замінити на щось на кшталт Уважності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-background-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви можете побачити в переліку володінь Набір фальшивомонетника{{Forgery Kit}} і подумати «зайве», але ще раз перевірте формулювання расової риси Кенку «Майстерне підроблення»{{Expert Forgery}}. «Експертне підроблення» дає Перевагу на перевірки, але не згадує володіння. Мати і те, і те — значить, підроблення стане дуже ефективним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-background-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У будь-якому разі одне з володінь інструментами можна обміняти на Інструменти злодія{{Thieves’ Tools}}, якщо у вашій групі немає Пройдисвіта{{Rogue}}. Ми й так матимемо чимало підступних можливостей, тож заміна Пройдисвіта цілком можлива."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зі своїх навичок Чорнокнижника беремо Магію й Залякування. Разом це дає нам Магію, Обман, Аналіз Поведінки, Залякування, Спритність рук і Непомітність. Ми також отримуємо володіння {{Наборами для гриму|Disguise Kits}} і Наборами фальшивомонетника{{Forgery Kits}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні візьмемо «Експерта у навичках»{{Skill Expert}}, що дасть нам володіння Переконанням і Експертизу в Обмані."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Експерта у навичках»{{Skill Expert}}. Володіння Переконанням, Експертиза в Обмані, +1 до Харизми, щоб не відставати від «Фундаментальної математики»{{Fundamental Math}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо «Телекінетика»{{Telekinetic}}. Це чудова утиліта без видимого звʼязку між вами й ефектом, що ще більше збагачує хитромудрі витівки, які ми можемо втілити. Вона також дає нам +1 до Харизми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні візьмемо «Хитрість велетнів»{{Guile of the Cloud Giant}}, що дає захисну реакцію й ще +1 до Харизми, щоб дійти до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му й 19-му рівнях у нас вільні слоти під риси. Основні варіанти на кшталт «Надихаючого лідера»{{Inspiring Leader}} і «Удачі»{{Lucky}} тут працюють чудово."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічний покровитель{{Otherworldly Patron}}: Прадавній\nПробуджений розум\nМагія пакту\nВідомі заклинання:\n– Дисонуючий шепіт\n– Проклін\nВідомі замовляння:\n– Позамежний заряд\n– Мала ілюзія"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження візьміть легкий арбалет, чаротворчий фокус, будь-який набір, шкіряний обладунок і три кинджали. За Спритності 16 легкий арбалет — на дуже короткий час ваш найкращий варіант у бою.\n\nЗдебільшого на цьому рівні ми дуже звичайний Чорнокнижник. «Пробуджений розум»{{Awakened Mind}} чудово підходить для соціальних ситуацій, коли є мовний барʼєр.\n\nПроте його можна використовувати й для підступних витівок. Ви можете телепатично звертатися до будь-якої істоти, яку бачите в межах 30 футів від себе. Для цього не треба рухатися чи видавати себе, а телепатія автоматично не дає цілі жодного уявлення, хто з нею розмовляє. Скажіть їй, що в неї розвʼязався шнурок на взутті. Якщо потрібно зробити перевірку Обману, розгляньте можливість накласти на ціль Проклін [hex], щоб дати їй Перешкоду на кубику на перевірки Мудрості, що додає -5 до Пасивного Аналізу Поведінки.\n\nМи беремо Позамежний заряд [Eldritch Blast] і Проклін [hex], бо Позамежний заряд [Eldritch Blast] + «Мучливий вибух»{{Agonizing Blast}} + Проклін [hex] — наш основний варіант у бою. Це не надто захопливо, але добре працює."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічні виклики\n– Мучливий вибух\n– Маска багатьох облич\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Мучливий вибух»{{Agonizing Blast}} — заради шкоди. «Маска багатьох облич»{{Mask of Many Faces}} — щоб ми могли вдаватися до телепатичних витівок зблизька, не викликаючи підозр."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дар пакту{{Pact Boon}}: Пакт гримуара\nНові відомі замовляння:\n– Дружба\n– Настанова\n– Розщеплення Розуму\nНове відоме заклинання:\n– Невидимість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми робимо велику ставку на утиліту й небойові варіанти, а «Пакт гримуара»{{Pact of the Tome}} — чудовий утилітарний варіант. Від базових переваг пакту ми отримуємо лише замовляння, але потойбічні виклики{{Eldritch Invocations}} дадуть нам ритуальне накладання й інші переваги.\n\nНевидимість [Invisibility] дозволяє непомітно проникнути кудись, а тоді почати нашіптувати ворогам заборонені істини, поки наші друзі не вибʼють двері, щоб скористатися їхнім розладнаним станом розуму."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках\n– Харизма 17 → 18\n– Володіння: Уважність\n– Експертиза: Обман\nНове відоме замовляння:\n– будь-яке\nНове відоме заклинання:\n– Навіювання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння Уважністю дає нам останню бракуючу навичку «обличчя». Експертиза в Обмані дозволяє значно ефективніше вводити інших істот в оману, телепатично нашіптуючи їм. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "На кухні є тепле печиво. Якщо ви його не зʼїсте, хтось інший зʼїсть усе, перш ніж вам дістанеться."
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n\nНавіювання [Suggestion] перетинається з нашим підступним нашіптуванням, але іноді перевірки Обману замало, щоб впоратися із завданням."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Книга давніх секретів\nНове відоме заклинання:\n– Достаток ворогів\nПеренавчання заклинання:\n– Дисонуючий шепіт → Голод Хадара"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ласкаво просимо у чарівний світ "
+                    },
+                    {
+                      "type": "link",
+                      "text": "ритуального накладання",
+                      "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "! Без обмежень за списком заклинань «Книга давніх секретів»{{Book of Ancient Secrets}} робить Чорнокнижника найефективнішим ритуальним заклинателем у грі. Починайте збирати ритуали негайно. Два ритуали 1-го рівня ви отримуєте безплатно. Раджу Розуміння мов [Comprehend Languages] і Виявлення магії [Detect Magic].\n\nНа цьому рівні наші заклинання 1-го рівня зі списку заклинань підкласу виглядають неефективно порівняно із заклинаннями вищих рівнів, тож саме час почати їх перенавчати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ентропійний захист\nНове відоме заклинання:\n– Гіпнотичний візерунок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Ентропійний захист»{{Entropic Ward}} — найкраще бойове уміння Прадавнього, але його замало, щоб виграти за вас бій.\n\nВас може спокушати використати щось інше, ніж Позамежний заряд [Eldritch Blast], з безплатною Перевагою від «Ентропійного захисту». Вогняний заряд [Fire Bolt] справді виглядає спокусливо. Але DPR цього одного Вогняного заряду [Fire Bolt] з Перевагою гірший, ніж від двох променів Позамежного заряду [Eldritch Blast] із «Мучливим вибухом»{{Agonizing Blast}} "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "без"
+                    },
+                    {
+                      "type": "text",
+                      "text": " переваги. Тримайтеся Позамежного заряду [Eldritch Blast]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Примарний погляд\nНове відоме заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик аберації",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-aberration"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пробуджений розум»{{Awakened Mind}} вимагає бачити ціль. «Примарний погляд»{{Ghostly Gaze}} дозволяє бачити крізь стіни. Разом ви можете бачити крізь стіни й телепатично дошкуляти іншим істотам. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Я це бачив. Вам має бути соромно."
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n\nВиклик аберації [Summon Aberration] відчувається тематично доречним, а ще це дуже солідне заклинання виклику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Телекінетик (Харизма 18 → 19)\nНове відоме заклинання:\n– Чорні щупальця Еварда"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так, ви можете використовувати «Примарний погляд»{{Ghostly Gaze}} і «Телекінетик»{{Telekinetic}} одночасно. Так, це означає, що ви фактично можете «навіщати» все на відстані до 30 футів, навіть якщо між вами й ціллю суцільна стіна. Також можна робити звичайні бойові речі, як-от переміщати ворогів в ефекти контролю території."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Дар захисників\nНове відоме заклинання:\n– Телекінез"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Дар захисників»{{Gift of the Protectors}} схожий на «Невгамовну витривалість»{{Relentless Endurance}} або Захист від смерті [Death Ward], але ви отримуєте одне використання за Довгий відпочинок, спільне для всіх істот, чиї імена ви додали на сторінку.\n\nПамʼятаєте, що ми телекінетики? Тепер ми ще й супертелекінетики. Якщо перемістити ворога на 5 футів замало, беріться за Телекінез [Telekinesis] і починайте піднімати свої проблеми та складати їх на високі полиці, де про них можна забути."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Щит думок\nНове відоме заклинання:\n– Синаптичний розряд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Щит думок»{{Thought Shield}} — пікантний опір до психічної шкоди. Ідіть знайдіть {{мізкожера|Mind Flayer}}, щоб посперечатися з ним.\n\nА ще — психічна вогнекуля."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Ментальна вʼязниця\nНове відоме заклинання:\n– будь-яке\nНове відоме замовляння:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут жодних великих змін."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Хитрість велетнів (Харизма 19 → 20)\nНовий потойбічний виклик:\n– будь-який"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимальна Харизма й круте нове захисне вміння в бою.\n\nОбовʼязкових потойбічних викликів тут немає. Можливо, «Відштовхувальний вибух»{{Repelling Blast}} — до нашого блискучого нового третього променя Позамежного заряду [Eldritch Blast]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Планарний перехід\nНове відоме заклинання:\n– Огидний сміх Таші"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Планарний перехід [Plane Shift] — щоб уперше зустрітися зі своїм покровителем віч-на-віч. Пошкодуйте про свій вибір. Попросіться перекимарити на дивані на Довгий відпочинок. Скористайтеся Планарним переходом [Plane Shift], щоб повернутися додому. Пошкодуйте про свої життєві вибори.\n\nМи додаємо Огидний сміх Таші [Tasha's Hideous Laughter] на цьому рівні виключно для використання зі «Створенням раба»{{Create Thrall}}. Дивіться нижче."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Створення раба{{Create Thrall}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ви кажете «раб», а я кажу «майбутній адресат ментального спам-дзвінка». Очевидні адресати — ваша група, для утилітарних цілей, але рабом може стати будь-який гуманоїд, якого ви знайдете недієздатним. Можливо, це ніколи не знадобиться, але якось, опинившись у підземеллі в пастці, ви захочете покликати підмогу.\n\nПамʼятайте, що стан Причарований — це не контроль розуму. Ви отримуєте Перевагу на перевірки Харизми, щоб «взаємодіяти соціально» з істотою. Це чудово для соціальних навичок, а з Перевагою й Експертизою ви можете за допомогою Обману переконати своїх рабів майже в будь-чому. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Підземелля за містом повне скарбів. Усе, що вам потрібно, — обід для пікніка й десятифутова жердина Чорнокнижника, яку той забув."
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n\nЗверніть особливу увагу на формулювання уміння. Там, де «Пробуджений розум»{{Awakened Mind}} каже «звертатися "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "до"
+                    },
+                    {
+                      "type": "text",
+                      "text": "», «Створення раба»{{Create Thrall}} каже «телепатично спілкуватися "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "з"
+                    },
+                    {
+                      "type": "text",
+                      "text": "». Я не зовсім певен, але це може означати, що «Пробуджений розум» — односторонній, а «Створення раба» — двосторонній. Я не знайшов жодних обговорень цього питання від людей із WotC, тож узгодьте це зі своїм Майстром.\n\nОскільки «Створення раба» націлене на Недієздатних істот, уважно перегляньте свій список заклинань і пошукайте все, що робить цілі Недієздатними, як-от Огидний сміх Таші [Tasha's Hideous Laughter] або Гіпнотичний візерунок [Hypnotic Pattern]. На жаль, у Чорнокнижників небагато варіантів, але Огидний сміх Таші [Tasha's Hideous Laughter] працює проти одиничних істот, а Гіпнотичний візерунок [Hypnotic Pattern] — проти натовпів. Психічний спис Раулотіма [Raulothim's Psychic Lance] робить цілі Недієздатними, але тривалість заклинання закінчується на початку вашого наступного ходу, тож економіка дій не працює, якщо ви не візьмете два рівні Воїна{{Fighter}} заради «Сплеску дій»{{Action Surge}}.\n\nНа цьому етапі ваше життя — це створення рабів. Якщо бачите нагоду, використовуйте її. Чим більше рабів, тим краще."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Впевненість\nНове відоме заклинання:\n– будь-яке\nНовий потойбічний виклик:\n– Вкритий тінню"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладіть Впевненість [Glibness]. У вас є година, щоб поговорити з усіма своїми рабами й отримати 15 або більше на кидку к20. Час перетворювати своїх рабів на армію.\n\nСтаньте невидимим. Ходіть довкола, влаштовуючи неприємності і телепатично, і телекінетично."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Психічний крик\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стан Приголомшений робить уражену істоту Недієздатною. Психічний крик [Psychic Scream] робить ваші цілі Приголомшеними. «Створення раба»{{Create Thrall}} вимагає, щоб ціль була Недієздатною. Закричіть, а тоді кілька наступних ходів давайте «пʼять» Приголомшеним істотам, щоб перетворювати їх на рабів. Ви щойно перетворили зіткнення з високим ПН на збірку нових друзів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Видіння далеких царств"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мій улюблений варіант розвідки, і, якщо вдасться провести око за ріг, його можна поєднати з «Пробудженим розумом»{{Awakened Mind}}, щоб націлювати на них заклинання чи телепатично розмовляти з іншими істотами, не витрачаючи «Примарного погляду»{{Ghostly Gaze}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дивно, що 19-й рівень нічого для нас не змінює. Оберіть круту рису."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний майстер{{Eldritch Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Буквально завжди розчаровуюче вершинне уміння."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-001",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання покровителя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-002",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Заклинання 1-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-003",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Заклинання 2-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-004",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Заклинання 3-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-005",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Заклинання 4-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-006",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Заклинання 5-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-007",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Пробуджений розум",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-008",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Ентропійний захист",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-009",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Щит думок",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-great-old-one-2014-010",
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Створення раба",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

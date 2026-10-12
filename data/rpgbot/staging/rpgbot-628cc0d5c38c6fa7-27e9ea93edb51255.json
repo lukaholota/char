@@ -1,0 +1,5124 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "27e9ea93edb51255577828f62fe75b282df71c1d3ae707b2ac2ae2c9586976a8",
+  "sourceRevision": {
+    "revisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255",
+    "sourceId": "rpgbot-628cc0d5c38c6fa7",
+    "fetchedAt": "2026-09-29T19:14:15.978324+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:44:21-04:00",
+    "contentHash": "c91fbdc1b5b9a4412f2ece536bff959152fa6346c3509a28f5b6f2d040bf8836",
+    "title": "Hexblade Warlock 5e: DnD Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "intro",
+      "heading": "Hexblade Warlock 5e: DnD Subclass Guide",
+      "blocks": [
+        {
+          "blockId": "block-intro-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Saltblade? Hexbae?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hexblade warlocks are an interesting subclass: they can easily be a trap\n\tbecause their apparent versatility can leave you wanting to have many tools at\n\tyour disposal only to discover that none of them quite satisfy the way that\n\tthe more specialized subclasses can. That said, with a little work you can\n\tfill your niche as a primary damage dealer in the front lines while staying\n\treasonably safe thanks to your spells and later parts of your kit."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "EDIT: "
+            },
+            {
+              "type": "text",
+              "text": "This was the first article I ever wrote for RPGBOT, long enough ago that it was published on the "
+            },
+            {
+              "type": "link",
+              "text": "old version",
+              "href": "https://rpgbot.net/10-years-of-rpgbot-rpgbot-news-s3e48/"
+            },
+            {
+              "type": "text",
+              "text": " of the site. More importantly, it was written "
+            },
+            {
+              "type": "emphasis",
+              "text": "before Tasha’s was published."
+            },
+            {
+              "type": "text",
+              "text": " That means that a lot of work went into the Races section (which has largely been made irrelevant, though feel free to give it a read), and one of the single most important optimization options hadn’t been introduced yet: "
+            },
+            {
+              "type": "link",
+              "text": "Elven Accuracy",
+              "href": "https://rpgbot.net/oops-all-elves/"
+            },
+            {
+              "type": "text",
+              "text": ". This is a cornerstone of modern Warlock optimization for obvious reasons, and means that I need to redo the example build. Even if you’ve read this guide before, I recommend taking another thorough look at the table presented at the end."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is specifically for the Hexblade Warlock, and omits sections of my typical class handbooks when those sections aren’t meaningfully different from other members of the class. For more information on the Warlock, see our "
+            },
+            {
+              "type": "link",
+              "text": "Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock"
+            },
+            {
+              "type": "text",
+              "text": ". I also strongly recommend reading our "
+            },
+            {
+              "type": "link",
+              "text": "Warlock Eldritch Invocation Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations"
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "text": "Warlock Spell List Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/spells"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hexblade Subclass Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#subclass-features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hexblade Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hexblade Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races of Eberron",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#races-eberron"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Dragonmarks",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#races-eberron-dragonmarks"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races of Ravnica",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#races-ravnica"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races of Theros",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#races-theros"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races of Wildemount",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#races-wildemount"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hexblade Warlock Spellcasting",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – High-Elf Warlock",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subclass-features",
+      "heading": "Hexblade Subclass Features",
+      "sourceAnchor": "subclass-features",
+      "blocks": [
+        {
+          "blockId": "block-section-subclass-features-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": While several\n\t\toptions on this list are very good, many of them require Concentration. In\n\t\tparticular, even though all the smites are Bonus Actions (good for your\n\t\taction economy), they require Concentration to ensure that you’re able to\n\t\tactually get the effect off as long as you hit sometime during the next\n\t\tminute, but this prevents you from running other excellent Concentration\n\t\tbuffs like Blur and Elemental Weapon from the very same expanded list.\n\t\tFurthermore, since the smite spells don’t scale well (if they scale at all),\n\t\tthey’re often a poor use of your limited Warlock spell slots. Consider using\n\t\tthem for a level or two when you first get them, but replace them after that\n\t\twhen better spells become available (even if it’s just the next smite\n\t\tspell).\n\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Shield is\n\t\t\t\tfantastic… on any other spellcasting class. It costs a precious spell\n\t\t\t\tslot, and offers no benefits for upcasting, so it’s only helpful until\n\t\t\t\tyou get access to 2nd-level slots for Armor of Agathys. If you aren’t\n\t\t\t\trunning another Concentration spell, Wrathful Smite into Booming Blade\n\t\t\t\tis staggeringly good damage at low levels, assuming the target moves and\n\t\t\t\ttriggers the secondary damage. The Wisdom save for fear is a nice touch,\n\t\t\t\tthough your defenses aren’t really turned on yet so maintaining\n\t\t\t\tConcentration can be a challenge in melee. To summarize: tempting\n\t\t\t\toptions at low levels, but you’ll abandon them in favor of other options\n\t\t\t\talmost immediately."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Blur is just a\n\t\t\t\tsuperb spell. Turn it on if you have more than one thing attacking you\n\t\t\t\tand/or your Armor of Agathys doesn’t look up to the job. Branding smite\n\t\t\t\tfills some excellent niches, but is not otherwise overly helpful. It’s\n\t\t\t\tprobably the only way you’re going to be able to deal radiant damage\n\t\t\t\t(you’ll be very grateful if you ever come across zombies) and it also\n\t\t\t\tprevents invisibility if your party can’t cast Faerie Fire, Invisibility\n\t\t\t\tPurge, or something else along those lines."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Blink would be\n\t\t\t\tinteresting if it wasn’t random in the fashion it is. Elemental weapon’s\n\t\t\t\tprimary benefit is making a weapon magical if for some reason you aren’t\n\t\t\t\trunning Pact of the Blade, and I’m not sure why you would skip Pact of\n\t\t\t\tthe Blade (and the Invocations which require it like Thirsting Blade)\n\t\t\t\tand still use a weapon. It still runs into the Concentration problem,\n\t\t\t\tinterfering with smites and defensive buffs, but it adds a small amount\n\t\t\t\tof extra damage (which will increase when your spell slot levels\n\t\t\t\tincrease). Keep in mind that the Pact Weapon granted by Pact of the\n\t\t\t\tBlade counts as a magic weapon\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "for the purpose of overcoming damage resistance and immunity"
+              },
+              {
+                "type": "text",
+                "text": ".\n\t\t\t\tIt’s technically not a magic weapon unless you bind a specific magic\n\t\t\t\tweapon, so you "
+              },
+              {
+                "type": "emphasis",
+                "text": "can"
+              },
+              {
+                "type": "text",
+                "text": " use your Pact Weapon with Elemental\n\t\t\t\tWeapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Phantasmal Killer\n\t\t\t\tis still an excellent spell, although the fact that it never scales past\n\t\t\t\t5th level for warlocks is disappointing at higher levels. Staggering\n\t\t\t\tSmite would be much better if the effect lasted more than one round.\n\t\t\t\tBoth spells cause the creature to suffer Disadvantage on attack rolls,\n\t\t\t\tbut Phantasmal Killer works at range and lasts longer."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Banishing Smite is a\n\t\t\t\tbig pile of damage on a Bonus Action and the rider effect doesn’t allow\n\t\t\t\ta saving throw. 50 hit points is a reasonably large window, and\n\t\t\t\tbanishing the target could dramatically affect the outcome of an\n\t\t\t\tencounter. Cone of Cold is a helpful way for you to do area of effect\n\t\t\t\tdamage, but apart from being a big pile of damage does little else for\n\t\t\t\tyou."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hexblade’s Curse"
+              },
+              {
+                "type": "text",
+                "text": ": Are you ready to confuse\n\t\tliterally every new player by being the only thing that gets proficiency to\n\t\tdamage? Then Hexblade is for you. Note that you can both Curse and Hex\n\t\tsomeone if you like to track several effects at the same time. In all\n\t\tseriousness though, this is a fantastic ability.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You only get this once per Short or Long Rest, so be sure to use it where\n\t\t\tit will matter. You want to make as many attack rolls as possible while\n\t\t\tthis is running, so at high levels this will frequently work best when\n\t\t\tcombined with Eldritch Blast since Warlocks can’t get more than three\n\t\t\tattacks (assuming Thirsting Blade and either two-weapon fighting or\n\t\t\tCrossbow Expert). However, since this only works once per Short or Long\n\t\t\tRest, remember that you may still have better results focusing on other\n\t\t\tparts of your build, and focusing on being effective with weapons is often\n\t\t\ta better choice for the Hexblade than Eldritch Blast even though you may\n\t\t\tget fewer attacks."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since this comes in at 1st level and scales based on your proficiency\n\t\t\tbonus, it’s very tempting for class dips into Warlock, totally\n\t\t\tdisregarding how good Hex Warrior is."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hex Warrior"
+              },
+              {
+                "type": "text",
+                "text": ": This is probably why you\n\t\tpicked the subclass. You get medium armor and shields so that you’re able to\n\t\texist in the front line without dying immediately, but far more importantly\n\t\tyou get to be a melee character and still have Str and Dex be dump stats.\n\t\tYou do still need enough Dexterity to fill out Half Plate’s Dexterity cap,\n\t\tbut that’s not hard.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Using your Charisma for attack and damage rolls in place of Strength is\n\t\t\tcrazy powerful. Not only does it make Pact of the Blade considerably\n\t\t\teasier for the Warlock, it makes Paladin/Warlock multiclass builds\n\t\t\tmassively more effective. Keep in mind that by default Hex Warrior’s\n\t\t\tweapon effect works on a weapon which you touch at the end of a long rest,\n\t\t\tbut if you later take Pact of the Blade the effect extends to that weapon\n\t\t\ttoo, so you can affect have two weapons with which to attack using\n\t\t\tCharisma. This is important if you plan to explore two-weapon fighting or\n\t\t\tif you want a backup weapon or something."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Accursed Specter"
+              },
+              {
+                "type": "text",
+                "text": ": Not only does it have\n\t\tto be a humanoid, but you personally have to get the killing blow. That\n\t\tsaid, if you can get one, Specters are a phenomenal companion to have with\n\t\tyou. They are effective in combat (although they never scalebeyond the tiny\n\t\tamount of temporary hit points and the attack bonus which you give them)\n\t\tand, while they can’t speak, they will follow your verbal commands allowing\n\t\ta creative person to use one for scouting and have it report back. However,\n\t\tthey have no ability to speak, to their ability to report their findings is\n\t\tlimited to gestures like nodding, pointing, and pantomime."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Armor of Hexes"
+              },
+              {
+                "type": "text",
+                "text": ": Take the already excellent\n\t\tHexblade’s Curse and put an astonishing and unique defensive buff on it.\n\t\tSomewhere, a 40k player is wondering how 4-up saves got into their D&D.\n\t\tThis is a 50% miss chance on top of whatever other defenses you might have\n\t\trunning (Blur or Shadow of Moil, for example),"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Master of Hexes"
+              },
+              {
+                "type": "text",
+                "text": ": The only problem with\n\t\tHexblade’s Curse was that it could feel wasted if you used it on something\n\t\tand then ran into something more threatening before your next rest. That is\n\t\tnow slightly mitigated by allowing you to chain it through a whole fight.\n\t\tYou do need to be able to see a new target creature when you move Hexblade’s\n\t\tCurse, so if you’re facing hidden or invisible enemies you may need to keep\n\t\tthat in mind before you finish off your current target.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Clever players might try to move the effect to an angry rat which you\n\t\t\tkeep in a sack (the old “bag of rats” trick) to allow you to carry one use\n\t\t\tof Hexblade’s Curse all day, but wise DM’s should explicitly disallow such\n\t\t\tshenanigans."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Hexblade Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlike other Warlocks, you will need to invest some into Dexterity to make\n\tbest use of that medium armor you’re now allowed to wear and boy will you need\n\tit. Otherwise, focus on Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": You can’t afford to have high ability\n\tscores in four abilities, and Strength simply isn’t useful enough."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Warlocks have notoriously poor AC, and\n\tanything you can do to address that will still require some Dexterity unless\n\tyou multiclass or something to get heavy armor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Being in melee means you want hit\n\tpoints and a better chance of passing Con saves when targeted by things you’re\n\tmaking angry."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": You are powered by Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Hexblade Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ability scores are crucial for the Hexblade Warlock, but also easy to\n\tachieve. Look for some combination of Charisma and either Dexterity and\n\tConstitution in most cases, but you only need 14 Dexterity if you’re happy in\n\tmedium armor. Beyond that, innate spellcasting or things that improve your\n\tdurability are great options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The list of races and subraces below is intentionally reduced to those\n\toptions which I think make an effective Hexblade Warlock or which offer traits\n\twhich are illustrative of what you should look for in other races, and it does\n\tnot address the Customizing Your Origin optional rules. These are by no means\n\tthe only viable options (especially with the custom origin optional rules in\n\tplace), and I encourage you to explore other options not listed below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For full race coverage (including discussion of options which work well for\n\tthe Hexblade), please see our\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Warlock Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+            },
+            {
+              "type": "text",
+              "text": ", which includes the full range of available races."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Elf"
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dexterity is helpful for Blade Pact Warlocks, and Perception is always\n\tnice. Drow and Eladrin both make fine choices, but options which provide\n\tlarger Charisma increases may be better."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Drow"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Bonus Charisma and some Charisma-based innate spellcasting, but Sunlight\n\t\tSensitivity can be a pain."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eladrin"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Dexterity and Charisma are a great spread for warlocks, and free\n\t\tteleportation on a short rest means that you don’t need to spend one of your\n\t\tspell slots to do it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "High Elf"
+              },
+              {
+                "type": "text",
+                "text": ": A Wizard Cantrip gets you\n\t\taccess to a lot of useful options, including Booming Blade which doesn’t\n\t\tcare about a poor Intelligence score. But most of those options are already\n\t\tavailable to us."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Half-Elf"
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": The abilities work great, and bonus skills are always nice, but Variant\n\tHuman is likely better. You could argue that Darkvision is appealing, but\n\tthat’s what Devil’s Sight is for."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-7",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Drow"
+              },
+              {
+                "type": "link",
+                "text": "SCAG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": With a very limited number of spell slots, innate spells provide fantastic\n\t\tutility."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "High/Moon/Sun"
+              },
+              {
+                "type": "link",
+                "text": "SCAG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Wizard cantrips are great for utility, but you already have the best\n\t\tdamage cantrips. Consider Booming Blade since it doesn’t care about your\n\t\tspellcasting modifier."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Human"
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Versatile and fantastic at everything."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-9",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Variant"
+              },
+              {
+                "type": "text",
+                "text": ": You still get a crucial bonus to\n\t\tyour Charisma, and you can get an awesome feat at level 1."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tiefling"
+            },
+            {
+              "type": "text",
+              "text": ": Bonus Charisma and Charisma-based\n\tinnate spellcasting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-11",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Asmodeus"
+              },
+              {
+                "type": "link",
+                "text": "PHB/MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A perfectly fine option, but the Intelligence is wasted and you can find\n\t\tbetter spells from other subraces."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Baalzebul"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Intelligence is wasted, but access to Thaumaturgy could be nice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dispater"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Dexterity means better AC, and the spells are great if you want to be\n\t\tsneaky or tricky."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fierna"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Wisdom is largely wasted, but the spells are great for a Face."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Glasya"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Dexterity means better AC, and the spells are great if you want to be\n\t\tsneaky or tricky."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Levistus"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Constitution means more hit points, and the spells offer a nice mix of\n\t\tdefensive, offensive, and utility options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mammon"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Intelligence is wasted, and the leveled spells are highly\n\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mephistopheles"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Flame Blade will be worse than just using your weapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zariel"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Strength is wasted and you already get the smite spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant: Feral"
+              },
+              {
+                "type": "link",
+                "text": "SCAG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Dexterity is normally fine for a melee build, but for Warlocks you’ll be\n\t\tusing your Charisma thanks to Hexblade."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant: Devil’s Tongue"
+              },
+              {
+                "type": "link",
+                "text": "SCAG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good options for a standard Warlock but doesn’t help a Hexblade."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant: Hellfire"
+              },
+              {
+                "type": "link",
+                "text": "SCAG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Burning Hands is about as good for the Warlock as Hellish Rebuke, but\n\t\tdoesn’t require you to be hit to use it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant: Winged"
+              },
+              {
+                "type": "link",
+                "text": "SCAG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Flight is fantastic even if you’re built for melee because it offers you\n\t\ta way to engage enemies trying to use flight to stay out of reach."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tortle"
+            },
+            {
+              "type": "link",
+              "text": "TP",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": The natural armor is decent and won’t require 14 Dexterity, but your access\n\tto medium armor and shields already allows you to reach these numbers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Triton"
+            },
+            {
+              "type": "link",
+              "text": "VGTM",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": A fantastic option for blade pact warlocks. Good ability score increases,\n\tand the innate spellcasting provides some good utility options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verdan"
+            },
+            {
+              "type": "link",
+              "text": "AcInc",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Constitution and Charisma is a perfect combination for a Charisma-based\n\tspellcaster, and getting Persuasion for free is great. You’ll almost certainly\n\tbe your party’s Face, and the Verdan’s Telepathic Insight can go a long way to\n\taddress language barriers despite its limited capability."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Yuan-Ti Pureblood"
+            },
+            {
+              "type": "link",
+              "text": "VGTM / MotM",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Good Charisma, some innate spellcasting, Magic Resistance, and Poison\n\tImmunity (resistance with the updated version)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Setting-specific races are address below. Not every setting allows every race, and while most races presented in the core rules and in content for the Forgotten Realms can be used in other settings, races specific to settings like Ravnica aren’t typically allowed in other settings. Talk to your DM about what races are allowed in your game. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-eberron",
+      "parentSectionId": "section-races",
+      "heading": "Races of Eberron",
+      "sourceAnchor": "races-eberron",
+      "blocks": [
+        {
+          "blockId": "block-section-races-eberron-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kalashtar"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": A Charisma increase, and you’ll be really good at Wisdom saving throws\n\tdespite not being proficient. The Kalashtar doesn’t support any specific part\n\tof being a warlock, but it’s a fine starting point for a warlock of any kind.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warforged"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": The flexible ability increase goes into Charisma, and the Warforged’s other\n\ttraits will make you more durable than a typical sorcerer before considering\n\tspells. A warforged with Mage Armor would have an AC of 14+Dex totally\n\tunequipped, allowing you to meet the AC of characters in light armor and a\n\tshield. A warforged hexblade can do even better: half-plate, a shield, and 14\n\tDexterity brings you to 20 AC with very little effort."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-eberron-dragonmarks",
+      "parentSectionId": "section-races-eberron",
+      "heading": "Dragonmarks",
+      "sourceAnchor": "races-eberron-dragonmarks",
+      "blocks": [
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the design intent for Dragonmarks was that they would offer some innate spellcasting for everyone, every dragonmark includes an expanded spell list which is arguably a more significant benefit than most of the provided racial traits. Because the expanded spell options are such an important part of the dragonmarks, if you’re not playing a spellcaster you’re giving up a huge part of your racial traits, which makes it exceptionally difficult to justify playing a dragonmark character who can’t cast spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarks are uniquely helpful for the Warlock. Any amount of extra\n\tspellcasting can significantly improve your capabilities since your spell\n\tslots are so limited. Because your spell slots work differently from other\n\tspellcasters, spells which scale when they’re cast with a higher-level spell\n\tslot can often be good options even though other spells on a specific\n\tdragonmark’s spell list aren’t interesting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Dwarf"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace your subrace."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Warding"
+              },
+              {
+                "type": "text",
+                "text": ": Bad ability spread."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Elf"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace your subrace."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Shadow"
+              },
+              {
+                "type": "text",
+                "text": ": The ability score\n\t\tincreases are great, the innate spellcasting is good, and there are several\n\t\tdragonmark spells which warlocks can normally only get from specific\n\t\tpatrons."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Gnome"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace your subrace."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-8",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Scribing"
+              },
+              {
+                "type": "text",
+                "text": ": The ability score\n\t\tincreases work, and several of the dragonmark spells are new to the\n\t\tWarlock’s spell list, but most of the spells aren’t very good."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Half-Elf"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace some of your normal racial traits, as described\n\tin the entry for each Dragonmark."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-10",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Detection"
+              },
+              {
+                "type": "text",
+                "text": ": The ability score\n\t\tincreases work, and with the exception of two spells available to great old\n\t\tone warlocks, every spell provided by Mark of Detection is new to the Walock\n\t\tspell list. Many of the spells are powerful divination options, offering\n\t\tgreat utility and scouting options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Storm"
+              },
+              {
+                "type": "text",
+                "text": ": The ability score increases\n\t\twork, and while most of the spells aren’t very good they’re quickly replaced\n\t\tby better options as you gain levels, and easy to replace spells known, and\n\t\tseveral of the better spells aren’t on the Warlock’s spell list."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Half-Orc"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace ALL of your racial traits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-12",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Finding"
+              },
+              {
+                "type": "text",
+                "text": ": Bad ability spread."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Halfling"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace your subrace."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-14",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Healing"
+              },
+              {
+                "type": "text",
+                "text": ": Bad ability spread."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Hospitality"
+              },
+              {
+                "type": "text",
+                "text": ": The ability score\n\t\tincreases work well, and the spellcasting is surprisingly good for the\n\t\tWarlock. The innate spellcasting offers useful utility options, and the\n\t\tlow-level spells include great options that scale well with spell level."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Human"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace ALL of your racial traits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-16",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Finding"
+              },
+              {
+                "type": "text",
+                "text": ": See Mark of Finding under\n\t\tDragonmarked Half-Orc, above. Mechanically, the final racial traits are\n\t\tidentical."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Handling"
+              },
+              {
+                "type": "text",
+                "text": ": The ability score\n\t\tincreases can work, but many of the racial traits depend on you always\n\t\thaving Animal Friendship and Speak With Animals prepared, and neither of\n\t\tthem scale as you gain levels. Spending a 5th-level spell slot on a mediocre\n\t\t1st-level spell feels terrible, and it’s rarely useful as you reach\n\t\tmid-level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Making"
+              },
+              {
+                "type": "text",
+                "text": ": The ability score\n\t\tincreases can work, but the spellcasting isn’t especially useful. Magic\n\t\tWeapon won’t work on pact weapons, hexblades already get elemental weapon,\n\t\tand there aren’t enough other good options on the spell list to make up for\n\t\thow many options aren’t useful for you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Passage"
+              },
+              {
+                "type": "text",
+                "text": ": Dexterity and Charisma\n\t\tare great, free Misty Step is excellent, and nearly every one of the\n\t\tdragonmark spells is new to the Warlock’s spell list."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Sentinel"
+              },
+              {
+                "type": "text",
+                "text": ": Bad ability spread."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-ravnica",
+      "parentSectionId": "section-races",
+      "heading": "Races of Ravnica",
+      "sourceAnchor": "races-ravnica",
+      "blocks": [
+        {
+          "blockId": "block-section-races-ravnica-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Simic Hybrid"
+            },
+            {
+              "type": "link",
+              "text": "GGTR",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": The constitution increase is helpful, especially if you’re considering\n\tHexblade. Animal Enhancement offers several excellent options as you gain\n\tlevels, and saves you the trouble of getting those effects from your limited\n\tnumber of spell slots."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-theros",
+      "parentSectionId": "section-races",
+      "heading": "Races of Theros",
+      "sourceAnchor": "races-theros",
+      "blocks": [
+        {
+          "blockId": "block-section-races-theros-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Satyr"
+            },
+            {
+              "type": "link",
+              "text": "MOoT",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dexterity for you AC, Charisma for your spells, Magic Resistance to keep\n\tyou alive, and two free skills to help you serve as your party’s Face."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-wildemount",
+      "parentSectionId": "section-races",
+      "heading": "Races of Wildemount",
+      "sourceAnchor": "races-wildemount",
+      "blocks": [
+        {
+          "blockId": "block-section-races-wildemount-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonborn"
+            },
+            {
+              "type": "text",
+              "text": ": Wildemount presents two new\n\tDragonborn variants, each replacing the standard Dragonborn’s ability score\n\tincreases and damage resistance."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-wildemount-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Draconblood"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Roughly equivalent to the standard Dragonborn, but if you’re playing your\n\t\tparty’s Face you might enjoy Forceful Presence. Getting Darkvision is\n\t\tusually great, but it’s less important thanks to Devil’s Sight."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our "
+            },
+            {
+              "type": "link",
+              "text": "Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock#feats"
+            },
+            {
+              "type": "text",
+              "text": " details advice for warlock feats in general, but a selection of feats which many Hexblades enjoy are presented below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Crossbow Expert"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Hexblades can abolutely make Crossbow Expert work. Hex and Hexblade’s\n\t\tCurse both benefit greatly from additional attacks, and even Eldritch\n\t\tBlast+Agonizing Blast can’t keep up with Crossbow Expert, especially once\n\t\tyou add Lifedrinker. However, this requires your Bonus Action for two rounds\n\t\tto set up, and in that time other warlocks are happily doing other things\n\t\twhich don’t require resources that need a short rest to recharge. Since\n\t\tcombats generally last around three rounds, in most cases you can except to\n\t\tget your combo set up and start using the Bonus Action attack from Crossbow\n\t\tExpert an average of once per encounter."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elven Accuracy"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This is practically tailor-made for Warlocks, and Hexblades will be able to make great use of it, especially if you follow the melee build detailed below. Triple advantage on a Greatsword makes you very likely to proc Great Weapon Master’s bonus attack, and you have several ways to get that going like casting Darkness on a piece of your clothing and using the Devil’s Sight Invocation or just using Shadow of Moil as written which we discuss in this article."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Great Weapon Master"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Hexblades can make effective use of two-handed weapons, which makes this\n\t\ta possibility. Hexblade’s curse allows you to score a critical hit against\n\t\tthe target on a 19-20, which makes it more likely that you can trigger the\n\t\tfirst portion of the feat. If you use Darkness with the Devil’s Sight\n\t\tinvocation you can easily get Advantage, making the second half of the feat\n\t\ta safe and reliable option. However, the weapon which you touch with Hex\n\t\tWarrior can’t have the Heavy property, and all two-handed weapons have the\n\t\tHeavy property so you can’t use Great Weapon Master with that weapon. Once\n\t\tyou gain Pact of the Blade, your Pact Weapon can be two-handed, and Hex\n\t\tWarrior extends to your Pact Weapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Heavily Armored"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Tempting for a Hexblade, but the Strength requirements for full plate\n\t\tmake heavy armor unappealing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium Armor Master"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Heavy armor isn’t appealing for Hexblades because of the Strength\n\t\trequirements to wear it, so medium armor master can allow you to match heavy\n\t\tarmor AC without caring about Strength. That’s nice, but it’s also only a\n\t\tdifference of +1 AC. A feat is too precious for so little."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Polearm Master"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Hexblades can make effective use of polearms. I would probably stick to a\n\t\tquarterstaff or spear (spear was added in errata in 2018) so that you can\n\t\tuse a shield to compensate for the Warlock’s relatively poor AC and low\n\t\thitpoints, but maybe you’re braver than I am. The total damage output\n\t\troughly matches that of a Crossbow Expert build and will have higher AC, but\n\t\tyou give up the advantage of range."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resilient"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Proficiency in Constitution saves really helps with Concentration, not to\n\t\tmention how common Consitution saves are. If you care primarily about\n\t\tConcentration it’s easy to compare this to War Caster. Advantage works out\n\t\tto a little more than +3, so once your Proficiency Bonus hits +4 Resilient\n\t\tbecomes the more effective option of the two."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sharpshooter"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Warlocks don’t use ranged weapons with the possible exception of\n\t\tHexblades, but even then Crossbow Expert is a better choice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "War Caster"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re a Hexblade, you want this. Juggling your weapon to cast spells\n\t\tis annoying, but the ability to reliably maintain Concentration when you\n\t\ttake damage means that you can reliably maintain Concentration even while\n\t\tdrawing a lot of attacks. For other subclasses, consider Resilient\n\t\t(Constitution) instead because mathematically it’s more effective than\n\t\tAdvantage as your Proficiency Bonus increases."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Only Blade Pact Warlocks actually need weapons, which generally means that\n\tonly Hexblades should be using them. Your choice of weapon matters fairly\n\tlittle, and Pact of the Blade allows you to change your weapon easily (unless\n\tyou’ve bound a magic weapon), so you can easily choose a weapon to suit the\n\tsituation. Hexblades get proficiency with shields, and since warlocks have\n\trelatively low hit dice and hexblades still only get medium armor I think a\n\tshield is a good idea most of the time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Also keep in mind that Hex Warrior doesn’t allow your touched weapon to have\n\tthe Two-Handed property, so if you want to use a two-handed weapon you’ll\n\tdefinitely need Pact of the Blade. Versatile weapons still work, though, and\n\tthe difference between a longsword and a greatsword isn’t huge."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Crossbow, Hand"
+              },
+              {
+                "type": "text",
+                "text": ": The go-to for Crossbow\n\t\tExpert builds."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crossbow, Heavy"
+              },
+              {
+                "type": "text",
+                "text": ": A good ranged option\n\t\tuntil you get Crossbow Expert and/or Extra Attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Glaive / Halberd"
+              },
+              {
+                "type": "text",
+                "text": ": Great for two-handed\n\t\tmelee builds, it has reach, and it works with Polearm Master."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Greatsword"
+              },
+              {
+                "type": "text",
+                "text": ": Your go-to for two-handed\n\t\tmelee builds unless you want reach and or intend to take Polearm Master."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Longbow"
+              },
+              {
+                "type": "text",
+                "text": ": A decent ranged weapon, but it\n\t\tcan’t come close to the damage output of a Crossbow Expert build so it’s not\n\t\ta good primary weapon. If you’re built for melee, the Longbow will be a good\n\t\tranged option once you pick up Extra Attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Longsword / Rapier"
+              },
+              {
+                "type": "text",
+                "text": ": Interchangeable if\n\t\tyou’re using Hex Warrior. A good go-to for sword-and-board builds unless you\n\t\twant the reach from a whip."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spear / Quarterstaff"
+              },
+              {
+                "type": "text",
+                "text": ": Want to combine the\n\t\tdurability of sword-and-board with the number of attacks (and therefore the\n\t\tdamage output) of Crossbow Expert or two-weapon fighting? Grab a spear or a\n\t\tstaff and pick up Polearm Master."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Whip"
+              },
+              {
+                "type": "text",
+                "text": ": One-handed and reach mean that you\n\t\tdon’t need to be in enemies’ reach to attack, and you can still hold a\n\t\tshield in your other hand. The damage difference of 1d4 vs. 1d8 from\n\t\tsomething like a longsword seems significant, but when you consider the flat\n\t\tbonuses added by your various class features, the difference of 2 damage on\n\t\taverage is negligible."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Leather"
+              },
+              {
+                "type": "text",
+                "text": ": The Warlock’s starting armor\n\t\tunless you take the 100 gp starting equipment variant. The Warlock’s\n\t\tstarting gear was written long before the Hexblade, and it doesn’t account\n\t\tfor the possibility of medium armor proficiency."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scale Mail"
+              },
+              {
+                "type": "text",
+                "text": ": Take the 100 gp starting\n\t\tequipment variant so that you can start with scale mail or you’ll be\n\t\tpinching coppers until you can afford decent armor before you can risk\n\t\tdiving into melee."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Half Plate"
+              },
+              {
+                "type": "text",
+                "text": ": Your permanent armor."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield"
+              },
+              {
+                "type": "text",
+                "text": ": Great since you’re in medium\n\t\tarmor with d8 hit dice, but many hexblades go for two-handed weapons or\n\t\tCrossbow Expert so they’re force to give up a shield."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells",
+      "heading": "Hexblade Warlock Spellcasting",
+      "sourceAnchor": "spells",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Hexblade Warlock likely needs to keep a melee weapon in-hand both for\n\tattacking on their own turn and for making opportunity attacks. They also\n\tprobably have a shield. Unfortunately, that means that you’ll need to\n\tconstantly draw/store your weapon to get a free hand with which to cast spells\n\tunless you’re using a two-handed weapon or a hand crossbow, or if you have\n\tPact Weapon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you need to draw a Spellcasting Focus or Material Components, it could require you to spend your item interaction on two successive turns to switch from a weapon to a focus or from a focus to a weapon. Because this can be a problem and will often leave you empty-handed between turns, try to use spells that lack Material and Somatic components whenever possible until you can pick up Improved Pact Weapon, which conveniently allows your Pact Weapon to serve as a spellcasting focus."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spells-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Warlock Spell List Breakdown already includes notes about Hexblade/Pact\n\tof the Blade uses for spells but let me just plug Armor of Agathys again here.\n\tIt has some of the best scaling in the game. When you get access to 5th-level\n\tspell slots, even if something hits you twice for 24 damage each time, it’s\n\tstill going to take 50 damage and you’re only taking 23 of the 48 you could\n\thave been taking."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Build – High-Elf Warlock",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "I"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "emphasis",
+              "text": "traded my soul for the ability to stab things really hard. Seems fair."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build leans into the Hexblade’s ability to use weapons more effectively than your typical warlock. Using spells like Armor of Agathys and Shadows of Moil to improve our durability, plus weapon-focused Eldritch Invocations and the Great Weapon Master feat, we create a durable melee threat with incredible damage output and Warlock spellcasting to fall back on for utility. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Example "
+            },
+            {
+              "type": "link",
+              "text": "warlock miniature",
+              "href": "https://bit.ly/rpgbot-wl1"
+            },
+            {
+              "type": "text",
+              "text": " from our friends at Heroforge. ("
+            },
+            {
+              "type": "link",
+              "text": "affiliate link",
+              "href": "https://rpgbot.net/about/faq#what-are-affiliate-links-and-why-do-you-use-them"
+            },
+            {
+              "type": "text",
+              "text": ")"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will assume the point buy abilities suggested above. Half High Elf gives us +2 Charisma, +1 Dexterity, and +1 Constitution."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Half High Elf gives us easy access to the Booming Blade Cantrip, meaning we can walk out with that, Sword Burst, and Eldritch Blast, guaranteeing our capacity to do "
+            },
+            {
+              "type": "link",
+              "text": "optimal damage",
+              "href": "https://rpgbot.net/dnd5/characters/melee_cantrips/"
+            },
+            {
+              "type": "text",
+              "text": " in any situation. It also qualifies us as an Elf for the purposes of feat prerequisites and gives us a great ability spread."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Faction Agent to get proficiency in Insight and trade Intimidation for Persuasion. Keep one campaign-appropriate language and turn the other into Thieves’ Tools proficiency. With a Dex this high, you could also make a viable Scout if your party doesn’t have one. If you want to lean harder into Scout, drop Insight, hope your DM doesn’t feel like lying to you very much, pick up Stealth, and wear a Breastplate. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Deception and Intimidation from Warlock. We get Insight, Persuasion, and a language from our background, giving us the full compliment of Face skills. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 4 we take Elven Accuracy and immediately start abusing it. This also lets us raise Charisma to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 8 we take Great Weapon Master."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 12 we finish capping Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 16 we take War Caster."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 19 we take an ASI in Constitution."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otherworldly Patron (The Hexblade)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hexblade’s Curse"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hex Warrior"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wrathful Smite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hex"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Booming Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eldritch Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sword Burst (Racial)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting equipment, take the money instead of the regular starting equipment and buy yourself scale mail, a longsword, and a shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Your AC is already up to 18 and you want to get into melee as quickly as possible to start dishing out those Booming Blade or Green-Flame Blade hits."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level, you’ve got one spell slot and you’ve got Hexblade’s Curse, and managing those two resources until you reach a short rest is crucial. With your spell slot, you need to decide if Wrathful Smite or Hex is a better choice. Wrathful Smite only works on one hit, but you don’t need to worry about maintaining Concentration for very long and the fear effect may be very helpful."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hex will deal more damage in total and the other effects can be useful, but it may be hard to maintain Concentration and it can be redundant with Hexblade’s curse since the damage boosts are similar. Hexblade’s Curse only works on one target and can’t be moved, so save it for something which you know will take a lot of damage to bring down."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Eldritch Blast is still your primary ranged attack and will be forever since we’re focusing on melee for this build. You could technically change your pact weapon to a bow temporarily, but usually you won’t use it long enough to justify the actions to change weapons."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t– Fiendish Vigor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t– Devil’s Sight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t– Protection from Evil and Good"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "False Life is great for temporary hit points until Armor of Agathys starts scaling, so we’ll use Fiendish Vigor for now. Devil’s sight allows for excellent shenanigans later on."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Boon (Pact of the Blade)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Armor of Agathys"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Fiendish Vigor ->Improved Pact Weapon."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Protection from Evil and Good -> Blur"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember that part where spellcasting in melee was a chore? Not any more as Improved Pact Weapon not only increases your chance to hit and damage but also turns whatever weapon you use into a focus, meaning life is much easier on the front lines. Our spell slots also reach 2nd level, which means that our new spell gives us 10 temp hp and does 10 cold damage to attackers a minimum of once."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blur loses some of the niche protections against the handful of creature types covered but you really want that disadvantage on being attacked to apply to everything. It’s also one minute instead of 10, but that will rarely matter."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Elven Accuracy (Cha 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Darkness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cast Darkness on your clothes, then Booming Blade an enemy with super advantage and watch them take damage as they try to escape to a place where they can see. Take your Reaction to attack them with Advantage as they leave. It’s a good time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "While you’re slightly below "
+                },
+                {
+                  "type": "link",
+                  "text": "target DPR",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": " at this level with melee attacks, if the target moves from your Booming Blade to somewhere it isn’t in magical darkness, we go from 20% under target to 20% over target with an additional 80% of target coming in the form of an Opportunity Attack."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thirsting Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fly"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Flying is always good, even if you’re primarily a melee character. Thirsting Blade is going to do some real good work for you later on when we transition to a two-hander and it’s pretty good already, bringing us up to 45% over target DPR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Accursed Specter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Counterspell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nothing interesting at this level, but Counterspell is an excellent\n\t\t\t\t\tway of shutting down casters trying to keep your sword away from\n\t\t\t\t\tthem."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eldritch Smite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Phantasmal Killer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Phantasmal Killer is a great choice for locking down something you expect to fail the save. Make it afraid of you and leave it in the corner."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So, we currently crit once on 26% of turns assuming we can get advantage from a source like Darkness. If we save our second slot for Eldritch Smite, that will be +10d8 of damage 26% of the time, leading to an additional ~2.5d8 of damage into the calculation or ~10 total DPR, bringing us up over 30 which sticks us into High DPR territory, all while maintaining a reasonably high AC and having Darkness permanently on us. But these numbers are on any target, not something with Curse on it. Let’s check that out at next level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: "
+                },
+                {
+                  "type": "link",
+                  "text": "Great Weapon Master",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shadow of Moil"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "So now your playstyle radically changes. You have the tools available to protect yourself enough that a shield is no longer necessary and you can transition to having two swings of a greatsword as your Action. This is enormous damage, particularly if the target is remaining stationary trying to hit us back."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shadow of Moil is truly one of the best things that ever happened to us. Reactive damage is the gravy on top of having Advantage on all attacks and Disadvantage to your attackers. It also makes it so we’re not blinding our party to make use of our obscuring shenanigans. The only issue is the expensive material component, but we were waiting to take this and a feat at the same time for the tactics change anyway."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Since we’re leaning into alternative defensive measures, trading away the now-relatively-small number of temp HP for more damage when we can’t get into melee is the icing on this level’s cake."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Let’s see what this finally works out to on a target you’ve Cursed. Assuming you have advantage from Shadow of Moil and the target is Cursed, you’re hitting 54.4 DPR, less than 15% shy of the “Dude Stop” value for this level. Admittedly that takes a turn of setup, but even two turns of that is 20% over High DPR and you’re doing it while largely invisible. If you "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "do"
+                },
+                {
+                  "type": "text",
+                  "text": " crit, that’s a bonus action for another 15 DPR from our new feat, bringing us fully into Dude Stop territory on that turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If we actually turn the power attack portion on, we’re instead looking at 63 DPR and over 100 on a turn we crit. This is enough to kill many things single-handedly, although you’re going to be very bursty as it all relies on critting."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Agonizing Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Banishing Smite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wrathful Smite -> Cone of Cold"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Magic means that having more than one smite spell is fairly useless, so just take the best one. Sure, Frightened was a little cute, but if you really want something Frightened on a spell slot, you have Phantasmal Killer anyway."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take Cone of Cold for Area of Effect damage because it’s the one thing we can’t really do right now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Agonizing Blast lets us keep up decent damage if we can’t find a melee target."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Armor of Hexes"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Green-Flame Blade / Booming Blade"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Your curse target now has an even harder time hitting you on top of whatever magical defenses you’re wearing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I would personally wait this long to pick up Green-Flame Blade because more things resist fire than thunder and Booming Blade might make things stay next to you, which you often want."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Conjure Fey",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#conjure-fey"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You don’t have much utility, and having a once per day anything from a huge flying snake to carry yourself and a friend for an hour to getting a legend lore and/or scrying out of your summoned dusk hag is a pretty great deal."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement: Charisma 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Life Drinker"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We cap Charisma and get the final invocation we’re likely to care about, adding our newly bumped charisma modifier to damage… again. If we take the penalty to hit from Great Weapon Master, with the current spell slot level factored into Smiting, we’re looking at Dude Stop DPR numbers, even "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "without "
+                },
+                {
+                  "type": "text",
+                  "text": "the bonus attack from GWM."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is, unfortunately, the last time they really go up except for the Smite and Curse numbers getting slightly larger, but a) many campaigns don’t even get to this level, much less far beyond and b) even at level 20, the amount of damage we’re dealing now is still 35% over High DPR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Force Cage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Force Cage is still good for all the same reasons. Trap a big scary\n\t\t\t\t\tthing in it while you cleave through all its friends and then go back\n\t\t\t\t\tto finish it off last."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Master of Hexes"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ignore the ability name, start Hexblade’s Cursing things more often. It’ll now spread through fights, although you don’t get the heal if you make it jump to a new person. At this level, though, that’s another +5 damage per weapon hit, which will help you cleave through hordes."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Visions of Distant Realms"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dominate Monster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You are now also the nearly the best scout in existence. Cast Arcane Eye and send it wherever you need. Between this and your summoned fey, you have a surprising amount of utility for someone who swings a big heckin sword."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For this level’s Mystic Arcanum, we’ll take Dominate Monster. It allows us to non-lethally remove a problematic creature, but it gives you more direct control over the target. If you do it right, you can dominate one monster and walk it into the next encounter or two like an extra party member."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Warcaster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Is it a little late? Yes. Is it better than never? Also yes. Now you can attack someone on your turn and still booming blade them if they try to walk away. Advantage on Concentration is also very nice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Foresight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "What if the best parts of Shadow of Moil lasted 8 hours and didn’t consume your Concentration? Foresight."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Witch Sight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Witch sight? This one, of course."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement:  Con 16 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nothing notable here, but you’re even more durable than you were\n\t\t\t\t\tbefore."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20th level is a bit dry, unfortunately. Eldritch Master lets you ask\n\t\t\t\t\tfor your spell slots back once per day without completing a short\n\t\t\t\t\trest, which saves you 59 minutes once a day."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hexblade’s Curse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hex Warrior"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Accursed Specter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Armor of Hexes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Master of Hexes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Drow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Eladrin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange High Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Half-Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Drow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green High/Moon/Sun"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Human"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Variant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Tiefling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Asmodeus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Baalzebul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dispater"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fierna"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Glasya"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Levistus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Mammon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mephistopheles"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Zariel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Variant: Feral"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Variant: Devil’s Tongue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Variant: Hellfire"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Variant: Winged"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Tortle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Triton"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Verdan"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Yuan-Ti Pureblood"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Kalashtar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Warforged"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Dwarf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mark of Warding"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mark of Shadow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Gnome"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mark of Scribing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Half-Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mark of Detection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mark of Storm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Half-Orc"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mark of Finding"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Halfling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mark of Healing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mark of Hospitality"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Human"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Mark of Finding"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Mark of Handling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Mark of Making"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mark of Passage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mark of Sentinel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Simic Hybrid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Satyr"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonborn"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Draconblood"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Crossbow Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elven Accuracy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Great Weapon Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Heavily Armored"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Medium Armor Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Polearm Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Resilient"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Sharpshooter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue War Caster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Crossbow, Hand"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Crossbow, Heavy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Glaive / Halberd"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Greatsword"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Longbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Longsword / Rapier"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spear / Quarterstaff"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Whip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Leather"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scale Mail"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Half Plate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shield"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-intro-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-subclass-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[2]",
+      "detail": "<li><span class=\"rating-blue\">Hexblade’s Curse</span>: Are you ready to confuse literally every new player by being the only thing that gets proficiency to damage? Then Hexblade is"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-races-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-races-4"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-races-5"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-races-6"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-races-7"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-races-8"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-races-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-races-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-races-11"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-races-12"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-races-13"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-races-14"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-races-15"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-races-16"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-races-eberron-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-races-eberron-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-races-eberron-dragonmarks-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-races-eberron-dragonmarks-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-races-eberron-dragonmarks-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-races-eberron-dragonmarks-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-races-eberron-dragonmarks-5"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-races-eberron-dragonmarks-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-races-eberron-dragonmarks-7"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-races-eberron-dragonmarks-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-races-eberron-dragonmarks-9"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-races-eberron-dragonmarks-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-races-eberron-dragonmarks-11"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[11]",
+      "detail": "block-section-races-eberron-dragonmarks-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-races-eberron-dragonmarks-13"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[12]",
+      "detail": "block-section-races-eberron-dragonmarks-14"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-races-eberron-dragonmarks-15"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[13]",
+      "detail": "block-section-races-eberron-dragonmarks-16"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-races-ravnica-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-races-theros-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-races-wildemount-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[14]",
+      "detail": "block-section-races-wildemount-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[15]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[16]",
+      "detail": "block-section-weapons-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[17]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-spells-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 6895,
+    "sections": 23,
+    "blocks": 79,
+    "tables": 3,
+    "ratingSignals": 95
+  },
+  "status": "needs-editorial-review"
+}

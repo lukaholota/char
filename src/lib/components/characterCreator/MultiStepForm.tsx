@@ -5,18 +5,15 @@ import type { Weapon } from "@prisma/client";
 import { SpellcastingType } from "@/lib/prisma-enums";
 import RacesForm from "@/lib/components/characterCreator/RacesForm";
 import {CharacterCreateHeader} from "@/lib/components/characterCreator/CharacterCreateHeader";
-import {useCreatorDraftStorage, usePersFormStore} from "@/lib/stores/persFormStore";
+import {consumeDraftResetNotice, useCreatorDraftStorage, usePersFormStore} from "@/lib/stores/persFormStore";
 import ClassesForm from "@/lib/components/characterCreator/ClassesForm";
 import BackgroundsForm from "@/lib/components/characterCreator/BackgroundsForm";
 import ASIForm from "@/lib/components/characterCreator/ASIForm";
 import SkillsForm from "@/lib/components/characterCreator/SkillsForm";
 import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types";
 import EquipmentForm from "@/lib/components/characterCreator/EquipmentForm";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Check, Circle } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
-import clsx from "clsx";
 import NameForm from "@/lib/components/characterCreator/NameForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
 import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
@@ -36,7 +33,8 @@ import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import { BackgroundFeatsForm } from "@/lib/components/characterCreator/BackgroundFeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
-import { hasRaceFeatChoice, resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
+import { ReadyPresetSuggestion } from "@/components/optimization/ReadyPresetSuggestion";
+import { findCreationStepOrder, hasRaceFeatChoice, resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
 import { buildCreationAbilityScores } from "@/rules/character-creation";
 import WeaponMasteryForm from "@/lib/components/characterCreator/WeaponMasteryForm";
 import { CreationStepRuleLink } from "@/lib/components/characterCreator/CreationStepRuleLink";
@@ -49,12 +47,13 @@ import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { getRulesStrategy } from "@/rules/strategies";
 import { countOriginLanguageChoices } from "@/rules/languages";
 import { isCreationStepCompleted } from "./creation-step-completion";
-import { CreationFooter } from "./CreationFooter";
-import { NextStepHintProvider, useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
+import { CreationStepLayout } from "./CreationStepLayout";
+import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 import { hasWeaponMastery } from "@/rules/weapon-mastery";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
 import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
+import { useBuildCreatorStep } from "@/lib/optimization/use-build-creator-step";
 
 interface Props {
   races: RaceI[];
@@ -64,6 +63,7 @@ interface Props {
   feats: FeatPrisma[];
   initialRuleset?: "RULES_2014" | "RULES_2024";
   ruleExcerpts?: CreationStepRuleExcerpts;
+  showReadyBuilds?: boolean;
 }
 
 export const MultiStepForm = (
@@ -75,6 +75,7 @@ export const MultiStepForm = (
     feats,
     initialRuleset = "RULES_2014",
     ruleExcerpts,
+    showReadyBuilds = false,
   }: Props
 ) => {
   const isDraftActive = useCreatorDraftStorage(initialRuleset);
@@ -93,6 +94,11 @@ export const MultiStepForm = (
     updateFormData,
   } = usePersFormStore();
   const isHydrated = isStoreHydrated && isDraftActive;
+  useEffect(() => {
+    if (isHydrated && initialRuleset === "RULES_2014" && consumeDraftResetNotice()) {
+      toast.info("Ми оновили створення персонажа: тепер спершу обирається клас. Стару чернетку довелося скинути.");
+    }
+  }, [isHydrated, initialRuleset]);
   useEffect(() => { capturePostHogEvent("character_creation_started", { edition: initialRuleset === "RULES_2024" ? "2024" : "2014" }); }, [initialRuleset]);
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [nextDisabled, setNextDisabled] = useState(false);
@@ -646,8 +652,9 @@ export const MultiStepForm = (
       hasRaceSpellChoice,
       hasExpertiseChoice,
       hasLanguageChoice,
-    });
+    }, findCreationStepOrder(initialRuleset));
   }, [
+    initialRuleset,
     hasClassWeaponMastery,
     hasSpellChoice,
     hasLevelOneChoices,
@@ -706,6 +713,8 @@ export const MultiStepForm = (
       setCurrentStep(total);
     }
   }, [steps, currentStep, isHydrated, formData, setCurrentStep, setTotalSteps]);
+
+  useBuildCreatorStep(initialRuleset, steps, isHydrated);
 
   const jumpToStep = useCallback((stepOrder: number) => {
     const targetStep = steps[stepOrder - 1];
@@ -1016,110 +1025,46 @@ export const MultiStepForm = (
   }, [currentStep, isHydrated]);
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-[calc(7.5rem+env(safe-area-inset-bottom))] sm:px-4 md:gap-6 md:px-0 md:py-6">
-      <CharacterCreateHeader
-        onReset={resetForm}
-        onOpenAuth={() => setAuthDialogOpen(true)}
-        isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
-      />
+    <CreationStepLayout
+      header={
+        <CharacterCreateHeader
+          showReadyBuilds={showReadyBuilds}
+          onReset={resetForm}
+          onOpenAuth={() => setAuthDialogOpen(true)}
+          isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
+        />
+      }
+      ruleLink={
+        <CreationStepRuleLink
+          stepId={steps[currentStep - 1]?.id}
+          ruleset={currentRuleset}
+          excerpts={ruleExcerpts}
+        />
+      }
+      steps={steps}
+      currentStep={currentStep}
+      progress={progress}
+      isStepDone={(stepOrder) => stepOrder <= highestStepCompleted && isCreationStepCompleted(steps[stepOrder - 1].id, formData)}
+      canJumpTo={(stepOrder) => stepOrder <= highestStepCompleted + 1 || isCreationStepCompleted(steps[stepOrder - 1].id, formData)}
+      onJump={jumpToStep}
+      onHintChange={setNextStepHint}
+      activeFormId={activeFormId}
+      isNextBlocked={nextDisabled}
+      nextStepHint={nextStepHint}
+      isSubmitting={isSubmitting}
+      onPrev={prevStep}
+      after={
+        <>
+          {showReadyBuilds && initialRuleset === "RULES_2014" && cls && steps[currentStep - 1]?.id !== "name" ? (
+            <ReadyPresetSuggestion classKey={cls.name} subclassKey={subclass?.name ?? null} raceKey={race?.name ?? null} />
+          ) : null}
 
-      <Card className="border-none bg-transparent shadow-none">
-        <CardContent className="grid gap-3 p-0 sm:gap-4 md:grid-cols-[1fr,300px]">
-          <div className="glass-panel border-gradient-rpg space-y-3 rounded-xl p-3 sm:space-y-4 sm:p-4 md:p-5">
-            <CreationStepRuleLink
-              stepId={steps[currentStep - 1]?.id}
-              ruleset={currentRuleset}
-              excerpts={ruleExcerpts}
-            />
-            <NextStepHintProvider onHintChange={setNextStepHint}>
-              {isDraftActive ? renderStep() : null}
-            </NextStepHintProvider>
-          </div>
-
-          <aside className="glass-panel border-gradient-rpg rounded-xl p-3 sm:p-4">
-          <div className="sticky top-14 sm:top-16">
-            <div className="flex items-center justify-between text-xs text-slate-400 sm:text-sm">
-                <span className="font-medium text-slate-200">Ваш прогрес</span>
-                <Badge variant="outline" className="border-white/15 bg-white/5 text-[11px] text-slate-200 sm:text-xs">
-                  {progress}% готово
-                </Badge>
-              </div>
-
-              <div className="mt-3 space-y-1.5 sm:mt-4 sm:space-y-2">
-                {steps.map((step, index) => {
-                  const stepOrder = index + 1;
-                  const isDone = stepOrder <= highestStepCompleted && isCreationStepCompleted(step.id, formData);
-                  const isActive = stepOrder === currentStep;
-                  const canJump = stepOrder <= highestStepCompleted + 1 || isCreationStepCompleted(step.id, formData);
-
-                  return (
-                    <button
-                      key={step.id}
-                      type="button"
-                      data-testid={`creation-step-${step.id}`}
-                      data-step-id={step.id}
-                      data-active={isActive ? "true" : "false"}
-                      disabled={!canJump && !isActive}
-                      onClick={() => jumpToStep(stepOrder)}
-                      className={clsx(
-                        "flex w-full items-center justify-between rounded-lg border px-2.5 py-2 text-left transition-all duration-200 sm:px-3",
-                        isActive
-                          ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-white"
-                          : canJump 
-                            ? "border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:border-white/20"
-                            : "border-white/5 bg-transparent text-slate-500 cursor-not-allowed opacity-50"
-                      )}
-                    >
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-[11px]">
-                          Крок {stepOrder}
-                        </p>
-                        <p className="text-xs font-semibold sm:text-sm">{step.name}</p>
-                      </div>
-                      {isDone ? (
-                        <Badge variant="secondary" className="bg-emerald-500/20 text-emerald-200">
-                          <Check className="h-4 w-4" />
-                        </Badge>
-                      ) : (
-                        <Badge
-                          variant="outline"
-                          className={clsx(
-                            "border-white/15 bg-white/5 text-slate-300",
-                            isActive && "border-gradient-rpg border-gradient-rpg-active glass-active text-slate-100"
-                          )}
-                        >
-                          <Circle className="h-3 w-3" />
-                        </Badge>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="mt-4 h-1.5 rounded-full bg-white/10 sm:mt-5 sm:h-2">
-                <div
-                  className="h-1.5 rounded-full bg-gradient-to-r from-arcane-500 to-arcane-300 transition-all sm:h-2"
-                  style={{ width: `${progress}%` }}
-                />
-              </div>
-            </div>
-          </aside>
-        </CardContent>
-      </Card>
-
-      <CreationFooter
-        stepNumber={currentStep}
-        stepCount={steps.length}
-        stepTitle={steps[currentStep - 1]?.name}
-        activeFormId={activeFormId}
-        isNextBlocked={nextDisabled}
-        nextStepHint={nextStepHint}
-        isSubmitting={isSubmitting}
-        onPrev={prevStep}
-      />
-
-      <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
-    </div>
+          <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
+        </>
+      }
+    >
+      {isDraftActive ? renderStep() : null}
+    </CreationStepLayout>
   )
 }
 

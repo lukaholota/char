@@ -1,5 +1,5 @@
 import {z} from "zod";
-import { Ability } from "@/lib/prisma-enums";
+import { Ability, ToolCategory } from "@/lib/prisma-enums";
 import {SkillsEnum} from "@/lib/types/enums";
 
 export const raceSchema = z.object({
@@ -171,6 +171,7 @@ export const skillsSchema  = z.object({
     race: z.array(skills).default([]),
     selectedClass: z.array(skills).default([]),
     background: z.array(skills).default([]),
+    subclass: z.array(skills).optional(),
   }).default({
     race: [],
     selectedClass: [],
@@ -223,6 +224,11 @@ export const skillsSchema  = z.object({
     }
   })
 
+export const backgroundCustomizationSchema = z.object({
+  skills: z.array(skills).length(2),
+  tools: z.array(z.nativeEnum(ToolCategory)).default([]),
+});
+
 export const expertiseSchema = z.object({
   expertises: z.array(skills).default([])
 });
@@ -265,6 +271,7 @@ export const classSpellsSchema = z.object({
 export const featSpellSelectionsSchema = z.object({
   BACKGROUND_ORIGIN: z.array(z.number().int().positive()).optional(),
   SPECIES_VERSATILITY: z.array(z.number().int().positive()).optional(),
+  CLASS_ASI: z.array(z.number().int().positive()).optional(),
 });
 
 export const nameSchema = z.object({
@@ -305,6 +312,7 @@ export const fullCharacterSchema = z.object({
     tashaChoices: z.array(choices).default([])
   }).optional(),
   skillsSchema: skillsSchema.optional(),
+  backgroundCustomization: backgroundCustomizationSchema.optional(),
   expertiseSchema: expertiseSchema.optional(),
   languagesSchema: languagesSchema.optional(),
   equipmentSchema: equipmentSchema.optional(),
@@ -314,6 +322,8 @@ export const fullCharacterSchema = z.object({
   ruleset: z.enum(["RULES_2014", "RULES_2024"]).optional(),
   backgroundAsiChoice: backgroundAsiChoiceSchema.optional(),
   classSpells: classSpellsSchema.optional(),
+  initialPreparedSpellIds: z.array(z.number().int().positive()).optional(),
+  readyPresetRequestId: z.string().uuid().optional(),
   featSpellSelections: featSpellSelectionsSchema.optional(),
   /** Книга тіней Pact of the Tome або риса підкласу 1-го рівня 2014: заклинання, які дає обрати клас. */
   classOptionSpellIds: z.array(z.number().int().positive()).optional(),
@@ -348,5 +358,3 @@ export const fullCharacterSchema = z.object({
 
 
 export type PersFormData = z.infer<typeof fullCharacterSchema>
-
-

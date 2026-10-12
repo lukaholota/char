@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-04",
+  "ruleset": "RULES_2014",
+  "scope": "Description corrections only; selection logic and database state unchanged.",
+  "sources": [
+    "https://dnd5e.wikidot.com/feat:ritual-caster",
+    "https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/master/data/feats.json"
+  ],
+  "corrections": [
+    {
+      "engName": "Ritual Caster",
+      "source": "PHB",
+      "changes": [
+        "Complete copy conditions, character-level ceiling, time and cost",
+        "Exact class-to-spellcasting-ability mapping",
+        "INT or WIS prerequisite independent of selected class",
+        "Remove unsupported spells-known-count assertion"
+      ]
+    },
+    {
+      "engName": "Skill Expert",
+      "source": "TCE",
+      "changes": [
+        "Retain +1 ability score and chosen skill proficiency",
+        "Clarify existing doubled proficiency cannot be selected again"
+      ]
+    },
+    {
+      "engName": "Prodigy",
+      "source": "XGE",
+      "changes": [
+        "Clarify existing doubled proficiency cannot be selected again"
+      ]
+    }
+  ]
+}

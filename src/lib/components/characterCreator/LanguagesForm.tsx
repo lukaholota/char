@@ -18,6 +18,7 @@ import { buildPickHint, LANGUAGE_FORMS } from "@/lib/components/wizard/pick-hint
 const EMPTY_LANGUAGES: string[] = [];
 
 interface Props {
+  initialSelection?: string[];
   race: RaceI;
   selectedClass: ClassI;
   subclass?: any;
@@ -36,6 +37,7 @@ interface Props {
 }
 
 export const LanguagesForm = ({
+  initialSelection,
   race,
   selectedClass,
   subclass,
@@ -56,7 +58,7 @@ export const LanguagesForm = ({
   const { form, onSubmit } = useStepForm(languagesSchema, (data) => {
     updateFormData({ languagesSchema: data });
     nextStep();
-  });
+  }, initialSelection ? { languages: initialSelection } : undefined);
 
   const fixedLanguages = useMemo(() => {
     const langs = new Set<string>();
