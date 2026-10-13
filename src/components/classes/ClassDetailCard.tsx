@@ -188,7 +188,7 @@ function Header({ characterClass, is2024 }: { characterClass: ClassData; is2024:
   return (
     <div className="flex items-start gap-4">
       {characterClass.imageSrc && !isArtHidden ? (
-        <div className="hidden h-28 w-28 shrink-0 sm:block">
+        <div className="h-20 w-20 shrink-0 sm:h-28 sm:w-28">
           <FramedIllustration
             src={characterClass.imageSrc}
             alt={characterClass.name}

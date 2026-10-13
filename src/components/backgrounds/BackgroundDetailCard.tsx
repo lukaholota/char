@@ -128,7 +128,7 @@ export function BackgroundDetailCard({
     >
       <div className="flex items-start justify-between gap-3">
         {background.imageSrc ? (
-          <div className="hidden h-28 w-28 shrink-0 sm:block">
+          <div className="h-20 w-20 shrink-0 sm:h-28 sm:w-28">
             <FramedIllustration
               src={background.imageSrc}
               alt={background.name}
