@@ -17,6 +17,7 @@ import { LevelPicker } from "./ReadyPresetLevels";
 import { CatalogMention } from "./CatalogMention";
 import { ReadyPresetCustomization, listPresetCustomizationSteps } from "./ReadyPresetCustomization";
 import type { CreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
+import { rememberUnfinishedPreset } from "@/lib/optimization/unfinished-preset";
 
 export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entry, ruleExcerpts }: { data: ReadyPresetPageData; catalogQuery: string; catalogClass?: string; entry: PresetEntry; ruleExcerpts?: CreationStepRuleExcerpts }) {
   const state = useReadyPreset(data.draft, data.preset.buildId, data.options, data.levels ? { levels: data.levels, revisionId: data.preset.revisionId } : null);
@@ -32,6 +33,10 @@ export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entr
   const catalogParams = new URLSearchParams();
   if (catalogQuery) catalogParams.set("q", catalogQuery);
   if (catalogClass) catalogParams.set("class", catalogClass);
+  const hasStartedPath = ready && step >= 3;
+  useEffect(() => {
+    if (hasStartedPath) rememberUnfinishedPreset({ buildId: presetId, title: data.preset.title, href: window.location.pathname + window.location.search });
+  }, [hasStartedPath, presetId, data.preset.title]);
   useEffect(() => {
     if (!ready) return;
     heading.current?.focus({ preventScroll: true });

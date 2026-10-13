@@ -34,6 +34,7 @@ import { BackgroundFeatsForm } from "@/lib/components/characterCreator/Backgroun
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
 import { ReadyPresetSuggestion } from "@/components/optimization/ReadyPresetSuggestion";
+import { UnfinishedPresetNotice } from "@/components/optimization/UnfinishedPresetNotice";
 import { findCreationStepOrder, hasRaceFeatChoice, resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
 import { buildCreationAbilityScores } from "@/rules/character-creation";
 import WeaponMasteryForm from "@/lib/components/characterCreator/WeaponMasteryForm";
@@ -1027,12 +1028,15 @@ export const MultiStepForm = (
   return (
     <CreationStepLayout
       header={
-        <CharacterCreateHeader
-          showReadyBuilds={showReadyBuilds}
-          onReset={resetForm}
-          onOpenAuth={() => setAuthDialogOpen(true)}
-          isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
-        />
+        <>
+          <CharacterCreateHeader
+            showReadyBuilds={showReadyBuilds}
+            onReset={resetForm}
+            onOpenAuth={() => setAuthDialogOpen(true)}
+            isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
+          />
+          {showReadyBuilds && initialRuleset === "RULES_2014" ? <UnfinishedPresetNotice /> : null}
+        </>
       }
       ruleLink={
         <CreationStepRuleLink

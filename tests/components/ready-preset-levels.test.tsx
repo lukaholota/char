@@ -325,6 +325,8 @@ describe("open class option picker", () => {
   });
 });
 
+const UNFINISHED_PRESET_KEY = "dnd-preset-2014-unfinished";
+
 describe("customized abilities of a list-prepared caster", () => {
   async function lowerWisdomTwice() {
     await renderPreset("druid-dreams-githzerai-2014", true);
@@ -336,7 +338,10 @@ describe("customized abilities of a list-prepared caster", () => {
   it("drops prepared spells above the new Wisdom limit so the character can still be created", async () => {
     mocks.create.mockResolvedValue({ success: true, persId: 77 });
     await lowerWisdomTwice();
+    expect(JSON.parse(localStorage.getItem(UNFINISHED_PRESET_KEY)!)).toMatchObject({ buildId: "build-druid-dreams-githzerai-2014", href: "/" });
     await goToNameAndSubmit();
+    frames.forEach((run) => run());
+    expect(localStorage.getItem(UNFINISHED_PRESET_KEY)).toBeNull();
     expect(mocks.create).toHaveBeenCalledOnce();
     expect(mocks.create.mock.calls[0][0].asi).toContainEqual({ ability: "WIS", value: 13 });
     expect(mocks.create.mock.calls[0][0].initialPreparedSpellIds).toHaveLength(3);
@@ -346,6 +351,7 @@ describe("customized abilities of a list-prepared caster", () => {
     mocks.create.mockResolvedValue({ success: true, persId: 78 });
     await lowerWisdomTwice();
     await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Скинути зміни до пресета" })); });
+    await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Точно скинути?" })); });
     expect(screen.getByRole("heading", { name: "Характеристики", exact: true })).toBeTruthy();
     await goToNameAndSubmit();
     expect(mocks.create.mock.calls[0][0].asi).toContainEqual({ ability: "WIS", value: 15 });

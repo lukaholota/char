@@ -2,6 +2,8 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
+import { useTwoStepConfirm } from "@/hooks/useTwoStepConfirm";
+import { cn } from "@/lib/utils";
 import ASIForm from "@/lib/components/characterCreator/ASIForm";
 import EquipmentForm from "@/lib/components/characterCreator/EquipmentForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
@@ -58,6 +60,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, rule
   const active = steps[index];
   const [blocked, setBlocked] = useState(false);
   const [hint, publishHint] = useNextStepHintState(state.step);
+  const resetConfirm = useTwoStepConfirm<HTMLButtonElement>({ onConfirm: state.resetCustomization });
   useEffect(() => { setBlocked(false); }, [state.step]);
   useEffect(() => { if (!active) state.goToStep(3 + steps.length); }, [active, steps.length, state.goToStep]);
   const activeKind = active?.kind;
@@ -116,7 +119,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, rule
     onPrev={() => state.goToStep(state.step - 1)}
     after={<div className="flex flex-wrap gap-2">
       <Button variant="ghost" disabled={state.submitting} onClick={() => state.goToStep(2)} className="min-h-11 text-slate-400">До вибору способу створення</Button>
-      <Button variant="ghost" disabled={state.submitting} onClick={state.resetCustomization} className="min-h-11 text-slate-400">Скинути зміни до пресета</Button>
+      <Button ref={resetConfirm.ref} variant={resetConfirm.isConfirming ? "destructive" : "ghost"} disabled={state.submitting} onClick={resetConfirm.onClick} className={cn("min-h-11", !resetConfirm.isConfirming && "text-slate-400")}>{resetConfirm.isConfirming ? "Точно скинути?" : "Скинути зміни до пресета"}</Button>
     </div>}
   >
     <h2 className="font-rpg-display text-2xl text-white">{active.title}</h2>

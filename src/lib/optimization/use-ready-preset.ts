@@ -12,6 +12,7 @@ import { countRemainingBuildPoints } from "./build-draft";
 import { isSavedPresetCompatible, isSavedPresetValid } from "./ready-preset-validation";
 import type { ReadyPresetOptions } from "./ready-preset-options";
 import { removeAssemblyDraft } from "./ready-preset-assembly-draft";
+import { forgetUnfinishedPreset } from "./unfinished-preset";
 import { buildAssemblyStartState } from "./ready-preset-level-context";
 import { buildAssemblyCreationRequest, findAssemblyChoiceProblem, type AssemblyChoiceContext, type ReadyPresetLevels } from "./ready-preset-levels";
 import { buildRequestId } from "./ready-preset-request-id";
@@ -117,6 +118,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
         if (findActiveDraftStorageKey() === storageKey) resetForm();
         localStorage.removeItem(storageKey);
         removeAssemblyDraft(buildId);
+        forgetUnfinishedPreset(buildId);
       });
     } catch (failure) {
       if (!(failure instanceof Error)) throw failure;
