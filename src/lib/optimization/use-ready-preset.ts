@@ -74,14 +74,21 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
   function chooseGuide() {
     const current = { ...formData, name: "", readyPresetRequestId: undefined };
     const initial = { ...startingDraft, name: "", readyPresetRequestId: undefined };
-    if (JSON.stringify(current) !== JSON.stringify(initial) || hasLevelChoices(assembly)) {
-      const level = assembly.targetLevel;
-      const name = formData.name ?? "";
-      restartSavedPreset();
-      assembly.selectLevel(level);
-      updateFormData({ name });
-    }
+    if (JSON.stringify(current) !== JSON.stringify(initial) || hasLevelChoices(assembly)) restoreStartingChoices();
     goToStep(3);
+  }
+
+  function resetCustomization() {
+    restoreStartingChoices();
+    goToStep(4);
+  }
+
+  function restoreStartingChoices() {
+    const level = assembly.targetLevel;
+    const name = formData.name ?? "";
+    restartSavedPreset();
+    assembly.selectLevel(level);
+    updateFormData({ name });
   }
 
   function goToStep(step: number) { setError(""); setCurrentStep(step); }
@@ -123,7 +130,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
   }
   const rememberSignInOpen = useCallback((open: boolean) => { isSignInOpen.current = open; }, []);
   const rememberCustomizationStep = useCallback((kind: string) => { customizationStep.current = kind; }, []);
-  return { ready: active && isHydrated && initialized && assembly.isLoaded, assembly, choiceContext, choiceProblem, invalidSaved, restartSavedPreset, chooseGuide, draft: createdSnapshot?.draft ?? formData, step: Math.max(2, createdSnapshot?.step ?? currentStep), update: updateFormData, goToStep, confirmCreation, submitting, error, rememberSignInOpen, rememberCustomizationStep };
+  return { ready: active && isHydrated && initialized && assembly.isLoaded, assembly, choiceContext, choiceProblem, invalidSaved, restartSavedPreset, chooseGuide, resetCustomization, draft: createdSnapshot?.draft ?? formData, step: Math.max(2, createdSnapshot?.step ?? currentStep), update: updateFormData, goToStep, confirmCreation, submitting, error, rememberSignInOpen, rememberCustomizationStep };
 }
 
 function buildChoiceContext(levels: ReadyPresetLevels | null, assembly: ReturnType<typeof useReadyPresetAssembly>, draft: Partial<PersFormData>, options: ReadyPresetOptions): AssemblyChoiceContext | null {

@@ -31,7 +31,7 @@ type Props = {
 
 export function CreationStepLayout({ header, ruleLink, steps, currentStep, progress, isStepDone, canJumpTo, onJump, onHintChange, activeFormId, isNextBlocked, nextStepHint, isSubmitting, onPrev, children, after }: Props) {
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-[calc(7.5rem+env(safe-area-inset-bottom))] sm:px-4 md:gap-6 md:px-0 md:py-6">
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-[calc(11rem+env(safe-area-inset-bottom))] sm:px-4 md:gap-6 md:px-0 md:py-6">
       {header}
 
       <Card className="border-none bg-transparent shadow-none">

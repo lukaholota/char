@@ -324,3 +324,30 @@ describe("open class option picker", () => {
     expect(mocks.createFromBuild.mock.calls[0][0].openClassOptions).toEqual([{ characterLevel: 17, classOptions: [{ optionNameEng: "Seeking Spell", groupName: "Метамагія" }] }]);
   });
 });
+
+describe("customized abilities of a list-prepared caster", () => {
+  async function lowerWisdomTwice() {
+    await renderPreset("druid-dreams-githzerai-2014", true);
+    await customizeStep("Характеристики");
+    const lowerWisdom = () => fireEvent.click(screen.getAllByRole("button", { name: "Зменшити" })[4]);
+    await act(async () => { lowerWisdom(); lowerWisdom(); });
+  }
+
+  it("drops prepared spells above the new Wisdom limit so the character can still be created", async () => {
+    mocks.create.mockResolvedValue({ success: true, persId: 77 });
+    await lowerWisdomTwice();
+    await goToNameAndSubmit();
+    expect(mocks.create).toHaveBeenCalledOnce();
+    expect(mocks.create.mock.calls[0][0].asi).toContainEqual({ ability: "WIS", value: 13 });
+    expect(mocks.create.mock.calls[0][0].initialPreparedSpellIds).toHaveLength(3);
+  });
+
+  it("resets the customized choices back to the preset", async () => {
+    mocks.create.mockResolvedValue({ success: true, persId: 78 });
+    await lowerWisdomTwice();
+    await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Скинути зміни до пресета" })); });
+    expect(screen.getByRole("heading", { name: "Характеристики", exact: true })).toBeTruthy();
+    await goToNameAndSubmit();
+    expect(mocks.create.mock.calls[0][0].asi).toContainEqual({ ability: "WIS", value: 15 });
+  });
+});

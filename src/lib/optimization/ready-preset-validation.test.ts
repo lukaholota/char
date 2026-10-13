@@ -4,7 +4,7 @@ import { findCharacterCreationOptions } from "@/lib/content/creator-content";
 import { buildReadyPresetDraft, readyPresetSchema } from "./ready-preset";
 import { buildRecipeSchema } from "./schema";
 import { buildReadyPresetOptions } from "./ready-preset-options";
-import { isSavedPresetCompatible, isSavedPresetValid } from "./ready-preset-validation";
+import { findSavedPresetProblem, isSavedPresetCompatible, isSavedPresetValid } from "./ready-preset-validation";
 import { buildReadyPresetSkillChoices } from "./ready-preset-skills";
 import { buildEquipmentSelection, findSelectedEquipmentChoice } from "./ready-preset-equipment";
 import { getAllSpells } from "@/lib/spellsData";
@@ -18,6 +18,14 @@ function readPreset(slug: string) {
 }
 
 describe("ready preset validation", () => {
+  it("names the step that blocks creation instead of a generic message", () => {
+    const { draft, options } = readPreset("druid-dreams-githzerai-2014");
+    const lowerWisdom = { ...draft, asi: draft.asi.map((entry) => entry.ability === "WIS" ? { ...entry, value: 13 } : entry) };
+    expect(findSavedPresetProblem(draft, draft, options)).toBeNull();
+    expect(findSavedPresetProblem(lowerWisdom, draft, options)).toBe("Забагато підготовлених заклинань для вашої характеристики");
+    expect(findSavedPresetProblem({ ...draft, languagesSchema: { languages: [] } }, draft, options)).toBe("Мови: оберіть усі мови без повторів.");
+  });
+
   it("restores an unfinished selection but still rejects it at creation and rejects a changed identity", () => {
     const { draft, options } = readPreset("rogue-thief-2014");
     const unfinished = structuredClone(draft);

@@ -18,7 +18,8 @@ import { findWizardPreparation, listOpenPickSlots } from "@/lib/optimization/rea
 import { findInitialListPreparedLimit, findInitialWizardPreparedLimit } from "@/rules/initial-prepared-spells-2014";
 import { buildPresetAbilityScores } from "@/lib/optimization/ready-preset-abilities";
 import { findPresetSpellProblem } from "@/lib/optimization/ready-preset-spells";
-import { isSavedPresetValid } from "@/lib/optimization/ready-preset-validation";
+import { findPresetPreparedProblem, findSavedPresetProblem } from "@/lib/optimization/ready-preset-validation";
+import type { CreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import type { Skill } from "@/lib/types/enums";
 import { ReadyPresetChoices } from "./ReadyPresetChoices";
@@ -50,8 +51,8 @@ export function listPresetCustomizationSteps(data: ReadyPresetPageData, state: P
   return steps;
 }
 
-export function ReadyPresetCustomization({ data, state, header, nameFields }: { data: ReadyPresetPageData; state: PresetState; header: ReactNode; nameFields: ReactNode }) {
-  useHigherLevelStartPreparation(data, state);
+export function ReadyPresetCustomization({ data, state, header, nameFields, ruleExcerpts }: { data: ReadyPresetPageData; state: PresetState; header: ReactNode; nameFields: ReactNode; ruleExcerpts?: CreationStepRuleExcerpts }) {
+  usePreparedSpellsWithinLimit(data, state);
   const steps = [...listPresetCustomizationSteps(data, state), NAME_STEP];
   const index = state.step - 4;
   const active = steps[index];
@@ -68,7 +69,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields }: { 
   const race = data.creator.race as unknown as RaceI;
   const selectedClass = data.creator.characterClass as unknown as ClassI;
   const background = data.creator.background as unknown as BackgroundI;
-  const spellProblem = active.kind === "spells" ? findPresetSpellProblem(state.draft, data.options.spells) : null;
+  const spellProblem = active.kind === "spells" ? findPresetSpellProblem(state.draft, data.options.spells) ?? findPresetPreparedProblem(state.draft, data.options) : null;
   const pickProblem = active.kind === "skills" && Object.entries(data.draft.skillsSchema!.basicChoices).some(([key, initial]) => key !== "background" && (state.draft.skillsSchema!.basicChoices[key as SkillPickGroup]?.length ?? 0) !== initial!.length) ? "Оберіть усі навички цього білда." : active.kind === "expertise" && state.draft.expertiseSchema?.expertises.length !== data.options.expertiseCount ? "Оберіть усі навички для Експертизи." : null;
   const nativeForm = ["abilities", "languages", "equipment"].includes(active.kind);
   const next = () => {
@@ -100,7 +101,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields }: { 
   };
   return <CreationStepLayout
     header={header}
-    ruleLink={<CreationStepRuleLink stepId={CREATOR_STEP_IDS[active.kind]} ruleset="RULES_2014" />}
+    ruleLink={<CreationStepRuleLink stepId={CREATOR_STEP_IDS[active.kind]} ruleset="RULES_2014" excerpts={ruleExcerpts} />}
     steps={steps.map((step) => ({ id: `${step.kind}-${step.characterLevel ?? 0}`, name: step.title }))}
     currentStep={index + 1}
     progress={Math.round((index / steps.length) * 100)}
@@ -113,7 +114,10 @@ export function ReadyPresetCustomization({ data, state, header, nameFields }: { 
     nextStepHint={problem ?? hint}
     isSubmitting={state.submitting}
     onPrev={() => state.goToStep(state.step - 1)}
-    after={<Button variant="ghost" disabled={state.submitting} onClick={() => state.goToStep(2)} className="min-h-11 self-start text-slate-400">До вибору способу створення</Button>}
+    after={<div className="flex flex-wrap gap-2">
+      <Button variant="ghost" disabled={state.submitting} onClick={() => state.goToStep(2)} className="min-h-11 text-slate-400">До вибору способу створення</Button>
+      <Button variant="ghost" disabled={state.submitting} onClick={state.resetCustomization} className="min-h-11 text-slate-400">Скинути зміни до пресета</Button>
+    </div>}
   >
     <h2 className="font-rpg-display text-2xl text-white">{active.title}</h2>
     {nativeForm ? content : <form id={formId} onSubmit={(event) => { event.preventDefault(); submit(); }} className="space-y-4">{content}</form>}
@@ -122,13 +126,15 @@ export function ReadyPresetCustomization({ data, state, header, nameFields }: { 
 }
 
 function findNameStepProblem(data: ReadyPresetPageData, state: PresetState): string | null {
-  if (!isSavedPresetValid(state.draft, data.draft, data.options) || state.choiceProblem) return state.choiceProblem ?? "Завершіть вибори персонажа перед створенням.";
+  const problem = state.choiceProblem ?? findSavedPresetProblem(state.draft, data.draft, data.options);
+  if (problem) return problem;
   return state.draft.name?.trim() ? null : "Вкажіть імʼя персонажа.";
 }
 
 function PresetSkillCards({ data, state }: { data: ReadyPresetPageData; state: PresetState }) {
   const choices = state.draft.skillsSchema!.basicChoices;
-  return <div className="space-y-6">{Object.entries(data.draft.skillsSchema!.basicChoices).filter(([, skills]) => skills?.length).map(([key, initial]) => {
+  const owned = buildReadyPresetSkillChoices(choices, data.options.skills).skills;
+  return <div className="space-y-6"><p className="text-sm leading-relaxed text-slate-300"><span className="text-slate-400">Ваші навички:</span> {owned.map(translateValue).join(", ")}</p>{Object.entries(data.draft.skillsSchema!.basicChoices).filter(([, skills]) => skills?.length).map(([key, initial]) => {
     const group = key as SkillPickGroup;
     const selected = choices[group] ?? [];
     const taken = new Set([...data.options.skills.fixedRace, ...data.options.skills.fixedSubclass, ...Object.entries(choices).filter(([other]) => other !== key && other !== "background").flatMap(([, skills]) => skills ?? [])]);
@@ -144,15 +150,15 @@ function PresetExpertiseCards({ data, state }: { data: ReadyPresetPageData; stat
   return <div><p className="mb-4 text-slate-300">Оберіть {data.options.expertiseCount} навички, у яких подвоюється Бонус Майстерності.</p><div className="grid gap-2 sm:grid-cols-2">{state.draft.skills?.map((skill) => <Button type="button" variant="outline" key={skill} aria-pressed={selected.includes(skill as Skill)} disabled={!selected.includes(skill as Skill) && selected.length >= data.options.expertiseCount} className={`min-h-12 justify-start ${selected.includes(skill as Skill) ? "border-arcane-400 bg-arcane-500/15" : ""}`} onClick={() => state.update({ expertiseSchema: { expertises: selected.includes(skill as Skill) ? selected.filter((entry) => entry !== skill) : [...selected, skill as Skill] } })}>{selected.includes(skill as Skill) ? "✓ " : ""}{translateValue(skill)}</Button>)}</div></div>;
 }
 
-function useHigherLevelStartPreparation(data: ReadyPresetPageData, state: PresetState) {
+function usePreparedSpellsWithinLimit(data: ReadyPresetPageData, state: PresetState) {
   const selected = state.draft.initialPreparedSpellIds;
   const scores = buildPresetAbilityScores(state.draft, data.options.abilitySources);
   const limit = data.options.spells.usesSpellbook ? findInitialWizardPreparedLimit(scores.INT) : findInitialListPreparedLimit(data.options.className, scores);
   const book = state.draft.classSpells?.spellbookIds;
   useEffect(() => {
-    if (state.assembly.targetLevel <= 1 || !selected) return;
+    if (!selected) return;
     const prepared = selected.slice(0, limit);
-    const next = data.options.spells.usesSpellbook && !prepared.length ? book?.slice(0, limit) ?? [] : prepared;
+    const next = state.assembly.targetLevel > 1 && data.options.spells.usesSpellbook && !prepared.length ? book?.slice(0, limit) ?? [] : prepared;
     if (JSON.stringify(next) !== JSON.stringify(selected)) state.update({ initialPreparedSpellIds: next });
   }, [state.assembly.targetLevel, selected, limit, book, data.options.spells.usesSpellbook, state.update]);
 }

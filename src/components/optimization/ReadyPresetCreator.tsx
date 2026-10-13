@@ -16,8 +16,9 @@ import type { PresetEntry } from "@/lib/monitoring/rpgbot-analytics-model";
 import { LevelPicker } from "./ReadyPresetLevels";
 import { CatalogMention } from "./CatalogMention";
 import { ReadyPresetCustomization, listPresetCustomizationSteps } from "./ReadyPresetCustomization";
+import type { CreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 
-export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entry }: { data: ReadyPresetPageData; catalogQuery: string; catalogClass?: string; entry: PresetEntry }) {
+export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entry, ruleExcerpts }: { data: ReadyPresetPageData; catalogQuery: string; catalogClass?: string; entry: PresetEntry; ruleExcerpts?: CreationStepRuleExcerpts }) {
   const state = useReadyPreset(data.draft, data.preset.buildId, data.options, data.levels ? { levels: data.levels, revisionId: data.preset.revisionId } : null);
   const { ready, invalidSaved, restartSavedPreset, draft, step, update, goToStep, confirmCreation, submitting, error, assembly } = state;
   const presetId = data.preset.buildId;
@@ -52,7 +53,7 @@ export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entr
       {error ? <p role="alert" className="mb-4 text-rose-200">{error}</p> : null}
       {isSignInRequiredMessage(error) ? <div className="mb-4"><GoogleAuthDialog open={isSignInOpen} onOpenChange={(open) => { setIsSignInOpen(open); state.rememberSignInOpen(open); }} trigger={<Button variant="secondary" size="sm" className="border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"><LogIn className="mr-2 h-4 w-4" />Увійти</Button>} /></div> : null}
   </>;
-  if (step >= 4) return <ReadyPresetCustomization data={data} state={state} header={header} nameFields={nameFields} />;
+  if (step >= 4) return <ReadyPresetCustomization data={data} state={state} header={header} nameFields={nameFields} ruleExcerpts={ruleExcerpts} />;
   return <div className="mx-auto max-w-6xl px-4 pb-28 pt-6 sm:px-6 sm:pb-12">
     {header}
     {step === 2 ? <div className="mx-auto max-w-3xl space-y-6">

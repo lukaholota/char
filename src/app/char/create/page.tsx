@@ -32,7 +32,7 @@ export default async function Page({
   const requestedRuleset = resolvedParams?.ruleset;
   if (resolvedParams?.preset) {
     if (requestedRuleset === "RULES_2024") notFound();
-    return <ReadyPresetCreator key={resolvedParams.preset} data={await loadReadyPresetPage(resolvedParams.preset)} catalogQuery={resolvedParams.q ?? ""} catalogClass={resolvedParams.class ?? ""} entry={findPresetEntry(resolvedParams.from)} />;
+    return <ReadyPresetCreator key={resolvedParams.preset} data={await loadReadyPresetPage(resolvedParams.preset)} catalogQuery={resolvedParams.q ?? ""} catalogClass={resolvedParams.class ?? ""} entry={findPresetEntry(resolvedParams.from)} ruleExcerpts={collectCreationStepRuleExcerpts()} />;
   }
   const showReadyBuilds = requestedRuleset !== "RULES_2024";
   const effectiveRuleset: Ruleset =
