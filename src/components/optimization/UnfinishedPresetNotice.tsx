@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ModeLink } from "@/components/no-ai/ModeLink";
 import { forgetUnfinishedPreset, readUnfinishedPreset, type UnfinishedPreset } from "@/lib/optimization/unfinished-preset";
 
 export function UnfinishedPresetNotice() {
@@ -22,7 +22,7 @@ export function UnfinishedPresetNotice() {
         Ви не завершили готового персонажа: <span className="text-white">{preset.title}</span>
       </p>
       <Button asChild className="min-h-11 shrink-0">
-        <Link href={preset.href}>Продовжити</Link>
+        <ModeLink href={preset.href}>Продовжити</ModeLink>
       </Button>
       <Button type="button" variant="ghost" size="icon" onClick={hide} aria-label="Приховати" className="size-11 shrink-0 text-slate-400">
         <X aria-hidden className="size-4" />
