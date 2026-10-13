@@ -4,6 +4,10 @@ import { act, cleanup, fireEvent, render, screen, within } from "@testing-librar
 import { loadReadyPresetPage } from "@/lib/optimization/ready-preset.server";
 
 const mocks = vi.hoisted(() => ({ create: vi.fn(), createFromBuild: vi.fn(), push: vi.fn(), capture: vi.fn() }));
+// Radix-примітиви міряють вузол через ResizeObserver, якого в jsdom немає.
+vi.hoisted(() => {
+  Object.defineProperty(globalThis, "ResizeObserver", { configurable: true, writable: true, value: class { observe() {} unobserve() {} disconnect() {} } });
+});
 vi.mock("server-only", () => ({}));
 vi.mock("next/navigation", () => ({ notFound: () => { throw new Error("NOT_FOUND"); } }));
 vi.mock("@/lib/actions/character", () => ({ createCharacter: mocks.create, createCharacterFromBuild: mocks.createFromBuild }));
@@ -74,6 +78,19 @@ describe("preset without higher levels", () => {
     expect(findEvents("rpgbot_preset_submitted")[0]).not.toHaveProperty("target_level");
     expect(findEvents("rpgbot_preset_created")[0]).not.toHaveProperty("target_level");
     expect(mocks.push).toHaveBeenCalledWith("/char/31");
+    expect(mocks.create.mock.calls[0][0].readyPresetBuildId).toBe("build-bugbear-fiend-warlock-2014");
+  });
+
+  it("offers a generated name on the name step, like the main creator", async () => {
+    await renderPreset("bugbear-fiend-warlock-2014", true);
+    fireEvent.click(screen.getByRole("button", { name: /Створити за гайдом/ }));
+    const hint = await screen.findByText(/Підказка:/);
+    const suggested = hint.querySelector("span")!.textContent!;
+    expect(suggested.length).toBeGreaterThan(1);
+    fireEvent.click(screen.getByRole("button", { name: "Використати" }));
+    expect((screen.getByLabelText(/Імʼя персонажа/) as HTMLInputElement).value).toBe(suggested);
+    fireEvent.click(screen.getByRole("button", { name: "Згенерувати інше імʼя" }));
+    expect(screen.getByRole("button", { name: "Жіноча" })).toBeTruthy();
   });
 });
 

@@ -12,7 +12,7 @@ vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: <T>(fn: 
 
 import { auth } from "@/lib/auth";
 import { createCharacter } from "@/lib/actions/character";
-import { loadInitialPreparedListSpellIds } from "@/server/db/initial-prepared-spells-2014";
+import { loadPreparedListSpellIds } from "@/server/db/initial-prepared-spells-2014";
 
 vi.setConfig({ testTimeout: 120_000 });
 
@@ -119,7 +119,7 @@ describe("стартова підготовка Клірика, Друїда й 
     const cleric = await classByName(Classes.CLERIC_2014);
     const life = await subclassByName(cleric.classId, Subclasses.LIFE_DOMAIN);
     const names = async (unavailableSpellIds: number[]) => {
-      const ids = await loadInitialPreparedListSpellIds(prisma, { classId: cleric.classId, subclassId: life.subclassId, unavailableSpellIds });
+      const ids = await loadPreparedListSpellIds(prisma, { classId: cleric.classId, subclassId: life.subclassId, classLevel: 1, unavailableSpellIds });
       return (await prisma.spell.findMany({ where: { spellId: { in: ids } }, select: { engName: true, level: true } }));
     };
     const all = await names([]);

@@ -74,7 +74,8 @@ export const usePersFormStore = create<FormStore>()(
 
       updateFormData: (data) =>
         set((state) => {
-          const next = { ...state.formData, ...data };
+          // react-hook-form edits nested values in place; a stored reference would compare equal to itself and the change would be lost.
+          const next = { ...state.formData, ...structuredClone(data) };
 
           // avoid re-render loops when values are unchanged (deep-ish compare)
           const isEqualValue = (a: unknown, b: unknown) => {

@@ -13,7 +13,7 @@ vi.mock("@/components/optimization/AnalystAvatar", () => ({ AnalystAvatar: () =>
 const entry: ReadyPresetCatalogEntry = {
   slug: "rogue-thief-2014", buildId: "build-rogue-thief-2014", title: "Пройдисвіт — Злодій", description: "Швидкий розвідник.", className: "Пройдисвіт",
   classLabel: "Пройдисвіт", raceName: "Лісовий ельф", subclassName: "Злодій", startingClassKey: "ROGUE_2014", startingSubclassKey: "THIEF", raceKey: "ELF_2014",
-  maxLevel: 20, sourceTitle: "Приклад", portraitSrc: null, subclassImageSrc: null, classImageSrc: null,
+  maxLevel: 20, sourceTitle: "Приклад", portraitSrc: null, subclassImageSrc: null, classImageSrc: null, searchAliases: [],
 };
 
 function stubSuggestion(response: object) {

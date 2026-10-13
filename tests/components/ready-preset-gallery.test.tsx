@@ -11,7 +11,7 @@ vi.mock("@/lib/monitoring/use-rpgbot-surface-view", () => ({ useRpgbotSurfaceVie
 vi.mock("@/components/optimization/AnalystAvatar", () => ({ AnalystAvatar: () => null }));
 
 function buildEntry(slug: string, className: string, title: string): ReadyPresetCatalogEntry {
-  return { slug, buildId: `build-${slug}`, title, description: `Опис ${title}`, className, classLabel: className, raceName: "Скельний гном", baseRaceName: "Гном", subclassName: "Майбутній підклас", startingClassKey: "CLASS_2014", startingSubclassKey: null, raceKey: "GNOME_2014", maxLevel: 20, sourceTitle: "Приклад", portraitSrc: null, subclassImageSrc: null, classImageSrc: null };
+  return { slug, buildId: `build-${slug}`, title, description: `Опис ${title}`, className, classLabel: className, raceName: "Скельний гном", baseRaceName: "Гном", subclassName: "Майбутній підклас", startingClassKey: "CLASS_2014", startingSubclassKey: null, raceKey: "GNOME_2014", maxLevel: 20, sourceTitle: "Приклад", portraitSrc: null, subclassImageSrc: null, classImageSrc: null, searchAliases: [] };
 }
 
 const presets = [
@@ -164,5 +164,24 @@ describe("ready preset gallery progressive list", () => {
     await act(async () => callbacks.at(-1)!([{ isIntersecting: true } as IntersectionObserverEntry], {} as IntersectionObserver));
     expect(countCards()).toBe(48);
     vi.unstubAllGlobals();
+  });
+});
+
+describe("ready preset gallery search", () => {
+  const gith = { ...buildEntry("druid-gith", "Друїд", "Друїд Кола сновидінь — Ґітцерай"), raceName: "Ґітцерай", baseRaceName: "Ґітцерай", searchAliases: ["Circle of Dreams", "ґітзерай", "гітзерай"] };
+
+  async function countFound(query: string) {
+    window.history.replaceState(null, "", `/char/presets?q=${encodeURIComponent(query)}`);
+    const { ReadyPresetGallery } = await import("@/components/optimization/ReadyPresetGallery");
+    render(<ReadyPresetGallery presets={[...presets, gith]} />);
+    await act(async () => undefined);
+    const found = screen.getByRole("status").textContent;
+    cleanup();
+    return found;
+  }
+
+  it("finds a preset by the same aliases, letter swaps and English names as the site search", async () => {
+    for (const query of ["гітзерай", "гітцерай", "Ґітцераї", "circle of dreams"]) expect(await countFound(query)).toBe("Показано 1 з 5");
+    expect(await countFound("ґітьянкі")).toBe("Показано 0 з 5");
   });
 });

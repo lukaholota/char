@@ -5,7 +5,7 @@ import { findPresetSuggestions } from "./ready-preset-suggestion";
 function buildEntry(slug: string, startingClassKey: string, startingSubclassKey: string | null, raceKey: string): ReadyPresetCatalogEntry {
   return {
     slug, buildId: `build-${slug}`, title: slug, description: "", className: "", subclassName: "", raceName: "", baseRaceName: "", classLabel: "",
-    startingClassKey, startingSubclassKey, raceKey, maxLevel: 20, sourceTitle: "", portraitSrc: null, subclassImageSrc: null, classImageSrc: null,
+    startingClassKey, startingSubclassKey, raceKey, maxLevel: 20, sourceTitle: "", portraitSrc: null, subclassImageSrc: null, classImageSrc: null, searchAliases: [],
   };
 }
 

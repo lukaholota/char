@@ -9,7 +9,7 @@ import { buildReadyPresetDraft, type ReadyPreset } from "./ready-preset";
 import { readSliceArticle, readSliceRecipes } from "./slice-reader";
 import type { BuildRecipe } from "./types";
 import type { CreatorContent } from "@/server/db/creator-content-query";
-import type { ReadyPresetCatalogEntry } from "./ready-preset-catalog";
+import { findBuildNickname, type ReadyPresetCatalogEntry } from "./ready-preset-catalog";
 import { idSchema } from "./schema";
 import { buildReadyPresetOptions } from "./ready-preset-options";
 import { buildPresetAbilitySources } from "./ready-preset-abilities";
@@ -18,10 +18,13 @@ import { findReadyPresetClass } from "./ready-preset-class";
 import { findExecutableLevels } from "./build-executable-levels";
 import { findReadyPresetRecipe, listReadyPresetSlugs, readReadyPreset } from "./ready-preset-files";
 import { buildReadyPresetLevels } from "./ready-preset-levels.server";
+import { excludeLaterPlanPicks } from "./ready-preset-levels";
 import { createLogger } from "@/server/logging/logger";
 import { buildClassCardHref, buildRaceReadingHref } from "@/lib/catalogs/reading-target";
 import { getAllRaces } from "@/lib/racesData";
-import { buildDraftArticleHref } from "./article-view";
+import { buildDraftArticleHref, buildRecipeGuideHref } from "./article-view";
+import { findAliasVariants } from "@/lib/search/searchAliases";
+import { ENTITY_ALIAS_TYPES } from "./search-index-builder";
 
 export async function loadReadyPresetPage(slug: string) {
   const slugs = await listReadyPresetSlugs();
@@ -79,6 +82,7 @@ function buildReadyPresetCatalogEntry(slug: string, preset: ReadyPreset, recipe:
     subclassName: subclass.name, raceName: translateValue(variant?.name ?? subrace?.name ?? race.name), baseRaceName: translateValue(race.name), classLabel,
     startingClassKey: recipe.startingClassKey, startingSubclassKey: subclassClass.key === recipe.startingClassKey ? subclass.key : null, raceKey: race.name,
     maxLevel: Math.max(...findExecutableLevels(recipe)), sourceTitle: recipe.title, portraitSrc,
+    searchAliases: [subclassClass.engName, subclass.engName, ...findAliasVariants("RULES_2014", ENTITY_ALIAS_TYPES, [subclassClass.name, subclass.name, subclassClass.key, subclass.key, translateValue(race.name), race.name, translateValue(variant?.name ?? subrace?.name ?? race.name)])],
     subclassImageSrc: subclass.imageSrc ?? null, classImageSrc: subclassClass.imageSrc };
 }
 
@@ -98,7 +102,8 @@ async function verifyReadyPresetSource(preset: ReadyPreset, recipe: BuildRecipe)
 function buildReadyPresetPageData(preset: ReadyPreset, recipe: BuildRecipe, content: CreatorContent) {
   const draft = buildReadyPresetDraft(recipe, preset, content);
   const pageContent = findReadyPresetPageContent(draft, content);
-  return { preset, recipe, draft, options: buildReadyPresetOptions(draft, content),
+  const levels = buildReadyPresetLevels(recipe, content, preset.subraceKey);
+  return { preset, recipe, draft, options: excludeLaterPlanPicks(buildReadyPresetOptions(draft, content), levels),
     creator: {
       characterClass: { classId: pageContent.characterClass.classId, name: pageContent.characterClass.name, ruleset: pageContent.characterClass.ruleset,
         startingEquipmentOption: pageContent.characterClass.startingEquipmentOption, languages: pageContent.characterClass.languages },
@@ -107,7 +112,7 @@ function buildReadyPresetPageData(preset: ReadyPreset, recipe: BuildRecipe, cont
       variant: pageContent.variant, subrace: pageContent.subrace, background: pageContent.background, weapons: content.weapons,
     },
     summary: buildReadyPresetSummary(pageContent, recipe), links: buildReadyPresetLinks(pageContent, recipe, preset.articleSlug), abilityInput: buildPresetAbilitySources(draft, content),
-    levels: buildReadyPresetLevels(recipe, content),
+    levels,
     belongings: findBackgroundStartingItems(pageContent.background, undefined),
   };
 }
@@ -147,6 +152,19 @@ function buildReadyPresetSummary({ draft, characterClass, race, variant, subrace
 }
 
 export type ReadyPresetPageData = Awaited<ReturnType<typeof loadReadyPresetPage>>;
+
+export type SourceBuildGuide = { title: string; href: string };
+
+export async function findSourceBuildGuide(buildId: string | null): Promise<SourceBuildGuide | null> {
+  if (!buildId) return null;
+  try {
+    const recipe = (await readSliceRecipes("RULES_2014")).find((candidate) => candidate.buildId === buildId);
+    return recipe ? { title: findBuildNickname(recipe.title), href: buildRecipeGuideHref(recipe) } : null;
+  } catch (error) {
+    log.error("ready-preset.source-guide.failed", { buildId, err: error });
+    return null;
+  }
+}
 
 export async function findReadyPresetSlugForBuild(buildId: string): Promise<string | null> {
   for (const slug of await listReadyPresetSlugs()) {

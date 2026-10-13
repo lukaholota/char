@@ -16,6 +16,7 @@ import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import { useRpgbotSurfaceView } from "@/lib/monitoring/use-rpgbot-surface-view";
 import { AnalystAvatar } from "./AnalystAvatar";
 import { useProgressiveList } from "./use-progressive-list";
+import { buildQueryMatcher, buildSearchableText, matchesQuery } from "@/lib/search/searchQuery";
 import { comparePresetClasses, findPresetCardTitle, findPresetGeneratedSrc, findPresetImageSrc, type ReadyPresetCatalogEntry } from "@/lib/optimization/ready-preset-catalog";
 
 const FILTER_REPORT_DELAY_MS = 1000;
@@ -36,7 +37,8 @@ function countPresetsByRace(presets: ReadyPresetCatalogEntry[]): [string, number
 }
 
 function isPresetMatchingQuery(preset: ReadyPresetCatalogEntry, query: string): boolean {
-  return `${preset.title} ${findPresetCardTitle(preset)} ${preset.description} ${preset.classLabel} ${preset.raceName} ${preset.subclassName} ${preset.sourceTitle}`.toLocaleLowerCase("uk").includes(query);
+  const matcher = buildQueryMatcher(query);
+  return !matcher || matchesQuery(matcher, buildSearchableText([preset.title, findPresetCardTitle(preset), preset.description, preset.classLabel, preset.raceName, preset.subclassName, preset.sourceTitle, ...preset.searchAliases]));
 }
 
 export function ReadyPresetGallery({ presets }: { presets: ReadyPresetCatalogEntry[] }) {

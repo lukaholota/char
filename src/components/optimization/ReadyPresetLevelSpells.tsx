@@ -2,8 +2,8 @@
 
 import type { ReadyPresetPageData } from "@/lib/optimization/ready-preset.server";
 import {
-  OPEN_PICK_LABELS, findSlotSchoolLimit, findWizardPreparation, listChosenKeys, listOpenPickCandidates, listOpenPickSlots, listStepsUpTo, listFixedSpells, resolvePreparedKeys,
-  type AssemblyChoiceContext, type OpenPickSlot, type WizardPreparation,
+  ABILITY_LABELS, OPEN_PICK_LABELS, findSlotSchoolLimit, findSpellPreparation, listChosenKeys, listOpenPickCandidates, listOpenPickSlots, listStepsUpTo, listFixedSpells, resolvePreparedKeys,
+  type AssemblyChoiceContext, type OpenPickSlot, type SpellPreparation,
 } from "@/lib/optimization/ready-preset-levels";
 import { describeSchoolLimit2014 } from "@/rules/class-spell-choices-2014";
 import { buildSpellSlug } from "@/lib/spell-link";
@@ -15,7 +15,7 @@ type SpellProps = { data: Pick<ReadyPresetPageData, "options">; assembly: ReadyP
 
 export function ReadyPresetLevelSpells({ data, assembly, context, slotId, characterLevel, preparationOnly = false }: SpellProps & { slotId?: string; characterLevel?: number; preparationOnly?: boolean }) {
   const slots = listOpenPickSlots(context.levels, context.targetLevel).filter((slot) => !preparationOnly && (!slotId || slot.id === slotId) && (!characterLevel || slot.characterLevel === characterLevel));
-  const preparation = slotId || characterLevel ? null : findWizardPreparation(context);
+  const preparation = slotId || characterLevel ? null : findSpellPreparation(context);
   if (!slots.length && !preparation) return null;
   return <div className="mt-5 space-y-5">
     {slots.map((slot) => <OpenPickGroup key={slot.id} slot={slot} assembly={assembly} context={context} />)}
@@ -39,13 +39,14 @@ function OpenPickGroup({ slot, assembly, context }: { slot: OpenPickSlot; assemb
   </fieldset>;
 }
 
-function PreparedSpellEditor({ data, assembly, context, preparation }: SpellProps & { preparation: WizardPreparation }) {
+function PreparedSpellEditor({ data, assembly, context, preparation }: SpellProps & { preparation: SpellPreparation }) {
   const selected = resolvePreparedKeys(preparation, context);
-  const pool = [...data.options.spells.candidates.map((spell) => ({ ...spell, key: buildSpellSlug(spell.engName) })), ...Object.values(context.levels.spellPools).flat(), ...listStepsUpTo(context.levels, context.targetLevel).flatMap(listFixedSpells)];
-  const book = [...new Map(pool.filter((spell) => preparation.bookKeys.includes(spell.key) && spell.spellId !== undefined).map((spell) => [spell.key, spell])).values()];
+  const pool = [...data.options.spells.candidates.map((spell) => ({ ...spell, key: buildSpellSlug(spell.engName) })), ...Object.values(context.levels.spellPools).flat(), ...listStepsUpTo(context.levels, context.targetLevel).flatMap(listFixedSpells), ...context.levels.listPreparationPool];
+  const book = [...new Map(pool.filter((spell) => preparation.poolKeys.includes(spell.key) && spell.spellId !== undefined).map((spell) => [spell.key, spell])).values()];
+  const source = preparation.kind === "book" ? "з книги" : "зі свого списку";
   return <fieldset>
     <legend className="text-sm text-slate-300">Підготовлені заклинання · {selected.length} з {preparation.limit}</legend>
-    <p className="mt-1 text-sm text-slate-400">Чарівник готує заклинання з книги: Інтелект {preparation.intelligence} і {preparation.wizardLevel}-й рівень Чарівника дозволяють підготувати {preparation.limit}.</p>
+    <p className="mt-1 text-sm text-slate-400">{preparation.className} готує заклинання {source}: {ABILITY_LABELS[preparation.ability]} {preparation.abilityScore} і {preparation.classLevel}-й рівень класу дозволяють підготувати {preparation.limit}.</p>
     <PresetSpellPicker label="Підготовлені заклинання" spells={book.map((spell) => ({ ...spell, spellId: spell.spellId!, school: spell.school ?? null }))}
       selectedIds={book.filter((spell) => selected.includes(spell.key)).map((spell) => spell.spellId!)} limit={preparation.limit}
       onChange={(ids) => assembly.choosePreparedSpells(book.filter((spell) => ids.includes(spell.spellId!)).map((spell) => spell.key))} />

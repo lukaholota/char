@@ -28,10 +28,18 @@ export function isListPreparedCaster2014(className: string): boolean {
   return className in LIST_PREPARED_CASTERS_2014;
 }
 
+export function findListPreparedAbility2014(className: string): "INT" | "WIS" | null {
+  return LIST_PREPARED_CASTERS_2014[className]?.ability ?? null;
+}
+
 export function findInitialListPreparedLimit(className: string, scores: Readonly<Record<"INT" | "WIS", number>>): number {
+  return findListPreparedLimit(className, scores, 1);
+}
+
+export function findListPreparedLimit(className: string, scores: Readonly<Record<"INT" | "WIS", number>>, classLevel: number): number {
   const caster = LIST_PREPARED_CASTERS_2014[className];
   if (!caster) return 0;
-  return Math.max(1, calculateAbilityModifier(scores[caster.ability]) + Math.floor(1 / caster.levelDivisor));
+  return Math.max(1, calculateAbilityModifier(scores[caster.ability]) + Math.floor(classLevel / caster.levelDivisor));
 }
 
 export type InitialPreparedSelection = {
@@ -47,9 +55,19 @@ export function findInitialPreparedSelectionProblem(input: InitialPreparedSelect
 }
 
 function findInitialListPreparedSpellProblem(input: InitialPreparedSelection): string | null {
-  const selected = input.preparedIds ?? [];
-  if (!selected.length) return null;
+  if (!input.preparedIds?.length) return null;
+  return findListPreparedSelectionProblem({ ...input, preparedIds: input.preparedIds, classLevel: 1 });
+}
+
+export function findListPreparedSelectionProblem(input: {
+  className: string; classLevel: number; preparedIds: readonly number[]; listSpellIds: readonly number[]; scores: Readonly<Record<"INT" | "WIS", number>>;
+}): string | null {
+  const selected = input.preparedIds;
   if (new Set(selected).size !== selected.length) return "Підготовлене заклинання обрано двічі";
-  if (!selected.every((spellId) => input.listSpellIds.includes(spellId))) return "Підготувати можна лише заклинання 1-го рівня зі списку свого класу, які ще не дає правило";
-  return selected.length > findInitialListPreparedLimit(input.className, input.scores) ? "Забагато підготовлених заклинань для вашої характеристики" : null;
+  if (!selected.every((spellId) => input.listSpellIds.includes(spellId))) {
+    return input.classLevel === 1
+      ? "Підготувати можна лише заклинання 1-го рівня зі списку свого класу, які ще не дає правило"
+      : "Підготувати можна лише заклинання доступних рівнів зі списку свого класу, які ще не дає правило";
+  }
+  return selected.length > findListPreparedLimit(input.className, input.scores, input.classLevel) ? "Забагато підготовлених заклинань для вашої характеристики" : null;
 }

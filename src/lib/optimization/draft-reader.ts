@@ -1,9 +1,10 @@
+import { existsSync } from "node:fs";
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { buildLinkTargets, findDraftRevision, summarizeDraft, type DraftSummary, type LinkTargets } from "./article-view";
+import { buildLinkTargets, findDraftRevision, normalizeSourceUrl, summarizeDraft, type DraftSummary, type LinkTargets } from "./article-view";
 import { parseArticleDocument } from "./document";
 import { readExcludedSourceIds } from "./source-policy";
-import type { ArticleDocument } from "./types";
+import type { ArticleDocument, OptimizationRuleset } from "./types";
 
 type DraftLocations = { draftsDirectory: string; coverageLedgerPath: string };
 
@@ -37,6 +38,14 @@ export async function readDraftArticle(slug: string, locations = DEFAULT_LOCATIO
     summaries: documents.map(summarizeDraft),
     linkTargets: buildDraftLinkTargets(documents.filter((entry) => entry.article.ruleset === document.article.ruleset), sourceUrlByArticleId),
   };
+}
+
+export async function findTranslatedArticleSlug(href: string, ruleset: OptimizationRuleset, locations = DEFAULT_LOCATIONS): Promise<string | null> {
+  const { key } = normalizeSourceUrl(href);
+  const ledger = JSON.parse(await readFile(locations.coverageLedgerPath, "utf8")) as { rows: { ruleset: string; canonicalUrl: string; articleIds: string[] }[] };
+  const articleIds = ledger.rows.filter((row) => row.ruleset === ruleset && normalizeSourceUrl(row.canonicalUrl).key === key).flatMap((row) => row.articleIds);
+  const translated = articleIds.find((articleId) => existsSync(join(locations.draftsDirectory, `${articleId}.json`)));
+  return translated?.replace(/^rpgbot-/, "") ?? null;
 }
 
 let cachedDefaultDocuments: Promise<ArticleDocument[]> | null = null;

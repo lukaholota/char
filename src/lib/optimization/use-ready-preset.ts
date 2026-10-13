@@ -127,7 +127,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
     } finally { pending.current = false; setSubmitting(false); }
   }
   function sendCreation(start: PersFormData): Promise<CreateCharacterResult> {
-    if (!choiceContext || !assembly.requestId) return createCharacter(start);
+    if (!choiceContext || !assembly.requestId) return createCharacter({ ...start, readyPresetBuildId: buildId });
     return createCharacterFromBuild(buildAssemblyCreationRequest({ preset: { buildId, revisionId: plan?.revisionId ?? "" }, requestId: assembly.requestId, start, context: choiceContext }));
   }
   const rememberSignInOpen = useCallback((open: boolean) => { isSignInOpen.current = open; }, []);

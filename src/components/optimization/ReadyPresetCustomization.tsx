@@ -16,7 +16,7 @@ import type { useReadyPreset } from "@/lib/optimization/use-ready-preset";
 import { buildReadyPresetSkillChoices, buildReconciledSkillPatch, describeSkillPickGroup, listSkillPickOptions, listTakenSkillPicks, type SkillPickGroup } from "@/lib/optimization/ready-preset-skills";
 import { listOpenAdvancementSteps } from "@/lib/optimization/ready-preset-advancements";
 import { listOpenOptionSteps } from "@/lib/optimization/ready-preset-class-options";
-import { findWizardPreparation, listOpenPickSlots } from "@/lib/optimization/ready-preset-levels";
+import { findSpellPreparation, listOpenPickSlots } from "@/lib/optimization/ready-preset-levels";
 import { findPreparedSpellsWithinLimit, listSavedPresetIssues, type SavedPresetIssue } from "@/lib/optimization/ready-preset-validation";
 import type { CreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
@@ -45,7 +45,7 @@ export function listPresetCustomizationSteps(data: ReadyPresetPageData, state: P
   if (context) {
     const levels = [...new Set([...listOpenAdvancementSteps(context.levels, context.targetLevel), ...listOpenOptionSteps(context.levels, context.targetLevel), ...listOpenPickSlots(context.levels, context.targetLevel)].map((step) => step.characterLevel))].sort((a, b) => a - b);
     steps.push(...levels.map((characterLevel): CustomStep => ({ kind: "level", title: `Вибори ${characterLevel}-го рівня`, characterLevel })));
-    if (findWizardPreparation(context)) steps.push({ kind: "preparation", title: "Підготовлені заклинання" });
+    if (findSpellPreparation(context)) steps.push({ kind: "preparation", title: "Підготовлені заклинання" });
   }
   return steps;
 }

@@ -5,6 +5,7 @@ import CharacterSheet from "@/lib/components/characterSheet/CharacterSheet";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { loadPersSpellcastingSources } from "@/server/db/spell-sources";
 import { PersEditionPin } from "@/components/ui/PersEditionPin";
+import { findSourceBuildGuide } from "@/lib/optimization/ready-preset.server";
 
 export default async function Page({ params }: { params: Promise<{ token: string }> }) {
   const { token } = await params;
@@ -14,6 +15,7 @@ export default async function Page({ params }: { params: Promise<{ token: string
 
   const groupedFeatures = await getCharacterFeaturesGroupedByShareToken(token);
   const spellcastingSources = await loadPersSpellcastingSources(pers.persId);
+  const sourceBuildGuide = await findSourceBuildGuide(pers.sourceBuildId);
 
   return (
     <>
@@ -23,6 +25,7 @@ export default async function Page({ params }: { params: Promise<{ token: string
         spellcastingSources={spellcastingSources}
         groupedFeatures={groupedFeatures}
         isPublicView={true}
+        sourceBuildGuide={sourceBuildGuide}
         editShareToken={canEdit ? token : undefined}
       />
     </>

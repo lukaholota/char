@@ -37,6 +37,7 @@ import { SheetStatesProvider } from "./states/SheetStatesContext";
 import { StatesSheet } from "./states/StatesSheet";
 import { StatusChips } from "./states/StatusChips";
 import { useSheetStates } from "./states/useSheetStates";
+import { CharacterSourceBuildContext, type CharacterSourceBuild } from "@/components/optimization/CharacterSourceBuildContext";
 
 const mobileIconButtonClassName = "h-10 w-10 gap-0 p-0 sm:h-8 sm:w-8";
 const mobileTextButtonClassName = "h-10 min-w-[5.5rem] justify-start gap-1.5 px-2 text-left sm:h-8 sm:min-w-0 sm:justify-center sm:gap-2 sm:px-3";
@@ -50,9 +51,10 @@ interface CharacterSheetProps {
   isPublicView?: boolean;
   editShareToken?: string | null;
   canShare?: boolean;
+  sourceBuildGuide?: CharacterSourceBuild["guide"];
 }
 
-export default function CharacterSheet({ pers, spellcastingSources, groupedFeatures, spellBuffCatalog = [], isPublicView, editShareToken, canShare }: CharacterSheetProps) {
+export default function CharacterSheet({ pers, spellcastingSources, groupedFeatures, spellBuffCatalog = [], isPublicView, editShareToken, canShare, sourceBuildGuide = null }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
   const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
   const [isLevelUpPending, setIsLevelUpPending] = useState<boolean>(false);
@@ -85,6 +87,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
   }, [pers, groupedFeatures]);
 
   useEffect(() => showQueuedOperations(), [showQueuedOperations]);
+  const sourceBuild = useMemo(() => ({ sourceBuildId: pers.sourceBuildId, guide: sourceBuildGuide }), [pers.sourceBuildId, sourceBuildGuide]);
   const sheetStates = useSheetStates({ pers: localPers, onPersUpdate: setLocalPers, groupedFeatures: localGroupedFeatures, catalog: spellBuffCatalog, isReadOnly, onFeaturesChanged: () => reloadFeatures() });
 
   const reloadFeatures = useCallback(() => {
@@ -191,6 +194,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
   };
 
   return (
+    <CharacterSourceBuildContext.Provider value={sourceBuild}>
     <SheetStatesProvider control={sheetStates}>
     <div className="h-full overflow-hidden w-full bg-slate-900 flex flex-col">
       <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-900/70 p-3 px-4 backdrop-blur">
@@ -341,6 +345,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
       <StatesSheet />
     </div>
     </SheetStatesProvider>
+    </CharacterSourceBuildContext.Provider>
   );
 }
 

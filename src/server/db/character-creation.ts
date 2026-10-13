@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { fullCharacterSchema, PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { auth } from "@/lib/auth";
 import { Ability, ArmorCategory, ArmorType, Feats, Language, SkillProficiencyType, Skills, SpellOrigin, ToolCategory } from "@prisma/client";
+import { readSliceRecipes } from "@/lib/optimization/slice-reader";
 import { classTranslations } from "@/lib/refs/translation";
 import { revalidatePath } from "next/cache";
 import {
@@ -58,7 +59,7 @@ import { findCreationChoicePoolProblem } from "@/rules/creation-choice-pools";
 import { findExpertiseSelectionProblem, isExpertiseChosenThroughSubclassOptions, readExpertiseGrant } from "@/rules/expertise-selections";
 import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 import { findInitialPreparedSelectionProblem, isListPreparedCaster2014 } from "@/rules/initial-prepared-spells-2014";
-import { loadInitialPreparedListSpellIds } from "@/server/db/initial-prepared-spells-2014";
+import { loadPreparedListSpellIds } from "@/server/db/initial-prepared-spells-2014";
 import { findReadyPresetCreationResult, lockReadyPresetCreation, saveReadyPresetCreationOperation } from "@/server/db/ready-preset-creation-operation";
 import { createCharacterFromBuildPlan, type BuildStartPreparation } from "@/server/db/build-assembly-creation";
 
@@ -113,6 +114,11 @@ export async function createCharacter(input: PersFormData): Promise<CreateCharac
   return persistCharacter(user.value, prepared.character, prepared.chosenSpells);
 }
 
+async function findSourceBuild(buildId: string): Promise<{ sourceBuildId: string; sourceBuildRevisionId: string } | null> {
+  const recipe = (await readSliceRecipes("RULES_2014")).find((entry) => entry.buildId === buildId);
+  return recipe ? { sourceBuildId: recipe.buildId, sourceBuildRevisionId: recipe.revisionId } : null;
+}
+
 export async function createCharacterFromBuild(request: unknown): Promise<CreateCharacterResult> {
   const user = await requireUser();
   if ("error" in user) return { error: user.error };
@@ -159,7 +165,7 @@ async function findInitialPreparedProblem(
   const className = character.content.characterClass.name;
   const hasListChoice = ruleset === "RULES_2014" && isListPreparedCaster2014(className) && (input.initialPreparedSpellIds?.length ?? 0) > 0;
   const listSpellIds = hasListChoice
-    ? await loadInitialPreparedListSpellIds(prisma, { classId: input.classId, subclassId: input.subclassId ?? null, unavailableSpellIds: collectCreationSpellIds(content, ruleset as Ruleset, chosenSpells) })
+    ? await loadPreparedListSpellIds(prisma, { classId: input.classId, subclassId: input.subclassId ?? null, classLevel: 1, unavailableSpellIds: collectCreationSpellIds(content, ruleset as Ruleset, chosenSpells) })
     : [];
   return findInitialPreparedSelectionProblem({ ruleset, className, spellbookIds: input.classSpells?.spellbookIds ?? [], preparedIds: input.initialPreparedSpellIds,
     listSpellIds, scores: character.scores });
@@ -1429,6 +1435,7 @@ async function persistCharacter(
   if ("error" in prepared) return prepared;
 
   const { validData } = character;
+  const sourceBuild = validData.readyPresetRequestId && validData.readyPresetBuildId ? await findSourceBuild(validData.readyPresetBuildId) : null;
   try {
     const creation = await prisma.$transaction(async (tx) => {
       if (validData.readyPresetRequestId) {
@@ -1437,6 +1444,7 @@ async function persistCharacter(
         if (previous) return previous;
       }
       const created = await prepared.write(tx);
+      if (sourceBuild) await tx.pers.update({ where: { persId: created.pers.persId }, data: sourceBuild });
       if (validData.readyPresetRequestId) {
         await saveReadyPresetCreationOperation(tx, { userId: user.id, requestId: validData.readyPresetRequestId, persId: created.pers.persId });
       }

@@ -8,7 +8,7 @@ import { buildAssemblyRequestSchema } from "./assembly-request";
 import { buildReadyPresetDraft, readyPresetSchema } from "./ready-preset";
 import { buildAssemblyStartState } from "./ready-preset-level-context";
 import {
-  buildAssemblyCreationRequest, buildOpenSpellSelections, findAssemblyChoiceProblem, findIntelligenceAt, findWizardLevelAt, findWizardPreparation,
+  buildAssemblyCreationRequest, buildOpenSpellSelections, findAssemblyChoiceProblem, findIntelligenceAt, findPreparedKeysProblem, findWizardLevelAt, findSpellPreparation,
   findSlotSchoolLimit, listOpenPickCandidates, listOpenPickSlots, resolvePreparedKeys, type AssemblyChoiceContext, type OpenPickChoices,
 } from "./ready-preset-levels";
 import { buildReadyPresetLevels } from "./ready-preset-levels.server";
@@ -167,6 +167,28 @@ describe("Eldritch Knight school limit on open spell picks", () => {
   });
 });
 
+describe("list preparation at a higher level", () => {
+  it("prepares a Druid from the class list up to the highest slot, without spells the character already gets, and sends the choice", () => {
+    const { context, preset, draft } = buildContext("druid-dreams-githzerai-2014", 7);
+    const preparation = findSpellPreparation(context)!;
+    expect(preparation).toMatchObject({ kind: "list", classLevel: 7, ability: "WIS", abilityScore: 18, limit: 11 });
+    const levelOf = new Map(context.levels.listPreparationPool.map((spell) => [spell.key, spell.level]));
+    expect(Math.max(...preparation.poolKeys.map((key) => levelOf.get(key)!))).toBe(4);
+    expect(preparation.poolKeys).not.toContain("detect-thoughts");
+    expect(preparation.poolKeys).not.toContain("mass-cure-wounds");
+    const defaults = resolvePreparedKeys(preparation, context);
+    expect(defaults).toHaveLength(11);
+    expect(defaults.slice(0, context.start.preparedKeys.length)).toEqual(context.start.preparedKeys);
+    expect(defaults.some((key) => levelOf.get(key)! > 1)).toBe(true);
+    expect(findPreparedKeysProblem(preparation, defaults)).toBeNull();
+    expect(findPreparedKeysProblem(preparation, preparation.poolKeys.slice(0, 12))).toContain("Забагато");
+    expect(findPreparedKeysProblem(preparation, ["detect-thoughts"])).toContain("зі списку свого класу");
+    expect(findSpellPreparation({ ...context, targetLevel: 1 })).toBeNull();
+    const request = buildAssemblyCreationRequest({ preset, requestId: "6f1f1f0e-4d3a-4f5a-9c44-0d8f3e5a7b21", start: { ...draft, name: "Ґрат" }, context });
+    expect(request.preparedSpellKeys).toEqual(defaults);
+  });
+});
+
 describe("Wizard preparation at a higher level", () => {
   it("counts the Wizard level and the Intelligence with the ability increases up to the target", () => {
     const { levels, context } = buildContext("wizard-evocation-2014", 5);
@@ -176,32 +198,32 @@ describe("Wizard preparation at a higher level", () => {
     expect(findIntelligence(3, 16)).toBe(16);
     expect(findIntelligence(5, 16)).toBe(18);
     expect(findIntelligence(5, 19)).toBe(20);
-    expect(findWizardPreparation(context)).toMatchObject({ wizardLevel: 5, intelligence: 18, limit: 9 });
+    expect(findSpellPreparation(context)).toMatchObject({ kind: "book", classLevel: 5, abilityScore: 18, limit: 9 });
   });
 
   it("offers the starting book plus the fixed spells of the plan and no preparation at level one or for other classes", () => {
     const { context } = buildContext("wizard-evocation-2014", 5);
-    const preparation = findWizardPreparation(context)!;
-    expect(preparation.bookKeys).toEqual(expect.arrayContaining(["magic-missile", "identify", "shield", "scorching-ray", "shatter", "flaming-sphere", "misty-step", "fireball", "fly"]));
-    expect(findWizardPreparation({ ...context, targetLevel: 1 })).toBeNull();
-    expect(findWizardPreparation(buildContext("barbarian-berserker-2014", 5).context)).toBeNull();
+    const preparation = findSpellPreparation(context)!;
+    expect(preparation.poolKeys).toEqual(expect.arrayContaining(["magic-missile", "identify", "shield", "scorching-ray", "shatter", "flaming-sphere", "misty-step", "fireball", "fly"]));
+    expect(findSpellPreparation({ ...context, targetLevel: 1 })).toBeNull();
+    expect(findSpellPreparation(buildContext("barbarian-berserker-2014", 5).context)).toBeNull();
   });
 
   it("starts from the author's preparation, fills the rest by RPGbot score, and rejects too many, foreign or no prepared spells with the server rule", () => {
     const { context } = buildContext("wizard-evocation-2014", 5);
-    const preparation = findWizardPreparation(context)!;
+    const preparation = findSpellPreparation(context)!;
     const defaults = resolvePreparedKeys(preparation, context);
     expect(defaults.slice(0, context.start.preparedKeys.length)).toEqual(context.start.preparedKeys);
     expect(defaults).toHaveLength(preparation.limit);
-    expect(defaults.every((key) => preparation.bookKeys.includes(key))).toBe(true);
+    expect(defaults.every((key) => preparation.poolKeys.includes(key))).toBe(true);
     const scoreOf = (key: string) => context.levels.wizardSpellScores[key] ?? 0;
     const added = defaults.slice(context.start.preparedKeys.length);
-    const skipped = preparation.bookKeys.filter((key) => !defaults.includes(key));
+    const skipped = preparation.poolKeys.filter((key) => !defaults.includes(key));
     expect(Math.min(...added.map(scoreOf))).toBeGreaterThanOrEqual(Math.max(...skipped.map(scoreOf)));
     expect(findAssemblyChoiceProblem(context)).toBeNull();
-    const nine = preparation.bookKeys.slice(0, 9);
+    const nine = preparation.poolKeys.slice(0, 9);
     expect(findAssemblyChoiceProblem({ ...context, preparedSpellKeys: nine })).toBeNull();
-    expect(findAssemblyChoiceProblem({ ...context, preparedSpellKeys: preparation.bookKeys.slice(0, 10) })).toContain("Забагато");
+    expect(findAssemblyChoiceProblem({ ...context, preparedSpellKeys: preparation.poolKeys.slice(0, 10) })).toContain("Забагато");
     expect(findAssemblyChoiceProblem({ ...context, preparedSpellKeys: [] })).toContain("хоча б одне");
     expect(resolvePreparedKeys(preparation, { ...context, preparedSpellKeys: ["wish", nine[0]] })).toEqual([nine[0]]);
   });
@@ -210,7 +232,7 @@ describe("Wizard preparation at a higher level", () => {
     const { context, preset, draft } = buildContext("wizard-evocation-2014", 5);
     const requestId = "6f1f1f0e-4d3a-4f5a-9c44-0d8f3e5a7b21";
     const base = { preset, requestId, start: { ...draft, name: "Мирон" } };
-    expect(buildAssemblyCreationRequest({ ...base, context }).preparedSpellKeys).toEqual(resolvePreparedKeys(findWizardPreparation(context)!, context));
+    expect(buildAssemblyCreationRequest({ ...base, context }).preparedSpellKeys).toEqual(resolvePreparedKeys(findSpellPreparation(context)!, context));
     const chosen = ["fireball", "shield"];
     const request = buildAssemblyCreationRequest({ ...base, context: { ...context, preparedSpellKeys: chosen } });
     expect(request.preparedSpellKeys).toEqual(chosen);

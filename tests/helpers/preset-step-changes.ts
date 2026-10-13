@@ -1,35 +1,35 @@
 import { readdirSync, readFileSync } from "node:fs";
-import { describe, expect, it } from "vitest";
 import { findCharacterCreationOptions } from "@/lib/content/creator-content";
 import { LanguageTranslations } from "@/lib/refs/translation";
 import { listChoosableLanguages } from "@/rules/languages";
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { keepAllowedWeaponPicks, listAnyWeaponChoices } from "@/lib/components/characterCreator/any-weapon-picks";
-import { buildReadyPresetDraft, readyPresetSchema } from "./ready-preset";
-import { buildRecipeSchema } from "./schema";
-import { countRemainingBuildPoints } from "./build-draft";
-import { buildReadyPresetOptions, type ReadyPresetOptions } from "./ready-preset-options";
-import { findPreparedSpellsWithinLimit, listSavedPresetIssues, type PresetStepKind } from "./ready-preset-validation";
-import { buildReconciledSkillPatch, listSkillPickOptions, listTakenSkillPicks, type SkillPickGroup } from "./ready-preset-skills";
-import { buildFeatSpellsForList, buildPresetSpellChoicePatch, buildPresetSpellGroups, isPresetSpellLevelOpen, listPresetPreparedPool, listPresetSpellGroupCandidates } from "./ready-preset-spells";
+import { buildReadyPresetDraft, readyPresetSchema } from "@/lib/optimization/ready-preset";
+import { buildRecipeSchema } from "@/lib/optimization/schema";
+import { countRemainingBuildPoints } from "@/lib/optimization/build-draft";
+import { buildReadyPresetOptions, type ReadyPresetOptions } from "@/lib/optimization/ready-preset-options";
+import { buildReadyPresetLevels } from "@/lib/optimization/ready-preset-levels.server";
+import { excludeLaterPlanPicks } from "@/lib/optimization/ready-preset-levels";
+import { findPreparedSpellsWithinLimit, type PresetStepKind } from "@/lib/optimization/ready-preset-validation";
+import { buildReconciledSkillPatch, listSkillPickOptions, listTakenSkillPicks, type SkillPickGroup } from "@/lib/optimization/ready-preset-skills";
+import { buildFeatSpellsForList, buildPresetSpellChoicePatch, buildPresetSpellGroups, isPresetSpellLevelOpen, listPresetPreparedPool, listPresetSpellGroupCandidates } from "@/lib/optimization/ready-preset-spells";
 
-/// Кожен варіант, який крок пресета показує гравцеві, має проходити фінальну перевірку створення.
-/// Інакше гравець бачить на кроці галочку, а на «Імʼя» — блок, як Адам із мовою Ґітська.
+/// Зміни, які крок пресета дає зробити гравцеві: кожна — те, що записав би інтерфейс.
 
-const content = findCharacterCreationOptions("RULES_2014");
-const slugs = readdirSync("data/rpgbot/ready-builds").filter((file) => file.endsWith(".json")).map((file) => file.slice(0, -".json".length));
+export const content = findCharacterCreationOptions("RULES_2014");
+export const presetSlugs = readdirSync("data/rpgbot/ready-builds").filter((file) => file.endsWith(".json")).map((file) => file.slice(0, -".json".length));
 
 type Draft = Partial<PersFormData>;
-type Change = { label: string; draft: Draft; downstream?: PresetStepKind[] };
+export type StepChange = { label: string; draft: Draft; downstream?: PresetStepKind[] };
 
-function readPreset(slug: string) {
+export function readPreset(slug: string) {
   const preset = readyPresetSchema.parse(JSON.parse(readFileSync(`data/rpgbot/ready-builds/${slug}.json`, "utf8")));
   const recipe = buildRecipeSchema.parse(JSON.parse(readFileSync(`data/rpgbot/builds/${preset.buildId}.json`, "utf8")));
   const draft = buildReadyPresetDraft(recipe, preset, content);
-  return { draft, options: buildReadyPresetOptions(draft, content) };
+  return { draft, options: excludeLaterPlanPicks(buildReadyPresetOptions(draft, content), buildReadyPresetLevels(recipe, content, preset.subraceKey)) };
 }
 
-function listLanguageChanges(draft: PersFormData, options: ReadyPresetOptions): Change[] {
+function listLanguageChanges(draft: PersFormData, options: ReadyPresetOptions): StepChange[] {
   const chosen = draft.languagesSchema?.languages ?? [];
   if (!chosen.length) return [];
   const creatorFormLanguages = listChoosableLanguages("RULES_2014", Object.keys(LanguageTranslations), options.knownLanguages);
@@ -37,14 +37,14 @@ function listLanguageChanges(draft: PersFormData, options: ReadyPresetOptions): 
     .map((language) => ({ label: `мова ${language}`, draft: { ...draft, languagesSchema: { languages: [language, ...chosen.slice(1)] } } }));
 }
 
-function listExpertiseChanges(draft: PersFormData): Change[] {
+function listExpertiseChanges(draft: PersFormData): StepChange[] {
   const chosen = draft.expertiseSchema?.expertises ?? [];
   if (!chosen.length) return [];
   return draft.skills.filter((skill) => !chosen.includes(skill as never))
     .map((skill) => ({ label: `експертиза ${skill}`, draft: { ...draft, expertiseSchema: { expertises: [skill as never, ...chosen.slice(1)] } } }));
 }
 
-function listSkillChanges(draft: PersFormData, options: ReadyPresetOptions): Change[] {
+function listSkillChanges(draft: PersFormData, options: ReadyPresetOptions): StepChange[] {
   const schema = draft.skillsSchema!;
   return Object.entries(schema.basicChoices).filter(([, skills]) => skills?.length).flatMap(([key, selected]) => {
     const group = key as SkillPickGroup;
@@ -56,7 +56,7 @@ function listSkillChanges(draft: PersFormData, options: ReadyPresetOptions): Cha
   });
 }
 
-function listAbilityChanges(draft: PersFormData, options: ReadyPresetOptions): Change[] {
+function listAbilityChanges(draft: PersFormData, options: ReadyPresetOptions): StepChange[] {
   return draft.asi.flatMap((score, index) => [8, 9, 10, 11, 12, 13, 14, 15].filter((value) => value !== score.value).flatMap((value) => {
     const asi = draft.asi.map((entry, position) => position === index ? { ...entry, value } : entry);
     if (countRemainingBuildPoints(asi) < 0) return [];
@@ -65,7 +65,7 @@ function listAbilityChanges(draft: PersFormData, options: ReadyPresetOptions): C
   }));
 }
 
-function listEquipmentChanges(draft: PersFormData, options: ReadyPresetOptions): Change[] {
+function listEquipmentChanges(draft: PersFormData, options: ReadyPresetOptions): StepChange[] {
   const rows = content.classes.find((entry) => entry.classId === draft.classId)!.startingEquipmentOption;
   const current = draft.equipmentSchema!;
   const pick = (choiceGroupToId: Record<string, number[]>, picks: Record<string, number[]>) =>
@@ -83,7 +83,7 @@ function listEquipmentChanges(draft: PersFormData, options: ReadyPresetOptions):
   }));
 }
 
-function listSpellChanges(draft: PersFormData, options: ReadyPresetOptions): Change[] {
+function listSpellChanges(draft: PersFormData, options: ReadyPresetOptions): StepChange[] {
   const spells = options.spells;
   const groups = buildPresetSpellGroups(spells, draft);
   const taken = groups.flatMap((group) => group.selected);
@@ -108,25 +108,14 @@ function listSpellChanges(draft: PersFormData, options: ReadyPresetOptions): Cha
   return [...groupChanges, ...preparedChanges, ...featListChanges];
 }
 
-function listChoiceChanges(draft: PersFormData, options: ReadyPresetOptions): Change[] {
+function listChoiceChanges(draft: PersFormData, options: ReadyPresetOptions): StepChange[] {
   const fields = { classOptions: "classChoiceSelections", subclassOptions: "subclassChoiceSelections", raceOptions: "raceChoiceSelections" } as const;
   return (Object.keys(fields) as (keyof typeof fields)[]).flatMap((kind) => options.choiceGroups[kind]
     .filter((group) => !group.isLocked && group.options.length > 1 && typeof draft[fields[kind]][group.group] === "number")
     .flatMap((group) => group.options.map((option) => ({ label: `${kind} ${group.group} ${option.label}`, draft: { ...draft, [fields[kind]]: { ...draft[fields[kind]], [group.group]: option.id } } }))));
 }
 
-function findRejectedChanges(draft: PersFormData, options: ReadyPresetOptions): string[] {
-  const changes: Change[] = [{ label: "без змін", draft }, ...listLanguageChanges(draft, options), ...listExpertiseChanges(draft), ...listSkillChanges(draft, options),
-    ...listAbilityChanges(draft, options), ...listEquipmentChanges(draft, options), ...listSpellChanges(draft, options), ...listChoiceChanges(draft, options)];
-  return changes.flatMap(({ label, draft: changed, downstream = [] }) => {
-    const issues = listSavedPresetIssues(changed, draft, options).filter((issue) => !downstream.includes(issue.step!));
-    return issues.length ? [`${label} → ${issues.map((issue) => issue.message).join("; ")}`] : [];
-  });
+export function listOfferedStepChanges(draft: PersFormData, options: ReadyPresetOptions): Record<PresetStepKind, StepChange[]> {
+  return { languages: listLanguageChanges(draft, options), expertise: listExpertiseChanges(draft), skills: listSkillChanges(draft, options), abilities: listAbilityChanges(draft, options),
+    equipment: listEquipmentChanges(draft, options), spells: listSpellChanges(draft, options), choices: listChoiceChanges(draft, options) };
 }
-
-describe("every choice a ready preset step offers is accepted at creation", () => {
-  it.each(slugs)("%s", (slug) => {
-    const { draft, options } = readPreset(slug);
-    expect(findRejectedChanges(draft, options).slice(0, 8)).toEqual([]);
-  });
-});

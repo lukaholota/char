@@ -1,5 +1,5 @@
 import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
-import type { AnalysisRating, ArticleDocument, ContentBlock, InlineNode, OptimizationRuleset, TranslationRevision } from "./types";
+import type { AnalysisRating, ArticleDocument, BuildRecipe, ContentBlock, InlineNode, OptimizationRuleset, TranslationRevision } from "./types";
 
 const DRAFT_ARTICLES_PATHS = { RULES_2014: "/rules/optimization", RULES_2024: "/2024/rules/optimization" } as const;
 const RULES_PATHS = { RULES_2014: "/rules", RULES_2024: "/2024/rules" } as const;
@@ -249,6 +249,11 @@ export function buildDraftArticleHref(ruleset: OptimizationRuleset, slug: string
   return `${findDraftArticlesPath(ruleset)}/${slug}${sectionId ? `#${sectionId}` : ""}`;
 }
 
+export function buildRecipeGuideHref(recipe: Pick<BuildRecipe, "ruleset" | "sourceRefs">): string {
+  const [primary] = recipe.sourceRefs;
+  return buildDraftArticleHref(recipe.ruleset, primary.articleId.replace(/^rpgbot-/, ""), primary.sectionId);
+}
+
 export type DraftGroup = { title: string; summaries: DraftSummary[] };
 
 const GROUP_TITLE_BY_TOPIC: Readonly<Record<string, string>> = {
@@ -330,7 +335,7 @@ function findSectionIdForAnchor(sectionIdByAnchor: Readonly<Record<string, strin
   return endings.length === 1 ? sectionIdByAnchor[endings[0]] : undefined;
 }
 
-function normalizeSourceUrl(href: string): { key: string; anchor?: string } {
+export function normalizeSourceUrl(href: string): { key: string; anchor?: string } {
   try {
     const url = new URL(href);
     const path = url.pathname.endsWith("/") ? url.pathname : `${url.pathname}/`;

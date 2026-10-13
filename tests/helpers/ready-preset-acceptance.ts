@@ -195,8 +195,9 @@ async function expectWeaponsAndArmor(character: Character, draft: PersFormData):
   ]);
   expect([...new Set(character.weapons.map((entry) => entry.weapon.name))].sort()).toEqual([...expectedWeapons].sort());
   expectChosenGroupsCoverWeapons(rows, selections);
-  const expectedArmorIds = rows.flatMap((row: ClassStartingEquipmentOption & { armor: { armorId: number } | null }) => (row.armor ? [row.armor.armorId] : []));
-  expect(character.armors.map((armor) => armor.armorId)).toEqual(expect.arrayContaining(expectedArmorIds));
+  const armorRows = rows.flatMap((row) => (row.armor ? [row.armor] : []));
+  expect(character.armors.map((armor) => armor.armorId)).toEqual(expect.arrayContaining(armorRows.filter((armor) => armor.armorType !== "SHIELD").map((armor) => armor.armorId)));
+  expect(character.wearsShield).toBe(armorRows.some((armor) => armor.armorType === "SHIELD"));
 }
 
 function expectChosenGroupsCoverWeapons(rows: ClassStartingEquipmentOption[], selections: NonNullable<PersFormData["equipmentSchema"]>): void {

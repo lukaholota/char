@@ -2530,8 +2530,11 @@ CREATE TABLE public.pers (
     portrait_key character varying(255),
     exhaustion_level smallint DEFAULT 0 NOT NULL,
     passive_bonuses jsonb,
+    source_build_id text,
+    source_build_revision_id text,
     CONSTRAINT pers_exhaustion_level_range CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
-    CONSTRAINT pers_heroic_inspiration_count_non_negative CHECK ((heroic_inspiration_count >= 0))
+    CONSTRAINT pers_heroic_inspiration_count_non_negative CHECK ((heroic_inspiration_count >= 0)),
+    CONSTRAINT pers_source_build_pair_check CHECK (((source_build_id IS NULL) = (source_build_revision_id IS NULL)))
 );
 
 

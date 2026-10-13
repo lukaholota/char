@@ -20,7 +20,7 @@ afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
 vi.setConfig({ testTimeout: 60_000 });
 
 it("opens the full subclass analysis in an additional dialog and retains the official description", async () => {
-  const { fetch } = await renderFeatureAnalysis("player@example.com");
+  const { fetch } = await renderFeatureAnalysis("player@example.com", { guideHref: null });
   const button = await screen.findByRole("button", { name: "Читати повний аналіз" });
   const preview = (await readSlicePreview(entity))!;
   const document = (await readSliceArticle(preview.slug, entity.ruleset))!;
@@ -35,8 +35,8 @@ it("opens the full subclass analysis in an additional dialog and retains the off
   expect(screen.getByText("Офіційний текст")).toBeTruthy();
 });
 
-async function renderFeatureAnalysis(email = owner.data.user.email) {
-  const preview = (await readSlicePreview(entity))!;
+async function renderFeatureAnalysis(email = owner.data.user.email, previewChanges: { guideHref?: null } = {}) {
+  const preview = { ...(await readSlicePreview(entity))!, ...previewChanges };
   const fetch = vi.fn(async () => ({ ok: true, json: async (): Promise<unknown> => preview }));
   vi.stubGlobal("fetch", fetch);
   const feature = preview.features[0];
@@ -157,7 +157,7 @@ async function closeDialog() {
 }
 
 it("returns focus to the full analysis button after the slow article request and a tap that never focused it", async () => {
-  const { fetch } = await renderFeatureAnalysis("player@example.com");
+  const { fetch } = await renderFeatureAnalysis("player@example.com", { guideHref: null });
   const button = await screen.findByRole("button", { name: "Читати повний аналіз" });
   const preview = (await readSlicePreview(entity))!;
   const document = (await readSliceArticle(preview.slug, entity.ruleset))!;
@@ -181,7 +181,7 @@ it("returns focus to the feature eye button after a tap that never focused it", 
 });
 
 it("does not start a second article request while the first one is loading", async () => {
-  const { fetch } = await renderFeatureAnalysis("player@example.com");
+  const { fetch } = await renderFeatureAnalysis("player@example.com", { guideHref: null });
   const button = await screen.findByRole("button", { name: "Читати повний аналіз" });
   fetch.mockImplementationOnce(() => new Promise(() => undefined));
   fireEvent.click(button);

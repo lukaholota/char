@@ -32,7 +32,7 @@ type SpellSelectionDraft = Pick<Partial<PersFormData>, "classSpells" | "raceSpel
 
 export type PresetFeatSpellChoice = { rule: FeatSpellRule2014; namedSpells: { name: string; engName: string }[] };
 
-export function buildPresetSpellOptions(className: string, race: RaceAtCreation2014, candidates: readonly SpellChoiceOption[], subclassName: string | null = null, featName: string | null = null) {
+export function buildPresetSpellOptions(className: string, race: RaceAtCreation2014, candidates: readonly SpellChoiceOption[], subclassName: string | null = null, featName: string | null = null, grantedSpellKeys: readonly string[] = []) {
   const caster = { className, subclassName };
   const allowance = findCreationSpellAllowance2014(caster);
   const filters = allowance ? buildClassSpellFilters2014({ lists: findSpellLists2014(caster), quota: allowance.quota, schoolLimit: null }) : null;
@@ -44,6 +44,8 @@ export function buildPresetSpellOptions(className: string, race: RaceAtCreation2
     usesSpellbook: usesSpellbook2014(className),
     preparation: findPresetSpellPreparation(className, subclassName),
     candidates: collectPresetSpellCandidates({ filters, raceChoice, classOptionChoice, featChoice, candidates }),
+    grantedSpellIds: candidates.filter((spell) => grantedSpellKeys.includes(buildSpellSlug(spell.engName))).map((spell) => spell.spellId),
+    plannedSpellIds: [] as number[],
   };
 }
 export type ReadyPresetSpellOptions = ReturnType<typeof buildPresetSpellOptions>;
@@ -66,10 +68,10 @@ export function findPresetSpellPreparation(className: string, subclassName: stri
   return knowledge.known === null ? "list" : "known";
 }
 
-export function listPresetPreparedPool(options: Pick<ReadyPresetSpellOptions, "preparation" | "filters" | "candidates">): SpellChoiceOption[] {
+export function listPresetPreparedPool(options: Pick<ReadyPresetSpellOptions, "preparation" | "filters" | "candidates" | "grantedSpellIds">): SpellChoiceOption[] {
   const filter = options.filters?.spells;
   if (options.preparation !== "list" || !filter) return [];
-  return options.candidates.filter((spell) => spell.level > 0 && isSpellChoiceCandidate(filter, spell));
+  return options.candidates.filter((spell) => spell.level > 0 && isSpellChoiceCandidate(filter, spell) && !options.grantedSpellIds.includes(spell.spellId));
 }
 
 type CandidateSources = {
@@ -133,7 +135,7 @@ export function findPresetSpellProblem(draft: SpellSelectionDraft, options: Read
 function findPresetClassSpellProblem(selection: NonNullable<SpellSelectionDraft["classSpells"]>, classIds: number[], unavailableSpellIds: number[], options: ReadyPresetSpellOptions) {
   if (options.allowance && options.filters) {
     return findClassSpellSelectionProblem({ quota: options.allowance.quota, catchUp: options.allowance.catchUp, filters: options.filters, selection,
-      candidates: options.candidates, usesSpellbook: options.usesSpellbook, bookSpellIds: [], unavailableSpellIds });
+      candidates: options.candidates.filter((spell) => !options.grantedSpellIds.includes(spell.spellId)), usesSpellbook: options.usesSpellbook, bookSpellIds: [], unavailableSpellIds });
   }
   return classIds.length ? "Клас не дає обрати стартові заклинання" : null;
 }
@@ -184,11 +186,13 @@ export function buildPresetSpellGroups(options: ReadyPresetSpellOptions, draft: 
   ];
 }
 
+const CLASS_SPELL_FIELDS: readonly PresetSpellGroupState["field"][] = ["cantripIds", "preparedIds", "spellbookIds"];
+
 export function listPresetSpellGroupCandidates(options: ReadyPresetSpellOptions, group: PresetSpellGroupState, takenSpellIds: readonly number[]): SpellChoiceOption[] {
   const selectedSpells = options.candidates.filter((spell) => group.selected.includes(spell.spellId));
   const sharedListRule = group.id === "featSpells" && options.featChoice?.rule.sharedSpellLists ? options.featChoice.rule : null;
   return options.candidates.filter((spell) => group.filters.some((filter) => isSpellChoiceCandidate(filter, spell))
-    && (group.selected.includes(spell.spellId) || !takenSpellIds.includes(spell.spellId))
+    && (group.selected.includes(spell.spellId) || (!takenSpellIds.includes(spell.spellId) && !options.plannedSpellIds.includes(spell.spellId) && !(CLASS_SPELL_FIELDS.includes(group.field) && options.grantedSpellIds.includes(spell.spellId))))
     && (!sharedListRule || findCommonSpellLists2014(sharedListRule, [...selectedSpells, spell]).length > 0));
 }
 

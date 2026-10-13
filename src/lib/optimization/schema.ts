@@ -170,9 +170,9 @@ export const featureAnalysisSchema = z.object({
   contentReferences: z.array(contentReferenceSchema).default([]),
 });
 export const slicePreviewSchema = z.object({
-  binding: bindingSchema, slug: idSchema, title: text, href,
+  binding: bindingSchema, slug: idSchema, title: text, href, guideHref: href.nullable().default(null),
   rating: ratingSchema.optional(),
-  builds: z.array(z.object({ buildId: idSchema, title: text })),
+  builds: z.array(z.object({ buildId: idSchema, title: text, guideHref: href })),
   features: z.array(featureAnalysisSchema).default([]),
 });
 export const corpusSchema = z.strictObject({

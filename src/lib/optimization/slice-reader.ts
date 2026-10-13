@@ -7,7 +7,9 @@ import { findBoundFeatureContent, findBoundFeatureRating } from "./feature-analy
 import { hydrateArticleDocument } from "./hydration-catalog";
 import { cacheInProduction } from "./production-cache";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
-import { buildDraftArticleHref, findHeadingRating } from "./article-view";
+import { buildDraftArticleHref, buildRecipeGuideHref, findDraftRevision, findHeadingRating } from "./article-view";
+import { findTranslatedArticleSlug } from "./draft-reader";
+import { findLoneLink } from "./inline-view";
 import { bindingSchema, buildRecipeSchema, entitySchema, idSchema, slicePreviewSchema } from "./schema";
 import { parseArticleDocument } from "./document";
 import { readExcludedSourceIds } from "./source-policy";
@@ -88,8 +90,20 @@ async function buildSlicePreview(entity: EntityRef) {
   const recipes = (await readSliceRecipes(entity.ruleset)).filter((recipe) => recipe.startingClassKey === entity.parentKey && recipe.details?.subclassKey === entity.entityKey);
   return { binding, slug, rating, title: document.article.titleUk,
     href: buildDraftArticleHref(entity.ruleset, slug, binding.sectionId),
-    builds: recipes.map((recipe) => ({ buildId: recipe.buildId, title: recipe.title })),
+    guideHref: await findSectionGuideHref(document, binding.sectionId),
+    builds: recipes.map((recipe) => ({ buildId: recipe.buildId, title: recipe.title, guideHref: buildRecipeGuideHref(recipe) })),
     features: await collectSubclassFeatureAnalyses(entity, bindings) };
+}
+
+async function findSectionGuideHref(document: ArticleDocument, sectionId: string): Promise<string | null> {
+  const section = findDraftRevision(document).sections.find((entry) => entry.sectionId === sectionId);
+  const hrefs = section?.blocks.flatMap((block) => (block.type === "paragraph" ? findLoneLink(block.content)?.href ?? [] : [])) ?? [];
+  const { ruleset, slug: ownSlug } = document.article;
+  for (const href of hrefs) {
+    const slug = await findTranslatedArticleSlug(href, ruleset);
+    if (slug && slug !== ownSlug && await readSliceArticle(slug, ruleset)) return buildDraftArticleHref(ruleset, slug);
+  }
+  return null;
 }
 
 async function collectSubclassFeatureAnalyses(entity: EntityRef, bindings: Awaited<ReturnType<typeof readSliceBindings>>) {

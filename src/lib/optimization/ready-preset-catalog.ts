@@ -1,3 +1,5 @@
+import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
+
 export type ReadyPresetCatalogEntry = {
   slug: string;
   buildId: string;
@@ -13,6 +15,7 @@ export type ReadyPresetCatalogEntry = {
   raceKey: string;
   maxLevel: number;
   sourceTitle: string;
+  searchAliases: string[];
   portraitSrc: string | null;
   subclassImageSrc: string | null;
   classImageSrc: string | null;
@@ -41,6 +44,12 @@ export function comparePresetClasses(left: string, right: string): number {
 
 export function findPresetCardTitle(preset: Pick<ReadyPresetCatalogEntry, "slug" | "subclassName">): string {
   return PRESET_CARD_TITLES[preset.slug] ?? preset.subclassName;
+}
+
+export function findBuildNickname(title: string): string {
+  const plainTitle = stripGlossaryMarkers(title);
+  const nickname = plainTitle.split("—").at(-1)!.trim();
+  return nickname.replace(/^«(.+)»$/, "$1") || plainTitle;
 }
 
 export function findPresetGeneratedSrc(preset: Pick<ReadyPresetCatalogEntry, "portraitSrc" | "subclassImageSrc">): string | null {

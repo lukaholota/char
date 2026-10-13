@@ -10,6 +10,12 @@ export function listSubclassGrantedSpellKeys({ classKey, subclassKey, classLevel
   return (granted?.spells ?? []).filter((spell) => spell.classLevel <= classLevel).map((spell) => buildSpellSlug(spell.engName));
 }
 
+export function listSubclassOptionGrantedSpellKeys({ classKey, optionNames, classLevel }: { classKey: string; optionNames: readonly string[]; classLevel: number }): string[] {
+  return grantedSpellFile.options
+    .filter((entry) => entry.className === classKey && optionNames.includes(entry.optionNameEng))
+    .flatMap((entry) => entry.spells.filter((spell) => spell.classLevel <= classLevel).map((spell) => buildSpellSlug(spell.engName)));
+}
+
 export function listSubclassGrantedSpellIds(catalog: AssemblyCatalog, owner: GrantedSpellOwner): number[] {
   return listSubclassGrantedSpellKeys(owner).flatMap((key) => catalog.spellIdsByKey.get(key) ?? []);
 }

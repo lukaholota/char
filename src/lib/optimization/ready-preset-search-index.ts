@@ -1,3 +1,4 @@
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { findAliasVariants } from "@/lib/search/searchAliases";
 import type { ReadyPreset } from "./ready-preset";
 import { findReadyPresetClass } from "./ready-preset-class";
@@ -29,10 +30,11 @@ export async function loadReadyPresetSearchEntries(): Promise<ReadyPresetSearchE
 
 export function buildReadyPresetSearchEntry(slug: string, preset: ReadyPreset, recipe: BuildRecipe): ReadyPresetSearchEntry {
   const { subclassClass, subclass } = findReadyPresetClass(recipe);
+  const raceKeys = [recipe.details?.raceKey, preset.subraceKey].flatMap((key) => key ? [key, translateValue(key)] : []);
   return {
     slug, title: preset.title, className: subclassClass.name, classEngName: subclassClass.engName,
     subclassName: subclass.name, subclassEngName: subclass.engName,
-    aliases: findAliasVariants("RULES_2014", ENTITY_ALIAS_TYPES, [subclassClass.name, subclass.name, subclassClass.key, subclass.key]),
+    aliases: findAliasVariants("RULES_2014", ENTITY_ALIAS_TYPES, [subclassClass.name, subclass.name, subclassClass.key, subclass.key, ...raceKeys]),
   };
 }
 

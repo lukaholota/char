@@ -8,6 +8,8 @@ import { buildClassSpellFilters2014, findSchoolLimit2014, findSpellLists2014 } f
 import { NO_SPELLS } from "@/rules/class-spell-choices-2024";
 import { isSpellChoiceCandidate, type SpellChoiceFilter } from "@/rules/spell-choice-filter";
 import { findSpellKnowledge2014 } from "@/rules/spell-knowledge-2014";
+import { isListPreparedCaster2014 } from "@/rules/initial-prepared-spells-2014";
+import { findEarnedRaceSpells2014 } from "@/rules/race-granted-spells-2014";
 import type { CreatorContent } from "@/server/db/creator-content-query";
 import { collectFeatGrants } from "@/rules/feat-grants";
 import { summarizeAssemblyLevels, summarizeClassLevels, type AssemblySummaryLevel } from "./assembly-summary";
@@ -17,7 +19,7 @@ import { buildFeatPool, buildFeatPoolEntry } from "./ready-preset-feat-pool";
 import { findExecutableLevels, listExecutableSteps } from "./build-executable-levels";
 import { findSchoolKey } from "./ready-preset-spells";
 import { buildSpellScoreFinder } from "./ready-preset-spell-scores";
-import { listSubclassGrantedSpellKeys } from "./progression-granted-spells";
+import { listSubclassGrantedSpellKeys, listSubclassOptionGrantedSpellKeys } from "./progression-granted-spells";
 import {
   OPEN_PICK_CATEGORIES, WIZARD_CLASS_KEY, type LevelAdvancement, type LevelClassLevel, type LevelOpenPick, type LevelSpell, type LevelStep, type OpenPickCategory, type ReadyPresetLevels,
 } from "./ready-preset-levels";
@@ -33,16 +35,18 @@ type BuildContext = {
   fullContent: CreatorContent;
   spells: SpellCatalog;
   subclassByClass: Map<string, string>;
+  subclassOptionsByClass: Map<string, string[]>;
+  subraceKey: string | null;
   spellPools: Record<string, LevelSpell[]>;
 };
 
 const SPELL_KEYS_BY_CATEGORY = { cantrips: "cantripKeys", knownSpells: "knownSpellKeys", spellbook: "spellbookKeys" } as const;
 
-export function buildReadyPresetLevels(recipe: BuildRecipe, content: CreatorContent): ReadyPresetLevels | null {
+export function buildReadyPresetLevels(recipe: BuildRecipe, content: CreatorContent, subraceKey: string | null = null): ReadyPresetLevels | null {
   const targetLevels = listSelectableTargetLevels(recipe);
   if (!targetLevels.length) return null;
 
-  const context = createBuildContext(recipe, content);
+  const context = createBuildContext(recipe, content, subraceKey);
   const rawByLevel = new Map(listExecutableSteps(recipe).map((step) => [step.characterLevel, step]));
   const steps = summarizeAssemblyLevels(recipe, targetLevels[targetLevels.length - 1])
     .map((summary) => buildLevelStep(summary, rawByLevel.get(summary.characterLevel)!, context));
@@ -56,7 +60,20 @@ export function buildReadyPresetLevels(recipe: BuildRecipe, content: CreatorCont
     featPool: buildFeatPool(content.feats),
     classOptionPools: Object.fromEntries(openOptionClassKeys.map((classKey) => [classKey, buildClassOptionPool(context.fullContent, classKey)])),
     wizardSpellScores: hasWizardLevels(recipe, steps) ? buildWizardSpellScores(context.spells.all) : {},
+    listPreparationPool: buildListPreparationPool(recipe.startingClassKey, context),
   };
+}
+
+function buildListPreparationPool(classKey: string, context: BuildContext): LevelSpell[] {
+  if (!isListPreparedCaster2014(classKey)) return [];
+  const subclassKey = context.subclassByClass.get(classKey) ?? null;
+  const filter = findPoolFilter(classKey, subclassKey, "knownSpells", 9);
+  const granted = new Set(listSubclassGrantedSpellKeys({ classKey, subclassKey, classLevel: MAX_CLASS_LEVEL }));
+  return context.spells.all
+    .filter((spell) => !granted.has(spell.key) && isSpellChoiceCandidate(filter, { spellId: 0, level: spell.level, school: null, spellLists: spell.spellLists }))
+    .sort((first, second) => first.level - second.level || first.name.localeCompare(second.name, "uk"))
+    .map(toSchoolLevelSpell)
+    .map(withSpellScore(buildSpellScoreFinder(classKey, subclassKey)));
 }
 
 function hasWizardLevels(recipe: BuildRecipe, steps: LevelStep[]): boolean {
@@ -76,12 +93,12 @@ function listSelectableTargetLevels(recipe: BuildRecipe): number[] {
   return recipe.supportedLevels.filter((level) => level > 1 && executable.has(level)).sort((first, second) => first - second);
 }
 
-function createBuildContext(recipe: BuildRecipe, content: CreatorContent): BuildContext {
+function createBuildContext(recipe: BuildRecipe, content: CreatorContent, subraceKey: string | null): BuildContext {
   const startingStep = recipe.progression.find((step) => step.characterLevel === 1);
   return {
     recipe, content, fullContent: findCharacterCreatorOptions(recipe.ruleset), spells: buildSpellCatalog(),
     subclassByClass: startingStep?.subclassKey ? new Map([[startingStep.classKey, startingStep.subclassKey]]) : new Map(),
-    spellPools: {},
+    subclassOptionsByClass: new Map(), subraceKey, spellPools: {},
   };
 }
 
@@ -132,9 +149,34 @@ function buildLevelStep(summary: AssemblySummaryLevel, raw: BuildProgressionStep
     optionPick: decisions.openClassOptions ? buildOptionPick(decisions, raw, context.fullContent) : null,
     newSpells: buildNewSpells(decisions, context.spells),
     openPicks: buildOpenPicks(decisions, raw, subclassKey, context),
+    grantedSpellKeys: [],
+    replacedSpell: decisions.replaceSpell ? findCatalogSpell(context.spells, decisions.replaceSpell.drop) : null,
+    fixedClassOptionIds: listFixedClassOptionIds(decisions, summary.classKey, context.fullContent),
   };
   if (raw.subclassKey) context.subclassByClass.set(raw.classKey, raw.subclassKey);
-  return step;
+  rememberSubclassOptions(raw.classKey, decisions, context);
+  return { ...step, grantedSpellKeys: listGrantedSpellKeys(decisions, summary.characterLevel, context) };
+}
+
+function listFixedClassOptionIds(decisions: LevelDecisions, classKey: string, content: CreatorContent): number[] {
+  const names = [...(decisions.openClassOptions ? [] : decisions.classOptions ?? []), ...(decisions.replaceOptions ?? []).map((entry) => entry.add)].map((ref) => ref.optionNameEng);
+  return buildClassOptionPool(content, classKey).filter((entry) => names.includes(entry.nameEng)).map((entry) => entry.id);
+}
+
+function rememberSubclassOptions(classKey: string, decisions: LevelDecisions, context: BuildContext): void {
+  const names = (decisions.subclassOptions ?? []).map((ref) => ref.optionNameEng);
+  if (names.length) context.subclassOptionsByClass.set(classKey, [...(context.subclassOptionsByClass.get(classKey) ?? []), ...names]);
+}
+
+function listGrantedSpellKeys(decisions: LevelDecisions, characterLevel: number, context: BuildContext): string[] {
+  const fromSubclasses = summarizeClassLevels(context.recipe, characterLevel).flatMap(({ classKey, classLevel }) => [
+    ...listSubclassGrantedSpellKeys({ classKey, subclassKey: context.subclassByClass.get(classKey) ?? null, classLevel }),
+    ...listSubclassOptionGrantedSpellKeys({ classKey, optionNames: context.subclassOptionsByClass.get(classKey) ?? [], classLevel }),
+  ]);
+  const race = context.recipe.details?.raceKey;
+  const fromRace = race ? findEarnedRaceSpells2014({ race, subrace: context.subraceKey, characterLevel }).map((spell) => buildSpellSlug(spell.engName)) : [];
+  const fromPlan = [...(decisions.classOptionSpellKeys ?? []), ...(decisions.replaceSpell ? [decisions.replaceSpell.add] : [])];
+  return [...new Set([...fromSubclasses, ...fromRace, ...fromPlan])];
 }
 
 function buildClassOptionPool(content: CreatorContent, classKey: string): ClassOptionPoolEntry[] {

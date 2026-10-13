@@ -15,6 +15,7 @@ import {
   variantTranslations,
 } from "@/lib/refs/translation";
 import { translateSubclassName } from "@/lib/refs/subclass-name";
+import { useCharacterSourceBuild } from "@/components/optimization/CharacterSourceBuildContext";
 
 type ClassEntry = {
   key: string;
@@ -70,6 +71,7 @@ export function FeaturesHeaderCards({
   openEntity,
   onOpenFeatsManager,
 }: Props) {
+  const guide = useCharacterSourceBuild()?.guide;
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
       <button
@@ -168,6 +170,17 @@ export function FeaturesHeaderCards({
           />
         );
       })}
+
+      {guide ? (
+        <ModeLink
+          prefetch={false}
+          href={guide.href}
+          className="rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition px-1.5 py-1 text-center flex flex-col items-center justify-center min-h-[3rem] h-auto"
+        >
+          <div className="text-[8px] uppercase tracking-[0.1em] text-slate-400 leading-none mb-0.5">Гайд пресета</div>
+          <div title={guide.title} className="text-[12px] font-semibold text-slate-50 leading-tight whitespace-normal break-words w-full line-clamp-2">{guide.title}</div>
+        </ModeLink>
+      ) : null}
 
       <button
         type="button"

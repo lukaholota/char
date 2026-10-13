@@ -19,6 +19,7 @@ import { ReadyPresetCustomization, listPresetCustomizationSteps } from "./ReadyP
 import type { CreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 import { rememberUnfinishedPreset } from "@/lib/optimization/unfinished-preset";
 import { stripNoAiPrefix } from "@/lib/no-ai/no-ai-route";
+import { NameGeneratorOptionsPanel, NameSuggestionButtons, NameSuggestionHint, useCharacterNameGenerator } from "@/lib/components/characterCreator/NameGenerator";
 
 export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entry, ruleExcerpts }: { data: ReadyPresetPageData; catalogQuery: string; catalogClass?: string; entry: PresetEntry; ruleExcerpts?: CreationStepRuleExcerpts }) {
   const state = useReadyPreset(data.draft, data.preset.buildId, data.options, data.levels ? { levels: data.levels, revisionId: data.preset.revisionId } : null);
@@ -53,7 +54,7 @@ export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entr
     </header>
   </div>;
   const nameFields = <>
-      <label htmlFor="ready-preset-name" className="text-slate-200">Імʼя персонажа</label><Input id="ready-preset-name" maxLength={100} required value={draft.name ?? ""} onChange={(event) => update({ name: event.target.value })} placeholder="Наприклад, Мирон" className="mt-2 min-h-12 text-base" />
+      <PresetNameField name={draft.name ?? ""} onChange={(name) => update({ name })} />
       <div className="my-6 rounded-xl bg-white/5 p-4"><p className="text-lg text-white">{data.preset.title}</p><p className="mt-2 text-sm text-slate-300">{describeCharacterLevel(data, assembly.targetLevel)} · {data.summary.raceName} · {data.summary.backgroundName}</p><p className="mt-2 text-sm text-slate-400">{describeSubclassStatus(data, assembly.targetLevel)}</p></div>
       {submitting ? <ReadyPresetCreationProgress levelCount={assembly.targetLevel} /> : null}
       {error ? <p role="alert" className="mb-4 text-rose-200">{error}</p> : null}
@@ -99,4 +100,14 @@ function PresetLevelPicker(props: React.ComponentProps<typeof LevelPicker>) {
     <div className="flex items-center justify-between gap-3"><span className="text-slate-200">Рівень: {props.selected}</span><Button type="button" variant="ghost" aria-expanded={expanded} onClick={() => setExpanded(!expanded)} className="min-h-11 text-arcane-200">{expanded ? "Згорнути рівні" : "Змінити рівень"}</Button></div>
     {expanded ? <LevelPicker {...props} onSelect={(level) => { props.onSelect(level); setExpanded(false); }} /> : null}
   </div>;
+}
+
+function PresetNameField({ name, onChange }: { name: string; onChange: (name: string) => void }) {
+  const { currentName, generateName, options } = useCharacterNameGenerator();
+  return <>
+    <div className="flex flex-wrap items-center justify-between gap-2"><label htmlFor="ready-preset-name" className="text-slate-200">Імʼя персонажа</label><NameSuggestionButtons currentName={currentName} onGenerate={generateName} onUse={() => onChange(currentName)} /></div>
+    <Input id="ready-preset-name" maxLength={100} required value={name} onChange={(event) => onChange(event.target.value)} placeholder={currentName || "Наприклад, Мирон"} className="mt-2 min-h-12 text-base" />
+    <div className="mt-2"><NameSuggestionHint currentName={currentName} /></div>
+    <div className="mt-4"><NameGeneratorOptionsPanel {...options} /></div>
+  </>;
 }

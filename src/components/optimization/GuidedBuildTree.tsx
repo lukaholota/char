@@ -8,7 +8,7 @@ import { findEditionAccent } from "@/styles/edition-accent";
 import type { BuildPageData } from "@/lib/optimization/build-pages.server";
 import { countRemainingBuildPoints } from "@/lib/optimization/build-draft";
 import { useGuidedBuildDraft } from "@/lib/optimization/use-guided-build-draft";
-import { buildDraftArticleHref } from "@/lib/optimization/article-view";
+import { buildRecipeGuideHref } from "@/lib/optimization/article-view";
 import { buildRpgbotCtaProps } from "@/lib/monitoring/rpgbot-analytics-model";
 import { useRpgbotSurfaceView } from "@/lib/monitoring/use-rpgbot-surface-view";
 import { RatingBadge } from "./RatingBadge";
@@ -72,7 +72,7 @@ export function GuidedBuildTree({ data, initialBuildId }: { data: BuildPageData;
         </div> : null}
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <button type="button" disabled={assembling || scores.length !== 6 || countRemainingBuildPoints(scores) < 0} onClick={() => assembleBuild()} className={`min-h-12 rounded-xl border px-6 py-3 font-rpg-display text-lg text-white ${accent.border} ${accent.strongFill} ${assembling ? "assemble-flash" : ""}`}>{assembling ? "Персонаж складається…" : "Зібрати персонажа"}</button>
-          <ModeLink prefetch={false} href={buildDraftArticleHref(data.ruleset, build.recipe.sourceRefs[0].articleId.replace(/^rpgbot-/, ""), build.recipe.sourceRefs[0].sectionId)} target="_blank" rel="noreferrer" {...buildRpgbotCtaProps("open_full_example", "build_tree", build.recipe.buildId)} className="min-h-11 py-2 text-sm text-slate-300 underline">Повний авторський приклад ↗</ModeLink>
+          <ModeLink prefetch={false} href={buildRecipeGuideHref(build.recipe)} target="_blank" rel="noreferrer" {...buildRpgbotCtaProps("open_full_example", "build_tree", build.recipe.buildId)} className="min-h-11 py-2 text-sm text-slate-300 underline">Повний авторський приклад ↗</ModeLink>
           {hasBackup ? <button type="button" onClick={restoreDraft} className="min-h-11 text-sm text-slate-300 underline">Повернути попередню чернетку</button> : null}
         </div>
         <p className="mt-3 text-xs text-slate-400">Жодного запису в БД до явного підтвердження в конструкторі.</p>

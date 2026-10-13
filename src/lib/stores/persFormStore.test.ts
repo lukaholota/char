@@ -94,4 +94,15 @@ describe("persFormStore draft storage per flow", () => {
     expect(storage.getItem("dnd-2024-pers-form")).toBeNull();
     expect(readDraft(storage, "dnd-pers-form").formData).toEqual({ classId: 14 });
   });
+
+  it("records a nested change even when the form hands over the same object it edited in place", () => {
+    const racial = { basicChoices: [], tashaChoices: [{ groupIndex: 0, choiceCount: 2, selectedAbilities: ["WIS"] }] };
+    store.usePersFormStore.getState().updateFormData({ racialBonusChoiceSchema: racial } as never);
+    const before = store.usePersFormStore.getState().formData;
+    racial.tashaChoices[0].selectedAbilities.push("CON");
+    store.usePersFormStore.getState().updateFormData({ racialBonusChoiceSchema: racial } as never);
+
+    expect(store.usePersFormStore.getState().formData).not.toBe(before);
+    expect(store.usePersFormStore.getState().formData.racialBonusChoiceSchema?.tashaChoices[0].selectedAbilities).toEqual(["WIS", "CON"]);
+  });
 });

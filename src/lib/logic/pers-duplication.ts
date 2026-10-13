@@ -90,6 +90,8 @@ function buildPersRow(pers: PersCloneSource, target: PersCloneTarget) {
       /// Без цього рядка копія падає на `@default(RULES_2014)`, і персонаж 2024 стає
       /// персонажем 2014 з контентом 2024 — сторож `pers-copy-fields.test.ts`.
       ruleset: pers.ruleset,
+      sourceBuildId: pers.sourceBuildId,
+      sourceBuildRevisionId: pers.sourceBuildRevisionId,
       level: pers.level,
       currentSpellSlots: pers.currentSpellSlots,
       currentPactSlots: pers.currentPactSlots,

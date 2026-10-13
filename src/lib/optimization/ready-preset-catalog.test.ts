@@ -4,7 +4,8 @@ import { findCharacterCreationOptions } from "@/lib/content/creator-content";
 import { buildCreationAbilityScores } from "@/rules/character-creation";
 import { buildReadyPresetDraft, readyPresetSchema } from "./ready-preset";
 import { buildRecipeSchema } from "./schema";
-import { collectSliceCatalog, readSliceArticle, readSliceRecipes } from "./slice-reader";
+import { collectSliceCatalog, readSliceArticle, readSlicePreview, readSliceRecipes } from "./slice-reader";
+import { findBuildNickname } from "./ready-preset-catalog";
 import { validateCorpus } from "./validation";
 import { generateIndices } from "./indices";
 
@@ -86,3 +87,21 @@ describe("ready preset catalog", () => {
     expect(presets.filter((entry) => entry.articleSlug === "fighter-2014").length).toBeGreaterThanOrEqual(2);
   });
 });
+
+describe("гайд білда й підкласу", () => {
+  it("коротко називає білд без роду класу й лапок", () => {
+    expect(findBuildNickname("Друїда Кола сновидінь — «Ясність»")).toBe("Ясність");
+    expect(findBuildNickname("— Лайфберрі, паровозик-танк")).toBe("Лайфберрі, паровозик-танк");
+    expect(findBuildNickname("Пусковий майданчик")).toBe("Пусковий майданчик");
+    expect(findBuildNickname("Чорнокнижника — {{Бонс Малоун|Bones Malone}}")).toBe("Бонс Малоун");
+  });
+
+  it("аналіз підкласу веде на окремий гайд підкласу, а варіант збірки — на свій розділ у ньому", async () => {
+    const preview = await readSlicePreview({ ruleset: "RULES_2014", kind: "subclass", parentKey: "DRUID_2014", entityKey: "CIRCLE_OF_DREAMS" });
+    expect(preview?.href).toBe("/rules/optimization/druid-subclasses-2014#section-circle-of-dreams");
+    expect(preview?.guideHref).toBe("/rules/optimization/druid-circle-of-dreams-2014");
+    expect(preview?.builds).toContainEqual({ buildId: "build-druid-dreams-githzerai-2014", title: "Друїда Кола сновидінь — «Ясність»",
+      guideHref: "/rules/optimization/druid-circle-of-dreams-2014#section-example-circle-of-dreams-druid-build-lucidity" });
+  });
+});
+

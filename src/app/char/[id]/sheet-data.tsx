@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import CharacterSheet from "@/lib/components/characterSheet/CharacterSheet";
 import { PersEditionPin } from "@/components/ui/PersEditionPin";
 import { findCurrentUserId } from "@/server/db/current-user";
+import { findSourceBuildGuide } from "@/lib/optimization/ready-preset.server";
 
 export default async function CharacterSheetData({ id }: { id: number }) {
   // Риси їдуть разом зі сторінкою, а не дотягуються серверною дією після монтування: інакше
@@ -17,7 +18,7 @@ export default async function CharacterSheetData({ id }: { id: number }) {
     findCurrentUserId(),
   ]);
   if (!pers) notFound();
-  const spellBuffCatalog = await loadSpellBuffCatalog(pers.ruleset);
+  const [spellBuffCatalog, sourceBuildGuide] = await Promise.all([loadSpellBuffCatalog(pers.ruleset), findSourceBuildGuide(pers.sourceBuildId)]);
 
   return (
     <>
@@ -28,6 +29,7 @@ export default async function CharacterSheetData({ id }: { id: number }) {
         groupedFeatures={groupedFeatures}
         spellBuffCatalog={spellBuffCatalog}
         canShare={pers.userId === currentUserId}
+        sourceBuildGuide={sourceBuildGuide}
       />
     </>
   );

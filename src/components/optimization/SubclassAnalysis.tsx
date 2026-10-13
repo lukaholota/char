@@ -15,11 +15,13 @@ import { AnalystAvatar } from "./AnalystAvatar";
 import { ModalArticle } from "./ModalArticle";
 import { RatingBadge } from "./RatingBadge";
 import { useSubclassAnalysis } from "./SubclassAnalysisContext";
+import { useCharacterSourceBuild } from "./CharacterSourceBuildContext";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useReadingDialogFocus } from "@/hooks/useReadingDialogFocus";
 
 export function SubclassAnalysis({ entity, placement }: { entity: EntityRef; placement: RpgbotPlacement }) {
   const { preview, canRead, error: previewError } = useSubclassAnalysis(entity);
+  const character = useCharacterSourceBuild();
   useRpgbotSurfaceView(canRead && preview ? { surface: "subclass_analysis", placement, entity_key: entity.entityKey, class_key: entity.parentKey ?? "", rating_score: preview.rating?.score, feature_count: preview.features.length } : null);
   const [document, setDocument] = useState<ArticleDocument | null>(null);
   const [error, setError] = useState("");
@@ -77,10 +79,11 @@ export function SubclassAnalysis({ entity, placement }: { entity: EntityRef; pla
         {preview.rating ? <RatingBadge rating={preview.rating} /> : null}
         <FormattedDescription content={preview.binding.preview} className="text-sm text-slate-300" />
         {preview.rating ? <p className="mt-2 text-xs text-slate-400">Контекст оцінки: {preview.rating.context}.</p> : null}
-        <button type="button" aria-disabled={loading} onClick={(event) => openArticle(event.currentTarget)} className={`mt-3 min-h-11 underline ${accent.text}`}>{loading ? "Завантаження…" : "Читати повний аналіз"}</button>
+        {preview.guideHref
+          ? <ModeLink prefetch={false} href={preview.guideHref} {...buildRpgbotCtaProps("open_article", "subclass_analysis", preview.slug)} className={`mt-3 inline-flex min-h-11 items-center underline ${accent.text}`}>Читати повний гайд підкласу</ModeLink>
+          : <button type="button" aria-disabled={loading} onClick={(event) => openArticle(event.currentTarget)} className={`mt-3 min-h-11 underline ${accent.text}`}>{loading ? "Завантаження…" : "Читати повний аналіз"}</button>}
       <div className="mt-3 flex flex-wrap gap-3 text-sm">
-        <ModeLink prefetch={false} href={preview.href} {...buildRpgbotCtaProps("open_article", "subclass_analysis", preview.slug)} className={`min-h-11 py-2 underline ${accent.text}`}>Відкрити статтю</ModeLink>
-        {preview.builds.map((build) => <ModeLink prefetch={false} key={build.buildId} {...buildRpgbotCtaProps(build.buildId === "build-monk-shadow-2014" ? "create_from_preset" : "assemble_build", "subclass_analysis", build.buildId)} href={build.buildId === "build-monk-shadow-2014" ? "/char/create?preset=monk-shadow-2014&from=subclass_analysis" : `${entity.ruleset === "RULES_2024" ? "/2024" : ""}/optimization/build?build=${build.buildId}`} className={`min-h-11 rounded-lg border px-3 py-2 ${accent.border} ${accent.text}`}>{build.buildId === "build-monk-shadow-2014" ? "Створити Монаха тіні за готовим білдом" : `Зібрати цей варіант: ${build.title}`}</ModeLink>)}
+        {character ? <SourceBuildNote builds={preview.builds} sourceBuildId={character.sourceBuildId} accentText={accent.text} /> : preview.builds.map((build) => <ModeLink prefetch={false} key={build.buildId} {...buildRpgbotCtaProps(build.buildId === "build-monk-shadow-2014" ? "create_from_preset" : "assemble_build", "subclass_analysis", build.buildId)} href={build.buildId === "build-monk-shadow-2014" ? "/char/create?preset=monk-shadow-2014&from=subclass_analysis" : `${entity.ruleset === "RULES_2024" ? "/2024" : ""}/optimization/build?build=${build.buildId}`} className={`min-h-11 rounded-lg border px-3 py-2 ${accent.border} ${accent.text}`}>{build.buildId === "build-monk-shadow-2014" ? "Створити Монаха тіні за готовим білдом" : `Зібрати цей варіант: ${build.title}`}</ModeLink>)}
       </div>
     </> : null}
     <Dialog open={articleOpen} onOpenChange={setArticleOpen}>
@@ -90,4 +93,9 @@ export function SubclassAnalysis({ entity, placement }: { entity: EntityRef; pla
       </DialogContent>
     </Dialog>
   </div>;
+}
+
+function SourceBuildNote({ builds, sourceBuildId, accentText }: { builds: readonly { buildId: string; title: string; guideHref: string }[]; sourceBuildId: string | null; accentText: string }) {
+  const build = builds.find((entry) => entry.buildId === sourceBuildId);
+  return build ? <p className="py-2 text-slate-300">Цього персонажа зібрано за варіантом <ModeLink prefetch={false} href={build.guideHref} className={`underline ${accentText}`}>{build.title}</ModeLink>.</p> : null;
 }

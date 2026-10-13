@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { buildSpellSlug } from "@/lib/spell-link";
 import { getAllSpells } from "@/lib/spellsData";
-import { buildPresetSpellOptions, buildPresetSpellSelection, findPresetSpellPreparation, findPresetSpellProblem, type ReadyPresetSpells } from "./ready-preset-spells";
+import { buildPresetSpellOptions, buildPresetSpellSelection, findPresetSpellPreparation, findPresetSpellProblem, listPresetPreparedPool, type ReadyPresetSpells } from "./ready-preset-spells";
 
 const candidates = getAllSpells("RULES_2014").map((spell) => ({ spellId: spell.spellId, engName: spell.engName, name: spell.name, level: spell.level,
   school: spell.school, ruleset: "RULES_2014" as const, spellLists: spell.spellClasses.map((entry) => entry.className) }));
@@ -86,6 +86,13 @@ describe("ready preset spell selections", () => {
       expect(() => buildPresetSpellSelection({ ...author, classCantripKeys: ["guidance", "sacred-flame"] }, cleric)).toThrow("Incomplete preset spells");
       expect(() => buildPresetSpellSelection({ ...author, classCantripKeys: ["guidance", "sacred-flame", "fire-bolt"] }, cleric)).toThrow("Missing preset spell");
       expect(cleric.preparation).toBe("list");
+    });
+    it("does not offer the Life Domain spells for preparation because the domain already grants them", () => {
+      const cleric = buildPresetSpellOptions("CLERIC_2014", { race: "DWARF_2014", subrace: "DWARF_HILL_2014", chosenRaceOptionNames: [] }, candidates, "LIFE_DOMAIN", null, ["bless", "cure-wounds"]);
+      const pool = listPresetPreparedPool(cleric).map((spell) => buildSpellSlug(spell.engName));
+      expect(pool).toContain("healing-word");
+      expect(pool).not.toContain("bless");
+      expect(pool).not.toContain("cure-wounds");
     });
     it("offers the Fiend patron list to a Warlock only when the subclass is known", () => {
       const preset = { ...author, classCantripKeys: ["eldritch-blast", "mage-hand"], knownSpellKeys: ["burning-hands", "hellish-rebuke"] };

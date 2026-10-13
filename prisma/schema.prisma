@@ -677,6 +677,8 @@ model Pers {
   portraitKey                 String?                  @map("portrait_key") @db.VarChar(255)
   exhaustionLevel             Int                      @default(0) @map("exhaustion_level") @db.SmallInt
   passiveBonuses              Json?                    @map("passive_bonuses")
+  sourceBuildId               String?                  @map("source_build_id")
+  sourceBuildRevisionId       String?                  @map("source_build_revision_id")
   background                  Background               @relation(fields: [backgroundId], references: [backgroundId])
   class                       Class                    @relation(fields: [classId], references: [classId])
   folder                      PersFolder?              @relation(fields: [folderId], references: [folderId])

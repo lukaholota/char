@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { createCharacter, createCharacterFromBuild } from "@/lib/actions/character";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { countSnapshots, readSheetState, runManualLevelUpPath } from "../helpers/assembly-manual-path";
-import { barbarianScenario, readRecipeFile, sorcadinScenario, wizardScenario, type AssemblyScenario } from "../helpers/assembly-scenarios";
+import { barbarianScenario, druidScenario, readRecipeFile, sorcadinScenario, wizardScenario, type AssemblyScenario } from "../helpers/assembly-scenarios";
 import { failAfterCommitOnce, failBeforeCommitOnce } from "../helpers/transaction-faults";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -104,6 +104,42 @@ describe("справжнє створення персонажа на вищом
     expect(await createCharacterFromBuild(await buildRequest(wizardScenario, { preparedSpellKeys: ["no-such-spell"] }))).toMatchObject({ error: expect.stringContaining("План білда не виконується") });
     expect(await createCharacterFromBuild(await buildRequest(wizardScenario, { preparedSpellKeys: ["wish"] }))).toMatchObject({ error: expect.stringContaining("лише заклинання з книги") });
     expect(await countAssemblyState()).toEqual(EMPTY_STATE);
+  });
+
+  it("Друїд: підготовку на вищому рівні вибирає гравець зі списку класу до найвищого кола, вона замінює стартову, а персонаж памʼятає свій білд", async () => {
+    const druidOpenSelections = [{ characterLevel: 4, cantripKeys: ["shillelagh"] }];
+    const preparedSpellKeys = ["healing-word", "moonbeam", "conjure-animals", "polymorph"];
+    const persId = await createAssembled(druidScenario, { openSelections: druidOpenSelections, preparedSpellKeys });
+    const prepared = await prisma.persSpell.findMany({
+      where: { persId, origin: "CLASS", sourceName: "DRUID_2014", excludeFromPreparedCount: false, spell: { level: { gt: 0 } } },
+      select: { isPrepared: true, spell: { select: { engName: true } } },
+    });
+    expect(prepared.map((row) => row.spell.engName).sort()).toEqual(["Conjure Animals", "Healing Word", "Moonbeam", "Polymorph"]);
+    expect(prepared.every((row) => row.isPrepared)).toBe(true);
+    const recipe = readRecipeFile(druidScenario.buildId);
+    expect(await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { sourceBuildId: true, sourceBuildRevisionId: true } }))
+      .toEqual({ sourceBuildId: recipe.buildId, sourceBuildRevisionId: recipe.revisionId });
+  });
+
+  it("Друїд: заклинання вище доступного кола або більше за Мудрість і рівень відхиляються разом з усім створенням", async () => {
+    const openSelections = [{ characterLevel: 4, cantripKeys: ["shillelagh"] }];
+    const tooMany = ["healing-word", "moonbeam", "conjure-animals", "polymorph", "entangle", "goodberry", "thunderwave", "barkskin", "pass-without-trace", "call-lightning", "plant-growth", "stoneskin"];
+    expect(await createCharacterFromBuild(await buildRequest(druidScenario, { openSelections, preparedSpellKeys: tooMany }))).toMatchObject({ error: expect.stringContaining("Забагато") });
+    expect(await createCharacterFromBuild(await buildRequest(druidScenario, { openSelections, preparedSpellKeys: ["mass-cure-wounds"] }))).toMatchObject({ error: expect.stringContaining("доступних рівнів") });
+    expect(await prisma.pers.count()).toBe(0);
+  });
+
+  it("готовий персонаж 1-го рівня памʼятає білд лише разом із ключем пресета й лише відомий білд", async () => {
+    const start = await wizardScenario.buildStart();
+    const recipe = readRecipeFile(wizardScenario.buildId);
+    const sourceOf = async (input: Record<string, unknown>) => {
+      const created = await createCharacter({ ...start, ...input });
+      if ("error" in created) throw new Error(created.error);
+      return prisma.pers.findUniqueOrThrow({ where: { persId: created.persId }, select: { sourceBuildId: true, sourceBuildRevisionId: true } });
+    };
+    expect(await sourceOf({ readyPresetRequestId: randomUUID(), readyPresetBuildId: recipe.buildId })).toEqual({ sourceBuildId: recipe.buildId, sourceBuildRevisionId: recipe.revisionId });
+    expect(await sourceOf({ readyPresetRequestId: randomUUID(), readyPresetBuildId: "build-no-such-2014" })).toEqual({ sourceBuildId: null, sourceBuildRevisionId: null });
+    expect(await sourceOf({ readyPresetBuildId: recipe.buildId })).toEqual({ sourceBuildId: null, sourceBuildRevisionId: null });
   });
 
   it("соркадін Паладин 3 / Чародій 4: порядок мультикласу, підкласи, Метамагія, риса на 4-му рівні Чародія", async () => {

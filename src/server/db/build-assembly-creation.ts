@@ -8,9 +8,12 @@ import { buildAssemblyPlan, type AssemblyPlan } from "@/lib/optimization/assembl
 import { buildAssemblyRequestSchema, type BuildAssemblyRequest } from "@/lib/optimization/assembly-request";
 import { readSliceRecipes } from "@/lib/optimization/slice-reader";
 import type { BuildRecipe } from "@/lib/optimization/types";
+import { classTranslations } from "@/lib/refs/translation";
+import { findListPreparedSelectionProblem, isListPreparedCaster2014 } from "@/rules/initial-prepared-spells-2014";
 import { findWizardPreparedSelectionProblem } from "@/rules/wizard-prepared-spells-2014";
 import type { CreateCharacterResult } from "./character-creation";
 import { findCreationOperationResult, lockCreationOperation, saveCreationOperation, type CreationOperationKind } from "./creation-operation";
+import { loadPreparedListSpellIds } from "./initial-prepared-spells-2014";
 import { createTransactionLevelUpExecutor, executeLevelUpStep } from "./levelup-step";
 
 export type BuildStartPreparation = { error: string; details?: unknown } | { write: (tx: Prisma.TransactionClient) => Promise<number> };
@@ -105,8 +108,9 @@ async function runAssemblyInTransaction(tx: Prisma.TransactionClient, user: Auth
   if (previous) return { created: false, result: previous };
 
   const persId = await prepared.startWrite(tx);
+  await tx.pers.update({ where: { persId }, data: { sourceBuildId: request.buildId, sourceBuildRevisionId: request.revisionId } });
   await applyProgressionSteps(tx, persId, prepared.plan);
-  if (prepared.plan.preparedSpellIds) await applyWizardPreparedSelection(tx, persId, prepared.plan.preparedSpellIds);
+  if (prepared.plan.preparedSpellIds) await applyPreparedSelection(tx, persId, prepared.plan.preparedSpellIds);
   await saveCreationOperation(tx, BUILD_ASSEMBLY_OPERATION, { userId: user.id, requestId: request.requestId, persId });
   return { created: true, persId };
 }
@@ -117,6 +121,41 @@ async function applyProgressionSteps(tx: Prisma.TransactionClient, persId: numbe
     const outcome = await executeLevelUpStep(executor, persId, step.input);
     if ("error" in outcome) throw new AssemblyStepError(step.characterLevel, `Рівень ${step.characterLevel}: ${outcome.error}`);
   }
+}
+
+async function applyPreparedSelection(tx: Prisma.TransactionClient, persId: number, preparedSpellIds: readonly number[]): Promise<void> {
+  const pers = await tx.pers.findUniqueOrThrow({
+    where: { persId },
+    select: { level: true, class: { select: { name: true } }, multiclasses: { select: { classLevel: true, class: { select: { name: true } } } } },
+  });
+  if (findWizardLevel(pers) === 0 && isListPreparedCaster2014(pers.class.name)) return applyListPreparedSelection(tx, persId, preparedSpellIds);
+  return applyWizardPreparedSelection(tx, persId, preparedSpellIds);
+}
+
+async function applyListPreparedSelection(tx: Prisma.TransactionClient, persId: number, preparedSpellIds: readonly number[]): Promise<void> {
+  const pers = await tx.pers.findUniqueOrThrow({
+    where: { persId },
+    select: {
+      ruleset: true, level: true, int: true, wis: true, classId: true, subclassId: true, class: { select: { name: true } },
+      multiclasses: { select: { classLevel: true } },
+      persSpells: { select: { spellId: true, origin: true, sourceName: true, excludeFromPreparedCount: true, spell: { select: { level: true } } } },
+    },
+  });
+  if (pers.ruleset !== "RULES_2014") throw new AssemblyStepError(null, "Підготовка зі списку класу доступна лише для правил 2014");
+  const className = pers.class.name;
+  const classLevel = pers.level - pers.multiclasses.reduce((sum, row) => sum + row.classLevel, 0);
+  const isOwnPrepared = (row: (typeof pers.persSpells)[number]) => row.origin === "CLASS" && row.sourceName === className && !row.excludeFromPreparedCount && row.spell.level > 0;
+  const listSpellIds = await loadPreparedListSpellIds(tx, {
+    classId: pers.classId, subclassId: pers.subclassId, classLevel, unavailableSpellIds: pers.persSpells.filter((row) => !isOwnPrepared(row)).map((row) => row.spellId),
+  });
+  const problem = findListPreparedSelectionProblem({ className, classLevel, preparedIds: preparedSpellIds, listSpellIds, scores: { INT: pers.int, WIS: pers.wis } });
+  if (problem) throw new AssemblyStepError(null, problem);
+
+  await tx.persSpell.deleteMany({ where: { persId, origin: "CLASS", sourceName: className, excludeFromPreparedCount: false, spell: { level: { gt: 0 } } } });
+  await tx.persSpell.createMany({
+    data: preparedSpellIds.map((spellId) => ({ persId, spellId, learnedAtLevel: pers.level, origin: "CLASS" as const, sourceName: className, isPrepared: true,
+      badgeText: (classTranslations as Record<string, string>)[className] ?? className })),
+  });
 }
 
 async function applyWizardPreparedSelection(tx: Prisma.TransactionClient, persId: number, preparedSpellIds: readonly number[]): Promise<void> {

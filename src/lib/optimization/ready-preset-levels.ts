@@ -1,9 +1,14 @@
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import type { SpellSchoolLimit } from "@/rules/spell-choice-filter";
+import type { ReadyPresetOptions } from "./ready-preset-options";
+import { findFeatSpellRule2014 } from "@/rules/feat-spells-2014";
+import { buildSpellSlug } from "@/lib/spell-link";
 import { findWizardPreparedLimit, findWizardPreparedSelectionProblem } from "@/rules/wizard-prepared-spells-2014";
+import { findListPreparedAbility2014, findListPreparedLimit } from "@/rules/initial-prepared-spells-2014";
+import { findSpellKnowledge2014 } from "@/rules/spell-knowledge-2014";
 import { filterBySchoolAllowance, findSchoolLimitForSlot, findSchoolLimitMessage } from "./ready-preset-school-limit";
 import {
-  buildAdvancementSelections, findAdvancementProblem, listAbilityScoresBeforeLevel,
+  buildAdvancementSelections, findAdvancementProblem, listAbilityScoresBeforeLevel, listFeatKeysBeforeLevel,
   type AbilityGain, type AdvancementAbility, type AdvancementChoice, type AdvancementChoices, type FeatPoolEntry,
 } from "./ready-preset-advancements";
 import {
@@ -41,6 +46,9 @@ export type LevelStep = {
   optionPick: LevelOptionPick | null;
   newSpells: Record<OpenPickCategory, LevelSpell[]>;
   openPicks: LevelOpenPick[];
+  grantedSpellKeys: string[];
+  replacedSpell: LevelSpell | null;
+  fixedClassOptionIds: number[];
 };
 export type LevelClassLevel = { className: string; classLevel: number };
 export type ReadyPresetLevels = {
@@ -52,6 +60,7 @@ export type ReadyPresetLevels = {
   featPool: FeatPoolEntry[];
   classOptionPools: Record<string, ClassOptionPoolEntry[]>;
   wizardSpellScores: Record<string, number>;
+  listPreparationPool: LevelSpell[];
 };
 
 export type OpenPickChoices = Record<string, string[]>;
@@ -66,7 +75,7 @@ export type AssemblyChoiceContext = {
   preparedSpellKeys: string[] | null;
   start: AssemblyStartState;
 };
-export type WizardPreparation = { wizardLevel: number; intelligence: number; limit: number; bookKeys: string[] };
+export type SpellPreparation = { kind: "book" | "list"; className: string; classLevel: number; ability: "INT" | "WIS"; abilityScore: number; limit: number; poolKeys: string[] };
 export type OpenSpellSelectionRequest = { characterLevel: number; cantripKeys?: string[]; knownSpellKeys?: string[]; spellbookKeys?: string[] };
 
 export function buildOpenPickId(characterLevel: number, category: OpenPickCategory): string {
@@ -107,9 +116,15 @@ function listFixedSpellKeys(context: AssemblyChoiceContext): string[] {
   return listStepsUpTo(context.levels, context.targetLevel).flatMap((step) => listFixedSpells(step).map((spell) => spell.key));
 }
 
+function listOwnedWithoutPickKeys(context: AssemblyChoiceContext): string[] {
+  const granted = listStepsUpTo(context.levels, context.targetLevel).flatMap((step) => step.grantedSpellKeys);
+  const fromFeats = listFeatKeysBeforeLevel(context, context.targetLevel + 1).flatMap((featKey) => (findFeatSpellRule2014(featKey)?.namedSpellEngNames ?? []).map(buildSpellSlug));
+  return [...context.start.spellKeys, ...listFixedSpellKeys(context), ...granted, ...fromFeats];
+}
+
 export function listTakenSpellKeys(context: AssemblyChoiceContext): string[] {
   const chosen = listOpenPickSlots(context.levels, context.targetLevel).flatMap((slot) => listChosenKeys(context.choices, slot.id));
-  return [...context.start.spellKeys, ...listFixedSpellKeys(context), ...chosen];
+  return [...listOwnedWithoutPickKeys(context), ...chosen];
 }
 
 export function listOpenPickCandidates(context: AssemblyChoiceContext, slot: OpenPickSlot, currentKey: string): LevelSpell[] {
@@ -146,7 +161,7 @@ function addPoolSchools(context: AssemblyChoiceContext, slot: OpenPickSlot, spel
 }
 
 export function findOpenPickProblem(context: AssemblyChoiceContext): string | null {
-  const taken = new Set([...context.start.spellKeys, ...listFixedSpellKeys(context)]);
+  const taken = new Set(listOwnedWithoutPickKeys(context));
   const chosenSoFar = new Set<string>();
   for (const slot of listOpenPickSlots(context.levels, context.targetLevel)) {
     const problem = findSlotProblem(context, slot, taken, chosenSoFar);
@@ -174,17 +189,29 @@ function findSlotSchoolProblem(context: AssemblyChoiceContext, slot: OpenPickSlo
 }
 
 export function findWizardLevelAt(levels: ReadyPresetLevels, targetLevel: number): number {
-  const wizardSteps = listStepsUpTo(levels, targetLevel).filter((step) => step.classKey === WIZARD_CLASS_KEY);
-  if (wizardSteps.length) return wizardSteps[wizardSteps.length - 1].classLevel;
-  return levels.startingClassKey === WIZARD_CLASS_KEY ? 1 : 0;
+  return findClassLevelAt(levels, targetLevel, WIZARD_CLASS_KEY);
+}
+
+function findClassLevelAt(levels: ReadyPresetLevels, targetLevel: number, classKey: string): number {
+  const classSteps = listStepsUpTo(levels, targetLevel).filter((step) => step.classKey === classKey);
+  if (classSteps.length) return classSteps[classSteps.length - 1].classLevel;
+  return levels.startingClassKey === classKey ? 1 : 0;
+}
+
+function findClassName(levels: ReadyPresetLevels, classKey: string): string {
+  return levels.steps.find((step) => step.classKey === classKey)?.className ?? classKey;
 }
 
 export function findIntelligenceAt(context: AssemblyChoiceContext): number {
   return listAbilityScoresBeforeLevel(context, context.targetLevel + 1).INT;
 }
 
-export function findWizardPreparation(context: AssemblyChoiceContext): WizardPreparation | null {
+export function findSpellPreparation(context: AssemblyChoiceContext): SpellPreparation | null {
   if (context.targetLevel === 1) return null;
+  return findWizardPreparation(context) ?? findListPreparation(context);
+}
+
+function findWizardPreparation(context: AssemblyChoiceContext): SpellPreparation | null {
   const wizardLevel = findWizardLevelAt(context.levels, context.targetLevel);
   if (wizardLevel === 0) return null;
   const intelligence = findIntelligenceAt(context);
@@ -192,36 +219,81 @@ export function findWizardPreparation(context: AssemblyChoiceContext): WizardPre
     ...step.newSpells.spellbook.map((spell) => spell.key),
     ...listChosenKeys(context.choices, buildOpenPickId(step.characterLevel, "spellbook")),
   ]);
-  return { wizardLevel, intelligence, limit: findWizardPreparedLimit(intelligence, wizardLevel), bookKeys: [...new Set([...context.start.bookKeys, ...addedToBook])] };
+  return {
+    kind: "book", className: findClassName(context.levels, WIZARD_CLASS_KEY), classLevel: wizardLevel, ability: "INT", abilityScore: intelligence,
+    limit: findWizardPreparedLimit(intelligence, wizardLevel), poolKeys: [...new Set([...context.start.bookKeys, ...addedToBook])],
+  };
 }
 
-export function resolvePreparedKeys(preparation: WizardPreparation, context: AssemblyChoiceContext): string[] {
-  if (context.preparedSpellKeys) return context.preparedSpellKeys.filter((key) => preparation.bookKeys.includes(key));
+// shortcut: only the starting class prepares from its list; a list-prepared multiclass keeps its level-1 picks until preparation is done on the sheet.
+function findListPreparation(context: AssemblyChoiceContext): SpellPreparation | null {
+  const classKey = context.levels.startingClassKey;
+  const ability = findListPreparedAbility2014(classKey);
+  if (!ability || !context.levels.listPreparationPool.length) return null;
+  const classLevel = findClassLevelAt(context.levels, context.targetLevel, classKey);
+  const scores = listAbilityScoresBeforeLevel(context, context.targetLevel + 1);
+  const maxSpellLevel = findSpellKnowledge2014(classKey, classLevel)?.maxSpellLevel ?? 0;
+  const taken = new Set(listTakenSpellKeys(context));
+  const poolKeys = context.levels.listPreparationPool.filter((spell) => spell.level <= maxSpellLevel && !taken.has(spell.key)).map((spell) => spell.key);
+  return { kind: "list", className: findClassName(context.levels, classKey), classLevel, ability, abilityScore: scores[ability], limit: findListPreparedLimit(classKey, scores, classLevel), poolKeys };
+}
+
+export function resolvePreparedKeys(preparation: SpellPreparation, context: AssemblyChoiceContext): string[] {
+  if (context.preparedSpellKeys) return context.preparedSpellKeys.filter((key) => preparation.poolKeys.includes(key));
   return fillDefaultPreparedKeys(preparation, context);
 }
 
-function fillDefaultPreparedKeys(preparation: WizardPreparation, context: AssemblyChoiceContext): string[] {
-  const authorKeys = context.start.preparedKeys.filter((key) => preparation.bookKeys.includes(key));
-  const scoreOf = (key: string) => context.levels.wizardSpellScores[key] ?? 0;
-  const byScore = preparation.bookKeys.filter((key) => !authorKeys.includes(key)).sort((first, second) => scoreOf(second) - scoreOf(first));
+function fillDefaultPreparedKeys(preparation: SpellPreparation, context: AssemblyChoiceContext): string[] {
+  const authorKeys = context.start.preparedKeys.filter((key) => preparation.poolKeys.includes(key));
+  const listSpellByKey = new Map(context.levels.listPreparationPool.map((spell) => [spell.key, spell]));
+  const scoreOf = (key: string) => context.levels.wizardSpellScores[key] ?? listSpellByKey.get(key)?.score ?? 0;
+  const levelOf = (key: string) => listSpellByKey.get(key)?.level ?? 0;
+  const byScore = preparation.poolKeys.filter((key) => !authorKeys.includes(key)).sort((first, second) => scoreOf(second) - scoreOf(first) || levelOf(second) - levelOf(first));
   return [...authorKeys, ...byScore].slice(0, preparation.limit);
 }
 
-export function findPreparedKeysProblem(preparation: WizardPreparation, preparedKeys: readonly string[]): string | null {
-  const idByKey = new Map(preparation.bookKeys.map((key, index) => [key, index + 1]));
-  return findWizardPreparedSelectionProblem({
-    intelligence: preparation.intelligence, wizardLevel: preparation.wizardLevel,
-    spellbookSpellIds: [...idByKey.values()], preparedIds: preparedKeys.map((key) => idByKey.get(key) ?? 0),
-  });
+export function findPreparedKeysProblem(preparation: SpellPreparation, preparedKeys: readonly string[]): string | null {
+  const idByKey = new Map(preparation.poolKeys.map((key, index) => [key, index + 1]));
+  const preparedIds = preparedKeys.map((key) => idByKey.get(key) ?? 0);
+  if (preparation.kind === "book") {
+    return findWizardPreparedSelectionProblem({ intelligence: preparation.abilityScore, wizardLevel: preparation.classLevel, spellbookSpellIds: [...idByKey.values()], preparedIds });
+  }
+  if (new Set(preparedIds).size !== preparedIds.length) return "Підготовлене заклинання обрано двічі";
+  if (preparedIds.includes(0)) return "Підготувати можна лише заклинання доступних рівнів зі списку свого класу";
+  return preparedIds.length > preparation.limit ? "Забагато підготовлених заклинань для вашої характеристики" : null;
+}
+
+function findStartConflictProblem(context: AssemblyChoiceContext): string | null {
+  const startKeys = new Set(context.start.spellKeys);
+  const startOptionIds = new Set(context.start.classOptionIds);
+  const ownedBefore = new Set(context.start.spellKeys);
+  for (const step of listStepsUpTo(context.levels, context.targetLevel)) {
+    const prefix = `Рівень ${step.characterLevel}, ${step.className}`;
+    const repeated = listFixedSpells(step).find((spell) => startKeys.has(spell.key));
+    if (repeated) return `${prefix}: план додає «${repeated.name}», а його вже обрано на 1-му рівні — замініть його на кроці «Стартові заклинання».`;
+    if (step.fixedClassOptionIds.some((id) => startOptionIds.has(id))) return `${prefix}: план бере ту саму опцію, що вже обрана на 1-му рівні, — оберіть іншу на кроці «Вибори класу й раси».`;
+    if (step.replacedSpell && !ownedBefore.has(step.replacedSpell.key)) return `${prefix}: план замінює «${step.replacedSpell.name}», а на кроці «Стартові заклинання» його прибрано — поверніть його або оберіть рівень нижче ${step.characterLevel}.`;
+    [...listFixedSpells(step).map((spell) => spell.key), ...step.grantedSpellKeys, ...OPEN_PICK_CATEGORIES.flatMap((category) => listChosenKeys(context.choices, buildOpenPickId(step.characterLevel, category)))].forEach((key) => ownedBefore.add(key));
+  }
+  return null;
+}
+
+export function excludeLaterPlanPicks(options: ReadyPresetOptions, levels: ReadyPresetLevels | null): ReadyPresetOptions {
+  if (!levels) return options;
+  const plannedKeys = new Set(levels.steps.flatMap((step) => [...listFixedSpells(step).map((spell) => spell.key), ...step.grantedSpellKeys]));
+  const plannedOptionIds = new Set(levels.steps.filter((step) => step.classKey === levels.startingClassKey).flatMap((step) => step.fixedClassOptionIds));
+  const classOptions = options.choiceGroups.classOptions.map((group) => ({ ...group, options: group.options.filter((option) => !plannedOptionIds.has(option.id)) }));
+  const plannedSpellIds = options.spells.candidates.filter((spell) => plannedKeys.has(buildSpellSlug(spell.engName))).map((spell) => spell.spellId);
+  return { ...options, choiceGroups: { ...options.choiceGroups, classOptions }, spells: { ...options.spells, plannedSpellIds } };
 }
 
 export function findAssemblyChoiceProblem(context: AssemblyChoiceContext): string | null {
-  const openProblem = findAdvancementProblem(context) ?? findClassOptionProblem(context) ?? findOpenPickProblem(context);
+  const openProblem = findStartConflictProblem(context) ?? findAdvancementProblem(context) ?? findClassOptionProblem(context) ?? findOpenPickProblem(context);
   if (openProblem) return openProblem;
-  const preparation = findWizardPreparation(context);
+  const preparation = findSpellPreparation(context);
   if (!preparation) return null;
   const preparedKeys = resolvePreparedKeys(preparation, context);
-  return preparedKeys.length ? findPreparedKeysProblem(preparation, preparedKeys) : "Підготуйте хоча б одне заклинання з книги.";
+  return preparedKeys.length ? findPreparedKeysProblem(preparation, preparedKeys) : `Підготуйте хоча б одне заклинання${preparation.kind === "book" ? " з книги" : ""}.`;
 }
 
 export function buildOpenSpellSelections(levels: ReadyPresetLevels, targetLevel: number, choices: OpenPickChoices): OpenSpellSelectionRequest[] {
@@ -239,7 +311,7 @@ export function buildAssemblyCreationRequest(input: {
   context: AssemblyChoiceContext;
 }) {
   const { preset, requestId, start, context } = input;
-  const preparation = findWizardPreparation(context);
+  const preparation = findSpellPreparation(context);
   const preparedSpellKeys = preparation ? resolvePreparedKeys(preparation, context) : null;
   return {
     buildId: preset.buildId,

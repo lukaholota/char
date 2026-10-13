@@ -49,6 +49,13 @@ export const wizardScenario: AssemblyScenario = {
   ],
 };
 
+export const druidScenario: AssemblyScenario = {
+  buildId: "build-druid-dreams-githzerai-2014",
+  targetLevel: 7,
+  buildStart: () => buildPresetStart("druid-dreams-githzerai-2014", "Ґрат"),
+  manualSteps: [],
+};
+
 export const sorcadinScenario: AssemblyScenario = {
   buildId: "build-sorcadin-clockwork-2014",
   targetLevel: 7,

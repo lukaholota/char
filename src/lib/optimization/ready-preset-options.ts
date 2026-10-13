@@ -7,6 +7,9 @@ import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { buildEquipmentLines } from "@/lib/components/characterCreator/equipment-choices";
 import { countAnyWeaponPicks, listAnyWeaponChoices } from "@/lib/components/characterCreator/any-weapon-picks";
 import { getAllSpells } from "@/lib/spellsData";
+import { buildSpellSlug } from "@/lib/spell-link";
+import { findEarnedRaceSpells2014 } from "@/rules/race-granted-spells-2014";
+import { listSubclassGrantedSpellKeys } from "./progression-granted-spells";
 import { buildPresetSpellOptions } from "./ready-preset-spells";
 import { buildPresetAbilitySources } from "./ready-preset-abilities";
 import { countChoiceOptionEffects, groupPickableOptions, listChosenFirstLevelOptionFeatures, listFirstLevelClassOptions, listFirstLevelSubclassOptions, listRaceChoiceOptions } from "./ready-preset-identity";
@@ -51,10 +54,15 @@ export function buildReadyPresetOptions(draft: Partial<PersFormData>, content: C
     spells: buildPresetSpellOptions(characterClass.name, { race: race.name, subrace: subrace?.name ?? null, chosenRaceOptionNames: findChosenRaceOptionNames(race, draft) }, getAllSpells("RULES_2014").map((spell) => ({
       spellId: spell.spellId, name: spell.name, engName: spell.engName, level: spell.level, school: spell.school,
       ruleset: "RULES_2014", spellLists: spell.spellClasses.map((entry) => entry.className), isRitual: spell.hasRitual === "так",
-    })), chosenSubclass?.name ?? null, content.feats.find((entry) => entry.featId === draft.featId)?.name ?? null),
+    })), chosenSubclass?.name ?? null, content.feats.find((entry) => entry.featId === draft.featId)?.name ?? null, listFirstLevelGrantedSpellKeys(characterClass.name, chosenSubclass?.name ?? null, race, subrace?.name ?? null, draft)),
   };
 }
 export type ReadyPresetOptions = ReturnType<typeof buildReadyPresetOptions>;
+
+function listFirstLevelGrantedSpellKeys(classKey: string, subclassKey: string | null, race: CreatorContent["races"][number], subrace: string | null, draft: Partial<PersFormData>): string[] {
+  const fromRace = findEarnedRaceSpells2014({ race: race.name, subrace, chosenRaceOptionNames: findChosenRaceOptionNames(race, draft), characterLevel: 1 });
+  return [...listSubclassGrantedSpellKeys({ classKey, subclassKey, classLevel: 1 }), ...fromRace.map((spell) => buildSpellSlug(spell.engName))];
+}
 
 const isFirstLevelRow = (row: { levelsGranted: number[] }) => row.levelsGranted.includes(1);
 
