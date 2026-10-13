@@ -199,6 +199,17 @@ describe("creating a higher level character", () => {
     expect(localStorage.getItem(levelsKey("sorcadin-clockwork-2014"))).toBeNull();
   });
 
+  it("keeps the name step on screen after a customized creation while the draft is cleared", async () => {
+    mocks.createFromBuild.mockResolvedValue({ success: true, persId: 78 });
+    await renderPreset("druid-dreams-githzerai-2014");
+    pickLevel(7);
+    fireEvent.click(screen.getByRole("button", { name: "Налаштувати персонажа" }));
+    await goToNameAndSubmit();
+    expect(mocks.push).toHaveBeenCalledWith("/char/78");
+    await act(async () => { frames.forEach((run) => run()); });
+    expect(screen.getByLabelText(/Імʼя персонажа/)).toBeTruthy();
+  });
+
   it("keeps the choices and sends the same key after a server error, a retry and a reload", async () => {
     mocks.createFromBuild.mockResolvedValue({ error: "Рівень 7: Спробуйте ще раз" });
     const first = await renderPreset("sorcadin-clockwork-2014");

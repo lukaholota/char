@@ -53,7 +53,7 @@ export function listPresetCustomizationSteps(data: ReadyPresetPageData, state: P
 export function ReadyPresetCustomization({ data, state, header, nameFields, ruleExcerpts }: { data: ReadyPresetPageData; state: PresetState; header: ReactNode; nameFields: ReactNode; ruleExcerpts?: CreationStepRuleExcerpts }) {
   usePreparedSpellsWithinLimit(data, state);
   const steps = [...listPresetCustomizationSteps(data, state), NAME_STEP];
-  const index = state.step - 4;
+  const index = state.isCreated ? steps.length - 1 : state.step - 4;
   const active = steps[index];
   const [blocked, setBlocked] = useState(false);
   const [hint, publishHint] = useNextStepHintState(state.step);

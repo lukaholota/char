@@ -132,7 +132,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
   }
   const rememberSignInOpen = useCallback((open: boolean) => { isSignInOpen.current = open; }, []);
   const rememberCustomizationStep = useCallback((kind: string) => { customizationStep.current = kind; }, []);
-  return { ready: active && isHydrated && initialized && assembly.isLoaded, assembly, choiceContext, choiceProblem, invalidSaved, restartSavedPreset, chooseGuide, resetCustomization, draft: createdSnapshot?.draft ?? formData, step: Math.max(2, createdSnapshot?.step ?? currentStep), update: updateFormData, goToStep, confirmCreation, submitting, error, rememberSignInOpen, rememberCustomizationStep };
+  return { ready: active && isHydrated && initialized && assembly.isLoaded, assembly, choiceContext, choiceProblem, invalidSaved, restartSavedPreset, chooseGuide, resetCustomization, isCreated: createdSnapshot !== null, draft: createdSnapshot?.draft ?? formData, step: Math.max(2, createdSnapshot?.step ?? currentStep), update: updateFormData, goToStep, confirmCreation, submitting, error, rememberSignInOpen, rememberCustomizationStep };
 }
 
 function buildChoiceContext(levels: ReadyPresetLevels | null, assembly: ReturnType<typeof useReadyPresetAssembly>, draft: Partial<PersFormData>, options: ReadyPresetOptions): AssemblyChoiceContext | null {
