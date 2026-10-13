@@ -5,23 +5,24 @@ import { findAccentVariant } from "@/styles/edition-accent";
 import { ArticleBlock, type BlockContext } from "./ArticleBlocks";
 import { RatingBadge } from "./RatingBadge";
 import { CatalogMention } from "./CatalogMention";
+import type { SubclassCardLink } from "@/lib/optimization/article-catalog-links.server";
 
 type SectionCardProps = {
   node: OutlineNode;
   is2024: boolean;
   contextFor: (section: OutlineSection) => BlockContext;
-  headingHrefs?: Readonly<Record<string, string>>;
+  headingLinks?: Readonly<Record<string, SubclassCardLink>>;
 };
 
 type HeadingTag = "h2" | "h3" | "h4" | "h5" | "h6";
 
-export function SectionCard({ node, is2024, contextFor, headingHrefs = {} }: SectionCardProps) {
+export function SectionCard({ node, is2024, contextFor, headingLinks = {} }: SectionCardProps) {
   const Heading = `h${findHeadingLevel(node.depth)}` as HeadingTag;
   const context = contextFor(node);
   const headingRating = findHeadingRating(context.ratings, node.sectionId);
   const ratingBadge = headingRating ? <RatingBadge rating={headingRating} className="ml-2 mr-0" /> : null;
-  const heading = <CatalogMention href={headingHrefs[node.sectionId] ?? null} title={node.heading}>{node.heading}</CatalogMention>;
-  const children = node.children.map((child) => <SectionCard key={child.sectionId} node={child} is2024={is2024} contextFor={contextFor} headingHrefs={headingHrefs} />);
+  const heading = <CatalogMention href={headingLinks[node.sectionId]?.href ?? null} title={node.heading}>{node.heading}</CatalogMention>;
+  const children = node.children.map((child) => <SectionCard key={child.sectionId} node={child} is2024={is2024} contextFor={contextFor} headingLinks={headingLinks} />);
 
   if (node.depth === 0) {
     return (

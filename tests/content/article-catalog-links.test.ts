@@ -15,13 +15,13 @@ const article = (slug: string) => ({ articleId: `rpgbot-${slug}`, slug, ruleset:
 
 describe("catalog links of an RPGbot article", () => {
   it("opens the subclass a dedicated guide is about, and Light never resolves to Twilight", async () => {
-    expect((await findArticleCatalogLinks(article("rogue-inquisitive-2014"))).subjectHref).toBe(findSubclassHref("ROGUE_2014", "INQUISITIVE"));
-    expect((await findArticleCatalogLinks(article("cleric-light-domain-2014"))).subjectHref).toBe(findSubclassHref("CLERIC_2014", "LIGHT_DOMAIN"));
+    expect((await findArticleCatalogLinks(article("rogue-inquisitive-2014"))).subject).toEqual({ href: findSubclassHref("ROGUE_2014", "INQUISITIVE"), name: "Допитливий" });
+    expect((await findArticleCatalogLinks(article("cleric-light-domain-2014"))).subject?.href).toBe(findSubclassHref("CLERIC_2014", "LIGHT_DOMAIN"));
   });
 
   it("links the bound subclass sections of a comparison article and gives it no single subject", async () => {
     const links = await findArticleCatalogLinks(article("rogue-subclasses-2014"));
-    expect(links.subjectHref).toBeNull();
-    expect(links.headingHrefs["section-inquisitive"]).toBe(findSubclassHref("ROGUE_2014", "INQUISITIVE"));
+    expect(links.subject).toBeNull();
+    expect(links.headingLinks["section-inquisitive"]?.href).toBe(findSubclassHref("ROGUE_2014", "INQUISITIVE"));
   });
 });
