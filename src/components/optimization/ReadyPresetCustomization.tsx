@@ -13,14 +13,11 @@ import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 import type { BackgroundI, ClassI, RaceI, SubraceI } from "@/lib/types/model-types";
 import type { ReadyPresetPageData } from "@/lib/optimization/ready-preset.server";
 import type { useReadyPreset } from "@/lib/optimization/use-ready-preset";
-import { buildReadyPresetSkillChoices, describeSkillPickGroup, listSkillPickOptions, type SkillPickGroup } from "@/lib/optimization/ready-preset-skills";
+import { buildReadyPresetSkillChoices, buildReconciledSkillPatch, describeSkillPickGroup, listSkillPickOptions, listTakenSkillPicks, type SkillPickGroup } from "@/lib/optimization/ready-preset-skills";
 import { listOpenAdvancementSteps } from "@/lib/optimization/ready-preset-advancements";
 import { listOpenOptionSteps } from "@/lib/optimization/ready-preset-class-options";
 import { findWizardPreparation, listOpenPickSlots } from "@/lib/optimization/ready-preset-levels";
-import { findInitialListPreparedLimit, findInitialWizardPreparedLimit } from "@/rules/initial-prepared-spells-2014";
-import { buildPresetAbilityScores } from "@/lib/optimization/ready-preset-abilities";
-import { findPresetSpellProblem } from "@/lib/optimization/ready-preset-spells";
-import { findPresetPreparedProblem, findSavedPresetProblem } from "@/lib/optimization/ready-preset-validation";
+import { findPreparedSpellsWithinLimit, listSavedPresetIssues, type SavedPresetIssue } from "@/lib/optimization/ready-preset-validation";
 import type { CreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import type { Skill } from "@/lib/types/enums";
@@ -72,31 +69,31 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, rule
   const race = data.creator.race as unknown as RaceI;
   const selectedClass = data.creator.characterClass as unknown as ClassI;
   const background = data.creator.background as unknown as BackgroundI;
-  const spellProblem = active.kind === "spells" ? findPresetSpellProblem(state.draft, data.options.spells) ?? findPresetPreparedProblem(state.draft, data.options) : null;
-  const pickProblem = active.kind === "skills" && Object.entries(data.draft.skillsSchema!.basicChoices).some(([key, initial]) => key !== "background" && (state.draft.skillsSchema!.basicChoices[key as SkillPickGroup]?.length ?? 0) !== initial!.length) ? "Оберіть усі навички цього білда." : active.kind === "expertise" && state.draft.expertiseSchema?.expertises.length !== data.options.expertiseCount ? "Оберіть усі навички для Експертизи." : null;
+  const skillPatch = active.kind === "skills" ? buildReconciledSkillPatch(state.draft, data.options.skills) : {};
+  const issues = listSavedPresetIssues({ ...state.draft, ...skillPatch }, data.draft, data.options);
+  const failingKinds = new Set(issues.map((issue) => issue.step));
+  const stepProblem = issues.find((issue) => issue.step === active.kind)?.message ?? null;
   const nativeForm = ["abilities", "languages", "equipment"].includes(active.kind);
-  const next = () => {
-    if (active.kind === "skills") {
-      const reconciled = buildReadyPresetSkillChoices(state.draft.skillsSchema!.basicChoices, data.options.skills);
-      state.update({ skills: reconciled.skills, skillsSchema: { ...state.draft.skillsSchema!, basicChoices: reconciled.choices },
-        ...(state.draft.backgroundCustomization ? { backgroundCustomization: { ...state.draft.backgroundCustomization, skills: reconciled.choices.background } } : {}) });
-    }
-    state.goToStep(state.step + 1);
+  const leaveStep = (target: number) => {
+    if (active.kind === "skills") state.update(skillPatch);
+    state.goToStep(target);
   };
+  const next = () => leaveStep(state.step + 1);
   const content = <>
     {active.kind === "choices" ? <ReadyPresetChoices data={data} draft={state.draft} update={state.update} /> : null}
     {active.kind === "abilities" ? <ASIForm {...formProps} race={race} raceVariant={data.creator.variant} selectedClass={selectedClass} ruleset="RULES_2014" lockOrigin prevRaceId={race.raceId} setPrevRaceId={() => {}} /> : null}
     {active.kind === "skills" ? <PresetSkillCards data={data} state={state} /> : null}
     {active.kind === "expertise" ? <PresetExpertiseCards data={data} state={state} /> : null}
-    {active.kind === "languages" ? <LanguagesForm {...formProps} initialSelection={state.draft.languagesSchema?.languages} race={race} selectedClass={selectedClass} background={background} selectedSubrace={data.creator.subrace as unknown as SubraceI} activeFeatures={[]} existingLanguages={data.options.knownLanguages} forcedLanguagesToChooseCount={data.options.languageCount} /> : null}
+    {active.kind === "languages" ? <LanguagesForm {...formProps} initialSelection={state.draft.languagesSchema?.languages} race={race} selectedClass={selectedClass} background={background} selectedSubrace={data.creator.subrace as unknown as SubraceI} activeFeatures={[]} existingLanguages={data.options.knownLanguages} forcedLanguagesToChooseCount={data.options.languageCount} choosableLanguages={data.options.languages} /> : null}
     {active.kind === "equipment" ? <EquipmentForm {...formProps} initialSelection={state.draft.equipmentSchema} race={race} selectedClass={selectedClass} background={background} weapons={data.creator.weapons} /> : null}
     {active.kind === "spells" ? <ReadyPresetSpells data={data} draft={state.draft} update={state.update} hidePreparedEditor={state.assembly.targetLevel > 1} /> : null}
     {active.kind === "level" && state.choiceContext ? <><ReadyPresetLevelAdvancements assembly={state.assembly} context={state.choiceContext} characterLevel={active.characterLevel} /><ReadyPresetLevelClassOptions assembly={state.assembly} context={state.choiceContext} characterLevel={active.characterLevel} /><ReadyPresetLevelSpells data={data} assembly={state.assembly} context={state.choiceContext} characterLevel={active.characterLevel} /></> : null}
     {active.kind === "name" ? nameFields : null}
     {active.kind === "preparation" && state.choiceContext ? <ReadyPresetLevelSpells data={data} assembly={state.assembly} context={state.choiceContext} preparationOnly /> : null}
   </>;
-  const finalProblem = active.kind === "name" ? findNameStepProblem(data, state) : null;
-  const problem = spellProblem ?? pickProblem ?? finalProblem;
+  const blockingIssue = active.kind === "name" ? findNameStepIssue(state, issues) : null;
+  const problem = stepProblem ?? blockingIssue?.message ?? null;
+  const blockingStepIndex = blockingIssue?.step ? steps.findIndex((step) => step.kind === blockingIssue.step) : -1;
   const submit = () => {
     if (problem) return;
     if (active.kind === "name") void state.confirmCreation();
@@ -108,15 +105,15 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, rule
     steps={steps.map((step) => ({ id: `${step.kind}-${step.characterLevel ?? 0}`, name: step.title }))}
     currentStep={index + 1}
     progress={Math.round((index / steps.length) * 100)}
-    isStepDone={(stepOrder) => stepOrder <= index}
+    isStepDone={(stepOrder) => stepOrder <= index && !failingKinds.has(steps[stepOrder - 1].kind as SavedPresetIssue["step"])}
     canJumpTo={() => !state.submitting}
-    onJump={(stepOrder) => state.goToStep(stepOrder + 3)}
+    onJump={(stepOrder) => leaveStep(stepOrder + 3)}
     onHintChange={publishHint}
     activeFormId={formId}
     isNextBlocked={blocked || !!hint || !!problem}
     nextStepHint={problem ?? hint}
     isSubmitting={state.submitting}
-    onPrev={() => state.goToStep(state.step - 1)}
+    onPrev={() => leaveStep(state.step - 1)}
     after={<div className="flex flex-wrap gap-2">
       <Button variant="ghost" disabled={state.submitting} onClick={() => state.goToStep(2)} className="min-h-11 text-slate-400">До вибору способу створення</Button>
       <Button ref={resetConfirm.ref} variant={resetConfirm.isConfirming ? "destructive" : "ghost"} disabled={state.submitting} onClick={resetConfirm.onClick} className={cn("min-h-11", !resetConfirm.isConfirming && "text-slate-400")}>{resetConfirm.isConfirming ? "Точно скинути?" : "Скинути зміни до пресета"}</Button>
@@ -125,13 +122,14 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, rule
     <h2 className="font-rpg-display text-2xl text-white">{active.title}</h2>
     {nativeForm ? content : <form id={formId} onSubmit={(event) => { event.preventDefault(); submit(); }} className="space-y-4">{content}</form>}
     {problem ? <p role="status" className="text-sm text-amber-200">{problem}</p> : null}
+    {blockingStepIndex >= 0 ? <Button type="button" variant="outline" className="min-h-11" onClick={() => state.goToStep(blockingStepIndex + 4)}>Відкрити крок «{steps[blockingStepIndex].title}»</Button> : null}
   </CreationStepLayout>;
 }
 
-function findNameStepProblem(data: ReadyPresetPageData, state: PresetState): string | null {
-  const problem = state.choiceProblem ?? findSavedPresetProblem(state.draft, data.draft, data.options);
-  if (problem) return problem;
-  return state.draft.name?.trim() ? null : "Вкажіть імʼя персонажа.";
+function findNameStepIssue(state: PresetState, issues: SavedPresetIssue[]): SavedPresetIssue | null {
+  if (state.choiceProblem) return { step: null, message: state.choiceProblem };
+  if (issues.length) return issues[0];
+  return state.draft.name?.trim() ? null : { step: null, message: "Вкажіть імʼя персонажа." };
 }
 
 function PresetSkillCards({ data, state }: { data: ReadyPresetPageData; state: PresetState }) {
@@ -140,7 +138,7 @@ function PresetSkillCards({ data, state }: { data: ReadyPresetPageData; state: P
   return <div className="space-y-6"><p className="text-sm leading-relaxed text-slate-300"><span className="text-slate-400">Ваші навички:</span> {owned.map(translateValue).join(", ")}</p>{Object.entries(data.draft.skillsSchema!.basicChoices).filter(([, skills]) => skills?.length).map(([key, initial]) => {
     const group = key as SkillPickGroup;
     const selected = choices[group] ?? [];
-    const taken = new Set([...data.options.skills.fixedRace, ...data.options.skills.fixedSubclass, ...Object.entries(choices).filter(([other]) => other !== key && other !== "background").flatMap(([, skills]) => skills ?? [])]);
+    const taken = listTakenSkillPicks(group, choices, data.options.skills);
     return <section key={key}><h3 className="mb-3 text-lg text-white">{describeSkillPickGroup(group, data.options.skills)} · {selected.length} / {initial!.length}</h3><div className="grid gap-2 sm:grid-cols-2">{listSkillPickOptions(group, data.options.skills).map((skill) => <Button key={skill} type="button" variant="outline" aria-pressed={selected.includes(skill)} disabled={!selected.includes(skill) && (selected.length >= initial!.length || taken.has(skill))} className={`min-h-12 justify-start ${selected.includes(skill) ? "border-arcane-400 bg-arcane-500/15" : ""}`} onClick={() => {
       const updated = selected.includes(skill) ? selected.filter((entry) => entry !== skill) : [...selected, skill];
       state.update({ skillsSchema: { ...state.draft.skillsSchema!, basicChoices: { ...choices, [group]: updated } } });
@@ -155,13 +153,8 @@ function PresetExpertiseCards({ data, state }: { data: ReadyPresetPageData; stat
 
 function usePreparedSpellsWithinLimit(data: ReadyPresetPageData, state: PresetState) {
   const selected = state.draft.initialPreparedSpellIds;
-  const scores = buildPresetAbilityScores(state.draft, data.options.abilitySources);
-  const limit = data.options.spells.usesSpellbook ? findInitialWizardPreparedLimit(scores.INT) : findInitialListPreparedLimit(data.options.className, scores);
-  const book = state.draft.classSpells?.spellbookIds;
+  const next = findPreparedSpellsWithinLimit(state.draft, data.options, state.assembly.targetLevel);
   useEffect(() => {
-    if (!selected) return;
-    const prepared = selected.slice(0, limit);
-    const next = state.assembly.targetLevel > 1 && data.options.spells.usesSpellbook && !prepared.length ? book?.slice(0, limit) ?? [] : prepared;
-    if (JSON.stringify(next) !== JSON.stringify(selected)) state.update({ initialPreparedSpellIds: next });
-  }, [state.assembly.targetLevel, selected, limit, book, data.options.spells.usesSpellbook, state.update]);
+    if (next && JSON.stringify(next) !== JSON.stringify(selected)) state.update({ initialPreparedSpellIds: next });
+  }, [next, selected, state.update]);
 }

@@ -6,6 +6,7 @@ import { EquipmentForm } from "@/lib/components/characterCreator/EquipmentForm";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { BackgroundI, ClassI, RaceI } from "@/lib/types/model-types";
 import type { Weapon } from "@prisma/client";
+import { listAnyWeaponChoices } from "@/lib/components/characterCreator/any-weapon-picks";
 
 /// KR26.4. Крок «Спорядження» під 2024: літери як у книзі, пакунок списком, монети окремо.
 /// Рядки 2024 приходять без `description` — форма фікстур повторює те, що пише сід KR26.2.
@@ -213,5 +214,34 @@ describe("2014 — ті самі опції й ті самі вибори", () =
     fireEvent.click(screen.getByText("Варіант B"));
 
     expect(screen.getByRole("button", { name: "Обрати зброю" })).toBeTruthy();
+  });
+});
+
+describe("2014 — зброя на вибір лише у варіанті, який її дає", () => {
+  const readWeaponPicks = () => usePersFormStore.getState().formData.equipmentSchema?.anyWeaponSelection ?? {};
+
+  it("повернення до варіанта без зброї прибирає обрану зброю: сервер створив би її задарма", async () => {
+    renderStep(barbarian2014);
+    fireEvent.click(screen.getByText("Варіант B"));
+    await submitStep();
+    expect(readWeaponPicks()["1"]).toEqual([19]);
+
+    fireEvent.click(screen.getByText("Варіант A"));
+    await submitStep();
+    await waitFor(() => expect(readWeaponPicks()["1"]).toBeUndefined());
+  });
+
+  it("рукопашний рядок не пропонує дальньої зброї, бойовий — вогнепальної, жоден — беззбройного удару", () => {
+    const pool = [
+      { weaponId: 1, name: "DART", weaponType: "SIMPLE_WEAPON", isRanged: true, sortOrder: 1 },
+      { weaponId: 2, name: "CLUB", weaponType: "SIMPLE_WEAPON", isRanged: false, sortOrder: 2 },
+      { weaponId: 3, name: "LONGBOW", weaponType: "MARTIAL_WEAPON", isRanged: true, sortOrder: 3 },
+      { weaponId: 4, name: "MUSKET", weaponType: "FIREARMS", isRanged: true, sortOrder: 4 },
+      { weaponId: 5, name: "UNARMED_STRIKE", weaponType: "SIMPLE_WEAPON", isRanged: false, sortOrder: 5 },
+    ];
+    const ids = (weaponType: string, description: string) => listAnyWeaponChoices({ weaponType, description }, pool).map((weapon) => weapon.weaponId);
+    expect(ids("SIMPLE_WEAPON", "Будь-яка проста рукопашна зброя на вибір")).toEqual([2]);
+    expect(ids("SIMPLE_WEAPON", "Будь-яка проста зброя на вибір")).toEqual([2, 1]);
+    expect(ids("MARTIAL_WEAPON", "Бойова зброя на вибір")).toEqual([3]);
   });
 });

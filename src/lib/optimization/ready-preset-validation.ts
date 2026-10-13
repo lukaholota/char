@@ -5,7 +5,7 @@ import { buildReadyPresetSkillChoices, listAvailableSkillPicks } from "./ready-p
 import { isPresetEquipmentValid } from "./ready-preset-equipment";
 import type { ReadyPresetOptions } from "./ready-preset-options";
 import { findPresetSpellProblem, listPresetPreparedPool } from "./ready-preset-spells";
-import { findInitialPreparedSelectionProblem } from "@/rules/initial-prepared-spells-2014";
+import { findInitialListPreparedLimit, findInitialPreparedSelectionProblem, findInitialWizardPreparedLimit } from "@/rules/initial-prepared-spells-2014";
 import { buildPresetAbilityScores } from "./ready-preset-abilities";
 import { isChoiceSelectionValid } from "./ready-preset-identity";
 
@@ -13,38 +13,53 @@ export function isSavedPresetValid(draft: Partial<PersFormData>, expected: PersF
   return findSavedPresetProblem(draft, expected, options) === null;
 }
 
+export type PresetStepKind = "choices" | "abilities" | "skills" | "expertise" | "languages" | "equipment" | "spells";
+export type SavedPresetIssue = { step: PresetStepKind | null; message: string };
+
 export function findSavedPresetProblem(draft: Partial<PersFormData>, expected: PersFormData, options: ReadyPresetOptions): string | null {
+  return listSavedPresetIssues(draft, expected, options)[0]?.message ?? null;
+}
+
+export function listSavedPresetIssues(draft: Partial<PersFormData>, expected: PersFormData, options: ReadyPresetOptions): SavedPresetIssue[] {
   const parsed = fullCharacterSchema.safeParse(draft);
-  if (!parsed.success) return "Чернетка пошкоджена — почніть пресет заново.";
+  if (!parsed.success) return [{ step: null, message: "Чернетка пошкоджена — почніть пресет заново." }];
   const current = parsed.data;
   const fixedFields = ["ruleset", "classId", "raceId", "raceVariantId", "subraceId", "subclassId", "backgroundId", "featId", "asiSystem", "isDefaultASI", "levelUpPath"] as const;
-  const checks: [() => boolean | string | null, string][] = [
-    [() => fixedFields.every((key) => (current[key] ?? undefined) === (expected[key] ?? undefined)), "Чернетка належить іншому пресету — почніть заново."],
-    [() => buildDetailsSchema.shape.abilityScores.safeParse(draft.asi).success && countRemainingBuildPoints(current.asi) >= 0, "Характеристики: витрачено забагато очок."],
-    [() => isSameChoiceMap(current.featChoiceSelections, expected.featChoiceSelections), "Вибори риси не збігаються з пресетом — почніть заново."],
-    [() => areChoiceGroupsValid(current, expected, options), "Завершіть вибори класу й раси."],
-    [() => hasSameRacialChoiceGroups(current.racialBonusChoiceSchema, expected.racialBonusChoiceSchema) && areRacialChoicesComplete(current.racialBonusChoiceSchema), "Характеристики: розподіліть усі расові бонуси."],
-    [() => JSON.stringify(current.backgroundCustomization?.tools ?? null) === JSON.stringify(expected.backgroundCustomization?.tools ?? null), "Інструменти передісторії не збігаються з пресетом — почніть заново."],
-    [() => arePresetSkillsValid(current, expected, options), "Навички: оберіть усі навички білда без повторів."],
-    [() => hasDistinctChoices(current.languagesSchema?.languages ?? [], options.languageCount, options.languages), "Мови: оберіть усі мови без повторів."],
-    [() => hasDistinctChoices(current.expertiseSchema?.expertises ?? [], options.expertiseCount, current.skills), "Експертиза: оберіть навички з тих, якими ви володієте."],
-    [() => findPresetSpellProblem(current, options.spells), ""],
-    [() => !(options.spells.usesSpellbook && !current.initialPreparedSpellIds?.length), "Заклинання: підготуйте заклинання з книги."],
-    [() => findPresetPreparedProblem(current, options), ""],
-    [() => !!current.equipmentSchema && isPresetEquipmentValid(current.equipmentSchema, options.equipmentGroups), "Спорядження: завершіть вибір."],
+  const checks: [PresetStepKind | null, () => boolean | string | null, string][] = [
+    [null, () => fixedFields.every((key) => (current[key] ?? undefined) === (expected[key] ?? undefined)), "Чернетка належить іншому пресету — почніть заново."],
+    ["abilities", () => buildDetailsSchema.shape.abilityScores.safeParse(draft.asi).success && countRemainingBuildPoints(current.asi) >= 0, "Характеристики: витрачено забагато очок."],
+    [null, () => isSameChoiceMap(current.featChoiceSelections, expected.featChoiceSelections), "Вибори риси не збігаються з пресетом — почніть заново."],
+    ["choices", () => areChoiceGroupsValid(current, expected, options), "Завершіть вибори класу й раси."],
+    ["abilities", () => hasSameRacialChoiceGroups(current.racialBonusChoiceSchema, expected.racialBonusChoiceSchema) && areRacialChoicesComplete(current.racialBonusChoiceSchema), "Характеристики: розподіліть усі расові бонуси."],
+    [null, () => JSON.stringify(current.backgroundCustomization?.tools ?? null) === JSON.stringify(expected.backgroundCustomization?.tools ?? null), "Інструменти передісторії не збігаються з пресетом — почніть заново."],
+    ["skills", () => arePresetSkillsValid(current, expected, options), "Навички: оберіть усі навички білда без повторів."],
+    ["languages", () => hasDistinctChoices(current.languagesSchema?.languages ?? [], options.languageCount, options.languages), "Мови: оберіть усі мови без повторів."],
+    ["expertise", () => hasDistinctChoices(current.expertiseSchema?.expertises ?? [], options.expertiseCount, current.skills), "Експертиза: оберіть навички з тих, якими ви володієте."],
+    ["spells", () => findPresetSpellProblem(current, options.spells), ""],
+    ["spells", () => !(options.spells.usesSpellbook && !current.initialPreparedSpellIds?.length), "Заклинання: підготуйте заклинання з книги."],
+    ["spells", () => findPresetPreparedProblem(current, options), ""],
+    ["equipment", () => !!current.equipmentSchema && isPresetEquipmentValid(current.equipmentSchema, options.equipmentGroups), "Спорядження: завершіть вибір."],
   ];
-  for (const [check, message] of checks) {
+  return checks.flatMap(([step, check, message]) => {
     const result = check();
-    if (result === false) return message;
-    if (typeof result === "string") return result;
-  }
-  return null;
+    if (result === false) return [{ step, message }];
+    return typeof result === "string" ? [{ step, message: result }] : [];
+  });
 }
 
 export function findPresetPreparedProblem(draft: Partial<PersFormData>, options: ReadyPresetOptions): string | null {
   return findInitialPreparedSelectionProblem({ ruleset: draft.ruleset ?? "RULES_2014", className: options.className, spellbookIds: draft.classSpells?.spellbookIds ?? [],
     preparedIds: draft.initialPreparedSpellIds, listSpellIds: listPresetPreparedPool(options.spells).map((spell) => spell.spellId),
     scores: buildPresetAbilityScores(draft, options.abilitySources) });
+}
+
+export function findPreparedSpellsWithinLimit(draft: Partial<PersFormData>, options: ReadyPresetOptions, targetLevel: number): number[] | undefined {
+  const selected = draft.initialPreparedSpellIds;
+  if (!selected) return undefined;
+  const scores = buildPresetAbilityScores(draft, options.abilitySources);
+  const limit = options.spells.usesSpellbook ? findInitialWizardPreparedLimit(scores.INT) : findInitialListPreparedLimit(options.className, scores);
+  const prepared = selected.slice(0, limit);
+  return targetLevel > 1 && options.spells.usesSpellbook && !prepared.length ? draft.classSpells?.spellbookIds.slice(0, limit) ?? [] : prepared;
 }
 
 export function isSavedPresetCompatible(draft: Partial<PersFormData>, expected: PersFormData): boolean {

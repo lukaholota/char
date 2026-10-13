@@ -43,3 +43,15 @@ export function listSkillPickOptions(group: SkillPickGroup, sources: ReadyPreset
   if (group === "subclass") return sources.subclassOptions;
   return SkillsEnum;
 }
+
+export function buildReconciledSkillPatch(draft: Partial<PersFormData>, sources: ReadyPresetSkillSources): Partial<PersFormData> {
+  const schema = draft.skillsSchema!;
+  const reconciled = buildReadyPresetSkillChoices(schema.basicChoices, sources);
+  return { skills: reconciled.skills, skillsSchema: { ...schema, basicChoices: reconciled.choices },
+    ...(draft.backgroundCustomization ? { backgroundCustomization: { ...draft.backgroundCustomization, skills: reconciled.choices.background } } : {}) };
+}
+
+export function listTakenSkillPicks(group: SkillPickGroup, choices: SkillChoices, sources: ReadyPresetSkillSources): Set<Skill> {
+  const otherPicks = Object.entries(choices).filter(([other]) => other !== group && other !== "background").flatMap(([, skills]) => skills ?? []);
+  return new Set<Skill>([...sources.fixedRace, ...sources.fixedSubclass, ...otherPicks]);
+}

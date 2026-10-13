@@ -62,7 +62,7 @@ describe.skipIf(!existsSync("data/rpgbot/ready-builds/monk-shadow-2014.json"))("
     const preset = await renderPreset();
     act(() => preset.result.current.goToStep(3));
     await act(async () => { await preset.result.current.confirmCreation(); });
-    expect(findEvents("rpgbot_preset_create_failed")).toEqual([{ preset_id: "build-monk-shadow-2014", reason: "validation" }]);
+    expect(findEvents("rpgbot_preset_create_failed")).toEqual([{ preset_id: "build-monk-shadow-2014", reason: "validation", blocked_by: "Вкажіть імʼя персонажа." }]);
     expect(findEvents("rpgbot_preset_submitted")).toEqual([]);
   });
 

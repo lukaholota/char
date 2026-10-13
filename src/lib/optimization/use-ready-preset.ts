@@ -9,7 +9,7 @@ import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import { findCustomizedPresetSections, findPresetAbandonStage } from "@/lib/monitoring/rpgbot-analytics-model";
 import { buildDetailsSchema } from "./schema";
 import { countRemainingBuildPoints } from "./build-draft";
-import { isSavedPresetCompatible, isSavedPresetValid } from "./ready-preset-validation";
+import { findSavedPresetProblem, isSavedPresetCompatible, isSavedPresetValid } from "./ready-preset-validation";
 import type { ReadyPresetOptions } from "./ready-preset-options";
 import { removeAssemblyDraft } from "./ready-preset-assembly-draft";
 import { forgetUnfinishedPreset } from "./unfinished-preset";
@@ -39,16 +39,16 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
   const isFinished = useRef(false);
   const isSignInOpen = useRef(false);
   const customizationStep = useRef<string | null>(null);
-  const latest = useRef({ formData, currentStep, initialized, buildId, startingDraft, assembly });
-  latest.current = { formData, currentStep, initialized, buildId, startingDraft, assembly };
+  const latest = useRef({ formData, currentStep, initialized, buildId, startingDraft, assembly, options });
+  latest.current = { formData, currentStep, initialized, buildId, startingDraft, assembly, options };
   useEffect(() => { openedAt.current = performance.now(); }, []);
   useEffect(() => {
     const reportAbandoned = () => {
-      const { formData: current, currentStep: step, initialized: wasReady, buildId: preset_id, startingDraft: start, assembly: levels } = latest.current;
+      const { formData: current, currentStep: step, initialized: wasReady, buildId: preset_id, startingDraft: start, assembly: levels, options: presetOptions } = latest.current;
       if (isFinished.current || !wasReady || isSignInOpen.current) return;
       isFinished.current = true;
       const stage = findPresetAbandonStage(step, pending.current, customizationStep.current);
-      captureRpgbotEvent("rpgbot_preset_abandoned", { preset_id, stage, ...describePresetProgress(start, current, levels, openedAt.current) });
+      captureRpgbotEvent("rpgbot_preset_abandoned", { preset_id, stage, blocked_by: findSavedPresetProblem(current, start, presetOptions), ...describePresetProgress(start, current, levels, openedAt.current) });
     };
     window.addEventListener("pagehide", reportAbandoned);
     return () => { window.removeEventListener("pagehide", reportAbandoned); reportAbandoned(); };
@@ -98,7 +98,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
     const input = fullCharacterSchema.safeParse(formData);
     const scores = buildDetailsSchema.shape.abilityScores.safeParse(formData.asi);
     if (!input.success || !scores.success || countRemainingBuildPoints(scores.data) < 0 || !input.data.name.trim() || !isSavedPresetValid(input.data, startingDraft, options) || choiceProblem) {
-      captureRpgbotEvent("rpgbot_preset_create_failed", { preset_id: buildId, reason: "validation" });
+      captureRpgbotEvent("rpgbot_preset_create_failed", { preset_id: buildId, reason: "validation", blocked_by: choiceProblem ?? findSavedPresetProblem(formData, startingDraft, options) ?? "Вкажіть імʼя персонажа." });
       setError(choiceProblem ?? "Перевірте вибори персонажа й введіть імʼя."); return;
     }
     pending.current = true;

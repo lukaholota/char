@@ -29,6 +29,7 @@ interface Props {
   backgroundFeat?: Feat | undefined;
   existingLanguages?: string[];
   forcedLanguagesToChooseCount?: number;
+  choosableLanguages?: readonly string[];
   /** Редакція кроку Origin. Майстер підвищення рівня її не передає — там мови дає фіча, а не походження. */
   originRuleset?: RulesetId;
   isOptional?: boolean;
@@ -48,6 +49,7 @@ export const LanguagesForm = ({
   backgroundFeat,
   existingLanguages,
   forcedLanguagesToChooseCount,
+  choosableLanguages,
   originRuleset = "RULES_2014",
   isOptional = false,
   formId,
@@ -129,11 +131,18 @@ export const LanguagesForm = ({
     }
   };
 
-  const availableLanguages = listChoosableLanguages(
+  const availableLanguages = choosableLanguages ?? listChoosableLanguages(
     originRuleset,
     Object.keys(LanguageTranslations),
     fixedLanguages
   );
+
+  const availableKey = availableLanguages.join();
+  useEffect(() => {
+    const current = form.getValues("languages") ?? [];
+    const visible = current.filter((lang) => availableKey.split(",").includes(lang)).slice(0, languagesToChooseCount);
+    if (visible.length !== current.length) form.setValue("languages", visible);
+  }, [availableKey, languagesToChooseCount, form]);
 
   if (languagesToChooseCount === 0) {
       // Should not happen if step is shown, but safety first

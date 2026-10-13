@@ -1,10 +1,11 @@
 import type { CreatorContent } from "@/server/db/creator-content-query";
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
-import { Language } from "@/lib/prisma-enums";
+import { LanguageTranslations } from "@/lib/refs/translation";
 import { countOriginLanguageChoices, listChoosableLanguages } from "@/rules/languages";
 import { countBackgroundLanguageChoices } from "@/rules/background-customization";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { buildEquipmentLines } from "@/lib/components/characterCreator/equipment-choices";
+import { countAnyWeaponPicks, listAnyWeaponChoices } from "@/lib/components/characterCreator/any-weapon-picks";
 import { getAllSpells } from "@/lib/spellsData";
 import { buildPresetSpellOptions } from "./ready-preset-spells";
 import { buildPresetAbilitySources } from "./ready-preset-abilities";
@@ -45,7 +46,7 @@ export function buildReadyPresetOptions(draft: Partial<PersFormData>, content: C
     expertiseCount: characterClass.features.reduce((count, entry) => count + readExpertiseCount(entry.feature.skillExpertises), 0) + chosenOptionEffects.expertise,
     languageCount: countOriginLanguageChoices("RULES_2014", [race.languagesToChooseCount, subrace?.languagesToChooseCount, characterClass.languagesToChooseCount, countBackgroundLanguages(background, draft)],
       [...listFirstLevelFeatureLanguageCounts(characterClass, chosenSubclass), chosenOptionEffects.languages]),
-    knownLanguages, languages: listChoosableLanguages("RULES_2014", Object.values(Language), knownLanguages),
+    knownLanguages, languages: listChoosableLanguages("RULES_2014", Object.keys(LanguageTranslations), knownLanguages),
     equipmentGroups: buildEquipmentGroups(characterClass.startingEquipmentOption, content.weapons),
     spells: buildPresetSpellOptions(characterClass.name, { race: race.name, subrace: subrace?.name ?? null, chosenRaceOptionNames: findChosenRaceOptionNames(race, draft) }, getAllSpells("RULES_2014").map((spell) => ({
       spellId: spell.spellId, name: spell.name, engName: spell.engName, level: spell.level, school: spell.school,
@@ -91,16 +92,12 @@ function buildEquipmentGroups(rows: EquipmentRows, weapons: CreatorContent["weap
   });
 }
 
-function isMeleeOnlyChoice(row: EquipmentRows[number]): boolean {
-  return /рукопашн/i.test(row.description ?? "");
-}
-
 function buildEquipmentChoice(rows: EquipmentRows, weapons: CreatorContent["weapons"]): ReadyEquipmentChoice {
   const anyWeapon = rows.find((row) => row.chooseAnyWeapon);
   return {
     option: rows[0].option, optionIds: rows.map((row) => row.optionId),
     label: buildEquipmentLines(rows).belongings.map((line) => line.text).join(", "),
-    weaponCount: anyWeapon?.weaponCount ?? 0,
-    weapons: anyWeapon ? weapons.filter((weapon) => weapon.weaponType === anyWeapon.weaponType && !(isMeleeOnlyChoice(anyWeapon) && weapon.isRanged)).map((weapon) => ({ id: weapon.weaponId, name: weapon.name, label: translateValue(weapon.name) })) : [],
+    weaponCount: anyWeapon ? countAnyWeaponPicks(anyWeapon) : 0,
+    weapons: anyWeapon ? listAnyWeaponChoices(anyWeapon, weapons).map((weapon) => ({ id: weapon.weaponId, name: weapon.name, label: translateValue(weapon.name) })) : [],
   };
 }

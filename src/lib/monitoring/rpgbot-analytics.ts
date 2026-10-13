@@ -46,8 +46,8 @@ export type RpgbotEventProperties = {
   rpgbot_preset_level_selected: { preset_id: string; level: number; from_level: number; placement: "preset_page" | "suggestion_dialog" };
   rpgbot_preset_submitted: PresetOutcome;
   rpgbot_preset_created: PresetOutcome & { pers_id?: number };
-  rpgbot_preset_create_failed: { preset_id: string; reason: "validation" | PresetFailureReason };
-  rpgbot_preset_abandoned: { preset_id: string; stage: PresetAbandonStage; customized_sections: string[]; seconds_since_open: number };
+  rpgbot_preset_create_failed: { preset_id: string; reason: "validation" | PresetFailureReason; blocked_by?: string | null };
+  rpgbot_preset_abandoned: { preset_id: string; stage: PresetAbandonStage; blocked_by: string | null; customized_sections: string[]; seconds_since_open: number };
   rpgbot_build_selected: { build_id: string };
   rpgbot_build_assembled: { build_id: string; is_customized: boolean };
   rpgbot_spell_recommendations_toggled: { enabled: boolean; class_key: string };

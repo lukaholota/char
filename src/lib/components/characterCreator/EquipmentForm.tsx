@@ -11,7 +11,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { WeaponKindType } from "@/lib/types/enums";
 import { weaponTranslations, weaponTranslationsEng } from "@/lib/refs/translation";
 import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { EquipmentOptionCard } from "@/lib/components/characterCreator/EquipmentOptionCard";
@@ -22,7 +21,6 @@ import {
   buildDefaultSelection,
   buildEquipmentLines,
   buildItemLines,
-  findDefaultLetterRows,
   formatVariantTitle,
   type EquipmentCatalogItem,
   type EquipmentLine,
@@ -30,6 +28,7 @@ import {
 } from "@/lib/components/characterCreator/equipment-choices";
 import { findBackgroundStartingItems, hasGoldAlternative, GOLD_ITEM_NAME } from "@/rules/background-equipment";
 import { useEquipmentDraftSync } from "./use-equipment-draft-sync";
+import { countAnyWeaponPicks, keepAllowedWeaponPicks, listAnyWeaponChoices } from "./any-weapon-picks";
 
 interface Props {
   initialSelection?: PersFormData["equipmentSchema"]
@@ -43,11 +42,6 @@ interface Props {
 
 const findAnyWeaponRow = <T extends { chooseAnyWeapon: boolean }>(rows: T[]) =>
   rows.find(row => row.chooseAnyWeapon);
-
-const constToCamel: Record<string, WeaponKindType> = {
-  SIMPLE_WEAPON: "meleeSimple", 
-  MARTIAL_WEAPON: "meleeMartial",  
-}
 
 export const EquipmentForm = ({selectedClass, background, weapons, formId, onNextDisabledChange, initialSelection}: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
@@ -85,31 +79,8 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
 
   const hasClassEquipmentChoices = Object.keys(choiceGroupsGrouped).length > 0;
 
-  const meleeSimple = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  const meleeMartial = useMemo(() => weapons.filter(w => !w.isRanged && w.weaponType === WeaponType.MARTIAL_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  
-  const rangedSimple = useMemo(() => weapons.filter(w => w.isRanged && w.weaponType === WeaponType.SIMPLE_WEAPON).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  const rangedMartial= useMemo(() => weapons.filter(w => w.isRanged && (w.weaponType === WeaponType.MARTIAL_WEAPON || (w.weaponType === WeaponType.FIREARMS && !w.isAdditional))).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  const firearmsAdditional = useMemo(() => weapons.filter(w => w.isRanged && w.isAdditional).sort((a, b) => a.sortOrder - b.sortOrder), [weapons]);
-  const weaponsByKind = useMemo(() => ({
-    'meleeSimple': meleeSimple,
-    'meleeMartial': meleeMartial,
-    'rangedSimple': rangedSimple,
-    'rangedMartial': rangedMartial,
-    'firearmsAdditional': firearmsAdditional
-  }), 
-  [meleeSimple, meleeMartial, rangedSimple, rangedMartial, firearmsAdditional])
-
-  const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
-  const [weaponDialogIsMartial, setWeaponDialogIsMartial] = useState(false);
-  const [weaponDialogGroup, setWeaponDialogGroup] = useState<string | null>(null);
-  const [weaponDialogIndex, setWeaponDialogIndex] = useState<number>(0);
-  const [weaponFilter, setWeaponFilter] = useState<WeaponKindType | undefined>(() => {
-    const weaponType = (choiceGroups ?? []).find(g => g.chooseAnyWeapon)?.weaponType;
-    return weaponType 
-      ? constToCamel[weaponType]
-      : undefined;
-  });
+  const [weaponDialog, setWeaponDialog] = useState<{ group: string; row: StartingEquipmentOptionLike; index: number } | null>(null);
+  const [weaponRange, setWeaponRange] = useState<"melee" | "ranged">("melee");
   const [selectedWeaponId, setSelectedWeaponId] = useState<number | null>(null);
 
   const [packInfoOpen, setPackInfoOpen] = useState(false);
@@ -118,56 +89,38 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
   const [packInfoItems, setPackInfoItems] = useState<Array<{ name: string; quantity: number }>>([]);
   const [catalogItem, setCatalogItem] = useState<EquipmentCatalogItem | null>(null);
 
-  const buildWeaponIds = useCallback((weaponCount: number, existing: number[] = []): number[] => {
-    if (!weaponFilter) return [];
-    const list = weaponsByKind[weaponFilter];
-    const fallback = list[0]?.weaponId ?? weapons[0]?.weaponId;
-    return Array.from({ length: weaponCount }, (_, idx) => existing[idx] ?? list[idx]?.weaponId ?? fallback)
-      .filter((id): id is number => typeof id === 'number');
-  }, [weaponFilter, weaponsByKind, weapons]);
+  const syncWeaponPicks = useCallback((selection: Record<string, number[]>) => {
+    const picks = (form.getValues('anyWeaponSelection') ?? {}) as Record<string, number[]>;
+    const kept = keepAllowedWeaponPicks(choiceGroups ?? [], selection, picks, weapons);
+    if (JSON.stringify(kept) !== JSON.stringify(picks)) form.setValue('anyWeaponSelection', kept, { shouldDirty: true });
+  }, [form, choiceGroups, weapons]);
 
   const chooseOption = (optionGroup: StartingEquipmentOptionLike[]) => {
     const choiceGroup = optionGroup[0].choiceGroup
-
     form.setValue(`choiceGroupToId.${choiceGroup}`, optionGroup.map(g => g.optionId), { shouldDirty: true });
-
-    if (weaponFilter) {
-      const weaponCount = findAnyWeaponRow(optionGroup)?.weaponCount ?? 1;
-      const existing = (form.getValues(`anyWeaponSelection.${choiceGroup}`) as number[] | undefined) ?? [];
-      form.setValue(`anyWeaponSelection.${choiceGroup}`, buildWeaponIds(weaponCount, existing), { shouldDirty: true });
-    }
+    syncWeaponPicks(form.getValues('choiceGroupToId') ?? {});
   }
 
-  const openWeaponDialog = (choiceGroup: string, isMartial: boolean, weaponIndex: number) => {
-    if (!weaponFilter) return;
-    setWeaponDialogIndex(weaponIndex);
-    setWeaponDialogGroup(choiceGroup);
-    const currentWeapons = (form.getValues(`anyWeaponSelection.${choiceGroup}`) as number[] | undefined) ?? [];
-    const fallback = weaponsByKind[weaponFilter][weaponIndex]?.weaponId ?? weaponsByKind[weaponFilter][0]?.weaponId ?? null;
-    setSelectedWeaponId(currentWeapons[weaponIndex] ?? fallback);
-    setWeaponDialogOpen(true);
-    setWeaponDialogIsMartial(isMartial);
+  const openWeaponDialog = (choiceGroup: string, row: StartingEquipmentOptionLike, weaponIndex: number) => {
+    const current = ((form.getValues(`anyWeaponSelection.${choiceGroup}`) as number[] | undefined) ?? [])[weaponIndex];
+    const allowed = listAnyWeaponChoices(row, weapons);
+    const selected = allowed.find((weapon) => weapon.weaponId === current) ?? allowed[0];
+    setWeaponRange(selected?.isRanged ? "ranged" : "melee");
+    setSelectedWeaponId(selected?.weaponId ?? null);
+    setWeaponDialog({ group: choiceGroup, row, index: weaponIndex });
   }
 
   const saveWeaponSelection = () => {
-    if (!weaponDialogGroup || selectedWeaponId == null) {
-      setWeaponDialogOpen(false);
+    if (!weaponDialog || selectedWeaponId == null) {
+      setWeaponDialog(null);
       return;
     }
-    const currentWeapons = (form.getValues(`anyWeaponSelection.${weaponDialogGroup}`) as number[] | undefined) ?? [];
+    const currentWeapons = (form.getValues(`anyWeaponSelection.${weaponDialog.group}`) as number[] | undefined) ?? [];
     const updatedWeapons = [...currentWeapons];
-    updatedWeapons[weaponDialogIndex] = selectedWeaponId;
-    form.setValue(`anyWeaponSelection.${weaponDialogGroup}`, updatedWeapons, { shouldDirty: true });
-    setWeaponDialogOpen(false);
+    updatedWeapons[weaponDialog.index] = selectedWeaponId;
+    form.setValue(`anyWeaponSelection.${weaponDialog.group}`, updatedWeapons, { shouldDirty: true });
+    setWeaponDialog(null);
   }
-
-  useEffect(() => {
-    if (!weaponFilter) return;
-    const list = weaponsByKind[weaponFilter]
-    if (selectedWeaponId != null && list?.some(w => w.weaponId === selectedWeaponId)) return;
-    const fallback = list[0]?.weaponId ?? weapons[0]?.weaponId ?? null;
-    setSelectedWeaponId(fallback);
-  }, [weaponFilter, weaponsByKind, selectedWeaponId, weapons]);
 
   useEffect(() => {
     form.register("choiceGroupToId");
@@ -197,27 +150,26 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
     if (!hasClassEquipmentChoices) return
 
     const current = form.getValues('choiceGroupToId')
-    if (current && Object.keys(current).length > 0) return
+    if (current && Object.keys(current).length > 0) return syncWeaponPicks(current)
 
-    const initialAnyWeaponSelection: Record<string, number[]> = {}
-    Object.entries(choiceGroupsGrouped).forEach(([choiceGroup, choiceGroupToOptionGroup]) => {
-      const anyWeaponRow = findAnyWeaponRow(findDefaultLetterRows(choiceGroupToOptionGroup))
-      if (!anyWeaponRow) return
-      initialAnyWeaponSelection[choiceGroup] = buildWeaponIds(anyWeaponRow.weaponCount ?? 1)
-    })
-
-    form.setValue('choiceGroupToId', buildDefaultSelection(choiceGroupsGrouped), { shouldDirty: false })
-    form.setValue('anyWeaponSelection', initialAnyWeaponSelection, { shouldDirty: false })
+    const selection = buildDefaultSelection(choiceGroupsGrouped)
+    form.setValue('choiceGroupToId', selection, { shouldDirty: false })
+    form.setValue('anyWeaponSelection', keepAllowedWeaponPicks(choiceGroups ?? [], selection, {}, weapons), { shouldDirty: false })
     onNextDisabledChange?.(false)
-  }, [choiceGroupsGrouped, hasClassEquipmentChoices, form, buildWeaponIds, onNextDisabledChange])
+  }, [choiceGroupsGrouped, choiceGroups, hasClassEquipmentChoices, form, weapons, syncWeaponPicks, onNextDisabledChange])
 
 
   const renderWeaponDialog = () => {
-    if (!weaponFilter) return;
-    const isMartial = weaponDialogIsMartial;
-    const list = weaponsByKind[weaponFilter];
+    const allowed = weaponDialog ? listAnyWeaponChoices(weaponDialog.row, weapons) : [];
+    const hasBothRanges = allowed.some((weapon) => weapon.isRanged) && allowed.some((weapon) => !weapon.isRanged);
+    const list = hasBothRanges ? allowed.filter((weapon) => weapon.isRanged === (weaponRange === "ranged")) : allowed;
+    const isMartial = weaponDialog?.row.weaponType === WeaponType.MARTIAL_WEAPON;
+    const chooseRange = (range: "melee" | "ranged") => {
+      setWeaponRange(range);
+      setSelectedWeaponId(allowed.find((weapon) => weapon.isRanged === (range === "ranged"))?.weaponId ?? null);
+    };
     return (
-      <Dialog open={weaponDialogOpen} onOpenChange={setWeaponDialogOpen}>
+      <Dialog open={!!weaponDialog} onOpenChange={(open) => { if (!open) setWeaponDialog(null); }}>
         <DialogContent className="sm:max-w-[520px]">
           <DialogHeader>
             <DialogTitle className="text-white">Оберіть {isMartial && 'бойову'} зброю</DialogTitle>
@@ -226,18 +178,18 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
             </DialogDescription>
           </DialogHeader>
 
-          <Tabs value={weaponFilter} onValueChange={(val: string) => setWeaponFilter(val as WeaponKindType)}>
-            <TabsList className="grid grid-cols-2 bg-white/5">
-              <TabsTrigger value={isMartial ? 'meleeMartial' : 'meleeSimple'} className="data-[state=active]:bg-white/7 data-[state=active]:text-white">
-                Ближній бій
-              </TabsTrigger>
-              <TabsTrigger value={isMartial ? 'rangedMartial' : 'rangedSimple'} className="data-[state=active]:bg-white/7 data-[state=active]:text-white">
-                Дальній бій
-              </TabsTrigger>
-            </TabsList>
-            {/* <TabsContent value={isMartial ? 'meleeMartial' : 'meleeSimple'} />
-            <TabsContent value={isMartial ? 'rangedMartial' : 'rangedSimple'} /> */} {/* No need for content, we just filter the list above based on selected tab */}
-          </Tabs>
+          {hasBothRanges ? (
+            <Tabs value={weaponRange} onValueChange={(val: string) => chooseRange(val as "melee" | "ranged")}>
+              <TabsList className="grid grid-cols-2 bg-white/5">
+                <TabsTrigger value="melee" className="data-[state=active]:bg-white/7 data-[state=active]:text-white">
+                  Ближній бій
+                </TabsTrigger>
+                <TabsTrigger value="ranged" className="data-[state=active]:bg-white/7 data-[state=active]:text-white">
+                  Дальній бій
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+          ) : null}
 
           <div className="space-y-2">
             <label className="text-sm text-slate-200">{isMartial ? 'Бойова ' : 'Проста '}Зброя</label>
@@ -273,14 +225,14 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
 
   const renderWeaponPicks = (choiceGroup: string, anyWeaponRow: StartingEquipmentOptionLike) => {
     const selected = anyWeaponSelection?.[choiceGroup] ?? [];
-    const weaponNames = Array.from({ length: anyWeaponRow.weaponCount || 1 }, (_, index) =>
+    const weaponNames = Array.from({ length: countAnyWeaponPicks(anyWeaponRow) }, (_, index) =>
       weaponTranslations[weaponNameById(selected[index])?.name ?? ''] ?? 'Не обрано');
 
     return (
       <EquipmentWeaponPicks
         weaponNames={weaponNames}
         onPick={(weaponIndex) =>
-          openWeaponDialog(choiceGroup, anyWeaponRow.weaponType === WeaponType.MARTIAL_WEAPON, weaponIndex)}
+          openWeaponDialog(choiceGroup, anyWeaponRow, weaponIndex)}
       />
     );
   };

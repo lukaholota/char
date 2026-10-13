@@ -2,11 +2,8 @@
 
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import type { ReadyPresetPageData } from "@/lib/optimization/ready-preset.server";
-import type { PresetSpellGroup, ReadyPresetSpellOptions } from "@/lib/optimization/ready-preset-spells";
-import { isSpellChoiceCandidate, type SpellChoiceFilter } from "@/rules/spell-choice-filter";
-import { buildFeatSpellFilter, type FeatSpellPickRule } from "@/rules/feat-spell-choices";
-import { findCommonSpellLists2014, listFeatSpellFilters2014 } from "@/rules/feat-spells-2014";
-import { buildFeatSpellsForList, listPresetPreparedPool } from "@/lib/optimization/ready-preset-spells";
+import { findCommonSpellLists2014 } from "@/rules/feat-spells-2014";
+import { buildFeatSpellsForList, buildPresetSpellChoicePatch, buildPresetSpellGroups, isPresetSpellLevelOpen, listPresetPreparedPool, listPresetSpellGroupCandidates, type PresetSpellGroupState } from "@/lib/optimization/ready-preset-spells";
 import { PresetOptionPicker } from "./PresetOptionPicker";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { PresetSpellPicker } from "./PresetSpellPicker";
@@ -15,8 +12,6 @@ import { findInitialListPreparedLimit, findInitialWizardPreparedLimit } from "@/
 import { buildPresetAbilityScores } from "@/lib/optimization/ready-preset-abilities";
 
 type SpellProps = { data: Pick<ReadyPresetPageData, "preset" | "recipe" | "options" | "draft">; draft: Partial<PersFormData>; update: (changes: Partial<PersFormData>) => void };
-type SpellField = "cantripIds" | "preparedIds" | "spellbookIds" | "raceSpellIds" | "classOptionSpellIds" | "featSpellIds";
-type SpellGroup = { id: PresetSpellGroup; field: SpellField; label: string; selected: number[]; filters: SpellChoiceFilter[] };
 
 const LIST_PREPARATION_NOTE = "Цей клас готує заклинання зі свого списку. У конструкторі їх не обирають: підготовлені заклинання ви виберете на листі персонажа.";
 
@@ -24,17 +19,12 @@ export function ReadyPresetSpells({ data, draft, update, hidePreparedEditor = fa
   const preset = data.preset.spells;
   if (!preset) return null;
   const options = data.options.spells;
-  const groups = buildSpellGroups(options, draft);
+  const groups = buildPresetSpellGroups(options, draft);
   const taken = groups.flatMap((group) => group.selected);
   const platformGroups = preset.platformChoices ?? [];
   const hasListPreparation = options.preparation === "list" && preset.preparedSpellKeys.length === 0;
   const hasPreparedEditor = !hidePreparedEditor && (options.usesSpellbook || (options.preparation === "list" && !hasListPreparation));
-  function chooseSpells(group: SpellGroup, ids: number[]) {
-    if (group.field === "featSpellIds") update({ featSpellSelections: { ...draft.featSpellSelections, CLASS_ASI: ids } });
-    else if (group.field === "raceSpellIds" || group.field === "classOptionSpellIds") update({ [group.field]: ids });
-    else update({ classSpells: { ...draft.classSpells!, [group.field]: ids }, ...(group.field === "spellbookIds" ? { initialPreparedSpellIds: draft.initialPreparedSpellIds?.filter((id) => ids.includes(id)) } : {}) });
-  }
-  const defaults = buildSpellGroups(options, data.draft);
+  const defaults = buildPresetSpellGroups(options, data.draft);
   return <section className="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
     <h3 className="text-lg text-white">Заклинання</h3>
     <p className="mt-2 text-sm leading-relaxed text-slate-400">{preset.explanation}</p>
@@ -42,27 +32,13 @@ export function ReadyPresetSpells({ data, draft, update, hidePreparedEditor = fa
     <FeatSpellSummary data={data} draft={draft} update={update} taken={taken} />
     <div className="mt-4 space-y-8">{groups.filter((group) => defaults.find((entry) => entry.id === group.id)!.selected.length).map((group) => {
       const original = defaults.find((entry) => entry.id === group.id)!;
-      const selectedSpells = options.candidates.filter((spell) => group.selected.includes(spell.spellId));
-      const candidates = options.candidates.filter((spell) => group.filters.some((filter) => isSpellChoiceCandidate(filter, spell)) && (group.selected.includes(spell.spellId) || !taken.includes(spell.spellId)) && (group.id !== "featSpells" || !options.featChoice?.rule.sharedSpellLists || findCommonSpellLists2014(options.featChoice.rule, [...selectedSpells, spell]).length > 0));
+      const candidates = listPresetSpellGroupCandidates(options, group, taken);
       return <div key={group.id}><SpellGroupOrigin isPlatformChoice={platformGroups.includes(group.id)} /><PresetSpellPicker label={group.label} spells={candidates} selectedIds={group.selected}
-        limit={original.selected.length} isSelectable={(spell) => selectedSpells.filter((entry) => entry.level === spell.level).length < options.candidates.filter((entry) => original.selected.includes(entry.spellId) && entry.level === spell.level).length} onChange={(ids) => chooseSpells(group, ids)} /></div>;
+        limit={original.selected.length} isSelectable={(spell) => isPresetSpellLevelOpen(options, group, original, spell.level)} onChange={(ids) => update(buildPresetSpellChoicePatch(draft, group, ids))} /></div>;
     })}</div>
     {hasPreparedEditor ? <PreparedSpellEditor data={data} draft={draft} update={update} isPlatformChoice={platformGroups.includes("preparedSpells")} /> : null}
     <BuildSource text="Стартові замовляння й заклинання автора." refs={[{ ...data.recipe.sourceRefs[0], sectionId: preset.sectionId }]} ruleset="RULES_2014" />
   </section>;
-}
-
-function buildSpellGroups(options: ReadyPresetSpellOptions, draft: Partial<PersFormData>): SpellGroup[] {
-  const classFilters = (filter: SpellChoiceFilter | undefined) => filter ? [filter] : [];
-  const pickFilters = (picks: FeatSpellPickRule[] | undefined) => (picks ?? []).map(buildFeatSpellFilter);
-  return [
-    { id: "classCantrips", field: "cantripIds", label: "Замовляння класу", selected: draft.classSpells?.cantripIds ?? [], filters: classFilters(options.filters?.cantrips) },
-    { id: "knownSpells", field: "preparedIds", label: "Відомі заклинання", selected: draft.classSpells?.preparedIds ?? [], filters: classFilters(options.filters?.spells) },
-    { id: "spellbook", field: "spellbookIds", label: "Заклинання книги", selected: draft.classSpells?.spellbookIds ?? [], filters: classFilters(options.filters?.spells) },
-    { id: "raceSpells", field: "raceSpellIds", label: options.raceChoice?.label ?? "Расові заклинання", selected: draft.raceSpellIds ?? [], filters: pickFilters(options.raceChoice?.rule.picks) },
-    { id: "classOptionSpells", field: "classOptionSpellIds", label: options.classOptionChoice?.label ?? "Заклинання підкласу", selected: draft.classOptionSpellIds ?? [], filters: pickFilters(options.classOptionChoice?.rule.picks) },
-    { id: "featSpells", field: "featSpellIds", label: options.featChoice ? `Заклинання риси: ${options.featChoice.rule.label}` : "Заклинання риси", selected: draft.featSpellSelections?.CLASS_ASI ?? [], filters: options.featChoice ? listFeatSpellFilters2014(options.featChoice.rule) : [] },
-  ];
 }
 
 function FeatSpellSummary({ data, draft, update, taken }: SpellProps & { taken: number[] }) {

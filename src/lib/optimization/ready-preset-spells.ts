@@ -1,14 +1,14 @@
 import { z } from "zod";
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import type { SpellChoiceOption } from "@/rules/spell-choice-filter";
-import { isSpellChoiceCandidate } from "@/rules/spell-choice-filter";
+import { isSpellChoiceCandidate, type SpellChoiceFilter } from "@/rules/spell-choice-filter";
 import { buildClassSpellFilters2014, findCreationSpellAllowance2014, findSpellLists2014, usesSpellbook2014 } from "@/rules/class-spell-choices-2014";
 import { findClassSpellSelectionProblem } from "@/rules/class-spell-choices-2024";
 import { findSubclassFeatureSpellChoice, type ClassOptionSpellChoice } from "@/rules/class-option-spell-choices-2024";
 import { findRaceSpellChoice2014, type RaceAtCreation2014 } from "@/rules/race-spell-choices-2014";
 import { findSpellKnowledge2014 } from "@/rules/spell-knowledge-2014";
-import { buildFeatSpellFilter, findFeatSpellSelectionProblem } from "@/rules/feat-spell-choices";
-import { findFeatSpellRule2014, findFeatSpellSelectionProblem2014, listFeatSpellFilters2014, listFeatSpellListChoices2014, type FeatSpellRule2014 } from "@/rules/feat-spells-2014";
+import { buildFeatSpellFilter, findFeatSpellSelectionProblem, type FeatSpellPickRule } from "@/rules/feat-spell-choices";
+import { findCommonSpellLists2014, findFeatSpellRule2014, findFeatSpellSelectionProblem2014, listFeatSpellFilters2014, listFeatSpellListChoices2014, type FeatSpellRule2014 } from "@/rules/feat-spells-2014";
 import { spellSchoolTranslations } from "@/lib/refs/translation";
 import { buildSpellSlug } from "@/lib/spell-link";
 import { idSchema } from "./schema";
@@ -166,4 +166,39 @@ export function buildFeatSpellsForList(rule: FeatSpellRule2014, list: string, ca
     chosen.push(...options.slice(0, pick.count).map((spell) => spell.spellId));
   }
   return chosen;
+}
+
+type PresetSpellField = "cantripIds" | "preparedIds" | "spellbookIds" | "raceSpellIds" | "classOptionSpellIds" | "featSpellIds";
+export type PresetSpellGroupState = { id: PresetSpellGroup; field: PresetSpellField; label: string; selected: number[]; filters: SpellChoiceFilter[] };
+
+export function buildPresetSpellGroups(options: ReadyPresetSpellOptions, draft: Partial<PersFormData>): PresetSpellGroupState[] {
+  const classFilters = (filter: SpellChoiceFilter | undefined) => filter ? [filter] : [];
+  const pickFilters = (picks: FeatSpellPickRule[] | undefined) => (picks ?? []).map(buildFeatSpellFilter);
+  return [
+    { id: "classCantrips", field: "cantripIds", label: "Замовляння класу", selected: draft.classSpells?.cantripIds ?? [], filters: classFilters(options.filters?.cantrips) },
+    { id: "knownSpells", field: "preparedIds", label: "Відомі заклинання", selected: draft.classSpells?.preparedIds ?? [], filters: classFilters(options.filters?.spells) },
+    { id: "spellbook", field: "spellbookIds", label: "Заклинання книги", selected: draft.classSpells?.spellbookIds ?? [], filters: classFilters(options.filters?.spells) },
+    { id: "raceSpells", field: "raceSpellIds", label: options.raceChoice?.label ?? "Расові заклинання", selected: draft.raceSpellIds ?? [], filters: pickFilters(options.raceChoice?.rule.picks) },
+    { id: "classOptionSpells", field: "classOptionSpellIds", label: options.classOptionChoice?.label ?? "Заклинання підкласу", selected: draft.classOptionSpellIds ?? [], filters: pickFilters(options.classOptionChoice?.rule.picks) },
+    { id: "featSpells", field: "featSpellIds", label: options.featChoice ? `Заклинання риси: ${options.featChoice.rule.label}` : "Заклинання риси", selected: draft.featSpellSelections?.CLASS_ASI ?? [], filters: options.featChoice ? listFeatSpellFilters2014(options.featChoice.rule) : [] },
+  ];
+}
+
+export function listPresetSpellGroupCandidates(options: ReadyPresetSpellOptions, group: PresetSpellGroupState, takenSpellIds: readonly number[]): SpellChoiceOption[] {
+  const selectedSpells = options.candidates.filter((spell) => group.selected.includes(spell.spellId));
+  const sharedListRule = group.id === "featSpells" && options.featChoice?.rule.sharedSpellLists ? options.featChoice.rule : null;
+  return options.candidates.filter((spell) => group.filters.some((filter) => isSpellChoiceCandidate(filter, spell))
+    && (group.selected.includes(spell.spellId) || !takenSpellIds.includes(spell.spellId))
+    && (!sharedListRule || findCommonSpellLists2014(sharedListRule, [...selectedSpells, spell]).length > 0));
+}
+
+export function isPresetSpellLevelOpen(options: ReadyPresetSpellOptions, group: PresetSpellGroupState, original: PresetSpellGroupState, level: number): boolean {
+  const countAtLevel = (ids: readonly number[]) => options.candidates.filter((spell) => ids.includes(spell.spellId) && spell.level === level).length;
+  return countAtLevel(group.selected) < countAtLevel(original.selected);
+}
+
+export function buildPresetSpellChoicePatch(draft: Partial<PersFormData>, group: Pick<PresetSpellGroupState, "field">, ids: number[]): Partial<PersFormData> {
+  if (group.field === "featSpellIds") return { featSpellSelections: { ...draft.featSpellSelections, CLASS_ASI: ids } };
+  if (group.field === "raceSpellIds" || group.field === "classOptionSpellIds") return { [group.field]: ids };
+  return { classSpells: { ...draft.classSpells!, [group.field]: ids }, ...(group.field === "spellbookIds" ? { initialPreparedSpellIds: draft.initialPreparedSpellIds?.filter((id) => ids.includes(id)) } : {}) };
 }
