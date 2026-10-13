@@ -13,6 +13,8 @@ import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
 import { characterLevelOnly } from "@/rules/character-level";
 import { findMissingSpeciesTraits } from "@/rules/species-grants";
 import { activateLevelUpDraftStorage, usePersFormStore } from "@/lib/stores/persFormStore";
+import { GuidedLevelUpCard, useGuidedLevelUp, type GuidedLevelUpControl } from "@/lib/components/levelUp/GuidedLevelUp";
+import type { GuidedLevelUp as GuidedLevelUpOffer } from "@/lib/optimization/guided-level-up";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlainTitleCard } from "@/components/no-ai/PlainTitleCard";
@@ -254,10 +256,12 @@ type LevelUpInfo = Awaited<ReturnType<typeof getLevelUpInfo>>;
 
 interface Props {
   info: LevelUpInfo;
+  guide?: GuidedLevelUpOffer | null;
 }
 
-export default function LevelUpWizard({ info }: Props) {
+export default function LevelUpWizard({ info, guide = null }: Props) {
   activateLevelUpDraftStorage();
+  const guidedLevelUp = useGuidedLevelUp(guide);
 
   const { resetForm, formData } = usePersFormStore();
   const router = useModeRouter();
@@ -1105,6 +1109,7 @@ export default function LevelUpWizard({ info }: Props) {
       case "path":
         return (
           <PathStep
+            guidedLevelUp={guidedLevelUp}
             pers={pers}
             classes={classes as unknown as ClassI[]}
             eligibleMulticlassClasses={eligibleMulticlassClasses}
@@ -1387,7 +1392,7 @@ export default function LevelUpWizard({ info }: Props) {
       setIsSubmitting(true);
       let levelUpSaved = false;
       try {
-        const res = await levelUpCharacter(pers.persId, formData as any);
+        const res = await levelUpCharacter(pers.persId, { ...formData, expectedLevel: pers.level });
         if ("error" in res) {
           toast.error(res.error || "Помилка при збереженні");
         } else {
@@ -1835,12 +1840,14 @@ function ConfirmStep({
 }
 
 function PathStep({
+  guidedLevelUp,
   pers,
   classes,
   eligibleMulticlassClasses,
   mainClassLevel,
   onNextDisabledChange,
 }: {
+  guidedLevelUp: GuidedLevelUpControl;
   pers: any;
   classes: ClassI[];
   eligibleMulticlassClasses: ClassI[];
@@ -1995,6 +2002,7 @@ function PathStep({
 
   return (
     <div className="space-y-4">
+      <GuidedLevelUpCard control={guidedLevelUp} />
       <Card className="glass-card">
         <CardHeader>
           <CardTitle>Початок: оберіть шлях</CardTitle>

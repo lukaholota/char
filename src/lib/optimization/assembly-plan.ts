@@ -67,6 +67,13 @@ export function buildAssemblyPlan(input: AssemblyPlanInput): AssemblyPlanResult 
   return { plan: { buildId: recipe.buildId, revisionId: recipe.revisionId, ruleset: recipe.ruleset, targetLevel, steps: assembled, preparedSpellIds: input.preparedSpellKeys?.length ? preparedSpellIds : null }, issues: [] };
 }
 
+export type LiveClassContext = { ownedClassKeys: ReadonlySet<string>; subclassByClass: ReadonlyMap<string, string> };
+
+export function buildSingleAssemblyStep(step: BuildProgressionStep, catalog: AssemblyCatalog, live: LiveClassContext): { step: AssemblyStep; issues: AssemblyIssue[] } {
+  const context: PlanContext = { catalog, ownedClassKeys: new Set(live.ownedClassKeys), subclassByClass: new Map(live.subclassByClass), issues: [] };
+  return { step: buildAssemblyStep(step, {}, context), issues: context.issues };
+}
+
 export function listOpenSpellChoices(recipe: BuildRecipe, targetLevel: number) {
   return listExecutableSteps(recipe)
     .filter((step) => step.characterLevel <= targetLevel)

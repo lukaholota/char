@@ -1,0 +1,131 @@
+import { readdirSync, readFileSync } from "node:fs";
+import { describe, expect, it } from "vitest";
+import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
+import { getAllSpells } from "@/lib/spellsData";
+import { buildAssemblyCatalog } from "./assembly-catalog";
+import { listExecutableSteps } from "./build-executable-levels";
+import { planGuidedLevelUp, type GuidedPersState } from "./guided-level-up";
+import { buildRecipeSchema } from "./schema";
+import type { BuildRecipe } from "./types";
+
+const catalog = buildAssemblyCatalog(findCharacterCreatorOptions("RULES_2014"), getAllSpells("RULES_2014").map((spell) => ({ spellId: spell.spellId, engName: spell.engName })));
+
+function readRecipe(buildId: string): BuildRecipe {
+  return buildRecipeSchema.parse(JSON.parse(readFileSync(`data/rpgbot/builds/${buildId}.json`, "utf8")));
+}
+
+function buildModelState(recipe: BuildRecipe, level: number, overrides: Partial<GuidedPersState> = {}): GuidedPersState {
+  const classes = new Map([[recipe.startingClassKey, { classKey: recipe.startingClassKey, classLevel: 1, subclassKey: recipe.progression[0]?.subclassKey ?? null }]]);
+  for (const step of listExecutableSteps(recipe).filter((candidate) => candidate.characterLevel <= level)) {
+    classes.set(step.classKey, { classKey: step.classKey, classLevel: step.classLevel, subclassKey: step.subclassKey ?? classes.get(step.classKey)?.subclassKey ?? null });
+  }
+  return {
+    level,
+    classes: [...classes.values()],
+    abilityScores: { STR: 15, DEX: 14, CON: 14, INT: 10, WIS: 12, CHA: 8 },
+    nonRepeatableFeatIds: [],
+    choiceOptionIds: [],
+    ...overrides,
+  };
+}
+
+function findClassId(key: string): number {
+  return catalog.classes.find((entry) => entry.key === key)!.id;
+}
+
+const barbarian = readRecipe("build-barbarian-berserker-2014");
+const sorcadin = readRecipe("build-sorcadin-clockwork-2014");
+const recipes2014 = readdirSync("data/rpgbot/builds").map((file) => readRecipe(file.replace(/\.json$/, ""))).filter((recipe) => recipe.ruleset === "RULES_2014");
+
+describe("next guided level for a character that followed the plan", () => {
+  const cases = recipes2014.flatMap((recipe) => listExecutableSteps(recipe).map((step) => [recipe.buildId, step.characterLevel, recipe, step] as const));
+
+  it.each(cases)("%s fills only level %i", (_buildId, characterLevel, recipe, step) => {
+    const plan = planGuidedLevelUp(recipe, catalog, buildModelState(recipe, characterLevel - 1));
+
+    expect(plan).toMatchObject({ status: "ready", nextLevel: characterLevel, classKey: step.classKey, classLevel: step.classLevel });
+    if (plan.status !== "ready") return;
+    expect(plan.input.classId).toBe(findClassId(step.classKey));
+    expect(plan.input.levelUpPath).toBe(plan.isMulticlassEntry ? "MULTICLASS" : "EXISTING");
+    expect(plan.skipped).toEqual([]);
+  });
+
+  it("enters the second class as a multiclass on the Sorcadin's fourth level", () => {
+    const plan = planGuidedLevelUp(sorcadin, catalog, buildModelState(sorcadin, 3));
+
+    expect(plan).toMatchObject({ status: "ready", classKey: "SORCERER_2014", classLevel: 1, isMulticlassEntry: true, input: { levelUpPath: "MULTICLASS" } });
+    expect(plan.status === "ready" && plan.input.subclassId).toBeTruthy();
+    expect(plan.status === "ready" && plan.input.classSpells?.cantripIds).toHaveLength(4);
+  });
+
+  it("names the subclass on its level and fills the ability increase on the next one", () => {
+    const subclassStep = planGuidedLevelUp(barbarian, catalog, buildModelState(barbarian, 2));
+    const asiStep = planGuidedLevelUp(barbarian, catalog, buildModelState(barbarian, 3));
+
+    expect(subclassStep.status === "ready" && subclassStep.input.subclassId).toBeTruthy();
+    expect(asiStep).toMatchObject({ status: "ready", input: { customAsi: [{ ability: "STR", value: 2 }] } });
+    expect(asiStep.status === "ready" && asiStep.input.subclassId).toBeUndefined();
+  });
+
+  it("lists the open spell pick of the step as a choice for the player", () => {
+    const plan = planGuidedLevelUp(sorcadin, catalog, buildModelState(sorcadin, 6));
+
+    expect(plan).toMatchObject({ status: "ready", open: ["Нові заклинання: оберіть 1."], skipped: [] });
+  });
+});
+
+describe("a character that drifted from the plan", () => {
+  it("skips a feat the character already has", () => {
+    const warCaster = catalog.feats.find((feat) => feat.key === "WAR_CASTER")!.id;
+    const plan = planGuidedLevelUp(sorcadin, catalog, buildModelState(sorcadin, 6, { nonRepeatableFeatIds: [warCaster] }));
+
+    expect(plan.status === "ready" && plan.input.featId).toBeUndefined();
+    expect(plan.status === "ready" && plan.skipped).toEqual(["Рису з плану персонаж уже має — оберіть іншу рису або підвищення характеристик."]);
+  });
+
+  it("skips a class option the character already has and keeps the rest", () => {
+    const metamagic = planGuidedLevelUp(sorcadin, catalog, buildModelState(sorcadin, 5));
+    if (metamagic.status !== "ready") throw new Error(metamagic.reason);
+    const [ownedId, keptId] = Object.values(metamagic.input.classChoiceSelections).flat();
+
+    const plan = planGuidedLevelUp(sorcadin, catalog, buildModelState(sorcadin, 5, { choiceOptionIds: [ownedId] }));
+
+    expect(plan.status === "ready" && Object.values(plan.input.classChoiceSelections).flat()).toEqual([keptId]);
+    expect(plan.status === "ready" && plan.skipped).toHaveLength(1);
+  });
+
+  it("leaves an ability increase over 20 to the player", () => {
+    const plan = planGuidedLevelUp(barbarian, catalog, buildModelState(barbarian, 3, { abilityScores: { STR: 20, DEX: 14, CON: 14, INT: 10, WIS: 12, CHA: 8 } }));
+
+    expect(plan).toMatchObject({ status: "ready", input: { customAsi: [] } });
+    expect(plan.status === "ready" && plan.skipped).toHaveLength(1);
+  });
+
+  it("does not resend the subclass the character already chose", () => {
+    const state = buildModelState(barbarian, 2);
+    const withSubclass = { ...state, classes: state.classes.map((entry) => ({ ...entry, subclassKey: "PATH_OF_THE_BERSERKER" })) };
+
+    const plan = planGuidedLevelUp(barbarian, catalog, withSubclass);
+
+    expect(plan.status === "ready" && plan.input.subclassId).toBeUndefined();
+  });
+
+  it("is unavailable when the class levels differ from the plan", () => {
+    const state = buildModelState(sorcadin, 4);
+    const otherOrder = { ...state, classes: [{ classKey: "PALADIN_2014", classLevel: 4, subclassKey: "OATH_OF_REDEMPTION" }] };
+
+    expect(planGuidedLevelUp(sorcadin, catalog, otherOrder)).toEqual({ status: "unavailable", reason: "Рівні класів персонажа відрізняються від плану пресета." });
+  });
+
+  it("is unavailable when the chosen subclass differs from the plan", () => {
+    const state = buildModelState(barbarian, 3);
+    const otherPath = { ...state, classes: [{ classKey: "BARBARIAN_2014", classLevel: 3, subclassKey: "PATH_OF_THE_TOTEM_WARRIOR" }] };
+
+    expect(planGuidedLevelUp(barbarian, catalog, otherPath)).toEqual({ status: "unavailable", reason: "Підклас персонажа відрізняється від плану пресета." });
+  });
+
+  it("reports the end of a shortened plan and the level cap", () => {
+    expect(planGuidedLevelUp(barbarian, catalog, buildModelState(barbarian, 5))).toEqual({ status: "unavailable", reason: "План пресета закінчився: рекомендацій для 6-го рівня немає." });
+    expect(planGuidedLevelUp(barbarian, catalog, buildModelState(barbarian, 20))).toEqual({ status: "unavailable", reason: "Персонаж уже на 20-му рівні." });
+  });
+});

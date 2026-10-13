@@ -198,6 +198,8 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
     return map;
   }, [filteredFeats, prereqLevel, prereqStats, prereqHasSpellcasting, prereqRace, prereqSubrace]);
 
+  const chosenFeat = feats.find((feat) => feat.featId === chosenFeatId);
+
   const selectFeat = (feat: Feat) => {
     if (feat.featId === chosenFeatId) return;
 
@@ -220,7 +222,7 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
         <h2 className="font-rpg-display text-3xl font-semibold uppercase tracking-widest text-slate-200 sm:text-4xl">
           Оберіть рису
         </h2>
-        <p className="text-sm text-slate-400">Додаткова риса для вашого персонажа</p>
+        <p className="text-sm text-slate-400">{chosenFeat ? <>Обрано: <span className="text-slate-200">{featTranslations[chosenFeat.name] ?? chosenFeat.name}</span></> : "Додаткова риса для вашого персонажа"}</p>
       </div>
 
       <FeatPicker

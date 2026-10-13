@@ -234,6 +234,8 @@ function collectClassesAtLevel(args: {
 
 export type LevelUpStepOutcome = { success: true; ruleset: Ruleset; level: number } | { error: string };
 
+export const STALE_LEVEL_ERROR = "Рівень персонажа вже змінився. Оновіть сторінку.";
+
 export async function executeLevelUpStep(executor: LevelUpExecutor, persId: number, data: LevelUpInput): Promise<LevelUpStepOutcome> {
     const reader = executor.reader;
     const info = await loadLevelUpStepInfo(reader, persId);
@@ -241,6 +243,7 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
 
     const { pers, classes, feats } = info;
 
+    if (data.expectedLevel !== undefined && data.expectedLevel !== pers.level) return { error: STALE_LEVEL_ERROR };
     const nextLevel = pers.level + 1;
     if (nextLevel > 20) return { error: "Max level reached" };
 
@@ -1118,7 +1121,8 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
     });
     if (catchUpSpellProblem) return { error: catchUpSpellProblem };
 
-    await executor.runWrites(async (tx) => {
+    const applied = await executor.runWrites(async (tx) => {
+      if (!(await lockUnchangedLevel(tx, persId, pers.level))) return false;
       if (executor.takesSnapshot) await createCharacterSnapshot(persId);
 
       // multiclass row update/create
@@ -1477,9 +1481,18 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
           skipDuplicates: true,
         });
       }
+      return true;
     });
+    if (!applied) return { error: STALE_LEVEL_ERROR };
 
     return { success: true, ruleset: pers.ruleset, level: nextLevel };
+}
+
+// NO KEY UPDATE, не UPDATE: знімок окремим зʼєднанням вставляє рядок із FK на цей самий pers
+// і бере KEY SHARE, який FOR UPDATE заблокував би до кінця цієї ж транзакції.
+async function lockUnchangedLevel(tx: Prisma.TransactionClient, persId: number, levelBefore: number): Promise<boolean> {
+  const rows = await tx.$queryRaw<{ level: number }[]>`SELECT level FROM pers WHERE pers_id = ${persId} FOR NO KEY UPDATE`;
+  return rows[0]?.level === levelBefore;
 }
 
 type StatColumns = { str: number; dex: number; con: number; int: number; wis: number; cha: number };

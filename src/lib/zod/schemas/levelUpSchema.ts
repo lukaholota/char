@@ -42,6 +42,7 @@ export const levelUpInputSchema = z.object({
     .optional()
     .catch(undefined),
   levelUpHpIncrease: z.number().optional().catch(undefined),
+  expectedLevel: z.coerce.number().int().optional(),
 }).passthrough();
 
 export type LevelUpInput = z.infer<typeof levelUpInputSchema>;
