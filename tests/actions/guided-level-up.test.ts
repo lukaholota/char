@@ -16,6 +16,7 @@ vi.setConfig({ testTimeout: 180_000 });
 
 /// KR49.11: підвищення «За гайдом» — це той самий `levelUpCharacter` із рішеннями наступного рівня
 /// рецепта. Персонаж, піднятий так, має збігатися з ручним проходженням тих самих рішень.
+/// Відкритий вибір гайд заповнює сам (як створення з пресета); тест міняє його на ручний вибір сценарію.
 
 const EMAIL = "guided-level-up@actions.test";
 
@@ -46,7 +47,9 @@ async function runGuidedLevelUps(persId: number, targetLevel: number, openKnownS
     if (guide?.status !== "ready") throw new Error(`Рівень ${level + 1}: ${JSON.stringify(guide)}`);
     expect(guide.skipped).toEqual([]);
     const chosenIds = await Promise.all((openKnownSpells[level + 1] ?? []).map(findSpellId));
-    const classSpells = guide.input.classSpells && { ...guide.input.classSpells, preparedIds: [...guide.input.classSpells.preparedIds, ...chosenIds] };
+    if (chosenIds.length) expect(guide.open.join(" ")).toContain("автор не називає");
+    const planned = guide.input.classSpells;
+    const classSpells = planned && chosenIds.length ? { ...planned, preparedIds: [...planned.preparedIds.slice(0, -chosenIds.length), ...chosenIds] } : planned;
     const result = await levelUpCharacter(persId, { ...guide.input, classSpells, expectedLevel: level });
     if ("error" in result) throw new Error(`Рівень ${level + 1}: ${result.error}`);
   }

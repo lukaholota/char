@@ -33,7 +33,7 @@ export function ReadyPresetSpells({ data, draft, update, hidePreparedEditor = fa
     <div className="mt-4 space-y-8">{groups.filter((group) => defaults.find((entry) => entry.id === group.id)!.selected.length).map((group) => {
       const original = defaults.find((entry) => entry.id === group.id)!;
       const candidates = listPresetSpellGroupCandidates(options, group, taken);
-      return <div key={group.id}><SpellGroupOrigin isPlatformChoice={platformGroups.includes(group.id)} /><PresetSpellPicker label={group.label} spells={candidates} selectedIds={group.selected}
+      return <div key={group.id}><SpellGroupOrigin isPlatformChoice={platformGroups.includes(group.id)} /><PresetSpellPicker label={group.label} spells={candidates} selectedIds={group.selected} ratedCaster={{ className: data.options.className }}
         limit={original.selected.length} isSelectable={(spell) => isPresetSpellLevelOpen(options, group, original, spell.level)} onChange={(ids) => update(buildPresetSpellChoicePatch(draft, group, ids))} /></div>;
     })}</div>
     {hasPreparedEditor ? <PreparedSpellEditor data={data} draft={draft} update={update} isPlatformChoice={platformGroups.includes("preparedSpells")} /> : null}
@@ -67,7 +67,7 @@ function PreparedSpellEditor({ data, draft, update, isPlatformChoice }: SpellPro
   const book = data.options.spells.usesSpellbook ? data.options.spells.candidates.filter((spell) => draft.classSpells?.spellbookIds.includes(spell.spellId)) : listPresetPreparedPool(data.options.spells);
   return <fieldset className="mt-5">
     <legend className="text-sm text-slate-300">Підготовлені заклинання · {selected.length} з {limit} <SpellGroupOrigin isPlatformChoice={isPlatformChoice} /></legend>
-    <div className="mt-4"><PresetSpellPicker label="Підготовлені заклинання" spells={book} selectedIds={selected} limit={limit} onChange={(initialPreparedSpellIds) => update({ initialPreparedSpellIds })} /></div>
+    <div className="mt-4"><PresetSpellPicker label="Підготовлені заклинання" spells={book} selectedIds={selected} limit={limit} ratedCaster={{ className: data.options.className }} onChange={(initialPreparedSpellIds) => update({ initialPreparedSpellIds })} /></div>
     {selected.length > limit ? <p role="alert" className="mt-2 text-sm text-rose-200">Приберіть зайві заклинання: характеристика класу дозволяє підготувати {limit}.</p> : null}
   </fieldset>;
 }

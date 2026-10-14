@@ -7,7 +7,7 @@ import { getClassVisual } from "@/components/characterCreator/creation-visuals";
 import { getSubclassImagePath } from "@/lib/assets/image-manifest";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
@@ -63,6 +63,8 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
     }
     onNextDisabledChange?.(false);
   }, [onNextDisabledChange, chosenSubclassId]);
+
+  useScrollToChosenOnArrival(chosenId);
 
   const allSubclasses = useMemo(() => cls.subclasses ?? [], [cls.subclasses]);
   const offersLegacy = hasLegacySubclasses(allSubclasses);
@@ -138,11 +140,31 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
   );
 };
 
+const BOTTOM_BARS_HEIGHT = 160;
+
+/// Підклас, обраний гайдом чи раніше, може стояти нижче екрана — показуємо його, щойно крок відкрився.
+function useScrollToChosenOnArrival(chosenId: number | null) {
+  const initialChosenId = useRef(chosenId);
+  useEffect(() => {
+    if (!initialChosenId.current) return;
+    // Після кадру: крок майстра спершу прокручує сторінку вгору.
+    const frame = requestAnimationFrame(() => {
+      const card = document.querySelector(`[data-subclass-id="${initialChosenId.current}"]`);
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      if (rect.top >= 0 && rect.bottom <= window.innerHeight - BOTTOM_BARS_HEIGHT) return;
+      const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+      card.scrollIntoView({ block: "center", behavior: prefersReducedMotion ? "auto" : "smooth" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
+}
+
 function SubclassCardOption({ cls, subclass, chosen, onChoose }: { cls: ClassI; subclass: SubclassI; chosen: boolean; onChoose: () => void }) {
   const visual = { ...getClassVisual(cls.name), imageSrc: getSubclassImagePath(subclass.name) };
 
   return (
-    <div className="relative">
+    <div className="relative" data-subclass-id={subclass.subclassId}>
       <CreationCard
         testId={`subclass-${subclass.name}`}
         title={translateSubclassName(subclass.name)}

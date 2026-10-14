@@ -9,6 +9,7 @@ import { NO_SPELLS } from "@/rules/class-spell-choices-2024";
 import { isSpellChoiceCandidate, type SpellChoiceFilter } from "@/rules/spell-choice-filter";
 import { findSpellKnowledge2014 } from "@/rules/spell-knowledge-2014";
 import { isListPreparedCaster2014 } from "@/rules/initial-prepared-spells-2014";
+import { isConcentrationSpell } from "@/rules/concentration";
 import { findEarnedRaceSpells2014 } from "@/rules/race-granted-spells-2014";
 import type { CreatorContent } from "@/server/db/creator-content-query";
 import { collectFeatGrants } from "@/rules/feat-grants";
@@ -26,6 +27,7 @@ import {
 import type { BuildProgressionStep, BuildRecipe, LevelDecisions } from "./types";
 
 const MAX_CLASS_LEVEL = 20;
+const YES_FLAG = "так";
 
 type SpellCatalog = { byKey: Map<string, LevelSpell>; all: (LevelSpell & { spellLists: string[] })[] };
 type OptionRef = { optionNameEng: string };
@@ -72,7 +74,7 @@ function buildListPreparationPool(classKey: string, context: BuildContext): Leve
   return context.spells.all
     .filter((spell) => !granted.has(spell.key) && isSpellChoiceCandidate(filter, { spellId: 0, level: spell.level, school: null, spellLists: spell.spellLists }))
     .sort((first, second) => first.level - second.level || first.name.localeCompare(second.name, "uk"))
-    .map(toSchoolLevelSpell)
+    .map(toPoolSpell)
     .map(withSpellScore(buildSpellScoreFinder(classKey, subclassKey)));
 }
 
@@ -105,6 +107,7 @@ function createBuildContext(recipe: BuildRecipe, content: CreatorContent, subrac
 function buildSpellCatalog(): SpellCatalog {
   const all = getAllSpells("RULES_2014").map((spell) => ({
     key: buildSpellSlug(spell.engName), spellId: spell.spellId, name: spell.name, engName: spell.engName, level: spell.level, school: findSchoolKey(spell.school) ?? undefined, spellLists: spell.spellClasses.map((entry) => entry.className),
+    castingTime: spell.castingTime, isRitual: spell.hasRitual === YES_FLAG, isConcentration: isConcentrationSpell(spell.hasConcentration),
   }));
   return { all, byKey: new Map(all.map((spell) => [spell.key, toLevelSpell(spell)])) };
 }
@@ -113,8 +116,8 @@ function toLevelSpell({ key, spellId, name, engName, level }: LevelSpell): Level
   return { key, spellId, name, engName, level };
 }
 
-function toSchoolLevelSpell({ key, spellId, name, engName, level, school }: LevelSpell): LevelSpell {
-  return { key, spellId, name, engName, level, school };
+function toPoolSpell({ key, spellId, name, engName, level, school, castingTime, isRitual, isConcentration }: LevelSpell): LevelSpell {
+  return { key, spellId, name, engName, level, school, castingTime, isRitual, isConcentration };
 }
 
 function withSpellScore(findScore: (spellEngName: string) => number | undefined) {
@@ -285,7 +288,7 @@ function registerSpellPool(step: BuildProgressionStep, category: OpenPickCategor
     context.spellPools[poolId] = context.spells.all
       .filter((spell) => !granted.has(spell.key) && isSpellChoiceCandidate(filter, { spellId: 0, level: spell.level, school: null, spellLists: spell.spellLists }))
       .sort((first, second) => first.level - second.level || first.name.localeCompare(second.name, "uk"))
-      .map(findSchoolLimitedSubclassKey(step, category, subclassKey) ? toSchoolLevelSpell : toLevelSpell)
+      .map(toPoolSpell)
       .map(withSpellScore(buildSpellScoreFinder(step.classKey, subclassKey)));
   }
   return poolId;

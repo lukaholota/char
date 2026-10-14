@@ -11,7 +11,7 @@ vi.hoisted(() => {
 vi.mock("server-only", () => ({}));
 vi.mock("next/navigation", () => ({ notFound: () => { throw new Error("NOT_FOUND"); } }));
 vi.mock("@/lib/actions/character", () => ({ createCharacter: mocks.create, createCharacterFromBuild: mocks.createFromBuild }));
-vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ push: mocks.push }) }));
+vi.mock("@/components/no-ai/NoAiModeProvider", async (importOriginal) => ({ ...(await importOriginal<object>()), useModeRouter: () => ({ push: mocks.push }) }));
 vi.mock("@/components/no-ai/ModeLink", () => ({ ModeLink: ({ href, children, ...rest }: { href: string; children: React.ReactNode }) => <a href={href} {...rest}>{children}</a> }));
 vi.mock("@/components/optimization/BuildSource", () => ({ BuildSource: () => null }));
 vi.mock("@/lib/components/auth/GoogleAuthDialog", () => ({ default: () => <button type="button">Увійти через Google</button> }));

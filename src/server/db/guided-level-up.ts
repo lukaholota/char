@@ -5,7 +5,10 @@ import { classTranslations } from "@/lib/refs/translation";
 import type { LevelUpInput } from "@/lib/zod/schemas/levelUpSchema";
 import { buildRecipeGuideHref } from "@/lib/optimization/article-view";
 import { buildAssemblyCatalog } from "@/lib/optimization/assembly-catalog";
-import { planGuidedLevelUp, type GuidedLevelUp, type GuidedPersState } from "@/lib/optimization/guided-level-up";
+import { describeOpenSpellPick, fillOpenSpellPicks, listGuidedPicks, planGuidedLevelUp, type GuidedLevelUp, type GuidedPersState, type GuidedStepPlan } from "@/lib/optimization/guided-level-up";
+import { buildSpellScoreFinder } from "@/lib/optimization/ready-preset-spell-scores";
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
+import { translateSubclassName } from "@/lib/refs/subclass-name";
 import { findBuildNickname } from "@/lib/optimization/ready-preset-catalog";
 import { readSliceRecipes } from "@/lib/optimization/slice-reader";
 import type { BuildRecipe } from "@/lib/optimization/types";
@@ -29,16 +32,40 @@ export async function loadGuidedLevelUp(persId: number): Promise<GuidedLevelUp |
   const plan = planGuidedLevelUp(recipe, await loadAssemblyCatalog(recipe), toGuidedPersState(pers));
   if (plan.status === "unavailable") return { ...plan, build };
 
-  const spells = await fitClassSpellsToOffer(persId, plan.input);
+  const spells = await fitClassSpellsToOffer(persId, plan);
+  const classLabel = classTranslations[plan.classKey] ?? plan.classKey;
+  const fitted = { ...plan, input: { ...plan.input, classSpells: spells.classSpells } };
   return {
     status: "ready",
     build,
     nextLevel: plan.nextLevel,
-    classLabel: classTranslations[plan.classKey] ?? plan.classKey,
+    classLabel,
     classLevel: plan.classLevel,
-    input: { ...plan.input, classSpells: spells.classSpells },
+    input: fitted.input,
+    picks: listGuidedPicks(fitted, await loadPickNames(fitted.input, classLabel)),
     skipped: [...plan.skipped, ...spells.skipped],
-    open: plan.open,
+    open: [...spells.open, ...plan.open],
+  };
+}
+
+type ReadyPlan = Extract<GuidedStepPlan, { status: "ready" }>;
+
+async function loadPickNames(input: LevelUpInput, className: string) {
+  const optionIds = [...Object.values(input.classChoiceSelections), ...Object.values(input.subclassChoiceSelections)].flat();
+  const spellIds = [...(input.classSpells?.cantripIds ?? []), ...(input.classSpells?.preparedIds ?? []), ...(input.classSpells?.spellbookIds ?? []),
+    ...[input.classSpells?.preparedSwap, input.classSpells?.cantripSwap].flatMap((swap) => [swap?.dropId, swap?.addId].filter((id): id is number => typeof id === "number"))];
+  const [subclass, feat, options, spells] = await Promise.all([
+    input.subclassId === undefined ? null : prisma.subclass.findUnique({ where: { subclassId: input.subclassId }, select: { name: true } }),
+    input.featId === undefined ? null : prisma.feat.findUnique({ where: { featId: input.featId }, select: { name: true } }),
+    prisma.choiceOption.findMany({ where: { choiceOptionId: { in: optionIds } }, select: { optionName: true } }),
+    prisma.spell.findMany({ where: { spellId: { in: spellIds } }, select: { spellId: true, name: true } }),
+  ]);
+  return {
+    className,
+    subclassName: subclass ? translateSubclassName(subclass.name) : null,
+    featName: feat ? translateValue(feat.name) : null,
+    optionNames: options.map((option) => option.optionName),
+    spellNameById: new Map(spells.map((spell) => [spell.spellId, spell.name])),
   };
 }
 
@@ -76,22 +103,36 @@ async function loadAssemblyCatalog(recipe: BuildRecipe) {
   return buildAssemblyCatalog(findCharacterCreatorOptions(recipe.ruleset), spells);
 }
 
-async function fitClassSpellsToOffer(persId: number, input: LevelUpInput): Promise<{ classSpells: LevelUpInput["classSpells"]; skipped: string[] }> {
+type FittedSpells = { classSpells: LevelUpInput["classSpells"]; skipped: string[]; open: string[] };
+
+async function fitClassSpellsToOffer(persId: number, plan: ReadyPlan): Promise<FittedSpells> {
+  const { input } = plan;
   const planned = input.classSpells;
-  if (!planned || input.classId === undefined) return { classSpells: planned, skipped: [] };
+  const openSpellNotes = plan.openSpellPicks.map(describeOpenSpellPick);
+  if (!planned || input.classId === undefined) return { classSpells: planned, skipped: [], open: openSpellNotes };
   const offer = await loadPersLevelUpSpellOffer(persId, {
     classId: input.classId,
     subclassId: input.subclassId ?? null,
     classChoiceOptionIds: Object.values(input.classChoiceSelections).flat(),
     subclassChoiceOptionIds: Object.values(input.subclassChoiceSelections).flat(),
   });
-  if (!offer) return { classSpells: undefined, skipped: ["Заклинання з плану не вдалося звірити — оберіть їх самі."] };
+  if (!offer) return { classSpells: undefined, skipped: ["Заклинання з плану не вдалося звірити — оберіть їх самі."], open: openSpellNotes };
 
   const kept = keepOfferedSpells({ ...EMPTY_CLASS_SPELL_SELECTION, ...planned }, offer);
   const droppedIds = [...planned.cantripIds, ...planned.preparedIds, ...planned.spellbookIds]
     .filter((id) => ![...kept.cantripIds, ...kept.preparedIds, ...kept.spellbookIds].includes(id));
   const lostSwap = Boolean(planned.preparedSwap && !kept.preparedSwap) || Boolean(planned.cantripSwap && !kept.cantripSwap);
-  return { classSpells: kept, skipped: [...await describeDroppedSpells(droppedIds), ...(lostSwap ? ["Заміну заклинання з плану пропущено: того, що треба прибрати, у персонажа вже немає."] : [])] };
+  const filled = fillOpenSpellPicks(kept, offer, plan.openSpellPicks, buildSpellScoreFinder(plan.classKey, plan.subclassKey));
+  return {
+    classSpells: filled.selection,
+    skipped: [...await describeDroppedSpells(droppedIds), ...(lostSwap ? ["Заміну заклинання з плану пропущено: того, що треба прибрати, у персонажа вже немає."] : [])],
+    open: [...describePlatformSpells(filled.filledIds), ...filled.unfilled.map(describeOpenSpellPick)],
+  };
+}
+
+function describePlatformSpells(spellIds: readonly number[]): string[] {
+  if (!spellIds.length) return [];
+  return ["Заклинання, яких автор не називає, гайд обрав за найвищою оцінкою RPGbot — їх можна змінити на кроці заклинань."];
 }
 
 async function describeDroppedSpells(spellIds: readonly number[]): Promise<string[]> {

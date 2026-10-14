@@ -23,6 +23,7 @@ const build = { title: "Соркадін", href: "/rules/optimization/sorcerer-2
 const readyGuide: GuidedLevelUp = {
   status: "ready", build, nextLevel: 7, classLabel: "Чародій", classLevel: 4,
   input: parseLevelUpInput({ levelUpPath: "EXISTING", classId: 14, featId: 41, classSpells: { cantripIds: [1374], preparedIds: [], spellbookIds: [] } }),
+  picks: ["Новий клас: Чародій.", "Замовляння: Вогняний снаряд."],
   skipped: ["Рису з плану персонаж уже має — оберіть іншу рису або підвищення характеристик."],
   open: ["Нові заклинання: оберіть 1."],
 };
@@ -37,6 +38,8 @@ describe("блок «За гайдом» у майстрі підвищення"
     const manual = usePersFormStore.getState().formData;
     render(<GuidedCard guide={readyGuide} />);
     expect(screen.getByRole("link", { name: "Соркадін" }).getAttribute("href")).toBe(build.href);
+    expect(screen.getByText("Гайд обере:")).toBeTruthy();
+    expect(screen.getByText("Замовляння: Вогняний снаряд.")).toBeTruthy();
 
     fireEvent.click(screen.getByRole("button", { name: "Заповнити за гайдом" }));
 
@@ -54,6 +57,13 @@ describe("блок «За гайдом» у майстрі підвищення"
     render(<GuidedCard guide={{ status: "unavailable", build, reason: "План пресета закінчився: рекомендацій для 8-го рівня немає." }} />);
 
     expect(screen.getByText(/План пресета закінчився/)).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Заповнити за гайдом" })).toBeNull();
+  });
+
+  it("на рівні без виборів прямо каже, що гайду нічого заповнювати", () => {
+    render(<GuidedCard guide={{ ...readyGuide, picks: [], skipped: [], open: [] }} />);
+
+    expect(screen.getByText(/На цьому рівні виборів немає/)).toBeTruthy();
     expect(screen.queryByRole("button", { name: "Заповнити за гайдом" })).toBeNull();
   });
 

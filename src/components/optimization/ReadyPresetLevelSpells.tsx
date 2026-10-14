@@ -35,7 +35,8 @@ function OpenPickGroup({ slot, assembly, context }: { slot: OpenPickSlot; assemb
     <div className="mt-4"><PresetSpellPicker label={`${label} · ${slot.characterLevel}-й рівень`}
       spells={candidates.filter((spell) => spell.spellId !== undefined).map((spell) => ({ ...spell, school: spell.school ?? null, spellId: spell.spellId!, ruleset: "RULES_2014" }))}
       selectedIds={chosen.flatMap((key) => pool.find((spell) => spell.key === key)?.spellId ?? [])}
-      limit={slot.count} onChange={(ids) => assembly.chooseSpells(slot.id, ids.map((id) => pool.find((spell) => spell.spellId === id)!.key))} /></div>
+      limit={slot.count} ratedCaster={{ className: slot.classKey, subclassName: slot.schoolLimitedSubclassKey }}
+      onChange={(ids) => assembly.chooseSpells(slot.id, ids.map((id) => pool.find((spell) => spell.spellId === id)!.key))} /></div>
   </fieldset>;
 }
 
@@ -48,7 +49,7 @@ function PreparedSpellEditor({ data, assembly, context, preparation }: SpellProp
     <legend className="text-sm text-slate-300">Підготовлені заклинання · {selected.length} з {preparation.limit}</legend>
     <p className="mt-1 text-sm text-slate-400">{preparation.className} готує заклинання {source}: {ABILITY_LABELS[preparation.ability]} {preparation.abilityScore} і {preparation.classLevel}-й рівень класу дозволяють підготувати {preparation.limit}.</p>
     <PresetSpellPicker label="Підготовлені заклинання" spells={book.map((spell) => ({ ...spell, spellId: spell.spellId!, school: spell.school ?? null }))}
-      selectedIds={book.filter((spell) => selected.includes(spell.key)).map((spell) => spell.spellId!)} limit={preparation.limit}
+      selectedIds={book.filter((spell) => selected.includes(spell.key)).map((spell) => spell.spellId!)} limit={preparation.limit} ratedCaster={{ className: context.levels.startingClassKey }}
       onChange={(ids) => assembly.choosePreparedSpells(book.filter((spell) => ids.includes(spell.spellId!)).map((spell) => spell.key))} />
   </fieldset>;
 }

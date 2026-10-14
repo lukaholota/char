@@ -4,7 +4,8 @@ import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { getAllSpells } from "@/lib/spellsData";
 import { buildAssemblyCatalog } from "./assembly-catalog";
 import { listExecutableSteps } from "./build-executable-levels";
-import { planGuidedLevelUp, type GuidedPersState } from "./guided-level-up";
+import type { ClassSpellOffer } from "@/rules/class-spell-choices-2024";
+import { fillOpenSpellPicks, listGuidedPicks, planGuidedLevelUp, type GuidedPersState, type GuidedStepPlan } from "./guided-level-up";
 import { buildRecipeSchema } from "./schema";
 import type { BuildRecipe } from "./types";
 
@@ -67,10 +68,73 @@ describe("next guided level for a character that followed the plan", () => {
     expect(asiStep.status === "ready" && asiStep.input.subclassId).toBeUndefined();
   });
 
-  it("lists the open spell pick of the step as a choice for the player", () => {
+  it("hands the open spell pick of the step to the platform choice", () => {
     const plan = planGuidedLevelUp(sorcadin, catalog, buildModelState(sorcadin, 6));
 
-    expect(plan).toMatchObject({ status: "ready", open: ["Нові заклинання: оберіть 1."], skipped: [] });
+    expect(plan).toMatchObject({ status: "ready", open: [], openSpellPicks: [{ category: "knownSpells", count: 1 }], skipped: [] });
+  });
+});
+
+function spell(spellId: number, engName: string, level: number) {
+  return { spellId, engName, name: engName, level, school: null };
+}
+
+function buildOffer(overrides: Partial<ClassSpellOffer> = {}): ClassSpellOffer {
+  return {
+    className: "DRUID_2014", classLabel: "Друїд", ruleset: "RULES_2014",
+    quota: { cantrips: 1, prepared: 0, spellbook: 0, maxSpellLevel: 2 },
+    catchUp: { cantrips: 0, prepared: 0, spellbook: 0 },
+    cantrips: [spell(1, "Druidcraft", 0), spell(2, "Guidance", 0), spell(3, "Shillelagh", 0)],
+    spells: [spell(10, "Entangle", 1), spell(11, "Moonbeam", 2), spell(12, "Goodberry", 1)],
+    bookSpells: [], bookOnlySpellIds: [], swap: null, canSkipPrepared: false,
+    ...overrides,
+  };
+}
+
+const scores: Record<string, number> = { Guidance: 4, Shillelagh: 3, Entangle: 4, Moonbeam: 4, Goodberry: 3 };
+const findScore = (engName: string) => scores[engName];
+const empty = { cantripIds: [], preparedIds: [], spellbookIds: [] };
+
+describe("platform choice for picks the author leaves open", () => {
+  it("takes the best rated spell, the higher level on a tie, like preset creation", () => {
+    const cantrip = fillOpenSpellPicks(empty, buildOffer(), [{ category: "cantrips", count: 1 }], findScore);
+    const known = fillOpenSpellPicks(empty, buildOffer({ quota: { cantrips: 0, prepared: 2, spellbook: 0, maxSpellLevel: 2 } }), [{ category: "knownSpells", count: 2 }], findScore);
+
+    expect(cantrip).toEqual({ selection: { ...empty, cantripIds: [2] }, filledIds: [2], unfilled: [] });
+    expect(known.selection.preparedIds).toEqual([11, 10]);
+  });
+
+  it("skips spells already planned and never goes over the live quota", () => {
+    const filled = fillOpenSpellPicks({ ...empty, cantripIds: [2] }, buildOffer({ quota: { cantrips: 2, prepared: 0, spellbook: 0, maxSpellLevel: 2 } }), [{ category: "cantrips", count: 3 }], findScore);
+
+    expect(filled.selection.cantripIds).toEqual([2, 3]);
+    expect(filled.unfilled).toEqual([{ category: "cantrips", count: 2 }]);
+  });
+
+  it("leaves a school-limited pick to the player", () => {
+    const limited = buildOffer({ schoolLimit: { schools: ["ABJURATION"], outsideAllowed: 0 } });
+
+    expect(fillOpenSpellPicks(empty, limited, [{ category: "cantrips", count: 1 }], findScore)).toEqual({ selection: empty, filledIds: [], unfilled: [{ category: "cantrips", count: 1 }] });
+  });
+});
+
+describe("what the guide will pick, shown before the button", () => {
+  const names = { className: "Друїд", subclassName: null, featName: null, optionNames: [], spellNameById: new Map([[2, "Настанова"]]) };
+  const readyPlan = (overrides: Partial<Extract<GuidedStepPlan, { status: "ready" }>> = {}) => {
+    const plan = planGuidedLevelUp(barbarian, catalog, buildModelState(barbarian, 1));
+    if (plan.status !== "ready") throw new Error("plan");
+    return { ...plan, ...overrides };
+  };
+
+  it("is empty on a level without choices, so the card can say so", () => {
+    expect(listGuidedPicks(readyPlan(), names)).toEqual([]);
+  });
+
+  it("names the spells, the ability increase and the class of a multiclass", () => {
+    const plan = readyPlan({ isMulticlassEntry: true });
+    const picks = listGuidedPicks({ ...plan, input: { ...plan.input, customAsi: [{ ability: "WIS", value: 2 }], classSpells: { ...empty, cantripIds: [2] } } }, { ...names, subclassName: "Коло Місяця" });
+
+    expect(picks).toEqual(["Новий клас: Друїд.", "Підклас: Коло Місяця.", "Характеристики: Мудрість +2.", "Замовляння: Настанова."]);
   });
 });
 

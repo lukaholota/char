@@ -25,7 +25,7 @@ export const OPEN_PICK_LABELS: Record<OpenPickCategory, string> = { cantrips: "Ð
 
 const REQUEST_KEY_BY_CATEGORY = { cantrips: "cantripKeys", knownSpells: "knownSpellKeys", spellbook: "spellbookKeys" } as const;
 
-export type LevelSpell = { key: string; name: string; engName: string; level: number; spellId?: number; school?: string; score?: number };
+export type LevelSpell = { key: string; name: string; engName: string; level: number; spellId?: number; school?: string; score?: number; castingTime?: string; isRitual?: boolean; isConcentration?: boolean };
 export type LevelOpenPick = { category: OpenPickCategory; count: number; poolId: string; schoolLimitedSubclassKey?: string };
 export type LevelAdvancement = { default: AdvancementChoice; defaultFeat: FeatPoolEntry | null };
 export type LevelStep = {

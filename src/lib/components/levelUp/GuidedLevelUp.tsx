@@ -89,19 +89,29 @@ function GuidedLevelUpReady({ guide, isApplied, onApply, onRestoreManual }: {
   onApply: () => void;
   onRestoreManual: () => void;
 }) {
-  const notes = [...guide.skipped, ...guide.open];
+  const notes = [...guide.open, ...guide.skipped];
+  const hasPicks = guide.picks.length > 0;
   return (
     <div className="space-y-3">
-      <p className="text-sm text-slate-300">
-        Рівень {guide.nextLevel}: {guide.classLabel}, {guide.classLevel}-й рівень класу.
-        {isApplied ? " Рекомендації заповнено — переглядайте й змінюйте їх на наступних кроках." : " Заповнимо вибори цього рівня за планом пресета, а ви зможете змінити будь-який."}
-      </p>
-      {isApplied && notes.length ? (
+      <p className="text-sm text-slate-300">Рівень {guide.nextLevel}: {guide.classLabel}, {guide.classLevel}-й рівень класу.</p>
+      {hasPicks ? (
+        <div className="space-y-1">
+          <p className="text-sm text-slate-400">{isApplied ? "Заповнено за гайдом — змінюйте що завгодно на наступних кроках:" : "Гайд обере:"}</p>
+          <ul className="list-disc space-y-1 pl-5 text-sm text-slate-200">
+            {guide.picks.map((pick) => <li key={pick}>{pick}</li>)}
+          </ul>
+        </div>
+      ) : (
+        <p className="text-sm text-slate-300">
+          {notes.length ? "Гайду нічого заповнювати на цьому рівні." : "На цьому рівні виборів немає — гайду нічого заповнювати. Хіти й нові вміння класу додадуться самі."}
+        </p>
+      )}
+      {notes.length ? (
         <ul className="list-disc space-y-1 pl-5 text-sm text-amber-200/90">
           {notes.map((note) => <li key={note}>{note}</li>)}
         </ul>
       ) : null}
-      {isApplied ? (
+      {!hasPicks ? null : isApplied ? (
         <Button type="button" variant="outline" className="min-h-11 border-white/15 bg-white/5 text-slate-200 hover:bg-white/7" onClick={onRestoreManual}>
           Повернутися до ручного підвищення
         </Button>

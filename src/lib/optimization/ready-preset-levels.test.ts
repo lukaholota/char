@@ -163,7 +163,6 @@ describe("Eldritch Knight school limit on open spell picks", () => {
     const [slot] = listOpenPickSlots(context.levels, 7);
     expect(slot.schoolLimitedSubclassKey).toBeUndefined();
     expect(findSlotSchoolLimit(context, slot)).toBeNull();
-    expect(Object.values(context.levels.spellPools).flat().every((spell) => spell.school === undefined)).toBe(true);
   });
 });
 

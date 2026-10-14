@@ -1,4 +1,6 @@
 import type { LevelUpInput } from "@/lib/zod/schemas/levelUpSchema";
+import type { ClassSpellOffer, ClassSpellSelection } from "@/rules/class-spell-choices-2024";
+import type { SpellChoiceOption } from "@/rules/spell-choice-filter";
 import { buildSingleAssemblyStep } from "./assembly-plan";
 import { listExecutableSteps } from "./build-executable-levels";
 import type { AssemblyCatalog } from "./assembly-catalog";
@@ -13,12 +15,16 @@ export type GuidedPersState = {
   nonRepeatableFeatIds: readonly number[];
   choiceOptionIds: readonly number[];
 };
+export type OpenSpellPick = { category: string; count: number };
 export type GuidedStepPlan =
-  | { status: "ready"; nextLevel: number; classKey: string; classLevel: number; isMulticlassEntry: boolean; input: LevelUpInput; skipped: string[]; open: string[] }
+  | {
+    status: "ready"; nextLevel: number; classKey: string; subclassKey: string | null; classLevel: number; isMulticlassEntry: boolean; hasSeveralClasses: boolean;
+    input: LevelUpInput; skipped: string[]; open: string[]; openSpellPicks: OpenSpellPick[];
+  }
   | { status: "unavailable"; reason: string };
 export type GuidedBuildLink = { title: string; href: string };
 export type GuidedLevelUp =
-  | { status: "ready"; build: GuidedBuildLink; nextLevel: number; classLabel: string; classLevel: number; input: LevelUpInput; skipped: string[]; open: string[] }
+  | { status: "ready"; build: GuidedBuildLink; nextLevel: number; classLabel: string; classLevel: number; input: LevelUpInput; picks: string[]; skipped: string[]; open: string[] }
   | { status: "unavailable"; build: GuidedBuildLink | null; reason: string };
 
 const MAX_LEVEL = 20;
@@ -36,17 +42,21 @@ export function planGuidedLevelUp(recipe: BuildRecipe, catalog: AssemblyCatalog,
   const mismatch = findCompositionMismatch(plannedClasses, pers.classes);
   if (mismatch) return { status: "unavailable", reason: mismatch };
 
-  const { step: assembled, issues } = buildSingleAssemblyStep(step, catalog, buildLiveClassContext(pers.classes, plannedClasses));
+  const live = buildLiveClassContext(pers.classes, plannedClasses);
+  const { step: assembled, issues } = buildSingleAssemblyStep(step, catalog, live);
   const fitted = fitToCharacter(assembled.input, step, pers);
   return {
     status: "ready",
     nextLevel,
     classKey: step.classKey,
+    subclassKey: step.subclassKey ?? live.subclassByClass.get(step.classKey) ?? null,
     classLevel: step.classLevel,
     isMulticlassEntry: assembled.isMulticlassEntry,
+    hasSeveralClasses: pers.classes.length > 1,
     input: fitted.input,
     skipped: [...issues.filter((issue) => issue.code !== "unresolved-choice").map((issue) => issue.message), ...fitted.skipped],
     open: listOpenChoices(step.decisions ?? {}),
+    openSpellPicks: (step.decisions?.openSpellPicks ?? []).map((pick) => ({ category: pick.category, count: pick.count })),
   };
 }
 
@@ -124,9 +134,12 @@ function countSelections(selections: LevelUpInput["classChoiceSelections"]): num
   return Object.values(selections).flat().length;
 }
 
+export function describeOpenSpellPick(pick: OpenSpellPick): string {
+  return `${capitalize(OPEN_SPELL_LABELS[pick.category] ?? "заклинання")}: оберіть ${pick.count}.`;
+}
+
 function listOpenChoices(decisions: LevelDecisions): string[] {
   return [
-    ...(decisions.openSpellPicks ?? []).map((pick) => `${capitalize(OPEN_SPELL_LABELS[pick.category] ?? "заклинання")}: оберіть ${pick.count}.`),
     ...(decisions.openAdvancement ? ["Риса або підвищення характеристик — на ваш вибір."] : []),
     ...(decisions.openClassOptions ? ["Опції класу цього рівня — на ваш вибір."] : []),
   ];
@@ -134,4 +147,81 @@ function listOpenChoices(decisions: LevelDecisions): string[] {
 
 function capitalize(text: string): string {
   return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+const OPEN_PICK_COLUMNS = {
+  cantrips: { column: "cantripIds", quota: "cantrips" },
+  knownSpells: { column: "preparedIds", quota: "prepared" },
+  spellbook: { column: "spellbookIds", quota: "spellbook" },
+} as const;
+
+export type FilledOpenSpells = { selection: ClassSpellSelection; filledIds: number[]; unfilled: OpenSpellPick[] };
+
+/// Як і створення з пресета: місце, яке автор не називає, займає найкраще за оцінкою RPGbot, при рівній — вищого рівня.
+export function fillOpenSpellPicks(selection: ClassSpellSelection, offer: ClassSpellOffer, picks: readonly OpenSpellPick[], findScore: (engName: string) => number | undefined): FilledOpenSpells {
+  // shortcut: межу шкіл (лицар-чарівник, містифікатор) не рахуємо — такий вибір лишається гравцю.
+  if (offer.schoolLimit) return { selection, filledIds: [], unfilled: [...picks] };
+  const filled = { ...selection };
+  const filledIds: number[] = [];
+  const unfilled: OpenSpellPick[] = [];
+  for (const pick of picks) {
+    const target = OPEN_PICK_COLUMNS[pick.category as keyof typeof OPEN_PICK_COLUMNS];
+    if (!target) continue;
+    const room = Math.min(pick.count, offer.quota[target.quota] - filled[target.column].length);
+    const chosen = rankOfferedSpells(listFreeCandidates(filled, offer, pick.category), findScore).slice(0, Math.max(0, room)).map((spell) => spell.spellId);
+    filled[target.column] = [...filled[target.column], ...chosen];
+    filledIds.push(...chosen);
+    if (chosen.length < pick.count) unfilled.push({ category: pick.category, count: pick.count - chosen.length });
+  }
+  return { selection: filled, filledIds, unfilled };
+}
+
+function listFreeCandidates(selection: ClassSpellSelection, offer: ClassSpellOffer, category: string): SpellChoiceOption[] {
+  const taken = new Set([...selection.cantripIds, ...selection.preparedIds, ...selection.spellbookIds]);
+  const pool = category === "cantrips" ? offer.cantrips : offer.spells.filter((spell) => category !== "knownSpells" || !offer.bookOnlySpellIds.includes(spell.spellId));
+  return pool.filter((spell) => !taken.has(spell.spellId));
+}
+
+function rankOfferedSpells(spells: readonly SpellChoiceOption[], findScore: (engName: string) => number | undefined): SpellChoiceOption[] {
+  return [...spells].sort((first, second) => (findScore(second.engName) ?? 0) - (findScore(first.engName) ?? 0) || second.level - first.level);
+}
+
+export type GuidedPickNames = {
+  className: string;
+  subclassName: string | null;
+  featName: string | null;
+  optionNames: string[];
+  spellNameById: ReadonlyMap<number, string>;
+};
+
+const ABILITY_LABELS: Record<string, string> = { STR: "Сила", DEX: "Спритність", CON: "Статура", INT: "Інтелект", WIS: "Мудрість", CHA: "Харизма" };
+
+/// Що саме заповнить гайд — щоб кнопку не натискали наосліп і рівень без виборів не обіцяв нічого.
+export function listGuidedPicks(plan: Extract<GuidedStepPlan, { status: "ready" }>, names: GuidedPickNames): string[] {
+  const { input } = plan;
+  const spellNames = (ids: readonly number[]) => ids.map((id) => names.spellNameById.get(id) ?? `#${id}`).join(", ");
+  const spells = input.classSpells;
+  const swap = spells?.preparedSwap ?? spells?.cantripSwap;
+  return [
+    ...(plan.isMulticlassEntry ? [`Новий клас: ${names.className}.`] : plan.hasSeveralClasses ? [`Клас: ${names.className}.`] : []),
+    ...(names.subclassName ? [`Підклас: ${names.subclassName}.`] : []),
+    ...(names.featName ? [`Риса: ${names.featName}.`] : []),
+    ...(input.customAsi.length ? [`Характеристики: ${input.customAsi.map((increase) => `${ABILITY_LABELS[increase.ability ?? ""] ?? increase.ability} +${increase.value}`).join(", ")}.`] : []),
+    ...(names.optionNames.length ? [`Опції класу: ${names.optionNames.join(", ")}.`] : []),
+    ...(spells?.cantripIds.length ? [`Замовляння: ${spellNames(spells.cantripIds)}.`] : []),
+    ...(spells?.preparedIds.length ? [`Заклинання: ${spellNames(spells.preparedIds)}.`] : []),
+    ...(spells?.spellbookIds.length ? [`До книги: ${spellNames(spells.spellbookIds)}.`] : []),
+    ...(swap?.dropId && swap.addId ? [`Заміна: ${spellNames([swap.dropId])} → ${spellNames([swap.addId])}.`] : []),
+    ...(hasOtherChoices(input) ? ["Інші вибори рівня за планом: навички, мови чи вміння."] : []),
+  ];
+}
+
+function hasOtherChoices(input: LevelUpInput): boolean {
+  return Object.values(input.levelUpSkillSelections).some((skills) => skills.length > 0)
+    || input.expertiseSchema.expertises.length > 0
+    || input.languagesSchema.languages.length > 0
+    || Object.keys(input.classOptionalFeatureSelections).length > 0
+    || input.infusionSelections.length > 0
+    || Boolean(input.weaponMasteryWeaponIds?.length)
+    || input.featSpellIds.length + input.featGrowthSpellIds.length + input.classOptionSpellIds.length > 0;
 }
