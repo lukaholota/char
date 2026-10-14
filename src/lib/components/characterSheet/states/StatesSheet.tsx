@@ -22,7 +22,8 @@ export function StatesSheet() {
 
   return (
     <Dialog open={control.isPanelOpen} onOpenChange={control.setPanelOpen}>
-      <DialogContent className={BOTTOM_SHEET}>
+      {/* data-safe-dialog у globals.css центрує через top/left і перебиває притискання аркуша до низу */}
+      <DialogContent className={BOTTOM_SHEET} data-safe-dialog={undefined}>
         <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-white/20 sm:hidden" aria-hidden />
         <DialogHeader className="px-4 pb-1 pt-3 text-left">
           <DialogTitle className="text-lg">Стани</DialogTitle>

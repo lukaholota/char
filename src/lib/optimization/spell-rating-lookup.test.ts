@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { collectPersRatedCasters, findRatingListKeys, formatRatedCastersParam, hasRatingList, parseRatedCastersParam } from "./spell-rating-casters";
-import { isRecommendedSelection, matchesRatingSelection, toggleRecommendedParam } from "./spell-rating-filter";
+import { matchesRatingSelection } from "./spell-rating-filter";
 import { createSpellRatingFinder, findBestSpellRating, sortByBestRating, type SpellRatingCatalog } from "./spell-rating-lookup";
 
 const CATALOG: SpellRatingCatalog = {
@@ -107,21 +107,6 @@ describe("sortByBestRating", () => {
 });
 
 describe("rating filter", () => {
-  it("treats Good and Great as the recommended preset", () => {
-    expect(isRecommendedSelection(new Set(["3", "4"]))).toBe(true);
-    expect(isRecommendedSelection(new Set(["4"]))).toBe(false);
-    expect(isRecommendedSelection(new Set())).toBe(false);
-  });
-
-  it("toggles the recommended preset in the URL", () => {
-    const params = new URLSearchParams();
-    toggleRecommendedParam(params, new Set());
-    expect(params.get("rate")).toBe("3,4");
-
-    toggleRecommendedParam(params, new Set(["3", "4"]));
-    expect(params.has("rate")).toBe(false);
-  });
-
   it("keeps everything when nothing is selected and only matching scores otherwise", () => {
     expect(matchesRatingSelection(new Set(), null)).toBe(true);
     expect(matchesRatingSelection(new Set(["3", "4"]), 4)).toBe(true);

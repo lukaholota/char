@@ -116,7 +116,7 @@ function buildSpellInsights(trend: Trend, funnel: Funnel): AnalyticsInsight[] {
     ], "Перемикач запамʼятовується в localStorage, тож користувач, що вже ввімкнув, вдруге не перемикає. Для частки з увімкненими дивись графік нижче."),
     restrictToSurface(trend("Рекомендації вже ввімкнені на кроці вибору", ["rpgbot_surface_viewed"], "ActionsPie", { breakdown: "if(toString(properties.recommendations_on) IN ('true','1'), 'Ввімкнені', 'Вимкнені')", description: "Стан перемикача в момент показу кроку вибору заклинань." }), "spell_picker"),
     withPicksRecommended(picks),
-    trend("Чип «Рекомендоване» у каталозі заклинань листа", ["rpgbot_spell_chip_toggled"], "ActionsBarValue", { breakdown: "if(toString(properties.enabled) IN ('true','1'), 'Ввімкнули', 'Вимкнули')", description: "Додавання заклинань з листа через вбудований каталог." }),
+    trend("Перемикач RPGbot у каталозі заклинань листа", ["rpgbot_spell_chip_toggled"], "ActionsBarValue", { breakdown: "if(toString(properties.enabled) IN ('true','1'), 'Ввімкнули', 'Вимкнули')", description: "Додавання заклинань з листа через вбудований каталог. До 2026-10-13 подія означала чип-фільтр «Лише рекомендовані (3–4)», з 2026-10-13 — перемикач оцінок і сортування, як у левелапі (типово ввімкнений)." }),
     trend("Відкрили оцінку заклинання", ["rpgbot_spell_rating_opened"], "ActionsBarValue", { breakdown: "concat(coalesce(properties.placement, '?'), ' · ', toString(properties.rating_score))", description: "Клік по бейджу оцінки: catalog = рядок каталогу листа, creator = картка кроку вибору заклинань." }),
   ];
 }

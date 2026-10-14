@@ -54,7 +54,7 @@ export type RpgbotEventProperties = {
   rpgbot_spell_picked: { rating_score?: number; spell_level: number; section: SpellPickSection; class_key: string; recommendations_on: boolean };
   rpgbot_spell_chip_toggled: { enabled: boolean };
   rpgbot_spell_rating_opened: { placement: RpgbotPlacement; entity_key: string; rating_score: number };
-  rpgbot_catalog_spell_added: { rating_score?: number; recommended_filter_on: boolean };
+  rpgbot_catalog_spell_added: { rating_score?: number; recommendations_on: boolean };
 };
 
 export type RpgbotEventName = keyof RpgbotEventProperties;

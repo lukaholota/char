@@ -70,7 +70,8 @@ import { useCatalogHomebrew } from "@/hooks/useCommunityHomebrew";
 import { buildHomebrewSpellKey, type HomebrewSpellEntry } from "@/lib/logic/homebrew-view";
 import { SpellDiscussion } from "@/components/spells/SpellDiscussion";
 import { SpellbookDropdown, setSpellbookPresence, type PersIndexItem, type SpellbookTarget } from "@/components/spells/SpellbookDropdown";
-import { RpgbotRecommendedChip } from "@/components/spells/RpgbotRecommendedChip";
+import { RpgbotRecommendationToggle } from "@/components/spells/RpgbotRecommendationToggle";
+import { useRpgbotRecommendationsPreference } from "@/hooks/useRpgbotRecommendationsPreference";
 import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import { useRpgbotSurfaceView } from "@/lib/monitoring/use-rpgbot-surface-view";
 import { SpellRatingBadge } from "@/components/spells/SpellRatingBadge";
@@ -79,10 +80,8 @@ import { useCatalogSpellRatings } from "@/hooks/useCatalogSpellRatings";
 import { parseRatedCastersParam, type RatedCaster } from "@/lib/optimization/spell-rating-casters";
 import {
   RATING_FILTER_PARAM,
-  isRecommendedSelection,
   listRatingFilterFacets,
   matchesRatingSelection,
-  toggleRecommendedParam,
 } from "@/lib/optimization/spell-rating-filter";
 import { findBestSpellRating, sortByBestRating } from "@/lib/optimization/spell-rating-lookup";
 
@@ -250,9 +249,10 @@ export function SpellsClient({
   });
   const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
 
-  const ratings = useCatalogSpellRatings({ casters: embedParams.ratedCasters, isEmbedMode, is2024 });
+  const [isRpgbotOn, setRpgbotOn] = useRpgbotRecommendationsPreference();
+  const ratings = useCatalogSpellRatings({ casters: embedParams.ratedCasters, isEmbedMode, is2024, isOn: isRpgbotOn });
   const { isReady: areRatingsReady, findMatches: findRatingMatches } = ratings;
-  useRpgbotSurfaceView(isEmbedMode && ratings.canRate ? { surface: "spell_catalog" } : null);
+  useRpgbotSurfaceView(ratings.canOffer ? { surface: "spell_catalog" } : null);
   const [isAddingSpell, setIsAddingSpell] = useState(false);
   const [addedSpellIds, setAddedSpellIds] = useState<Set<number>>(new Set());
 
@@ -270,7 +270,7 @@ export function SpellsClient({
       const res = await setSpellbookPresence(buildRowTarget(spell), embedParams.persId, true);
       if (res.success) {
         setAddedSpellIds((prev) => new Set(prev).add(spell.spellId));
-        if (ratings.canRate) captureRpgbotEvent("rpgbot_catalog_spell_added", { rating_score: findBestSpellRating(findRatingMatches(spell))?.score, recommended_filter_on: isRecommendedSelection(ratingSelection) });
+        if (ratings.canOffer) captureRpgbotEvent("rpgbot_catalog_spell_added", { rating_score: findBestSpellRating(findRatingMatches(spell))?.score, recommendations_on: ratings.canRate });
         window.parent.postMessage(
           { type: "SPELL_TOGGLED", persId: embedParams.persId, spellId: res.spellId, spellLevel: spell.level, added: true },
           "*"
@@ -498,23 +498,21 @@ export function SpellsClient({
         homebrewOnly ? homebrewOnly.header : !isEmbedMode && selection.source.homebrew ? (
           <HomebrewCatalogBanner kind="SPELL" edition={is2024 ? "2024" : "2014"} count={communityHomebrew.length} />
         ) : isEmbedMode && (
-          <div className="mb-4 rounded-xl border border-arcane-500/30 bg-arcane-500/10 p-2.5 backdrop-blur-xl">
-            <div className="flex items-center gap-2 text-sm text-arcane-200">
+          <div className="mb-4 space-y-2">
+            <div className="flex items-center gap-2 rounded-xl border border-arcane-500/30 bg-arcane-500/10 p-2.5 text-sm text-arcane-200 backdrop-blur-xl">
               <UserPlus className="h-4 w-4" />
               <span>
                 Додавання заклинань для <strong>{embedParams.persName || `персонажа #${embedParams.persId}`}</strong>
               </span>
             </div>
-            {ratings.canRate && (
-              <div className="mt-2">
-                <RpgbotRecommendedChip
-                  isActive={isRecommendedSelection(ratingSelection)}
-                  onToggle={() => {
-                    captureRpgbotEvent("rpgbot_spell_chip_toggled", { enabled: !isRecommendedSelection(ratingSelection) });
-                    setParams((next) => toggleRecommendedParam(next, ratingSelection));
-                  }}
-                />
-              </div>
+            {ratings.canOffer && (
+              <RpgbotRecommendationToggle
+                isOn={isRpgbotOn}
+                onChange={(enabled) => {
+                  setRpgbotOn(enabled);
+                  captureRpgbotEvent("rpgbot_spell_chip_toggled", { enabled });
+                }}
+              />
             )}
           </div>
         )
