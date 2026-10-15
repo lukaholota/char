@@ -81,13 +81,13 @@ KR49.2 завершено; KR49.3–49.10 відкриті.
 Фінальна кнопка викликає чинне `createCharacter`; до неї запису в БД немає. У модалці
 каталогу прибрано дубльовану липку кнопку повернення, CTA Монаха тіні веде прямо сюди.
 
-Актуальні скріншоти розширення: [галерея на компʼютері](../../scratchpad/o49-monk/expanded-gallery-desktop.png),
-[галерея на телефоні](../../scratchpad/o49-monk/expanded-gallery-phone.png),
-[остання картка на телефоні](../../scratchpad/o49-monk/expanded-gallery-phone-bottom.png),
-[Воїн](../../scratchpad/o49-monk/expanded-fighter-desktop.png),
-[Пройдисвіт](../../scratchpad/o49-monk/expanded-rogue-desktop.png),
-[Пройдисвіт на телефоні](../../scratchpad/o49-monk/expanded-rogue-phone.png).
-Браузерний звіт — `scratchpad/o49-monk/expanded-browser-report.json`.
+Актуальні скріншоти розширення: [галерея на компʼютері](/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/expanded-gallery-desktop.png),
+[галерея на телефоні](/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/expanded-gallery-phone.png),
+[остання картка на телефоні](/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/expanded-gallery-phone-bottom.png),
+[Воїн](/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/expanded-fighter-desktop.png),
+[Пройдисвіт](/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/expanded-rogue-desktop.png),
+[Пройдисвіт на телефоні](/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/expanded-rogue-phone.png).
+Браузерний звіт — `/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/expanded-browser-report.json`.
 Перевірка 2026-10-04: 461 файл / 3661 тест пройшли, TypeScript та ESLint пройшли;
 Chromium та iPhone 13 WebKit перевірили всі шість пресетів, редагування, reload,
 статті, приватність, no-AI та ізоляцію чернеток. Помилок JS і Create POST немає;
@@ -114,7 +114,7 @@ Chromium та iPhone 13 WebKit перевірили всі шість пресе
 лише розділ цього підкласу з підрозділами, а не вся стаття; повна стаття — «Відкрити статтю»);
 CTA пресета веде до дерева. У creator: деталі Монаха → «Підкласи» → «Шлях відкритої долоні».
 
-Скріншоти у `scratchpad/o49-monk/`: `desktop-2014.png`, `desktop-2024.png`,
+Скріншоти у `/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/`: `desktop-2014.png`, `desktop-2024.png`,
 `phone-2014.png`, `phone-2024.png`, `catalog-modal-2014.png`, `catalog-modal-2024.png`,
 `creator-subclass-modal.png`, `phone-catalog-modal.png`. Звіти — `browser-report.json`
 та `modal-report.json`. Перевірки виконані на окремій копії дерева, порту 3209 та
@@ -124,7 +124,7 @@ CTA пресета веде до дерева. У creator: деталі Мона
 Commit/push/deploy не виконувалися; O49 та KR49.5/8/9 лишаються відкритими.
 Перевірено: `bun run test:no-db` — 454 файли / 3602 тести; TypeScript, ESLint,
 desktop Chromium та iPhone 13 WebKit пройшли. Clean-code-guard: три виправлення,
-жодних залишених зауважень; звіт `scratchpad/o49-monk/clean-code-review.md`.
+жодних залишених зауважень; звіт `/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/clean-code-review.md`.
 
 ## Образ RPGbot — 2026-10-03
 

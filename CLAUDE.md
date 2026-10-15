@@ -56,6 +56,8 @@ Versions and runnable commands: [package.json](package.json).
 - This is a shared working tree. Inspect `git status` and preserve other sessions' edits.
   Never use `git checkout`, `git restore`, `git stash`, `git reset --hard` or `git clean`
   to undo work. Deliberately breaking code to verify a test must happen on a copy.
+- Keep temporary scripts, logs, screenshots and review artifacts outside the repository,
+  in `/private/tmp/claude-<uid>/<project>/<session>/scratchpad/`.
 - Before changing behaviour in `src/lib/actions/` or `src/lib/logic/`, add a characterization
   test, prove it fails when the covered behaviour is broken, then restore only that break.
   In characterization work, record confirmed bugs in [docs/KNOWN-BUGS.md](docs/KNOWN-BUGS.md);

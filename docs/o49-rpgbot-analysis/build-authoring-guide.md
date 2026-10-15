@@ -547,7 +547,7 @@ bun run test:integration tests/actions/rpgbot-assembly-all.shard-{1..10}.test.ts
 
 ## До / після
 
-**До** (шлях `scratchpad/o49-monk/expand-presets.py`): для кожної збірки — вручну дописаний Python-словник, копіювання тексту чотирьох-пʼяти розділів у `nodes`
+**До** (шлях `/private/tmp/claude-502/-Users-luka-Documents-code-spells-holota-family/relocated-2026-10-13/scratchpad/o49-monk/expand-presets.py`): для кожної збірки — вручну дописаний Python-словник, копіювання тексту чотирьох-пʼяти розділів у `nodes`
 (`text` разом із маркерами), `levelPlans` лише для вибраних рівнів, `sourceRefs` скрізь по чотири поля, окремо — пресет, окремо — запис у `builds.json`.
 Помилка в `sectionId`, ключі або зміна ревізії виявлялась лише на сторінці пресета чи в тесті БД.
 
