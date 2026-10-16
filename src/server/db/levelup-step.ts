@@ -23,6 +23,7 @@ import {
   type AbilityScoreIncreaseSource,
 } from "@/rules/ability-score-ceiling";
 import { buildCharacterLevels, findClassLevel } from "@/rules/character-level";
+import { collectClassesAfterLevelUp, type ClassAtLevelRow } from "@/rules/classes-at-level";
 import { findFirstUnmetInvocationPrerequisite, type InvocationPrerequisite } from "@/rules/warlock-invocations";
 import { findMulticlassProficiencies } from "@/rules/multiclass-proficiencies";
 import { collectMulticlassEntrySkills, MULTICLASS_SKILL_SELECTION_KEY } from "@/rules/multiclass-skill-choice";
@@ -206,11 +207,11 @@ async function findFeatFeatureIds(reader: DatabaseReader, featId: number): Promi
 function collectClassesAtLevel(args: {
   pers: LevelUpPers;
   mainClassLevel: number;
-  selectedClassId: number;
+  selectedClass: { classId: number; primaryCastingStat: string | null };
   selectedSubclassId: number | undefined;
   classLevelAfter: number;
-}): Array<ClassAtLevel & { subclassId: number | null }> {
-  const classRows = [
+}): ClassAtLevelRow[] {
+  const classesBefore = [
     {
       classId: args.pers.classId,
       subclassId: args.pers.subclassId ?? null,
@@ -225,10 +226,11 @@ function collectClassesAtLevel(args: {
     })),
   ];
 
-  return classRows.map((row) => {
-    if (row.classId !== args.selectedClassId) return row;
-
-    return { ...row, classLevel: args.classLevelAfter, subclassId: args.selectedSubclassId ?? row.subclassId };
+  return collectClassesAfterLevelUp(classesBefore, {
+    classId: args.selectedClass.classId,
+    subclassId: args.selectedSubclassId ?? null,
+    classLevel: args.classLevelAfter,
+    ability: (args.selectedClass.primaryCastingStat ?? null) as ClassAtLevel["ability"],
   });
 }
 
@@ -1415,7 +1417,7 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
       const classesAtLevel = collectClassesAtLevel({
         pers,
         mainClassLevel,
-        selectedClassId,
+        selectedClass,
         selectedSubclassId: subclassIdForSelectedClass,
         classLevelAfter,
       });
