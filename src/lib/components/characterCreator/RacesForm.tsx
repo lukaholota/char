@@ -19,7 +19,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { isEmbeddedWebView } from "@/lib/utils/isEmbeddedWebView";
+import { buildReturnUrl } from "@/lib/utils/in-app-browser";
+import { useInAppBrowser } from "@/lib/components/auth/use-in-app-browser";
+import { captureInAppWarningDismissed, captureInAppWarningShown, captureLinkCopied } from "@/lib/monitoring/in-app-browser-events";
 import { CreationCard } from "@/components/characterCreator/CreationCard";
 import { getRaceVisual } from "@/components/characterCreator/creation-visuals";
 import { Ruleset } from "@/lib/prisma-enums";
@@ -41,21 +43,24 @@ export const RacesForm = (
 
   const pendingNextRef = useRef<null | (() => void)>(null);
   const [webViewWarningOpen, setWebViewWarningOpen] = useState(false);
-  const [isWebView] = useState(() => isEmbeddedWebView());
+  const inAppBrowser = useInAppBrowser();
+  const isWebView = Boolean(inAppBrowser?.isEmbedded && inAppBrowser.variant === "control");
 
   const webViewShareUrl = useMemo(() => {
     if (typeof window === "undefined") return undefined;
-    return `${window.location.origin}/char`;
+    return buildReturnUrl(window.location.href);
   }, []);
 
   const handleCopyLink = useCallback(async () => {
     if (!webViewShareUrl || typeof window === "undefined") return;
     try {
       await window.navigator.clipboard.writeText(webViewShareUrl);
+      captureLinkCopied("creator", true, "control");
       toast.success("Посилання скопійовано", {
         description: "Відкрийте його у Safari або Chrome.",
       });
     } catch {
+      captureLinkCopied("creator", false, "control");
       toast.error("Не вдалося скопіювати", {
         description: "Спробуйте скопіювати адресу вручну.",
       });
@@ -91,6 +96,7 @@ export const RacesForm = (
       markWebViewWarningShown();
       pendingNextRef.current = () => nextStep();
       setWebViewWarningOpen(true);
+      captureInAppWarningShown("creator", "control");
       return;
     }
 
@@ -265,7 +271,13 @@ export const RacesForm = (
       />
       </form>
 
-      <Dialog open={webViewWarningOpen} onOpenChange={setWebViewWarningOpen}>
+      <Dialog
+        open={webViewWarningOpen}
+        onOpenChange={(open) => {
+          if (!open) captureInAppWarningDismissed("creator", "close", "control");
+          setWebViewWarningOpen(open);
+        }}
+      >
         <DialogContent className="sm:max-w-[460px] border border-slate-800/70 bg-slate-950/90 backdrop-blur">
           <DialogHeader>
             <DialogTitle className="text-white">Краще відкрити у браузері зараз</DialogTitle>
@@ -292,6 +304,7 @@ export const RacesForm = (
               <Button
                 type="button"
                 onClick={() => {
+                  captureInAppWarningDismissed("creator", "continue_here", "control");
                   setWebViewWarningOpen(false);
                   const fn = pendingNextRef.current;
                   pendingNextRef.current = null;
