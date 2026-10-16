@@ -29,37 +29,11 @@ export async function changeFeatureUses(
   { persId, featureId }: { persId: number; featureId: number },
   direction: FeatureUseDirection,
 ): Promise<FeatureUseResult> {
-  const feature = await prisma.feature.findUnique({
-    where: { featureId },
-    select: {
-      usesCount: true,
-      usesCountDependsOnProficiencyBonus: true,
-      usesCountSpecial: true,
-      usesPoolKey: true,
-      usePrice: true,
-      classFeatures: { select: { classId: true } },
-      subclassFeatures: { select: { subclass: { select: { classId: true } } } },
-    },
-  });
-  if (!feature) return { success: false, error: "Вміння не знайдено" };
-
-  const pers = await prisma.pers.findUnique({
-    where: { persId },
-    include: { multiclasses: true, class: true },
-  });
-  if (!pers) return { success: false, error: "Немає доступу до персонажа" };
-
-  const cost = Math.max(1, Number(feature.usePrice ?? 1));
-  const poolKey = feature.usesPoolKey;
+  const counter = await findFeatureUseCounter({ persId, featureId });
+  if ("error" in counter) return { success: false, error: counter.error };
+  const { poolKey, max, cost } = counter;
 
   if (poolKey) {
-    const hasCounts =
-      feature.usesCountDependsOnProficiencyBonus ||
-      typeof feature.usesCount === "number" ||
-      (feature.usesCountSpecial && typeof feature.usesCountSpecial === "object");
-    const provider = hasCounts ? feature : ((await findPoolProviderForPers({ persId, poolKey })) ?? feature);
-    const max = calculateMaxUsesForFeature(pers, provider);
-
     const pool = await withSerializableRetry(async (tx) => {
       const current = await tx.persResourcePool.upsert({
         where: { persId_poolKey: { persId, poolKey } },
@@ -81,7 +55,6 @@ export async function changeFeatureUses(
     return describeResult(pool.usesRemaining, max, pool.changed);
   }
 
-  const max = calculateMaxUsesForFeature(pers, feature);
   const updated = await withSerializableRetry(async (tx) => {
     const current = await tx.persFeature.upsert({
       where: { persId_featureId: { persId, featureId } },
@@ -101,6 +74,53 @@ export async function changeFeatureUses(
   });
 
   return describeResult(updated.usesRemaining, max, updated.changed);
+}
+
+export async function findFeatureUses({ persId, featureId }: { persId: number; featureId: number }): Promise<FeatureUseResult> {
+  const counter = await findFeatureUseCounter({ persId, featureId });
+  if ("error" in counter) return { success: false, error: counter.error };
+
+  const stored = counter.poolKey
+    ? await prisma.persResourcePool.findUnique({
+        where: { persId_poolKey: { persId, poolKey: counter.poolKey } },
+        select: { usesRemaining: true },
+      })
+    : await prisma.persFeature.findUnique({ where: { persId_featureId: { persId, featureId } }, select: { usesRemaining: true } });
+  return describeResult(stored?.usesRemaining ?? counter.max, counter.max, false);
+}
+
+type FeatureUseCounter = { poolKey: string | null; cost: number; max: number | null };
+
+async function findFeatureUseCounter({ persId, featureId }: { persId: number; featureId: number }): Promise<FeatureUseCounter | { error: string }> {
+  const feature = await prisma.feature.findUnique({
+    where: { featureId },
+    select: {
+      usesCount: true,
+      usesCountDependsOnProficiencyBonus: true,
+      usesCountSpecial: true,
+      usesPoolKey: true,
+      usePrice: true,
+      classFeatures: { select: { classId: true } },
+      subclassFeatures: { select: { subclass: { select: { classId: true } } } },
+    },
+  });
+  if (!feature) return { error: "Вміння не знайдено" };
+
+  const pers = await prisma.pers.findUnique({
+    where: { persId },
+    include: { multiclasses: true, class: true },
+  });
+  if (!pers) return { error: "Немає доступу до персонажа" };
+
+  const cost = Math.max(1, Number(feature.usePrice ?? 1));
+  const poolKey = feature.usesPoolKey;
+  const hasCounts =
+    feature.usesCountDependsOnProficiencyBonus ||
+    typeof feature.usesCount === "number" ||
+    (feature.usesCountSpecial && typeof feature.usesCountSpecial === "object");
+  const provider = poolKey && !hasCounts ? ((await findPoolProviderForPers({ persId, poolKey })) ?? feature) : feature;
+
+  return { poolKey, cost, max: calculateMaxUsesForFeature(pers, provider) };
 }
 
 function findNextUses(

@@ -1,15 +1,18 @@
 'use server';
 
 import type { FeatureUseDirection } from "@/lib/offline/operations";
-import { changeFeatureUses, type FeatureUseResult } from "@/server/db/feature-use-change";
+import { changeFeatureUses, findFeatureUses, type FeatureUseResult } from "@/server/db/feature-use-change";
 import { changeFeatureState, type FeatureStateResult } from "@/server/db/feature-state-change";
-import { findEditDenial, revalidatePers } from "@/server/db/pers-edit-access";
+import { applyChangeOnce } from "@/server/db/offline-operations";
+import { findEditDenial, findEditingUser, revalidatePers } from "@/server/db/pers-edit-access";
 
-export async function spendFeatureUse(input: { persId: number; featureId: number }): Promise<FeatureUseResult> {
+type FeatureUseInput = { persId: number; featureId: number; operationId?: string };
+
+export async function spendFeatureUse(input: FeatureUseInput): Promise<FeatureUseResult> {
   return changeFeatureUsesAsEditor(input, "spend");
 }
 
-export async function restoreFeatureUse(input: { persId: number; featureId: number }): Promise<FeatureUseResult> {
+export async function restoreFeatureUse(input: FeatureUseInput): Promise<FeatureUseResult> {
   return changeFeatureUsesAsEditor(input, "restore");
 }
 
@@ -23,13 +26,18 @@ export async function setFeatureActive(input: { persId: number; featureId: numbe
 }
 
 async function changeFeatureUsesAsEditor(
-  { persId, featureId }: { persId: number; featureId: number },
+  { persId, featureId, operationId }: FeatureUseInput,
   direction: FeatureUseDirection,
 ): Promise<FeatureUseResult> {
-  const denied = await findEditDenial(persId);
-  if (denied) return { success: false, error: denied };
+  const editor = await findEditingUser(persId);
+  if ("denial" in editor) return { success: false, error: editor.denial };
 
-  const result = await changeFeatureUses({ persId, featureId }, direction);
+  const result = await applyChangeOnce(
+    editor.userId,
+    { operationId, persId, kind: "feature-use" },
+    () => changeFeatureUses({ persId, featureId }, direction),
+    { isApplied: (outcome) => outcome.success, onDuplicate: () => findFeatureUses({ persId, featureId }) },
+  );
   if (!result.success) return result;
   if (result.usesRemaining !== null) revalidatePers(persId);
   return { success: true, usesRemaining: result.usesRemaining };

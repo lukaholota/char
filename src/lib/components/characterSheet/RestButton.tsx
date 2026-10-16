@@ -25,6 +25,7 @@ import { restTranslations } from "@/lib/refs/translation";
 import ShortRestDialog from "./ShortRestDialog";
 import { PersWithRelations } from "@/lib/actions/pers";
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
+import { OFFLINE_ACTION_TOAST_ID } from "@/lib/offline/action-guard";
 import { createOperationId } from "@/lib/offline/queue";
 import { endAllFeatureStates } from "@/lib/logic/feature-state-rows";
 import { endEffectsAfterRest } from "@/lib/logic/pers-effect-rows";
@@ -71,7 +72,7 @@ export default function RestButton({
       );
       if (outcome.queued) {
         onRestQueued?.();
-        toast.success(restTranslations.longRestComplete, { description: restTranslations.savedOffline });
+        toast.success(restTranslations.longRestComplete, { id: OFFLINE_ACTION_TOAST_ID, description: restTranslations.savedOffline });
         setLongRestOpen(false);
         return;
       }

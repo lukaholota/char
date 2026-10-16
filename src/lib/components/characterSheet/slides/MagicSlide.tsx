@@ -502,7 +502,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
   const commitSlotChange = <TResult,>(
     mutationKey: string,
     operation: OfflineOperation,
-    sendToServer: () => Promise<TResult>,
+    sendToServer: (operationId: string) => Promise<TResult>,
     applyServerResult: (result: TResult) => void,
   ) => {
     const version = startMutation(mutationKey);
@@ -529,7 +529,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     commitSlotChange(
       SPELL_SLOTS_MUTATION,
       buildSlotOperation({ kind: "spend-spell-slot", slotLevel: level }),
-      () => spendSpellSlot(localPers.persId, level),
+      (operationId) => spendSpellSlot(localPers.persId, level, operationId),
       applySpellSlotsResult,
     );
   };
@@ -540,7 +540,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     commitSlotChange(
       SPELL_SLOTS_MUTATION,
       buildSlotOperation({ kind: "restore-spell-slot", slotLevel: level }),
-      () => restoreSpellSlot(localPers.persId, level),
+      (operationId) => restoreSpellSlot(localPers.persId, level, operationId),
       applySpellSlotsResult,
     );
   };
@@ -548,13 +548,13 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
   const spendPactSlotOnce = () => {
     if (!pactInfo || localPactSlots <= 0) return;
     setLocalPactSlots((v) => Math.max(0, v - 1));
-    commitSlotChange(PACT_SLOTS_MUTATION, buildSlotOperation({ kind: "spend-pact-slot" }), () => spendPactSlot(localPers.persId), applyPactSlotsResult);
+    commitSlotChange(PACT_SLOTS_MUTATION, buildSlotOperation({ kind: "spend-pact-slot" }), (operationId) => spendPactSlot(localPers.persId, operationId), applyPactSlotsResult);
   };
 
   const restorePactSlotOnce = () => {
     if (!pactInfo || localPactSlots >= pactInfo.max) return;
     setLocalPactSlots((v) => Math.min(pactInfo.max, v + 1));
-    commitSlotChange(PACT_SLOTS_MUTATION, buildSlotOperation({ kind: "restore-pact-slot" }), () => restorePactSlot(localPers.persId), applyPactSlotsResult);
+    commitSlotChange(PACT_SLOTS_MUTATION, buildSlotOperation({ kind: "restore-pact-slot" }), (operationId) => restorePactSlot(localPers.persId, operationId), applyPactSlotsResult);
   };
 
   const spendFreeCastUse = (featureId: number, remaining: number) => {
@@ -564,7 +564,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     startTransition(async () => {
       const outcome = await commitOperation(
         buildSlotOperation({ kind: "feature-use", featureId, direction: "spend" }),
-        () => spendFeatureUse({ persId: localPers.persId, featureId }),
+        (operationId) => spendFeatureUse({ persId: localPers.persId, featureId, operationId }),
       );
       if (outcome.queued) return;
 

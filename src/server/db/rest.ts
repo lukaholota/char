@@ -170,6 +170,17 @@ export async function takeShortRest(
   };
 }
 
+export function buildRepeatedShortRestResult(pers: RestPers): ShortRestResult {
+  return {
+    success: true,
+    hpRestored: 0,
+    newCurrentHp: pers.currentHp,
+    currentHitDice: serializeHitDicePools(collectHitDicePools(pers)),
+    currentPactSlots: pers.currentPactSlots,
+    featuresRestored: 0,
+  };
+}
+
 async function restoreFeaturesAfterShortRest(pers: RestPers): Promise<number> {
   const persId = pers.persId;
   const featuresWithShortRest = await prisma.persFeature.findMany({

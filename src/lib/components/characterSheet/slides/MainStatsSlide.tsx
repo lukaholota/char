@@ -435,7 +435,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   /// чергу, відкотити лише коли сервер відповів відмовою.
   const commitCombatOperation = (
     operation: OfflineOperation,
-    sendToServer: () => Promise<CombatSaveResult>,
+    sendToServer: (operationId: string) => Promise<CombatSaveResult>,
     failureTitle: string,
   ) => {
     const previous = readCombatState();
@@ -465,7 +465,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     setHpAmount("");
     commitCombatOperation(
       buildOperation({ kind: "hp", mode: hpMode, amount }),
-      () => applyHpChange({ persId, mode: hpMode, amount }),
+      (operationId) => applyHpChange({ persId, mode: hpMode, amount, operationId }),
       "Не вдалося оновити HP",
     );
     if (hpMode === "damage") sheetStates?.promptConcentrationCheck(amount);

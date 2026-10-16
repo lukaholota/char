@@ -1,13 +1,20 @@
 import { toast } from "sonner";
-import { noteOriginResponse, reportActionFailure, startWatchingOriginActivity } from "@/lib/monitoring/action-failure-report";
+import {
+  noteOfflineRefusal,
+  noteOriginResponse,
+  reportActionFailure,
+  startWatchingOriginActivity,
+} from "@/lib/monitoring/action-failure-report";
 
 const NEXT_ACTION_HEADER = "next-action";
-const TOAST_ID = "offline-action";
 const ACTION_NOT_FOUND_HEADER = "x-nextjs-action-not-found";
 const STALE_ACTION_TOAST_ID = "stale-action";
 
+export const OFFLINE_ACTION_TOAST_ID = "offline-action";
 export const OFFLINE_ACTION_MESSAGE =
   "Немає мережі — ця дія потребує звʼязку з сервером. Хіти, комірки, ресурси рис, заряди, підготовка, відпочинок і нотатки працюють офлайн і поїдуть самі.";
+const DROPPED_ACTION_MESSAGE = "Звʼязок обірвався — дія не виконана. Спробуйте ще раз, коли мережа повернеться.";
+const KEPT_ON_DEVICE_MESSAGE = "Звʼязок обірвався — зміну збережено на пристрої, надішлю її автоматично";
 
 /// Серверна дія — це POST із заголовком `next-action`, який Next шле глобальним `fetch`. Без
 /// мережі він падає «Failed to fetch» усередині `startTransition`, а React 19 несе такий виняток
@@ -47,9 +54,9 @@ export function installOfflineActionGuard(): void {
       return response;
     }
 
-    const startedAt = Date.now();
-    if (!navigator.onLine) throw refuseOfflineAction(startedAt, null);
+    if (!navigator.onLine) throw refuseOfflineAction();
 
+    const startedAt = Date.now();
     pendingServerActions += 1;
     try {
       const response = await originalFetch(input, init);
@@ -58,7 +65,7 @@ export function installOfflineActionGuard(): void {
       return response;
     } catch (error) {
       if (navigator.onLine && !(error instanceof TypeError)) throw error;
-      throw refuseOfflineAction(startedAt, error, "Звʼязок обірвався — дія не виконана. Спробуйте ще раз, коли мережа повернеться.");
+      throw refuseDroppedAction(startedAt, error);
     } finally {
       pendingServerActions -= 1;
     }
@@ -80,11 +87,24 @@ function showStaleActionNotice(): void {
   });
 }
 
-function refuseOfflineAction(startedAt: number, cause: unknown, message?: string): OfflineActionError {
-  const error = new OfflineActionError(message);
-  toast.error(error.message, { id: TOAST_ID });
+function refuseOfflineAction(): OfflineActionError {
+  const error = new OfflineActionError();
+  toast.error(error.message, { id: OFFLINE_ACTION_TOAST_ID });
+  noteOfflineRefusal();
+  return error;
+}
+
+function refuseDroppedAction(startedAt: number, cause: unknown): OfflineActionError {
+  const error = new OfflineActionError(DROPPED_ACTION_MESSAGE);
+  toast.error(error.message, { id: OFFLINE_ACTION_TOAST_ID });
   reportActionFailure(error, startedAt, cause);
   return error;
+}
+
+/// Зміну листа з обірваного запиту черга надішле з тим самим ідентифікатором, і сервер застосує її
+/// рівно раз — тож тост тієї самої дії замінюється правдою замість «спробуйте ще раз».
+export function showKeptOnDeviceNotice(): void {
+  toast.info(KEPT_ON_DEVICE_MESSAGE, { id: OFFLINE_ACTION_TOAST_ID });
 }
 
 export function isServerActionRequest(input: RequestInfo | URL, init?: RequestInit): boolean {

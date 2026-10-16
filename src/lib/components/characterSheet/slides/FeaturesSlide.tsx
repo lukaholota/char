@@ -353,8 +353,8 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     applyOptimisticRemaining(item, (current) => current - cost);
     const { mutationKey, version } = bumpMutationVersion(item);
 
-    void commitFeatureUse(item, "spend", mutationKey, version, () =>
-      spendFeatureUse({ persId: pers.persId, featureId: item.featureId! }),
+    void commitFeatureUse(item, "spend", mutationKey, version, (operationId) =>
+      spendFeatureUse({ persId: pers.persId, featureId: item.featureId!, operationId }),
     );
   };
 
@@ -368,8 +368,8 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     applyOptimisticRemaining(item, (current, currentMax) => Math.min(currentMax, current + cost));
     const { mutationKey, version } = bumpMutationVersion(item);
 
-    void commitFeatureUse(item, "restore", mutationKey, version, () =>
-      restoreFeatureUse({ persId: pers.persId, featureId: item.featureId! }),
+    void commitFeatureUse(item, "restore", mutationKey, version, (operationId) =>
+      restoreFeatureUse({ persId: pers.persId, featureId: item.featureId!, operationId }),
     );
   };
 
@@ -398,7 +398,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     direction: FeatureUseDirection,
     mutationKey: string,
     version: number,
-    sendToServer: () => Promise<{ success: true; usesRemaining: number | null } | { success: false; error: string }>,
+    sendToServer: (operationId: string) => Promise<{ success: true; usesRemaining: number | null } | { success: false; error: string }>,
   ) => {
     const outcome = await commitOperation(
       { kind: "feature-use", featureId: item.featureId!, direction, operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },

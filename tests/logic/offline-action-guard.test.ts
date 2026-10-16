@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("sonner", () => ({ toast: { error: vi.fn(), warning: vi.fn() } }));
-vi.mock("@sentry/nextjs", () => ({ captureException: vi.fn() }));
+vi.mock("sonner", () => ({ toast: { error: vi.fn(), warning: vi.fn(), info: vi.fn() } }));
+vi.mock("@sentry/nextjs", () => ({ captureException: vi.fn(), addBreadcrumb: vi.fn() }));
 
 import * as Sentry from "@sentry/nextjs";
 import { toast } from "sonner";
@@ -100,6 +100,7 @@ describe("Sentry JAVASCRIPT-NEXTJS-1A — «Звʼязок обірвався» 
 
   afterEach(() => {
     vi.useRealTimers();
+    setOnline(true);
   });
 
   it("подія в Sentry каже, скільки сайт мовчав до дії і чим обірвався запит", async () => {
@@ -126,9 +127,37 @@ describe("Sentry JAVASCRIPT-NEXTJS-1A — «Звʼязок обірвався» 
           msSinceActionStart: 0,
           msSinceLastOriginResponse: 29_000,
           onLine: true,
+          serviceWorkerControlled: false,
         },
       },
     });
+  });
+
+  it("подія каже, чи сторінкою керував service worker, коли обірвався запит", async () => {
+    Object.defineProperty(window.navigator, "serviceWorker", { value: { controller: {} }, configurable: true });
+    window.fetch = vi.fn(async () => {
+      throw new TypeError("Load failed");
+    }) as unknown as typeof fetch;
+    const guard = await loadGuard();
+    guard.installOfflineActionGuard();
+
+    await expect(window.fetch("/char/42", actionInit())).rejects.toSatisfy(guard.isOfflineActionError);
+    Reflect.deleteProperty(window.navigator, "serviceWorker");
+
+    const [, hint] = vi.mocked(Sentry.captureException).mock.calls[0];
+    expect(hint).toMatchObject({ contexts: { action_failure: { serviceWorkerControlled: true } } });
+  });
+
+  it("дія без мережі — очікувана відмова: у Sentry лише слід, а не виняток", async () => {
+    vi.mocked(Sentry.addBreadcrumb).mockClear();
+    const guard = await loadGuard();
+    guard.installOfflineActionGuard();
+    setOnline(false);
+
+    await expect(window.fetch("/char/42", actionInit())).rejects.toSatisfy(guard.isOfflineActionError);
+
+    expect(Sentry.captureException).not.toHaveBeenCalled();
+    expect(Sentry.addBreadcrumb).toHaveBeenCalledTimes(1);
   });
 });
 

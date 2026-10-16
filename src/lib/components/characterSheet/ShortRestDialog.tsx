@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { shortRest, HitDiceToUse } from "@/lib/actions/rest-actions";
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
+import { OFFLINE_ACTION_TOAST_ID } from "@/lib/offline/action-guard";
 import { createOperationId } from "@/lib/offline/queue";
 import { rollHitPointsFromHitDice } from "@/rules/hit-dice";
 import { restTranslations } from "@/lib/refs/translation";
@@ -93,11 +94,12 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
             persId: pers.persId,
             createdAt: new Date().toISOString(),
           },
-          () => shortRest(pers.persId, hitDiceToUse, rolledHitPoints),
+          (operationId) => shortRest(pers.persId, hitDiceToUse, restoredHitPoints, operationId),
         );
         if (outcome.queued) {
           onRestQueued?.();
           toast.success(restTranslations.shortRestComplete, {
+            id: OFFLINE_ACTION_TOAST_ID,
             description: `${restTranslations.hpRestored}: ${restoredHitPoints}. ${restTranslations.savedOffline}`,
           });
           onOpenChange(false);

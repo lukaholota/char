@@ -12,6 +12,8 @@ import {
   updateCurrentSpellSlots,
 } from "@/server/db/spell-slots";
 import { findUserIdByEmail } from "@/server/db/users";
+import { applyPersFieldOperation, isOperationId } from "@/server/db/offline-operations";
+import { normalizeSlots, type OfflineOperation } from "@/lib/offline/operations";
 
 async function assertOwnsPers(persId: number) {
   const session = await auth();
@@ -26,7 +28,16 @@ async function assertOwnsPers(persId: number) {
   const canEdit = await canEditPers(persId, userId);
   if (!canEdit) return { ok: false as const, error: "Немає доступу до персонажа" };
 
-  return { ok: true as const, pers };
+  return { ok: true as const, pers, userId };
+}
+
+async function applySlotOperation(userId: number, operation: OfflineOperation) {
+  await applyPersFieldOperation(userId, operation);
+  revalidatePath(`/char/${operation.persId}`);
+  revalidatePath(`/character/${operation.persId}`);
+
+  const pers = await findSpellSlotOwnership(operation.persId);
+  return { currentSpellSlots: normalizeSlots(pers?.currentSpellSlots), currentPactSlots: pers?.currentPactSlots ?? 0 };
 }
 
 /**
@@ -35,7 +46,8 @@ async function assertOwnsPers(persId: number) {
  */
 export async function spendSpellSlot(
   persId: number,
-  slotLevel: number
+  slotLevel: number,
+  operationId?: string
 ): Promise<{ success: true; currentSpellSlots: number[] } | { success: false; error: string }> {
   const level = Math.trunc(Number(slotLevel));
   if (!Number.isFinite(level) || level < 1 || level > 9) {
@@ -44,6 +56,10 @@ export async function spendSpellSlot(
 
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
+  if (isOperationId(operationId)) {
+    const { currentSpellSlots } = await applySlotOperation(owned.userId, { kind: "spend-spell-slot", slotLevel: level, operationId, persId, createdAt: new Date().toISOString() });
+    return { success: true, currentSpellSlots };
+  }
 
   const raw = Array.isArray(owned.pers.currentSpellSlots) ? owned.pers.currentSpellSlots : [];
   const next = Array.from({ length: 9 }, (_, idx) => {
@@ -70,10 +86,15 @@ export async function spendSpellSlot(
  * Decrement Warlock Pact Magic slots (stored separately in Pers.currentPactSlots).
  */
 export async function spendPactSlot(
-  persId: number
+  persId: number,
+  operationId?: string
 ): Promise<{ success: true; currentPactSlots: number } | { success: false; error: string }> {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
+  if (isOperationId(operationId)) {
+    const { currentPactSlots } = await applySlotOperation(owned.userId, { kind: "spend-pact-slot", operationId, persId, createdAt: new Date().toISOString() });
+    return { success: true, currentPactSlots };
+  }
 
   const cur = Number.isFinite(owned.pers.currentPactSlots)
     ? Math.max(0, Math.trunc(owned.pers.currentPactSlots))
@@ -96,7 +117,8 @@ export async function spendPactSlot(
  */
 export async function restoreSpellSlot(
   persId: number,
-  slotLevel: number
+  slotLevel: number,
+  operationId?: string
 ): Promise<{ success: true; currentSpellSlots: number[] } | { success: false; error: string }> {
   const level = Math.trunc(Number(slotLevel));
   if (!Number.isFinite(level) || level < 1 || level > 9) {
@@ -105,6 +127,10 @@ export async function restoreSpellSlot(
 
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
+  if (isOperationId(operationId)) {
+    const { currentSpellSlots } = await applySlotOperation(owned.userId, { kind: "restore-spell-slot", slotLevel: level, operationId, persId, createdAt: new Date().toISOString() });
+    return { success: true, currentSpellSlots };
+  }
 
   // Need full data for max slots calculation
   const persWithClass = await findSpellcastingSlotState(persId);
@@ -141,10 +167,15 @@ export async function restoreSpellSlot(
  * Increment Warlock Pact Magic slots.
  */
 export async function restorePactSlot(
-  persId: number
+  persId: number,
+  operationId?: string
 ): Promise<{ success: true; currentPactSlots: number } | { success: false; error: string }> {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
+  if (isOperationId(operationId)) {
+    const { currentPactSlots } = await applySlotOperation(owned.userId, { kind: "restore-pact-slot", operationId, persId, createdAt: new Date().toISOString() });
+    return { success: true, currentPactSlots };
+  }
 
   const persWithClass = await findSpellcastingSlotState(persId);
 

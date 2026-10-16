@@ -15,9 +15,12 @@ import {
   updatePersMagicItem,
   type MagicItemUpdates,
 } from "@/server/db/magic-items";
+import { applyChangeOnce } from "@/server/db/offline-operations";
 import { findUserIdByEmail } from "@/server/db/users";
 import { revalidatePath } from "next/cache";
 import { applyChargesMax, applyChargesStep, type MagicItemCharges } from "@/rules/magic-item-charges";
+
+type ChargesResult = { success: true } | { success: false; error: string };
 
 async function assertOwnsPers(persId: number) {
   const session = await auth();
@@ -29,7 +32,7 @@ async function assertOwnsPers(persId: number) {
   const canEdit = await canEditPers(persId, userId);
   if (!canEdit) return { ok: false as const, error: "Немає доступу до персонажа" };
 
-  return { ok: true as const };
+  return { ok: true as const, userId };
 }
 
 export async function updateMagicItem(
@@ -63,20 +66,34 @@ export async function setMagicItemChargesMax(persMagicItemId: number, chargesMax
   return changeMagicItemCharges(persMagicItemId, (charges) => applyChargesMax(charges, chargesMax));
 }
 
-export async function stepMagicItemCharges(persMagicItemId: number, step: number) {
-  return changeMagicItemCharges(persMagicItemId, (charges) => applyChargesStep(charges, Math.trunc(step)));
+export async function stepMagicItemCharges(persMagicItemId: number, step: number, operationId?: string) {
+  return changeMagicItemCharges(persMagicItemId, (charges) => applyChargesStep(charges, Math.trunc(step)), operationId);
 }
 
 async function changeMagicItemCharges(
   persMagicItemId: number,
-  change: (charges: MagicItemCharges) => MagicItemCharges
-): Promise<{ success: true } | { success: false; error: string }> {
+  change: (charges: MagicItemCharges) => MagicItemCharges,
+  operationId?: string
+): Promise<ChargesResult> {
   const persId = await findMagicItemPersId(persMagicItemId);
   if (persId === null) return { success: false, error: "Предмет не знайдено" };
 
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
 
+  return applyChangeOnce<ChargesResult>(
+    owned.userId,
+    { operationId, persId, kind: "magic-item-charges" },
+    () => saveChangedCharges(persId, persMagicItemId, change),
+    { isApplied: (result) => result.success, onDuplicate: () => ({ success: true }) },
+  );
+}
+
+async function saveChangedCharges(
+  persId: number,
+  persMagicItemId: number,
+  change: (charges: MagicItemCharges) => MagicItemCharges
+): Promise<ChargesResult> {
   const charges = await findPersMagicItemCharges(persMagicItemId);
   if (!charges) return { success: false, error: "Предмет не знайдено" };
 
