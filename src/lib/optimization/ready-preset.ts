@@ -5,6 +5,7 @@ import { fullCharacterSchema, type PersFormData } from "@/lib/zod/schemas/persCr
 import type { CreatorContent } from "@/server/db/creator-content-query";
 import type { BuildRecipe } from "./types";
 import { buildLevelOneDraft } from "./build-assembly";
+import { countRemainingBuildPoints } from "./build-draft";
 import { idSchema } from "./schema";
 import { buildReadyPresetOptions } from "./ready-preset-options";
 import { buildPresetEquipment } from "./ready-preset-equipment";
@@ -42,6 +43,7 @@ export function buildReadyPresetDraft(recipe: BuildRecipe, preset: ReadyPreset, 
   const options = buildReadyPresetOptions({ ...applyPresetBackgroundCustomization(start, preset, []), skillsSchema, featChoiceSelections }, content);
   const skillChoices = buildReadyPresetSkillChoices(preset.skills, options.skills);
   const draft = fullCharacterSchema.parse({ ...applyPresetBackgroundCustomization(start, preset, skillChoices.choices.background), name: "", skills: skillChoices.skills,
+    points: countRemainingBuildPoints(recipe.details!.abilityScores),
     skillsSchema,
     featChoiceSelections, classChoiceSelections: findPresetClassSelections(findStartingClass(start, content), preset.classOptions),
     expertiseSchema: { expertises: preset.expertise }, languagesSchema: { languages: preset.languages },

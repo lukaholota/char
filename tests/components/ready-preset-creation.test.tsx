@@ -154,24 +154,24 @@ describe.skipIf(!existsSync("data/rpgbot/ready-builds/monk-shadow-2014.json"))("
     expect(sent.classSpells.preparedIds).toHaveLength(2);
   });
   it.each([
-    ["the dragon ancestor", () => ({ subclassChoiceSelections: {} })],
-    ["the subclass", () => ({ subclassId: undefined })],
-    ["a known spell", (draft: PersFormData) => ({ classSpells: { ...draft.classSpells!, preparedIds: draft.classSpells!.preparedIds.slice(1) } })],
-    ["a duplicated cantrip", (draft: PersFormData) => ({ classSpells: { ...draft.classSpells!, cantripIds: [draft.classSpells!.cantripIds[0], ...draft.classSpells!.cantripIds.slice(0, 3)] } })],
-    ["the racial ancestry", () => ({ raceChoiceSelections: {} })],
-  ])("does not submit a Sorcerer without %s", async (_label, breakDraft) => {
+    ["the dragon ancestor", () => ({ subclassChoiceSelections: {} }), "Завершіть вибори класу й раси."],
+    ["the subclass", () => ({ subclassId: undefined }), "Чернетка належить іншому пресету — почніть заново."],
+    ["a known spell", (draft: PersFormData) => ({ classSpells: { ...draft.classSpells!, preparedIds: draft.classSpells!.preparedIds.slice(1) } }), "Оберіть підготовлених заклинань: 2"],
+    ["a duplicated cantrip", (draft: PersFormData) => ({ classSpells: { ...draft.classSpells!, cantripIds: [draft.classSpells!.cantripIds[0], ...draft.classSpells!.cantripIds.slice(0, 3)] } }), "Оберіть замовлянь: 4"],
+    ["the racial ancestry", () => ({ raceChoiceSelections: {} }), "Завершіть вибори класу й раси."],
+  ])("does not submit a Sorcerer without %s and names the problem", async (_label, breakDraft, problem) => {
     const preset = await renderPreset("build-sorcerer-draconic-2014", "sorcerer-draconic-2014");
     act(() => preset.result.current.update({ name: "Олена", ...breakDraft(preset.result.current.draft as PersFormData) }));
     await act(async () => { await preset.result.current.confirmCreation(); });
     expect(mocks.create).not.toHaveBeenCalled();
-    expect(preset.result.current.error).toContain("Перевірте вибори");
+    expect(preset.result.current.error).toBe(problem);
   });
   it("does not submit a Fighter without the required fighting style", async () => {
     const preset = await renderPreset("build-fighter-champion-shield-2014", "fighter-champion-shield-2014");
     act(() => preset.result.current.update({ name: "Олена", classChoiceSelections: {} }));
     await act(async () => { await preset.result.current.confirmCreation(); });
     expect(mocks.create).not.toHaveBeenCalled();
-    expect(preset.result.current.error).toContain("Перевірте вибори");
+    expect(preset.result.current.error).toBe("Завершіть вибори класу й раси.");
     expect(preset.result.current.draft.name).toBe("Олена");
   });
   it("ignores double submit while pending and after successful creation before navigation", async () => {

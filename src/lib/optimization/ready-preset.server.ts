@@ -73,17 +73,24 @@ async function buildReadyPresetCatalog(): Promise<ReadyPresetCatalogEntry[]> {
 }
 
 function buildReadyPresetCatalogEntry(slug: string, preset: ReadyPreset, recipe: BuildRecipe, { draft, content }: { draft: ReturnType<typeof buildReadyPresetDraft>; content: CreatorContent }): ReadyPresetCatalogEntry {
-  const { subclassClass, subclass } = findReadyPresetClass(recipe);
+  const presetClass = findReadyPresetClass(recipe);
+  const { subclassClass, subclass, mainClass, mainSubclass } = presetClass;
   const { race, variant, subrace } = findReadyPresetPageContent(draft, content);
-  const classLabel = [...new Set(recipe.progression.map((step) => step.classKey))]
+  const classLabel = [...new Set([mainClass.key, ...recipe.progression.map((step) => step.classKey)])]
     .map((key) => translateValue(content.classes.find((entry) => entry.name === key)!.name)).join(" / ");
   const portraitSrc = preset.portraitSrc && existsSync(join(process.cwd(), "public", preset.portraitSrc)) ? preset.portraitSrc : null;
-  return { slug, buildId: preset.buildId, title: preset.title, description: preset.description, className: subclassClass.name,
-    subclassName: subclass.name, raceName: translateValue(variant?.name ?? subrace?.name ?? race.name), baseRaceName: translateValue(race.name), classLabel,
+  const startingClassLabel = describeStartingClass(presetClass);
+  return { slug, buildId: preset.buildId, title: preset.title, description: preset.description, className: mainClass.name,
+    subclassName: mainSubclass.name, raceName: translateValue(variant?.name ?? subrace?.name ?? race.name), baseRaceName: translateValue(race.name), classLabel,
     startingClassKey: recipe.startingClassKey, startingSubclassKey: subclassClass.key === recipe.startingClassKey ? subclass.key : null, raceKey: race.name,
+    ...(startingClassLabel ? { startingClassLabel } : {}),
     maxLevel: Math.max(...findExecutableLevels(recipe)), sourceTitle: recipe.title, portraitSrc,
-    searchAliases: [subclassClass.engName, subclass.engName, ...findAliasVariants("RULES_2014", ENTITY_ALIAS_TYPES, [subclassClass.name, subclass.name, subclassClass.key, subclass.key, translateValue(race.name), race.name, translateValue(variant?.name ?? subrace?.name ?? race.name)])],
-    subclassImageSrc: subclass.imageSrc ?? null, classImageSrc: subclassClass.imageSrc };
+    searchAliases: [mainClass.engName, mainSubclass.engName, ...findAliasVariants("RULES_2014", ENTITY_ALIAS_TYPES, [mainClass.name, mainSubclass.name, mainClass.key, mainSubclass.key, translateValue(race.name), race.name, translateValue(variant?.name ?? subrace?.name ?? race.name)])],
+    subclassImageSrc: mainSubclass.imageSrc ?? null, classImageSrc: mainClass.imageSrc };
+}
+
+function describeStartingClass({ characterClass, mainClass, startingClassLevels }: ReturnType<typeof findReadyPresetClass>): string | null {
+  return characterClass.key === mainClass.key ? null : `${characterClass.name} ${startingClassLevels}`;
 }
 
 async function verifyReadyPresetSource(preset: ReadyPreset, recipe: BuildRecipe) {
@@ -130,11 +137,13 @@ function findReadyPresetPageContent(draft: ReturnType<typeof buildReadyPresetDra
 type ReadyPresetPageContent = ReturnType<typeof findReadyPresetPageContent>;
 
 function buildReadyPresetLinks({ characterClass, race, background }: ReadyPresetPageContent, recipe: BuildRecipe, articleSlug: string) {
-  const { subclassClass, subclass } = findReadyPresetClass(recipe);
+  const { subclassClass, subclass, mainClass, mainSubclass } = findReadyPresetClass(recipe);
   const catalogRace = getAllRaces(recipe.ruleset).find((entry) => entry.key === race.name);
   return {
     classHref: buildClassCardHref(recipe.ruleset, characterClass.classId),
     subclassHref: buildClassCardHref(recipe.ruleset, subclassClass.classId, subclass.subclassId),
+    mainClassHref: buildClassCardHref(recipe.ruleset, mainClass.classId),
+    mainSubclassHref: buildClassCardHref(recipe.ruleset, mainClass.classId, mainSubclass.subclassId),
     raceHref: catalogRace ? buildRaceReadingHref("", { raceKey: catalogRace.slug, branch: null, featureKey: null }) : null,
     backgroundHref: `/backgrounds/${background.backgroundId}`,
     guideHref: buildDraftArticleHref(recipe.ruleset, articleSlug, recipe.sourceRefs[0].sectionId),
@@ -142,12 +151,13 @@ function buildReadyPresetLinks({ characterClass, race, background }: ReadyPreset
 }
 
 function buildReadyPresetSummary({ draft, characterClass, race, variant, subrace, background, feat }: ReadyPresetPageContent, recipe: BuildRecipe) {
-  const { subclass, subclassLevel } = findReadyPresetClass(recipe);
+  const presetClass = findReadyPresetClass(recipe);
   const featOptions = feat?.featChoiceOptions.filter((entry) => Object.values(draft.featChoiceSelections).flat().includes(entry.choiceOptionId)) ?? [];
   return { className: translateValue(characterClass.name), raceName: translateValue(variant?.name ?? subrace?.name ?? race.name),
-    backgroundName: translateValue(background.name), subclassName: subclass.name, subclassLevel,
+    backgroundName: translateValue(background.name), subclassName: presetClass.subclass.name, subclassLevel: presetClass.subclassLevel,
     featName: feat ? translateValue(feat.name) : null, featOptionLabel: featOptions.map((entry) => entry.choiceOption.optionName).join(", ") || null,
     startsWithSubclass: hasFirstLevelSubclass(characterClass),
+    mainClassName: presetClass.mainClass.name, mainSubclassName: presetClass.mainSubclass.name, startingClassLabel: describeStartingClass(presetClass),
   };
 }
 

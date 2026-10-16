@@ -20,8 +20,13 @@ export function findSavedPresetProblem(draft: Partial<PersFormData>, expected: P
   return listSavedPresetIssues(draft, expected, options)[0]?.message ?? null;
 }
 
+export function parseSavedPresetDraft(draft: Partial<PersFormData>) {
+  // Лічильник очок іде в мінус посеред обміну на кроці характеристик; перевитрату судимо за самими значеннями.
+  return fullCharacterSchema.safeParse({ ...draft, points: Math.max(0, draft.points ?? 0) });
+}
+
 export function listSavedPresetIssues(draft: Partial<PersFormData>, expected: PersFormData, options: ReadyPresetOptions): SavedPresetIssue[] {
-  const parsed = fullCharacterSchema.safeParse(draft);
+  const parsed = parseSavedPresetDraft(draft);
   if (!parsed.success) return [{ step: null, message: "Чернетка пошкоджена — почніть пресет заново." }];
   const current = parsed.data;
   const fixedFields = ["ruleset", "classId", "raceId", "raceVariantId", "subraceId", "subclassId", "backgroundId", "featId", "asiSystem", "isDefaultASI", "levelUpPath"] as const;
@@ -63,7 +68,7 @@ export function findPreparedSpellsWithinLimit(draft: Partial<PersFormData>, opti
 }
 
 export function isSavedPresetCompatible(draft: Partial<PersFormData>, expected: PersFormData): boolean {
-  const parsed = fullCharacterSchema.safeParse(draft);
+  const parsed = parseSavedPresetDraft(draft);
   if (!parsed.success) return false;
   const fixedFields = ["ruleset", "classId", "raceId", "raceVariantId", "subraceId", "subclassId", "backgroundId", "featId", "asiSystem", "isDefaultASI", "levelUpPath"] as const;
   const sections = ["skillsSchema", "expertiseSchema", "languagesSchema", "equipmentSchema"] as const;

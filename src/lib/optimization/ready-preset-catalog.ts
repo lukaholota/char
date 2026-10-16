@@ -12,6 +12,7 @@ export type ReadyPresetCatalogEntry = {
   classLabel: string;
   startingClassKey: string;
   startingSubclassKey: string | null;
+  startingClassLabel?: string;
   raceKey: string;
   maxLevel: number;
   sourceTitle: string;
