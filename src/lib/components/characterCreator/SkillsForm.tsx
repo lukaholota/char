@@ -16,6 +16,7 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import clsx from "clsx";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import { findSkillsStepHint, type SkillPickGroup } from "./skills-step-hint";
+import { buildSubclassPickGroup, findSubclassSkillGroup, findSubclassSkillPicks, settleSubclassPicks } from "./subclass-skill-picks";
 
 interface Props {
   race: RaceI
@@ -29,7 +30,7 @@ interface Props {
   extraExistingExpertises?: string[]
 }
 
-type GroupName = 'race' | 'selectedClass' | 'background';
+type GroupName = 'race' | 'selectedClass' | 'background' | 'subclass';
 
 function isSkill(value: unknown): value is Skill {
   return typeof value === "string" && (SkillsEnum as readonly string[]).includes(value)
@@ -98,14 +99,9 @@ export const SkillsForm = ({
 }: Props) => {
   const { formData, updateFormData, nextStep } = usePersFormStore();
   const isTashaAllowed = selectedClass.ruleset !== "RULES_2024";
+  const subclassPicks = useMemo(() => findSubclassSkillPicks(selectedClass, formData.subclassId), [selectedClass, formData.subclassId]);
 
-  const existingSkillsSet = useMemo(() => {
-    const out = new Set<Skill>();
-    extraExistingSkills.forEach((s) => {
-      if (isSkill(s)) out.add(s);
-    });
-    return out;
-  }, [extraExistingSkills]);
+  const existingSkillsSet = useMemo(() => new Set<Skill>([...extraExistingSkills.filter(isSkill), ...subclassPicks.fixed]), [extraExistingSkills, subclassPicks.fixed]);
 
   const existingExpertisesSet = useMemo(() => {
     const out = new Set<Skill>();
@@ -144,12 +140,12 @@ export const SkillsForm = ({
     
     return Array.from(skills);
   }, [background, race, selectedSubrace]);
-  
-  // Custom submit handler to build skills array
+  const listOwnedOutsideGroups = (tasha: boolean) => [...existingSkillsSet, ...(tasha ? [] : fixedSkillsFromRaceAndBackground)];
+
   const {form, onSubmit: baseOnSubmit} = useStepForm(skillsSchema, (data) => {
-    // Build flat skills array from schema data
-    const allSkills = new Set<string>();
-    
+    const subclass = settleSubclassPicks(subclassPicks, data.basicChoices.subclass, listOwnedOutsideGroups(isTashaAllowed && data.isTasha));
+    const allSkills = new Set<string>([...subclassPicks.fixed, ...subclass]);
+
     if (isTashaAllowed && data.isTasha) {
       // In Tasha mode, tashaChoices already contains ALL selected skills (no fixed skills - they become choices)
       data.tashaChoices.forEach(s => allSkills.add(s));
@@ -187,7 +183,7 @@ export const SkillsForm = ({
     const skillsArray = Array.from(allSkills);
     
     updateFormData({
-      skillsSchema: data,
+      skillsSchema: { ...data, basicChoices: { ...data.basicChoices, subclass } },
       skills: skillsArray
     });
     
@@ -284,6 +280,7 @@ export const SkillsForm = ({
     selectedClass: [],
     background: [],
   }, [watchedBasicChoices]);
+  const subclassGroup = findSubclassSkillGroup(subclassPicks, basicChoices.subclass, listOwnedOutsideGroups(isTasha));
 
   // Skills shown as "locked" in UI - only in non-Tasha mode
   const lockedSkillsInUI = useMemo(() => {
@@ -343,10 +340,11 @@ export const SkillsForm = ({
   const basicCounts = {
     race: raceCount - (basicChoices?.race?.length ?? 0),
     selectedClass: classCount - (basicChoices?.selectedClass?.length ?? 0),
-    background: backgroundCount - (basicChoices?.background?.length ?? 0)
+    background: backgroundCount - (basicChoices?.background?.length ?? 0),
+    subclass: subclassGroup.required - subclassGroup.chosen.length,
   }
 
-  const entries = Object.entries(basicChoices) as [GroupName, Skill[]][];
+  const entries = Object.entries({ ...basicChoices, subclass: subclassGroup.chosen }) as [GroupName, Skill[]][];
 
   /// Тільки читається, нічого не переписує: раніше розгортання писало повний перелік навичок
   /// просто в обʼєкт раси, а він лежить у кеші контенту на весь процес — і наступний персонаж
@@ -357,7 +355,8 @@ export const SkillsForm = ({
       : expandSkillOptions(raceSkillProficiencies as SkillProficienciesChoice),
     selectedClass: expandSkillOptions(selectedClass.skillProficiencies as SkillProficienciesChoice),
     background: expandSkillOptions(backgroundSkillProficiencies),
-  }), [raceSkillProficiencies, selectedClass.skillProficiencies, backgroundSkillProficiencies]);
+    subclass: subclassPicks.options,
+  }), [raceSkillProficiencies, selectedClass.skillProficiencies, backgroundSkillProficiencies, subclassPicks.options]);
 
   const groupsWithOptions = entries.filter(
     ([groupName]) => skillOptionsByGroup[groupName].length > 0
@@ -366,9 +365,10 @@ export const SkillsForm = ({
   const checkIfSelectedByOthers = (groupName: GroupName | string, skill: Skill) => {
     // Skills granted by other steps/sources are always treated as already selected
     if (existingSkillsSet.has(skill)) return true;
+    if (isTasha) return tashaChoices.includes(skill);
 
     // In non‑Tasha mode, fixed proficiencies (race/background/subrace) are always already selected
-    if (!isTasha && fixedSkillsFromRaceAndBackground.includes(skill)) return true;
+    if (fixedSkillsFromRaceAndBackground.includes(skill)) return true;
 
     // Check main groups
     const mainGroups: Record<string, string[]> = {
@@ -379,6 +379,7 @@ export const SkillsForm = ({
       background: Array.isArray(background.skillProficiencies)
         ? (background.skillProficiencies as string[])
         : (basicChoices.background as string[]),
+      subclass: subclassGroup.chosen,
     };
 
     // Check race option groups - use copy to avoid mutation
@@ -449,8 +450,9 @@ export const SkillsForm = ({
     ).length;
 
   const basicGroups: Array<[GroupName, number, string]> = [['selectedClass', classCount, 'класу'], ['race', raceCount, 'раси'], ['background', backgroundCount, 'передісторії']];
+  const subclassPickGroup = buildSubclassPickGroup(subclassGroup, (skill) => checkIfSelectedByOthers('subclass', skill));
   const pickGroups: SkillPickGroup[] = isTasha
-    ? [{ chosen: tashaChoices.length, required: Math.min(tashaChoiceCountTotal, engEnumSkills.filter((skill) => !existingSkillsSet.has(skill.eng as Skill)).length), source: '' }]
+    ? [{ chosen: tashaChoices.length, required: Math.min(tashaChoiceCountTotal, engEnumSkills.filter((skill) => !existingSkillsSet.has(skill.eng as Skill)).length), source: '' }, subclassPickGroup]
     : [
         ...basicGroups.map(([groupName, declared, source]) => ({ chosen: (basicChoices[groupName] ?? []).length, required: Math.min(declared, countPickable(groupName)), source })),
         ...Object.entries(raceOptionCounts).map(([optId, max]) => ({
@@ -458,6 +460,7 @@ export const SkillsForm = ({
           required: Math.min(max || 0, (raceOptionSkills[optId] ?? []).filter((skill) => !checkIfSelectedByOthers(optId, skill)).length),
           source: 'раси',
         })),
+        subclassPickGroup,
       ];
   const skillsHint = findSkillsStepHint(pickGroups);
   const isChoiceUnspent = skillsHint !== null;
@@ -483,7 +486,7 @@ export const SkillsForm = ({
 
   const handleToggleBasicSkill = ({skill, groupName}: { skill: Skill, groupName: GroupName }) => {
     if (existingSkillsSet.has(skill)) return;
-    const current = basicChoices[groupName] ?? []
+    const current = groupName === 'subclass' ? subclassGroup.chosen : basicChoices[groupName] ?? []
     const has = current.includes(skill)
 
     if (!has && basicCounts[groupName] < 1) return;
@@ -510,6 +513,58 @@ export const SkillsForm = ({
     
     form.setValue(`choiceOptions.${optionId}`, updated);
   }
+
+  const renderPickGroup = ([groupName, choices]: [GroupName, Skill[]]) => (
+    <div key={groupName} className="space-y-2 rounded-lg border border-white/10 bg-white/5 p-3">
+      <div className="flex items-center justify-between text-sm text-slate-300">
+        <div className="font-semibold text-white">
+          {groupName === 'race' ? 'Навички за расу' : groupName === 'selectedClass' ? 'Навички за клас' : groupName === 'subclass' ? 'Навички за підклас' : 'Навички за передісторію'}
+        </div>
+        <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{basicCounts[groupName]}</span></span>
+      </div>
+      <div className="grid gap-2 sm:grid-cols-2">
+        {skillOptionsByGroup[groupName].map((skill, skillIndex) => {
+          const skillGroup = engEnumSkills.find((s) => s.eng === skill)
+          if (!skillGroup) return null;
+          const isSelected = (choices ?? []).includes(skill)
+          const isSelectedByOthers = checkIfSelectedByOthers(groupName, skill)
+          const isExisting = existingSkillsSet.has(skill as any)
+          const isExistingExpertise = existingExpertisesSet.has(skill as any)
+          const isMaxReached = basicCounts[groupName] < 1;
+          const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers
+          const active = isSelected || isSelectedByOthers;
+          
+          return (
+            <Button
+              key={skillIndex}
+              type="button"
+              variant="outline"
+              disabled={isDisabled}
+              className={`justify-between ${
+                isSelectedByOthers 
+                  ? "bg-white/3 text-slate-400 border-white/10 cursor-not-allowed" 
+                  : active 
+                    ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-slate-100" 
+                    : "border-white/15 bg-white/5 text-slate-200"
+              } ${isDisabled && !isSelectedByOthers ? "opacity-60" : ""}`}
+              onClick={() => !isSelectedByOthers && !isExisting && handleToggleBasicSkill({
+                skill: Skills[skillGroup.eng],
+                groupName: groupName
+              })}
+            >
+              <span className="flex items-center gap-2">
+                {isSelectedByOthers && <Lock className="h-3 w-3" />}
+                {skillGroup.ukr}
+                {isExistingExpertise && <span className="text-xs opacity-80">(Експертиза)</span>}
+              </span>
+              {active && <Check className="h-4 w-4" />}
+              {isSelectedByOthers && !isExistingExpertise && <span className="text-xs opacity-70">(вже обрано)</span>}
+            </Button>
+          )
+        })}
+      </div>
+    </div>
+  );
 
   return (
     <form id={formId} onSubmit={baseOnSubmit} className="w-full space-y-4">
@@ -547,7 +602,7 @@ export const SkillsForm = ({
               
               <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
                 {engEnumSkills.map((skill, index) => {
-                  const isExisting = existingSkillsSet.has(skill.eng as any);
+                  const isExisting = existingSkillsSet.has(skill.eng as any) || subclassGroup.chosen.includes(skill.eng);
                   const isExistingExpertise = existingExpertisesSet.has(skill.eng as any);
                   const isSelected = tashaChoices.includes(skill.eng);
                   const isReachedLimit = tashaChoiceCountCurrent < 1;
@@ -575,6 +630,7 @@ export const SkillsForm = ({
                   );
                 })}
               </div>
+              {groupsWithOptions.filter(([groupName]) => groupName === 'subclass').map(renderPickGroup)}
             </div>
           ) : (
             <div className="space-y-5">
@@ -674,57 +730,7 @@ export const SkillsForm = ({
                 )
               })}
 
-              {groupsWithOptions.map(([groupName, choices], index) => (
-                <div key={index} className="space-y-2 rounded-lg border border-white/10 bg-white/5 p-3">
-                  <div className="flex items-center justify-between text-sm text-slate-300">
-                    <div className="font-semibold text-white">
-                      {groupName === 'race' ? 'Навички за расу' : groupName === 'selectedClass' ? 'Навички за клас' : 'Навички за передісторію'}
-                    </div>
-                    <span className="text-xs uppercase tracking-wide">Залишок: <span className="text-indigo-300">{basicCounts[groupName]}</span></span>
-                  </div>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {skillOptionsByGroup[groupName].map((skill, skillIndex) => {
-                      const skillGroup = engEnumSkills.find((s) => s.eng === skill)
-                      if (!skillGroup) return null;
-                      const isSelected = (choices ?? []).includes(skill)
-                      const isSelectedByOthers = checkIfSelectedByOthers(groupName, skill)
-                      const isExisting = existingSkillsSet.has(skill as any)
-                      const isExistingExpertise = existingExpertisesSet.has(skill as any)
-                      const isMaxReached = basicCounts[groupName] < 1;
-                      const isDisabled = (!isSelected && isMaxReached) || isSelectedByOthers
-                      const active = isSelected || isSelectedByOthers;
-                      
-                      return (
-                        <Button
-                          key={skillIndex}
-                          type="button"
-                          variant="outline"
-                          disabled={isDisabled}
-                          className={`justify-between ${
-                            isSelectedByOthers 
-                              ? "bg-white/3 text-slate-400 border-white/10 cursor-not-allowed" 
-                              : active 
-                                ? "border-gradient-rpg border-gradient-rpg-active glass-active bg-white/5 text-slate-100" 
-                                : "border-white/15 bg-white/5 text-slate-200"
-                          } ${isDisabled && !isSelectedByOthers ? "opacity-60" : ""}`}
-                          onClick={() => !isSelectedByOthers && !isExisting && handleToggleBasicSkill({
-                            skill: Skills[skillGroup.eng],
-                            groupName: groupName
-                          })}
-                        >
-                          <span className="flex items-center gap-2">
-                            {isSelectedByOthers && <Lock className="h-3 w-3" />}
-                            {skillGroup.ukr}
-                            {isExistingExpertise && <span className="text-xs opacity-80">(Експертиза)</span>}
-                          </span>
-                          {active && <Check className="h-4 w-4" />}
-                          {isSelectedByOthers && !isExistingExpertise && <span className="text-xs opacity-70">(вже обрано)</span>}
-                        </Button>
-                      )
-                    })}
-                  </div>
-                </div>
-              ))}
+              {groupsWithOptions.map(renderPickGroup)}
             </div>
           )}
         </CardContent>

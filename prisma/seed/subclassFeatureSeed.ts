@@ -1575,6 +1575,7 @@ const SUBCLASS_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       description:
         "Коли на 1 рівні ви обираєте цей домен, ви отримуєте Володіння навичкою Магія, а також вивчаєте два замовляння на свій вибір зі списку заклинань чарівника. Для вас ці замовляння вважаються замовляннями клірика.",
       displayType: [FeatureDisplayType.PASSIVE],
+      skillProficiencies: [Skills.ARCANA],
     },
     {
       name: "Божественність: Арканне відганяння",
@@ -2068,6 +2069,10 @@ const SUBCLASS_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       description:
         "На 1 рівні ви вивчаєте одне замовляння на свій вибір зі списку заклинань друїда. Це замовляння вважається для вас замовлянням клірика, але не враховується до кількості відомих вам замовлянь клірика. Ви також отримуєте Володіння однією з таких навичок на свій вибір: Поводження з тваринами, Природа або Виживання.",
       displayType: [FeatureDisplayType.PASSIVE],
+      skillProficiencies: {
+        options: [Skills.ANIMAL_HANDLING, Skills.NATURE, Skills.SURVIVAL],
+        choiceCount: 1,
+      },
     },
     {
       name: "Додаткові майстерності (Природа)",

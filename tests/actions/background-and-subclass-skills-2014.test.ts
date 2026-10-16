@@ -70,13 +70,12 @@ describe("2014 creation: skills of the first-level subclass", () => {
   const withSubclassSkills = (subclass: string[] | undefined) => ({
     skillsSchema: { isTasha: false, tashaChoices: [], choiceOptions: {}, basicChoices: { race: [], selectedClass: [], background: [], subclass } },
   });
+  /// Так крок «Навички» ручного конструктора зберігає вибір підкласу: і в групі, і в плоскому переліку.
+  const fromManualBuilder = (subclass: string[]) => ({ ...withSubclassSkills(subclass), skills: ["INSIGHT", "RELIGION", ...subclass] });
 
-  it("gives a Peace Domain cleric no skill from Implement of Peace when the draft names none", async () => {
-    const persId = await createOrThrow(await buildClericForm(Subclasses.PEACE_DOMAIN));
-    const skills = await listProficientSkills(persId);
-    expect(skills).toEqual(expect.arrayContaining(["INSIGHT", "RELIGION"]));
-    expect(skills).not.toContain("PERFORMANCE");
-    expect(skills).not.toContain("PERSUASION");
+  it("grants the Implement of Peace skill the manual builder sends", async () => {
+    const persId = await createOrThrow(await buildClericForm(Subclasses.PEACE_DOMAIN, fromManualBuilder(["PERSUASION"])));
+    expect(await listProficientSkills(persId)).toEqual(["INSIGHT", "PERSUASION", "RELIGION"]);
   });
 
   it("grants the Implement of Peace skill the draft names", async () => {
@@ -87,6 +86,27 @@ describe("2014 creation: skills of the first-level subclass", () => {
   it("grants the Order Domain skill the draft names", async () => {
     const persId = await createOrThrow(await buildClericForm(Subclasses.ORDER_DOMAIN, withSubclassSkills(["INTIMIDATION"])));
     expect(await listProficientSkills(persId)).toEqual(["INSIGHT", "INTIMIDATION", "RELIGION"]);
+  });
+
+  it("grants the Acolyte of Nature skill the manual builder sends", async () => {
+    const persId = await createOrThrow(await buildClericForm(Subclasses.NATURE_DOMAIN, fromManualBuilder(["SURVIVAL"])));
+    expect(await listProficientSkills(persId)).toEqual(["INSIGHT", "RELIGION", "SURVIVAL"]);
+  });
+
+  it("rejects a Nature Domain draft without the Acolyte of Nature skill", async () => {
+    const created = await createCharacter(await buildClericForm(Subclasses.NATURE_DOMAIN, fromManualBuilder([])));
+    expect(created).toMatchObject({ error: expect.stringContaining("Підклас дає обрати навичок: 1") });
+    expect(await prisma.pers.count()).toBe(0);
+  });
+
+  it("grants Arcana from Arcane Initiate with nothing to pick", async () => {
+    const persId = await createOrThrow(await buildClericForm(Subclasses.ARCANA_DOMAIN, fromManualBuilder([])));
+    expect(await listProficientSkills(persId)).toEqual(["ARCANA", "INSIGHT", "RELIGION"]);
+  });
+
+  it("still accepts a draft saved before the builder had the subclass group, without the domain skill", async () => {
+    const persId = await createOrThrow(await buildClericForm(Subclasses.PEACE_DOMAIN));
+    expect(await listProficientSkills(persId)).toEqual(["INSIGHT", "RELIGION"]);
   });
 
   it.each([
