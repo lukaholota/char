@@ -53,7 +53,7 @@ import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 import { hasWeaponMastery } from "@/rules/weapon-mastery";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
-import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
+import { captureCreationFailed, captureCreationFirstChoice, captureCreationStarted, findCreationAnalytics, finishCreationAttempt } from "@/lib/monitoring/funnel-analytics";
 import { useBuildCreatorStep } from "@/lib/optimization/use-build-creator-step";
 
 interface Props {
@@ -100,7 +100,14 @@ export const MultiStepForm = (
       toast.info("Ми оновили створення персонажа: тепер спершу обирається клас. Стару чернетку довелося скинути.");
     }
   }, [isHydrated, initialRuleset]);
-  useEffect(() => { capturePostHogEvent("character_creation_started", { edition: initialRuleset === "RULES_2024" ? "2024" : "2014" }); }, [initialRuleset]);
+  const analyticsEdition = initialRuleset === "RULES_2024" ? "2024" : "2014";
+  useEffect(() => { captureCreationStarted(analyticsEdition); }, [analyticsEdition]);
+  const observedStepRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (!isHydrated) return;
+    if (observedStepRef.current !== null && currentStep > observedStepRef.current) captureCreationFirstChoice(analyticsEdition);
+    observedStepRef.current = currentStep;
+  }, [isHydrated, currentStep, analyticsEdition]);
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [nextDisabled, setNextDisabled] = useState(false);
   const [nextStepHint, setNextStepHint] = useNextStepHintState(currentStep);
@@ -178,9 +185,10 @@ export const MultiStepForm = (
         ruleset: currentRuleset,
       } as PersFormData;
 
-      const result = await createCharacter(currentData);
+      const result = await createCharacter(currentData, findCreationAnalytics());
 
       if (result.error) {
+        captureCreationFailed(analyticsEdition, "server");
         toast.error("Помилка створення", {
           description: result.error
         });
@@ -188,6 +196,7 @@ export const MultiStepForm = (
             console.error(result.details);
         }
       } else if (result.success) {
+        finishCreationAttempt();
         toast.success("Персонажа створено!");
         router.push(`/char/${result.persId}`);
         // Clear draft after navigation starts to avoid a visible "form reset" flash.
@@ -197,6 +206,7 @@ export const MultiStepForm = (
         });
       }
     } catch (e) {
+      captureCreationFailed(analyticsEdition, "network");
       toast.error("Щось пішло не так...");
       console.error(e);
     } finally {
@@ -1063,7 +1073,7 @@ export const MultiStepForm = (
             <ReadyPresetSuggestion classKey={cls.name} subclassKey={subclass?.name ?? null} raceKey={race?.name ?? null} />
           ) : null}
 
-          <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
+          <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} analyticsTrigger="creator_submit" />
         </>
       }
     >

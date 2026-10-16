@@ -7,6 +7,7 @@ import { useActiveEdition, useIsEditionPinnedByPage } from "@/components/ui/Pers
 import { buildPostHogPageProperties, isInternalAnalyticsEmail } from "@/lib/monitoring/posthog-context";
 import { capturePostHogEvent, configurePostHogIdentity, flushPostHogOnExit } from "@/lib/monitoring/posthog-client";
 import { startRpgbotCtaTracking } from "@/lib/monitoring/rpgbot-analytics";
+import { reportAuthReturn, startFunnelPageContext } from "@/lib/monitoring/funnel-analytics";
 import { stripNoAiPrefix } from "@/lib/no-ai/no-ai-route";
 
 export function PostHogProvider() {
@@ -20,9 +21,12 @@ export function PostHogProvider() {
   const lastPageview = useRef<string | null>(null);
   const lastPageGroup = useRef<string | undefined>(undefined);
 
+  useEffect(startFunnelPageContext, []);
+
   useEffect(() => {
     if (status === "loading") return;
     configurePostHogIdentity({ userId, isInternal });
+    reportAuthReturn(userId);
   }, [status, userId, isInternal]);
 
   useEffect(() => {

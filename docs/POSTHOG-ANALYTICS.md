@@ -150,3 +150,88 @@ bun scripts/setup-posthog-dashboards.ts verify
 у [реєстрі](posthog-dashboards.json) позначає, що API-застосування ще не виконано.
 Плитка режимів рахує унікальні сесії з pageview, а не завантаження чи встановлення.
 Production-доставку цих подій і плиток ще не перевірено; тестові captures у бойовий PostHog не надсилались.
+
+## Воронка входу й створення — схема 1, локально 2026-10-16
+
+Не задеплоєно. Аудит, що це обґрунтовує: `persistence: "memory"` + вхід Google повним
+редиректом давали новий анонімний `distinct_id` і новий `$session_id` після повернення;
+анонімний `character_creation_started` назавжди лишався в окремій person, а
+`accounts.google.com` ставав «джерелом» (206 із ~440 identified persons). Розбивка
+«не залогінені 143 старти / 1 створення» — переважно похибка вимірювання.
+
+Код: типізований шар [funnel-analytics.ts](../src/lib/monitoring/funnel-analytics.ts)
+(усі назви подій і enum-и тут, компоненти викликають функції) і чиста модель
+[funnel-analytics-model.ts](../src/lib/monitoring/funnel-analytics-model.ts).
+Події цього шару мають `analytics_schema_version: 1`; старе `analytics_version: 2` лишається.
+
+### Ідентичність і сесія через OAuth
+
+- Перед редиректом на Google (`prepareGoogleAuthRedirect`) до `callbackUrl` додається один
+  параметр `ph_ctx` (base64url JSON): анонімний `distinct_id`, `$session_id`,
+  `creation_attempt_id`, entry-атрибуція, метод, час. Без email, токенів і тексту персонажа.
+- На поверненні `ph_ctx` прибирається з адреси `history.replaceState` до першого pageview.
+  Його приймають лише коли `document.referrer` — `accounts.google.*` і він молодший 30 хв;
+  інакше параметр видаляється без дії (захист від підкинутих посилань).
+- SDK ініціалізується з `bootstrap: { distinctID, sessionID }` — тими самими, що до входу;
+  потім наявний `identify(<числовий user.id>)` зливає анонімну частину з користувачем.
+  Email ніколи не стає ідентифікатором. Вихід: як і раніше, `reset()` або перезавантаження.
+- Якщо SDK до входу ще не завантажився (перші ~5 с), передаються лише атрибуція й спроба;
+  тоді склеювання йде через `creation_attempt_id`.
+- Сервер: `character_created` має `distinct_id = String(user.id)` (той самий, що в identify),
+  `is_signed_in: true`, а для ручного конструктора і пресета — `$session_id` і (ручний)
+  `creation_attempt_id`, якщо клієнт їх передав і це короткі id. Одна подія на персонажа:
+  повтор пресета з тим самим `readyPresetRequestId` події не шле (інтеграційний тест).
+- Сховище пристрою для аналітики не додано: усе живе в памʼяті сторінки та в `ph_ctx`.
+
+### Атрибуція
+
+Superproperties, обчислені один раз на першому завантаженні вкладки (або взяті з `ph_ctx`):
+
+| Властивість | Значення |
+|---|---|
+| `entry_source` | `utm_source`, інакше `entry_source` з адреси (handoff), інакше домен referrer, `direct`, `internal` (свій домен), `unknown` (повернення з Google без контексту) |
+| `entry_medium` | `utm_medium` / `entry_medium` / `referral` / `none` / `oauth_return` / `inapp_handoff` / `unknown` |
+| `entry_campaign` | `utm_campaign` / `entry_campaign` або `null` |
+| `landing_path` | шлях першої сторінки без query |
+| `browser_context` | `regular_browser` \| `embedded_browser` \| `unknown` (порожній UA) |
+| `in_app_browser_host` | `threads` (`Barcelona`), `instagram`, `facebook` (`FBAN/FBAV/FB_IAB/FB4A`), `telegram` (`window.TelegramWebviewProxy` або `Telegram` в UA), `other` (Android `; wv)` чи iOS WebKit без `Safari/`), `unknown`; `null` у звичайному браузері |
+| `device_type` | `mobile` \| `tablet` \| `desktop` \| `unknown` |
+
+`before_send` видаляє `$referrer`, `$referring_domain`, `$session_entry_*` і `$initial_*`
+referrer-поля, якщо це `accounts.google.*`: Google більше не стає first-touch чи session entry.
+Детекція вбудованого браузера — підказка, а не доказ, що Google відмовить у вході.
+`auth_state` окремо не вводився: його роль виконує наявний `is_signed_in` (на старих подіях
+до 12.10 поля немає — тоді «увійшов» = `distinct_id` — число).
+
+### Події
+
+| Подія | Коли | Властивості |
+|---|---|---|
+| `character_creation_started` (назва стара) | монтування ручного конструктора — це **перегляд**, а не дія | `edition`, `creation_path: manual`, `creation_attempt_id`, `is_auth_return` |
+| `character_creation_first_choice` | перший перехід на наступний крок у цьому завантаженні; раз на спробу (після OAuth може повторитися — рахувати `uniq(creation_attempt_id)`) | `edition`, `creation_path`, `creation_attempt_id` |
+| `character_create_failed` | сервер повернув помилку (`server`) або виклик упав (`network`); текст помилки не передається | `edition`, `creation_path`, `creation_attempt_id`, `reason` |
+| `character_created` (сервер, стара) | збережено новий персонаж | як раніше + `is_signed_in`, `$session_id`, `creation_attempt_id` |
+| `auth_requested` | відкрито діалог входу для незалогіненого | `trigger`: `creator_submit` \| `preset_submit` \| `nav` \| `discussion` \| `homebrew` \| `other` |
+| `auth_started` | натиснуто «Продовжити з Google» (перед `signIn`) або One Tap повернув відповідь | `method`: `google_redirect` \| `one_tap`, `trigger` або `null` |
+| `auth_completed` | One Tap успішний; або завантаження з дійсним `ph_ctx` і є сесія | `method` |
+| `auth_failed` | `signIn` повернув помилку (`provider_error`), виняток (`network`), One Tap без credential (`no_credential`), повернення з `ph_ctx` без сесії (`returned_signed_out`) | `method`, `reason` |
+| `inapp_warning_shown` | попередження про вбудований браузер видно | `placement`: `auth_dialog` \| `creator` \| `preset` \| `other` |
+| `inapp_warning_dismissed` | «Продовжити тут» або закриття | `placement`, `action`: `continue_here` \| `close` |
+| `inapp_external_browser_selected` | натиснуто дію «відкрити у звичайному браузері» | `placement`, `method`: `android_intent` \| `ios_safari_scheme` \| `system_share` \| `instructions_only` \| `other` |
+| `inapp_link_copied` | результат копіювання посилання | `placement`, `ok` |
+
+Події `inapp_*` викликає UI вбудованого браузера (окрема гілка) через `captureInAppWarningShown`,
+`captureInAppWarningDismissed`, `captureExternalBrowserSelected`, `captureLinkCopied`; скопійоване
+посилання будується `buildInAppHandoffUrl` і несе `entry_source=<host>&entry_medium=inapp_handoff`.
+Скасування на сторінці Google не видно: Auth.js без `pages` веде помилки й скасування на свої
+англомовні сторінки без PostHog. Подій «покинув» через `beforeunload` немає навмисно.
+
+### Як рахувати
+
+- Qualified entrant = `character_creation_first_choice` (не перегляд). Primary:
+  `uniq(creation_attempt_id)` з `character_created` / з `first_choice` за однакове вікно (7 днів
+  від першого вибору), окремо mobile/desktop і `browser_context`.
+- Auth friction: `auth_requested` → `auth_started` → `auth_completed`; `auth_failed` за `reason`.
+- Пресети й збірки не мають `character_creation_started`; їх рахувати за `rpgbot_*` і
+  `character_created.creation_type`.
+- Порівняння до/після: ці поля зʼявляються лише після деплою; історичні дані не перераховуються.

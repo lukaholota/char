@@ -58,6 +58,7 @@ import { parseEnumArray, parseJsonRecord, parseOptionalNumber, parseStringArray,
 import { findCreationChoicePoolProblem } from "@/rules/creation-choice-pools";
 import { findExpertiseSelectionProblem, isExpertiseChosenThroughSubclassOptions, readExpertiseGrant } from "@/rules/expertise-selections";
 import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
+import { buildCreationAnalyticsProperties } from "@/lib/monitoring/funnel-analytics-model";
 import { findInitialPreparedSelectionProblem, isListPreparedCaster2014 } from "@/rules/initial-prepared-spells-2014";
 import { loadPreparedListSpellIds } from "@/server/db/initial-prepared-spells-2014";
 import { findReadyPresetCreationResult, lockReadyPresetCreation, saveReadyPresetCreationOperation } from "@/server/db/ready-preset-creation-operation";
@@ -93,7 +94,7 @@ type ChosenCreationSpells = { classSpells: ChosenClassSpells; featSpells: Grante
 type PreparedCharacterCreation = { character: CharacterBuild; chosenSpells: ChosenCreationSpells };
 type AuthenticatedUser = { id: number; email: string | null };
 
-export async function createCharacter(input: PersFormData): Promise<CreateCharacterResult> {
+export async function createCharacter(input: PersFormData, analytics?: unknown): Promise<CreateCharacterResult> {
   const user = await requireUser();
   if ("error" in user) return { error: user.error };
 
@@ -111,7 +112,7 @@ export async function createCharacter(input: PersFormData): Promise<CreateCharac
 
   const prepared = await prepareCharacterCreation(data.value);
   if ("error" in prepared) return prepared;
-  return persistCharacter(user.value, prepared.character, prepared.chosenSpells);
+  return persistCharacter(user.value, prepared.character, prepared.chosenSpells, buildCreationAnalyticsProperties(analytics));
 }
 
 async function findSourceBuild(buildId: string): Promise<{ sourceBuildId: string; sourceBuildRevisionId: string } | null> {
@@ -1430,6 +1431,7 @@ async function persistCharacter(
   user: AuthenticatedUser,
   character: CharacterBuild,
   chosenSpells: ChosenCreationSpells,
+  analyticsProperties: Record<string, string> = {},
 ): Promise<CreateCharacterResult> {
   const prepared = prepareCharacterWrite(user, character, chosenSpells);
   if ("error" in prepared) return prepared;
@@ -1459,6 +1461,7 @@ async function persistCharacter(
       pers_id: newPers.persId, edition: newPers.ruleset === "RULES_2024" ? "2024" : "2014",
       creation_type: validData.readyPresetRequestId ? "ready_preset" : "new", classId: validData.classId, subclassId: validData.subclassId,
       raceId: validData.raceId, subraceId: validData.subraceId, raceVariantId: validData.raceVariantId, backgroundId: validData.backgroundId,
+      ...analyticsProperties,
     }, user);
     return { success: true, persId: newPers.persId };
   } catch (error) {

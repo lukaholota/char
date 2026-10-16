@@ -58,7 +58,7 @@ export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entr
       <div className="my-6 rounded-xl bg-white/5 p-4"><p className="text-lg text-white">{data.preset.title}</p><p className="mt-2 text-sm text-slate-300">{describeCharacterLevel(data, assembly.targetLevel)} · {data.summary.raceName} · {data.summary.backgroundName}</p><p className="mt-2 text-sm text-slate-400">{describeSubclassStatus(data, assembly.targetLevel)}</p></div>
       {submitting ? <ReadyPresetCreationProgress levelCount={assembly.targetLevel} /> : null}
       {error ? <p role="alert" className="mb-4 text-rose-200">{error}</p> : null}
-      {isSignInRequiredMessage(error) ? <div className="mb-4"><GoogleAuthDialog open={isSignInOpen} onOpenChange={(open) => { setIsSignInOpen(open); state.rememberSignInOpen(open); }} trigger={<Button variant="secondary" size="sm" className="border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"><LogIn className="mr-2 h-4 w-4" />Увійти</Button>} /></div> : null}
+      {isSignInRequiredMessage(error) ? <div className="mb-4"><GoogleAuthDialog analyticsTrigger="preset_submit" open={isSignInOpen} onOpenChange={(open) => { setIsSignInOpen(open); state.rememberSignInOpen(open); }} trigger={<Button variant="secondary" size="sm" className="border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"><LogIn className="mr-2 h-4 w-4" />Увійти</Button>} /></div> : null}
   </>;
   if (step >= 4) return <ReadyPresetCustomization data={data} state={state} header={header} nameFields={nameFields} ruleExcerpts={ruleExcerpts} />;
   return <div className="mx-auto max-w-6xl px-4 pb-28 pt-6 sm:px-6 sm:pb-12">
