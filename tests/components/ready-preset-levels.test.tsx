@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { act, cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { loadReadyPresetPage } from "@/lib/optimization/ready-preset.server";
 
 const mocks = vi.hoisted(() => ({ create: vi.fn(), createFromBuild: vi.fn(), push: vi.fn(), capture: vi.fn() }));
@@ -17,6 +17,7 @@ vi.mock("@/components/optimization/BuildSource", () => ({ BuildSource: () => nul
 vi.mock("@/lib/components/auth/GoogleAuthDialog", () => ({ default: () => <button type="button">Увійти через Google</button> }));
 vi.mock("@/lib/monitoring/rpgbot-analytics", () => ({ captureRpgbotEvent: mocks.capture }));
 vi.mock("@/lib/monitoring/use-rpgbot-surface-view", () => ({ useRpgbotSurfaceView: vi.fn() }));
+vi.mock("next-auth/react", () => ({ useSession: () => ({ status: "authenticated" }) }));
 
 const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 const levelsKey = (slug: string) => `dnd-preset-2014-build-${slug}-levels`;
@@ -43,14 +44,12 @@ async function renderPreset(slug: string, withoutLevels = false) {
 }
 
 function pickLevel(level: number) {
-  fireEvent.click(screen.getByRole("button", { name: "Змінити рівень" }));
   fireEvent.click(screen.getByRole("radio", { name: `${level}-й рівень` }));
 }
 
 async function goToNameAndSubmit(name = "Мирон") {
-  const quick = screen.queryByRole("button", { name: /Створити за гайдом/ });
-  if (quick) fireEvent.click(quick);
-  else for (let guard = 0; guard < 30 && !screen.queryByLabelText(/Імʼя персонажа/); guard++) {
+  const isReview = screen.queryByRole("button", { name: "Створити за гайдом" });
+  if (!isReview) for (let guard = 0; guard < 30 && !screen.queryByLabelText(/Імʼя персонажа/); guard++) {
     await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Далі →" })); });
   }
   fireEvent.change(await screen.findByLabelText(/Імʼя персонажа/), { target: { value: name } });
@@ -58,7 +57,7 @@ async function goToNameAndSubmit(name = "Мирон") {
 }
 
 function findCreateButton() {
-  return screen.queryByRole("button", { name: "Створити персонажа" }) ?? screen.getByRole("button", { name: "Створити" });
+  return screen.queryByRole("button", { name: "Створити за гайдом" }) ?? screen.getByRole("button", { name: "Створити" });
 }
 
 function findEvents(name: string) {
@@ -81,15 +80,13 @@ describe("preset without higher levels", () => {
     expect(mocks.create.mock.calls[0][0].readyPresetBuildId).toBe("build-bugbear-fiend-warlock-2014");
   });
 
-  it("offers a generated name on the name step, like the main creator", async () => {
+  it("fills a generated name on the review and keeps the generator one tap away", async () => {
     await renderPreset("bugbear-fiend-warlock-2014", true);
-    fireEvent.click(screen.getByRole("button", { name: /Створити за гайдом/ }));
-    const hint = await screen.findByText(/Підказка:/);
-    const suggested = hint.querySelector("span")!.textContent!;
-    expect(suggested.length).toBeGreaterThan(1);
-    fireEvent.click(screen.getByRole("button", { name: "Використати" }));
-    expect((screen.getByLabelText(/Імʼя персонажа/) as HTMLInputElement).value).toBe(suggested);
-    fireEvent.click(screen.getByRole("button", { name: "Згенерувати інше імʼя" }));
+    const input = screen.getByLabelText(/Імʼя персонажа/) as HTMLInputElement;
+    await waitFor(() => expect(input.value.length).toBeGreaterThan(1));
+    const suggested = input.value;
+    for (let guard = 0; guard < 10 && input.value === suggested; guard++) fireEvent.click(screen.getByRole("button", { name: "Згенерувати інше імʼя" }));
+    expect(input.value).not.toBe(suggested);
     expect(screen.getByRole("button", { name: "Жіноча" })).toBeTruthy();
   });
 });
@@ -97,10 +94,10 @@ describe("preset without higher levels", () => {
 describe("level picker", () => {
   it("offers every executable level, starts at level one and keeps level-one creation untouched", async () => {
     mocks.create.mockResolvedValue({ success: true, persId: 32 });
-    await renderPreset("wizard-evocation-2014");
-    fireEvent.click(screen.getByRole("button", { name: "Змінити рівень" }));
+    const { data } = await renderPreset("wizard-evocation-2014");
     const group = screen.getByRole("radiogroup", { name: "Рівень персонажа" });
-    expect(within(group).getAllByRole("radio").map((radio) => (radio as HTMLInputElement).value)).toEqual(["1", "2", "3", "4", "5"]);
+    expect(within(group).getAllByRole("radio").map((radio) => (radio as HTMLInputElement).value)).toEqual(["1", ...data.levels!.targetLevels.map(String)]);
+    expect(data.levels!.targetLevels.length).toBeGreaterThanOrEqual(4);
     expect((screen.getByRole("radio", { name: "1-й рівень" }) as HTMLInputElement).checked).toBe(true);
     expect(screen.queryByText(/Що буде на/)).toBeNull();
     await goToNameAndSubmit();
@@ -124,18 +121,15 @@ describe("level picker", () => {
     mocks.createFromBuild.mockResolvedValue({ success: true, persId: 45 });
     const { data } = await renderPreset("fighter-cavalier-2014");
     pickLevel(20);
-    fireEvent.click(screen.getByRole("button", { name: /Створити за гайдом/ }));
     fireEvent.change(screen.getByLabelText(/Імʼя персонажа/), { target: { value: "Орест" } });
-    fireEvent.click(screen.getByRole("button", { name: "Повернутися й змінити вибори" }));
     await customizeStep("Вибори 16-го рівня");
     const featGroup = screen.getByRole("group", { name: "Риса", exact: true });
     const tough = data.levels!.featPool.find((feat) => feat.key === "TOUGH")!;
     fireEvent.change(within(featGroup).getByRole("textbox"), { target: { value: tough.name } });
     fireEvent.click(within(featGroup).getByRole("button", { name: tough.name, exact: true }));
     fireEvent.click(screen.getByRole("button", { name: "До вибору способу створення" }));
-    fireEvent.click(screen.getByRole("button", { name: /Створити за гайдом/ }));
     expect((screen.getByLabelText(/Імʼя персонажа/) as HTMLInputElement).value).toBe("Орест");
-    await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Створити персонажа" })); });
+    await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Створити за гайдом" })); });
     expect(mocks.createFromBuild.mock.calls[0][0]).toMatchObject({ targetLevel: 20, start: { name: "Орест" }, openAdvancements: [] });
   });
 
@@ -161,7 +155,7 @@ describe("preset page landmark", () => {
 });
 
 async function customizeStep(title: string) {
-  const entry = screen.queryByRole("button", { name: "Налаштувати персонажа" });
+  const entry = screen.queryByRole("button", { name: "Налаштувати" });
   if (entry) fireEvent.click(entry);
   fireEvent.click(await screen.findByRole("button", { name: new RegExp(`^Крок \\d+\\s*${title}$`) }));
 }
@@ -220,7 +214,7 @@ describe("creating a higher level character", () => {
     mocks.createFromBuild.mockResolvedValue({ success: true, persId: 78 });
     await renderPreset("druid-dreams-githzerai-2014");
     pickLevel(7);
-    fireEvent.click(screen.getByRole("button", { name: "Налаштувати персонажа" }));
+    fireEvent.click(screen.getByRole("button", { name: "Налаштувати" }));
     await goToNameAndSubmit();
     expect(mocks.push).toHaveBeenCalledWith("/char/78");
     await act(async () => { frames.forEach((run) => run()); });
@@ -285,8 +279,13 @@ describe("creating a higher level character", () => {
 
   it("falls back to level one when the saved level is no longer offered", async () => {
     localStorage.setItem(levelsKey("sorcadin-clockwork-2014"), JSON.stringify({ targetLevel: 15, requestIds: {}, choices: {}, preparedSpellKeys: null }));
-    await renderPreset("sorcadin-clockwork-2014");
-    expect(screen.getByText("Рівень: 1")).toBeTruthy();
+    const { ReadyPresetCreator } = await import("@/components/optimization/ReadyPresetCreator");
+    const loaded = await loadReadyPresetPage("sorcadin-clockwork-2014");
+    const shortened = { ...loaded, levels: { ...loaded.levels!, targetLevels: loaded.levels!.targetLevels.filter((level) => level < 15) } };
+    render(<ReadyPresetCreator data={shortened} catalogQuery="" />);
+    await screen.findByRole("heading", { level: 1 });
+    expect(screen.queryByRole("radio", { name: "15-й рівень" })).toBeNull();
+    expect((screen.getByRole("radio", { name: "1-й рівень" }) as HTMLInputElement).checked).toBe(true);
   });
 
   it("pre-fills the Wizard preparation up to the limit and sends what the player left after unchecking one", async () => {

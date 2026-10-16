@@ -50,7 +50,7 @@ export function listPresetCustomizationSteps(data: ReadyPresetPageData, state: P
   return steps;
 }
 
-export function ReadyPresetCustomization({ data, state, header, nameFields, ruleExcerpts }: { data: ReadyPresetPageData; state: PresetState; header: ReactNode; nameFields: ReactNode; ruleExcerpts?: CreationStepRuleExcerpts }) {
+export function ReadyPresetCustomization({ data, state, header, nameFields, onCreate, ruleExcerpts }: { data: ReadyPresetPageData; state: PresetState; header: ReactNode; nameFields: ReactNode; onCreate: () => void; ruleExcerpts?: CreationStepRuleExcerpts }) {
   usePreparedSpellsWithinLimit(data, state);
   const steps = [...listPresetCustomizationSteps(data, state), NAME_STEP];
   const index = state.isCreated ? steps.length - 1 : state.step - 4;
@@ -96,7 +96,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, rule
   const blockingStepIndex = blockingIssue?.step ? steps.findIndex((step) => step.kind === blockingIssue.step) : -1;
   const submit = () => {
     if (problem) return;
-    if (active.kind === "name") void state.confirmCreation();
+    if (active.kind === "name") onCreate();
     else next();
   };
   return <CreationStepLayout
@@ -113,7 +113,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, rule
     isNextBlocked={blocked || !!hint || !!problem}
     nextStepHint={problem ?? hint}
     isSubmitting={state.submitting}
-    onPrev={() => leaveStep(state.step - 1)}
+    onPrev={() => leaveStep(state.step === 4 ? 2 : state.step - 1)}
     after={<div className="flex flex-wrap gap-2">
       <Button variant="ghost" disabled={state.submitting} onClick={() => state.goToStep(2)} className="min-h-11 text-slate-400">До вибору способу створення</Button>
       <Button ref={resetConfirm.ref} variant={resetConfirm.isConfirming ? "destructive" : "ghost"} disabled={state.submitting} onClick={resetConfirm.onClick} className={cn("min-h-11", !resetConfirm.isConfirming && "text-slate-400")}>{resetConfirm.isConfirming ? "Точно скинути?" : "Скинути зміни до пресета"}</Button>

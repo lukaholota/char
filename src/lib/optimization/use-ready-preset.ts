@@ -2,21 +2,21 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePresetDraftStorage, usePersFormStore, findActiveDraftStorageKey } from "@/lib/stores/persFormStore";
-import { fullCharacterSchema, type PersFormData } from "@/lib/zod/schemas/persCreateSchema";
+import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { createCharacter, createCharacterFromBuild, type CreateCharacterResult } from "@/lib/actions/character";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import { findCustomizedPresetSections, findPresetAbandonStage } from "@/lib/monitoring/rpgbot-analytics-model";
 import { buildDetailsSchema } from "./schema";
 import { countRemainingBuildPoints } from "./build-draft";
-import { findSavedPresetProblem, isSavedPresetCompatible, isSavedPresetValid } from "./ready-preset-validation";
+import { findSavedPresetProblem, isSavedPresetCompatible, isSavedPresetValid, parseSavedPresetDraft } from "./ready-preset-validation";
 import type { ReadyPresetOptions } from "./ready-preset-options";
 import { removeAssemblyDraft } from "./ready-preset-assembly-draft";
 import { forgetUnfinishedPreset } from "./unfinished-preset";
 import { buildAssemblyStartState } from "./ready-preset-level-context";
 import { buildAssemblyCreationRequest, findAssemblyChoiceProblem, type AssemblyChoiceContext, type ReadyPresetLevels } from "./ready-preset-levels";
 import { buildRequestId } from "./ready-preset-request-id";
-import { describeServerError, findServerErrorReason, findThrownErrorReason } from "./ready-preset-server-error";
+import { SIGN_IN_REQUIRED_MESSAGE, describeServerError, findServerErrorReason, findThrownErrorReason } from "./ready-preset-server-error";
 import { fillDefaultOpenPicks } from "./ready-preset-default-spells";
 import { useReadyPresetAssembly } from "./use-ready-preset-assembly";
 
@@ -39,6 +39,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
   const isFinished = useRef(false);
   const isSignInOpen = useRef(false);
   const customizationStep = useRef<string | null>(null);
+  const isGuideCreationRequested = useRef(false);
   const latest = useRef({ formData, currentStep, initialized, buildId, startingDraft, assembly, options });
   latest.current = { formData, currentStep, initialized, buildId, startingDraft, assembly, options };
   useEffect(() => { openedAt.current = performance.now(); }, []);
@@ -72,11 +73,26 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
     setInvalidSaved(false); setInitialized(true); setError("");
   }
 
-  function chooseGuide() {
-    const current = { ...formData, name: "", readyPresetRequestId: undefined };
-    const initial = { ...startingDraft, name: "", readyPresetRequestId: undefined };
-    if (JSON.stringify(current) !== JSON.stringify(initial) || hasLevelChoices(assembly)) restoreStartingChoices();
-    goToStep(3);
+  function createByGuide() {
+    if (!isCustomized()) { void confirmCreation(); return; }
+    restoreStartingChoices();
+    isGuideCreationRequested.current = true;
+  }
+
+  useEffect(() => {
+    if (!isGuideCreationRequested.current) return;
+    isGuideCreationRequested.current = false;
+    void confirmCreation();
+  });
+
+  function isCustomized(): boolean {
+    const withoutNameAndRequest = (draft: Partial<PersFormData>) => JSON.stringify({ ...draft, name: "", readyPresetRequestId: undefined });
+    return withoutNameAndRequest(formData) !== withoutNameAndRequest(startingDraft) || hasLevelChoices(assembly);
+  }
+
+  function requireSignIn() {
+    captureRpgbotEvent("rpgbot_preset_create_failed", { preset_id: buildId, reason: "sign_in_required" });
+    setError(SIGN_IN_REQUIRED_MESSAGE);
   }
 
   function resetCustomization() {
@@ -95,11 +111,12 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
   function goToStep(step: number) { setError(""); setCurrentStep(step); }
   async function confirmCreation() {
     if (pending.current || created.current) return;
-    const input = fullCharacterSchema.safeParse(formData);
+    const input = parseSavedPresetDraft(formData);
     const scores = buildDetailsSchema.shape.abilityScores.safeParse(formData.asi);
     if (!input.success || !scores.success || countRemainingBuildPoints(scores.data) < 0 || !input.data.name.trim() || !isSavedPresetValid(input.data, startingDraft, options) || choiceProblem) {
-      captureRpgbotEvent("rpgbot_preset_create_failed", { preset_id: buildId, reason: "validation", blocked_by: choiceProblem ?? findSavedPresetProblem(formData, startingDraft, options) ?? "Вкажіть імʼя персонажа." });
-      setError(choiceProblem ?? "Перевірте вибори персонажа й введіть імʼя."); return;
+      const blockedBy = choiceProblem ?? findSavedPresetProblem(formData, startingDraft, options) ?? "Вкажіть імʼя персонажа.";
+      captureRpgbotEvent("rpgbot_preset_create_failed", { preset_id: buildId, reason: "validation", blocked_by: blockedBy });
+      setError(blockedBy); return;
     }
     pending.current = true;
     const storageKey = findActiveDraftStorageKey()!;
@@ -132,7 +149,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
   }
   const rememberSignInOpen = useCallback((open: boolean) => { isSignInOpen.current = open; }, []);
   const rememberCustomizationStep = useCallback((kind: string) => { customizationStep.current = kind; }, []);
-  return { ready: active && isHydrated && initialized && assembly.isLoaded, assembly, choiceContext, choiceProblem, invalidSaved, restartSavedPreset, chooseGuide, resetCustomization, isCreated: createdSnapshot !== null, draft: createdSnapshot?.draft ?? formData, step: Math.max(2, createdSnapshot?.step ?? currentStep), update: updateFormData, goToStep, confirmCreation, submitting, error, rememberSignInOpen, rememberCustomizationStep };
+  return { ready: active && isHydrated && initialized && assembly.isLoaded, assembly, choiceContext, choiceProblem, invalidSaved, restartSavedPreset, createByGuide, requireSignIn, resetCustomization, isCreated: createdSnapshot !== null, draft: createdSnapshot?.draft ?? formData, step: Math.max(2, createdSnapshot?.step ?? currentStep), update: updateFormData, goToStep, confirmCreation, submitting, error, rememberSignInOpen, rememberCustomizationStep };
 }
 
 function buildChoiceContext(levels: ReadyPresetLevels | null, assembly: ReturnType<typeof useReadyPresetAssembly>, draft: Partial<PersFormData>, options: ReadyPresetOptions): AssemblyChoiceContext | null {
