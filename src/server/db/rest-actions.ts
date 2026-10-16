@@ -7,6 +7,7 @@ import { revalidatePath } from "next/cache";
 import { findPoolsAfterSetting, serializeHitDicePools, type HitDiceSpend } from "@/rules/hit-dice";
 import { applyChangeOnce } from "@/server/db/offline-operations";
 import {
+  buildRepeatedLongRestResult,
   buildRepeatedShortRestResult,
   collectHitDicePools,
   findRestPers,
@@ -64,11 +65,16 @@ export async function shortRest(
   return result;
 }
 
-export async function longRest(persId: number): Promise<LongRestResult | LongRestError> {
+export async function longRest(persId: number, operationId?: string): Promise<LongRestResult | LongRestError> {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
 
-  const result = await takeLongRest(owned.pers);
+  const result = await applyChangeOnce<LongRestResult | LongRestError>(
+    owned.userId,
+    { operationId, persId, kind: "long-rest" },
+    () => takeLongRest(owned.pers),
+    { isApplied: (outcome) => outcome.success, onDuplicate: () => buildRepeatedLongRestResult(owned.pers) },
+  );
   revalidateSheet(persId);
   return result;
 }

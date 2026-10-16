@@ -6,7 +6,7 @@ import { createCharacter } from "@/lib/actions/character";
 import { applyHpChange } from "@/lib/actions/combat-actions";
 import { restoreFeatureUse, spendFeatureUse } from "@/lib/actions/feature-uses";
 import { stepMagicItemCharges } from "@/lib/actions/magic-item-actions";
-import { shortRest } from "@/lib/actions/rest-actions";
+import { longRest, shortRest } from "@/lib/actions/rest-actions";
 import { restorePactSlot, restoreSpellSlot, spendPactSlot, spendSpellSlot } from "@/lib/actions/spell-slots";
 import type { OfflineOperation } from "@/lib/offline/operations";
 import { applyOwnedOfflineOperation } from "@/server/db/offline-operations";
@@ -90,6 +90,12 @@ const readCharges = (sheet: Sheet) =>
 const readRest = (sheet: Sheet) =>
   prisma.pers.findUniqueOrThrow({ where: { persId: sheet.persId }, select: { currentHp: true, currentHitDice: true } });
 
+const readLongRest = (sheet: Sheet) =>
+  prisma.pers.findUniqueOrThrow({
+    where: { persId: sheet.persId },
+    select: { currentHp: true, currentHitDice: true, exhaustionLevel: true },
+  });
+
 const firstLevelSlots = (count: number) => [count, 0, 0, 0, 0, 0, 0, 0, 0];
 
 const SHEET_CHANGES: SheetChange[] = [
@@ -164,6 +170,15 @@ const SHEET_CHANGES: SheetChange[] = [
       stamp(sheet, operationId, { kind: "short-rest", hitDiceSpent: [{ classId: sheet.classId, count: 1 }], restoredHitPoints: 3 }),
     readState: readRest,
     repeatedReplyChanges: { hpRestored: 0, featuresRestored: 0 },
+  },
+  {
+    kind: "тривалий відпочинок",
+    prepare: () =>
+      createSheet(Classes.FIGHTER_2014, (classId) => ({ level: 4, currentHp: 5, maxHp: 30, currentHitDice: { [classId]: 0 }, exhaustionLevel: 2 })),
+    sendDirectly: (sheet, operationId) => longRest(sheet.persId, operationId),
+    buildOperation: (sheet, operationId) => stamp(sheet, operationId, { kind: "long-rest" }),
+    readState: readLongRest,
+    repeatedReplyChanges: { featuresRestored: 0 },
   },
 ];
 

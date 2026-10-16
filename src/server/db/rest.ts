@@ -315,6 +315,18 @@ export async function takeLongRest(pers: RestPers): Promise<LongRestResult> {
   };
 }
 
+export function buildRepeatedLongRestResult(pers: RestPers): LongRestResult {
+  return {
+    success: true,
+    newCurrentHp: pers.currentHp,
+    currentHitDice: serializeHitDicePools(collectHitDicePools(pers)),
+    currentSpellSlots: pers.currentSpellSlots,
+    currentPactSlots: pers.currentPactSlots,
+    spellSlotsRestored: true,
+    featuresRestored: 0,
+  };
+}
+
 async function restoreFeaturesAfterLongRest(pers: RestPers): Promise<number> {
   const persId = pers.persId;
   const featuresWithRest = await prisma.persFeature.findMany({

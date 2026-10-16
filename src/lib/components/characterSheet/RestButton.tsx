@@ -68,7 +68,7 @@ export default function RestButton({
     try {
       const outcome = await commitOperation(
         { kind: "long-rest", operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },
-        () => longRest(pers.persId),
+        (operationId) => longRest(pers.persId, operationId),
       );
       if (outcome.queued) {
         onRestQueued?.();
