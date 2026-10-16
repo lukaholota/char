@@ -60,3 +60,21 @@ export function findRacialAbilityChoiceProblem(groups: readonly unknown[], selec
   if (mode === "tasha" && isEveryGroupUnique && new Set(selectedAbilities).size !== selectedAbilities.length) return `Групи цієї раси не дозволяють повторів між собою: ${selectedAbilities.join(", ")}`;
   return null;
 }
+
+export function findRacialChoiceSelectionProblem(groups: readonly unknown[], choices: readonly Pick<RacialAbilityChoice, "groupIndex" | "selectedAbilities">[]): string | null {
+  const seenGroups = new Set<number>();
+  for (const choice of choices) {
+    if (!Number.isInteger(choice.groupIndex) || choice.groupIndex < 0 || choice.groupIndex >= groups.length) return "Раса не дає такої групи расових бонусів";
+    if (seenGroups.has(choice.groupIndex)) return "Групу расових бонусів обрано двічі";
+    seenGroups.add(choice.groupIndex);
+
+    const { choiceCount } = readRacialChoiceGroup(groups[choice.groupIndex]);
+    if (choice.selectedAbilities.length !== choiceCount) return `Оберіть рівно ${choiceCount} характеристик у групі расових бонусів`;
+    if (new Set(choice.selectedAbilities).size !== choice.selectedAbilities.length) return "Не можна підвищити ту саму характеристику двічі в одній групі";
+  }
+
+  const isEveryGroupUnique = groups.length > 1 && groups.every((group) => readRacialChoiceGroup(group).unique);
+  const selected = choices.flatMap((choice) => choice.selectedAbilities);
+  if (isEveryGroupUnique && new Set(selected).size !== selected.length) return "Групи цієї раси не дозволяють підвищити ту саму характеристику двічі";
+  return null;
+}

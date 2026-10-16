@@ -16,6 +16,7 @@ import {
 import { extractExpertisesFromChoiceOption, extractSkillsFromChoiceOption } from "@/lib/logic/characterUtils";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { isRecord } from "@/rules/abilities";
+import { findRacialChoiceSelectionProblem, listRacialChoiceGroups } from "@/rules/racial-ability-choices";
 import { isRules2024Allowed } from "@/rules/access";
 import { findBackgroundAsiProblem } from "@/rules/background-asi";
 import { findCreationSkillChoiceProblem } from "@/server/db/creation-skill-choices";
@@ -297,6 +298,9 @@ function buildCharacter(
   );
   if (backgroundAsiProblem) return { error: backgroundAsiProblem };
 
+  const racialChoiceProblem = findCreationRacialChoiceProblem(ruleset, validData, { race, variant, subrace });
+  if (racialChoiceProblem) return { error: racialChoiceProblem };
+
   const skillChoiceProblem = findCreationSkillChoiceProblem(validData, { ...content, background });
   if (skillChoiceProblem) return { error: skillChoiceProblem };
 
@@ -344,6 +348,23 @@ function buildCharacter(
     featIdsFromChoiceOptions: grantedFeats.map((granted) => granted.featId),
     featOptionFeatureIds: collectFeatOptionFeatureIds(featPicks),
   };
+}
+
+function findCreationRacialChoiceProblem(
+  ruleset: RulesetId,
+  validData: PersFormData,
+  origin: { race: NonNullable<LoadedCreationContent["race"]>; variant: LoadedCreationContent["variant"]; subrace: LoadedCreationContent["subrace"] },
+): string | null {
+  if (ruleset === "RULES_2024" || !validData.racialBonusChoiceSchema) return null;
+  const groups = listRacialChoiceGroups({
+    isDefaultASI: validData.isDefaultASI,
+    raceASI: origin.race.ASI,
+    variantASI: origin.variant?.overridesRaceASI,
+    subraceASI: origin.subrace?.additionalASI,
+    subraceReplacesASI: origin.subrace?.replacesASI ?? false,
+  });
+  const { basicChoices, tashaChoices } = validData.racialBonusChoiceSchema;
+  return findRacialChoiceSelectionProblem(groups, validData.isDefaultASI ? basicChoices : tashaChoices);
 }
 
 // Фіча обраної опції риси (маневр Martial Adept, стиль Fighting Initiate, виклик Eldritch Adept,

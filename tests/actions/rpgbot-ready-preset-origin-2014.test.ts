@@ -63,7 +63,7 @@ describe("Tasha custom origin in ready presets, written by the real createCharac
     expect(await loadAbilityScores(created.persId)).toMatchObject({ str: 8, dex: 15, con: 17, int: 10, wis: 14, cha: 10 });
   });
 
-  it.fails("rejects incomplete Tasha choices and writes nothing (BUG-O49-RACIAL-CHOICES-UNVALIDATED)", async () => {
+  it("rejects incomplete Tasha choices and writes nothing (BUG-O49-RACIAL-CHOICES-UNVALIDATED)", async () => {
     const draft = buildPresetDraft("rogue-mastermind-2014");
     const incomplete = structuredClone(draft);
     incomplete.racialBonusChoiceSchema!.tashaChoices[0].selectedAbilities = ["DEX"];
@@ -71,7 +71,7 @@ describe("Tasha custom origin in ready presets, written by the real createCharac
     await expectNothingCreated();
   });
 
-  it.fails("rejects Tasha choices for a group the race does not have (BUG-O49-RACIAL-CHOICES-UNVALIDATED)", async () => {
+  it("rejects Tasha choices for a group the race does not have (BUG-O49-RACIAL-CHOICES-UNVALIDATED)", async () => {
     const draft = buildPresetDraft("rogue-mastermind-2014");
     const invented = structuredClone(draft);
     invented.racialBonusChoiceSchema!.tashaChoices.push({ groupIndex: 7, choiceCount: 6, selectedAbilities: ["STR", "DEX", "CON", "INT", "WIS", "CHA"] });

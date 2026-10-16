@@ -96,6 +96,7 @@ export async function loadLevelUpFeatureEffects(featureIds: readonly number[]) {
     select: {
       ...HIT_POINT_FEATURE_SELECT,
       name: true,
+      engName: true,
       skillProficiencies: true,
       armorProficiencies: true,
       weaponProficiencies: true,
