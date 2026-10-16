@@ -14,6 +14,6 @@ export function useSignInGate() {
     else setDialogOpen(true);
   };
 
-  const signInDialog = <GoogleAuthDialog open={isDialogOpen} onOpenChange={setDialogOpen} />;
+  const signInDialog = <GoogleAuthDialog open={isDialogOpen} onOpenChange={setDialogOpen} analyticsTrigger="discussion" />;
   return { isSignedIn, requireSignIn, signInDialog };
 }

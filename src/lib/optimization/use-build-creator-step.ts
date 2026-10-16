@@ -9,7 +9,7 @@ import type { CreationStep } from "@/lib/components/characterCreator/creation-st
 
 const targetSchema = z.object({ ruleset: rulesetSchema, stepId: z.enum(["race", "raceChoices", "asi"]) });
 
-export function useBuildCreatorStep(ruleset: OptimizationRuleset, steps: CreationStep[], hydrated: boolean) {
+export function useBuildCreatorStep(ruleset: OptimizationRuleset, steps: CreationStep[], hydrated: boolean, onAutomaticStep?: (step: number) => void) {
   useEffect(() => {
     if (!hydrated) return;
     const saved = sessionStorage.getItem("rpgbot-creator-step");
@@ -25,7 +25,10 @@ export function useBuildCreatorStep(ruleset: OptimizationRuleset, steps: Creatio
     if (!target.success || target.data.ruleset !== ruleset) return;
     const index = steps.findIndex((step) => step.id === target.data.stepId);
     if (index < 0) return;
-    usePersFormStore.getState().setCurrentStep(index + 1);
     sessionStorage.removeItem("rpgbot-creator-step");
-  }, [ruleset, steps, hydrated]);
+    const store = usePersFormStore.getState();
+    if (store.currentStep === index + 1) return;
+    onAutomaticStep?.(index + 1);
+    store.setCurrentStep(index + 1);
+  }, [ruleset, steps, hydrated, onAutomaticStep]);
 }

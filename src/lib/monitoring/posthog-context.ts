@@ -27,7 +27,7 @@ export function buildScreenProperties(width: number, height: number) {
   return { screen_size: `${width} × ${height}`, screen_width_group: width < 640 ? "<640" : width < 1024 ? "640–1023" : width < 1440 ? "1024–1439" : "≥1440" };
 }
 
-const PRIVATE_URL_PARAMS = ["persName", "q"];
+const PRIVATE_URL_PARAMS = ["persName", "q", "ph_ctx"];
 
 export function stripPrivateUrlParams(url: string): string {
   if (!PRIVATE_URL_PARAMS.some((param) => url.includes(`${param}=`))) return url;

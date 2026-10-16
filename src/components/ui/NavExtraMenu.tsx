@@ -252,7 +252,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
   return (
     <>
       {installInstructions ? <InstallAppInstructions path={installInstructions} onClose={() => setInstallInstructions(null)} /> : null}
-      <GoogleAuthDialog open={authOpen} onOpenChange={setAuthOpen} />
+      <GoogleAuthDialog open={authOpen} onOpenChange={setAuthOpen} analyticsTrigger="nav" />
       <ReportProblemDialog open={reportOpen} onOpenChange={setReportOpen} pathname={pathname} />
 
       <div className={cn("relative", open && "z-[9002]", className)}>

@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { captureServerPostHogEvent } from "./posthog-server";
+import { buildCreationAnalyticsProperties } from "./funnel-analytics-model";
 
 const deferred = vi.hoisted(() => ({ callbacks: [] as Array<() => Promise<void>> }));
 const auth = vi.hoisted(() => vi.fn());
@@ -47,6 +48,14 @@ describe("PostHog server delivery", () => {
     const body = JSON.parse(String(options?.body));
     expect(body.properties).toMatchObject({ distinct_id: "7", edition: "2024", $geoip_disable: true, source: "server" });
     expect(JSON.stringify(body)).not.toContain("player@example.test");
+  });
+
+  it("character_created joins the browser person, session and creation attempt", async () => {
+    const analytics = buildCreationAnalyticsProperties({ creationAttemptId: "4f6c1d8e-2a3b-4c5d-9e8f-7a6b5c4d3e2f", sessionId: "0192a1b2-c3d4-7e5f-8a9b-0c1d2e3f4a5c" });
+    captureServerPostHogEvent("character_created", { pers_id: 12, creation_type: "new", ...analytics }, { id: 7, email: "player@example.test" });
+    await deferred.callbacks[0]();
+    const body = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body));
+    expect(body.properties).toMatchObject({ distinct_id: "7", is_signed_in: true, $session_id: "0192a1b2-c3d4-7e5f-8a9b-0c1d2e3f4a5c", creation_attempt_id: "4f6c1d8e-2a3b-4c5d-9e8f-7a6b5c4d3e2f", pers_id: 12 });
   });
 
   it.each(["lukagolota1@gmail.com", "qa-browser@char.holota.family"])("does not send events for %s", async (email) => {

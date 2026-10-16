@@ -2,6 +2,7 @@ import { findDisplayMode } from "@/lib/pwa/install-platform";
 import type { CaptureResult, PostHogConfig } from "posthog-js";
 
 import { isNoiseErrorMessage, isNoiseSourceUrl } from "@/lib/monitoring/error-noise";
+import { dropOAuthReferrers } from "@/lib/monitoring/funnel-analytics-model";
 import { buildPostHogPageProperties, buildScreenProperties, stripPrivateUrlParams } from "@/lib/monitoring/posthog-context";
 
 // persistence: "memory" — жодного cookie чи localStorage. Анонімний distinct_id не переживає
@@ -38,7 +39,11 @@ function preparePostHogEvent(event: CaptureResult | null): CaptureResult | null 
   const screen = buildScreenProperties(event.properties.$screen_width ?? 0, event.properties.$screen_height ?? 0);
   event.properties = { ...page, ...screen, display_mode: findDisplayMode(), ...event.properties };
   stripPrivateUrls(event.properties);
-  if (event.$set_once) stripPrivateUrls(event.$set_once);
+  dropOAuthReferrers(event.properties);
+  if (event.$set_once) {
+    stripPrivateUrls(event.$set_once);
+    dropOAuthReferrers(event.$set_once);
+  }
   return dropNoiseExceptions(event);
 }
 

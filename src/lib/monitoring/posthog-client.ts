@@ -18,6 +18,29 @@ let identifiedUserId: string | null = null;
 let client: PostHog | null = null;
 const pendingEvents: Array<{ event: string; properties?: Record<string, unknown> }> = [];
 let isFlushScheduled = false;
+let bootstrapIds: { distinctID: string; sessionID?: string } | null = null;
+let superProperties: Record<string, unknown> = {};
+
+export function isPostHogEnabled(): boolean {
+  return isEnabled;
+}
+
+export function configurePostHogBootstrap(ids: { distinctID: string; sessionID?: string }): void {
+  if (!client) bootstrapIds = ids;
+}
+
+export function registerPostHogSuperProperties(properties: Record<string, unknown>): void {
+  superProperties = { ...superProperties, ...properties };
+  if (client) syncPostHogIdentity(client);
+}
+
+export function findPostHogIds(): { distinctId: string | null; sessionId: string | null } {
+  try {
+    return { distinctId: client?.get_distinct_id() ?? null, sessionId: client?.get_session_id() ?? null };
+  } catch {
+    return { distinctId: null, sessionId: null };
+  }
+}
 
 // SDK failures are recoverable here: analytics is best effort and must not fail user actions.
 export function configurePostHogIdentity(identity: AnalyticsIdentity): void {
@@ -77,7 +100,7 @@ function syncPostHogIdentity(posthog: PostHog): void {
   if (!currentIdentity) return;
   try {
     if (identifiedUserId !== currentIdentity.userId && identifiedUserId) posthog.reset();
-    posthog.register({ is_internal: currentIdentity.isInternal, display_mode: findDisplayMode(), is_signed_in: currentIdentity.userId !== null });
+    posthog.register({ ...superProperties, is_internal: currentIdentity.isInternal, display_mode: findDisplayMode(), is_signed_in: currentIdentity.userId !== null });
     if (currentIdentity.userId && identifiedUserId !== currentIdentity.userId && !currentIdentity.isInternal) {
       posthog.identify(currentIdentity.userId, { is_internal: false });
     }
@@ -93,7 +116,7 @@ async function importAndInitPostHog(): Promise<PostHog | null> {
   if (!isEnabled || !key || !host) return null;
 
   const { default: posthog } = await import("posthog-js");
-  posthog.init(key, { api_host: host, ...sharedPostHogOptions });
+  posthog.init(key, { api_host: host, ...sharedPostHogOptions, ...(bootstrapIds ? { bootstrap: bootstrapIds } : {}) });
   client = posthog;
   syncPostHogIdentity(posthog);
   flushPostHogEvents(posthog);

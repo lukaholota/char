@@ -4,6 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
+import { captureAuthCompleted, captureAuthFailed, captureAuthStarted } from "@/lib/monitoring/funnel-analytics";
 
 type GsiInitConfig = {
   client_id: string;
@@ -48,7 +49,9 @@ export default function GoogleOneTap({ suppressed = false }: { suppressed?: bool
 
   const handleCredentialResponse = useCallback(async (response: { credential?: string }) => {
     const idToken = response?.credential;
+    captureAuthStarted("one_tap");
     if (!idToken) {
+      captureAuthFailed("one_tap", "no_credential");
       console.error("No credential received");
       return;
     }
@@ -60,13 +63,16 @@ export default function GoogleOneTap({ suppressed = false }: { suppressed?: bool
       });
 
       if (result?.error) {
+        captureAuthFailed("one_tap", "provider_error");
         console.error("Sing in error", result.error);
       } else {
+        captureAuthCompleted("one_tap");
         await update();
         router.refresh();
       }
 
     } catch (error) {
+      captureAuthFailed("one_tap", "network");
       console.error("Sing in failed", error);
     }
   }, [router, update]);

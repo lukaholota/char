@@ -20,7 +20,7 @@ async function deliverAuthenticatedPostHogEvent(input: { host: string; key: stri
   try {
     const actor = user ?? (await auth())?.user;
     if (!actor?.id || isInternalAnalyticsEmail(actor.email, process.env.QA_CREDENTIALS_EMAIL)) return;
-    await sendPostHogEvent(input.host, { api_key: input.key, event: input.event, properties: { ...input.properties, distinct_id: String(actor.id), $geoip_disable: true, $process_person_profile: false, environment: "production", analytics_version: 2, source: "server" } });
+    await sendPostHogEvent(input.host, { api_key: input.key, event: input.event, properties: { ...input.properties, distinct_id: String(actor.id), $geoip_disable: true, $process_person_profile: false, environment: "production", analytics_version: 2, source: "server", is_signed_in: true } });
   } catch (error) {
     console.warn("PostHog identity unavailable", error instanceof Error ? error.name : "unknown");
   }

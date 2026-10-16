@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { ExternalLink, Loader2, LogIn, ShieldCheck } from "lucide-react";
 import { isEmbeddedWebView } from "@/lib/utils/isEmbeddedWebView";
+import { captureAuthFailed, captureAuthRequested, prepareGoogleAuthRedirect, type AuthTrigger } from "@/lib/monitoring/funnel-analytics";
 
 interface Props {
   open?: boolean;
@@ -22,6 +23,7 @@ interface Props {
   triggerLabel?: string;
   trigger?: React.ReactNode;
   callbackUrl?: string;
+  analyticsTrigger?: AuthTrigger;
 }
 
 const GoogleAuthDialog = ({
@@ -30,6 +32,7 @@ const GoogleAuthDialog = ({
   triggerLabel = "Увійти",
   trigger,
   callbackUrl,
+  analyticsTrigger = "other",
 }: Props) => {
   const { data: session, status } = useSession();
   const pathname = usePathname();
@@ -40,6 +43,10 @@ const GoogleAuthDialog = ({
   const shouldRenderTrigger = typeof open === "undefined";
   const effectiveOpen = typeof open === "boolean" ? open : internalOpen;
   const handleOpenChange = onOpenChange ?? setInternalOpen;
+
+  useEffect(() => {
+    if (effectiveOpen && !session) captureAuthRequested(analyticsTrigger);
+  }, [effectiveOpen, session, analyticsTrigger]);
 
   const getCurrentUrl = () => {
     if (typeof window === "undefined") return pathname || "/";
@@ -74,10 +81,11 @@ const GoogleAuthDialog = ({
     try {
       const result = await signIn("google", {
         redirect: false,
-        callbackUrl: callbackUrl ?? getCurrentUrl(),
+        callbackUrl: prepareGoogleAuthRedirect(callbackUrl ?? getCurrentUrl(), analyticsTrigger),
       });
 
       if (result?.error) {
+        captureAuthFailed("google_redirect", "provider_error");
         toast.error("Не вдалося авторизуватися", {
           description: "Google повернув помилку. Спробуйте ще раз.",
         });
@@ -91,6 +99,7 @@ const GoogleAuthDialog = ({
         handleOpenChange(false);
       }
     } catch {
+      captureAuthFailed("google_redirect", "network");
       toast.error("Не вдалося авторизуватися", {
         description: "Перевірте зʼєднання та спробуйте знову.",
       });

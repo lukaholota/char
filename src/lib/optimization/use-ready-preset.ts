@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { usePresetDraftStorage, usePersFormStore, findActiveDraftStorageKey } from "@/lib/stores/persFormStore";
 import { fullCharacterSchema, type PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { createCharacter, createCharacterFromBuild, type CreateCharacterResult } from "@/lib/actions/character";
+import { findCreationAnalytics } from "@/lib/monitoring/funnel-analytics";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import { findCustomizedPresetSections, findPresetAbandonStage } from "@/lib/monitoring/rpgbot-analytics-model";
@@ -127,7 +128,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
     } finally { pending.current = false; setSubmitting(false); }
   }
   function sendCreation(start: PersFormData): Promise<CreateCharacterResult> {
-    if (!choiceContext || !assembly.requestId) return createCharacter({ ...start, readyPresetBuildId: buildId });
+    if (!choiceContext || !assembly.requestId) return createCharacter({ ...start, readyPresetBuildId: buildId }, { ...findCreationAnalytics(), creationAttemptId: null });
     return createCharacterFromBuild(buildAssemblyCreationRequest({ preset: { buildId, revisionId: plan?.revisionId ?? "" }, requestId: assembly.requestId, start, context: choiceContext }));
   }
   const rememberSignInOpen = useCallback((open: boolean) => { isSignInOpen.current = open; }, []);
