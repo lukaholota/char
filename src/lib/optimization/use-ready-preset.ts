@@ -7,17 +7,14 @@ import { createCharacter, createCharacterFromBuild, type CreateCharacterResult }
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import { findCustomizedPresetSections, findPresetAbandonStage } from "@/lib/monitoring/rpgbot-analytics-model";
-import { buildDetailsSchema } from "./schema";
-import { countRemainingBuildPoints } from "./build-draft";
-import { findSavedPresetProblem, isSavedPresetCompatible, isSavedPresetValid, parseSavedPresetDraft } from "./ready-preset-validation";
+import { findSavedPresetProblem, isSavedPresetCompatible } from "./ready-preset-validation";
+import { buildPresetChoiceContext, checkPresetCreation, findPresetChoiceProblem } from "./ready-preset-creation-check";
 import type { ReadyPresetOptions } from "./ready-preset-options";
 import { removeAssemblyDraft } from "./ready-preset-assembly-draft";
 import { forgetUnfinishedPreset } from "./unfinished-preset";
-import { buildAssemblyStartState } from "./ready-preset-level-context";
-import { buildAssemblyCreationRequest, findAssemblyChoiceProblem, type AssemblyChoiceContext, type ReadyPresetLevels } from "./ready-preset-levels";
+import { buildAssemblyCreationRequest, type ReadyPresetLevels } from "./ready-preset-levels";
 import { buildRequestId } from "./ready-preset-request-id";
 import { SIGN_IN_REQUIRED_MESSAGE, describeServerError, findServerErrorReason, findThrownErrorReason } from "./ready-preset-server-error";
-import { fillDefaultOpenPicks } from "./ready-preset-default-spells";
 import { useReadyPresetAssembly } from "./use-ready-preset-assembly";
 
 export type ReadyPresetLevelsPlan = { levels: ReadyPresetLevels; revisionId: string };
@@ -64,8 +61,8 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
     setInitialized(true);
   }, [active, isHydrated, initialized, invalidSaved, formData, currentStep, startingDraft, options, updateFormData, setCurrentStep]);
 
-  const choiceContext = buildChoiceContext(levels, assembly, formData, options);
-  const choiceProblem = choiceContext ? findAssemblyChoiceProblem(choiceContext) : null;
+  const choiceContext = buildPresetChoiceContext(levels, assembly, formData, options);
+  const choiceProblem = findPresetChoiceProblem(choiceContext);
 
   function restartSavedPreset() {
     assembly.reset();
@@ -111,20 +108,18 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
   function goToStep(step: number) { setError(""); setCurrentStep(step); }
   async function confirmCreation() {
     if (pending.current || created.current) return;
-    const input = parseSavedPresetDraft(formData);
-    const scores = buildDetailsSchema.shape.abilityScores.safeParse(formData.asi);
-    if (!input.success || !scores.success || countRemainingBuildPoints(scores.data) < 0 || !input.data.name.trim() || !isSavedPresetValid(input.data, startingDraft, options) || choiceProblem) {
-      const blockedBy = choiceProblem ?? findSavedPresetProblem(formData, startingDraft, options) ?? "Вкажіть імʼя персонажа.";
+    const { start, blockedBy } = checkPresetCreation(formData, startingDraft, options, choiceProblem);
+    if (!start) {
       captureRpgbotEvent("rpgbot_preset_create_failed", { preset_id: buildId, reason: "validation", blocked_by: blockedBy });
       setError(blockedBy); return;
     }
     pending.current = true;
     const storageKey = findActiveDraftStorageKey()!;
     setSubmitting(true); setError("");
-    const progress = { ...describePresetProgress(startingDraft, input.data, assembly, openedAt.current), ...(levels ? { target_level: assembly.targetLevel } : {}) };
+    const progress = { ...describePresetProgress(startingDraft, start, assembly, openedAt.current), ...(levels ? { target_level: assembly.targetLevel } : {}) };
     captureRpgbotEvent("rpgbot_preset_submitted", { preset_id: buildId, ...progress });
     try {
-      const result = await sendCreation({ ...input.data, name: input.data.name.trim(), ruleset: "RULES_2014" });
+      const result = await sendCreation({ ...start, ruleset: "RULES_2014" });
       if (result.error) { captureRpgbotEvent("rpgbot_preset_create_failed", { preset_id: buildId, reason: findServerErrorReason(result.error) }); setError(describeServerError(result.error)); return; }
       created.current = true;
       isFinished.current = true;
@@ -150,12 +145,6 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
   const rememberSignInOpen = useCallback((open: boolean) => { isSignInOpen.current = open; }, []);
   const rememberCustomizationStep = useCallback((kind: string) => { customizationStep.current = kind; }, []);
   return { ready: active && isHydrated && initialized && assembly.isLoaded, assembly, choiceContext, choiceProblem, invalidSaved, restartSavedPreset, createByGuide, requireSignIn, resetCustomization, isCreated: createdSnapshot !== null, draft: createdSnapshot?.draft ?? formData, step: Math.max(2, createdSnapshot?.step ?? currentStep), update: updateFormData, goToStep, confirmCreation, submitting, error, rememberSignInOpen, rememberCustomizationStep };
-}
-
-function buildChoiceContext(levels: ReadyPresetLevels | null, assembly: ReturnType<typeof useReadyPresetAssembly>, draft: Partial<PersFormData>, options: ReadyPresetOptions): AssemblyChoiceContext | null {
-  if (!levels || assembly.targetLevel === 1 || !draft.classId) return null;
-  const playerContext: AssemblyChoiceContext = { levels, targetLevel: assembly.targetLevel, choices: assembly.choices, advancements: assembly.advancements, classOptionChoices: assembly.classOptionChoices, preparedSpellKeys: assembly.preparedSpellKeys, start: buildAssemblyStartState(draft, options) };
-  return { ...playerContext, choices: fillDefaultOpenPicks(playerContext) };
 }
 
 function hasLevelChoices(assembly: ReturnType<typeof useReadyPresetAssembly>): boolean {
