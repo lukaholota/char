@@ -24,6 +24,8 @@ describe("обрив RSC-відповіді на навігації", () => {
 
     expect(screen.getByText("Звʼязок обірвався")).toBeTruthy();
     expect(screen.queryByText("Загальна помилка")).toBeNull();
+    expect(screen.getByRole("alert").textContent).not.toContain("нічого не втрачено");
+    expect(screen.getByRole("alert").textContent).toContain("перевірте, чи зміна на місці");
 
     fireEvent.click(screen.getByRole("button", { name: "Спробувати ще раз" }));
     expect(refresh).toHaveBeenCalledTimes(1);
