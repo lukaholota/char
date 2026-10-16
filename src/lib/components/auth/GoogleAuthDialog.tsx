@@ -14,8 +14,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ExternalLink, Loader2, LogIn, ShieldCheck } from "lucide-react";
-import { isEmbeddedWebView } from "@/lib/utils/isEmbeddedWebView";
-import { captureAuthFailed, captureAuthRequested, prepareGoogleAuthRedirect, type AuthTrigger } from "@/lib/monitoring/funnel-analytics";
+import { buildReturnUrl } from "@/lib/utils/in-app-browser";
+import { cn } from "@/lib/utils";
+import { useInAppBrowser } from "@/lib/components/auth/use-in-app-browser";
+import { InAppBrowserNotice } from "@/lib/components/auth/InAppBrowserNotice";
+import {
+  captureAuthFailed, captureAuthRequested, captureInAppWarningDismissed, captureInAppWarningShown, prepareGoogleAuthRedirect, type AuthTrigger,
+} from "@/lib/monitoring/funnel-analytics";
 
 interface Props {
   open?: boolean;
@@ -37,12 +42,24 @@ const GoogleAuthDialog = ({
   const { data: session, status } = useSession();
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
-  const [isEmbeddedWebViewDetected] = useState(() => isEmbeddedWebView());
+  const inAppBrowser = useInAppBrowser();
+  const isEmbeddedForGuest = !session && (inAppBrowser?.isEmbedded ?? false);
+  const variant = inAppBrowser?.variant ?? "contextual";
+  const isHardBlocked = isEmbeddedForGuest && variant === "control";
 
   const [internalOpen, setInternalOpen] = useState(false);
   const shouldRenderTrigger = typeof open === "undefined";
   const effectiveOpen = typeof open === "boolean" ? open : internalOpen;
-  const handleOpenChange = onOpenChange ?? setInternalOpen;
+  const setOpen = onOpenChange ?? setInternalOpen;
+
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen && isEmbeddedForGuest) captureInAppWarningDismissed("auth_dialog", "close", variant);
+    setOpen(nextOpen);
+  };
+
+  useEffect(() => {
+    if (effectiveOpen && isHardBlocked) captureInAppWarningShown("auth_dialog", "control");
+  }, [effectiveOpen, isHardBlocked]);
 
   useEffect(() => {
     if (effectiveOpen && !session) captureAuthRequested(analyticsTrigger);
@@ -55,11 +72,7 @@ const GoogleAuthDialog = ({
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return undefined;
-    const { origin, pathname: currentPath } = window.location;
-    if (currentPath === "/char/home") {
-      return `${origin}/char`;
-    }
-    return window.location.href;
+    return buildReturnUrl(window.location.href);
   }, []);
 
   const handleCopyLink = async () => {
@@ -77,6 +90,7 @@ const GoogleAuthDialog = ({
   };
 
   const handleSignIn = async () => {
+    if (isEmbeddedForGuest) captureInAppWarningDismissed("auth_dialog", "continue_here", variant);
     setLoading(true);
     try {
       const result = await signIn("google", {
@@ -96,7 +110,7 @@ const GoogleAuthDialog = ({
         window.location.href = result.url;
       } else {
         toast.success("Готово! Ви авторизовані.");
-        handleOpenChange(false);
+        setOpen(false);
       }
     } catch {
       captureAuthFailed("google_redirect", "network");
@@ -140,7 +154,9 @@ const GoogleAuthDialog = ({
               <span>Ви вже увійшли як {session.user.email}</span>
               <ShieldCheck className="h-4 w-4" />
             </div>
-          ) : isEmbeddedWebViewDetected ? (
+          ) : isEmbeddedForGuest && inAppBrowser && variant !== "control" ? (
+            <InAppBrowserNotice environment={inAppBrowser.environment} variant={variant} placement="auth_dialog" />
+          ) : isHardBlocked ? (
             <div className="space-y-3">
               <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
                 <div className="mb-1 flex items-center gap-2 text-white">
@@ -176,8 +192,12 @@ const GoogleAuthDialog = ({
 
           <Button
             onClick={handleSignIn}
-            disabled={loading || status === "loading" || !!session || isEmbeddedWebViewDetected}
-            className="w-full bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/20"
+            disabled={loading || status === "loading" || !!session || isHardBlocked}
+            variant={isEmbeddedForGuest && !isHardBlocked ? "outline" : "default"}
+            className={cn(
+              "w-full",
+              !(isEmbeddedForGuest && !isHardBlocked) && "bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/20"
+            )}
           >
             {loading ? (
               <>
@@ -186,8 +206,10 @@ const GoogleAuthDialog = ({
               </>
             ) : session ? (
               "Ви вже авторизовані"
-            ) : isEmbeddedWebViewDetected ? (
+            ) : isHardBlocked ? (
               "Відкрийте у Safari/Chrome"
+            ) : isEmbeddedForGuest ? (
+              "Все одно спробувати Google"
             ) : (
               <>
                 <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[11px] font-semibold text-slate-900">

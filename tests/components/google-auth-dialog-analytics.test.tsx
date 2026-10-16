@@ -7,12 +7,16 @@ const auth = vi.hoisted(() => ({ signIn: vi.fn() }));
 const analytics = vi.hoisted(() => ({
   captureAuthRequested: vi.fn(),
   captureAuthFailed: vi.fn(),
+  captureInAppWarningShown: vi.fn(),
+  captureInAppWarningDismissed: vi.fn(),
+  captureExternalBrowserSelected: vi.fn(),
+  captureLinkCopied: vi.fn(),
+  buildInAppHandoffUrl: vi.fn((href: string) => href),
   prepareGoogleAuthRedirect: vi.fn((path: string) => `${path}?ph_ctx=ctx`),
 }));
 
 vi.mock("next-auth/react", () => ({ signIn: auth.signIn, useSession: () => ({ data: null, status: "unauthenticated" }) }));
 vi.mock("next/navigation", () => ({ usePathname: () => "/char/create" }));
-vi.mock("@/lib/utils/isEmbeddedWebView", () => ({ isEmbeddedWebView: () => false }));
 vi.mock("@/lib/monitoring/funnel-analytics", () => analytics);
 
 function openDialogAndSignIn() {

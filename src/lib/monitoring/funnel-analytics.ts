@@ -3,6 +3,7 @@ import {
   ANALYTICS_SCHEMA_VERSION, OAUTH_RETURN_PARAM, buildInAppHandoffHref, buildOAuthCallbackPath, findBrowserContext, findDeviceType, findEntryAttribution, readOAuthReturnContext,
   type AuthMethod, type CreationPath, type EntryAttribution, type InAppBrowserHost, type OAuthReturnContext,
 } from "@/lib/monitoring/funnel-analytics-model";
+import { buildReturnUrl, detectBrowserEnvironment, readBrowserSignals, type InAppBrowserVariant } from "@/lib/utils/in-app-browser";
 
 export type InAppPlacement = "auth_dialog" | "creator" | "preset" | "other";
 export type ExternalBrowserMethod = "android_intent" | "ios_safari_scheme" | "system_share" | "instructions_only" | "other";
@@ -20,10 +21,10 @@ export type FunnelEventProperties = {
   auth_started: { method: AuthMethod; trigger: AuthTrigger | null };
   auth_completed: { method: AuthMethod };
   auth_failed: { method: AuthMethod; reason: AuthFailureReason };
-  inapp_warning_shown: { placement: InAppPlacement };
-  inapp_warning_dismissed: { placement: InAppPlacement; action: InAppDismissAction };
-  inapp_external_browser_selected: { placement: InAppPlacement; method: ExternalBrowserMethod };
-  inapp_link_copied: { placement: InAppPlacement; ok: boolean };
+  inapp_warning_shown: { placement: InAppPlacement; variant: InAppBrowserVariant | null };
+  inapp_warning_dismissed: { placement: InAppPlacement; action: InAppDismissAction; variant: InAppBrowserVariant | null };
+  inapp_external_browser_selected: { placement: InAppPlacement; method: ExternalBrowserMethod; variant: InAppBrowserVariant | null };
+  inapp_link_copied: { placement: InAppPlacement; ok: boolean; variant: InAppBrowserVariant | null };
 };
 
 type FunnelEventName = keyof FunnelEventProperties;
@@ -152,23 +153,22 @@ export function reportAuthReturn(userId: string | null): void {
   else captureAuthFailed(authReturn.method, "returned_signed_out");
 }
 
-export function captureInAppWarningShown(placement: InAppPlacement): void {
-  captureFunnelEvent("inapp_warning_shown", { placement });
+export function captureInAppWarningShown(placement: InAppPlacement, variant: InAppBrowserVariant | null = null): void {
+  captureFunnelEvent("inapp_warning_shown", { placement, variant });
 }
 
-export function captureInAppWarningDismissed(placement: InAppPlacement, action: InAppDismissAction): void {
-  captureFunnelEvent("inapp_warning_dismissed", { placement, action });
+export function captureInAppWarningDismissed(placement: InAppPlacement, action: InAppDismissAction, variant: InAppBrowserVariant | null = null): void {
+  captureFunnelEvent("inapp_warning_dismissed", { placement, action, variant });
 }
 
-export function captureExternalBrowserSelected(placement: InAppPlacement, method: ExternalBrowserMethod): void {
-  captureFunnelEvent("inapp_external_browser_selected", { placement, method });
+export function captureExternalBrowserSelected(placement: InAppPlacement, method: ExternalBrowserMethod, variant: InAppBrowserVariant | null = null): void {
+  captureFunnelEvent("inapp_external_browser_selected", { placement, method, variant });
 }
 
-export function captureLinkCopied(placement: InAppPlacement, ok: boolean): void {
-  captureFunnelEvent("inapp_link_copied", { placement, ok });
+export function captureLinkCopied(placement: InAppPlacement, ok: boolean, variant: InAppBrowserVariant | null = null): void {
+  captureFunnelEvent("inapp_link_copied", { placement, ok, variant });
 }
 
 export function buildInAppHandoffUrl(href: string): string {
-  startFunnelPageContext();
-  return buildInAppHandoffHref(href, pageContext?.inAppHost ?? "unknown");
+  return buildInAppHandoffHref(buildReturnUrl(href), detectBrowserEnvironment(readBrowserSignals()).host);
 }

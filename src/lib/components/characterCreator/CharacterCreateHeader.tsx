@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { useTwoStepConfirm } from "@/hooks/useTwoStepConfirm";
 import { ModeLink } from "@/components/no-ai/ModeLink";
 import { buildRpgbotCtaProps } from "@/lib/monitoring/rpgbot-analytics-model";
+import { InAppBrowserHint } from "@/lib/components/auth/InAppBrowserHint";
 
 interface Props {
   onReset: () => void;
@@ -73,6 +74,7 @@ export const CharacterCreateHeader = ({
           )}
         </div>
       </div>
+      {!isAuthenticated ? <InAppBrowserHint onOpenAuth={onOpenAuth} /> : null}
     </div>
   );
 };

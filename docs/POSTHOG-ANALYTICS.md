@@ -224,7 +224,8 @@ referrer-поля, якщо це `accounts.google.*`: Google більше не �
 | `inapp_external_browser_selected` | натиснуто дію «відкрити у звичайному браузері» | `placement`, `method`: `android_intent` \| `ios_safari_scheme` \| `system_share` \| `instructions_only` \| `other` |
 | `inapp_link_copied` | результат копіювання посилання | `placement`, `ok` |
 
-Події `inapp_*` викликає UI вбудованого браузера (окрема гілка) через `captureInAppWarningShown`,
+Усі події `inapp_*` також несуть `variant`: `control` \| `contextual` \| `contextual-handoff` (варіант
+UI вбудованого браузера з `?inapp_variant=`) або `null`. Події `inapp_*` викликає UI вбудованого браузера через `captureInAppWarningShown`,
 `captureInAppWarningDismissed`, `captureExternalBrowserSelected`, `captureLinkCopied`; скопійоване
 посилання будується `buildInAppHandoffUrl` і несе `entry_source=<host>&entry_medium=inapp_handoff`.
 Скасування на сторінці Google не видно: Auth.js без `pages` веде помилки й скасування на свої
