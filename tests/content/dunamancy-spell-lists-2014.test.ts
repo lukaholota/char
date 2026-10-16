@@ -7,7 +7,8 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { readDunamancySpellLists } from "../../prisma/seed/subclassSpellLists2014";
+import { getAllSpells } from "@/lib/spellsData";
+import { readDunamancySpellLists, translateSubclass2014 } from "../../prisma/seed/subclassSpellLists2014";
 
 const { baseClass, lists } = readDunamancySpellLists();
 const catalogNames = new Set((JSON.parse(readFileSync(join(process.cwd(), "data/2014/spells.json"), "utf-8")) as { engName: string }[]).map((row) => row.engName));
@@ -33,5 +34,13 @@ describe("заклинання дунамантії 2014 — лише двом �
   it("кожне заклинання є в каталозі 2014", () => {
     const dangling = lists.flatMap((list) => list.spells.filter((spell) => !catalogNames.has(spell.engName)).map((spell) => `${list.subclass}: ${spell.engName}`));
     expect(dangling).toEqual([]);
+  });
+
+  it("закомічений каталог заклинань дає їм лише списки шкіл, як сід бази, і не список чарівника", () => {
+    const expected = new Map<string, string[]>();
+    for (const list of lists) for (const spell of list.spells) expected.set(spell.engName, [...(expected.get(spell.engName) ?? []), translateSubclass2014(list.subclass)].sort());
+    const catalogLists = new Map(getAllSpells("RULES_2014").map((spell) => [spell.engName, spell.spellClasses.map((entry) => entry.className).sort()]));
+    const mismatches = [...expected].filter(([engName, lists]) => JSON.stringify(lists) !== JSON.stringify(catalogLists.get(engName))).map(([engName]) => engName);
+    expect(mismatches).toEqual([]);
   });
 });
