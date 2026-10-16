@@ -199,17 +199,56 @@
 
 ## 10. QA-звіт
 
-> **Заповнює інтеграційний крок.** Нижче — шаблон.
+Заповнено 2026-10-16 на злитій гілці `evening/evening-int`. Нічого не запушено й не задеплоєно.
 
-- Гілки й коміти, що увійшли:
-- Автотести (команда → результат): `bun run test:no-db`, `bun run test:integration`, `bunx tsc --noEmit`,
-  `bunx eslint`, `bunx next build`:
-- Сценарії з постановки (1–18), автоматично змодельовані:
-- Сценарії, перевірені лише емуляцією UA в Playwright (не дорівнюють перевірці на пристрої):
-- Мапінг фактичних назв подій і властивостей на назви з [auth-funnel-analytics.md](auth-funnel-analytics.md):
-- Ручний чек-лист на пристроях (не виконано): iPhone+Safari, iPhone+Telegram, iPhone+Threads,
-  iPhone PWA, Android+Chrome, Android+Telegram (Custom Tabs і вбудований браузер), Android+Threads:
-- Відомі обмеження й ризики регресії:
+- **Гілки й коміти, що увійшли:** `night/search-analytics` (b3e5fecf, 181bde89), `evening/inapp`
+  (88ec54a5, 6d5513ff), `evening/r2-ux` (8b05df0e, d1d7d285), `evening/r2-error` (c55f801d, 9e4957ee),
+  `night/presets` (eabab622, f5f9f70a, 568aabed та ін.), а також гілки багів (rules, sentry, pdf,
+  r2-valid, r2-dunamancy) і цей набір документів (`evening/product`, ef25be52). Злиття — 589c2929…2f9da980.
+- **Автотести (команда → результат):**
+  - `bun run test:no-db` → 623 файли, 12019 тестів пройшли, 23 пропущено;
+  - `bunx tsc --noEmit` → 0 помилок; `bun run lint` → 0 помилок (150 попереджень);
+  - `bunx next build` → успішно; `check:ui-decomposition`, `check:db-boundary`, `test:rules:coverage` (80.74%) → зелені;
+  - `bun run test:integration` → 127 падінь у 19 файлах. Не через воронку: ті самі 5 падінь є на чистому main,
+    решта залежить від порядку файлів (KNOWN-BUGS, 2026-10-16).
+- **Сценарії, змодельовані автотестами (jsdom/vitest):** гість у вбудованому браузері бачить
+  неблокуюче попередження й робочу кнопку Google (`in-app-browser-sign-in`, `in-app-browser-race-step`);
+  варіант попередження сталий протягом візиту; перший крок 2014 показує рядок про вхід наприкінці,
+  а у вбудованому браузері — пораду відкрити Safari/Chrome (`creator-sign-in-notices`); діалог входу
+  з конструктора пише `auth_requested` з `trigger` (`google-auth-dialog-analytics`); перший вибір
+  не рахується, якщо крок відкрив гайд RPGbot; `ph_ctx` привʼязаний до одноразового nonce вкладки
+  й прибирається з адреси; на сторінці пресета перевірка й імʼя на одному екрані, вхід перед
+  створенням, стерте імʼя не повертається.
+- **Лише емуляція UA в Playwright (не дорівнює пристрою):** вигляд попередження Instagram/Threads
+  на ширині 390 px під час розробки потоку inapp (`scratchpad/evening/inapp-shots`); r2-ux — знімки
+  першого кроку (`scratchpad/evening/r2-ux-shots`). На злитій гілці браузерний прохід не повторювався.
+- **Мапінг назв подій** (фактичні в `src/lib/monitoring/funnel-analytics.ts`):
+  `character_creation_started` (`creation_attempt_id`, `is_auth_return`), `character_creation_first_choice`,
+  `character_create_failed` (`reason`), `auth_requested` (`trigger`), `auth_started` (`method`, `trigger`),
+  `auth_completed` (рівно раз після повернення), `auth_failed`, `inapp_warning_shown`,
+  `inapp_warning_dismissed`, `inapp_external_browser_selected`, `inapp_link_copied`; у всіх `inapp_*`
+  є `variant`. Super properties: `entry_source`, `entry_medium`, `entry_campaign`, `landing_path`.
+  Назви збігаються з [auth-funnel-analytics.md](auth-funnel-analytics.md), крім додаткової `variant`.
+- **Ручний чек-лист на пристроях (не виконано):**
+
+  | Пристрій | Що перевірити |
+  |---|---|
+  | iPhone + Safari | гість проходить конструктор 2014, вхід Google, повернення на крок, створення; одна подія `auth_completed`; `ph_ctx` зник з адреси |
+  | iPhone + Telegram | чи це SFSafariViewController (вхід має працювати, попередження не показується) чи WebView; кнопка Google активна |
+  | iPhone + Threads | попередження у вікні входу; «Скопіювати посилання» копіює адресу без `inapp_variant`; підказка в шапці не перекриває кроки |
+  | Android + Chrome | повний шлях гостя → вхід → створення; PWA-кнопка не конфліктує з попередженням |
+  | Android + Telegram | Custom Tabs і вбудований браузер окремо; `?inapp_variant=contextual-handoff` — `intent://` відкриває Chrome, а не білий екран |
+
+- **Відомі обмеження:** A/B варіантів вбудованого браузера неможливий, доки PostHog працює з
+  persistence `memory`; відмова на боці Google без повернення видна лише як `auth_started` без
+  `auth_completed` (немає `pages.error`); склеювання анонімного старту з акаунтом через `ph_ctx`
+  змінює семантику ідентичності й потребує згоди власника перед пушем.
+- **Ризики регресії:** детектор вбудованого браузера дублюється (`funnel-analytics-model.ts`,
+  `install-platform.ts`, `src/lib/utils/in-app-browser.ts`) — хибне спрацювання тепер лише показує підказку, а не
+  блокує; пропатчений Next history для прибирання `ph_ctx` може зачепити історію модалок
+  (перевірити жест «назад» на iPhone); «Доробити персонажа» лише на кроці класу зменшить кількість
+  `preset_suggestion opened`; поверхня `preset_name` зникла з шляху «За гайдом» — порівняльний тиждень
+  19–26.10 треба рахувати без неї.
 
 ## 11. Наступне продуктове рішення
 
