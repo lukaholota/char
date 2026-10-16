@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config";
+import { configDefaults, defineConfig } from "vitest/config";
 import { fileURLToPath } from "node:url";
 
 export default defineConfig({
@@ -41,6 +41,8 @@ export default defineConfig({
       "tests/golden/creation.test.ts",
       "tests/golden/derived-state/**/*.test.ts",
     ],
+    // Обхід пресетів — ~2700 персонажів, ~25 хв і файли довші за гейт 90 с; лише через `bun run test:preset-sweep`.
+    exclude: [...configDefaults.exclude, ...(process.env.PRESET_SWEEP ? [] : ["tests/actions/preset-sweep.shard-*.test.ts"])],
     setupFiles: ["tests/setup.ts"],
     // Кожен воркер отримує власну копію spells_test (див. tests/global-setup-db-copies.ts),
     // тому файли можуть іти паралельно й прогони різних сесій не заважають один одному.
