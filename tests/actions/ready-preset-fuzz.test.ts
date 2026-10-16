@@ -12,8 +12,9 @@ import { buildAssemblyCreationRequest, findAssemblyChoiceProblem, type AssemblyC
 import { fillDefaultOpenPicks } from "@/lib/optimization/ready-preset-default-spells";
 import { buildReadyPresetLevels } from "@/lib/optimization/ready-preset-levels.server";
 import type { ReadyPresetOptions } from "@/lib/optimization/ready-preset-options";
-import { findPreparedSpellsWithinLimit, listSavedPresetIssues } from "@/lib/optimization/ready-preset-validation";
-import { content, listOfferedStepChanges, presetSlugs, readPreset } from "../helpers/preset-step-changes";
+import { listSavedPresetIssues } from "@/lib/optimization/ready-preset-validation";
+import { content, presetSlugs, readPreset } from "../helpers/preset-step-changes";
+import { applyRandomChanges, fixDownstreamSteps, hashText, pickOne, seedRandom } from "../helpers/preset-sweep/customize";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
 vi.mock("server-only", () => ({}));
@@ -35,45 +36,6 @@ beforeAll(async () => {
   vi.mocked(auth).mockResolvedValue({ user: { email: ownerEmail } } as never);
 });
 afterAll(disconnectDatabase);
-
-function seededRandom(seed: number) {
-  let state = seed >>> 0;
-  return () => {
-    state = (state + 0x6d2b79f5) >>> 0;
-    let mixed = Math.imul(state ^ (state >>> 15), 1 | state);
-    mixed ^= mixed + Math.imul(mixed ^ (mixed >>> 7), 61 | mixed);
-    return ((mixed ^ (mixed >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function hashText(text: string): number {
-  return [...text].reduce((hash, char) => Math.imul(hash ^ char.charCodeAt(0), 16777619), 2166136261);
-}
-
-function pickOne<T>(random: () => number, items: readonly T[]): T {
-  return items[Math.floor(random() * items.length)];
-}
-
-function applyRandomChanges(draft: PersFormData, options: ReadyPresetOptions, random: () => number, labels: string[]): PersFormData {
-  let current = draft;
-  const count = 1 + Math.floor(random() * 6);
-  for (let index = 0; index < count; index++) {
-    const offered = Object.values(listOfferedStepChanges(current, options)).filter((changes) => changes.length);
-    if (!offered.length) break;
-    const change = pickOne(random, pickOne(random, offered));
-    labels.push(change.label);
-    current = change.draft as PersFormData;
-  }
-  return current;
-}
-
-function fixDownstreamSteps(draft: PersFormData, options: ReadyPresetOptions, targetLevel: number): PersFormData {
-  const expertises = draft.expertiseSchema?.expertises ?? [];
-  const owned = draft.skills.filter((skill) => !expertises.includes(skill as never));
-  const keptExpertise = expertises.filter((skill) => draft.skills.includes(skill));
-  const fixed = { ...draft, expertiseSchema: draft.expertiseSchema && { expertises: [...keptExpertise, ...owned.slice(0, expertises.length - keptExpertise.length)] as never } };
-  return { ...fixed, initialPreparedSpellIds: findPreparedSpellsWithinLimit(fixed, options, targetLevel) };
-}
 
 function buildLevelContext(slug: string, draft: PersFormData, options: ReadyPresetOptions, targetLevel: number): AssemblyChoiceContext {
   const preset = readyPresetSchema.parse(JSON.parse(readFileSync(`data/rpgbot/ready-builds/${slug}.json`, "utf8")));
@@ -109,7 +71,7 @@ describe.skipIf(TRIALS === 0)("random customization of every ready preset create
     const { draft, options } = readPreset(slug);
     const failures: string[] = [];
     for (let trial = 0; trial < TRIALS; trial++) {
-      const random = seededRandom(hashText(slug) + trial);
+      const random = seedRandom(hashText(slug) + trial);
       const labels: string[] = [];
       const targetLevel = pickOne(random, listTargetLevels(slug));
       const changed = fixDownstreamSteps(applyRandomChanges(draft, options, random, labels), options, targetLevel);
