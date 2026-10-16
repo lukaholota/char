@@ -1,12 +1,10 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { readPostHogFeatureFlag } from "@/lib/monitoring/posthog-client";
 import {
   detectBrowserEnvironment,
   findInAppBrowserVariant,
   IN_APP_BROWSER_FALLBACK_VARIANT,
-  IN_APP_BROWSER_FLAG_KEY,
   IN_APP_BROWSER_VARIANT_PARAM,
   isEmbeddedBrowser,
   readBrowserSignals,
@@ -49,6 +47,24 @@ function subscribeToNothing(): () => void {
 }
 
 function readVariant(): InAppBrowserVariant {
-  const override = new URLSearchParams(window.location.search).get(IN_APP_BROWSER_VARIANT_PARAM);
-  return findInAppBrowserVariant(override, readPostHogFeatureFlag(IN_APP_BROWSER_FLAG_KEY));
+  const requested = new URLSearchParams(window.location.search).get(IN_APP_BROWSER_VARIANT_PARAM);
+  const variant = findInAppBrowserVariant(requested, readRememberedVariant());
+  if (requested) rememberVariant(variant);
+  return variant;
+}
+
+function readRememberedVariant(): string | null {
+  try {
+    return window.sessionStorage.getItem(IN_APP_BROWSER_VARIANT_PARAM);
+  } catch {
+    return null;
+  }
+}
+
+function rememberVariant(variant: InAppBrowserVariant): void {
+  try {
+    window.sessionStorage.setItem(IN_APP_BROWSER_VARIANT_PARAM, variant);
+  } catch {
+    return;
+  }
 }

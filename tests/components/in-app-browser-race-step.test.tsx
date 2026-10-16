@@ -5,9 +5,7 @@ import RacesForm from "@/lib/components/characterCreator/RacesForm";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { RaceI } from "@/lib/types/model-types";
 
-const analytics = vi.hoisted(() => ({ flag: undefined as unknown }));
-
-vi.mock("@/lib/monitoring/posthog-client", () => ({ capturePostHogEvent: vi.fn(), readPostHogFeatureFlag: () => analytics.flag }));
+vi.mock("@/lib/monitoring/posthog-client", () => ({ capturePostHogEvent: vi.fn() }));
 vi.mock("@/lib/components/characterCreator/modals/RaceInfoModal", () => ({ RaceInfoModal: () => null }));
 
 const THREADS_IOS = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Barcelona 337.0.0.22.95 (iPhone15,3; iOS 17_5; uk_UA; uk; scale=3.00; 1290x2796; 615203047)";
@@ -24,22 +22,20 @@ function submitRaceStep(path: string) {
 }
 
 beforeEach(() => {
-  analytics.flag = undefined;
   window.sessionStorage.clear();
   usePersFormStore.persist.setOptions({ storage: { getItem: () => null, setItem: () => {}, removeItem: () => {} } });
 });
 afterEach(cleanup);
 
 describe("крок «Раса» у вбудованому браузері", () => {
-  it("без прапорця не зупиняє гравця модальним вікном", async () => {
+  it("за замовчуванням не зупиняє гравця модальним вікном", async () => {
     const nextStep = submitRaceStep("/char/create");
     await waitFor(() => expect(nextStep).toHaveBeenCalled());
     expect(screen.queryByText("Краще відкрити у браузері зараз")).toBeNull();
   });
 
   it("контрольний варіант показує давнє вікно з посиланням на поточну сторінку", async () => {
-    analytics.flag = "control";
-    const nextStep = submitRaceStep("/2024/char?from=abc");
+    const nextStep = submitRaceStep("/2024/char?from=abc&inapp_variant=control");
     await screen.findByText("Краще відкрити у браузері зараз");
     expect(nextStep).not.toHaveBeenCalled();
     expect(screen.getByText("http://localhost:3000/2024/char?from=abc")).toBeTruthy();

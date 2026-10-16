@@ -15,7 +15,6 @@ export interface BrowserEnvironment {
   platform: DevicePlatform;
 }
 
-export const IN_APP_BROWSER_FLAG_KEY = "inapp-browser-handoff";
 export const IN_APP_BROWSER_VARIANT_PARAM = "inapp_variant";
 export const IN_APP_BROWSER_FALLBACK_VARIANT: InAppBrowserVariant = "contextual";
 
@@ -52,8 +51,8 @@ export function isEmbeddedBrowser(environment: BrowserEnvironment): boolean {
   return environment.context === "embedded_browser";
 }
 
-export function findInAppBrowserVariant(override: string | null | undefined, flagValue: unknown): InAppBrowserVariant {
-  return findKnownVariant(override) ?? findKnownVariant(flagValue) ?? IN_APP_BROWSER_FALLBACK_VARIANT;
+export function findInAppBrowserVariant(...candidates: unknown[]): InAppBrowserVariant {
+  return candidates.map(findKnownVariant).find((variant) => variant !== null) ?? IN_APP_BROWSER_FALLBACK_VARIANT;
 }
 
 export function buildChromeIntentUrl(pageUrl: string): string | null {

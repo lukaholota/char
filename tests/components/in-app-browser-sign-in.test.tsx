@@ -5,17 +5,14 @@ import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
 import { CharacterCreateHeader } from "@/lib/components/characterCreator/CharacterCreateHeader";
 
 const auth = vi.hoisted(() => ({ session: null as null | { user: { email: string } }, signIn: vi.fn() }));
-const analytics = vi.hoisted(() => ({ capture: vi.fn(), flag: undefined as unknown }));
+const analytics = vi.hoisted(() => ({ capture: vi.fn() }));
 
 vi.mock("next-auth/react", () => ({
   useSession: () => ({ data: auth.session, status: auth.session ? "authenticated" : "unauthenticated" }),
   signIn: auth.signIn,
 }));
 vi.mock("next/navigation", () => ({ usePathname: () => window.location.pathname }));
-vi.mock("@/lib/monitoring/posthog-client", () => ({
-  capturePostHogEvent: analytics.capture,
-  readPostHogFeatureFlag: () => analytics.flag,
-}));
+vi.mock("@/lib/monitoring/posthog-client", () => ({ capturePostHogEvent: analytics.capture }));
 
 const IOS_SAFARI = "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1";
 const THREADS_IOS = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Barcelona 337.0.0.22.95 (iPhone15,3; iOS 17_5; uk_UA; uk; scale=3.00; 1290x2796; 615203047)";
@@ -41,7 +38,7 @@ beforeEach(() => {
   auth.session = null;
   auth.signIn.mockReset().mockResolvedValue({ url: null });
   analytics.capture.mockReset();
-  analytics.flag = undefined;
+  window.sessionStorage.clear();
   document.execCommand = vi.fn(() => false);
 });
 
@@ -57,7 +54,7 @@ describe("вхід через Google у звичайному браузері", 
   });
 });
 
-describe("вхід у вбудованому браузері без прапорця", () => {
+describe("вхід у вбудованому браузері за замовчуванням", () => {
   it("Telegram на iPhone: пояснення, копіювання як головна дія і Google як запасна", () => {
     openPage(IOS_SAFARI, "/2024/char?from=abc", { telegram: true });
     render(<GoogleAuthDialog open onOpenChange={() => {}} />);
@@ -127,8 +124,7 @@ describe("варіант з переходом у браузер", () => {
   });
 
   it("на iPhone не обіцяє Chrome, а дає копіювання й шлях через меню", () => {
-    openPage(THREADS_IOS);
-    analytics.flag = "contextual-handoff";
+    openPage(THREADS_IOS, "/char/create?inapp_variant=contextual-handoff");
     render(<GoogleAuthDialog open onOpenChange={() => {}} />);
     expect(screen.queryByRole("link", { name: /Chrome/ })).toBeNull();
     expect(screen.getByRole("button", { name: "Скопіювати посилання" })).toBeTruthy();
@@ -138,10 +134,33 @@ describe("варіант з переходом у браузер", () => {
 
 describe("контрольний варіант", () => {
   it("лишає попередню поведінку з вимкненою кнопкою", () => {
-    openPage(THREADS_IOS);
-    analytics.flag = "control";
+    openPage(THREADS_IOS, "/char/create?inapp_variant=control");
     render(<GoogleAuthDialog open onOpenChange={() => {}} />);
     expect((screen.getByRole("button", { name: "Відкрийте у Safari/Chrome" }) as HTMLButtonElement).disabled).toBe(true);
+    expect(findEvent("in_app_browser_warning_shown")).toMatchObject({ variant: "control" });
+  });
+});
+
+describe("варіант протягом візиту", () => {
+  it("не змінюється, коли параметр зникає з адреси після переходу", () => {
+    openPage(THREADS_IOS, "/char/create?inapp_variant=control");
+    const first = render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    first.unmount();
+
+    openPage(THREADS_IOS, "/char/create");
+    analytics.capture.mockReset();
+    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    expect((screen.getByRole("button", { name: "Відкрийте у Safari/Chrome" }) as HTMLButtonElement).disabled).toBe(true);
+    expect(findEvent("in_app_browser_warning_shown")).toMatchObject({ variant: "control" });
+  });
+
+  it("невідоме значення в адресі не скидає обраний варіант", () => {
+    openPage(THREADS_IOS, "/char/create?inapp_variant=control");
+    render(<GoogleAuthDialog open onOpenChange={() => {}} />).unmount();
+
+    openPage(THREADS_IOS, "/char/create?inapp_variant=bogus");
+    analytics.capture.mockReset();
+    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
     expect(findEvent("in_app_browser_warning_shown")).toMatchObject({ variant: "control" });
   });
 });
@@ -162,12 +181,10 @@ describe("підказка в шапці конструктора", () => {
     const { rerender } = render(<CharacterCreateHeader onReset={() => {}} onOpenAuth={() => {}} />);
     expect(screen.queryByRole("note")).toBeNull();
 
-    openPage(THREADS_IOS);
-    analytics.flag = "control";
+    openPage(THREADS_IOS, "/char/create?inapp_variant=control");
     rerender(<CharacterCreateHeader onReset={() => {}} onOpenAuth={() => {}} />);
     expect(screen.queryByRole("note")).toBeNull();
 
-    analytics.flag = undefined;
     rerender(<CharacterCreateHeader onReset={() => {}} onOpenAuth={() => {}} isAuthenticated />);
     expect(screen.queryByRole("note")).toBeNull();
   });

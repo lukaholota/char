@@ -54,23 +54,18 @@ describe("detectBrowserEnvironment", () => {
 });
 
 describe("findInAppBrowserVariant", () => {
-  it("без прапорця бере неблокуюче попередження", () => {
-    expect(findInAppBrowserVariant(null, undefined)).toBe("contextual");
+  it("без запиту бере неблокуюче попередження", () => {
+    expect(findInAppBrowserVariant(null, null)).toBe("contextual");
   });
 
-  it("бере значення прапорця, якщо воно відоме", () => {
-    expect(findInAppBrowserVariant(null, "control")).toBe("control");
+  it("бере перше відоме значення", () => {
+    expect(findInAppBrowserVariant("control", "contextual-handoff")).toBe("control");
     expect(findInAppBrowserVariant(null, "contextual-handoff")).toBe("contextual-handoff");
   });
 
-  it("ігнорує невідомі значення прапорця", () => {
-    expect(findInAppBrowserVariant(null, true)).toBe("contextual");
-    expect(findInAppBrowserVariant(null, "test")).toBe("contextual");
-  });
-
-  it("параметр адреси переважає прапорець для ручної перевірки", () => {
-    expect(findInAppBrowserVariant("contextual-handoff", "control")).toBe("contextual-handoff");
+  it("пропускає невідомі значення", () => {
     expect(findInAppBrowserVariant("bogus", "control")).toBe("control");
+    expect(findInAppBrowserVariant(true, "test")).toBe("contextual");
   });
 });
 

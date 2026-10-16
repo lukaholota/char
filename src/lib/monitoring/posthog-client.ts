@@ -46,14 +46,6 @@ export function capturePostHogEvent(event: string, properties?: Record<string, u
   if (currentIdentity) schedulePostHogFlush();
 }
 
-export function readPostHogFeatureFlag(key: string): string | boolean | undefined {
-  try {
-    return client?.getFeatureFlag(key);
-  } catch {
-    return undefined;
-  }
-}
-
 function schedulePostHogFlush(): void {
   if (isFlushScheduled) return;
   isFlushScheduled = true;
