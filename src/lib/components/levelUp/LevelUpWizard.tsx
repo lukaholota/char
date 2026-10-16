@@ -13,6 +13,7 @@ import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
 import { characterLevelOnly } from "@/rules/character-level";
 import { findMissingSpeciesTraits } from "@/rules/species-grants";
 import { activateLevelUpDraftStorage, usePersFormStore } from "@/lib/stores/persFormStore";
+import { EMPTY_BRANCH_CHOICES } from "@/lib/components/levelUp/levelUpBranchChoices";
 import { GuidedLevelUpCard, useGuidedLevelUp, type GuidedLevelUpControl } from "@/lib/components/levelUp/GuidedLevelUp";
 import type { GuidedLevelUp as GuidedLevelUpOffer } from "@/lib/optimization/guided-level-up";
 import { Button } from "@/components/ui/button";
@@ -1950,17 +1951,7 @@ function PathStep({
   }, [existingEntries, levelUpPath, chosenClassId, updateFormData]);
 
   const resetLevelUpChoices = () => {
-    updateFormData({
-      subclassId: undefined,
-      classChoiceSelections: {},
-      subclassChoiceSelections: {},
-      classOptionalFeatureSelections: {},
-      customAsi: [],
-      featId: undefined,
-      featChoiceSelections: {},
-      levelUpSkillSelections: {},
-      levelUpHpIncrease: undefined,
-    });
+    updateFormData(EMPTY_BRANCH_CHOICES);
   };
 
   const getTopExistingClassId = () => {

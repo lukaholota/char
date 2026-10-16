@@ -74,7 +74,7 @@ import { buildClassOptionPersSpellRows } from "@/server/db/class-option-spell-ch
 import { findLevelUpClassOptionSpellProblem } from "@/server/db/levelup-class-option-spells";
 import { findCatchUpSpellProblem, saveCatchUpSpells, type CatchUpSpellSelections } from "@/server/db/catch-up-spell-choices-2014";
 import { findCustomAsiPackageProblem } from "@/rules/abilities";
-import { findExpertiseSelectionProblem, readExpertiseGrant } from "@/rules/expertise-selections";
+import { findExpertiseSelectionProblem, isExpertiseChosenThroughSubclassOptions, readExpertiseGrant } from "@/rules/expertise-selections";
 
 const ALL_SKILLS = Object.values(Skills) as Skills[];
 
@@ -982,8 +982,11 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
         }
     }
 
-    const expertiseProblem = pers.ruleset !== "RULES_2024" ? null : findExpertiseSelectionProblem({
+    const subclassOptionsAtLevel = allowedSubclassOptionsAtLevel.map((option) => option.choiceOption);
+    const isLenientMulticlassEntry2014 = pers.ruleset !== "RULES_2024" && levelUpPath === "MULTICLASS" && expertiseSelections.length === 0;
+    const expertiseProblem = isLenientMulticlassEntry2014 ? null : findExpertiseSelectionProblem({
       grants: featureEffects
+        .filter((feature) => !isExpertiseChosenThroughSubclassOptions(feature, subclassOptionsAtLevel))
         .map((feature) => readExpertiseGrant(feature.skillExpertises))
         .filter((grant) => grant !== null),
       selected: expertiseSelections,
