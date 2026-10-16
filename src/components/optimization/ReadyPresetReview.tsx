@@ -21,8 +21,9 @@ export function PresetLevelChoice({ data, targetLevel, onSelect }: { data: Ready
 export function PresetNameField({ name, onChange }: { name: string; onChange: (name: string) => void }) {
   const { currentName, generateName, options } = useCharacterNameGenerator();
   const suggested = useRef("");
+  const clearedByPlayer = useRef(false);
   useEffect(() => {
-    if (!currentName || (name && name !== suggested.current)) return;
+    if (!currentName || (name ? name !== suggested.current : clearedByPlayer.current)) return;
     suggested.current = currentName;
     if (name !== currentName) onChange(currentName);
   }, [currentName, name, onChange]);
@@ -35,7 +36,7 @@ export function PresetNameField({ name, onChange }: { name: string; onChange: (n
   return <>
     <label htmlFor="ready-preset-name" className="text-slate-200">Імʼя персонажа</label>
     <div className="mt-2 flex gap-2">
-      <Input id="ready-preset-name" maxLength={100} aria-required="true" autoComplete="off" value={name} onChange={(event) => onChange(event.target.value)} placeholder="Наприклад, Мирон" className="min-h-12 text-base" />
+      <Input id="ready-preset-name" maxLength={100} aria-required="true" autoComplete="off" value={name} onChange={(event) => { clearedByPlayer.current = event.target.value === ""; onChange(event.target.value); }} placeholder="Наприклад, Мирон" className="min-h-12 text-base" />
       <Button type="button" variant="outline" size="icon" disabled={!currentName} onClick={suggestAnotherName} title="Згенерувати інше імʼя" aria-label="Згенерувати інше імʼя" className="h-12 w-12 shrink-0 border-white/15 bg-white/5 text-slate-200 hover:bg-white/10"><RefreshCw className="h-4 w-4" /></Button>
     </div>
     <details className="mt-2">

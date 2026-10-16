@@ -87,7 +87,9 @@ describe("guide path on the review", () => {
   it("names the missing name instead of doing nothing", async () => {
     await renderPreset("bugbear-fiend-warlock-2014", true);
     await waitForGeneratedName();
-    fireEvent.change(findNameInput(), { target: { value: "  " } });
+    fireEvent.change(findNameInput(), { target: { value: "" } });
+    await act(async () => {});
+    expect(findNameInput().value).toBe("");
     await tap("Створити за гайдом");
     expect(screen.getByRole("alert").textContent).toBe("Вкажіть імʼя персонажа.");
     expect(mocks.create).not.toHaveBeenCalled();
