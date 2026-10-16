@@ -98,7 +98,14 @@ function fitFieldText(text: string, font: MeasuringFont, box: TextBox, field: Te
   if (!text) return { text, size: field.maxFontSize };
   if (!field.multiline) return { text, size: fitSingleLineFontSize(text, font, box, field.maxFontSize) };
   const { lines, size } = fitMultilineText(text, font, box, field.maxFontSize);
-  return { text: lines.join("\n"), size };
+  const printed = lines.length <= countFittingLines(font, box, size) ? lines : cutWithMark(text, font, box, size);
+  return { text: printed.join("\n"), size };
+}
+
+export const NOT_FITTED_MARK = "… далі не вмістилося";
+
+export function cutWithMark(text: string, font: MeasuringFont, box: TextBox, size: number): string[] {
+  return [...splitTextToFit(text, font, box, size, { reserveLastLine: true }).lines, NOT_FITTED_MARK];
 }
 
 function wrapWithinBox(text: string, font: MeasuringFont, box: TextBox, size: number): string[] | null {

@@ -12,6 +12,7 @@ import {
   findLargestFittingSize,
   fitMultilineText,
   fitSingleLineFontSize,
+  pickReadableText,
   splitTextToFit,
   wrapText,
   type MeasuringFont,
@@ -133,6 +134,16 @@ describe("перенос тексту в полях PDF", () => {
     field.updateAppearances(font);
 
     expect(performance.now() - started).toBeLessThan(3000);
+  });
+
+  it("поле листа 2024, якому не вистачило й найменшого кегля, закінчується позначкою, а не обрізаним рядком", () => {
+    const box = { width: 150, height: 60 };
+    const fitted = pickReadableText([SENTENCE.repeat(40)], font, box, { maxFontSize: 10, multiline: true });
+    const lines = fitted.text.split("\n");
+
+    expect(fitted.size).toBe(MIN_FONT_SIZE);
+    expect(lines).toHaveLength(countFittingLines(font, box, MIN_FONT_SIZE));
+    expect(lines.at(-1)).toBe(NOT_FITTED_MARK);
   });
 
   it("розподіл рядків між полями повертає те, що не влізло й в останнє", () => {

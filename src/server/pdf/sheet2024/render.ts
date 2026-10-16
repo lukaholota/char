@@ -30,7 +30,7 @@ import type { Ruleset } from "@prisma/client";
 import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
 
 import { drawPortrait } from "../portraitPrint";
-import { pickReadableText, wrapText, type FittedText, type TextBox } from "../textFit";
+import { cutWithMark, pickReadableText, wrapText, type FittedText, type TextBox } from "../textFit";
 import { findFlowFontSize, splitFlowLines } from "../textFlow";
 
 import {
@@ -266,8 +266,11 @@ function distributeTextFlows(flows: TextFlow[], placed: PlacedPage[], font: PDFF
     const boxes = names.map((name) => printedFields.get(name) as TextBox);
     if (boxes.length === 0) continue;
     const size = findFlowFontSize(flow.lines, font, boxes, FLOW_MAX_FONT_SIZE);
-    splitFlowLines(flow.lines, font, boxes, size).chunks.forEach((chunk, index) => {
-      fitted.set(names[index], { text: wrapText(chunk.join("\n"), font, size, boxes[index].width).join("\n"), size });
+    const { chunks, rest } = splitFlowLines(flow.lines, font, boxes, size);
+    chunks.forEach((chunk, index) => {
+      const isLast = index === chunks.length - 1;
+      const lines = isLast && rest.length > 0 ? cutWithMark([...chunk, ...rest].join("\n"), font, boxes[index], size) : wrapText(chunk.join("\n"), font, size, boxes[index].width);
+      fitted.set(names[index], { text: lines.join("\n"), size });
     });
   }
   return fitted;
