@@ -29,12 +29,12 @@ export async function loadReadyPresetSearchEntries(): Promise<ReadyPresetSearchE
 }
 
 export function buildReadyPresetSearchEntry(slug: string, preset: ReadyPreset, recipe: BuildRecipe): ReadyPresetSearchEntry {
-  const { subclassClass, subclass } = findReadyPresetClass(recipe);
+  const { mainClass, mainSubclass } = findReadyPresetClass(recipe);
   const raceKeys = [recipe.details?.raceKey, preset.subraceKey].flatMap((key) => key ? [key, translateValue(key)] : []);
   return {
-    slug, title: preset.title, className: subclassClass.name, classEngName: subclassClass.engName,
-    subclassName: subclass.name, subclassEngName: subclass.engName,
-    aliases: findAliasVariants("RULES_2014", ENTITY_ALIAS_TYPES, [subclassClass.name, subclass.name, subclassClass.key, subclass.key, ...raceKeys]),
+    slug, title: preset.title, className: mainClass.name, classEngName: mainClass.engName,
+    subclassName: mainSubclass.name, subclassEngName: mainSubclass.engName,
+    aliases: findAliasVariants("RULES_2014", ENTITY_ALIAS_TYPES, [mainClass.name, mainSubclass.name, mainClass.key, mainSubclass.key, ...raceKeys]),
   };
 }
 

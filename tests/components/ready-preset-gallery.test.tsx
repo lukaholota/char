@@ -123,6 +123,37 @@ describe("ready preset gallery class filter", () => {
   });
 });
 
+describe("ready preset gallery main class", () => {
+  const dip = { ...buildEntry("wizard-abjuration-2014", "Чарівник", "Винахідник 1 / Чарівник — Школа огородження, Орк"), classLabel: "Чарівник / Винахідник", subclassName: "Школа огородження", startingClassLabel: "Винахідник 1", raceName: "Орк", baseRaceName: "Орк" };
+
+  async function renderWithDip(search = "") {
+    window.history.replaceState(null, "", `/char/presets${search}`);
+    const { ReadyPresetGallery } = await import("@/components/optimization/ReadyPresetGallery");
+    render(<ReadyPresetGallery presets={[...presets, dip]} />);
+    await act(async () => undefined);
+  }
+
+  it("counts a build that starts with a one-level dip under its main class and names the dip on the card", async () => {
+    await renderWithDip();
+    const group = screen.getByRole("group", { name: "Клас" });
+    expect(within(group).getAllByRole("button").map((button) => button.textContent)).toEqual(["Усі · 5", "Варвар · 2", "Бард · 1", "Чарівник · 2"]);
+    const card = screen.getByRole("button", { name: dip.title });
+    expect(within(card).getByRole("heading", { name: "Школа огородження" })).toBeTruthy();
+    expect(within(card).getByText("Чарівник / Винахідник · Орк")).toBeTruthy();
+    expect(within(card).getByText("старт: Винахідник 1")).toBeTruthy();
+    expect(screen.getAllByText(/^старт:/)).toHaveLength(1);
+  });
+
+  it("keeps the dip build in its main class filter and finds it by the starting class name", async () => {
+    await renderWithDip("?class=%D0%A7%D0%B0%D1%80%D1%96%D0%B2%D0%BD%D0%B8%D0%BA");
+    expect(screen.getByRole("status").textContent).toBe("Показано 2 з 5");
+    expect(screen.getByRole("button", { name: dip.title })).toBeTruthy();
+    cleanup();
+    await renderWithDip("?q=%D0%92%D0%B8%D0%BD%D0%B0%D1%85%D1%96%D0%B4%D0%BD%D0%B8%D0%BA");
+    expect(screen.getByRole("status").textContent).toBe("Показано 1 з 5");
+  });
+});
+
 describe("ready preset gallery progressive list", () => {
   const manyPresets = Array.from({ length: 60 }, (_, index) => buildEntry(`wizard-${index}`, index < 40 ? "Чарівник" : "Бард", `Персонаж ${index}`));
 

@@ -33,6 +33,28 @@ describe("anonymous access to 2014 RPGbot presets", () => {
     expect(page.summary.subclassLevel).toBe(subclassCharacterLevel);
   });
 
+  it.each([
+    ["wizard-abjuration-2014", "Чарівник", "Школа огородження", "Винахідник 1", null],
+    ["wizard-war-magic-2014", "Чарівник", "Школа бойової магії", "Винахідник 1", null],
+    ["sorcerer-divine-soul-2014", "Чародій", "Божественна душа", "Клірик 1", "ORDER_DOMAIN"],
+    ["cleric-trickery-rogue-2014", "Пройдисвіт", "Містичний спритник", undefined, null],
+  ])("lists %s under its main class and subclass and names the starting dip", async (slug, className, subclassName, startingClassLabel, startingSubclassKey) => {
+    const entry = (await loadReadyPresetCatalog()).find((candidate) => candidate.slug === slug)!;
+    expect({ className: entry.className, subclassName: entry.subclassName, startingClassLabel: entry.startingClassLabel, startingSubclassKey: entry.startingSubclassKey })
+      .toEqual({ className, subclassName, startingClassLabel, startingSubclassKey });
+    expect(entry.classLabel.split(" / ")[0]).toBe(className);
+    const page = await loadReadyPresetPage(slug);
+    expect(page.summary).toMatchObject({ mainClassName: className, mainSubclassName: subclassName, startingClassLabel: startingClassLabel ?? null });
+    const mainClass = getAllClasses("RULES_2014").find((candidate) => candidate.name === className)!;
+    expect(page.links.mainClassHref).toBe(`/classes?class=${mainClass.classId}`);
+  });
+
+  it("keeps the first-level identity of a dip build for the level-one summary", async () => {
+    const { summary } = await loadReadyPresetPage("sorcerer-divine-soul-2014");
+    expect(summary).toMatchObject({ className: "Клірик", subclassName: "Домен порядку", subclassLevel: 1, startsWithSubclass: true });
+    expect((await loadReadyPresetPage("wizard-abjuration-2014")).summary).toMatchObject({ className: "Винахідник", subclassName: "Школа огородження", subclassLevel: 3, startsWithSubclass: false });
+  });
+
   it("opens every 2014 build as a ready preset, so old build links never need the tree", async () => {
     const recipes = await readSliceRecipes("RULES_2014");
     const missing = (await Promise.all(recipes.map(async (recipe) => (await findReadyPresetSlugForBuild(recipe.buildId)) ? null : recipe.buildId))).filter(Boolean);
@@ -46,6 +68,8 @@ describe("anonymous access to 2014 RPGbot presets", () => {
     expect(links).toEqual({
       classHref: `/classes?class=${rogue.classId}`,
       subclassHref: `/classes?class=${rogue.classId}&subclass=${inquisitive.subclassId}`,
+      mainClassHref: `/classes?class=${rogue.classId}`,
+      mainSubclassHref: `/classes?class=${rogue.classId}&subclass=${inquisitive.subclassId}`,
       raceHref: "/races?race=vedalken",
       backgroundHref: expect.stringMatching(/^\/backgrounds\/\d+$/),
       guideHref: "/rules/optimization/rogue-inquisitive-2014#section-example",
