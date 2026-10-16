@@ -128,6 +128,27 @@ describe("списки 2014 — клас, чарівник для третинн
     expect(describeSpellListNote2014(chronurgist, findSpellLists2014(chronurgist))).toBe("зі свого списку й заклинань дунамантії («Школа хронургії»)");
   });
 
+  it("Божественна душа бере замовляння й заклинання ще й зі списку клірика; інші походження й чародій 2024 — лише свій", () => {
+    const divineSoul = { className: "SORCERER_2014", subclassName: "DIVINE_SOUL" };
+    const lists = findSpellLists2014(divineSoul);
+
+    expect(lists).toEqual({ base: "Чародій", expanded: "Клірик" });
+    expect(buildClassSpellFilters2014({ lists, quota: { cantrips: 4, prepared: 2, spellbook: 0, maxSpellLevel: 1 }, schoolLimit: null })).toEqual({
+      cantrips: { levels: [0], schools: null, spellList: ["Чародій", "Клірик"] },
+      spells: { levels: [1], schools: null, spellList: ["Чародій", "Клірик"] },
+    });
+    expect(describeSpellListNote2014(divineSoul, lists)).toBe("зі свого списку й списку клірика (Божественна душа)");
+    expect(findSpellLists2014({ className: "SORCERER_2014", subclassName: "DRACONIC_BLOODLINE" })).toEqual({ base: "Чародій", expanded: null });
+    expect(findSpellLists2014({ className: "SORCERER_2014", subclassName: null })).toEqual({ base: "Чародій", expanded: null });
+    expect(findSpellLists2014({ className: "SORCERER_2024", subclassName: "DIVINE_SOUL" }).expanded).toBeNull();
+  });
+
+  it("у Божественної душі заклинання клірика без бейджа — її, а з бейджем клірика-мультикласу — ні", () => {
+    const clericSpell = (badgeText: string | null) => ({ level: 1, badgeText, excludeFromPreparedCount: false, spellLists: ["Клірик"] });
+    expect(countOwnedClassSpells2014([clericSpell(null), clericSpell("Клірик")], "Чародій", ["Чародій", "Клірик"]).prepared).toBe(1);
+    expect(countOwnedClassSpells2014([clericSpell(null)], "Чародій", ["Чародій"]).prepared).toBe(0);
+  });
+
   it("підпис кроку називає, звідки список", () => {
     expect(describeSpellListNote2014(eldritchKnight, findSpellLists2014(eldritchKnight))).toBe("зі списку чарівника (Потойбічний лицар)");
     const hexblade = { className: "WARLOCK_2014", subclassName: "HEXBLADE" };
