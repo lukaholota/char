@@ -8712,8 +8712,8 @@
             "name": "Металеве дихання",
             "description": "На 5-му рівні ви отримуєте другий різновид зброї дихання. Коли ви робите дію Breath Weapon, ви можете витратити використання свого Breath Weapon, щоб видихнути паралізуючий газ у конусі 15 футів. Кожна істота в цій області повинна зробити ряткидок Статури (СК = 8 + ваш модифікатор Статури + ваш бонус майстерності). При провалі істота <a href=\"/rules/conditions#condition-paralyzed\">паралізована</a> до кінця вашого наступного ходу.",
             "shortDescription": "Паралізуюче дихання (конус 15 фт)",
-            "limitedUsesPer": "SHORT_REST",
-            "usesCount": null,
+            "limitedUsesPer": "LONG_REST",
+            "usesCount": 1,
             "displayType": [
               "ACTION"
             ],
@@ -17687,7 +17687,7 @@
             "name": "Витривалість каменю",
             "description": "<a href=\"/rules/combat#reactions--reactions\">Реакцією</a>, коли ви отримуєте шкоду, ви можете зменшити цю шкоду на 1к12 + ваш модифікатор Статури. Кількість використань на довгий відпочинок = Бонус Майстерності.",
             "shortDescription": "Зменшення шкоди на 1к12 + КОН",
-            "limitedUsesPer": "SHORT_REST",
+            "limitedUsesPer": "LONG_REST",
             "usesCount": 1,
             "displayType": [
               "REACTION"
@@ -21212,7 +21212,7 @@
                 "name": "Перевертання: Швидкий крок",
                 "description": "Як <a href=\"/rules/combat#order-of-combat--bonus-actions\">бонусну дію</a> ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ваша швидкість ходьби збільшується на 10 футів. Додатково, ви можете пересуватися до 10 футів як <a href=\"/rules/combat#reactions--reactions\">реакцію</a>, коли ворог закінчує свій хід у межах 5 футів від вас. Цей рух не провокує атаки по можливості.",
                 "shortDescription": "1к6+СОН тимчасових HP + швидкість +10 фт",
-                "limitedUsesPer": "SHORT_REST",
+                "limitedUsesPer": "LONG_REST",
                 "usesCount": 1,
                 "displayType": [
                   "BONUSACTION"
@@ -21221,7 +21221,7 @@
                 "updatedAt": "2026-09-13T11:36:44.417Z",
                 "engName": "Shifting: Swiftstride",
                 "usesCountSpecial": null,
-                "usesCountDependsOnProficiencyBonus": false,
+                "usesCountDependsOnProficiencyBonus": true,
                 "modifiesAC": null,
                 "skillProficiencies": null,
                 "savingThrows": [],
@@ -21291,7 +21291,7 @@
                 "name": "Перевертання: Звіроша шкіра",
                 "description": "Як <a href=\"/rules/combat#order-of-combat--bonus-actions\">бонусну дію</a> ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ви отримуєте бонус +1 до Класу Броні.",
                 "shortDescription": "1к6+СОН тимчасових HP + AC +1",
-                "limitedUsesPer": "SHORT_REST",
+                "limitedUsesPer": "LONG_REST",
                 "usesCount": 1,
                 "displayType": [
                   "BONUSACTION"
@@ -21300,7 +21300,7 @@
                 "updatedAt": "2026-09-13T11:36:44.340Z",
                 "engName": "Shifting: Beasthide",
                 "usesCountSpecial": null,
-                "usesCountDependsOnProficiencyBonus": false,
+                "usesCountDependsOnProficiencyBonus": true,
                 "modifiesAC": null,
                 "skillProficiencies": null,
                 "savingThrows": [],
@@ -21370,7 +21370,7 @@
                 "name": "Перевертання: Довгий ікл",
                 "description": "Як <a href=\"/rules/combat#order-of-combat--bonus-actions\">бонусну дію</a> ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ваші ікла подовжуються; ваші укуси завдають 1к6 + модифікатор Сили колючої шкоди. Як бонусну дію ви можете здійснити одну атаку укусом.",
                 "shortDescription": "1к6+СОН тимчасових HP + укус 1к6+СИЛ",
-                "limitedUsesPer": "SHORT_REST",
+                "limitedUsesPer": "LONG_REST",
                 "usesCount": 1,
                 "displayType": [
                   "BONUSACTION"
@@ -21379,7 +21379,7 @@
                 "updatedAt": "2026-09-13T11:36:44.379Z",
                 "engName": "Shifting: Longtooth",
                 "usesCountSpecial": null,
-                "usesCountDependsOnProficiencyBonus": false,
+                "usesCountDependsOnProficiencyBonus": true,
                 "modifiesAC": null,
                 "skillProficiencies": null,
                 "savingThrows": [],
@@ -21449,7 +21449,7 @@
                 "name": "Перевертання: Дикий мисливець",
                 "description": "Як <a href=\"/rules/combat#order-of-combat--bonus-actions\">бонусну дію</a> ви можете прийняти більш звірячу форму. Ця трансформація триває 1 хвилину, до вашої смерті або до того, як ви відмінюєте її бонусною дією. Коли ви перевертаєтесь, ви отримуєте тимчасові хіт-пойнти, рівні 1к6 + ваш модифікатор Статури (мінімум 1). Під час перевертання ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевагу</a> на перевірки Мудрості, і жодна істота в межах 30 футів від вас не може отримати перевагу на кидки атаки против вас, якщо ви не втратили свідомість.",
                 "shortDescription": "1к6+СОН тимчасових HP + перевага на МДР",
-                "limitedUsesPer": "SHORT_REST",
+                "limitedUsesPer": "LONG_REST",
                 "usesCount": 1,
                 "displayType": [
                   "BONUSACTION"
@@ -21458,7 +21458,7 @@
                 "updatedAt": "2026-09-13T11:36:44.455Z",
                 "engName": "Shifting: Wildhunt",
                 "usesCountSpecial": null,
-                "usesCountDependsOnProficiencyBonus": false,
+                "usesCountDependsOnProficiencyBonus": true,
                 "modifiesAC": null,
                 "skillProficiencies": null,
                 "savingThrows": [],

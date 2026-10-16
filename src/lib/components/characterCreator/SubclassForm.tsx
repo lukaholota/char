@@ -17,6 +17,7 @@ import { z } from "zod";
 import { translateSubclassName, translateSubclassNameEng } from "@/lib/refs/subclass-name";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import { constructorSubclassEntity } from "@/lib/optimization/bindings";
+import { buildSkillsAfterSubclassSwitch } from "@/lib/components/characterCreator/subclass-skill-picks";
 
 interface Props {
   cls: ClassI;
@@ -75,9 +76,10 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
   );
 
   const chooseSubclass = (subclassId: number | undefined) => {
+    const skillsAfterSwitch = buildSkillsAfterSubclassSwitch(cls, usePersFormStore.getState().formData, subclassId);
     form.setValue("subclassId", subclassId, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
     form.setValue("subclassChoiceSelections", {}, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
-    updateFormData({ subclassId, subclassChoiceSelections: {} });
+    updateFormData({ subclassId, subclassChoiceSelections: {}, ...skillsAfterSwitch });
   };
 
   const toggleLegacy = (checked: boolean) => {

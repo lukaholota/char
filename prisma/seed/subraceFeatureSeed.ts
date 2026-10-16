@@ -12,10 +12,7 @@ import {
 
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
-export const seedSubraceFeatures = async (prisma: PrismaClient) => {
-  console.log("🌟 Додаємо фічі підрас...");
-
-  const features: SeedFeatureCreateInput[] = [
+const SUBRACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
     // ============ ELF SUBRACE FEATURES ============
 
     // --- WOOD ELF ---
@@ -338,7 +335,8 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
         "На 5-му рівні ви отримуєте друге дихання. Коли виконуєте <a href=\"/rules/combat#actions-in-combat--attack\">дію Атака</a> у свій хід, можете замінити одну атаку видихом у конусі 15 футів. СК ряткидка дорівнює 8 + ваш модифікатор Статури + ваш Бонус Майстерності. При кожному використанні оберіть один варіант.\n\n**Enervating Breath.** Кожна істота в конусі має пройти ряткидок Статури або стати <a href=\"/rules/conditions#condition-incapacitated\">Недієздатною</a> до початку вашого наступного ходу.\n\n**Repulsion Breath.** Кожна істота в конусі має пройти ряткидок Сили або бути відштовхнутою на 20 футів від вас і стати <a href=\"/rules/conditions#condition-prone\">Поваленою</a>.\n\nПісля використання Metallic Breath Weapon ви не можете застосувати його знову до завершення тривалого відпочинку. Це окреме обмеження від звичайного дихання.",
       shortDescription: "Замініть одну атаку конусом 15 футів: Недієздатність або відштовхування на 20 футів і Повалення. З 5-го рівня, раз між тривалими відпочинками.",
       displayType: [FeatureDisplayType.ACTION],
-      limitedUsesPer: RestType.SHORT_REST,
+      limitedUsesPer: RestType.LONG_REST,
+      usesCount: 1,
     },
 
     // --- GEM DRAGONBORN ---
@@ -361,6 +359,15 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       usesCount: 1,
     },
   ];
+
+export function readSubraceFeatureSeedInputs(): SeedFeatureCreateInput[] {
+  return SUBRACE_FEATURE_SEED_INPUTS;
+}
+
+export const seedSubraceFeatures = async (prisma: PrismaClient) => {
+  console.log("🌟 Додаємо фічі підрас...");
+
+  const features = SUBRACE_FEATURE_SEED_INPUTS;
 
   for (const feature of features) {
     try {

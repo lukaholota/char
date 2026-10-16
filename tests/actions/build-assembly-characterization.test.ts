@@ -78,27 +78,27 @@ describe("ручний шлях create + levelUp, яким має відтвор
     });
     expect(state.features).toEqual(expect.arrayContaining(["Divine Smite", "Sacred Oath", "Restore Balance", "Font of Magic", "Metamagic", "Heightened Spell", "Quickened Spell", "Clockwork Spells"]));
     expect(toSpellRows(state)).toEqual([
-      ["Absorb Elements", "CLASS", "SORCERER_2014", 7, true], ["Aid", "CLASS", "CLOCKWORK_SOUL", 6, true], ["Alarm", "CLASS", "CLOCKWORK_SOUL", 5, true],
+      ["Absorb Elements", "CLASS", "SORCERER_2014", 7, true], ["Aid", "CLASS", "CLOCKWORK_SOUL", 6, true], ["Alarm", "CLASS", "CLOCKWORK_SOUL", 4, true],
       ["Booming Blade", "CLASS", "SORCERER_2014", 4, true], ["Lesser Restoration", "CLASS", "CLOCKWORK_SOUL", 6, true], ["Mage Hand", "CLASS", "SORCERER_2014", 4, true],
       ["Magic Missile", "CLASS", "SORCERER_2014", 4, true], ["Mind Sliver", "CLASS", "SORCERER_2014", 4, true], ["Misty Step", "CLASS", "SORCERER_2014", 6, true],
-      ["Prestidigitation", "CLASS", "SORCERER_2014", 4, true], ["Protection From Evil and Good", "CLASS", "CLOCKWORK_SOUL", 5, true], ["Sanctuary", "CLASS", "OATH_OF_REDEMPTION", 3, true],
+      ["Prestidigitation", "CLASS", "SORCERER_2014", 4, true], ["Protection From Evil and Good", "CLASS", "CLOCKWORK_SOUL", 4, true], ["Sanctuary", "CLASS", "OATH_OF_REDEMPTION", 3, true],
       ["Shield", "CLASS", "SORCERER_2014", 5, true], ["Silvery Barbs", "CLASS", "SORCERER_2014", 4, true], ["Sleep", "CLASS", "OATH_OF_REDEMPTION", 3, true],
       ["Sword Burst", "CLASS", "SORCERER_2014", 7, true],
     ]);
     expect(await countSnapshots(persId)).toBe(6);
   });
 
-  it("підкласові заклинання нового класу, взятого мультикласом, приходять на наступному підвищенні, а не при вході", async () => {
+  it("BUG-036: підкласові заклинання нового класу, взятого мультикласом, приходять при вході й не зсуваються наступним підвищенням", async () => {
     const created = await createCharacter(await sorcadinScenario.buildStart());
     if ("error" in created) throw new Error(created.error);
     await runManualLevelUpPath(created.persId, sorcadinScenario.manualSteps.slice(0, 3));
     const atEntry = await readSheetState(created.persId);
+    const clockworkSpells = (state: typeof atEntry) => state.spells.filter((row) => row.sourceName === "CLOCKWORK_SOUL").map((row) => [row.spell, row.learnedAtLevel]);
     expect(atEntry.multiclasses).toEqual([{ class: "SORCERER_2014", subclass: "CLOCKWORK_SOUL", classLevel: 1 }]);
-    expect(atEntry.spells.filter((row) => row.sourceName === "CLOCKWORK_SOUL")).toEqual([]);
+    expect(clockworkSpells(atEntry)).toEqual([["Alarm", 4], ["Protection From Evil and Good", 4]]);
 
     await runManualLevelUpPath(created.persId, sorcadinScenario.manualSteps.slice(3, 4));
-    const afterNextLevel = await readSheetState(created.persId);
-    expect(afterNextLevel.spells.filter((row) => row.sourceName === "CLOCKWORK_SOUL").map((row) => [row.spell, row.learnedAtLevel])).toEqual([["Alarm", 5], ["Protection From Evil and Good", 5]]);
+    expect(clockworkSpells(await readSheetState(created.persId))).toEqual([["Alarm", 4], ["Protection From Evil and Good", 4]]);
   });
 
   it("повертає помилку рівня і не змінює персонажа, коли ручне підвищення неповне", async () => {

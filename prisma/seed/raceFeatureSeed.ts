@@ -750,7 +750,7 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
         connect: [
           { engName_ruleset: { engName: "Produce Flame", ruleset: ACTIVE_RULESET } },
           { engName_ruleset: { engName: "Burning Hands", ruleset: ACTIVE_RULESET } },
-          { engName_ruleset: { engName: "Flaming Sphere", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Flame Blade", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -767,9 +767,9 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
         connect: [
-          { engName_ruleset: { engName: "Shape Water", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Acid Splash", ruleset: ACTIVE_RULESET } },
           { engName_ruleset: { engName: "Create or Destroy Water", ruleset: ACTIVE_RULESET } },
-          { engName_ruleset: { engName: "Water Breathing", ruleset: ACTIVE_RULESET } },
+          { engName_ruleset: { engName: "Water Walk", ruleset: ACTIVE_RULESET } },
         ],
       },
     },
@@ -870,7 +870,7 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
         "<a href=\"/rules/combat#reactions--reactions\">Реакцією</a>, коли ви отримуєте шкоду, ви можете зменшити цю шкоду на 1к12 + ваш модифікатор Статури. Кількість використань на довгий відпочинок = Бонус Майстерності.",
       shortDescription: "Зменшення шкоди на 1к12 + КОН",
       displayType: [FeatureDisplayType.REACTION],
-      limitedUsesPer: RestType.SHORT_REST,
+      limitedUsesPer: RestType.LONG_REST,
       usesCountDependsOnProficiencyBonus: true, // Додаємо ✅
     },
     {
@@ -1160,8 +1160,9 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
         "<a href=\"/rules/combat#order-of-combat--bonus-actions\">Бонусною дією</a> ви можете набути більш звірячого вигляду. Перетворення триває 1 хвилину, до вашої смерті або доки ви бонусною дією не повернете звичайний вигляд. Коли ви використовуєте Shifting, ви отримуєте тимчасові ХП, що дорівнюють 2 × ваш Бонус Майстерності. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення тривалого відпочинку.\n\nКоли ви обираєте расу, оберіть один із чотирьох варіантів Shifting. Щоразу під час перетворення ви отримуєте його додаткові переваги.",
       shortDescription: "Звіряча форма на 1 хвилину",
       displayType: [FeatureDisplayType.BONUSACTION],
-      limitedUsesPer: RestType.SHORT_REST,
+      limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesCountDependsOnProficiencyBonus: true,
     },
     {
       name: "Звірячі інстинкти",
@@ -2481,8 +2482,9 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
         "<a href=\"/rules/combat#order-of-combat--bonus-actions\">Бонусною дією</a> ви можете набути більш звірячого вигляду. Перетворення триває 1 хвилину, до вашої смерті або доки ви бонусною дією не повернете звичайний вигляд. Коли ви використовуєте Shifting, ви отримуєте тимчасові ХП, що дорівнюють 2 × ваш Бонус Майстерності. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення тривалого відпочинку.\n\nКоли ви обираєте расу, оберіть один із чотирьох варіантів Shifting. Щоразу під час перетворення ви отримуєте його додаткові переваги.\n\nЩоразу, коли ви використовуєте Shifting, ви отримуєте ще 1к6 тимчасових ХП. Поки ви перетворені, ви маєте бонус +1 до КБ.",
       shortDescription: "1к6+СОН тимчасових HP + AC +1",
       displayType: [FeatureDisplayType.BONUSACTION],
-      limitedUsesPer: RestType.SHORT_REST,
+      limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesCountDependsOnProficiencyBonus: true,
     },
     {
       name: "Перевертання: Довгий ікл",
@@ -2491,8 +2493,9 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
         "<a href=\"/rules/combat#order-of-combat--bonus-actions\">Бонусною дією</a> ви можете набути більш звірячого вигляду. Перетворення триває 1 хвилину, до вашої смерті або доки ви бонусною дією не повернете звичайний вигляд. Коли ви використовуєте Shifting, ви отримуєте тимчасові ХП, що дорівнюють 2 × ваш Бонус Майстерності. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення тривалого відпочинку.\n\nКоли ви обираєте расу, оберіть один із чотирьох варіантів Shifting. Щоразу під час перетворення ви отримуєте його додаткові переваги.\n\nКоли ви використовуєте Shifting, а також бонусною дією у свої інші ходи під час перетворення, ви можете зробити удар без зброї подовженими іклами. Якщо влучаєте іклами, замість звичайної дроблячої шкоди удару без зброї можете завдати колючої шкоди 1к6 + ваш модифікатор Сили.",
       shortDescription: "1к6+СОН тимчасових HP + укус 1к6+СИЛ",
       displayType: [FeatureDisplayType.BONUSACTION],
-      limitedUsesPer: RestType.SHORT_REST,
+      limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesCountDependsOnProficiencyBonus: true,
     },
     {
       name: "Перевертання: Швидкий крок",
@@ -2501,8 +2504,9 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
         "<a href=\"/rules/combat#order-of-combat--bonus-actions\">Бонусною дією</a> ви можете набути більш звірячого вигляду. Перетворення триває 1 хвилину, до вашої смерті або доки ви бонусною дією не повернете звичайний вигляд. Коли ви використовуєте Shifting, ви отримуєте тимчасові ХП, що дорівнюють 2 × ваш Бонус Майстерності. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення тривалого відпочинку.\n\nКоли ви обираєте расу, оберіть один із чотирьох варіантів Shifting. Щоразу під час перетворення ви отримуєте його додаткові переваги.\n\nПоки ви перетворені, ваша швидкість ходьби збільшується на 10 футів. Додатково, коли істота завершує свій хід у межах 5 футів від вас, ви можете <a href=\"/rules/combat#reactions--reactions\">реакцією</a> переміститися на відстань до 10 футів. Це переміщення не провокує атак.",
       shortDescription: "1к6+СОН тимчасових HP + швидкість +10 фт",
       displayType: [FeatureDisplayType.BONUSACTION],
-      limitedUsesPer: RestType.SHORT_REST,
+      limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesCountDependsOnProficiencyBonus: true,
     },
     {
       name: "Перевертання: Дикий мисливець",
@@ -2511,8 +2515,9 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
         "<a href=\"/rules/combat#order-of-combat--bonus-actions\">Бонусною дією</a> ви можете набути більш звірячого вигляду. Перетворення триває 1 хвилину, до вашої смерті або доки ви бонусною дією не повернете звичайний вигляд. Коли ви використовуєте Shifting, ви отримуєте тимчасові ХП, що дорівнюють 2 × ваш Бонус Майстерності. Ви можете використовувати цю здібність кількість разів, що дорівнює вашому Бонусу Майстерності, і відновлюєте всі витрачені використання після завершення тривалого відпочинку.\n\nКоли ви обираєте расу, оберіть один із чотирьох варіантів Shifting. Щоразу під час перетворення ви отримуєте його додаткові переваги.\n\nПоки ви перетворені, ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">Перевагу</a> на перевірки Мудрості. Жодна істота в межах 30 футів від вас не може робити кидки атаки проти вас із Перевагою, якщо тільки ви не <a href=\"/rules/conditions#condition-incapacitated\">Недієздатні</a>.",
       shortDescription: "1к6+СОН тимчасових HP + перевага на МДР",
       displayType: [FeatureDisplayType.BONUSACTION],
-      limitedUsesPer: RestType.SHORT_REST,
+      limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
+      usesCountDependsOnProficiencyBonus: true,
     },
 
     // ============ DWARF DRAGONMARK (EBERRON) ============

@@ -16,7 +16,8 @@
  * лише двох шкіл підкласу, а будь-якої школи — по одному на 3, 8, 14 і 20-му рівнях класу. Покровитель
  * чорнокнижника додає до списку класу свій розширений перелік («added to the warlock spell list for you»).
  * Школа хронургії й Школа гравітургії (EGW) так само додають чарівникові свої заклинання дунамантії, яких у
- * загальному списку чарівника немає.
+ * загальному списку чарівника немає. Божественна душа (XGtE, Divine Magic) бере замовляння й заклинання
+ * чародія також зі списку клірика, і вони стають заклинаннями чародія.
  */
 
 import { classTranslations, spellSchoolTranslations, subclassTranslations } from "@/lib/refs/translation";
@@ -39,7 +40,7 @@ export type OwnedSpell2014 = {
   spellLists: readonly string[];
 };
 
-/** Список, з якого клас бере заклинання, і список підкласу поверх нього: покровителя чи школи дунамантії. */
+/** Список, з якого клас бере заклинання, і список підкласу поверх нього: покровителя, школи дунамантії чи клірика. */
 export type SpellLists2014 = { base: string; expanded: string | null };
 
 const WIZARD_SPELLBOOK_AT_LEVEL_ONE = 6;
@@ -52,6 +53,10 @@ const PATRON_CLASS = "WARLOCK_2014";
 const DUNAMANCY_CLASS = "WIZARD_2014";
 const DUNAMANCY_SCHOOLS = new Set(["SCHOOL_OF_CHRONURGY", "SCHOOL_OF_GRAVITURGY"]);
 
+const DIVINE_SOUL_CLASS = "SORCERER_2014";
+const DIVINE_SOUL = "DIVINE_SOUL";
+const DIVINE_SOUL_LIST_CLASS = "CLERIC_2014";
+
 const THIRD_CASTER_SCHOOLS: Readonly<Record<string, readonly SpellSchoolKey[]>> = {
   ELDRITCH_KNIGHT: ["ABJURATION", "EVOCATION"],
   ARCANE_TRICKSTER: ["ENCHANTMENT", "ILLUSION"],
@@ -62,6 +67,7 @@ const ANY_SCHOOL_LEVELS = [3, 8, 14, 20] as const;
 const SPELL_LIST_OWNER_GENITIVE: Readonly<Record<string, string>> = {
   WIZARD_2014: "чарівника",
   WARLOCK_2014: "чорнокнижника",
+  CLERIC_2014: "клірика",
 };
 
 export function findCreationSpellAllowance2014(caster: SpellCaster2014): LevelUpSpellAllowance2014 | null {
@@ -92,13 +98,20 @@ export function findLevelUpSpellAllowance2014(
 
 export function findSpellLists2014(caster: SpellCaster2014): SpellLists2014 {
   const base = translateClass(findSubclassSpellListClass2014(caster.className, caster.subclassName) ?? caster.className);
-  const expanded = hasSubclassSpellList2014(caster) ? translateSubclass(caster.subclassName ?? "") : null;
-  return { base, expanded };
+  return { base, expanded: findExpandedSpellList2014(caster) };
 }
 
-function hasSubclassSpellList2014(caster: SpellCaster2014): boolean {
-  if (!caster.subclassName) return false;
-  return caster.className === PATRON_CLASS || (caster.className === DUNAMANCY_CLASS && DUNAMANCY_SCHOOLS.has(caster.subclassName));
+function findExpandedSpellList2014(caster: SpellCaster2014): string | null {
+  if (!caster.subclassName) return null;
+  if (isDivineSoul2014(caster)) return translateClass(DIVINE_SOUL_LIST_CLASS);
+  if (caster.className === PATRON_CLASS || (caster.className === DUNAMANCY_CLASS && DUNAMANCY_SCHOOLS.has(caster.subclassName))) {
+    return translateSubclass(caster.subclassName);
+  }
+  return null;
+}
+
+function isDivineSoul2014(caster: SpellCaster2014): boolean {
+  return caster.className === DIVINE_SOUL_CLASS && caster.subclassName === DIVINE_SOUL;
 }
 
 export function listSpellLists2014(lists: SpellLists2014): string[] {
@@ -109,6 +122,7 @@ export function describeSpellListNote2014(caster: SpellCaster2014, lists: SpellL
   const subclassList = findSubclassSpellListClass2014(caster.className, caster.subclassName);
   if (subclassList) return `зі списку ${SPELL_LIST_OWNER_GENITIVE[subclassList] ?? translateClass(subclassList)} (${translateSubclass(caster.subclassName ?? "")})`;
   if (lists.expanded && caster.className === PATRON_CLASS) return describePatronSpellListNote(lists.expanded);
+  if (lists.expanded && isDivineSoul2014(caster)) return `зі свого списку й списку ${SPELL_LIST_OWNER_GENITIVE[DIVINE_SOUL_LIST_CLASS]} (${translateSubclass(DIVINE_SOUL)})`;
   if (lists.expanded) return `зі свого списку й заклинань дунамантії («${lists.expanded}»)`;
   return "зі свого списку";
 }
