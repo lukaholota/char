@@ -12,6 +12,7 @@ interface Props {
   onOpenAuth: () => void;
   isAuthenticated?: boolean;
   showReadyBuilds?: boolean;
+  showSignInAtEndNotice?: boolean;
 }
 
 export const CharacterCreateHeader = ({
@@ -19,6 +20,7 @@ export const CharacterCreateHeader = ({
   onOpenAuth,
   isAuthenticated = false,
   showReadyBuilds = false,
+  showSignInAtEndNotice = false,
 }: Props) => {
   const resetConfirm = useTwoStepConfirm<HTMLButtonElement>({
     onConfirm: onReset,
@@ -73,6 +75,11 @@ export const CharacterCreateHeader = ({
           )}
         </div>
       </div>
+      {showSignInAtEndNotice ? (
+        <p className="mt-3 text-sm text-slate-300">
+          Щоб зберегти персонажа, наприкінці знадобиться вхід через Google. Ваші вибори не загубляться.
+        </p>
+      ) : null}
     </div>
   );
 };

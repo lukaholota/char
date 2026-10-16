@@ -38,6 +38,7 @@ beforeEach(() => {
   vi.resetModules();
   push.mockClear();
   stubLocalStorage();
+  window.sessionStorage.clear();
   Object.defineProperty(window, "matchMedia", { configurable: true, value: () => ({ matches: true }) });
 });
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
@@ -73,6 +74,26 @@ describe("floating ready preset suggestion", () => {
 
     expect(screen.queryByText("Швидкий розвідник.")).toBeNull();
     expect(push).not.toHaveBeenCalled();
+    expect(screen.queryByRole("button", { name: "Доробити персонажа" })).toBeNull();
+  });
+
+  it("stays hidden for the rest of the session once declined", async () => {
+    stubSuggestion({ total: 1, best: { entry, isSubclassMatch: false, isRaceMatch: false } });
+    await renderSuggestion();
+    fireEvent.click(screen.getByRole("button", { name: "Доробити персонажа" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Відмовитися" }));
+    cleanup();
+
+    await renderSuggestion();
+
+    expect(screen.queryByRole("button", { name: "Доробити персонажа" })).toBeNull();
+  });
+
+  it("is offered only on the class step", async () => {
+    const { isPresetSuggestionStep } = await import("@/components/optimization/ReadyPresetSuggestion");
+
+    expect(isPresetSuggestionStep("class")).toBe(true);
+    expect(["classOptions", "race", "background", "equipment", "name", undefined].some(isPresetSuggestionStep)).toBe(false);
   });
 
   it("continues to the preset at level 1 by default", async () => {

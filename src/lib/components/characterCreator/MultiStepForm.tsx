@@ -33,7 +33,7 @@ import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import { BackgroundFeatsForm } from "@/lib/components/characterCreator/BackgroundFeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
-import { ReadyPresetSuggestion } from "@/components/optimization/ReadyPresetSuggestion";
+import { isPresetSuggestionStep, ReadyPresetSuggestion } from "@/components/optimization/ReadyPresetSuggestion";
 import { UnfinishedPresetNotice } from "@/components/optimization/UnfinishedPresetNotice";
 import { findCreationStepOrder, hasRaceFeatChoice, resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
 import { buildCreationAbilityScores } from "@/rules/character-creation";
@@ -1034,6 +1034,7 @@ export const MultiStepForm = (
             onReset={resetForm}
             onOpenAuth={() => setAuthDialogOpen(true)}
             isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
+            showSignInAtEndNotice={sessionStatus === "unauthenticated" && initialRuleset === "RULES_2014" && currentStep === 1}
           />
           {showReadyBuilds && initialRuleset === "RULES_2014" ? <UnfinishedPresetNotice /> : null}
         </>
@@ -1059,11 +1060,11 @@ export const MultiStepForm = (
       onPrev={prevStep}
       after={
         <>
-          {showReadyBuilds && initialRuleset === "RULES_2014" && cls && steps[currentStep - 1]?.id !== "name" ? (
+          {showReadyBuilds && initialRuleset === "RULES_2014" && cls && isPresetSuggestionStep(steps[currentStep - 1]?.id) ? (
             <ReadyPresetSuggestion classKey={cls.name} subclassKey={subclass?.name ?? null} raceKey={race?.name ?? null} />
           ) : null}
 
-          <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
+          <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} isFromCreatorDraft />
         </>
       }
     >

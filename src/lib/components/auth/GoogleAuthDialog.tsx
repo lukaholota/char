@@ -22,6 +22,7 @@ interface Props {
   triggerLabel?: string;
   trigger?: React.ReactNode;
   callbackUrl?: string;
+  isFromCreatorDraft?: boolean;
 }
 
 const GoogleAuthDialog = ({
@@ -30,6 +31,7 @@ const GoogleAuthDialog = ({
   triggerLabel = "Увійти",
   trigger,
   callbackUrl,
+  isFromCreatorDraft = false,
 }: Props) => {
   const { data: session, status } = useSession();
   const pathname = usePathname();
@@ -164,6 +166,12 @@ const GoogleAuthDialog = ({
               Авторизація потрібна для збереження персонажів та синхронізації між пристроями.
             </div>
           )}
+
+          {isFromCreatorDraft && !session?.user && !isEmbeddedWebViewDetected ? (
+            <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
+              Ваші вибори збережені. Після входу ви повернетеся сюди й зможете створити персонажа.
+            </p>
+          ) : null}
 
           <Button
             onClick={handleSignIn}
