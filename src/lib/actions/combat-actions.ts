@@ -3,11 +3,15 @@
 import { auth } from "@/lib/auth";
 import { canEditPers } from "@/lib/actions/pers";
 import { findCombatState, saveCombatState } from "@/server/db/combat-state";
+import { applyPersFieldOperation, isOperationId } from "@/server/db/offline-operations";
 import { findUserIdByEmail } from "@/server/db/users";
 import { revalidatePath } from "next/cache";
 import { limitHeroicInspirationCount, type HeroicInspiration } from "@/rules/heroic-inspiration";
+import type { OfflineOperation } from "@/lib/offline/operations";
 
 type HpMode = "damage" | "heal" | "temp";
+
+const HP_MODES: readonly HpMode[] = ["damage", "heal", "temp"];
 
 function clampInt(value: unknown, fallback = 0) {
   const n = typeof value === "number" ? value : Number(value);
@@ -27,23 +31,30 @@ async function assertOwnsPers(persId: number) {
   if (!pers) return { ok: false as const, error: "Немає доступу до персонажа" };
   const canEdit = await canEditPers(persId, userId);
   if (!canEdit) return { ok: false as const, error: "Немає доступу до персонажа" };
-  return { ok: true as const, pers };
+  return { ok: true as const, pers, userId };
 }
+
+type HpChangeResult =
+  | { success: true; currentHp: number; tempHp: number; maxHp: number; deathSaveSuccesses: number; deathSaveFailures: number; isDead: boolean }
+  | { success: false; error: string };
 
 export async function applyHpChange({
   persId,
   mode,
   amount,
+  operationId,
 }: {
   persId: number;
   mode: HpMode;
   amount: number;
-}): Promise<
-  | { success: true; currentHp: number; tempHp: number; maxHp: number; deathSaveSuccesses: number; deathSaveFailures: number; isDead: boolean }
-  | { success: false; error: string }
-> {
+  operationId?: string;
+}): Promise<HpChangeResult> {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
+  if (!HP_MODES.includes(mode)) return { success: false, error: "Невідомий режим" };
+  if (isOperationId(operationId)) {
+    return applyHpOperation(owned.userId, { kind: "hp", mode, amount, operationId, persId, createdAt: new Date().toISOString() });
+  }
 
   const amt = Math.max(0, clampInt(amount, 0));
   const curHp = Math.max(0, clampInt(owned.pers.currentHp, 0));
@@ -60,11 +71,9 @@ export async function applyHpChange({
     nextHp = Math.max(0, nextHp - remaining);
   } else if (mode === "heal") {
     nextHp = Math.min(maxHp, nextHp + amt);
-  } else if (mode === "temp") {
+  } else {
     // DnD 5e: temp HP doesn't stack; take the higher value.
     nextTemp = Math.max(nextTemp, amt);
-  } else {
-    return { success: false, error: "Невідомий режим" };
   }
 
   // If character is back above 0 HP, clear death saves and dead flag.
@@ -82,6 +91,15 @@ export async function applyHpChange({
   revalidatePath(`/character/${persId}`);
 
   return { success: true, ...updated };
+}
+
+async function applyHpOperation(userId: number, operation: OfflineOperation): Promise<HpChangeResult> {
+  await applyPersFieldOperation(userId, operation);
+  revalidatePath(`/char/${operation.persId}`);
+  revalidatePath(`/character/${operation.persId}`);
+
+  const state = await findCombatState(operation.persId);
+  return state ? { success: true, ...state } : { success: false, error: "Немає доступу до персонажа" };
 }
 
 export async function setDeathSaves({

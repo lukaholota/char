@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { BackgroundCategory, Classes, Races } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
@@ -59,6 +60,33 @@ describe("KR31.13 — ручний лічильник зарядів магіч�
     vi.mocked(auth).mockResolvedValue({ user: { email: "charges-stranger@test.local" } } as never);
 
     expect((await stepMagicItemCharges(persMagicItemId, -1)).success).toBe(false);
+    expect(await readCharges(persMagicItemId)).toEqual({ chargesMax: 5, chargesCurrent: 5 });
+  });
+});
+
+describe.each([
+  { path: "без ідентифікатора операції", nextOperationId: (): string | undefined => undefined },
+  { path: "з ідентифікатором операції", nextOperationId: (): string | undefined => randomUUID() },
+])("Крок зарядів з листа $path", ({ nextOperationId }) => {
+  it("крок тримається між нулем і максимумом, а відповідь не несе стану", async () => {
+    const persMagicItemId = await createPersWithMagicItem("charges-step@test.local");
+    await setMagicItemChargesMax(persMagicItemId, 3);
+
+    for (const { step, current } of [{ step: -1, current: 2 }, { step: -5, current: 0 }, { step: 1, current: 1 }, { step: 9, current: 3 }]) {
+      await expect(stepMagicItemCharges(persMagicItemId, step, nextOperationId())).resolves.toEqual({ success: true });
+      expect(await readCharges(persMagicItemId)).toEqual({ chargesMax: 3, chargesCurrent: current });
+    }
+  });
+
+  it("неіснуючий предмет і чужий гравець отримують відмову без змін", async () => {
+    const persMagicItemId = await createPersWithMagicItem("charges-denied-owner@test.local");
+    await setMagicItemChargesMax(persMagicItemId, 5);
+
+    await expect(stepMagicItemCharges(2_000_000_000, -1, nextOperationId())).resolves.toEqual({ success: false, error: "Предмет не знайдено" });
+
+    await prisma.user.create({ data: { email: "charges-denied-stranger@test.local", name: "Чужий" } });
+    vi.mocked(auth).mockResolvedValue({ user: { email: "charges-denied-stranger@test.local" } } as never);
+    await expect(stepMagicItemCharges(persMagicItemId, -1, nextOperationId())).resolves.toEqual({ success: false, error: "Немає доступу до персонажа" });
     expect(await readCharges(persMagicItemId)).toEqual({ chargesMax: 5, chargesCurrent: 5 });
   });
 });

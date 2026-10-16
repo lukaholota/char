@@ -15,7 +15,10 @@ vi.mock("sonner", () => ({ toast: { info: vi.fn(), error: vi.fn() } }));
 vi.mock("@/lib/actions/spell-actions", () => ({ removeSpellFromPers: vi.fn(), setSpellPrepared, updateSpellBadgeForPers: vi.fn() }));
 vi.mock("@/lib/actions/spell-slots", () => ({ spendPactSlot: vi.fn(), spendSpellSlot, restorePactSlot: vi.fn(), restoreSpellSlot: vi.fn() }));
 vi.mock("@/hooks/useOfflineQueue", () => ({
-  useOfflineQueue: () => ({ isOnline: true, commitOperation: async (_operation: unknown, send: () => Promise<unknown>) => ({ queued: false, result: await send() }) }),
+  useOfflineQueue: () => ({
+    isOnline: true,
+    commitOperation: async (operation: { operationId: string }, send: (operationId: string) => Promise<unknown>) => ({ queued: false, result: await send(operation.operationId) }),
+  }),
 }));
 vi.mock("@/lib/actions/feature-uses", () => ({ spendFeatureUse, restoreFeatureUse: vi.fn(), setFeatureActive: vi.fn() }));
 vi.mock("@/lib/components/characterSheet/AddSpellDialog", () => ({ default: () => null }));
@@ -108,7 +111,7 @@ describe("Р38 — безкоштовне застосування заклин�
 
     fireEvent.click(screen.getByRole("menuitem", { name: /Без слоту/ }));
 
-    await waitFor(() => expect(spendFeatureUse).toHaveBeenCalledWith({ persId: 7, featureId: 900 }));
+    await waitFor(() => expect(spendFeatureUse).toHaveBeenCalledWith({ persId: 7, featureId: 900, operationId: expect.any(String) }));
     expect(spendSpellSlot).not.toHaveBeenCalled();
   });
 
@@ -165,7 +168,7 @@ describe("L19-parity-competitors-14 — «Накласти» з рядка за�
     expect(items.map((item) => item.textContent)).toEqual(["Слот 1-го рівня4", "Слот 2-го рівня2"]);
     fireEvent.click(screen.getByRole("menuitem", { name: /Слот 2-го рівня/ }));
 
-    await waitFor(() => expect(spendSpellSlot).toHaveBeenCalledWith(7, 2));
+    await waitFor(() => expect(spendSpellSlot).toHaveBeenCalledWith(7, 2, expect.any(String)));
     expect(spendSpellSlot).toHaveBeenCalledTimes(1);
   });
 });

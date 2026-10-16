@@ -5,7 +5,10 @@ import { prisma } from "@/lib/prisma";
 import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
 import { findPoolsAfterSetting, serializeHitDicePools, type HitDiceSpend } from "@/rules/hit-dice";
+import { applyChangeOnce } from "@/server/db/offline-operations";
 import {
+  buildRepeatedLongRestResult,
+  buildRepeatedShortRestResult,
   collectHitDicePools,
   findRestPers,
   takeLongRest,
@@ -35,7 +38,7 @@ async function assertOwnsPers(persId: number) {
   const canEdit = await canEditPers(persId, user.id);
   if (!canEdit) return { ok: false as const, error: "Немає доступу до персонажа" };
 
-  return { ok: true as const, pers };
+  return { ok: true as const, pers, userId: user.id };
 }
 
 function revalidateSheet(persId: number) {
@@ -46,21 +49,32 @@ function revalidateSheet(persId: number) {
 export async function shortRest(
   persId: number,
   hitDiceToUse: HitDiceSpend[],
-  rolledHitPoints?: number
+  rolledHitPoints?: number,
+  operationId?: string
 ): Promise<ShortRestResult | ShortRestError> {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
 
-  const result = await takeShortRest(owned.pers, hitDiceToUse, rolledHitPoints);
+  const result = await applyChangeOnce(
+    owned.userId,
+    { operationId, persId, kind: "short-rest" },
+    () => takeShortRest(owned.pers, hitDiceToUse, rolledHitPoints),
+    { isApplied: (outcome) => outcome.success, onDuplicate: () => buildRepeatedShortRestResult(owned.pers) },
+  );
   if (result.success) revalidateSheet(persId);
   return result;
 }
 
-export async function longRest(persId: number): Promise<LongRestResult | LongRestError> {
+export async function longRest(persId: number, operationId?: string): Promise<LongRestResult | LongRestError> {
   const owned = await assertOwnsPers(persId);
   if (!owned.ok) return { success: false, error: owned.error };
 
-  const result = await takeLongRest(owned.pers);
+  const result = await applyChangeOnce<LongRestResult | LongRestError>(
+    owned.userId,
+    { operationId, persId, kind: "long-rest" },
+    () => takeLongRest(owned.pers),
+    { isApplied: (outcome) => outcome.success, onDuplicate: () => buildRepeatedLongRestResult(owned.pers) },
+  );
   revalidateSheet(persId);
   return result;
 }

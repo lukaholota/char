@@ -8,6 +8,7 @@ import {
   normalizePersDetails,
   type OfflineHitDiceSpend,
   type OfflineOperation,
+  type OfflineOperationKind,
   type OfflinePersState,
 } from "@/lib/offline/operations";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
@@ -25,6 +26,8 @@ import { findSpellcastingSlotState } from "@/server/db/spell-slots";
 export type ApplyOfflineOperationResult =
   | { ok: true; duplicate: boolean }
   | { ok: false; error: string; retry: boolean };
+
+type OperationClaim = { operationId: string; persId: number; kind: OfflineOperationKind };
 
 const OFFLINE_PERS_SELECT = {
   persId: true,
@@ -93,9 +96,14 @@ export async function applyOwnedOfflineOperation(
   return applyRelationOperation(userId, operation);
 }
 
+export function isOperationId(value: unknown): value is string {
+  return typeof value === "string" && value.length >= 8 && value.length <= 64;
+}
+
 /// Поля `pers`: відмітка про операцію й сам запис ідуть однією транзакцією — друга відправка
-/// впирається в первинний ключ і не виконується.
-async function applyPersFieldOperation(userId: number, operation: OfflineOperation): Promise<ApplyOfflineOperationResult> {
+/// впирається в первинний ключ і не виконується. Пряма дія з листа з тим самим ідентифікатором
+/// йде цим самим шляхом, тож дія й черга разом застосовують зміну рівно раз.
+export async function applyPersFieldOperation(userId: number, operation: OfflineOperation): Promise<ApplyOfflineOperationResult> {
   return prisma.$transaction(async (tx) => {
     const pers = await tx.pers.findUniqueOrThrow({ where: { persId: operation.persId }, select: OFFLINE_PERS_SELECT });
     const claimed = await claimOperation(tx, userId, operation);
@@ -111,20 +119,40 @@ async function applyPersFieldOperation(userId: number, operation: OfflineOperati
 
 /// Ресурси рис, заряди, підготовка, хіт-дайси й відпочинок живуть в інших таблицях і мають власні
 /// транзакції, тож відмітка ставиться першою, а на збої знімається — операція лишається в черзі
-/// клієнта й приїде ще раз.
-async function applyRelationOperation(userId: number, operation: OfflineOperation): Promise<ApplyOfflineOperationResult> {
-  const claimed = await claimOperation(prisma, userId, operation);
-  if (!claimed) return { ok: true, duplicate: true };
+/// клієнта й приїде ще раз. Пряма дія з листа кличе це саме з ідентифікатором операції, а без
+/// нього просто виконує зміну.
+export async function applyChangeOnce<T>(
+  userId: number,
+  { operationId, ...claim }: Omit<OperationClaim, "operationId"> & { operationId?: string },
+  change: () => Promise<T>,
+  { isApplied, onDuplicate }: { isApplied: (result: T) => boolean; onDuplicate: () => T | Promise<T> },
+): Promise<T> {
+  if (!isOperationId(operationId)) return change();
+  const operation = { ...claim, operationId };
+  if (!(await claimOperation(prisma, userId, operation))) return onDuplicate();
 
   try {
-    const outcome = await applyRelationChange(operation);
-    if (outcome !== null) {
-      await releaseOperation(operation);
-      return { ok: false, error: outcome, retry: false };
-    }
-    return { ok: true, duplicate: false };
+    const result = await change();
+    if (!isApplied(result)) await releaseOperation(operation);
+    return result;
   } catch (error) {
     await releaseOperation(operation);
+    throw error;
+  }
+}
+
+async function applyRelationOperation(userId: number, operation: OfflineOperation): Promise<ApplyOfflineOperationResult> {
+  return applyChangeOnce(userId, operation, () => tryRelationChange(operation), {
+    isApplied: (outcome) => outcome.ok,
+    onDuplicate: () => ({ ok: true, duplicate: true }),
+  });
+}
+
+async function tryRelationChange(operation: OfflineOperation): Promise<ApplyOfflineOperationResult> {
+  try {
+    const failure = await applyRelationChange(operation);
+    return failure === null ? { ok: true, duplicate: false } : { ok: false, error: failure, retry: false };
+  } catch (error) {
     return { ok: false, error: error instanceof Error ? error.message : "Не вдалося застосувати операцію", retry: true };
   }
 }
@@ -208,7 +236,7 @@ function toClassIdRecord(remainingByClass: Record<string, number>): Record<numbe
 async function claimOperation(
   client: Prisma.TransactionClient | typeof prisma,
   userId: number,
-  operation: OfflineOperation,
+  operation: OperationClaim,
 ): Promise<boolean> {
   const claimed = await client.pers_offline_operation.createMany({
     data: [
@@ -224,7 +252,7 @@ async function claimOperation(
   return claimed.count > 0;
 }
 
-async function releaseOperation(operation: OfflineOperation): Promise<void> {
+async function releaseOperation(operation: OperationClaim): Promise<void> {
   await prisma.pers_offline_operation.deleteMany({ where: { operation_id: operation.operationId } });
 }
 

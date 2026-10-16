@@ -24,6 +24,11 @@ export const noiseSourceUrls: RegExp[] = [
   // нічого не додають: сам факт уже приходить одним попередженням «dice-box fallback» з
   // diceService.ts (D-005).
   /^blob:/,
+  // Google One Tap (`https://accounts.google.com/gsi/client` з GoogleOneTap.tsx) кидає `Error: pa`
+  // зі свого XHR, коли gsi/status повертає не JSON («malformed JSON response»). Усі кадри — у
+  // скрипті Google; 9 із 10 подій — краулер зі старими UA і Referer bing.com (JAVASCRIPT-NEXTJS-1H,
+  // -1N). У Sentry кадр видно як `app:///gsi/client`: @sentry/nextjs міняє origin на `app://`.
+  /\/gsi\/client(\?|$)/,
 ];
 
 // Порівнюються і `<type>: <value>`, і сам `value` — так робить Sentry. Тексти взяті буквально
@@ -54,6 +59,10 @@ export const noiseErrorMessages: RegExp[] = [
   // Вкладка, відкрита до деплою, кличе дію за старим ID. Користувач уже бачить тост «Сайт
   // оновився» з action-guard.ts; 2026-10-12 — 17 подій від однієї вкладки (JAVASCRIPT-NEXTJS-C).
   /^(UnrecognizedActionError: )?Server Action "\w+" was not found on the server/,
+  // Сканер шле битий multipart-POST без `Next-Action` на неіснуючу адресу (`/RSC/<випадкове>.txt`,
+  // UA без назви браузера, без користувача), і Next падає, читаючи його як форму без JS. Наші дії
+  // йдуть fetch-ем із `Next-Action` і розбираються іншим шляхом, форм без JS немає (JAVASCRIPT-NEXTJS-T).
+  /^(TypeError: )?Failed to parse body as FormData\.$/,
 ];
 
 export function isNoiseSourceUrl(url: string): boolean {

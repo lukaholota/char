@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useSyncExternalStore } from "react";
 
 import { useIsOnline } from "@/hooks/useIsOnline";
+import { isOfflineActionError, showKeptOnDeviceNotice } from "@/lib/offline/action-guard";
 import type { OfflineOperation } from "@/lib/offline/operations";
 import {
   flushOfflineQueue,
@@ -51,7 +52,7 @@ export function useOfflineQueue() {
   const commitOperation = useCallback(
     async <TResult>(
       operation: OfflineOperation,
-      sendToServer: () => Promise<TResult>,
+      sendToServer: (operationId: string) => Promise<TResult>,
     ): Promise<OfflineCommitOutcome<TResult>> => {
       const mustPreserveQueueOrder = readOfflineQueue().length > 0;
       if (!navigator.onLine || mustPreserveQueueOrder) {
@@ -61,9 +62,13 @@ export function useOfflineQueue() {
       }
 
       try {
-        return { queued: false, result: await sendToServer() };
-      } catch {
+        return { queued: false, result: await sendToServer(operation.operationId) };
+      } catch (error) {
         queueOfflineOperation(operation);
+        if (isOfflineActionError(error)) {
+          showKeptOnDeviceNotice();
+          flush();
+        }
         return { queued: true };
       }
     },

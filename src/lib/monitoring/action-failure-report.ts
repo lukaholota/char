@@ -33,6 +33,10 @@ export function reportActionFailure(error: Error, startedAt: number, cause: unkn
   });
 }
 
+export function noteOfflineRefusal(): void {
+  Sentry.addBreadcrumb({ category: "offline-action", level: "info", message: "server action refused: device offline" });
+}
+
 function collectActionFailure(startedAt: number, cause: unknown) {
   const now = Date.now();
   return {
@@ -42,6 +46,7 @@ function collectActionFailure(startedAt: number, cause: unknown) {
     msSinceLastHidden: lastHiddenAt === null ? null : now - lastHiddenAt,
     visibilityState: document.visibilityState,
     onLine: navigator.onLine,
+    serviceWorkerControlled: Boolean(navigator.serviceWorker?.controller),
     originProtocol: lastOriginProtocol,
     documentProtocol: readDocumentProtocol(),
     ...readConnection(),

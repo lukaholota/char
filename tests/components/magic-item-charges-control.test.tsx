@@ -25,7 +25,7 @@ describe("KR31.13 — лічильник зарядів на картці маг
 
     await act(async () => fireEvent.click(screen.getByRole("button", { name: "Витратити заряд" })));
 
-    expect(stepMagicItemCharges).toHaveBeenCalledWith(11, -1);
+    expect(stepMagicItemCharges).toHaveBeenCalledWith(11, -1, expect.any(String));
     expect(screen.getByText("6/7")).toBeTruthy();
     expect(onChanged).toHaveBeenCalled();
   });

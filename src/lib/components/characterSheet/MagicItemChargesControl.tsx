@@ -47,7 +47,7 @@ export function MagicItemChargesControl({ persId, persMagicItemId, charges, isRe
     commit(applyChargesStep(shown, delta), async () => {
       const outcome = await commitOperation(
         { kind: "magic-item-charges", persMagicItemId, step: delta, operationId: createOperationId(), persId, createdAt: new Date().toISOString() },
-        () => stepMagicItemCharges(persMagicItemId, delta),
+        (operationId) => stepMagicItemCharges(persMagicItemId, delta, operationId),
       );
       return outcome.queued ? { success: true, queued: true } : outcome.result;
     });

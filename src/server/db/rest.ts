@@ -170,6 +170,17 @@ export async function takeShortRest(
   };
 }
 
+export function buildRepeatedShortRestResult(pers: RestPers): ShortRestResult {
+  return {
+    success: true,
+    hpRestored: 0,
+    newCurrentHp: pers.currentHp,
+    currentHitDice: serializeHitDicePools(collectHitDicePools(pers)),
+    currentPactSlots: pers.currentPactSlots,
+    featuresRestored: 0,
+  };
+}
+
 async function restoreFeaturesAfterShortRest(pers: RestPers): Promise<number> {
   const persId = pers.persId;
   const featuresWithShortRest = await prisma.persFeature.findMany({
@@ -301,6 +312,18 @@ export async function takeLongRest(pers: RestPers): Promise<LongRestResult> {
     currentPactSlots: maxPactSlots,
     spellSlotsRestored: true,
     featuresRestored,
+  };
+}
+
+export function buildRepeatedLongRestResult(pers: RestPers): LongRestResult {
+  return {
+    success: true,
+    newCurrentHp: pers.currentHp,
+    currentHitDice: serializeHitDicePools(collectHitDicePools(pers)),
+    currentSpellSlots: pers.currentSpellSlots,
+    currentPactSlots: pers.currentPactSlots,
+    spellSlotsRestored: true,
+    featuresRestored: 0,
   };
 }
 
