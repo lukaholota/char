@@ -33,7 +33,7 @@ import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import { BackgroundFeatsForm } from "@/lib/components/characterCreator/BackgroundFeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
-import { ReadyPresetSuggestion } from "@/components/optimization/ReadyPresetSuggestion";
+import { isPresetSuggestionStep, ReadyPresetSuggestion } from "@/components/optimization/ReadyPresetSuggestion";
 import { UnfinishedPresetNotice } from "@/components/optimization/UnfinishedPresetNotice";
 import { findCreationStepOrder, hasRaceFeatChoice, resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
 import { buildCreationAbilityScores } from "@/rules/character-creation";
@@ -55,6 +55,7 @@ import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
 import { captureCreationFailed, captureCreationStarted, findCreationAnalytics, finishCreationAttempt } from "@/lib/monitoring/funnel-analytics";
 import { useCreationFirstChoice } from "@/lib/monitoring/use-creation-first-choice";
+import { useInAppBrowser } from "@/lib/components/auth/use-in-app-browser";
 import { useBuildCreatorStep } from "@/lib/optimization/use-build-creator-step";
 
 interface Props {
@@ -83,6 +84,7 @@ export const MultiStepForm = (
   const isDraftActive = useCreatorDraftStorage(initialRuleset);
 
   const { data: session, status: sessionStatus } = useSession();
+  const inAppBrowser = useInAppBrowser();
   const {
     currentStep,
     prevStep,
@@ -1040,6 +1042,7 @@ export const MultiStepForm = (
             onReset={resetForm}
             onOpenAuth={() => setAuthDialogOpen(true)}
             isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
+            showSignInAtEndNotice={sessionStatus === "unauthenticated" && initialRuleset === "RULES_2014" && currentStep === 1 && inAppBrowser?.isEmbedded === false}
           />
           {showReadyBuilds && initialRuleset === "RULES_2014" ? <UnfinishedPresetNotice /> : null}
         </>
@@ -1065,11 +1068,11 @@ export const MultiStepForm = (
       onPrev={prevStep}
       after={
         <>
-          {showReadyBuilds && initialRuleset === "RULES_2014" && cls && steps[currentStep - 1]?.id !== "name" ? (
+          {showReadyBuilds && initialRuleset === "RULES_2014" && cls && isPresetSuggestionStep(steps[currentStep - 1]?.id) ? (
             <ReadyPresetSuggestion classKey={cls.name} subclassKey={subclass?.name ?? null} raceKey={race?.name ?? null} />
           ) : null}
 
-          <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} analyticsTrigger="creator_submit" />
+          <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} analyticsTrigger="creator_submit" isFromCreatorDraft />
         </>
       }
     >

@@ -23,7 +23,7 @@ export function CreationFooter({ stepNumber, stepCount, stepTitle, activeFormId,
 
   return (
     <div className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
-      <div className="glass-panel border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl px-2.5 py-2.5 backdrop-blur-2xl backdrop-saturate-150 shadow-xl shadow-black/40 sm:rounded-2xl sm:px-3 sm:py-3">
+      <div className="border-gradient-rpg mx-auto flex w-full max-w-6xl items-center justify-between rounded-xl bg-slate-950 ring-1 ring-white/10 px-2.5 py-2.5 shadow-xl shadow-black/40 sm:rounded-2xl sm:px-3 sm:py-3">
         <div className="flex items-center gap-2 text-xs text-slate-300 sm:gap-3 sm:text-sm">
           <Badge variant="secondary" className="bg-white/5 text-white text-[11px] sm:text-xs">
             Крок {stepNumber} / {stepCount}

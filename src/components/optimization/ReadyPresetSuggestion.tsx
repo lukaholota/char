@@ -12,12 +12,18 @@ import { ReadyPresetSuggestionDialog } from "./ReadyPresetSuggestionDialog";
 import { useReadyPresetSuggestion } from "./use-ready-preset-suggestion";
 
 const CURTAIN_DURATION_MS = 650;
+const DISMISSED_STORAGE_KEY = "ready-preset-suggestion-dismissed";
+
+export function isPresetSuggestionStep(stepId: string | undefined): boolean {
+  return stepId === "class";
+}
 
 export function ReadyPresetSuggestion({ classKey, subclassKey, raceKey }: PresetSuggestionQuery) {
   const query = useMemo(() => ({ classKey, subclassKey, raceKey }), [classKey, subclassKey, raceKey]);
   const response = useReadyPresetSuggestion(query);
   const router = useModeRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(readIsDismissed);
   const [targetHref, setTargetHref] = useState<string | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const curtainRef = useRef<HTMLDivElement>(null);
@@ -36,7 +42,7 @@ export function ReadyPresetSuggestion({ classKey, subclassKey, raceKey }: Preset
   }, [targetHref, router]);
 
   const best = response?.best;
-  useRpgbotSurfaceView(best ? { surface: "preset_suggestion", preset_id: best.entry.buildId, ...describeMatch(best) } : null);
+  useRpgbotSurfaceView(best && !isDismissed ? { surface: "preset_suggestion", preset_id: best.entry.buildId, ...describeMatch(best) } : null);
   if (!response || !best) return null;
   const presetId = best.entry.buildId;
   const match = describeMatch(best);
@@ -49,6 +55,8 @@ export function ReadyPresetSuggestion({ classKey, subclassKey, raceKey }: Preset
   function declineSuggestion() {
     captureRpgbotEvent("rpgbot_preset_suggestion", { preset_id: presetId, action: "declined", ...match });
     setIsOpen(false);
+    rememberDismissed();
+    setIsDismissed(true);
   }
 
   function continueWithSuggestion(targetLevel: number) {
@@ -60,16 +68,18 @@ export function ReadyPresetSuggestion({ classKey, subclassKey, raceKey }: Preset
 
   return (
     <>
-      <button
-        ref={buttonRef}
-        type="button"
-        onClick={openSuggestion}
-        title="Підібрати готового персонажа за обраним класом"
-        className="fixed bottom-[calc(64px+env(safe-area-inset-bottom)+6rem)] right-3 z-[55] flex h-14 items-center gap-2 rounded-full border border-arcane-300/70 bg-slate-950 py-1 pl-1.5 pr-4 shadow-xl shadow-black/60 ring-4 ring-arcane-400/20 hover:border-arcane-200 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-arcane-300 md:bottom-[88px] md:right-4"
-      >
-        <AnalystAvatar className="size-11" />
-        <span className="text-sm font-semibold text-arcane-100">Доробити персонажа</span>
-      </button>
+      {isDismissed ? null : (
+        <button
+          ref={buttonRef}
+          type="button"
+          onClick={openSuggestion}
+          title="Підібрати готового персонажа за обраним класом"
+          className="fixed bottom-[calc(64px+env(safe-area-inset-bottom)+6rem)] right-3 z-[55] flex h-14 items-center gap-2 rounded-full border border-arcane-300/70 bg-slate-950 py-1 pl-1.5 pr-4 shadow-xl shadow-black/60 ring-4 ring-arcane-400/20 hover:border-arcane-200 hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-arcane-300 md:bottom-[88px] md:right-4"
+        >
+          <AnalystAvatar className="size-11" />
+          <span className="text-sm font-semibold text-arcane-100">Доробити персонажа</span>
+        </button>
+      )}
       <ReadyPresetSuggestionDialog
         suggestion={best}
         total={response.total}
@@ -81,6 +91,20 @@ export function ReadyPresetSuggestion({ classKey, subclassKey, raceKey }: Preset
       {targetHref ? <div ref={curtainRef} aria-hidden="true" className="pointer-events-none fixed inset-0 z-[120] bg-arcane-900 opacity-0" /> : null}
     </>
   );
+}
+
+function readIsDismissed(): boolean {
+  try {
+    return window.sessionStorage.getItem(DISMISSED_STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function rememberDismissed() {
+  try {
+    window.sessionStorage.setItem(DISMISSED_STORAGE_KEY, "1");
+  } catch {}
 }
 
 function describeMatch(suggestion: PresetSuggestion) {
