@@ -52,6 +52,8 @@ import {
   translateBackgroundName,
 } from "./characterSheetText";
 import { collectSheetPdfSpells } from "./sheet-pdf-spells";
+import { CONTINUE_BELOW_SIZE, fitBoxesWithContinuation, fitOrCut, type BoxText } from "./printContinuation";
+import { fitSingleLineFontSize } from "./textFit";
 import { drawPortrait, loadPortraitJpeg } from "./portraitPrint";
 import { buildSheet2024Document, isSheet2024Requested } from "./sheet2024/buildSheet2024";
 import {
@@ -147,51 +149,6 @@ function normalizePrintConfig(config: PrintConfig | null | undefined): PrintConf
   return { sections, flattenCharacterSheet: config?.flattenCharacterSheet ?? true, sheetLayout: config?.sheetLayout ?? "CLASSIC" };
 }
 
-interface TwoLineResult {
-  line1: string;
-  line2?: string;
-}
-
-function splitTextTwoLines(text: string, font: PDFFont, fontSize: number, maxWidth: number): TwoLineResult {
-  if (!text || text.trim() === "") return { line1: "" };
-
-  const textWidth = font.widthOfTextAtSize(text, fontSize);
-  if (textWidth <= maxWidth) {
-    return { line1: text };
-  }
-
-  const words = text.split(/\s+/).filter(Boolean);
-  if (words.length <= 1) {
-    return { line1: text };
-  }
-
-  let line1 = "";
-  let line2 = "";
-  let splitIndex = 0;
-
-  for (let i = 0; i < words.length; i++) {
-    const testLine = words.slice(0, i + 1).join(" ");
-    const testWidth = font.widthOfTextAtSize(testLine, fontSize);
-    if (testWidth <= maxWidth) {
-      line1 = testLine;
-      splitIndex = i + 1;
-    } else {
-      break;
-    }
-  }
-
-  if (splitIndex === 0) {
-    line1 = words[0];
-    splitIndex = 1;
-  }
-
-  if (splitIndex < words.length) {
-    line2 = words.slice(splitIndex).join(" ");
-  }
-
-  return line2 ? { line1, line2 } : { line1 };
-}
-
 function tryGetTextField(form: PDFForm, name: string) {
   try {
     return form.getTextField(name);
@@ -200,53 +157,69 @@ function tryGetTextField(form: PDFForm, name: string) {
   }
 }
 
-function tryEnableMultiline(form: PDFForm, name: string) {
-  const field = tryGetTextField(form, name);
-  if (!field) return;
+const PAGE_BOXES: Array<{ key: PageBoxKey; names: string[]; label: string; maxFontSize: number }> = [
+  { key: "ProficienciesLang", names: ["ProficienciesLang"], label: "Інші уміння та знання мов", maxFontSize: 7 },
+  { key: "Equipment", names: ["Equipment"], label: "Спорядження", maxFontSize: 7 },
+  { key: "AttacksSpellcasting", names: ["AttacksSpellcasting"], label: "Атаки та Заклинання", maxFontSize: 8 },
+  { key: "PersonalityTraits", names: ["PersonalityTraits ", "PersonalityTraits"], label: "Риси характеру", maxFontSize: 10 },
+  { key: "Ideals", names: ["Ideals"], label: "Ідеали", maxFontSize: 10 },
+  { key: "Bonds", names: ["Bonds"], label: "Прив'язаності", maxFontSize: 10 },
+  { key: "Flaws", names: ["Flaws"], label: "Слабкості", maxFontSize: 10 },
+];
+const CONTINUATION_BOX = { names: ["Features and Traits"], label: "Уміння та Особливості", maxFontSize: 7 };
+
+type PageBoxKey = "ProficienciesLang" | "Equipment" | "AttacksSpellcasting" | "PersonalityTraits" | "Ideals" | "Bonds" | "Flaws";
+type PageBoxTexts = Record<PageBoxKey | "FeaturesAndTraits", string>;
+type PlacedField = { field: PDFTextField; box: BoxText };
+
+/// Поля сторінки 1 стискаються до читабельного кегля, а решта тексту йде у вільне місце поля «Уміння та Особливості».
+function fillTextBoxes(form: PDFForm, font: PDFFont, texts: PageBoxTexts) {
+  const sources = PAGE_BOXES.map((spec) => findPlacedField(form, spec.names, { name: spec.key, label: spec.label, text: texts[spec.key], maxFontSize: spec.maxFontSize }));
+  const host = findPlacedField(form, CONTINUATION_BOX.names, { name: "FeaturesAndTraits", label: CONTINUATION_BOX.label, text: texts.FeaturesAndTraits, maxFontSize: CONTINUATION_BOX.maxFontSize });
+  const placed = sources.filter((source): source is PlacedField => source !== null);
+  const printed = host ? fitBoxesWithContinuation(placed.map(({ box }) => box), host.box, font) : placed.map(({ box }) => fitOrCut(box, font));
+  const fieldsByName = new Map([...placed, ...(host ? [host] : [])].map((placedField) => [placedField.box.name, placedField.field]));
+  for (const { name, lines, size } of printed) {
+    const field = fieldsByName.get(name);
+    if (field) setPrintedLines(form, field, lines, size);
+  }
+}
+
+function findPlacedField(form: PDFForm, names: string[], text: Omit<BoxText, "box">): PlacedField | null {
+  for (const name of names) {
+    const field = tryGetTextField(form, name);
+    const rect = field?.acroField.getWidgets()[0]?.getRectangle();
+    if (field && rect) return { field, box: { ...text, text: stripGlossaryMarkers(text.text ?? ""), box: { width: rect.width, height: rect.height } } };
+  }
+  return null;
+}
+
+function setPrintedLines(form: PDFForm, field: PDFTextField, lines: string[], size: number) {
   try {
     field.enableMultiline();
+    trySetFontSize(form, field.getName(), size);
+    field.setText(lines.join("\n"));
   } catch {
     // ignore
   }
 }
 
-function setMultilineTextIfPresent(form: PDFForm, name: string, value: string) {
-  const field = tryGetTextField(form, name);
-  if (!field) return;
-  try {
-    field.enableMultiline();
-  } catch {
-    // ignore
-  }
-  try {
-    field.setText(stripGlossaryMarkers(value ?? ""));
-  } catch {
-    // ignore
-  }
-}
-
-function setTextFieldWithOverflow(
-  form: PDFForm,
-  name: string,
-  value: string,
-  font: PDFFont,
-  fontSize: number,
-  maxWidth: number
-) {
-  const field = tryGetTextField(form, name);
-  if (!field) return;
-
-  const { line1, line2 } = splitTextTwoLines(stripGlossaryMarkers(value), font, fontSize, maxWidth);
-
-  if (line2) {
-    try {
-      field.enableMultiline();
-      field.setText(`${line1}\n${line2}`);
-    } catch {
-      field.setText(line1);
+/// Поле шапки — один рядок; зменшується, а на два рядки переходить лише коли один став би нечитабельним.
+function fillHeaderField(form: PDFForm, font: PDFFont, names: string[], value: string, maxFontSize: number) {
+  for (const name of names) {
+    const field = tryGetTextField(form, name);
+    const rect = field?.acroField.getWidgets()[0]?.getRectangle();
+    if (!field || !rect) continue;
+    const text = stripGlossaryMarkers(value);
+    const box = { width: rect.width, height: rect.height };
+    const singleLineSize = fitSingleLineFontSize(text, font, box, maxFontSize);
+    if (singleLineSize >= CONTINUE_BELOW_SIZE || !text) {
+      trySetFontSize(form, name, singleLineSize);
+      setTextIfPresent(form, name, text);
+    } else {
+      const fitted = fitOrCut({ name, label: name, text, box, maxFontSize }, font);
+      setPrintedLines(form, field, fitted.lines, fitted.size);
     }
-  } else {
-    field.setText(line1);
   }
 }
 
@@ -414,17 +387,6 @@ function fillSpellRows(form: PDFForm, spellsOnPage: Map<number, PersSpellWithSpe
   }
 }
 
-const OVERFLOW_FIELDS: Array<{
-  fieldName: string;
-  maxWidth: number;
-  fontSize: number;
-}> = [
-  { fieldName: "CharacterName", maxWidth: 200, fontSize: 12 },
-  { fieldName: "ClassLevel", maxWidth: 200, fontSize: 10 },
-  { fieldName: "Race", maxWidth: 180, fontSize: 10 },
-  { fieldName: "PlayerName", maxWidth: 180, fontSize: 10 },
-];
-
 function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData, font: PDFFont) {
   const { pers } = data;
   const extras = getPersExtras(pers);
@@ -465,33 +427,6 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   ]) {
     trySetFontSize(form, name, 11);
   }
-
-  for (const name of [
-    "Equipment",
-    "Features and Traits",
-    "AttacksSpellcasting",
-    "Proficiencies",
-    "Languages",
-    "ProficienciesLang",
-    "PersonalityTraits",
-    "PersonalityTraits ",
-    "Ideals",
-    "Bonds",
-    "Flaws",
-  ]) {
-    tryEnableMultiline(form, name);
-    trySetFontSize(form, name, 10);
-  }
-
-  // Equipment box is dense; keep it smaller.
-  trySetFontSize(form, "Equipment", 7);
-
-  for (const name of ["Features and Traits", "Proficiencies", "Languages", "ProficienciesLang"]) {
-    trySetFontSize(form, name, 7);
-  }
-
-  // This field is text-heavy; keep it compact.
-  trySetFontSize(form, "AttacksSpellcasting", 8);
 
   for (const name of [
     "ST Strength",
@@ -535,28 +470,10 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
     trySetFontSize(form, name, 7);
   }
 
-  for (const { fieldName, maxWidth, fontSize } of OVERFLOW_FIELDS) {
-    let value = "";
-    let candidates: string[] = [fieldName];
-    switch (fieldName) {
-      case "CharacterName":
-        value = safeText(pers.name);
-        break;
-      case "ClassLevel":
-        value = buildClassLevelString(pers);
-        break;
-      case "Race":
-        value = buildPersSpeciesName(pers);
-        candidates = ["Race", "Race "];
-        break;
-      case "PlayerName":
-        value = safeText(pers.user?.name ?? pers.user?.email);
-        break;
-    }
-    for (const name of candidates) {
-      setTextFieldWithOverflow(form, name, value, font, fontSize, maxWidth);
-    }
-  }
+  fillHeaderField(form, font, ["CharacterName"], safeText(pers.name), 12);
+  fillHeaderField(form, font, ["ClassLevel"], buildClassLevelString(pers), 10);
+  fillHeaderField(form, font, ["Race", "Race "], buildPersSpeciesName(pers), 10);
+  fillHeaderField(form, font, ["PlayerName"], safeText(pers.user?.name ?? pers.user?.email), 10);
 
   setTextIfPresent(form, "Background", translateBackgroundName(pers.background?.name));
   setTextIfPresent(form, "Alignment", safeText(extras.alignment));
@@ -602,33 +519,20 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   const passivePerception = calculatePassiveSkill(pers, Skills.PERCEPTION);
   setTextIfPresent(form, "Passive", safeText(passivePerception));
 
-  for (const name of ["PersonalityTraits", "PersonalityTraits "]) {
-    setMultilineTextIfPresent(form, name, safeText(pers.personalityTraits));
-  }
-  setMultilineTextIfPresent(form, "Ideals", safeText(pers.ideals));
-  setMultilineTextIfPresent(form, "Bonds", safeText(pers.bonds));
-  setMultilineTextIfPresent(form, "Flaws", safeText(pers.flaws));
-
-  const profAndLang = buildProficiencyAndLanguageBlock(pers);
-
-  for (const name of ["Proficiencies", "Languages", "ProficienciesLang"]) {
-    setMultilineTextIfPresent(form, name, profAndLang);
-  }
-
   const weaponAttacks = collectPrintableWeaponAttacks(pers);
   fillWeaponSlots(form, weaponAttacks.slice(0, WEAPON_SLOTS.length));
-
-  // Coins and equipment (armor + shield)
-  const equipmentText = buildEquipmentText(pers);
-  setMultilineTextIfPresent(form, "Equipment", equipmentText);
   for (const coin of COIN_KEYS) setTextIfPresent(form, coin.toUpperCase(), formatCoinAmount(pers, coin));
 
-  // "Уміння та Особливості" -> Features and Traits
-  const featuresList = buildFeaturesListText(data);
-  setMultilineTextIfPresent(form, "Features and Traits", featuresList);
-
-  const attacksSpellcasting = buildAttacksSpellcastingText(pers, weaponAttacks.slice(WEAPON_SLOTS.length));
-  setMultilineTextIfPresent(form, "AttacksSpellcasting", attacksSpellcasting);
+  fillTextBoxes(form, font, {
+    ProficienciesLang: buildProficiencyAndLanguageBlock(pers),
+    Equipment: buildEquipmentText(pers),
+    AttacksSpellcasting: buildAttacksSpellcastingText(pers, weaponAttacks.slice(WEAPON_SLOTS.length)),
+    PersonalityTraits: safeText(pers.personalityTraits),
+    Ideals: safeText(pers.ideals),
+    Bonds: safeText(pers.bonds),
+    Flaws: safeText(pers.flaws),
+    FeaturesAndTraits: buildFeaturesListText(data),
+  });
 
   try {
     ensureAllTextFieldsHaveDA(form);
