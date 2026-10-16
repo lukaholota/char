@@ -146,6 +146,19 @@ describe("перенос тексту в полях PDF", () => {
     expect(lines.at(-1)).toBe(NOT_FITTED_MARK);
   });
 
+  it.each([
+    ["ClassLevel", { width: 106, height: 16 }, "Чарівник 3 / Воїн 2 / Жрець 1 / Бард 4 / Чаклун 2 / Друїд 1"],
+    ["PlayerName", { width: 90, height: 16 }, "Арістотель Вогнедухий Сріблоплин з Долини Тихих Вітрів"],
+  ])("однорядкове поле шапки %s показує початок задовгого значення, а не саму позначку", (name, box, text) => {
+    const printed = fitOrCut({ name, label: name, text, box, maxFontSize: 10 }, font);
+    const [line] = printed.lines;
+
+    expect(printed.lines).toHaveLength(1);
+    expect(line.startsWith(text.split(" ")[0])).toBe(true);
+    expect(line.endsWith("…")).toBe(true);
+    expect(font.widthOfTextAtSize(line, printed.size)).toBeLessThan(box.width - 2);
+  });
+
   it("розподіл рядків між полями повертає те, що не влізло й в останнє", () => {
     const lines = Array.from({ length: 30 }, (_, index) => `Рядок ${index + 1}`);
     const { chunks, rest } = splitFlowLines(lines, font, [{ width: 120, height: 40 }], 8);

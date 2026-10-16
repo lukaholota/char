@@ -104,8 +104,18 @@ function fitFieldText(text: string, font: MeasuringFont, box: TextBox, field: Te
 
 export const NOT_FITTED_MARK = "… далі не вмістилося";
 
+const CUT_LINE_MARK = "…";
+
+/// Поле на один рядок не має місця під окрему позначку, тож обрізаний рядок закінчується трикрапкою.
 export function cutWithMark(text: string, font: MeasuringFont, box: TextBox, size: number): string[] {
+  if (countFittingLines(font, box, size) <= 1) return [cutToOneLine(text, font, box, size)];
   return [...splitTextToFit(text, font, box, size, { reserveLastLine: true }).lines, NOT_FITTED_MARK];
+}
+
+function cutToOneLine(text: string, font: MeasuringFont, box: TextBox, size: number): string {
+  const markWidth = font.widthOfTextAtSize(CUT_LINE_MARK, size);
+  const [line = ""] = wrapText(text, font, size, box.width - markWidth, 1);
+  return `${line.trimEnd()}${CUT_LINE_MARK}`;
 }
 
 function wrapWithinBox(text: string, font: MeasuringFont, box: TextBox, size: number): string[] | null {
