@@ -8,6 +8,7 @@ dotenv.config({ path: path.resolve(process.cwd(), ".env") });
 const SENTRY_HOST = "https://de.sentry.io";
 const ORG = "char-da";
 const PROJECT = "javascript-nextjs";
+const STATS_PERIOD = "30d";
 const SNAPSHOT_PATH = "docs/o21-user-signals/inbox/sentry-issues.json";
 
 const KEPT_FIELDS = [
@@ -16,7 +17,6 @@ const KEPT_FIELDS = [
   "title",
   "culprit",
   "level",
-  "status",
   "count",
   "userCount",
   "firstSeen",
@@ -25,7 +25,10 @@ const KEPT_FIELDS = [
   "metadata",
 ] as const;
 
-type SentryIssue = Record<string, unknown>;
+type SentryIssue = Record<string, unknown> & {
+  project?: { slug?: string };
+  lifetime?: { firstSeen?: string; lastSeen?: string };
+};
 
 function readToken() {
   const token = process.env.SENTRY_READ_TOKEN ?? process.env.SENTRY_TOKEN;
@@ -49,10 +52,12 @@ function findNextCursor(linkHeader: string | null) {
   return nextLink?.match(/cursor="([^"]+)"/)?.[1] ?? null;
 }
 
+// Проєктний ендпоінт приймає statsPeriod лише '', 24h або 14d; 30 днів дає тільки організаційний.
 async function fetchIssuePage(token: string, cursor: string | null) {
-  const url = new URL(`${SENTRY_HOST}/api/0/projects/${ORG}/${PROJECT}/issues/`);
-  url.searchParams.set("query", "");
-  url.searchParams.set("statsPeriod", "");
+  const url = new URL(`${SENTRY_HOST}/api/0/organizations/${ORG}/issues/`);
+  url.searchParams.set("project", "-1");
+  url.searchParams.set("query", "is:unresolved");
+  url.searchParams.set("statsPeriod", STATS_PERIOD);
   url.searchParams.set("limit", "100");
   if (cursor) url.searchParams.set("cursor", cursor);
 
@@ -68,7 +73,7 @@ async function fetchIssuePage(token: string, cursor: string | null) {
   };
 }
 
-async function collectAllIssues(token: string) {
+async function collectUnresolvedIssues(token: string) {
   const collected: SentryIssue[] = [];
   let cursor: string | null = null;
 
@@ -81,24 +86,32 @@ async function collectAllIssues(token: string) {
   return collected;
 }
 
-function stripToKeptFields(issue: SentryIssue) {
-  return Object.fromEntries(KEPT_FIELDS.map((field) => [field, issue[field] ?? null]));
+function isFromProject(issue: SentryIssue) {
+  return issue.project?.slug === PROJECT;
 }
 
-function sortByLastSeenDesc(issues: ReturnType<typeof stripToKeptFields>[]) {
-  return [...issues].sort((left, right) => {
-    const byLastSeen = String(right.lastSeen).localeCompare(String(left.lastSeen));
+// `count` і `userCount` — за вікно. Верхні `firstSeen`/`lastSeen` теж обрізані вікном і зсуваються
+// разом із ним, тому дати беруться з `lifetime`.
+function stripToKeptFields(issue: SentryIssue) {
+  const fields: Record<string, unknown> = {
+    ...issue,
+    firstSeen: issue.lifetime?.firstSeen ?? issue.firstSeen,
+    lastSeen: issue.lifetime?.lastSeen ?? issue.lastSeen,
+  };
 
-    return byLastSeen !== 0 ? byLastSeen : String(left.id).localeCompare(String(right.id));
-  });
+  return Object.fromEntries(KEPT_FIELDS.map((field) => [field, fields[field] ?? null]));
+}
+
+function sortById(issues: ReturnType<typeof stripToKeptFields>[]) {
+  return [...issues].sort((left, right) => Number(left.id) - Number(right.id));
 }
 
 async function main() {
-  const issues = await collectAllIssues(readToken());
-  const snapshot = sortByLastSeenDesc(issues.map(stripToKeptFields));
+  const issues = await collectUnresolvedIssues(readToken());
+  const snapshot = sortById(issues.filter(isFromProject).map(stripToKeptFields));
 
   writeFileSync(SNAPSHOT_PATH, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
-  console.log(`${snapshot.length} issue → ${SNAPSHOT_PATH}`);
+  console.log(`${snapshot.length} unresolved issue за ${STATS_PERIOD} → ${SNAPSHOT_PATH}`);
 }
 
 main().catch((error) => {

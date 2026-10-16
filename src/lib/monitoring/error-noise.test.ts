@@ -35,6 +35,8 @@ describe("error noise filters", () => {
     "moz-extension://abcdef/content.js",
     "blob:https://char.holota.family/1a17bc02-79b2-4523-a606-bb65978ad57a",
     "webkit-masked-url://hidden/",
+    "https://accounts.google.com/gsi/client",
+    "app:///gsi/client",
   ])("drops third-party script %s", (url) => {
     expect(isNoiseSourceUrl(url)).toBe(true);
   });
@@ -59,6 +61,7 @@ describe("error noise filters", () => {
     ["Error", "Script error."],
     ["Error", "ResizeObserver loop completed with undelivered notifications."],
     ["UnrecognizedActionError", 'Server Action "405c4ffc6fcc2a66592585d0e2976d580bafe4ae0e" was not found on the server. \nRead more: https://nextjs.org/docs/messages/failed-to-find-server-action'],
+    ["TypeError", "Failed to parse body as FormData."],
   ])("drops %s: %s", (type, value) => {
     expect(isNoiseErrorMessage(type, value)).toBe(true);
   });
@@ -72,6 +75,8 @@ describe("error noise filters", () => {
     ["TypeError", "Failed to fetch the resource"],
     ["Error", "Minified React error #419; visit https://react.dev/errors/419 for the full message"],
     ["TypeError", "Script error in spell card"],
+    ["Error", "pa"],
+    ["Error", "Unexpected end of form"],
   ])("keeps %s: %s", (type, value) => {
     expect(isNoiseErrorMessage(type, value)).toBe(false);
   });
@@ -89,6 +94,24 @@ describe("PostHog before_send", () => {
       frameUrls: ["blob:https://char.holota.family/2e5b74ba-1117-4c73-aa4f-bb0e16d2e58a"],
     });
     expect(dropNoiseExceptions(diceWorkerCrash)).toBeNull();
+  });
+
+  it("drops an exception thrown inside the Google One Tap script", () => {
+    const oneTapCrash = buildExceptionEvent({
+      type: "Error",
+      value: "pa",
+      frameUrls: ["https://accounts.google.com/gsi/client", "https://accounts.google.com/gsi/client"],
+    });
+    expect(dropNoiseExceptions(oneTapCrash)).toBeNull();
+  });
+
+  it("keeps the same message when our own chunk throws it", () => {
+    const ownCrash = buildExceptionEvent({
+      type: "Error",
+      value: "pa",
+      frameUrls: ["https://accounts.google.com/gsi/client", "https://char.holota.family/_next/static/chunks/0506b0273472af87.js"],
+    });
+    expect(dropNoiseExceptions(ownCrash)).toBe(ownCrash);
   });
 
   it("keeps our own exception", () => {
