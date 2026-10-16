@@ -1,5 +1,6 @@
 import { SkillsEnum, type Skill } from "@/lib/types/enums";
 import type { ClassI } from "@/lib/types/model-types";
+import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { normalizeSkillProficiencies } from "@/rules/proficiency";
 import { collectSubclassSkillChoice } from "@/rules/subclass-skill-choices";
 import type { SkillPickGroup } from "./skills-step-hint";
@@ -32,6 +33,27 @@ export function settleSubclassPicks(picks: SubclassSkillPicks, picked: readonly 
   const { chosen } = findSubclassSkillGroup(picks, picked, ownedOutsideGroups);
   const alreadyOwned = picks.options.filter((skill) => ownedOutsideGroups.includes(skill));
   return [...chosen, ...alreadyOwned].slice(0, picks.count);
+}
+
+type SkillsDraft = Partial<Pick<PersFormData, "subclassId" | "skills" | "skillsSchema">>;
+
+/// Навички іншого підкласу не мають доїхати до сервера, навіть якщо гравець перескочить крок
+/// «Навички». Коли новий підклас сам просить навичку, крок знову стає незавершеним.
+export function buildSkillsAfterSubclassSwitch(selectedClass: ClassI, draft: SkillsDraft, nextSubclassId: number | undefined): SkillsDraft {
+  const schema = draft.skillsSchema;
+  if (!schema) return {};
+  const previous = findSubclassSkillPicks(selectedClass, draft.subclassId);
+  const next = findSubclassSkillPicks(selectedClass, nextSubclassId);
+  const isSkillsStepAffected = previous.count > 0 || previous.fixed.length > 0 || next.count > 0 || (schema.basicChoices.subclass?.length ?? 0) > 0;
+  if (!isSkillsStepAffected) return {};
+
+  const { subclass: droppedPicks = [], ...otherGroups } = schema.basicChoices;
+  const keptElsewhere = new Set<string>([...otherGroups.race, ...otherGroups.selectedClass, ...otherGroups.background, ...schema.tashaChoices, ...Object.values(schema.choiceOptions).flat()]);
+  const dropped = new Set<string>([...droppedPicks, ...previous.fixed].filter((skill) => !keptElsewhere.has(skill)));
+  return {
+    skillsSchema: { ...schema, basicChoices: otherGroups },
+    skills: next.count > 0 ? [] : (draft.skills ?? []).filter((skill) => !dropped.has(skill)),
+  };
 }
 
 export function buildSubclassPickGroup(group: SubclassSkillGroup, isTakenByOtherGroup: (skill: Skill) => boolean): SkillPickGroup {
