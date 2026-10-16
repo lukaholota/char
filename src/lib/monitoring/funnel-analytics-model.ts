@@ -59,11 +59,6 @@ export function findDeviceType(userAgent: string): DeviceType {
   return "desktop";
 }
 
-export function isOAuthReferrer(referrer: string): boolean {
-  const host = findUrlHost(referrer);
-  return host !== null && OAUTH_HOST_PATTERN.test(host);
-}
-
 export function findEntryAttribution(input: { href: string; referrer: string }): EntryAttribution {
   const url = new URL(input.href);
   const params = url.searchParams;
@@ -100,14 +95,14 @@ export function buildInAppHandoffHref(href: string, host: InAppBrowserHost | nul
   }
 }
 
-export function buildOAuthCallbackPath(callbackPath: string, context: OAuthReturnContext, now: number): string {
-  const encoded = encodeBase64Url(JSON.stringify({ d: context.distinctId, s: context.sessionId, a: context.creationAttemptId, e: context.entry, m: context.method, t: now }));
+export function buildOAuthCallbackPath(callbackPath: string, context: OAuthReturnContext, nonce: string, now: number): string {
+  const encoded = encodeBase64Url(JSON.stringify({ d: context.distinctId, s: context.sessionId, a: context.creationAttemptId, e: context.entry, m: context.method, n: nonce, t: now }));
   const [pathAndQuery, hash] = callbackPath.split("#", 2);
   const separator = pathAndQuery.includes("?") ? "&" : "?";
   return `${pathAndQuery}${separator}${OAUTH_RETURN_PARAM}=${encoded}${hash === undefined ? "" : `#${hash}`}`;
 }
 
-export function readOAuthReturnContext(href: string, referrer: string, now: number): { context: OAuthReturnContext | null; cleanHref: string | null } {
+export function readOAuthReturnContext(href: string, savedNonce: string | null, now: number): { context: OAuthReturnContext | null; cleanHref: string | null } {
   let url: URL;
   try {
     url = new URL(href);
@@ -118,13 +113,14 @@ export function readOAuthReturnContext(href: string, referrer: string, now: numb
   if (raw === null) return { context: null, cleanHref: null };
   url.searchParams.delete(OAUTH_RETURN_PARAM);
   const cleanHref = url.toString();
-  if (!isOAuthReferrer(referrer)) return { context: null, cleanHref };
-  return { context: parseOAuthReturnContext(raw, now), cleanHref };
+  if (!isId(savedNonce)) return { context: null, cleanHref };
+  return { context: parseOAuthReturnContext(raw, savedNonce, now), cleanHref };
 }
 
-function parseOAuthReturnContext(raw: string, now: number): OAuthReturnContext | null {
+function parseOAuthReturnContext(raw: string, savedNonce: string, now: number): OAuthReturnContext | null {
   try {
     const value = JSON.parse(decodeBase64Url(raw)) as Record<string, unknown>;
+    if (value.n !== savedNonce) return null;
     if (typeof value.t !== "number" || now - value.t > OAUTH_RETURN_MAX_AGE_MS || now < value.t) return null;
     const entry = parseEntry(value.e);
     if (!entry) return null;

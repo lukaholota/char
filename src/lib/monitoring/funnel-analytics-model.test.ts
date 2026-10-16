@@ -79,19 +79,22 @@ describe("entry attribution", () => {
 });
 
 describe("OAuth round-trip context", () => {
+  const NONCE = "9b1f2c3d-4e5f-4a6b-8c7d-0e1f2a3b4c5d";
+
   it("survives the Google redirect and leaves a clean address", () => {
-    const callback = buildOAuthCallbackPath("/char/create?step=2", context, NOW);
-    const result = readOAuthReturnContext(`https://char.holota.family${callback}`, "https://accounts.google.com/", NOW + 60_000);
+    const callback = buildOAuthCallbackPath("/char/create?step=2", context, NONCE, NOW);
+    const result = readOAuthReturnContext(`https://char.holota.family${callback}`, NONCE, NOW + 60_000);
     expect(result.context).toEqual(context);
     expect(result.cleanHref).toBe("https://char.holota.family/char/create?step=2");
   });
 
-  it("ignores the context without a Google referrer, when stale, or when damaged, but still cleans the address", () => {
-    const href = `https://char.holota.family${buildOAuthCallbackPath("/char", context, NOW)}`;
-    expect(readOAuthReturnContext(href, "https://evil.example/", NOW)).toEqual({ context: null, cleanHref: "https://char.holota.family/char" });
-    expect(readOAuthReturnContext(href, "https://accounts.google.com/", NOW + 31 * 60_000).context).toBeNull();
-    expect(readOAuthReturnContext("https://char.holota.family/char?ph_ctx=%%%", "https://accounts.google.com/", NOW).context).toBeNull();
-    expect(readOAuthReturnContext("https://char.holota.family/char", "https://accounts.google.com/", NOW)).toEqual({ context: null, cleanHref: null });
+  it("ignores the context without the tab's nonce, when stale, or when damaged, but still cleans the address", () => {
+    const href = `https://char.holota.family${buildOAuthCallbackPath("/char", context, NONCE, NOW)}`;
+    expect(readOAuthReturnContext(href, null, NOW)).toEqual({ context: null, cleanHref: "https://char.holota.family/char" });
+    expect(readOAuthReturnContext(href, "0a1b2c3d-4e5f-4a6b-8c7d-0e1f2a3b4c5d", NOW).context).toBeNull();
+    expect(readOAuthReturnContext(href, NONCE, NOW + 31 * 60_000).context).toBeNull();
+    expect(readOAuthReturnContext("https://char.holota.family/char?ph_ctx=%%%", NONCE, NOW).context).toBeNull();
+    expect(readOAuthReturnContext("https://char.holota.family/char", NONCE, NOW)).toEqual({ context: null, cleanHref: null });
   });
 
   it("server creation properties accept only short ids", () => {

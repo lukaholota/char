@@ -50,6 +50,7 @@ beforeEach(() => {
   posthog.get_session_id.mockReturnValue(SESSION_ID);
   session.current = { data: null, status: "loading" };
   idle.callbacks.length = 0;
+  sessionStorage.clear();
 });
 
 afterEach(() => {
@@ -78,12 +79,16 @@ describe("creation funnel analytics", () => {
     expect(posthog.register).toHaveBeenCalledWith(expect.objectContaining({ entry_source: "threads", entry_campaign: "launch", landing_path: "/char/create", browser_context: "regular_browser", is_signed_in: false }));
   });
 
-  it("after the Google return keeps the anonymous person, the session, the attempt and the original source", async () => {
+  it.each([
+    ["Google", "https://accounts.google.com/"],
+    ["our own origin after a silent Google sign-in", "http://localhost:3000/char/create"],
+    ["no", ""],
+  ])("after the Google return with %s referrer keeps the anonymous person, the session, the attempt and the original source", async (_label, referrer) => {
     const { callbackPath, attemptId } = await signInFromCreator();
     cleanup();
     Object.values(posthog).forEach((spy) => spy.mockClear());
 
-    const { PostHogProvider, funnel } = await openPage(callbackPath, "https://accounts.google.com/");
+    const { PostHogProvider, funnel } = await openPage(callbackPath, referrer);
     session.current = { data: { user: { id: "7", email: "player@example.test" } }, status: "authenticated" };
     const view = render(<PostHogProvider />);
     await waitFor(() => expect(window.location.search).toBe(""));
@@ -100,6 +105,33 @@ describe("creation funnel analytics", () => {
     const prepareEvent = sharedPostHogOptions.before_send as (event: { uuid: string; event: string; properties: Record<string, unknown> }) => { properties: Record<string, unknown> } | null;
     expect(capturedEvents().every(({ event, properties }) => !String(prepareEvent({ uuid: "u", event, properties: { ...properties } })?.properties.$current_url).includes("ph_ctx"))).toBe(true);
     expect(funnel.findCreationAnalytics()).toEqual({ creationAttemptId: attemptId, sessionId: SESSION_ID });
+  });
+
+  async function returnFromGoogle(callbackPath: string) {
+    cleanup();
+    Object.values(posthog).forEach((spy) => spy.mockClear());
+    const { PostHogProvider } = await openPage(callbackPath, "https://accounts.google.com/");
+    session.current = { data: { user: { id: "7" } }, status: "authenticated" };
+    render(<PostHogProvider />);
+    await runIdle();
+    return {
+      isBootstrapped: posthog.init.mock.calls.some(([, options]) => (options as { bootstrap?: unknown }).bootstrap !== undefined),
+      completedCount: capturedEvents().filter(({ event }) => event === "auth_completed").length,
+    };
+  }
+
+  it("ignores a return link opened in another tab", async () => {
+    const { callbackPath } = await signInFromCreator();
+    sessionStorage.clear();
+
+    expect(await returnFromGoogle(callbackPath)).toEqual({ isBootstrapped: false, completedCount: 0 });
+  });
+
+  it("accepts the return context only once", async () => {
+    const { callbackPath } = await signInFromCreator();
+
+    expect(await returnFromGoogle(callbackPath)).toEqual({ isBootstrapped: true, completedCount: 1 });
+    expect(await returnFromGoogle(callbackPath)).toEqual({ isBootstrapped: false, completedCount: 0 });
   });
 
   it("counts the first meaningful step once per attempt and starts a new attempt after creation", async () => {

@@ -168,10 +168,13 @@ Production-доставку цих подій і плиток ще не пере
 
 - Перед редиректом на Google (`prepareGoogleAuthRedirect`) до `callbackUrl` додається один
   параметр `ph_ctx` (base64url JSON): анонімний `distinct_id`, `$session_id`,
-  `creation_attempt_id`, entry-атрибуція, метод, час. Без email, токенів і тексту персонажа.
+  `creation_attempt_id`, entry-атрибуція, метод, одноразовий nonce, час. Без email, токенів і тексту персонажа.
+  Той самий nonce кладеться в `sessionStorage` (`ph-oauth-nonce`) цієї вкладки.
 - На поверненні `ph_ctx` прибирається з адреси `history.replaceState` до першого pageview.
-  Його приймають лише коли `document.referrer` — `accounts.google.*` і він молодший 30 хв;
-  інакше параметр видаляється без дії (захист від підкинутих посилань).
+  Його приймають лише коли nonce збігся зі збереженим у вкладці і `ph_ctx` молодший 30 хв;
+  nonce стирається після першого читання. Інакше параметр видаляється без дії (захист від
+  підкинутих посилань). Referrer не перевіряється: при тихому вході Google (без сторінки
+  вибору акаунта) ланцюжок 302 лишає referrer нашого домену або порожній.
 - SDK ініціалізується з `bootstrap: { distinctID, sessionID }` — тими самими, що до входу;
   потім наявний `identify(<числовий user.id>)` зливає анонімну частину з користувачем.
   Email ніколи не стає ідентифікатором. Вихід: як і раніше, `reset()` або перезавантаження.
@@ -181,7 +184,8 @@ Production-доставку цих подій і плиток ще не пере
   `is_signed_in: true`, а для ручного конструктора і пресета — `$session_id` і (ручний)
   `creation_attempt_id`, якщо клієнт їх передав і це короткі id. Одна подія на персонажа:
   повтор пресета з тим самим `readyPresetRequestId` події не шле (інтеграційний тест).
-- Сховище пристрою для аналітики не додано: усе живе в памʼяті сторінки та в `ph_ctx`.
+- Інше сховище пристрою для аналітики не додано: усе живе в памʼяті сторінки, в `ph_ctx`
+  і в одноразовому nonce. Якщо `sessionStorage` недоступний, `ph_ctx` не додається.
 
 ### Атрибуція
 
@@ -208,7 +212,7 @@ referrer-поля, якщо це `accounts.google.*`: Google більше не �
 | Подія | Коли | Властивості |
 |---|---|---|
 | `character_creation_started` (назва стара) | монтування ручного конструктора — це **перегляд**, а не дія | `edition`, `creation_path: manual`, `creation_attempt_id`, `is_auth_return` |
-| `character_creation_first_choice` | перший перехід на наступний крок у цьому завантаженні; раз на спробу (після OAuth може повторитися — рахувати `uniq(creation_attempt_id)`) | `edition`, `creation_path`, `creation_attempt_id` |
+| `character_creation_first_choice` | перший перехід на наступний крок у цьому завантаженні (автоперехід з гайда RPGbot на крок раси/ASI не рахується); раз на спробу (після OAuth може повторитися — рахувати `uniq(creation_attempt_id)`) | `edition`, `creation_path`, `creation_attempt_id` |
 | `character_create_failed` | сервер повернув помилку (`server`) або виклик упав (`network`); текст помилки не передається | `edition`, `creation_path`, `creation_attempt_id`, `reason` |
 | `character_created` (сервер, стара) | збережено новий персонаж | як раніше + `is_signed_in`, `$session_id`, `creation_attempt_id` |
 | `auth_requested` | відкрито діалог входу для незалогіненого | `trigger`: `creator_submit` \| `preset_submit` \| `nav` \| `discussion` \| `homebrew` \| `other` |

@@ -1,6 +1,6 @@
 import { capturePostHogEvent, configurePostHogBootstrap, findPostHogIds, flushPostHogOnExit, isPostHogEnabled, registerPostHogSuperProperties } from "@/lib/monitoring/posthog-client";
 import {
-  ANALYTICS_SCHEMA_VERSION, buildInAppHandoffHref, buildOAuthCallbackPath, findBrowserContext, findDeviceType, findEntryAttribution, readOAuthReturnContext,
+  ANALYTICS_SCHEMA_VERSION, OAUTH_RETURN_PARAM, buildInAppHandoffHref, buildOAuthCallbackPath, findBrowserContext, findDeviceType, findEntryAttribution, readOAuthReturnContext,
   type AuthMethod, type CreationPath, type EntryAttribution, type InAppBrowserHost, type OAuthReturnContext,
 } from "@/lib/monitoring/funnel-analytics-model";
 
@@ -29,6 +29,8 @@ export type FunnelEventProperties = {
 type FunnelEventName = keyof FunnelEventProperties;
 type PageContext = { entry: EntryAttribution; inAppHost: InAppBrowserHost | null };
 
+const OAUTH_NONCE_KEY = "ph-oauth-nonce";
+
 let pageContext: PageContext | null = null;
 let authReturn: OAuthReturnContext | null = null;
 let isAuthReturnReported = false;
@@ -46,7 +48,7 @@ function captureFunnelEvent<Name extends FunnelEventName>(event: Name, propertie
 
 export function startFunnelPageContext(): void {
   if (pageContext || typeof window === "undefined") return;
-  const { context, cleanHref } = readOAuthReturnContext(window.location.href, document.referrer, Date.now());
+  const { context, cleanHref } = readOAuthReturnContext(window.location.href, takeSavedOAuthNonce(), Date.now());
   if (cleanHref) window.setTimeout(() => window.history.replaceState(null, "", cleanHref), 0);
   authReturn = context;
   if (context?.creationAttemptId) creationAttemptId = context.creationAttemptId;
@@ -57,8 +59,33 @@ export function startFunnelPageContext(): void {
   registerPostHogSuperProperties({ ...entry, ...browser, device_type: findDeviceType(window.navigator.userAgent ?? "") });
 }
 
+function takeSavedOAuthNonce(): string | null {
+  if (!new URLSearchParams(window.location.search).has(OAUTH_RETURN_PARAM)) return null;
+  try {
+    const nonce = window.sessionStorage.getItem(OAUTH_NONCE_KEY);
+    window.sessionStorage.removeItem(OAUTH_NONCE_KEY);
+    return nonce;
+  } catch {
+    return null;
+  }
+}
+
+function saveOAuthNonce(): string | null {
+  const nonce = createRandomId();
+  try {
+    window.sessionStorage.setItem(OAUTH_NONCE_KEY, nonce);
+    return nonce;
+  } catch {
+    return null;
+  }
+}
+
+function createRandomId(): string {
+  return typeof crypto.randomUUID === "function" ? crypto.randomUUID() : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
+}
+
 function ensureCreationAttemptId(): string {
-  creationAttemptId ??= typeof crypto.randomUUID === "function" ? crypto.randomUUID() : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
+  creationAttemptId ??= createRandomId();
   return creationAttemptId;
 }
 
@@ -94,9 +121,11 @@ export function prepareGoogleAuthRedirect(callbackPath: string, trigger: AuthTri
   if (!isPostHogEnabled()) return callbackPath;
   try {
     startFunnelPageContext();
+    const nonce = saveOAuthNonce();
+    if (!nonce) return callbackPath;
     const ids = findPostHogIds();
     const entry = pageContext?.entry ?? findEntryAttribution({ href: window.location.href, referrer: "" });
-    return buildOAuthCallbackPath(callbackPath, { distinctId: ids.distinctId, sessionId: ids.sessionId, creationAttemptId, entry, method: "google_redirect" }, Date.now());
+    return buildOAuthCallbackPath(callbackPath, { distinctId: ids.distinctId, sessionId: ids.sessionId, creationAttemptId, entry, method: "google_redirect" }, nonce, Date.now());
   } catch {
     return callbackPath;
   } finally {

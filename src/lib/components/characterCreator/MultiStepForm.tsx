@@ -53,7 +53,8 @@ import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 import { hasWeaponMastery } from "@/rules/weapon-mastery";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
-import { captureCreationFailed, captureCreationFirstChoice, captureCreationStarted, findCreationAnalytics, finishCreationAttempt } from "@/lib/monitoring/funnel-analytics";
+import { captureCreationFailed, captureCreationStarted, findCreationAnalytics, finishCreationAttempt } from "@/lib/monitoring/funnel-analytics";
+import { useCreationFirstChoice } from "@/lib/monitoring/use-creation-first-choice";
 import { useBuildCreatorStep } from "@/lib/optimization/use-build-creator-step";
 
 interface Props {
@@ -102,12 +103,7 @@ export const MultiStepForm = (
   }, [isHydrated, initialRuleset]);
   const analyticsEdition = initialRuleset === "RULES_2024" ? "2024" : "2014";
   useEffect(() => { captureCreationStarted(analyticsEdition); }, [analyticsEdition]);
-  const observedStepRef = useRef<number | null>(null);
-  useEffect(() => {
-    if (!isHydrated) return;
-    if (observedStepRef.current !== null && currentStep > observedStepRef.current) captureCreationFirstChoice(analyticsEdition);
-    observedStepRef.current = currentStep;
-  }, [isHydrated, currentStep, analyticsEdition]);
+  const ignoreAutomaticStep = useCreationFirstChoice(analyticsEdition, currentStep, isHydrated);
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [nextDisabled, setNextDisabled] = useState(false);
   const [nextStepHint, setNextStepHint] = useNextStepHintState(currentStep);
@@ -725,7 +721,7 @@ export const MultiStepForm = (
     }
   }, [steps, currentStep, isHydrated, formData, setCurrentStep, setTotalSteps]);
 
-  useBuildCreatorStep(initialRuleset, steps, isHydrated);
+  useBuildCreatorStep(initialRuleset, steps, isHydrated, ignoreAutomaticStep);
 
   const jumpToStep = useCallback((stepOrder: number) => {
     const targetStep = steps[stepOrder - 1];
