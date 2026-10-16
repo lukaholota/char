@@ -143,7 +143,7 @@ function collectPrintedSpellNames(): string[] {
 
 describe("перша сторінка", () => {
   it("L15-print-01 — обрані види зброї з їхньою властивістю майстерності друкуються", () => {
-    const attacks = String(pages[0]["AttacksSpellcasting"]);
+    const attacks = String(pages[0]["AttacksSpellcasting"]).replace(/\s+/g, " ");
 
     expect(attacks).toContain(`Довгий меч (${weaponMasteryNames.SAP})`);
     expect(attacks).toContain(`Метальний спис (${weaponMasteryNames.SLOW})`);
