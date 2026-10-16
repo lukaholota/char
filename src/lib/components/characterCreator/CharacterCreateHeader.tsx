@@ -13,6 +13,7 @@ interface Props {
   isAuthenticated?: boolean;
   showReadyBuilds?: boolean;
   showSignInAtEndNotice?: boolean;
+  isInEmbeddedBrowser?: boolean;
 }
 
 export const CharacterCreateHeader = ({
@@ -21,6 +22,7 @@ export const CharacterCreateHeader = ({
   isAuthenticated = false,
   showReadyBuilds = false,
   showSignInAtEndNotice = false,
+  isInEmbeddedBrowser = false,
 }: Props) => {
   const resetConfirm = useTwoStepConfirm<HTMLButtonElement>({
     onConfirm: onReset,
@@ -75,7 +77,13 @@ export const CharacterCreateHeader = ({
           )}
         </div>
       </div>
-      {showSignInAtEndNotice ? (
+      {showSignInAtEndNotice && isInEmbeddedBrowser ? (
+        <p className="mt-3 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-sm text-amber-100">
+          Щоб зберегти персонажа, наприкінці знадобиться вхід через Google, а у вбудованому браузері застосунку він не працює.
+          Відкрийте char.holota.family у Safari або Chrome ще до початку: вибори звідси туди не перенесуться.
+        </p>
+      ) : null}
+      {showSignInAtEndNotice && !isInEmbeddedBrowser ? (
         <p className="mt-3 text-sm text-slate-300">
           Щоб зберегти персонажа, наприкінці знадобиться вхід через Google. Ваші вибори не загубляться.
         </p>

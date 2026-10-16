@@ -53,6 +53,7 @@ import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 import { hasWeaponMastery } from "@/rules/weapon-mastery";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
+import { isEmbeddedWebView } from "@/lib/utils/isEmbeddedWebView";
 import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 import { useBuildCreatorStep } from "@/lib/optimization/use-build-creator-step";
 
@@ -82,6 +83,7 @@ export const MultiStepForm = (
   const isDraftActive = useCreatorDraftStorage(initialRuleset);
 
   const { data: session, status: sessionStatus } = useSession();
+  const [isInEmbeddedBrowser] = useState(() => isEmbeddedWebView());
   const {
     currentStep,
     prevStep,
@@ -1035,6 +1037,7 @@ export const MultiStepForm = (
             onOpenAuth={() => setAuthDialogOpen(true)}
             isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
             showSignInAtEndNotice={sessionStatus === "unauthenticated" && initialRuleset === "RULES_2014" && currentStep === 1}
+            isInEmbeddedBrowser={isInEmbeddedBrowser}
           />
           {showReadyBuilds && initialRuleset === "RULES_2014" ? <UnfinishedPresetNotice /> : null}
         </>

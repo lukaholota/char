@@ -13,6 +13,8 @@ vi.mock("next-auth/react", () => ({ useSession: () => ({ data: null, status: "un
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }), usePathname: () => "/char/create" }));
 vi.mock("posthog-js", () => ({ default: { capture: vi.fn() } }));
 vi.mock("@/lib/components/characterCreator/RacesForm", () => ({ default: () => null }));
+const webView = vi.hoisted(() => ({ isEmbedded: false }));
+vi.mock("@/lib/utils/isEmbeddedWebView", () => ({ isEmbeddedWebView: () => webView.isEmbedded }));
 vi.mock("@/lib/stores/persFormStore", async (importOriginal) => ({
   ...await importOriginal<typeof import("@/lib/stores/persFormStore")>(),
   useCreatorDraftStorage: () => true,
@@ -20,6 +22,7 @@ vi.mock("@/lib/stores/persFormStore", async (importOriginal) => ({
 
 type Props = ComponentProps<typeof MultiStepForm>;
 const SIGN_IN_AT_END = /наприкінці знадобиться вхід через Google/;
+const OPEN_IN_BROWSER = /Відкрийте char\.holota\.family у Safari або Chrome ще до початку/;
 const DRAFT_KEPT = /Ваші вибори збережені\. Після входу ви повернетеся сюди/;
 
 function renderCreator(ruleset: "RULES_2014" | "RULES_2024", currentStep: number) {
@@ -39,6 +42,7 @@ function renderCreator(ruleset: "RULES_2014" | "RULES_2024", currentStep: number
 beforeEach(() => {
   usePersFormStore.persist.setOptions({ storage: { getItem: () => null, setItem: () => {}, removeItem: () => {} } });
   usePersFormStore.getState().resetForm();
+  webView.isEmbedded = false;
 });
 afterEach(cleanup);
 
@@ -47,6 +51,14 @@ describe("creator tells a signed-out player about sign-in up front", () => {
     renderCreator("RULES_2014", 1);
 
     expect(screen.getByText(SIGN_IN_AT_END)).toBeTruthy();
+  });
+
+  it("in an in-app browser asks to open Safari or Chrome instead of promising the choices are kept", () => {
+    webView.isEmbedded = true;
+    renderCreator("RULES_2014", 1);
+
+    expect(screen.getByText(OPEN_IN_BROWSER)).toBeTruthy();
+    expect(screen.queryByText(/Ваші вибори не загубляться/)).toBeNull();
   });
 
   it("drops the line after the first step", () => {
