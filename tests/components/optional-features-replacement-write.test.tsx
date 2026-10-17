@@ -100,3 +100,26 @@ describe("Крок заміни пише в чернетку лише свій �
     usePersFormStore.setState({ updateFormData: realUpdateFormData });
   });
 });
+
+describe("Опис опціональної фічі", () => {
+  it("показує посилання з опису як посилання, а не як HTML-текст", () => {
+    const classWithLinkedDescription = {
+      ...(selectedClass as object),
+      classOptionalFeatures: [
+        {
+          optionalFeatureId: OPTIONAL_FEATURE_ID,
+          title: "Замінити маневр?",
+          grantedOnLevels: [4],
+          replacesManeuver: true,
+          replacesFeatures: [],
+          feature: { description: 'Атакуйте <a href="/rules/combat#order-of-combat--bonus-actions">бонусною дією</a>.' },
+        },
+      ],
+    } as never;
+
+    render(<OptionalFeaturesForm selectedClass={classWithLinkedDescription} effectiveSubclass={effectiveSubclass} persChoiceOptions={persChoiceOptions} classLevel={4} formId="replacements" mode="REPLACEMENT" />);
+
+    expect(screen.getByRole("link", { name: "бонусною дією" }).getAttribute("href")).toBe("/rules/combat#order-of-combat--bonus-actions");
+    expect(screen.queryByText(/<a href/)).toBeNull();
+  });
+});

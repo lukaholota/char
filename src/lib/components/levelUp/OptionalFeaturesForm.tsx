@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { FormattedDescription } from "@/components/ui/FormattedDescription";
 
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
@@ -249,9 +250,7 @@ export default function OptionalFeaturesForm({
                 {description ? (
                   <div className="glass-panel border-gradient-rpg space-y-1.5 rounded-lg p-3">
                     <InfoSectionTitle>Опис</InfoSectionTitle>
-                    <p className="whitespace-pre-line text-sm leading-relaxed text-slate-200/90">
-                      {description}
-                    </p>
+                    <FormattedDescription content={description} className="text-sm leading-relaxed text-slate-200/90" />
                   </div>
                 ) : null}
 
