@@ -4,6 +4,7 @@ import type { PostHog } from "posthog-js";
 import { sharedPostHogOptions } from "@/lib/monitoring/posthog-options";
 import { findPinnedRuleset } from "@/components/ui/PersEditionPin";
 import { buildPostHogPageProperties } from "@/lib/monitoring/posthog-context";
+import { isSessionReplayRoute } from "@/lib/monitoring/session-replay";
 import { runWhenIdle } from "@/lib/run-when-idle";
 
 // Поза продом PostHog вимкнений — той самий запобіжник, що в Sentry
@@ -20,6 +21,8 @@ const pendingEvents: Array<{ event: string; properties?: Record<string, unknown>
 let isFlushScheduled = false;
 let bootstrapIds: { distinctID: string; sessionID?: string } | null = null;
 let superProperties: Record<string, unknown> = {};
+let replayPathname: string | null = null;
+let isReplayRecording = false;
 
 export function isPostHogEnabled(): boolean {
   return isEnabled;
@@ -45,7 +48,10 @@ export function findPostHogIds(): { distinctId: string | null; sessionId: string
 // SDK failures are recoverable here: analytics is best effort and must not fail user actions.
 export function configurePostHogIdentity(identity: AnalyticsIdentity): void {
   currentIdentity = identity;
-  if (client) syncPostHogIdentity(client);
+  if (client) {
+    syncPostHogIdentity(client);
+    syncSessionReplay(client);
+  }
   if (identity.isInternal) pendingEvents.length = 0;
   if (isEnabled && !identity.isInternal) schedulePostHogFlush();
 }
@@ -57,6 +63,23 @@ export function loadPostHog(): Promise<PostHog | null> {
     return null;
   });
   return postHogLoad;
+}
+
+export function updateSessionReplayRoute(pathname: string): void {
+  replayPathname = pathname;
+  if (client) syncSessionReplay(client);
+}
+
+function syncSessionReplay(posthog: PostHog): void {
+  const shouldRecord = !currentIdentity?.isInternal && isSessionReplayRoute(replayPathname ?? window.location.pathname);
+  if (shouldRecord === isReplayRecording) return;
+  try {
+    if (shouldRecord) posthog.startSessionRecording();
+    else posthog.stopSessionRecording();
+    isReplayRecording = shouldRecord;
+  } catch (error) {
+    console.warn("PostHog replay failed", error instanceof Error ? error.name : "unknown");
+  }
 }
 
 export function capturePostHogEvent(event: string, properties?: Record<string, unknown>): void {
@@ -119,6 +142,7 @@ async function importAndInitPostHog(): Promise<PostHog | null> {
   posthog.init(key, { api_host: host, ...sharedPostHogOptions, ...(bootstrapIds ? { bootstrap: bootstrapIds } : {}) });
   client = posthog;
   syncPostHogIdentity(posthog);
+  syncSessionReplay(posthog);
   flushPostHogEvents(posthog);
   return posthog;
 }

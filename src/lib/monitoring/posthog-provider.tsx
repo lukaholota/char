@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { useActiveEdition, useIsEditionPinnedByPage } from "@/components/ui/PersEditionPin";
 import { buildPostHogPageProperties, isInternalAnalyticsEmail } from "@/lib/monitoring/posthog-context";
-import { capturePostHogEvent, configurePostHogIdentity, flushPostHogOnExit } from "@/lib/monitoring/posthog-client";
+import { capturePostHogEvent, configurePostHogIdentity, flushPostHogOnExit, updateSessionReplayRoute } from "@/lib/monitoring/posthog-client";
 import { startRpgbotCtaTracking } from "@/lib/monitoring/rpgbot-analytics";
 import { reportAuthReturn, startFunnelPageContext } from "@/lib/monitoring/funnel-analytics";
 import { stripNoAiPrefix } from "@/lib/no-ai/no-ai-route";
@@ -28,6 +28,8 @@ export function PostHogProvider() {
     configurePostHogIdentity({ userId, isInternal });
     reportAuthReturn(userId);
   }, [status, userId, isInternal]);
+
+  useEffect(() => updateSessionReplayRoute(pathname), [pathname]);
 
   useEffect(() => {
     window.addEventListener("pagehide", flushPostHogOnExit);

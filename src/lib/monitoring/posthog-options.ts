@@ -4,6 +4,7 @@ import type { CaptureResult, PostHogConfig } from "posthog-js";
 import { isNoiseErrorMessage, isNoiseSourceUrl } from "@/lib/monitoring/error-noise";
 import { dropOAuthReferrers } from "@/lib/monitoring/funnel-analytics-model";
 import { buildPostHogPageProperties, buildScreenProperties, stripPrivateUrlParams } from "@/lib/monitoring/posthog-context";
+import { sessionReplayOptions } from "@/lib/monitoring/session-replay";
 
 // persistence: "memory" — жодного cookie чи localStorage. Анонімний distinct_id не переживає
 // перезавантаження сторінки чи нову вкладку, зате саме через це PostHog не чіпає сховище
@@ -16,6 +17,7 @@ import { buildPostHogPageProperties, buildScreenProperties, stripPrivateUrlParam
 // per-visitor. Не про приватність — про сигнал/шум.
 //
 // Pageviews wait for authentication and the character's pinned edition in PostHogProvider.
+// Replay starts switched off; posthog-client turns it on only on creator, preset and level-up routes.
 export const sharedPostHogOptions: Partial<PostHogConfig> = {
   persistence: "memory",
   api_transport: "fetch",
@@ -29,12 +31,15 @@ export const sharedPostHogOptions: Partial<PostHogConfig> = {
   capture_dead_clicks: false,
   capture_performance: false,
   disable_session_recording: true,
+  enable_recording_console_log: false,
+  session_recording: sessionReplayOptions,
   person_profiles: "identified_only",
   before_send: preparePostHogEvent,
 };
 
 function preparePostHogEvent(event: CaptureResult | null): CaptureResult | null {
   if (!event || event.properties.is_internal === true) return null;
+  if (event.event === "$snapshot") return event;
   const page = buildPostHogPageProperties(event.properties.$pathname ?? "/", event.properties.edition);
   const screen = buildScreenProperties(event.properties.$screen_width ?? 0, event.properties.$screen_height ?? 0);
   event.properties = { ...page, ...screen, display_mode: findDisplayMode(), ...event.properties };

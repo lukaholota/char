@@ -153,7 +153,7 @@ const GoogleAuthDialog = ({
         <div className="space-y-3">
           {session?.user ? (
             <div className="flex items-center justify-between rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
-              <span>Ви вже увійшли як {session.user.email}</span>
+              <span data-ph-mask>Ви вже увійшли як {session.user.email}</span>
               <ShieldCheck className="h-4 w-4" />
             </div>
           ) : isEmbeddedForGuest && inAppBrowser && variant !== "control" ? (
