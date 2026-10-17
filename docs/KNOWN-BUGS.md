@@ -19,7 +19,7 @@
 | BUG-O49-DIVINE-SOUL-SPELL-LIST | 6f9c6057 | вибори беруть і список Клірика, тест rules |
 | BUG-O49-SUBCLASS-SKILL-CHOICE-CREATION, BUG-O49-SUBCLASS-SKILL-DATA | 831cc61f, 4dfdd5b2 | крок «Навички» 2014 питає навичку домену (Мир, Порядок, Природа); зміна домену скидає стару навичку. Для проду потрібні сіди (план у `docs/night-2026-10-15-rules/`) |
 | BUG-O49-RACIAL-CHOICES-UNVALIDATED | 5d886e4d | `tests/rules/racial-choice-selection.test.ts`, `rpgbot-ready-preset-origin-2014` |
-| BUG-O49-EXPERTISE-2014-UNVALIDATED (також на підвищенні рівня) | 5d886e4d, 3416749b | `tests/actions/expertise-levelup-2014.test.ts`, `tests/components/levelup-branch-reset.test.tsx`; вхід у Пройдисвіта мультикласом теж вимагає експертизу (2026-10-17, `multiclass-entry-expertise-2014.test.ts`) |
+| BUG-O49-EXPERTISE-2014-UNVALIDATED (також на підвищенні рівня) | 5d886e4d, 3416749b | `tests/actions/expertise-levelup-2014.test.ts`, `tests/components/levelup-branch-reset.test.tsx`; вхід у Пройдисвіта мультикласом теж вимагає експертизу (2026-10-17, `multiclass-entry-expertise-2014.test.ts`, майстер — `multiclass-entry-expertise-wizard-2014.test.ts`) |
 | BUG-O49-GENERATED-SPELLS-DUNAMANCY-LISTS | ffa24742 | `spells.json` звірено з базою; дунамантія не в списку Чарівника 2014 (рішення 2026-09-19) |
 | Витривалість каменю, Перевертання, металеве дихання не відновлюються тривалим відпочинком; заклинання рис геназі MPMM | 85e749be | сід і каталог 2014; для проду SQL власнику в `docs/night-2026-10-15-rules/` |
 | PDF 2014: мови губляться; «Лист 2024» блокує сервер на довгому абзаці (206,7 с) | ed906f24, e30b23d6, 432b7613 | той самий друїд 0,3–0,4 с, PNG піксель у піксель; однорядкові поля обрізаються трикрапкою |
@@ -153,6 +153,10 @@ RPGbot із заходом у Пройдисвіта (`bugbear-fiend-warlock-201
 16 живих персонажів 2014 увійшли в Пройдисвіта мультикласом, у 2 експертиз менше, ніж дає Пройдисвіт
 (pers 57 — 0, pers 9055 — 1; знімків — 3). Ремонт — вибір гравця: на листі в навичці можна поставити
 «Експертиза» вручну (вікно зміни навички).
+Сам майстер проходить `tests/actions/multiclass-entry-expertise-wizard-2014.test.ts`: Воїн → Пройдисвіт від
+кроку «Початок» до збереження, експертиза в навичці, щойно взятій на кроці «Навички»; у Слідопита й Барда
+кроку немає. Тест червоний на копії, коли майстер не додає крок, додає його завжди або не передає формі
+навичку мультикласу.
 
 ### BUG-O49-HALF-ELF-DROW-MAGIC — «Магія дроу» напівельфа (SCAG) не видає заклинань
 

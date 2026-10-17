@@ -80,7 +80,7 @@ describe("вхід у Пройдисвіта мультикласом 2014 да�
     expect(await readLevel(persId)).toBe(1);
   });
 
-  it("майстер підвищення бачить крок «Експертиза» на вході в Пройдисвіта, а у Слідопита й Воїна — ні", async () => {
+  it("майстер підвищення бачить крок «Експертиза» на вході в Пройдисвіта, а у Слідопита й Барда — ні", async () => {
     const persId = await createSoldierFighter();
     const info = await getLevelUpInfo(persId);
     if ("error" in info) throw new Error(info.error);
