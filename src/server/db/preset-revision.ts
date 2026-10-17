@@ -1,4 +1,3 @@
-import "server-only";
 import { prisma } from "@/lib/prisma";
 import { readArchivedRecipe, readSliceRecipes } from "@/lib/optimization/slice-reader";
 import { findRevisionMismatchReason } from "@/lib/optimization/recipe-revision-match";
