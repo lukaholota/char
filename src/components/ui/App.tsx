@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useIsCharacterEmbed } from "./useIsCharacterEmbed";
+import { StreamedChildren } from "./StreamedChildren";
 
 export const App = ({ children }: { children: React.ReactNode }) => {
   const isEmbed = useIsCharacterEmbed();
@@ -16,7 +17,7 @@ export const App = ({ children }: { children: React.ReactNode }) => {
         (isEmbed ? "md:col-start-1 md:col-span-2" : "md:col-start-2")
       }
     >
-      { children }
+      <StreamedChildren>{ children }</StreamedChildren>
     </main>
   )
 }
