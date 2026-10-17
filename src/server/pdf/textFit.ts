@@ -4,10 +4,13 @@ export type MeasuringFont = {
 };
 
 export type TextBox = { width: number; height: number };
-export type FittedText = { text: string; size: number };
+/// `text` — рядки, як їх намальовано; `value` — те саме без штучних розривів, для редагування в переглядачі;
+/// `rest` — що не вмістилося й піде на аркуш «Продовження».
+export type FittedText = { text: string; size: number; value: string; rest: string };
 export type FittedLines = { lines: string[]; size: number };
-/// `rest` починається рівно з першого рядка, що не вмістився, і зберігає розриви абзаців.
-export type TextSplit = { lines: string[]; rest: string };
+/// `rest` починається рівно з першого рядка, що не вмістився, і зберігає розриви абзаців; `kept` — текст до нього.
+export type TextSplit = { lines: string[]; kept: string; rest: string };
+export type MarkedSplit = { lines: string[]; value: string; rest: string };
 export type TextFieldFit = { maxFontSize: number; multiline?: boolean; readableFontSize?: number };
 
 export const MIN_FONT_SIZE = 4.5;
@@ -76,15 +79,16 @@ export function splitTextToFit(text: string, font: MeasuringFont, box: TextBox, 
   const normalized = normalizeFieldText(text);
   const capacity = countFittingLines(font, box, size);
   const lines = wrapIntoLines(normalized, { font, size, maxWidth: shrinkByPadding(box).width }, capacity + 1);
-  if (lines.length <= capacity) return { lines: lines.map((line) => line.text), rest: "" };
+  if (lines.length <= capacity) return { lines: lines.map((line) => line.text), kept: normalized, rest: "" };
   const keptCount = options.reserveLastLine ? Math.max(0, capacity - 1) : capacity;
-  return { lines: lines.slice(0, keptCount).map((line) => line.text), rest: normalized.slice(lines[keptCount].start) };
+  const restStart = lines[keptCount].start;
+  return { lines: lines.slice(0, keptCount).map((line) => line.text), kept: normalized.slice(0, restStart).trimEnd(), rest: normalized.slice(restStart) };
 }
 
 /// Повна форма лишається, поки читається; інакше береться коротша з наступних.
 export function pickReadableText(candidates: string[], font: MeasuringFont, box: TextBox, field: TextFieldFit): FittedText {
   const readableSize = Math.min(field.readableFontSize ?? READABLE_FONT_SIZE, field.maxFontSize);
-  let fitted: FittedText = { text: "", size: field.maxFontSize };
+  let fitted: FittedText = { text: "", size: field.maxFontSize, value: "", rest: "" };
   for (const text of candidates) {
     fitted = fitFieldText(text, font, box, field);
     if (fitted.size >= readableSize) break;
@@ -95,21 +99,31 @@ export function pickReadableText(candidates: string[], font: MeasuringFont, box:
 /// Багаторядкове значення приходить уже розбитим: власний перенос pdf-lib щоразу переміряє весь
 /// залишок абзацу, і абзац на кілька тисяч знаків блокував сервер на хвилини.
 function fitFieldText(text: string, font: MeasuringFont, box: TextBox, field: TextFieldFit): FittedText {
-  if (!text) return { text, size: field.maxFontSize };
-  if (!field.multiline) return { text, size: fitSingleLineFontSize(text, font, box, field.maxFontSize) };
+  if (!text) return { text, size: field.maxFontSize, value: text, rest: "" };
+  if (!field.multiline) return { text, size: fitSingleLineFontSize(text, font, box, field.maxFontSize), value: text, rest: "" };
   const { lines, size } = fitMultilineText(text, font, box, field.maxFontSize);
-  const printed = lines.length <= countFittingLines(font, box, size) ? lines : cutWithMark(text, font, box, size);
-  return { text: printed.join("\n"), size };
+  if (lines.length <= countFittingLines(font, box, size)) return { text: lines.join("\n"), size, value: text, rest: "" };
+  const split = splitWithMark(text, font, box, size, CONTINUED_MARK);
+  return { text: split.lines.join("\n"), size, value: split.value, rest: split.rest };
 }
 
 export const NOT_FITTED_MARK = "… далі не вмістилося";
+export const CONTINUED_MARK = "… далі на аркуші «Продовження»";
 
 const CUT_LINE_MARK = "…";
 
 /// Поле на один рядок не має місця під окрему позначку, тож обрізаний рядок закінчується трикрапкою.
 export function cutWithMark(text: string, font: MeasuringFont, box: TextBox, size: number): string[] {
-  if (countFittingLines(font, box, size) <= 1) return [cutToOneLine(text, font, box, size)];
-  return [...splitTextToFit(text, font, box, size, { reserveLastLine: true }).lines, NOT_FITTED_MARK];
+  return splitWithMark(text, font, box, size, NOT_FITTED_MARK).lines;
+}
+
+export function splitWithMark(text: string, font: MeasuringFont, box: TextBox, size: number, mark: string): MarkedSplit {
+  if (countFittingLines(font, box, size) <= 1) {
+    const line = cutToOneLine(text, font, box, size);
+    return { lines: [line], value: line, rest: "" };
+  }
+  const { lines, kept, rest } = splitTextToFit(text, font, box, size, { reserveLastLine: true });
+  return { lines: [...lines, mark], value: [kept, mark].filter(Boolean).join("\n"), rest };
 }
 
 function cutToOneLine(text: string, font: MeasuringFont, box: TextBox, size: number): string {

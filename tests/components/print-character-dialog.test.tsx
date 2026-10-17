@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { toast } from "sonner";
 
 import PrintCharacterDialog from "@/lib/components/characterSheet/PrintCharacterDialog";
 import {
@@ -77,5 +78,20 @@ describe("перемикач «Лист 2024»", () => {
     expect(config.sheetLayout).toBe("SHEET_2024");
     expect(config.sections).not.toContain("SPELL_SHEET");
     expect(screen.queryByText("Лист заклинань (таблиця)")).toBeNull();
+  });
+});
+
+describe("зайнятий генератор PDF", () => {
+  it("показує гравцеві пояснення й лишає вікно друку відкритим для повтору", async () => {
+    const message = "Сервер зараз збирає інші PDF. Спробуйте ще раз за хвилину.";
+    vi.mocked(findPrintableWildshapeCountAction).mockResolvedValue(0);
+    vi.mocked(generateCharacterPdfAction).mockResolvedValue({ ok: false, error: message });
+    render(<PrintCharacterDialog persId={12} characterName="Мирон" />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Друк" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Завантажити PDF" }));
+
+    await waitFor(() => expect(toast.error).toHaveBeenCalledWith(message));
+    expect(screen.getByRole("button", { name: "Завантажити PDF" })).toBeTruthy();
   });
 });

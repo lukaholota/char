@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { NextResponse } from "next/server";
+import { findPdfJobErrorMessage, runPdfJob } from "@/server/pdf/pdfJobGate";
 
 import {
   CreaturePrintRequestError,
@@ -22,7 +23,7 @@ export async function GET(request: Request) {
 
   try {
     const creatures = loadPrintableCreatures(parsed.keys, parsed.ruleset);
-    const pdfBytes = await generateCreaturesPdfBytes(creatures, { jobId, tag: "api.bestiary" });
+    const pdfBytes = await runPdfJob(() => generateCreaturesPdfBytes(creatures, { jobId, tag: "api.bestiary" }));
     log.info("end", {
       ...diffUsage(started, takeUsageSnapshot()),
       creatureCount: creatures.length,
@@ -35,6 +36,8 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: error.message }, { status: 404 });
     }
     log.error("error", { ...diffUsage(started, takeUsageSnapshot()), err: error });
+    const busyMessage = findPdfJobErrorMessage(error);
+    if (busyMessage) return NextResponse.json({ error: busyMessage }, { status: 503 });
     return NextResponse.json({ error: "Не вдалося згенерувати PDF" }, { status: 500 });
   }
 }

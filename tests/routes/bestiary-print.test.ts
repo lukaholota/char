@@ -10,6 +10,7 @@ vi.mock("@/server/pdf/creaturesPdf", async (importOriginal) => ({
 }));
 
 import { GET } from "@/app/api/bestiary/print/route";
+import { PdfBusyError } from "@/server/pdf/pdfJobGate";
 
 describe("GET /api/bestiary/print", () => {
   it("повертає один PDF для валідного непорожнього вибору", async () => {
@@ -51,5 +52,13 @@ describe("GET /api/bestiary/print", () => {
     await expect(response.json()).resolves.toEqual({
       error: "Істоту не знайдено: definitely-not-a-creature",
     });
+  });
+
+  it("повертає 503 з поясненням, коли генератор PDF зайнятий", async () => {
+    generateCreaturesPdfBytes.mockRejectedValueOnce(new PdfBusyError());
+    const response = await GET(new Request("http://localhost/api/bestiary/print?ruleset=RULES_2014&keys=wolf"));
+
+    expect(response.status).toBe(503);
+    await expect(response.json()).resolves.toEqual({ error: new PdfBusyError().message });
   });
 });

@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { NextResponse } from "next/server";
+import { findPdfJobErrorMessage, runPdfJob } from "@/server/pdf/pdfJobGate";
 
 import { generateSpellsPdfBytes } from "@/server/pdf/spellsPdf";
 import { findCatalogSpellIdsForKeys, PrintableSpellNotFoundError } from "@/server/db/print-content";
@@ -79,7 +80,7 @@ async function generatePdfResponse(spellIds: number[], ctx: { jobId: string; sta
   log.info("start", { spellIdsCount: spellIds.length });
 
   try {
-    const pdfBytes = await generateSpellsPdfBytes(spellIds, { jobId: ctx.jobId, tag: "api.spells" });
+    const pdfBytes = await runPdfJob(() => generateSpellsPdfBytes(spellIds, { jobId: ctx.jobId, tag: "api.spells" }));
     const end = takeUsageSnapshot();
     log.info("end", {
       ...diffUsage(ctx.start, end),
@@ -98,6 +99,8 @@ async function generatePdfResponse(spellIds: number[], ctx: { jobId: string; sta
   } catch (error) {
     const end = takeUsageSnapshot();
     log.error("error", { ...diffUsage(ctx.start, end), err: error, spellIdsCount: spellIds.length });
+    const busyMessage = findPdfJobErrorMessage(error);
+    if (busyMessage) return NextResponse.json({ error: busyMessage }, { status: 503 });
     return NextResponse.json({ error: "Не вдалося згенерувати PDF" }, { status: 500 });
   }
 }

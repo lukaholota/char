@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { NextResponse } from "next/server";
+import { findPdfJobErrorMessage, runPdfJob } from "@/server/pdf/pdfJobGate";
 import { generateMagicItemsPdfBytes } from "@/server/pdf/magicItemsPdf";
 import { createLogger } from "@/server/logging/logger";
 import { diffUsage, formatBytes, takeUsageSnapshot } from "@/server/logging/perf";
@@ -71,7 +72,7 @@ async function generatePdfResponse(magicItemIds: number[], ctx: { jobId: string;
   log.info("start", { magicItemIdsCount: magicItemIds.length });
 
   try {
-    const pdfBytes = await generateMagicItemsPdfBytes(magicItemIds, { jobId: ctx.jobId, tag: "api.magicItems" });
+    const pdfBytes = await runPdfJob(() => generateMagicItemsPdfBytes(magicItemIds, { jobId: ctx.jobId, tag: "api.magicItems" }));
     const end = takeUsageSnapshot();
     log.info("end", {
       ...diffUsage(ctx.start, end),
@@ -90,6 +91,8 @@ async function generatePdfResponse(magicItemIds: number[], ctx: { jobId: string;
   } catch (error) {
     const end = takeUsageSnapshot();
     log.error("error", { ...diffUsage(ctx.start, end), err: error, magicItemIdsCount: magicItemIds.length });
+    const busyMessage = findPdfJobErrorMessage(error);
+    if (busyMessage) return NextResponse.json({ error: busyMessage }, { status: 503 });
     return NextResponse.json({ error: "Не вдалося згенерувати PDF" }, { status: 500 });
   }
 }
