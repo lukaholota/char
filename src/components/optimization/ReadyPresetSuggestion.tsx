@@ -30,10 +30,17 @@ export function ReadyPresetSuggestion({ classKey, subclassKey, raceKey }: Preset
   const response = useReadyPresetSuggestion(query);
   const router = useModeRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [isDismissed, setIsDismissed] = useState(readIsDismissed);
+  const [dismissedClassKey, setDismissedClassKey] = useState(readDismissedClassKey);
+  const isDismissed = dismissedClassKey === classKey;
   const [targetHref, setTargetHref] = useState<string | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const curtainRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (dismissedClassKey === null || dismissedClassKey === classKey) return;
+    forgetPresetSuggestionDismissal();
+    setDismissedClassKey(null);
+  }, [classKey, dismissedClassKey]);
 
   useEffect(() => {
     if (!targetHref) return;
@@ -62,8 +69,8 @@ export function ReadyPresetSuggestion({ classKey, subclassKey, raceKey }: Preset
   function declineSuggestion() {
     captureRpgbotEvent("rpgbot_preset_suggestion", { preset_id: presetId, action: "declined", ...match });
     setIsOpen(false);
-    rememberDismissed();
-    setIsDismissed(true);
+    rememberDismissedClassKey(classKey);
+    setDismissedClassKey(classKey);
   }
 
   function continueWithSuggestion(targetLevel: number) {
@@ -100,17 +107,17 @@ export function ReadyPresetSuggestion({ classKey, subclassKey, raceKey }: Preset
   );
 }
 
-function readIsDismissed(): boolean {
+function readDismissedClassKey(): string | null {
   try {
-    return window.sessionStorage.getItem(DISMISSED_STORAGE_KEY) === "1";
+    return window.sessionStorage.getItem(DISMISSED_STORAGE_KEY);
   } catch {
-    return false;
+    return null;
   }
 }
 
-function rememberDismissed() {
+function rememberDismissedClassKey(classKey: string) {
   try {
-    window.sessionStorage.setItem(DISMISSED_STORAGE_KEY, "1");
+    window.sessionStorage.setItem(DISMISSED_STORAGE_KEY, classKey);
   } catch {}
 }
 

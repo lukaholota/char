@@ -20,9 +20,14 @@ function stubSuggestion(response: object) {
   vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, json: async () => response }));
 }
 
-async function renderSuggestion(props: { subclassKey?: string | null; raceKey?: string | null } = {}) {
+async function renderSuggestion(props: { classKey?: string; subclassKey?: string | null; raceKey?: string | null } = {}) {
   const { ReadyPresetSuggestion } = await import("@/components/optimization/ReadyPresetSuggestion");
-  render(<ReadyPresetSuggestion classKey="ROGUE_2014" subclassKey={props.subclassKey ?? null} raceKey={props.raceKey ?? null} />);
+  const view = render(<ReadyPresetSuggestion classKey={props.classKey ?? "ROGUE_2014"} subclassKey={props.subclassKey ?? null} raceKey={props.raceKey ?? null} />);
+  await waitForSuggestion();
+  return { rerenderWithClass: async (classKey: string) => { view.rerender(<ReadyPresetSuggestion classKey={classKey} subclassKey={null} raceKey={null} />); await waitForSuggestion(); } };
+}
+
+async function waitForSuggestion() {
   await act(async () => { await new Promise((resolve) => setTimeout(resolve, 400)); });
 }
 
@@ -99,6 +104,31 @@ describe("floating ready preset suggestion", () => {
 
     forgetPresetSuggestionDismissal();
     await renderSuggestion();
+
+    expect(screen.getByRole("button", { name: "Доробити персонажа" })).toBeTruthy();
+  });
+
+  it("comes back when the player picks another class, and stays back after returning to the declined one", async () => {
+    stubSuggestion({ total: 1, best: { entry, isSubclassMatch: false, isRaceMatch: false } });
+    const { rerenderWithClass } = await renderSuggestion();
+    fireEvent.click(screen.getByRole("button", { name: "Доробити персонажа" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Відмовитися" }));
+
+    await rerenderWithClass("FIGHTER_2014");
+    expect(screen.getByRole("button", { name: "Доробити персонажа" })).toBeTruthy();
+
+    await rerenderWithClass("ROGUE_2014");
+    expect(screen.getByRole("button", { name: "Доробити персонажа" })).toBeTruthy();
+  });
+
+  it("comes back for a new class picked after the creator was reopened", async () => {
+    stubSuggestion({ total: 1, best: { entry, isSubclassMatch: false, isRaceMatch: false } });
+    await renderSuggestion();
+    fireEvent.click(screen.getByRole("button", { name: "Доробити персонажа" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Відмовитися" }));
+    cleanup();
+
+    await renderSuggestion({ classKey: "FIGHTER_2014" });
 
     expect(screen.getByRole("button", { name: "Доробити персонажа" })).toBeTruthy();
   });
