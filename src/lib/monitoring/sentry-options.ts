@@ -1,4 +1,6 @@
+import type { Breadcrumb, Event } from "@sentry/nextjs";
 import { noiseErrorMessages, noiseSourceUrls } from "@/lib/monitoring/error-noise";
+import { stripDraftFragment } from "@/lib/utils/draft-fragment";
 
 // `dataCollection` тут не передається свідомо. Будь-який обʼєкт у цьому полі — навіть
 // порожній `{}`, який стоїть у сніпетах самого Sentry, — перемикає незадані категорії на
@@ -20,4 +22,22 @@ export const sharedSentryOptions = {
   tracesSampleRate: 0.1,
   denyUrls: noiseSourceUrls,
   ignoreErrors: noiseErrorMessages,
+  beforeSend: stripDraftFromEvent,
+  beforeSendTransaction: stripDraftFromEvent,
+  beforeBreadcrumb: stripDraftFromBreadcrumb,
 };
+
+export function stripDraftFromEvent<SentEvent extends Event>(event: SentEvent): SentEvent {
+  if (event.request?.url) event.request.url = stripDraftFragment(event.request.url);
+  event.breadcrumbs?.forEach(stripDraftFromBreadcrumb);
+  return event;
+}
+
+export function stripDraftFromBreadcrumb(breadcrumb: Breadcrumb): Breadcrumb {
+  const data = breadcrumb.data;
+  if (!data) return breadcrumb;
+  for (const key of ["from", "to", "url"]) {
+    if (typeof data[key] === "string") data[key] = stripDraftFragment(data[key]);
+  }
+  return breadcrumb;
+}
