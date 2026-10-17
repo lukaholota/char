@@ -10,28 +10,31 @@ import { LeavingLink } from "./LeavingLink";
 import { useOpenContentReference } from "./ContentReferenceContext";
 import { ModeLink } from "@/components/no-ai/ModeLink";
 import { GlossaryTerm } from "@/components/ui/GlossaryTerm";
+import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import type { ResolvedLink } from "@/lib/optimization/article-view";
+import { dropSourceMarkerBrackets, findRpgbotSourceCodes, findUntranslatedSourceTitle, isRpgbotAbbreviationsHref } from "@/lib/optimization/rpgbot-source-codes";
 import { joinLeadingMarkers, splitJargon, splitLineBreaks } from "@/lib/optimization/inline-view";
-import type { InlineNode } from "@/lib/optimization/types";
+import type { InlineNode, OptimizationRuleset } from "@/lib/optimization/types";
 import { splitGlossaryMarkers } from "@/lib/refs/glossary-marker";
 
 type InlineContentProps = {
   nodes: readonly InlineNode[];
   resolveLink: (href: string) => ResolvedLink;
   linkClassName: string;
+  ruleset: OptimizationRuleset;
 };
 
-export function InlineContent({ nodes, resolveLink, linkClassName }: InlineContentProps) {
+export function InlineContent({ nodes, resolveLink, linkClassName, ruleset }: InlineContentProps) {
   return (
     <>
-      {joinLeadingMarkers(nodes).map((node, index) => (
-        <InlineNodeView key={index} node={node} resolveLink={resolveLink} linkClassName={linkClassName} />
+      {joinLeadingMarkers(dropSourceMarkerBrackets(nodes, ruleset)).map((node, index) => (
+        <InlineNodeView key={index} node={node} resolveLink={resolveLink} linkClassName={linkClassName} ruleset={ruleset} />
       ))}
     </>
   );
 }
 
-function InlineNodeView({ node, resolveLink, linkClassName }: { node: InlineNode } & Omit<InlineContentProps, "nodes">) {
+function InlineNodeView({ node, resolveLink, linkClassName, ruleset }: { node: InlineNode } & Omit<InlineContentProps, "nodes">) {
   switch (node.type) {
     case "text":
     case "rating":
@@ -45,8 +48,24 @@ function InlineNodeView({ node, resolveLink, linkClassName }: { node: InlineNode
     case "subscript":
       return <sub><GlossaryText text={node.text} /></sub>;
     case "link":
+      if (isRpgbotAbbreviationsHref(node.href)) return <SourceMarker node={node} ruleset={ruleset} />;
       return <ArticleLink node={node} resolveLink={resolveLink} className={linkClassName} />;
   }
+}
+
+function SourceMarker({ node, ruleset }: { node: Extract<InlineNode, { type: "link" }>; ruleset: OptimizationRuleset }) {
+  const codes = findRpgbotSourceCodes(node, ruleset);
+  if (!codes) return <GlossaryText text={node.text} />;
+  return (
+    <>
+      {codes.map((code, index) => (
+        <Fragment key={index}>
+          {index ? " / " : " "}
+          <SourceBadge code={code} englishTitle={findUntranslatedSourceTitle(code)} inline />
+        </Fragment>
+      ))}
+    </>
+  );
 }
 
 function ArticleLink({ node, resolveLink, className }: { node: Extract<InlineNode, { type: "link" }>; resolveLink: InlineContentProps["resolveLink"]; className: string }) {

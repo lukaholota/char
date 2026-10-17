@@ -1091,7 +1091,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Percipient: Wisdom (Perception) is one of the most eseential and frequently-rolled checks in the game, and Advantage on those checks can help you avoid all sorts of trouble. Disadvantage on Charisma checks is a negligible cost, especially when you’re planning to fight stuff rather than make conversation.
 
 **Українською:**
-Проникливість{{Percipient}}: Мудрість (Уважність) — одна з найважливіших перевірок у грі, яку кидають найчастіше, а Перевага на ці перевірки може позбавити вас усіляких неприємностей. Перешкода на перевірки Харизми — мізерна ціна, особливо якщо ви збираєтеся битися, а не розмовляти.
+Аналіз поведінки{{Percipient}}: Мудрість (Уважність) — одна з найважливіших перевірок у грі, яку кидають найчастіше, а Перевага на ці перевірки може позбавити вас усіляких неприємностей. Перешкода на перевірки Харизми — мізерна ціна, особливо якщо ви збираєтеся битися, а не розмовляти.
 
 ### block-section-mutagens-1/item/12 · пункт · rating-orange
 

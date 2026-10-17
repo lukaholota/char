@@ -57,6 +57,7 @@ export function ArticleReader({ article, revision, ratings, sourceRevision, sour
   const contextFor = (section: OutlineSection): BlockContext => ({
     ratingIndex, ratings, resolveLink: (href) => resolveArticleLink(href, linkTargets), linkClassName: accent.text,
     ownArticlePath: buildDraftArticleHref(article.ruleset, article.slug), headingLevel: findHeadingLevel(section.depth), sectionHeading: section.heading,
+    ruleset: article.ruleset,
   });
 
   return (

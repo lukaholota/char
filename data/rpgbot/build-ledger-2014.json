@@ -4,16 +4,16 @@
   "scope": "included-manifest-sources-only; excludes-homebrew-and-2024",
   "method": "source-HTML-heading-and-translation-section-inventory; prose-and-build-completeness-still-require-review",
   "summary": {
-    "articles": 268,
-    "articlesWithBuildCandidates": 138,
-    "buildCandidates": 145,
-    "recipeMappedCandidates": 117,
-    "recipes": 118,
-    "readyPresets": 118,
-    "buildSpecs": 132,
-    "blockedCandidates": 28,
+    "articles": 269,
+    "articlesWithBuildCandidates": 139,
+    "buildCandidates": 146,
+    "recipeMappedCandidates": 137,
+    "recipes": 139,
+    "readyPresets": 139,
+    "buildSpecs": 148,
+    "blockedCandidates": 9,
     "unstructuredCandidates": 0,
-    "recommendationSections": 2075,
+    "recommendationSections": 2097,
     "unmappedSourceBuildHeadings": 0
   },
   "recipesMissingFromIndex": [],
@@ -1623,9 +1623,28 @@
           "recipeMappings": [
             {
               "buildId": "build-artificer-alchemist-2014",
-              "revisionId": "build-artificer-alchemist-2014-v1",
+              "revisionId": "build-artificer-alchemist-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -3229,7 +3248,26 @@
               "buildId": "build-artificer-alchemist-fairy-2014",
               "revisionId": "build-artificer-alchemist-fairy-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -3710,7 +3748,25 @@
               "revisionId": "build-artificer-armorer-vedalken-2014-v2",
               "supportedLevels": [
                 1,
-                2
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -4561,7 +4617,14 @@
                 10,
                 11,
                 12,
-                13
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -5155,7 +5218,26 @@
               "buildId": "build-artificer-battle-smith-autognome-2014",
               "revisionId": "build-artificer-battle-smith-autognome-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -8903,15 +8985,30 @@
           "recipeMappings": [
             {
               "buildId": "build-barbarian-berserker-2014",
-              "revisionId": "build-barbarian-berserker-2014-v2",
+              "revisionId": "build-barbarian-berserker-2014-v3",
               "supportedLevels": [
                 1,
                 2,
                 3,
                 4,
-                5
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "coverage": "partial",
+              "coverage": "complete",
               "readyPreset": true
             }
           ],
@@ -10638,24 +10735,38 @@
           "articleHref": "/rules/optimization/barbarian-ancestral-guardian-2014#section-example-build-furious-about-mediocre-strength",
           "contentHash": "e806900be9e1a912694a1f31d76a650220ff4dd1f836bf7a0f43655e845d6200",
           "candidateId": "barbarian-ancestral-guardian-2014:section-example-build-furious-about-mediocre-strength",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "barbarian-ancestral-guardian-2014",
-              "reasonCode": "platform-limit",
-              "reason": "Автор налаштовує Артиста (Виступ → Непомітність, що тепер підтримано) і міняє Набір для маскування на інструменти злодія, але фіксовані інструменти передісторії платформа прибрати не може; він також бере Розслідування, якого немає ні в класових навичках Варвара, ні в уміннях, і купує спорядження за стартове золото.",
-              "missing": [
-                "прибирання фіксованого інструмента передісторії Артист (Набір для маскування → Інструменти злодія)",
-                "Розслідування поза списком навичок Варвара",
-                "стартове золото замість набору класу"
+              "buildId": "build-barbarian-ancestral-guardian-2014",
+              "revisionId": "build-barbarian-ancestral-guardian-2014-v2",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
-                "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-furious-about-mediocre-strength",
             "section-abilities",
@@ -10674,7 +10785,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:platform-limit"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -12761,12 +12873,28 @@
           "recipeMappings": [
             {
               "buildId": "build-barbarian-path-of-wild-magic-2014",
-              "revisionId": "build-barbarian-path-of-wild-magic-2014-v1",
+              "revisionId": "build-barbarian-path-of-wild-magic-2014-v2",
               "supportedLevels": [
                 1,
                 2,
                 3,
-                4
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -13829,7 +13957,22 @@
                 2,
                 3,
                 4,
-                5
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -14968,7 +15111,7 @@
       "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
       "sourceContentHash": "edf2b95ae18aaf009d7e2610ac93e96c82e057e273a280ac3c68bc8b3303dca9",
       "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
-      "documentHash": "4e3d81732f21bfebb71b61a320d1420e42a041b4f5c9a715bb8dacf8c658b212",
+      "documentHash": "6e4cf1a2566c70d080e9d7f8d1a34fae5ad716dfab676da3a374223b99bd2647",
       "documentFile": "uk/rpgbot-bard-2014.json",
       "reviewStatus": "source-heading-inventory-not-human-reviewed",
       "buildCandidates": [
@@ -14991,9 +15134,28 @@
           "recipeMappings": [
             {
               "buildId": "build-bard-lore-2014",
-              "revisionId": "build-bard-lore-2014-v1",
+              "revisionId": "build-bard-lore-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -16909,7 +17071,7 @@
         {
           "sectionId": "section-class-features",
           "headingEn": "Bard Class Features",
-          "contentHash": "0cd41d34045c95cb9d5716f74df03c0aa52a53634ee11a93f281e275d6c70e13",
+          "contentHash": "d623b3527658d635d3ce69846484d6ff7e02b77daac548a513e0cc8ddff58cf9",
           "disposition": "other-section"
         },
         {
@@ -17077,7 +17239,25 @@
               "revisionId": "build-bard-creation-2014-v2",
               "supportedLevels": [
                 1,
-                2
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -18067,22 +18247,38 @@
           "articleHref": "/rules/optimization/bard-glamour-2014#section-example-build-college-of-glamour-bard-build-the-marshal",
           "contentHash": "b32287e871d8aa3af246450973f9e4d34ca60d4ee79c46bb798a3b0d21d9f2a7",
           "candidateId": "bard-glamour-2014:section-example-build-college-of-glamour-bard-build-the-marshal",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "bard-glamour-2014",
-              "reasonCode": "other",
-              "reason": "Усі вибори автора (Своя раса з Телекінетиком, Далекий мандрівник, мультиклас Бард / Воїн) тепер підтримані, але розділ «Рівні» статті — це одна комірка суцільного тексту з рядками «Рівень і клас», тож компілятор не знаходить рядків таблиці рівнів для levelPlans і не збирає рецепт; потрібен розбір цієї таблиці або дозвіл збирати рецепт без levelPlans.",
-              "missing": [
-                "розбір таблиці «Рівень і клас» з чергуванням класів (або levelPlans без таблиці)"
+              "buildId": "build-bard-glamour-2014",
+              "revisionId": "build-bard-glamour-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
-                "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-college-of-glamour-bard-build-the-marshal",
             "section-playstyle-and-tactics",
@@ -18102,7 +18298,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:other"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -21076,12 +21273,28 @@
           "recipeMappings": [
             {
               "buildId": "build-bard-spirits-2014",
-              "revisionId": "build-bard-spirits-2014-v1",
+              "revisionId": "build-bard-spirits-2014-v2",
               "supportedLevels": [
                 1,
                 2,
                 3,
-                4
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -22386,7 +22599,18 @@
                 6,
                 7,
                 8,
-                9
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -23528,7 +23752,7 @@
           "recipeMappings": [
             {
               "buildId": "build-bard-whispers-2014",
-              "revisionId": "build-bard-whispers-2014-v3",
+              "revisionId": "build-bard-whispers-2014-v4",
               "supportedLevels": [
                 1,
                 2,
@@ -23547,7 +23771,9 @@
                 15,
                 16,
                 17,
-                18
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -23943,6 +24169,1885 @@
       "unmappedSourceBuildHeadings": []
     },
     {
+      "articleId": "rpgbot-blood-hunter-2014",
+      "slug": "blood-hunter-2014",
+      "ruleset": "RULES_2014",
+      "titleEn": "DnD 5e Blood Hunter Class Guide (2020 version)",
+      "sourceId": "rpgbot-48097db2fffcd255",
+      "sourceUrl": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/",
+      "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+      "sourceContentHash": "25e96df541422260c7dcea87d85316b38f7590500e98ea0010f8e1d9bb3e894b",
+      "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+      "documentHash": "3583b36210732843eaeae8fe205bff1372e63486ef5d358ed87fb9173bcdd1dd",
+      "documentFile": "uk/rpgbot-blood-hunter-2014.json",
+      "reviewStatus": "source-heading-inventory-not-human-reviewed",
+      "buildCandidates": [
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-example",
+            "ratingIds": []
+          },
+          "headingUk": "Приклад збірки Кривавого мисливця — Напіврослик, Кривавий мисливець (Орден мисливців на привидів)",
+          "headingEn": "Example Build – Halfling Blood Hunter (Ghostslayer)",
+          "sourceAnchor": "example",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#example",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-example",
+          "contentHash": "0599b91e0099bcf14a36e37ad1f6345dbddd43d07a9c1b1078c2ac6a7e8adffb",
+          "candidateId": "blood-hunter-2014:section-example",
+          "disposition": "recipe-present",
+          "recipeMappings": [
+            {
+              "buildId": "build-blood-hunter-ghostslayer-rapier-2014",
+              "revisionId": "build-blood-hunter-ghostslayer-rapier-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage": "partial",
+              "readyPreset": true
+            },
+            {
+              "buildId": "build-blood-hunter-ghostslayer-shortbow-2014",
+              "revisionId": "build-blood-hunter-ghostslayer-shortbow-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "coverage": "partial",
+              "readyPreset": true
+            }
+          ],
+          "blockers": [],
+          "sectionIds": [
+            "section-example",
+            "section-abilities",
+            "section-race",
+            "section-skills-and-tools",
+            "section-background-2",
+            "section-feats-2",
+            "section-levels"
+          ],
+          "sourceDimensions": [
+            "ability-scores",
+            "background",
+            "feats",
+            "progression",
+            "race",
+            "skills-and-tools"
+          ],
+          "remainingWork": [
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
+          ]
+        }
+      ],
+      "recommendationGroups": [
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-ability-scores",
+            "ratingIds": [
+              "rating-blood-hunter-2014-114",
+              "rating-blood-hunter-2014-115",
+              "rating-blood-hunter-2014-116",
+              "rating-blood-hunter-2014-117",
+              "rating-blood-hunter-2014-118",
+              "rating-blood-hunter-2014-119"
+            ]
+          },
+          "headingUk": "Характеристики",
+          "headingEn": "Ability Scores",
+          "sourceAnchor": "ability-scores",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#ability-scores",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-ability-scores",
+          "contentHash": "66bd50051fdd00f80aa05918049742e3d2847b823ecd0c8d3a5bc48a7749ccbf",
+          "kind": "ability-scores",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-114",
+              "optionId": "section-ability-scores-block-section-ability-scores-2",
+              "context": "Сила",
+              "score": 1,
+              "targetBlockId": "block-section-ability-scores-2",
+              "explanationBlockId": "block-section-ability-scores-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-115",
+              "optionId": "section-ability-scores-block-section-ability-scores-3",
+              "context": "Спритність",
+              "score": 4,
+              "targetBlockId": "block-section-ability-scores-3",
+              "explanationBlockId": "block-section-ability-scores-3"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-116",
+              "optionId": "section-ability-scores-block-section-ability-scores-4",
+              "context": "Статура",
+              "score": 3,
+              "targetBlockId": "block-section-ability-scores-4",
+              "explanationBlockId": "block-section-ability-scores-4"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-117",
+              "optionId": "section-ability-scores-block-section-ability-scores-5",
+              "context": "Інтелект",
+              "score": 1,
+              "targetBlockId": "block-section-ability-scores-5",
+              "explanationBlockId": "block-section-ability-scores-5"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-118",
+              "optionId": "section-ability-scores-block-section-ability-scores-6",
+              "context": "Мудрість",
+              "score": 3,
+              "targetBlockId": "block-section-ability-scores-6",
+              "explanationBlockId": "block-section-ability-scores-6"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-119",
+              "optionId": "section-ability-scores-block-section-ability-scores-7",
+              "context": "Харизма",
+              "score": 1,
+              "targetBlockId": "block-section-ability-scores-7",
+              "explanationBlockId": "block-section-ability-scores-7"
+            }
+          ],
+          "blockIds": [
+            "block-section-ability-scores-1",
+            "block-section-ability-scores-2",
+            "block-section-ability-scores-3",
+            "block-section-ability-scores-4",
+            "block-section-ability-scores-5",
+            "block-section-ability-scores-6",
+            "block-section-ability-scores-7",
+            "block-section-ability-scores-8"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-races",
+            "ratingIds": [
+              "rating-blood-hunter-2014-120",
+              "rating-blood-hunter-2014-121",
+              "rating-blood-hunter-2014-122",
+              "rating-blood-hunter-2014-123",
+              "rating-blood-hunter-2014-124",
+              "rating-blood-hunter-2014-125",
+              "rating-blood-hunter-2014-126",
+              "rating-blood-hunter-2014-127",
+              "rating-blood-hunter-2014-128",
+              "rating-blood-hunter-2014-129",
+              "rating-blood-hunter-2014-130",
+              "rating-blood-hunter-2014-131",
+              "rating-blood-hunter-2014-132",
+              "rating-blood-hunter-2014-133",
+              "rating-blood-hunter-2014-134",
+              "rating-blood-hunter-2014-135",
+              "rating-blood-hunter-2014-136",
+              "rating-blood-hunter-2014-137",
+              "rating-blood-hunter-2014-138",
+              "rating-blood-hunter-2014-139",
+              "rating-blood-hunter-2014-140",
+              "rating-blood-hunter-2014-141",
+              "rating-blood-hunter-2014-142",
+              "rating-blood-hunter-2014-143",
+              "rating-blood-hunter-2014-144",
+              "rating-blood-hunter-2014-145",
+              "rating-blood-hunter-2014-146",
+              "rating-blood-hunter-2014-147",
+              "rating-blood-hunter-2014-148",
+              "rating-blood-hunter-2014-149",
+              "rating-blood-hunter-2014-150",
+              "rating-blood-hunter-2014-151",
+              "rating-blood-hunter-2014-152"
+            ]
+          },
+          "headingUk": "Раси Кривавого мисливця",
+          "headingEn": "Races",
+          "sourceAnchor": "races",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#races",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-races",
+          "contentHash": "7d7a49c97481384746e383b42faa83b72a84684c703dd746a965c6a32c0a6594",
+          "kind": "race",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-120",
+              "optionId": "section-races-block-section-races-3",
+              "context": "Ааракокра",
+              "score": 4,
+              "targetBlockId": "block-section-races-3",
+              "explanationBlockId": "block-section-races-3"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-121",
+              "optionId": "section-races-block-section-races-4",
+              "context": "Ведмебай",
+              "score": 3,
+              "targetBlockId": "block-section-races-4",
+              "explanationBlockId": "block-section-races-4"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-122",
+              "optionId": "section-races-block-section-races-5",
+              "context": "Дворф",
+              "score": 2,
+              "targetBlockId": "block-section-races-5",
+              "explanationBlockId": "block-section-races-5"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-123",
+              "optionId": "section-races-block-section-races-6-item-0",
+              "context": "Гірський",
+              "score": 2,
+              "targetBlockId": "block-section-races-6",
+              "explanationBlockId": "block-section-races-6"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-124",
+              "optionId": "section-races-block-section-races-7",
+              "context": "Ельф",
+              "score": 4,
+              "targetBlockId": "block-section-races-7",
+              "explanationBlockId": "block-section-races-7"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-125",
+              "optionId": "section-races-block-section-races-8-item-0",
+              "context": "Високий ельф",
+              "score": 3,
+              "targetBlockId": "block-section-races-8",
+              "explanationBlockId": "block-section-races-8"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-126",
+              "optionId": "section-races-block-section-races-8-item-1",
+              "context": "Лісовий ельф",
+              "score": 3,
+              "targetBlockId": "block-section-races-8",
+              "explanationBlockId": "block-section-races-8"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-127",
+              "optionId": "section-races-block-section-races-9",
+              "context": "Фірболг",
+              "score": 2,
+              "targetBlockId": "block-section-races-9",
+              "explanationBlockId": "block-section-races-9"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-128",
+              "optionId": "section-races-block-section-races-10",
+              "context": "Геназі",
+              "score": 3,
+              "targetBlockId": "block-section-races-10",
+              "explanationBlockId": "block-section-races-10"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-129",
+              "optionId": "section-races-block-section-races-11-item-0",
+              "context": "Повітря",
+              "score": 3,
+              "targetBlockId": "block-section-races-11",
+              "explanationBlockId": "block-section-races-11"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-130",
+              "optionId": "section-races-block-section-races-12",
+              "context": "Гном",
+              "score": 4,
+              "targetBlockId": "block-section-races-12",
+              "explanationBlockId": "block-section-races-12"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-131",
+              "optionId": "section-races-block-section-races-13-item-0",
+              "context": "Глибинний",
+              "score": 4,
+              "targetBlockId": "block-section-races-13",
+              "explanationBlockId": "block-section-races-13"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-132",
+              "optionId": "section-races-block-section-races-13-item-1",
+              "context": "Лісовий",
+              "score": 4,
+              "targetBlockId": "block-section-races-13",
+              "explanationBlockId": "block-section-races-13"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-133",
+              "optionId": "section-races-block-section-races-14",
+              "context": "Гоблін",
+              "score": 4,
+              "targetBlockId": "block-section-races-14",
+              "explanationBlockId": "block-section-races-14"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-134",
+              "optionId": "section-races-block-section-races-15",
+              "context": "Голіаф",
+              "score": 2,
+              "targetBlockId": "block-section-races-15",
+              "explanationBlockId": "block-section-races-15"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-135",
+              "optionId": "section-races-block-section-races-16",
+              "context": "Напівельф",
+              "score": 3,
+              "targetBlockId": "block-section-races-16",
+              "explanationBlockId": "block-section-races-16"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-136",
+              "optionId": "section-races-block-section-races-17",
+              "context": "Напіворк",
+              "score": 2,
+              "targetBlockId": "block-section-races-17",
+              "explanationBlockId": "block-section-races-17"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-137",
+              "optionId": "section-races-block-section-races-18",
+              "context": "Напіврослик",
+              "score": 4,
+              "targetBlockId": "block-section-races-18",
+              "explanationBlockId": "block-section-races-18"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-138",
+              "optionId": "section-races-block-section-races-19-item-0",
+              "context": "Примарний",
+              "score": 2,
+              "targetBlockId": "block-section-races-19",
+              "explanationBlockId": "block-section-races-19"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-139",
+              "optionId": "section-races-block-section-races-19-item-1",
+              "context": "Легконогий",
+              "score": 1,
+              "targetBlockId": "block-section-races-19",
+              "explanationBlockId": "block-section-races-19"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-140",
+              "optionId": "section-races-block-section-races-19-item-2",
+              "context": "Кремезний",
+              "score": 4,
+              "targetBlockId": "block-section-races-19",
+              "explanationBlockId": "block-section-races-19"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-141",
+              "optionId": "section-races-block-section-races-20",
+              "context": "Хобгоблін",
+              "score": 3,
+              "targetBlockId": "block-section-races-20",
+              "explanationBlockId": "block-section-races-20"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-142",
+              "optionId": "section-races-block-section-races-21",
+              "context": "Людина",
+              "score": 4,
+              "targetBlockId": "block-section-races-21",
+              "explanationBlockId": "block-section-races-21"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-143",
+              "optionId": "section-races-block-section-races-22-item-0",
+              "context": "Звичайна",
+              "score": 4,
+              "targetBlockId": "block-section-races-22",
+              "explanationBlockId": "block-section-races-22"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-144",
+              "optionId": "section-races-block-section-races-22-item-1",
+              "context": "Варіант",
+              "score": 4,
+              "targetBlockId": "block-section-races-22",
+              "explanationBlockId": "block-section-races-22"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-145",
+              "optionId": "section-races-block-section-races-23",
+              "context": "Кенку",
+              "score": 3,
+              "targetBlockId": "block-section-races-23",
+              "explanationBlockId": "block-section-races-23"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-146",
+              "optionId": "section-races-block-section-races-24",
+              "context": "Кобольд",
+              "score": 4,
+              "targetBlockId": "block-section-races-24",
+              "explanationBlockId": "block-section-races-24"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-147",
+              "optionId": "section-races-block-section-races-25",
+              "context": "Локата",
+              "score": 4,
+              "targetBlockId": "block-section-races-25",
+              "explanationBlockId": "block-section-races-25"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-148",
+              "optionId": "section-races-block-section-races-26",
+              "context": "Табаксі",
+              "score": 3,
+              "targetBlockId": "block-section-races-26",
+              "explanationBlockId": "block-section-races-26"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-149",
+              "optionId": "section-races-block-section-races-27",
+              "context": "Тифлінг",
+              "score": 3,
+              "targetBlockId": "block-section-races-27",
+              "explanationBlockId": "block-section-races-27"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-150",
+              "optionId": "section-races-block-section-races-28-item-0",
+              "context": "Діспатер",
+              "score": 2,
+              "targetBlockId": "block-section-races-28",
+              "explanationBlockId": "block-section-races-28"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-151",
+              "optionId": "section-races-block-section-races-28-item-1",
+              "context": "Ґласія",
+              "score": 3,
+              "targetBlockId": "block-section-races-28",
+              "explanationBlockId": "block-section-races-28"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-152",
+              "optionId": "section-races-block-section-races-28-item-2",
+              "context": "Варіант",
+              "score": 4,
+              "targetBlockId": "block-section-races-28",
+              "explanationBlockId": "block-section-races-28"
+            }
+          ],
+          "blockIds": [
+            "block-section-races-1",
+            "block-section-races-2",
+            "block-section-races-3",
+            "block-section-races-4",
+            "block-section-races-5",
+            "block-section-races-6",
+            "block-section-races-7",
+            "block-section-races-8",
+            "block-section-races-9",
+            "block-section-races-10",
+            "block-section-races-11",
+            "block-section-races-12",
+            "block-section-races-13",
+            "block-section-races-14",
+            "block-section-races-15",
+            "block-section-races-16",
+            "block-section-races-17",
+            "block-section-races-18",
+            "block-section-races-19",
+            "block-section-races-20",
+            "block-section-races-21",
+            "block-section-races-22",
+            "block-section-races-23",
+            "block-section-races-24",
+            "block-section-races-25",
+            "block-section-races-26",
+            "block-section-races-27",
+            "block-section-races-28",
+            "block-section-races-29"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-races-eberron",
+            "ratingIds": [
+              "rating-blood-hunter-2014-153",
+              "rating-blood-hunter-2014-154",
+              "rating-blood-hunter-2014-155",
+              "rating-blood-hunter-2014-156",
+              "rating-blood-hunter-2014-157",
+              "rating-blood-hunter-2014-158",
+              "rating-blood-hunter-2014-159",
+              "rating-blood-hunter-2014-160",
+              "rating-blood-hunter-2014-161",
+              "rating-blood-hunter-2014-162"
+            ]
+          },
+          "headingUk": "Раси Еберрона",
+          "headingEn": "Races of Eberron",
+          "sourceAnchor": "races-eberron",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#races-eberron",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-races-eberron",
+          "contentHash": "0e7501fe1fe9ce81ac1cfe54c1cd2750809c1e573f006d76d2ccb6a6aae0c606",
+          "kind": "race",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-153",
+              "optionId": "section-races-eberron-block-section-races-eberron-1",
+              "context": "Ведмебай",
+              "targetBlockId": "block-section-races-eberron-1",
+              "explanationBlockId": "block-section-races-eberron-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-154",
+              "optionId": "section-races-eberron-block-section-races-eberron-2",
+              "context": "Змінник",
+              "score": 2,
+              "targetBlockId": "block-section-races-eberron-2",
+              "explanationBlockId": "block-section-races-eberron-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-155",
+              "optionId": "section-races-eberron-block-section-races-eberron-3",
+              "context": "Гоблін",
+              "targetBlockId": "block-section-races-eberron-3",
+              "explanationBlockId": "block-section-races-eberron-3"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-156",
+              "optionId": "section-races-eberron-block-section-races-eberron-4",
+              "context": "Хобгоблін",
+              "targetBlockId": "block-section-races-eberron-4",
+              "explanationBlockId": "block-section-races-eberron-4"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-157",
+              "optionId": "section-races-eberron-block-section-races-eberron-6",
+              "context": "Перевертень",
+              "score": 1,
+              "targetBlockId": "block-section-races-eberron-6",
+              "explanationBlockId": "block-section-races-eberron-6"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-158",
+              "optionId": "section-races-eberron-block-section-races-eberron-7-item-0",
+              "context": "Звіроша шкіра",
+              "score": 2,
+              "targetBlockId": "block-section-races-eberron-7",
+              "explanationBlockId": "block-section-races-eberron-7"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-159",
+              "optionId": "section-races-eberron-block-section-races-eberron-7-item-1",
+              "context": "Довгий ікл",
+              "score": 2,
+              "targetBlockId": "block-section-races-eberron-7",
+              "explanationBlockId": "block-section-races-eberron-7"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-160",
+              "optionId": "section-races-eberron-block-section-races-eberron-7-item-2",
+              "context": "Швидкий крок",
+              "score": 3,
+              "targetBlockId": "block-section-races-eberron-7",
+              "explanationBlockId": "block-section-races-eberron-7"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-161",
+              "optionId": "section-races-eberron-block-section-races-eberron-7-item-3",
+              "context": "Дикий мисливець",
+              "score": 2,
+              "targetBlockId": "block-section-races-eberron-7",
+              "explanationBlockId": "block-section-races-eberron-7"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-162",
+              "optionId": "section-races-eberron-block-section-races-eberron-8",
+              "context": "Воєнокований",
+              "score": 4,
+              "targetBlockId": "block-section-races-eberron-8",
+              "explanationBlockId": "block-section-races-eberron-8"
+            }
+          ],
+          "blockIds": [
+            "block-section-races-eberron-1",
+            "block-section-races-eberron-2",
+            "block-section-races-eberron-3",
+            "block-section-races-eberron-4",
+            "block-section-races-eberron-5",
+            "block-section-races-eberron-6",
+            "block-section-races-eberron-7",
+            "block-section-races-eberron-8"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-races-ravnica",
+            "ratingIds": [
+              "rating-blood-hunter-2014-175"
+            ]
+          },
+          "headingUk": "Раси Равніки",
+          "headingEn": "Races of Ravnica",
+          "sourceAnchor": "races-ravnica",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#races-ravnica",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-races-ravnica",
+          "contentHash": "ec2623f5f2ef97eb4e4c60485a85692162f4a3ce7a068f624f6a9ee85c6c602b",
+          "kind": "race",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-175",
+              "optionId": "section-races-ravnica-block-section-races-ravnica-1",
+              "context": "Симічний гібрид",
+              "score": 4,
+              "targetBlockId": "block-section-races-ravnica-1",
+              "explanationBlockId": "block-section-races-ravnica-1"
+            }
+          ],
+          "blockIds": [
+            "block-section-races-ravnica-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-skills",
+            "ratingIds": [
+              "rating-blood-hunter-2014-176",
+              "rating-blood-hunter-2014-177",
+              "rating-blood-hunter-2014-178",
+              "rating-blood-hunter-2014-179",
+              "rating-blood-hunter-2014-180",
+              "rating-blood-hunter-2014-181",
+              "rating-blood-hunter-2014-182",
+              "rating-blood-hunter-2014-183"
+            ]
+          },
+          "headingUk": "Навички Кривавого мисливця",
+          "headingEn": "Skills",
+          "sourceAnchor": "skills",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#skills",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-skills",
+          "contentHash": "e1f00e67734f4f18b03e4c3c53a1d4f3461002525eb0bfc685d60447c8960597",
+          "kind": "skills-and-tools",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-176",
+              "optionId": "section-skills-block-section-skills-1-item-0",
+              "context": "Акробатика",
+              "score": 1,
+              "targetBlockId": "block-section-skills-1",
+              "explanationBlockId": "block-section-skills-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-177",
+              "optionId": "section-skills-block-section-skills-1-item-1",
+              "context": "Атлетика",
+              "score": 3,
+              "targetBlockId": "block-section-skills-1",
+              "explanationBlockId": "block-section-skills-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-178",
+              "optionId": "section-skills-block-section-skills-1-item-2",
+              "context": "Магія",
+              "score": 4,
+              "targetBlockId": "block-section-skills-1",
+              "explanationBlockId": "block-section-skills-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-179",
+              "optionId": "section-skills-block-section-skills-1-item-3",
+              "context": "Історія",
+              "score": 4,
+              "targetBlockId": "block-section-skills-1",
+              "explanationBlockId": "block-section-skills-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-180",
+              "optionId": "section-skills-block-section-skills-1-item-4",
+              "context": "Аналіз Поведінки",
+              "score": 2,
+              "targetBlockId": "block-section-skills-1",
+              "explanationBlockId": "block-section-skills-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-181",
+              "optionId": "section-skills-block-section-skills-1-item-5",
+              "context": "Розслідування",
+              "score": 3,
+              "targetBlockId": "block-section-skills-1",
+              "explanationBlockId": "block-section-skills-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-182",
+              "optionId": "section-skills-block-section-skills-1-item-6",
+              "context": "Релігія",
+              "score": 4,
+              "targetBlockId": "block-section-skills-1",
+              "explanationBlockId": "block-section-skills-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-183",
+              "optionId": "section-skills-block-section-skills-1-item-7",
+              "context": "Виживання",
+              "score": 1,
+              "targetBlockId": "block-section-skills-1",
+              "explanationBlockId": "block-section-skills-1"
+            }
+          ],
+          "blockIds": [
+            "block-section-skills-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-background",
+            "ratingIds": [
+              "rating-blood-hunter-2014-184",
+              "rating-blood-hunter-2014-185"
+            ]
+          },
+          "headingUk": "Передісторія",
+          "headingEn": "Background",
+          "sourceAnchor": "background",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#background",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-background",
+          "contentHash": "d54ea2bece0793488efe83af8051e361289a809919e85f65c73334c1ca4e35fb",
+          "kind": "background",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-184",
+              "optionId": "section-background-block-section-background-4-item-0",
+              "context": "Замкнений учений",
+              "score": 3,
+              "targetBlockId": "block-section-background-4",
+              "explanationBlockId": "block-section-background-4"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-185",
+              "optionId": "section-background-block-section-background-4-item-1",
+              "context": "Міський мисливець за головами SCAG",
+              "score": 4,
+              "targetBlockId": "block-section-background-4",
+              "explanationBlockId": "block-section-background-4"
+            }
+          ],
+          "blockIds": [
+            "block-section-background-1",
+            "block-section-background-2",
+            "block-section-background-3",
+            "block-section-background-4"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-feats",
+            "ratingIds": [
+              "rating-blood-hunter-2014-186",
+              "rating-blood-hunter-2014-187",
+              "rating-blood-hunter-2014-188",
+              "rating-blood-hunter-2014-189",
+              "rating-blood-hunter-2014-190",
+              "rating-blood-hunter-2014-191",
+              "rating-blood-hunter-2014-192",
+              "rating-blood-hunter-2014-193"
+            ]
+          },
+          "headingUk": "Риси",
+          "headingEn": "Feats",
+          "sourceAnchor": "feats",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#feats",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-feats",
+          "contentHash": "07356f233d5c3c4c6d66cfbd31a0fec9b30cf13c5b9bc1198c67a6110a603b6b",
+          "kind": "feats",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-186",
+              "optionId": "section-feats-block-section-feats-2-item-0",
+              "context": "Експерт з арбалетів PHB",
+              "score": 3,
+              "targetBlockId": "block-section-feats-2",
+              "explanationBlockId": "block-section-feats-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-187",
+              "optionId": "section-feats-block-section-feats-2-item-1",
+              "context": "Оборонний дуелянт",
+              "score": 3,
+              "targetBlockId": "block-section-feats-2",
+              "explanationBlockId": "block-section-feats-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-188",
+              "optionId": "section-feats-block-section-feats-2-item-2",
+              "context": "Витривалий",
+              "score": 4,
+              "targetBlockId": "block-section-feats-2",
+              "explanationBlockId": "block-section-feats-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-189",
+              "optionId": "section-feats-block-section-feats-2-item-3",
+              "context": "Адепт стихій",
+              "score": 1,
+              "targetBlockId": "block-section-feats-2",
+              "explanationBlockId": "block-section-feats-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-190",
+              "optionId": "section-feats-block-section-feats-2-item-4",
+              "context": "Важкоозброєний PHB",
+              "score": 4,
+              "targetBlockId": "block-section-feats-2",
+              "explanationBlockId": "block-section-feats-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-191",
+              "optionId": "section-feats-block-section-feats-2-item-5",
+              "context": "Майстер середніх обладунків",
+              "score": 4,
+              "targetBlockId": "block-section-feats-2",
+              "explanationBlockId": "block-section-feats-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-192",
+              "optionId": "section-feats-block-section-feats-2-item-6",
+              "context": "Майстер древкової зброї PHB",
+              "score": 2,
+              "targetBlockId": "block-section-feats-2",
+              "explanationBlockId": "block-section-feats-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-193",
+              "optionId": "section-feats-block-section-feats-2-item-7",
+              "context": "Здоровань",
+              "score": 4,
+              "targetBlockId": "block-section-feats-2",
+              "explanationBlockId": "block-section-feats-2"
+            }
+          ],
+          "blockIds": [
+            "block-section-feats-1",
+            "block-section-feats-2"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-weapons",
+            "ratingIds": [
+              "rating-blood-hunter-2014-194",
+              "rating-blood-hunter-2014-195",
+              "rating-blood-hunter-2014-196",
+              "rating-blood-hunter-2014-197"
+            ]
+          },
+          "headingUk": "Зброя Кривавого мисливця",
+          "headingEn": "Weapons",
+          "sourceAnchor": "weapons",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#weapons",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-weapons",
+          "contentHash": "05b1ffc7a37dc07a234b221bfd4df9a39d1f18ed2f2f18fd3efb1a85498e2ce9",
+          "kind": "equipment",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-194",
+              "optionId": "section-weapons-block-section-weapons-1-item-0",
+              "context": "Ручний арбалет",
+              "score": 4,
+              "targetBlockId": "block-section-weapons-1",
+              "explanationBlockId": "block-section-weapons-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-195",
+              "optionId": "section-weapons-block-section-weapons-1-item-1",
+              "context": "Довгий лук",
+              "score": 3,
+              "targetBlockId": "block-section-weapons-1",
+              "explanationBlockId": "block-section-weapons-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-196",
+              "optionId": "section-weapons-block-section-weapons-1-item-2",
+              "context": "Рапіра",
+              "score": 4,
+              "targetBlockId": "block-section-weapons-1",
+              "explanationBlockId": "block-section-weapons-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-197",
+              "optionId": "section-weapons-block-section-weapons-1-item-3",
+              "context": "Батіг",
+              "score": 3,
+              "targetBlockId": "block-section-weapons-1",
+              "explanationBlockId": "block-section-weapons-1"
+            }
+          ],
+          "blockIds": [
+            "block-section-weapons-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-armor",
+            "ratingIds": [
+              "rating-blood-hunter-2014-198",
+              "rating-blood-hunter-2014-199",
+              "rating-blood-hunter-2014-200",
+              "rating-blood-hunter-2014-201"
+            ]
+          },
+          "headingUk": "Обладунки Кривавого мисливця",
+          "headingEn": "Armor",
+          "sourceAnchor": "armor",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#armor",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-armor",
+          "contentHash": "ad5cd926367a6f5ffdfaa8cef790d3f84e2d8437026572722e3720688eef0c62",
+          "kind": "equipment",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-198",
+              "optionId": "section-armor-block-section-armor-1-item-0",
+              "context": "Проклепаний шкіряний обладунок",
+              "score": 4,
+              "targetBlockId": "block-section-armor-1",
+              "explanationBlockId": "block-section-armor-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-199",
+              "optionId": "section-armor-block-section-armor-1-item-1",
+              "context": "Лускатий обладунок",
+              "score": 3,
+              "targetBlockId": "block-section-armor-1",
+              "explanationBlockId": "block-section-armor-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-200",
+              "optionId": "section-armor-block-section-armor-1-item-2",
+              "context": "Напівлати",
+              "score": 3,
+              "targetBlockId": "block-section-armor-1",
+              "explanationBlockId": "block-section-armor-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-201",
+              "optionId": "section-armor-block-section-armor-1-item-3",
+              "context": "Щит",
+              "score": 4,
+              "targetBlockId": "block-section-armor-1",
+              "explanationBlockId": "block-section-armor-1"
+            }
+          ],
+          "blockIds": [
+            "block-section-armor-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-spells",
+            "ratingIds": []
+          },
+          "headingUk": "Заклинання Кривавого мисливця",
+          "headingEn": "Blood Hunter Spells",
+          "sourceAnchor": "spells",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#spells",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-spells",
+          "contentHash": "571b196b66c649dd98c519d2a9e8c14541dbc33da3d9f502cb1d761aef3d00ad",
+          "kind": "spells",
+          "disposition": "source-section-unstructured",
+          "options": [],
+          "blockIds": [
+            "block-section-spells-1",
+            "block-section-spells-2"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-cantrips",
+            "ratingIds": [
+              "rating-blood-hunter-2014-213",
+              "rating-blood-hunter-2014-214",
+              "rating-blood-hunter-2014-215",
+              "rating-blood-hunter-2014-216",
+              "rating-blood-hunter-2014-217"
+            ]
+          },
+          "headingUk": "Замовляння",
+          "headingEn": "Cantrips",
+          "sourceAnchor": "cantrips",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#cantrips",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-cantrips",
+          "contentHash": "1b7b5b5317fd387d2ca16a67d2a9446b41779bf6cf3556b5107b961f15601e49",
+          "kind": "spells",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-213",
+              "optionId": "section-cantrips-block-section-cantrips-1-item-0",
+              "context": "Гримучий Клинок [Booming Blade] SCAG / TCoE",
+              "score": 4,
+              "targetBlockId": "block-section-cantrips-1",
+              "explanationBlockId": "block-section-cantrips-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-214",
+              "optionId": "section-cantrips-block-section-cantrips-1-item-1",
+              "context": "Позамежний заряд [Eldritch Blast] PHB",
+              "score": 1,
+              "targetBlockId": "block-section-cantrips-1",
+              "explanationBlockId": "block-section-cantrips-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-215",
+              "optionId": "section-cantrips-block-section-cantrips-1-item-2",
+              "context": "Клинок Зеленого Полумʼя [Green-Flame Blade] SCAG / TCoE",
+              "score": 2,
+              "targetBlockId": "block-section-cantrips-1",
+              "explanationBlockId": "block-section-cantrips-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-216",
+              "optionId": "section-cantrips-block-section-cantrips-1-item-3",
+              "context": "Спалах Мечів [Sword Burst] SCAG / TCoE",
+              "score": 3,
+              "targetBlockId": "block-section-cantrips-1",
+              "explanationBlockId": "block-section-cantrips-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-217",
+              "optionId": "section-cantrips-block-section-cantrips-1-item-4",
+              "context": "Справжній удар [True Strike] PHB",
+              "score": 1,
+              "targetBlockId": "block-section-cantrips-1",
+              "explanationBlockId": "block-section-cantrips-1"
+            }
+          ],
+          "blockIds": [
+            "block-section-cantrips-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-spells-1",
+            "ratingIds": [
+              "rating-blood-hunter-2014-218",
+              "rating-blood-hunter-2014-219",
+              "rating-blood-hunter-2014-220",
+              "rating-blood-hunter-2014-221"
+            ]
+          },
+          "headingUk": "Заклинання 1-го рівня",
+          "headingEn": "1st-Level Spells",
+          "sourceAnchor": "spells-1",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#spells-1",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-spells-1",
+          "contentHash": "5bccece16a237f99436fc5c055a324bcf1a118d8c77d577bd80272497256e2f6",
+          "kind": "spells",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-218",
+              "optionId": "section-spells-1-block-section-spells-1-1-item-0",
+              "context": "Обладунок Агатіса [Armor of Agathys] PHB",
+              "score": 4,
+              "targetBlockId": "block-section-spells-1-1",
+              "explanationBlockId": "block-section-spells-1-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-219",
+              "optionId": "section-spells-1-block-section-spells-1-1-item-1",
+              "context": "Пекельна відсіч [Hellish Rebuke] PHB",
+              "score": 1,
+              "targetBlockId": "block-section-spells-1-1",
+              "explanationBlockId": "block-section-spells-1-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-220",
+              "optionId": "section-spells-1-block-section-spells-1-1-item-2",
+              "context": "Проклін [hex] PHB",
+              "score": 4,
+              "targetBlockId": "block-section-spells-1-1",
+              "explanationBlockId": "block-section-spells-1-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-221",
+              "optionId": "section-spells-1-block-section-spells-1-1-item-3",
+              "context": "Захист від зла й добра [Protection from Evil and Good] PHB",
+              "score": 3,
+              "targetBlockId": "block-section-spells-1-1",
+              "explanationBlockId": "block-section-spells-1-1"
+            }
+          ],
+          "blockIds": [
+            "block-section-spells-1-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-spells-2",
+            "ratingIds": [
+              "rating-blood-hunter-2014-222",
+              "rating-blood-hunter-2014-223",
+              "rating-blood-hunter-2014-224",
+              "rating-blood-hunter-2014-225",
+              "rating-blood-hunter-2014-226"
+            ]
+          },
+          "headingUk": "Заклинання 2-го рівня",
+          "headingEn": "2nd-Level Spells",
+          "sourceAnchor": "spells-2",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#spells-2",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-spells-2",
+          "contentHash": "868c358a311cea1a46fd39696ec80f7e45a29c64f954c1e0f55129c5460a1b76",
+          "kind": "spells",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-222",
+              "optionId": "section-spells-2-block-section-spells-2-1-item-0",
+              "context": "Темрява [Darkness] PHB",
+              "score": 1,
+              "targetBlockId": "block-section-spells-2-1",
+              "explanationBlockId": "block-section-spells-2-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-223",
+              "optionId": "section-spells-2-block-section-spells-2-1-item-1",
+              "context": "Невидимість [Invisibility] PHB",
+              "score": 4,
+              "targetBlockId": "block-section-spells-2-1",
+              "explanationBlockId": "block-section-spells-2-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-224",
+              "optionId": "section-spells-2-block-section-spells-2-1-item-2",
+              "context": "Віддзеркалення [Mirror Image] PHB",
+              "score": 3,
+              "targetBlockId": "block-section-spells-2-1",
+              "explanationBlockId": "block-section-spells-2-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-225",
+              "optionId": "section-spells-2-block-section-spells-2-1-item-3",
+              "context": "Туманний крок [Misty Step] PHB",
+              "score": 4,
+              "targetBlockId": "block-section-spells-2-1",
+              "explanationBlockId": "block-section-spells-2-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-226",
+              "optionId": "section-spells-2-block-section-spells-2-1-item-4",
+              "context": "Клинок тіні [Shadow Blade] XGtE",
+              "score": 4,
+              "targetBlockId": "block-section-spells-2-1",
+              "explanationBlockId": "block-section-spells-2-1"
+            }
+          ],
+          "blockIds": [
+            "block-section-spells-2-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-spells-3",
+            "ratingIds": [
+              "rating-blood-hunter-2014-227",
+              "rating-blood-hunter-2014-228",
+              "rating-blood-hunter-2014-229",
+              "rating-blood-hunter-2014-230",
+              "rating-blood-hunter-2014-231"
+            ]
+          },
+          "headingUk": "Заклинання 3-го рівня",
+          "headingEn": "3rd-Level Spells",
+          "sourceAnchor": "spells-3",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#spells-3",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-spells-3",
+          "contentHash": "7ca16f6773fdf8694d75695f9b6b9f91ddd064e17e88a3dc69c4b32c6b598651",
+          "kind": "spells",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-227",
+              "optionId": "section-spells-3-block-section-spells-3-1-item-0",
+              "context": "Контрчари [Counterspell] PHB",
+              "score": 1,
+              "targetBlockId": "block-section-spells-3-1",
+              "explanationBlockId": "block-section-spells-3-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-228",
+              "optionId": "section-spells-3-block-section-spells-3-1-item-1",
+              "context": "Розвіювання магії [Dispel Magic] PHB",
+              "score": 1,
+              "targetBlockId": "block-section-spells-3-1",
+              "explanationBlockId": "block-section-spells-3-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-229",
+              "optionId": "section-spells-3-block-section-spells-3-1-item-2",
+              "context": "Політ [Fly] PHB",
+              "score": 4,
+              "targetBlockId": "block-section-spells-3-1",
+              "explanationBlockId": "block-section-spells-3-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-230",
+              "optionId": "section-spells-3-block-section-spells-3-1-item-3",
+              "context": "Голод Хадара [Hunger of Hadar] PHB",
+              "score": 3,
+              "targetBlockId": "block-section-spells-3-1",
+              "explanationBlockId": "block-section-spells-3-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-231",
+              "optionId": "section-spells-3-block-section-spells-3-1-item-4",
+              "context": "Вампіричний дотик [Vampiric Touch] PHB",
+              "score": 3,
+              "targetBlockId": "block-section-spells-3-1",
+              "explanationBlockId": "block-section-spells-3-1"
+            }
+          ],
+          "blockIds": [
+            "block-section-spells-3-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-spells-4",
+            "ratingIds": [
+              "rating-blood-hunter-2014-232",
+              "rating-blood-hunter-2014-233",
+              "rating-blood-hunter-2014-234"
+            ]
+          },
+          "headingUk": "Заклинання 4-го рівня",
+          "headingEn": "4th-Level Spells",
+          "sourceAnchor": "spells-4",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#spells-4",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-spells-4",
+          "contentHash": "ce0c13e9367caa8c5c9205a6eaed43c07b546ac7e0590e56fd26caadea7e578f",
+          "kind": "spells",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-232",
+              "optionId": "section-spells-4-block-section-spells-4-1-item-0",
+              "context": "Усихання [Blight] PHB",
+              "score": 1,
+              "targetBlockId": "block-section-spells-4-1",
+              "explanationBlockId": "block-section-spells-4-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-233",
+              "optionId": "section-spells-4-block-section-spells-4-1-item-1",
+              "context": "Двері між вимірами [Dimension Door] PHB",
+              "score": 2,
+              "targetBlockId": "block-section-spells-4-1",
+              "explanationBlockId": "block-section-spells-4-1"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-234",
+              "optionId": "section-spells-4-block-section-spells-4-1-item-2",
+              "context": "Тінь Мойла [Shadow of Moil] PHB",
+              "score": 2,
+              "targetBlockId": "block-section-spells-4-1",
+              "explanationBlockId": "block-section-spells-4-1"
+            }
+          ],
+          "blockIds": [
+            "block-section-spells-4-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-multiclassing",
+            "ratingIds": [
+              "rating-blood-hunter-2014-235",
+              "rating-blood-hunter-2014-236",
+              "rating-blood-hunter-2014-237",
+              "rating-blood-hunter-2014-238",
+              "rating-blood-hunter-2014-239",
+              "rating-blood-hunter-2014-240",
+              "rating-blood-hunter-2014-241",
+              "rating-blood-hunter-2014-242",
+              "rating-blood-hunter-2014-243",
+              "rating-blood-hunter-2014-244",
+              "rating-blood-hunter-2014-245",
+              "rating-blood-hunter-2014-246",
+              "rating-blood-hunter-2014-247"
+            ]
+          },
+          "headingUk": "Мультикласування",
+          "headingEn": "Multiclassing",
+          "sourceAnchor": "multiclassing",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#multiclassing",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-multiclassing",
+          "contentHash": "5886785efd56d52541b0736bb362d7c48623f23f49e1c6e7efd372f5ffe937c3",
+          "kind": "multiclass",
+          "disposition": "source-section-unstructured",
+          "options": [
+            {
+              "ratingId": "rating-blood-hunter-2014-235",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+              "context": "Винахідник",
+              "score": 2,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-236",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-1",
+              "context": "Варвар",
+              "score": 2,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-237",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-2",
+              "context": "Бард",
+              "score": 1,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-238",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-3",
+              "context": "Клірик",
+              "score": 3,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-239",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-4",
+              "context": "Друїд",
+              "score": 3,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-240",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-5",
+              "context": "Воїн",
+              "score": 3,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-241",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-6",
+              "context": "Монах",
+              "score": 2,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-242",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-7",
+              "context": "Паладин",
+              "score": 1,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-243",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-8",
+              "context": "Слідопит",
+              "score": 1,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-244",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-9",
+              "context": "Пройдисвіт",
+              "score": 3,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-245",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-10",
+              "context": "Чародій",
+              "score": 1,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-246",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-11",
+              "context": "Чорнокнижник",
+              "score": 1,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            },
+            {
+              "ratingId": "rating-blood-hunter-2014-247",
+              "optionId": "section-multiclassing-block-section-multiclassing-2-item-12",
+              "context": "Чарівник",
+              "score": 2,
+              "targetBlockId": "block-section-multiclassing-2",
+              "explanationBlockId": "block-section-multiclassing-2"
+            }
+          ],
+          "blockIds": [
+            "block-section-multiclassing-1",
+            "block-section-multiclassing-2"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          },
+          "headingUk": "Характеристики",
+          "headingEn": "Abilities",
+          "sourceAnchor": "abilities",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#abilities",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-abilities",
+          "contentHash": "efa06ebf62243929962929049daba76752d679355fc0ccffbf5ab6c869701420",
+          "kind": "ability-scores",
+          "disposition": "source-section-unstructured",
+          "options": [],
+          "blockIds": [
+            "block-section-abilities-1",
+            "block-section-abilities-2"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-race",
+            "ratingIds": []
+          },
+          "headingUk": "Раса",
+          "headingEn": "Race",
+          "sourceAnchor": "race",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#race",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-race",
+          "contentHash": "0bdd7677c7d06331935586e10859e8c12491872bbced022403b482c62afd76f8",
+          "kind": "race",
+          "disposition": "source-section-unstructured",
+          "options": [],
+          "blockIds": [
+            "block-section-race-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          },
+          "headingUk": "Навички й інструменти",
+          "headingEn": "Skills and Tools",
+          "sourceAnchor": "skills-and-tools",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#skills-and-tools",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-skills-and-tools",
+          "contentHash": "78dedb2a9ed090b8ddd450cff0a8c3b7655f494f305b34276c0c4c0080291ac4",
+          "kind": "skills-and-tools",
+          "disposition": "source-section-unstructured",
+          "options": [],
+          "blockIds": [
+            "block-section-skills-and-tools-1",
+            "block-section-skills-and-tools-2"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-background-2",
+            "ratingIds": []
+          },
+          "headingUk": "Передісторія",
+          "headingEn": "Background",
+          "sourceAnchor": "background",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#background",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-background-2",
+          "contentHash": "3961aef2e4da9898a953336412a7d25489b6632d7735dd1171198feff2aa357d",
+          "kind": "background",
+          "disposition": "source-section-unstructured",
+          "options": [],
+          "blockIds": [
+            "block-section-background-2-1",
+            "block-section-background-2-2"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          },
+          "headingUk": "Риси",
+          "headingEn": "Feats",
+          "sourceAnchor": "feats",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#feats",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-feats-2",
+          "contentHash": "05b5e8edcf1114ce19358dc004d842a1fa793a138cfe782184db9a55a7c0adf8",
+          "kind": "feats",
+          "disposition": "source-section-unstructured",
+          "options": [],
+          "blockIds": [
+            "block-section-feats-2-1"
+          ]
+        },
+        {
+          "sourceRef": {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          },
+          "headingUk": "Рівні",
+          "headingEn": "Levels",
+          "sourceAnchor": "levels",
+          "sourceHref": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/#levels",
+          "articleHref": "/rules/optimization/blood-hunter-2014#section-levels",
+          "contentHash": "c812357655bfbdc5692e71a1f11530f7ee6b037e41fe54acb23f66e6f8d6f247",
+          "kind": "progression",
+          "disposition": "source-section-unstructured",
+          "options": [],
+          "blockIds": [
+            "block-section-levels-1"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "headingEn": "Introduction",
+          "contentHash": "0c8bedfb9bdad1281b42f11b8d4d47d02dac27793db51c563149546659f11a28",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-2",
+          "headingEn": null,
+          "contentHash": "d931cf0e740082eaf418558292ef073181729d8e3a0433aca6d8127c074109d0",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "headingEn": "Understanding RPGBOT’s Rating System",
+          "contentHash": "5362a3c53e0ab491e3dc4164d48d695112432853f7647a84392660a0c0c7dde9",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-whats-new",
+          "headingEn": "What’s new in the 2020 Version?",
+          "contentHash": "771156b2229cea56eb751994de4c23de67119c8fb785a24fe4f02adb0618b98d",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-whats-new-in-the-2022-version",
+          "headingEn": "What’s new in the 2022 version?",
+          "contentHash": "db33b94651c583aec3f59752b4ff73f295b45ac38104840effd3cd6839e9a2ce",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-class-features",
+          "headingEn": "Blood Hunter Class Features",
+          "contentHash": "e6544c963fe3559a8c47547278c2c7e678673e06551cb82d81a4e8b1d7756507",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-subclasses",
+          "headingEn": "Subclasses – Blood Hunter Orders",
+          "contentHash": "e6fc62628fcb37823e593899a95efef3cd6c193e28602b11c8dbc3c7b42d8ea8",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-order-of-the-ghostslayer",
+          "headingEn": "Order of The Ghostslayer",
+          "contentHash": "034891f4d5204d608f0fa0c01aadaf3ff883fa39cfcbd5608cd1d9fbc64c6975",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-order-of-the-lycan",
+          "headingEn": "Order of The Lycan",
+          "contentHash": "5905a04e11b4394651ef0a315e1a92ea71ce5f2a2de9f28cbf09a9d69cd9f6f0",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-order-of-the-mutant",
+          "headingEn": "Order of The Mutant",
+          "contentHash": "40c2aba13e1571eb50eaa3a0703f8d3dbbf41da8c4ec77c548cde2f396d08e56",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-mutagens",
+          "headingEn": "Mutagens",
+          "contentHash": "e474f8d27b43bdc1f05b54df2b604623c827ef6cd6fb221ca68377b0057fd824",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-order-of-the-profane-soul",
+          "headingEn": "Order of The Profane Soul",
+          "contentHash": "c6bc3a02b117b3869e57acbfb35078d1b833a0b94d410129d1c6ed5642a3f08b",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "headingEn": "Ability Scores",
+          "contentHash": "66bd50051fdd00f80aa05918049742e3d2847b823ecd0c8d3a5bc48a7749ccbf",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-races",
+          "headingEn": "Races",
+          "contentHash": "7d7a49c97481384746e383b42faa83b72a84684c703dd746a965c6a32c0a6594",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-races-eberron",
+          "headingEn": "Races of Eberron",
+          "contentHash": "0e7501fe1fe9ce81ac1cfe54c1cd2750809c1e573f006d76d2ccb6a6aae0c606",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-races-eberron-dragonmarks",
+          "headingEn": "Dragonmarks",
+          "contentHash": "a41b6c1884366fa16924e01720982b183e8fca7440701dd9cbd11bda2a4381c8",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-races-ravnica",
+          "headingEn": "Races of Ravnica",
+          "contentHash": "ec2623f5f2ef97eb4e4c60485a85692162f4a3ce7a068f624f6a9ee85c6c602b",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-skills",
+          "headingEn": "Skills",
+          "contentHash": "e1f00e67734f4f18b03e4c3c53a1d4f3461002525eb0bfc685d60447c8960597",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-background",
+          "headingEn": "Background",
+          "contentHash": "d54ea2bece0793488efe83af8051e361289a809919e85f65c73334c1ca4e35fb",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-feats",
+          "headingEn": "Feats",
+          "contentHash": "07356f233d5c3c4c6d66cfbd31a0fec9b30cf13c5b9bc1198c67a6110a603b6b",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-weapons",
+          "headingEn": "Weapons",
+          "contentHash": "05b1ffc7a37dc07a234b221bfd4df9a39d1f18ed2f2f18fd3efb1a85498e2ce9",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-armor",
+          "headingEn": "Armor",
+          "contentHash": "ad5cd926367a6f5ffdfaa8cef790d3f84e2d8437026572722e3720688eef0c62",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-blood-curses",
+          "headingEn": "Blood Curses",
+          "contentHash": "f03a3d8b8d00435c642ed561565cb631e0deb2df9e44c5578507e2a79e242079",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-spells",
+          "headingEn": "Blood Hunter Spells",
+          "contentHash": "571b196b66c649dd98c519d2a9e8c14541dbc33da3d9f502cb1d761aef3d00ad",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-cantrips",
+          "headingEn": "Cantrips",
+          "contentHash": "1b7b5b5317fd387d2ca16a67d2a9446b41779bf6cf3556b5107b961f15601e49",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-spells-1",
+          "headingEn": "1st-Level Spells",
+          "contentHash": "5bccece16a237f99436fc5c055a324bcf1a118d8c77d577bd80272497256e2f6",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-spells-2",
+          "headingEn": "2nd-Level Spells",
+          "contentHash": "868c358a311cea1a46fd39696ec80f7e45a29c64f954c1e0f55129c5460a1b76",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-spells-3",
+          "headingEn": "3rd-Level Spells",
+          "contentHash": "7ca16f6773fdf8694d75695f9b6b9f91ddd064e17e88a3dc69c4b32c6b598651",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-spells-4",
+          "headingEn": "4th-Level Spells",
+          "contentHash": "ce0c13e9367caa8c5c9205a6eaed43c07b546ac7e0590e56fd26caadea7e578f",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "headingEn": "Multiclassing",
+          "contentHash": "5886785efd56d52541b0736bb362d7c48623f23f49e1c6e7efd372f5ffe937c3",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-example",
+          "headingEn": "Example Build – Halfling Blood Hunter (Ghostslayer)",
+          "contentHash": "0599b91e0099bcf14a36e37ad1f6345dbddd43d07a9c1b1078c2ac6a7e8adffb",
+          "disposition": "build-candidate"
+        },
+        {
+          "sectionId": "section-abilities",
+          "headingEn": "Abilities",
+          "contentHash": "efa06ebf62243929962929049daba76752d679355fc0ccffbf5ab6c869701420",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-race",
+          "headingEn": "Race",
+          "contentHash": "0bdd7677c7d06331935586e10859e8c12491872bbced022403b482c62afd76f8",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "headingEn": "Skills and Tools",
+          "contentHash": "78dedb2a9ed090b8ddd450cff0a8c3b7655f494f305b34276c0c4c0080291ac4",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-background-2",
+          "headingEn": "Background",
+          "contentHash": "3961aef2e4da9898a953336412a7d25489b6632d7735dd1171198feff2aa357d",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-feats-2",
+          "headingEn": "Feats",
+          "contentHash": "05b5e8edcf1114ce19358dc004d842a1fa793a138cfe782184db9a55a7c0adf8",
+          "disposition": "recommendation-section"
+        },
+        {
+          "sectionId": "section-levels",
+          "headingEn": "Levels",
+          "contentHash": "c812357655bfbdc5692e71a1f11530f7ee6b037e41fe54acb23f66e6f8d6f247",
+          "disposition": "recommendation-section"
+        }
+      ],
+      "unmappedSourceBuildHeadings": []
+    },
+    {
       "articleId": "rpgbot-bugbear-2014",
       "slug": "bugbear-2014",
       "ruleset": "RULES_2014",
@@ -24253,7 +26358,7 @@
       "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
       "sourceContentHash": "3bb366d8798ea03a7ca88ff4fa301036bcb7e0c8509ef83405a50e4ae784fdb3",
       "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
-      "documentHash": "0e35e07e546b291d2642ee7e3ca53051ebe4ab04380a618aa3ccc1d20d1b253e",
+      "documentHash": "f0d54a41bce184f4c7a093955cd3a1c170d82fd3667c17eef4fd55c58f6b3e95",
       "documentFile": "uk/rpgbot-bugbear-y-me-in-damage-2014.json",
       "reviewStatus": "source-heading-inventory-not-human-reviewed",
       "buildCandidates": [
@@ -24282,7 +26387,22 @@
                 2,
                 3,
                 4,
-                5
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -24371,9 +26491,28 @@
           "recipeMappings": [
             {
               "buildId": "build-bugbear-fiend-warlock-2014",
-              "revisionId": "build-bugbear-fiend-warlock-2014-v2",
+              "revisionId": "build-bugbear-fiend-warlock-2014-v3",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -24479,7 +26618,7 @@
           "sourceAnchor": "ability-scores",
           "sourceHref": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#ability-scores",
           "articleHref": "/rules/optimization/bugbear-y-me-in-damage-2014#section-ability-scores",
-          "contentHash": "7bd79f37bd3502b185d603aea259a6878447b0dbb70e1198af06eb4000635104",
+          "contentHash": "87dd7b586feeb15d24bc4a20fbdd11431403aad7b56387e331497dfe3242183f",
           "kind": "ability-scores",
           "disposition": "source-section-unstructured",
           "options": [],
@@ -24543,7 +26682,7 @@
           "sourceAnchor": "ability-scores-2",
           "sourceHref": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#ability-scores-2",
           "articleHref": "/rules/optimization/bugbear-y-me-in-damage-2014#section-ability-scores-2",
-          "contentHash": "f4b382c149e8443f051aca0e619a8ad5ab55611b1fb3409bc870da4c8baba064",
+          "contentHash": "31e72bab02154bd439deb81c0d7350280f65e8da17331915cfa2eaa647a3960c",
           "kind": "ability-scores",
           "disposition": "source-section-unstructured",
           "options": [],
@@ -24607,7 +26746,7 @@
           "sourceAnchor": "ability-scores-3",
           "sourceHref": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#ability-scores-3",
           "articleHref": "/rules/optimization/bugbear-y-me-in-damage-2014#section-ability-scores-3",
-          "contentHash": "bcb40a1d194859f0472a2433fc8e7c06a8c77cc88c271e8e1dcc836b1d490c80",
+          "contentHash": "4cfc4eb3ffffc56693a6ed93c25e99308b9a4b846981fa5a51813caff583cfa5",
           "kind": "ability-scores",
           "disposition": "source-section-unstructured",
           "options": [],
@@ -24765,7 +26904,7 @@
         {
           "sectionId": "section-ability-scores",
           "headingEn": "Ability Scores",
-          "contentHash": "7bd79f37bd3502b185d603aea259a6878447b0dbb70e1198af06eb4000635104",
+          "contentHash": "87dd7b586feeb15d24bc4a20fbdd11431403aad7b56387e331497dfe3242183f",
           "disposition": "recommendation-section"
         },
         {
@@ -24789,7 +26928,7 @@
         {
           "sectionId": "section-ability-scores-2",
           "headingEn": "Ability Scores",
-          "contentHash": "f4b382c149e8443f051aca0e619a8ad5ab55611b1fb3409bc870da4c8baba064",
+          "contentHash": "31e72bab02154bd439deb81c0d7350280f65e8da17331915cfa2eaa647a3960c",
           "disposition": "recommendation-section"
         },
         {
@@ -24813,7 +26952,7 @@
         {
           "sectionId": "section-ability-scores-3",
           "headingEn": "Ability Scores",
-          "contentHash": "bcb40a1d194859f0472a2433fc8e7c06a8c77cc88c271e8e1dcc836b1d490c80",
+          "contentHash": "4cfc4eb3ffffc56693a6ed93c25e99308b9a4b846981fa5a51813caff583cfa5",
           "disposition": "recommendation-section"
         },
         {
@@ -25159,24 +27298,38 @@
           "articleHref": "/rules/optimization/champion-2014#section-example-build-lord-forestwalk",
           "contentHash": "bb7046e253517be7e5a841c935bcc20751e169a0dd8498aae5ab4a61d3745c4d",
           "candidateId": "champion-2014:section-example-build-lord-forestwalk",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "champion-forestwalk-fighter-2014",
-              "reasonCode": "platform-limit",
-              "reason": "Автор налаштовує Лицаря (Непомітність і Уважність замість вихідних навичок — підтримано), але міняє його ігровий набір на інструменти злодія, а фіксовані інструменти передісторії платформа прибрати не може; раса названа лише як «будь-який ельф» (автор обрав би шадар-кай), а спорядження автор радить продати й купити заново.",
-              "missing": [
-                "прибирання фіксованого інструмента передісторії Лицар (ігровий набір → інструменти злодія)",
-                "раса автором не визначена однозначно (будь-який ельф)",
-                "купівля й продаж спорядження за стартові гроші"
+              "buildId": "build-champion-forestwalk-fighter-2014",
+              "revisionId": "build-champion-forestwalk-fighter-2014-v2",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
-                "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-lord-forestwalk",
             "section-abilities",
@@ -25195,7 +27348,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:platform-limit"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -25858,7 +28012,7 @@
       "sourceRevisionId": "rpgbot-c7107a40dd7625b7-ea96ec9dd861ca55",
       "sourceContentHash": "a8076604bfe86f035b251e52b4dd84fd0ae27f73b5881b844b61f8a2eb788c0a",
       "translationRevisionId": "translation-rpgbot-classes-2014-draft1",
-      "documentHash": "474c21921a316d4048b0a82bdd303652c1047cd414e6ee9aaedb0bb66867736e",
+      "documentHash": "bb3e80a18e7cc053458ac95928178f681c8a4901ed841ea62d9ae4412ec58f6f",
       "documentFile": "uk/rpgbot-classes-2014.json",
       "reviewStatus": "source-heading-inventory-not-human-reviewed",
       "buildCandidates": [],
@@ -26605,6 +28759,18 @@
           "disposition": "build-link-index"
         },
         {
+          "sectionId": "section-beyond-the-pale",
+          "headingEn": "DnD 5e Content from 3rd-Party Publishers",
+          "contentHash": "520707d70709d7d2b2f192e9e55160cbf88387b5bdd41c2e5214dff2b3c3ea94",
+          "disposition": "other-section"
+        },
+        {
+          "sectionId": "section-matt-mercer-critical-role-tal-dorei",
+          "headingEn": "Matt Mercer / Critical Role / Tal’Dorei",
+          "contentHash": "d8fce0dfe3f844c4970bd01ff31cfe9b468dcbb487df29cea7d2dbb2b324e229",
+          "disposition": "other-section"
+        },
+        {
           "sectionId": "section-freque",
           "headingEn": "Frequently Asked Questions",
           "contentHash": "c440b943843ee2aa90dabe0a7d588b5f44195e16facc1ae747372132b38dc0fd",
@@ -26688,9 +28854,28 @@
           "recipeMappings": [
             {
               "buildId": "build-cleric-life-2014",
-              "revisionId": "build-cleric-life-2014-v1",
+              "revisionId": "build-cleric-life-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -28692,22 +30877,38 @@
           "articleHref": "/rules/optimization/cleric-arcana-domain-2014#section-example",
           "contentHash": "d88b4f1c25a62f8e360d5f18a4fea269571c68f1fa8efb91248e3c6bcf5cef7d",
           "candidateId": "cleric-arcana-domain-2014:section-example",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "cleric-arcana-2014",
-              "reasonCode": "missing-catalog-entity",
-              "reason": "Власна передісторія (Уважність, Непомітність, інструменти злодія, мова) і Посвячений у магію (Друїд) підтримані, але вміння «Арканний адепт» Домену магії в каталозі не має запису про навичку: Магія, яку автор вважає безкоштовною з 1-го рівня, не видається ні в конструкторі, ні сервером, тож авторський набір навичок відтворити не можна.",
-              "missing": [
-                "навичка Магія від «Арканного адепта» (feature 8447 без skill_proficiencies; SQL для власника у catalog-data-gaps-subclass-skills-2026-10-10-owner-applies.sql)"
+              "buildId": "build-cleric-arcana-2014",
+              "revisionId": "build-cleric-arcana-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
-                "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example",
             "section-ability-scores-2",
@@ -28726,7 +30927,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:missing-catalog-entity"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -29131,9 +31333,28 @@
           "recipeMappings": [
             {
               "buildId": "build-cleric-death-2014",
-              "revisionId": "build-cleric-death-2014-v1",
+              "revisionId": "build-cleric-death-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -29561,11 +31782,30 @@
           "recipeMappings": [
             {
               "buildId": "build-cleric-forge-2014",
-              "revisionId": "build-cleric-forge-2014-v1",
+              "revisionId": "build-cleric-forge-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "coverage": "partial",
+              "coverage": "complete",
               "readyPreset": true
             }
           ],
@@ -30024,9 +32264,28 @@
           "recipeMappings": [
             {
               "buildId": "build-cleric-grave-2014",
-              "revisionId": "build-cleric-grave-2014-v1",
+              "revisionId": "build-cleric-grave-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -30518,9 +32777,28 @@
           "recipeMappings": [
             {
               "buildId": "build-cleric-knowledge-2014",
-              "revisionId": "build-cleric-knowledge-2014-v1",
+              "revisionId": "build-cleric-knowledge-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -31005,22 +33283,38 @@
           "articleHref": "/rules/optimization/cleric-life-domain-2014#section-example-life-cleric-build-lifeberry-the-tank-engine",
           "contentHash": "3a0d409a2bce4b15faee8adcdf7751fd1523b0a29385df869a92251f8819a773",
           "candidateId": "cleric-life-domain-2014:section-example-life-cleric-build-lifeberry-the-tank-engine",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "cleric-life-lifeberry-2014",
-              "reasonCode": "author-choice-not-executable",
-              "reason": "Автор бере Гірського дворфа з налаштованим походженням і міняє всі його володіння зброєю та обладунками на шість наборів інструментів і транспорт; сервер і лист завжди видають расові володіння каталогу, тож заміну пресет не записує. Мультиклас у Друїда з 2-го рівня тепер описується полем levels.",
-              "missing": [
-                "заміна расових володінь зброєю та обладунками на інструменти (налаштоване походження Гірського дворфа)"
+              "buildId": "build-cleric-life-lifeberry-2014",
+              "revisionId": "build-cleric-life-lifeberry-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
-                "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-life-cleric-build-lifeberry-the-tank-engine",
             "section-abilities",
@@ -31044,7 +33338,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:author-choice-not-executable"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -32105,22 +34400,38 @@
           "articleHref": "/rules/optimization/cleric-nature-2014#section-example",
           "contentHash": "f0b3dbfb01222d04421cb39cd3b6540acbb586b7696ccd9d298e5ba1ed60178b",
           "candidateId": "cleric-nature-2014:section-example",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "cleric-nature-2014",
-              "reasonCode": "missing-catalog-entity",
-              "reason": "Вибір навички Послідовника природи (Поводження з тваринами, Природа чи Виживання) тепер підтримується для підкласів, у каталозі яких вміння записує вибір навичок (Домен миру, Домен порядку), але у вміння «Послідовник природи» (feature 8495) такого запису немає: без нього набір навичок автора (з Природою від домену) відтворити не можна.",
-              "missing": [
-                "skill_proficiencies у вмінні «Послідовник природи» (feature 8495); SQL для власника у catalog-data-gaps-subclass-skills-2026-10-10-owner-applies.sql"
+              "buildId": "build-cleric-nature-2014",
+              "revisionId": "build-cleric-nature-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
-                "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example",
             "section-ability-scores-2",
@@ -32139,7 +34450,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:missing-catalog-entity"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -32543,9 +34855,28 @@
           "recipeMappings": [
             {
               "buildId": "build-cleric-order-2014",
-              "revisionId": "build-cleric-order-2014-v1",
+              "revisionId": "build-cleric-order-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -32992,11 +35323,30 @@
           "recipeMappings": [
             {
               "buildId": "build-cleric-peace-2014",
-              "revisionId": "build-cleric-peace-2014-v1",
+              "revisionId": "build-cleric-peace-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "coverage": "partial",
+              "coverage": "complete",
               "readyPreset": true
             }
           ],
@@ -35802,22 +38152,38 @@
           "articleHref": "/rules/optimization/cleric-trickery-domain-2014#section-example-build-halfelf-trickery-cleric-rogue",
           "contentHash": "803ce7e2f05e5627cf8bb512484ef224f56efca504ce204a48a1e99d286f99e8",
           "candidateId": "cleric-trickery-domain-2014:section-example-build-halfelf-trickery-cleric-rogue",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "cleric-trickery-rogue-2014",
-              "reasonCode": "platform-limit",
-              "reason": "Мультиклас Пройдисвіт 1 / Клірик тепер описується полем levels, але автор бере Експертизу Пройдисвіта в Обмані та в інструментах злодія; модель листа записує експертизу лише в навичках.",
-              "missing": [
-                "експертиза в інструментах (інструменти злодія) серед виборів експертизи"
+              "buildId": "build-cleric-trickery-rogue-2014",
+              "revisionId": "build-cleric-trickery-rogue-2014-v2",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
-                "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-halfelf-trickery-cleric-rogue",
             "section-abilities",
@@ -35836,7 +38202,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:platform-limit"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -36280,9 +38647,28 @@
           "recipeMappings": [
             {
               "buildId": "build-cleric-twilight-2014",
-              "revisionId": "build-cleric-twilight-2014-v1",
+              "revisionId": "build-cleric-twilight-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -37462,7 +39848,25 @@
               "revisionId": "build-d4-dispenser-cleric-peace-2014-v2",
               "supportedLevels": [
                 1,
-                2
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -38697,9 +41101,28 @@
           "recipeMappings": [
             {
               "buildId": "build-druid-land-2014",
-              "revisionId": "build-druid-land-2014-v1",
+              "revisionId": "build-druid-land-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -49388,7 +51811,7 @@
           "recipeMappings": [
             {
               "buildId": "build-fighter-champion-greataxe-2014",
-              "revisionId": "build-fighter-champion-greataxe-2014-v2",
+              "revisionId": "build-fighter-champion-greataxe-2014-v3",
               "supportedLevels": [
                 1,
                 2,
@@ -49402,20 +51825,42 @@
                 10,
                 11,
                 12,
-                13
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
             },
             {
               "buildId": "build-fighter-champion-shield-2014",
-              "revisionId": "build-fighter-champion-shield-2014-v2",
+              "revisionId": "build-fighter-champion-shield-2014-v4",
               "supportedLevels": [
                 1,
                 2,
                 3,
                 4,
-                5
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -52025,7 +54470,14 @@
                 10,
                 11,
                 12,
-                13
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -53146,7 +55598,7 @@
           "recipeMappings": [
             {
               "buildId": "build-fighter-cavalier-2014",
-              "revisionId": "build-fighter-cavalier-2014-v2",
+              "revisionId": "build-fighter-cavalier-2014-v3",
               "supportedLevels": [
                 1,
                 2,
@@ -53162,7 +55614,12 @@
                 12,
                 13,
                 14,
-                15
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -53806,22 +56263,38 @@
           "articleHref": "/rules/optimization/fighter-echo-knight-2014#section-example-build-dioscuri",
           "contentHash": "25d9bdd4b2c640e517edc58a8dbfbc97589aeabccaca00e2e881b976d2238176",
           "candidateId": "fighter-echo-knight-2014:section-example-build-dioscuri",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "fighter-echo-knight-2014",
-              "reasonCode": "platform-limit",
-              "reason": "Автор бере передісторію Гладіатор, замінює Акробатику й Виступ на Уважність і Аналіз поведінки (це тепер підтримано як налаштована передісторія) та міняє володіння Набором для маскування на Інструменти картографа; лист виводить фіксовані інструменти передісторії з самої передісторії, тож замінений інструмент знову зʼявився б на листі, і платформа не може його прибрати.",
-              "missing": [
-                "прибирання фіксованого інструмента передісторії Гладіатор (Набір для маскування → Інструменти картографа): потрібна збережена відмітка налаштованої передісторії у персонажа (зміна схеми Pers, SQL власнику)"
+              "buildId": "build-fighter-echo-knight-2014",
+              "revisionId": "build-fighter-echo-knight-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
-                "sourceRevisionId": "rpgbot-0b24ff3585da2685-862da66125554d47"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-dioscuri",
             "section-abilities",
@@ -53840,7 +56313,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:platform-limit"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -55602,7 +58076,7 @@
           "recipeMappings": [
             {
               "buildId": "build-fighter-psi-warrior-2014",
-              "revisionId": "build-fighter-psi-warrior-2014-v2",
+              "revisionId": "build-fighter-psi-warrior-2014-v4",
               "supportedLevels": [
                 1,
                 2,
@@ -55621,7 +58095,9 @@
                 15,
                 16,
                 17,
-                18
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -56603,22 +59079,38 @@
           "articleHref": "/rules/optimization/fighter-rune-knight-2014#section-example-rune-knight-build-attaxi-of-the-giant-tabaxi",
           "contentHash": "b1caebc8ef118cd1c857f99780ec985171ca373818d0370e6059a31d0ff123d7",
           "candidateId": "fighter-rune-knight-2014:section-example-rune-knight-build-attaxi-of-the-giant-tabaxi",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "fighter-rune-knight-2014",
-              "reasonCode": "author-choice-not-executable",
-              "reason": "Власна передісторія з вільним вибором двох навичок і двох інструментів (Аналіз поведінки, Виживання, приладдя пивовара, інструменти злодія) тепер підтримана, але автор ще й замінює расові навички Табаксі (Уважність, Непомітність → Медицина, Поводження з тваринами) за «Налаштованим походженням»; сервер завжди додає фіксовані расові навички каталогу, тож заміну расових навичок пресет не записує.",
-              "missing": [
-                "зміна фіксованих расових навичок Табаксі (Customizing Your Origin): Уважність, Непомітність → Медицина, Поводження з тваринами"
+              "buildId": "build-fighter-rune-knight-2014",
+              "revisionId": "build-fighter-rune-knight-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
-                "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-rune-knight-build-attaxi-of-the-giant-tabaxi",
             "section-abilities",
@@ -56638,7 +59130,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:author-choice-not-executable"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -62169,7 +64662,18 @@
                 6,
                 7,
                 8,
-                9
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -62567,14 +65071,28 @@
           "recipeMappings": [
             {
               "buildId": "build-hexbuckler-swashbuckler-2014",
-              "revisionId": "build-hexbuckler-swashbuckler-2014-v3",
+              "revisionId": "build-hexbuckler-swashbuckler-2014-v4",
               "supportedLevels": [
                 1,
                 2,
                 3,
                 4,
                 5,
-                6
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -71918,7 +74436,17 @@
                 7,
                 8,
                 9,
-                10
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -72348,7 +74876,22 @@
                 2,
                 3,
                 4,
-                5
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -73054,9 +75597,28 @@
           "recipeMappings": [
             {
               "buildId": "build-monk-open-hand-2014",
-              "revisionId": "build-monk-open-hand-2014-v1",
+              "revisionId": "build-monk-open-hand-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -73585,11 +76147,30 @@
           "recipeMappings": [
             {
               "buildId": "build-monk-shadow-2014",
-              "revisionId": "build-monk-shadow-2014-v1",
+              "revisionId": "build-monk-shadow-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "coverage": "partial",
+              "coverage": "complete",
               "readyPreset": true
             }
           ],
@@ -74622,22 +77203,38 @@
           "articleHref": "/rules/optimization/monk-way-of-mercy-2014#section-example-build-stuck-halfway",
           "contentHash": "c0b33e27a8b4ee4d2a34428eb308662d67b55d27abb4cb019c4c2cdab1296de9",
           "candidateId": "monk-way-of-mercy-2014:section-example-build-stuck-halfway",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "monk-way-of-mercy-2014",
-              "reasonCode": "author-choice-not-executable",
-              "reason": "Автор бере лісового Напівельфа й обмінює його расові володіння зброєю (Ельфійська зброя, довгий меч, короткий лук) на батіг та інструменти злодія; крім того лісового різновиду Напівельфа в каталозі немає, а сервер завжди видає расові володіння каталогу. Заміна навичок Послушника на Уважність і Виживання тепер підтримана.",
-              "missing": [
-                "лісовий різновид Напівельфа (Ельфійська зброя) і обмін расових володінь зброєю й інструментами"
+              "buildId": "build-monk-way-of-mercy-2014",
+              "revisionId": "build-monk-way-of-mercy-2014-v2",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
-                "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-stuck-halfway",
             "section-abilities",
@@ -74656,7 +77253,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:author-choice-not-executable"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -76262,9 +78860,28 @@
           "recipeMappings": [
             {
               "buildId": "build-paladin-devotion-2014",
-              "revisionId": "build-paladin-devotion-2014-v1",
+              "revisionId": "build-paladin-devotion-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -80079,22 +82696,38 @@
           "articleHref": "/rules/optimization/paladin-oath-of-redemption-2014#section-example-build-apostle-of-peace",
           "contentHash": "ad7866e030bf7d1db0beaae16d87e0e6c0789954af9c48b9c995ec061815820e",
           "candidateId": "paladin-oath-of-redemption-2014:section-example-build-apostle-of-peace",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "paladin-oath-of-redemption-2014",
-              "reasonCode": "platform-limit",
-              "reason": "Підвищення Дуергара за правилами Таші пресет збирає, а заміна Непомітності Шпигуна на Атлетику тепер підтримана як налаштована передісторія, але автор ще й міняє обидва фіксовані володіння Шпигуна інструментами (ігровий набір, інструменти злодія) на мови; лист виводить фіксовані інструменти з самої передісторії, тож вони знову зʼявилися б, і платформа не може їх прибрати.",
-              "missing": [
-                "прибирання фіксованих інструментів передісторії Шпигун (ігровий набір, інструменти злодія) в обмін на мови: потрібна збережена відмітка налаштованої передісторії у персонажа (зміна схеми Pers, SQL власнику)"
+              "buildId": "build-paladin-oath-of-redemption-2014",
+              "revisionId": "build-paladin-oath-of-redemption-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-paladin-oath-of-redemption-2014-draft1",
-                "sourceRevisionId": "rpgbot-f9471bb0881a1317-51aac5194954d5c3"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-apostle-of-peace",
             "section-abilities",
@@ -80113,7 +82746,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:platform-limit"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -80586,23 +83220,38 @@
           "articleHref": "/rules/optimization/paladin-oath-of-the-ancients-2014#section-example-build-celebrant-hunter",
           "contentHash": "ca90664a33463b7992eb42d15003ba0f5469a5e378af41a9a345adb8cf4dc8a8",
           "candidateId": "paladin-oath-of-the-ancients-2014:section-example-build-celebrant-hunter",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "paladin-oath-of-the-ancients-2014",
-              "reasonCode": "other",
-              "reason": "Автор бере Гіффа й Чужинця із заміною Виживання на Аналіз поведінки (це підтримано як налаштована передісторія), але в каталозі Гіфф помилково має расову навичку Атлетика, яку вже дає Чужинець: з нею набір навичок автора (Атлетика, Аналіз поведінки, Переконання, Релігія) відтворити не можна. Автор також радить продати кольчугу й арбалет і купити проклепаний шкіряний обладунок зі щитом.",
-              "missing": [
-                "виправлення даних: прибрати расову навичку Атлетика у Гіффа (SQL §1 у catalog-data-gaps-2026-10-09-owner-applies.sql, ще не застосовано)",
-                "купівля проклепаного шкіряного обладунку й щита за стартове спорядження"
+              "buildId": "build-paladin-oath-of-the-ancients-2014",
+              "revisionId": "build-paladin-oath-of-the-ancients-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
-                "sourceRevisionId": "rpgbot-c21aeda0e3f1afab-aa2347ec79936c67"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-celebrant-hunter",
             "section-abilities",
@@ -80621,7 +83270,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:other"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -81606,23 +84256,38 @@
           "articleHref": "/rules/optimization/paladin-oath-of-the-watchers-2014#section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
           "contentHash": "c1b192ab7fcafd7733149375c155637cf1e096a8047147727f0eb68b97366d30",
           "candidateId": "paladin-oath-of-the-watchers-2014:section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "paladin-oath-of-the-watchers-2014",
-              "reasonCode": "author-choice-not-executable",
-              "reason": "Автор змінює расову навичку Гаренгона (Уважність) на Аналіз поведінки через налаштування походження: сервер завжди додає фіксовані расові навички, тож пресет цього не записує. Також автор радить шаблю з двома лезами, якої немає серед зброї каталогу (SQL §2 для власника ще не застосовано).",
-              "missing": [
-                "зміна расової навички Гаренгона: Уважність → Аналіз поведінки",
-                "шабля з двома лезами відсутня в каталозі зброї"
+              "buildId": "build-paladin-oath-of-the-watchers-2014",
+              "revisionId": "build-paladin-oath-of-the-watchers-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
-                "sourceRevisionId": "rpgbot-740e864d9997128c-e70b545bcfd50c95"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
             "section-abilities",
@@ -81641,7 +84306,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:author-choice-not-executable"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -82112,12 +84778,28 @@
           "recipeMappings": [
             {
               "buildId": "build-paladin-oath-of-vengeance-2-2014",
-              "revisionId": "build-paladin-oath-of-vengeance-2-2014-v1",
+              "revisionId": "build-paladin-oath-of-vengeance-2-2014-v2",
               "supportedLevels": [
                 1,
                 2,
                 3,
-                4
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -83300,22 +85982,38 @@
           "articleHref": "/rules/optimization/paladin-oathbreaker-2014#section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
           "contentHash": "71cef0ad457d59a149a0095e6b0c16bf85fe5c8a42ed61b808d7fac40d75dbf6",
           "candidateId": "paladin-oathbreaker-2014:section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "paladin-oathbreaker-2014",
-              "reasonCode": "missing-catalog-entity",
-              "reason": "Власна передісторія з Обманом і Виступом та ріжком і водним транспортом тепер підтримана, але автор бере Кобольда з Драконячою винахідливістю й навичкою Магія: у каталозі расовий вибір «Драконяча винахідливість» не має запису про навичку (skillProficiencies порожнє), тож навичка Магія не потрапляє в персонажа (дані описані в BUG-015).",
-              "missing": [
-                "навичка Драконячої винахідливості кобольда MPMM (Магія) у даних расової опції"
+              "buildId": "build-paladin-oathbreaker-2014",
+              "revisionId": "build-paladin-oathbreaker-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
-                "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
             "section-abilities",
@@ -83335,7 +86033,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:missing-catalog-entity"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -86069,9 +88768,28 @@
           "recipeMappings": [
             {
               "buildId": "build-ranger-hunter-2014",
-              "revisionId": "build-ranger-hunter-2014-v1",
+              "revisionId": "build-ranger-hunter-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -88720,22 +91438,38 @@
           "articleHref": "/rules/optimization/ranger-drakewarden-2014#section-example",
           "contentHash": "06e250c847d6de04bf232e980026fa658481f693e5ac21671ec4d2e6e1c6942a",
           "candidateId": "ranger-drakewarden-2014:section-example",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "ranger-drakewarden-2014",
-              "reasonCode": "missing-catalog-entity",
-              "reason": "Передісторії «Охоронець» (GUARD) немає серед офіційних передісторій 2014 у каталозі (редакційна примітка статті каже те саме), а автор будує навички та експертизу саме навколо неї. Рішення про заміну передісторії має ухвалити автор пресетів, а не пресет.",
-              "missing": [
-                "background GUARD"
+              "buildId": "build-ranger-drakewarden-2014",
+              "revisionId": "build-ranger-drakewarden-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
-                "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example",
             "section-ability-scores-2",
@@ -88754,7 +91488,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:missing-catalog-entity"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -89186,7 +91921,24 @@
               "supportedLevels": [
                 1,
                 2,
-                3
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -89778,7 +92530,23 @@
                 1,
                 2,
                 3,
-                4
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -92847,7 +95615,7 @@
       "sourceRevisionId": "rpgbot-9f65a2ced3ed6b53-a1822213ad1d0452",
       "sourceContentHash": "1ea90e9b3bb45bcaca47704027a2eb6b7a406f2fe71ee656f9f1de4134255861",
       "translationRevisionId": "translation-rpgbot-ranger-subclasses-2014-draft1",
-      "documentHash": "061a9be0666cc2f95611e1376af76380d4c512e633ffd4b3c9d77eca10ba5878",
+      "documentHash": "04aad5008e42a9cf7284bd395653dd987fdd283a772d0b7bc780546d18c03ebd",
       "documentFile": "uk/rpgbot-ranger-subclasses-2014.json",
       "reviewStatus": "source-heading-inventory-not-human-reviewed",
       "buildCandidates": [],
@@ -94120,9 +96888,28 @@
           "recipeMappings": [
             {
               "buildId": "build-rogue-thief-2014",
-              "revisionId": "build-rogue-thief-2014-v1",
+              "revisionId": "build-rogue-thief-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -96181,22 +98968,38 @@
           "articleHref": "/rules/optimization/rogue-arcane-trickster-2014#section-example-build-small-and-tricksy",
           "contentHash": "da49fc5c91c3155fb9884ed5c869cae25296af4b190d838a06e038de5550a715",
           "candidateId": "rogue-arcane-trickster-2014:section-example-build-small-and-tricksy",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "rogue-arcane-trickster-2014",
-              "reasonCode": "platform-limit",
-              "reason": "Автор бере Експертизу Пройдисвіта в інструментах злодія та Непомітності, а модель листа записує експертизу лише в навичках; решта (Переслідуваний із Магією та Релігією або Історією, обмін мови на набір фальшивомонетника) уже підтримана як налаштована передісторія.",
-              "missing": [
-                "експертиза в інструментах (інструменти злодія) серед виборів експертизи"
+              "buildId": "build-rogue-arcane-trickster-2014",
+              "revisionId": "build-rogue-arcane-trickster-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
-                "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-small-and-tricksy",
             "section-abilities",
@@ -96215,7 +99018,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:platform-limit"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -97870,7 +100674,22 @@
                 2,
                 3,
                 4,
-                5
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -98300,7 +101119,7 @@
           "recipeMappings": [
             {
               "buildId": "build-rogue-mastermind-2014",
-              "revisionId": "build-rogue-mastermind-2014-v2",
+              "revisionId": "build-rogue-mastermind-2014-v3",
               "supportedLevels": [
                 1,
                 2,
@@ -98316,7 +101135,12 @@
                 12,
                 13,
                 14,
-                15
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -99733,7 +102557,23 @@
                 1,
                 2,
                 3,
-                4
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -102114,7 +104954,7 @@
       "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
       "sourceContentHash": "5e1b47b4520ac21a5ccc68d4399f02574b73305866a328ac07a374cba44d2b04",
       "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
-      "documentHash": "1ccd6b210f467880f4912ba9ad268381346b1e3a8a2ee0d5e5e84e0e025375b8",
+      "documentHash": "3a0ba1686df2378b4ae4cdb1a515bdf58aaf5d2ec9a11b18dd10648ec7a89d0d",
       "documentFile": "uk/rpgbot-sorcadin-handbook-2014.json",
       "reviewStatus": "source-heading-inventory-not-human-reviewed",
       "buildCandidates": [
@@ -102137,7 +104977,7 @@
           "recipeMappings": [
             {
               "buildId": "build-sorcadin-clockwork-2014",
-              "revisionId": "build-sorcadin-clockwork-2014-v1",
+              "revisionId": "build-sorcadin-clockwork-2014-v2",
               "supportedLevels": [
                 1,
                 2,
@@ -102145,7 +104985,20 @@
                 4,
                 5,
                 6,
-                7
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -102240,13 +105093,13 @@
         {
           "sectionId": "section-sorcadin-introduction",
           "headingEn": "Sorcadin Introduction",
-          "contentHash": "ede6bac50e3c25459a9c2689397197415866e027b7dfdcc04a449ab22a5b92bf",
+          "contentHash": "eae23d83901dd1e6513bd82c3294b8d77c8f021ab9e3601cdb50815f2389c677",
           "disposition": "other-section"
         },
         {
           "sectionId": "section-2",
           "headingEn": null,
-          "contentHash": "139b1cab813d00c17caea8c0d3894b45e3023d4a7fcdf3c46c0054e1b7e654fa",
+          "contentHash": "d0f737d5e83156e1b3bb2bfbf28ed86a603023d7abe908949181845712269a27",
           "disposition": "other-section"
         },
         {
@@ -102264,13 +105117,13 @@
         {
           "sectionId": "section-sorcerer",
           "headingEn": "Sorcerer",
-          "contentHash": "26e043bc6811aedafa4013dc4169fd469669bfc65cc6c57f2ca343e6e1267c38",
+          "contentHash": "e6dea02a95fffb14036aeba8f2bae4117c1cec4f8ea9f9d93f6c8142304eec7d",
           "disposition": "other-section"
         },
         {
           "sectionId": "section-paladin",
           "headingEn": "Paladin",
-          "contentHash": "da1d75a17f56232d2777a96912a38ab6e3b991906dd823208c7262d763ffe65d",
+          "contentHash": "72df8314a77cc0b13792b778e033822f8c3c12e926fd15a925134ee029e424b4",
           "disposition": "other-section"
         },
         {
@@ -102333,9 +105186,28 @@
           "recipeMappings": [
             {
               "buildId": "build-sorcerer-draconic-2014",
-              "revisionId": "build-sorcerer-draconic-2014-v1",
+              "revisionId": "build-sorcerer-draconic-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -103956,7 +106828,11 @@
                 13,
                 14,
                 15,
-                16
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -104427,23 +107303,38 @@
           "articleHref": "/rules/optimization/sorcerer-clockwork-soul-2014#section-example-clockwork-soul-build-precision-engineering",
           "contentHash": "6ace48103e00bb5edf81cad26a66745598f0e41c76d542a13409ae6fcc557e48",
           "candidateId": "sorcerer-clockwork-soul-2014:section-example-clockwork-soul-build-precision-engineering",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "sorcerer-clockwork-soul-2014",
-              "reasonCode": "author-choice-not-executable",
-              "reason": "Гірський дворф із налаштованим походженням: автор ставить +2/+2 у Статуру й Харизму (каталог за правилами Таші для класичної раси дає +2 і +1) та обмінює всі володіння зброєю дворфа на шість наборів інструментів; пресет не записує ні такого розподілу, ні обміну володінь.",
-              "missing": [
-                "підвищення +2/+2 для класичної раси (Гірський дворф)",
-                "обмін расових володінь зброєю на інструменти"
+              "buildId": "build-sorcerer-clockwork-soul-2014",
+              "revisionId": "build-sorcerer-clockwork-soul-2014-v2",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
-                "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-clockwork-soul-build-precision-engineering",
             "section-abilities",
@@ -104462,7 +107353,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:author-choice-not-executable"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -104963,7 +107855,10 @@
                 14,
                 15,
                 16,
-                17
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -105399,7 +108294,18 @@
                 6,
                 7,
                 8,
-                9
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -105868,9 +108774,28 @@
           "recipeMappings": [
             {
               "buildId": "build-sorcerer-lunar-sorcery-2014",
-              "revisionId": "build-sorcerer-lunar-sorcery-2014-v1",
+              "revisionId": "build-sorcerer-lunar-sorcery-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -107220,22 +110145,38 @@
           "articleHref": "/rules/optimization/sorcerer-shadow-magic-2014#section-example-shadow-magic-origin-build-goose-goose-revolution",
           "contentHash": "fd65bb8529428b07005cb82532ec206400db94783679b5b6f48866401382524d",
           "candidateId": "sorcerer-shadow-magic-2014:section-example-shadow-magic-origin-build-goose-goose-revolution",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "sorcerer-shadow-magic-2014",
-              "reasonCode": "author-choice-not-executable",
-              "reason": "Мультиклас Воїн 1 / Чародій тепер описується полем levels, але автор обмінює всі володіння Пагорбового дворфа (зброя й обладунки) на пʼять наборів інструментів; сервер і лист завжди видають расові володіння каталогу, тож заміну пресет не записує.",
-              "missing": [
-                "обмін расових володінь зброєю на набори інструментів (налаштоване походження Пагорбового дворфа)"
+              "buildId": "build-sorcerer-shadow-magic-2014",
+              "revisionId": "build-sorcerer-shadow-magic-2014-v1",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
-                "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-shadow-magic-origin-build-goose-goose-revolution",
             "section-abilities",
@@ -107254,7 +110195,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:author-choice-not-executable"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -110334,7 +113276,20 @@
                 4,
                 5,
                 6,
-                7
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -110387,7 +113342,23 @@
                 1,
                 2,
                 3,
-                4
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -118567,9 +121538,28 @@
           "recipeMappings": [
             {
               "buildId": "build-warlock-fiend-2014",
-              "revisionId": "build-warlock-fiend-2014-v1",
+              "revisionId": "build-warlock-fiend-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -120609,7 +123599,16 @@
                 8,
                 9,
                 10,
-                11
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -120966,7 +123965,7 @@
           "recipeMappings": [
             {
               "buildId": "build-warlock-stout-halfling-celestial-2014",
-              "revisionId": "build-warlock-stout-halfling-celestial-2014-v3",
+              "revisionId": "build-warlock-stout-halfling-celestial-2014-v4",
               "supportedLevels": [
                 1,
                 2,
@@ -120985,7 +123984,9 @@
                 15,
                 16,
                 17,
-                18
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -121922,7 +124923,16 @@
                 8,
                 9,
                 10,
-                11
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -122350,7 +125360,7 @@
           "recipeMappings": [
             {
               "buildId": "build-warlock-genie-2014",
-              "revisionId": "build-warlock-genie-2014-v4",
+              "revisionId": "build-warlock-genie-2014-v5",
               "supportedLevels": [
                 1,
                 2,
@@ -122370,7 +125380,8 @@
                 16,
                 17,
                 18,
-                19
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -123051,7 +126062,7 @@
           "recipeMappings": [
             {
               "buildId": "build-warlock-kenku-great-old-one-2014",
-              "revisionId": "build-warlock-kenku-great-old-one-2014-v4",
+              "revisionId": "build-warlock-kenku-great-old-one-2014-v5",
               "supportedLevels": [
                 1,
                 2,
@@ -123061,7 +126072,18 @@
                 6,
                 7,
                 8,
-                9
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -127311,7 +130333,16 @@
                 8,
                 9,
                 10,
-                11
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -127750,7 +130781,18 @@
                 6,
                 7,
                 8,
-                9
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -129027,13 +132069,28 @@
           "recipeMappings": [
             {
               "buildId": "build-wizard-evocation-2014",
-              "revisionId": "build-wizard-evocation-2014-v2",
+              "revisionId": "build-wizard-evocation-2014-v3",
               "supportedLevels": [
                 1,
                 2,
                 3,
                 4,
-                5
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -130682,7 +133739,25 @@
               "revisionId": "build-wizard-abjuration-2014-v1",
               "supportedLevels": [
                 1,
-                2
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -131979,7 +135054,25 @@
               "revisionId": "build-wizard-chronurgy-magic-2014-v1",
               "supportedLevels": [
                 1,
-                2
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -132493,7 +135586,20 @@
                 4,
                 5,
                 6,
-                7
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -132915,9 +136021,28 @@
           "recipeMappings": [
             {
               "buildId": "build-wizard-divination-2014",
-              "revisionId": "build-wizard-divination-2014-v1",
+              "revisionId": "build-wizard-divination-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -133347,7 +136472,25 @@
               "revisionId": "build-wizard-enchantment-2014-v2",
               "supportedLevels": [
                 1,
-                2
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -133829,7 +136972,24 @@
               "supportedLevels": [
                 1,
                 2,
-                3
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -134360,22 +137520,38 @@
           "articleHref": "/rules/optimization/wizard-graviturgy-magic-2014#section-example-build-pull",
           "contentHash": "42508177886b15daa891ae6354f9ac39869065661c88df8f4127fa1fda8b962e",
           "candidateId": "wizard-graviturgy-magic-2014:section-example-build-pull",
-          "disposition": "incomplete-documented",
-          "recipeMappings": [],
-          "blockers": [
+          "disposition": "recipe-present",
+          "recipeMappings": [
             {
-              "specSlug": "wizard-graviturgy-magic-2014",
-              "reasonCode": "author-choice-not-executable",
-              "reason": "Автор каже, що клас і Мудрець дають Магію, Історію, Природу й Релігію, але Природи немає ні в класових навичках Чарівника, ні в Мудреця, а Своя раса дає лише Темнозір. Єдиний законний шлях — налаштувати передісторію за правилом PHB (тепер підтримано), проте автор цього не пише; які саме дві навички Мудреця він замінює на Природу й чим доповнює, пресет не вигадує.",
-              "missing": [
-                "навичка Природа: автор не вказує налаштування передісторії Мудреця, без якого Природа недоступна"
+              "buildId": "build-wizard-graviturgy-magic-2014",
+              "revisionId": "build-wizard-graviturgy-magic-2014-v2",
+              "supportedLevels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
-              "reviewedRevision": {
-                "translationRevisionId": "translation-rpgbot-wizard-graviturgy-magic-2014-draft1",
-                "sourceRevisionId": "rpgbot-ed4bae1eb3e7290a-9edeb52ae222e8a6"
-              }
+              "coverage": "partial",
+              "readyPreset": true
             }
           ],
+          "blockers": [],
           "sectionIds": [
             "section-example-build-pull",
             "section-abilities",
@@ -134394,7 +137570,8 @@
             "skills-and-tools"
           ],
           "remainingWork": [
-            "resolve-documented-blocker:author-choice-not-executable"
+            "compile-and-validate-requested-level-snapshots",
+            "verify-full-character-db-and-sheet-state"
           ]
         }
       ],
@@ -135270,9 +138447,28 @@
           "recipeMappings": [
             {
               "buildId": "build-wizard-necromancy-2014",
-              "revisionId": "build-wizard-necromancy-2014-v1",
+              "revisionId": "build-wizard-necromancy-2014-v2",
               "supportedLevels": [
-                1
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true
@@ -140145,7 +143341,25 @@
               "revisionId": "build-wizard-war-magic-2014-v1",
               "supportedLevels": [
                 1,
-                2
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
               ],
               "coverage": "partial",
               "readyPreset": true

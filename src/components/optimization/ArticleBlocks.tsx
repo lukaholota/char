@@ -1,6 +1,6 @@
 import { buildListTree, describeRating, findCellRating, findHeaderRating, findRating, groupListNodesByKind, type ListNode, type RatingIndex, type ResolvedLink } from "@/lib/optimization/article-view";
 import { describeLinkCard, findLegendRating, findLinkCards, findLoneLink, isOwnArticleLink, splitRatedLabel, type LinkCardView } from "@/lib/optimization/inline-view";
-import type { AnalysisRating, ContentBlock, InlineNode } from "@/lib/optimization/types";
+import type { AnalysisRating, ContentBlock, InlineNode, OptimizationRuleset } from "@/lib/optimization/types";
 import { cn } from "@/lib/utils";
 import { findSpellLinkInHref } from "@/lib/spell-link";
 import { findTermLinkInHref } from "@/lib/term-link";
@@ -16,6 +16,7 @@ export type BlockContext = {
   ownArticlePath: string;
   headingLevel: number;
   sectionHeading: string;
+  ruleset: OptimizationRuleset;
 };
 
 const TEXT_CLASSES = "text-sm leading-relaxed text-slate-300 md:text-[15px]";
@@ -42,7 +43,7 @@ function Inline({ nodes, context }: { nodes: readonly InlineNode[]; context: Blo
     const link = context.resolveLink(href);
     return { ...link, isSamePage: isOwnArticleLink(link.href, context.ownArticlePath) };
   };
-  return <InlineContent nodes={nodes} resolveLink={resolveLink} linkClassName={context.linkClassName} />;
+  return <InlineContent nodes={nodes} resolveLink={resolveLink} linkClassName={context.linkClassName} ruleset={context.ruleset} />;
 }
 
 type RatingLike = Pick<AnalysisRating, "score" | "context">;

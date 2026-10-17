@@ -40,12 +40,7 @@ import { useWildshapeRatings } from "@/components/bestiary/useWildshapeRatings";
 import { isCommunityCreature, useDeepSearchMatches, useIndexWithCommunityHomebrew, useShuffleSeed } from "@/components/bestiary/useCreatureListing";
 import { useWildshapePicking } from "@/components/bestiary/useWildshapePicking";
 import { BestiarySortMenu } from "@/components/bestiary/BestiarySortMenu";
-import {
-  DEFAULT_CREATURE_SORT,
-  parseCreatureSortMode,
-  sortCreatureListing,
-  type CreatureSortMode,
-} from "@/lib/bestiary-sort";
+import { DEFAULT_CREATURE_SORT, parseCreatureSortMode, sortCreatureListing, type CreatureSortMode } from "@/lib/bestiary-sort";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import { useCatalogDeepLinkFocus } from "@/hooks/useCatalogDeepLinkFocus";
 import {

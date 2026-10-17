@@ -50,10 +50,10 @@ function BoundFeatureAnalysis({ feature, name, placement, subclass }: { feature:
 function FeatureAnalysisContent({ feature, name }: { feature: z.infer<typeof featureAnalysisSchema>; name: string }) {
   return <>
       {feature.rating ? <div><RatingBadge rating={feature.rating} /></div> : <p className="mb-2 text-xs text-slate-400">Без окремої оцінки автора</p>}
-      <div><InlineContent nodes={feature.content} resolveLink={(href) => ({ href, isExternal: /^https?:/.test(href) })} linkClassName="text-amber-200" /></div>
+      <div><InlineContent nodes={feature.content} resolveLink={(href) => ({ href, isExternal: /^https?:/.test(href) })} linkClassName="text-amber-200" ruleset={feature.binding.entity.ruleset} /></div>
       {feature.childrenBlock ? <div className="mt-2"><ArticleBlock block={feature.childrenBlock} context={{
         ratingIndex: new Map(), ratings: [], resolveLink: (href) => ({ href, isExternal: /^https?:/.test(href) }),
-        linkClassName: "text-amber-200", ownArticlePath: feature.href.split("#")[0], headingLevel: 3, sectionHeading: name,
+        linkClassName: "text-amber-200", ownArticlePath: feature.href.split("#")[0], headingLevel: 3, sectionHeading: name, ruleset: feature.binding.entity.ruleset,
       }} /></div> : null}
       <ModeLink prefetch={false} href={feature.href} {...buildRpgbotCtaProps("open_article", "feature_analysis", feature.binding.entity.entityKey)} className="mt-3 block min-h-11 py-2 text-amber-200 underline">Відкрити в статті</ModeLink>
   </>;

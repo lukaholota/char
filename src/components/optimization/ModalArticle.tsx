@@ -17,7 +17,7 @@ export function ModalArticle({ document, sectionId }: { document: ArticleDocumen
     {sections.map((section) => <section key={section.sectionId} id={section.sectionId} className="scroll-mt-16">
       <h4 tabIndex={-1} className="mb-3 font-rpg-display text-lg text-slate-100">{section.heading}</h4>
       {section.blocks.map((block) => <ArticleBlock key={block.blockId} block={block} context={{ ratingIndex, ratings: document.ratings,
-        resolveLink: (href) => resolveArticleLink(href, new Map()), linkClassName: "text-slate-200 underline", ownArticlePath: buildDraftArticleHref(document.article.ruleset, document.article.slug), headingLevel: 4, sectionHeading: section.heading }} />)}
+        resolveLink: (href) => resolveArticleLink(href, new Map()), linkClassName: "text-slate-200 underline", ownArticlePath: buildDraftArticleHref(document.article.ruleset, document.article.slug), headingLevel: 4, sectionHeading: section.heading, ruleset: document.article.ruleset }} />)}
     </section>)}
   </div></ContentReferenceProvider>;
 }

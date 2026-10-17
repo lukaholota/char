@@ -1,4 +1,5 @@
 import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
+import { isRpgbotAbbreviationsHref } from "./rpgbot-source-codes";
 import type { AnalysisRating, InlineNode } from "./types";
 
 type LinkNode = Extract<InlineNode, { type: "link" }>;
@@ -61,7 +62,7 @@ export type LinkCardView = { title: string; href: string; isExternal: boolean; s
 
 export function findLoneLink(nodes: readonly InlineNode[]): LinkNode | undefined {
   const [only] = nodes;
-  return nodes.length === 1 && only.type === "link" ? only : undefined;
+  return nodes.length === 1 && only.type === "link" && !isRpgbotAbbreviationsHref(only.href) ? only : undefined;
 }
 
 export function describeLinkCard(node: LinkNode, link: { href: string; isExternal: boolean }): LinkCardView {

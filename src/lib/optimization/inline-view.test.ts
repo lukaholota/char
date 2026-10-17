@@ -77,6 +77,12 @@ describe("картки-посилання", () => {
     expect(findLinkCards([], resolve, "/x")).toBeUndefined();
   });
 
+  it("не робить картки з позначок джерел, що ведуть на сторінку скорочень RPGbot", () => {
+    const marker = link("PHB", "https://rpgbot.net/dnd5/abbreviations/");
+    expect(findLoneLink([marker])).toBeUndefined();
+    expect(findLinkCards([[marker], [link("XGtE", "https://rpgbot.net/dnd5/abbreviations/")]], resolve, "/x")).toBeUndefined();
+  });
+
   it("відрізняє власну статтю від сусідньої з тим самим початком адреси", () => {
     expect(isOwnArticleLink("/rules/optimization/monk-2014", "/rules/optimization/monk-2014")).toBe(true);
     expect(isOwnArticleLink("/rules/optimization/monk-2014#a", "/rules/optimization/monk-2014")).toBe(true);

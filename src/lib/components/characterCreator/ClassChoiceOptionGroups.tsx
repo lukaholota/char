@@ -1,11 +1,14 @@
 "use client";
 
+import { RatingBadge } from "@/components/optimization/RatingBadge";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { LinkedPreview } from "@/components/ui/LinkedPreview";
 import { translateEnumLikeLabel } from "@/lib/components/characterCreator/infoUtils";
 import { findChoiceOptionCardText } from "@/lib/logic/choice-option-card-text";
+import { stripToPlainText } from "@/lib/logic/plain-text";
+import type { ChoiceOptionRating } from "@/lib/optimization/choice-option-rating-lookup";
 import { checkPrerequisite, PrerequisiteResult } from "@/lib/logic/prerequisiteUtils";
 import { ClassI } from "@/lib/types/model-types";
 import { buildSelectableCardProps } from "@/lib/components/characterCreator/selectable-card-props";
@@ -27,7 +30,8 @@ type Props = {
     selections: Selections;
   };
   onSelectOption(groupName: string, optionId: number, options: ChoiceOptions): void;
-  onShowFeatures: (title: string, features?: ChoiceOption["choiceOption"]["features"]) => void;
+  onShowFeatures: (title: string, features?: ChoiceOption["choiceOption"]["features"], rating?: ChoiceOptionRating | null) => void;
+  findRating?: (option: ChoiceOption["choiceOption"]) => ChoiceOptionRating | null;
 };
 
 export function ClassChoiceOptionGroups({
@@ -35,6 +39,7 @@ export function ClassChoiceOptionGroups({
   selectionState,
   onSelectOption,
   onShowFeatures,
+  findRating,
 }: Props) {
   return (
     <div className="space-y-4">
@@ -46,6 +51,7 @@ export function ClassChoiceOptionGroups({
           selectionState={selectionState}
           onSelectOption={onSelectOption}
           onShowFeatures={onShowFeatures}
+          findRating={findRating}
         />
       ))}
     </div>
@@ -58,6 +64,7 @@ type GroupProps = {
   selectionState: Props["selectionState"];
   onSelectOption: Props["onSelectOption"];
   onShowFeatures: Props["onShowFeatures"];
+  findRating?: Props["findRating"];
 };
 
 function ClassChoiceOptionGroup({
@@ -66,10 +73,11 @@ function ClassChoiceOptionGroup({
   selectionState,
   onSelectOption,
   onShowFeatures,
+  findRating,
 }: GroupProps) {
   const required = getRequiredSelections(groupName, selectionState);
   const selectedCount = getSelectedCount(groupName, selectionState.selections);
-  const orderedOptions = sortAvailableFirst(options, selectionState);
+  const orderedOptions = sortAvailableThenBestRated(options, selectionState, findRating);
 
   return (
     <Card className="">
@@ -85,7 +93,7 @@ function ClassChoiceOptionGroup({
         </div>
 
         <div className="grid grid-cols-1 gap-3">
-          {orderedOptions.map(({ option, prerequisite, cardText }) => (
+          {orderedOptions.map(({ option, prerequisite, cardText, rating }) => (
             <ClassChoiceOptionCard
               key={option.choiceOptionId}
               groupName={groupName}
@@ -93,6 +101,7 @@ function ClassChoiceOptionGroup({
               options={options}
               cardText={cardText}
               prerequisite={prerequisite}
+              rating={rating}
               selectionState={selectionState}
               onSelectOption={onSelectOption}
               onShowFeatures={onShowFeatures}
@@ -106,11 +115,12 @@ function ClassChoiceOptionGroup({
 
 type CardText = ReturnType<typeof findChoiceOptionCardText>;
 
-type CardProps = Omit<GroupProps, "groupName"> & {
+type CardProps = Omit<GroupProps, "groupName" | "findRating"> & {
   groupName: string;
   option: ChoiceOption;
   cardText: CardText;
   prerequisite: PrerequisiteResult;
+  rating: ChoiceOptionRating | null;
 };
 
 function ClassChoiceOptionCard({
@@ -119,6 +129,7 @@ function ClassChoiceOptionCard({
   options,
   cardText,
   prerequisite,
+  rating,
   selectionState,
   onSelectOption,
   onShowFeatures,
@@ -146,7 +157,7 @@ function ClassChoiceOptionCard({
                 variant="secondary"
                 className="glass-panel border-gradient-rpg h-10 w-10 md:h-8 md:w-8 rounded-full text-slate-100 transition-all duration-200 hover:text-white focus-visible:ring-arcane-400/30"
                 aria-label={`Інформація про ${label}`}
-                onClick={() => onShowFeatures(label || "Опція", option.choiceOption.features)}
+                onClick={() => onShowFeatures(label || "Опція", option.choiceOption.features, rating)}
               >
                 <HelpCircle className="h-4 w-4" />
               </Button>
@@ -164,12 +175,19 @@ function ClassChoiceOptionCard({
           markup={cardText.previewMarkup}
           className={clsx("line-clamp-2 text-sm", locked ? "text-slate-500" : "text-slate-400")}
         />
+
+        {rating ? (
+          <p className="line-clamp-2 text-sm text-slate-300">
+            <RatingBadge rating={{ score: rating.score, context: "" }} />
+            {stripToPlainText(rating.comment)}
+          </p>
+        ) : null}
       </CardContent>
     </Card>
   );
 }
 
-function sortAvailableFirst(options: ChoiceOptions, selectionState: Props["selectionState"]) {
+function sortAvailableThenBestRated(options: ChoiceOptions, selectionState: Props["selectionState"], findRating: Props["findRating"]) {
   const existingChoiceOptionIds = Object.values(selectionState.selections)
     .flat()
     .filter((id) => typeof id === "number") as number[];
@@ -184,8 +202,9 @@ function sortAvailableFirst(options: ChoiceOptions, selectionState: Props["selec
         pact: selectionState.charPact,
         existingChoiceOptionIds,
       }),
+      rating: findRating?.(option.choiceOption) ?? null,
     }))
-    .sort((a, b) => Number(b.prerequisite.met) - Number(a.prerequisite.met));
+    .sort((a, b) => Number(b.prerequisite.met) - Number(a.prerequisite.met) || (b.rating?.score ?? 0) - (a.rating?.score ?? 0));
 }
 
 function getRequiredSelections(groupName: string, selectionState: Props["selectionState"]) {

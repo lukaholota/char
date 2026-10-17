@@ -1,5 +1,5 @@
 {
- "note": "112 готових персонажів без портрета; факти взято з data/rpgbot/ready-builds та builds. Раса/клас/підклас/передісторія — ключі каталогу 2014 (англійською).",
+ "note": "114 готових персонажів без портрета; факти взято з data/rpgbot/ready-builds та builds. Раса/клас/підклас/передісторія — ключі каталогу 2014 (англійською).",
  "presets": [
   {
    "file": "preset-artificer-alchemist-2014",
@@ -374,6 +374,55 @@
    "chosenWeapons": [],
    "classOptions": [],
    "maxPlannedLevel": 18
+  },
+  {
+   "file": "preset-blood-hunter-ghostslayer-rapier-2014",
+   "title": "Кривавий мисливець — рапіра",
+   "authorConcept": "Мисливець на привидів у ближньому бою: рапіра, Дуель і криваві прокляття. Орден відкриється на 3-му рівні.",
+   "startingClass": "BLOOD_HUNTER_2014",
+   "subclass": "ORDER_OF_THE_GHOSTSLAYER",
+   "otherClassesInPlan": [],
+   "race": "HALFLING_2014",
+   "subraceOrVariant": "HALFLING_STOUT_2014",
+   "background": "SAILOR",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "RAPIER"
+   ],
+   "classOptions": [
+    "Hemocraft Ability: Intelligence",
+    "Blood Curse of the Fallen Puppet",
+    "Dueling"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-blood-hunter-ghostslayer-shortbow-2014",
+   "title": "Кривавий мисливець — короткий лук",
+   "authorConcept": "Мисливець на привидів на відстані: короткий лук, Стрільба з лука й криваві прокляття. Орден відкриється на 3-му рівні.",
+   "startingClass": "BLOOD_HUNTER_2014",
+   "subclass": "ORDER_OF_THE_GHOSTSLAYER",
+   "otherClassesInPlan": [],
+   "race": "HALFLING_2014",
+   "subraceOrVariant": "HALFLING_STOUT_2014",
+   "background": "CRIMINAL",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "SHORTBOW",
+    "DAGGER"
+   ],
+   "classOptions": [
+    "Hemocraft Ability: Intelligence",
+    "Blood Curse of the Fallen Puppet",
+    "Archery"
+   ],
+   "maxPlannedLevel": 20
   },
   {
    "file": "preset-bugbear-ambush-caster-2014",

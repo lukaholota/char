@@ -1,0 +1,867 @@
+{
+  "buildId": "build-blood-hunter-ghostslayer-rapier-2014",
+  "revisionId": "build-blood-hunter-ghostslayer-rapier-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Кривавого мисливця — Напіврослик, Кривавий мисливець (Орден мисливців на привидів)",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-blood-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+      "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BLOOD_HUNTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Dueling"
+          },
+          {
+            "optionNameEng": "Rite of the Storm"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ORDER_OF_THE_GHOSTSLAYER",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Blood Curse of Binding"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Rite of the Frozen"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Blood Curse of the Eyeless"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Blood Curse of the Anxious"
+          },
+          {
+            "optionNameEng": "Rite of the Roar"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Blood Curse of Bloated Agony"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BLOOD_HUNTER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-blood-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ORDER_OF_THE_GHOSTSLAYER",
+    "raceKey": "HALFLING_2014",
+    "backgroundKey": "SAILOR",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 14
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми трохи відступимо від запропонованих вище значень характеристик, щоб вичавити максимум із расових підвищень характеристик. У підсумку матимемо по 16 у Спритності й Статурі та 14 в Інтелекті. Це дає вдосталь ХП, щоб витрачати їх на «Багряний обряд»{{Crimson Rite}} і на підсилення Кривавих проклять{{Blood Curse}}, а 14 Інтелекту — цілком пристойне значення для підтримки умінь Кривавого мисливця, що базуються на Інтелекті.\n\n  Базове значення Підвищене значення Сила 8 8 Спритність 14 16 Статура 15 16 Інтелект 14 14 Мудрість 12 12 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Кремезний напіврослик{{Stout Halfling}}. Це дає добрі підвищення характеристик, «Удачу»{{Lucky}}, стійкість до страху й стійкість до отрути. Приємний витривалий набір, який не ускладнює збірку.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Приладдя алхіміка{{Alchemist’s Supplies}} ми отримуємо безкоштовно, плюс три навички від Кривавого мисливця. Магія{{Arcana}}, Історія{{History}} і Розслідування{{Investigation}} — усе чудові вибори. Якщо в групі є хтось на кшталт чарівника, який і так дуже добрий у Магії, замініть її на Релігію{{Religion}}.\n\nСкористайтеся передісторією, щоб отримати ще кілька володінь, які пасують вашій ролі в групі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-2",
+        "title": "Передісторія",
+        "text": "Якщо ви вписуєтеся в групу радше як воїн, шукайте володіння Уважністю{{Perception}} і, можливо, Акробатикою{{Acrobatics}} або Атлетикою{{Athletics}}, щоб мати чим вирватися, коли вас схоплять.\n\nЯкщо ви вписуєтеся в групу радше як пройдисвіт, шукайте володіння Непомітністю{{Stealth}} та інструментами злодія{{Thieves’ Tools}}. Передісторія Злочинця{{Criminal}} — чудовий приклад.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-background-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Ми пропустимо риси, щоб збірка лишалася простою, але якщо ваша збірка розрахована на бій на відстані, вам дуже допоможе «Експерт з арбалетів»{{Crossbow Expert}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Кубик гемокрафту: 1к4\nМисливська погибель\nКриваве наврочення (1/відпочинок)\nКриваве прокляття полеглої маріонетки",
+        "notes": "Перший рівень — чудовий час поекспериментувати з переходом між ближнім і дальнім боєм. З рапірою{{Rapier}} і коротким луком{{Shortbow}} ви однаково ефективні, тож користуйтеся тим, що пасує ситуації. Зʼясуйте, що працює саме для вас, до 2-го рівня, коли треба буде обрати «Бойовий стиль»{{Fighting Style}}. Наше перше Криваве прокляття{{Blood Curse}} — «Криваве прокляття полеглої маріонетки»{{Blood Curse of the Fallen Puppet}}. На низьких рівнях істоти (зокрема ваші союзники) часто падають до 0 ХП, тож нагод буде вдосталь, а навіть одна атака може сильно вплинути на результат сутички. Але будьте обережні, підсилюючи ефекти. 1к4 ХП звучить небагато, але коли у вас 13 ХП, це може добряче вдарити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Бойовий стиль: Стрільба з лука або Дуель\nБагряний обряд\nПервісний обряд: Обряд бурі",
+        "notes": "На цьому етапі треба визначитися з «Бойовим стилем»{{Fighting Style}}. Якщо ви бʼєтеся переважно в ближньому бою, візьміть щит і «Дуель»{{Dueling}}. Якщо переважно на відстані, візьміть короткий лук і «Стрільбу з лука»{{Archery}}. 2-й рівень приносить «Багряний обряд»{{Crimson Rite}} — одне з найзнаковіших і найефектніших умінь Кривавого мисливця. Загалом «Багряний обряд» варто активувати, щойно ви підозрюєте, що зіткнетеся з ворогами, щоб він був готовий, коли знадобиться. Він коштує вам 1к4 ХП, але якщо ви влучите кілька разів, це легко себе окупить. На цьому рівні ми обрали шкоду блискавкою, бо опір до неї відносно рідкісний, але на 3-му рівні змінимо тип шкоди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Орден кривавих мисливців: Орден мисливців на привидів\nОбряд світанку\nЗнавець проклять\nКриваве наврочення (2/відпочинок)",
+        "notes": "«Обряд світанку»{{Rite of the Dawn}} дає змогу завдавати «Багряним обрядом»{{Crimson Rite}} променеву шкоду, а це чудовий варіант, бо їй рідко чинять опір. «Знавець проклять»{{Curse Specialist}} дозволяє використовувати «Криваве наврочення»{{Blood Maledict}} ще раз на день, але в нас досі лише «Криваве прокляття полеглої маріонетки»{{Blood Curse of the Fallen Puppet}}, тож користуйтеся ним за кожної нагоди. Воно більше не обмежене істотами з кровʼю, тож його можна застосовувати до скелетів і големів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Спритність 16 → 18)",
+        "notes": "Більше Спритності підвищує ваш КБ, атаки та шкоду.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Кубик гемокрафту: 1к6\nДодаткова атака",
+        "notes": "Це чудовий рівень для шкоди. Друга атака означає, що ви можете частіше завдавати шкоди «Багряним обрядом»{{Crimson Rite}}, а більший кубик гемокрафту{{Hemocraft Die}} означає, що ця шкода ще більша. Звісно, більший кубик також означає, що «Багряний обряд» коштує дорожче, але це однозначно того варте.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Криваве наврочення (3/відпочинок)\nКриваве прокляття пут\nТавро покарання",
+        "notes": "«Криваве прокляття пут»{{Blood Curse of Binding}} — потужний спосіб утримати окрему ціль на місці. Якщо ви бʼєтеся на відстані, а ворог ні, можна зупинити його й розстрілювати, поки він борсається. Якщо ворог бʼється на відстані, а ви цього не хочете, можна зупинити його й вийти в ближній бій. Мабуть, ще важливіше, що цим можна змусити літаючих ворогів упасти, якщо вони літають немагічним чином. «Тавро покарання»{{Brand of Castigation}} не можна застосовувати так часто, щоб воно сильно вплинуло на вашу тактику, але це приємний варіант, коли ви зосередилися на одному ворогові з великим запасом ХП. Воно також відбиває в цілі бажання атакувати ваших союзників, що чудово, коли треба відвернути увагу від тих, у кого мало ХП.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ефірна хода\nПервісний обряд: Обряд морозу",
+        "notes": "Ви можете використовувати «Ефірну ходу»{{Ethereal Step}} або щоб проходити крізь тверді перешкоди на кшталт стін і дверей, або в бою, щоб оминути проблемних ворогів і дістатися до їхніх тендітних друзів, як-от заклинателів і лучників. «Обряд морозу»{{Rite of the Frozen}} — приємний варіант, але не очікуйте, що використовуватимете його часто, бо променева шкода значно надійніша.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Спритність 18 → 20)",
+        "notes": "Більше атаки, шкоди та КБ.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Похмура психометрія",
+        "notes": "«Похмура психометрія»{{Grim Psychometry}} — дивне вміння, яким важко користуватися, якщо ваш Майстер не готовий докласти зусиль, щоб його підтримати. Сподіваємося, що якщо ви дісталися 9-го рівня, ваш Майстер до цього готовий.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Криваве прокляття безоких\nТемне зміцнення",
+        "notes": "«Криваве прокляття безоких»{{Blood Curse of the Eyeless}} — корисний оборонний варіант, що може скасувати успішний кидок атаки ворога. На жаль, це певна авантюра, але коли ворог влучає із запасом лише в 1–2 пункти, це чудово. «Темне зміцнення»{{Dark Augmentation}} не змінює вашу тактику суттєво, але дає корисний бонус до фізичних ряткидків. Тепер, коли у вас 20 Спритності, можна підвищувати Інтелект, щоб збільшити цей бонус.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Кубик гемокрафту: 1к8\nТавро розколу",
+        "notes": "«Тавро розколу»{{Brand of Sundering}} — вражаюча протидія ворогам на кшталт привидів, що проходять крізь тверді стіни, але навіть проти звичайніших ворогів додатковий кубик гемокрафту{{Hemocraft Die}} поверх вашого бонусу Інтелекту — значне зростання шкоди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик (Інтелект 14 → 16)",
+        "notes": "Кращі ряткидки, а СК ваших Кривавих проклять{{Blood Curse}} зростає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Криваве наврочення (4/відпочинок)\nТавро привʼязі",
+        "notes": "«Тавро привʼязі»{{Brand of Tethering}} не дає ворогам утекти способами, яким «Криваве прокляття пут»{{Blood Curse of Binding}} не завадить. «Тавро привʼязі» забороняє телепортацію та міжпланарні подорожі, що робить його чудовим варіантом проти ворогів на кшталт заклинателів і могутніх почвар, які часто можуть накласти Планарний перехід [Plane Shift].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Криваве прокляття: будь-яке\nЗагартована душа\nЕзотеричний обряд: Обряд гуркоту",
+        "notes": "На цьому етапі ми маємо більшість хороших варіантів Кривавих проклять{{Blood Curse}}, тож беріть те, що здається цікавим. Оскільки у нас уже є кілька чудових варіантів, є місце поекспериментувати з тими, що корисні лише подекуди. «Загартована душа»{{Hardened Soul}} дає корисний захист від поширених станів, але нашої тактики не змінює. Ми вже давно непогано справляємося з променевою шкодою, але «Езотеричний обряд»{{Esoteric Rite}} пропонує інші цікаві варіанти. «Обряд гуркоту»{{Rite of the Roar}} чудовий, бо громовій шкоді рідко чинять опір, і між громовою та променевою шкодою ви зможете вразити будь-кого. Проте не забувайте, що «Обряд світанку»{{Rite of the Dawn}} дає й інші корисні переваги, як-от опір некротичній шкоді.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Криваве прокляття екзорциста",
+        "notes": "Якщо ви чи союзник провалили ряткидок, це може цілковито змінити підсумок сутички. Застосовуйте його, щойно це стане доречним.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик (Інтелект 16 → 18)",
+        "notes": "Кращі ряткидки, а СК ваших Кривавих проклять{{Blood Curse}} зростає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Кубик гемокрафту: 1к10\nКриваве наврочення (5/відпочинок)",
+        "notes": "На 17-му рівні майже нічого не змінюється.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Криваве прокляття: будь-яке\nВідродження обрядом",
+        "notes": " ",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик (Інтелект 18 → 20)",
+        "notes": "Кращі ряткидки, а СК ваших Кривавих проклять{{Blood Curse}} зростає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Майстерність крові",
+        "notes": "Перекидання кубика гемокрафту{{Hemocraft Die}} щоходу зазвичай означає, що ви перекидаєте його, коли підсилюєте Криваве прокляття{{Blood Curse}}. Повернення використання «Кривавого наврочення»{{Blood Maledict}} за кожне критичне влучання — це чудово, тож шукайте способи отримувати перевагу, де тільки можете, щоб збільшити шанс критичного влучання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Криваві прокляття на 14-му і 18-му рівнях",
+        "reason": "Автор пише «Криваве прокляття: будь-яке». Пресет бере типові Криваве прокляття тривоги (14-й) і Криваве прокляття роздутої агонії (18-й) — найвище оцінені автором серед ще не взятих; це вибір платформи; після створення можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Щит",
+        "reason": "Автор радить щит разом із «Дуеллю», але стартове спорядження Кривавого мисливця щита не має; взято стандартний набір класу.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Короткий лук на 1-му рівні",
+        "reason": "Автор радить рапіру й короткий лук; стартове спорядження Кривавого мисливця дає бойову зброю або дві прості, тож разом із рапірою пресет бере легкий арбалет із другої групи (вибір платформи).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-blood-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-blood-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-48097db2fffcd255-4a5b7e5ae6b74f7a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

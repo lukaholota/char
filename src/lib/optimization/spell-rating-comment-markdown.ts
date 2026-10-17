@@ -1,3 +1,4 @@
+import { isRpgbotAbbreviationsHref } from "./rpgbot-source-codes";
 import type { InlineNode } from "./types";
 
 export type SpellRatingComment = { text: string; sectionId: string };
@@ -18,7 +19,7 @@ function serializeNode(node: InlineNode): string {
   switch (node.type) {
     case "strong": return `**${node.text}**`;
     case "emphasis": return `*${node.text}*`;
-    case "link": return `[${node.text}](${node.href})`;
+    case "link": return isRpgbotAbbreviationsHref(node.href) ? node.text : `[${node.text}](${node.href})`;
     default: return node.text;
   }
 }

@@ -10,7 +10,7 @@ afterEach(cleanup);
 function renderNodes(nodes: InlineNode[]) {
   return render(
     <p data-testid="host">
-      <InlineContent nodes={nodes} resolveLink={(href) => ({ href, isExternal: true })} linkClassName="text-slate-100" />
+      <InlineContent nodes={nodes} resolveLink={(href) => ({ href, isExternal: true })} linkClassName="text-slate-100" ruleset="RULES_2014" />
     </p>
   );
 }

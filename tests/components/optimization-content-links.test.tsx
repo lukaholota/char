@@ -25,7 +25,7 @@ afterEach(() => { cleanup(); vi.clearAllMocks(); vi.unstubAllGlobals(); mocks.pa
 
 function renderLinks(nodes: InlineNode[], references: ContentReference[] = []) {
   return render(<NoAiModeProvider><ContentReferenceProvider references={references} surface="article_reader">
-    <InlineContent nodes={nodes} resolveLink={(href) => ({ href, isExternal: href.startsWith("http") })} linkClassName="text-slate-100" />
+    <InlineContent nodes={nodes} resolveLink={(href) => ({ href, isExternal: href.startsWith("http") })} linkClassName="text-slate-100" ruleset="RULES_2014" />
   </ContentReferenceProvider></NoAiModeProvider>);
 }
 
@@ -85,7 +85,7 @@ it("keeps the article on screen while the card code loads, so the page does not 
   const reference: ContentReference = { kind: "armor", name: "Кольчуга", engName: "Chain Mail", href: "/armor/chain-mail", details: [] };
   const { container } = render(<Suspense fallback={null}><div data-testid="article">
     <NoAiModeProvider><ContentReferenceProvider references={[reference]} surface="article_reader">
-      <InlineContent nodes={[{ type: "link", text: reference.name, href: reference.href }]} resolveLink={(href) => ({ href, isExternal: false })} linkClassName="text-slate-100" />
+      <InlineContent nodes={[{ type: "link", text: reference.name, href: reference.href }]} resolveLink={(href) => ({ href, isExternal: false })} linkClassName="text-slate-100" ruleset="RULES_2014" />
     </ContentReferenceProvider></NoAiModeProvider>
   </div></Suspense>);
   const hiddenStyles: string[] = [];
@@ -135,7 +135,7 @@ it("opens only the official text from the article without fetching or repeating 
   vi.stubGlobal("fetch", fetch);
   const owner = { data: { user: { email: "lukagolota1@gmail.com" }, expires: "2099-01-01T00:00:00Z" }, status: "authenticated" as const, update: vi.fn() };
   render(<NoAiModeProvider><SessionContext.Provider value={owner}><ContentReferenceProvider references={[reference]} surface="article_reader">
-    <InlineContent nodes={[{ type: "link", text: reference.name, href: reference.href }]} resolveLink={(href) => ({ href, isExternal: false })} linkClassName="text-slate-100" />
+    <InlineContent nodes={[{ type: "link", text: reference.name, href: reference.href }]} resolveLink={(href) => ({ href, isExternal: false })} linkClassName="text-slate-100" ruleset="RULES_2014" />
   </ContentReferenceProvider></SessionContext.Provider></NoAiModeProvider>);
   expect(fetch).not.toHaveBeenCalled();
   fireEvent.click(screen.getByRole("link", { name: reference.name }));
@@ -157,7 +157,7 @@ it.each([
   const section = document.translations.at(-1)!.sections.find((section) => section.sectionId === "section-features")!;
   const context = { ratingIndex: buildRatingIndex(document.ratings, section.blocks), ratings: document.ratings,
     resolveLink: (href: string) => ({ href, isExternal: false }), linkClassName: "text-blue-300",
-    ownArticlePath: "/rules/optimization/monk-drunken-master-2014", headingLevel: 2, sectionHeading: section.heading };
+    ownArticlePath: "/rules/optimization/monk-drunken-master-2014", headingLevel: 2, sectionHeading: section.heading, ruleset: "RULES_2014" as const };
   render(<NoAiModeProvider><ContentReferenceProvider references={document.contentReferences} surface="article_reader">
     {section.blocks.map((block) => <ArticleBlock key={block.blockId} block={block} context={context} />)}
   </ContentReferenceProvider></NoAiModeProvider>);

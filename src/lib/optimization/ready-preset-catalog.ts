@@ -32,6 +32,8 @@ const PRESET_CARD_TITLES: Record<string, string> = {
   "fighter-champion-greataxe-2014": "Велика сокира",
   "bard-lore-sorcerers-apprentice-2014": "Учень чародія",
   "d4-dispenser-cleric-peace-2014": "Роздавач к4",
+  "blood-hunter-ghostslayer-rapier-2014": "Рапіра",
+  "blood-hunter-ghostslayer-shortbow-2014": "Короткий лук",
 };
 
 const PRESET_CLASS_COMPLEXITY = new Map([

@@ -9,6 +9,8 @@ import { classTranslations, classTranslationsEng } from "@/lib/refs/translation"
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { ChoiceOptionFeaturesDialog, type ChoiceOptionInfo } from "@/lib/components/characterCreator/ChoiceOptionFeaturesDialog";
 import { ClassChoiceOptionGroups } from "@/lib/components/characterCreator/ClassChoiceOptionGroups";
+import { RpgbotRecommendationToggle } from "@/components/spells/RpgbotRecommendationToggle";
+import { useChoiceOptionRatings } from "@/hooks/useChoiceOptionRatings";
 
 interface Props {
   selectedClass?: ClassI | null;
@@ -25,6 +27,8 @@ import { PrerequisiteConfirmationDialog } from "@/lib/components/ui/Prerequisite
 import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import { buildGroupPickHint, countGroupSelection, findFirstHint } from "@/lib/components/wizard/pick-hint";
+
+const RATING_TOGGLE_DESCRIPTION = "Оцінка варіантів за класовим гайдом RPGbot; найкращі — зверху.";
 
 const displayName = (cls?: ClassI | null) =>
   cls ? classTranslations[cls.name] || classTranslationsEng[cls.name] || cls.name : "Клас";
@@ -61,6 +65,9 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     });
     return Object.entries(groups).map(([groupName, options]) => ({ groupName, options }));
   }, [optionsToUse]);
+
+  const ratedOptions = useMemo(() => optionsToUse.map((opt) => opt.choiceOption), [optionsToUse]);
+  const ratings = useChoiceOptionRatings(selectedClass, ratedOptions);
 
   const charPact = useMemo(() => {
     let pact = initialPact;
@@ -223,11 +230,14 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
         </p>
       </div>
 
+      {ratings.isAvailable ? <RpgbotRecommendationToggle isOn={ratings.isOn} onChange={ratings.setIsOn} description={RATING_TOGGLE_DESCRIPTION} /> : null}
+
       <ClassChoiceOptionGroups
         groupedOptions={groupedOptions}
         selectionState={{ charLevel, charPact, groupPickCounts, pickCount, selections }}
         onSelectOption={selectOption}
-        onShowFeatures={(title, features) => setInfo({ title, features })}
+        onShowFeatures={(title, features, rating) => setInfo({ title, features, rating })}
+        findRating={ratings.findRating}
       />
 
       <ChoiceOptionFeaturesDialog info={info} onClose={() => setInfo(null)} />

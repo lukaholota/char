@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { findCharacterCreationOptions } from "@/lib/content/creator-content";
 import { buildRecipeSchema } from "@/lib/optimization/schema";
 import { buildReadyPresetDraft, readyPresetSchema } from "@/lib/optimization/ready-preset";
@@ -24,7 +24,9 @@ function loadPreset(slug: string, change: (draft: PersFormData) => PersFormData 
   const recipe = buildRecipeSchema.parse(read(`data/rpgbot/builds/${preset.buildId}.json`));
   const draft = change(buildReadyPresetDraft(recipe, preset, content));
   const race = content.races.find((entry) => entry.raceId === draft.raceId)!;
-  return { preset, recipe, draft, options: buildReadyPresetOptions(draft, content), creator: { race: { raceChoiceOptions: race.raceChoiceOptions } } };
+  const characterClass = content.classes.find((entry) => entry.classId === draft.classId)!;
+  return { preset, recipe, draft, options: buildReadyPresetOptions(draft, content),
+    creator: { characterClass: { name: characterClass.name, ruleset: characterClass.ruleset }, race: { raceChoiceOptions: race.raceChoiceOptions } } };
 }
 
 function renderSpells(slug: string, change?: (draft: PersFormData) => PersFormData) {
@@ -165,6 +167,14 @@ describe("ready preset class, subclass and race choices", () => {
     expect(screen.getByText("Універсальність навичок")).toBeTruthy();
     expect(screen.getByText(/змінює навички/)).toBeTruthy();
     expect(screen.getByText(/уже заповнений за авторським прикладом/)).toBeTruthy();
+  });
+
+  it("rates the Blood Hunter's first blood curse by the RPGbot guide and lists the best one first", async () => {
+    renderChoices("blood-hunter-ghostslayer-rapier-2014");
+    await waitFor(() => expect(document.body.textContent).toContain("4/4"));
+    const curseCards = screen.getAllByRole("button", { name: /Інформація про Криваве прокляття/ }).map((button) => button.closest(".glass-card")!);
+    expect(curseCards[0].textContent).toContain("4/4");
+    expect(curseCards.some((card) => card.textContent?.includes("1/4"))).toBe(true);
   });
 
   it("shows nothing for a preset with no first-level choices", () => {

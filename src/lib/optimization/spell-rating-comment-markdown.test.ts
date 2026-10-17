@@ -28,3 +28,8 @@ it("keeps emphasis and strong text", () => {
 it("gives an empty comment for no nodes", () => {
   expect(buildCommentMarkdown([])).toBe("");
 });
+
+it("turns RPGbot source markers into plain text instead of links to the abbreviations page", () => {
+  expect(buildCommentMarkdown([{ type: "text", text: "добре " }, { type: "link", text: "XGtE", href: "https://rpgbot.net/dnd5/abbreviations/" }]))
+    .toBe("Добре XGtE");
+});
