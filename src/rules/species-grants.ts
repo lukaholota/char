@@ -37,3 +37,18 @@ export function findMissingSpeciesTraits<T extends LeveledFeature>(
 
   return traits.filter((trait) => earned.has(trait.featureId) && !owned.has(trait.featureId));
 }
+
+/** Варіант виду може заміщувати рису виду: спадщина тифлінга — PHB Infernal Legacy, Варіант людини — її ASI (BUG-039). */
+export function dropReplacedSpeciesTraits<T extends { featureId: number }>(
+  traits: readonly T[],
+  replacedFeatureIds: readonly number[],
+): T[] {
+  const replaced = new Set(replacedFeatureIds);
+  return traits.filter((trait) => !replaced.has(trait.featureId));
+}
+
+export function findVariantReplacedFeatureIds(
+  raceVariants: ReadonlyArray<{ replacesFeatures: ReadonlyArray<{ featureId: number }> }>,
+): number[] {
+  return raceVariants.flatMap((variant) => variant.replacesFeatures.map((feature) => feature.featureId));
+}

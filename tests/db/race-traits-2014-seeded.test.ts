@@ -36,6 +36,17 @@ describe("KR31.12 — риси рас 2014", () => {
     expect(traits.map((trait) => trait.feature.engName)).toEqual(entry.featureEngNames);
   });
 
+  it.each(RACE_VARIANT_TRAITS_2014)("$variantName заміщує ті риси раси, що в сіді", async (entry) => {
+    const variant = await prisma.raceVariant.findFirst({
+      where: { name: entry.variantName, ruleset: "RULES_2014" },
+      select: { replacesFeatures: { select: { engName: true } } },
+    });
+
+    expect(variant?.replacesFeatures.map((feature) => feature.engName).sort()).toEqual(
+      [...entry.replacedFeatureEngNames].sort(),
+    );
+  });
+
   it("жодна раса 2014 не лишається без рис", async () => {
     const empty = await prisma.race.findMany({
       where: { ruleset: "RULES_2014", traits: { none: {} } },

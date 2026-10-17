@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import type { Ruleset } from "@prisma/client";
 import { characterLevelOnly } from "@/rules/character-level";
-import { findEarnedSpeciesFeatureIds } from "@/rules/species-grants";
+import { dropReplacedSpeciesTraits, findEarnedSpeciesFeatureIds, findVariantReplacedFeatureIds } from "@/rules/species-grants";
 
 // KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
@@ -16,7 +16,12 @@ export async function loadCreationContent(data: PersFormData) {
 
   const [race, variant, subrace, background, characterClass, subclass, feat, backgroundFeat] = await Promise.all([
     prisma.race.findUnique({ where: { raceId: data.raceId } }),
-    data.raceVariantId ? prisma.raceVariant.findUnique({ where: { raceVariantId: data.raceVariantId } }) : null,
+    data.raceVariantId
+      ? prisma.raceVariant.findUnique({
+          where: { raceVariantId: data.raceVariantId },
+          include: { traits: { select: { featureId: true } }, replacesFeatures: { select: { featureId: true } } },
+        })
+      : null,
     data.subraceId ? prisma.subrace.findUnique({ where: { subraceId: data.subraceId } }) : null,
     Promise.resolve(bg),
     prisma.class.findUnique({
@@ -92,14 +97,11 @@ export async function loadCreationContent(data: PersFormData) {
       })
     : [];
 
-  const [classFeatures, raceFeatures, subraceFeatures, raceVariantFeatures, subclassFeatures, optionalFeatures, selectedChoiceOptions, choiceOptionFeatures, raceChoiceOptions, raceChoiceTraits, raceTraitFeatures] = await Promise.all([
+  const [classFeatures, raceFeatures, subraceFeatures, subclassFeatures, optionalFeatures, selectedChoiceOptions, choiceOptionFeatures, raceChoiceOptions, raceChoiceTraits, raceTraitFeatures] = await Promise.all([
     prisma.classFeature.findMany({ where: { classId: data.classId, levelGranted: 1 }, select: { featureId: true } }),
     prisma.raceTrait.findMany({ where: { raceId: data.raceId }, select: { featureId: true, level: true } }),
     data.subraceId
       ? prisma.subraceTrait.findMany({ where: { subraceId: data.subraceId }, select: { featureId: true } })
-      : [],
-    data.raceVariantId
-      ? prisma.raceVariantTrait.findMany({ where: { raceVariantId: data.raceVariantId }, select: { featureId: true } })
       : [],
     data.subclassId
       ? prisma.subclassFeature.findMany({ where: { subclassId: data.subclassId, levelGranted: 1 }, select: { featureId: true } })
@@ -156,13 +158,14 @@ export async function loadCreationContent(data: PersFormData) {
     }),
   ] as const);
 
+  const variantReplacedFeatureIds = findVariantReplacedFeatureIds(variant ? [variant] : []);
   const initialFeatureIds = [
     ...classFeatures.map((feature) => feature.featureId),
     // Риса виду може чекати рівня персонажа (Драконячий політ — 5-го): персонаж створюється
     // першим рівнем, тож сюди потрапляють лише ті, що доступні з першого (KR18.5).
-    ...findEarnedSpeciesFeatureIds(raceFeatures, CREATION_LEVELS),
+    ...findEarnedSpeciesFeatureIds(dropReplacedSpeciesTraits(raceFeatures, variantReplacedFeatureIds), CREATION_LEVELS),
     ...subraceFeatures.map((feature) => feature.featureId),
-    ...raceVariantFeatures.map((feature) => feature.featureId),
+    ...(variant?.traits ?? []).map((feature) => feature.featureId),
     ...subclassFeatures.map((feature) => feature.featureId),
   ].filter((id) => Number.isFinite(id));
   const optionalGrantedFeatureIds = optionalFeatures

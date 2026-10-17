@@ -11,7 +11,9 @@ vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
 import { auth } from "@/lib/auth";
 import { createCharacter } from "@/lib/actions/character";
 import { spendFeatureUse } from "@/server/db/feature-uses";
+import { executeLevelUp } from "@/server/db/levelup-persistence";
 import { getCharacterFeaturesGrouped } from "@/server/db/pers-actions";
+import { parseLevelUpInput } from "@/lib/zod/schemas/levelUpSchema";
 import { longRest, shortRest } from "@/server/db/rest-actions";
 
 const FLOATING_DISK = "Infernal Legacy (Mammon): Tenser's Floating Disk";
@@ -22,7 +24,7 @@ afterAll(disconnectDatabase);
 
 async function createVariantCharacter(raceName: Races, variantName: Variants) {
   const email = `variant-counters-${variantName.toLowerCase()}@test.local`;
-  const user = await prisma.user.create({ data: { email, name: email } });
+  await prisma.user.create({ data: { email, name: email } });
   vi.mocked(auth).mockResolvedValue({ user: { email } } as never);
 
   const [race, variant, characterClass, background] = await Promise.all([
@@ -112,5 +114,25 @@ describe("BUG-037 — Людина (Мітка Переходу)", () => {
     const persId = await createVariantCharacter(Races.HUMAN_2014, Variants.HUMAN_MARK_OF_PASSAGE_EBERRON);
 
     expect(await findSheetCounter(persId, "Magical Passage")).toEqual({ usesPer: 1, restType: "LONG_REST" });
+  });
+});
+
+describe("BUG-039 — риса раси, яку заміщує варіант, не лягає на лист", () => {
+  it("Маммон не отримує PHB «Пекельну спадщину» ні при створенні, ні на наступному рівні", async () => {
+    const persId = await createVariantCharacter(Races.TIEFLING_2014, Variants.TIEFLING_MAMMON);
+    expect(await findOwnedFeatureEngNames(persId)).not.toContain("Infernal Legacy");
+
+    const fighter = await classByName(Classes.FIGHTER_2014);
+    const levelUp = parseLevelUpInput({ levelUpPath: "EXISTING", classId: fighter.classId, levelUpHpIncrease: 6 });
+    expect(await executeLevelUp(persId, levelUp)).toEqual({ success: true });
+    expect(await findOwnedFeatureEngNames(persId)).not.toContain("Infernal Legacy");
+  });
+
+  it("варіант людини має лише свою картку збільшення характеристик", async () => {
+    const persId = await createVariantCharacter(Races.HUMAN_2014, Variants.HUMAN_VARIANT);
+    const owned = await findOwnedFeatureEngNames(persId);
+
+    expect(owned).toContain("Human Variant: Ability Score Increase");
+    expect(owned).not.toContain("Human: Ability Score Increase");
   });
 });

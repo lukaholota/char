@@ -115,7 +115,12 @@ export const RACE_TRAITS_2014: Array<{ raceName: Races; featureEngNames: string[
   },
 ];
 
-export const RACE_VARIANT_TRAITS_2014: Array<{ variantName: Variants; featureEngNames: string[] }> = [
+/// PHB с. 31: риси варіанта людини заміщують її «Покращення характеристик» (BUG-039).
+export const RACE_VARIANT_TRAITS_2014: Array<{
+  variantName: Variants;
+  featureEngNames: string[];
+  replacedFeatureEngNames: string[];
+}> = [
   {
     variantName: Variants.HUMAN_VARIANT,
     featureEngNames: [
@@ -123,6 +128,7 @@ export const RACE_VARIANT_TRAITS_2014: Array<{ variantName: Variants; featureEng
       "Human Variant: Skills",
       "Human Variant: Feat",
     ],
+    replacedFeatureEngNames: ["Human: Ability Score Increase"],
   },
 ];
 
@@ -150,7 +156,7 @@ export const RACE_CHOICE_OPTION_TEXTS_2014: RaceChoiceOptionText[] = [
 export type RaceTraitDrift = {
   staleFeatures: RaceTraitFeature[];
   missingRaceTraits: Array<{ raceName: Races; featureEngNames: string[] }>;
-  missingVariantTraits: Array<{ variantName: Variants; featureEngNames: string[] }>;
+  missingVariantTraits: typeof RACE_VARIANT_TRAITS_2014;
   staleOptionTexts: RaceChoiceOptionText[];
 };
 
@@ -225,7 +231,13 @@ async function findMissingVariantTraits(
 
   for (const entry of RACE_VARIANT_TRAITS_2014) {
     const stored = await readVariantTraitNames(prisma, entry.variantName);
-    if (!sameOrder(stored, entry.featureEngNames)) missing.push(entry);
+    const storedReplaced = await readVariantReplacedNames(prisma, entry.variantName);
+    if (
+      !sameOrder(stored, entry.featureEngNames) ||
+      !sameOrder(storedReplaced.sort(), [...entry.replacedFeatureEngNames].sort())
+    ) {
+      missing.push(entry);
+    }
   }
 
   return missing;
@@ -307,6 +319,12 @@ async function relinkVariantTraits(
         },
       });
     }
+
+    const replaced = await Promise.all(entry.replacedFeatureEngNames.map((engName) => findFeature(prisma, engName)));
+    await prisma.raceVariant.update({
+      where: { raceVariantId: variant.raceVariantId },
+      data: { replacesFeatures: { set: replaced.filter((feature) => feature !== null) } },
+    });
   }
 }
 
@@ -349,6 +367,15 @@ async function readVariantTraitNames(prisma: PrismaClient, variantName: Variants
   });
 
   return traits.map((trait) => trait.feature.engName);
+}
+
+async function readVariantReplacedNames(prisma: PrismaClient, variantName: Variants): Promise<string[]> {
+  const variant = await prisma.raceVariant.findFirst({
+    where: { name: variantName, ruleset: ACTIVE_RULESET },
+    select: { replacesFeatures: { select: { engName: true } } },
+  });
+
+  return variant?.replacesFeatures.map((feature) => feature.engName) ?? [];
 }
 
 async function findRace(prisma: PrismaClient, raceName: Races) {

@@ -34,6 +34,7 @@ describe("BUG-035 — Пекельна спадщина (Маммон), MToF с.
     expect(findSeedFeature("Infernal Legacy (Mammon)").limitedUsesPer).toBeNull();
     const catalogTrait = findCatalogVariant("TIEFLING_MAMMON").traits.find((trait) => trait.feature.engName === "Infernal Legacy (Mammon)");
     expect(catalogTrait?.feature.limitedUsesPer).toBeNull();
+    expect(catalogTrait?.feature.description).toBe(findSeedFeature("Infernal Legacy (Mammon)").description);
   });
 });
 

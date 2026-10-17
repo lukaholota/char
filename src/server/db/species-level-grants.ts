@@ -10,7 +10,7 @@
 import { SpellOrigin } from "@prisma/client";
 import { characterLevelOnly } from "@/rules/character-level";
 import { findGrantedSpells, type ChosenRaceChoiceOption, type GrantedSpell } from "@/rules/spell-sources";
-import { findMissingSpeciesTraits } from "@/rules/species-grants";
+import { dropReplacedSpeciesTraits, findMissingSpeciesTraits } from "@/rules/species-grants";
 import type { RulesetId } from "@/rules/strategies/types";
 import type { AbilityKey } from "@/rules/types";
 
@@ -33,6 +33,8 @@ export type SpeciesGrantsInput = {
   ruleset: string;
   characterLevel: number;
   raceTraits: readonly RaceTraitRow[];
+  /** Заміщена варіантом риса не повертається карткою; її заклинання — окремий BUG-040. */
+  replacedTraitFeatureIds?: readonly number[];
   raceChoiceOptions: readonly RaceChoiceOptionRow[];
   ownedFeatureIds: readonly number[];
   ownedSpellIds: readonly number[];
@@ -54,7 +56,11 @@ export function findMissingSpeciesGrants(input: SpeciesGrantsInput): SpeciesGran
   });
 
   return {
-    traits: findMissingSpeciesTraits(input.raceTraits, levels, input.ownedFeatureIds),
+    traits: findMissingSpeciesTraits(
+      dropReplacedSpeciesTraits(input.raceTraits, input.replacedTraitFeatureIds ?? []),
+      levels,
+      input.ownedFeatureIds,
+    ),
     spells: earnedSpells.filter((spell) => !owned.has(spell.spellId)),
   };
 }

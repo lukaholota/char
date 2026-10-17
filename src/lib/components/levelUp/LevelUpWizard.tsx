@@ -11,7 +11,7 @@ import {
 } from "react";
 import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
 import { characterLevelOnly } from "@/rules/character-level";
-import { findMissingSpeciesTraits } from "@/rules/species-grants";
+import { dropReplacedSpeciesTraits, findMissingSpeciesTraits, findVariantReplacedFeatureIds } from "@/rules/species-grants";
 import { activateLevelUpDraftStorage, usePersFormStore } from "@/lib/stores/persFormStore";
 import { EMPTY_BRANCH_CHOICES } from "@/lib/components/levelUp/levelUpBranchChoices";
 import { GuidedLevelUpCard, useGuidedLevelUp, type GuidedLevelUpControl } from "@/lib/components/levelUp/GuidedLevelUp";
@@ -782,7 +782,8 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
   // Риса виду відкривається рівнем ПЕРСОНАЖА, тому обраний клас на неї не впливає (§4).
   const newSpeciesTraits = useMemo(() => {
     const owned = ((pers as any)?.features ?? []).map((f: any) => f.featureId);
-    return findMissingSpeciesTraits((pers as any)?.race?.traits ?? [], characterLevelOnly(nextLevel), owned);
+    const missingTraits = findMissingSpeciesTraits((pers as any)?.race?.traits ?? [], characterLevelOnly(nextLevel), owned);
+    return dropReplacedSpeciesTraits(missingTraits, findVariantReplacedFeatureIds(pers?.raceVariants ?? []));
   }, [pers, nextLevel]);
 
   // Передумова мультикласу — попередження, не заборона (рішення власника 2026-09-06, KR31.9):
