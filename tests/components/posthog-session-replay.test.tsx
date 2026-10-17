@@ -9,6 +9,8 @@ const posthog = vi.hoisted(() => ({
 const session = vi.hoisted(() => ({ current: { data: null as { user: { id: string; email?: string } } | null, status: "unauthenticated" } }));
 const idle = vi.hoisted(() => ({ callbacks: [] as Array<() => void> }));
 const route = vi.hoisted(() => ({ pathname: "/" }));
+/// Динамічний import SDK під навантаженням повного прогону в CI буває довшим за стандартну секунду waitFor.
+const SDK_IMPORT_WAIT = { timeout: 10_000 };
 
 vi.mock("posthog-js", () => ({ default: posthog }));
 vi.mock("next-auth/react", () => ({ useSession: () => session.current }));
@@ -27,7 +29,7 @@ async function renderProvider() {
 
 async function loadSdk() {
   idle.callbacks.splice(0).forEach((callback) => callback());
-  await waitFor(() => expect(posthog.init).toHaveBeenCalled());
+  await waitFor(() => expect(posthog.init).toHaveBeenCalled(), SDK_IMPORT_WAIT);
 }
 
 beforeEach(() => {
@@ -116,7 +118,7 @@ describe("session replay", () => {
     const view = await renderProvider();
 
     idle.callbacks.splice(0).forEach((callback) => callback());
-    await waitFor(() => expect(warning).toHaveBeenCalledWith("PostHog unavailable", expect.any(String)));
+    await waitFor(() => expect(warning).toHaveBeenCalledWith("PostHog unavailable", expect.any(String)), SDK_IMPORT_WAIT);
     route.pathname = "/char/presets";
     expect(() => view.rerender()).not.toThrow();
 
