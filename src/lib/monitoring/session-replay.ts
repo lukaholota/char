@@ -7,6 +7,7 @@ const REPLAY_PRIVATE_PARAMS = new Set(["persName", "q", "ph_ctx", "code", "state
 const SHARE_TOKEN_SEGMENT = /(\/share\/)[^/?#]+/g;
 
 export const PRIVATE_TEXT_SELECTOR = "[data-ph-mask]";
+export const PRIVATE_ELEMENT_CLASS = "ph-no-capture";
 
 export function isSessionReplayRoute(pathname: string): boolean {
   return REPLAY_ROUTE.test(stripNoAiPrefix(pathname));
@@ -25,14 +26,17 @@ function maskReplayNetworkRequest(request: CapturedNetworkRequest): CapturedNetw
   return { ...request, name: maskReplayUrl(request.name), requestHeaders: undefined, requestBody: undefined, responseHeaders: undefined, responseBody: undefined };
 }
 
-function maskReplayAttribute(name: string, value: string): string {
-  return name === "href" ? maskReplayUrl(value) : value;
+// rrweb serialises the next page's DOM before the effect that stops recording runs.
+function maskReplayText(text: string, element?: HTMLElement | null): string {
+  const isPrivate = Boolean(element?.closest(PRIVATE_TEXT_SELECTOR)) || !isSessionReplayRoute(window.location.pathname);
+  return isPrivate ? text.replace(/\S/g, "*") : text;
 }
 
 export const sessionReplayOptions: SessionRecordingOptions = {
   maskAllInputs: true,
-  maskTextSelector: PRIVATE_TEXT_SELECTOR,
-  maskAttributeFn: maskReplayAttribute,
+  maskTextSelector: "*",
+  maskTextFn: maskReplayText,
+  blockClass: PRIVATE_ELEMENT_CLASS,
   maskCapturedNetworkRequestFn: maskReplayNetworkRequest,
   recordHeaders: false,
   recordBody: false,

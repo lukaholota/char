@@ -6,6 +6,7 @@ import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { buildMediaImageUrl } from "@/lib/media-url";
+import { PRIVATE_ELEMENT_CLASS } from "@/lib/monitoring/session-replay";
 import { cn } from "@/lib/utils";
 import type { PersHomeItem } from "./CharHomeClient";
 
@@ -20,7 +21,7 @@ export function PersCardBody({ pers, selectionMode, isSelected, contextLabel }: 
         </div>
       ) : null}
       {pers.portraitKey ? (
-        <div className={cn("aspect-square w-24 shrink-0 sm:w-28", selectionMode && "ml-6")}>
+        <div className={cn("aspect-square w-24 shrink-0 sm:w-28", PRIVATE_ELEMENT_CLASS, selectionMode && "ml-6")}>
           <FramedIllustration src={buildMediaImageUrl(pers.portraitKey, "full")} alt={`Портрет: ${pers.name}`} provenance="drawn" sizes="112px" chamfer="sm" vignette="sm" />
         </div>
       ) : null}

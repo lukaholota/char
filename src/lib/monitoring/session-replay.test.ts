@@ -3,6 +3,8 @@ import { describe, expect, it, vi } from "vitest";
 import type { CaptureResult, CapturedNetworkRequest } from "posthog-js";
 
 import { sharedPostHogOptions } from "./posthog-options";
+import { record } from "posthog-js/dist/rrweb";
+
 import { isSessionReplayRoute, maskReplayUrl, sessionReplayOptions } from "./session-replay";
 
 describe("isSessionReplayRoute", () => {
@@ -60,7 +62,8 @@ describe("maskReplayUrl", () => {
 describe("replay options", () => {
   it("mask inputs and private text, and never keep network headers or bodies", () => {
     expect(sharedPostHogOptions).toMatchObject({ disable_session_recording: true, enable_recording_console_log: false, capture_performance: false });
-    expect(sessionReplayOptions).toMatchObject({ maskAllInputs: true, maskTextSelector: "[data-ph-mask]", recordHeaders: false, recordBody: false });
+    expect(sessionReplayOptions).toMatchObject({ maskAllInputs: true, maskTextSelector: "*", blockClass: "ph-no-capture", recordHeaders: false, recordBody: false });
+    expect(sessionReplayOptions.maskAttributeFn).toBeUndefined();
     expect(sharedPostHogOptions.session_recording).toBe(sessionReplayOptions);
   });
 
@@ -74,11 +77,6 @@ describe("replay options", () => {
     const masked = sessionReplayOptions.maskCapturedNetworkRequestFn?.(request);
 
     expect(masked).toMatchObject({ name: "https://char.holota.family/api/auth/callback/google", requestBody: undefined, responseBody: undefined, requestHeaders: undefined, responseHeaders: undefined });
-  });
-
-  it("masks link targets in recorded attributes", () => {
-    expect(sessionReplayOptions.maskAttributeFn?.("href", "https://char.holota.family/char/create?ph_ctx=a#draft=b")).toBe("https://char.holota.family/char/create");
-    expect(sessionReplayOptions.maskAttributeFn?.("class", "ph_ctx=a")).toBe("ph_ctx=a");
   });
 
   it("lets replay snapshots through before_send without page properties", () => {
@@ -106,4 +104,30 @@ it("the real SDK keeps replay off until started and survives start/stop without 
   } finally {
     vi.unstubAllGlobals();
   }
+});
+
+it("the real recorder keeps the creator readable and hides private text and the next page", async () => {
+  window.history.replaceState(null, "", "/char/42/levelup");
+  const levelUp = document.createElement("main");
+  levelUp.innerHTML = "<p>Чарівник</p><span data-ph-mask>Ви вже увійшли як player@example.com</span>";
+  document.body.append(levelUp);
+  const events: unknown[] = [];
+  const { maskAllInputs, maskTextSelector, maskTextFn, blockClass } = sessionReplayOptions;
+  const stop = record({ emit: (event) => events.push(event), maskAllInputs, maskTextSelector: maskTextSelector ?? undefined, maskTextFn: (text, element) => maskTextFn?.(text, element ?? undefined) ?? text, blockClass });
+  const recorded = () => JSON.stringify(events);
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const sheet = document.createElement("main");
+  sheet.innerHTML = '<h1>Мирон Сміливий</h1><div class="ph-no-capture"><img alt="Портрет: Мирон Сміливий" src="https://media.example/portrait.webp"></div>';
+  levelUp.replaceWith(sheet);
+  window.history.pushState(null, "", "/char/42");
+  await vi.waitFor(() => expect(recorded()).toContain("***** ********"));
+  stop?.();
+  sheet.remove();
+  window.history.replaceState(null, "", "/");
+
+  expect(recorded()).toContain("Чарівник");
+  expect(recorded()).not.toContain("player@example.com");
+  expect(recorded()).not.toContain("Мирон");
+  expect(recorded()).not.toContain("portrait.webp");
 });
