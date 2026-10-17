@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { buildArticleOutline, resolveArticleLink } from "./article-view";
-import { listDraftRevisions, listDraftSummaries, readDraftArticle } from "./draft-reader";
+import { findTranslatedArticleSlug, listDraftRevisions, listDraftSummaries, readDraftArticle } from "./draft-reader";
 import { joinLeadingMarkers } from "./inline-view";
 import { findGlossaryMarkers } from "@/lib/refs/glossary-marker";
 import type { ContentBlock, InlineNode } from "./types";
@@ -45,6 +45,15 @@ describe("читання приватних чернеток", () => {
     expect(draft.sourceUrl).toBe("https://rpgbot.net/dnd5/characters/classes/monk/");
     expect(draft.sourceRevision.authors).toEqual(['T.E. "RPGBOT" Kamstra']);
     expect(draft.linkTargets.get("https://rpgbot.net/dnd5/characters/classes/monk/subclasses/")?.slug).toBe("monk-subclasses-2014");
+  });
+
+  it("веде посилання за старою адресою RPGbot на перекладений гайд, якому manifest записав цю адресу", async () => {
+    const alias = "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/dnd-5e-beast-master-ranger-handbook/";
+    const draft = (await readDraftArticle("ranger-subclasses-2014"))!;
+    expect(resolveArticleLink(alias, draft.linkTargets)).toEqual({ href: "/rules/optimization/ranger-beast-master-2014", isExternal: false });
+    expect(draft.sourceUrl).toBe("https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/");
+    await expect(findTranslatedArticleSlug(alias, "RULES_2014")).resolves.toBe("ranger-beast-master-2014");
+    await expect(findTranslatedArticleSlug(alias, "RULES_2024")).resolves.toBeNull();
   });
 
   it("публічна стаття 2014 не перенаправляє читача на закритий переклад 2024", async () => {

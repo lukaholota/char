@@ -4,7 +4,7 @@ import { idSchema } from "./schema";
 
 const manifestSchema = z.object({ entries: z.array(z.object({
   sourceId: idSchema, disposition: z.enum(["included", "excluded", "review"]),
-  rulesets: z.array(z.enum(["2014", "2024"])),
+  rulesets: z.array(z.enum(["2014", "2024"])), aliases: z.array(z.string()).default([]),
 })) });
 
 export async function readSourceManifest(path: string) {

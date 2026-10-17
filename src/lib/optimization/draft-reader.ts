@@ -3,7 +3,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { buildLinkTargets, findDraftRevision, normalizeSourceUrl, summarizeDraft, type DraftSummary, type LinkTargets } from "./article-view";
 import { parseArticleDocument } from "./document";
-import { readExcludedSourceIds } from "./source-policy";
+import { readExcludedSourceIds, readSourceManifest } from "./source-policy";
 import type { ArticleDocument, OptimizationRuleset } from "./types";
 
 type DraftLocations = { draftsDirectory: string; coverageLedgerPath: string };
@@ -28,22 +28,23 @@ export async function readDraftArticle(slug: string, locations = DEFAULT_LOCATIO
   const document = documents.find((entry) => entry.article.slug === slug);
   if (!document) return null;
   const revision = findDraftRevision(document);
-  const sourceUrlByArticleId = await readSourceUrlByArticleId(locations.coverageLedgerPath);
+  const sourceUrlsByArticleId = await readSourceUrlsByArticleId(locations);
   return {
     article: document.article,
     revision,
     ratings: document.ratings.filter((rating) => rating.translationRevisionId === revision.translationRevisionId),
     sourceRevision: document.sourceRevisions.find((source) => source.revisionId === revision.sourceRevisionId)!,
-    sourceUrl: sourceUrlByArticleId.get(document.article.articleId),
+    sourceUrl: sourceUrlsByArticleId.get(document.article.articleId)?.[0],
     summaries: documents.map(summarizeDraft),
-    linkTargets: buildDraftLinkTargets(documents.filter((entry) => entry.article.ruleset === document.article.ruleset), sourceUrlByArticleId),
+    linkTargets: buildDraftLinkTargets(documents.filter((entry) => entry.article.ruleset === document.article.ruleset), sourceUrlsByArticleId),
   };
 }
 
 export async function findTranslatedArticleSlug(href: string, ruleset: OptimizationRuleset, locations = DEFAULT_LOCATIONS): Promise<string | null> {
   const { key } = normalizeSourceUrl(href);
-  const ledger = JSON.parse(await readFile(locations.coverageLedgerPath, "utf8")) as { rows: { ruleset: string; canonicalUrl: string; articleIds: string[] }[] };
-  const articleIds = ledger.rows.filter((row) => row.ruleset === ruleset && normalizeSourceUrl(row.canonicalUrl).key === key).flatMap((row) => row.articleIds);
+  const ledger = JSON.parse(await readFile(locations.coverageLedgerPath, "utf8")) as { rows: LedgerRow[] };
+  const aliases = await readSourceAliases(locations);
+  const articleIds = ledger.rows.filter((row) => row.ruleset === ruleset && collectRowUrls(row, aliases).some((url) => normalizeSourceUrl(url).key === key)).flatMap((row) => row.articleIds);
   const translated = articleIds.find((articleId) => existsSync(join(locations.draftsDirectory, `${articleId}.json`)));
   return translated?.replace(/^rpgbot-/, "") ?? null;
 }
@@ -75,20 +76,29 @@ async function listDraftFileNames(directory: string): Promise<string[]> {
   }
 }
 
-function buildDraftLinkTargets(documents: readonly ArticleDocument[], sourceUrlByArticleId: ReadonlyMap<string, string>): LinkTargets {
-  return buildLinkTargets(documents.flatMap((document) => {
-    const sourceUrl = sourceUrlByArticleId.get(document.article.articleId);
-    if (!sourceUrl) return [];
-    return [{ sourceUrl, slug: document.article.slug, ruleset: document.article.ruleset, sections: findDraftRevision(document).sections }];
-  }));
+function buildDraftLinkTargets(documents: readonly ArticleDocument[], sourceUrlsByArticleId: ReadonlyMap<string, string[]>): LinkTargets {
+  return buildLinkTargets(documents.flatMap((document) => (sourceUrlsByArticleId.get(document.article.articleId) ?? []).map((sourceUrl) => (
+    { sourceUrl, slug: document.article.slug, ruleset: document.article.ruleset, sections: findDraftRevision(document).sections }))));
 }
 
-async function readSourceUrlByArticleId(coverageLedgerPath: string): Promise<Map<string, string>> {
+type LedgerRow = { sourceId: string; ruleset: string; canonicalUrl: string; articleIds: string[] };
+
+async function readSourceUrlsByArticleId(locations: DraftLocations): Promise<Map<string, string[]>> {
   try {
-    const ledger = JSON.parse(await readFile(coverageLedgerPath, "utf8")) as { rows: { canonicalUrl: string; articleIds: string[] }[] };
-    return new Map(ledger.rows.flatMap((row) => row.articleIds.map((articleId) => [articleId, row.canonicalUrl] as const)));
+    const ledger = JSON.parse(await readFile(locations.coverageLedgerPath, "utf8")) as { rows: LedgerRow[] };
+    const aliases = await readSourceAliases(locations);
+    return new Map(ledger.rows.flatMap((row) => row.articleIds.map((articleId) => [articleId, collectRowUrls(row, aliases)] as const)));
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return new Map();
     throw error;
   }
+}
+
+function collectRowUrls(row: LedgerRow, aliases: ReadonlyMap<string, string[]>): string[] {
+  return [row.canonicalUrl, ...(aliases.get(row.sourceId) ?? [])];
+}
+
+async function readSourceAliases(locations: DraftLocations): Promise<Map<string, string[]>> {
+  const entries = await readSourceManifest(join(locations.draftsDirectory, "..", "manifest.json"));
+  return new Map(entries.map((entry) => [entry.sourceId, entry.aliases]));
 }
