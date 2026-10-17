@@ -983,8 +983,7 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
     }
 
     const subclassOptionsAtLevel = allowedSubclassOptionsAtLevel.map((option) => option.choiceOption);
-    const isLenientMulticlassEntry2014 = pers.ruleset !== "RULES_2024" && levelUpPath === "MULTICLASS" && expertiseSelections.length === 0;
-    const expertiseProblem = isLenientMulticlassEntry2014 ? null : findExpertiseSelectionProblem({
+    const expertiseProblem = findExpertiseSelectionProblem({
       grants: featureEffects
         .filter((feature) => !isExpertiseChosenThroughSubclassOptions(feature, subclassOptionsAtLevel))
         .map((feature) => readExpertiseGrant(feature.skillExpertises))
