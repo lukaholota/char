@@ -45,6 +45,17 @@ describe("findPresetSuggestions", () => {
     expect(findPresetSuggestions(ENTRIES, { classKey: "ROGUE_2014", subclassKey: null, raceKey: null }).every((suggestion) => !suggestion.isRaceMatch && !suggestion.isSubclassMatch)).toBe(true);
   });
 
+  it("offers the build of the best rated subclass when only the class is chosen, but never over a match", () => {
+    const rated = [
+      { ...buildEntry("rogue-thief", "ROGUE_2014", "THIEF", "HUMAN_2014"), subclassRatingScore: 2 },
+      { ...buildEntry("rogue-unrated", "ROGUE_2014", "ARCANE_TRICKSTER", "HUMAN_2014") },
+      { ...buildEntry("rogue-swashbuckler", "ROGUE_2014", "SWASHBUCKLER", "ELF_2014"), subclassRatingScore: 4 },
+    ];
+
+    expect(findPresetSuggestions(rated, { classKey: "ROGUE_2014", subclassKey: null, raceKey: null }).map(({ entry }) => entry.slug)).toEqual(["rogue-swashbuckler", "rogue-thief", "rogue-unrated"]);
+    expect(findPresetSuggestions(rated, { classKey: "ROGUE_2014", subclassKey: "THIEF", raceKey: null })[0].entry.slug).toBe("rogue-thief");
+  });
+
   it("reports a missing match honestly when the chosen race has no preset", () => {
     const [best] = findPresetSuggestions(ENTRIES, { classKey: "ROGUE_2014", subclassKey: "THIEF", raceKey: "DWARF_2014" });
     expect(best).toMatchObject({ entry: { slug: "rogue-thief-human" }, isSubclassMatch: true, isRaceMatch: false });

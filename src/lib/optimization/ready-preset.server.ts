@@ -6,8 +6,8 @@ import { findCharacterCreationOptions } from "@/lib/content/creator-content";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { findBackgroundStartingItems } from "@/rules/background-equipment";
 import { buildReadyPresetDraft, type ReadyPreset } from "./ready-preset";
-import { readSliceArticle, readSliceRecipes } from "./slice-reader";
-import type { BuildRecipe } from "./types";
+import { readSliceArticle, readSliceBindings, readSliceRecipes, readSubclassRating } from "./slice-reader";
+import type { BuildRecipe, EntityBinding } from "./types";
 import type { CreatorContent } from "@/server/db/creator-content-query";
 import { findBuildNickname, type ReadyPresetCatalogEntry } from "./ready-preset-catalog";
 import { idSchema } from "./schema";
@@ -57,19 +57,26 @@ async function buildReadyPresetCatalog(): Promise<ReadyPresetCatalogEntry[]> {
   const slugs = await listReadyPresetSlugs();
   const recipes = await readSliceRecipes("RULES_2014");
   const content = findCharacterCreationOptions("RULES_2014");
+  const bindings = await readSliceBindings();
   const entries = await Promise.all(slugs.map(async (slug) => {
     try {
       const preset = await readReadyPreset(slug);
       const recipe = findReadyPresetRecipe(preset, recipes);
       await verifyReadyPresetSource(preset, recipe);
       const draft = buildReadyPresetDraft(recipe, preset, content);
-      return buildReadyPresetCatalogEntry(slug, preset, recipe, { draft, content });
+      return withSubclassRating(buildReadyPresetCatalogEntry(slug, preset, recipe, { draft, content }), bindings);
     } catch (err) {
       log.error("ready-preset.catalog.skipped", { slug, err });
       return null;
     }
   }));
   return entries.filter((entry) => entry !== null);
+}
+
+async function withSubclassRating(entry: ReadyPresetCatalogEntry, bindings: EntityBinding[]): Promise<ReadyPresetCatalogEntry> {
+  if (!entry.startingSubclassKey) return entry;
+  const rating = await readSubclassRating({ ruleset: "RULES_2014", kind: "subclass", parentKey: entry.startingClassKey, entityKey: entry.startingSubclassKey }, bindings);
+  return rating?.score ? { ...entry, subclassRatingScore: rating.score } : entry;
 }
 
 function buildReadyPresetCatalogEntry(slug: string, preset: ReadyPreset, recipe: BuildRecipe, { draft, content }: { draft: ReturnType<typeof buildReadyPresetDraft>; content: CreatorContent }): ReadyPresetCatalogEntry {

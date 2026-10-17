@@ -20,7 +20,7 @@ export function findPresetSuggestions(entries: readonly ReadyPresetCatalogEntry[
       isSubclassMatch: query.subclassKey !== null && entry.startingSubclassKey === query.subclassKey,
       isRaceMatch: query.raceKey !== null && entry.raceKey === query.raceKey,
     }))
-    .sort((left, right) => scoreSuggestion(right) - scoreSuggestion(left));
+    .sort((left, right) => scoreSuggestion(right) - scoreSuggestion(left) || (right.entry.subclassRatingScore ?? 0) - (left.entry.subclassRatingScore ?? 0));
 }
 
 function scoreSuggestion(suggestion: PresetSuggestion): number {

@@ -14,7 +14,7 @@ import { bindingSchema, buildRecipeSchema, entitySchema, idSchema, slicePreviewS
 import { parseArticleDocument } from "./document";
 import { readExcludedSourceIds } from "./source-policy";
 import { entityIdentity, resolvePrimaryBinding } from "./bindings";
-import type { ArticleDocument, BuildRecipe, EntityRef, OptimizationRuleset } from "./types";
+import type { ArticleDocument, BuildRecipe, EntityBinding, EntityRef, OptimizationRuleset } from "./types";
 
 const ROOT = join(process.cwd(), "data/rpgbot");
 const cachedDocuments = new Map<string, { modifiedAt: number; document: ArticleDocument }>();
@@ -76,8 +76,8 @@ export const readHydratedSliceArticle = cacheInProduction(async (slug: string, r
   return document && hydrateArticleDocument(document);
 }, "rpgbot-slice-article");
 
-export async function readSubclassRating(entity: EntityRef) {
-  const resolved = resolvePrimaryBinding(await readSliceBindings(), entity);
+export async function readSubclassRating(entity: EntityRef, bindings?: EntityBinding[]) {
+  const resolved = resolvePrimaryBinding(bindings ?? await readSliceBindings(), entity);
   if (resolved.status !== "resolved") return null;
   const document = await readSliceArticle(resolved.binding.articleId.replace(/^rpgbot-/, ""), entity.ruleset);
   return document ? findHeadingRating(document.ratings, resolved.binding.sectionId) : null;
