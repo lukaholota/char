@@ -189,7 +189,8 @@ describe("a character that drifted from the plan", () => {
   });
 
   it("reports the end of a shortened plan and the level cap", () => {
-    expect(planGuidedLevelUp(barbarian, catalog, buildModelState(barbarian, 5))).toEqual({ status: "unavailable", reason: "План пресета закінчився: рекомендацій для 6-го рівня немає." });
+    const barbarianToFive = { ...barbarian, supportedLevels: [1, 2, 3, 4, 5], progression: barbarian.progression.slice(0, 5) };
+    expect(planGuidedLevelUp(barbarianToFive, catalog, buildModelState(barbarianToFive, 5))).toEqual({ status: "unavailable", reason: "План пресета закінчився: рекомендацій для 6-го рівня немає." });
     expect(planGuidedLevelUp(barbarian, catalog, buildModelState(barbarian, 20))).toEqual({ status: "unavailable", reason: "Персонаж уже на 20-му рівні." });
   });
 });
