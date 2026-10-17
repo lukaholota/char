@@ -70,6 +70,13 @@ const SWEPT_FEATURES_2014 = [
   "Wild Intuition",
   "Windwright's Intuition",
   "Fancy Footwork",
+  /// Рішення власника 2026-10-18: навичка Insight всюди «Аналіз поведінки» (сід уже з ним, база — ні).
+  "Visage of the Astral Self",
+  "Ear for Deceit",
+  "Insightful Fighting",
+  "Soul of Deceit",
+  "Panache",
+  "Implements of Mercy",
 ] as const;
 
 /// Фанатика тут більше немає: його опис звірено з джерелом і везе `seed:catalog-prose-2014` (KR33.7).
