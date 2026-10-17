@@ -16,7 +16,7 @@ import {
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
 import { Ability, Skills, SkillProficiencyType } from "@prisma/client";
-import { PDFDocument, PDFName, PDFString, PDFTextField, rgb, type PDFFont, type PDFForm } from "pdf-lib";
+import { PDFDocument, PDFHexString, PDFName, PDFString, PDFTextField, rgb, type PDFFont, type PDFForm } from "pdf-lib";
 
 import fontkit from "@pdf-lib/fontkit";
 
@@ -52,7 +52,8 @@ import {
   translateBackgroundName,
 } from "./characterSheetText";
 import { collectSheetPdfSpells } from "./sheet-pdf-spells";
-import { CONTINUE_BELOW_SIZE, fitBoxesWithContinuation, fitOrCut, type BoxText } from "./printContinuation";
+import { CONTINUE_BELOW_SIZE, fitBoxesWithContinuation, fitOrCut, type BoxText, type Overflow, type PrintedBox } from "./printContinuation";
+import { appendContinuationPages } from "./continuationPage";
 import { fitSingleLineFontSize } from "./textFit";
 import { drawPortrait, loadPortraitJpeg } from "./portraitPrint";
 import { buildSheet2024Document, isSheet2024Requested } from "./sheet2024/buildSheet2024";
@@ -72,6 +73,7 @@ import type { GroupedPrintableWeaponAttack } from "./equipmentPrint";
 
 export type CharacterPdfLogContext = {
   jobId?: string;
+  signal?: AbortSignal;
 };
 
 function ensureTextFieldHasDA(form: PDFForm, fieldName: string) {
@@ -172,17 +174,21 @@ type PageBoxKey = "ProficienciesLang" | "Equipment" | "AttacksSpellcasting" | "P
 type PageBoxTexts = Record<PageBoxKey | "FeaturesAndTraits", string>;
 type PlacedField = { field: PDFTextField; box: BoxText };
 
-/// Поля сторінки 1 стискаються до читабельного кегля, а решта тексту йде у вільне місце поля «Уміння та Особливості».
-function fillTextBoxes(form: PDFForm, font: PDFFont, texts: PageBoxTexts) {
+/// Поля сторінки 1 стискаються до читабельного кегля, решта тексту йде у вільне місце поля «Уміння та Особливості»,
+/// а що не влізло й туди — на аркуш «Продовження».
+function fillTextBoxes(form: PDFForm, font: PDFFont, texts: PageBoxTexts): Overflow[] {
   const sources = PAGE_BOXES.map((spec) => findPlacedField(form, spec.names, { name: spec.key, label: spec.label, text: texts[spec.key], maxFontSize: spec.maxFontSize }));
   const host = findPlacedField(form, CONTINUATION_BOX.names, { name: "FeaturesAndTraits", label: CONTINUATION_BOX.label, text: texts.FeaturesAndTraits, maxFontSize: CONTINUATION_BOX.maxFontSize });
   const placed = sources.filter((source): source is PlacedField => source !== null);
-  const printed = host ? fitBoxesWithContinuation(placed.map(({ box }) => box), host.box, font) : placed.map(({ box }) => fitOrCut(box, font));
+  const { printed, overflow } = host
+    ? fitBoxesWithContinuation(placed.map(({ box }) => box), host.box, font)
+    : { printed: placed.map(({ box }) => fitOrCut(box, font)), overflow: [] };
   const fieldsByName = new Map([...placed, ...(host ? [host] : [])].map((placedField) => [placedField.box.name, placedField.field]));
-  for (const { name, lines, size } of printed) {
-    const field = fieldsByName.get(name);
-    if (field) setPrintedLines(form, field, lines, size);
+  for (const box of printed) {
+    const field = fieldsByName.get(box.name);
+    if (field) setPrintedLines(form, field, box, font);
   }
+  return overflow;
 }
 
 function findPlacedField(form: PDFForm, names: string[], text: Omit<BoxText, "box">): PlacedField | null {
@@ -194,11 +200,15 @@ function findPlacedField(form: PDFForm, names: string[], text: Omit<BoxText, "bo
   return null;
 }
 
-function setPrintedLines(form: PDFForm, field: PDFTextField, lines: string[], size: number) {
+/// Вигляд поля малюється з наших рядків, а значення лишається суцільним текстом: переглядач, що сам
+/// переносить значення (Preview, iOS), інакше ламав би кожен наш рядок ще раз «драбинкою».
+function setPrintedLines(form: PDFForm, field: PDFTextField, printed: PrintedBox, font: PDFFont) {
   try {
     field.enableMultiline();
-    trySetFontSize(form, field.getName(), size);
-    field.setText(lines.join("\n"));
+    trySetFontSize(form, field.getName(), printed.size);
+    field.setText(printed.lines.join("\n"));
+    field.updateAppearances(font);
+    field.acroField.setValue(PDFHexString.fromText(printed.value));
   } catch {
     // ignore
   }
@@ -217,8 +227,7 @@ function fillHeaderField(form: PDFForm, font: PDFFont, names: string[], value: s
       trySetFontSize(form, name, singleLineSize);
       setTextIfPresent(form, name, text);
     } else {
-      const fitted = fitOrCut({ name, label: name, text, box, maxFontSize }, font);
-      setPrintedLines(form, field, fitted.lines, fitted.size);
+      setPrintedLines(form, field, fitOrCut({ name, label: name, text, box, maxFontSize }, font), font);
     }
   }
 }
@@ -387,7 +396,7 @@ function fillSpellRows(form: PDFForm, spellsOnPage: Map<number, PersSpellWithSpe
   }
 }
 
-function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData, font: PDFFont) {
+function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData, font: PDFFont): Overflow[] {
   const { pers } = data;
   const extras = getPersExtras(pers);
 
@@ -523,7 +532,7 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
   fillWeaponSlots(form, weaponAttacks.slice(0, WEAPON_SLOTS.length));
   for (const coin of COIN_KEYS) setTextIfPresent(form, coin.toUpperCase(), formatCoinAmount(pers, coin));
 
-  fillTextBoxes(form, font, {
+  const overflow = fillTextBoxes(form, font, {
     ProficienciesLang: buildProficiencyAndLanguageBlock(pers),
     Equipment: buildEquipmentText(pers),
     AttacksSpellcasting: buildAttacksSpellcastingText(pers, weaponAttacks.slice(WEAPON_SLOTS.length)),
@@ -541,6 +550,7 @@ function fillFirstPageUsingExistingFields(form: PDFForm, data: CharacterPdfData,
     // Some PDF viewers may still show values without refreshed appearances.
     // Don't abort generation; the caller may still flatten successfully.
   }
+  return overflow;
 }
 
 async function embedNotoSansFonts(pdfDoc: PDFDocument): Promise<{ regular: PDFFont; bold: PDFFont }> {
@@ -617,6 +627,7 @@ export async function generateCharacterPdf(
   });
 
   const data: CharacterPdfData = { pers, features, wildshapeForms };
+  logCtx.signal?.throwIfAborted();
 
   const pdfBytes = await withStep(
     "pdf.generateFromData",
@@ -651,6 +662,7 @@ export async function generateCharacterPdfFromData(
     : { ...(await buildClassicSheetDocument(data, normalized, log)), appendedSections: normalized };
 
   for (const section of collectRequestedSections(data, appendedSections, { logCtx, log })) {
+    logCtx.signal?.throwIfAborted();
     await appendSection(pdfDoc, section, notoSansRegular, log);
   }
 
@@ -703,11 +715,12 @@ async function buildClassicSheetDocument(
   }
 
   // Завантажуємо шрифти
-  const { regular: notoSansRegular } = await withStep(
+  const fonts = await withStep(
     "pdf.embedFonts",
     (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
     async () => embedNotoSansFonts(pdfDoc)
   );
+  const notoSansRegular = fonts.regular;
 
   if (normalized.sections.includes("CHARACTER")) {
     await withStep(
@@ -715,7 +728,8 @@ async function buildClassicSheetDocument(
       (phase, fields) => (phase === "error" ? log.error("step", fields) : log.info("step", fields)),
       async () => {
         const form = pdfDoc.getForm();
-        fillFirstPageUsingExistingFields(form, data, notoSansRegular);
+        const overflow = fillFirstPageUsingExistingFields(form, data, notoSansRegular);
+        appendContinuationPages(pdfDoc, overflow, fonts, pdfDoc.getPage(0).getSize());
 
         if (normalized.flattenCharacterSheet) {
           try {

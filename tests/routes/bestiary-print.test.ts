@@ -10,6 +10,7 @@ vi.mock("@/server/pdf/creaturesPdf", async (importOriginal) => ({
 }));
 
 import { GET } from "@/app/api/bestiary/print/route";
+import { PdfBusyError } from "@/server/pdf/pdfJobGate";
 
 describe("GET /api/bestiary/print", () => {
   it("повертає один PDF для валідного непорожнього вибору", async () => {
@@ -51,5 +52,28 @@ describe("GET /api/bestiary/print", () => {
     await expect(response.json()).resolves.toEqual({
       error: "Істоту не знайдено: definitely-not-a-creature",
     });
+  });
+
+  it("повертає 503 з поясненням, коли генератор PDF зайнятий", async () => {
+    generateCreaturesPdfBytes.mockRejectedValueOnce(new PdfBusyError());
+    const response = await GET(new Request("http://localhost/api/bestiary/print?ruleset=RULES_2014&keys=wolf"));
+
+    expect(response.status).toBe(503);
+    expect(response.headers.get("content-type")).toBe("text/html; charset=utf-8");
+    const page = await response.text();
+    expect(page).toContain(new PdfBusyError().message);
+    expect(page).toContain('href="/api/bestiary/print?ruleset=RULES_2014&#38;keys=wolf"');
+    expect(page).toContain('href="/bestiary"');
+  });
+
+  it("повертає сторінку з виходом до бестіарію, коли PDF упав", async () => {
+    generateCreaturesPdfBytes.mockRejectedValueOnce(new Error("chromium crashed"));
+    const response = await GET(new Request("http://localhost/api/bestiary/print?ruleset=RULES_2014&keys=wolf"));
+
+    expect(response.status).toBe(500);
+    const page = await response.text();
+    expect(page).toContain("Не вдалося згенерувати PDF");
+    expect(page).not.toContain("chromium crashed");
+    expect(page).toContain('href="/bestiary"');
   });
 });

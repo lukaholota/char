@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 
 import { auth } from "@/lib/auth";
 import { generateCharacterPdf } from "@/server/pdf/generateCharacterPdf";
+import { findPdfJobErrorMessage, runCharacterPdfJob } from "@/server/pdf/pdfJobGate";
 import type { PrintConfig } from "@/server/pdf/types";
 import { createLogger, hashPII } from "@/server/logging/logger";
 import { diffUsage, formatBytes, takeUsageSnapshot } from "@/server/logging/perf";
@@ -27,18 +28,22 @@ export async function generateCharacterPdfAction(persId: number, config: PrintCo
   log.info("start", { user: { emailHash: hashPII(session.user.email) } });
 
   try {
-    const pdfBytes = await generateCharacterPdf(persId, session.user.email, config, { jobId });
+    const email = session.user.email;
+    const pdfBytes = await runCharacterPdfJob((signal) => generateCharacterPdf(persId, email, config, { jobId, signal }));
 
     const end = takeUsageSnapshot();
     log.info("end", { ...diffUsage(start, end), pdfBytes: pdfBytes.byteLength, pdfBytesFmt: formatBytes(pdfBytes.byteLength) });
 
     return {
+      ok: true as const,
       contentType: "application/pdf",
       data: Buffer.from(pdfBytes).toString("base64"),
     };
   } catch (err) {
     const end = takeUsageSnapshot();
     log.error("error", { ...diffUsage(start, end), err });
+    const message = findPdfJobErrorMessage(err);
+    if (message) return { ok: false as const, error: message };
     throw err;
   }
 }

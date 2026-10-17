@@ -6,6 +6,7 @@ import {
   PDFCheckBox,
   PDFDict,
   PDFDocument,
+  PDFHexString,
   PDFName,
   PDFRef,
   PDFTextField,
@@ -29,8 +30,10 @@ import type { Ruleset } from "@prisma/client";
 
 import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
 
+import { appendContinuationPages } from "../continuationPage";
 import { drawPortrait } from "../portraitPrint";
-import { cutWithMark, pickReadableText, wrapText, type FittedText, type TextBox } from "../textFit";
+import type { Overflow } from "../printContinuation";
+import { CONTINUED_MARK, pickReadableText, splitWithMark, wrapText, type FittedText, type TextBox } from "../textFit";
 import { findFlowFontSize, splitFlowLines } from "../textFlow";
 
 import {
@@ -38,6 +41,7 @@ import {
   MAGIC_PAGE,
   MAIN_PAGE,
   NOTES_PAGE,
+  fieldNames,
   PORTRAIT_AREA,
   SHEET_2024_IMAGE_LEFT,
   SHEET_2024_PAGE_HEIGHT,
@@ -65,7 +69,7 @@ type PagePlan = { spec: SheetPageSpec; values: SheetValues; namePrefix: string }
 type Fonts = { regular: PDFFont; bold: PDFFont };
 type PlacedPage = PagePlan & { page: PDFPage };
 /// Плаский PDF не потребує порожніх полів: вони нічого не малюють, а важать половину файлу.
-type FieldOptions = { font: PDFFont; flowedTexts: Map<string, FittedText>; skipEmpty: boolean };
+type FieldOptions = { font: PDFFont; flowedTexts: Map<string, FittedText>; skipEmpty: boolean; overflow: Overflow[] };
 type FieldTarget = { form: PDFForm; placed: PlacedPage; name: string };
 
 const INK = rgb(0.08, 0.08, 0.08);
@@ -76,16 +80,18 @@ export async function renderSheet2024(content: Sheet2024Content, options: Sheet2
   const document = await PDFDocument.create();
   const placed = await copyTemplatePages(document, plans, options.templateBytes);
   const fonts = await embedFonts(document, options);
-  const flowedTexts = distributeTextFlows(content.flows, placed, fonts.regular);
+  const overflow: Overflow[] = [];
+  const flowedTexts = distributeTextFlows(content.flows, placed, fonts.regular, overflow);
   const form = document.getForm();
 
   for (const page of placed) {
     applyLabelCorrections(page, content.ruleset, fonts);
-    addPageFields(form, page, { font: fonts.regular, flowedTexts, skipEmpty: options.flatten });
+    addPageFields(form, page, { font: fonts.regular, flowedTexts, skipEmpty: options.flatten, overflow });
   }
   await drawDetailsPortrait(placed, options.portraitJpeg);
   registerFieldFont(form, fonts.regular);
   if (options.flatten) flattenForm(document, form);
+  if (placed.length > 0) appendContinuationPages(document, overflow, fonts, placed[0].page.getSize());
   return { pdfDoc: document, font: fonts.regular };
 }
 
@@ -158,6 +164,7 @@ function addPageFields(form: PDFForm, placed: PlacedPage, options: FieldOptions)
     if (spec.kind === "text") {
       const box = toPdfRect(spec.rect, placed.spec.imageTop);
       const fitted = options.flowedTexts.get(target.name) ?? pickReadableText(readTextCandidates(value), options.font, box, spec);
+      if (fitted.rest) options.overflow.push({ label: CONTINUATION_LABELS[spec.name] ?? "Інше", text: fitted.rest });
       if (!(options.skipEmpty && !fitted.text)) addTextField(target, spec, fitted, options.font);
     } else if (!(options.skipEmpty && value !== true)) {
       addCheckBox(target, spec, value === true);
@@ -170,7 +177,21 @@ function readTextCandidates(value: SheetValue | undefined): string[] {
   return [typeof value === "string" ? stripGlossaryMarkers(value) : ""];
 }
 
-function addTextField({ form, placed, name }: FieldTarget, spec: TextFieldSpec, { text, size }: FittedText, font: PDFFont) {
+/// Назви — ті самі, що надруковані над полями бланка.
+const CONTINUATION_LABELS: Record<string, string> = {
+  attacksAndSpellcasting: "Атаки та чаротворення",
+  feats: "Риси",
+  conditions: "Стани",
+  toolsAndLanguages: "Володіння інструментами та мовами",
+  appearance: "Зовнішній вигляд",
+  backstory: "Передісторія і особистість",
+  equipment: "Спорядження",
+  [fieldNames.notes(1)]: "Примітки",
+};
+
+/// Вигляд малюється з наших рядків, а значення лишається суцільним текстом: переглядач, що сам
+/// переносить значення (Preview, iOS), інакше ламав би кожен наш рядок ще раз «драбинкою».
+function addTextField({ form, placed, name }: FieldTarget, spec: TextFieldSpec, { text, size, value }: FittedText, font: PDFFont) {
   const field = createTextFieldUnchecked(form, name);
   if (spec.multiline) field.enableMultiline();
   field.setAlignment(spec.align === "center" ? TextAlignment.Center : TextAlignment.Left);
@@ -185,6 +206,7 @@ function addTextField({ form, placed, name }: FieldTarget, spec: TextFieldSpec, 
   field.setText(text);
   field.setFontSize(size);
   field.updateAppearances(font);
+  field.acroField.setValue(PDFHexString.fromText(value));
 }
 
 function addCheckBox({ form, placed, name }: FieldTarget, spec: CheckFieldSpec, isChecked: boolean) {
@@ -254,7 +276,7 @@ function findMarkCorners(shape: "diamond" | "square", centerX: number, centerY: 
 }
 
 /// Список здібностей заповнює поля по черзі; якщо не влазить і в останнє, кегль меншає для всіх.
-function distributeTextFlows(flows: TextFlow[], placed: PlacedPage[], font: PDFFont): Map<string, FittedText> {
+function distributeTextFlows(flows: TextFlow[], placed: PlacedPage[], font: PDFFont, overflow: Overflow[]): Map<string, FittedText> {
   const printedFields = new Map(
     placed.flatMap((page) =>
       page.spec.fields.flatMap((spec) => (spec.kind === "text" ? [[page.namePrefix + spec.name, toPdfRect(spec.rect, page.spec.imageTop)] as const] : [])),
@@ -268,9 +290,14 @@ function distributeTextFlows(flows: TextFlow[], placed: PlacedPage[], font: PDFF
     const size = findFlowFontSize(flow.lines, font, boxes, FLOW_MAX_FONT_SIZE);
     const { chunks, rest } = splitFlowLines(flow.lines, font, boxes, size);
     chunks.forEach((chunk, index) => {
-      const isLast = index === chunks.length - 1;
-      const lines = isLast && rest.length > 0 ? cutWithMark([...chunk, ...rest].join("\n"), font, boxes[index], size) : wrapText(chunk.join("\n"), font, size, boxes[index].width);
-      fitted.set(names[index], { text: lines.join("\n"), size });
+      const value = chunk.join("\n");
+      if (index < chunks.length - 1 || rest.length === 0) {
+        fitted.set(names[index], { text: wrapText(value, font, size, boxes[index].width).join("\n"), size, value, rest: "" });
+        return;
+      }
+      const split = splitWithMark([...chunk, ...rest].join("\n"), font, boxes[index], size, CONTINUED_MARK);
+      if (split.rest) overflow.push({ label: flow.label, text: split.rest });
+      fitted.set(names[index], { text: split.lines.join("\n"), size, value: split.value, rest: "" });
     });
   }
   return fitted;

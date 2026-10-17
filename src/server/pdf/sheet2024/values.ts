@@ -55,7 +55,7 @@ export type SheetValue = string | boolean | string[];
 export type SheetValues = Record<string, SheetValue>;
 
 /// Текст, що не влазить у перше поле, продовжується в наступних за порядком.
-export type TextFlow = { lines: string[]; fieldNames: string[] };
+export type TextFlow = { label: string; lines: string[]; fieldNames: string[] };
 
 export type Sheet2024Content = {
   ruleset: Ruleset;
@@ -90,6 +90,7 @@ export function buildSheet2024Content(data: CharacterPdfData): Sheet2024Content 
     notes: { [fieldNames.notes(1)]: pers.notes ?? "" },
     flows: [
       {
+        label: "Здібності та риси раси",
         lines: formatFeatureList(features.filter((feature) => feature.source !== "FEAT")).split("\n").filter(Boolean),
         fieldNames: ["classFeaturesLeft", "classFeaturesRight", "additionalFeatures"],
       },

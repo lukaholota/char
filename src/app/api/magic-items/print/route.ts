@@ -1,5 +1,7 @@
 import crypto from "node:crypto";
 import { NextResponse } from "next/server";
+import { findPdfJobErrorMessage, runCatalogPdfJob } from "@/server/pdf/pdfJobGate";
+import { buildPdfErrorPage, findRetryHref } from "@/server/pdf/pdfErrorPage";
 import { generateMagicItemsPdfBytes } from "@/server/pdf/magicItemsPdf";
 import { createLogger } from "@/server/logging/logger";
 import { diffUsage, formatBytes, takeUsageSnapshot } from "@/server/logging/perf";
@@ -47,7 +49,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "magicItemIds має бути непорожнім масивом" }, { status: 400 });
   }
 
-  return generatePdfResponse(magicItemIds, { jobId, start });
+  return generatePdfResponse(magicItemIds, { jobId, start, retryHref: findRetryHref(req) });
 }
 
 export async function GET(req: Request) {
@@ -63,15 +65,15 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "ids має бути непорожнім списком (через кому)" }, { status: 400 });
   }
 
-  return generatePdfResponse(magicItemIds, { jobId, start });
+  return generatePdfResponse(magicItemIds, { jobId, start, retryHref: findRetryHref(req) });
 }
 
-async function generatePdfResponse(magicItemIds: number[], ctx: { jobId: string; start: ReturnType<typeof takeUsageSnapshot> }) {
+async function generatePdfResponse(magicItemIds: number[], ctx: { jobId: string; start: ReturnType<typeof takeUsageSnapshot>; retryHref?: string }) {
   const log = createLogger("api.print.magicItems").child({ jobId: ctx.jobId });
   log.info("start", { magicItemIdsCount: magicItemIds.length });
 
   try {
-    const pdfBytes = await generateMagicItemsPdfBytes(magicItemIds, { jobId: ctx.jobId, tag: "api.magicItems" });
+    const pdfBytes = await runCatalogPdfJob(() => generateMagicItemsPdfBytes(magicItemIds, { jobId: ctx.jobId, tag: "api.magicItems" }));
     const end = takeUsageSnapshot();
     log.info("end", {
       ...diffUsage(ctx.start, end),
@@ -90,6 +92,9 @@ async function generatePdfResponse(magicItemIds: number[], ctx: { jobId: string;
   } catch (error) {
     const end = takeUsageSnapshot();
     log.error("error", { ...diffUsage(ctx.start, end), err: error, magicItemIdsCount: magicItemIds.length });
-    return NextResponse.json({ error: "Не вдалося згенерувати PDF" }, { status: 500 });
+    const busyMessage = findPdfJobErrorMessage(error);
+    const links = { catalogHref: "/magic-items", catalogLabel: "До магічних предметів", retryHref: ctx.retryHref };
+    if (busyMessage) return buildPdfErrorPage(busyMessage, 503, links);
+    return buildPdfErrorPage("Не вдалося згенерувати PDF. Спробуйте ще раз трохи згодом.", 500, links);
   }
 }

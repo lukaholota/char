@@ -312,6 +312,7 @@ describe("друк за посиланням", () => {
       sections: ["SPELL_SHEET"],
       flattenCharacterSheet: false,
     });
+    if (!shared.ok) throw new Error(shared.error);
     const sharedPages = await readPdfPageFields(Buffer.from(shared.data, "base64"));
 
     expect(sharedPages[0]["Spells 1015"]).toBe(levelOneSpellNames[0]);

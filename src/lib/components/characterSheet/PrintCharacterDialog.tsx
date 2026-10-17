@@ -143,6 +143,10 @@ export default function PrintCharacterDialog({
         const res = shareToken
           ? await generateCharacterPdfByTokenAction(shareToken, config)
           : await generateCharacterPdfAction(persId, config);
+        if (!res.ok) {
+          toast.error(res.error);
+          return;
+        }
         const bytes = base64ToUint8Array(res.data);
         const arrayBuffer = new ArrayBuffer(bytes.byteLength);
         new Uint8Array(arrayBuffer).set(bytes);

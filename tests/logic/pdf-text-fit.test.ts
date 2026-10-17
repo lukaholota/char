@@ -5,7 +5,8 @@ import fontkit from "@pdf-lib/fontkit";
 import { PDFDocument, TextAlignment, layoutMultilineText, type PDFFont } from "pdf-lib";
 import { beforeAll, describe, expect, it } from "vitest";
 
-import { CONTINUE_BELOW_SIZE, NOT_FITTED_MARK, fitBoxesWithContinuation, fitOrCut } from "@/server/pdf/printContinuation";
+import { CONTINUATION_TITLE, appendContinuationPages, layoutContinuationPages } from "@/server/pdf/continuationPage";
+import { CONTINUED_MARK, CONTINUE_BELOW_SIZE, fitBoxesWithContinuation, fitOrCut } from "@/server/pdf/printContinuation";
 import {
   MIN_FONT_SIZE,
   countFittingLines,
@@ -30,6 +31,7 @@ beforeAll(async () => {
 
 const MIXED = "Натхнення барда\nЧаклування з дуже довгою назвою вміння, що мусить переноситися двічі у вузькій колонці\nExpertise and a long English line that wraps as well";
 const SENTENCE = "Я поклявся захищати гай, де народився, і кожен, хто зашкодить його деревам, стане моїм ворогом. ";
+const words = (value: string) => value.split(/\s+/).filter(Boolean);
 
 function layOutWithPdfLib(text: string, size: number, width: number) {
   return layoutMultilineText(text, { alignment: TextAlignment.Left, fontSize: size, font, bounds: { x: 1, y: 1, width: width - 2, height: 10_000 } });
@@ -106,7 +108,6 @@ describe("перенос тексту в полях PDF", () => {
     const capacity = countFittingLines(font, box, 8);
     const plain = splitTextToFit(text, font, box, 8);
     const reserved = splitTextToFit(text, font, box, 8, { reserveLastLine: true });
-    const words = (value: string) => value.split(/\s+/).filter(Boolean);
 
     expect(plain.lines).toHaveLength(capacity);
     expect(reserved.lines).toHaveLength(capacity - 1);
@@ -136,14 +137,27 @@ describe("перенос тексту в полях PDF", () => {
     expect(performance.now() - started).toBeLessThan(3000);
   });
 
-  it("поле листа 2024, якому не вистачило й найменшого кегля, закінчується позначкою, а не обрізаним рядком", () => {
+  it("поле листа 2024, якому не вистачило й найменшого кегля, відсилає решту на аркуш «Продовження»", () => {
     const box = { width: 150, height: 60 };
-    const fitted = pickReadableText([SENTENCE.repeat(40)], font, box, { maxFontSize: 10, multiline: true });
+    const text = SENTENCE.repeat(40);
+    const fitted = pickReadableText([text], font, box, { maxFontSize: 10, multiline: true });
     const lines = fitted.text.split("\n");
 
     expect(fitted.size).toBe(MIN_FONT_SIZE);
     expect(lines).toHaveLength(countFittingLines(font, box, MIN_FONT_SIZE));
-    expect(lines.at(-1)).toBe(NOT_FITTED_MARK);
+    expect(lines.at(-1)).toBe(CONTINUED_MARK);
+    expect(words([...lines.slice(0, -1), fitted.rest].join(" "))).toEqual(words(text));
+  });
+
+  it("значення поля для редагування — суцільний текст без наших розривів рядків", () => {
+    const box = { width: 150, height: 60 };
+    const short = pickReadableText([`${SENTENCE}\n${SENTENCE}`], font, box, { maxFontSize: 10, multiline: true });
+    const cut = pickReadableText([SENTENCE.repeat(40)], font, box, { maxFontSize: 10, multiline: true });
+
+    expect(short.text.split("\n").length).toBeGreaterThan(2);
+    expect(short.value).toBe(`${SENTENCE}\n${SENTENCE}`);
+    expect(cut.value.split("\n")).toEqual([cut.value.split("\n")[0], CONTINUED_MARK]);
+    expect(SENTENCE.repeat(40).startsWith(cut.value.split("\n")[0])).toBe(true);
   });
 
   it.each([
@@ -173,31 +187,88 @@ describe("продовження тексту у вільному полі", () 
   const small = { name: "langs", label: "Інші уміння та знання мов", text: "Мови: Загальна, Ельфійська", box: { width: 166, height: 129 }, maxFontSize: 7 };
 
   it("поле, що вміщує текст читабельно, не чіпає хоста", () => {
-    const [printed, printedHost] = fitBoxesWithContinuation([small], host, font);
+    const { printed: [printed, printedHost], overflow } = fitBoxesWithContinuation([small], host, font);
 
-    expect(printed).toEqual({ name: "langs", lines: ["Мови: Загальна, Ельфійська"], size: 7 });
+    expect(printed).toEqual({ name: "langs", lines: ["Мови: Загальна, Ельфійська"], size: 7, value: "Мови: Загальна, Ельфійська" });
     expect(printedHost.lines).toEqual(["· Дика форма"]);
+    expect(overflow).toEqual([]);
   });
 
   it("надлишок переходить у хост із позначкою, і жодне слово не губиться", () => {
     const long = { ...small, name: "bonds", label: "Прив'язаності", text: SENTENCE.repeat(6), box: { width: 153, height: 35 }, maxFontSize: 10 };
-    const [printed, printedHost] = fitBoxesWithContinuation([long], host, font);
-    const words = (value: string) => value.split(/\s+/).filter(Boolean);
+    const { printed: [printed, printedHost], overflow } = fitBoxesWithContinuation([long], host, font);
 
     expect(printed.size).toBe(CONTINUE_BELOW_SIZE);
     expect(printed.lines.at(-1)).toBe("… далі в «Уміння та Особливості»");
     expect(printedHost.lines).toContain("Прив'язаності (продовження):");
     const hostRest = printedHost.lines.slice(printedHost.lines.indexOf("Прив'язаності (продовження):") + 1).join(" ");
     expect(words([...printed.lines.slice(0, -1), hostRest].join(" "))).toEqual(words(long.text));
+    expect(printed.value).toBe(`${printed.value.split("\n")[0]}\n… далі в «Уміння та Особливості»`);
+    expect(overflow).toEqual([]);
   });
 
-  it("коли хост повний, поле дрібнішає до межі й показує, що текст не вмістився", () => {
+  it("коли хост повний, решта поля йде на аркуш «Продовження» без втрати слів", () => {
     const fullHost = { ...host, text: SENTENCE.repeat(40) };
-    const long = { ...small, name: "bonds", text: SENTENCE.repeat(12), box: { width: 153, height: 35 }, maxFontSize: 10 };
-    const [printed, printedHost] = fitBoxesWithContinuation([long], fullHost, font);
+    const long = { ...small, name: "bonds", label: "Прив'язаності", text: SENTENCE.repeat(12), box: { width: 153, height: 35 }, maxFontSize: 10 };
+    const { printed: [printed, printedHost], overflow } = fitBoxesWithContinuation([long], fullHost, font);
 
-    expect(printed.size).toBe(MIN_FONT_SIZE);
-    expect(printed.lines.at(-1)).toBe(NOT_FITTED_MARK);
-    expect(printedHost).toEqual(fitOrCut(fullHost, font));
+    expect(printed.size).toBe(CONTINUE_BELOW_SIZE);
+    expect(printed.lines.at(-1)).toBe(CONTINUED_MARK);
+    expect(overflow[0].label).toBe("Прив'язаності");
+    expect(words([...printed.lines.slice(0, -1), overflow[0].text].join(" "))).toEqual(words(long.text));
+    expect(printedHost.lines.join(" ")).not.toContain("Прив'язаності (продовження)");
+  });
+
+  it("хост, якому замало й 6 pt, сам продовжується на аркуші «Продовження»", () => {
+    const hugeHost = { ...host, text: SENTENCE.repeat(80) };
+    const { printed: [printedHost], overflow } = fitBoxesWithContinuation([], hugeHost, font);
+
+    expect(printedHost.size).toBe(CONTINUE_BELOW_SIZE);
+    expect(printedHost.lines.at(-1)).toBe(CONTINUED_MARK);
+    expect(overflow.map(({ label }) => label)).toEqual(["Уміння та Особливості"]);
+    expect(words([...printedHost.lines.slice(0, -1), overflow[0].text].join(" "))).toEqual(words(hugeHost.text));
+  });
+});
+
+describe("аркуш «Продовження»", () => {
+  const page = { width: 612, height: 792 };
+
+  it("переносить увесь текст розділів, не лишаючи заголовок останнім рядком сторінки", () => {
+    const overflow = [
+      { label: "Прив'язаності", text: SENTENCE.repeat(20) },
+      { label: "Уміння та Особливості", text: SENTENCE.repeat(200) },
+    ];
+    const pages = layoutContinuationPages(overflow, font, page);
+    const lines = pages.flat();
+
+    expect(pages.length).toBeGreaterThan(1);
+    for (const pageLines of pages) {
+      expect(pageLines.at(-1)?.isHeading).toBe(false);
+      expect(pageLines[0].text).not.toBe("");
+    }
+    expect(lines.filter((line) => line.isHeading).map((line) => line.text)).toEqual(["Прив'язаності (продовження)", "Уміння та Особливості (продовження)"]);
+    expect(words(lines.filter((line) => !line.isHeading).map((line) => line.text).join(" "))).toEqual(words(overflow.map(({ text }) => text).join(" ")));
+    for (const line of lines) expect(font.widthOfTextAtSize(line.text, 9)).toBeLessThan(page.width - 96);
+  });
+
+  it("заголовок розділу на межі сторінки переходить на наступну разом зі своїм текстом", () => {
+    for (let lineCount = 40; lineCount <= 70; lineCount++) {
+      const first = { label: "Ідеали", text: Array.from({ length: lineCount }, (_, index) => `рядок ${index + 1}`).join("\n") };
+      const pages = layoutContinuationPages([first, { label: "Вади", text: "останній" }], font, page);
+      for (const pageLines of pages) expect(pageLines.at(-1)?.isHeading).toBe(false);
+      expect(pages.flat().map((line) => line.text)).toContain("Вади (продовження)");
+    }
+  });
+
+  it("без надлишку сторінки не додаються", async () => {
+    const target = await PDFDocument.create();
+    target.registerFontkit(fontkit);
+    const regular = await target.embedFont(readFileSync(path.resolve("public/fonts/NotoSans-Regular.ttf")), { subset: true });
+
+    appendContinuationPages(target, [], { regular, bold: regular }, page);
+    expect(target.getPageCount()).toBe(0);
+    appendContinuationPages(target, [{ label: "Ідеали", text: SENTENCE }], { regular, bold: regular }, page);
+    expect(target.getPageCount()).toBe(1);
+    expect(CONTINUATION_TITLE).toBe("Продовження");
   });
 });

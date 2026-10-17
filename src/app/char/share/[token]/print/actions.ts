@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 
 import { getPersByShareToken, getPrintablePersByShareToken } from "@/lib/actions/share-actions";
 import { generateCharacterPdfFromData } from "@/server/pdf/generateCharacterPdf";
+import { findPdfJobErrorMessage, runCharacterPdfJob } from "@/server/pdf/pdfJobGate";
 import { groupCharacterFeaturesForPdf } from "@/server/pdf/groupCharacterFeatures";
 import type { CharacterPdfData, PrintConfig } from "@/server/pdf/types";
 import { createLogger } from "@/server/logging/logger";
@@ -36,26 +37,23 @@ export async function generateCharacterPdfByTokenAction(token: string, config: P
   log.info("start", { persId: pers.persId, name: pers.name });
 
   try {
-    const pdfBytes = await generateCharacterPdfFromData(
-      {
-        pers: printablePers,
-        features,
-        wildshapeForms,
-      },
-      config,
-      { jobId }
+    const pdfBytes = await runCharacterPdfJob((signal) =>
+      generateCharacterPdfFromData({ pers: printablePers, features, wildshapeForms }, config, { jobId, signal })
     );
 
     const end = takeUsageSnapshot();
     log.info("end", { ...diffUsage(start, end), pdfBytes: pdfBytes.byteLength, pdfBytesFmt: formatBytes(pdfBytes.byteLength) });
 
     return {
+      ok: true as const,
       contentType: "application/pdf",
       data: Buffer.from(pdfBytes).toString("base64"),
     };
   } catch (err) {
     const end = takeUsageSnapshot();
     log.error("error", { ...diffUsage(start, end), err });
+    const message = findPdfJobErrorMessage(err);
+    if (message) return { ok: false as const, error: message };
     throw err;
   }
 }
