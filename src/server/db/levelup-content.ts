@@ -38,6 +38,7 @@ export async function loadLevelUpBaseContent(persId: number, reader: DatabaseRea
           },
         },
       },
+      raceVariants: { select: { replacesFeatures: { select: { featureId: true } } } },
       raceChoiceOptions: {
         select: {
           optionName: true,

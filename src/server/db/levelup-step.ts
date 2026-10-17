@@ -32,6 +32,7 @@ import { findReplacedChoiceGroup, isReplacedGroupMatch } from "@/rules/choice-re
 import { grantSubclassUnarmedStrike } from "@/server/db/unarmed-strike";
 import { findInfusionPicksAtLevel } from "@/rules/artificer-infusions";
 import { buildSpeciesPersSpellRows, findMissingSpeciesGrants } from "@/server/db/species-level-grants";
+import { findVariantReplacedFeatureIds } from "@/rules/species-grants";
 import {
   buildClassPersSpellRows,
   buildSubclassPersSpellRows,
@@ -185,6 +186,7 @@ function readMissingSpeciesGrants(pers: LevelUpPers, characterLevel: number) {
     ruleset: pers.ruleset,
     characterLevel,
     raceTraits: pers.race.traits,
+    replacedTraitFeatureIds: findVariantReplacedFeatureIds(pers.raceVariants),
     raceChoiceOptions: pers.raceChoiceOptions,
     ownedFeatureIds: pers.features.map((feature) => feature.featureId),
     ownedSpellIds: pers.persSpells.map((spell) => spell.spellId),

@@ -6,7 +6,12 @@ import {
   hasCharacterLevelAtLeast,
   hasClassLevelAtLeast,
 } from "@/rules/character-level";
-import { findEarnedSpeciesFeatureIds, findMissingSpeciesTraits } from "@/rules/species-grants";
+import {
+  dropReplacedSpeciesTraits,
+  findEarnedSpeciesFeatureIds,
+  findMissingSpeciesTraits,
+  findVariantReplacedFeatureIds,
+} from "@/rules/species-grants";
 
 /**
  * Референс §4 вимагає саме двох предикатів, а не одного «рівень ≥ N»: Wizard 2 / Fighter 3 —
@@ -90,5 +95,24 @@ describe("KR18.5 — риси виду за рівнем персонажа", ()
 
     expect(findEarnedSpeciesFeatureIds(legacyTraits, atLevel(1))).toEqual([1, 2]);
     expect(findEarnedSpeciesFeatureIds(legacyTraits, atLevel(20))).toEqual([1, 2]);
+  });
+});
+
+describe("BUG-039 — риса виду, яку заміщує варіант", () => {
+  const INFERNAL_LEGACY = { featureId: 1, level: 1 };
+  const HELLISH_RESISTANCE = { featureId: 2, level: 1 };
+
+  it("заміщена риса випадає, решта лишається в тому ж порядку", () => {
+    expect(dropReplacedSpeciesTraits([INFERNAL_LEGACY, HELLISH_RESISTANCE], [1])).toEqual([HELLISH_RESISTANCE]);
+  });
+
+  it("заміщення збираються з усіх варіантів персонажа", () => {
+    const variants = [{ replacesFeatures: [{ featureId: 1 }] }, { replacesFeatures: [] }];
+
+    expect(findVariantReplacedFeatureIds(variants)).toEqual([1]);
+  });
+
+  it("без заміщень вид віддає всі свої риси", () => {
+    expect(dropReplacedSpeciesTraits([INFERNAL_LEGACY, HELLISH_RESISTANCE], [])).toEqual([INFERNAL_LEGACY, HELLISH_RESISTANCE]);
   });
 });
