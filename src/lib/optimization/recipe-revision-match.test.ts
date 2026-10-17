@@ -76,6 +76,19 @@ describe("shared plan level of two revisions", () => {
   it("shares nothing when the start differs", () => {
     expect(findSharedPlanLevel({ ...barbarian, startingClassKey: "FIGHTER_2014" }, barbarian)).toBe(0);
   });
+
+  it.each([
+    ["race", { raceKey: "HUMAN_2014" }],
+    ["background", { backgroundKey: "SAGE" }],
+    ["feat", { featKey: "ALERT" }],
+    ["ability scores", { abilityScores: barbarian.details!.abilityScores.map((score) => ({ ...score, value: 10 })) }],
+  ])("shares nothing when the start changes its %s", (_label, change) => {
+    expect(findSharedPlanLevel({ ...barbarian, details: { ...barbarian.details!, ...change } }, barbarian)).toBe(0);
+  });
+
+  it("ignores the article prose of the start", () => {
+    expect(findSharedPlanLevel({ ...barbarian, details: { ...barbarian.details!, nodes: [], levelPlans: [], incomplete: [] } }, barbarian)).toBe(20);
+  });
 });
 
 describe("reason a character cannot follow the current revision", () => {

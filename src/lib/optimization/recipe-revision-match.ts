@@ -26,9 +26,16 @@ function describeStart(recipe: BuildRecipe): string {
   const firstStep = recipe.progression.find((step) => step.characterLevel === 1);
   return toComparableJson({
     startingClassKey: recipe.startingClassKey,
+    origin: describeOrigin(recipe),
     initialChoices: listChoices(recipe, recipe.initialChoices),
     firstStep: firstStep ? describeStep(recipe, firstStep) : null,
   });
+}
+
+function describeOrigin({ details }: BuildRecipe) {
+  if (!details) return null;
+  const { raceKey, variantKey, backgroundKey, featKey, subclassKey, abilityScores } = details;
+  return { raceKey, variantKey, backgroundKey, featKey, subclassKey, abilityScores };
 }
 
 function describeStep(recipe: BuildRecipe, step: BuildProgressionStep): string {
