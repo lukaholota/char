@@ -51,7 +51,7 @@
   GUIDE_2024 зі списком чарівника 1, SAGE_2024 зі списком клірика 1 і друїда 1).
 - 2024 рівня 2+: чорнокнижник 12, воїн 9, слідопит 7, паладин 5, чародій 3; майстрів бою 2024 — 0.
 - Чорнокнижник рівня класу 11+: 2014 — 9 (8 користувачів), 2024 — 1; Джин 17+ (2014) — 1.
-- GOLIATH_MPMM 31, DRAGONBORN_METALLIC 6, GENASI_FIRE_MPMM 4, GENASI_WATER_MPMM 7, Mammon — 0.
+- GOLIATH_MPMM 31, DRAGONBORN_METALLIC 6, GENASI_FIRE_MPMM 4, GENASI_WATER_MPMM 7, Mammon — 19 персонажів, 7 гравців (уточнено 2026-10-17 через `_PersToRaceVariant`, раніше тут стояло 0); Мітка Переходу — 16, 5 гравців.
 - Риси: 1612 Stone's Endurance — SHORT_REST; 5828 Metallic Breath Weapon — SHORT_REST;
   5731 Infernal Legacy (Mammon) — LONG_REST.
 - Навички доменів магії (8447) і природи (8495) у проді є, у `spells_test` і приватному клоні — NULL.

@@ -92,11 +92,14 @@ export async function loadCreationContent(data: PersFormData) {
       })
     : [];
 
-  const [classFeatures, raceFeatures, subraceFeatures, subclassFeatures, optionalFeatures, selectedChoiceOptions, choiceOptionFeatures, raceChoiceOptions, raceChoiceTraits, raceTraitFeatures] = await Promise.all([
+  const [classFeatures, raceFeatures, subraceFeatures, raceVariantFeatures, subclassFeatures, optionalFeatures, selectedChoiceOptions, choiceOptionFeatures, raceChoiceOptions, raceChoiceTraits, raceTraitFeatures] = await Promise.all([
     prisma.classFeature.findMany({ where: { classId: data.classId, levelGranted: 1 }, select: { featureId: true } }),
     prisma.raceTrait.findMany({ where: { raceId: data.raceId }, select: { featureId: true, level: true } }),
     data.subraceId
       ? prisma.subraceTrait.findMany({ where: { subraceId: data.subraceId }, select: { featureId: true } })
+      : [],
+    data.raceVariantId
+      ? prisma.raceVariantTrait.findMany({ where: { raceVariantId: data.raceVariantId }, select: { featureId: true } })
       : [],
     data.subclassId
       ? prisma.subclassFeature.findMany({ where: { subclassId: data.subclassId, levelGranted: 1 }, select: { featureId: true } })
@@ -159,6 +162,7 @@ export async function loadCreationContent(data: PersFormData) {
     // першим рівнем, тож сюди потрапляють лише ті, що доступні з першого (KR18.5).
     ...findEarnedSpeciesFeatureIds(raceFeatures, CREATION_LEVELS),
     ...subraceFeatures.map((feature) => feature.featureId),
+    ...raceVariantFeatures.map((feature) => feature.featureId),
     ...subclassFeatures.map((feature) => feature.featureId),
   ].filter((id) => Number.isFinite(id));
   const optionalGrantedFeatureIds = optionalFeatures

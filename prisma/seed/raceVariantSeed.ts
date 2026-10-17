@@ -210,7 +210,9 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
             exclusivityGroup: "tiefling_bloodline",
             traits: {
                 create: [
-                    connectFeature('Infernal Legacy (Mammon)')
+                    connectFeature('Infernal Legacy (Mammon)'),
+                    connectFeature("Infernal Legacy (Mammon): Tenser's Floating Disk"),
+                    connectFeature('Infernal Legacy (Mammon): Arcane Lock')
                 ]
             }
         },
@@ -452,6 +454,7 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
             raceId: human.raceId,
             name: Variants.HUMAN_MARK_OF_PASSAGE_EBERRON,
             source: Source.EBERRON,
+            overridesRaceSpeed: 35,
             overridesRaceASI: { DEX: 2, INT: 1 }, // Using INT as "one other" +1
             traits: {
                 create: [

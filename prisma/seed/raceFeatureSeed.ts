@@ -2048,7 +2048,7 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       shortDescription:
         "Магічна рука, Літаючий диск Тензера (3), Арканний замок (5)",
       displayType: [FeatureDisplayType.PASSIVE],
-      limitedUsesPer: RestType.LONG_REST,
+      limitedUsesPer: null,
       givesSpells: {
         connect: [
           { engName_ruleset: { engName: "Mage Hand", ruleset: ACTIVE_RULESET } },
@@ -2056,6 +2056,27 @@ const RACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
           { engName_ruleset: { engName: "Arcane Lock", ruleset: ACTIVE_RULESET } },
         ],
       },
+    },
+    // Два заклинання відновлюються різними відпочинками, тож кожне має свою картку-лічильник (BUG-035).
+    {
+      name: "Літаючий диск Тензера",
+      engName: "Infernal Legacy (Mammon): Tenser's Floating Disk",
+      description:
+        "З 3-го рівня можете один раз накласти <a href=\"/spells/tensers-floating-disk\">Літаючий диск Тензера [Tenser's Floating Disk]</a> Пекельною спадщиною (Маммон); відновлюєте це використання після завершення короткого або тривалого відпочинку.\n\nХаризма є характеристикою чаротворення для цього заклинання.",
+      shortDescription: "Один раз з 3-го рівня; відновлюється коротким або тривалим відпочинком.",
+      displayType: [FeatureDisplayType.PASSIVE],
+      limitedUsesPer: RestType.SHORT_REST,
+      usesCountSpecial: [{ lvl: 3, uses: 1 }],
+    },
+    {
+      name: "Арканний замок",
+      engName: "Infernal Legacy (Mammon): Arcane Lock",
+      description:
+        "З 5-го рівня можете один раз накласти <a href=\"/spells/arcane-lock\">Арканний замок [Arcane Lock]</a> Пекельною спадщиною (Маммон) без матеріального компонента; відновлюєте це використання після завершення тривалого відпочинку.\n\nХаризма є характеристикою чаротворення для цього заклинання.",
+      shortDescription: "Один раз з 5-го рівня, без матеріального компонента; відновлюється тривалим відпочинком.",
+      displayType: [FeatureDisplayType.PASSIVE],
+      limitedUsesPer: RestType.LONG_REST,
+      usesCountSpecial: [{ lvl: 5, uses: 1 }],
     },
 
     // Mephistopheles
