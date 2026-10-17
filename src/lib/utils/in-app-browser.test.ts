@@ -73,23 +73,27 @@ describe("buildOpenInBrowserLinks", () => {
   const page = "https://char.holota.family/char/create?preset=wizard&from=threads";
 
   it("на iPhone дає спершу Safari, потім Chrome на ту саму сторінку", () => {
-    expect(buildOpenInBrowserLinks(page, "ios").map((link) => link.href)).toEqual([
+    expect(buildOpenInBrowserLinks(page, { platform: "ios", host: "telegram" }).map((link) => link.href)).toEqual([
       `x-safari-${page}`,
       "googlechromes://char.holota.family/char/create?preset=wizard&from=threads",
     ]);
   });
 
+  it("у Threads на iPhone не обіцяє Safari, бо Threads ігнорує x-safari-", () => {
+    expect(buildOpenInBrowserLinks(page, { platform: "ios", host: "threads" }).map((link) => link.browser)).toEqual(["chrome"]);
+  });
+
   it("на Android веде в Chrome, а без Chrome — на ту саму сторінку тут", () => {
-    const [link] = buildOpenInBrowserLinks(page, "android");
+    const [link] = buildOpenInBrowserLinks(page, { platform: "android", host: "threads" });
     expect(link.href).toBe(
       `intent://char.holota.family/char/create?preset=wizard&from=threads#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(page)};end`
     );
   });
 
   it("на компʼютері й для інших схем посилань немає", () => {
-    expect(buildOpenInBrowserLinks(page, "other")).toEqual([]);
-    expect(buildOpenInBrowserLinks("javascript:alert(1)", "ios")).toEqual([]);
-    expect(buildOpenInBrowserLinks("not a url", "android")).toEqual([]);
+    expect(buildOpenInBrowserLinks(page, { platform: "other", host: null })).toEqual([]);
+    expect(buildOpenInBrowserLinks("javascript:alert(1)", { platform: "ios", host: null })).toEqual([]);
+    expect(buildOpenInBrowserLinks("not a url", { platform: "android", host: null })).toEqual([]);
   });
 });
 

@@ -38,7 +38,7 @@ export function InAppBrowserNotice({ environment, variant, placement }: Props) {
   const draftFragment = useLinkedDraftFragment();
   const handoffUrl = appendDraftFragment(pageUrl, draftFragment);
   const browserName = findBrowserName(environment);
-  const openLinks = buildOpenInBrowserLinks(handoffUrl, environment.platform);
+  const openLinks = buildOpenInBrowserLinks(handoffUrl, environment);
 
   useReportShownOnce(placement, variant);
 
@@ -81,7 +81,7 @@ export function InAppBrowserNotice({ environment, variant, placement }: Props) {
       {copyState === "copied" ? <p role="status">Вставте його в адресний рядок {findBrowserGenitive(environment)}.</p> : null}
       {copyState === "failed" ? <ManualCopyField url={handoffUrl} /> : null}
 
-      {variant === "contextual-handoff" ? <p className="text-slate-400">{describeMenuPath(environment)}</p> : null}
+      {variant === "contextual-handoff" || !openLinks.some((link) => link.browser === "safari") ? <p className="text-slate-400">{describeMenuPath(environment)}</p> : null}
     </section>
   );
 }

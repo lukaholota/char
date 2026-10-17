@@ -61,16 +61,16 @@ export interface OpenInBrowserLink {
   href: string;
 }
 
-export function buildOpenInBrowserLinks(pageUrl: string, platform: DevicePlatform): OpenInBrowserLink[] {
+export function buildOpenInBrowserLinks(pageUrl: string, { platform, host }: Pick<BrowserEnvironment, "platform" | "host">): OpenInBrowserLink[] {
   const url = parseWebUrl(pageUrl);
   if (!url) return [];
   const address = `${url.host}${url.pathname}${url.search}${url.hash}`;
   if (platform === "ios") {
+    const chrome: OpenInBrowserLink = { browser: "chrome", label: "Відкрити в Chrome", href: `${url.protocol === "https:" ? "googlechromes" : "googlechrome"}://${address}` };
+    // Threads silently ignores x-safari- (owner's iPhone 14 Pro Max, 2026-10-17); Safari there is reachable only via its «⋯» menu
+    if (host === "threads") return [chrome];
     // a page cannot tell whether Chrome is installed, so Safari goes first
-    return [
-      { browser: "safari", label: "Відкрити в Safari", href: `x-safari-${url.href}` },
-      { browser: "chrome", label: "Відкрити в Chrome", href: `${url.protocol === "https:" ? "googlechromes" : "googlechrome"}://${address}` },
-    ];
+    return [{ browser: "safari", label: "Відкрити в Safari", href: `x-safari-${url.href}` }, chrome];
   }
   if (platform === "android") {
     // Android's Intent.parseUri splits at the last "#", so a "#draft=" fragment stays in the opened address.

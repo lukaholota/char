@@ -134,14 +134,15 @@ describe("варіант з переходом у браузер", () => {
     expect(screen.getByText(/«⋮»/)).toBeTruthy();
   });
 
-  it("на iPhone дає Safari, копіювання й шлях через меню", () => {
-    openPage(THREADS_IOS, "/char/create?inapp_variant=contextual-handoff");
+  it("у Threads на iPhone не дає мертвої кнопки Safari, а веде через меню, Chrome чи копіювання", () => {
+    openPage(THREADS_IOS, "/char/create");
     render(<GoogleAuthDialog open onOpenChange={() => {}} />);
-    const safari = screen.getByRole("link", { name: /Відкрити в Safari/ });
-    safari.addEventListener("click", (event) => event.preventDefault());
-    fireEvent.click(safari);
-    expect(screen.getByText(/Safari не відкрився\?/)).toBeTruthy();
-    expect(findEvent("inapp_external_browser_selected")).toMatchObject({ method: "ios_safari_scheme" });
+    expect(screen.queryByRole("link", { name: /Відкрити в Safari/ })).toBeNull();
+    const chrome = screen.getByRole("link", { name: /Відкрити в Chrome/ });
+    chrome.addEventListener("click", (event) => event.preventDefault());
+    fireEvent.click(chrome);
+    expect(screen.getByText(/Chrome не відкрився\?/)).toBeTruthy();
+    expect(findEvent("inapp_external_browser_selected")).toMatchObject({ method: "ios_chrome_scheme" });
     expect(screen.getByRole("button", { name: "Скопіювати посилання" })).toBeTruthy();
     expect(screen.getByText(/«Відкрити в Safari»/)).toBeTruthy();
   });
