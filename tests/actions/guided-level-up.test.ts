@@ -55,7 +55,7 @@ async function runGuidedLevelUps(persId: number, targetLevel: number, openKnownS
     if (guide?.status !== "ready") throw new Error(`Рівень ${level + 1}: ${JSON.stringify(guide)}`);
     expect(guide.skipped).toEqual([]);
     const chosenIds = await Promise.all((openKnownSpells[level + 1] ?? []).map(findSpellId));
-    if (chosenIds.length) expect(guide.open.join(" ")).toContain("автор не називає");
+    if (chosenIds.length) expect(guide.open.join(" ")).toContain("Заклинання, яких автор не називає");
     const planned = guide.input.classSpells;
     const classSpells = planned && chosenIds.length ? { ...planned, preparedIds: [...planned.preparedIds.slice(0, -chosenIds.length), ...chosenIds] } : planned;
     const result = await levelUpCharacter(persId, { ...guide.input, classSpells, expectedLevel: level });
