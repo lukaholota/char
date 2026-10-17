@@ -46,7 +46,7 @@ describe("shared plan level of two revisions", () => {
   it("ignores source references and empty lists", () => {
     const relabeled = changeStep(barbarian, 4, (step) => {
       step.sourceRefs = [{ ...step.sourceRefs[0], sectionId: "section-other" }];
-      step.decisions = { ...step.decisions, knownSpellKeys: [] };
+      step.decisions = { ...step.decisions, featOptions: [] };
     });
     expect(findSharedPlanLevel(relabeled, barbarian)).toBe(20);
   });
