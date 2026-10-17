@@ -33,7 +33,7 @@ import FeatsForm from "@/lib/components/characterCreator/FeatsForm";
 import { BackgroundFeatsForm } from "@/lib/components/characterCreator/BackgroundFeatsForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
-import { isPresetSuggestionStep, ReadyPresetSuggestion } from "@/components/optimization/ReadyPresetSuggestion";
+import { forgetPresetSuggestionDismissal, isPresetSuggestionStep, ReadyPresetSuggestion } from "@/components/optimization/ReadyPresetSuggestion";
 import { UnfinishedPresetNotice } from "@/components/optimization/UnfinishedPresetNotice";
 import { findCreationStepOrder, hasRaceFeatChoice, resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
 import { buildCreationAbilityScores } from "@/rules/character-creation";
@@ -1040,7 +1040,10 @@ export const MultiStepForm = (
         <>
           <CharacterCreateHeader
             showReadyBuilds={showReadyBuilds}
-            onReset={resetForm}
+            onReset={() => {
+              forgetPresetSuggestionDismissal();
+              resetForm();
+            }}
             onOpenAuth={() => setAuthDialogOpen(true)}
             isAuthenticated={sessionStatus === "authenticated" && !!session?.user}
             showSignInAtEndNotice={sessionStatus === "unauthenticated" && initialRuleset === "RULES_2014" && currentStep === 1 && inAppBrowser?.isEmbedded === false}
@@ -1070,7 +1073,7 @@ export const MultiStepForm = (
       after={
         <>
           {showReadyBuilds && initialRuleset === "RULES_2014" && cls && isPresetSuggestionStep(steps[currentStep - 1]?.id) ? (
-            <ReadyPresetSuggestion classKey={cls.name} subclassKey={subclass?.name ?? null} raceKey={race?.name ?? null} />
+            <ReadyPresetSuggestion key={resetNonce} classKey={cls.name} subclassKey={subclass?.name ?? null} raceKey={race?.name ?? null} />
           ) : null}
 
           <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} analyticsTrigger="creator_submit" isFromCreatorDraft />

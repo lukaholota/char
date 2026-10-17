@@ -13,9 +13,16 @@ import { useReadyPresetSuggestion } from "./use-ready-preset-suggestion";
 
 const CURTAIN_DURATION_MS = 650;
 const DISMISSED_STORAGE_KEY = "ready-preset-suggestion-dismissed";
+const SUGGESTION_STEP_IDS = new Set(["class", "subclass", "subclassChoices", "classChoices", "classOptional", "weaponMastery", "race", "raceDetails", "raceChoices", "speciesFeatChoices"]);
 
 export function isPresetSuggestionStep(stepId: string | undefined): boolean {
-  return stepId === "class";
+  return stepId !== undefined && SUGGESTION_STEP_IDS.has(stepId);
+}
+
+export function forgetPresetSuggestionDismissal() {
+  try {
+    window.sessionStorage.removeItem(DISMISSED_STORAGE_KEY);
+  } catch {}
 }
 
 export function ReadyPresetSuggestion({ classKey, subclassKey, raceKey }: PresetSuggestionQuery) {

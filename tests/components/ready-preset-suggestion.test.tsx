@@ -89,11 +89,25 @@ describe("floating ready preset suggestion", () => {
     expect(screen.queryByRole("button", { name: "Доробити персонажа" })).toBeNull();
   });
 
-  it("is offered only on the class step", async () => {
+  it("comes back after the player starts the character over", async () => {
+    stubSuggestion({ total: 1, best: { entry, isSubclassMatch: false, isRaceMatch: false } });
+    await renderSuggestion();
+    fireEvent.click(screen.getByRole("button", { name: "Доробити персонажа" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Відмовитися" }));
+    cleanup();
+    const { forgetPresetSuggestionDismissal } = await import("@/components/optimization/ReadyPresetSuggestion");
+
+    forgetPresetSuggestionDismissal();
+    await renderSuggestion();
+
+    expect(screen.getByRole("button", { name: "Доробити персонажа" })).toBeTruthy();
+  });
+
+  it("is offered on the class and race steps, before the rest of the character", async () => {
     const { isPresetSuggestionStep } = await import("@/components/optimization/ReadyPresetSuggestion");
 
-    expect(isPresetSuggestionStep("class")).toBe(true);
-    expect(["classOptions", "race", "background", "equipment", "name", undefined].some(isPresetSuggestionStep)).toBe(false);
+    expect(["class", "subclass", "classChoices", "race", "raceDetails"].every(isPresetSuggestionStep)).toBe(true);
+    expect(["background", "abilities", "equipment", "name", undefined].some(isPresetSuggestionStep)).toBe(false);
   });
 
   it("continues to the preset at level 1 by default", async () => {
