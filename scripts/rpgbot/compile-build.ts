@@ -5,7 +5,7 @@ import type { BlockedBuildSpec, ReadyBuildSpec } from "../../src/lib/optimizatio
 import type { BuildRecipe } from "../../src/lib/optimization/types";
 import type { ReadyPreset } from "../../src/lib/optimization/ready-preset";
 import { findReadyPresetProblems } from "../../src/lib/optimization/preset-diagnostics";
-import { findStoredBuildDifferences, listBuildSpecSlugs, readArticleDocument, readBuildSpec, readStoredRecipe, writeBuildFiles } from "./build-spec-files";
+import { archiveReplacedRevision, findStoredBuildDifferences, listBuildSpecSlugs, readArticleDocument, readBuildSpec, readStoredRecipe, writeBuildFiles } from "./build-spec-files";
 
 type Mode = "write" | "dry-run" | "verify";
 type CommandLine = { slugs: string[]; mode: Mode; discardLevels: boolean };
@@ -58,7 +58,11 @@ function compileReady(slug: string, spec: ReadyBuildSpec, mode: Mode, discardLev
   const shrunk = findShrunkLevelsWarning(storedRecipe, recipe);
   printWarnings(slug, [...warnings, ...report.warnings, ...(shrunk ? [shrunk] : [])]);
   if (mode === "verify") return verifyStored(slug, recipe, preset);
-  if (mode === "write") writeBuildFiles(slug, recipe, preset);
+  if (mode === "write") {
+    const archived = archiveReplacedRevision(storedRecipe, recipe);
+    if (archived) console.log(`${slug}: попередню ревізію збережено в ${archived} — персонажі на ній зберігають «За гайдом», поки план не розходиться`);
+    writeBuildFiles(slug, recipe, preset);
+  }
   console.log(`${slug}: ${mode === "write" ? "записано" : "перевірено (dry-run)"} ${recipe.buildId}`);
   return { slug, ok: true };
 }

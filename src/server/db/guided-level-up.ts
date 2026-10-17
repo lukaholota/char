@@ -10,7 +10,8 @@ import { buildSpellScoreFinder } from "@/lib/optimization/ready-preset-spell-sco
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { translateSubclassName } from "@/lib/refs/subclass-name";
 import { findBuildNickname } from "@/lib/optimization/ready-preset-catalog";
-import { readSliceRecipes } from "@/lib/optimization/slice-reader";
+import { readArchivedRecipe, readSliceRecipes } from "@/lib/optimization/slice-reader";
+import { findRevisionMismatchReason } from "@/lib/optimization/recipe-revision-match";
 import type { BuildRecipe } from "@/lib/optimization/types";
 import { keepOfferedSpells } from "@/rules/class-spell-offer-selection";
 import { EMPTY_CLASS_SPELL_SELECTION } from "@/rules/class-spell-choices-2024";
@@ -26,7 +27,8 @@ export async function loadGuidedLevelUp(persId: number): Promise<GuidedLevelUp |
   if (!recipe) return { status: "unavailable", build: null, reason: "Пресета, з якого створено персонажа, більше немає." };
   const build = { title: findBuildNickname(recipe.title), href: buildRecipeGuideHref(recipe) };
   if (recipe.revisionId !== pers.sourceBuildRevisionId) {
-    return { status: "unavailable", build, reason: "Автор оновив пресет після створення персонажа. Продовження для вашої версії плану недоступне." };
+    const reason = findRevisionMismatchReason(recipe, await readArchivedRecipe(pers.sourceBuildRevisionId), pers.level);
+    if (reason) return { status: "unavailable", build, reason };
   }
 
   const plan = planGuidedLevelUp(recipe, await loadAssemblyCatalog(recipe), toGuidedPersState(pers));
