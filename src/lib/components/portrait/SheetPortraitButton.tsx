@@ -4,6 +4,8 @@ import { useState } from "react";
 import { UserRound } from "lucide-react";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { buildMediaImageUrl } from "@/lib/media-url";
+import { PRIVATE_ELEMENT_CLASS } from "@/lib/monitoring/session-replay";
+import { cn } from "@/lib/utils";
 import { PortraitDialog } from "./PortraitDialog";
 
 type Props = {
@@ -20,7 +22,7 @@ export function SheetPortraitButton({ persId, name, portraitKey, canEdit, onPort
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className="aspect-square w-16 shrink-0 transition hover:brightness-110 md:w-20" aria-label={canEdit ? "Портрет персонажа: змінити" : "Портрет персонажа"}>
+      <button type="button" onClick={() => setOpen(true)} className={cn("aspect-square w-16 shrink-0 transition hover:brightness-110 md:w-20", PRIVATE_ELEMENT_CLASS)} aria-label={canEdit ? "Портрет персонажа: змінити" : "Портрет персонажа"}>
         <FramedIllustration
           src={portraitKey ? buildMediaImageUrl(portraitKey, "full") : null}
           alt={`Портрет: ${name}`}
