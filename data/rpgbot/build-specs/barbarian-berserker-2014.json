@@ -1,0 +1,62 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "barbarian-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+    "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "BARBARIAN_2014",
+  "subclassKey": "PATH_OF_THE_BERSERKER",
+  "raceKey": "HALF_ORC_2014",
+  "backgroundKey": "SOLDIER",
+  "abilityScores": { "STR": 14, "DEX": 14, "CON": 15, "INT": 8, "WIS": 10, "CHA": 10 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "revision": 3,
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "PATH_OF_THE_BERSERKER" },
+    { "level": 4, "abilityScoreIncrease": [{ "ability": "STR", "amount": 2 }] },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    { "level": 8, "abilityScoreIncrease": [{ "ability": "STR", "amount": 2 }] },
+    { "level": 9 },
+    { "level": 10 },
+    { "level": 11 },
+    { "level": 12, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }] },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }] },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }] },
+    { "level": 20 }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/barbarian-berserker-2014.webp",
+    "title": "Варвар — витривалий атакер",
+    "description": "Вривайтеся в ближній бій із великою сокирою. Лють допомагає завдавати шкоди та витримувати удари.",
+    "subraceKey": null,
+    "racialAbilities": [],
+    "skills": { "selectedClass": ["NATURE", "PERCEPTION"], "race": [], "background": ["SURVIVAL"] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Сила допомагає атакувати, а Статура й Спритність — виживати без обладунків. Уже враховано расові бонуси напіворка.",
+    "skillExplanation": "Природа, Уважність і Виживання допомагають у мандрівках. Повторне Залякування від Солдата замінено на Виживання.",
+    "equipmentExplanation": "Велика сокира, дві ручні сокири, чотири метальні списи й набір мандрівника взяті з авторського прикладу."
+  }
+}

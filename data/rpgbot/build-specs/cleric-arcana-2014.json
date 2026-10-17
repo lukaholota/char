@@ -1,5 +1,5 @@
 {
-  "status": "blocked",
+  "status": "ready",
   "ruleset": "RULES_2014",
   "articleSlug": "cleric-arcana-domain-2014",
   "reviewedRevision": {
@@ -7,9 +7,94 @@
     "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd"
   },
   "exampleSection": "section-example",
-  "reasonCode": "missing-catalog-entity",
-  "reason": "Власна передісторія (Уважність, Непомітність, інструменти злодія, мова) і Посвячений у магію (Друїд) підтримані, але вміння «Арканний адепт» Домену магії в каталозі не має запису про навичку: Магія, яку автор вважає безкоштовною з 1-го рівня, не видається ні в конструкторі, ні сервером, тож авторський набір навичок відтворити не можна.",
-  "missing": [
-    "навичка Магія від «Арканного адепта» (feature 8447 без skill_proficiencies; SQL для власника у catalog-data-gaps-subclass-skills-2026-10-10-owner-applies.sql)"
-  ]
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "ARCANA_DOMAIN",
+  "raceKey": "CUSTOM_LINEAGE_TCE",
+  "backgroundKey": "CUSTOM",
+  "featKey": "MAGIC_INITIATE",
+  "abilityScores": { "STR": 8, "DEX": 14, "CON": 14, "INT": 10, "WIS": 15, "CHA": 10 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "incomplete": [
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати булаву й легкий арбалет і купити палицю для Кийка; пресет не записує продаж, тож булава й легкий арбалет лишаються.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Підготовлені заклинання на рівнях 2+",
+      "reason": "Автор радить заклинання за ситуацією, а не підготовку на кожному рівні; підготовлені заклинання на підвищеннях гравець обирає на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Клірика на 10-му рівні",
+      "reason": "Автор пише «будь-яке»; пресет лишає це замовляння відкритим вибором гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Навичка від «Експерта у навичках» на 19-му рівні",
+      "reason": "Автор пише «навичка: будь-яка»; пресет бере Аналіз поведінки — вибір платформи. Статуру +1 і експертизу в Переконанні названо автором.",
+      "section": "section-feats-2"
+    }
+  ],
+  "levels": [
+    { "level": 2 },
+    { "level": 3 },
+    { "level": 4, "featKey": "TELEKINETIC", "featOptions": [{ "optionNameEng": "TELEKINETIC Ability (Wisdom)" }], "spells": { "cantripKeys": ["sacred-flame"] }, "section": "section-feats-2" },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    { "level": 8, "featKey": "WAR_CASTER", "section": "section-feats-2" },
+    { "level": 9 },
+    { "level": 10, "openSpellPicks": [{ "category": "cantrips", "count": 1 }] },
+    { "level": 11 },
+    { "level": 12, "abilityScoreIncrease": [{ "ability": "WIS", "amount": 2 }], "section": "section-feats-2" },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "featKey": "RESILIENT", "featOptions": [{ "optionNameEng": "Resilient (Constitution)" }], "section": "section-feats-2" },
+    { "level": 17, "classOptionSpellKeys": ["contingency", "forcecage", "maze", "wish"] },
+    { "level": 18 },
+    { "level": 19, "featKey": "SKILL_EXPERT", "featOptions": [{ "optionNameEng": "Skill Expert (CON)" }, { "optionNameEng": "Skill Expert Proficiency (INSIGHT)" }, { "optionNameEng": "Skill Expert Expertise (PERSUASION)" }], "section": "section-feats-2" },
+    { "level": 20 }
+  ],
+  "preset": {
+    "title": "Клірик — Домен магії, Своя раса (Соліст)",
+    "description": "Клірик магії, що закриває майже всі ролі групи: Своя раса з Мудрістю 17, Посвячений у магію (Друїд) заради Кийка, Гримучий Клинок і Магічна рука від Арканного адепта.",
+    "subraceKey": null,
+    "racialAbilities": ["WIS"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["HISTORY", "PERSUASION"], "race": [], "background": ["PERCEPTION", "STEALTH"] },
+    "backgroundCustomization": { "tools": ["THIEVES_TOOLS"] },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": ["Середній", "Темнозір"],
+    "languages": ["ELVISH", "DWARVISH"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] },
+      { "group": 5, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats-2",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": ["light", "toll-the-dead", "word-of-radiance"],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "featSpellKeys": ["guidance", "shillelagh", "absorb-elements"],
+      "classOptionSpellKeys": ["booming-blade", "mage-hand"],
+      "preparedSpellKeys": ["bless", "healing-word", "command"],
+      "sectionId": "section-levels",
+      "explanation": "Усе назвав автор: замовляння Світло, Дзвін небіжчика й Слово сяйва; Настанова, Кийок і Поглинання стихій від Посвяченого у магію (Друїд); Гримучий Клинок і Магічна рука від Арканного адепта. Благословення, Цілюще слово й Наказ підготовлено, бо автор радить їх з 1-го рівня; Виявлення магії й Магічний дротик дає домен.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Купівля очок 8/14/14/10/15/10 з таблиці автора; Своя раса за правилами Таші додає +2 до Мудрості, тож Мудрість 17. Це вже враховано.",
+    "skillExplanation": "Магію дає Арканний адепт, Історію й Переконання — Клірик. Автор складає власну передісторію з Уважністю, Непомітністю, інструментами злодія й однією мовою (правило PHB «Налаштування передісторії»); Темнозір і середній розмір Своєї раси теж обрав автор. Дві мови (расову й від передісторії) ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Булава, лускова броня, легкий арбалет із болтами, набір священика, щит і святий символ — стартове спорядження автора."
+  }
 }

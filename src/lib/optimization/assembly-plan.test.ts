@@ -17,13 +17,15 @@ const catalog = buildAssemblyCatalog(findCharacterCreatorOptions("RULES_2014"), 
 const barbarian = readRecipe("build-barbarian-berserker-2014");
 const wizard = readRecipe("build-wizard-evocation-2014");
 const sorcadin = readRecipe("build-sorcadin-clockwork-2014");
+const barbarianToFive = { ...barbarian, supportedLevels: [1, 2, 3, 4, 5], progression: barbarian.progression.slice(0, 5) };
+const ALL_LEVELS = Array.from({ length: 20 }, (_, index) => index + 1);
 
 function classId(key: string): number {
   return catalog.classes.find((entry) => entry.key === key)!.id;
 }
 
 describe("executable levels of the pilot recipes", () => {
-  it.each([[barbarian, [1, 2, 3, 4, 5]], [wizard, [1, 2, 3, 4, 5]], [sorcadin, [1, 2, 3, 4, 5, 6, 7]]])("%s has contiguous executable steps and no progression issues", (recipe, levels) => {
+  it.each([[barbarian, ALL_LEVELS], [wizard, ALL_LEVELS], [sorcadin, ALL_LEVELS]])("%s has contiguous executable steps and no progression issues", (recipe, levels) => {
     expect(findExecutableLevels(recipe)).toEqual(levels);
     expect(recipe.supportedLevels).toEqual(levels);
     expect(findProgressionIssues(recipe)).toEqual([]);
@@ -37,7 +39,7 @@ describe("executable levels of the pilot recipes", () => {
   });
 
   it("reports a supported level that has no executable step", () => {
-    const broken = { ...barbarian, supportedLevels: [1, 2, 3, 4, 5, 6] };
+    const broken = { ...barbarianToFive, supportedLevels: [1, 2, 3, 4, 5, 6] };
     expect(findProgressionIssues(broken).map((issue) => issue.code)).toEqual(["level-not-executable"]);
   });
 
@@ -73,7 +75,7 @@ describe("assembly plan of the Barbarian build", () => {
   });
 
   it.each([6, 0, 21, 2.5])("refuses unsupported target level %s", (targetLevel) => {
-    const result = buildAssemblyPlan({ recipe: barbarian, targetLevel, catalog });
+    const result = buildAssemblyPlan({ recipe: barbarianToFive, targetLevel, catalog });
     expect(result.plan).toBeNull();
     expect(result.issues[0].code).toBe("level-not-supported");
   });

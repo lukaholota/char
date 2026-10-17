@@ -52,6 +52,12 @@ async function readAllRecipes(): Promise<BuildRecipe[]> {
   return Promise.all(names.map(async (name) => buildRecipeSchema.parse(JSON.parse(await readFile(join(ROOT, "builds", name), "utf8")))));
 }
 
+export async function readArchivedRecipe(revisionId: string): Promise<BuildRecipe | null> {
+  if (!/^build-[a-z0-9-]+$/.test(revisionId)) return null;
+  const text = await readFile(join(ROOT, "build-revisions", `${revisionId}.json`), "utf8").catch(() => null);
+  return text === null ? null : buildRecipeSchema.parse(JSON.parse(text));
+}
+
 export function collectSliceCatalog(ruleset: OptimizationRuleset): EntityRef[] {
   const content = findCharacterCreatorOptions(ruleset);
   const createEntity = (kind: EntityRef["kind"], entityKey: string, parentKey?: string): EntityRef => ({ ruleset, kind, entityKey, ...(parentKey ? { parentKey } : {}) });

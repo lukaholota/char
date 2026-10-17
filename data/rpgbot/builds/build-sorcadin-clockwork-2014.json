@@ -1,8 +1,8 @@
 {
   "buildId": "build-sorcadin-clockwork-2014",
-  "revisionId": "build-sorcadin-clockwork-2014-v1",
+  "revisionId": "build-sorcadin-clockwork-2014-v2",
   "ruleset": "RULES_2014",
-  "title": "Чародин — Паладин Клятви спокути, Чародій Механічної душі",
+  "title": "— кара щохід як годинник",
   "sourceRefs": [
     {
       "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -20,7 +20,20 @@
     4,
     5,
     6,
-    7
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
   ],
   "initialChoices": [],
   "choices": [],
@@ -105,7 +118,8 @@
           "knownSpellKeys": [
             "silvery-barbs",
             "magic-missile"
-          ]
+          ],
+          "spellbookKeys": []
         }
       }
     },
@@ -125,9 +139,11 @@
       "choiceIds": [],
       "decisions": {
         "spells": {
+          "cantripKeys": [],
           "knownSpellKeys": [
             "shield"
-          ]
+          ],
+          "spellbookKeys": []
         }
       }
     },
@@ -155,9 +171,11 @@
           }
         ],
         "spells": {
+          "cantripKeys": [],
           "knownSpellKeys": [
             "misty-step"
-          ]
+          ],
+          "spellbookKeys": []
         }
       }
     },
@@ -170,7 +188,7 @@
           "articleId": "rpgbot-sorcadin-handbook-2014",
           "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
           "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
-          "sectionId": "section-levels",
+          "sectionId": "section-feats",
           "ratingIds": []
         }
       ],
@@ -180,7 +198,9 @@
         "spells": {
           "cantripKeys": [
             "sword-burst"
-          ]
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
         },
         "openSpellPicks": [
           {
@@ -188,6 +208,330 @@
             "count": 1
           }
         ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "haste"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "banishment"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "SORCERER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "synaptic-static"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "SORCERER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Twinned Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "SORCERER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "disintegrate"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "SORCERER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "SORCERER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "draconic-transformation"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "SORCERER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "SORCERER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "SORCERER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CRUSHER",
+        "featOptions": [
+          {
+            "optionNameEng": "CRUSHER Ability (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "SORCERER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcadin-handbook-2014",
+          "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+          "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Subtle Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wish"
+          ],
+          "spellbookKeys": []
+        }
       }
     }
   ],
@@ -227,9 +571,37 @@
     ],
     "nodes": [
       {
-        "nodeId": "feat-order",
-        "title": "Порядок рис",
-        "text": "Автор бере Бойового заклинателя на 1-му рівні, а Майстра древкової зброї на 4-му рівні Чародія. Бойовий заклинатель потребує здатності накладати заклинання, якої Паладин 1 ще не має, тому виконуваний план міняє риси місцями, як радить примітка редакції: Майстер древкової зброї — на старті, Бойовий заклинатель — на 4-му рівні Чародія (7-му рівні персонажа).",
+        "nodeId": "section-example-build-smiting-every-turn-like-clockwork",
+        "title": "Приклад збірки — кара щохід як годинник",
+        "text": "«Відчуваю це душею: вашу недосконалість слід стерти з буття».\n\nПоєднання Механічної душі й Клятви спокути відчувається як просвітлений Потойбічний лицар.\n\n Базові Після підвищення Сила 15 16 Спритність 8 8 Статура 15 15 Інтелект 8 8 Мудрість 8 8 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-example-build-smiting-every-turn-like-clockwork",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Людина, варіант{{Variant Human}}: потрібні і характеристики, і риса.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Автор починає з Бойовий заклинатель{{War Caster}}, щоб постійно тримати Щит{{Shield (armor)}} і Палицю{{Quarterstaff}}. Риса підтримує ряткидки Концентрації, бо аури Паладина не буде, а Гримучий Клинок [Booming Blade] по ворогу, що йде від вас, — класика. Примітка редакції: Бойовий заклинатель потребує здатності накладати хоча б одне заклинання. Людина — Паладин 1 у цій збірці її ще не має, тому початкова риса незаконна. Можливе виправлення — поміняти порядок із Майстром древкової зброї, узявши Бойового заклинателя після появи чаротворення; таблиця джерела нижче збережена.\n\nНа 7-му рівні персонажа, Чародій 4, автор бере Майстер древкової зброї{{Polearm Master}}. Вибір здається дивним, але пояснення попереду.\n\nНа 19-му рівні персонажа, Чародій 16, беремо Дробильник{{Crusher}}, доводячи Статуру до парного значення й пересуваючи ворогів.",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -244,7 +616,7 @@
     "levelPlans": [
       {
         "level": 1,
-        "text": "Володіння; Divine Sense; Lay on Hands",
+        "text": "Володіння; Divine Sense{{Divine Sense}}; Lay on Hands{{Lay on Hands}}",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -257,7 +629,7 @@
       },
       {
         "level": 2,
-        "text": "Бойовий стиль Дуель; підготовані заклинання: Благословення [Bless], Лікування ран [Cure Wounds], Виклик на дуель [Compelled Duel], Громова кара [Thunderous Smite]; Божественна кара",
+        "text": "Бойовий стиль Дуель{{Dueling}}; підготовані заклинання: Благословення [Bless], Лікування ран [Cure Wounds], Виклик на дуель [Compelled Duel], Громова кара [Thunderous Smite]; Божественна кара{{Divine Smite}}",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -270,7 +642,7 @@
       },
       {
         "level": 3,
-        "text": "Клятва спокути; Divine Health; Божественний канал: Emissary of Peace, Rebuke the Violent; заклинання клятви",
+        "text": "Клятва спокути{{Oath of Redemption}}; Divine Health{{Divine Health}}; Божественний канал{{Channel Divinity}}: Emissary of Peace{{Emissary of Peace}}, Rebuke the Violent{{Rebuke the Violent}}; заклинання клятви",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -283,7 +655,7 @@
       },
       {
         "level": 4,
-        "text": "Restore Balance; нові замовляння: Гримучий Клинок [Booming Blade], Магічна рука [Mage Hand], Розщеплення Розуму [Mind Sliver], Штукарство [Prestidigitation]; нові заклинання: Сріблясті шпильки [Silvery Barbs], Магічний дротик [Magic Missile], Тривога [Alarm], Захист від зла й добра [Protection from Evil and Good] (Концентрація)",
+        "text": "Restore Balance{{Restore Balance}}; нові замовляння: Гримучий Клинок [Booming Blade], Магічна рука [Mage Hand], Розщеплення Розуму [Mind Sliver], Штукарство [Prestidigitation]; нові заклинання: Сріблясті шпильки [Silvery Barbs], Магічний дротик [Magic Missile], Тривога [Alarm], Захист від зла й добра [Protection from Evil and Good] (Концентрація)",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -296,7 +668,7 @@
       },
       {
         "level": 5,
-        "text": "Джерело магії; нове заклинання: Щит [Shield]; перевчіть Тривога [Alarm] на Обладунок Агатіса [Armor of Agathys]",
+        "text": "Джерело магії{{Font of Magic}}; нове заклинання: Щит [Shield]; перевчіть Тривога [Alarm] на Обладунок Агатіса [Armor of Agathys]",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -309,7 +681,7 @@
       },
       {
         "level": 6,
-        "text": "Метамагія: Підвищене заклинання, Пришвидшене заклинання; нові заклинання: Підтримка [Aid], Мале відновлення [Lesser Restoration], Туманний крок [Misty Step]",
+        "text": "Метамагія{{Metamagic}}: Підвищене заклинання{{Heightened Spell}}, Пришвидшене заклинання{{Quickened Spell}}; нові заклинання: Підтримка [Aid], Мале відновлення [Lesser Restoration], Туманний крок [Misty Step]",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -322,7 +694,176 @@
       },
       {
         "level": 7,
-        "text": "Майстер древкової зброї; нове замовляння: Спалах Мечів [Sword Burst]",
+        "text": "Майстер древкової зброї{{Polearm Master}}; нове замовляння: Спалах Мечів [Sword Burst]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Нове відоме заклинання: Прискорення [Haste]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Bastion of Law{{Bastion of Law}}; нове заклинання: Вогнекуля [Fireball]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Нові відомі заклинання: Вигнання [Banishment], Виклик конструкту [Summon Construct]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Підвищення характеристик: Сила 16 → 18; нове відоме заклинання: Перевтілення [Polymorph]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Нове відоме заклинання: Синаптичний розряд [Synaptic Static]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Метамагія: Спарене заклинання{{Twinned Spell}}; нове відоме заклинання: Стримування монстра [Hold Monster]; нове замовляння: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Нове заклинання: Розщеплення [Disintegrate]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Підвищення характеристик: Сила 18 → 20; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Нове заклинання: Драконяче перетворення [Draconic Transformation]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Trance of Order{{Trance of Order}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Нове заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Дробильник{{Crusher}} (Статура); нове заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Нове заклинання: Бажання [Wish]; перевчання невживаного заклинання на Передбачення [Foresight] — помилка джерела, для цього Чародія недоступне",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -336,8 +877,8 @@
     ],
     "incomplete": [
       {
-        "field": "backgroundKey",
-        "reason": "Стаття не називає походження; Воїн (SOLDIER) — замінюваний стартовий вибір платформи.",
+        "field": "Передісторія",
+        "reason": "Стаття не називає передісторії; Солдат — замінюваний стартовий вибір платформи.",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -349,21 +890,8 @@
         ]
       },
       {
-        "field": "raceAbilities",
-        "reason": "Людина (варіант): +1 Сила й +1 Харизма взято з таблиці характеристик; стартові навички, спорядження й мови стаття не задає.",
-        "sourceRefs": [
-          {
-            "articleId": "rpgbot-sorcadin-handbook-2014",
-            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
-            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
-            "sectionId": "section-race",
-            "ratingIds": []
-          }
-        ]
-      },
-      {
-        "field": "feat order",
-        "reason": "Бойовий заклинатель на 1-му рівні незаконний; порядок рис змінено за приміткою редакції.",
+        "field": "Порядок рис",
+        "reason": "Автор бере Бойового заклинателя на 1-му рівні, а Майстра древкової зброї на 7-му. Бойовий заклинатель потребує здатності накладати заклинання, якої Паладин 1 ще не має, тому за приміткою редакції риси поміняно місцями: Майстер древкової зброї — на старті, Бойовий заклинатель — на 7-му рівні (Чародій 4).",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -375,8 +903,8 @@
         ]
       },
       {
-        "field": "progression level 7",
-        "reason": "Таблиця на 4-му рівні Чародія не називає пʼятого відомого заклинання; гравець обирає його сам.",
+        "field": "Перевчання заклинань Механічної душі",
+        "reason": "На 5-му рівні автор перевчає Тривогу на Обладунок Агатіса; заміну заклинання підкласу складання не виконує, її роблять на листі.",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -388,8 +916,8 @@
         ]
       },
       {
-        "field": "progression spell swaps",
-        "reason": "Перевчання Тривоги на Обладунок Агатіса (Чародій 2) не виконується складанням: заміну підкласового заклинання гравець робить на аркуші.",
+        "field": "Відкриті вибори Чародія",
+        "reason": "Пʼяте відоме заклинання на 7-му рівні, замовляння на 13-му й заклинання на 18-му автор не називає; їх обирає гравець. Виклик конструкту на 10-му рівні дає Механічна душа сама.",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",
@@ -401,8 +929,34 @@
         ]
       },
       {
-        "field": "progression levels above seven",
-        "reason": "Рівні 8–20 ще не мають виконуваних кроків.",
+        "field": "Заклинання на 15-му і 19-му рівнях",
+        "reason": "Автор пише «нове заклинання: будь-яке» на 15-му (Чародій 12) і 19-му (Чародій 16), але на цих рівнях Чародій нових відомих заклинань не отримує; пресет їх не додає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія на 20-му рівні",
+        "reason": "Чародій 17 отримує ще одну метамагію, а автор її не називає; пресет бере Приховане заклинання — вибір платформи, гравець може змінити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcadin-handbook-2014",
+            "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+            "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Передбачення на 20-му рівні",
+        "reason": "Автор перевчає невживане заклинання на Передбачення, але його немає в списку Чародія (помилка джерела, примітка редакції); пресет цього не робить.",
         "sourceRefs": [
           {
             "articleId": "rpgbot-sorcadin-handbook-2014",

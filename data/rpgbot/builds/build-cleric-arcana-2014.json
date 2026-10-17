@@ -1,0 +1,841 @@
+{
+  "buildId": "build-cleric-arcana-2014",
+  "revisionId": "build-cleric-arcana-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Клірика домену магії — Соліст",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-arcana-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+      "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ARCANA_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Wisdom)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "sacred-flame"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER"
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptionSpellKeys": [
+          "contingency",
+          "forcecage",
+          "maze",
+          "wish"
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (CON)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (INSIGHT)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (PERSUASION)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-arcana-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ARCANA_DOMAIN",
+    "raceKey": "CUSTOM_LINEAGE_TCE",
+    "backgroundKey": "CUSTOM",
+    "featKey": "MAGIC_INITIATE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 10
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Налаштоване походження{{Custom Origin}} дає лише одне +2.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 14 14 Інтелект 10 10 Мудрість 15 17 Харизма 10 10",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Налаштоване походження{{Custom Origin}}. Беремо +2 до Мудрості, Темний зір і середній розмір, щоб нас не проковтнули цілком гігантські жаби. Якщо воліте бути малим заради портативності, теж нормально. Мені дуже хочеться взяти навичку замість Темного зору, але Темного зору [Darkvision] немає у списку заклинань Клірика, тож він нам потрібен.\n\nМожна було б знову обрати Варіант людини{{Variant Human}}, але де в цьому веселощі?",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Налаштуємо передісторію. Мудрець{{Sage}} відчувається тематично доречним, але нам дуже потрібні володіння Уважністю й Непомітністю, а жодної опублікованої передісторії з таким набором немає, тож змайструємо власну. Для володінь мовами та інструментами візьмемо інструменти злодія й одну мову.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Магію ми отримуємо безкоштовно на 1-му рівні, Уважність і Непомітність — від передісторії, а Історію й Переконання візьмемо зі своїх двох класових навичок. Це дає пристойне покриття навичок, а прогалини за потреби можна закрити за допомогою Позиченого знання [Borrowed Knowledge].\n\nПриділіть особливу увагу Магії, бо вона, імовірно, робить більше, ніж ви очікуєте. Нею можна і розпізнавати заклинання, і створювати сувої заклинань. Якщо у вас достатньо вільного часу, ви",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 1-му рівні беремо «Посвяченого у магію»{{Magic Initiate}} (Друїд) майже виключно заради Кийка [Shillelagh]. Нам треба якось бути добрими зі зброєю, і це єдиний спосіб, що не жахливий. Також візьмемо Настанову [Guidance], щоб заощадити собі слот замовляння Клірика, і Поглинання стихій [Absorb Elements], бо його немає у списку заклинань Клірика.\n\nНа 4-му рівні беремо «Телекінетика»{{Telekinetic}}. Нам потрібні і +1 до характеристики, і можливість пересувати ворогів бонусною дією.\n\nНа 8-му рівні беремо «Бойового заклинателя»{{War Caster}}. Перевага на кубику на ряткидках Концентрації — чудова, а можливість вразити ворогів заклинанням як Принагідною атакою ускладнює їм самотужки вийти з ближнього бою з нами.\n\nНа 12-му рівні беремо Покращення Характеристик, щоб довести Мудрість до 20.\n\nНа 16-му рівні беремо «Стійкого»{{Resilient}} (Статура). Разом із «Бойовим заклинателем»{{War Caster}} наші ряткидки Концентрації будуть надзвичайно надійними. Це також підвищує нашу Статуру до 15.\n\nНа 19-му рівні беремо «Експерта у навичках»{{Skill Expert}}, щоб отримати +1 до Статури, Експертизу в Переконанні й ще одну навичку на свій вибір.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Риса: Посвячений у магію (Друїд)\n– Настанова\n– Кийок\n– Поглинання стихій\nБожественний домен: Домен магії\nЗаклинання домену:\n– Виявлення магії\n– Магічний дротик\nЧаротворство\nВідомі замовляння:\n– Світло\n– Дзвін небіжчика\n– Слово сяйва\nАрканний адепт\n– Гримучий Клинок\n– Магічна рука",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Канал божественності (1/відпочинок)\nБожественність: Арканне відганяння\nВигнання нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Заклинання домену:\n– Магічна зброя\n– Ністулова магічна аура",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Телекінетик (Мудрість 17 → 18)\nНове відоме замовляння:\n– Священне полумʼя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Знищення нежиті (ПН 1/2)\nЗаклинання домену:\n– Розвіювання магії\n– Магічне коло",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Канал божественності (2/відпочинок)\nЛамання заклять",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Заклинання домену:\n– Арканне око\n– Таємна скриня Леомунда",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Бойовий заклинатель\nЗнищення нежиті (ПН 1)\nПотужне заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Заклинання домену:\n– Планарне поневолення\n– Коло телепортації",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Божественне втручання\nНове відоме замовляння:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Знищення нежиті (ПН 2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Мудрість 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Знищення нежиті (ПН 3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Стійкий (Статура 14 → 15)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Арканне оволодіння\n– 6-й: Обачливість\n– 7-й: Силова кліть\n– 8-й: Лабіринт\n– 9-й: Бажання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Канал божественності (3/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Експерт у навичках\n– Статура 15 → 16\n– Навичка: будь-яка\n– Експертиза: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращене божественне втручання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить продати булаву й легкий арбалет і купити палицю для Кийка; пресет не записує продаж, тож булава й легкий арбалет лишаються.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підготовлені заклинання на рівнях 2+",
+        "reason": "Автор радить заклинання за ситуацією, а не підготовку на кожному рівні; підготовлені заклинання на підвищеннях гравець обирає на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 10-му рівні",
+        "reason": "Автор пише «будь-яке»; пресет лишає це замовляння відкритим вибором гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Навичка від «Експерта у навичках» на 19-му рівні",
+        "reason": "Автор пише «навичка: будь-яка»; пресет бере Аналіз поведінки — вибір платформи. Статуру +1 і експертизу в Переконанні названо автором.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-arcana-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

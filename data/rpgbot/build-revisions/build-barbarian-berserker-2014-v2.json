@@ -1,0 +1,273 @@
+{
+  "buildId": "build-barbarian-berserker-2014",
+  "revisionId": "build-barbarian-berserker-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Варвара — Напіворк, Варвар Шляху берсерка",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-barbarian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+      "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARBARIAN_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+          "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+          "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+          "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "PATH_OF_THE_BERSERKER",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+          "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+          "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "PATH_OF_THE_BERSERKER",
+    "raceKey": "HALF_ORC_2014",
+    "backgroundKey": "SOLDIER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 14
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 10
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Здебільшого ми використаємо приклад показників характеристик, описаний вище, але поміняємо місцями Силу й Статуру, щоб після расових підвищень Напіворка отримати 16 в обох.\n\n  Базове значення Підвищене значення Сила 14 16 Спритність 14 14 Статура 15 16 Інтелект 8 8 Мудрість 10 10 Харизма 10 10",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+            "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Напіворк{{Half-Orc}}. «Дикі атаки»{{Savage Attacks}} чудово працюють із великими сокирами, а я не можу придумати зброї, що каже «Варвар» голосніше, ніж велика сокира. Вони також складаються з «Брутальним критом», тож на високих рівнях ви кидаєте купи кубиків к12.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+            "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Напіорки безплатно отримують Залякування, тож оберемо Природу й Уважність.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+            "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "Солдат{{Soldier}}. З обмеженої кількості варіантів в Основних правилах Солдат — один із найкращих для нас. Оскільки ми вже маємо володіння Залякуванням, повторюване володіння можна замінити на щось інше. Атлетику залишимо, а заміну можна використати, щоб отримати Виживання.\n\nНародний герой{{Folk Hero}} так само добре підходить за навичками, а класовими навичками можна обрати Поводження з тваринами й Виживання, щоб перетворити обидві на відкриті слоти володінь навичками, якщо хочете щось, чого немає в списку навичок Варвара.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+            "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Лють, Захист без обладунків",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+            "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Безрозсудна атака, Відчуття небезпеки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+            "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Первісний Шлях: Шлях берсерка, Френзі",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+            "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Сила 16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+            "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Сила 18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-2014-draft1",
+            "sourceRevisionId": "rpgbot-1967cba7422c4df3-b4b610f62d0d901f",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": []
+  }
+}

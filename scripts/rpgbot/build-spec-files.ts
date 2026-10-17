@@ -84,6 +84,17 @@ function describeDifference(path: string, expected: string): string[] {
   return [`${path}, рядок ${at + 1}: на диску «${actualLines[at] ?? "(кінець)"}», з компіляції «${expectedLines[at] ?? "(кінець)"}»`];
 }
 
+export function archivedRecipePath(revisionId: string): string {
+  return join(DATA_ROOT, "build-revisions", `${revisionId}.json`);
+}
+
+export function archiveReplacedRevision(storedRecipe: BuildRecipe | null, recipe: BuildRecipe): string | null {
+  if (!storedRecipe || storedRecipe.revisionId === recipe.revisionId) return null;
+  const path = archivedRecipePath(storedRecipe.revisionId);
+  if (!existsSync(path)) writeFileSync(path, serializeJson(storedRecipe));
+  return path;
+}
+
 export function writeBuildFiles(slug: string, recipe: BuildRecipe, preset: ReadyPreset): void {
   writeFileSync(recipePath(recipe.buildId), serializeJson(recipe));
   writeFileSync(presetPath(slug), serializeJson(preset));

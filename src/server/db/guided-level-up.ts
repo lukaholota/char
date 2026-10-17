@@ -3,17 +3,22 @@ import { prisma } from "@/lib/prisma";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { classTranslations } from "@/lib/refs/translation";
 import type { LevelUpInput } from "@/lib/zod/schemas/levelUpSchema";
-import { buildRecipeGuideHref } from "@/lib/optimization/article-view";
-import { buildAssemblyCatalog } from "@/lib/optimization/assembly-catalog";
+import { buildRecipeGuideHref, findHeadingRating } from "@/lib/optimization/article-view";
+import { buildAssemblyCatalog, type AssemblyChoiceOption } from "@/lib/optimization/assembly-catalog";
 import { describeOpenSpellPick, fillOpenSpellPicks, listGuidedPicks, planGuidedLevelUp, type GuidedLevelUp, type GuidedPersState, type GuidedStepPlan } from "@/lib/optimization/guided-level-up";
 import { buildSpellScoreFinder } from "@/lib/optimization/ready-preset-spell-scores";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import { translateSubclassName } from "@/lib/refs/subclass-name";
 import { findBuildNickname } from "@/lib/optimization/ready-preset-catalog";
-import { readSliceRecipes } from "@/lib/optimization/slice-reader";
+import { readArchivedRecipe, readSliceArticle, readSliceRecipes } from "@/lib/optimization/slice-reader";
+import { findRevisionMismatchReason } from "@/lib/optimization/recipe-revision-match";
 import type { BuildRecipe } from "@/lib/optimization/types";
+import { toEntitySlug } from "@/lib/slug-utils";
+import { SkillsEnum } from "@/lib/types/enums";
 import { keepOfferedSpells } from "@/rules/class-spell-offer-selection";
 import { EMPTY_CLASS_SPELL_SELECTION } from "@/rules/class-spell-choices-2024";
+import { findMulticlassSkillChoice } from "@/rules/multiclass-skill-choice";
+import type { CreatorContent } from "@/server/db/creator-content-query";
 import { loadPersLevelUpSpellOffer } from "@/server/db/levelup-persistence";
 
 type GuidedPersRow = NonNullable<Awaited<ReturnType<typeof readGuidedPers>>>;
@@ -26,10 +31,15 @@ export async function loadGuidedLevelUp(persId: number): Promise<GuidedLevelUp |
   if (!recipe) return { status: "unavailable", build: null, reason: "Пресета, з якого створено персонажа, більше немає." };
   const build = { title: findBuildNickname(recipe.title), href: buildRecipeGuideHref(recipe) };
   if (recipe.revisionId !== pers.sourceBuildRevisionId) {
-    return { status: "unavailable", build, reason: "Автор оновив пресет після створення персонажа. Продовження для вашої версії плану недоступне." };
+    const reason = findRevisionMismatchReason(recipe, await readArchivedRecipe(pers.sourceBuildRevisionId), pers.level);
+    if (reason) return { status: "unavailable", build, reason };
   }
 
-  const plan = planGuidedLevelUp(recipe, await loadAssemblyCatalog(recipe), toGuidedPersState(pers));
+  const content = findCharacterCreatorOptions(recipe.ruleset);
+  const plan = planGuidedLevelUp(recipe, await loadAssemblyCatalog(recipe, content), toGuidedPersState(pers), {
+    classSkillOptions: listClassSkillOptions(content),
+    findOptionScore: await loadOptionScoreFinder(),
+  });
   if (plan.status === "unavailable") return { ...plan, build };
 
   const spells = await fitClassSpellsToOffer(persId, plan);
@@ -80,6 +90,7 @@ function readGuidedPers(persId: number) {
       multiclasses: { select: { classLevel: true, class: { select: { name: true } }, subclass: { select: { name: true } } } },
       feats: { select: { featId: true, feat: { select: { isRepeatable: true } } } },
       choiceOptions: { select: { choiceOptionId: true } },
+      skills: { select: { name: true, proficiencyType: true } },
     },
   });
 }
@@ -95,12 +106,26 @@ function toGuidedPersState(pers: GuidedPersRow): GuidedPersState {
     abilityScores: { STR: pers.str, DEX: pers.dex, CON: pers.con, INT: pers.int, WIS: pers.wis, CHA: pers.cha },
     nonRepeatableFeatIds: pers.feats.filter((row) => !row.feat.isRepeatable).map((row) => row.featId),
     choiceOptionIds: pers.choiceOptions.map((row) => row.choiceOptionId),
+    skills: pers.skills,
   };
 }
 
-async function loadAssemblyCatalog(recipe: BuildRecipe) {
+async function loadAssemblyCatalog(recipe: BuildRecipe, content: CreatorContent) {
   const spells = await prisma.spell.findMany({ where: { ruleset: recipe.ruleset }, select: { spellId: true, engName: true } });
-  return buildAssemblyCatalog(findCharacterCreatorOptions(recipe.ruleset), spells);
+  return buildAssemblyCatalog(content, spells);
+}
+
+function listClassSkillOptions(content: CreatorContent): Record<string, readonly string[]> {
+  return Object.fromEntries(content.classes.map((characterClass) => [characterClass.name, findMulticlassSkillChoice(characterClass.name, characterClass.skillProficiencies, SkillsEnum)?.options ?? []]));
+}
+
+/// Оцінки є лише там, де розділ статті RPGbot названо англійською назвою опції: метамагія й бойові стилі.
+const OPTION_RATING_ARTICLES = ["sorcerer-metamagic-2014", "fighting-styles-2014"];
+
+async function loadOptionScoreFinder(): Promise<(option: AssemblyChoiceOption) => number | undefined> {
+  const articles = await Promise.all(OPTION_RATING_ARTICLES.map((slug) => readSliceArticle(slug, "RULES_2014").catch(() => null)));
+  const ratings = articles.flatMap((article) => article?.ratings ?? []);
+  return (option) => findHeadingRating(ratings, `section-${toEntitySlug(option.nameEng)}`)?.score;
 }
 
 type FittedSpells = { classSpells: LevelUpInput["classSpells"]; skipped: string[]; open: string[] };

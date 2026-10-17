@@ -1,5 +1,5 @@
 {
-  "status": "blocked",
+  "status": "ready",
   "ruleset": "RULES_2014",
   "articleSlug": "cleric-nature-2014",
   "reviewedRevision": {
@@ -7,9 +7,90 @@
     "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919"
   },
   "exampleSection": "section-example",
-  "reasonCode": "missing-catalog-entity",
-  "reason": "Вибір навички Послідовника природи (Поводження з тваринами, Природа чи Виживання) тепер підтримується для підкласів, у каталозі яких вміння записує вибір навичок (Домен миру, Домен порядку), але у вміння «Послідовник природи» (feature 8495) такого запису немає: без нього набір навичок автора (з Природою від домену) відтворити не можна.",
-  "missing": [
-    "skill_proficiencies у вмінні «Послідовник природи» (feature 8495); SQL для власника у catalog-data-gaps-subclass-skills-2026-10-10-owner-applies.sql"
-  ]
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "NATURE_DOMAIN",
+  "raceKey": "YUAN_TI_MPMM",
+  "backgroundKey": "FAR_TRAVELER",
+  "abilityScores": { "STR": 8, "DEX": 14, "CON": 13, "INT": 9, "WIS": 15, "CHA": 13 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "incomplete": [
+    {
+      "field": "Додаткові класові уміння",
+      "reason": "Автор бере всі додаткові уміння Клірика: Спрямування божественної сили (2-й), Гнучкість замовлянь (4-й), Благословенні удари (8-й); у каталозі цих умінь немає, тож на 8-му рівні лишається Божественний удар.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Клірика на 4-му й 10-му рівнях",
+      "reason": "Автор не називає нових замовлянь Клірика; пресет лишає їх відкритим вибором гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риса на 16-му рівні",
+      "reason": "Автор бере «Посвяченого у бій» (у таблиці рівнів — Захист, у розділі рис — Перехоплення), але риса вимагає володіння бойовою зброєю, якого цей клірик не має. Пресет натомість підвищує Статуру на 2: 15 → 17, а Стійкий на 19-му доводить її до 18 — вибір платформи.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Риса на 19-му рівні",
+      "reason": "У розділі рис автор лишає 19-й рівень вільним і радить щось цікаве, як-от Картоманта; пресет іде за таблицею рівнів: Стійкий (Статура).",
+      "section": "section-feats-2"
+    }
+  ],
+  "levels": [
+    { "level": 2 },
+    { "level": 3 },
+    { "level": 4, "abilityScoreIncrease": [{ "ability": "WIS", "amount": 2 }], "openSpellPicks": [{ "category": "cantrips", "count": 1 }], "section": "section-feats-2" },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    { "level": 8, "featKey": "INSPIRING_LEADER", "section": "section-feats-2" },
+    { "level": 9 },
+    { "level": 10, "openSpellPicks": [{ "category": "cantrips", "count": 1 }] },
+    { "level": 11 },
+    { "level": 12, "abilityScoreIncrease": [{ "ability": "CON", "amount": 1 }, { "ability": "WIS", "amount": 1 }], "section": "section-feats-2" },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }] },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "featKey": "RESILIENT", "featOptions": [{ "optionNameEng": "Resilient (Constitution)" }] },
+    { "level": 20 }
+  ],
+  "preset": {
+    "title": "Клірик — Домен природи, Юань-ті (Заклинач змій)",
+    "description": "Клірик природи серед прирученого зміїного почту: Юань-ті з Мудрістю 17, Далекий мандрівник, Природа й Терновий батіг від Послідовника природи.",
+    "subraceKey": null,
+    "racialAbilities": ["WIS", "CON", "WIS"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["HISTORY", "RELIGION"], "race": [], "background": [], "subclass": ["NATURE"] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["DRACONIC", "SYLVAN"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] },
+      { "group": 5, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": ["guidance", "toll-the-dead", "word-of-radiance"],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "classOptionSpellKeys": ["thorn-whip"],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Настанова, Дзвін небіжчика й Слово сяйва та Терновий батіг від Послідовника природи назвав автор. Дружбу з тваринами й Розмову з тваринами дає домен; підготовлених заклинань 1-го рівня автор не називає — їх можна обрати на листі.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Купівля очок 8/14/13/9/15/13 з таблиці автора; Юань-ті за правилами Таші додає +2 до Мудрості й +1 до Статури: Мудрість 17, Статура 14, Харизма 13 для Надихаючого лідера. Це вже враховано.",
+    "skillExplanation": "Історія й Релігія — від Клірика, Аналіз поведінки й Уважність — від Далекого мандрівника, Природа — від Послідовника природи, як радить автор. Дві мови (расову й одну від передісторії) ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор планує середній обладунок, тож узято лускову броню. Булаву, легкий арбалет, набір священика, щит і святий символ ми обрали за вас — вибір платформи."
+  }
 }

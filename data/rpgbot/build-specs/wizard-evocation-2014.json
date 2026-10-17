@@ -1,0 +1,85 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-2014-draft1",
+    "sourceRevisionId": "rpgbot-2fa92b25522938e0-15a5ef23e3b934cf"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_EVOCATION",
+  "raceKey": "ELF_2014",
+  "backgroundKey": "SAGE",
+  "abilityScores": { "STR": 8, "DEX": 14, "CON": 14, "INT": 15, "WIS": 12, "CHA": 8 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "revision": 3,
+  "incomplete": [
+    {
+      "field": "Майстерність заклинань і Підписні заклинання",
+      "reason": "На 18-му рівні автор обирає для Майстерності заклинань Щит і Друзки, а на 20-му Підписними заклинаннями — Вогнекулю й Політ; платформа цих виборів не записує, їх позначають на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання «будь-яке» на 10, 18, 19 і 20-му рівнях",
+      "reason": "Автор не називає замовляння 10-го рівня, друге заклинання книги на 10-му й по два заклинання на 18, 19 і 20-му; пресет лишає їх відкритим вибором гравця.",
+      "section": "section-levels"
+    }
+  ],
+  "levels": [
+    { "level": 2, "subclassKey": "SCHOOL_OF_EVOCATION", "spells": { "spellbookKeys": ["identify", "shield"] } },
+    { "level": 3, "spells": { "spellbookKeys": ["scorching-ray", "shatter"] } },
+    { "level": 4, "abilityScoreIncrease": [{ "ability": "INT", "amount": 2 }], "spells": { "cantripKeys": ["fire-bolt"], "spellbookKeys": ["flaming-sphere", "misty-step"] } },
+    { "level": 5, "spells": { "spellbookKeys": ["fireball", "fly"] } },
+    { "level": 6, "spells": { "spellbookKeys": ["counterspell", "dispel-magic"] } },
+    { "level": 7, "spells": { "spellbookKeys": ["conjure-minor-elementals", "wall-of-fire"] } },
+    { "level": 8, "abilityScoreIncrease": [{ "ability": "INT", "amount": 2 }], "spells": { "spellbookKeys": ["polymorph", "stone-shape"] } },
+    { "level": 9, "spells": { "spellbookKeys": ["bigbys-hand", "wall-of-force"] } },
+    { "level": 10, "spells": { "spellbookKeys": ["cone-of-cold"] }, "openSpellPicks": [{ "category": "cantrips", "count": 1 }, { "category": "spellbook", "count": 1 }] },
+    { "level": 11, "spells": { "spellbookKeys": ["chain-lightning", "sunbeam"] } },
+    { "level": 12, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }], "spells": { "spellbookKeys": ["flesh-to-stone", "globe-of-invulnerability"] } },
+    { "level": 13, "spells": { "spellbookKeys": ["delayed-blast-fireball", "forcecage"] } },
+    { "level": 14, "spells": { "spellbookKeys": ["plane-shift", "teleport"] } },
+    { "level": 15, "spells": { "spellbookKeys": ["incendiary-cloud", "sunburst"] } },
+    { "level": 16, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }], "spells": { "spellbookKeys": ["feeblemind", "maze"] } },
+    { "level": 17, "spells": { "spellbookKeys": ["meteor-swarm", "wish"] } },
+    { "level": 18, "openSpellPicks": [{ "category": "spellbook", "count": 2 }] },
+    { "level": 19, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }], "openSpellPicks": [{ "category": "spellbook", "count": 2 }] },
+    { "level": 20, "openSpellPicks": [{ "category": "spellbook", "count": 2 }] }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-evocation-2014-088912d34d.webp",
+    "title": "Чарівник Школи втілення — Високий ельф",
+    "description": "Досліджуйте таємниці магії й долайте ворогів різними типами шкоди. У книзі вже є шість стартових заклинань із прикладу RPGbot.",
+    "subraceKey": "ELF_HIGH_2014",
+    "racialAbilities": [],
+    "skills": { "selectedClass": ["INVESTIGATION", "RELIGION"], "race": [], "background": [] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["DRACONIC", "DWARVISH", "CELESTIAL"],
+    "equipment": [
+      { "group": 1, "option": "b", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Розподіл характеристик узято з прикладу RPGbot. Бонуси Високого ельфа дають Спритність 16 та Інтелект 16.",
+    "skillExplanation": "Автор радить Розслідування й Релігію. Уважність дає раса, а Магію й Історію — передісторія Мудреця.",
+    "equipmentExplanation": "Автор обирає кинджал і книгу та дозволяє мішечок компонентів або фокус і будь-який набір. Ми обрали мішечок компонентів і набір ученого. Три додаткові мови — налаштування платформи, їх можна змінити.",
+    "spells": {
+      "classCantripKeys": ["acid-splash", "chill-touch", "ray-of-frost"],
+      "knownSpellKeys": [],
+      "spellbookKeys": ["burning-hands", "comprehend-languages", "detect-magic", "find-familiar", "mage-armor", "magic-missile"],
+      "raceSpellKeys": ["prestidigitation"],
+      "preparedSpellKeys": ["burning-hands", "detect-magic", "mage-armor", "magic-missile"],
+      "sectionId": "section-levels",
+      "explanation": "Усі чотири замовляння й шість заклинань книги взято з авторського старту 1-го рівня. Ми віднесли Штукарство до расового замовляння Високого ельфа; автор не розділяє джерела. Ми також підготували чотири заклинання з цієї книги. Початкова підготовка — налаштування платформи, її можна змінити нижче.",
+      "platformChoices": ["raceSpells", "preparedSpells"]
+    }
+  }
+}

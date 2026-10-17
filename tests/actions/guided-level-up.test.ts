@@ -5,11 +5,18 @@ import { levelUpCharacter } from "@/lib/actions/levelup";
 import { loadGuidedLevelUp } from "@/server/db/guided-level-up";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { countSnapshots, readSheetState, runManualLevelUpPath } from "../helpers/assembly-manual-path";
+import type { BuildRecipe } from "@/lib/optimization/types";
 import { barbarianScenario, readRecipeFile, sorcadinScenario, wizardScenario, type AssemblyScenario } from "../helpers/assembly-scenarios";
+
+const syntheticArchives = vi.hoisted(() => new Map<string, BuildRecipe>());
 
 vi.mock("server-only", () => ({}));
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: <T>(fn: T) => fn }));
+vi.mock("@/lib/optimization/slice-reader", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/optimization/slice-reader")>();
+  return { ...actual, readArchivedRecipe: async (revisionId: string) => syntheticArchives.get(revisionId) ?? actual.readArchivedRecipe(revisionId) };
+});
 import { auth } from "@/lib/auth";
 
 vi.setConfig({ testTimeout: 180_000 });
@@ -21,6 +28,7 @@ vi.setConfig({ testTimeout: 180_000 });
 const EMAIL = "guided-level-up@actions.test";
 
 beforeEach(async () => {
+  syntheticArchives.clear();
   await resetUserData();
   await prisma.user.create({ data: { email: EMAIL } });
   vi.mocked(auth).mockResolvedValue({ user: { email: EMAIL } } as never);
@@ -47,7 +55,7 @@ async function runGuidedLevelUps(persId: number, targetLevel: number, openKnownS
     if (guide?.status !== "ready") throw new Error(`Рівень ${level + 1}: ${JSON.stringify(guide)}`);
     expect(guide.skipped).toEqual([]);
     const chosenIds = await Promise.all((openKnownSpells[level + 1] ?? []).map(findSpellId));
-    if (chosenIds.length) expect(guide.open.join(" ")).toContain("автор не називає");
+    if (chosenIds.length) expect(guide.open.join(" ")).toContain("Заклинання, яких автор не називає");
     const planned = guide.input.classSpells;
     const classSpells = planned && chosenIds.length ? { ...planned, preparedIds: [...planned.preparedIds.slice(0, -chosenIds.length), ...chosenIds] } : planned;
     const result = await levelUpCharacter(persId, { ...guide.input, classSpells, expectedLevel: level });
@@ -91,6 +99,52 @@ describe("коли гайд не пропонується або недосту�
     await prisma.pers.update({ where: { persId }, data: { sourceBuildRevisionId: "build-barbarian-berserker-2014-v0" } });
 
     expect(await loadGuidedLevelUp(persId)).toMatchObject({ status: "unavailable", build: { title: expect.any(String) }, reason: expect.stringContaining("оновив") });
+  });
+
+  it("стара ревізія, яку нова лише продовжує, лишає гайд", async () => {
+    const persId = await createAtFirstLevel(barbarianScenario);
+    await prisma.pers.update({ where: { persId }, data: { sourceBuildRevisionId: "build-barbarian-berserker-2014-v2" } });
+
+    expect(await loadGuidedLevelUp(persId)).toMatchObject({ status: "ready", nextLevel: 2 });
+  });
+
+  function archiveRevisionChangedAtFour(): BuildRecipe {
+    const current = readRecipeFile(barbarianScenario.buildId);
+    const changedAtFour = structuredClone(current);
+    changedAtFour.revisionId = `${current.revisionId}-con-at-4`;
+    changedAtFour.progression[3].decisions = { abilityScoreIncrease: [{ ability: "CON", amount: 2 }] };
+    syntheticArchives.set(changedAtFour.revisionId, changedAtFour);
+    return changedAtFour;
+  }
+
+  const readRevision = async (persId: number) =>
+    (await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { sourceBuildRevisionId: true } })).sourceBuildRevisionId;
+
+  it("стара ревізія з іншим планом 4-го рівня веде за новим планом і переносить персонажа на нову ревізію", async () => {
+    const changedAtFour = archiveRevisionChangedAtFour();
+    const persId = await createAtFirstLevel(barbarianScenario);
+    await prisma.pers.update({ where: { persId }, data: { sourceBuildRevisionId: changedAtFour.revisionId } });
+    await runManualLevelUpPath(persId, barbarianScenario.manualSteps.slice(0, 2));
+    await prisma.pers.update({ where: { persId }, data: { sourceBuildRevisionId: changedAtFour.revisionId } });
+
+    expect(await loadGuidedLevelUp(persId)).toMatchObject({ status: "ready", nextLevel: 4 });
+
+    await runManualLevelUpPath(persId, barbarianScenario.manualSteps.slice(2, 3));
+    expect(await readRevision(persId)).toBe(readRecipeFile(barbarianScenario.buildId).revisionId);
+    expect(await loadGuidedLevelUp(persId)).toMatchObject({ status: "ready", nextLevel: 5 });
+  });
+
+  it("персонаж, що вже пройшов змінений рівень старої ревізії, лишається на ній і підвищується вручну", async () => {
+    const changedAtFour = archiveRevisionChangedAtFour();
+    const persId = await createAtFirstLevel(barbarianScenario);
+    await runManualLevelUpPath(persId, barbarianScenario.manualSteps.slice(0, 3));
+    await prisma.pers.update({ where: { persId }, data: { sourceBuildRevisionId: changedAtFour.revisionId } });
+
+    expect(await loadGuidedLevelUp(persId)).toMatchObject({ status: "unavailable", reason: expect.stringContaining("з 4-го рівня") });
+
+    await runManualLevelUpPath(persId, barbarianScenario.manualSteps.slice(3, 4));
+    expect(await readRevision(persId)).toBe(changedAtFour.revisionId);
+    expect(await loadGuidedLevelUp(persId)).toMatchObject({ status: "unavailable", reason: expect.stringContaining("з 4-го рівня") });
   });
 
   it("ручне підвищення в інший підклас робить гайд недоступним, але зберігає пресет", async () => {

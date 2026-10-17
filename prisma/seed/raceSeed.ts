@@ -1187,7 +1187,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
             speed: 30,
             source: Source.MPMM,
             languages: [Language.COMMON],
-            languagesToChooseCount: 2,
+            languagesToChooseCount: 1,
             ASI: MPMMBaseASI,
             traits: {
                 create: [

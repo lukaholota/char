@@ -115,7 +115,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
       setError(blockedBy); return;
     }
     pending.current = true;
-    const storageKey = findActiveDraftStorageKey()!;
+    const storageKey = findActiveDraftStorageKey();
     setSubmitting(true); setError("");
     const progress = { ...describePresetProgress(startingDraft, start, assembly, openedAt.current), ...(levels ? { target_level: assembly.targetLevel } : {}) };
     captureRpgbotEvent("rpgbot_preset_submitted", { preset_id: buildId, ...progress });
@@ -129,7 +129,7 @@ export function useReadyPreset(startingDraft: PersFormData, buildId: string, opt
       router.push(`/char/${result.persId}`);
       requestAnimationFrame(() => {
         if (findActiveDraftStorageKey() === storageKey) resetForm();
-        localStorage.removeItem(storageKey);
+        if (storageKey) localStorage.removeItem(storageKey);
         removeAssemblyDraft(buildId);
         forgetUnfinishedPreset(buildId);
       });

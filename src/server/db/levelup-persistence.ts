@@ -13,6 +13,7 @@ import { findUserIdByEmail } from "@/server/db/users";
 import { canEditPers } from "@/lib/actions/pers";
 import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 import { createStandaloneLevelUpExecutor, executeLevelUpStep, loadLevelUpStepInfo } from "@/server/db/levelup-step";
+import { moveToCurrentPresetRevision } from "@/server/db/preset-revision";
 
 export async function getLevelUpInfo(persId: number) {
   const accessError = await findLevelUpAccessError(persId);
@@ -141,6 +142,7 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
     const accessError = await findLevelUpAccessError(persId);
     if (accessError) return accessError;
 
+    await moveToCurrentPresetRevision(persId);
     const outcome = await executeLevelUpStep(createStandaloneLevelUpExecutor(), persId, data);
     if ("error" in outcome) return outcome;
 
