@@ -15,6 +15,8 @@ const REVIEWED_FEATURE_NAMES: Record<string, string> = {
   "Bonus Proficiencies (Drunken Master)": "Bonus Proficiencies",
 };
 
+const RPGBOT_SUBCLASS_SLUGS: Record<string, string> = { BANNERET: "purple-dragon-knight" };
+
 function normalizeName(name: string) {
   return findPlainEnglishName(REVIEWED_FEATURE_NAMES[name] ?? name).replace(/\s*\([^)]*\)$/, "").replace(/[’‘]/g, "'").toLowerCase();
 }
@@ -116,9 +118,8 @@ async function saveFeatureBindings(bindings: EntityBinding[], candidates: Entity
 
 function collectComparisonParents(characterClass: ClassData, document: ArticleDocument): EntityBinding[] {
   return characterClass.subclasses.flatMap((subclass) => {
-    const slug = toEntitySlug(findPlainEnglishName(subclass.engName)).replace(/-conclave$/, "");
+    const slug = RPGBOT_SUBCLASS_SLUGS[subclass.key] ?? toEntitySlug(findPlainEnglishName(subclass.engName)).replace(/-conclave$/, "").replace(/^school-of-/, "");
     const sections = document.translations.at(-1)!.sections.filter((section) => section.sectionId === `section-${slug}`
-      || (subclass.key === "BEAST_MASTER_CONCLAVE" && section.sectionId === "section-beast-master-v2")
       || section.heading === subclass.name || section.heading.startsWith(`${subclass.name} (`));
     if (sections.length !== 1) return [];
     const section = sections[0];

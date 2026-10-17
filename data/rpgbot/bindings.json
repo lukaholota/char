@@ -14040,7 +14040,7 @@
     "articleId": "rpgbot-ranger-beast-master-2014",
     "sectionId": "section-features",
     "role": "comparison",
-    "primary": true,
+    "primary": false,
     "preview": "Уміння Звіролова",
     "ratingIds": [],
     "evidence": "Exact native subclass in article topics; unique feature section identity.",
@@ -14125,5 +14125,236 @@
     ],
     "evidence": "src/lib/generated/classes.json: RANGER_2014 → BEAST_MASTER_CONCLAVE → Share Spells, level 15; rpgbot-ranger-beast-master-2014: section-features-block-section-features-1-item-3; English label verified within this subclass and level; catalog description checked against the named ability.",
     "reviewedAt": "2026-10-09T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-banneret",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "subclass",
+      "parentKey": "FIGHTER_2014",
+      "entityKey": "BANNERET"
+    },
+    "articleId": "rpgbot-fighter-subclasses-2014",
+    "sectionId": "section-purple-dragon-knight",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Лицар Пурпурового Дракона / Баннерет (SCAG)",
+    "ratingIds": [],
+    "evidence": "2014 catalog FIGHTER_2014 → BANNERET; exact comparison section section-purple-dragon-knight: Лицар Пурпурового Дракона / Баннерет (SCAG).",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-banneret-rallying-cry-3",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "BANNERET",
+      "entityKey": "rallying-cry-3"
+    },
+    "articleId": "rpgbot-fighter-subclasses-2014",
+    "sectionId": "section-purple-dragon-knight",
+    "optionId": "section-purple-dragon-knight-block-section-purple-dragon-knight-6-item-0",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Надихаючий крик{{Rallying Cry}}: це не купа лікування, але й не мусить бути. Це фактично «Масове цілюще слово [Mass Healing Word]» з кількома обмеженнями в обмін на те, що це не заклинання. Воно діє на союзників без свідомості, бо стан Непритомний не мав на меті оглушувати істот за словами Джереми Кроуфорда.",
+    "ratingIds": [
+      "rating-fighter-subclasses-2014-063"
+    ],
+    "evidence": "src/lib/generated/classes.json: FIGHTER_2014 → BANNERET → Rallying Cry, level 3; rpgbot-fighter-subclasses-2014: section-purple-dragon-knight-block-section-purple-dragon-knight-6-item-0; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-banneret-royal-envoy-7",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "BANNERET",
+      "entityKey": "royal-envoy-7"
+    },
+    "articleId": "rpgbot-fighter-subclasses-2014",
+    "sectionId": "section-purple-dragon-knight",
+    "optionId": "section-purple-dragon-knight-block-section-purple-dragon-knight-6-item-1",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Королівський посланець{{Royal Envoy}}: Переконання — король соціальних навичок, і Експертиза в ньому дуже допоможе, компенсуючи навіть скромніший показник Харизми. Безкоштовне володіння навичкою теж приємне, але якщо ви плануєте грати «обличчя», то, імовірно, вже маєте і Переконання, і Залякування, і, цілком можливо, Аналіз Поведінки.\n\nПоводження з тваринами — веселий смак для лицаря, але не особливо корисне, бо бій верхи в 5e — дуже нішевий варіант. Якщо ви з самого початку плануєте збірку як Лицаря Пурпурового Дракона, можливо, лишите Аналіз Поведінки чи Залякування вільними, щоб скористатис",
+    "ratingIds": [
+      "rating-fighter-subclasses-2014-064"
+    ],
+    "evidence": "src/lib/generated/classes.json: FIGHTER_2014 → BANNERET → Royal Envoy, level 7; rpgbot-fighter-subclasses-2014: section-purple-dragon-knight-block-section-purple-dragon-knight-6-item-1; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-banneret-inspiring-surge-10",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "BANNERET",
+      "entityKey": "inspiring-surge-10"
+    },
+    "articleId": "rpgbot-fighter-subclasses-2014",
+    "sectionId": "section-purple-dragon-knight",
+    "optionId": "section-purple-dragon-knight-block-section-purple-dragon-knight-6-item-2",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Натхненний натиск{{Inspiring Surge}}: використовуйте це на Пройдисвіті, якщо тільки можливо. Пройдисвіти можуть робити Підступну атаку раз на хід, а не раз на раунд, тож теоретично вони могли б робити підступні атаки сотні разів, якби достатньо людей могли дати Пройдисвіту безкоштовну атаку на їхніх ходах. (Це кілька разів пояснювали дизайнери WotC у різних місцях.) Памʼятайте, що це має бути атака зброєю, і це лише одна атака, тож, якщо не Пройдисвіт, підійде будь-хто, хто може завдати великого стабільного удару (Варвар у Люті, Слідопит із «Мисливською міткою [Hunter's Mark]», Чорнокнижник-Ві",
+    "ratingIds": [
+      "rating-fighter-subclasses-2014-065"
+    ],
+    "evidence": "src/lib/generated/classes.json: FIGHTER_2014 → BANNERET → Inspiring Surge, level 10; rpgbot-fighter-subclasses-2014: section-purple-dragon-knight-block-section-purple-dragon-knight-6-item-2; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-banneret-bulwark-banneret-15",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "BANNERET",
+      "entityKey": "bulwark-banneret-15"
+    },
+    "articleId": "rpgbot-fighter-subclasses-2014",
+    "sectionId": "section-purple-dragon-knight",
+    "optionId": "section-purple-dragon-knight-block-section-purple-dragon-knight-6-item-3",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Опора{{Bulwark}}: перекидання ряткидків чудові, особливо ментальних, що часто можуть вивести з бою вас і ваших союзників.",
+    "ratingIds": [
+      "rating-fighter-subclasses-2014-066"
+    ],
+    "evidence": "src/lib/generated/classes.json: FIGHTER_2014 → BANNERET → Bulwark (Banneret), level 15; rpgbot-fighter-subclasses-2014: section-purple-dragon-knight-block-section-purple-dragon-knight-6-item-3; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-beast_master_conclave",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "subclass",
+      "parentKey": "RANGER_2014",
+      "entityKey": "BEAST_MASTER_CONCLAVE"
+    },
+    "articleId": "rpgbot-ranger-subclasses-2014",
+    "sectionId": "section-beast-master",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Звіролов (PHB)",
+    "ratingIds": [],
+    "evidence": "2014 catalog RANGER_2014 → BEAST_MASTER_CONCLAVE; exact comparison section section-beast-master: Звіролов (PHB).",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-school_of_war_magic",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "subclass",
+      "parentKey": "WIZARD_2014",
+      "entityKey": "SCHOOL_OF_WAR_MAGIC"
+    },
+    "articleId": "rpgbot-wizard-subclasses-2014",
+    "sectionId": "section-war-magic",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Бойова магія (XGtE)",
+    "ratingIds": [],
+    "evidence": "2014 catalog WIZARD_2014 → SCHOOL_OF_WAR_MAGIC; exact comparison section section-war-magic: Бойова магія (XGtE).",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-school_of_war_magic-arcane-deflection-2",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "SCHOOL_OF_WAR_MAGIC",
+      "entityKey": "arcane-deflection-2"
+    },
+    "articleId": "rpgbot-wizard-subclasses-2014",
+    "sectionId": "section-war-magic",
+    "optionId": "section-war-magic-block-section-war-magic-5-item-0",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Арканне відхилення{{Arcane Deflection}}: Щит [Shield] дає кращий бонус до КБ, але справжня привабливість тут — бонус до ряткидків. +4 достатньо, щоб це суттєво змінило ситуацію, а уміння, що дають схожі бонуси («Аура захисту»{{Aura of Protection}} Паладина, «Спалах геніальності»{{Flash of Genius}} Винахідника тощо), ніколи не доступні так рано у вашій карʼєрі. Проте «Арканне відхилення» має ціну можливості понад вашу Реакцію: ви не можете накладати заклинання з рівнями протягом свого наступного ходу. Зважте, що накладання заклинань з рівнями — ваша основна функція чарівника, і це багато чим до",
+    "ratingIds": [
+      "rating-wizard-subclasses-2014-073"
+    ],
+    "evidence": "src/lib/generated/classes.json: WIZARD_2014 → SCHOOL_OF_WAR_MAGIC → Arcane Deflection, level 2; rpgbot-wizard-subclasses-2014: section-war-magic-block-section-war-magic-5-item-0; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-school_of_war_magic-tactical-wit-2",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "SCHOOL_OF_WAR_MAGIC",
+      "entityKey": "tactical-wit-2"
+    },
+    "articleId": "rpgbot-wizard-subclasses-2014",
+    "sectionId": "section-war-magic",
+    "optionId": "section-war-magic-block-section-war-magic-5-item-1",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Тактична кмітливість{{Tactical Wit}}: бонуси до Ініціативи завжди чудові, а можливість ходити рано означає, що ви можете швидко накласти заклинання підсилення чи контролю, що визначатимуть, як складеться бій.",
+    "ratingIds": [
+      "rating-wizard-subclasses-2014-074"
+    ],
+    "evidence": "src/lib/generated/classes.json: WIZARD_2014 → SCHOOL_OF_WAR_MAGIC → Tactical Wit, level 2; rpgbot-wizard-subclasses-2014: section-war-magic-block-section-war-magic-5-item-1; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-school_of_war_magic-power-surge-6",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "SCHOOL_OF_WAR_MAGIC",
+      "entityKey": "power-surge-6"
+    },
+    "articleId": "rpgbot-wizard-subclasses-2014",
+    "sectionId": "section-war-magic",
+    "optionId": "section-war-magic-block-section-war-magic-5-item-2",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Сплеск сили{{Power Surge}}: шкода невелика, а якщо ви не стикаєтеся з багатьма ворожими заклинателями, заряджати свої сплески сили буде важко. Можна попросити союзників змарнувати заклинання низьких рівнів (в ідеалі замовляння з тривалістю, що не є миттєвою, на кшталт Настанова [Guidance] чи Кийок [Shillelagh]), щоб ви могли розвіяти їх чи контрзаклинати, але це, імовірно, не варте ваших слотів заклинань заради поповнення запасу «Сплеску сили».",
+    "ratingIds": [
+      "rating-wizard-subclasses-2014-075"
+    ],
+    "evidence": "src/lib/generated/classes.json: WIZARD_2014 → SCHOOL_OF_WAR_MAGIC → Power Surge, level 6; rpgbot-wizard-subclasses-2014: section-war-magic-block-section-war-magic-5-item-2; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-school_of_war_magic-durable-magic-10",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "SCHOOL_OF_WAR_MAGIC",
+      "entityKey": "durable-magic-10"
+    },
+    "articleId": "rpgbot-wizard-subclasses-2014",
+    "sectionId": "section-war-magic",
+    "optionId": "section-war-magic-block-section-war-magic-5-item-3",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Стійка магія{{Durable Magic}}: якщо ви не підтримуєте Концентрацію на заклинанні, вам слід накладати заклинання, що вимагає Концентрації. Занадто багато добрих заклинань із Концентрацією, щоб не тримати одне активним. Бонус до ряткидків, що примітно, діє на ваш ряткидок на підтримання Концентрації, і разом з «Арканним відхиленням» ви дуже ефективно підтримуєте Концентрацію. Якщо вас турбує ціна постійного накладання й підтримання Концентрації, подивіться на заклинання виклику. Вони зазвичай мають тривалість 1 годину, і багато з них дуже ефективні, тож їх легко вписати у вашу тактику. Ще один к",
+    "ratingIds": [
+      "rating-wizard-subclasses-2014-076"
+    ],
+    "evidence": "src/lib/generated/classes.json: WIZARD_2014 → SCHOOL_OF_WAR_MAGIC → Durable Magic, level 10; rpgbot-wizard-subclasses-2014: section-war-magic-block-section-war-magic-5-item-3; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-school_of_war_magic-deflecting-shroud-14",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "SCHOOL_OF_WAR_MAGIC",
+      "entityKey": "deflecting-shroud-14"
+    },
+    "articleId": "rpgbot-wizard-subclasses-2014",
+    "sectionId": "section-war-magic",
+    "optionId": "section-war-magic-block-section-war-magic-5-item-4",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Завіса відхилення{{Deflecting Shroud}}: «Арканне відхилення» можна використати, лише якщо по вас влучила атака або ви провалили ряткидок, але «Завіса відхилення» працює, навіть якщо «Арканне відхилення» не скасовує ефект, що його запустив, тож вам завжди гарантована шкода. Шкода від «Завіси відхилення» невелика, але обмежень на використання немає, а оскільки вона вражає три цілі на відстані, вона легко переважає замовляння за шкодою. Якщо ви стикаєтеся з групами слабких ворогів, вони можуть влучити по вас просто завдяки великій кількості атак чи включивши вас в ефект шкоди по області, і це доз",
+    "ratingIds": [
+      "rating-wizard-subclasses-2014-077"
+    ],
+    "evidence": "src/lib/generated/classes.json: WIZARD_2014 → SCHOOL_OF_WAR_MAGIC → Deflecting Shroud, level 14; rpgbot-wizard-subclasses-2014: section-war-magic-block-section-war-magic-5-item-4; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
   }
 ]

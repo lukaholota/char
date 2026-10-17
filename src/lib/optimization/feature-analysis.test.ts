@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getAllClasses } from "@/lib/classesData";
 import { bindingSchema, entitySchema } from "./schema";
 import { findBoundFeatureContent } from "./feature-analysis";
-import { readSliceArticle, readSliceBindings, readSlicePreview, collectSliceCatalog } from "./slice-reader";
+import { readSliceArticle, readSliceBindings, readSlicePreview, readSubclassRating, collectSliceCatalog } from "./slice-reader";
 import { validateCorpus } from "./validation";
 import { collectFeatureBindingCandidates } from "../../../scripts/rpgbot/generate-feature-bindings";
 import { collectAll2014Bindings, collectDedicatedFeatureBindingCandidates } from "../../../scripts/rpgbot/generate-feature-bindings";
@@ -90,6 +90,14 @@ it("validates all 2014 comparison candidates against their own articles and cata
   }
 });
 
+it("rates every 2014 subclass that RPGbot covers", async () => {
+  const bindings = await readSliceBindings();
+  const subclasses = collectSliceCatalog("RULES_2014").filter((entity) => entity.kind === "subclass" && entity.parentKey !== "BLOOD_HUNTER_2014");
+  const unrated: string[] = [];
+  for (const subclass of subclasses) if (!(await readSubclassRating(subclass, bindings))?.score) unrated.push(subclass.entityKey);
+  expect(unrated).toEqual([]);
+});
+
 it("returns exact Echo Knight ability analyses through the shared subclass preview", async () => {
   const preview = (await readSlicePreview({ ruleset: "RULES_2014", kind: "subclass", parentKey: "FIGHTER_2014", entityKey: "ECHO_KNIGHT" }))!;
   expect(preview.features.length).toBeGreaterThanOrEqual(4);
@@ -101,9 +109,11 @@ it("returns exact Echo Knight ability analyses through the shared subclass previ
   expect(await readSlicePreview({ ruleset: "RULES_2024", kind: "subclass", parentKey: "FIGHTER_2024", entityKey: "ECHO_KNIGHT" })).toBeNull();
 });
 
-it("joins the dedicated Beast Master guide to its native subclass and four exact abilities", async () => {
+it("rates Beast Master from the comparison heading and reads its four abilities from the dedicated guide", async () => {
   const preview = (await readSlicePreview({ ruleset: "RULES_2014", kind: "subclass", parentKey: "RANGER_2014", entityKey: "BEAST_MASTER_CONCLAVE" }))!;
-  expect(preview.slug).toBe("ranger-beast-master-2014");
+  expect(preview.slug).toBe("ranger-subclasses-2014");
+  expect(preview.rating?.score).toBe(4);
+  expect(preview.guideHref).toContain("ranger-beast-master-2014");
   expect(preview.features.map((feature) => feature.binding.entity.entityKey)).toEqual([
     "primal-companion-optional-3", "exceptional-training-7", "bestial-fury-11", "share-spells-15",
   ]);
@@ -120,8 +130,8 @@ it("generates missing dedicated bindings by exact native identity without replac
   const bindings = await readSliceBindings();
   const missing = bindings.filter((binding) => binding.articleId !== document.article.articleId);
   const generated = collectDedicatedFeatureBindingCandidates(ranger, document, missing);
-  expect(generated.candidates).toHaveLength(5);
-  expect(generated.candidates.filter((binding) => binding.entity.kind === "feature")).toHaveLength(4);
+  expect(generated.candidates).toHaveLength(4);
+  expect(generated.candidates.every((binding) => binding.entity.kind === "feature")).toBe(true);
   expect(validateCorpus({ schemaVersion: 1, sources: document.sources, sourceRevisions: document.sourceRevisions,
     articles: [document.article], translations: document.translations, ratings: document.ratings,
     bindings: generated.candidates, recipes: [] }, collectSliceCatalog("RULES_2014")).issues).toEqual([]);
