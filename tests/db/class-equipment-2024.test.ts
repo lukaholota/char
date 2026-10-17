@@ -14,7 +14,8 @@ import { disconnectDatabase } from "../user-data";
 import { parseClassEquipment2024 } from "../../scripts/parse-2024-class-equipment";
 import { BLOOD_HUNTER_CLASS_NAMES } from "../../prisma/seed/bloodHunter";
 
-const ROWS_2014 = 113;
+/// 113 → 112 у релізі 2026-10-12: зайвий кинджал Чарівника (seed index 85) прибрано з сіду й бази.
+const ROWS_2014 = 112;
 
 /// Кривавий мисливець — власний носій O45, його звіряє blood-hunter-carrier.
 const WITHOUT_BLOOD_HUNTER = { class: { name: { notIn: [...BLOOD_HUNTER_CLASS_NAMES] } } };
@@ -144,7 +145,7 @@ describe("класове спорядження 2024 в базі", () => {
     expect(perClass.size).toBe(13);
   });
 
-  it("113 рядків 2014 не зрушили", async () => {
+  it(`${ROWS_2014} рядків 2014 не зрушили`, async () => {
     expect(await prisma.classStartingEquipmentOption.count({ where: { ruleset: "RULES_2014", ...WITHOUT_BLOOD_HUNTER } })).toBe(ROWS_2014);
   });
 });

@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { BackgroundCategory, Classes, Feats, Races } from "@prisma/client";
+import { BackgroundCategory, Classes, Feats, Races, type FeatChoiceOption } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { createCharacter } from "@/lib/actions/character";
 import { levelUpCharacter } from "@/lib/actions/levelup";
@@ -46,15 +46,28 @@ async function buildVariantHumanWizardForm(featChoiceSelections: Record<string, 
 
 type CatalogFeat = ReturnType<typeof findCharacterCreatorOptions>["feats"][number];
 
-/** Підвищення рівня читає зібраний каталог, а не базу: після SQL і перегенерації він має ці самі опції. */
-function addOptionsToCatalogFeat(featId: number, options: { choiceOptionId: number; optionNameEng: string }[]): void {
-  const feat = findCharacterCreatorOptions("RULES_2014").feats.find((entry) => entry.featId === featId) as CatalogFeat;
-  feat.featChoiceOptions = options.map((option) => ({ choiceOptionId: option.choiceOptionId, featId, choiceOption: { groupName: METAMAGIC_GROUP, optionNameEng: option.optionNameEng, choiceOptionId: option.choiceOptionId } })) as never;
+function findCatalogMetamagicAdept(): CatalogFeat {
+  return findCharacterCreatorOptions("RULES_2014").feats.find((entry) => entry.name === Feats.METAMAGIC_ADEPT) as CatalogFeat;
 }
 
-function removeOptionsFromCatalogFeat(): void {
-  const feat = findCharacterCreatorOptions("RULES_2014").feats.find((entry) => entry.name === Feats.METAMAGIC_ADEPT) as CatalogFeat;
-  feat.featChoiceOptions = [];
+/** Вимикає опції риси в базі й у зібраному каталозі, поки йде блок, і повертає ті самі рядки після нього. */
+function withoutMetamagicAdeptOptions(): void {
+  let removedRows: FeatChoiceOption[] = [];
+  let catalogOptions: CatalogFeat["featChoiceOptions"] = [];
+
+  beforeAll(async () => {
+    const feat = await findMetamagicAdept();
+    removedRows = await prisma.featChoiceOption.findMany({ where: { featId: feat.featId } });
+    await prisma.featChoiceOption.deleteMany({ where: { featId: feat.featId } });
+    const catalogFeat = findCatalogMetamagicAdept();
+    catalogOptions = catalogFeat.featChoiceOptions;
+    catalogFeat.featChoiceOptions = [];
+  });
+
+  afterAll(async () => {
+    if (removedRows.length > 0) await prisma.featChoiceOption.createMany({ data: removedRows });
+    findCatalogMetamagicAdept().featChoiceOptions = catalogOptions;
+  });
 }
 
 async function createFighterAtLevelThree(userId: number) {
@@ -75,7 +88,9 @@ async function readChosenMetamagicNames(persId: number) {
   return adept ? adept.choices.map((choice) => choice.choiceOption.optionNameEng).sort() : null;
 }
 
-describe("Адепт метамагії 2014 у каталозі без опцій (як зараз у виробничій базі)", () => {
+describe("Адепт метамагії 2014 у каталозі без опцій (стан до SQL власника)", () => {
+  withoutMetamagicAdeptOptions();
+
   it("риса береться без вибору, бо обирати нічого, і нічого не записує", async () => {
     await signIn("metamagic-adept-no-options");
     const created = await createCharacter(await buildVariantHumanWizardForm({}));
@@ -84,27 +99,22 @@ describe("Адепт метамагії 2014 у каталозі без опці
   });
 });
 
-describe("Адепт метамагії 2014 з десятьма опціями групи «Метамагія» (SQL власника, застосований на копії тестової бази)", () => {
-  let insertedFeatOptionIds: number[];
+describe("Адепт метамагії 2014 з десятьма опціями групи «Метамагія» (SQL власника, уже в базі)", () => {
   let optionIdByName: Map<string, number>;
 
   beforeAll(async () => {
-    const [feat, options] = await Promise.all([
-      findMetamagicAdept(),
-      prisma.choiceOption.findMany({ where: { groupName: METAMAGIC_GROUP, ruleset: "RULES_2014" }, select: { choiceOptionId: true, optionNameEng: true } }),
-    ]);
-    optionIdByName = new Map(options.map((option) => [option.optionNameEng, option.choiceOptionId]));
-    const rows = await prisma.featChoiceOption.createManyAndReturn({
-      data: options.map((option) => ({ featId: feat.featId, choiceOptionId: option.choiceOptionId, ruleset: "RULES_2014" as const })),
-      select: { optionId: true },
+    const feat = await findMetamagicAdept();
+    const rows = await prisma.featChoiceOption.findMany({
+      where: { featId: feat.featId, choiceOption: { groupName: METAMAGIC_GROUP } },
+      select: { choiceOption: { select: { choiceOptionId: true, optionNameEng: true } } },
     });
-    insertedFeatOptionIds = rows.map((row) => row.optionId);
-    addOptionsToCatalogFeat(feat.featId, options);
+    optionIdByName = new Map(rows.map(({ choiceOption }) => [choiceOption.optionNameEng, choiceOption.choiceOptionId]));
   });
 
-  afterAll(async () => {
-    await prisma.featChoiceOption.deleteMany({ where: { optionId: { in: insertedFeatOptionIds } } });
-    removeOptionsFromCatalogFeat();
+  it("у базі й у каталозі рівно десять метамагій Чародія", async () => {
+    expect(optionIdByName.size).toBe(10);
+    const catalogNames = findCatalogMetamagicAdept().featChoiceOptions.map((option) => option.choiceOption.optionNameEng);
+    expect([...catalogNames].sort()).toEqual([...optionIdByName.keys()].sort());
   });
 
   const pick = (...names: string[]) => ({ [METAMAGIC_GROUP]: names.map((name) => optionIdByName.get(name)!) });

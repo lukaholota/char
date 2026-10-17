@@ -101,7 +101,8 @@ async function findRageUses(persId: number) {
   return row.usesRemaining;
 }
 
-describe("O38 — Лють варвара 2024 (№006)", () => {
+/// Кроки однієї історії персонажа: кожен стоїть на стані попереднього, тож порядок не перемішуємо.
+describe("O38 — Лють варвара 2024 (№006)", { shuffle: false }, () => {
   it("без Люті навички звичайні: Сприйняття +4, Непомітність +2, Атлетика +7", async () => {
     expect(await findSkillTotals(barbarianId)).toEqual([4, 2, 7]);
   });
@@ -149,7 +150,7 @@ describe("O38 — Лють варвара 2024 (№006)", () => {
   });
 });
 
-describe("O38 — Велика форма Голіафа 5 (№004)", () => {
+describe("O38 — Велика форма Голіафа 5 (№004)", { shuffle: false }, () => {
   it("риса виду без рядка pers_feature вмикається, і швидкість стає 45", async () => {
     expect(calculateFinalSpeed(await loadSheetPers(goliathId))).toBe(35);
 

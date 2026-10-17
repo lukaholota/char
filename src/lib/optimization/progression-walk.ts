@@ -13,7 +13,7 @@ import { checkExpertiseAndSkills, checkMulticlassEntrySkill } from "./progressio
 import { checkSubclassFeatureSpells } from "./progression-check-feature-spells";
 import { checkClassSpells } from "./progression-check-spells";
 import { settleRaceSpells, buildRaceSpellGrants } from "./progression-race-spells";
-import { adoptOwnedSpellsIntoSubclass, rememberSubclassGrantedSpells } from "./progression-granted-spells";
+import { adoptOwnedSpellsIntoSubclass, listSubclassGrantedSpellIds, rememberSubclassGrantedSpells } from "./progression-granted-spells";
 import { buildPresetAbilityScores, buildPresetAbilitySources } from "./ready-preset-abilities";
 import { findSchoolKey } from "./ready-preset-spells";
 import type { ReadyPreset } from "./ready-preset";
@@ -90,7 +90,7 @@ function buildStartState(env: WalkEnvironment, draft: Partial<PersFormData>): Wa
     featKeys: content.feats.filter((entry) => entry.featId === draft.featId).map((entry) => entry.name),
     proficientSkills: new Set(draft.skills ?? []),
     expertiseSkills: new Set(preset.expertise),
-    takenSpellIds: new Set(everyKey.flatMap(idOf)),
+    takenSpellIds: new Set([...everyKey.flatMap(idOf), ...listSubclassGrantedSpellIds(catalog, { classKey: recipe.startingClassKey, subclassKey: startSubclassKey ?? null, classLevel: 1 })]),
     raceSpellGrants: buildRaceSpellGrants(env, draft),
     chosenOptionIds: new Set([draft.classChoiceSelections, draft.subclassChoiceSelections, draft.featChoiceSelections].flatMap((selections) => Object.values(selections ?? {}).flat())),
     infusionNames: new Set(),
