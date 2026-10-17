@@ -4,7 +4,7 @@ import crypto from "node:crypto";
 
 import { getPersByShareToken, getPrintablePersByShareToken } from "@/lib/actions/share-actions";
 import { generateCharacterPdfFromData } from "@/server/pdf/generateCharacterPdf";
-import { findPdfJobErrorMessage, runPdfJob } from "@/server/pdf/pdfJobGate";
+import { findPdfJobErrorMessage, runCharacterPdfJob } from "@/server/pdf/pdfJobGate";
 import { groupCharacterFeaturesForPdf } from "@/server/pdf/groupCharacterFeatures";
 import type { CharacterPdfData, PrintConfig } from "@/server/pdf/types";
 import { createLogger } from "@/server/logging/logger";
@@ -37,7 +37,7 @@ export async function generateCharacterPdfByTokenAction(token: string, config: P
   log.info("start", { persId: pers.persId, name: pers.name });
 
   try {
-    const pdfBytes = await runPdfJob((signal) =>
+    const pdfBytes = await runCharacterPdfJob((signal) =>
       generateCharacterPdfFromData({ pers: printablePers, features, wildshapeForms }, config, { jobId, signal })
     );
 

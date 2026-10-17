@@ -121,11 +121,16 @@ async function createFighter2014(userId: number): Promise<number> {
   return pers.persId;
 }
 
-async function generatePdf(persId: number, config: Omit<PrintConfig, "sheetLayout">, sheetLayout: SheetLayout = "SHEET_2024"): Promise<Uint8Array> {
+async function generatePdf(
+  persId: number,
+  config: Omit<PrintConfig, "sheetLayout">,
+  sheetLayout: SheetLayout = "SHEET_2024",
+  persPatch: Partial<CharacterPdfData["pers"]> = {},
+): Promise<Uint8Array> {
   const pers = await getPersById(persId);
   const features = await getCharacterFeaturesGrouped(persId);
   if (!pers || !features) throw new Error("персонажа не завантажено");
-  const data: CharacterPdfData = { pers, features, wildshapeForms: [] };
+  const data: CharacterPdfData = { pers: { ...pers, ...persPatch }, features, wildshapeForms: [] };
   return generateCharacterPdfFromData(data, { ...config, sheetLayout });
 }
 
@@ -275,6 +280,40 @@ describe("редагування", () => {
     });
 
     expect(danglingAnnotations).toEqual([]);
+  });
+});
+
+describe("текст, що не вміщається на бланку", () => {
+  const LONG_TEXT = "Говорить з кожним зустрічним про море, зорі й старі борги. ".repeat(150).trim();
+  const EDITABLE: Omit<PrintConfig, "sheetLayout"> = { sections: ["CHARACTER", "DETAILS"], flattenCharacterSheet: false };
+
+  async function countPages(bytes: Uint8Array): Promise<number> {
+    return (await PDFDocument.load(bytes)).getPageCount();
+  }
+
+  it("класичний лист: решта рис характеру йде на аркуш «Продовження», а поля тримають текст без штучних розривів", async () => {
+    const normalPages = await countPages(await generatePdf(pers2014Id, EDITABLE, "CLASSIC"));
+    const longBytes = await generatePdf(pers2014Id, EDITABLE, "CLASSIC", { personalityTraits: LONG_TEXT });
+    const form = (await PDFDocument.load(longBytes)).getForm();
+    const traits = form.getTextField("PersonalityTraits ").getText() ?? "";
+
+    expect(await countPages(longBytes)).toBeGreaterThan(normalPages);
+    expect(traits.split("\n")).toEqual([expect.stringMatching(/^Говорить з кожним.*борги\. Говорить/), "… далі на аркуші «Продовження»"]);
+  });
+
+  it("лист 2024: решта передісторії йде на аркуш «Продовження», а поле тримає текст без штучних розривів", async () => {
+    const normalPages = editablePages.length;
+    const longBytes = await generatePdf(pers2024Id, EDITABLE, "SHEET_2024", { backstory: LONG_TEXT });
+    const backstory = (await readPdfPageFields(longBytes))
+      .flatMap((fields) => Object.entries(fields))
+      .find(([name]) => name.endsWith("backstory"))?.[1];
+
+    expect(await countPages(longBytes)).toBeGreaterThan(normalPages);
+    expect(String(backstory).split("\n")).toEqual([
+      "Привʼязаності: Команда корабля",
+      expect.stringMatching(/^Передісторія: Говорить з кожним.*борги\.$/),
+      "… далі на аркуші «Продовження»",
+    ]);
   });
 });
 

@@ -15,7 +15,7 @@ describe("PDF job gate", () => {
   afterEach(() => vi.useRealTimers());
 
   it("runs one job at a time and starts the next queued job when the first settles", async () => {
-    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 2, timeoutMs: 60_000 });
+    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 2, maxWaitMs: 15_000, timeoutMs: 45_000 });
     const first = createDeferred();
     const started: string[] = [];
 
@@ -37,7 +37,7 @@ describe("PDF job gate", () => {
   });
 
   it("refuses a job with a Ukrainian message when the queue is full", async () => {
-    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, timeoutMs: 60_000 });
+    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, maxWaitMs: 15_000, timeoutMs: 45_000 });
     const blocker = createDeferred();
     const running = runPdfJob(() => blocker.promise);
     const queued = runPdfJob(async () => "queued");
@@ -52,7 +52,7 @@ describe("PDF job gate", () => {
   });
 
   it("rejects a slow job at the deadline, aborts its signal and keeps the slot until the job really ends", async () => {
-    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, timeoutMs: 1_000 });
+    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, maxWaitMs: 1_000, timeoutMs: 1_000 });
     const slow = createDeferred();
     let signal: AbortSignal | undefined;
     const slowResult = runPdfJob((jobSignal) => {
@@ -78,7 +78,7 @@ describe("PDF job gate", () => {
   });
 
   it("drops a queued job that timed out before its turn, freeing its queue place", async () => {
-    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, timeoutMs: 1_000 });
+    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, maxWaitMs: 5_000, timeoutMs: 1_000 });
     const blocker = createDeferred();
     const neverStarted = vi.fn(async () => "never");
     const running = runPdfJob(() => blocker.promise);
@@ -96,8 +96,46 @@ describe("PDF job gate", () => {
     expect(neverStarted).not.toHaveBeenCalled();
   });
 
+  it("refuses a queued job as busy when it cannot start in time, long before the overall deadline", async () => {
+    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, maxWaitMs: 15_000, timeoutMs: 45_000 });
+    const blocker = createDeferred();
+    const neverStarted = vi.fn(async () => "never");
+    const running = runPdfJob(() => blocker.promise);
+    const queued = runPdfJob(neverStarted);
+    const queuedCheck = expect(queued).rejects.toBeInstanceOf(PdfBusyError);
+
+    await vi.advanceTimersByTimeAsync(15_000);
+    await queuedCheck;
+
+    blocker.resolve("done");
+    await expect(running).resolves.toBe("done");
+    expect(neverStarted).not.toHaveBeenCalled();
+  });
+
+  it("lets a started job run past the queue limit until the overall deadline", async () => {
+    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, maxWaitMs: 15_000, timeoutMs: 45_000 });
+    const slow = createDeferred();
+    const result = runPdfJob(() => slow.promise);
+
+    await vi.advanceTimersByTimeAsync(30_000);
+    slow.resolve("done");
+    await expect(result).resolves.toBe("done");
+  });
+
+  it("keeps character and catalog prints in separate queues", async () => {
+    const { runCatalogPdfJob, runCharacterPdfJob } = await import("@/server/pdf/pdfJobGate");
+    const catalogBlockers = [createDeferred(), createDeferred(), createDeferred()];
+    const catalogJobs = catalogBlockers.map((blocker) => runCatalogPdfJob(() => blocker.promise));
+    await expect(runCatalogPdfJob(async () => "one too many")).rejects.toBeInstanceOf(PdfBusyError);
+
+    await expect(runCharacterPdfJob(async () => "character")).resolves.toBe("character");
+
+    catalogBlockers.forEach((blocker) => blocker.resolve("catalog"));
+    await expect(Promise.all(catalogJobs)).resolves.toEqual(["catalog", "catalog", "catalog"]);
+  });
+
   it("frees the slot when a job throws synchronously", async () => {
-    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, timeoutMs: 60_000 });
+    const runPdfJob = createPdfJobGate({ maxRunning: 1, maxWaiting: 1, maxWaitMs: 15_000, timeoutMs: 45_000 });
     await expect(
       runPdfJob(() => {
         throw new Error("broken template");

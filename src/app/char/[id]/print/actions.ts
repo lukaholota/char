@@ -4,7 +4,7 @@ import crypto from "node:crypto";
 
 import { auth } from "@/lib/auth";
 import { generateCharacterPdf } from "@/server/pdf/generateCharacterPdf";
-import { findPdfJobErrorMessage, runPdfJob } from "@/server/pdf/pdfJobGate";
+import { findPdfJobErrorMessage, runCharacterPdfJob } from "@/server/pdf/pdfJobGate";
 import type { PrintConfig } from "@/server/pdf/types";
 import { createLogger, hashPII } from "@/server/logging/logger";
 import { diffUsage, formatBytes, takeUsageSnapshot } from "@/server/logging/perf";
@@ -29,7 +29,7 @@ export async function generateCharacterPdfAction(persId: number, config: PrintCo
 
   try {
     const email = session.user.email;
-    const pdfBytes = await runPdfJob((signal) => generateCharacterPdf(persId, email, config, { jobId, signal }));
+    const pdfBytes = await runCharacterPdfJob((signal) => generateCharacterPdf(persId, email, config, { jobId, signal }));
 
     const end = takeUsageSnapshot();
     log.info("end", { ...diffUsage(start, end), pdfBytes: pdfBytes.byteLength, pdfBytesFmt: formatBytes(pdfBytes.byteLength) });

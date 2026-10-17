@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import { NextResponse } from "next/server";
-import { findPdfJobErrorMessage, runPdfJob } from "@/server/pdf/pdfJobGate";
+import { findPdfJobErrorMessage, runCatalogPdfJob } from "@/server/pdf/pdfJobGate";
+import { buildPdfErrorPage, findRetryHref } from "@/server/pdf/pdfErrorPage";
 
 import { generateSpellsPdfBytes } from "@/server/pdf/spellsPdf";
 import { findCatalogSpellIdsForKeys, PrintableSpellNotFoundError } from "@/server/db/print-content";
@@ -42,7 +43,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "spellIds має бути непорожнім масивом" }, { status: 400 });
   }
 
-  return generatePdfResponse(spellIds, { jobId, start });
+  return generatePdfResponse(spellIds, { jobId, start, retryHref: findRetryHref(req) });
 }
 
 export async function GET(req: Request) {
@@ -66,7 +67,7 @@ export async function GET(req: Request) {
     throw error;
   }
 
-  return generatePdfResponse(spellIds, { jobId, start });
+  return generatePdfResponse(spellIds, { jobId, start, retryHref: findRetryHref(req) });
 }
 
 async function findSpellIdsForQuery(searchParams: URLSearchParams): Promise<number[]> {
@@ -75,12 +76,12 @@ async function findSpellIdsForQuery(searchParams: URLSearchParams): Promise<numb
   return [...catalogIds, ...request.homebrewEntryIds.map(toHomebrewCatalogId)];
 }
 
-async function generatePdfResponse(spellIds: number[], ctx: { jobId: string; start: ReturnType<typeof takeUsageSnapshot> }) {
+async function generatePdfResponse(spellIds: number[], ctx: { jobId: string; start: ReturnType<typeof takeUsageSnapshot>; retryHref?: string }) {
   const log = createLogger("api.print.spells").child({ jobId: ctx.jobId });
   log.info("start", { spellIdsCount: spellIds.length });
 
   try {
-    const pdfBytes = await runPdfJob(() => generateSpellsPdfBytes(spellIds, { jobId: ctx.jobId, tag: "api.spells" }));
+    const pdfBytes = await runCatalogPdfJob(() => generateSpellsPdfBytes(spellIds, { jobId: ctx.jobId, tag: "api.spells" }));
     const end = takeUsageSnapshot();
     log.info("end", {
       ...diffUsage(ctx.start, end),
@@ -100,7 +101,8 @@ async function generatePdfResponse(spellIds: number[], ctx: { jobId: string; sta
     const end = takeUsageSnapshot();
     log.error("error", { ...diffUsage(ctx.start, end), err: error, spellIdsCount: spellIds.length });
     const busyMessage = findPdfJobErrorMessage(error);
-    if (busyMessage) return NextResponse.json({ error: busyMessage }, { status: 503 });
-    return NextResponse.json({ error: "Не вдалося згенерувати PDF" }, { status: 500 });
+    const links = { catalogHref: "/spells", catalogLabel: "До заклинань", retryHref: ctx.retryHref };
+    if (busyMessage) return buildPdfErrorPage(busyMessage, 503, links);
+    return buildPdfErrorPage("Не вдалося згенерувати PDF. Спробуйте ще раз трохи згодом.", 500, links);
   }
 }
