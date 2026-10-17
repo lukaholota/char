@@ -221,7 +221,7 @@ referrer-поля, якщо це `accounts.google.*`: Google більше не �
 | `auth_failed` | `signIn` повернув помилку (`provider_error`), виняток (`network`), One Tap без credential (`no_credential`), повернення з `ph_ctx` без сесії (`returned_signed_out`) | `method`, `reason` |
 | `inapp_warning_shown` | попередження про вбудований браузер видно | `placement`: `auth_dialog` \| `creator` \| `preset` \| `other` |
 | `inapp_warning_dismissed` | «Продовжити тут» або закриття | `placement`, `action`: `continue_here` \| `close` |
-| `inapp_external_browser_selected` | натиснуто дію «відкрити у звичайному браузері» | `placement`, `method`: `android_intent` \| `ios_safari_scheme` \| `system_share` \| `instructions_only` \| `other` |
+| `inapp_external_browser_selected` | натиснуто дію «відкрити у звичайному браузері» | `placement`, `method`: `android_intent` \| `ios_safari_scheme` \| `ios_chrome_scheme` \| `system_share` \| `instructions_only` \| `other` |
 | `inapp_link_copied` | результат копіювання посилання | `placement`, `ok` |
 
 Усі події `inapp_*` також несуть `variant`: `control` \| `contextual` \| `contextual-handoff` (варіант

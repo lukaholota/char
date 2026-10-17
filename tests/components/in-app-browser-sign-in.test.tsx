@@ -18,11 +18,12 @@ const IOS_SAFARI = "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) Apple
 const THREADS_IOS = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Barcelona 337.0.0.22.95 (iPhone15,3; iOS 17_5; uk_UA; uk; scale=3.00; 1290x2796; 615203047)";
 const THREADS_ANDROID = "Mozilla/5.0 (Linux; Android 14; Pixel 8 Build/AP2A.240705.005; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/126.0.6478.134 Mobile Safari/537.36 Barcelona 340.0.0.29.109 Android (34/14; 420dpi; 1080x2400; Google/google; Pixel 8; shiba; shiba; uk_UA; 618324011)";
 
-type TelegramWindow = Window & { TelegramWebviewProxy?: unknown };
+type TelegramWindow = Window & { TelegramWebviewProxy?: unknown; TelegramWebview?: unknown };
 
-function openPage(userAgent: string, path = "/char/create", options: { telegram?: boolean } = {}) {
+function openPage(userAgent: string, path = "/char/create", options: { telegram?: "ios" | "android" } = {}) {
   Object.defineProperty(window.navigator, "userAgent", { value: userAgent, configurable: true });
-  (window as TelegramWindow).TelegramWebviewProxy = options.telegram ? {} : undefined;
+  (window as TelegramWindow).TelegramWebviewProxy = options.telegram === "ios" ? {} : undefined;
+  (window as TelegramWindow).TelegramWebview = options.telegram === "android" ? {} : undefined;
   window.history.replaceState({}, "", path);
 }
 
@@ -55,16 +56,26 @@ describe("вхід через Google у звичайному браузері", 
 });
 
 describe("вхід у вбудованому браузері за замовчуванням", () => {
-  it("Telegram на iPhone: пояснення, копіювання як головна дія і Google як запасна", () => {
-    openPage(IOS_SAFARI, "/2024/char?from=abc", { telegram: true });
+  it("Telegram на iPhone: відкрити в Safari чи Chrome одним дотиком і Google як запасна", () => {
+    openPage(IOS_SAFARI, "/2024/char?from=abc", { telegram: "ios" });
     render(<GoogleAuthDialog open onOpenChange={() => {}} />);
 
     expect(screen.getByText(/усередині Telegram/)).toBeTruthy();
     expect(screen.getByText(/Відкрийте сторінку у Safari/)).toBeTruthy();
-    expect(screen.queryByRole("link", { name: /Відкрити в Chrome/ })).toBeNull();
+    const page = "http://localhost:3000/2024/char?from=abc&entry_source=telegram&entry_medium=inapp_handoff";
+    expect(screen.getByRole("link", { name: /Відкрити в Safari/ }).getAttribute("href")).toBe(`x-safari-${page}`);
+    expect(screen.getByRole("link", { name: /Відкрити в Chrome/ }).getAttribute("href")).toBe("googlechrome://localhost:3000/2024/char?from=abc&entry_source=telegram&entry_medium=inapp_handoff");
     const fallback = screen.getByRole("button", { name: "Все одно спробувати Google" }) as HTMLButtonElement;
     expect(fallback.disabled).toBe(false);
     expect(findEvent("inapp_warning_shown")).toMatchObject({ placement: "auth_dialog", variant: "contextual" });
+  });
+
+  it("Telegram на Android з очищеним UA: розпізнаний і має кнопку Chrome без експерименту", () => {
+    openPage("Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.7204.63 Mobile Safari/537.36", "/char/create", { telegram: "android" });
+    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    expect(screen.getByText(/усередині Telegram/)).toBeTruthy();
+    expect(screen.getByRole("link", { name: /Відкрити в Chrome/ }).getAttribute("href")).toMatch(/^intent:\/\/localhost:3000\/char\/create\?entry_source=telegram/);
+    expect(findEvent("inapp_warning_shown")).toMatchObject({ variant: "contextual" });
   });
 
   it("запасна кнопка таки запускає вхід через Google на поточну сторінку", async () => {
@@ -115,7 +126,7 @@ describe("варіант з переходом у браузер", () => {
     render(<GoogleAuthDialog open onOpenChange={() => {}} />);
 
     const link = screen.getByRole("link", { name: /Відкрити в Chrome/ });
-    expect(link.getAttribute("href")).toBe("intent://localhost:3000/char/create?preset=x&entry_source=threads&entry_medium=inapp_handoff#Intent;scheme=http;package=com.android.chrome;end");
+    expect(link.getAttribute("href")).toMatch(/^intent:\/\/localhost:3000\/char\/create\?preset=x&entry_source=threads&entry_medium=inapp_handoff#Intent;scheme=http;package=com\.android\.chrome;S\.browser_fallback_url=/);
     link.addEventListener("click", (event) => event.preventDefault());
     fireEvent.click(link);
     expect(screen.getByText(/Chrome не відкрився\?/)).toBeTruthy();
@@ -123,10 +134,14 @@ describe("варіант з переходом у браузер", () => {
     expect(screen.getByText(/«⋮»/)).toBeTruthy();
   });
 
-  it("на iPhone не обіцяє Chrome, а дає копіювання й шлях через меню", () => {
+  it("на iPhone дає Safari, копіювання й шлях через меню", () => {
     openPage(THREADS_IOS, "/char/create?inapp_variant=contextual-handoff");
     render(<GoogleAuthDialog open onOpenChange={() => {}} />);
-    expect(screen.queryByRole("link", { name: /Chrome/ })).toBeNull();
+    const safari = screen.getByRole("link", { name: /Відкрити в Safari/ });
+    safari.addEventListener("click", (event) => event.preventDefault());
+    fireEvent.click(safari);
+    expect(screen.getByText(/Safari не відкрився\?/)).toBeTruthy();
+    expect(findEvent("inapp_external_browser_selected")).toMatchObject({ method: "ios_safari_scheme" });
     expect(screen.getByRole("button", { name: "Скопіювати посилання" })).toBeTruthy();
     expect(screen.getByText(/«Відкрити в Safari»/)).toBeTruthy();
   });

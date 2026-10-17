@@ -22,7 +22,7 @@ const VARIANTS: readonly InAppBrowserVariant[] = ["control", "contextual", "cont
 
 const HOST_TOKENS: ReadonlyArray<[InAppBrowserHost, RegExp]> = [
   ["telegram", /\bTelegram/i],
-  ["threads", /\bBarcelona\b|\bThreads\b/i],
+  ["threads", /\bBarcelona\b/],
   ["instagram", /\bInstagram\b/i],
   ["facebook", /FBAN|FBAV|FB_IAB|FB4A|FBMD|FBIOS/],
 ];
@@ -55,15 +55,29 @@ export function findInAppBrowserVariant(...candidates: unknown[]): InAppBrowserV
   return candidates.map(findKnownVariant).find((variant) => variant !== null) ?? IN_APP_BROWSER_FALLBACK_VARIANT;
 }
 
-export function buildChromeIntentUrl(pageUrl: string): string | null {
-  try {
-    const url = new URL(pageUrl);
-    if (url.protocol !== "https:" && url.protocol !== "http:") return null;
-    const scheme = url.protocol.slice(0, -1);
-    return `intent://${url.host}${url.pathname}${url.search}#Intent;scheme=${scheme};package=com.android.chrome;end`;
-  } catch {
-    return null;
+export interface OpenInBrowserLink {
+  browser: "safari" | "chrome";
+  label: string;
+  href: string;
+}
+
+export function buildOpenInBrowserLinks(pageUrl: string, platform: DevicePlatform): OpenInBrowserLink[] {
+  const url = parseWebUrl(pageUrl);
+  if (!url) return [];
+  const address = `${url.host}${url.pathname}${url.search}`;
+  if (platform === "ios") {
+    // a page cannot tell whether Chrome is installed, so Safari goes first
+    return [
+      { browser: "safari", label: "Відкрити в Safari", href: `x-safari-${url.href}` },
+      { browser: "chrome", label: "Відкрити в Chrome", href: `${url.protocol === "https:" ? "googlechromes" : "googlechrome"}://${address}` },
+    ];
   }
+  if (platform === "android") {
+    const scheme = url.protocol.slice(0, -1);
+    const fallback = encodeURIComponent(url.href);
+    return [{ browser: "chrome", label: "Відкрити в Chrome", href: `intent://${address}#Intent;scheme=${scheme};package=com.android.chrome;S.browser_fallback_url=${fallback};end` }];
+  }
+  return [];
 }
 
 export function buildReturnUrl(href: string): string {
@@ -75,6 +89,15 @@ export function buildReturnUrl(href: string): string {
     return url.toString();
   } catch {
     return href;
+  }
+}
+
+function parseWebUrl(href: string): URL | null {
+  try {
+    const url = new URL(href);
+    return url.protocol === "https:" || url.protocol === "http:" ? url : null;
+  } catch {
+    return null;
   }
 }
 

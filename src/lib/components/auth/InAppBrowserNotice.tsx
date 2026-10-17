@@ -4,12 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { Copy, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { copyTextToClipboard } from "@/lib/utils/copy-text";
-import { buildChromeIntentUrl, type BrowserEnvironment, type InAppBrowserHost, type InAppBrowserVariant } from "@/lib/utils/in-app-browser";
+import { buildOpenInBrowserLinks, type BrowserEnvironment, type InAppBrowserHost, type InAppBrowserVariant, type OpenInBrowserLink } from "@/lib/utils/in-app-browser";
 import {
   buildInAppHandoffUrl,
   captureExternalBrowserSelected,
   captureInAppWarningShown,
   captureLinkCopied,
+  type ExternalBrowserMethod,
   type InAppPlacement,
 } from "@/lib/monitoring/funnel-analytics";
 
@@ -31,10 +32,10 @@ const HOST_NAMES: Record<InAppBrowserHost, string | null> = {
 
 export function InAppBrowserNotice({ environment, variant, placement }: Props) {
   const [copyState, setCopyState] = useState<CopyState>("idle");
-  const [hasTriedIntent, setHasTriedIntent] = useState(false);
+  const [triedBrowser, setTriedBrowser] = useState<OpenInBrowserLink | null>(null);
   const [handoffUrl] = useState(() => (typeof window === "undefined" ? "" : buildInAppHandoffUrl(window.location.href)));
   const browserName = findBrowserName(environment);
-  const intentUrl = variant === "contextual-handoff" && environment.platform === "android" ? buildChromeIntentUrl(handoffUrl) : null;
+  const openLinks = buildOpenInBrowserLinks(handoffUrl, environment.platform);
 
   useReportShownOnce(placement, variant);
 
@@ -44,9 +45,9 @@ export function InAppBrowserNotice({ environment, variant, placement }: Props) {
     captureLinkCopied(placement, method !== null, variant);
   };
 
-  const openInChrome = () => {
-    setHasTriedIntent(true);
-    captureExternalBrowserSelected(placement, "android_intent", variant);
+  const openInBrowser = (link: OpenInBrowserLink) => {
+    setTriedBrowser(link);
+    captureExternalBrowserSelected(placement, findOpenMethod(link, environment), variant);
   };
 
   return (
@@ -58,17 +59,17 @@ export function InAppBrowserNotice({ environment, variant, placement }: Props) {
       <p>{describeContext(environment.host)} Відкрийте сторінку {browserName}, щоб увійти.</p>
       <p className="text-slate-400">Посилання відкриє цю саму сторінку, але незбережені вибори туди не перенесуться.</p>
 
-      {intentUrl ? (
-        <Button asChild className="min-h-11 w-full">
-          <a href={intentUrl} onClick={openInChrome}>
+      {openLinks.map((link, index) => (
+        <Button key={link.browser} asChild variant={index === 0 ? "default" : "secondary"} className="min-h-11 w-full">
+          <a href={link.href} onClick={() => openInBrowser(link)}>
             <ExternalLink aria-hidden="true" className="mr-2 h-4 w-4" />
-            Відкрити в Chrome
+            {link.label}
           </a>
         </Button>
-      ) : null}
-      {hasTriedIntent ? <p role="status">Chrome не відкрився? Скопіюйте посилання й вставте його в Chrome.</p> : null}
+      ))}
+      {triedBrowser ? <p role="status">{BROWSER_NAMES[triedBrowser.browser]} не відкрився? Скопіюйте посилання й вставте його в адресний рядок браузера.</p> : null}
 
-      <Button type="button" variant={intentUrl ? "secondary" : "default"} className="min-h-11 w-full" onClick={() => void copyLink()}>
+      <Button type="button" variant={openLinks.length ? "secondary" : "default"} className="min-h-11 w-full" onClick={() => void copyLink()}>
         <Copy aria-hidden="true" className="mr-2 h-4 w-4" />
         {copyState === "copied" ? "Посилання скопійовано" : "Скопіювати посилання"}
       </Button>
@@ -114,6 +115,13 @@ function describeContext(host: InAppBrowserHost | null): string {
   const hostName = host ? HOST_NAMES[host] : null;
   const where = hostName ? `усередині ${hostName}` : "у вбудованому браузері застосунку";
   return `Схоже, сайт відкрито ${where}. Google часто не дозволяє входити в таких браузерах.`;
+}
+
+const BROWSER_NAMES: Record<OpenInBrowserLink["browser"], string> = { safari: "Safari", chrome: "Chrome" };
+
+function findOpenMethod(link: OpenInBrowserLink, { platform }: BrowserEnvironment): ExternalBrowserMethod {
+  if (platform === "android") return "android_intent";
+  return link.browser === "safari" ? "ios_safari_scheme" : "ios_chrome_scheme";
 }
 
 function findBrowserName({ platform }: BrowserEnvironment): string {

@@ -6,7 +6,7 @@ import {
 import { buildReturnUrl, detectBrowserEnvironment, readBrowserSignals, type InAppBrowserVariant } from "@/lib/utils/in-app-browser";
 
 export type InAppPlacement = "auth_dialog" | "creator" | "preset" | "other";
-export type ExternalBrowserMethod = "android_intent" | "ios_safari_scheme" | "system_share" | "instructions_only" | "other";
+export type ExternalBrowserMethod = "android_intent" | "ios_safari_scheme" | "ios_chrome_scheme" | "system_share" | "instructions_only" | "other";
 export type InAppDismissAction = "continue_here" | "close";
 export type AuthTrigger = "creator_submit" | "preset_submit" | "nav" | "discussion" | "homebrew" | "other";
 export type AuthFailureReason = "provider_error" | "network" | "no_credential" | "returned_signed_out";
@@ -55,7 +55,7 @@ export function startFunnelPageContext(): void {
   if (context?.creationAttemptId) creationAttemptId = context.creationAttemptId;
   if (context?.distinctId) configurePostHogBootstrap({ distinctID: context.distinctId, ...(context.sessionId ? { sessionID: context.sessionId } : {}) });
   const entry = context?.entry ?? findEntryAttribution({ href: window.location.href, referrer: document.referrer });
-  const browser = findBrowserContext({ userAgent: window.navigator.userAgent ?? "", hasTelegramWebviewProxy: "TelegramWebviewProxy" in window });
+  const browser = findBrowserContext(readBrowserSignals());
   pageContext = { entry, inAppHost: browser.in_app_browser_host };
   registerPostHogSuperProperties({ ...entry, ...browser, device_type: findDeviceType(window.navigator.userAgent ?? "") });
 }

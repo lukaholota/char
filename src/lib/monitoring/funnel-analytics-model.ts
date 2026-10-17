@@ -1,4 +1,5 @@
 import { stripPrivateUrlParams } from "@/lib/monitoring/posthog-context";
+import { detectBrowserEnvironment, type BrowserSignals } from "@/lib/utils/in-app-browser";
 
 export const ANALYTICS_SCHEMA_VERSION = 1;
 
@@ -29,27 +30,10 @@ const ID_PATTERN = /^[0-9a-zA-Z-]{8,64}$/;
 const OAUTH_HOST_PATTERN = /^accounts\.google\.[a-z.]+$/i;
 const IN_APP_HOSTS: InAppBrowserHost[] = ["telegram", "threads", "instagram", "facebook", "other", "unknown"];
 
-export function findBrowserContext(input: { userAgent: string; hasTelegramWebviewProxy: boolean }): { browser_context: BrowserContext; in_app_browser_host: InAppBrowserHost | null } {
-  const ua = input.userAgent;
-  if (!ua) return { browser_context: "unknown", in_app_browser_host: "unknown" };
-  const host = findInAppHost(ua, input.hasTelegramWebviewProxy);
-  if (host) return { browser_context: "embedded_browser", in_app_browser_host: host };
-  if (isGenericWebView(ua)) return { browser_context: "embedded_browser", in_app_browser_host: "other" };
-  return { browser_context: "regular_browser", in_app_browser_host: null };
-}
-
-function findInAppHost(ua: string, hasTelegramWebviewProxy: boolean): InAppBrowserHost | null {
-  if (/\bBarcelona\b/.test(ua)) return "threads";
-  if (/\bInstagram\b/.test(ua)) return "instagram";
-  if (/\b(FBAN|FBAV|FB_IAB|FB4A)\b/.test(ua)) return "facebook";
-  if (hasTelegramWebviewProxy || /\bTelegram(-Android|Bot)?\b/i.test(ua)) return "telegram";
-  return null;
-}
-
-function isGenericWebView(ua: string): boolean {
-  const isAndroidWebView = /Android/.test(ua) && /;\s?wv\)/.test(ua);
-  const isIosWebView = /iP(hone|od|ad)/.test(ua) && /AppleWebKit/.test(ua) && !/Safari\//.test(ua);
-  return isAndroidWebView || isIosWebView;
+export function findBrowserContext(signals: BrowserSignals): { browser_context: BrowserContext; in_app_browser_host: InAppBrowserHost | null } {
+  if (!signals.userAgent) return { browser_context: "unknown", in_app_browser_host: "unknown" };
+  const environment = detectBrowserEnvironment(signals);
+  return { browser_context: environment.context, in_app_browser_host: environment.host };
 }
 
 export function findDeviceType(userAgent: string): DeviceType {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  buildChromeIntentUrl,
+  buildOpenInBrowserLinks,
   buildReturnUrl,
   detectBrowserEnvironment,
   findInAppBrowserVariant,
@@ -69,16 +69,27 @@ describe("findInAppBrowserVariant", () => {
   });
 });
 
-describe("buildChromeIntentUrl", () => {
-  it("веде на ту саму сторінку в Chrome з параметрами", () => {
-    expect(buildChromeIntentUrl("https://char.holota.family/char/create?preset=wizard&from=threads")).toBe(
-      "intent://char.holota.family/char/create?preset=wizard&from=threads#Intent;scheme=https;package=com.android.chrome;end"
+describe("buildOpenInBrowserLinks", () => {
+  const page = "https://char.holota.family/char/create?preset=wizard&from=threads";
+
+  it("на iPhone дає спершу Safari, потім Chrome на ту саму сторінку", () => {
+    expect(buildOpenInBrowserLinks(page, "ios").map((link) => link.href)).toEqual([
+      `x-safari-${page}`,
+      "googlechromes://char.holota.family/char/create?preset=wizard&from=threads",
+    ]);
+  });
+
+  it("на Android веде в Chrome, а без Chrome — на ту саму сторінку тут", () => {
+    const [link] = buildOpenInBrowserLinks(page, "android");
+    expect(link.href).toBe(
+      `intent://char.holota.family/char/create?preset=wizard&from=threads#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(page)};end`
     );
   });
 
-  it("не будує посилання для інших схем", () => {
-    expect(buildChromeIntentUrl("javascript:alert(1)")).toBeNull();
-    expect(buildChromeIntentUrl("not a url")).toBeNull();
+  it("на компʼютері й для інших схем посилань немає", () => {
+    expect(buildOpenInBrowserLinks(page, "other")).toEqual([]);
+    expect(buildOpenInBrowserLinks("javascript:alert(1)", "ios")).toEqual([]);
+    expect(buildOpenInBrowserLinks("not a url", "android")).toEqual([]);
   });
 });
 

@@ -41,11 +41,11 @@ describe("browser context", () => {
     [UA.desktop, false, "regular_browser", null],
     ["", false, "unknown", "unknown"],
   ])("%s · telegram proxy %s → %s / %s", (userAgent, hasTelegramWebviewProxy, browserContext, host) => {
-    expect(findBrowserContext({ userAgent, hasTelegramWebviewProxy })).toEqual({ browser_context: browserContext, in_app_browser_host: host });
+    expect(findBrowserContext({ userAgent, hasTelegramWebviewProxy, isStandalone: false })).toEqual({ browser_context: browserContext, in_app_browser_host: host });
   });
 
   it("does not take the word Threads alone as proof of an in-app browser", () => {
-    expect(findBrowserContext({ userAgent: `${UA.iosSafari} Threads`, hasTelegramWebviewProxy: false }).in_app_browser_host).toBeNull();
+    expect(findBrowserContext({ userAgent: `${UA.iosSafari} Threads`, hasTelegramWebviewProxy: false, isStandalone: false }).in_app_browser_host).toBeNull();
   });
 
   it("splits phones, tablets and desktops", () => {
