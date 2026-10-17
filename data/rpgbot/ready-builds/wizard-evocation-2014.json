@@ -1,12 +1,9 @@
 {
   "buildId": "build-wizard-evocation-2014",
-  "revisionId": "build-wizard-evocation-2014-v2",
-  "portraitSrc": "/images/presets/wizard-evocation-2014-088912d34d.webp",
+  "revisionId": "build-wizard-evocation-2014-v3",
+  "articleSlug": "wizard-2014",
   "title": "Чарівник Школи втілення — Високий ельф",
   "description": "Досліджуйте таємниці магії й долайте ворогів різними типами шкоди. У книзі вже є шість стартових заклинань із прикладу RPGbot.",
-  "articleSlug": "wizard-2014",
-  "subraceKey": "ELF_HIGH_2014",
-  "racialAbilities": [],
   "skills": {
     "selectedClass": [
       "INVESTIGATION",
@@ -17,11 +14,7 @@
   },
   "expertise": [],
   "classOptions": [],
-  "languages": [
-    "DRACONIC",
-    "DWARVISH",
-    "CELESTIAL"
-  ],
+  "subraceKey": "ELF_HIGH_2014",
   "equipment": [
     {
       "group": 1,
@@ -44,13 +37,20 @@
       "weapons": []
     }
   ],
-  "featOptionName": null,
-  "skillSection": "section-skills-and-tools",
-  "featSection": null,
-  "equipmentSection": "section-levels",
   "abilityExplanation": "Розподіл характеристик узято з прикладу RPGbot. Бонуси Високого ельфа дають Спритність 16 та Інтелект 16.",
   "skillExplanation": "Автор радить Розслідування й Релігію. Уважність дає раса, а Магію й Історію — передісторія Мудреця.",
   "equipmentExplanation": "Автор обирає кинджал і книгу та дозволяє мішечок компонентів або фокус і будь-який набір. Ми обрали мішечок компонентів і набір ученого. Три додаткові мови — налаштування платформи, їх можна змінити.",
+  "featSection": null,
+  "portraitSrc": "/images/presets/wizard-evocation-2014-088912d34d.webp",
+  "featOptionName": null,
+  "racialAbilities": [],
+  "languages": [
+    "DRACONIC",
+    "DWARVISH",
+    "CELESTIAL"
+  ],
+  "skillSection": "section-skills-and-tools",
+  "equipmentSection": "section-levels",
   "spells": {
     "classCantripKeys": [
       "acid-splash",
@@ -69,14 +69,14 @@
     "raceSpellKeys": [
       "prestidigitation"
     ],
+    "sectionId": "section-levels",
+    "explanation": "Усі чотири замовляння й шість заклинань книги взято з авторського старту 1-го рівня. Ми віднесли Штукарство до расового замовляння Високого ельфа; автор не розділяє джерела. Ми також підготували чотири заклинання з цієї книги. Початкова підготовка — налаштування платформи, її можна змінити нижче.",
     "preparedSpellKeys": [
       "burning-hands",
       "detect-magic",
       "mage-armor",
       "magic-missile"
     ],
-    "sectionId": "section-levels",
-    "explanation": "Усі чотири замовляння й шість заклинань книги взято з авторського старту 1-го рівня. Ми віднесли Штукарство до расового замовляння Високого ельфа; автор не розділяє джерела. Ми також підготували чотири заклинання з цієї книги. Початкова підготовка — налаштування платформи, її можна змінити нижче.",
     "platformChoices": [
       "raceSpells",
       "preparedSpells"

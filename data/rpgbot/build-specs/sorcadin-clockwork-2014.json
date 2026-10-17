@@ -1,0 +1,103 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcadin-handbook-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcadin-handbook-2014-draft1",
+    "sourceRevisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba"
+  },
+  "exampleSection": "section-example-build-smiting-every-turn-like-clockwork",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATH_OF_REDEMPTION",
+  "raceKey": "HUMAN_2014",
+  "variantKey": "HUMAN_VARIANT",
+  "backgroundKey": "SOLDIER",
+  "featKey": "POLEARM_MASTER",
+  "abilityScores": { "STR": 15, "DEX": 8, "CON": 15, "INT": 8, "WIS": 8, "CHA": 15 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "nodeSections": ["section-example-build-smiting-every-turn-like-clockwork", "section-race", "section-feats"],
+  "revision": 2,
+  "incomplete": [
+    {
+      "field": "Передісторія",
+      "reason": "Стаття не називає передісторії; Солдат — замінюваний стартовий вибір платформи.",
+      "section": "section-example-build-smiting-every-turn-like-clockwork"
+    },
+    {
+      "field": "Порядок рис",
+      "reason": "Автор бере Бойового заклинателя на 1-му рівні, а Майстра древкової зброї на 7-му. Бойовий заклинатель потребує здатності накладати заклинання, якої Паладин 1 ще не має, тому за приміткою редакції риси поміняно місцями: Майстер древкової зброї — на старті, Бойовий заклинатель — на 7-му рівні (Чародій 4).",
+      "section": "section-feats"
+    },
+    {
+      "field": "Перевчання заклинань Механічної душі",
+      "reason": "На 5-му рівні автор перевчає Тривогу на Обладунок Агатіса; заміну заклинання підкласу складання не виконує, її роблять на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Відкриті вибори Чародія",
+      "reason": "Пʼяте відоме заклинання на 7-му рівні, замовляння на 13-му й заклинання на 18-му автор не називає; їх обирає гравець. Виклик конструкту на 10-му рівні дає Механічна душа сама.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання на 15-му і 19-му рівнях",
+      "reason": "Автор пише «нове заклинання: будь-яке» на 15-му (Чародій 12) і 19-му (Чародій 16), але на цих рівнях Чародій нових відомих заклинань не отримує; пресет їх не додає.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія на 20-му рівні",
+      "reason": "Чародій 17 отримує ще одну метамагію, а автор її не називає; пресет бере Приховане заклинання — вибір платформи, гравець може змінити.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Передбачення на 20-му рівні",
+      "reason": "Автор перевчає невживане заклинання на Передбачення, але його немає в списку Чародія (помилка джерела, примітка редакції); пресет цього не робить.",
+      "section": "section-levels"
+    }
+  ],
+  "levels": [
+    { "level": 2, "classOptions": [{ "optionNameEng": "Dueling" }] },
+    { "level": 3, "subclassKey": "OATH_OF_REDEMPTION" },
+    { "level": 4, "classKey": "SORCERER_2014", "subclassKey": "CLOCKWORK_SOUL", "spells": { "cantripKeys": ["booming-blade", "mage-hand", "mind-sliver", "prestidigitation"], "knownSpellKeys": ["silvery-barbs", "magic-missile"] } },
+    { "level": 5, "classKey": "SORCERER_2014", "spells": { "knownSpellKeys": ["shield"] } },
+    { "level": 6, "classKey": "SORCERER_2014", "classOptions": [{ "optionNameEng": "Heightened Spell" }, { "optionNameEng": "Quickened Spell" }], "spells": { "knownSpellKeys": ["misty-step"] } },
+    { "level": 7, "classKey": "SORCERER_2014", "featKey": "WAR_CASTER", "spells": { "cantripKeys": ["sword-burst"] }, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }], "section": "section-feats" },
+    { "level": 8, "classKey": "SORCERER_2014", "spells": { "knownSpellKeys": ["haste"] } },
+    { "level": 9, "classKey": "SORCERER_2014", "spells": { "knownSpellKeys": ["fireball"] } },
+    { "level": 10, "classKey": "SORCERER_2014", "spells": { "knownSpellKeys": ["banishment"] } },
+    { "level": 11, "classKey": "SORCERER_2014", "abilityScoreIncrease": [{ "ability": "STR", "amount": 2 }], "spells": { "knownSpellKeys": ["polymorph"] } },
+    { "level": 12, "classKey": "SORCERER_2014", "spells": { "knownSpellKeys": ["synaptic-static"] } },
+    { "level": 13, "classKey": "SORCERER_2014", "classOptions": [{ "optionNameEng": "Twinned Spell" }], "spells": { "knownSpellKeys": ["hold-monster"] }, "openSpellPicks": [{ "category": "cantrips", "count": 1 }] },
+    { "level": 14, "classKey": "SORCERER_2014", "spells": { "knownSpellKeys": ["disintegrate"] } },
+    { "level": 15, "classKey": "SORCERER_2014", "abilityScoreIncrease": [{ "ability": "STR", "amount": 2 }] },
+    { "level": 16, "classKey": "SORCERER_2014", "spells": { "knownSpellKeys": ["draconic-transformation"] } },
+    { "level": 17, "classKey": "SORCERER_2014" },
+    { "level": 18, "classKey": "SORCERER_2014", "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 19, "classKey": "SORCERER_2014", "featKey": "CRUSHER", "featOptions": [{ "optionNameEng": "CRUSHER Ability (Constitution)" }], "section": "section-feats" },
+    { "level": 20, "classKey": "SORCERER_2014", "classOptions": [{ "optionNameEng": "Subtle Spell" }], "openClassOptions": true, "spells": { "knownSpellKeys": ["wish"] } }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/sorcadin-clockwork-2014.webp",
+    "title": "Чародин — Людина (варіант), Паладин і Чародій",
+    "description": "Паладин у латах, що з 4-го рівня додає чародійство Механічної душі. Старт — Паладин 1 із Майстром древкової зброї; повний шлях до 20-го рівня збирається одним збереженням.",
+    "subraceKey": null,
+    "racialAbilities": ["STR", "CHA"],
+    "skills": { "selectedClass": ["PERSUASION", "RELIGION"], "race": ["INSIGHT"], "background": [] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["CELESTIAL"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": ["LONGSWORD"] },
+      { "group": 2, "option": "b", "weapons": ["QUARTERSTAFF"] },
+      { "group": 3, "option": "b", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-example-build-smiting-every-turn-like-clockwork",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Розподіл характеристик узято з прикладу RPGbot. Людина (варіант) додає по одиниці до Сили та Харизми.",
+    "skillExplanation": "Автор не називає навичок. Переконання, Релігію й Проникливість ми обрали за вас — це вибір платформи; Атлетику та Залякування дає передісторія Воїна.",
+    "equipmentExplanation": "Автор грає з палицею, щитом і важкими обладунками. Палицю, довгий меч із щитом, кольчугу та набір мандрівника ми обрали за вас — це вибір платформи. Мова — теж вибір платформи."
+  }
+}

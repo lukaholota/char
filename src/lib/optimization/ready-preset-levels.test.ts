@@ -39,7 +39,9 @@ function buildContext(slug: string, targetLevel: number, choices: OpenPickChoice
 }
 
 describe("compact level data for the page", () => {
-  it.each([["barbarian-berserker-2014", [2, 3, 4, 5]], ["wizard-evocation-2014", [2, 3, 4, 5]], ["sorcadin-clockwork-2014", [2, 3, 4, 5, 6, 7]]])("lists the selectable levels of %s", (slug, targetLevels) => {
+  const levelsAfterFirst = Array.from({ length: 19 }, (_, index) => index + 2);
+
+  it.each([["barbarian-berserker-2014", levelsAfterFirst], ["wizard-evocation-2014", levelsAfterFirst], ["sorcadin-clockwork-2014", levelsAfterFirst]])("lists the selectable levels of %s", (slug, targetLevels) => {
     const { levels } = loadPreset(slug);
     expect(levels.targetLevels).toEqual(targetLevels);
     expect(levels.steps.map((step) => step.characterLevel)).toEqual(targetLevels);
@@ -61,20 +63,23 @@ describe("compact level data for the page", () => {
     expect(levels.steps.find((step) => step.characterLevel === 4)?.newSpells.cantrips.map((spell) => spell.engName)).toContain("Mage Hand");
   });
 
-  it("describes the ability increase of the Wizard and keeps pools out of presets without open picks", () => {
+  it("describes the ability increase of the Wizard", () => {
     const { levels } = loadPreset("wizard-evocation-2014");
     expect(levels.steps.find((step) => step.characterLevel === 4)?.abilityIncreases).toEqual([{ ability: "INT", amount: 2 }]);
-    expect(levels.spellPools).toEqual({});
+  });
+
+  it("keeps spell pools out of presets without open picks", () => {
+    expect(loadPreset("barbarian-berserker-2014").levels.spellPools).toEqual({});
   });
 
   it("offers a Sorcerer pool limited to the class list and to spell levels the class can cast", () => {
     const { levels } = loadPreset("sorcadin-clockwork-2014");
-    const pools = Object.values(levels.spellPools);
-    expect(pools).toHaveLength(1);
-    expect(Math.max(...pools[0].map((spell) => spell.level))).toBe(2);
-    expect(Math.min(...pools[0].map((spell) => spell.level))).toBe(1);
-    expect(pools[0].map((spell) => spell.engName)).toEqual(expect.arrayContaining(["Absorb Elements", "Shield"]));
-    expect(pools[0].map((spell) => spell.engName)).not.toContain("Cure Wounds");
+    const [slot] = listOpenPickSlots(levels, 7);
+    const pool = levels.spellPools[slot.poolId];
+    expect(Math.max(...pool.map((spell) => spell.level))).toBe(2);
+    expect(Math.min(...pool.map((spell) => spell.level))).toBe(1);
+    expect(pool.map((spell) => spell.engName)).toEqual(expect.arrayContaining(["Absorb Elements", "Shield"]));
+    expect(pool.map((spell) => spell.engName)).not.toContain("Cure Wounds");
   });
 });
 

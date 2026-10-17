@@ -3,13 +3,20 @@ import { Prisma } from "@prisma/client";
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { createCharacter, createCharacterFromBuild } from "@/lib/actions/character";
+import type { BuildRecipe } from "@/lib/optimization/types";
 import { disconnectDatabase, resetUserData } from "../user-data";
 import { countSnapshots, readSheetState, runManualLevelUpPath } from "../helpers/assembly-manual-path";
 import { barbarianScenario, druidScenario, readRecipeFile, sorcadinScenario, wizardScenario, type AssemblyScenario } from "../helpers/assembly-scenarios";
 import { failAfterCommitOnce, failBeforeCommitOnce } from "../helpers/transaction-faults";
 
+const syntheticRecipes = vi.hoisted(() => [] as BuildRecipe[]);
+
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: <T>(fn: T) => fn }));
+vi.mock("@/lib/optimization/slice-reader", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/optimization/slice-reader")>();
+  return { ...actual, readSliceRecipes: async (ruleset: Parameters<typeof actual.readSliceRecipes>[0]) => [...(await actual.readSliceRecipes(ruleset)), ...syntheticRecipes] };
+});
 import { auth } from "@/lib/auth";
 
 vi.setConfig({ testTimeout: 120_000 });
@@ -19,6 +26,7 @@ const strangerEmail = "assembly-stranger@actions.test";
 const sorcadinOpenSelection = { characterLevel: 7, knownSpellKeys: ["absorb-elements"] };
 
 beforeEach(async () => {
+  syntheticRecipes.length = 0;
   await resetUserData();
   await prisma.user.create({ data: { email: ownerEmail } });
   await prisma.user.create({ data: { email: strangerEmail } });
@@ -178,7 +186,6 @@ describe("сервер не довіряє клієнтському плану",
   it.each([
     ["невідомий білд", { buildId: "build-nothing-2014" }, "не знайдено"],
     ["чужа ревізія рецепта", { revisionId: "build-barbarian-berserker-2014-v1" }, "не знайдено"],
-    ["рівень поза підтриманими", { targetLevel: 6 }, "План білда не виконується"],
     ["нульовий рівень", { targetLevel: 0 }, "Validation failed"],
     ["ключ повтору не UUID", { requestId: "not-a-uuid" }, "Validation failed"],
     ["клієнтський перелік кроків", { steps: [{ characterLevel: 2, classKey: "WIZARD_2014" }] }, "Validation failed"],
@@ -186,6 +193,15 @@ describe("сервер не довіряє клієнтському плану",
   ])("відхиляє %s і нічого не пише", async (_name, overrides, message) => {
     const result = await createCharacterFromBuild(await buildRequest(barbarianScenario, overrides));
     expect(result).toMatchObject({ error: expect.stringContaining(message) });
+    expect(await countAssemblyState()).toEqual(EMPTY_STATE);
+  });
+
+  it("відхиляє рівень, якого ревізія рецепта не підтримує, і нічого не пише", async () => {
+    const recipe = readRecipeFile(barbarianScenario.buildId);
+    const shortened = { ...recipe, revisionId: `${recipe.revisionId}-to-5`, supportedLevels: recipe.supportedLevels.filter((level) => level <= 5), progression: recipe.progression.filter((step) => step.characterLevel <= 5) };
+    syntheticRecipes.push(shortened);
+    const result = await createCharacterFromBuild(await buildRequest(barbarianScenario, { revisionId: shortened.revisionId, targetLevel: 6 }));
+    expect(result).toMatchObject({ error: expect.stringContaining("План білда не виконується") });
     expect(await countAssemblyState()).toEqual(EMPTY_STATE);
   });
 

@@ -1,0 +1,830 @@
+{
+  "buildId": "build-cleric-nature-2014",
+  "revisionId": "build-cleric-nature-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Клірика домену природи — Заклинач змій",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-nature-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+      "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "NATURE_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 1
+          },
+          {
+            "ability": "WIS",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FIGHTING_INITIATE",
+        "featOptions": [
+          {
+            "optionNameEng": "Protection"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-nature-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+          "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "NATURE_DOMAIN",
+    "raceKey": "YUAN_TI_MPMM",
+    "backgroundKey": "FAR_TRAVELER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 13
+      },
+      {
+        "ability": "INT",
+        "value": 9
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 13
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "У цій збірці ми йдемо дещо незвичним шляхом, тож плануємо середній обладунок. Нам потрібна Харизма 13, щоб відповідати вимогам «Надихаючого лідера»{{Inspiring Leader}}, а це означає, що доведеться перерозподілити кілька очок. Якщо не хочете йти цим шляхом, візьміть 15 у Силі/Статурі/Мудрості, а тоді вкладіть +2 у Мудрість і +1 у Статуру.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 13 14 Інтелект 9 9 Мудрість 15 17 Харизма 13 13",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Юань-ті{{Yuan-ti}} з «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}}. Беремо підвищення характеристик +2/+1, і отримуємо Темний зір, опір до отруйної шкоди, Перевагу на ряткидки проти заклинань і трохи вродженого чаротворства. Ми, імовірно, не поклоняємося Ссету{{Sseth}}, але я певен, що знайдеться відповідне божество хижаків чи змій або щось таке.\n\nЯк не дивно, ми тут заради вродженого чаротворства. Зазвичай здатність накладати Дружбу з тваринами [Animal friendship] на змій без обмежень — одне з тих кумедних «декоративних»{{ribbon}} умінь, що виглядає тематично, але насправді не впливає на гру. Проте Клірик природи виграє від того, що має під рукою купу дружніх тварин, які йому допомагають.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Далекий мандрівник{{Far Traveler}}. Аналіз Поведінки й Уважність — чудові навички для Клірика, а володіння музичним інструментом можна використати, щоб володіти флейтами{{Flute}} для чарування змій.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Навички класу Клірика використаємо, щоб отримати Історію й Релігію. Аналіз Поведінки й Уважність, а також один ігровий набір і один музичний інструмент отримуємо від передісторії.\n\nВід підкласу ми також отримуємо на вибір Поводження з тваринами, Природу чи Виживання. Природа — основний вибір, бо вона найстабільніше корисна, але Поводження з тваринами може знадобитися для деяких витівок із тваринами, запропонованих у цій прикладовій збірці.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні підвищуємо Мудрість до 19.\n\nНа 8-му рівні беремо «Надихаючого лідера»{{Inspiring Leader}}.\n\nНа 12-му рівні підвищуємо Статуру до 15 і Мудрість до 20.\n\nНа 16-му рівні беремо «Посвяченого у бій»{{Fighting Initiate}}, щоб отримати Бойовий Стиль (Перехоплення).\n\nНа 19-му рівні маємо вільне місце. Оберіть щось цікаве, як-от «Картоманта»{{Cartomancer}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественний домен{{Divine Domain}}: Природа\nЗаклинання домену (Природа)\nПослідовник природи\n– Природа\n– Терновий батіг\nДодаткові майстерності\nЧаротворство\nЗамовляння:\n– Настанова\n– Дзвін небіжчика\n– Слово сяйва",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Канал божественності (1/відпочинок)\n– Зачарування звірів і рослин\n– Вигнання нежиті\nСпрямування божественної сили",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик: Мудрість 17 → 19\nГнучкість замовлянь",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Знищення нежиті (ПН 1/2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Глушення стихій\nКанал божественності (2/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Надихаючий лідер\nБлагословенні удари\nЗнищення нежиті (ПН 1)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Божественне втручання{{Divine Intervention}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Знищення нежиті (ПН 2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик:\n– Статура 14 → 15\n– Мудрість 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Знищення нежиті (ПН 3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Посвячений у бій (Захист)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Владика природи\nЗнищення нежиті (ПН 4)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Канал божественності (3/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Стійкий (Статура 15 → 16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращене божественне втручання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Додаткові класові уміння",
+        "reason": "Автор бере всі додаткові уміння Клірика: Спрямування божественної сили (2-й), Гнучкість замовлянь (4-й), Благословенні удари (8-й); у каталозі цих умінь немає, тож на 8-му рівні лишається Божественний удар.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му й 10-му рівнях",
+        "reason": "Автор не називає нових замовлянь Клірика; пресет лишає їх відкритим вибором гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Бойовий стиль від «Посвяченого у бій» на 16-му рівні",
+        "reason": "У таблиці рівнів автор бере Захист, а в розділі рис — Перехоплення; пресет іде за таблицею рівнів. За правилами риса вимагає володіння бойовою зброєю, якого цей клірик не має; платформа про умови рис лише попереджає, тож узгодьте рису з Майстром.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риса на 19-му рівні",
+        "reason": "У розділі рис автор лишає 19-й рівень вільним і радить щось цікаве, як-от Картоманта; пресет іде за таблицею рівнів: Стійкий (Статура).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-nature-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-nature-2014-draft1",
+            "sourceRevisionId": "rpgbot-77b738d7a3443afd-0a7a0db7cf88c919",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}
