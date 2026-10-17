@@ -8,11 +8,14 @@ import {
   useRef,
   useState,
   useCallback,
+  type ReactNode,
 } from "react";
 import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
 import { characterLevelOnly } from "@/rules/character-level";
 import { findMissingSpeciesTraits } from "@/rules/species-grants";
-import { activateLevelUpDraftStorage, usePersFormStore } from "@/lib/stores/persFormStore";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { findGuideSignature } from "@/lib/stores/levelUpDraft";
+import { useLevelUpDraft, useRestoredLevelUpStep } from "@/lib/components/levelUp/useLevelUpDraft";
 import { EMPTY_BRANCH_CHOICES } from "@/lib/components/levelUp/levelUpBranchChoices";
 import { GuidedLevelUpCard, useGuidedLevelUp, type GuidedLevelUpControl } from "@/lib/components/levelUp/GuidedLevelUp";
 import type { GuidedLevelUp as GuidedLevelUpOffer } from "@/lib/optimization/guided-level-up";
@@ -261,10 +264,55 @@ interface Props {
 }
 
 export default function LevelUpWizard({ info, guide = null }: Props) {
-  activateLevelUpDraftStorage();
+  const draft = useLevelUpDraft("error" in info ? null : info.pers, findGuideSignature(guide));
+  const nextLevel = "error" in info ? 0 : info.nextLevel;
+
+  if (!draft.isReady) {
+    return (
+      <LevelUpLayout nextLevel={nextLevel}>
+        <div className="h-[60vh] rounded-xl border border-white/10 bg-white/5" aria-busy="true" />
+      </LevelUpLayout>
+    );
+  }
+  return <LevelUpWizardSteps key={draft.sessionKey} info={info} guide={guide} isRestored={draft.isRestored} onStartOver={draft.startOver} />;
+}
+
+function LevelUpLayout({ nextLevel, notice, children }: { nextLevel: number; notice?: ReactNode; children: ReactNode }) {
+  return (
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-3 py-4 pb-[calc(8.5rem+env(safe-area-inset-bottom))] sm:gap-4 sm:px-4 md:gap-6 md:px-0 md:py-6 md:pb-6">
+        <div className="glass-panel border-gradient-rpg w-full rounded-2xl px-3 py-4 sm:px-4 sm:py-4 md:px-6 md:py-5">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
+            <div className="space-y-1">
+              <h1 className="font-rpg-display text-xl font-semibold uppercase tracking-widest text-slate-200 sm:text-2xl md:text-3xl">
+                Підвищення рівня
+              </h1>
+              <div className="text-sm text-slate-400">
+                До {nextLevel}-го рівня
+              </div>
+            </div>
+            {notice}
+          </div>
+        </div>
+        {children}
+    </div>
+  );
+}
+
+function RestoredDraftNotice({ onStartOver }: { onStartOver: () => void }) {
+  return (
+    <div role="status" className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-300">
+      <span>Відновлено незавершене підвищення.</span>
+      <Button type="button" variant="outline" className="min-h-11 border-white/15 bg-white/5 text-slate-200 hover:bg-white/7" onClick={onStartOver}>
+        Почати заново
+      </Button>
+    </div>
+  );
+}
+
+function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: LevelUpInfo; guide: GuidedLevelUpOffer | null; isRestored: boolean; onStartOver: () => void }) {
   const guidedLevelUp = useGuidedLevelUp(guide);
 
-  const { resetForm, formData } = usePersFormStore();
+  const { formData } = usePersFormStore();
   const router = useModeRouter();
   const [currentStep, setCurrentStep] = useState(0);
   const [nextStepHint, setNextStepHint] = useNextStepHintState(currentStep);
@@ -275,14 +323,6 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
   const onNextDisabledChange = useCallback((disabled: boolean) => {
     setNextDisabled(disabled);
   }, []);
-
-  // Initialize store
-  useEffect(() => {
-    resetForm();
-    // We don't need to load old data for new choices,
-    // but we might need to load existing choices to prevent duplicates if we were editing.
-    // For Level Up, we start fresh.
-  }, [resetForm]);
 
   const isError = "error" in info;
   const pers = isError ? null : info.pers;
@@ -1370,6 +1410,8 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
   const safeCurrentStep =
     steps.length > 0 ? Math.min(currentStep, steps.length - 1) : 0;
   const currentStepId = steps[safeCurrentStep]?.id;
+  const stepIds = useMemo(() => steps.map((step) => step.id), [steps]);
+  const goToStep = useRestoredLevelUpStep(stepIds, currentStep, setCurrentStep);
 
   useEffect(() => {
     if (currentStep !== safeCurrentStep) {
@@ -1387,7 +1429,7 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
 
   const handleNext = async () => {
     if (safeCurrentStep < steps.length - 1) {
-      setCurrentStep(safeCurrentStep + 1);
+      goToStep(safeCurrentStep + 1);
     } else {
       if (isSubmitting || !pers) return;
       setIsSubmitting(true);
@@ -1413,7 +1455,7 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
 
   const handlePrev = () => {
     if (safeCurrentStep > 0) {
-      setCurrentStep(safeCurrentStep - 1);
+      goToStep(safeCurrentStep - 1);
     }
   };
 
@@ -1422,20 +1464,7 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
     : null;
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-3 py-4 pb-[calc(8.5rem+env(safe-area-inset-bottom))] sm:gap-4 sm:px-4 md:gap-6 md:px-0 md:py-6 md:pb-6">
-        <div className="glass-panel border-gradient-rpg w-full rounded-2xl px-3 py-4 sm:px-4 sm:py-4 md:px-6 md:py-5">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
-            <div className="space-y-1">
-              <h1 className="font-rpg-display text-xl font-semibold uppercase tracking-widest text-slate-200 sm:text-2xl md:text-3xl">
-                Підвищення рівня
-              </h1>
-              <div className="text-sm text-slate-400">
-                До {nextLevel}-го рівня
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <LevelUpLayout nextLevel={nextLevel} notice={isRestored ? <RestoredDraftNotice onStartOver={onStartOver} /> : null}>
         <Card className="border-0 bg-transparent shadow-none md:border md:border-white/10 md:bg-slate-950/30 md:shadow-2xl">
           <CardContent className="grid gap-2 p-0 sm:gap-3 md:grid-cols-[1fr,300px] md:gap-6 md:p-6">
             <div className="space-y-2 p-0 sm:space-y-3 md:glass-panel md:border-gradient-rpg md:space-y-4 md:rounded-xl md:p-5">
@@ -1469,7 +1498,7 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
                           isDone && "hover:bg-white/7"
                         )}
                         onClick={() => {
-                          if (i <= safeCurrentStep) setCurrentStep(i);
+                          if (i <= safeCurrentStep) goToStep(i);
                         }}
                         disabled={i > safeCurrentStep}
                       >
@@ -1498,7 +1527,7 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
           onPrev={handlePrev}
           onNext={handleNext}
         />
-    </div>
+    </LevelUpLayout>
   );
 }
 function SummaryStep({

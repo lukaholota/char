@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeLink } from "@/components/no-ai/ModeLink";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
+import { findGuideSignature, startLevelUpDraft } from "@/lib/stores/levelUpDraft";
 import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import type { GuidedLevelUp as GuidedLevelUpOffer } from "@/lib/optimization/guided-level-up";
 
@@ -34,21 +35,23 @@ const EMPTY_LEVEL_UP_CHOICES = {
 };
 
 export function useGuidedLevelUp(guide: GuidedLevelUpOffer | null): GuidedLevelUpControl {
-  const [manualDraft, setManualDraft] = useState<FormData | null>(null);
+  const signature = findGuideSignature(guide);
+  const isApplied = usePersFormStore((state) => Boolean(state.levelUpDraft?.guide));
 
   const apply = useCallback(() => {
-    if (guide?.status !== "ready") return;
-    setManualDraft(usePersFormStore.getState().formData);
+    if (guide?.status !== "ready" || signature === null) return;
+    const { formData, levelUpDraft } = usePersFormStore.getState();
+    usePersFormStore.getState().setLevelUpDraft({ ...(levelUpDraft ?? startLevelUpDraft("")), guide: { signature, manualFormData: formData } });
     usePersFormStore.getState().updateFormData({ ...EMPTY_LEVEL_UP_CHOICES, ...guide.input, levelUpAsiChoiceType: findAsiChoiceType(guide.input) } as FormData);
-  }, [guide]);
+  }, [guide, signature]);
 
   const restoreManual = useCallback(() => {
-    if (!manualDraft) return;
-    usePersFormStore.setState({ formData: manualDraft });
-    setManualDraft(null);
-  }, [manualDraft]);
+    const { levelUpDraft } = usePersFormStore.getState();
+    if (!levelUpDraft?.guide) return;
+    usePersFormStore.setState({ formData: levelUpDraft.guide.manualFormData, levelUpDraft: { ...levelUpDraft, guide: null } });
+  }, []);
 
-  return { guide, isApplied: manualDraft !== null, apply, restoreManual };
+  return { guide, isApplied, apply, restoreManual };
 }
 
 function findAsiChoiceType(input: Extract<GuidedLevelUpOffer, { status: "ready" }>["input"]): "ASI" | "FEAT" | undefined {

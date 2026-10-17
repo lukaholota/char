@@ -1,4 +1,5 @@
 import {PersFormData} from "@/lib/zod/schemas/persCreateSchema";
+import type {LevelUpDraft} from "@/lib/stores/levelUpDraft";
 import {useLayoutEffect, useSyncExternalStore} from "react";
 import {create} from "zustand";
 import {createJSONStorage, persist} from "zustand/middleware";
@@ -6,7 +7,7 @@ import {createJSONStorage, persist} from "zustand/middleware";
 export type DraftRuleset = "RULES_2014" | "RULES_2024";
 
 type FixedDraftScope = "CREATOR_2014" | "CREATOR_2024" | "PRESET_2014" | "LEVEL_UP" | "SHEET_FEAT";
-type DraftScope = FixedDraftScope | `PRESET_2014:${string}`;
+type DraftScope = FixedDraftScope | `PRESET_2014:${string}` | `LEVEL_UP:${number}`;
 
 const DRAFT_STORAGE_KEY_BY_SCOPE: Record<FixedDraftScope, string> = {
   CREATOR_2014: "dnd-pers-form",
@@ -45,6 +46,7 @@ const createEmptyDraft = () => ({
   currentStep: 1,
   prevRaceId: null as number | null,
   totalSteps: 7,
+  levelUpDraft: null as LevelUpDraft | null,
 });
 
 interface FormStore {
@@ -54,6 +56,7 @@ interface FormStore {
   totalSteps: number
   isHydrated: boolean
   resetNonce: number
+  levelUpDraft: LevelUpDraft | null
 
   updateFormData: (data: Partial<PersFormData>) => void
   setCurrentStep: (step: number) => void
@@ -63,6 +66,7 @@ interface FormStore {
   prevStep: () => void;
   setPrevRaceId: (id: number) => void;
   setHydrated: (hydrated: boolean) => void;
+  setLevelUpDraft: (draft: LevelUpDraft | null) => void;
 }
 
 export const usePersFormStore = create<FormStore>()(
@@ -118,6 +122,7 @@ export const usePersFormStore = create<FormStore>()(
         })),
       setPrevRaceId: (id: number) => set({ prevRaceId: id }),
       setHydrated: (hydrated: boolean) => set({ isHydrated: hydrated }),
+      setLevelUpDraft: (draft) => set({ levelUpDraft: draft }),
     }),
     {
       name: DRAFT_STORAGE_KEY_BY_SCOPE.CREATOR_2014,
@@ -126,6 +131,7 @@ export const usePersFormStore = create<FormStore>()(
         formData: state.formData,
         currentStep: state.currentStep,
         totalSteps: state.totalSteps,
+        ...(state.levelUpDraft ? { levelUpDraft: state.levelUpDraft } : {}),
       }),
       // Креатор 2014, креатор 2024 і левелап мають свої ключі, тож при перемиканні
       // чернетка попереднього не має протікати в стан, коли під новим ключем
@@ -158,6 +164,7 @@ function migrateDraft(persistedDraft: Partial<FormStore>, storedVersion: number)
 
 function findPersDraftStorageKey(scope: DraftScope): string {
   if (scope.startsWith("PRESET_2014:")) return `dnd-preset-2014-${scope.slice("PRESET_2014:".length)}-pers-form`;
+  if (scope.startsWith("LEVEL_UP:")) return `dnd-pers-levelup-${scope.slice("LEVEL_UP:".length)}`;
   return DRAFT_STORAGE_KEY_BY_SCOPE[scope as FixedDraftScope];
 }
 
@@ -177,6 +184,10 @@ export function useCreatorDraftStorage(ruleset: DraftRuleset): boolean {
 
 export function usePresetDraftStorage(buildId: string): boolean {
   return useDraftStorage(buildId === "build-monk-shadow-2014" ? "PRESET_2014" : `PRESET_2014:${buildId}`);
+}
+
+export function useLevelUpDraftStorage(persId: number | null): boolean {
+  return useDraftStorage(persId === null ? "LEVEL_UP" : `LEVEL_UP:${persId}`);
 }
 
 function useDraftStorage(scope: DraftScope): boolean {
