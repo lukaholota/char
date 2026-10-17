@@ -9,10 +9,13 @@
 import type { Prisma, PrismaClient, Ruleset } from "@prisma/client";
 import { findLegacySubclass2024 } from "@/rules/legacy-subclasses-2024";
 
+/// Порядок явно: без нього Postgres віддає фізичний, а `UPDATE` рядка його міняє. Так сід прози
+/// KR33.6 переставив підраси PHB у кінець кроку вибору, а правка тексту Kobold Legacy — варіанти кобольда.
 export const RACE_CREATOR_INCLUDE = {
-  raceChoiceOptions: { include: { traits: { include: { feature: true } } } },
-  /// Порядок явно: без нього Postgres віддає фізичний, а `UPDATE` підраси (сід прози KR33.6)
-  /// його міняє — наступна регенерація переставила б підраси PHB у кінець кроку вибору.
+  raceChoiceOptions: {
+    include: { traits: { include: { feature: true }, orderBy: { raceChoiceOptionTraitId: "asc" } } },
+    orderBy: { optionId: "asc" },
+  },
   subraces: { include: { traits: { include: { feature: true } } }, orderBy: { subraceId: "asc" } },
   raceVariants: { include: { traits: { include: { feature: true } } }, orderBy: { raceVariantId: "asc" } },
   traits: { include: { feature: true } },

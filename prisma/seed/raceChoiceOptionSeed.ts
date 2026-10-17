@@ -755,7 +755,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             subraceId: null,
             choiceGroupName: "Спадщина кобольдів",
             optionName: "Драконяче чаклунство",
-            description: "Ви знаєте одне замовляння на ваш вибір зі списку заклинань чаклуна.",
+            description: "Ви знаєте одне замовляння на ваш вибір зі списку заклинань чародія.",
             selectMultiple: false,
             maxSelection: 1,
             traits: {

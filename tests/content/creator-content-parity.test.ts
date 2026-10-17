@@ -47,6 +47,29 @@ describe("KR22.5 — граф конструктора переживає дор
   });
 });
 
+/// Каталог регенерують із бази, і без явного `orderBy` порядок варіантів вибору раси — фізичний:
+/// одна правка тексту Kobold Legacy переставила варіанти кобольда в наступному каталозі.
+describe("варіанти вибору раси не залежать від фізичного порядку рядків", () => {
+  for (const ruleset of ["RULES_2014", "RULES_2024"] as const) {
+    it(`${ruleset}: варіанти йдуть за optionId, а їхні риси — за ключем звʼязку`, async () => {
+      const races = await findCreatorRaces(prisma, ruleset);
+
+      for (const race of races) {
+        const optionIds = race.raceChoiceOptions.map((option) => option.optionId);
+        expect(optionIds, race.name).toEqual(sortAscending(optionIds));
+        for (const option of race.raceChoiceOptions) {
+          const traitIds = option.traits.map((trait) => trait.raceChoiceOptionTraitId);
+          expect(traitIds, `${race.name} / ${option.optionName}`).toEqual(sortAscending(traitIds));
+        }
+      }
+    });
+  }
+});
+
+function sortAscending(ids: readonly number[]): number[] {
+  return [...ids].sort((left, right) => left - right);
+}
+
 /// Головна обіцянка KR22.5: конструктор більше не потребує бази, щоб показати кроки. Довести її
 /// можна тільки графом імпортів — модуль, з якого і майстер, і левелап беруть контент, не сміє
 /// мати жодного шляху до `@/lib/prisma`.

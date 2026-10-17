@@ -393,6 +393,23 @@ export const seedBackground = async (prisma: PrismaClient) => {
             description: 'Твій досвід у правоохоронних органах та контакти в міській варті роблять тебе далеко більш обізнаним про міські вулиці. Ти знаєш основні особи у місцевій владі і можеш легко отримати доступ до місць злочинів або закритих зон міста. Твої розслідувальні навички допомагають тобі швидко знаходити підказки та свідків.'
         },
         {
+            name: BackgroundCategory.INVESTIGATOR_VRGTR,
+            source: Source.VRGTR,
+            skillProficiencies: {
+                choices: [Skills.INSIGHT, Skills.INVESTIGATION, Skills.PERCEPTION],
+                choiceCount: 2
+            },
+            toolProficiencies: [ToolCategory.DISGUISE_KIT, ToolCategory.THIEVES_TOOLS],
+            languagesToChooseCount: 0,
+            items: [
+                { name: 'Збільшувальне скло', quantity: 1 },
+                { name: 'Доказ зі справи, яку ви розслідували раніше', quantity: 1 },
+                { name: 'Звичайний одяг', quantity: 1 },
+                { name: 'зм', quantity: 10 }],
+            specialAbilityName: 'Official Inquiry',
+            description: 'Ви вмієте отримувати доступ до людей і місць, щоб дізнатися потрібне. Поєднавши швидку мову, наполегливість і офіційно виглядаючі документи, ви можете потрапити до місця чи до людини, повʼязаних зі злочином, який розслідуєте. Ті, хто не причетний до вашого розслідування, не стають на заваді або передають ваші прохання далі. Крім того, місцева поліція має про вас чітку думку: вважає вас або набридливою перешкодою, або своїм.'
+        },
+        {
             name: BackgroundCategory.KNIGHT_OF_THE_ORDER,
             source: Source.SCAG,
             skillProficiencies: [Skills.ATHLETICS, Skills.PERSUASION],
