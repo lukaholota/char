@@ -82,6 +82,7 @@ export function normalizeForGolden(pers: FullPers) {
     armors: sortBy(pers.armors, (a) => a.armor.name).map(
       (a) => `${a.armor.name}:${a.armor.ruleset}${a.equipped ? "*" : ""}`,
     ),
+    ...(pers.wearsShield ? { wearsShield: true } : {}),
     multiclasses: sortBy(pers.multiclasses, (m) => m.class.name).map((m) => ({
       class: m.class.name,
       subclass: m.subclass?.name ?? null,

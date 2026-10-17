@@ -3,8 +3,9 @@ import { Client } from "pg";
 import type { TestProject } from "vitest/node";
 import {
   buildCopyDatabaseName,
-  findCopyRunId,
+  findAbandonedCopyNames,
   findDatabaseName,
+  isProcessAlive,
   readSourceDatabaseUrl,
   replaceDatabaseName,
 } from "./helpers/test-database-copies";
@@ -117,25 +118,11 @@ async function dropCopy(client: Client, copyName: string): Promise<void> {
 }
 
 async function dropAbandonedCopies(client: Client, sourceName: string): Promise<void> {
-  const prefix = buildCopyDatabaseName(sourceName, 0, 0).replace(/0_w0_test$/, "");
-  const { rows } = await client.query<{ datname: string }>(
-    "SELECT datname FROM pg_database WHERE datname LIKE $1",
-    [`${prefix}%_test`],
-  );
-  for (const { datname } of rows) {
-    const runId = findCopyRunId(datname);
-    if (runId === null || isProcessAlive(runId)) continue;
-    console.error(`🧹 прибираю копію ${datname} після впалого прогону ${runId}`);
-    await dropCopy(client, datname);
-  }
-}
-
-function isProcessAlive(pid: number): boolean {
-  try {
-    process.kill(pid, 0);
-    return true;
-  } catch {
-    return false;
+  const { rows } = await client.query<{ datname: string }>("SELECT datname FROM pg_database");
+  const databaseNames = rows.map((row) => row.datname);
+  for (const copyName of findAbandonedCopyNames(databaseNames, sourceName, isProcessAlive)) {
+    console.error(`🧹 прибираю копію ${copyName} після впалого прогону`);
+    await dropCopy(client, copyName);
   }
 }
 

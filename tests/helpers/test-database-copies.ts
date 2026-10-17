@@ -41,7 +41,25 @@ export function buildCopyDatabaseUrl(sourceUrl: string, runId: number, workerId:
   return replaceDatabaseName(sourceUrl, copyName);
 }
 
-export function findCopyRunId(databaseName: string): number | null {
-  const match = COPY_NAME.exec(databaseName);
-  return match ? Number(match[2]) : null;
+export function findAbandonedCopyNames(
+  databaseNames: string[],
+  sourceName: string,
+  isRunAlive: (runId: number) => boolean,
+): string[] {
+  const sourceStem = sourceName.replace(/_test$/, "");
+  return databaseNames.filter((databaseName) => {
+    const match = COPY_NAME.exec(databaseName);
+    return match !== null && match[1] === sourceStem && !isRunAlive(Number(match[2]));
+  });
+}
+
+/// EPERM значить, що процес є, але сигнал йому слати не можна (інший користувач або пісочниця
+/// сесії). Мертвим вважаємо лише ESRCH — інакше прибирання знесло б копії живого прогону.
+export function isProcessAlive(pid: number): boolean {
+  try {
+    process.kill(pid, 0);
+    return true;
+  } catch (error) {
+    return (error as NodeJS.ErrnoException).code !== "ESRCH";
+  }
 }

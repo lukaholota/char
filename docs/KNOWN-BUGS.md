@@ -34,11 +34,14 @@
 - BUG-O49-HALF-ELF-DROW-MAGIC — 13 наявних персонажів без Dancing Lights; ремонт за рішенням власника.
 - React #418 на каталогах (`/bestiary`, `/magic-items`, `/rules`): ≈3 на 36 завантажень iPhone-емуляції проду; причина — повтор `<main>` з `src/components/ui/App.tsx` під час гідратації, фікс не перевірено (`scratchpad/evening/r2-hydra.md`).
 - Sentry -10 (dice-box) — потрібне рішення про `bun patch`.
-- `test:integration` на чистому main: golden/creation (2), metamagic-adept-2014 (2), magic-items-seeded, spell-source-2014-seeded. magic-items потребує `data/5etools/raw/items-base.json`, якого немає у worktree.
+- ~~`test:integration` на чистому main: golden/creation (2), metamagic-adept-2014 (2), magic-items-seeded, spell-source-2014-seeded.~~ Розібрано 2026-10-17 (гілка `evening/int-tests`, див. нижче).
 
 **Нові відкриті:**
 
-- Повний `test:integration` падає залежно від порядку файлів (rpgbot-assembly-all, ready-preset-idempotency, class-prepared-spells-2024, multiclass-fifteen 2024: «Missing preset feat option: Devil's Sight», «Опції ATHLETICS немає серед виборів риси»); окремо ці файли проходять. Ймовірно, тести змінюють спільну копію бази воркера.
+- ~~Повний `test:integration` падає залежно від порядку файлів~~ — виправлено 2026-10-17, `evening/int-tests`. Причина: `afterAll` у `tests/actions/metamagic-adept-2014.test.ts` викликав `featChoiceOption.deleteMany({ where: { choiceOptionId: { in: undefined } } })` — Prisma читає `in: undefined` як «без фільтра» й стирав **усі** опції рис у копії воркера. Файли, що йшли після нього на тому ж воркері, губили Devil's Sight, Skill Expert, Elemental Adept тощо (84 падіння з 1873, 19 файлів). Тепер тест вимикає й повертає лише рядки своєї риси, а 10 опцій «Метамагії» з SQL власника читає з бази.
+- Інші причини червоного прогону того ж дня: застарілі очікування — golden `cleric-divine-domain` (Домен арканів тепер дає навичку Аркани з уміння підкласу), `fighter-equipment-choices` (стартовий щит — `wearsShield`, а не рядок обладунку, ba244aee), `class-equipment-2024` (113 → 112 рядків після прибраного кинджала Чарівника); база-джерело тестів не мала текстів заклинань і магічних предметів з 9188ea40 (посилання на глосарій) — потрібні `seed:spells-2014 --apply` і `seed:magic-items` на `spells_test` і проді; worktree без `data/5etools/raw` не збирає магічні предмети.
+- Прибирання копій після впалого прогону (`tests/global-setup-db-copies.ts`) вважало процес з EPERM мертвим і зносило `WITH (FORCE)` копії живого паралельного прогону з іншої пісочниці; виправлено 2026-10-17 (лише ESRCH = мертвий, лише копії свого джерела), тест `tests/logic/test-database-copies.test.ts`.
+- Планувальник прогресії (`src/lib/optimization/progression-walk.ts`) не враховував заклинання стартового підкласу 1-го рівня, якщо клас більше не підвищується: `d4-dispenser-cleric-peace-2014` на 20-му брав Бардові «Героїзм» з Домену миру, і сервер відхиляв («не з вашого списку класу»). Гравців не зачіпало — сторінка пресета рахує подаровані заклинання окремо (`ready-preset-levels.server.ts`). Виправлено 2026-10-17, тест у `progression-granted-spells.test.ts`.
 - Обхід пресетів з БД: налаштовані спроби 17 із 69 падають, причини не розібрані (`CUSTOMIZED_DATABASE_TRIALS = 0`).
 - Ручне створення без ключа ідемпотентності: 1 пара дублів з 715 створень на проді.
 - Sentry -1J: одна нова подія на підвищенні рівня після обриву (Samsung Internet, h2); повтору для рівня ще немає.
@@ -157,6 +160,7 @@
 **Є:** риса без опцій; `findFeatChoicePickCount` не знає цієї риси.
 **Наслідок:** `sorcerer-variant-human-storm-sorcery-tempest-2014` не записує метамагію автора (Перетворене, Спарене заклинання) і має `incomplete`.
 **Статус:** код виправлено 2026-10-10 (`findFeatChoicePickCount` = 2; гейт `findFeatPackageProblem` вимагає дві різні метамагії при створенні, підвищенні й на листі; інертний без опцій у каталозі). Дані — за власником: SQL §3 у [catalog-data-gaps-2026-10-09-owner-applies.sql](o49-rpgbot-analysis/catalog-data-gaps-2026-10-09-owner-applies.sql) застосувати після деплою коду, далі `db:pull`, перегенерація каталогу і правка сіда `featSeed.ts`. Не зроблено: 2 очки чародійства від риси, відключення метамагій, які Чародій уже має (інтерфейс не позначає їх як зайняті), перевірка збігу з метамагіями класу.
+**2026-10-17:** сіди цих рядків досі не створюють (є лише в SQL власника, тож у базах, клонованих із production). `metamagic-adept-2014.test.ts` додає відсутні опції сам і прибирає лише додані, а стан «без опцій» відтворює тимчасово лише для цієї риси.
 
 ### BUG-O49-ASSEMBLY-SPELL-SLUG — DB-приймання не знаходить заклинання з апострофом у назві
 

@@ -5,6 +5,7 @@ import { compileSpecWithLevels, readReadySpec, walkSpecLevels } from "./progress
 const LIGHT_CLERIC = "cleric-light-2014";
 const ABERRANT_MIND = "sorcerer-warforged-aberrant-mind-2014";
 const ILLUSION_WIZARD = "wizard-illusion-2014";
+const PEACE_CLERIC_DIP = "d4-dispenser-cleric-peace-2014";
 const lightClericLevels: SpecLevel[] = [
   { level: 2 },
   { level: 3 },
@@ -19,6 +20,14 @@ describe("open spell picks skip what the subclass already grants", () => {
     expect(pick.characterLevel).toBe(4);
     expect(pick.cantripKeys).toHaveLength(1);
     expect(pick.cantripKeys).not.toContain("light");
+  });
+
+  it("does not offer a later class what the starting subclass granted on level 1, even when that class never levels again", () => {
+    const walk = walkSpecLevels(PEACE_CLERIC_DIP, readReadySpec(PEACE_CLERIC_DIP).levels!);
+    expect(walk.errors).toEqual([]);
+    const openKeys = walk.openSelections.flatMap((pick) => [...pick.cantripKeys, ...pick.knownSpellKeys, ...pick.spellbookKeys]);
+    expect(openKeys).not.toContain("heroism");
+    expect(openKeys).not.toContain("sanctuary");
   });
 
   it("rejects a named spell that the subclass already grants", () => {
