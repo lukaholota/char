@@ -2,7 +2,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 
-const analytics = vi.hoisted(() => ({ capture: vi.fn() }));
+const analytics = vi.hoisted(() => ({ capture: vi.fn(), urlsAtCapture: [] as string[] }));
 const offer = vi.hoisted(() => ({ continueWithLinkedDraft: null as null | (() => void) }));
 
 vi.mock("next-auth/react", () => ({ useSession: () => ({ data: null, status: "unauthenticated" }), signIn: vi.fn() }));
@@ -71,6 +71,9 @@ beforeEach(async () => {
   vi.stubGlobal("localStorage", createStorageStub());
   vi.stubGlobal("sessionStorage", createStorageStub());
   analytics.capture.mockReset();
+  analytics.urlsAtCapture = [];
+  // The real capturePostHogEvent reports the address bar as $current_url.
+  analytics.capture.mockImplementation(() => void analytics.urlsAtCapture.push(window.location.href));
   offer.continueWithLinkedDraft = null;
   await loadModules();
 });
@@ -131,7 +134,8 @@ describe("відкриття посилання з #draft у звичайном�
     await screen.findByText("step 5 race 5");
     expect(JSON.parse(localStorage.getItem("dnd-pers-form")!).state.formData).toEqual(linkedDraft.formData);
     expect(findRestoredEvent()?.[1]).toMatchObject({ creation_path: "manual", edition: "2014", replaced_local: false });
-    expect(JSON.stringify(analytics.capture.mock.calls)).not.toContain("draft=");
+    expect(analytics.urlsAtCapture.length).toBeGreaterThan(0);
+    expect(analytics.urlsAtCapture.filter((url) => url.includes("draft="))).toEqual([]);
     expect(offer.continueWithLinkedDraft).toBeNull();
   });
 

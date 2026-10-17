@@ -237,7 +237,8 @@ function restoreDraftFromLink(scope: LinkedDraftScope): void {
 }
 
 function applyLinkedDraft(linked: LinkedDraft, replacedLocal: boolean): void {
-  usePersFormStore.setState({ formData: linked.formData, currentStep: linked.currentStep, totalSteps: linked.totalSteps });
+  // A new resetNonce stops the step on screen from writing its local values back into the linked draft as it unmounts.
+  usePersFormStore.setState((state) => ({ formData: linked.formData, currentStep: linked.currentStep, totalSteps: linked.totalSteps, resetNonce: state.resetNonce + 1 }));
   captureInAppDraftRestored(linked.scope.startsWith("PRESET_2014") ? "ready_preset" : "manual", linked.scope === "CREATOR_2024" ? "2024" : "2014", replacedLocal);
 }
 

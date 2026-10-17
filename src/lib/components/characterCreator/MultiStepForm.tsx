@@ -96,6 +96,7 @@ export const MultiStepForm = (
     setTotalSteps,
     isHydrated: isStoreHydrated,
     updateFormData,
+    resetNonce,
   } = usePersFormStore();
   const isHydrated = isStoreHydrated && isDraftActive;
   useEffect(() => {
@@ -1076,7 +1077,7 @@ export const MultiStepForm = (
         </>
       }
     >
-      {isDraftActive ? renderStep() : null}
+      {isDraftActive ? <React.Fragment key={resetNonce}>{renderStep()}</React.Fragment> : null}
     </CreationStepLayout>
   )
 }

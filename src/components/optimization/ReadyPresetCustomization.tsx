@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { useTwoStepConfirm } from "@/hooks/useTwoStepConfirm";
 import { cn } from "@/lib/utils";
@@ -10,6 +10,7 @@ import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
 import { CreationStepLayout } from "@/lib/components/characterCreator/CreationStepLayout";
 import { CreationStepRuleLink } from "@/lib/components/characterCreator/CreationStepRuleLink";
 import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { BackgroundI, ClassI, RaceI, SubraceI } from "@/lib/types/model-types";
 import type { ReadyPresetPageData } from "@/lib/optimization/ready-preset.server";
 import type { useReadyPreset } from "@/lib/optimization/use-ready-preset";
@@ -56,6 +57,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, onCr
   const index = state.isCreated ? steps.length - 1 : state.step - 4;
   const active = steps[index];
   const [blocked, setBlocked] = useState(false);
+  const draftResetNonce = usePersFormStore((store) => store.resetNonce);
   const [hint, publishHint] = useNextStepHintState(state.step);
   const resetConfirm = useTwoStepConfirm<HTMLButtonElement>({ onConfirm: state.resetCustomization });
   useEffect(() => { setBlocked(false); }, [state.step]);
@@ -79,7 +81,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, onCr
     state.goToStep(target);
   };
   const next = () => leaveStep(state.step + 1);
-  const content = <>
+  const content = <Fragment key={draftResetNonce}>
     {active.kind === "choices" ? <ReadyPresetChoices data={data} draft={state.draft} update={state.update} /> : null}
     {active.kind === "abilities" ? <ASIForm {...formProps} race={race} raceVariant={data.creator.variant} selectedClass={selectedClass} ruleset="RULES_2014" lockOrigin prevRaceId={race.raceId} setPrevRaceId={() => {}} /> : null}
     {active.kind === "skills" ? <PresetSkillCards data={data} state={state} /> : null}
@@ -90,7 +92,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, onCr
     {active.kind === "level" && state.choiceContext ? <><ReadyPresetLevelAdvancements assembly={state.assembly} context={state.choiceContext} characterLevel={active.characterLevel} /><ReadyPresetLevelClassOptions assembly={state.assembly} context={state.choiceContext} characterLevel={active.characterLevel} /><ReadyPresetLevelSpells data={data} assembly={state.assembly} context={state.choiceContext} characterLevel={active.characterLevel} /></> : null}
     {active.kind === "name" ? nameFields : null}
     {active.kind === "preparation" && state.choiceContext ? <ReadyPresetLevelSpells data={data} assembly={state.assembly} context={state.choiceContext} preparationOnly /> : null}
-  </>;
+  </Fragment>;
   const blockingIssue = active.kind === "name" ? findNameStepIssue(state, issues) : null;
   const problem = stepProblem ?? blockingIssue?.message ?? null;
   const blockingStepIndex = blockingIssue?.step ? steps.findIndex((step) => step.kind === blockingIssue.step) : -1;

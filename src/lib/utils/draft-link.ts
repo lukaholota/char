@@ -52,14 +52,19 @@ export async function decodeDraftLink(encoded: string): Promise<LinkedDraft | nu
 function parseLinkedDraft(value: unknown): LinkedDraft | null {
   const parsed = linkedDraftSchema.safeParse(value);
   if (!parsed.success) return null;
-  const formData = pickKnownFormFields(parsed.data.d.formData);
-  if (!formDataFieldsSchema.safeParse(formData).success) return null;
+  const formData = dropPrototypeNamedFields(parsed.data.d.formData);
+  if (!formDataFieldsSchema.safeParse(pickFinalFormFields(formData)).success) return null;
   return { scope: parsed.data.s as LinkedDraftScope, formData: formData as Partial<PersFormData>, currentStep: parsed.data.d.currentStep, totalSteps: parsed.data.d.totalSteps };
 }
 
-// The draft keeps raw step values (customAsi holds strings), so the schema checks fields but its transformed output is not stored.
-function pickKnownFormFields(formData: Record<string, unknown>): Record<string, unknown> {
-  return Object.fromEntries(Object.entries(formData).filter(([key]) => key in formDataShape));
+// Steps keep in-progress values under their own top-level keys (basicChoices, expertises, choiceGroupToId…),
+// so only the fields of the final form are checked; the draft keeps raw values, not the schema's transformed output.
+function pickFinalFormFields(formData: Record<string, unknown>): Record<string, unknown> {
+  return Object.fromEntries(Object.entries(formData).filter(([key]) => Object.hasOwn(formDataShape, key)));
+}
+
+function dropPrototypeNamedFields(formData: Record<string, unknown>): Record<string, unknown> {
+  return Object.fromEntries(Object.entries(formData).filter(([key]) => !(key in Object.prototype)));
 }
 
 async function deflate(bytes: Uint8Array): Promise<Uint8Array> {

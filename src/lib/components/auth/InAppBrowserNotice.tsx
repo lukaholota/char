@@ -4,9 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Copy, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { copyTextToClipboard } from "@/lib/utils/copy-text";
-import { encodeDraftLink } from "@/lib/utils/draft-link";
 import { appendDraftFragment } from "@/lib/utils/draft-fragment";
-import { findLinkableDraft } from "@/lib/stores/persFormStore";
 import { buildOpenInBrowserLinks, type BrowserEnvironment, type InAppBrowserHost, type InAppBrowserVariant, type OpenInBrowserLink } from "@/lib/utils/in-app-browser";
 import {
   buildInAppHandoffUrl,
@@ -112,17 +110,22 @@ function ManualCopyField({ url }: { url: string }) {
 function useLinkedDraftFragment(): string | null {
   const [fragment, setFragment] = useState<string | null>(null);
   useEffect(() => {
-    const draft = findLinkableDraft();
-    if (!draft) return;
     let isCurrent = true;
-    void encodeDraftLink(draft).then((encoded) => {
-      if (isCurrent) setFragment(encoded);
+    void encodeLinkableDraft().then((encoded) => {
+      if (isCurrent && encoded) setFragment(encoded);
     });
     return () => {
       isCurrent = false;
     };
   }, []);
   return fragment;
+}
+
+// Loaded on demand: the draft store and codec pull the creator's zod schemas, which the character sheet must not bundle.
+async function encodeLinkableDraft(): Promise<string | null> {
+  const [{ findLinkableDraft }, { encodeDraftLink }] = await Promise.all([import("@/lib/stores/persFormStore"), import("@/lib/utils/draft-link")]);
+  const draft = findLinkableDraft();
+  return draft ? encodeDraftLink(draft) : null;
 }
 
 function useReportShownOnce(placement: InAppPlacement, variant: InAppBrowserVariant) {

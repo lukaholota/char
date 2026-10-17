@@ -64,10 +64,28 @@ describe("draft link codec", () => {
     expect(await decodeDraftLink(await encodeRaw(payload))).toBeNull();
   });
 
-  it("drops fields the creator does not know and keeps raw step values", async () => {
-    const customAsi = [{ ability: "STR", value: "15" }];
-    const linked = await decodeDraftLink(await encodeRaw({ v: 1, s: "CREATOR_2024", d: { formData: { name: "Оля", customAsi, __proto__x: 1, isAdmin: true }, currentStep: 2, totalSteps: 9 } }));
-    expect(linked?.formData).toEqual({ name: "Оля", customAsi });
+  it("keeps raw step values and the in-progress fields steps store at the top level", async () => {
+    const stepFields = {
+      customAsi: [{ ability: "STR", value: "15" }],
+      isTasha: false,
+      basicChoices: { race: [], selectedClass: ["ATHLETICS", "PERCEPTION"], background: [] },
+      tashaChoices: [],
+      expertises: ["STEALTH"],
+      languages: ["ELVISH"],
+      choiceGroupToId: { "12": [3] },
+      anyWeaponSelection: { "4": [7] },
+      backgroundEquipmentChoice: "GOLD",
+      featSearch: "",
+      backgroundFeatSearch: "",
+    };
+    const linked = await decodeDraftLink(await encodeRaw({ v: 1, s: "CREATOR_2014", d: { formData: { name: "Оля", ...stepFields }, currentStep: 6, totalSteps: 9 } }));
+    expect(linked?.formData).toEqual({ name: "Оля", ...stepFields });
+  });
+
+  it("drops fields named after Object.prototype members", async () => {
+    const payload = '{"v":1,"s":"CREATOR_2014","d":{"formData":{"toString":1,"constructor":"x","hasOwnProperty":2,"__proto__":{"isAdmin":true},"raceId":5},"currentStep":2,"totalSteps":9}}';
+    const linked = await decodeDraftLink(await encodeRaw(payload));
+    expect(Object.keys(linked!.formData)).toEqual(["raceId"]);
   });
 });
 
