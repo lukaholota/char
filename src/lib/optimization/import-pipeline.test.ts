@@ -312,8 +312,8 @@ it("counts a paginated supplement and requires its sections in the translation",
 // The raw rpgbot.net HTML stays out of git, so CI has no source to hash.
 it.skipIf(!existsSync("data/rpgbot/source"))("reports current manifest coverage without mistaking URL count for publications", async () => {
   const report = await buildCoverage("data/rpgbot");
-  expect(report.includedSources).toBe(391);
-  expect(report.publicationSlots).toBe(393);
+  expect(report.includedSources).toBe(392);
+  expect(report.publicationSlots).toBe(394);
   expect(report.unresolvedManifestSources).toBe(63);
-  expect(report.rows).toHaveLength(393);
+  expect(report.rows).toHaveLength(394);
 });

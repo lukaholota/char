@@ -23,7 +23,7 @@ describe("KR49.6 — public 2014 RPGbot in global search", () => {
     expect(sectionSearch).toEqual(buildRpgbotSearchArticles(documents));
     expect(searchNames).toEqual(sectionSearch.map((article) => ({ ...article,
       sections: article.sections.map(({ sectionId, title }) => ({ sectionId, title })) })));
-    expect(searchNames).toHaveLength(268);
+    expect(searchNames).toHaveLength(269);
     expect(searchNames.map((article) => article.articleId).sort()).toEqual(summaries.map((article) => article.articleId).sort());
     const rows = buildOmniSearchIndex("RULES_2014").filter((row) => row.category === "rpgbot" && !isCatalogShortcut(row));
     expect(new Set(rows.map((row) => row.id)).size).toBe(rows.length);

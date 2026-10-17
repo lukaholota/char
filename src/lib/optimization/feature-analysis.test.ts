@@ -77,7 +77,7 @@ describe("Monk feature bindings", () => {
 
 it("validates all 2014 comparison candidates against their own articles and catalog", async () => {
   const generated = await collectAll2014Bindings(await readSliceBindings());
-  expect(new Set(generated.candidates.map((binding) => binding.articleId)).size).toBe(13);
+  expect(new Set(generated.candidates.map((binding) => binding.articleId)).size).toBe(14);
   for (const articleId of new Set(generated.candidates.map((binding) => binding.articleId))) {
     const document = (await readSliceArticle(articleId.replace(/^rpgbot-/, ""), "RULES_2014"))!;
     const bindings = generated.candidates.filter((binding) => binding.articleId === articleId);
@@ -92,7 +92,7 @@ it("validates all 2014 comparison candidates against their own articles and cata
 
 it("rates every 2014 subclass that RPGbot covers", async () => {
   const bindings = await readSliceBindings();
-  const subclasses = collectSliceCatalog("RULES_2014").filter((entity) => entity.kind === "subclass" && entity.parentKey !== "BLOOD_HUNTER_2014");
+  const subclasses = collectSliceCatalog("RULES_2014").filter((entity) => entity.kind === "subclass");
   const unrated: string[] = [];
   for (const subclass of subclasses) if (!(await readSubclassRating(subclass, bindings))?.score) unrated.push(subclass.entityKey);
   expect(unrated).toEqual([]);

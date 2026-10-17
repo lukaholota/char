@@ -1,0 +1,437 @@
+
+## Introduction | section-introduction => Вступ
+  1 <-> The Blood Hunter is a martial striker mechanically similar to the Ranger. It has a similar skill set, both in and out of combat, and building a Blood Hunter feels very similar.
+  2 <-> This handbook is for the 2020 version of Matthew Mercer’s Blood Hunter class, published on [[1|DMsGuild.com]] ([[2|affiliate link]]). The class’s original version is still available, and so is my [[3|Classic Blood Hunter Handbook]]. While the two classes are thematically the same and share nearly all of their major design elements, Mr. Mercer has clearly learned a lot about class design in the years since he published the original Blood Hunter, and the jump in quality between versions is apparent. The 2020 version of the class is slick, well-written, mechanically novel, and extremely playable.
+
+## Table of Contents | section-2 => Зміст
+
+## Understanding RPGBOT’s Rating System | section-disclaimer => Як читати оцінки RPGbot
+
+## What’s new in the 2020 Version? | section-whats-new
+  1 <-> If you’re transitioning from the previous version of the Blood Hunter to the 2020 version, it can be helpful to identify exactly what changed between versions.
+  2/item/0 <-> Blood Maledict and Crimson Rite switched places; Blood Maledict is now awarded at 1st level, and Crimson Rite at 2nd.
+  2/item/1 <-> Crimson rite no longer reduces your maximum hit points, both reducing the cost to use it (use it then drink a potion if you’re desperate to be at full hp) and making it easier to manage.
+  2/item/2 <-> Players now learn one less Blood Curse, to a maximum of 5 at 18th level rather than 6 at 20th. The number of curses known is now listed in the class features table for your convenience.
+  2/item/3 <-> Crimson Rite now lists when you gain additional options (Primal Rite, Esoteric Rite) in the class features table
+  2/item/4 <-> Blood Maledict’s 3rd use per rest is moved two levels higher, though all other increases to your use pool remained where they were.
+  2/item/5 <-> New Feature: Brand of Castigation / Brand of Tethering
+  2/item/6 <-> Grim Psychometry got a significant rewrite. It’s much more flexible now.
+  2/item/7 <-> Dark Velocity renamed to Dark Augmentation; effects altered slightly
+  2/item/8 <-> Sanguine Mastery was totally rewritten
+  2/item/9 <-> Subclasses: The subclasses have seen a lot of changes. Shuffling around the levels at which the Blood Hunter gets subclass benefits necessitates some design changes, but the degree to which the subclasses have changes is considerable. Where the class’s core features recieved some polish and some fine-tuning, the subclasses are almost completely different in mechanical terms.
+  2/item/10 <-> Ghostslayer: Almost everything has changed. Aside from the name and damage type of Rite of Dawn, none of the Ghostlayer’s mechanics were retained from the original version of the subclass.
+  2/item/11 <-> Lycan: Originally published as a supplement for the Blood Hunter, Order of the Lycan made it into the revised version of the class alongside the other subclasses. Predatory strikes has a lower damage cap, Bloodlust no longer requires you to keep a running tally of damage you’ve taken in a turn, and Cursed Weakness is gone. Improved Predatory Strikes now adds a scaling attack bonus that used to come from Beastly Precision several levels later. Advanced Transformation got a rewrite, but Lycan Regeneration is unchanged. The higher-level features got reworked. Brand of the Voracious is new and it is very powerful.
+  2/item/12 <-> Mutant: The Mutation Score mechanic is gone, significantly simplifying the subclass. In general, Order of the Mutant is easier to read and play. The list of formulae has expanded significantly, and the only option which was removed was Wariness.
+  2/item/13 <-> Profane Soul: The spellcasting is unchanged, and while the patron benefits haven’t changed conceptually they’ve been rebalanced slightly. Diabolic Channel is replaced by Brand of the Sapping Scar so Order of Profane Soul is a bit less of an Eldritch Knight clone. Soul Syphon is replaced by Blood Curs eof the Souleater.
+  2/item/14 <-> Blood Curses: Every Blood Curse changed. Four were removed, 7 new options were added, and 4 existing options were altered to some degree. There are now Blood Curses which have prerequisites, including level requirements an subclass requirements.
+  2/item/15 <-> New: Blood Curse of the Anxious
+  2/item/16 <-> Blood Curse of Binding: Now also disallows Reactions. The Amplified version now has a 1-minute cap on duration so you can’t permanently bind creatures with poor Strength.
+  2/item/17 <-> New: Blood Curse of Bloated Agony
+  2/item/18 <-> New: Blood Curse of Corrosion
+  2/item/19 <-> New: Blood Curse of The Exorcist
+  2/item/20 <-> Blood Curse of The Eyeless: Range reduced, and now subtracts your hemocraft die from the attack rather than imposing Disadvantage
+  2/item/21 <-> Blood Curse of The Fallen Puppet: amplifying the effect no longer adds a damage bonus, but the creature can move up to half its speed.
+  2/item/22 <-> New: Blood Curse of The Howl
+  2/item/23 <-> Removed: Blood Curse of the Fending Rite
+  2/item/24 <-> Blood Curse of The Marked: Totally rewritten. No longer tied to Crimson Rite.
+  2/item/25 <-> New: Blood Curse of The Muddled Mind
+  2/item/26 <-> Removed: Blood Curse of Mutual Suffering
+  2/item/27 <-> Removed: Blood Curse of Purgation
+  2/item/28 <-> New: Blood Curse of The Soul Eater
+  2/item/29 <-> Removed: Blood Curse of Spell Sunder
+
+## What’s new in the 2022 version? | section-whats-new-in-the-2022-version
+  1 <-> The [[1|forum post on DnDBeyond]] has the (mostly) full details, but I’ll cover the highlights.
+  2 <-> First, we got three new patrons to reflect new patrons added in sourcebooks released since the 2020 version of the Blood Hunter: The Fathomless, The Genie, and The Undead.
+  3 <-> Second, and perhaps most important, we now get to choose between Intelligence and Wisdom as your Blood Maledict stat. Unless you’re planning to multiclass into artificer or wizard, choose Wisdom.
+  4 <-> The rest is just rewording of the existing text for clarity. One notable change is that wording around effects which trigger from Crimson Rite damage have been updated to read “whenever you hit a creature with a weapon for which you have an active crimson rite”. In practice little has changed, but the text is more explicit which hopefully removes some arguments around potential abuse cases.
+  5 <-> There were some minor rules tweaks, so be sure to check the specific text of things like Blood Curses for wording changes. As an example: Blood Curse of Binding now affects Large or smaller creatures, where previously you cold Enlarge yourself to potentially target larger enemies.
+
+## Blood Hunter Class Features | section-class-features
+  1 <green> Hit Points: d10 is standard for front-line martial classes, and since the Blood Hunter sacrifices their own hit points it’s important to have as many hit points as possible.
+  2 <green> Saves: Dexterity saves are important for mitigating damage from area damage effects, but Intelligence saves are rare. You’ll also gain the ability to add your Intelligence modifier to your physical saving throws, which will go a long way to keep you alive.
+  3 <green> Proficiencies: Martial weapons, medium armor, and shields. The Blood Hunter matches the Ranger’s proficiencies, but can’t match the AC of the Fighter or the Paladin unless you find a way to get proficiency with heavy armor. The Blood Hunter also gets proficiency with Alchemist’s Supplies, allowing you to craft things like Alchemist’s Fire, as well as three skills from a list of class options.
+  4 <green> Hunter’s Bane: The Blood Hunter is a class that looks for any excuse to track a monster, so Advantage on Wisdom (Survival) checks to track some monsters is helpful.
+  5 <-> When you gain Hunter’s Bane at level 1, you choose your Hemocraft ability score, choosing between Intelligence and Wisdom. Choose Wisdom. This ability score sets your “Hemocraft Modifier”, which is crucial for many of your class features.
+  6 <green> Blood Maledict: Blood Maledict feels a little bit like spellcasting. It’s not spellcasting, but it certainly feels that way. You get a maximum of four uses per short rest, so when you resort to a Blood Curse it needs to be a situation that really justifies it rather than throwing it at the first enemy you see. Blood Curses notably only affect creatures with blood unless you spend hit points to amplify your Blood Curse, so if you run into elementals, constructs, or some types of undead get ready to spend some hit points.
+  7 <blue> Fighting Style: Fighting Style is a welcome addition for any martial character. The Blood Hunter gets all of the offensive options, but unlike the Ranger they get no defensive options. With only medium armor, the option to take Defensive would be nice, but the Blood Hunter is apparently too aggressive for things like AC. There’s also nothing appealing for the Order of the Lycan to use while transformed, so if you’re considering Order of the Lycan look for something that you can use while you’re not transformed.
+  8/item/2 <orange> Great Weapon Fighting[[1|PHB]]: This adds [[2|an average of just over 1 damage per attack on average]], and even then the only with a greatsword. Tragically, the Blood Hunter doesn’t get a better option if you plan to use two-handed melee weapons.
+  8/item/3 <green> Two-Weapon Fighting[[1|PHB]]: The Blood Hunter’s attacks more closely resemble the Ranger’s than the Fighter’s. You only get two attacks, and you can apply Crimson Rite to both weapons to get the on-hit damage boost. However, beware the stacking costs of Crimson Rite, and remember that many of the Blood Hunters abilities use your Bonus Action so you’ll often need to give up your additional attack to do something else.
+  9 <green> Crimson Rite: Crimson Rite adds a scaling damage bonus which does similar damage to Hunter’s Mark or Hex, but costs you hit points rather than spell slots. It’s a crucial part of the Blood Hunter, and many of your other class features will depend on you having Crimson Rite running. If you’re going somewhere that you expect to encounter enemies, draw your weapon, activate Crimson Rite ahead of time, and don’t put your weapon down until you’re ready to rest. The effect expires when you take a short or long rest, but otherwise if you don’t lose hold of your weapon you can get a lot of bonus damage for a fairly minor quantity of damage.
+  10 <-> It’s also interesting to note that the bonus damage is magic, but it doesn’t make attacks with the weapon magic, so creatures which you attack might resist your weapon damage but not the bonus damage from Crimson Rite. The damage bonus scales with level, and it feels really good on top of Extra Attack. The ability is also worded to disadvantage two-weapon fighting and thrown weapons, but it works really well for Crossbow Expert users. You need to spend additional hit points *and* an extra Bonus Action to affect additional weapons, so be very cautious about two-weapon fighting builds.
+  11/item/0 <-> **Primal Rites**: You get just two of the three Primal Rites options, so be sure to pick options which will be effective against as many opponents as possible. Blood Hunters typically face evil creatures like fiends, so you want to take options which aren’t commonly resisted by those creatures.
+  11/item/1 <orange> Rite of the Flame: Nearly all fiends have resistance to fire damage, and it’s commonly resisted by other creatures too.
+  11/item/2 <green> Rite of the Frozen: Many fiends have resistance to cold, but not so many as have resistance to fire.
+  11/item/3 <blue> Rite of the Storm: Fiends usually don’t have resistance to lightning damage.
+  11/item/4 <-> **Esoteric Rites**: You only get one, and Rite of the Roar is considerably better than the other options.
+  11/item/5 <red> Rite of the Dead: Most things don’t resist necrotic damage, but the things that do resist it are evil creatures which blood hunters can expect to face.
+  11/item/6 <orange> Rite of the Oracle: Psychic damage is resisted by very few creatures, but many undead and constructs are outright immune to it.
+  11/item/7 <blue> Rite of the Roar: Almost nothing resists thunder damage. The only better option is Force damage.
+  12 <-> **Blood Hunter Order**: See “Subclasses – Blood Hunter Orders”, below.
+  13 <blue> Extra Attack: A crucial feature of almost any martial class.
+  14 <green> Brand of Castigation: A small but helpful damage boost against large singular foes, especially if you can keep your target’s focus on yourself. Your Intelligence/Wisdom likely isn’t higher than 16, so the damage bonus won’t win fights on its own, but against foes with numerous small attacks it can add up quickly. Unfortunately you’ll need to be hit by attacks to trigger Brand of Castigation, so manage your hit points carefully.
+  15 <green> Grim Psychometry: Make an Intelligence (History) check to ask the DM about the plot or when to find nearby monsters.
+  16 <blue> Dark Augmentation: The bonus speed is nice but not particularly significant. The bonus to saves is the real appeal here. Even if your Intelligence/Wisdom is just 14, +2 to three types of saving throws is significant, and if your Hemocraft Modifier improves later this gets even better.
+  17 <orange> Brand of Tethering: Situational, but a helpful counter against enemies which can easily move between planes like spellcasters and some fiends. Brand of Castigation has no duration, so you can leave this in effect and make it much easier to chase across the planes. It’s unclear how this works against creatures using the Blink spell, but I can’t imagine that it goes well for them.
+  18 <blue> Hardened Soul: Fear and Charm effects become common at high levels, and many effects that don’t make you frightened and don’t charm you are also considered “fear” and “charm” effects, so resistances like this are much more effective than they appear at first glance.
+  19 <blue> Sanguine Mastery: Rerolling a Hemocraft die once per turn will be helpful nearly every turn. The most likely usage is to reroll the bonus damage from Crimson Rite, and rerolling a d10 damage die is still satisfying even it’s not a huge mathematical advantage. You can also use it to reduce the damage which you take to activate Crimson Rite or to amplify a Blood Curse, and to improve the effects of many of your other Blood Hunter abilities.
+
+## Subclasses – Blood Hunter Orders | section-subclasses
+
+## Order of The Ghostslayer | section-order-of-the-ghostslayer
+  1 <-> This is the baseline for the Blood Hunter. It’s a solid archetype that broadens the Blood Hunter’s possible targets by allowing Blood Maledict to affect creatures without blood, and while it’s especially good at killing undead the Ghostslayer is still good at fighting everything else.
+  2/item/0 <blue> Rite of the Dawn: Radiant damage is very rarely resisted, making this your best Crimson Rite option until a least 14th level when you would normally choose your only Esoteric Rite. The glowing weapon is helpful, but it also discourages you from activating Crimson Rite ahead of time if you’re trying to avoid notice. The damage resistance and bonus damage against undead are situationally useful, but obviously they’re fantastic against undead enemies which are common in many campaigns.
+  2/item/1 <blue> Curse Specialist: An extra use of Blood Maledict is fantastic on its own, and the ability to affect creatures without blood without spending hit points to amplify is really nice. Constructs, most elementals, plants, and many types of undead don’t have blood, so normally they’re immune to Blood Curses.
+  2/item/2 <blue> Ethereal Step: The ability to enter the Ethereal plane and move about typically isn’t available until much higher level. For example: the Etherealness spell is a 7th-level spell. Use this to walk through walls and to avoid all sorts of other obstacles.
+  2/item/3 <green> Brand of Sundering: At this level your Hemocraft Die increases to 1d8, so the extra damage is nice. However, since Brand of Castigation is only usable once per rest you may be tempted to withold Brand of Castigation in case you encounter enemies which can move through creatures or walls like ghosts. It’s never fun to sit on such a good resource in case you need it, but I don’t see a way around it.
+  2/item/4 <blue> Blood Curse of the Exorcist: Charm and Fear effects are very common as you reach high levels, so this will see a lot of use. The damage from Amplifying is automatic and exceeds the amount of damage that you take, so it’s nearly always worth the hit points to Amplify this.
+  2/item/5 <blue> Rite of Revival: You should always have Crimson Rite running in combat, which means that this is always an option. Well, unless you’re already at such low hit points that you can’t activate Crimson Rite. At that point it’s time to make a hasty retreat and live to fight another day.
+
+## Order of The Lycan | section-order-of-the-lycan
+  1 <-> Order of the Lycan is only slightly more complicated than the order of the Ghostlayer, but in a lot of ways it’s stronger. It has several numeric advantages which other characters can’t replicate without magic items, and Order of the Lycan is extremely difficult to kill.
+  2 <-> Even with its many strengths, Order of the Lycan still has limitations. The subclass is entirely melee-focused, and does not benefit directly from any of the Combat Style options available to the Blood Hunter. Bloodlust can also force you into a dangerous state where you might attack your allies unless you give up your lycanthrope form, which you can only use a few times before resting until very high level.
+  3 <-> Fortunately, you can easily overcome these challenges: The Archery style offers an easy way to fight at range when your Order of the Lycan features aren’t useful, nicely addressing both melee-only nature of the subclass and giving you a meaningful way to use Combat Style. Bloodlust will remain a problem until you acquire Lycan Regeneration at 11th level unless your party has ample healing available. If someone in your party can cast Healing Spirit you should be just fine.
+  4/item/0 <green> Heightened Senses: Hearing isn’t typically as useful as sight, and smell is rarely used for Perception checks. But Advantage on nearly any Perception check is still good.
+  4/item/1 <green> Hybrid Transformation: For one hour, turn into a combat monster. Well, more of a combat monster than you already were. Your hybrid form emphasizes fighting unarmed, but you can still use a shield and you should absolutely do so because you’ll need the extra AC to avoid being subject to Bloodlust for as long as possible. The hour-long duration can carry you through several fights with sufficient healing options available, but if Bloodlust comes into effect and you don’t have enemies nearby for you to attack you’ll need to end your transformation early to avoid murdering your friends. Much like the Barbarian’s Rage feature, this is your go-to option in combat, but since the usage is limited you technically can’t use it whenever you want. The hour-long duration is good, but you still need to be careful to manage the effects unless you want to get into a fight without the ability to transform.
+  4/item/2 <green> Feral Might: A modest, but still useful bonus to melee damage. Curiously, it’s not limited to weapon attacks so you can use it with spells if you want to do that for some reason. Advantage on Strength checks is great for things like grappling and shoving. Strength is normally a dump stat, but if you want to Shove or Grapple things a little bit of Strength won’t cost you too much.
+  4/item/3 <blue> Resilient Hide: +1 AC will close the gap between medium and heavy armor, and since the bonus only applies when not wearing heavy armor it removes any incentive to get heavy armor proficiency. You also gain resistance to common weapon damage types, though unlike the Barbarian this resistance is bypassed by silvered weapons or magic.
+  4/item/4 <blue> Predatory Strikes: The ability to use Dexterity for attack and damage with unarmed strikes removes nearly all need for Strength, so go all-in on Dexterity. You might even consider the Archery fighting style, then use Hybrid Transformation when you need to jump into melee. Predatory Strikes also gives you an extra attack as a Bonus Action so long as you make an Unarmed Strike as part of the Attack action on your turn. Even once you get Extra Attack so that you can use a weapon for one of your attacks, using an Unarmed Strike will typically be better between Predatory Strikes, Feral Might, Improved Predatory Strikes, and Crimson Rite applied to your Unarmed Strikes.
+  4/item/5 <red> Bloodlust: This is a handicap to discourage you from living in your Hybrid Transformation form. It doesn’t end when all of your enemies are dead, so either someone heals you above half of your hit points or you spend a Bonus Action on your turn to return to your normal form. Lycan Regeneration will make this less problematic, but you don’t get that until 11th level. If you’re suffering from Bloodlust but don’t want to drop out of your lycanthrope form, you can keep your allies safe by several methods. Positioning an enemy between you and your allies is an obvious solution, but Bloodlust doesn’t end when combat does. If there are no enemies around, drop prone. Standing eats half of your movement, creating a much smaller radius where you might move and attack an ally. Bloodlust requires that you move toward an ally and make an Attack against a creature, but it doesn’t require that you draw a weapon or anything so as long as you don’t have a ranged weapon in hand you’re fine. You’re still forced to take the Attack action (likely clawing at the air and being angry) so you can’t Dash to move back towhere you were, but falling prone doesn’t require an action of any kind. On turns where you pass the save, move back to a safe “center point” where hopefully an ally can place a Healing Spirit for you. If your allies are clever, then can run around you on their own turns to force you to chase them back into the Healing Spirit’s space to continue healing.
+  4/item/6 <green> Stalker’s Prowess: More speed never hurts, and this stacks with the speed improvement from Dark Augmentation, so you’ll eventually a get a total speed bonus of +15 ft.
+  4/item/7 <blue> Improved Predatory Strikes: Attack bonuses are extremely powerful in a game where a typical character will have a maximum attack bonus of +11 at 20th level without spells or magic items. I think that the progression is intended to keep pace with +X items, but I can’t say for sure. Regardless, this is spectacular.
+  4/item/8 <blue> Advanced Transformation: Transforming twice per rest makes Bloodlust much less of a problem because you can drop out of your transformation long enough to heal with spells, potions, or whatever else but you don’t need to resort to taking a Short Rest. Lycan Regeneration goes even further to stretch out the usage of your transformations by allowing you to regenerate enough hit points that Bloodlust stops affecting you.
+  4/item/9 <blue> Lycan Regeneration: Free ongoing healing, though it only applies while Bloodlust is a problem so you may not want to stand around healing unless there are enemies who you can attack. The healing caps at half of your maximum hit points which is enough to stop Bloodlust, but you’ll still want to spend some Hit Dice or something to get back to full hp.
+  4/item/10 <blue> Brand of the Voracious: Advantage on the save to resist Bloodlust makes it much easier to hang around while transformed so that Lycan Regeneration can get you back to half of your max hp. Brand of Castigation granting Advantage on your attack rolls against the target is a nice bonus worth of its own ability. Honestly I’m not sure why these two effects weren’t broken up because they’re totally unrelated.
+  4/item/11 <blue> Hybrid Transformation Mastery: The ability to drop in and out of hybrid form without limit makes Bloodlust even less of a problem, and it makes going civilized places a bit easier since you’re not walking around as a weregoat or something equally gruesome. Blood Curse of the Howl is a great way to start any combat, and if everyone you care to scare is within the 30 ft. range you don’t need to amplify it.
+  4/item/12 <blue> Blood Curse of the Howl: This is snuck in at the end of the description of Hybrid Transformation Mastery, but don’t miss it. Starting an encounter against multiple foes with Blood Curse of the Howl can put your party at a massive advantage early in a fight when it matters most.
+
+## Order of The Mutant | section-order-of-the-mutant
+  1 <-> Order of the Mutant saw a lot of improvement from the original version, but it’s still held back by the severely limited number of mutagens that you can have readied at any one time. Because you can never have more than 3, there’s little incentive to prepare anything except your absolute favorite options unless you can find out what you’re facing well ahead of time. In most cases you can’t do that without scouting around or using divination magic, and even then it can be hard to guarantee anything more than a few minutes in the future.
+  2 <-> Exalted Mutation solves Order of the Mutants biggest problem, but it doesn’t come online until 18th level, at which point you’ve suffered so long that it hardly matters.
+  3 <-> As a possible fix: Instead of preparing your mutagens during a rest, you prepare reagents for mutagens. Creating a mutagen requires one minute of uninterrupted work with these reagents and a set of alchemist’s tools. This allows the Blood Hunter a bit more flexibility with their mutagens, but not so much that they can change them during combat.
+  4/item/0 <green> Formulas: You start with four formulas and learn four more over time. You’ll never be able to have more than three mutagens readied at any time, so it’s okay to have a couple go-to options and a bunch of situational options which you can rotate in and out when the situation justifies it. See “Mutagens”, below, for help selecting formulas.
+  4/item/1 <green> Mutagencraft: Mutagens allow you to gain a long-duration buff which you can apply in a hurry, but which can carry a problematic side-effect. If possible, you want to apply a mutagen well ahead of time so that you can keep your Bonus Action free for other things like Blood Maledict. While the formulas available are interesting, diverse, and individually powerful you’re severely limited by the number of mutagens which you can have prepared at any one time. It starts at just 1, and caps at just 3 at 15th level, which means that when you prepare your mutagens you need to either do a bunch of pre-planning and investigation or you need to guess. In most cases that’s going to mean sticking to a few staple options which complement your build and your role in the party and only rarely using other options from your list of known formulas.
+  4/item/2 <blue> Strange Metabolism: Poison is very common, so immunity is really nice. Suppressing the side-effects of a mutagen temporarily can make many mutagens much more viable in combat.
+  4/item/3 <orange> Brand of Axiom: Situational, but one of very few Blood Hunter options for handling invisible creatures. You can also use this to handle shapeshifters or spellcasters who like polymorph spells. It’s probably not the intent of the ability, but you can use this on creatures which were polymorphed against their will to end unpleasant polymorph effects.
+  4/item/4 <blue> Blood Curse of Corrosion: Poisoned is a great debuff, though many creatures have resistance or immunity. The amplified version deals 4d6 automatic damage, which is more than you pay to amplify the effects, so it’s nearly always a good option. Against enemies without good Constitution saving throws like many spellcasters, this is a death sentence.
+  4/item/5 <blue> Exalted mutation: This solves the biggest problem with Mutagens: the inability to choose your mutagens from your full list of options to suit your current needs. Tragically, it doesn’t come online until 18th level so in many ways it’s too little, too late.
+
+## Mutagens | section-mutagens
+  1/item/0 <blue> Aether: Flight in any form and at any speed is excellent, but try to avoid being grappled or shoved.
+  1/item/1 <green> Aluring: Charisma is usually dump stat for the Blood Hunter, but with a tiny bit of Charisma, Advantage on Charisma checks, and a few proficiencies you could easily be your party’s Face.
+  1/item/2 <blue> Celerity: Generally your go-to combat option. Disadvantage on Wisdom saving throws.
+  1/item/3 <orange> Conversant: Situationally useful. Helpful if you need to make a bunch of Investigate checks or something, but Disadvantage on Wisdom checks include Wisdom (Perception), so I wouldn’t use this anywhere that enemies might suddenly appear.
+  1/item/4 <green> Cruelty: This is a huge gamble, so I would never use this until you know what you’re fighting. Big martial enemies like ogres or dinosaurs? Cruelty time. Anything with any ability that even remotely resembles spellcasting? Don’t even think about it.
+  1/item/5 <orange> Deftness: Situational. The time that I would most encourage this is when you’re trying to be sneaky, but when you’re sneaking around trying to avoid notice it’s just as important to be aware of potential threats like traps or other creatures sneaking around, so Disadvantage on Wisdom checks (which include Perception) is a dangerous risk to take.
+  1/item/6 <green> Embers: Good against enemies that deal fire damage like red dragons or elementals, but bad against spellcasters.
+  1/item/7 <green> Gelid: Good against enemies that deal cold damage like white dragons, but bad against spellcasters.
+  1/item/8 <orange> Impermeable: Piercing damage is common, but not as common as slashing damage, and many creatures which deal piercing damage can do slashing damage with another attack.
+  1/item/9 <green> Mobile: Drinking one of these is easier and less costly than taking proficiency in Acrobatics specifically to handle being grappled. It’s not very exciting, but it’s a great fallback.
+  1/item/10 <blue> Nighteye: Darkvision is crucial, and if you suddenly find yourself in sunlight again you can spend an Action to flush the effects.
+  1/item/11 <blue> Percipient: Wisdom (Perception) is one of the most eseential and frequently-rolled checks in the game, and Advantage on those checks can help you avoid all sorts of trouble. Disadvantage on Charisma checks is a negligible cost, especially when you’re planning to fight stuff rather than make conversation.
+  1/item/12 <orange> Potency: Useful for Strength-based builds, but there is very little reason for those to exist so I don’t expect this to be used often.
+  1/item/13 <blue> Precision: More criticals hits are always great, and Strength saving throws are uncommon.
+  1/item/14 <green> Rapidity: More movement speed is always nice, and with the maximum +15 ft. bonus and Dark Augmentation you’re as fast as a horse. Disadvantage on Intelligence checks is only rare important unless you like to make Intelligence checks to identify monsters, so you can often leave this running while you travel around.
+  1/item/15 <blue> Reconstruction: Once you have Dark Augmentation the speed penalty makes a human as fast as a dwarf, which is usually still enough. If you can find a magic item to boost your speed or if you can spend another mutagen on Rapidity you can easily offset the speed penalty and have hit point regeneration for a full hour at a time. In the absolute worst case scenario, you could save this for before a short rest, then drink it to get back to full hit points without spending hit dice before getting a fresh set of mutagens.
+  1/item/16 <orange> Sagacity: The bonus can improve a lot of your Blood Hunter class features, including things like Brand of Castigation and the saving throw bonus from Dark Augmentation. Still, it’s hard to justify using it when more proactive combat options exist and when Conversant is more effective for ability checks.
+  1/item/17 <green> Shielded: Slashing damage is the most common type of weapon damage and bludgeoning is the least.
+  1/item/18 <red> Unbreakable: Bludgeoning damage is the least common type of weapon damage.
+  1/item/19 <green> Vermillion: An extra use of Blood Maledict is great. It’s not clear what happens if you drink more than one of these or what happens when you spend an Action to “flush” the effects, but here is how I think it’s intended: Each use of Vermillion gives you a single “temporary” charge for Blood Maledict which is used before your normal pool of uses. If you lose the effect of the Mutagen, the temporary charge is also lost. The side effect lingers after you’ve used the temporary charge, so be sure to flush the effects whenever it’s convenient.
+
+## Order of The Profane Soul | section-order-of-the-profane-soul
+  1/item/0 <-> **Otherworldly Patron**: Tragically, few of the patron options are good, but their benefits are also minor compared to access to Pact Magic so you can still do fine even if you pick a pact which isn’t very good.
+  1/item/1 <orange> The Archfey: Starts with a situational option and never really recovers.
+  1/item/2 <red> The Fathomless: The entire benefit can be replace by the Ray of Frost cantrip.
+  1/item/3 <red> The Fiend: Primarily focuses on doing fire damage, but doesn’t do it especially well.
+  1/item/4 <green> The Genie: An interesting mix of options allowing you to solve the a few different problems, but nothing amazing.
+  1/item/5 <green> The Great Old One: Decent, with a weird combination of crowd control, utility, and buffs.
+  1/item/6 <orange> The Undying: Starts strong then tapers off almost immediately.
+  1/item/7 <blue> The Celestial: For a class with no other healing options, this is surprisingly good.
+  1/item/8 <red> The Hexblade: Nothing good until 15th level.
+  1/item/9 <red> The Undead: The abilities are situational, difficult to use reliably, and don’t do much when they do work.
+  1/item/10 <blue> Pact Magic: Order of the Profane Soul gives you the Warlock’s Pact Magic in the same way that Eldritch Knight gives the Fighter the Wizard’s spellcasting. See the Spells section, below, for help selecting spells. You start with two cantrips and max out at three, so choose wisely. Eldritch Blast is tempting, but remember that your Intelligence/Wisdom likely can’t match your Dexterity so you’ll do better with other options until your Hemocraft Modifier catches up a bit, and Hex will add a nice pile of extra damage (assuming you can hit anything). Booming Blade and Green-Flame Blade are great possibilities (especially once you get Mystic Frenzy), but don’t shy away from utility options.
+  1/item/11 <-> **Rite Focus**:
+  1/item/12 <orange> The Archfey: Situational, but a great option if your party can’t easily handle invisible creatures.
+  1/item/13 <green> The Fathomless: A 10-foot reduction in speed makes it difficult for enemies to approach you if you attack at range and difficult to escape you in melee.
+  1/item/14 <red> The Fiend: Rite of the Flame is the worst choice for Crimson Rite, and while this has improved from the original version of the class rerolling on 1s and 2s still boosts your average damage by less than 1 damage on average.
+  1/item/15 <orange> The Genie: Flight is really good, but a round or two won’t get you through combat.
+  1/item/16 <green> The Great Old One: If you’re using two-weapon fighting or Crossbow Expert, you might score critical hits fairly often. The original version required a saving throw in addition to a critical hit which made this functionally useless.
+  1/item/17 <green> The Undying: Regaining hit points when you drop a creature is great, and you no longer need to outright kill it at the same time to trigger the effect. The DM gets to decide if the creature is an appropriate threat, so you likely can’t farm a bag of rats or repeatedly beat one creature unconscious.
+  1/item/18 <green> The Celestial: Roughly on par with Healing Word. Great if your party doesn’t have Healing Word for some reason.
+  1/item/19 <orange> The Hexblade: A minor damage boost, but sometimes that’s all you need.
+  1/item/20 <red> The Undead: Very situational. Necrotic damage isn’t common enough that this makes a big difference, and in situations where it does matter you need to spend your Reaction to use it, which is a cruel and unnecessary tax.
+  1/item/21 <blue> Mystic Frenzy: The equivalent of the Eldritch Knight’s War Magic feature. Cantrips like Green-Flame Blade are obvious options because you use your weapon to make the attack so you can add the bonus damage from Crimson Rite on top of the cantrip damage.
+  1/item/22 <-> **Revealed Arcana**:
+  1/item/23 <blue> The Archfey: A fantastic defensive buff.
+  1/item/24 <red> The Fathomless: Only situationally useful.
+  1/item/25 <red> The Fiend: You will be more effective with weapons.
+  1/item/26 <blue> The Genie: An excellent save-or-suck spell, and most creatures have terrible Intelligence saves, so despite your poor save DC it should work reasonably well.
+  1/item/27 <orange> The Great Old One: Situational.
+  1/item/28 <orange> The Undying: A great debuff, but your spell DC can’t compete with a full spellcaster so you may find that the spell is unreliable.
+  1/item/29 <blue> The Celestial: Lesser Restoration is a crucial spell, but by this level someone else in your party should be able to cast it.
+  1/item/30 <orange> The Hexblade: Situational, but a great option if your party can’t easily handle invisible creatures.
+  1/item/31 <red> The Undead: Constitution saves tend to be high and your save DC will be low. There is no way this will work for you reliably.
+  1/item/32 <green> Brand of the Sapping Scar: Fantastic on a normal spellcaster, but investing in spells which allow saving throws is a big gamble since you need to focus your Ability Score Increases on Dexterity and Constitution. You might keep a single save-or-suck spell handy for use with this feature, but otherwise avoid spells which allow saving throws if you can.
+  1/item/33 <-> **Unsealed Arcana**:
+  1/item/34 <red> The Archfey: Slow is a fine spell, but by this level your Intelligence/Wisdom is far enough behind that your spell save DC is really poor.
+  1/item/35 <red> The Fathomless: Lines are hard, your save DC is poor, .
+  1/item/36 <orange> The Fiend: The Blood Hunter isn’t great at handling crowds, so Fireball is a great addition, but your spell save DC is still terrible.
+  1/item/37 <blue> The Genie: Not very exciting, but a staple defense at any level.
+  1/item/38 <blue> The Great Old One: Haste is a fantastic buff, and you have very few spells which require Concentration.
+  1/item/39 <orange> The Undying: A great debuff, but your spell save DC is still poor.
+  1/item/40 <blue> The Celestial: Revivify is one of the best spells in the game.
+  1/item/41 <blue> The Hexblade: A fantastic defensive buff.
+  1/item/42 <red> The Undead: Fun and interesting, but it’s also 13 levels late only and situationally useful.
+  1/item/43 <blue> Blood Curse of the Souleater: Always use the amplified version. *Always.* Worst-case scenario, you can use the spell slot to cast Vampiric Touch to recover the hit points lost or you can use False Life to give yourself temporary hit points to give you a pad of extra hp until you can find healing.
+
+## Ability Scores | section-ability-scores => Характеристики
+  1 <-> The Blood Hunter’s abilities most closely resemble a Dexterity-based Eldritch Knight or and Arcane Trickster built for melee. You need Dexterity and Constitution for martial stuff, and either Intelligence or Wisdom for your class features. But let’s be honest: Wisdom is the choice of Intelligence every time.
+  2 <red> Str: In only medium armor and with no good reason to use two-handed weapons, Strength is a poor choice. Crimson Rite provides a significant damage bonus that makes the damage gap between one-handed and two-handed weapons relatively small, so there is very little to justify Strength-based builds.
+  3 <blue> Dex: Your primary offensive ability regardless of your build.
+  4 <green> Con: Always necessary.
+  5 <red> Int: Dump it an use Wisdom for Hemocraft.
+  6 <green> Wis: Hemocraft, saves, and Perception.
+  7 <red> Cha: Dump.
+  8/header/1 <-> Point Buy
+  8/header/2 <-> Standard Array
+  8/row/0/0 <-> Str
+  8/row/1/0 <-> Dex
+  8/row/2/0 <-> Con
+  8/row/3/0 <-> Int
+  8/row/4/0 <-> Wis
+  8/row/5/0 <-> Cha
+
+## Races | section-races
+  1 <-> **Author’s Note**: I’ve only a subset races here. If you plan to play a race that I didn’t cover, the advice below should still offer some insights into the sorts of racial traits which will be beneficial. With Wisdom as your Hemocraft ability, the Blood Hunter’s race options look similar to the Ranger’s.
+  2 <-> The most important thing to get from your race is a Dexterity increase. A Wisdom increase is nice, too, but not essential, and a Constitution increase is arguably more important because the Blood Hunter has less AC than a fighter and needs to spend their own hit points to fuel abilities like Crimson Rite. Beyond that, consider races with useful things like extra skill proficiencies and Darkvision which can broaden your skill set and help you succeed without relying on spellcasters in the party.
+  3 <blue> Aarakocra[[1|EEPC]]: Dexterity and flight. Avoid Order of the Lycan and fight at range unless you simply can’t resist playing a bird person who is also a werebird-person or something equally fantastic. Imagine an aarakocra becoming a were-cassowary and getting gigantic, horrifying toe claws but otherwise looking almost exactly the same.
+  4 <green> Bugbear[[1|VGtM]]: Strength isn’t especially important, but it’s helpful for things like using Athletics to grapple, and you still get the crucial Dexterity increase. An Order of the Lycan Bugbear could be a terrifying ambush predator.
+  5 <orange> Dwarf: A great base, but without a Dexterity increase you’ll need to resort to a Strength-based build.
+  6/item/0 <orange> Mountain[[1|PHB]]: A Strength increase makes a Strength-based build doable, but Dexterity is still a better option.
+  7 <blue> Elf[[1|PHB]]: A shared Dexterity increase and Perception are a great start. Darkvision makes it easy for you to sneak about in the dark, and Fey Ancestry improves your durability slightly.
+  8/item/0 <green> High Elf: A wizard cantrip. Options like Green-Flame Blade are always tempting for melee characters, but Crimson Rite works best when you’re making numerous attacks so look for other options to expand your capabilities like Shape Water or Prestidigitation.
+  8/item/1 <green> Wood Elf[[1|PHB]]: The ability score increases don’t line up quite as well as the High Elf, but the Wood Elf is still a fine option.
+  9 <orange> Firbolg[[1|VGtM]]: A possibility for a Strength-based build, but not a great one.
+  10 <green> Genasi[[1|EEPC]]: A Constitution increase is a great start, but Air is the only interesting subrace.
+  11/item/0 <green> Air: A crucial Dexterity increase, but Levitate stops being interesting as soon as flying enemies become a common problem.
+  12 <blue> Gnome: Perhaps a surprisingly good option. A core Intelligence increase, Darkvision, resistance on mental saving throws against spells to complement Dark Augmentation’s bonust to physical saving throws, and you can get a Dexterity increase from two subraces.
+  13/item/0 <blue> Deep (Svirfneblin)^^EEPC / SCAG^^: Dexterity and Superior Darkvision.
+  13/item/1 <blue> Forest[[1|PHB]]: Dexterity and Minor Illusion.
+  14 <blue> Goblin[[1|VGtM]]: Perfect ability scores, and Nimble Escape gives you most of Cunning Escape without a Rogue dip.
+  15 <orange> Goliath[[1|EEPC]]: Viable for a Strength-based build, but better suited to more traditional martial classes like the Fighter.
+  16 <green> Half-Elf[[1|PHB]]: A good option on nearly any class, but the Variant Human will be better in most ways.
+  17 <orange> Half-Orc[[1|PHB]]: Tempting for Strength-based builds, but very little about the Half-orc directly complements the Blood Hunter’s cabilities..
+  18 <blue> Halfling[[1|PHB]]: A core Dexterity increase, Lucky, and Brave are all fantastic. Darkvision would be nice, but the Halfling already has plenty to offer.
+  19/item/0 <orange> Ghostwise[[1|SCAG]]: Wisdom isn’t especially helpful, but Silent Speech is always nice.
+  19/item/1 <red> Lightfoot[[1|PHB]]: Nothing that’s especially useful to the Blood Hunter.
+  19/item/2 <blue> Stout[[1|PHB]]: A Constitution increase and resistance to poison. All fo the benefits of the dwarf with more helpful ability scores.
+  20 <green> Hobgoblin[[1|VGtM]]: Lacking a Dexterity increase is hard, but ohterwise the Hobgoblin is a great option for the Blood Hunter.
+  22/item/0 <blue> Vanilla: +1 to every ability score means that you can start with high scores in Dexterity, Constitution, and Intelligence. You won’t get anything else, but that may be enough.
+  22/item/1 <blue> Variant: A feat can do a lot for many Blood Hunter builds.
+  23 <green> Kenku[[1|VGtM]]: A good Dexterity increase and two skills. Great, but if that’s all you want you can get more from the Variant Human with the Skille feat.
+  24 <blue> Kobold[[1|VGtM]]: Dexterity, Darkvision, Pack Tactics.
+  25 <blue> Locathah[[1|LR]]: Similar to the Bugbear in many ways, but we get more from the Locathah. Strength and Dexterity are good additions, and with two free skills and a long list of conditions which the Locathah is resistant two the Locathah makes for a very durable Blood Hunter.
+  26 <green> Tabaxi[[1|VGtM]]: Fine, but the Kenku is more flexible and there are better options with similar ability score increases.
+  27 <green> Tiefling: Several subraces/variants provide ability score increases which work for the Blood Hunter.
+  28/item/0 <orange> Dispater[[1|MToF]]: A Dexterity increase, but still not great.
+  28/item/1 <green> Glasya[[1|MToF]]: A Dexterity increase, and the innate spellcasting is interesting for the Blood Hunter.
+  28/item/2 <blue> Variant: Feral[[1|SCAG]]: Basically the Admodeus Tiefling with better ability score increases. According to the Sword Coast Adventurer’s Guide, the Feral Variant is compatible with other variants, so if your DM allows it you may be able to use this in conjunction with another useful subrace.
+
+## Races of Eberron | section-races-eberron
+  1 <none> Bugbear[[1|ERLW]]: See above under the general Races section.
+  2 <orange> Changeling[[1|ERLW]]: A possible Dexterity increase, but otherwise not a lot to offer.
+  3 <none> Goblin[[1|ERLW]]: See above under the general Races section.
+  4 <none> Hobgoblin[[1|ERLW]]: See above under the general Races section.
+  5 <-> Orc[[1|ERLW]]: See above under the general Races section.
+  6 <red> Shifter[[1|ERLW]]: Thematically a great option for Order of the Lycan, but none of the options are spectacular.
+  7/item/0 <orange> Beasthide: Great for a Strength-based build.
+  7/item/1 <orange> Longtooth: You get the essential Dexterity increase, but there are better options for a split Str/Dex build like the Bugbear or the Locathah.
+  7/item/2 <green> Swiftstride: A decent option for a ranged build if you don’t want to play yet another variant human.
+  7/item/3 <orange> Wildhunt: Dexterity increase and very little else that we care about.
+  8 <blue> Warforged[[1|ERLW]]: Put the flexible increase into Dexterity and you’ve got a durable, tanky waforged. Weirdly, I don’t know if warforged have blood. Can they become lycanthropes? Can they drink mutagens? Ask your DM.
+
+## Dragonmarks | section-races-eberron-dragonmarks
+  3/item/0 <orange> Mark of Shadow: The innate spellcasting is tempting, but without actual spellcasting this is hard to justify so only consider this if you’re going for Order of the Profane Soul.
+  5/item/0 <orange> Mark of Detection: You can get the crucial Dexterity increase, and the innate spellcasting is decent, but the spell list isn’t good enough to make this interesting for Order of the Profane Soul.
+  5/item/1 <orange> Mark of Storm: You can get the crucial Dexterity increase, and the innate spellcasting is decent, but the spell list isn’t good enough to make this interesting for Order of the Profane Soul.
+  7/item/0 <green> Mark of Healing: A great way to expand your skillset with a little bit of healing. Consider Order of the Profane Soul to make use of the additional spell options.
+  7/item/1 <orange> Mark of Hospitality: You still get a Dexterity increase, but you don’t get much from the other features.
+  9/item/0 <-> **Mark of Finding**: See Mark of Finding under Dragonmarked Half-Orc, above. Mechanically, the final racial traits are identical.
+  9/item/1 <red> Mark of Handling: Nearly all of the magic is obsolete by the time you get access to it.
+  9/item/2 <green> Mark of Making: The ability scores work great, and the spellcasting is decent. Magic Weapon is a great buff at low levels or in a game with few magic weapons.
+  9/item/3 <green> Mark of Passage: The ability scores are great, and the spellcasting is decent. Misty Step is fantastic at literally any level.
+
+## Races of Ravnica | section-races-ravnica
+  1 <blue> Simic Hybrid[[1|GGTR]]: Good ability score increases, and you can do a lot with the customizations.
+
+## Skills | section-skills
+  1/item/0 <red> Acrobatics (Dex): Too situational.
+  1/item/1 <green> Athletics (Str): Great for grappling and shoving. Several Blood Hunter options support Athletics, so you may be able to use it well without particularly high Strength.
+  1/item/2 <blue> Arcana (Int): Great for identifying foes.
+  1/item/3 <blue> History (Int): An important part of the class once you get Grim Psychometry.
+  1/item/4 <orange> Insight (Wis):
+  1/item/5 <green> Investigation (Int): You’ll have enough intelligence to make it work.
+  1/item/6 <blue> Religion (Int): Great for identifying foes.
+
+## Background | section-background => Походження
+  2 <-> Blood Hunters are Dexterity-based, but have decent Intelligence. Look for skills and tools which capitalize on your Dexterity like Stealth and Thieves’ Tools unless your party has a rogue or another Scout character. In that case, consider Intelligence-based skills like Arcana which can help you identify enemies and their weaknesses.
+  4/item/0 <green> Cloistered Scholar[[1|SCAG]]: The Blood Hunter can make good use of the knowledge skills.
+  4/item/1 <blue> Urban Bounty Hunter[[1|SCAG]]: Basically two skill choices from the Rogue class skills, plus some tool proficiencies, including the ever-important Thieve’s Tools.
+
+## Feats | section-feats => Риси
+  2/item/0 <green> Crossbow Expert[[1|PHB]]: An extra attack means an extra chance to apply your Hemocraft die to damage. However, there’s a lot of competition for your Bonus Action, so you may not be able to make the extra attack every round. Order of the Profane Soul should avoid this in favor of Mystic Frenzy.
+  2/item/1 <green> Defensive Duelist[[1|PHB]]: The Blood Hunter is mostly a melee class, but can’t match the Fighter’s AC, the Barbarian’s hit points, or the Rogue’s ability to mitigate damage with Uncanny Dodge. Defensive Duelist offers a reliable way to boost your AC every round, though it only works against one attack. You can also get a similar benefit from Blood Curse of the Eyeless if you don’t want to invest in a feat.
+  2/item/2 <blue> Durable[[1|PHB]]: You need to eat your own hit points to use Crimson Rite and to enhance Blood Curses, so recovering a bit more when you take a short rest helps a lot to mitigate that cost.
+  2/item/3 <red> Elemental Adept[[1|PHB]]: Doesn’t work with Crimson Rite, unfortunately.
+  2/item/4 <blue> Heavily Armored[[1|PHB]]: If you’re not sneaky, heavy armor means Strength-based builds make sense.
+  2/item/5 <blue> Medium Armor Master[[1|PHB]]: Increase your AC by 1 and don’t suffer Disadvantage on Stealth while wearing half plate.
+  2/item/6 <orange> Polearm Master[[1|PHB]]: If you’re going for a two-handed weapon build, Polearm Master is the way to go. The extra opportunity to apply Crimson Rite provides a significant damage boost, and the 2020 version of the Blood Hunter no longer requires an extra use of Crimson Rite to cover the other end of your polearm.
+  2/item/7 <blue> Tough[[1|PHB]]: More hit points will help offset Crimson Rite and enhancing your Blood Curses.
+
+## Weapons | section-weapons
+  1/item/0 <blue> Hand Crossbow: Get Crossbow Expert so you have another chance to apply Crimson Rite damage.
+  1/item/1 <green> Longbow: Your go-to ranged option until you get Crossbow Expert (unless you’re small, of course).
+  1/item/2 <blue> Rapier: Your go-to melee option on nearly any build.
+  1/item/3 <green> Whip: Reach and finesse.
+
+## Armor | section-armor
+  1/item/0 <blue> Studded Leather: Less AC than Scale Mail at low levels, but you don’t suffer Disadvantage on Stealth checks and once you have 18 Dexterity you’ll match Scale Mail. When you hit 20 Dexterity, it’s the best AC you can get, matching Half Plate.
+  1/item/1 <green> Scale Mail: Better AC than Studded leather at first level, but you suffer Disadvantage on Stealth.
+  1/item/2 <green> Half Plate: The best AC you can get if you also take Medium Armor Master.
+  1/item/3 <blue> Shield: There’s very little reason for the Blood Hunter to use a two-handed weapon unless you’re fighting at range.
+
+## Blood Curses | section-blood-curses
+  1 <-> Blood Curses are an occasional, quick semi-magical option for the Blood Hunter. They’re all used as a Bonus Action, and you always have the opportunity to enhance their effects by spending a Hemocraft Die worth of hit points.
+  2 <green> Blood Curse of The Anxious: This is a great option if you have an offensive spellcasting in the party who likes to rely on save-or-suck spells like Hold Monster, but only if you spend the hit points to enhance it. You never get more than 4 uses of Blood Maledict per rest, so don’t go wasting this on cantrips or something.
+  3 <blue> Blood Curse of Binding: Many highly-mobile enemies and many spellcasters have terrible Strength saves, and holding them in place makes them much easier to kill. This is also a great counter against enemies which are flying non-magically, as reducing their speed to 0 forces them to fall. Enhancing this isn’t a certainty, but in most cases you’ll want to do it.
+  4 <green> Blood Curse of Bloated Agony: This becomes a better option at higher levels when enemies with multiple attacks are common, but the damage also becomes less significant as you gain levels, so there’s a weird narrow “sweet spot” where this is good. You might take this as your second Blood Curse, then replace it when you get your third and can retrain.
+  5 <blue> Blood Curse of Corrosion: Restricted to Order of the Mutant. See the description under Order of the Mutant, above.
+  6 <blue> Blood Curse of the Exorcist: Restricted to Order of the Ghostlayer. See the description under Order of the Ghostlayer, above.
+  7 <green> Blood Curse of the Eyeless: Using this as a Reaction means that as long as you have a use of Blood Maledict remaining you may be able to block an attack. Unfortunately, since your Hemocraft die is a single die it’s a flat probability distribution, so any time you use this it’s a gamble unless you just need to reduce the attack by 1.
+  8 <green> Blood Curse of the Fallen Puppet: A good way to deal some extra damage outside your own turn, but you may be able to have a more significant effect on an encounter with other options. This is especially great at low levels when a single attack can cut through most of a creature’s hit points.
+  9 <blue> Blood Curse of the Howl: Restricted to Order of the Lycan. See the description under Order of the Lycan, above.
+  10 <orange> Blood Curse of the Marked: I would only use this if you already have Advantage on attacks against the target, which means that enhancing it is a waste.
+  11 <red> Blood Curse of the Muddled Mind: Too situational unless you’re in a campaign where you’re fighting enemy spellcasters unusually often.
+  12 <blue> Blood Curse of the Souleater: Restricted to Order of the Profane Soul. See the description under Order of the Profane Soul, above.
+
+## Blood Hunter Spells | section-spells
+  2 <-> This section applies almost exclusively to Order of the Profane Soul. Remember that since the Blood Hunter is primarily a martial class, you will generally want to avoid spells solely devoted to dealing damage. Your spell attacks and spell save DC’s will both be relatively poor, and because you get spell levels so slowly the damage output will be unimpressive in the best of cases. Instead, focus on buffs and utility options.
+
+## Cantrips | section-cantrips
+  1/item/0 <blue> Booming Blade[[1|SCAG / TCoE]]: If you can use Mystic Frenzy with either Booming Blade or Green-Flame Blade and trigger the bonus damage, you will consistently deal more damage than attacking normally. Booming Blade has the added benefit of providing extra reasons for enemies to not move away from you, which is sorely needed in 5e because opportunity attacks are usually not a serious deterrent. See my article on [[2|Melee Cantrips vs. Extra Attack]] for a breakdown of the math comparing melee cantrip spells to normal martial attacks. Note that Tasha’s Cauldron of Everything published an updated version of Booming Blade.
+  1/item/1 <red> Eldritch Blast[[1|PHB]]: Generally a go-to cantrip for damage output, Eldritch Blast isn’t a good option for the Blood Hunter. You will consistently deal more damage with weapon attacks at any level.
+  1/item/2 <orange> Green-Flame[[1|SCAG / TCoE]]: Booming Blade is more useful for utility and controlling single creatures’ movement, and you only get a total of 3 cantrips over your entire career, so it’s hard to justify taking both. The ability to damage two enemies with one attack is really enticing, but if you need that functionality you can either attack twice or use Mystic Frenzy and hit the second target as a Bonus Action. Note that Tasha’s Cauldron of Everything published an updated version of Green-Flame Blade. According to Jeremy Crawford on the official [[2|Dragon Talk Podcast]], the updated version can’t be twinned with Twin Spell and can only be used with War Caster if you choose not to affect a second target.
+  1/item/3 <green> Sword Burst[[1|SCAG / TCoE]]: Sword Burst is a great way to handle crowds of multiple enemies. See my article on [[2|Melee Cantrips vs. Extra Attack]] for a breakdown of the math comparing melee cantrip spells to normal martial attacks.
+  1/item/4 <red> True Strike[[1|PHB]]: If you take this, take it as the new cantrip you learn at 10th level. Wasting an Action to cast True Strike is typically a waste of a turn.
+
+## 1st-Level Spells | section-spells-1
+  1/item/0 <blue> Armor of Agathys[[1|PHB]]: An absolutely fantastic buff for a melee character, and the duration is really long so you get a lot of mileage out of your spell slot. Unfortunately, it won’t be as effective for you as it would for a Warlock because your spell slot levels scale much slower.
+  1/item/1 <red> Hellish Rebuke[[1|PHB]]: Tempting, but your save DC will be too poor to make this reliable.
+  1/item/2 <blue> Hex[[1|PHB]]: A generally great spell, and you maximize the damage output from Hex the same ways that you maximize the damage from Crimson Rite. Use them together for a whole bunch of damage.
+  1/item/3 <green> Protection From Evil and Good[[1|PHB]]: An absolutely fantastic defensive option, but it’s technically situational.
+
+## 2nd-Level Spells | section-spells-2
+  1/item/0 <red> Darkness[[1|PHB]]: Tempting with Dark Velocity, but Dark Velocity doesn’t allow you to see in magical darkness.
+  1/item/1 <blue> Invisibility[[1|PHB]]: Always a fantastic option.
+  1/item/2 <green> Mirror Image[[1|PHB]]: A fantastic defensive buff.
+  1/item/3 <blue> Misty Step[[1|PHB]]: Useful in a all manner of problematic situations, and cast as a bonus action with only Verbal components.
+  1/item/4 <blue> Shadow Blade[[1|XGtE]]: More damage than you’ll get from a rapier, and the damage scales as your spell slot level improves.
+
+## 3rd-Level Spells | section-spells-3
+  1/item/0 <red> Counterspell[[1|PHB]]: You can’t cast spells of high enough level to make this meaningful.
+  1/item/1 <red> Dispel Magic[[1|PHB]]: Someone else in the party who is better at spellcasting needs to be able to cast this long before you can.
+  1/item/2 <blue> Fly[[1|PHB]]: Flight is really useful.
+  1/item/3 <green> Hunger of Hadar[[1|PHB]]: Even with a poor spell save DC, it can still be effective to throw this into a room and lock the door.
+  1/item/4 <green> Vampiric Touch[[1|PHB]]: Beat enemies repeatedly to heal yourself for a full minute. Just remember that it’s a spell attack so your attack bonus will be poor.
+
+## 4th-Level Spells | section-spells-4
+  1/item/0 <red> Blight[[1|PHB]]: Poor single-target damage with a weak save DC on a high save and you get it way too late to matter.
+  1/item/1 <orange> Dimension Door[[1|PHB]]: Misty step usually suffices, and Misty Step is cast as a Bonus Action.
+  1/item/2 <orange> Shadow of Moil[[1|PHB]]: Tempting, but you have to be hit to trigger the damage, and since the spell requires Concentration you’re perpetually gambling with your spell.
+
+## Multiclassing | section-multiclassing => Мультикласування
+  2/item/0 <orange> Artificer: Arguably more tempting than the Wizard, but you get very little for several levels except a couple of Infused Items which will feel underwhelming compared to level-appropriate magic items.
+  2/item/1 <orange> Barbarian: There’s very little that the Barbarian gives you which you don’t already have. Rage is neat and Unarmored Defense is exciting, but you won’t get enough rages per day to matter and you won’t have enough Ability Score Increases to get 20 in Dexterity, Constitution, and Intelligence. You don’t necessarily need to do so, but remember that there’s always an opportunity cost for investing in one thing instead of another.
+  2/item/2 <red> Bard: Nothing the Blood Hunter needs that they can’t get from either the Rogue or the Wizard.
+  2/item/3 <green> Cleric: Most of the spellcasting will be obsolete very quickly, but options like Bless and Shield of Faith will remain useful. If you just want heavy armor, look at the Fighter instead.
+  2/item/4 <green> Druid: A 1-level dip for Shillelagh could support an all-Wisdom build, which would be really neat.
+  2/item/5 <green> Fighter: A single level (assuming it’s your first level) gets you heavy armor and Fighting Style. The Fighter gets many more options than the Blood Hunter, and getting two lets you try some fun combinations. If you can make it to three levels, Champion’s Improved Critical feature is very nice since critical hits will double your Crimson Rite damage.
+  2/item/6 <orange> Monk: Martial Arts is tempting because it offers an additional attack to deliver Crimson Rite. However, you’ll most likely be limited to monk weapons like the spear unless you take enough levels to take Way of the Kensei. That’s a big investment just to get an extra attack as a bonus action, especially since the lost levels will mean a smaller Hemocraft die. Unarmored defense is tempting if you’re using Wisdom for hemocraft, but it’s only a minor improvement over light armor, and if magic items are on the table it might not even be an improvement.
+  2/item/7 <red> Paladin: The Fighter provides similar benefits without a Charisma dependency.
+  2/item/8 <red> Ranger: Tempting, but you need too many levels before you get anything interesting that you couldn’t get from the Fighter.
+  2/item/9 <green> Rogue: Cunning Action and Expertise are both great, but if you’re going this route you should try to make Rogue your first level for the extra skill proficiencies.
+  2/item/10 <red> Sorcerer: Wizard is a better fit.
+  2/item/11 <red> Warlock: While the Pact Magic from Order of the Profane Soul works with the Pact Magic from the Warlock, your spells learned from Warlock levels are Charisma-based so anything offensive will be unreliable.
+  2/item/12 <orange> Wizard: Intelligence-based spellcasting, but since Spellcasting and Pact Magic are separate things you may as well be strapping a 1st-level wizard to your back. There simply isn’t enough here to justify a dip.
+
+## Example Build – Halfling Blood Hunter (Ghostslayer) | section-example
+  1 <-> *I ain’t afraid o’ no ghost!*
+  3 <-> **Note:** This build was written before the 2022 updates.
+  4 <-> This is a very simple build. Ghostlayers have very few decision points in their build, and there are no spells or mutagens or anything of the sort to manage. However, the Blood Hunter still requires some degree of resource management at the table to keep yourself effective. The Ghostlayer is simple to build and simple to play compared to other subclasses, and throughout this build I’ll try to explain the evolving tactics of the class so you know how to conduct yourself during play.
+  5 <-> The Blood Hunter stands somewhere between the Fighter and the Rogue in terms of role in a party, sharing the Fighter’s martial capabilities and the Rogue’s high damage output. This build falls into that split role, so depending on the makeup of your party you’ll want to adjust some of your choices (I’ll explain more below). You can also choose between a melee build and a ranged build simply by changing your Fighting Style.
+
+## Abilities | section-abilities
+  1 <-> We’ll make some adjustments from the suggested ability scores above to maximize what we get from our racial ability score increases. We’ll end up with 16 in both Dexterity and Constitution, and 14 in Intelligence. That gives us plenty of hit points to spend on Crimson Rite and on enhancing Blood Curses, and 14 Intelligence is a perfectly respectable score to support the Blood Hunter’s Intelligence-based features.
+  2/header/1 <-> Base
+  2/header/2 <-> Increased
+  2/row/0/0 <-> Str
+  2/row/1/0 <-> Dex
+  2/row/2/0 <-> Con
+  2/row/3/0 <-> Int
+  2/row/4/0 <-> Wis
+  2/row/5/0 <-> Cha
+
+## Race | section-race => Раса
+  1 <-> Stout Halfling. This gives us good ability score increases, Lucky, resistance to fear, and resistance to poison. It’s a nice, durable package that doesn’t add to the complexity of the build.
+
+## Skills and Tools | section-skills-and-tools => Навички й інструменти
+  1 <-> We get Alchemist’s Tools for free, plus three skills from the Blood Hunter. Arcana, History, and Investigation are all great choices. If you have someone in the party like a wizard who is already very good at Arcana, replace it with Religion instead.
+  2 <-> Use your background to get more proficiencies that suit your role in the party.
+
+## Background | section-background-2 => Походження
+  1 <-> If you’re fitting into your party as more of a fighter, look for proficiencies in Perception, and possibly in either Acrobatics or Athletics so that you have a good way respond to being grappled.
+  2 <-> If you’re fitting into your party as more a rogue, look for proficiencies in Stealth and Thieves’ Tools. The Criminal background is a great example.
+
+## Feats | section-feats-2 => Риси
+  1 <-> We’ll skip feats to keep this build simple, but if you’re built to fight at range you’ll benefit greatly from Crossbow Expert.
+
+## Levels | section-levels => Рівні
+  1/header/0 <-> Level
+  1/header/1 <-> Feat(s) and Features
+  1/header/2 <-> Notes and Tactics
+  1/row/0/1 <-> Hemocraft Die: 1d4 Hunter’s Bane Blood Maledict (1/rest) Blood Curse: Fallen Puppet
+  1/row/0/2 <-> First level is a great time to experiment going back and forth between melee and ranged combat. You’re just as effective with a rapier and a shortbow, so use whatever fits the situation. Figure out what’s working for you before 2nd level and you need to select your Fighting Style. Our first Blood Curse is Curse of the Fallen Puppet. Creatures (including your allies) fall to 0 hit points frequently at low levels so you’ll have lots of opportunity, and even a single attack can have a huge effect on the outcome of an encounter. Be careful enhancing the effects, though. 1d4 hit points sounds small, but when you have 13 hit points it can really hurt.
+  1/row/1/1 <-> Fighting Style: Archery or Dueling Crimson Rite Primal Rite: Rite of the Storm
+  1/row/1/2 <-> At this point you’ll need to commit to a Fighting Style. If you’re fighting primarily in melee, grab a shield and take Dueling. If you’re fighting primarily at range, grab a shortbow and take Archery. 2nd level brings Crimson Rite, which is one the Blood Hunter’s most iconic and flashy abilities. Generally you’ll want to activate Crimson Rite as soon as you supect that you’ll be facing enemies so that it’s ready to go whenever you need it. It does cost you 1d4 hit points, but if you deliver a few hits it’s easily worth the cost. We selected lightning damage at this level because resistance to it is relatively rare, but we’ll switch damage types at 3rd level.
+  1/row/2/1 <-> Blood Hunter Order: Ghostslayer Rite of the Dawn Curse Specialist Blood Maledict (2/rest)
+  1/row/2/2 <-> Rite of the Dawn lets us deal radiant damage with Crimson Rite, which is a great option because it’s so rarely resisted. Curse Specialist lets us use Blood Maledict an extra time per day, but we still only have Curse of the Fallen Puppet so be sure to use it at every opportunity. It’s no longer limited to creatures with blood, so you can use it on things like skeletons and golems.
+  1/row/3/2 <-> More Dexterity boosts your AC, you attacks, and your damage.
+  1/row/4/1 <-> Hemocraft Die: 1d6 Extra Attack
+  1/row/4/2 <-> This is a great level for damage output. A second attack means that you can deliver Crimson Rite damage more frequently, and the larger Hemocraft Die means that it does even more damage. Of course, the bigger die also means that Crimson Rite costs more to upgrade, but it’s absolutely worth the cost.
+  1/row/5/1 <-> Blood Maledict (3/rest) Blood Curse: Binding Brand of Castigation
+  1/row/5/2 <-> Blood Curse of Binding is a powerful way to keep single targets stuck in place. If you fight at range and they don’t, you can stop them in place and shoot them while they stuggle. If they fight at range and you don’t want to, you can stop them in place while you get into melee. Perhaps more important, you can use this to make flying enemies fall if they’re flying nonmagically. Brand of Castigation isn’t usable often enough for it to have a large effect on your tactics, but it’s a nice option when you’re focusing on a single foe with a lot of hit points. It also discourages the target from attacking your allies, which can be great if you need to draw attention away from other allies who might be short on hit points.
+  1/row/6/1 <-> Ethereal Step Primal Rite: Rite of the Frozen
+  1/row/6/2 <-> You can use Etheral Step either to move through solid barriers like walls and doors, or you can use it in combat to move past problematic enemies to get to their squishy friends like spellcasters and archers. Rite of the Frozen is a nice option, but don’t expect to use it much since radiant damage is so much more reliable.
+  1/row/7/2 <-> More attack, damage, and AC.
+  1/row/8/1 <-> Grim Psychometry
+  1/row/8/2 <-> Grim Psychometry is a weird ability that can be hard to use unless your DM is willing to put in the work to support it. Hopefully if you’ve made it to level 9 your DM is ready for this.
+  1/row/9/1 <-> Blood Curse: The Eyeless Dark Augmentation
+  1/row/9/2 <-> Blood Curse of the Eyeless is a helpful defensive option that can negate an enemy’s successful attack roll. It’s a bit of a gamble, unfortunately, but when an enemy hits by 1 or 2 it’s great. Dark Augmentation doesn’t change your tactics significantly, but it offers a helpful bonus to your physical saving throws. Now that you’re at 20 Dexterity, you can increase your Intelligence to improve this bonus.
+  1/row/10/1 <-> Hemocraft Die: 1d8 Brand of Sundering
+  1/row/10/2 <-> Brand of Sundering is a spectacular counter to foes like ghosts which can pass through solid walls, but even against more mundane enemies adding an extra Hemocraft Die on top of your Intelligence Bonus is a significant damage increase.
+  1/row/11/1 <-> Ability Score Improvement (Intelligence 14 -> 16)
+  1/row/11/2 <-> Better saving throws, and the save DC for your Blood Curses improves.
+  1/row/12/1 <-> Blood Maledict (4/rest) Brand of Tethering
+  1/row/12/2 <-> Brand of Tethering keeps enemies from fleeing in ways that Blood Curse of Binding can’t. Brand of Tethering prevents teleportation and interplanar travel, making it a great option for enemies like spellcasters and powerful fiends which can often plane shift.
+  1/row/13/1 <-> Blood Curse: Any Hardened Soul Esoteric Rite: Roar
+  1/row/13/2 <-> At this point we have most of the good Blood Curse options, so take whatever looks interesting to you. Since we already have several great options there is room for you to experiment with options which are only situationally useful. Hardened Soul provides a helpful defense against common status conditions, but it doesn’t change our tactics. We’ve been doing just fine with radiant damage for a long time, but Esoteric Rite offers other interesting options. Rite of the Roar is great because thunder damage is so rarely resisted, and between thunder damage and radiant damage you should be able to affect anything. However, don’t forget that Rite of the Dawn offers other useful benefits like resistance to necrotic damage.
+  1/row/14/1 <-> Blood Curse of the Exorcist
+  1/row/14/2 <-> If you or an ally fail a save, this can totally change the outcome of the encounter. Use it as soon as it’s relevant.
+  1/row/15/1 <-> Ability Score Improvement (Intelligence 16 -> 18)
+  1/row/15/2 <-> Better saving throws, and the save DC for your Blood Curses improves.
+  1/row/16/1 <-> Hemocraft Die: 1d10 Blood Maledict (5/rest)
+  1/row/16/2 <-> Not much changes at level 17.
+  1/row/17/1 <-> Blood Curse: Any Rite of Revival
+  1/row/18/2 <-> Better saving throws, and the save DC for your Blood Curses improves.
+  1/row/19/1 <-> Sanguine Mastery
+  1/row/19/2 <-> Rerolling your Hemocraft die every turn usually means rerolling the die when you enhance a Blood Curse. Getting back a Blood Maledict use every time you score a critical hit is fantastic, so look for ways to get Advantage whenever you can to increase your likelihood of scoring a critical hit.

@@ -5410,6 +5410,46 @@ DnD 5e 2014
 **Українською:**
 [[1|Стрибкова атака в стилі Супер Маріо — приклад білда (2014)]]
 
+## DnD 5e Content from 3rd-Party Publishers
+<!-- sectionId: section-beyond-the-pale; rating: none -->
+
+**Український заголовок:**
+Сторонні видавці
+
+### block-section-beyond-the-pale-1 · абзац · без оцінки
+
+> RPGBOT has covered some 3rd-party content from our favorite creators. This content is published under the Open Gaming License, under Creative Commons, or through DMsGuild, and is not considered official content. As such, it is not available in Adventurer’s League organized play, and your group may not allow it in your game. If your group wants to explore 3rd-party content, we hope that these articles will help you make them work for you.
+
+**Українською:**
+RPGbot розглянув частину матеріалів третіх сторін від наших улюблених авторів. Цей контент опубліковано за Відкритою ліцензією на ігри{{Open Gaming License}}, за Creative Commons або через DMsGuild і не вважається офіційним. Тому він недоступний в організованій грі Ліги пригодників{{Adventurer’s League}}, і ваша група може не дозволити його у вашій грі. Якщо ваша група хоче дослідити матеріали третіх сторін, сподіваємося, ці статті допоможуть вам зробити їх працюючими.
+
+## Matt Mercer / Critical Role / Tal’Dorei
+<!-- sectionId: section-matt-mercer-critical-role-tal-dorei; rating: none -->
+
+**Український заголовок:**
+Метт Мерсер / Critical Role / ТалʼДорей
+
+### block-section-matt-mercer-critical-role-tal-dorei-1/item/0 · пункт · без оцінки
+
+> Matt Mercer’s Blood Hunter ([[1|DMsGuild Affiliate Link]])
+
+**Українською:**
+Кривавий мисливець{{Blood Hunter}} Метта Мерсера ([[1|партнерське посилання DMsGuild]])
+
+### block-section-matt-mercer-critical-role-tal-dorei-1/item/1 · пункт · без оцінки
+
+> [[1|“Classic” Blood Hunter Guide]]
+
+**Українською:**
+[[1|Гайд із «класичного» Кривавого мисливця]]
+
+### block-section-matt-mercer-critical-role-tal-dorei-1/item/2 · пункт · без оцінки
+
+> [[1|2020 Blood Hunter Class Guide]]
+
+**Українською:**
+[[1|Класовий гайд Кривавого мисливця (версія 2020)]]
+
 ## Frequently Asked Questions
 <!-- sectionId: section-freque; rating: none -->
 

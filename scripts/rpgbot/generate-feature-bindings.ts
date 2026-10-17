@@ -13,7 +13,12 @@ import type { ArticleDocument, EntityBinding, InlineNode } from "../../src/lib/o
 const REVIEWED_FEATURE_NAMES: Record<string, string> = {
   "Cloak of Shadows (Way of Shadow)": "Cloak of Shadows",
   "Bonus Proficiencies (Drunken Master)": "Bonus Proficiencies",
+  "Aether Walk (Order of the Ghostslayer)": "Ethereal Step",
+  "Rite Revival (Order of the Ghostslayer)": "Rite of Revival",
+  "Blood Curse of the Soul Eater (Order of the Profane Soul)": "Blood Curse of the Souleater",
 };
+
+const CLASS_GUIDES_WITH_SUBCLASS_SECTIONS = ["rpgbot-blood-hunter-2014.json"];
 
 const RPGBOT_SUBCLASS_SLUGS: Record<string, string> = { BANNERET: "purple-dragon-knight" };
 
@@ -131,7 +136,7 @@ function collectComparisonParents(characterClass: ClassData, document: ArticleDo
 
 async function readComparisonBindings(filename: string, classes: ClassData[], bindings: EntityBinding[]) {
   const document = parseArticleDocument(JSON.parse(await readFile(`data/rpgbot/uk/${filename}`, "utf8")));
-  const characterClass = classes.find((entry) => document.article.slug === `${entry.slug}-subclasses-2014`);
+  const characterClass = classes.find((entry) => [`${entry.slug}-subclasses-2014`, `${entry.slug}-2014`].includes(document.article.slug));
   if (!characterClass) throw new Error(`Missing comparison class: ${document.article.slug}`);
   const known = new Set(bindings.map((binding) => binding.bindingId));
   const parents = collectComparisonParents(characterClass, document).filter((parent) => !known.has(parent.bindingId));
@@ -143,7 +148,8 @@ export async function collectAll2014Bindings(bindings: EntityBinding[]) {
   const classes = getAllClasses("RULES_2014");
   const candidates: EntityBinding[] = [];
   const unmatched: string[] = [];
-  for (const filename of (await readdir("data/rpgbot/uk")).filter((name) => /^rpgbot-.+-subclasses-2014\.json$/.test(name)).sort()) {
+  const filenames = (await readdir("data/rpgbot/uk")).filter((name) => /^rpgbot-.+-subclasses-2014\.json$/.test(name));
+  for (const filename of [...filenames, ...CLASS_GUIDES_WITH_SUBCLASS_SECTIONS].sort()) {
     const generated = await readComparisonBindings(filename, classes, bindings);
     candidates.push(...generated.candidates);
     unmatched.push(...generated.unmatched);

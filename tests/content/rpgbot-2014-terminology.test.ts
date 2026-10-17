@@ -10,7 +10,7 @@ function readTranslations() {
 }
 
 it("2014 analysis uses ratified skill and hit-dice names", () => {
-  const retiredTerms = /(?<![\p{L}])(?:Увага|Увагу|Увагою|Уваги|Увазі|Проникливість(?! велетнів)|Проникливості|Проникливістю|Догляд за тваринами|Кубик(?:ами|ів|ом|и|а|у)? Хітів)(?![\p{L}])/u;
+  const retiredTerms = /(?<![\p{L}])(?:Увага|Увагу|Увагою|Уваги|Увазі|Проникливість(?! велетнів|\{\{Percipient\}\})|Проникливості|Проникливістю|Догляд за тваринами|Кубик(?:ами|ів|ом|и|а|у)? Хітів)(?![\p{L}])/u;
   expect(readTranslations().filter(({ text }) => retiredTerms.test(text)).map(({ name }) => name)).toEqual([]);
 });
 

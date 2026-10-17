@@ -13384,7 +13384,7 @@
     "optionId": "section-illusion-block-section-illusion-3-item-2",
     "role": "comparison",
     "primary": true,
-    "preview": "Гнучкі ілюзії{{Malleable Illusions}}: більшість заклинань ілюзій, що створюють триваючий ілюзорний ефект («Малий образ»{{Minor Image}}, Уявна земля [Hallucinatory Terrain] тощо), не дозволяють змінювати ілюзію, щойно вона створена. «Малий образ» і Оживлений образ [Major Image] дозволяють переміщати й анімувати ілюзію, але це може перетворити червону кулю на червону кулю, що котиться чи підстрибує, і не більше. «Гнучкі ілюзії» можуть перетворити вашу червону кулю на статую дракона чи щось подібне, фактично замінивши вашу наявну ілюзію без повторного накладання заклинання. Це додає таким заклина",
+    "preview": "Гнучкі ілюзії{{Malleable Illusions}}: більшість заклинань ілюзій, що створюють триваючий ілюзорний ефект (Мовчазний образ [Silent Image], Уявна земля [Hallucinatory Terrain] тощо), не дозволяють змінювати ілюзію, щойно вона створена. Мовчазний образ [Silent Image] і Оживлений образ [Major Image] дозволяють переміщати й анімувати ілюзію, але це може перетворити червону кулю на червону кулю, що котиться чи підстрибує, і не більше. «Гнучкі ілюзії» можуть перетворити вашу червону кулю на статую дракона чи щось подібне, фактично замінивши вашу наявну ілюзію без повторного накладання заклинання. Це ",
     "ratingIds": [
       "rating-wizard-subclasses-2014-057"
     ],
@@ -14355,6 +14355,566 @@
       "rating-wizard-subclasses-2014-077"
     ],
     "evidence": "src/lib/generated/classes.json: WIZARD_2014 → SCHOOL_OF_WAR_MAGIC → Deflecting Shroud, level 14; rpgbot-wizard-subclasses-2014: section-war-magic-block-section-war-magic-5-item-4; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_lycan",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "subclass",
+      "parentKey": "BLOOD_HUNTER_2014",
+      "entityKey": "ORDER_OF_THE_LYCAN"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-lycan",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Орден лікантропів",
+    "ratingIds": [],
+    "evidence": "2014 catalog BLOOD_HUNTER_2014 → ORDER_OF_THE_LYCAN; exact comparison section section-order-of-the-lycan: Орден лікантропів.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_ghostslayer",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "subclass",
+      "parentKey": "BLOOD_HUNTER_2014",
+      "entityKey": "ORDER_OF_THE_GHOSTSLAYER"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-ghostslayer",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Орден мисливців на привидів",
+    "ratingIds": [],
+    "evidence": "2014 catalog BLOOD_HUNTER_2014 → ORDER_OF_THE_GHOSTSLAYER; exact comparison section section-order-of-the-ghostslayer: Орден мисливців на привидів.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_mutant",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "subclass",
+      "parentKey": "BLOOD_HUNTER_2014",
+      "entityKey": "ORDER_OF_THE_MUTANT"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-mutant",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Орден мутантів",
+    "ratingIds": [],
+    "evidence": "2014 catalog BLOOD_HUNTER_2014 → ORDER_OF_THE_MUTANT; exact comparison section section-order-of-the-mutant: Орден мутантів.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_profane_soul",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "subclass",
+      "parentKey": "BLOOD_HUNTER_2014",
+      "entityKey": "ORDER_OF_THE_PROFANE_SOUL"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-profane-soul",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Орден нечестивої душі",
+    "ratingIds": [],
+    "evidence": "2014 catalog BLOOD_HUNTER_2014 → ORDER_OF_THE_PROFANE_SOUL; exact comparison section section-order-of-the-profane-soul: Орден нечестивої душі.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_lycan-heightened-senses-order-of-the-lycan-3",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_LYCAN",
+      "entityKey": "heightened-senses-order-of-the-lycan-3"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-lycan",
+    "optionId": "section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-0",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Загострені чуття{{Heightened Senses}}: слух зазвичай не такий корисний, як зір, а нюх рідко застосовують у перевірках Уважності. Але Перевага майже на будь-яку перевірку Уважності — це все одно добре.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-033"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_LYCAN → Heightened Senses (Order of the Lycan), level 3; rpgbot-blood-hunter-2014: section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-0; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_lycan-hybrid-transformation-order-of-the-lycan-3",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_LYCAN",
+      "entityKey": "hybrid-transformation-order-of-the-lycan-3"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-lycan",
+    "optionId": "section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-1",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Гібридне перетворення{{Hybrid Transformation}}: на одну годину ви стаєте бойовим монстром. Точніше, ще більшим бойовим монстром, ніж були досі. Гібридна форма розрахована на бій без зброї, але щитом ви все одно можете користуватися й неодмінно мусите це робити, бо вам потрібен додатковий КБ, щоб якомога довше уникати Кровожерливості{{Bloodlust}}. Година тривалості може протягнути вас через кілька боїв, якщо є достатньо лікування, але якщо Кровожерливість спрацює, а поблизу немає ворогів, яких можна атакувати, вам доведеться достроково завершити перетворення, щоб не вбити друзів. Як і «Лють»{{R",
+    "ratingIds": [
+      "rating-blood-hunter-2014-034"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_LYCAN → Hybrid Transformation (Order of the Lycan), level 3; rpgbot-blood-hunter-2014: section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-1; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_lycan-stalkers-prowess-order-of-the-lycan-7",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_LYCAN",
+      "entityKey": "stalkers-prowess-order-of-the-lycan-7"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-lycan",
+    "optionId": "section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-6",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Вправність переслідувача{{Stalker’s Prowess}}: більше швидкості не завадить, а цей бонус складається зі збільшенням швидкості від «Темного зміцнення»{{Dark Augmentation}}, тож зрештою ви отримаєте сумарний бонус до швидкості +15 футів.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-039"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_LYCAN → Stalker's Prowess (Order of the Lycan), level 7; rpgbot-blood-hunter-2014: section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-6; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_lycan-advanced-transformation-order-of-the-lycan-11",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_LYCAN",
+      "entityKey": "advanced-transformation-order-of-the-lycan-11"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-lycan",
+    "optionId": "section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-8",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Досконале перетворення{{Advanced Transformation}}: перетворення двічі за відпочинок робить Кровожерливість{{Bloodlust}} набагато меншою проблемою, бо ви можете вийти з перетворення на час, достатній, щоб підлікуватися заклинаннями, зіллями чи чимось іншим, не вдаючись до короткого відпочинку. «Регенерація лікантропа»{{Lycan Regeneration}} іде ще далі: вона розтягує використання ваших перетворень, дозволяючи відновити достатньо ХП, щоб Кровожерливість перестала на вас діяти.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-041"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_LYCAN → Advanced Transformation (Order of the Lycan), level 11; rpgbot-blood-hunter-2014: section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-8; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_lycan-brand-of-the-voracious-order-of-the-lycan-15",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_LYCAN",
+      "entityKey": "brand-of-the-voracious-order-of-the-lycan-15"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-lycan",
+    "optionId": "section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-10",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Тавро ненажери|Brand of the Voracious}}: Перевага на ряткидок проти Кровожерливості{{Bloodlust}} дає змогу набагато легше затриматися в перетвореному вигляді, щоб «Регенерація лікантропа»{{Lycan Regeneration}} повернула вас до половини максимуму ХП. Перевага на ваші кидки атаки по цілі «Тавра покарання»{{Brand of Castigation}} — приємний бонус, гідний окремого уміння. Чесно кажучи, не розумію, чому ці два ефекти не розділили, адже вони зовсім не повʼязані.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-043"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_LYCAN → Brand of the Voracious (Order of the Lycan), level 15; rpgbot-blood-hunter-2014: section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-10; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_lycan-hybrid-transformation-mastery-order-of-the-lycan-18",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_LYCAN",
+      "entityKey": "hybrid-transformation-mastery-order-of-the-lycan-18"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-lycan",
+    "optionId": "section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-11",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Майстерність гібридного перетворення{{Hybrid Transformation Mastery}}: можливість без обмежень входити в гібридну форму й виходити з неї ще більше зменшує проблему Кровожерливості{{Bloodlust}}, а ще полегшує відвідини цивілізованих місць, бо ви не ходите по них як козел-перевертень чи щось не менш огидне. «Криваве прокляття виття»{{Blood Curse of the Howl}} — чудовий спосіб розпочати будь-який бій, а якщо всі, кого ви хочете налякати, перебувають у межах 30 футів, підсилювати його не треба.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-044"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_LYCAN → Hybrid Transformation Mastery (Order of the Lycan), level 18; rpgbot-blood-hunter-2014: section-order-of-the-lycan-block-section-order-of-the-lycan-4-item-11; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_ghostslayer-rite-of-the-dawn-order-of-the-ghostslayer-3",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_GHOSTSLAYER",
+      "entityKey": "rite-of-the-dawn-order-of-the-ghostslayer-3"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-ghostslayer",
+    "optionId": "section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-0",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Обряд світанку|Rite of the Dawn}}: до променевої шкоди дуже рідко мають опір, тож це ваш найкращий варіант Багряного обряду{{Crimson Rite}} щонайменше до 14-го рівня, коли ви зазвичай обираєте свій єдиний Езотеричний обряд{{Esoteric Rite}}. Сяюча зброя корисна, але водночас відбиває бажання вмикати Багряний обряд заздалегідь, якщо ви намагаєтеся лишитися непоміченим. Опір шкоді й додаткова шкода проти невмерлих корисні лише за певних ситуацій, але проти невмерлих ворогів, які трапляються у багатьох кампаніях, вони, звісно, чудові.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-026"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_GHOSTSLAYER → Rite of the Dawn (Order of the Ghostslayer), level 3; rpgbot-blood-hunter-2014: section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-0; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_ghostslayer-curse-specialist-order-of-the-ghostslayer-3",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_GHOSTSLAYER",
+      "entityKey": "curse-specialist-order-of-the-ghostslayer-3"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-ghostslayer",
+    "optionId": "section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-1",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Знавець проклять{{Curse Specialist}}: додаткове використання Кривавого наврочення{{Blood Maledict}} уже саме по собі чудове, а можливість впливати на істот без крові, не витрачаючи ХП на підсилення, — дуже приємна. Конструкти, більшість елементалів, рослини й багато видів невмерлих не мають крові, тож зазвичай імунні до Кривавих проклять{{Blood Curses}}.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-027"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_GHOSTSLAYER → Curse Specialist (Order of the Ghostslayer), level 3; rpgbot-blood-hunter-2014: section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-1; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_ghostslayer-aether-walk-order-of-the-ghostslayer-7",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_GHOSTSLAYER",
+      "entityKey": "aether-walk-order-of-the-ghostslayer-7"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-ghostslayer",
+    "optionId": "section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-2",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Ефірна хода{{Ethereal Step}}: можливість зайти в Ефірний план і пересуватися ним зазвичай зʼявляється набагато пізніше. Наприклад, Етерність [Etherealness] — це заклинання 7-го рівня. Користуйтеся цим, щоб проходити крізь стіни й обходити будь-які інші перешкоди.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-028"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_GHOSTSLAYER → Aether Walk (Order of the Ghostslayer), level 7; rpgbot-blood-hunter-2014: section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-2; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_ghostslayer-brand-of-sundering-order-of-the-ghostslayer-11",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_GHOSTSLAYER",
+      "entityKey": "brand-of-sundering-order-of-the-ghostslayer-11"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-ghostslayer",
+    "optionId": "section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-3",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Тавро розколу|Brand of Sundering}}: на цьому рівні ваш кубик гемокрафту{{Hemocraft Die}} зростає до к8, тож додаткова шкода приємна. Проте оскільки «Тавро покарання»{{Brand of Castigation}} можна застосувати лише раз за відпочинок, вас може спокусити притримати «Тавро покарання» на випадок зустрічі з ворогами, які вміють проходити крізь істот чи стіни, як-от привиди. Сидіти на такому добрячому ресурсі «про всяк випадок» ніколи не весело, але іншого виходу я не бачу.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-029"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_GHOSTSLAYER → Brand of Sundering (Order of the Ghostslayer), level 11; rpgbot-blood-hunter-2014: section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-3; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_ghostslayer-blood-curse-of-the-exorcist-order-of-the-ghostslayer-15",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_GHOSTSLAYER",
+      "entityKey": "blood-curse-of-the-exorcist-order-of-the-ghostslayer-15"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-ghostslayer",
+    "optionId": "section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-4",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Криваве прокляття екзорциста|Blood Curse of the Exorcist}}: ефекти, що причаровують чи лякають, дуже поширені на високих рівнях, тож це прокляття ви використовуватимете часто. Шкода від підсилення автоматична й перевищує кількість ХП, яку ви при цьому втрачаєте, тож підсилювати його майже завжди варто.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-030"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_GHOSTSLAYER → Blood Curse of the Exorcist (Order of the Ghostslayer), level 15; rpgbot-blood-hunter-2014: section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-4; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_ghostslayer-rite-revival-order-of-the-ghostslayer-18",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_GHOSTSLAYER",
+      "entityKey": "rite-revival-order-of-the-ghostslayer-18"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-ghostslayer",
+    "optionId": "section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-5",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Відродження обрядом|Rite of Revival}}: Багряний обряд{{Crimson Rite}} у бою має працювати у вас постійно, а отже, цей варіант вам завжди доступний. Ну, хіба що ви вже на такій межі ХП, що не можете активувати Багряний обряд. Тоді настав час швидко відступити й дожити до наступного бою.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-031"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_GHOSTSLAYER → Rite Revival (Order of the Ghostslayer), level 18; rpgbot-blood-hunter-2014: section-order-of-the-ghostslayer-block-section-order-of-the-ghostslayer-2-item-5; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_mutant-mutagencraft-order-of-the-mutant-3",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_MUTANT",
+      "entityKey": "mutagencraft-order-of-the-mutant-3"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-mutant",
+    "optionId": "section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-1",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Мутагенне ремесло|Mutagencraft}}: мутагени дають довготривалий баф, який можна накласти нашвидкуруч, але який може мати проблемний побічний ефект. Якщо можете, застосовуйте мутаген заздалегідь, щоб бонусна дія лишалася вільною для інших речей, як-от Криваве наврочення{{Blood Maledict}}. Наявні формули цікаві, різноманітні й окремо потужні, але вас суттєво обмежує кількість мутагенів, які можна мати підготовленими одночасно. На початку це лише 1, а максимум — усього 3 на 15-му рівні, тож коли ви готуєте мутагени, треба або багато планувати й розвідувати, або вгадувати. Здебільшого це означати",
+    "ratingIds": [
+      "rating-blood-hunter-2014-048"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_MUTANT → Mutagencraft (Order of the Mutant), level 3; rpgbot-blood-hunter-2014: section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-1; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_mutant-strange-metabolism-order-of-the-mutant-7",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_MUTANT",
+      "entityKey": "strange-metabolism-order-of-the-mutant-7"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-mutant",
+    "optionId": "section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-2",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Дивний метаболізм{{Strange Metabolism}}: отрута дуже поширена, тож імунітет до неї — це чудово. Тимчасове придушення побічних ефектів мутагена може зробити багато мутагенів набагато життєздатнішими в бою.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-049"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_MUTANT → Strange Metabolism (Order of the Mutant), level 7; rpgbot-blood-hunter-2014: section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-2; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_mutant-brand-of-axiom-order-of-the-mutant-11",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_MUTANT",
+      "entityKey": "brand-of-axiom-order-of-the-mutant-11"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-mutant",
+    "optionId": "section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-3",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Тавро аксіоми|Brand of Axiom}}: ситуативне, але один із дуже небагатьох варіантів Кривавого мисливця для боротьби з невидимими істотами. Також його можна використовувати проти істот, що змінюють форму, чи заклинателів, які люблять заклинання перевтілення. Імовірно, так не задумано, але це можна застосувати до істот, яких перевтілили проти їхньої волі, щоб покласти край неприємним ефектам перевтілення.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-050"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_MUTANT → Brand of Axiom (Order of the Mutant), level 11; rpgbot-blood-hunter-2014: section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-3; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_mutant-blood-curse-of-corrosion-order-of-the-mutant-15",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_MUTANT",
+      "entityKey": "blood-curse-of-corrosion-order-of-the-mutant-15"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-mutant",
+    "optionId": "section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-4",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Криваве прокляття розʼїдання|Blood Curse of Corrosion}}: стан Отруєний — чудовий дебаф, хоч багато істот мають опір чи імунітет до нього. Підсилена версія завдає 4к6 автоматичної шкоди, що більше за ціну підсилення, тож це майже завжди добрий варіант. Проти ворогів зі слабкими ряткидками Статури, як-от багато заклинателів, це вирок.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-051"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_MUTANT → Blood Curse of Corrosion (Order of the Mutant), level 15; rpgbot-blood-hunter-2014: section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-4; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_mutant-exalted-mutation-order-of-the-mutant-18",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_MUTANT",
+      "entityKey": "exalted-mutation-order-of-the-mutant-18"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-mutant",
+    "optionId": "section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-5",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Вища мутація{{Exalted Mutation}}: вона розвʼязує найбільшу проблему мутагенів — неможливість обирати мутагени з усього списку відповідно до поточних потреб. На жаль, вона зʼявляється лише на 18-му рівні, тож у багатьох відношеннях це надто мало й надто пізно.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-052"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_MUTANT → Exalted Mutation (Order of the Mutant), level 18; rpgbot-blood-hunter-2014: section-order-of-the-mutant-block-section-order-of-the-mutant-4-item-5; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_profane_soul-otherworldly-patron-order-of-the-profane-soul-3",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_PROFANE_SOUL",
+      "entityKey": "otherworldly-patron-order-of-the-profane-soul-3"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-profane-soul",
+    "optionId": "section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-0",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Потойбічний покровитель{{Otherworldly Patron}}: на жаль, добрих варіантів покровителя мало, але їхні переваги й так незначні порівняно з доступом до Магії пакту{{Pact Magic}}, тож ви все одно цілком упораєтеся, навіть обравши не надто вдалий пакт.",
+    "ratingIds": [],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_PROFANE_SOUL → Otherworldly Patron (Order of the Profane Soul), level 3; rpgbot-blood-hunter-2014: section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-0; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_profane_soul-pact-magic-order-of-the-profane-soul-3",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_PROFANE_SOUL",
+      "entityKey": "pact-magic-order-of-the-profane-soul-3"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-profane-soul",
+    "optionId": "section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-10",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Магія пакту{{Pact Magic}}: {{Орден нечестивої душі|Order of the Profane Soul}} дає вам Магію пакту Чорнокнижника{{Warlock}} так само, як Потойбічний лицар{{Eldritch Knight}} дає Воїну{{Fighter}} чаротворство Чарівника{{Wizard}}. Допомогу з вибором заклинань шукайте нижче в розділі «Заклинання». Ви починаєте з двома замовляннями й максимум матимете три, тож обирайте з розумом. Позамежний заряд [Eldritch Blast] спокушає, але памʼятайте, що ваш Інтелект/Мудрість, імовірно, не зрівняється зі Спритністю, тож з іншими варіантами ви впораєтеся краще, доки ваш модифікатор гемокрафту{{Hemocraft modifie",
+    "ratingIds": [
+      "rating-blood-hunter-2014-083"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_PROFANE_SOUL → Pact Magic (Order of the Profane Soul), level 3; rpgbot-blood-hunter-2014: section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-10; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_profane_soul-rite-focus-order-of-the-profane-soul-3",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_PROFANE_SOUL",
+      "entityKey": "rite-focus-order-of-the-profane-soul-3"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-profane-soul",
+    "optionId": "section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-11",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Фокус обряду{{Rite Focus}}:",
+    "ratingIds": [],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_PROFANE_SOUL → Rite Focus (Order of the Profane Soul), level 3; rpgbot-blood-hunter-2014: section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-11; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_profane_soul-mystic-frenzy-order-of-the-profane-soul-7",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_PROFANE_SOUL",
+      "entityKey": "mystic-frenzy-order-of-the-profane-soul-7"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-profane-soul",
+    "optionId": "section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-21",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Містичне шаленство{{Mystic Frenzy}}: еквівалент уміння «Бойова магія»{{War Magic}} Потойбічного лицаря{{Eldritch Knight}}. Замовляння на кшталт Клинок Зеленого Полумʼя [Green-Flame Blade] — очевидні варіанти, бо для атаки ви використовуєте зброю, тож можете додати бонусну шкоду від Багряного обряду{{Crimson Rite}} до шкоди замовляння.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-093"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_PROFANE_SOUL → Mystic Frenzy (Order of the Profane Soul), level 7; rpgbot-blood-hunter-2014: section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-21; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_profane_soul-revealed-arcana-order-of-the-profane-soul-7",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_PROFANE_SOUL",
+      "entityKey": "revealed-arcana-order-of-the-profane-soul-7"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-profane-soul",
+    "optionId": "section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-22",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Явлена таємниця{{Revealed Arcana}}:",
+    "ratingIds": [],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_PROFANE_SOUL → Revealed Arcana (Order of the Profane Soul), level 7; rpgbot-blood-hunter-2014: section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-22; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_profane_soul-brand-of-the-sapping-scar-order-of-the-profane-soul-11",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_PROFANE_SOUL",
+      "entityKey": "brand-of-the-sapping-scar-order-of-the-profane-soul-11"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-profane-soul",
+    "optionId": "section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-32",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Тавро виснажливого шраму|Brand of the Sapping Scar}}: чудово для звичайного заклинателя, але вкладатися в заклинання, що дозволяють ряткидки, — велика авантюра, бо Покращення Характеристик вам треба спрямовувати на Спритність і Статуру. Можна тримати під рукою одне заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}} для цього уміння, а в решті випадків за можливості уникайте заклинань із ряткидками.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-103"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_PROFANE_SOUL → Brand of the Sapping Scar (Order of the Profane Soul), level 11; rpgbot-blood-hunter-2014: section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-32; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_profane_soul-unsealed-arcana-order-of-the-profane-soul-15",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_PROFANE_SOUL",
+      "entityKey": "unsealed-arcana-order-of-the-profane-soul-15"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-profane-soul",
+    "optionId": "section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-33",
+    "role": "comparison",
+    "primary": true,
+    "preview": "Розпечатана таємниця{{Unsealed Arcana}}:",
+    "ratingIds": [],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_PROFANE_SOUL → Unsealed Arcana (Order of the Profane Soul), level 15; rpgbot-blood-hunter-2014: section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-33; English label verified within this subclass and level; catalog description checked against the named ability.",
+    "reviewedAt": "2026-10-04T00:00:00Z"
+  },
+  {
+    "bindingId": "binding-2014-order_of_the_profane_soul-blood-curse-of-the-soul-eater-order-of-the-profane-soul-18",
+    "entity": {
+      "ruleset": "RULES_2014",
+      "kind": "feature",
+      "parentKey": "ORDER_OF_THE_PROFANE_SOUL",
+      "entityKey": "blood-curse-of-the-soul-eater-order-of-the-profane-soul-18"
+    },
+    "articleId": "rpgbot-blood-hunter-2014",
+    "sectionId": "section-order-of-the-profane-soul",
+    "optionId": "section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-43",
+    "role": "comparison",
+    "primary": true,
+    "preview": "{{Криваве прокляття пожирача душ|Blood Curse of the Souleater}}: завжди використовуйте підсилену версію. Завжди. У найгіршому разі можна витратити слот заклинань, щоб накласти Вампіричний дотик [Vampiric Touch] і повернути втрачені ХП, або накласти Удаване життя [False life], щоб отримати тимчасові ХП як запас додаткових ХП, доки не знайдете лікування.",
+    "ratingIds": [
+      "rating-blood-hunter-2014-113"
+    ],
+    "evidence": "src/lib/generated/classes.json: BLOOD_HUNTER_2014 → ORDER_OF_THE_PROFANE_SOUL → Blood Curse of the Soul Eater (Order of the Profane Soul), level 18; rpgbot-blood-hunter-2014: section-order-of-the-profane-soul-block-section-order-of-the-profane-soul-1-item-43; English label verified within this subclass and level; catalog description checked against the named ability.",
     "reviewedAt": "2026-10-04T00:00:00Z"
   }
 ]
