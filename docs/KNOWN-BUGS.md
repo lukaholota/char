@@ -27,12 +27,12 @@
 | Зміна на листі після обриву звʼязку застосовується двічі (хіти, комірки, заряди, короткий і тривалий відпочинок) | 10b1e747, 6834678e | `tests/actions/sheet-operation-replay.test.ts`, доведено поломкою копії |
 | Вбудований браузер (Instagram/Threads/Facebook) блокує вхід модалкою після раси й вимкненою кнопкою Google | 88ec54a5, 6d5513ff | `tests/components/in-app-browser-*.test.tsx` |
 | Пресет: стерте імʼя повертає згенероване (знайдено в рецензії) | f5f9f70a | компонентний тест падав на старому коді |
+| React #418 на каталогах: сторінка перемальовується після завантаження (повтор `<main>` під час гідратації) | 91a04c3a | `tests/components/shell-streamed-children-hydration.test.tsx` падав без обгортки; локально 120/120 → 0 у примусовому вікні; на проді не перевірено |
 
 **Переперевірено, лишаються відкритими:**
 
 - BUG-035 Mammon, BUG-037 Mark of Passage — лише переперевірені, не виправлені.
 - BUG-O49-HALF-ELF-DROW-MAGIC — 13 наявних персонажів без Dancing Lights; ремонт за рішенням власника.
-- React #418 на каталогах (`/bestiary`, `/magic-items`, `/rules`): ≈3 на 36 завантажень iPhone-емуляції проду; причина — повтор `<main>` з `src/components/ui/App.tsx` під час гідратації, фікс не перевірено (`scratchpad/evening/r2-hydra.md`).
 - Sentry -10 (dice-box) — потрібне рішення про `bun patch`.
 - `test:integration` на чистому main: golden/creation (2), metamagic-adept-2014 (2), magic-items-seeded, spell-source-2014-seeded. magic-items потребує `data/5etools/raw/items-base.json`, якого немає у worktree.
 
