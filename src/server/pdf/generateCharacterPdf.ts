@@ -68,6 +68,7 @@ import { generateFeaturesPdfBytes } from "./featuresPdf";
 import { generateMagicItemsPdfBytes } from "./magicItemsPdf";
 import { generateCreaturesPdfBytes } from "./creaturesPdf";
 import { collectPrintableWeaponMasteries } from "./weaponMasteryPrint";
+import { replaceMissingGlyphs } from "./missingGlyphs";
 import { findAttachedForms } from "@/server/db/wildshape";
 import type { GroupedPrintableWeaponAttack } from "./equipmentPrint";
 
@@ -566,8 +567,8 @@ async function embedNotoSansFonts(pdfDoc: PDFDocument): Promise<{ regular: PDFFo
   ]);
 
   pdfDoc.registerFontkit(fontkit);
-  const regular = await pdfDoc.embedFont(regularBytes, { subset: true });
-  const bold = await pdfDoc.embedFont(boldBytes, { subset: true });
+  const regular = replaceMissingGlyphs(await pdfDoc.embedFont(regularBytes, { subset: true }));
+  const bold = replaceMissingGlyphs(await pdfDoc.embedFont(boldBytes, { subset: true }));
 
   return { regular, bold };
 }
@@ -905,7 +906,7 @@ async function buildSpellSheetDocument(
 ): Promise<PDFDocument> {
   const document = await PDFDocument.load(source.templateBytes);
   document.registerFontkit(fontkit);
-  const font = await document.embedFont(source.fontBytes, { subset: true });
+  const font = replaceMissingGlyphs(await document.embedFont(source.fontBytes, { subset: true }));
   const form = document.getForm();
   fillForm(form);
   try {

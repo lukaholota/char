@@ -33,6 +33,7 @@ import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
 import { appendContinuationPages } from "../continuationPage";
 import { drawPortrait } from "../portraitPrint";
 import type { Overflow } from "../printContinuation";
+import { replaceMissingGlyphs } from "../missingGlyphs";
 import { CONTINUED_MARK, pickReadableText, splitWithMark, wrapText, type FittedText, type TextBox } from "../textFit";
 import { findFlowFontSize, splitFlowLines } from "../textFlow";
 
@@ -121,7 +122,7 @@ async function embedFonts(document: PDFDocument, options: Sheet2024RenderOptions
     document.embedFont(options.regularFontBytes, { subset }),
     document.embedFont(options.boldFontBytes, { subset: true }),
   ]);
-  return { regular, bold };
+  return { regular: replaceMissingGlyphs(regular), bold: replaceMissingGlyphs(bold) };
 }
 
 function applyLabelCorrections({ page, spec }: PlacedPage, ruleset: Ruleset, fonts: Fonts) {
