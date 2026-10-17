@@ -88,6 +88,7 @@ import { LanguagesForm } from "@/lib/components/characterCreator/LanguagesForm";
 import { ExpertiseForm } from "@/lib/components/characterCreator/ExpertiseForm";
 import { LevelUpWeaponMasteryStep } from "@/lib/components/levelUp/LevelUpWeaponMasteryStep";
 import { findLevelUpWeaponMastery } from "@/lib/components/levelUp/levelup-weapon-mastery";
+import { hasLevelUpExpertiseChoice } from "@/lib/components/levelUp/levelup-expertise-step";
 import { NO_WEAPON_PROFICIENCY } from "@/rules/weapon-mastery";
 import { LevelUpFeatSpellStep } from "@/lib/components/levelUp/LevelUpFeatSpellStep";
 import { useLevelUpClassOptionSpellOffer } from "@/lib/components/levelUp/level-up-class-option-spell-offer";
@@ -588,30 +589,11 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
     });
   }, [currentLevelFeatures, multiclassSkillFeature]);
 
-  const needsExpertise = useMemo(() => {
-    const hasKnowledgeChoicesAtThisLevel = (effectiveSubclass?.subclassChoiceOptions || []).some((opt: any) => {
-      if (!(opt?.levelsGranted || []).includes(classLevelAfter)) return false;
-      const groupName = String(opt?.choiceOption?.groupName || "").toLowerCase();
-      const effectKind = String(opt?.choiceOption?.effectKind || "").toUpperCase();
-      return (
-        groupName.includes("благословення знань") ||
-        groupName.includes("blessings of knowledge") ||
-        effectKind === "SKILL_EXPERTISE"
-      );
-    });
-
-    return currentLevelFeatures.some((f) => {
-      if (String((f as any)?.engName || "") === "Blessings of Knowledge" && hasKnowledgeChoicesAtThisLevel) {
-        return false;
-      }
-      const se = f.skillExpertises as any;
-      return (
-        (se?.count || 0) > 0 ||
-        se?.chooseFromCurrentProficiencies ||
-        se?.options?.length > 0
-      );
-    });
-  }, [classLevelAfter, currentLevelFeatures, effectiveSubclass]);
+  const needsExpertise = useMemo(() => hasLevelUpExpertiseChoice({
+    features: currentLevelFeatures,
+    subclassChoiceOptions: effectiveSubclass?.subclassChoiceOptions ?? [],
+    classLevelAfter,
+  }), [classLevelAfter, currentLevelFeatures, effectiveSubclass]);
 
   const needsLanguages = useMemo(() => {
     let count = 0;

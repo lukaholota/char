@@ -154,9 +154,10 @@ describe("KR31.9 — сервер відхиляє неправильний па
     signInAs(owner.email);
 
     // Мультиклас у Розбійника на 2-му рівні персонажа — Воїн лишається 1-го рівня назавжди.
+    const knownSkills = await prisma.persSkill.findMany({ where: { persId, proficiencyType: "PROFICIENT" }, select: { name: true }, take: 2 });
     const multiclassResult = await levelUpCharacter(
       persId,
-      minimalLevelUpForm({ classId: rogueClass.classId, levelUpPath: "MULTICLASS" }),
+      minimalLevelUpForm({ classId: rogueClass.classId, levelUpPath: "MULTICLASS", expertiseSchema: { expertises: knownSkills.map((skill) => skill.name) } }),
     );
     expect(multiclassResult).not.toHaveProperty("error");
 

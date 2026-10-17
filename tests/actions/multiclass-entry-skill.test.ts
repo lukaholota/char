@@ -28,10 +28,12 @@ async function createSoldierFighter() {
 
 async function enterClass(persId: number, className: Classes, skills?: string[]) {
   const target = await classByName(className);
+  const expertises = className === Classes.ROGUE_2014 ? (await readProficientSkills(persId)).slice(0, 2) : [];
   return levelUpCharacter(persId, minimalLevelUpForm({
     classId: target.classId,
     levelUpPath: "MULTICLASS",
     ...(skills ? { levelUpSkillSelections: { [MULTICLASS_SKILL_SELECTION_KEY]: skills } } : {}),
+    expertiseSchema: { expertises },
   }));
 }
 
