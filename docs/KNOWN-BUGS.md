@@ -31,7 +31,7 @@
 **Переперевірено, лишаються відкритими:**
 
 - BUG-035 Mammon, BUG-037 Mark of Passage — лише переперевірені, не виправлені.
-- BUG-O49-HALF-ELF-DROW-MAGIC — 13 наявних персонажів без Dancing Lights; ремонт за рішенням власника.
+- BUG-O49-HALF-ELF-DROW-MAGIC — код виправлено; 22 живі персонажі прод-бази чекають SQL власника `docs/night-2026-10-15-rules/half-elf-dancing-lights-owner-repair.sql` (2026-10-17: +28 рядків, 16 ручних перемічено расовими). Клірики без навички домену не ремонтуються — вибір гравця (10 живих, 26 снапшотів).
 - React #418 на каталогах (`/bestiary`, `/magic-items`, `/rules`): ≈3 на 36 завантажень iPhone-емуляції проду; причина — повтор `<main>` з `src/components/ui/App.tsx` під час гідратації, фікс не перевірено (`scratchpad/evening/r2-hydra.md`).
 - Sentry -10 (dice-box) — потрібне рішення про `bun patch`.
 - `test:integration` на чистому main: golden/creation (2), metamagic-adept-2014 (2), magic-items-seeded, spell-source-2014-seeded. magic-items потребує `data/5etools/raw/items-base.json`, якого немає у worktree.
@@ -147,6 +147,7 @@
 **Є:** варіант вибирається й показує опис, заклинань персонаж не отримує.
 **Наслідок:** `ranger-beast-master-2014` лишається blocked; персонажі з цим вибором втрачають замовляння.
 **Статус:** виправлено 2026-10-10 без SQL: генератор зіставляє «Variant; Drow Descent» з вибором «Магія дроу» (`raceOptionName` у `data/2014/race-granted-spells.json`), `findRaceSpellGrants2014` читає обрані расові опції персонажа. Видача працює на створенні й підвищенні рівня. Тести: `half-elf-descent-cantrip-2014`, `tests/content/race-granted-spells-2014.test.ts`. Існуючих персонажів прод-бази ремонтний прогін `scripts/repair-2014-granted-spells.ts` тепер теж покриє (перед запуском — dry-run власником).
+**Ремонт 2026-10-17:** прод (READ ONLY, без користувачів 5 і 967) — 63 персонажі з «Магією дроу», 22 живі, 41 снапшот. У 12 живих немає Dancing Lights, у 10 — Faerie Fire, у 6 — Darkness; 16 рядків гравці тримали вручну. Новіших за виправлення напівельфів-дроу в проді немає (останній — 2026-10-04). SQL для власника — `docs/night-2026-10-15-rules/half-elf-dancing-lights-owner-repair.sql`, лише 22 живі; dry-run у ROLLBACK на приватній тестовій базі. Снапшоти лишаються як є: вони — історія рівнів.
 
 ### BUG-O49-METAMAGIC-ADEPT — риса «Адепт метамагії» без жодної опції
 
