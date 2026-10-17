@@ -11,13 +11,13 @@ export type PrintedBoxes = { printed: PrintedBox[]; overflow: Overflow[] };
 /// Нижче цього кегля текст поля не дрібнішає, а продовжується у полі-хості, поки той сам лишається не дрібнішим.
 export const CONTINUE_BELOW_SIZE = 6;
 
-/// Порядок: поле дрібнішає до 6 pt → решта йде в поле-хост → якщо й там нема місця, на аркуш «Продовження».
-export function fitBoxesWithContinuation(sources: BoxText[], host: BoxText, font: MeasuringFont): PrintedBoxes {
+/// Порядок: поле дрібнішає до 6 pt → решта йде в поле-хост → якщо й там нема місця, туди, куди веде `pageMark`.
+export function fitBoxesWithContinuation(sources: BoxText[], host: BoxText, font: MeasuringFont, pageMark = CONTINUED_MARK): PrintedBoxes {
   const accepted: Overflow[] = [];
   const overflow: Overflow[] = [];
-  const printed = sources.map((source) => fitReadable(source, font) ?? continueInHost(source, host, font, accepted) ?? continueOnPage(source, font, overflow));
+  const printed = sources.map((source) => fitReadable(source, font) ?? continueInHost(source, host, font, accepted) ?? continueOnPage(source, font, overflow, pageMark));
   const hostWithContinuations = { ...host, text: appendContinuations(host.text, accepted) };
-  const printedHost = fitReadable(hostWithContinuations, font) ?? continueOnPage(hostWithContinuations, font, overflow);
+  const printedHost = fitReadable(hostWithContinuations, font) ?? continueOnPage(hostWithContinuations, font, overflow, pageMark);
   return { printed: [...printed, printedHost], overflow };
 }
 
@@ -44,9 +44,9 @@ function continueInHost(source: BoxText, host: BoxText, font: MeasuringFont, acc
   return { name: source.name, lines: [...lines, mark], size, value: [kept, mark].filter(Boolean).join("\n") };
 }
 
-function continueOnPage(source: BoxText, font: MeasuringFont, overflow: Overflow[]): PrintedBox {
+function continueOnPage(source: BoxText, font: MeasuringFont, overflow: Overflow[], mark: string): PrintedBox {
   const size = Math.min(CONTINUE_BELOW_SIZE, source.maxFontSize);
-  const { lines, value, rest } = splitWithMark(source.text, font, source.box, size, CONTINUED_MARK);
+  const { lines, value, rest } = splitWithMark(source.text, font, source.box, size, mark);
   if (rest) overflow.push({ label: source.label, text: rest });
   return { name: source.name, lines, size, value };
 }

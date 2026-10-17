@@ -76,13 +76,17 @@ export function wrapText(text: string, font: MeasuringFont, size: number, boxWid
 }
 
 export function splitTextToFit(text: string, font: MeasuringFont, box: TextBox, size: number, options: { reserveLastLine?: boolean } = {}): TextSplit {
-  const normalized = normalizeFieldText(text);
   const capacity = countFittingLines(font, box, size);
-  const lines = wrapIntoLines(normalized, { font, size, maxWidth: shrinkByPadding(box).width }, capacity + 1);
-  if (lines.length <= capacity) return { lines: lines.map((line) => line.text), kept: normalized, rest: "" };
-  const keptCount = options.reserveLastLine ? Math.max(0, capacity - 1) : capacity;
-  const restStart = lines[keptCount].start;
-  return { lines: lines.slice(0, keptCount).map((line) => line.text), kept: normalized.slice(0, restStart).trimEnd(), rest: normalized.slice(restStart) };
+  const split = takeLines(text, font, size, box.width, capacity);
+  return split.rest && options.reserveLastLine ? takeLines(text, font, size, box.width, Math.max(0, capacity - 1)) : split;
+}
+
+export function takeLines(text: string, font: MeasuringFont, size: number, boxWidth: number, count: number): TextSplit {
+  const normalized = normalizeFieldText(text);
+  const lines = wrapIntoLines(normalized, { font, size, maxWidth: boxWidth - FIELD_PADDING * 2 }, count + 1);
+  if (lines.length <= count) return { lines: lines.map((line) => line.text), kept: normalized, rest: "" };
+  const restStart = lines[count].start;
+  return { lines: lines.slice(0, count).map((line) => line.text), kept: normalized.slice(0, restStart).trimEnd(), rest: normalized.slice(restStart) };
 }
 
 /// Повна форма лишається, поки читається; інакше береться коротша з наступних.

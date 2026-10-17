@@ -53,7 +53,7 @@ import {
 } from "./characterSheetText";
 import { collectSheetPdfSpells } from "./sheet-pdf-spells";
 import { CONTINUE_BELOW_SIZE, fitBoxesWithContinuation, fitOrCut, type BoxText, type Overflow, type PrintedBox } from "./printContinuation";
-import { appendContinuationPages } from "./continuationPage";
+import { DETAILS_BOX_MARK, appendContinuationPages, drawOverflowInBox } from "./continuationPage";
 import { fitSingleLineFontSize } from "./textFit";
 import { drawPortrait, loadPortraitJpeg } from "./portraitPrint";
 import { buildSheet2024Document, isSheet2024Requested } from "./sheet2024/buildSheet2024";
@@ -144,7 +144,7 @@ function fillWeaponSlots(form: PDFForm, weapons: GroupedPrintableWeaponAttack[])
   });
 }
 
-const DEFAULT_SECTIONS: PrintSection[] = ["CHARACTER", "FEATURES", "SPELLS", "MAGIC_ITEMS", "WILDSHAPES"];
+const DEFAULT_SECTIONS: PrintSection[] = ["CHARACTER", "DETAILS", "FEATURES", "SPELLS", "MAGIC_ITEMS", "WILDSHAPES"];
 
 function normalizePrintConfig(config: PrintConfig | null | undefined): PrintConfig {
   const sections = (config?.sections?.length ? config.sections : DEFAULT_SECTIONS).filter(Boolean);
@@ -175,13 +175,13 @@ type PageBoxTexts = Record<PageBoxKey | "FeaturesAndTraits", string>;
 type PlacedField = { field: PDFTextField; box: BoxText };
 
 /// Поля сторінки 1 стискаються до читабельного кегля, решта тексту йде у вільне місце поля «Уміння та Особливості»,
-/// а що не влізло й туди — на аркуш «Продовження».
+/// а що не влізло й туди — на бланк подробиць.
 function fillTextBoxes(form: PDFForm, font: PDFFont, texts: PageBoxTexts): Overflow[] {
   const sources = PAGE_BOXES.map((spec) => findPlacedField(form, spec.names, { name: spec.key, label: spec.label, text: texts[spec.key], maxFontSize: spec.maxFontSize }));
   const host = findPlacedField(form, CONTINUATION_BOX.names, { name: "FeaturesAndTraits", label: CONTINUATION_BOX.label, text: texts.FeaturesAndTraits, maxFontSize: CONTINUATION_BOX.maxFontSize });
   const placed = sources.filter((source): source is PlacedField => source !== null);
   const { printed, overflow } = host
-    ? fitBoxesWithContinuation(placed.map(({ box }) => box), host.box, font)
+    ? fitBoxesWithContinuation(placed.map(({ box }) => box), host.box, font, DETAILS_BOX_MARK)
     : { printed: placed.map(({ box }) => fitOrCut(box, font)), overflow: [] };
   const fieldsByName = new Map([...placed, ...(host ? [host] : [])].map((placedField) => [placedField.box.name, placedField.field]));
   for (const box of printed) {
@@ -729,7 +729,6 @@ async function buildClassicSheetDocument(
       async () => {
         const form = pdfDoc.getForm();
         const overflow = fillFirstPageUsingExistingFields(form, data, notoSansRegular);
-        appendContinuationPages(pdfDoc, overflow, fonts, pdfDoc.getPage(0).getSize());
 
         if (normalized.flattenCharacterSheet) {
           try {
@@ -738,6 +737,11 @@ async function buildClassicSheetDocument(
           } catch (err) {
             log.warn("character.flatten.failed", { err });
           }
+        }
+
+        if (overflow.length > 0 || normalized.sections.includes("DETAILS")) {
+          const rest = await addClassicDetailsPage(pdfDoc, data.pers, overflow, fonts, log);
+          appendContinuationPages(pdfDoc, rest, fonts, pdfDoc.getPage(0).getSize());
         }
       }
     );
@@ -770,7 +774,7 @@ function collectRequestedSections(
   const sections: Array<PdfSection & { isIncluded: boolean }> = [
     {
       title: "Бланк подробиць",
-      isIncluded: requested.has("DETAILS"),
+      isIncluded: requested.has("DETAILS") && !requested.has("CHARACTER"),
       loadDocuments: async () => [await buildClassicDetailsDocument(data.pers, log)],
     },
     {
@@ -858,6 +862,22 @@ function appendSectionFailurePage(target: PDFDocument, title: string, font: PDFF
 
 /// Внутрішня частина рамки «Зовнішність персонажа» бланка CharacterDetails.pdf, над підписом.
 const CLASSIC_APPEARANCE_AREA = { x: 33, y: 447, width: 168, height: 213 };
+/// Внутрішня частина рамки «Додаткові Уміння та Особливості», над підписом.
+const CLASSIC_EXTRA_FEATURES_AREA = { x: 224, y: 220, width: 352, height: 190 };
+
+/// Бланк подробиць іде одразу за листом і приймає текст, що не вмістився на ньому; що не влізло й сюди — на «Продовження».
+async function addClassicDetailsPage(
+  target: PDFDocument,
+  pers: CharacterPdfData["pers"],
+  overflow: Overflow[],
+  fonts: { regular: PDFFont; bold: PDFFont },
+  log: PdfSectionLogger
+): Promise<Overflow[]> {
+  const details = await buildClassicDetailsDocument(pers, log);
+  const [page] = await target.copyPages(details, [0]);
+  target.addPage(page);
+  return drawOverflowInBox(page, overflow, fonts, CLASSIC_EXTRA_FEATURES_AREA);
+}
 
 async function buildClassicDetailsDocument(pers: CharacterPdfData["pers"], log: PdfSectionLogger): Promise<PDFDocument> {
   const [templateBytes, portraitJpeg] = await Promise.all([readPublicFile("CharacterDetails.pdf"), loadPortraitJpeg(pers.portraitKey, log)]);

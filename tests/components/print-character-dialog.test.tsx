@@ -63,6 +63,21 @@ describe("Дикі форми в модалці друку", () => {
   });
 });
 
+describe("бланк подробиць", () => {
+  it("просить бланк подробиць за замовчуванням: туди переходить текст, що не вмістився на лист", async () => {
+    vi.mocked(findPrintableWildshapeCountAction).mockResolvedValue(0);
+    vi.mocked(generateCharacterPdfAction).mockRejectedValue(new Error("renderer stopped"));
+    render(<PrintCharacterDialog persId={10} characterName="Мирон" />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Друк" }));
+    expect((await screen.findByRole("checkbox", { name: "Бланк подробиць" })).getAttribute("data-state")).toBe("checked");
+    fireEvent.click(screen.getByRole("button", { name: "Завантажити PDF" }));
+
+    await waitFor(() => expect(generateCharacterPdfAction).toHaveBeenCalledOnce());
+    expect(vi.mocked(generateCharacterPdfAction).mock.calls[0][1].sections).toContain("DETAILS");
+  });
+});
+
 describe("перемикач «Лист 2024»", () => {
   it("просить бланк 2024 і прибирає класичну таблицю заклинань", async () => {
     vi.mocked(findPrintableWildshapeCountAction).mockResolvedValue(0);

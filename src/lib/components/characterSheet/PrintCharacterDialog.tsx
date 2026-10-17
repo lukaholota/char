@@ -70,7 +70,7 @@ export default function PrintCharacterDialog({
   const [includeFeatures, setIncludeFeatures] = useState(() => !initialSections || initialSections.includes("FEATURES"));
   const [includeSpells, setIncludeSpells] = useState(() => !initialSections || initialSections.includes("SPELLS"));
   const [includeSpellSheet, setIncludeSpellSheet] = useState(() => !initialSections || initialSections.includes("SPELL_SHEET"));
-  const [includeDetails, setIncludeDetails] = useState(() => initialSections?.includes("DETAILS") ?? false);
+  const [includeDetails, setIncludeDetails] = useState(() => !initialSections || initialSections.includes("DETAILS"));
   const [includeMagicItems, setIncludeMagicItems] = useState(() => !initialSections || initialSections.includes("MAGIC_ITEMS"));
   const [wildshapeCount, setWildshapeCount] = useState(0);
   const [includeWildshapes, setIncludeWildshapes] = useState(false);

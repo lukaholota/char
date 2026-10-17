@@ -5,7 +5,7 @@ import fontkit from "@pdf-lib/fontkit";
 import { PDFDocument, TextAlignment, layoutMultilineText, type PDFFont } from "pdf-lib";
 import { beforeAll, describe, expect, it } from "vitest";
 
-import { CONTINUATION_TITLE, appendContinuationPages, layoutContinuationPages } from "@/server/pdf/continuationPage";
+import { CONTINUATION_TITLE, appendContinuationPages, layoutContinuationPages, layoutOverflowColumns } from "@/server/pdf/continuationPage";
 import { CONTINUED_MARK, CONTINUE_BELOW_SIZE, fitBoxesWithContinuation, fitOrCut } from "@/server/pdf/printContinuation";
 import {
   MIN_FONT_SIZE,
@@ -270,5 +270,49 @@ describe("аркуш «Продовження»", () => {
     appendContinuationPages(target, [{ label: "Ідеали", text: SENTENCE }], { regular, bold: regular }, page);
     expect(target.getPageCount()).toBe(1);
     expect(CONTINUATION_TITLE).toBe("Продовження");
+  });
+});
+
+describe("рамка бланка подробиць", () => {
+  const area = { x: 224, y: 220, width: 352, height: 190 };
+  const textOf = (lines: { text: string; isHeading: boolean }[]) => lines.filter((line) => !line.isHeading && line.text !== CONTINUED_MARK).map((line) => line.text).join(" ");
+
+  it("короткий надлишок вміщається в одну колонку без позначки", () => {
+    const overflow = [{ label: "Ідеали", text: SENTENCE.repeat(2) }];
+    const { columns, rest } = layoutOverflowColumns(overflow, font, area);
+
+    expect(rest).toEqual([]);
+    expect(columns).toHaveLength(1);
+    expect(columns[0][0]).toEqual({ text: "Ідеали (продовження)", isHeading: true });
+    expect(words(textOf(columns[0]))).toEqual(words(overflow[0].text));
+  });
+
+  it("довгий надлишок займає дві колонки, а решту без втрати слів віддає на «Продовження»", () => {
+    const overflow = [
+      { label: "Спорядження", text: SENTENCE.repeat(8) },
+      { label: "Уміння та Особливості", text: SENTENCE.repeat(60) },
+      { label: "Вади", text: SENTENCE },
+    ];
+    const { columns, rest } = layoutOverflowColumns(overflow, font, area);
+    const lines = columns.flat();
+
+    expect(columns).toHaveLength(2);
+    expect(columns[0]).toHaveLength(columns[1].length);
+    expect(lines.at(-1)?.text).toBe(CONTINUED_MARK);
+    expect(rest.map(({ label }) => label)).toEqual(["Уміння та Особливості", "Вади"]);
+    const featuresInBox = lines.slice(lines.findIndex((line) => line.text === "Уміння та Особливості (продовження)") + 1);
+    expect(words([textOf(featuresInBox), rest[0].text].join(" "))).toEqual(words(overflow[1].text));
+    for (const line of lines) expect(font.widthOfTextAtSize(line.text, 7)).toBeLessThan((area.width - 12) / 2);
+  });
+
+  it("заголовок не лишається останнім рядком колонки, а колонка не починається з порожнього рядка", () => {
+    for (let lineCount = 10; lineCount <= 30; lineCount++) {
+      const first = { label: "Ідеали", text: Array.from({ length: lineCount }, (_, index) => `рядок ${index + 1}`).join("\n") };
+      const { columns } = layoutOverflowColumns([first, { label: "Вади", text: "останній" }], font, area);
+      for (const column of columns) {
+        expect(column.at(-1)?.isHeading).toBe(false);
+        expect(column[0].text).not.toBe("");
+      }
+    }
   });
 });

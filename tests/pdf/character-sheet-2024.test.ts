@@ -291,14 +291,25 @@ describe("текст, що не вміщається на бланку", () => {
     return (await PDFDocument.load(bytes)).getPageCount();
   }
 
-  it("класичний лист: решта рис характеру йде на аркуш «Продовження», а поля тримають текст без штучних розривів", async () => {
+  it("класичний лист: решта рис характеру йде на бланк подробиць, а що не влізло й туди — на аркуш «Продовження»", async () => {
     const normalPages = await countPages(await generatePdf(pers2014Id, EDITABLE, "CLASSIC"));
     const longBytes = await generatePdf(pers2014Id, EDITABLE, "CLASSIC", { personalityTraits: LONG_TEXT });
     const form = (await PDFDocument.load(longBytes)).getForm();
     const traits = form.getTextField("PersonalityTraits ").getText() ?? "";
 
     expect(await countPages(longBytes)).toBeGreaterThan(normalPages);
-    expect(traits.split("\n")).toEqual([expect.stringMatching(/^Говорить з кожним.*борги\. Говорить/), "… далі на аркуші «Продовження»"]);
+    expect(traits.split("\n")).toEqual([expect.stringMatching(/^Говорить з кожним.*борги\. Говорить/), "… далі на бланку подробиць"]);
+  });
+
+  it("класичний лист: надлишок сам додає бланк подробиць одразу за листом і не дублює обраний", async () => {
+    const characterOnly: Omit<PrintConfig, "sheetLayout"> = { sections: ["CHARACTER"], flattenCharacterSheet: false };
+    const pagesOf = async (config: Omit<PrintConfig, "sheetLayout">, patch = {}) => countPages(await generatePdf(pers2014Id, config, "CLASSIC", patch));
+
+    expect(await pagesOf(characterOnly)).toBe(1);
+    expect(await pagesOf(EDITABLE)).toBe(2);
+    const overflowingPages = await pagesOf(characterOnly, { ideals: LONG_TEXT });
+    expect(overflowingPages).toBeGreaterThan(2);
+    expect(await pagesOf(EDITABLE, { ideals: LONG_TEXT })).toBe(overflowingPages);
   });
 
   it("лист 2024: решта передісторії йде на аркуш «Продовження», а поле тримає текст без штучних розривів", async () => {
