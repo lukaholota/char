@@ -59,6 +59,15 @@ export function stripPrivateUrls(properties: Record<string, unknown>): void {
     const value = properties[key];
     if (typeof value === "string") properties[key] = stripPrivateUrlParams(value);
   }
+  stripInitialPersonInfoUrls(properties);
+}
+
+// posthog-js keeps the first page as `$initial_person_info: { u, r }` and expands it on the server.
+function stripInitialPersonInfoUrls(properties: Record<string, unknown>): void {
+  const info = properties.$initial_person_info;
+  if (!info || typeof info !== "object") return;
+  const { u, r } = info as { u?: unknown; r?: unknown };
+  properties.$initial_person_info = { ...info, ...(typeof u === "string" ? { u: stripPrivateUrlParams(u) } : {}), ...(typeof r === "string" ? { r: stripPrivateUrlParams(r) } : {}) };
 }
 
 type CapturedException = {

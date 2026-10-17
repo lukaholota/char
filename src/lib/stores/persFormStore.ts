@@ -2,6 +2,10 @@ import {PersFormData} from "@/lib/zod/schemas/persCreateSchema";
 import {useLayoutEffect, useSyncExternalStore} from "react";
 import {create} from "zustand";
 import {createJSONStorage, persist} from "zustand/middleware";
+import {decodeDraftLink, type LinkedDraft, type LinkedDraftScope} from "@/lib/utils/draft-link";
+import {takeDraftFragment} from "@/lib/utils/draft-fragment";
+import {offerLinkedDraft} from "@/lib/components/characterCreator/offer-linked-draft";
+import {captureInAppDraftRestored} from "@/lib/monitoring/funnel-analytics";
 
 export type DraftRuleset = "RULES_2014" | "RULES_2024";
 
@@ -21,6 +25,8 @@ const DRAFT_STORAGE_VERSION = 1;
 // The store hydrates the 2014 draft on any page (level-up, sheet), so the notice must outlive that page.
 const DRAFT_RESET_NOTICE_KEY = "dnd-pers-form-reset-notice";
 let hydratingDraftKey = DRAFT_STORAGE_KEY_BY_SCOPE.CREATOR_2014;
+let pageDraftScope: LinkedDraftScope | null = null;
+let decodingLinkScope: LinkedDraftScope | null = null;
 
 export function consumeDraftResetNotice(): boolean {
   try {
@@ -161,7 +167,7 @@ function findPersDraftStorageKey(scope: DraftScope): string {
   return DRAFT_STORAGE_KEY_BY_SCOPE[scope as FixedDraftScope];
 }
 
-function findCreatorDraftScope(ruleset: DraftRuleset): DraftScope {
+function findCreatorDraftScope(ruleset: DraftRuleset): LinkedDraftScope {
   return ruleset === "RULES_2024" ? "CREATOR_2024" : "CREATOR_2014";
 }
 
@@ -179,19 +185,70 @@ export function usePresetDraftStorage(buildId: string): boolean {
   return useDraftStorage(buildId === "build-monk-shadow-2014" ? "PRESET_2014" : `PRESET_2014:${buildId}`);
 }
 
-function useDraftStorage(scope: DraftScope): boolean {
+function useDraftStorage(scope: LinkedDraftScope): boolean {
   const isActive = useSyncExternalStore(
     usePersFormStore.subscribe,
-    () => isDraftStorageActive(scope),
+    () => isDraftStorageActive(scope) && decodingLinkScope !== scope,
     // Сервер не бачить чернетки з localStorage: крок із нею малюється вже після гідрації (React #418).
     () => false,
   );
 
   useLayoutEffect(() => {
     activateDraftStorage(scope);
+    pageDraftScope = scope;
+    restoreDraftFromLink(scope);
+    return () => {
+      if (pageDraftScope === scope) pageDraftScope = null;
+    };
   }, [scope]);
 
   return isActive;
+}
+
+/** The creator or preset draft of the page on screen, for the in-app browser handoff link. */
+export function findLinkableDraft(): LinkedDraft | null {
+  if (!pageDraftScope || !isDraftStorageActive(pageDraftScope)) return null;
+  const { formData, currentStep, totalSteps } = usePersFormStore.getState();
+  if (!hasDraftProgress(formData, currentStep)) return null;
+  return { scope: pageDraftScope, formData, currentStep, totalSteps };
+}
+
+// The page stays "not hydrated" while the link is decoded, so it opens straight on the restored step.
+function restoreDraftFromLink(scope: LinkedDraftScope): void {
+  const encoded = takeDraftFragment();
+  if (!encoded) return;
+  const local = usePersFormStore.getState();
+  const hadLocalProgress = hasDraftProgress(local.formData, local.currentStep);
+  decodingLinkScope = scope;
+  void decodeDraftLink(encoded).then((linked) => {
+    decodingLinkScope = null;
+    if (!linked || linked.scope !== scope || !isDraftStorageActive(scope) || isSameDraft(linked)) {
+      usePersFormStore.setState({});
+      return;
+    }
+    if (!hadLocalProgress) applyLinkedDraft(linked, false);
+    else {
+      usePersFormStore.setState({});
+      offerLinkedDraft(() => {
+        if (isDraftStorageActive(scope)) applyLinkedDraft(linked, true);
+      });
+    }
+  });
+}
+
+function applyLinkedDraft(linked: LinkedDraft, replacedLocal: boolean): void {
+  // A new resetNonce stops the step on screen from writing its local values back into the linked draft as it unmounts.
+  usePersFormStore.setState((state) => ({ formData: linked.formData, currentStep: linked.currentStep, totalSteps: linked.totalSteps, resetNonce: state.resetNonce + 1 }));
+  captureInAppDraftRestored(linked.scope.startsWith("PRESET_2014") ? "ready_preset" : "manual", linked.scope === "CREATOR_2024" ? "2024" : "2014", replacedLocal);
+}
+
+function hasDraftProgress(formData: Partial<PersFormData>, currentStep: number): boolean {
+  return currentStep > 1 || Object.keys(formData).length > 0;
+}
+
+function isSameDraft(linked: LinkedDraft): boolean {
+  const { formData, currentStep } = usePersFormStore.getState();
+  return currentStep === linked.currentStep && JSON.stringify(formData) === JSON.stringify(linked.formData);
 }
 
 export function activateLevelUpDraftStorage(): void {

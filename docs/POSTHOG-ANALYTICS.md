@@ -191,6 +191,17 @@ callback, `/qa-sign-in`, лист персонажа й внутрішні ак�
 - SDK ініціалізується з `bootstrap: { distinctID, sessionID }` — тими самими, що до входу;
   потім наявний `identify(<числовий user.id>)` зливає анонімну частину з користувачем.
   Email ніколи не стає ідентифікатором. Вихід: як і раніше, `reset()` або перезавантаження.
+
+### Чернетка в посиланні (`#draft=`)
+
+- Посилання з вбудованого браузера (кнопки Safari/Chrome/intent і копіювання) несе чернетку
+  конструктора чи пресета активної сторінки: стиснутий JSON у фрагменті `#draft=`. Фрагмент не
+  йде на сервер; вміст чернетки в аналітику не потрапляє.
+- На відкритті `takeDraftFragment` прибирає `#draft=` з адреси `history.replaceState` у
+  layout-ефекті сторінки, до першого pageview.
+- Запасний захист: `before_send` (`stripPrivateUrlParams`) вирізає `#draft=` з `$current_url`,
+  `$referrer`, `$session_entry_url`, `$initial_*` і `$initial_person_info.u/r`; Sentry —
+  `beforeSend`, `beforeSendTransaction`, `beforeBreadcrumb` (`request.url`, `from`/`to`/`url`).
 - Якщо SDK до входу ще не завантажився (перші ~5 с), передаються лише атрибуція й спроба;
   тоді склеювання йде через `creation_attempt_id`.
 - Сервер: `character_created` має `distinct_id = String(user.id)` (той самий, що в identify),
@@ -236,9 +247,11 @@ referrer-поля, якщо це `accounts.google.*`: Google більше не �
 | `inapp_warning_dismissed` | «Продовжити тут» або закриття | `placement`, `action`: `continue_here` \| `close` |
 | `inapp_external_browser_selected` | натиснуто дію «відкрити у звичайному браузері» | `placement`, `method`: `android_intent` \| `ios_safari_scheme` \| `ios_chrome_scheme` \| `system_share` \| `instructions_only` \| `other` |
 | `inapp_link_copied` | результат копіювання посилання | `placement`, `ok` |
+| `inapp_draft_restored` | у звичайному браузері відкрито посилання з `#draft=` і чернетку відновлено (тихо або після «Продовжити») | `creation_path`: `manual` \| `ready_preset`, `edition`, `replaced_local` |
 
 Усі події `inapp_*` також несуть `variant`: `control` \| `contextual` \| `contextual-handoff` (варіант
-UI вбудованого браузера з `?inapp_variant=`) або `null`. Події `inapp_*` викликає UI вбудованого браузера через `captureInAppWarningShown`,
+UI вбудованого браузера з `?inapp_variant=`) або `null`, крім `inapp_draft_restored`: її шле вже
+звичайний браузер, де варіанта немає. Події `inapp_*` викликає UI вбудованого браузера через `captureInAppWarningShown`,
 `captureInAppWarningDismissed`, `captureExternalBrowserSelected`, `captureLinkCopied`; скопійоване
 посилання будується `buildInAppHandoffUrl` і несе `entry_source=<host>&entry_medium=inapp_handoff`.
 Скасування на сторінці Google не видно: Auth.js без `pages` веде помилки й скасування на свої

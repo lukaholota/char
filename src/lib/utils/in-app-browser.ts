@@ -64,7 +64,7 @@ export interface OpenInBrowserLink {
 export function buildOpenInBrowserLinks(pageUrl: string, platform: DevicePlatform): OpenInBrowserLink[] {
   const url = parseWebUrl(pageUrl);
   if (!url) return [];
-  const address = `${url.host}${url.pathname}${url.search}`;
+  const address = `${url.host}${url.pathname}${url.search}${url.hash}`;
   if (platform === "ios") {
     // a page cannot tell whether Chrome is installed, so Safari goes first
     return [
@@ -73,6 +73,7 @@ export function buildOpenInBrowserLinks(pageUrl: string, platform: DevicePlatfor
     ];
   }
   if (platform === "android") {
+    // Android's Intent.parseUri splits at the last "#", so a "#draft=" fragment stays in the opened address.
     const scheme = url.protocol.slice(0, -1);
     const fallback = encodeURIComponent(url.href);
     return [{ browser: "chrome", label: "Відкрити в Chrome", href: `intent://${address}#Intent;scheme=${scheme};package=com.android.chrome;S.browser_fallback_url=${fallback};end` }];

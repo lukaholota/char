@@ -48,3 +48,17 @@ describe("private URL params", () => {
     expect(properties).toEqual({ $current_url: "https://a.test/x", $referrer: "https://a.test/y", $session_entry_url: "https://a.test/?b=2", other: "q=keep" });
   });
 });
+
+describe("PostHog draft link privacy", () => {
+  it("drops the carried draft from page, referrer and first-touch addresses", () => {
+    const properties: Record<string, unknown> = {
+      $current_url: "https://char.holota.family/char/create?entry_source=telegram#draft=SECRET",
+      $referrer: "https://char.holota.family/char/create#draft=SECRET",
+      $initial_person_info: { u: "https://char.holota.family/char/create#draft=SECRET", r: "$direct" },
+    };
+    stripPrivateUrls(properties);
+    expect(JSON.stringify(properties)).not.toContain("draft=");
+    expect(properties.$current_url).toBe("https://char.holota.family/char/create?entry_source=telegram");
+    expect(properties.$initial_person_info).toEqual({ u: "https://char.holota.family/char/create", r: "$direct" });
+  });
+});

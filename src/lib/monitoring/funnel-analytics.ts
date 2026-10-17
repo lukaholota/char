@@ -25,6 +25,7 @@ export type FunnelEventProperties = {
   inapp_warning_dismissed: { placement: InAppPlacement; action: InAppDismissAction; variant: InAppBrowserVariant | null };
   inapp_external_browser_selected: { placement: InAppPlacement; method: ExternalBrowserMethod; variant: InAppBrowserVariant | null };
   inapp_link_copied: { placement: InAppPlacement; ok: boolean; variant: InAppBrowserVariant | null };
+  inapp_draft_restored: { creation_path: CreationPath; edition: Edition; replaced_local: boolean };
 };
 
 type FunnelEventName = keyof FunnelEventProperties;
@@ -167,6 +168,10 @@ export function captureExternalBrowserSelected(placement: InAppPlacement, method
 
 export function captureLinkCopied(placement: InAppPlacement, ok: boolean, variant: InAppBrowserVariant | null = null): void {
   captureFunnelEvent("inapp_link_copied", { placement, ok, variant });
+}
+
+export function captureInAppDraftRestored(creationPath: CreationPath, edition: Edition, replacedLocal: boolean): void {
+  captureFunnelEvent("inapp_draft_restored", { creation_path: creationPath, edition, replaced_local: replacedLocal });
 }
 
 export function buildInAppHandoffUrl(href: string): string {

@@ -1,4 +1,5 @@
 import { hasNoAiPrefix, stripNoAiPrefix } from "@/lib/no-ai/no-ai-route";
+import { stripDraftFragment } from "@/lib/utils/draft-fragment";
 
 export function buildPostHogPageProperties(pathname: string, edition?: string) {
   const route = stripNoAiPrefix(pathname).replace(/^\/2024(?=\/|$)/, "") || "/";
@@ -29,7 +30,8 @@ export function buildScreenProperties(width: number, height: number) {
 
 const PRIVATE_URL_PARAMS = ["persName", "q", "ph_ctx"];
 
-export function stripPrivateUrlParams(url: string): string {
+export function stripPrivateUrlParams(href: string): string {
+  const url = stripDraftFragment(href);
   if (!PRIVATE_URL_PARAMS.some((param) => url.includes(`${param}=`))) return url;
   try {
     const parsed = new URL(url);

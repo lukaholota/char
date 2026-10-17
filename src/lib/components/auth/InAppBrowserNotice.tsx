@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Copy, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { copyTextToClipboard } from "@/lib/utils/copy-text";
+import { appendDraftFragment } from "@/lib/utils/draft-fragment";
 import { buildOpenInBrowserLinks, type BrowserEnvironment, type InAppBrowserHost, type InAppBrowserVariant, type OpenInBrowserLink } from "@/lib/utils/in-app-browser";
 import {
   buildInAppHandoffUrl,
@@ -33,7 +34,9 @@ const HOST_NAMES: Record<InAppBrowserHost, string | null> = {
 export function InAppBrowserNotice({ environment, variant, placement }: Props) {
   const [copyState, setCopyState] = useState<CopyState>("idle");
   const [triedBrowser, setTriedBrowser] = useState<OpenInBrowserLink | null>(null);
-  const [handoffUrl] = useState(() => (typeof window === "undefined" ? "" : buildInAppHandoffUrl(window.location.href)));
+  const [pageUrl] = useState(() => (typeof window === "undefined" ? "" : buildInAppHandoffUrl(window.location.href)));
+  const draftFragment = useLinkedDraftFragment();
+  const handoffUrl = appendDraftFragment(pageUrl, draftFragment);
   const browserName = findBrowserName(environment);
   const openLinks = buildOpenInBrowserLinks(handoffUrl, environment.platform);
 
@@ -57,7 +60,9 @@ export function InAppBrowserNotice({ environment, variant, placement }: Props) {
         Google може не пустити в цьому браузері
       </h3>
       <p>{describeContext(environment.host)} Відкрийте сторінку {browserName}, щоб увійти.</p>
-      <p className="text-slate-400">Посилання відкриє цю саму сторінку, але незбережені вибори туди не перенесуться.</p>
+      <p className="text-slate-400">
+        {draftFragment ? "Посилання перенесе ваші вибори: у браузері ви продовжите з того самого кроку." : "Посилання відкриє цю саму сторінку, але незбережені вибори туди не перенесуться."}
+      </p>
 
       {openLinks.map((link, index) => (
         <Button key={link.browser} asChild variant={index === 0 ? "default" : "secondary"} className="min-h-11 w-full">
@@ -100,6 +105,27 @@ function ManualCopyField({ url }: { url: string }) {
       />
     </div>
   );
+}
+
+function useLinkedDraftFragment(): string | null {
+  const [fragment, setFragment] = useState<string | null>(null);
+  useEffect(() => {
+    let isCurrent = true;
+    void encodeLinkableDraft().then((encoded) => {
+      if (isCurrent && encoded) setFragment(encoded);
+    });
+    return () => {
+      isCurrent = false;
+    };
+  }, []);
+  return fragment;
+}
+
+// Loaded on demand: the draft store and codec pull the creator's zod schemas, which the character sheet must not bundle.
+async function encodeLinkableDraft(): Promise<string | null> {
+  const [{ findLinkableDraft }, { encodeDraftLink }] = await Promise.all([import("@/lib/stores/persFormStore"), import("@/lib/utils/draft-link")]);
+  const draft = findLinkableDraft();
+  return draft ? encodeDraftLink(draft) : null;
 }
 
 function useReportShownOnce(placement: InAppPlacement, variant: InAppBrowserVariant) {
