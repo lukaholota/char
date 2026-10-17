@@ -32,8 +32,9 @@
 **Переперевірено, лишаються відкритими:**
 
 - BUG-035 Mammon і швидкість BUG-037 Mark of Passage виправлено 2026-10-17 у гілці `evening/mammon` (див. записи нижче); решта BUG-037 відкрита.
-- BUG-O49-HALF-ELF-DROW-MAGIC — 13 наявних персонажів без Dancing Lights; ремонт за рішенням власника.
-- Sentry -10 (dice-box) — потрібне рішення про `bun patch`.
+- BUG-O49-HALF-ELF-DROW-MAGIC — код виправлено; 22 живі персонажі прод-бази чекають SQL власника `docs/night-2026-10-15-rules/half-elf-dancing-lights-owner-repair.sql` (2026-10-17: +28 рядків, 16 ручних перемічено расовими). Клірики без навички домену не ремонтуються — вибір гравця (10 живих, 26 снапшотів).
+- React #418 на каталогах (`/bestiary`, `/magic-items`, `/rules`) виправлено локально 2026-10-17 (91a04c3a, обгортка між `<main>` і вмістом); на проді не перевірено, фільтр гідратації в Sentry вимкнено, щоб це побачити.
+- Sentry -10 (dice-box) — `bun patch` не робимо, issue в архіві «until escalating» (2026-10-17).
 - ~~`test:integration` на чистому main: golden/creation (2), metamagic-adept-2014 (2), magic-items-seeded, spell-source-2014-seeded.~~ Розібрано 2026-10-17 (гілка `evening/int-tests`, див. нижче).
 
 **Нові відкриті:**
@@ -171,6 +172,7 @@ RPGbot із заходом у Пройдисвіта (`bugbear-fiend-warlock-201
 **Є:** варіант вибирається й показує опис, заклинань персонаж не отримує.
 **Наслідок:** `ranger-beast-master-2014` лишається blocked; персонажі з цим вибором втрачають замовляння.
 **Статус:** виправлено 2026-10-10 без SQL: генератор зіставляє «Variant; Drow Descent» з вибором «Магія дроу» (`raceOptionName` у `data/2014/race-granted-spells.json`), `findRaceSpellGrants2014` читає обрані расові опції персонажа. Видача працює на створенні й підвищенні рівня. Тести: `half-elf-descent-cantrip-2014`, `tests/content/race-granted-spells-2014.test.ts`. Існуючих персонажів прод-бази ремонтний прогін `scripts/repair-2014-granted-spells.ts` тепер теж покриє (перед запуском — dry-run власником).
+**Ремонт 2026-10-17:** прод (READ ONLY, без користувачів 5 і 967) — 63 персонажі з «Магією дроу», 22 живі, 41 снапшот. У 12 живих немає Dancing Lights, у 10 — Faerie Fire, у 6 — Darkness; 16 рядків гравці тримали вручну. Новіших за виправлення напівельфів-дроу в проді немає (останній — 2026-10-04). SQL для власника — `docs/night-2026-10-15-rules/half-elf-dancing-lights-owner-repair.sql`, лише 22 живі; dry-run у ROLLBACK на приватній тестовій базі. Снапшоти лишаються як є: вони — історія рівнів.
 
 ### BUG-O49-METAMAGIC-ADEPT — риса «Адепт метамагії» без жодної опції
 

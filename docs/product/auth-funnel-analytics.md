@@ -2,12 +2,53 @@
 
 Дата: 2026-10-16. Контекст і докази — [auth-funnel-audit.md](auth-funnel-audit.md).
 
-> **У PostHog нічого не створено.** Усі insight-и нижче — конфігурації для ручного створення.
-> Синтаксис кожного HogQL-запиту перевірено read-only запитом до API 2026-10-16. Запити на нових подіях
-> повертають порожній результат, доки інструментацію не задеплоєно.
+> **Створено в PostHog 2026-10-17** — дашборд [«Воронка входу й створення»](https://eu.posthog.com/project/245714/dashboard/1031113)
+> (id 1031113, тег `char-auth-funnel`), 17 insight-ів нижче. Запити на нових подіях порожні, доки
+> інструментацію не задеплоєно; legacy, шляхи створення, повернення й запобіжники рахуються вже зараз.
+> Кожен запит перед збереженням виконано через API. Флаги й налаштування проєкту не чіпали.
 
-Назви нових подій і властивостей нижче — **пропозиція аудиту**. Якщо реалізація назвала їх інакше,
-мапінг лежить у QA-звіті аудиту, і назви в запитах треба замінити за ним.
+Назви нових подій у §1 і SQL у §5 — **пропозиція аудиту**. Реалізація
+([POSTHOG-ANALYTICS.md](../POSTHOG-ANALYTICS.md#воронка-входу-й-створення--схема-1-локально-2026-10-16))
+назвала частину інакше, і в PostHog збережено запити з назвами з коду:
+
+| Пропозиція | У коді й у PostHog |
+|---|---|
+| `auth_dialog_opened` | `auth_requested` (`trigger`) |
+| `inapp_warning_action{copy_link \| copy_failed}` | `inapp_link_copied` (`ok: true \| false`) |
+| `inapp_warning_action{try_external}` | `inapp_external_browser_selected` (`method`) |
+| `inapp_warning_action{continue_here \| dismiss}` | `inapp_warning_dismissed` (`action: continue_here \| close`) |
+| `analytics_version = 3` | `analytics_schema_version = 1` (старе `analytics_version: 2` лишається) |
+| `creation_attempt_id` на `auth_*` | немає. Тому Funnel 2 — person-воронка: `ph_ctx` переносить анонімний `distinct_id` через редирект Google |
+| `first_choice` для пресета | лише ручний конструктор. Пресет рахується подіями `rpgbot_preset_*` |
+
+Виключення в кожному insight-і — рядок `buildAnalyticsExclusion` (user 5 і 967 та їхні person-и,
+`is_internal`, не production, чужі хости) і фільтр ботів `$virt_is_bot`.
+
+| Розділ | Insight | id |
+|---|---|---|
+| §2 основна | [Основна метрика за пристроєм: перший вибір → створено за 24 год](https://eu.posthog.com/project/245714/insights/8o32B3Us) | 6632515 |
+| §2 основна | [Основна метрика за типом браузера](https://eu.posthog.com/project/245714/insights/8ip8d0vB) | 6632516 |
+| §2 основна | [Основна метрика за редакцією](https://eu.posthog.com/project/245714/insights/fodgrjN7) | 6632517 |
+| §2 / Funnel 0 | [Legacy: відкрили конструктор → створили за 24 год (людина)](https://eu.posthog.com/project/245714/insights/v0XtqnhL) | 6632518 |
+| §5 Funnel 2 | [Тертя входу: діалог → Google → увійшов → створено](https://eu.posthog.com/project/245714/insights/Ti9NSuNU) (розбивка `browser_context`) | 6632519 |
+| §5 Funnel 3 | [Вбудований браузер: показ підказки → дія](https://eu.posthog.com/project/245714/insights/S9yOT7T7) | 6632520 |
+| §5 Funnel 3 | [Перенесення: спроби з посилання inapp_handoff → створено](https://eu.posthog.com/project/245714/insights/SwlcBQib) | 6632522 |
+| §5 Funnel 4 | [Шляхи створення: персонажі за типом і редакцією](https://eu.posthog.com/project/245714/insights/v1zeRD69) | 6632523 |
+| §3 | [Час до першого вибору](https://eu.posthog.com/project/245714/insights/rBsgDHnx) | 6632524 |
+| §3 | [Час від першого вибору до створення](https://eu.posthog.com/project/245714/insights/LTngaKSL) | 6632525 |
+| §3 | [Частка помилок OAuth за причиною](https://eu.posthog.com/project/245714/insights/plstAuca) | 6632526 |
+| §3 | [Конверсія пресета: обрали → натиснули «Створити» → створено](https://eu.posthog.com/project/245714/insights/9iDz2aLR) | 6632527 |
+| §3 | [Повернення до персонажа протягом 7 днів](https://eu.posthog.com/project/245714/insights/Q5o7j3km) | 6632528 |
+| §4 | [Запобіжник: помилки збереження на 100 кваліфікованих](https://eu.posthog.com/project/245714/insights/ZXhoyqRe) | 6632529 |
+| §4 | [Запобіжник: винятки на 1 000 переглядів конструктора](https://eu.posthog.com/project/245714/insights/TZkT3gHw) | 6632530 |
+| §4 | [Запобіжник: дублі character_created](https://eu.posthog.com/project/245714/insights/U9Uoodao) | 6632531 |
+| §4 | [Запобіжник: обсяг подій на день](https://eu.posthog.com/project/245714/insights/FVHHjZ5O) | 6632532 |
+
+Не в PostHog: «Використання перенесення» — це стовпець `copy_share_pct` insight-а Funnel 3;
+mobile-запобіжник — розбивка основної й legacy-метрики; швидкість, безпека входу, втрата чернеток
+і дублі в базі перевіряються збіркою, рев'ю, тестами й SQL до бази, а не тут.
+Перші значення 2026-10-17 (історичні дані): legacy за 14 діб — Mobile 19,7 % (80/406), Desktop 29,0 %
+(74/255); повернення до персонажа за 7 днів — 56–61 % авторів; дублів `pers_id` — 0.
 
 ## 1. Події та властивості
 
