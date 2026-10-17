@@ -325,6 +325,7 @@ export const fullCharacterSchema = z.object({
   initialPreparedSpellIds: z.array(z.number().int().positive()).optional(),
   readyPresetRequestId: z.string().uuid().optional(),
   readyPresetBuildId: z.string().max(120).optional(),
+  dmApprovedShield: z.boolean().optional(),
   featSpellSelections: featSpellSelectionsSchema.optional(),
   /** Книга тіней Pact of the Tome або риса підкласу 1-го рівня 2014: заклинання, які дає обрати клас. */
   classOptionSpellIds: z.array(z.number().int().positive()).optional(),

@@ -58,3 +58,21 @@ describe.skipIf(!existsSync("data/rpgbot/ready-builds/monk-shadow-2014.json"))("
     expect(restored.skills).toHaveLength(5);
   });
 });
+
+describe.skipIf(!existsSync("data/rpgbot/ready-builds/blood-hunter-ghostslayer-rapier-2014.json"))("shield added with DM permission", () => {
+  const read = (path: string) => JSON.parse(readFileSync(path, "utf8"));
+  const content = findCharacterCreationOptions("RULES_2014");
+  const readPreset = (slug: string, buildId: string) => ({ preset: readyPresetSchema.parse(read(`data/rpgbot/ready-builds/${slug}.json`)), recipe: buildRecipeSchema.parse(read(`data/rpgbot/builds/${buildId}.json`)) });
+  it("asks for the shield in the Blood Hunter rapier draft", () => {
+    const { preset, recipe } = readPreset("blood-hunter-ghostslayer-rapier-2014", "build-blood-hunter-ghostslayer-rapier-2014");
+    expect(buildReadyPresetDraft(recipe, preset, content).dmApprovedShield).toBe(true);
+  });
+  it("leaves it out of presets that do not add it", () => {
+    const { preset, recipe } = readPreset("monk-shadow-2014", "build-monk-shadow-2014");
+    expect(buildReadyPresetDraft(recipe, preset, content)).not.toHaveProperty("dmApprovedShield");
+  });
+  it("refuses it for a class without shield proficiency", () => {
+    const { preset, recipe } = readPreset("monk-shadow-2014", "build-monk-shadow-2014");
+    expect(() => buildReadyPresetDraft(recipe, { ...preset, dmApprovedShield: true }, content)).toThrow("Preset shield needs shield proficiency");
+  });
+});

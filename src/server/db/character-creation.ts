@@ -852,7 +852,7 @@ function prepareCharacterWrite(
   // 2. Prepare Equipment
   const weaponsToCreate: { weaponId: number }[] = [];
   const armorsToCreate: { armorId: number }[] = [];
-  let wearsShield = false;
+  let wearsShield = validData.dmApprovedShield === true;
   const customEquipmentLines: string[] = [];
 
   let startingMoney = emptyPurse();

@@ -28,6 +28,7 @@ export const readyPresetSchema = z.object({
   raceOptions: z.array(z.string().min(1)).default([]), subclassOptions: z.array(z.string().min(1)).default([]),
   platformChoices: z.array(z.enum(["classOptions", "subclassOptions", "raceOptions"])).optional(),
   equipment: z.array(z.strictObject({ group: z.number().int().positive(), option: z.string().regex(/^[a-z]$/), weapons: z.array(z.string().min(1)) })),
+  dmApprovedShield: z.literal(true).optional(),
   featOptionName: z.union([z.string().min(1), z.array(z.string().min(1)).min(2)]).nullable(), skillSection: idSchema, featSection: idSchema.nullable(), equipmentSection: idSchema,
   abilityExplanation: z.string().min(1), skillExplanation: z.string().min(1), equipmentExplanation: z.string().min(1),
   spells: readyPresetSpellsSchema.optional(),
@@ -48,6 +49,7 @@ export function buildReadyPresetDraft(recipe: BuildRecipe, preset: ReadyPreset, 
     featChoiceSelections, classChoiceSelections: findPresetClassSelections(findStartingClass(start, content), preset.classOptions),
     expertiseSchema: { expertises: preset.expertise }, languagesSchema: { languages: preset.languages },
     equipmentSchema: buildPresetEquipment(preset.equipment, options.equipmentGroups),
+    ...buildDmApprovedShield(preset, findStartingClass(start, content)),
     ...buildPresetSpellSelection(preset.spells, options.spells),
   });
   if (!isSavedPresetValid(draft, draft, options)) throw new Error(`Incomplete ready preset: ${preset.buildId}`);
@@ -96,6 +98,12 @@ function findPresetFeatOption(start: Partial<PersFormData>, preset: ReadyPreset,
   if (!names.length || options.some((option) => !option)) throw new Error(`Missing preset feat option: ${names.join(", ") || null}`);
   const ids = options.map((option) => option!.choiceOptionId);
   return { [options[0]!.choiceOption.groupName]: ids.length === 1 ? ids[0] : ids };
+}
+
+function buildDmApprovedShield(preset: Pick<ReadyPreset, "dmApprovedShield">, characterClass: CreatorContent["classes"][number]): Pick<PersFormData, "dmApprovedShield"> {
+  if (!preset.dmApprovedShield) return {};
+  if (!characterClass.armorProficiencies.includes("SHIELD")) throw new Error(`Preset shield needs shield proficiency: ${characterClass.name}`);
+  return { dmApprovedShield: true };
 }
 
 export function listPresetFeatOptionNames(preset: Pick<ReadyPreset, "featOptionName">): string[] {

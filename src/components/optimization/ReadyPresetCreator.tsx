@@ -15,6 +15,7 @@ import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import type { PresetEntry } from "@/lib/monitoring/rpgbot-analytics-model";
 import { PresetLevelChoice, PresetNameField, PresetRecap, PresetReviewActions } from "./ReadyPresetReview";
 import { CatalogMention } from "./CatalogMention";
+import { PresetShieldNote } from "./PresetDmApprovedShield";
 import { ReadyPresetCustomization, listPresetCustomizationSteps } from "./ReadyPresetCustomization";
 import type { CreationStepRuleExcerpts } from "@/lib/content/creation-step-rule-excerpts";
 import { rememberUnfinishedPreset } from "@/lib/optimization/unfinished-preset";
@@ -88,6 +89,7 @@ export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entr
       <section className="glass-panel border-gradient-rpg rounded-2xl p-5 sm:p-7">
         <p className="text-lg text-white"><CatalogMention href={data.links.mainClassHref} title={data.summary.mainClassName}>{data.summary.mainClassName}</CatalogMention> · <CatalogMention href={data.links.raceHref} title={data.summary.raceName}>{data.summary.raceName}</CatalogMention>{data.summary.startingClassLabel ? <span className="text-sm text-slate-400"> · старт: {data.summary.startingClassLabel}</span> : null}</p>
         <p className="mt-2 text-sm text-slate-400"><CatalogMention href={data.links.backgroundHref} title={data.summary.backgroundName}>{data.summary.backgroundName}</CatalogMention> · <CatalogMention href={data.links.mainSubclassHref} title={data.summary.mainSubclassName}>{data.summary.mainSubclassName}</CatalogMention></p>
+        {data.draft.dmApprovedShield ? <PresetShieldNote /> : null}
         <ModeLink prefetch={false} href={data.links.guideHref} className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm text-arcane-200 underline-offset-4 hover:underline"><BookOpen className="h-4 w-4" /> Читати гайд цього білда</ModeLink>
         <PresetLevelChoice data={data} targetLevel={assembly.targetLevel} onSelect={selectLevel} />
       </section>

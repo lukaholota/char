@@ -27,6 +27,7 @@ import { ReadyPresetSpells } from "./ReadyPresetSpells";
 import { ReadyPresetLevelAdvancements } from "./ReadyPresetLevelAdvancements";
 import { ReadyPresetLevelClassOptions } from "./ReadyPresetLevelClassOptions";
 import { ReadyPresetLevelSpells } from "./ReadyPresetLevelSpells";
+import { PresetShieldToggle } from "./PresetDmApprovedShield";
 
 type PresetState = ReturnType<typeof useReadyPreset>;
 type CustomStep = { kind: "choices" | "abilities" | "skills" | "expertise" | "languages" | "equipment" | "spells" | "level" | "preparation" | "name"; title: string; characterLevel?: number };
@@ -88,6 +89,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, onCr
     {active.kind === "expertise" ? <PresetExpertiseCards data={data} state={state} /> : null}
     {active.kind === "languages" ? <LanguagesForm {...formProps} initialSelection={state.draft.languagesSchema?.languages} race={race} selectedClass={selectedClass} background={background} selectedSubrace={data.creator.subrace as unknown as SubraceI} activeFeatures={[]} existingLanguages={data.options.knownLanguages} forcedLanguagesToChooseCount={data.options.languageCount} choosableLanguages={data.options.languages} /> : null}
     {active.kind === "equipment" ? <EquipmentForm {...formProps} initialSelection={state.draft.equipmentSchema} race={race} selectedClass={selectedClass} background={background} weapons={data.creator.weapons} /> : null}
+    {active.kind === "equipment" && data.preset.dmApprovedShield ? <PresetShieldToggle checked={state.draft.dmApprovedShield === true} onChange={(dmApprovedShield) => state.update({ dmApprovedShield })} /> : null}
     {active.kind === "spells" ? <ReadyPresetSpells data={data} draft={state.draft} update={state.update} hidePreparedEditor={state.assembly.targetLevel > 1} /> : null}
     {active.kind === "level" && state.choiceContext ? <><ReadyPresetLevelAdvancements assembly={state.assembly} context={state.choiceContext} characterLevel={active.characterLevel} /><ReadyPresetLevelClassOptions assembly={state.assembly} context={state.choiceContext} characterLevel={active.characterLevel} /><ReadyPresetLevelSpells data={data} assembly={state.assembly} context={state.choiceContext} characterLevel={active.characterLevel} /></> : null}
     {active.kind === "name" ? nameFields : null}
