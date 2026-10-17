@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { createCharacter } from "@/lib/actions/character";
 import { levelUpCharacter } from "@/lib/actions/levelup";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
+import { FEAT_CREATOR_INCLUDE } from "@/server/db/creator-content-query";
 import { flexibleGroupsFromAsi, pickAbilitiesForGroups } from "../helpers/asi-shapes";
 import { minimalForm } from "../helpers/build-form";
 import { withCreationSpells } from "../helpers/creation-spells";
@@ -70,6 +71,21 @@ function withoutMetamagicAdeptOptions(): void {
   });
 }
 
+/** Сіди не створюють цих рядків — їх додає SQL власника; база, зібрана лише із сідів, їх не має. */
+async function insertMissingMetamagicAdeptOptions(featId: number): Promise<number[]> {
+  const options = await prisma.choiceOption.findMany({ where: { groupName: METAMAGIC_GROUP, ruleset: "RULES_2014" }, select: { choiceOptionId: true } });
+  const inserted = await prisma.featChoiceOption.createManyAndReturn({
+    data: options.map((option) => ({ featId, choiceOptionId: option.choiceOptionId, ruleset: "RULES_2014" as const })),
+    skipDuplicates: true,
+    select: { optionId: true },
+  });
+  return inserted.map((row) => row.optionId);
+}
+
+function readMetamagicAdeptOptions(featId: number) {
+  return prisma.featChoiceOption.findMany({ where: { featId, choiceOption: { groupName: METAMAGIC_GROUP } }, include: FEAT_CREATOR_INCLUDE.featChoiceOptions.include });
+}
+
 async function createFighterAtLevelThree(userId: number) {
   const [fighter, race, background] = await Promise.all([classByName(Classes.FIGHTER_2014), raceByName(Races.HUMAN_2014), backgroundByName(BackgroundCategory.SOLDIER)]);
   const subclass = await prisma.subclass.findFirstOrThrow({ where: { classId: fighter.classId, name: "CHAMPION" } });
@@ -99,22 +115,31 @@ describe("Адепт метамагії 2014 у каталозі без опці
   });
 });
 
-describe("Адепт метамагії 2014 з десятьма опціями групи «Метамагія» (SQL власника, уже в базі)", () => {
+describe("Адепт метамагії 2014 з десятьма опціями групи «Метамагія» (SQL власника)", () => {
   let optionIdByName: Map<string, number>;
+  let catalogNamesBeforeBlock: string[];
+  let catalogOptions: CatalogFeat["featChoiceOptions"] = [];
+  let insertedOptionIds: number[] = [];
 
   beforeAll(async () => {
     const feat = await findMetamagicAdept();
-    const rows = await prisma.featChoiceOption.findMany({
-      where: { featId: feat.featId, choiceOption: { groupName: METAMAGIC_GROUP } },
-      select: { choiceOption: { select: { choiceOptionId: true, optionNameEng: true } } },
-    });
+    const catalogFeat = findCatalogMetamagicAdept();
+    catalogOptions = catalogFeat.featChoiceOptions;
+    catalogNamesBeforeBlock = catalogOptions.map((option) => option.choiceOption.optionNameEng).sort();
+    insertedOptionIds = await insertMissingMetamagicAdeptOptions(feat.featId);
+    const rows = await readMetamagicAdeptOptions(feat.featId);
     optionIdByName = new Map(rows.map(({ choiceOption }) => [choiceOption.optionNameEng, choiceOption.choiceOptionId]));
+    catalogFeat.featChoiceOptions = rows;
   });
 
-  it("у базі й у каталозі рівно десять метамагій Чародія", async () => {
+  afterAll(async () => {
+    if (insertedOptionIds.length > 0) await prisma.featChoiceOption.deleteMany({ where: { optionId: { in: insertedOptionIds } } });
+    findCatalogMetamagicAdept().featChoiceOptions = catalogOptions;
+  });
+
+  it("у базі рівно десять метамагій Чародія, і зібраний каталог має ті самі", async () => {
     expect(optionIdByName.size).toBe(10);
-    const catalogNames = findCatalogMetamagicAdept().featChoiceOptions.map((option) => option.choiceOption.optionNameEng);
-    expect([...catalogNames].sort()).toEqual([...optionIdByName.keys()].sort());
+    expect(catalogNamesBeforeBlock).toEqual([...optionIdByName.keys()].sort());
   });
 
   const pick = (...names: string[]) => ({ [METAMAGIC_GROUP]: names.map((name) => optionIdByName.get(name)!) });
