@@ -3,6 +3,9 @@
 import { PawPrint, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
+import { RatingBadge } from "@/components/optimization/RatingBadge";
+import { RpgbotRecommendationToggle } from "@/components/spells/RpgbotRecommendationToggle";
+import type { WildshapeFormRating } from "@/lib/optimization/wildshape-rating-lookup";
 import { classTranslations, subclassTranslations } from "@/lib/refs/translation";
 import type { WildshapePicking } from "@/components/bestiary/useWildshapePicking";
 import type { CreatureIndexEntry } from "@/lib/bestiary-index";
@@ -31,16 +34,20 @@ export function WildshapeUnavailableBadge({ eligibility }: { eligibility: Wildsh
 export function WildshapeRowNote({
   creature,
   wildshape,
+  rating,
 }: {
   creature: CreatureIndexEntry;
   wildshape: WildshapePicking;
+  rating: WildshapeFormRating | null;
 }) {
   const eligibility = wildshape.findEligibility(creature);
-  if (!eligibility || eligibility.eligible) return null;
+  const isBlocked = eligibility !== null && !eligibility.eligible;
+  if (!rating && !isBlocked) return null;
 
   return (
-    <div className="mt-1.5">
-      <WildshapeUnavailableBadge eligibility={eligibility} />
+    <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+      {rating && <RatingBadge rating={{ score: rating.score, context: "" }} className="mr-0" />}
+      {isBlocked && <WildshapeUnavailableBadge eligibility={eligibility} />}
     </div>
   );
 }
@@ -49,11 +56,13 @@ export function WildshapeAddFormButton({
   eligibility,
   isAttached,
   isPending,
+  unlockLevel,
   onAdd,
 }: {
   eligibility: WildshapeEligibility;
   isAttached: boolean;
   isPending: boolean;
+  unlockLevel: number | null;
   onAdd: () => void;
 }) {
   const explanatory = eligibility.reasons.filter((reason) => !reason.blocking);
@@ -78,6 +87,9 @@ export function WildshapeAddFormButton({
       </div>
 
       <WildshapeUnavailableBadge eligibility={eligibility} />
+      {!eligibility.eligible && unlockLevel !== null && (
+        <p className="text-xs text-amber-200/90">Стане доступною з {unlockLevel} рівня друїда</p>
+      )}
 
       {explanatory.map((reason) => (
         <p key={reason.kind} className="text-[11px] text-slate-400">
@@ -97,6 +109,7 @@ export function WildshapeFilterSection({
   onlyEligible,
   onSelectPers,
   onShowOnlyEligible,
+  recommendations,
 }: {
   characters: WildshapeCharacter[];
   standing: WildshapeStanding | null;
@@ -104,6 +117,7 @@ export function WildshapeFilterSection({
   onlyEligible: boolean;
   onSelectPers: (persId: number | null) => void;
   onShowOnlyEligible: (value: boolean) => void;
+  recommendations: { isOn: boolean; onChange: (isOn: boolean) => void } | null;
 }) {
   /// Гравцеві без друїда секція нічого не дає — краще її не показувати, ніж пояснювати порожнечу.
   if (characters.length === 0 && persId === null) return null;
@@ -143,6 +157,16 @@ export function WildshapeFilterSection({
 
       {standing && standing.limitNotes.length > 0 && (
         <p className="mt-2 text-[11px] text-slate-400">{standing.limitNotes.join(" · ")}</p>
+      )}
+
+      {recommendations && (
+        <div className="mt-2">
+          <RpgbotRecommendationToggle
+            isOn={recommendations.isOn}
+            onChange={recommendations.onChange}
+            description="Оцінка кожної форми за розбором RPGbot; найкращі доступні вам — зверху."
+          />
+        </div>
       )}
     </div>
   );

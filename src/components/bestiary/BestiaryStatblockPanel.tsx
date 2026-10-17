@@ -5,6 +5,10 @@ import type { CreatureData } from "@/lib/bestiaryData";
 import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
 import { WildshapeAddFormButton } from "@/components/bestiary/BestiaryWildshapePicking";
 import type { WildshapePicking } from "@/components/bestiary/useWildshapePicking";
+import type { WildshapeRatings } from "@/components/bestiary/useWildshapeRatings";
+import { WildshapeRatingPanel } from "@/components/bestiary/WildshapeRatingPanel";
+import { findEntryUnlockLevel } from "@/lib/bestiary-wildshape";
+import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import { CreatureDiscussion } from "@/components/bestiary/CreatureDiscussion";
 import { CreatureLoreSection } from "@/components/bestiary/CreatureLoreSection";
 import { HomebrewByline, HomebrewEntryButtons } from "@/components/homebrew/HomebrewEntryDetails";
@@ -17,6 +21,7 @@ export function StatblockPanel({
   loreGroup,
   is2024,
   wildshape,
+  ratings,
   homebrewEntry,
 }: {
   creature: CreatureIndexEntry;
@@ -24,9 +29,22 @@ export function StatblockPanel({
   loreGroup: CreatureLoreGroup | null;
   is2024: boolean;
   wildshape: WildshapePicking;
+  ratings: WildshapeRatings;
   homebrewEntry: HomebrewCreatureEntry | null;
 }) {
   const eligibility = wildshape.findEligibility(creature);
+  const standing = wildshape.standing;
+  const rating = ratings.findRating(creature);
+  const captureFormAdded = () => {
+    if (!standing || !ratings.canRate) return;
+    captureRpgbotEvent("rpgbot_wildshape_form_added", {
+      ...(rating ? { rating_score: rating.score } : {}),
+      is_eligible: eligibility?.eligible ?? false,
+      recommendations_on: ratings.isOn,
+      is_moon_circle: standing.isMoonCircle,
+      druid_level: standing.druidLevel,
+    });
+  };
 
   return (
     <div className="space-y-3">
@@ -35,8 +53,13 @@ export function StatblockPanel({
           eligibility={eligibility}
           isAttached={wildshape.isAttached(creature)}
           isPending={wildshape.isAdding}
-          onAdd={() => wildshape.addForm(creature)}
+          unlockLevel={eligibility.eligible || !standing ? null : findEntryUnlockLevel(creature, standing)}
+          onAdd={() => wildshape.addForm(creature, captureFormAdded)}
         />
+      )}
+
+      {ratings.catalog && rating && (
+        <WildshapeRatingPanel catalog={ratings.catalog} rating={rating} eligibility={eligibility} creatureKey={creature.key} />
       )}
 
       {statblock && statblock.creatureId === creature.creatureId ? (

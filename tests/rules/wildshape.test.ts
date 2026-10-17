@@ -10,6 +10,7 @@ import {
   findBeastFormArmorClass,
   findDruidStanding,
   findKnownFormsLimit,
+  findFormUnlockLevel,
   findWildshapeEligibility,
   findWildshapeLimits,
   findWildshapeTemporaryHitPoints,
@@ -26,7 +27,7 @@ import {
 
 /// Швидкості приходять числами з каталогу (KR24.1), тож кандидат несе саме числа: рядок
 /// статблока правила більше не читають.
-const noSpeeds = { flySpeed: null, swimSpeed: null, climbSpeed: null, hasConditionalSpeed: false };
+const noSpeeds = { flySpeed: null, swimSpeed: null, climbSpeed: null, burrowSpeed: null, hasConditionalSpeed: false };
 
 const WOLF = { nameEng: "Wolf", type: "Звір", challenge: "1/4", ...noSpeeds };
 const GIANT_EAGLE = { nameEng: "Giant Eagle", type: "Звір", challenge: "1", ...noSpeeds, flySpeed: 80 };
@@ -55,6 +56,8 @@ const findReason = (
   context: WildshapeContext,
   kind: string
 ) => findWildshapeEligibility(candidate, context).reasons.find((reason) => reason.kind === kind);
+
+const isBeastType = (type: string) => type.split("(")[0].trim().toLowerCase() === "звір";
 
 const blockingKinds = (candidate: Parameters<typeof findWildshapeEligibility>[0], context: WildshapeContext) =>
   findWildshapeEligibility(candidate, context)
@@ -181,6 +184,20 @@ describe("придатність конкретної форми", () => {
     expect(blockingKinds(GIANT_EAGLE, druid(2, true))).toEqual(["flySpeedLocked"]);
   });
 
+  /// BUG-041: підтип у дужках — той самий звір. Велоцираптор і Тур мали «Недоступна» на будь-якому
+  /// рівні, а рої лишаються не-звірами, бо Дика форма перетворює на одну тварину.
+  it("звір із підтипом доступний, а рій звірів — ні", () => {
+    const velociraptor = { nameEng: "Velociraptor", type: "Звір (Динозавр)", challenge: "1/4", ...noSpeeds };
+    const ox = { nameEng: "Ox", type: "Звір (Худоба)", challenge: "1/4", ...noSpeeds };
+    const swarm = { nameEng: "Swarm of Rats", type: "Рій дрібних звірів", challenge: "1/4", ...noSpeeds };
+    const pack = { nameEng: "Swarm of Insects", type: "Зграя крихітних звірів", challenge: "1/2", ...noSpeeds };
+
+    expect(findWildshapeEligibility(velociraptor, druid(2)).eligible).toBe(true);
+    expect(findWildshapeEligibility(ox, druid2024(2)).eligible).toBe(true);
+    expect(blockingKinds(swarm, druid(20, true))).toEqual(["notABeast"]);
+    expect(blockingKinds(pack, druid(20, true))).toEqual(["notABeast"]);
+  });
+
   it("причин може бути дві одразу — ПН завеликий і політ зарано", () => {
     const heavyFlyer = { nameEng: "Giant Vulture", type: "Звір", challenge: "1", ...noSpeeds, flySpeed: 60 };
 
@@ -216,11 +233,56 @@ describe("причина несе поріг і текст", () => {
     expect(bear.reasons.every((reason) => !reason.blocking)).toBe(true);
   });
 
+  it("риття не блокує форму на жодному рівні й каже про це", () => {
+    const badger = { nameEng: "Giant Badger", type: "Звір", challenge: "1/4", ...noSpeeds, burrowSpeed: 10 };
+    const eligibility = findWildshapeEligibility(badger, druid(2));
+
+    expect(eligibility.eligible).toBe(true);
+    expect(eligibility.reasons).toEqual([
+      { kind: "burrowSpeedAllowed", blocking: false, text: "Швидкість риття Дика форма не обмежує на жодному рівні" },
+    ]);
+  });
+
   it("умовні швидкості позначаються окремо, а не мовчки", () => {
     const spirit = { nameEng: "Bestial Spirit", type: "Звір", challenge: "1/4", ...noSpeeds, hasConditionalSpeed: true };
     const reasons = findWildshapeEligibility(spirit, druid(2)).reasons;
 
     expect(reasons.map((reason) => reason.kind)).toEqual(["conditionalSpeed"]);
+  });
+});
+
+describe("рівень, з якого форма стане доступною", () => {
+  const DIRE_WOLF = { nameEng: "Dire Wolf", type: "Звір", challenge: "1", ...noSpeeds };
+  const SABER_TOOTHED_TIGER = { nameEng: "Saber-Toothed Tiger", type: "Звір", challenge: "2", ...noSpeeds };
+  const BLOOD_HAWK = { nameEng: "Blood Hawk", type: "Звір", challenge: "1/8", ...noSpeeds, flySpeed: 60 };
+  const TYRANNOSAURUS = { nameEng: "Tyrannosaurus Rex", type: "Звір", challenge: "8", ...noSpeeds };
+
+  it("придатна форма доступна вже з поточного рівня", () => {
+    expect(findFormUnlockLevel(WOLF, druid(5))).toBe(5);
+  });
+
+  it("звичайному друїду ПН 1 відкривається з 8 рівня, а друїду Місяця ПН 2 — з 6", () => {
+    expect(findFormUnlockLevel(DIRE_WOLF, druid(2))).toBe(8);
+    expect(findFormUnlockLevel(SABER_TOOTHED_TIGER, druid(2, true))).toBe(6);
+  });
+
+  it("рух відкривається за таблицею навіть для кола Місяця", () => {
+    expect(findFormUnlockLevel(BLOOD_HAWK, druid(2, true))).toBe(8);
+    expect(findFormUnlockLevel(REEF_SHARK, druid(2))).toBe(4);
+  });
+
+  it("до Дикої форми рахує від 2 рівня", () => {
+    expect(findFormUnlockLevel(WOLF, druid(1))).toBe(2);
+  });
+
+  it("персонажу без рівнів друїда форма не відкривається ніколи", () => {
+    expect(findFormUnlockLevel(WOLF, druid(0))).toBeNull();
+  });
+
+  it("недосяжна форма не має рівня", () => {
+    expect(findFormUnlockLevel(TYRANNOSAURUS, druid(2, true))).toBeNull();
+    expect(findFormUnlockLevel(SUCCUBUS, druid(2))).toBeNull();
+    expect(findFormUnlockLevel(BESTIAL_SPIRIT, druid(2))).toBeNull();
   });
 });
 
@@ -463,8 +525,8 @@ describe("вибір із реального каталогу 2024", () => {
     const atFour = findAvailableForms(catalog2024, druid2024(4));
     const atEight = findAvailableForms(catalog2024, druid2024(8));
 
-    expect([atTwo.length, atFour.length, atEight.length]).toEqual([39, 46, 63]);
-    expect(atTwo.every((form) => form.type.trim().toLowerCase() === "звір")).toBe(true);
+    expect([atTwo.length, atFour.length, atEight.length]).toEqual([39, 46, 64]);
+    expect(atTwo.every((form) => isBeastType(form.type))).toBe(true);
     expect(atTwo.some((form) => form.flySpeed !== null)).toBe(false);
   });
 
@@ -492,7 +554,7 @@ describe("вибір із реального каталогу 2014", () => {
     const forms = findAvailableForms(catalog, druid(2));
 
     expect(forms.length).toBeGreaterThan(0);
-    expect(forms.every((form) => form.type.trim().toLowerCase() === "звір")).toBe(true);
+    expect(forms.every((form) => isBeastType(form.type))).toBe(true);
     expect(forms.some((form) => form.flySpeed !== null)).toBe(false);
     expect(forms.some((form) => form.swimSpeed !== null)).toBe(false);
   });

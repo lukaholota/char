@@ -42,7 +42,7 @@ export type WildshapePicking = {
   findEligibility: (entry: CreatureIndexEntry) => WildshapeEligibility | null;
   isAttached: (entry: CreatureIndexEntry) => boolean;
   matches: (entry: CreatureIndexEntry) => boolean;
-  addForm: (entry: CreatureIndexEntry) => void;
+  addForm: (entry: CreatureIndexEntry, onAdded?: () => void) => void;
 };
 
 export function useWildshapePicking(ruleset: Ruleset): WildshapePicking {
@@ -106,7 +106,7 @@ export function useWildshapePicking(ruleset: Ruleset): WildshapePicking {
   );
 
   const addForm = useCallback(
-    (entry: CreatureIndexEntry) => {
+    (entry: CreatureIndexEntry, onAdded?: () => void) => {
       if (persId === null) return;
 
       startAdding(async () => {
@@ -120,6 +120,7 @@ export function useWildshapePicking(ruleset: Ruleset): WildshapePicking {
         // Непридатна форма прикріплюється ([Р-3]) — але гравець має почути, чого їй бракує.
         for (const warning of result.warnings) toast.warning(warning);
         toast.success(`${entry.name} — форму додано`);
+        onAdded?.();
 
         setPicker((prev) =>
           prev ? { ...prev, attachedKeys: new Set(prev.attachedKeys).add(entry.key) } : prev

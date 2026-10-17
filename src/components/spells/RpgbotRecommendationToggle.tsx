@@ -4,9 +4,11 @@ import { useId } from "react";
 import { AnalystAvatar } from "@/components/optimization/AnalystAvatar";
 import { Switch } from "@/components/ui/switch";
 
-type Props = { isOn: boolean; onChange: (isOn: boolean) => void };
+type Props = { isOn: boolean; onChange: (isOn: boolean) => void; description?: string };
 
-export function RpgbotRecommendationToggle({ isOn, onChange }: Props) {
+const SPELL_DESCRIPTION = "Оцінка кожного заклинання за розбором RPGbot для вашого класу; найкращі — зверху.";
+
+export function RpgbotRecommendationToggle({ isOn, onChange, description = SPELL_DESCRIPTION }: Props) {
   const switchId = useId();
 
   return (
@@ -14,7 +16,7 @@ export function RpgbotRecommendationToggle({ isOn, onChange }: Props) {
       <AnalystAvatar className="size-12" />
       <label htmlFor={switchId} className="min-w-0 flex-1 cursor-pointer">
         <span className="block text-sm font-semibold text-slate-100">Показати рекомендації RPGbot</span>
-        <span className="block text-xs text-slate-400">Оцінка кожного заклинання за розбором RPGbot для вашого класу; найкращі — зверху.</span>
+        <span className="block text-xs text-slate-400">{description}</span>
       </label>
       <Switch id={switchId} checked={isOn} onCheckedChange={onChange} />
     </div>

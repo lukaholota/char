@@ -30,6 +30,7 @@ export type CreatureIndexEntry = {
   flySpeed?: number;
   swimSpeed?: number;
   climbSpeed?: number;
+  burrowSpeed?: number;
   hasConditionalSpeed?: boolean;
 };
 
@@ -87,6 +88,7 @@ function findIndexedSpeeds(creature: CreatureData): Partial<CreatureIndexEntry> 
     ...(creature.flySpeed !== null ? { flySpeed: creature.flySpeed } : {}),
     ...(creature.swimSpeed !== null ? { swimSpeed: creature.swimSpeed } : {}),
     ...(creature.climbSpeed !== null ? { climbSpeed: creature.climbSpeed } : {}),
+    ...(creature.burrowSpeed !== null ? { burrowSpeed: creature.burrowSpeed } : {}),
     ...(creature.hasConditionalSpeed ? { hasConditionalSpeed: true } : {}),
   };
 }

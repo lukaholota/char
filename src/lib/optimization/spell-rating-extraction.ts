@@ -13,7 +13,7 @@ export type ExtractedSpellRatings = {
 };
 
 type ScoredRating = AnalysisRating & { score: SpellRatingScore };
-type EntryText = { head: string; bodyNodes: InlineNode[] };
+export type EntryText = { head: string; bodyNodes: InlineNode[] };
 type RatingEntry = { rating: ScoredRating; text: EntryText };
 type ResolvedEntry = RatingEntry & { slug: string };
 
@@ -80,7 +80,7 @@ function findSectionSpellLevel(sectionId: string): number | null {
   return match ? Number(match[1]) : null;
 }
 
-function findEntryText(revision: TranslationRevision, rating: AnalysisRating): EntryText {
+export function findEntryText(revision: TranslationRevision, rating: AnalysisRating): EntryText {
   const nodes = findListItemNodes(revision, rating);
   if (nodes) return splitEntryNodes(nodes);
   return { head: "", bodyNodes: buildPlainNodes(rating.explanation ?? "") };
@@ -98,7 +98,7 @@ function findBlock(revision: TranslationRevision, rating: AnalysisRating): Conte
   return section?.blocks.find((block) => block.blockId === rating.targetBlockId);
 }
 
-function splitEntryNodes(nodes: InlineNode[]): EntryText {
+export function splitEntryNodes(nodes: InlineNode[]): EntryText {
   const colonIndex = nodes.findIndex((node, index) => index > 0 && node.type === "text" && /^\s*:/.test(node.text));
   if (colonIndex < 0) return splitEntryText(joinNodes(nodes));
   const [colonNode, ...rest] = nodes.slice(colonIndex);

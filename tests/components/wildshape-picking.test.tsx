@@ -22,6 +22,7 @@ const beast = (overrides: Partial<WildshapeCandidate> = {}): WildshapeCandidate 
   flySpeed: null,
   swimSpeed: null,
   climbSpeed: null,
+  burrowSpeed: null,
   hasConditionalSpeed: false,
   ...overrides,
 });
@@ -65,6 +66,7 @@ describe("кнопка «додати як звірину форму»", () => {
   function renderButton(overrides: {
     eligibility?: ReturnType<typeof findWildshapeEligibility>;
     isAttached?: boolean;
+    unlockLevel?: number | null;
     onAdd?: () => void;
   }) {
     const onAdd = overrides.onAdd ?? vi.fn();
@@ -73,6 +75,7 @@ describe("кнопка «додати як звірину форму»", () => {
         eligibility={overrides.eligibility ?? findWildshapeEligibility(beast(), moonDruid(2))}
         isAttached={overrides.isAttached ?? false}
         isPending={false}
+        unlockLevel={overrides.unlockLevel ?? null}
         onAdd={onAdd}
       />
     );
@@ -107,6 +110,30 @@ describe("кнопка «додати як звірину форму»", () => {
     expect(screen.getByText("Швидкість лазіння Дика форма не обмежує на жодному рівні")).toBeTruthy();
     expect(screen.queryByText("Недоступна")).toBeNull();
   });
+
+  it("риття пояснюється так само, як лазіння, і нічого не блокує", () => {
+    renderButton({
+      eligibility: findWildshapeEligibility(beast({ challenge: "1/4", burrowSpeed: 10 }), moonDruid(2)),
+    });
+
+    expect(screen.getByText("Швидкість риття Дика форма не обмежує на жодному рівні")).toBeTruthy();
+    expect(screen.queryByText("Недоступна")).toBeNull();
+  });
+
+  it("недоступна форма каже, з якого рівня її можна буде прийняти", () => {
+    renderButton({
+      eligibility: findWildshapeEligibility(beast({ flySpeed: 80 }), moonDruid(2)),
+      unlockLevel: 8,
+    });
+
+    expect(screen.getByText("Стане доступною з 8 рівня друїда")).toBeTruthy();
+  });
+
+  it("доступна форма рядка про рівень не має", () => {
+    renderButton({ unlockLevel: 2 });
+
+    expect(screen.queryByText(/Стане доступною/)).toBeNull();
+  });
 });
 
 describe("секція «Дика форма» серед фільтрів бестіарію", () => {
@@ -132,6 +159,7 @@ describe("секція «Дика форма» серед фільтрів бе�
         onlyEligible={false}
         onSelectPers={onSelectPers}
         onShowOnlyEligible={onShowOnlyEligible}
+        recommendations={null}
         {...props}
       />
     );
@@ -147,6 +175,7 @@ describe("секція «Дика форма» серед фільтрів бе�
         onlyEligible={false}
         onSelectPers={vi.fn()}
         onShowOnlyEligible={vi.fn()}
+        recommendations={null}
       />
     );
 

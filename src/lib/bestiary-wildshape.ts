@@ -3,6 +3,7 @@ import {
   type WildshapeCandidate,
   type WildshapeContext,
   type WildshapeEligibility,
+  findFormUnlockLevel,
   findWildshapeEligibility,
 } from "@/rules/wildshape";
 import type { CreatureIndexEntry } from "./bestiary-index";
@@ -29,6 +30,7 @@ export function buildWildshapeCandidate(entry: CreatureIndexEntry): WildshapeCan
     flySpeed: entry.flySpeed ?? null,
     swimSpeed: entry.swimSpeed ?? null,
     climbSpeed: entry.climbSpeed ?? null,
+    burrowSpeed: entry.burrowSpeed ?? null,
     hasConditionalSpeed: entry.hasConditionalSpeed ?? false,
   };
 }
@@ -38,6 +40,10 @@ export function findEntryEligibility(
   context: WildshapeContext
 ): WildshapeEligibility {
   return findWildshapeEligibility(buildWildshapeCandidate(entry), context);
+}
+
+export function findEntryUnlockLevel(entry: CreatureIndexEntry, context: WildshapeContext): number | null {
+  return findFormUnlockLevel(buildWildshapeCandidate(entry), context);
 }
 
 /// Персонаж у контексті й сам перемикач — дві різні речі. Кнопка «додати як форму» потрібна й

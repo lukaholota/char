@@ -37,6 +37,7 @@ export interface WildshapeCandidate {
   flySpeed: number | null;
   swimSpeed: number | null;
   climbSpeed: number | null;
+  burrowSpeed: number | null;
   hasConditionalSpeed: boolean;
 }
 
@@ -52,6 +53,7 @@ export type EligibilityReason =
   | { kind: "swimSpeedLocked"; blocking: true; text: string; unlocksAtLevel: number }
   | { kind: "moonCircleChallenge"; blocking: false; text: string; maxChallengeRating: number }
   | { kind: "climbSpeedAllowed"; blocking: false; text: string }
+  | { kind: "burrowSpeedAllowed"; blocking: false; text: string }
   | { kind: "conditionalSpeed"; blocking: false; text: string };
 
 export type WildshapeEligibility = {
@@ -254,6 +256,14 @@ function findSpeedReasons(
     });
   }
 
+  if (candidate.burrowSpeed !== null) {
+    reasons.push({
+      kind: "burrowSpeedAllowed",
+      blocking: false,
+      text: "Швидкість риття Дика форма не обмежує на жодному рівні",
+    });
+  }
+
   if (candidate.hasConditionalSpeed) {
     reasons.push({
       kind: "conditionalSpeed",
@@ -373,10 +383,22 @@ export function findAvailableForms<T extends WildshapeCandidate>(
   return candidates.filter((candidate) => findWildshapeEligibility(candidate, context).eligible);
 }
 
-/// Збіг точний, а не входженням: «Рій дрібних звірів» — не звір для Дикої форми, і
-/// «Бестія (перевертень)» теж ним не є.
-function isBeast(type: string): boolean {
-  return (type ?? "").trim().toLowerCase() === BEAST_TYPE;
+const MAX_DRUID_LEVEL = 20;
+
+/// Найнижчий рівень друїда, не нижчий за поточний, з якого форма стає придатною; `null` — не
+/// стане ніколи (не друїд, не звір, без ПН або ПН вищий за досяжний).
+export function findFormUnlockLevel(candidate: WildshapeCandidate, context: WildshapeContext): number | null {
+  if (context.druidLevel < 1) return null;
+  for (let druidLevel = Math.max(Math.trunc(context.druidLevel), 2); druidLevel <= MAX_DRUID_LEVEL; druidLevel++) {
+    if (findWildshapeEligibility(candidate, { ...context, druidLevel }).eligible) return druidLevel;
+  }
+  return null;
+}
+
+/// Порівнюється базовий тип без підтипу в дужках: «Звір (Динозавр)» — звір, а «Рій дрібних
+/// звірів» і «Бестія (перевертень)» — ні.
+export function isBeast(type: string): boolean {
+  return (type ?? "").split("(")[0].trim().toLowerCase() === BEAST_TYPE;
 }
 
 export interface BeastFormHitPoints {

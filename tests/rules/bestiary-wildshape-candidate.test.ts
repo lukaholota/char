@@ -33,6 +33,7 @@ describe("рядок каталогу як кандидат Дикої форм�
       flySpeed: null,
       swimSpeed: null,
       climbSpeed: null,
+      burrowSpeed: null,
       hasConditionalSpeed: false,
     });
   });
@@ -41,6 +42,7 @@ describe("рядок каталогу як кандидат Дикої форм�
     expect(buildWildshapeCandidate(findEntry("Giant Eagle")).flySpeed).toBe(80);
     expect(buildWildshapeCandidate(findEntry("Reef Shark")).swimSpeed).toBe(40);
     expect(buildWildshapeCandidate(findEntry("Brown Bear")).climbSpeed).toBe(30);
+    expect(buildWildshapeCandidate(findEntry("Giant Badger")).burrowSpeed).toBe(10);
   });
 });
 

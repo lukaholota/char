@@ -4,6 +4,7 @@ export const RPGBOT_SURFACES = [
   "article_index", "article_reader", "subclass_analysis", "feature_analysis",
   "preset_gallery", "preset_review", "preset_name", "preset_customize", "preset_suggestion", "build_tree", "creator_header",
   "spell_picker", "spell_catalog", "spell_rating_panel", "home_tile", "menu", "rules_hub",
+  "wildshape_picker", "wildshape_rating_panel",
 ] as const;
 export type RpgbotSurface = (typeof RPGBOT_SURFACES)[number];
 

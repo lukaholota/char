@@ -21,6 +21,17 @@ export const DEFAULT_CREATURE_SORT: CreatureSortMode = "random";
 /// а не гортає каталог.
 export const WILDSHAPE_PICKER_SORT: CreatureSortMode = "cr-desc";
 
+/// Рекомендації RPGbot піднімають форми лише у випадковому порядку й порядку пікера: інший порядок читач обрав сам.
+export function sortCreatureListing(
+  entries: readonly CreatureIndexEntry[],
+  mode: CreatureSortMode,
+  seed: number | null,
+  rankRecommendedFirst: (sorted: CreatureIndexEntry[]) => CreatureIndexEntry[]
+): CreatureIndexEntry[] {
+  const sorted = sortCreatureIndex(entries, mode, seed);
+  return mode === DEFAULT_CREATURE_SORT || mode === WILDSHAPE_PICKER_SORT ? rankRecommendedFirst(sorted) : sorted;
+}
+
 export function parseCreatureSortMode(raw: string | null): CreatureSortMode {
   return CREATURE_SORT_MODES.some((option) => option.mode === raw)
     ? (raw as CreatureSortMode)

@@ -5,6 +5,7 @@ import type { CreatureIndexEntry } from "@/lib/bestiary-index";
 import type { CreatureData } from "@/lib/bestiaryData";
 import type { CreatureLoreGroup } from "@/lib/bestiaryLore";
 import type { WildshapePicking } from "@/components/bestiary/useWildshapePicking";
+import type { WildshapeRatings } from "@/components/bestiary/useWildshapeRatings";
 
 vi.mock("@/components/bestiary/CreatureStatblockCard", () => ({
   CreatureStatblockCard: ({ loreGroupDescription }: { loreGroupDescription?: string | null }) => (
@@ -45,6 +46,8 @@ const noWildshape = {
   addForm: () => {},
 } as unknown as WildshapePicking;
 
+const noRatings = { canRate: false, isOn: false, catalog: null, findRating: () => null } as unknown as WildshapeRatings;
+
 function renderPanel(loreGroup: CreatureLoreGroup | null) {
   return render(
     <StatblockPanel
@@ -53,6 +56,7 @@ function renderPanel(loreGroup: CreatureLoreGroup | null) {
       loreGroup={loreGroup}
       is2024={false}
       wildshape={noWildshape}
+      ratings={noRatings}
       homebrewEntry={null}
     />
   );

@@ -35,6 +35,11 @@ describe("CTA click tracking", () => {
     expect(findRpgbotCtaClick(link.querySelector("span"))).toEqual({ cta: "open_article", surface: "subclass_analysis", ref: "monk-open-hand" });
   });
 
+  it("accepts the wild shape rating panel as a surface", () => {
+    const link = renderLink(buildRpgbotCtaProps("open_ukrainian_article", "wildshape_rating_panel", "druid-wild-shape-2014"));
+    expect(findRpgbotCtaClick(link)).toEqual({ cta: "open_ukrainian_article", surface: "wildshape_rating_panel", ref: "druid-wild-shape-2014" });
+  });
+
   it("ignores unknown CTA or surface names and unmarked elements", () => {
     const wrongCta = renderLink({ "data-rpgbot-cta": "buy_now", "data-rpgbot-surface": "article_index" });
     const wrongSurface = renderLink({ "data-rpgbot-cta": "open_article", "data-rpgbot-surface": "somewhere" });

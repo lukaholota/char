@@ -55,6 +55,8 @@ export type RpgbotEventProperties = {
   rpgbot_spell_chip_toggled: { enabled: boolean };
   rpgbot_spell_rating_opened: { placement: RpgbotPlacement; entity_key: string; rating_score: number };
   rpgbot_catalog_spell_added: { rating_score?: number; recommendations_on: boolean };
+  rpgbot_wildshape_recommendations_toggled: { enabled: boolean };
+  rpgbot_wildshape_form_added: { rating_score?: number; is_eligible: boolean; recommendations_on: boolean; is_moon_circle: boolean; druid_level: number };
 };
 
 export type RpgbotEventName = keyof RpgbotEventProperties;

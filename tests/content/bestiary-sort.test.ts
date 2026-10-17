@@ -5,6 +5,7 @@ import {
   DEFAULT_CREATURE_SORT,
   parseCreatureSortMode,
   sortCreatureIndex,
+  sortCreatureListing,
 } from "@/lib/bestiary-sort";
 import { getCreatureIndex } from "@/lib/bestiaryData";
 
@@ -34,6 +35,22 @@ const SAMPLE: CreatureIndexEntry[] = [
 ];
 
 const readNames = (entries: CreatureIndexEntry[]) => entries.map((entry) => entry.name);
+
+describe("рекомендовані форми зверху списку", () => {
+  const isWolf = (entry: CreatureIndexEntry) => entry.name === "Вовк";
+  const putWolfFirst = (sorted: CreatureIndexEntry[]) => [...sorted.filter(isWolf), ...sorted.filter((entry) => !isWolf(entry))];
+
+  it("піднімаються у випадковому порядку й порядку пікера", () => {
+    expect(readNames(sortCreatureListing(SAMPLE, "random", null, putWolfFirst))[0]).toBe("Вовк");
+    expect(readNames(sortCreatureListing(SAMPLE, "cr-desc", null, putWolfFirst))[0]).toBe("Вовк");
+  });
+
+  it("не ламають порядку, який читач обрав сам", () => {
+    for (const mode of ["cr-asc", "type", "name"] as const) {
+      expect(sortCreatureListing(SAMPLE, mode, null, putWolfFirst)).toEqual(sortCreatureIndex(SAMPLE, mode, null));
+    }
+  });
+});
 
 describe("сортування бестіарію", () => {
   it("за зростанням CR ставить дробові поперед цілих, а безCR-івських — у кінець", () => {

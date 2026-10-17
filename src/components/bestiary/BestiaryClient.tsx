@@ -36,13 +36,14 @@ import { CreatureMedallion } from "@/components/bestiary/CreatureMedallion";
 import { StatblockPanel } from "@/components/bestiary/BestiaryStatblockPanel";
 import { BestiaryFilterDialog } from "@/components/bestiary/BestiaryFilterDialog";
 import { WildshapeFilterSection, WildshapeRowNote } from "@/components/bestiary/BestiaryWildshapePicking";
+import { useWildshapeRatings } from "@/components/bestiary/useWildshapeRatings";
 import { isCommunityCreature, useDeepSearchMatches, useIndexWithCommunityHomebrew, useShuffleSeed } from "@/components/bestiary/useCreatureListing";
 import { useWildshapePicking } from "@/components/bestiary/useWildshapePicking";
 import { BestiarySortMenu } from "@/components/bestiary/BestiarySortMenu";
 import {
   DEFAULT_CREATURE_SORT,
   parseCreatureSortMode,
-  sortCreatureIndex,
+  sortCreatureListing,
   type CreatureSortMode,
 } from "@/lib/bestiary-sort";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
@@ -108,6 +109,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
   const { index, communityCount, findCommunityEntry } = useIndexWithCommunityHomebrew(catalogIndex, ruleset, selection.source.homebrew, homebrewOnly?.sort ?? null);
   const deepMatchKeys = useDeepSearchMatches(selection.q, ruleset);
   const wildshape = useWildshapePicking(ruleset);
+  const ratings = useWildshapeRatings(ruleset, wildshape);
 
   const filtered = useMemo(
     () =>
@@ -120,8 +122,8 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
   const shuffleSeed = useShuffleSeed();
 
   const ordered = useMemo(
-    () => rankNameMatchesFirst(homebrewOnly ? filtered : sortCreatureIndex(filtered, selection.sort, shuffleSeed), selection.q),
-    [filtered, selection.sort, selection.q, shuffleSeed, homebrewOnly]
+    () => rankNameMatchesFirst(homebrewOnly ? filtered : sortCreatureListing(filtered, selection.sort, shuffleSeed, ratings.rankRecommendedFirst), selection.q),
+    [filtered, selection.sort, selection.q, shuffleSeed, homebrewOnly, ratings]
   );
 
   const selectedCreature = useMemo(() => {
@@ -357,7 +359,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
                     {creature.hp && <span className="text-slate-300">ХП {creature.hp}</span>}
                   </div>
 
-                  <WildshapeRowNote creature={creature} wildshape={wildshape} />
+                  <WildshapeRowNote creature={creature} wildshape={wildshape} rating={ratings.findRating(creature)} />
                 </div>
 
                 <button
@@ -393,6 +395,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
               loreGroup={loreGroup}
               is2024={is2024}
               wildshape={wildshape}
+              ratings={ratings}
               homebrewEntry={selectedCommunityEntry}
             />
           </div>
@@ -410,7 +413,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
       modalTitle={modalCreature?.name || "Статблок істоти"}
       renderModalContent={(creature) => (
         <div className="space-y-3">
-          <StatblockPanel creature={creature} statblock={statblock} loreGroup={loreGroup} is2024={is2024} wildshape={wildshape} homebrewEntry={findCommunityEntry(creature)} />
+          <StatblockPanel creature={creature} statblock={statblock} loreGroup={loreGroup} is2024={is2024} wildshape={wildshape} ratings={ratings} homebrewEntry={findCommunityEntry(creature)} />
         </div>
       )}
       filterDialogOpen={filtersOpen}
@@ -444,6 +447,7 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
               onlyEligible={wildshape.filter.onlyEligible}
               onSelectPers={wildshape.selectPers}
               onShowOnlyEligible={wildshape.showOnlyEligible}
+              recommendations={ratings.canRate ? { isOn: ratings.isOn, onChange: ratings.setIsOn } : null}
             />
           }
         />

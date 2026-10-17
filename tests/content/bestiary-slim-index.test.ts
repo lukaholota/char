@@ -41,6 +41,7 @@ const INDEX_FIELDS = [
   "flySpeed",
   "swimSpeed",
   "climbSpeed",
+  "burrowSpeed",
   "hasConditionalSpeed",
 ];
 
@@ -76,7 +77,7 @@ describe("вузький індекс бестіарію", () => {
   });
 
   /// KR24.1 доклав до рядка три швидкості й позначку умовності — рівно те, що питає правило
-  /// придатності Дикої форми. Розріджено: ключ без швидкості означає «режиму немає», інакше
+  /// придатності Дикої форми; риття додано, щоб пікер пояснював і його. Розріджено: ключ без швидкості означає «режиму немає», інакше
   /// пʼять полів із `null` на 1 490 істот коштували б у девʼять разів дорожче.
   it.each(EDITIONS)("несе швидкості правил і не несе решти чисел (%s)", (ruleset) => {
     const creatures = getAllCreatures(ruleset);
@@ -88,10 +89,11 @@ describe("вузький індекс бестіарію", () => {
       expect(entry.flySpeed ?? null).toBe(creature.flySpeed);
       expect(entry.swimSpeed ?? null).toBe(creature.swimSpeed);
       expect(entry.climbSpeed ?? null).toBe(creature.climbSpeed);
+      expect(entry.burrowSpeed ?? null).toBe(creature.burrowSpeed);
       expect(entry.hasConditionalSpeed ?? false).toBe(creature.hasConditionalSpeed);
     }
 
-    expect(index.some((entry) => "walkSpeed" in entry || "burrowSpeed" in entry)).toBe(false);
+    expect(index.some((entry) => "walkSpeed" in entry)).toBe(false);
   });
 
   it("важить від каталогу дрібну частку — інакше винесення втрачає сенс", () => {

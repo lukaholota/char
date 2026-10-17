@@ -144,6 +144,8 @@ Web vitals у PostHog вимкнені з 2026-09-27, тож продуктив�
 | `rpgbot_spell_picked` | обрано заклинання на кроці вибору (і з вимкненими рекомендаціями) | `rating_score`, `spell_level`, `section` (cantrip / spellbook / prepared / cantrip_swap / prepared_swap), `class_key`, `recommendations_on` |
 | `rpgbot_spell_chip_toggled` | перемикач RPGbot у каталозі листа (з 13.10 — оцінки й сортування, як у левелапі; до того — фільтр 3–4) | `enabled` |
 | `rpgbot_spell_rating_opened` | клік по бейджу оцінки заклинання | `placement` = catalog / creator, `entity_key`, `rating_score` |
+| `rpgbot_wildshape_recommendations_toggled` | перемикач рекомендацій у фільтрі «Дика форма» | `enabled` |
+| `rpgbot_wildshape_form_added` | друїд 2014 додав форму з пікера | `rating_score`, `is_eligible`, `recommendations_on`, `is_moon_circle`, `druid_level` |
 | `rpgbot_catalog_spell_added` | заклинання додано з каталогу листа, коли для класу є оцінки (і з вимкненим RPGbot) | `rating_score` (лише з увімкненим), `recommendations_on` (до 13.10 — `recommended_filter_on`) |
 
 Зміни в наявних подіях: `$pageview` отримав `previous_page_group` (звідки прийшли), а сторінки `/rules/optimization*` і `/optimization*` тепер мають `page_group = rpgbot`, а не `rules`.
