@@ -8,7 +8,6 @@ import {
   useRef,
   useState,
   useCallback,
-  type ReactNode,
 } from "react";
 import { getLevelUpInfo, levelUpCharacter } from "@/lib/actions/levelup";
 import { characterLevelOnly } from "@/rules/character-level";
@@ -20,6 +19,7 @@ import { EMPTY_BRANCH_CHOICES } from "@/lib/components/levelUp/levelUpBranchChoi
 import { GuidedLevelUpCard, useGuidedLevelUp, type GuidedLevelUpControl } from "@/lib/components/levelUp/GuidedLevelUp";
 import type { GuidedLevelUp as GuidedLevelUpOffer } from "@/lib/optimization/guided-level-up";
 import { Button } from "@/components/ui/button";
+import { LevelUpLayout, RestoredDraftAnnouncement, RestoredDraftNotice } from "@/lib/components/levelUp/LevelUpLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlainTitleCard } from "@/components/no-ai/PlainTitleCard";
 import { ARCANE } from "@/styles/palette";
@@ -267,45 +267,17 @@ export default function LevelUpWizard({ info, guide = null }: Props) {
   const draft = useLevelUpDraft("error" in info ? null : info.pers, findGuideSignature(guide));
   const nextLevel = "error" in info ? 0 : info.nextLevel;
 
-  if (!draft.isReady) {
-    return (
-      <LevelUpLayout nextLevel={nextLevel}>
-        <div className="h-[60vh] rounded-xl border border-white/10 bg-white/5" aria-busy="true" />
-      </LevelUpLayout>
-    );
-  }
-  return <LevelUpWizardSteps key={draft.sessionKey} info={info} guide={guide} isRestored={draft.isRestored} onStartOver={draft.startOver} />;
-}
-
-function LevelUpLayout({ nextLevel, notice, children }: { nextLevel: number; notice?: ReactNode; children: ReactNode }) {
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-3 py-4 pb-[calc(8.5rem+env(safe-area-inset-bottom))] sm:gap-4 sm:px-4 md:gap-6 md:px-0 md:py-6 md:pb-6">
-        <div className="glass-panel border-gradient-rpg w-full rounded-2xl px-3 py-4 sm:px-4 sm:py-4 md:px-6 md:py-5">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
-            <div className="space-y-1">
-              <h1 className="font-rpg-display text-xl font-semibold uppercase tracking-widest text-slate-200 sm:text-2xl md:text-3xl">
-                Підвищення рівня
-              </h1>
-              <div className="text-sm text-slate-400">
-                До {nextLevel}-го рівня
-              </div>
-            </div>
-            {notice}
-          </div>
-        </div>
-        {children}
-    </div>
-  );
-}
-
-function RestoredDraftNotice({ onStartOver }: { onStartOver: () => void }) {
-  return (
-    <div role="status" className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-300">
-      <span>Відновлено незавершене підвищення.</span>
-      <Button type="button" variant="outline" className="min-h-11 border-white/15 bg-white/5 text-slate-200 hover:bg-white/7" onClick={onStartOver}>
-        Почати заново
-      </Button>
-    </div>
+    <>
+      <RestoredDraftAnnouncement isRestored={draft.isReady && draft.isRestored} />
+      {draft.isReady ? (
+        <LevelUpWizardSteps key={draft.sessionKey} info={info} guide={guide} isRestored={draft.isRestored} onStartOver={draft.startOver} />
+      ) : (
+        <LevelUpLayout nextLevel={nextLevel}>
+          <div className="h-[60vh] rounded-xl border border-white/10 bg-white/5" aria-busy="true" />
+        </LevelUpLayout>
+      )}
+    </>
   );
 }
 

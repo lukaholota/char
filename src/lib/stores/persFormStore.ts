@@ -218,6 +218,8 @@ export function findActiveDraftStorageKey(): string | undefined {
 }
 
 function isDraftStorageActive(scope: DraftScope): boolean {
+  // Сховище заблоковане (SecurityError у браузері): persist не створився, чернетки не буде, але форма працює.
+  if (!usePersFormStore.persist) return true;
   return findActiveDraftStorageKey() === findPersDraftStorageKey(scope);
 }
 

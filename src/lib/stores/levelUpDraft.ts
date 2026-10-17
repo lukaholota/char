@@ -23,8 +23,10 @@ export function startLevelUpDraft(base: string): LevelUpDraft {
   return { base, stepId: null, guide: null };
 }
 
-export function findRestorableLevelUpDraft(stored: LevelUpDraft | null | undefined, base: string, guideSignature: string | null): LevelUpDraft | null {
+export type RestorableLevelUpDraft = { draft: LevelUpDraft; manualFormData: Partial<PersFormData> | null };
+
+export function findRestorableLevelUpDraft(stored: LevelUpDraft | null | undefined, base: string, guideSignature: string | null): RestorableLevelUpDraft | null {
   if (!stored || stored.base !== base) return null;
-  if (stored.guide && stored.guide.signature !== guideSignature) return { ...stored, guide: null };
-  return stored;
+  if (stored.guide && stored.guide.signature !== guideSignature) return { draft: { ...stored, guide: null }, manualFormData: stored.guide.manualFormData };
+  return { draft: stored, manualFormData: null };
 }

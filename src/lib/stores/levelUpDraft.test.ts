@@ -25,7 +25,7 @@ describe("level-up draft base", () => {
 
 describe("restoring a level-up draft", () => {
   it("restores the draft of the same character state with its step and guide", () => {
-    expect(findRestorableLevelUpDraft(stored, base, "guide-a")).toBe(stored);
+    expect(findRestorableLevelUpDraft(stored, base, "guide-a")).toEqual({ draft: stored, manualFormData: null });
   });
 
   it("drops a draft made on another level or class layout", () => {
@@ -38,9 +38,14 @@ describe("restoring a level-up draft", () => {
     expect(findRestorableLevelUpDraft({ owner: "x", stepId: "skills" } as unknown as LevelUpDraft, base, null)).toBeNull();
   });
 
-  it("keeps the form but forgets the applied guide when the guide changed", () => {
-    expect(findRestorableLevelUpDraft(stored, base, "guide-b")).toEqual({ base, stepId: "skills", guide: null });
-    expect(findRestorableLevelUpDraft(stored, base, null)).toEqual({ base, stepId: "skills", guide: null });
+  it("brings back the manual choices and forgets the applied guide when the guide changed", () => {
+    const restored = { draft: { base, stepId: "skills", guide: null }, manualFormData: { classId: 2 } };
+    expect(findRestorableLevelUpDraft(stored, base, "guide-b")).toEqual(restored);
+    expect(findRestorableLevelUpDraft(stored, base, null)).toEqual(restored);
+  });
+
+  it("restores a manual draft without touching its form", () => {
+    expect(findRestorableLevelUpDraft({ ...stored, guide: null }, base, "guide-b")).toEqual({ draft: { ...stored, guide: null }, manualFormData: null });
   });
 
   it("starts empty", () => {

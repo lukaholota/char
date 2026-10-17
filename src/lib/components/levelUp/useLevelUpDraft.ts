@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { useLevelUpDraftStorage, usePersFormStore } from "@/lib/stores/persFormStore";
-import { buildLevelUpDraftBase, findRestorableLevelUpDraft, startLevelUpDraft, type LevelUpDraft, type LevelUpDraftPers } from "@/lib/stores/levelUpDraft";
+import { buildLevelUpDraftBase, findRestorableLevelUpDraft, startLevelUpDraft, type LevelUpDraftPers, type RestorableLevelUpDraft } from "@/lib/stores/levelUpDraft";
 
 export type LevelUpDraftOwner = LevelUpDraftPers & { persId: number; ruleset: string };
 export type LevelUpDraftGate = { isReady: boolean; isRestored: boolean; sessionKey: number; startOver: () => void };
@@ -19,7 +19,7 @@ export function useLevelUpDraft(pers: LevelUpDraftOwner | null, guideSignature: 
     if (!isStorageReady) return;
     const restored = draftPersId === null ? null : findRestorableLevelUpDraft(usePersFormStore.getState().levelUpDraft, base, guideSignature);
     openLevelUpDraft(restored, base);
-    setChecked((previous) => ({ base, isRestored: restored?.stepId != null, sessionKey: (previous?.sessionKey ?? 0) + 1 }));
+    setChecked((previous) => ({ base, isRestored: restored?.draft.stepId != null, sessionKey: (previous?.sessionKey ?? 0) + 1 }));
   }, [isStorageReady, draftPersId, base, guideSignature]);
 
   const startOver = useCallback(() => {
@@ -30,10 +30,11 @@ export function useLevelUpDraft(pers: LevelUpDraftOwner | null, guideSignature: 
   return { isReady: isStorageReady && checked?.base === base, isRestored: checked?.isRestored ?? false, sessionKey: checked?.sessionKey ?? 0, startOver };
 }
 
-function openLevelUpDraft(restored: LevelUpDraft | null, base: string): void {
+function openLevelUpDraft(restored: RestorableLevelUpDraft | null, base: string): void {
   const store = usePersFormStore.getState();
   if (!restored) store.resetForm();
-  store.setLevelUpDraft(restored ?? startLevelUpDraft(base));
+  if (restored?.manualFormData) usePersFormStore.setState({ formData: restored.manualFormData });
+  store.setLevelUpDraft(restored?.draft ?? startLevelUpDraft(base));
 }
 
 export function useRestoredLevelUpStep(stepIds: readonly string[], currentStep: number, setCurrentStep: (index: number) => void): (index: number) => void {

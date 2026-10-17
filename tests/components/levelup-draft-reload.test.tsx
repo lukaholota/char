@@ -176,14 +176,39 @@ describe("незавершене підвищення рівня після пе
     expect(shownClass()).toBe("9");
   });
 
-  it("коли гайд змінився, лишає вибори, але знову пропонує заповнення", async () => {
+  it("коли гайд змінився, повертає ручні вибори й знову пропонує заповнення", async () => {
     render(<LevelUpPage pers={bard} guide={guide} />);
+    fireEvent.click(screen.getByRole("button", { name: "Обрати клас" }));
     fireEvent.click(screen.getByRole("button", { name: "Заповнити за гайдом" }));
+    expect(shownClass()).toBe("2");
 
     await openPage();
     render(<LevelUpPage pers={bard} guide={{ ...guide, input: { ...guide.input, featId: 42 } }} />);
 
-    expect(shownClass()).toBe("2");
+    expect(shownClass()).toBe("9");
     expect(screen.getByRole("button", { name: "Заповнити за гайдом" })).toBeTruthy();
+  });
+});
+
+describe("підвищення рівня, коли браузер блокує сховище сайту", () => {
+  const original = Object.getOwnPropertyDescriptor(globalThis, "localStorage");
+
+  beforeEach(async () => {
+    vi.unstubAllGlobals();
+    Object.defineProperty(globalThis, "localStorage", { configurable: true, get() { throw new DOMException("blocked", "SecurityError"); } });
+    await openPage();
+  });
+
+  afterEach(() => {
+    if (original) Object.defineProperty(globalThis, "localStorage", original);
+    else Reflect.deleteProperty(globalThis, "localStorage");
+  });
+
+  it.each([["2014", bard], ["2024", { ...bard, persId: 3, ruleset: "RULES_2024" }]])("майстер %s відкривається без чернетки", (_edition, pers) => {
+    render(<LevelUpPage pers={pers} />);
+
+    expect(shownStep()).toBe("path");
+    fireEvent.click(screen.getByRole("button", { name: "Обрати клас" }));
+    expect(shownClass()).toBe("9");
   });
 });
