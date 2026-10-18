@@ -151,17 +151,6 @@ AUTO_DECISIONS = [
 ]
 
 
-def load_stage_issues(name):
-    return json.load(open(stage_path(revision_of(name))))['issues']
-
-
-def is_second_half_of_split_label(name, index):
-    issues = load_stage_issues(name)
-    current, previous = issues[index], issues[index - 1]
-    return (current['code'] == previous['code'] == 'rating-signal-review'
-            and current.get('location', '').endswith('span[2]') and previous.get('location', '').endswith('span[1]'))
-
-
 def auto_decide(name):
     decisions_path = sheet_path(name).with_suffix('.decisions.json')
     decisions = json.loads(decisions_path.read_text(encoding='utf-8')) if decisions_path.exists() else {}
@@ -176,15 +165,6 @@ def auto_decide(name):
                                               'evidence': f"Color word inside prose ('{color_word.group(2)}'), not an option rating"}
             decisions_path.write_text(json.dumps(decisions, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
             print('auto decision', color_word.group(1), 'color word in prose')
-            continue
-        split_label = re.search(r'Unresolved rating signals: (\d+): \S+ rating-[a-z]+ (.+)', result.stderr)
-        if split_label and is_second_half_of_split_label(name, int(split_label.group(1))):
-            index, label = split_label.group(1), split_label.group(2).strip()
-            first = load_stage_issues(name)[int(index) - 1]['detail'].split(' ', 1)[1]
-            decisions[index] = {'disposition': 'excluded-noncontent',
-                                'evidence': f"Second half of the split label '{first} {label}' ('{first}' and '{label}' sit in separate rating spans); the rating is taken from the first span, not a separate option rating"}
-            decisions_path.write_text(json.dumps(decisions, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-            print('auto decision', index, 'second half of split label')
             continue
         match = re.search(r'Unreviewed source issue: (\d+): (\S+) (.*)', result.stderr)
         if not match:

@@ -10,7 +10,7 @@ export type WildshapeRatingCatalog = {
   sourceUrl: string;
   movementNote: string;
   sections: Record<string, { title: string; notes: string[] }>;
-  forms: Record<string, { score: number; sectionId: string; comment: string }>;
+  forms: Record<string, { score: number; moonScore?: number; sectionId: string; comment: string }>;
 };
 
 export type WildshapeFormRating = { score: SpellRatingScore; sectionId: string; comment: string };
@@ -24,9 +24,11 @@ export function canRateWildshape(catalogRuleset: Ruleset, standing: Pick<Wildsha
   return catalogRuleset === "RULES_2014" && standing?.ruleset === "RULES_2014" && standing.limits !== null;
 }
 
-export function findWildshapeFormRating(catalog: WildshapeRatingCatalog, creatureKey: string): WildshapeFormRating | null {
+export function findWildshapeFormRating(catalog: WildshapeRatingCatalog, creatureKey: string, isMoonCircle: boolean): WildshapeFormRating | null {
   const form = Object.hasOwn(catalog.forms, creatureKey) ? catalog.forms[creatureKey] : null;
-  return form && isSpellRatingScore(form.score) ? { ...form, score: form.score } : null;
+  if (!form) return null;
+  const score = isMoonCircle && form.moonScore !== undefined ? form.moonScore : form.score;
+  return isSpellRatingScore(score) ? { score, sectionId: form.sectionId, comment: form.comment } : null;
 }
 
 export function findWildshapeRatingNotes(catalog: WildshapeRatingCatalog, rating: WildshapeFormRating, eligibility: WildshapeEligibility | null): WildshapeRatingNotes {

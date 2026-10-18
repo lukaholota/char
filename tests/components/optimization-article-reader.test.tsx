@@ -43,7 +43,8 @@ async function expectDraftFullyRendered(slug: string) {
   expect(container.querySelectorAll("p[id^='block-']")).toHaveLength(blocks.filter((block) => block.type === "paragraph").length);
   expect(container.querySelectorAll("[data-article-content] li")).toHaveLength(itemCount);
   const legendBadges = container.querySelectorAll("#section-disclaimer [data-rating-tone]").length;
-  expect(container.querySelectorAll("[data-article-content] [data-rating-tone]").length - legendBadges).toBe(draft.ratings.length);
+  const alternativeBadges = draft.ratings.filter((rating) => rating.alternative).length;
+  expect(container.querySelectorAll("[data-article-content] [data-rating-tone]").length - legendBadges).toBe(draft.ratings.length + alternativeBadges);
 }
 
 const BARBARIAN_2014_SLUGS = [

@@ -1,7 +1,7 @@
 import { findGlossaryMarkers, stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
 import { findPlainEnglishName } from "@/lib/catalogs/reading-target";
 import { normalizeContentName, type HydrationTarget } from "./content-hydration";
-import type { ContentReference, TranslationRevision } from "./types";
+import type { AnalysisArticle, ContentReference, TranslationRevision } from "./types";
 import { collectBlockText } from "./block-text";
 import { collectMechanicalReferenceAliases } from "./mechanical-reference-aliases";
 import { collectRareReferenceAliases } from "./rare-reference-aliases";
@@ -79,9 +79,9 @@ type AliasIndex = {
   descriptions: ReadonlyMap<string, ContentReference[]>;
 };
 
-export function collectEntityAliases(revisions: readonly TranslationRevision[], references: readonly ContentReference[], targets: readonly HydrationTarget[]): HydrationTarget[] {
+export function collectEntityAliases(revisions: readonly TranslationRevision[], references: readonly ContentReference[], targets: readonly HydrationTarget[], article?: Pick<AnalysisArticle, "topics">): HydrationTarget[] {
   const referenceNames = new Map(references.map((reference) => [reference.href, reference.engName]));
-  const aliases = [...collectShortNames(references), ...collectEquipmentAliases(targets), ...collectSpellComponentAliases(targets), ...collectMechanicalReferenceAliases(targets), ...collectRareReferenceAliases(targets), ...targets.flatMap((target) => target.sectionId
+  const aliases = [...collectShortNames(references, buildForeignCreatureNameFinder(references, targets, article)), ...collectEquipmentAliases(targets), ...collectSpellComponentAliases(targets), ...collectMechanicalReferenceAliases(targets), ...collectRareReferenceAliases(targets), ...targets.flatMap((target) => target.sectionId
     ? [...(SCOPED_COMPONENT_PARENTS[referenceNames.get(target.href) ?? target.engName] ?? SCOPED_COMPONENT_PARENTS[target.engName] ?? []),
       ...(COMPONENT_PARENTS[target.engName] ?? COMPONENT_PARENTS[findPlainEnglishName(target.engName)] ?? [])]
       .map((engName) => ({ ...target, engName })) : [])];
@@ -111,20 +111,35 @@ function hasCommonRoot(references: readonly ContentReference[]) {
   });
 }
 
-function collectShortNames(references: readonly ContentReference[]) {
+function buildForeignCreatureNameFinder(references: readonly ContentReference[], targets: readonly HydrationTarget[], article?: Pick<AnalysisArticle, "topics">) {
+  const articleClass = references.find((reference) => reference.kind === "class" && normalizeContentName(reference.name) === normalizeContentName(article?.topics[0] ?? ""));
+  const articleClassKey = articleClass && findClassKey(articleClass.href);
+  const articleClassNames = new Set(references.filter((reference) => articleClassKey && findClassKey(reference.href) === articleClassKey)
+    .map((reference) => normalizeContentName(findPlainEnglishName(reference.engName))));
+  const creatureNames = new Set(targets.filter((target) => target.kind === "creature").map((target) => normalizeContentName(target.engName)));
+  const isOwnedByArticleClass = (reference: ContentReference) => [reference.engName, reference.engName.split(/:\s+| [—-] /)[0]]
+    .some((name) => articleClassNames.has(normalizeContentName(findPlainEnglishName(name))));
+  return (reference: ContentReference): ReadonlySet<string> => isOwnedByArticleClass(reference) ? new Set() : creatureNames;
+}
+
+function findClassKey(href: string) {
+  return new URL(href, "https://local.invalid").searchParams.get("class");
+}
+
+function collectShortNames(references: readonly ContentReference[], findForeignCreatureNames: (reference: ContentReference) => ReadonlySet<string>) {
   const classes = references.filter((reference) => reference.kind === "class");
   const classNames = new Set(classes.map((reference) => normalizeContentName(reference.engName)));
   const classNamesByKey = new Map(classes.map((reference) => [
-    new URL(reference.href, "https://local.invalid").searchParams.get("class"), reference.engName,
+    findClassKey(reference.href), reference.engName,
   ]));
   return references.flatMap((reference) => [
-    ...collectCommonReferenceAliases(reference, classNames),
+    ...collectCommonReferenceAliases(reference, classNames, findForeignCreatureNames(reference)),
     ...collectRaceBranchAliases(reference), ...collectMagicItemAliases(reference),
-    ...collectSubclassAliases(reference, classNamesByKey.get(new URL(reference.href, "https://local.invalid").searchParams.get("class"))),
+    ...collectSubclassAliases(reference, classNamesByKey.get(findClassKey(reference.href))),
   ]);
 }
 
-function collectCommonReferenceAliases(reference: ContentReference, classNames: ReadonlySet<string>): HydrationTarget[] {
+function collectCommonReferenceAliases(reference: ContentReference, classNames: ReadonlySet<string>, creatureNames: ReadonlySet<string>): HydrationTarget[] {
   const names: string[] = [];
   const shortName = reference.engName.replace(/\s*\([^)]*\)\s*$/, "");
   if (shortName !== reference.engName && reference.kind !== "race") names.push(shortName);
@@ -136,7 +151,7 @@ function collectCommonReferenceAliases(reference: ContentReference, classNames: 
   if (reference.kind === "rule" && reference.href === "/rules/adventuring#resting") names.push("Hit Die", "Hit Dice");
   if (reference.kind === "rule" && reference.engName === "Rituals") names.push("Ritual Casting");
   const components = reference.engName.split(/:\s+| [—-] /);
-  if (components.length > 1 && !classNames.has(normalizeContentName(components[0]))) names.push(components[0], components.at(-1)!);
+  if (components.length > 1 && !classNames.has(normalizeContentName(components[0]))) names.push(components[0], ...(creatureNames.has(normalizeContentName(components.at(-1)!)) ? [] : [components.at(-1)!]));
   if (reference.kind === "feature" || reference.kind === "feat") {
     names.push(...(COMPONENT_PARENTS[reference.engName] ?? COMPONENT_PARENTS[findPlainEnglishName(reference.engName)] ?? []));
   }

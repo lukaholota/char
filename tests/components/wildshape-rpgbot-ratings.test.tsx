@@ -83,6 +83,26 @@ describe("оцінки RPGbot у пікері дикої форми", () => {
     expect(result.current.rankRecommendedFirst([direWolf, wolf]).map((creature) => creature.key)).toEqual(["wolf", "dire-wolf"]);
   });
 
+  it("друїд Кола місяця отримує свою оцінку форми, і за нею ж іде сортування", async () => {
+    const octopus = entry("giant-octopus", "Giant Octopus", "1", { swimSpeed: 60 });
+    const swimmingLimits = { maxChallengeRating: 1, allowsFlySpeed: false, allowsSwimSpeed: true };
+    const original = wildshapeRatingCatalog.forms["giant-octopus"];
+    wildshapeRatingCatalog.forms["giant-octopus"] = { score: 1, moonScore: 4, sectionId: "section-cr_1", comment: "Тримає під водою." };
+    try {
+      const moon = renderHook(() => useWildshapeRatings("RULES_2014", buildPicking(standing({ druidLevel: 4, limits: swimmingLimits }))));
+      const land = renderHook(() => useWildshapeRatings("RULES_2014", buildPicking(standing({ druidLevel: 8, isMoonCircle: false, limits: swimmingLimits }))));
+      await waitFor(() => expect(moon.result.current.catalog).not.toBeNull());
+      await waitFor(() => expect(land.result.current.catalog).not.toBeNull());
+
+      expect(moon.result.current.findRating(octopus)?.score).toBe(4);
+      expect(land.result.current.findRating(octopus)?.score).toBe(1);
+      expect(moon.result.current.rankRecommendedFirst([wolf, octopus]).map((creature) => creature.key)).toEqual(["giant-octopus", "wolf"]);
+      expect(land.result.current.rankRecommendedFirst([octopus, wolf]).map((creature) => creature.key)).toEqual(["wolf", "giant-octopus"]);
+    } finally {
+      wildshapeRatingCatalog.forms["giant-octopus"] = original;
+    }
+  });
+
   it("для 2024 і без обраного друїда оцінок немає зовсім", () => {
     const edition2024 = renderHook(() => useWildshapeRatings("RULES_2024", buildPicking(standing({ ruleset: "RULES_2024" }))));
     const noDruid = renderHook(() => useWildshapeRatings("RULES_2014", buildPicking(null)));

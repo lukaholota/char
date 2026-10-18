@@ -194,9 +194,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Захист від зброї [Blade Ward] ^^(^^[[1|PHB]]^^)^^: дія Ухиляння робить це зайвим.
 
-### block-section-cantrips-1/item/1 · пункт · rating-red
+### block-section-cantrips-1/item/1 · пункт · rating-red+blue
 
 > Booming Blade ^^(^^[[1|SCAG / TCoE]]^^)^^ (Optional): Keeping an enemy in melee is surprisingly difficult in 5e since movement is so easy and opportunity attacks are often fairly gentle. Booming Blade is a great solution to this issue. However, unless you’re a Hexblade it’s not an option you want to use. See my article on [[2|Melee Cantrips vs. Extra Attack]] for a breakdown of the math comparing melee cantrip spells to normal martial attacks. Note that Tasha’s Cauldron of Everything published an updated version of Booming Blade.
+
+умова: Відьмацький клинок | HEXBLADE
 
 **Українською:**
 Гримучий Клинок [Booming Blade] ^^(^^[[1|SCAG / TCoE]]^^)^^ (необовʼязкове): утримати ворога в ближньому бою в 5e напрочуд складно, бо рухатися так легко, а Принагідні атаки часто досить кволі. Гримучий Клинок [Booming Blade] — чудовий вихід із цієї проблеми. Проте якщо ви не {{Відьмацький клинок|Hexblade}}, користуватися цим не варто. Дивіться мою статтю про [[2|ближні замовляння проти Додаткової атаки]], де розібрано математику порівняння ближніх замовлянь зі звичайними атаками бійців. Зауважте, що «Казан Таші з усім» опублікував оновлену версію Гримучого Клинка [Booming Blade].
@@ -236,9 +238,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Обмороження [Frostbite] ^^(^^[[1|EEPC / XGtE]]^^)^^: низька шкода для замовляння (на основі к6), але головна принада — Перешкода на кубику на наступну атаку зброєю цілі. На жаль, воно діє на ряткидках Статури, а вони, як правило, відносно високі порівняно з іншими ряткидками.
 
-### block-section-cantrips-1/item/7 · пункт · rating-red
+### block-section-cantrips-1/item/7 · пункт · rating-red+blue
 
 > Green-Flame Blade ^^(^^[[1|SCAG / TCoE]]^^)^^ (Optional): If you are a Hexblade and you don’t take this, you are making a mistake. Until you get Thirsting Blade, this is a straight damage boost. Even when you get Thirsting Blade, Green-Flame Blade may do more damage in some circumstances, and Green-Flame Blade will continue to scale in damage long after you stop getting additional weapon attacks. See my article on [[2|Melee Cantrips vs. Extra Attack]] for a breakdown of the math comparing melee cantrip spells to normal martial attacks. Note that Tasha’s Cauldron of Everything published an updated version of Green-Flame Blade.
+
+умова: Відьмацький клинок | HEXBLADE
 
 **Українською:**
 Клинок Зеленого Полумʼя [Green-Flame Blade] ^^(^^[[1|SCAG / TCoE]]^^)^^ (необовʼязкове): якщо ви {{Відьмацький клинок|Hexblade}} і не берете це, ви робите помилку. Поки у вас немає «Спраглого леза»{{Thirsting Blade}}, це пряме підсилення шкоди. Навіть коли воно зʼявиться, Клинок Зеленого Полумʼя [Green-Flame Blade] у деяких обставинах може завдавати більше шкоди, а ще його шкода й далі зростатиме довго після того, як ви перестанете отримувати додаткові атаки зброєю. Дивіться мою статтю про [[2|ближні замовляння проти Додаткової атаки]], де розібрано математику порівняння ближніх замовлянь зі звичайними атаками бійців. Зауважте, що «Казан Таші з усім» опублікував оновлену версію Клинка Зеленого Полумʼя [Green-Flame Blade].
@@ -299,9 +303,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Штукарство [Prestidigitation] ^^(^^[[1|PHB]]^^)^^: щоразу, коли ви хочете зробити щось дрібне й магічне, що не охоплює жодне інше заклинання, зазвичай це охоплює Штукарство [Prestidigitation]. Це заклинання надзвичайно універсальне. Поради, як використати Штукарство [Prestidigitation] на повну, дивіться в моєму [[2|практичному гайді зі «Штукарства»]].
 
-### block-section-cantrips-1/item/16 · пункт · rating-orange
+### block-section-cantrips-1/item/16 · пункт · rating-orange+blue
 
 > Sword Burst ^^(^^[[1|SCAG / TCoE]]^^)^^ (Optional): Dealing with crowds of enemies is often difficult for weapon users, and the Hexblade is no exception. Even with Thirsting Blade, Sword Burst will deal consistently more damage any time you’re facing three or more adjacent enemies. See my article on [[2|Melee Cantrips vs. Extra Attack]] for a breakdown of the math comparing melee cantrip spells to normal martial attacks. Other warlocks should avoid needing this.
+
+умова: Відьмацький клинок | HEXBLADE
 
 **Українською:**
 Спалах Мечів [Sword Burst] ^^(^^[[1|SCAG / TCoE]]^^)^^ (необовʼязкове): із натовпами ворогів користувачам зброї часто важко, і {{Відьмацький клинок|Hexblade}} не виняток. Навіть зі «Спраглим лезом»{{Thirsting Blade}} Спалах Мечів [Sword Burst] стабільно завдаватиме більше шкоди щоразу, коли вам протистоять троє чи більше ворогів поруч. Дивіться мою статтю про [[2|ближні замовляння проти Додаткової атаки]], де розібрано математику порівняння ближніх замовлянь зі звичайними атаками бійців. Іншим чорнокнижникам слід уникати ситуацій, де це знадобиться.

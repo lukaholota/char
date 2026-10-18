@@ -14,7 +14,10 @@ const CATALOG: WildshapeRatingCatalog = {
   sourceUrl: "https://rpgbot.net/",
   movementNote: "Політ — з 8 рівня.",
   sections: { "section-cr_1": { title: "ПН 1", notes: ["Порада ПН 1."] } },
-  forms: { "giant-eagle": { score: 3, sectionId: "section-cr_1", comment: "Летить." }, broken: { score: 7, sectionId: "section-cr_1", comment: "" } },
+  forms: {
+    "giant-eagle": { score: 3, sectionId: "section-cr_1", comment: "Летить." },
+    "giant-octopus": { score: 1, moonScore: 4, sectionId: "section-cr_1", comment: "Тримає під водою." },
+    broken: { score: 7, sectionId: "section-cr_1", comment: "" } },
 };
 
 const standing = (context: WildshapeContext) => ({ ...context, limits: findWildshapeLimits(context) });
@@ -33,16 +36,22 @@ describe("canRateWildshape", () => {
 
 describe("findWildshapeFormRating", () => {
   it("повертає оцінку форми, а невідомий ключ і зіпсовану оцінку — як null", () => {
-    expect(findWildshapeFormRating(CATALOG, "giant-eagle")).toEqual({ score: 3, sectionId: "section-cr_1", comment: "Летить." });
-    expect(findWildshapeFormRating(CATALOG, "wolf")).toBeNull();
-    expect(findWildshapeFormRating(CATALOG, "constructor")).toBeNull();
-    expect(findWildshapeFormRating(CATALOG, "broken")).toBeNull();
+    expect(findWildshapeFormRating(CATALOG, "giant-eagle", false)).toEqual({ score: 3, sectionId: "section-cr_1", comment: "Летить." });
+    expect(findWildshapeFormRating(CATALOG, "wolf", false)).toBeNull();
+    expect(findWildshapeFormRating(CATALOG, "constructor", false)).toBeNull();
+    expect(findWildshapeFormRating(CATALOG, "broken", true)).toBeNull();
+  });
+
+  it("дає друїду Кола місяця його оцінку форми, а решті — основну", () => {
+    expect(findWildshapeFormRating(CATALOG, "giant-octopus", true)).toEqual({ score: 4, sectionId: "section-cr_1", comment: "Тримає під водою." });
+    expect(findWildshapeFormRating(CATALOG, "giant-octopus", false)?.score).toBe(1);
+    expect(findWildshapeFormRating(CATALOG, "giant-eagle", true)?.score).toBe(3);
   });
 });
 
 describe("findWildshapeRatingNotes", () => {
   it("додає примітку про рух лише тоді, коли форму блокує політ чи плавання", () => {
-    const rating = findWildshapeFormRating(CATALOG, "giant-eagle")!;
+    const rating = findWildshapeFormRating(CATALOG, "giant-eagle", false)!;
     const locked = findWildshapeEligibility(eagle, moonDruid2);
     const open = findWildshapeEligibility(eagle, { ...moonDruid2, druidLevel: 8 });
 
@@ -54,7 +63,7 @@ describe("findWildshapeRatingNotes", () => {
 
 describe("findRecommendationScore", () => {
   it("піднімає лише форму, доступну вже зараз", () => {
-    const rating = findWildshapeFormRating(CATALOG, "giant-eagle");
+    const rating = findWildshapeFormRating(CATALOG, "giant-eagle", false);
 
     expect(findRecommendationScore(rating, findWildshapeEligibility(eagle, { ...moonDruid2, druidLevel: 8 }))).toBe(3);
     expect(findRecommendationScore(rating, findWildshapeEligibility(eagle, moonDruid2))).toBeNull();

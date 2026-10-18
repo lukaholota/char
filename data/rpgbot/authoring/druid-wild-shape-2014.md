@@ -1171,9 +1171,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Гігантська оса{{Giant Wasp}}[[1|MM]]: Чудова швидкість польоту й єдиний літаючий варіант на цьому ПН. Шкода від жала оси не вражає, але отрута дуже сильна, якщо ціль провалить низьку СК ряткидка, щоб їй опиратися. На жаль, форма недоступна до 8-го рівня, тож на той час у вас уже будуть кращі варіанти.
 
-### block-section-8-3/item/6 · пункт · rating-blue
+### block-section-8-3/item/6 · пункт · rating-blue+red
 
 > Reef Shark[[1|MM]]: The best aquatic form at this CR. Land Druids will use this, but Moon Druids can use Hunter Shark at level 4 when swimming forms become available.
+
+умова: Коло місяця | CIRCLE_OF_THE_MOON
 
 **Українською:**
 Рифова акула{{Reef Shark}}[[1|MM]]: Найкраща водна форма на цьому ПН. Друїди Кола землі користуватимуться нею, а Друїди Кола місяця на 4-му рівні, коли відкриваються форми для плавання, можуть узяти акулу-мисливця.
@@ -1212,9 +1214,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Проти одиночних ворогів гігантська ропуха може швидко прибрати будь-кого середнього розміру чи менше. В інших боях гігантський гриф завдає чудової шкоди, а лютий вовк має приємний ефект повалення. «Павутина»{{Web}} гігантського павука — веселий утилітарний засіб, особливо проти великих ворогів із низьким КБ. Під водою гігантський восьминіг — єдиний ваш варіант, але він теж доволі добрий.
 
-### block-section-cr_1-4/item/0 · пункт · rating-green
+### block-section-cr_1-4/item/0 · пункт · rating-green+red
 
 > Brown Bear[[1|MM]]: A decent amount of hit points, Keen Smell, a climb speed, and Multiattack with two decent attacks. Unfortunately, the Brown Bear’s AC is relatively low for the CR, and it doesn’t have enough hit points to compensate, so it’s very difficult to maintain the form if you’re drawing attacks. A lot of people like bears because the multiple attacks allow you to apply Rage damage twice, but you absolutely won’t have enough rages to keep this form viable throughout a full day. If you insist on using Brown Bear (and many people do) be absolutely sure to put of Barkskin before you go into combat.
+
+умова: Коло місяця | CIRCLE_OF_THE_MOON
 
 **Українською:**
 Бурий ведмідь{{Brown Bear}}[[1|MM]]: Пристойна кількість ХП, «Гострий нюх»{{Keen Smell}}, швидкість лазіння та «Мультиатака»{{Multiattack}} з двома пристойними атаками. На жаль, КБ бурого ведмедя відносно низький для його ПН, а ХП недостатньо, щоб це компенсувати, тож утримати форму, якщо по вас націлюють атаки, дуже важко. Багатьом подобаються ведмеді, бо кілька атак дозволяють двічі застосувати шкоду від «Люті»{{Rage}}, але вам абсолютно не вистачить застосувань «Люті», щоб ця форма лишалася життєздатною цілий день. Якщо ви наполягаєте на використанні бурого ведмедя (а багато хто наполягає), неодмінно накладіть Дубову шкіру [Barkskin] перед боєм.
@@ -1247,9 +1251,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Гігантська гієна{{Giant Hyena}}[[1|MM]]: Низький КБ, але пристойна купа ХП. Укус гігантської гієни завдає пристойної шкоди, а з «Шаленством»{{Rampage}} ви можете дуже швидко прогризати групи слабких ворогів, особливо на низьких рівнях.
 
-### block-section-cr_1-4/item/5 · пункт · rating-red
+### block-section-cr_1-4/item/5 · пункт · rating-red+blue
 
 > Giant Octopus[[1|MM]]: Underwater this is the only form available at this CR, but it’s a great option for combat, and it’s even decent at stealth. Not usable until level 4.
+
+умова: Коло місяця | CIRCLE_OF_THE_MOON
 
 **Українською:**
 Гігантський восьминіг{{Giant Octopus}}[[1|MM]]: Під водою це єдина доступна форма на цьому ПН, але вона чудовий варіант для бою й навіть пристойна в непомітності. Недоступно до 4-го рівня.
@@ -1392,14 +1398,14 @@ RPGbot використовує кольорову шкалу, яку легко
 **Український заголовок:**
 ПН 3
 
-### block-section-cr_3-1 · абзац · rating-blue
+### block-section-cr_3-1 · абзац · без оцінки
 
 > Ankylosaurus serves as a Defender, Giant Scorpion is great for holding stuff in place and murdering it (provided that you can hit with only a +4 bonus), and the Spotted Lion is great for charging single foes.
 
 **Українською:**
 Анкілозавр{{Ankylosaurus}} виконує роль танка, Гігантський скорпіон{{Giant Scorpion}} чудово тримає ворогів на місці й нищить їх (за умови, що ви можете влучати з бонусом лише +4), а Плямистий лев{{Spotted Lion}} чудово підходить, щоб кидатися в атаку на одиночних ворогів.
 
-### block-section-cr_3-2/item/0 · пункт · без оцінки
+### block-section-cr_3-2/item/0 · пункт · rating-blue
 
 > Ankylosaurus[[1|MM]]: Solid damage, reach, and a knockdown effect make the Ankylosaurus a great Defender.
 

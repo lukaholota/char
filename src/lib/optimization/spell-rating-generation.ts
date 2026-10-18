@@ -1,4 +1,5 @@
 import { hydrateArticleDocument } from "./hydration-catalog";
+import { flattenLinksLeavingPicker } from "./picker-links";
 import { buildCommentMarkdown, type SpellRatingComment } from "./spell-rating-comment-markdown";
 import { extractSpellRatings, type KnownSpell, type SpellRatingCommentSource } from "./spell-rating-extraction";
 import type { SpellRatingCatalog } from "./spell-rating-lookup";
@@ -13,14 +14,17 @@ export type GeneratedSpellRatings = {
 };
 
 const SPELL_LIST_FILE = /^rpgbot-(.+)-spells-2014\.json$/;
+const NOT_CASTER_LIST_KEYS = new Set(["wall"]);
 
 export function findSpellRatingListKey(fileName: string): string | null {
-  return SPELL_LIST_FILE.exec(fileName)?.[1] ?? null;
+  const listKey = SPELL_LIST_FILE.exec(fileName)?.[1] ?? null;
+  return listKey && !NOT_CASTER_LIST_KEYS.has(listKey) ? listKey : null;
 }
 
 export async function buildSpellRatingFiles(
   documentsByListKey: ReadonlyMap<string, ArticleDocument>,
   spells: readonly KnownSpell[],
+  creatureSlugs: ReadonlySet<string>,
   sourceUrlBySourceId: ReadonlyMap<string, string>,
 ): Promise<GeneratedSpellRatings> {
   const result: GeneratedSpellRatings = { catalog: { lists: {} }, comments: {}, unresolved: [] };
@@ -33,14 +37,19 @@ export async function buildSpellRatingFiles(
       articleSlug: document.article.slug,
       sourceUrl: findSourceUrl(document, sourceUrlBySourceId),
       scores: extracted.scores,
+      ...(Object.keys(extracted.alternatives).length > 0 ? { alternatives: extracted.alternatives } : {}),
     };
-    result.comments[listKey] = await hydrateComments(document, extracted.comments);
+    result.comments[listKey] = await hydrateComments(document, extracted.comments, creatureSlugs);
     if (extracted.unresolvedNames.length > 0) result.unresolved.push({ listKey, names: extracted.unresolvedNames });
   }
   return result;
 }
 
-async function hydrateComments(document: ArticleDocument, sources: Record<string, SpellRatingCommentSource>): Promise<Record<string, SpellRatingComment>> {
+async function hydrateComments(
+  document: ArticleDocument,
+  sources: Record<string, SpellRatingCommentSource>,
+  creatureSlugs: ReadonlySet<string>,
+): Promise<Record<string, SpellRatingComment>> {
   const slugs = Object.keys(sources);
   const sectionIds = [...new Set(slugs.map((slug) => sources[slug].sectionId))];
   const sections = sectionIds.map((sectionId) => ({
@@ -53,7 +62,7 @@ async function hydrateComments(document: ArticleDocument, sources: Record<string
   const comments: Record<string, SpellRatingComment> = {};
   for (const section of hydrated.translations[0].sections) {
     for (const block of section.blocks) {
-      if (block.type === "paragraph") comments[block.blockId] = { text: buildCommentMarkdown(block.content), sectionId: section.sectionId };
+      if (block.type === "paragraph") comments[block.blockId] = { text: buildCommentMarkdown(flattenLinksLeavingPicker(block.content, creatureSlugs)), sectionId: section.sectionId };
     }
   }
   return comments;

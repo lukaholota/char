@@ -109,10 +109,11 @@ def render_synthetic_sheet(stage=None):
     return stage, sheet
 
 
-def finish_sheet(sheet):
+def finish_sheet(sheet, extra_answers=None):
     sheet = sheet.replace("# Shadow Monk Guide", "# Монах Тіні — гайд", 1)
     sheet = sheet.replace("<!-- issueReviewedAt: pending -->", "<!-- issueReviewedAt: 2026-10-01T10:00:00Z -->")
-    return fill_worksheet(sheet, translate_synthetic)
+    extra_answers = extra_answers or {}
+    return fill_worksheet(sheet, lambda key, label: extra_answers.get(key) or translate_synthetic(key, label))
 
 
 def compile_synthetic(stage, sheet, decisions=None):
@@ -485,6 +486,91 @@ class ChallengeRatingLabelsTest(unittest.TestCase):
 
     def test_cr_prefix_does_not_match_a_name_elsewhere_in_prose(self):
         self.assertFalse(worksheet.starts_with_label([text("CR 3 – Consider Giant Scorpion")], "Giant Scorpion"))
+
+def signal_issue(location, detail):
+    return {"code": "rating-signal-review", "location": location, "detail": detail}
+
+
+def build_list_stage(*extra_blocks, items=("Ankylosaurus: tanks.",)):
+    stage = build_stage()
+    stage["sections"].append({"sectionId": "section-forms", "heading": "Forms", "blocks": [
+        *extra_blocks, {"blockId": "block-forms", "type": "list", "ordered": False, "items": [[text(item)] for item in items]}]})
+    return stage
+
+
+class ListItemRatingTest(unittest.TestCase):
+    def test_list_item_signal_skips_an_intro_paragraph_that_starts_with_the_same_name(self):
+        stage = build_list_stage(paragraph("block-intro", text("Ankylosaurus forms are covered below.")))
+        stage["issues"].append(signal_issue("li/span[1]", "rating-blue Ankylosaurus"))
+        plan = worksheet.plan_ratings(stage, worksheet.collect_fragments(stage))
+        self.assertEqual([key for key, signal in plan.matches.items() if signal.label == "Ankylosaurus"],
+                         ["block-forms/item/0"])
+
+    def test_list_item_signal_takes_an_orphan_list_item_paragraph(self):
+        stage = build_list_stage(paragraph("block-intro", text("Ankylosaurus forms are covered below.")),
+                                 paragraph("block-orphan", text("Ankylosaurus: tanks.")), items=("Other: text.",))
+        stage["issues"] += [signal_issue("li/span[1]", "rating-blue Ankylosaurus"),
+                            {"code": "provisional-id", "location": "div/li[1]", "detail": "block-orphan"}]
+        plan = worksheet.plan_ratings(stage, worksheet.collect_fragments(stage))
+        self.assertIn("block-orphan", plan.matches)
+
+    def test_paragraph_signal_still_takes_the_first_row_with_its_name(self):
+        stage = build_list_stage(paragraph("block-intro", text("Ankylosaurus forms are covered below.")))
+        stage["issues"].append(signal_issue("p/span[1]", "rating-blue Ankylosaurus"))
+        plan = worksheet.plan_ratings(stage, worksheet.collect_fragments(stage))
+        self.assertIn("block-intro", plan.matches)
+
+
+class TwoColourRatingTest(unittest.TestCase):
+    def render_split(self, second_color="red"):
+        stage = build_list_stage(items=("Reef Shark: bites.",))
+        stage["issues"] += [signal_issue("li/span[1]", "rating-blue Reef"),
+                            signal_issue("li/span[2]", f"rating-{second_color} Shark")]
+        return render_synthetic_sheet(stage)
+
+    def compile_split(self, stage, sheet, condition=None):
+        sheet = sheet if condition is None else sheet.replace("умова: \n", f"умова: {condition}\n")
+        answers = {"section-forms": "Форми", "block-forms/item/0": "Рифова акула: кусає."}
+        return worksheet.compile_article(stage, finish_sheet(sheet, answers), {})
+
+    def test_second_colour_becomes_the_alternative_of_the_first(self):
+        stage, sheet = self.render_split()
+        self.assertIn("### block-forms/item/0 · пункт · rating-blue+red\n\n> Reef Shark: bites.\n\nумова: \n", sheet)
+        document, review, _ = self.compile_split(stage, sheet, "Коло Місяця | CIRCLE_OF_THE_MOON")
+        rating = document["ratings"][-1]
+        self.assertEqual((rating["sourceColor"], rating["score"], rating["alternative"]),
+                         ("blue", 4, {"score": 1, "sourceColor": "red", "condition": "Коло Місяця",
+                                      "subclassKey": "CIRCLE_OF_THE_MOON"}))
+        decisions = review["issueDecisions"][-2:]
+        self.assertEqual([decision["ratingIds"] for decision in decisions], [[rating["ratingId"]]] * 2)
+        self.assertEqual([decision["disposition"] for decision in decisions], ["preserved"] * 2)
+
+    def test_condition_without_subclass_key_is_kept_alone(self):
+        stage, sheet = self.render_split()
+        document, _, _ = self.compile_split(stage, sheet, "для інших пройдисвітів")
+        self.assertEqual(document["ratings"][-1]["alternative"],
+                         {"score": 1, "sourceColor": "red", "condition": "для інших пройдисвітів"})
+
+    def test_two_colour_rating_needs_a_condition(self):
+        stage, sheet = self.render_split()
+        with self.assertRaisesRegex(ValueError, "Missing alternative condition: block-forms/item/0"):
+            self.compile_split(stage, sheet)
+        with self.assertRaisesRegex(ValueError, "SUBCLASS_KEY"):
+            self.compile_split(stage, sheet, "Коло Місяця | moon")
+
+    def test_condition_on_a_one_colour_rating_is_rejected(self):
+        stage, sheet = self.render_split("blue")
+        self.assertNotIn("умова:", sheet)
+        sheet = sheet.replace("> Reef Shark: bites.\n\n", "> Reef Shark: bites.\n\nумова: Коло Місяця\n\n")
+        with self.assertRaisesRegex(ValueError, "rated in one color"):
+            self.compile_split(stage, sheet)
+
+    def test_same_colour_second_span_follows_the_first_without_an_alternative(self):
+        stage, sheet = self.render_split("blue")
+        document, review, _ = self.compile_split(stage, sheet)
+        self.assertNotIn("alternative", document["ratings"][-1])
+        self.assertEqual(review["issueDecisions"][-1]["ratingIds"], [document["ratings"][-1]["ratingId"]])
+
 
 if __name__ == "__main__":
     unittest.main()

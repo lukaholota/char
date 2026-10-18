@@ -1,5 +1,7 @@
+import { getAllCreatures } from "@/lib/bestiaryData";
 import { toEntitySlug } from "@/lib/slug-utils";
 import { hydrateArticleDocument } from "./hydration-catalog";
+import { flattenLinksLeavingPicker } from "./picker-links";
 import { buildCommentMarkdown } from "./spell-rating-comment-markdown";
 import { extractChoiceOptionRatings, type ChoiceOptionRatingSource, type RatedChoiceGroup } from "./choice-option-rating-extraction";
 import type { ChoiceOptionRatingList } from "./choice-option-rating-lookup";
@@ -65,9 +67,10 @@ async function hydrateComments(document: ArticleDocument, options: Record<string
       .map(([slug, name]): ContentBlock => ({ blockId: slug, type: "paragraph", content: options[name].nodes })),
   }));
   const hydrated = await hydrateArticleDocument({ article: document.article, translations: [{ ...document.translations.at(-1)!, sections }] });
+  const creatureSlugs = new Set(getAllCreatures("RULES_2014").map((creature) => toEntitySlug(creature.nameEng)));
   return new Map(
     hydrated.translations[0].sections.flatMap((section) =>
-      section.blocks.flatMap((block) => (block.type === "paragraph" ? [[nameBySlug.get(block.blockId)!, buildCommentMarkdown(block.content)] as const] : [])),
+      section.blocks.flatMap((block) => (block.type === "paragraph" ? [[nameBySlug.get(block.blockId)!, buildCommentMarkdown(flattenLinksLeavingPicker(block.content, creatureSlugs))] as const] : [])),
     ),
   );
 }

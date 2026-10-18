@@ -134,7 +134,7 @@ function SpellChoiceCard({
           }}
           is2024={is2024}
           isSelected={isSelected}
-          factBadges={bestRating && <SpellRatingChipButton score={bestRating.score} spell={spell} spellName={spell.name} />}
+          factBadges={bestRating && <SpellRatingChipButton rating={bestRating} spell={spell} spellName={spell.name} />}
         />
         {isSelected && <Check className={cn("h-5 w-5 shrink-0", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))} />}
       </div>

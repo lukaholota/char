@@ -13,6 +13,8 @@ import re
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 
+import article_worksheet as WORKSHEET
+
 
 HERE = Path(__file__).resolve().parent
 SPEC = spec_from_file_location("prepare_fighter_pilot", HERE / "prepare-fighter-pilot.py")
@@ -23,6 +25,7 @@ BASE = PREPARE.PREPARE
 ARTICLE_ID = "rpgbot-fighter-2014"
 TRANSLATION_ID = "translation-rpgbot-fighter-2014-draft1"
 SCORE = {"red": 1, "orange": 2, "green": 3, "blue": 4}
+UNRATED_ISSUES = (139,)
 TEXT_LINK_LABELS = {
     "block-section-introduction-2": ["Чемпіон", "Потойбічний лицар"],
     "block-section-introduction-6/item/0": ["Гайд із рас для Воїна"],
@@ -168,6 +171,11 @@ def all_links(sections):
     return result
 
 
+def find_split_colors(signal):
+    colors = signal["sourceClass"].removeprefix("rating-").split("+")
+    return colors if len(colors) == 2 and colors[0] != colors[1] and set(colors) <= set(SCORE) else None
+
+
 def compile_document(stage, sheet):
     title, headings, rows = parse_worksheet(sheet)
     revision = stage["sourceRevision"]
@@ -177,6 +185,7 @@ def compile_document(stage, sheet):
     if not match:
         raise ValueError("Missing technical issue review timestamp")
     rating_map = PREPARE.rating_map(stage)
+    conditions = WORKSHEET.parse_worksheet_conditions(sheet)
     remaining_rows = set(rows)
     remaining_headings = set(headings)
     sections = []
@@ -190,9 +199,14 @@ def compile_document(stage, sheet):
                         "translationRevisionId": TRANSLATION_ID, "sectionId": section_id,
                         "targetBlockId": block_id, "optionId": option_id,
                         "context": context, "explanationBlockId": block_id}
-        if signal["sourceColor"] is not None:
-            record["sourceColor"] = signal["sourceColor"]
-            record["score"] = SCORE[signal["sourceColor"]]
+        colors = find_split_colors(signal)
+        if signal["sourceColor"] is not None or colors:
+            record["sourceColor"] = signal["sourceColor"] or colors[0]
+            record["score"] = SCORE[record["sourceColor"]]
+        if colors:
+            if not conditions.get(key):
+                raise ValueError(f"Missing alternative condition: {key}")
+            record["alternative"] = WORKSHEET.build_alternative(colors[1], conditions.pop(key))
         ratings.append(record)
         for index in signal["issueIndices"]:
             issue_ratings[index] = rating_id
@@ -245,20 +259,27 @@ def compile_document(stage, sheet):
             else:
                 raise ValueError(f"Unsupported source block: {block['type']}")
         sections.append(section)
+    if conditions:
+        raise ValueError(f"Alternative condition on a fragment rated in one color: {sorted(conditions)}")
     if remaining_rows or remaining_headings:
         raise ValueError(f"Extra translated fragments or sections: {sorted(remaining_rows)}, {sorted(remaining_headings)}")
     source_links = all_links(stage["sections"])
     if all_links(sections) != source_links:
         raise ValueError("Translated link targets or order differ from staging")
+    ratings_by_id = {rating["ratingId"]: rating for rating in ratings}
     decisions = []
     for index, issue in enumerate(stage["issues"]):
         code = issue["code"]
         if code == "provisional-id":
             continue
         if code == "rating-signal-review":
-            if index in issue_ratings and index in (25, 26, 27, 28, 139):
-                continue  # Mixed or absent source color remains unresolved for editorial review.
-            if index in issue_ratings:
+            if index in issue_ratings and index in UNRATED_ISSUES:
+                continue  # Absent source color remains unresolved for editorial review.
+            if index in issue_ratings and "alternative" in ratings_by_id[issue_ratings[index]]:
+                decision = {"issueIndex": index, "disposition": "preserved",
+                            "evidence": "Name rated in two colors; the first color is the score and the second the alternative",
+                            "ratingIds": [issue_ratings[index]]}
+            elif index in issue_ratings:
                 decision = {"issueIndex": index, "disposition": "preserved",
                             "evidence": "Source-rated list item matched by text and order; color retained",
                             "ratingIds": [issue_ratings[index]]}

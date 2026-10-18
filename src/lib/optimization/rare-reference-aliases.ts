@@ -73,17 +73,29 @@ const SUBCLASS_REFERENCE_ALIASES: Readonly<Record<string, readonly string[]>> = 
   "Oath of Conquest": ["Oath of Conquest Paladins"],
 };
 
+// Older books name these races like a Monster Manual creature; RPGbot uses the name for the race.
+const RACES_NAMED_AS_CREATURES: Readonly<Record<string, readonly string[]>> = {
+  "Yuan-ti": ["Yuan-Ti Pureblood"],
+};
+
 export function collectRareReferenceAliases(targets: readonly HydrationTarget[]): HydrationTarget[] {
-  return targets.filter((target) => !target.href.startsWith("/2024/"))
-    .flatMap((target) => {
-      const aliases = [...(RARE_REFERENCE_ALIASES[target.engName] ?? []),
-        ...(target.kind === "subclass" && target.href.startsWith("/classes?") ? SUBCLASS_REFERENCE_ALIASES[target.engName] ?? [] : []),
-        ...(target.engName === "Tail" && target.href === "/bestiary?creature=horned-devil&feature=tail" ? ["Infernal Wound"] : []),
-        ...(target.engName === "Haunt Creature" && target.href === "/bestiary?creature=reaper-spirit&feature=haunt-creature" ? ["Haunt"] : []),
-        ...(target.engName === "Stony Lethargy" && target.href === "/bestiary?creature=construct-spirit&feature=stony-lethargy" ? ["Stone Lethargy"] : []),
-        ...(target.engName === "Aspect of the Wyrm" && target.sectionId && target.href.startsWith("/classes?") ? ["Resistance"] : []),
-        ...(target.engName === "War Priest" && target.href.startsWith("/classes?") ? ["Warpriest"] : []),
-        ...(target.engName === "Draconic Ancestry" && target.href.startsWith("/classes?class=sorcerer&subclass=draconic-bloodline") ? ["Dragon Ancestor"] : [])];
-      return aliases.map((engName) => ({ ...target, engName, priority: target.priority === -1 ? 0 : target.priority }));
-    });
+  const legacyTargets = targets.filter((target) => !target.href.startsWith("/2024/"));
+  return [...legacyTargets.flatMap(collectNamedAliases), ...legacyTargets.flatMap(collectRaceNamesAboveCreatures)];
+}
+
+function collectRaceNamesAboveCreatures(target: HydrationTarget): HydrationTarget[] {
+  if (target.kind !== "race") return [];
+  return (RACES_NAMED_AS_CREATURES[target.engName] ?? []).map((engName) => ({ ...target, engName, priority: Math.max(target.priority ?? 0, 1) }));
+}
+
+function collectNamedAliases(target: HydrationTarget): HydrationTarget[] {
+  const aliases = [...(RARE_REFERENCE_ALIASES[target.engName] ?? []),
+    ...(target.kind === "subclass" && target.href.startsWith("/classes?") ? SUBCLASS_REFERENCE_ALIASES[target.engName] ?? [] : []),
+    ...(target.engName === "Tail" && target.href === "/bestiary?creature=horned-devil&feature=tail" ? ["Infernal Wound"] : []),
+    ...(target.engName === "Haunt Creature" && target.href === "/bestiary?creature=reaper-spirit&feature=haunt-creature" ? ["Haunt"] : []),
+    ...(target.engName === "Stony Lethargy" && target.href === "/bestiary?creature=construct-spirit&feature=stony-lethargy" ? ["Stone Lethargy"] : []),
+    ...(target.engName === "Aspect of the Wyrm" && target.sectionId && target.href.startsWith("/classes?") ? ["Resistance"] : []),
+    ...(target.engName === "War Priest" && target.href.startsWith("/classes?") ? ["Warpriest"] : []),
+    ...(target.engName === "Draconic Ancestry" && target.href.startsWith("/classes?class=sorcerer&subclass=draconic-bloodline") ? ["Dragon Ancestor"] : [])];
+  return aliases.map((engName) => ({ ...target, engName, priority: target.priority === -1 ? 0 : target.priority }));
 }

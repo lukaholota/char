@@ -517,12 +517,16 @@ RPGbot використовує кольорові оцінки: їх легко
 
 > Str: Strength-based Fighters need Strength above anything else. Everyone else can dump it.
 
+умова: збірки від Спритності
+
 **Українською:**
 Сила{{Str}}: Воїнам, які будуються від Сили, вона потрібна понад усе. Решта можуть залишити її низькою.
 
 ### block-section-ability-scores-3 · абзац · rating-red+blue
 
 > Dex: Strength-based Fighters will be wearing heavy armor, so they can dump Dexterity. Archers and Finesse builds rely almost exclusively on Dexterity, so they need as much as they can get.
+
+умова: збірки від Спритності
 
 **Українською:**
 Спритність{{Dex}}: Воїни від Сили носитимуть важкі обладунки, тож можуть залишити Спритність низькою. Лучники й збірки з фехтувальною зброєю майже повністю покладаються на неї та потребують якнайвищого значення.

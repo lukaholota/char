@@ -7,11 +7,16 @@ import { buildChoiceOptionRatingList, listRatedChoiceGroups, RATED_CLASS_SOURCES
 import { findChoiceOptionRating } from "./choice-option-rating-lookup";
 import { choiceOptionRatingCatalog } from "./choice-option-rating-catalog";
 import { isSpellRatingScore } from "./spell-rating-lookup";
+import { isKeptInPicker } from "./picker-links";
+import { getAllCreatures } from "@/lib/bestiaryData";
+import { toEntitySlug } from "@/lib/slug-utils";
 
 type CreatorClass = { name: string; ruleset: string; classChoiceOptions: { choiceOption: { optionNameEng: string; ruleset: string } }[] };
 
 const readJson = (path: string) => JSON.parse(readFileSync(resolve(path), "utf8"));
 const findCreatorClass = (file: string, name: string) => (readJson(file).classes as CreatorClass[]).find((entry) => entry.name === name)!;
+const creatureSlugs2014 = new Set(getAllCreatures("RULES_2014").map((creature) => toEntitySlug(creature.nameEng)));
+const collectCommentHrefs = (comment: string) => [...comment.matchAll(/\]\(([^)\s]+)\)/g)].map((match) => match[1]);
 
 describe("згенеровані оцінки варіантів класу RPGbot", () => {
   for (const source of RATED_CLASS_SOURCES) {
@@ -32,6 +37,12 @@ describe("згенеровані оцінки варіантів класу RPGb
         expect(sectionIds.has(option.sectionId), name).toBe(true);
       }
       expect(list.sourceUrl).toMatch(/^https:\/\/rpgbot\.net\//);
+    });
+
+    it(`${source.className}: коментар у виборі варіанта лишає тільки посилання, які відкриваються в пікері`, () => {
+      const leaving = Object.entries(list.options).flatMap(([name, option]) =>
+        collectCommentHrefs(option.comment).filter((href) => !isKeptInPicker(href, creatureSlugs2014)).map((href) => `${name} → ${href}`));
+      expect(leaving).toEqual([]);
     });
 
     it(`${source.className}: закомічений файл збігається з перегенерованим із даних`, async () => {

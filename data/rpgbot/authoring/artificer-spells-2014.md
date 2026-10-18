@@ -170,9 +170,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Кислотні бризки [Acid splash][[1|PHB]]: можливість уразити двох ворогів дуже спокушає, але істоти мають стояти поруч, тож не завжди можна розраховувати на дві цілі. У більшості випадків від Вогняного заряду [Fire Bolt] ви отримаєте більше шкоди, а кількість замовлянь, які ви знаєте, жорстко обмежена, тож віддати місце Кислотним бризкам [Acid splash] важко. Втім, для Алхіміка{{Alchemist}} це може бути основний наступальний варіант, бо воно працює з «Алхімічним ерудитом»{{Alchemical Savant}}. Як і більшість інших заклинань по кількох цілях, шкоду ви кидаєте лише раз, а кожна істота робить власний ряткидок, тож бонус до шкоди можна застосувати до обох цілей.
 
-### block-section-cantrips-1/item/1 · пункт · rating-red
+### block-section-cantrips-1/item/1 · пункт · rating-red+blue
 
 > Booming Blade[[1|SCAG / TCoE]]: Excellent for the Armorer and the Battle Smith, but most other artificers should never be in a position to use this. Note that Tasha’s Cauldron of Everything published an updated version of Booming Blade.
+
+умова: Зброяр і Бойовий коваль
 
 **Українською:**
 Гримучий Клинок [Booming Blade][[1|SCAG / TCoE]]: чудово для Зброяра{{Armorer}} і Бойового коваля{{Battle Smith}}, але більшість інших винахідників ніколи не повинні опинятися в позиції, де це можна використати. Зауважте, що «Казан Таші з усім» опублікував оновлену версію Гримучого Клинка [Booming Blade].
@@ -205,9 +207,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Обмороження [Frostbite][[1|EEPC / XGtE]]: низька шкода для замовляння (на к6), але головна принада — Перешкода на кубику на наступну атаку зброєю цілі. На жаль, воно діє на ряткидках Статури, а вони, як правило, відносно високі порівняно з іншими ряткидками.
 
-### block-section-cantrips-1/item/6 · пункт · rating-red
+### block-section-cantrips-1/item/6 · пункт · rating-red+blue
 
 > Green-Flame Blade[[1|SCAG]]: Excellent for the Armorer and the Battle Smith, but most other artificers should never be in a position to use this. Note that Tasha’s Cauldron of Everything published an updated version of Green-Flame Blade.
+
+умова: Зброяр і Бойовий коваль
 
 **Українською:**
 Клинок Зеленого Полумʼя [Green-Flame Blade][[1|SCAG]]: чудово для Зброяра{{Armorer}} і Бойового коваля{{Battle Smith}}, але більшість інших винахідників ніколи не повинні опинятися в позиції, де це можна використати. Зауважте, що «Казан Таші з усім» опублікував оновлену версію Клинка Зеленого Полумʼя [Green-Flame Blade].

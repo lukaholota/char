@@ -2,11 +2,9 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import ratings from "@/lib/generated/rpgbot-wildshape-ratings.json";
-import { findCreatureReadingLink } from "@/lib/creature-link";
 import { toEntitySlug } from "@/lib/slug-utils";
-import { findSpellLinkInHref } from "@/lib/spell-link";
-import { findTermLinkInHref } from "@/lib/term-link";
 import { isBeast } from "@/rules/wildshape";
+import { isOpenedInPicker } from "./picker-links";
 import { isSpellRatingScore } from "./spell-rating-lookup";
 
 const creatures2014 = JSON.parse(readFileSync(resolve("src/lib/generated/creatures.json"), "utf8")) as { nameEng: string; type: string; ruleset: string }[];
@@ -36,6 +34,13 @@ describe("згенеровані оцінки звіриних форм RPGbot",
     }
   });
 
+  it("дають Колу місяця власну оцінку двоколірної форми й беруть оцінку пункту списку, а не вступу", () => {
+    const forms: Record<string, { score: number; moonScore?: number }> = ratings.forms;
+
+    expect(forms["giant-octopus"]).toMatchObject({ score: 1, moonScore: 4 });
+    expect(forms.ankylosaurus.score).toBe(4);
+  });
+
   it("мають джерело RPGbot і примітку про політ і плавання", () => {
     expect(ratings.sourceUrl).toMatch(/^https:\/\/rpgbot\.net\//);
     expect(ratings.movementNote).toContain("8-го рівня");
@@ -51,11 +56,7 @@ describe("згенеровані оцінки звіриних форм RPGbot",
     const hrefs = texts.flatMap((text) => [...text.matchAll(/\]\(([^)]+)\)/g)].map((match) => match[1]));
 
     expect(hrefs.length).toBeGreaterThan(0);
-    for (const href of hrefs) {
-      const creatureLink = findCreatureReadingLink(href);
-      const isCreatureInBestiary = creatureLink?.ruleset === "RULES_2014" && creatureSlugs2014.has(creatureLink.key);
-      expect(Boolean(findSpellLinkInHref(href) || findTermLinkInHref(href) || isCreatureInBestiary), href).toBe(true);
-    }
+    for (const href of hrefs) expect(isOpenedInPicker(href, creatureSlugs2014), href).toBe(true);
   });
 
   it("не тягнуть каталог у стартовий бандл: його імпортує лише завантажувач", () => {

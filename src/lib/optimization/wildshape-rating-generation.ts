@@ -1,12 +1,10 @@
-import { findCreatureReadingLink } from "@/lib/creature-link";
 import { toEntitySlug } from "@/lib/slug-utils";
-import { findSpellLinkInHref } from "@/lib/spell-link";
-import { findTermLinkInHref } from "@/lib/term-link";
 import { hydrateArticleDocument } from "./hydration-catalog";
+import { flattenLinksLeavingPicker } from "./picker-links";
 import { buildCommentMarkdown } from "./spell-rating-comment-markdown";
 import { extractWildshapeRatings, type KnownCreature, type WildshapeRatingSource } from "./wildshape-rating-extraction";
 import type { WildshapeRatingCatalog } from "./wildshape-rating-lookup";
-import type { ArticleDocument, ContentBlock, InlineNode, TranslationRevision } from "./types";
+import type { ArticleDocument, ContentBlock, TranslationRevision } from "./types";
 
 export type GeneratedWildshapeRatings = { catalog: WildshapeRatingCatalog; skippedNames: string[]; unresolvedNames: string[] };
 
@@ -15,6 +13,7 @@ type ParagraphBlock = Extract<ContentBlock, { type: "paragraph" }>;
 type MarkdownByBlockId = ReadonlyMap<string, string>;
 
 const MOVEMENT_NOTE_SECTION = "section-animal-forms";
+const MOON_CIRCLE_SUBCLASS = "CIRCLE_OF_THE_MOON";
 
 export async function buildWildshapeRatingCatalog(
   document: ArticleDocument,
@@ -66,24 +65,16 @@ async function hydrateToMarkdown(document: ArticleDocument, sections: ArticleSec
   );
 }
 
-/// Пікер відкриває на місці лише заклинання, терміни й істоти. Решта посилань статті або працює тільки в читачі
-/// (`reference=`), або веде з бестіарію, або плутає рису звіра з однойменною рисою раси чи класу («Мультиатака» мисливця).
-function flattenLinksLeavingPicker(nodes: readonly InlineNode[], creatureSlugs: ReadonlySet<string>): InlineNode[] {
-  return nodes.map((node) => (node.type === "link" && !isOpenedInPicker(node.href, creatureSlugs) ? { type: "text", text: node.text } : node));
-}
-
-function isOpenedInPicker(href: string, creatureSlugs: ReadonlySet<string>): boolean {
-  if (findSpellLinkInHref(href) || findTermLinkInHref(href)) return true;
-  const creatureLink = findCreatureReadingLink(href);
-  return creatureLink !== null && creatureLink.ruleset === "RULES_2014" && creatureSlugs.has(creatureLink.key);
-}
-
 function buildSectionNotes(ratedSections: readonly ArticleSection[], markdown: MarkdownByBlockId): WildshapeRatingCatalog["sections"] {
   return Object.fromEntries(ratedSections.map((section) => [section.sectionId, { title: section.heading, notes: findIntroMarkdown(section, markdown) }]));
 }
 
 function buildFormRatings(forms: Record<string, WildshapeRatingSource>, markdown: MarkdownByBlockId): WildshapeRatingCatalog["forms"] {
-  return Object.fromEntries(Object.entries(forms).map(([slug, form]) => [slug, { score: form.score, sectionId: form.sectionId, comment: markdown.get(slug) ?? "" }]));
+  return Object.fromEntries(Object.entries(forms).map(([slug, form]) => [slug, { score: form.score, ...findMoonScore(form), sectionId: form.sectionId, comment: markdown.get(slug) ?? "" }]));
+}
+
+function findMoonScore(form: WildshapeRatingSource): { moonScore?: number } {
+  return form.alternative?.subclassKey === MOON_CIRCLE_SUBCLASS ? { moonScore: form.alternative.score } : {};
 }
 
 function findSection(sections: readonly ArticleSection[], sectionId: string): ArticleSection {

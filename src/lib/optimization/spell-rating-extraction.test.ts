@@ -48,6 +48,7 @@ describe("extractSpellRatings", () => {
     expect(extractSpellRatings(document, SPELLS)).toEqual({
       scores: { "ice-knife": 2 },
       comments: { "ice-knife": { nodes: [text("найближче до Вогнекуля [Fireball].")], sectionId: "section-spells-1" } },
+      alternatives: {},
       unresolvedNames: [],
     });
   });
@@ -98,7 +99,7 @@ describe("extractSpellRatings", () => {
       [{ ratingId: "r1", sectionId: "section-spells-5", blockId: "b", item: 0, context: "Вигнання", score: 1 }],
     );
 
-    expect(extractSpellRatings(document, SPELLS)).toEqual({ scores: {}, comments: {}, unresolvedNames: [] });
+    expect(extractSpellRatings(document, SPELLS)).toEqual({ scores: {}, comments: {}, alternatives: {}, unresolvedNames: [] });
   });
 
   it("reports a rating that matches no spell instead of dropping it silently", () => {
@@ -107,7 +108,7 @@ describe("extractSpellRatings", () => {
       [{ ratingId: "r1", sectionId: "section-spells-1", blockId: "b", item: 0, context: "Вигадка [Not A Spell]", score: 2 }],
     );
 
-    expect(extractSpellRatings(document, SPELLS)).toEqual({ scores: {}, comments: {}, unresolvedNames: ["Вигадка [Not A Spell]"] });
+    expect(extractSpellRatings(document, SPELLS)).toEqual({ scores: {}, comments: {}, alternatives: {}, unresolvedNames: ["Вигадка [Not A Spell]"] });
   });
 
   it("keeps glossary markers and following inline nodes in the comment", () => {

@@ -17,14 +17,14 @@ export function SpellRatingBadge({ matches, spellName, spellEngName, className }
   const focus = useReadingDialogFocus();
   const best = findBestSpellRating(matches);
   if (!best) return null;
-  const description = describeRating({ score: best.score, context: "" });
+  const label = describeMatchLabel(best);
 
   return (
     <span className="inline-flex" onClick={(event) => event.stopPropagation()}>
       <button
         type="button"
         aria-haspopup="dialog"
-        aria-label={`Оцінка RPGbot для «${spellName}»: ${description.label}`}
+        aria-label={`Оцінка RPGbot для «${spellName}»: ${label}`}
         onClick={(event) => {
           focus.rememberTrigger(event.currentTarget);
           setIsOpen(true);
@@ -32,7 +32,7 @@ export function SpellRatingBadge({ matches, spellName, spellEngName, className }
         }}
         className={cn("-mx-1 -my-2 inline-flex shrink-0 px-1 py-2", className)}
       >
-        <RatingBadge rating={{ score: best.score, context: "" }} className="mr-0" />
+        <RatingBadge rating={{ ...best, context: "" }} className="mr-0" />
       </button>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent {...focus.dialogProps} className="max-h-[90dvh] w-[calc(100vw-2rem)] max-w-xl overflow-y-auto">
@@ -42,4 +42,10 @@ export function SpellRatingBadge({ matches, spellName, spellEngName, className }
       </Dialog>
     </span>
   );
+}
+
+function describeMatchLabel(match: SpellRatingMatch): string {
+  const { label } = describeRating({ score: match.score, context: "" });
+  if (!match.alternative) return label;
+  return `${label} · ${match.alternative.condition}: ${describeRating({ score: match.alternative.score, context: "" }).label}`;
 }

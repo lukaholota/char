@@ -196,42 +196,42 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Заклинання
 
-### block-section-available-ritual-spells-2/header/1 · заголовок таблиці · rating-orange
+### block-section-available-ritual-spells-2/header/1 · заголовок таблиці · без оцінки
 
 > Bard
 
 **Українською:**
 Бард
 
-### block-section-available-ritual-spells-2/header/2 · заголовок таблиці · rating-green
+### block-section-available-ritual-spells-2/header/2 · заголовок таблиці · без оцінки
 
 > Cleric
 
 **Українською:**
 Клірик
 
-### block-section-available-ritual-spells-2/header/3 · заголовок таблиці · rating-orange
+### block-section-available-ritual-spells-2/header/3 · заголовок таблиці · без оцінки
 
 > Druid
 
 **Українською:**
 Друїд
 
-### block-section-available-ritual-spells-2/header/4 · заголовок таблиці · rating-red
+### block-section-available-ritual-spells-2/header/4 · заголовок таблиці · без оцінки
 
 > Sorcerer
 
 **Українською:**
 Чаклун
 
-### block-section-available-ritual-spells-2/header/5 · заголовок таблиці · rating-red
+### block-section-available-ritual-spells-2/header/5 · заголовок таблиці · без оцінки
 
 > Warlock
 
 **Українською:**
 Чорнокнижник
 
-### block-section-available-ritual-spells-2/header/6 · заголовок таблиці · rating-blue
+### block-section-available-ritual-spells-2/header/6 · заголовок таблиці · без оцінки
 
 > Wizard
 
@@ -1009,7 +1009,7 @@ X
 
 Редакційна примітка: останнє твердження джерела помилкове. Вимога риси — Інтелект або Мудрість 13 незалежно від обраного класу. Харизма 13 сама по собі не дає права взяти рису, а для списків Барда, Чаклуна й Чорнокнижника не потрібно мати Харизму 13. Обраний клас визначає характеристику для накладання заклинань, але не передумову риси.
 
-### block-section-the-ritual-caster-feat-4/item/0 · пункт · без оцінки
+### block-section-the-ritual-caster-feat-4/item/0 · пункт · rating-orange
 
 > Bard: The only viable option if Charisma is your only qualifying ability score. A weird mix of druid and wizard rituals. Some of them are good, but I don’t think they’re worth a feat.
 
@@ -1018,7 +1018,7 @@ X
 
 Редакційна примітка: згадка про передумову Харизми помилкова; діє вимога Інтелекту або Мудрості 13, пояснена вище.
 
-### block-section-the-ritual-caster-feat-4/item/1 · пункт · без оцінки
+### block-section-the-ritual-caster-feat-4/item/1 · пункт · rating-green
 
 > Cleric: Exclusive access to some great divination rituals like Augury and Divination, as well as cool things like Ceremony and Forbiddance. If you have cleric rituals and wizard rituals, you have every ritual worth having.
 
@@ -1027,14 +1027,14 @@ X
 
 Редакційна примітка: це оцінка автора за списками таблиці. Необовʼязкові розширення списків можуть змінювати ексклюзивність окремих заклинань.
 
-### block-section-the-ritual-caster-feat-4/item/2 · пункт · без оцінки
+### block-section-the-ritual-caster-feat-4/item/2 · пункт · rating-orange
 
 > Druid: Roughly half of the Druid’s rituals overlap with the Cleric, and the remaining rituals are all related to interacting with beasts, which becomes much less important when they mostly fall out of the CR range around level 4 and then vanish entirely by level 10.
 
 **Українською:**
 Друїд: приблизно половина його ритуалів перетинається зі списком Клірика, а решта повʼязана з взаємодією зі звірами. Вона стає значно менш важливою, коли звірі переважно випадають із відповідного діапазону Рівня Небезпеки близько 4-го рівня та зовсім зникають до 10-го.
 
-### block-section-the-ritual-caster-feat-4/item/3 · пункт · без оцінки
+### block-section-the-ritual-caster-feat-4/item/3 · пункт · rating-red
 
 > Sorcerer: Only 4 rituals, and with the exception of Water Walk they’re all available to the Wizard. If you need rituals but Charisma is your only stat above 13, go for the Bard.
 
@@ -1043,7 +1043,7 @@ X
 
 Редакційна примітка: самої Харизми недостатньо для передумови риси; потрібен Інтелект або Мудрість 13.
 
-### block-section-the-ritual-caster-feat-4/item/4 · пункт · без оцінки
+### block-section-the-ritual-caster-feat-4/item/4 · пункт · rating-red
 
 > Warlock: Only 4 rituals, and they’re all available to the Wizard. If you need rituals but Charisma is your only stat above 13, go for the Bard.
 
@@ -1052,7 +1052,7 @@ X
 
 Редакційна примітка: самої Харизми недостатньо для передумови риси; потрібен Інтелект або Мудрість 13.
 
-### block-section-the-ritual-caster-feat-4/item/5 · пункт · без оцінки
+### block-section-the-ritual-caster-feat-4/item/5 · пункт · rating-blue
 
 > Wizard: More rituals than anyone else, and also the best rituals. With the exception of a handful of cleric-only rituals, you could take Wizard and never worry about ritual casting again.
 

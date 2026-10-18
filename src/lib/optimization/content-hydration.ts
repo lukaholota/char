@@ -4,7 +4,13 @@ import { collectBlockText } from "./block-text";
 import type { ContentBlock, ContentReference, InlineNode, TranslationRevision } from "./types";
 
 export type HydrationTarget = { name: string; engName: string; href: string; sectionId?: string; linkPlainText?: boolean; markerOnly?: boolean; priority?: number; kind?: ContentReference["kind"] | "spell" | "term" };
-type HydrationIndex = { targets: ReadonlyMap<string, HydrationTarget | null>; plainTermPattern: RegExp | null };
+type HydrationIndex = { targets: ReadonlyMap<string, HydrationTarget | null>; plainTermPattern: RegExp | null; abilities: ReadonlyMap<string, readonly HydrationTarget[]> };
+type CreatureSlugs = ReadonlySet<string>;
+
+const NO_CREATURES: CreatureSlugs = new Set();
+const CREATURE_LINK = /^(?:\/2024)?\/bestiary\?creature=([^&]+)(&feature=)?/;
+const CHOOSER_LINK = /[?&]reference=[^&]*&section=/;
+const SECTION_CREATURE_ABILITY_PRIORITY = -0.5;
 
 const normalizedNames = new Map<string, string>();
 
@@ -34,7 +40,31 @@ export function buildHydrationIndex(targets: readonly HydrationTarget[]): Hydrat
   }
   const plainNames = [...index.entries()].filter(([name, target]) => target?.linkPlainText && normalizeContentName(target.name) === name).map(([name]) => name).sort((a, b) => b.length - a.length);
   const plainTermPattern = plainNames.length ? new RegExp(plainNames.map((name) => name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "giu") : null;
-  return { targets: index, plainTermPattern };
+  return { targets: index, plainTermPattern, abilities: buildCreatureAbilityIndex(targets) };
+}
+
+function buildCreatureAbilityIndex(targets: readonly HydrationTarget[]) {
+  const abilities = new Map<string, HydrationTarget[]>();
+  for (const target of targets) if (findAbilityOwner(target.href)) for (const name of new Set([target.name, target.engName].map(normalizeContentName))) {
+    const owners = abilities.get(name);
+    if (owners) owners.push(target);
+    else abilities.set(name, [target]);
+  }
+  return abilities;
+}
+
+function findAbilityOwner(href: string) {
+  const match = CREATURE_LINK.exec(href);
+  return match?.[2] ? match[1] : undefined;
+}
+
+function findLinkedCreature(href: string) {
+  const match = CREATURE_LINK.exec(href);
+  return match && !match[2] ? match[1] : undefined;
+}
+
+function collectLinkedCreatures(nodes: readonly InlineNode[]): CreatureSlugs {
+  return new Set(nodes.flatMap((node) => node.type === "link" ? findLinkedCreature(node.href) ?? [] : []));
 }
 
 export function hydrateArticleRevision(revision: TranslationRevision, targets: readonly HydrationTarget[]) {
@@ -78,13 +108,64 @@ export function collectSectionTargets(targets: readonly HydrationTarget[], secti
     .map((target) => kind && target.kind === kind ? { ...target, priority: Math.max(target.priority ?? 0, 3) } : target);
 }
 
+export function collectSectionCreatureAbilities(revisions: readonly TranslationRevision[], targets: readonly HydrationTarget[]): HydrationTarget[] {
+  const abilities = new Map<string, HydrationTarget>();
+  for (const revision of revisions) {
+    const mentionedTargets = filterMentionedTargets(targets, normalizeContentName(revision.sections.flatMap((section) => section.blocks.flatMap(collectBlockText)).join(" ")));
+    for (const section of revision.sections) {
+      const index = buildHydrationIndex(collectSectionTargets(mentionedTargets, section.sectionId));
+      const creatures = collectLinkedCreatures(section.blocks.flatMap((block) => collectBlockNodes(mapBlockNodes(block, (nodes) => hydrateNodes(nodes, index, NO_CREATURES)))));
+      for (const ability of [...index.abilities.values()].flat()) if (creatures.has(findAbilityOwner(ability.href)!))
+        abilities.set(`${section.sectionId} ${ability.href}`, { ...ability, sectionId: section.sectionId, priority: SECTION_CREATURE_ABILITY_PRIORITY });
+    }
+  }
+  return [...abilities.values()];
+}
+
+function isReplaceableByCreatureAbility(target: HydrationTarget) {
+  return !target.sectionId && (target.priority ?? 0) <= 0 && !isKeptBesideCreature(target);
+}
+
+function isKeptBesideCreature(target: HydrationTarget) {
+  return /^(?:\/2024)?\/(?:spells|rules|weapons|armor|invocations|bestiary)\b/.test(target.href);
+}
+
+function canYieldToCreatureAbility(target: HydrationTarget) {
+  return !!findAbilityOwner(target.href) || CHOOSER_LINK.test(target.href) || isReplaceableByCreatureAbility(target);
+}
+
+function preferOwnedCreatureAbility(target: HydrationTarget | null | undefined, names: readonly string[], index: HydrationIndex, creatures: CreatureSlugs) {
+  if (!creatures.size || (target && !canYieldToCreatureAbility(target))) return target;
+  const owners = findCreatureAbilityOwners(names, creatures, index.abilities);
+  if (!owners) return target;
+  if (owners.owned.length === 1) return owners.owned[0];
+  return target && CHOOSER_LINK.test(target.href) && isSameHrefSet(owners.owned, owners.inSection) ? target : null;
+}
+
+function findCreatureAbilityOwners(names: readonly string[], creatures: CreatureSlugs, abilities: HydrationIndex["abilities"]) {
+  for (const name of names) {
+    const candidates = abilities.get(normalizeContentName(name)) ?? [];
+    const owned = [...new Map(candidates.filter((ability) => creatures.has(findAbilityOwner(ability.href)!)).map((ability) => [ability.href, ability])).values()];
+    if (owned.length) return { owned, inSection: candidates.filter((ability) => ability.sectionId) };
+  }
+  return undefined;
+}
+
+function isSameHrefSet(left: readonly HydrationTarget[], right: readonly HydrationTarget[]) {
+  const rightHrefs = new Set(right.map((target) => target.href));
+  return left.length === rightHrefs.size && left.every((target) => rightHrefs.has(target.href));
+}
+
 function findSectionEntityKind(sectionId: string): HydrationTarget["kind"] {
   const sections = { feats: "feat", spells: "spell", weapons: "weapon", armor: "armor", backgrounds: "background", races: "race", "magic-items": "magic-item" } as const;
   return Object.entries(sections).find(([name]) => new RegExp(`^section-(?:.+-)?${name}(?:-|$)`).test(sectionId))?.[1];
 }
 
 function hydrateContentBlock(block: ContentBlock, index: HydrationIndex): ContentBlock {
-  const hydrate = (nodes: readonly InlineNode[]) => joinLeadingMarkers(nodes).flatMap((node) => hydrateInlineNode(node, index));
+  return mapBlockNodes(block, (nodes) => hydrateNodesBesideCreatures(nodes, index));
+}
+
+function mapBlockNodes(block: ContentBlock, hydrate: (nodes: readonly InlineNode[]) => InlineNode[]): ContentBlock {
   switch (block.type) {
     case "rating": return block;
     case "list": return { ...block, items: block.items.map(hydrate) };
@@ -93,20 +174,42 @@ function hydrateContentBlock(block: ContentBlock, index: HydrationIndex): Conten
   }
 }
 
-function hydrateInlineNode(node: InlineNode, index: HydrationIndex): InlineNode[] {
-  if (node.type === "link") return [hydrateSourceLink(node, index)];
+function collectBlockNodes(block: ContentBlock): InlineNode[] {
+  if (block.type === "rating") return [];
+  if (block.type === "list") return block.items.flat();
+  if (block.type === "table") return [...(block.caption ?? []), ...block.headers.flat(), ...block.rows.flat(2)];
+  return block.content;
+}
+
+function hydrateNodesBesideCreatures(nodes: readonly InlineNode[], index: HydrationIndex) {
+  const hydrated = hydrateNodes(nodes, index, NO_CREATURES);
+  const creatures = index.abilities.size ? collectLinkedCreatures(hydrated) : NO_CREATURES;
+  return creatures.size ? hydrateNodes(nodes, index, creatures) : hydrated;
+}
+
+function hydrateNodes(nodes: readonly InlineNode[], index: HydrationIndex, creatures: CreatureSlugs) {
+  return joinLeadingMarkers(nodes).flatMap((node) => hydrateInlineNode(node, index, creatures));
+}
+
+function hydrateInlineNode(node: InlineNode, index: HydrationIndex, creatures: CreatureSlugs): InlineNode[] {
+  if (node.type === "link") return [hydrateSourceLink(node, index, creatures)];
   if (!["text", "strong", "emphasis"].includes(node.type)) return [node];
-  const named = (node.type === "strong" || node.type === "emphasis") && index.targets.get(normalizeContentName(node.text.replace(/[.:]\s*$/, "")));
+  const heading = node.text.replace(/[.:]\s*$/, "");
+  const named = (node.type === "strong" || node.type === "emphasis") && preferOwnedCreatureAbility(index.targets.get(normalizeContentName(heading)), [heading], index, creatures);
   if (named && (!named.markerOnly || normalizeContentName(node.text) === normalizeContentName(named.engName))) return [buildContentLink(node, node.text, named.href)];
   return splitGlossaryMarkers(node.text).flatMap((segment): InlineNode[] => {
-    const target = segment.original && findMarkedTarget(segment.original, segment.text, index);
+    const target = segment.original && findMarkedTarget(segment.original, segment.text, index, creatures);
     if (target) return [buildContentLink(node, segment.text || target.name, target.href)];
     if (segment.original) return [{ ...node, text: `{{${segment.text}|${segment.original}}}` }];
-    return hydrateNamedText(segment.text, node, index);
+    return hydrateNamedText(segment.text, node, index, creatures);
   });
 }
 
-function findMarkedTarget(original: string, text: string, index: HydrationIndex): HydrationTarget | null | undefined {
+function findMarkedTarget(original: string, text: string, index: HydrationIndex, creatures: CreatureSlugs): HydrationTarget | null | undefined {
+  return preferOwnedCreatureAbility(findIndexedMarkedTarget(original, text, index), [original, text], index, creatures);
+}
+
+function findIndexedMarkedTarget(original: string, text: string, index: HydrationIndex): HydrationTarget | null | undefined {
   const key = normalizeContentName(original);
   const target = index.targets.get(key);
   if (target || !index.targets.has(key)) return target;
@@ -114,7 +217,7 @@ function findMarkedTarget(original: string, text: string, index: HydrationIndex)
   return named && normalizeContentName(named.engName) === key ? named : null;
 }
 
-function hydrateSourceLink(node: Extract<InlineNode, { type: "link" }>, index: HydrationIndex): InlineNode {
+function hydrateSourceLink(node: Extract<InlineNode, { type: "link" }>, index: HydrationIndex, creatures: CreatureSlugs): InlineNode {
   const marked = splitGlossaryMarkers(node.text);
   const originals = marked.filter((segment) => segment.original);
   const markedRpgbotEntity = /^https:\/\/(?:www\.)?rpgbot\.net\//.test(node.href) && originals.length === 1;
@@ -123,7 +226,7 @@ function hydrateSourceLink(node: Extract<InlineNode, { type: "link" }>, index: H
   if (!markedRpgbotEntity && !markedLegacySource && !supportedEntityLink) return node;
   const name = node.text.match(/\[([^\]]+)\]$/)?.[1]
     ?? (originals.length === 1 ? originals[0].original! : marked.length === 1 ? marked[0].text : node.text);
-  const target = findMarkedTarget(name, originals[0]?.text ?? node.text, index);
+  const target = findMarkedTarget(name, originals[0]?.text ?? node.text, index, creatures);
   const sourceRuleset = findExplicitSourceRuleset(node.href);
   if (target && sourceRuleset && sourceRuleset !== (target.href.startsWith("/2024/") ? "RULES_2024" : "RULES_2014")) return node;
   return target ? { ...node, text: target.name, href: target.href } : node;
@@ -137,13 +240,14 @@ function findExplicitSourceRuleset(href: string): "RULES_2014" | "RULES_2024" | 
   return undefined;
 }
 
-function hydrateNamedText(text: string, node: InlineNode, index: HydrationIndex): InlineNode[] {
+function hydrateNamedText(text: string, node: InlineNode, index: HydrationIndex, creatures: CreatureSlugs): InlineNode[] {
   const output: InlineNode[] = [];
   const names = /«([^«»]+)»|\[([A-Za-z][A-Za-z’ʼ'\s\/-]+)\]/gu;
   let cursor = 0;
   for (const match of text.matchAll(names)) {
     const quotedOriginal = match[1]?.match(/\[([^\]]+)\]$/)?.[1];
-    const target = index.targets.get(normalizeContentName(match[2] ?? quotedOriginal ?? match[1]));
+    const name = match[2] ?? quotedOriginal ?? match[1];
+    const target = preferOwnedCreatureAbility(index.targets.get(normalizeContentName(name)), [name], index, creatures);
     if (!target || (target.markerOnly && !match[2] && !quotedOriginal)) continue;
     const preceding = text.slice(cursor, match.index!).trimEnd();
     const hasNamedPrefix = !!match[2] && normalizeContentName(preceding.slice(-target.name.length)) === normalizeContentName(target.name);

@@ -10,7 +10,7 @@ import ruleTermCards from "@/lib/generated/rule-term-cards.json";
 import { toEntitySlug } from "@/lib/slug-utils";
 import { damageTypeTranslations, weaponTypeTranslations, weaponPropertyTranslations } from "@/lib/refs/translation";
 import { bindingSchema } from "./schema";
-import { hydrateArticleRevision, type HydrationTarget } from "./content-hydration";
+import { collectSectionCreatureAbilities, hydrateArticleRevision, type HydrationTarget } from "./content-hydration";
 import { collectArticleFeatureHydration } from "./feature-hydration";
 import { collectArticleRaceTargets, collectEntityReferences } from "./entity-hydration";
 import { collectAmbiguousHydration } from "./ambiguous-hydration";
@@ -91,13 +91,14 @@ export async function hydrateArticleDocument<T extends Pick<ArticleDocument, "ar
     ...collectCreatureAbilityAliases(ruleset, creatureAbilities), ...collectCreatureNameAliases(creatures)];
   const supplemental = collectSupplementalReferences(ruleset, targets);
   targets.push(...supplemental);
-  targets.push(...collectEntityAliases(document.translations, [...entities, ...features.references, ...supplemental], targets));
+  targets.push(...collectEntityAliases(document.translations, [...entities, ...features.references, ...supplemental], targets, document.article));
   targets.push(...collectArticleRaceTargets(document.article, targets));
   targets.push(...collectSummoningReferenceAliases(document.article, targets));
   targets.push(...collectContextualReferenceAliases(document.article, targets));
   const references = [...equipment, ...entities, ...features.references, ...supplemental, ...creatureAbilities];
   const spellReferences: ContentReference[] = getAllSpells(ruleset).map((spell) => ({ kind: "spell", name: stripEnglishLabel(spell.name), engName: spell.engName, description: spell.description,
     href: buildSpellHref({ ruleset, spellKey: buildSpellSlug(spell.engName) }), details: [{ label: "Рівень заклинання", value: String(spell.level) }] }));
+  targets.push(...collectSectionCreatureAbilities(document.translations, targets));
   const alternatives = collectAmbiguousHydration(document.translations, targets, [...references, ...spellReferences]);
   const translations = document.translations.map((revision) => hydrateArticleRevision(revision, [...targets, ...alternatives.targets]));
   const usedHrefs = new Set(translations.flatMap((revision) => revision.sections.flatMap((section) => section.blocks.flatMap(collectBlockLinks))));

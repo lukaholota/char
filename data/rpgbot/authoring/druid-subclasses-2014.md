@@ -175,7 +175,7 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 {{Коло сновидінь|Circle of Dreams}} пропонує кілька утилітарних варіантів і трохи лікування, але більшість варіантів невиразні або вкрай ситуативні. Не зовсім зрозуміло, яку роль у групі має виконувати це коло. Воно має суміш утилітарних і лікувальних варіантів, але в друїдів і так вистачає таких можливостей. Гадаю, найкращий вибір — зосередитися на чаротворстві, але {{Коло землі|Circle of the Land}} виконує ту саму роботу краще.
 
-### block-section-circle-of-dreams-2 · абзац · rating-green
+### block-section-circle-of-dreams-2 · абзац · без оцінки
 
 > Balm of the Summer Court allowed the Circle of Dreams Druid to make a good showing in [[1|The Healbot Olympics]], but it didn’t make the top 3.
 
@@ -189,7 +189,7 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 [[1|Гайд Друїда Кола сновидінь]]
 
-### block-section-circle-of-dreams-4/item/0 · пункт · без оцінки
+### block-section-circle-of-dreams-4/item/0 · пункт · rating-green
 
 > Balm of the Summer Court: A pool of healing which you can use as a bonus action. It’s largely redundant with Healing Word, but it does have a few notable advantages. The pool of dice will quickly outpace your number of low-level spell slots, allowing you to quickly and inexpensively rescue dying allies. The ability to use more than one die is helpful if you want your ally past single-digit hit points, and the temporary hit points can help keep them conscious, though with so few temporary hit points you shouldn’t expect a miracle. Finally, since Balm of the Summer Court isn’t a spell, you can use it in the same turn as casting a leveled spell.
 

@@ -31,7 +31,7 @@ function SpellRatingEntry({ match, spellEngName, list }: { match: SpellRatingMat
     <section aria-label={`Оцінка для: ${label}`} className="space-y-1.5">
       <div className="flex flex-wrap items-center gap-2">
         <h4 className="text-sm font-semibold text-slate-100">{label}</h4>
-        <RatingBadge rating={{ score: match.score, context: "" }} className="mr-0" />
+        <RatingBadge rating={{ ...match, context: "" }} className="mr-0" />
       </div>
       {comment && <FormattedDescription content={comment.text} className="text-slate-300" />}
       {list && (

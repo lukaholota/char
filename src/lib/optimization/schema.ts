@@ -64,11 +64,17 @@ export const translationSchema = z.strictObject({
   sections: z.array(sectionSchema).min(1),
 }).refine((revision) => revision.status !== "reviewed" || !!revision.reviewedAt, "Reviewed revision requires reviewedAt");
 const scores = { red: 1, orange: 2, green: 3, blue: 4 } as const;
+const ratingScoreSchema = z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]);
+const ratingColorSchema = z.enum(["red", "orange", "green", "blue"]);
+const ratingAlternativeSchema = z.strictObject({
+  score: ratingScoreSchema, sourceColor: ratingColorSchema, condition: text, subclassKey: text.optional(),
+}).refine((alternative) => alternative.score === scores[alternative.sourceColor], "Alternative score/color mismatch");
 export const ratingSchema = z.strictObject({
   ratingId: idSchema, articleId: idSchema, translationRevisionId: idSchema, sectionId: idSchema,
   targetBlockId: idSchema, optionId: idSchema.optional(), context: text,
-  score: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional(),
-  sourceColor: z.enum(["red", "orange", "green", "blue"]).optional(),
+  score: ratingScoreSchema.optional(),
+  sourceColor: ratingColorSchema.optional(),
+  alternative: ratingAlternativeSchema.optional(),
   explanation: text.optional(), explanationBlockId: idSchema.optional(), entity: entitySchema.optional(),
 }).refine((rating) => !!rating.explanation || !!rating.explanationBlockId, "Rating requires explanation")
   .refine((rating) => rating.sourceColor === undefined || rating.score === scores[rating.sourceColor], "Score/color mismatch");

@@ -22,7 +22,7 @@
 **Українською:**
 Я б не розглядав Барда Колегії шепотів для звичайної пригодницької кампанії. Але якщо у вашій грі мало звичних занять, як-от дослідження підземель, і багато політичних інтриг та соціальної взаємодії, Колегія шепотів пропонує кілька корисних можливостей. Колегія шепотів підкреслює можливості Барда як «обличчя», але мало що дає для інших можливих ролей.
 
-### block-section-introduction-2 · абзац · rating-orange
+### block-section-introduction-2 · абзац · без оцінки
 
 > Psychic Blades is the College of Whispers’ only combat feature, which should scream to you “hey, this isn’t a Bard built for combat!” I really cannot emphasize this enough: If you take a College of Whispers bard on a dungeon crawl, they’re going to have to survive almost entirely on their core class features. While the Bard is still a full spellcaster and has great options like Bardic Inspiration, marching from fight to fight for days on end is not a situation where the College of Whispers Bard is comfortable or effective. This is a Bard built to be a spy, a courtier, an ambassador, or some similar role.
 
@@ -199,7 +199,7 @@ RPGbot використовує кольорову шкалу, яку легко
 **Український заголовок:**
 Уміння Колегії шепотів
 
-### block-section-features-1/item/0 · пункт · без оцінки
+### block-section-features-1/item/0 · пункт · rating-orange
 
 > Psychic Blades: This works with ranged weapons, so you’re not forced to go swing a rapier, however, the damage is pitiful compared to how useful a Bardic Inspiration die is. You can decide to use this after rolling a critical hit so that you can double the damage dice (similar to effects like Divine Smite or Hunter’s Mark), but College of Whispers never gets Extra Attack, so you’re gambling on a single attack each turn with a 5% chance to crit when you should be casting spells instead. You could explore two-weapon fighting for another chance to hit and potentially deliver Psychic Blades, but that’s a lot to commit for a chance to deal a little bit of damage. The issue isn’t that Psychic Blades is bad. In a vacuum, it’s decent damage of a good damage type. The issue is that it costs a precious resource to do nothing but damage, and while damage is decent, you can deal damage with your spells, but you don’t replicate Bardic Inspiration with spells. If you want direct single-target damage, you can find more reliable and more damaging options on your spell list without the need to invest in making weapon attacks reliable.
 

@@ -5,10 +5,12 @@ export type SpellRatingScore = 1 | 2 | 3 | 4;
 export type KnownSpell = { engName: string; level: number };
 
 export type SpellRatingCommentSource = { nodes: InlineNode[]; sectionId: string };
+export type SpellRatingAlternative = { score: SpellRatingScore; condition: string };
 
 export type ExtractedSpellRatings = {
   scores: Record<string, SpellRatingScore>;
   comments: Record<string, SpellRatingCommentSource>;
+  alternatives: Record<string, SpellRatingAlternative>;
   unresolvedNames: string[];
 };
 
@@ -32,12 +34,14 @@ export function extractSpellRatings(document: ArticleDocument, spells: readonly 
 
   const scores: ExtractedSpellRatings["scores"] = {};
   const comments: ExtractedSpellRatings["comments"] = {};
+  const alternatives: ExtractedSpellRatings["alternatives"] = {};
   for (const [slug, candidates] of groupBySlug(resolved)) {
     const chosen = chooseEntryForSpellLevel(candidates, levelBySlug.get(slug)!);
     scores[slug] = chosen.rating.score;
     if (chosen.text.bodyNodes.length > 0) comments[slug] = { nodes: chosen.text.bodyNodes, sectionId: chosen.rating.sectionId };
+    if (chosen.rating.alternative) alternatives[slug] = { score: chosen.rating.alternative.score, condition: chosen.rating.alternative.condition };
   }
-  return { scores: sortBySlug(scores), comments: sortBySlug(comments), unresolvedNames };
+  return { scores: sortBySlug(scores), comments: sortBySlug(comments), alternatives: sortBySlug(alternatives), unresolvedNames };
 }
 
 function resolveEntriesToSpells(entries: RatingEntry[], levelBySlug: ReadonlyMap<string, number>) {

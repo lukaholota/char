@@ -5,7 +5,7 @@ import type { AnalysisRating, ArticleDocument, InlineNode, TranslationRevision }
 
 export type KnownCreature = { nameEng: string; type: string };
 
-export type WildshapeRatingSource = { score: SpellRatingScore; sectionId: string; nodes: InlineNode[] };
+export type WildshapeRatingSource = { score: SpellRatingScore; alternative?: AnalysisRating["alternative"]; sectionId: string; nodes: InlineNode[] };
 
 export type ExtractedWildshapeRatings = {
   forms: Record<string, WildshapeRatingSource>;
@@ -70,7 +70,8 @@ function listEnglishNames(text: string): string[] {
 
 function addForm(forms: Record<string, WildshapeRatingSource>, slug: string, entry: RatingEntry) {
   if (forms[slug]) throw new Error(`Дві оцінки однієї форми: ${slug} (${entry.rating.ratingId})`);
-  forms[slug] = { score: entry.rating.score, sectionId: entry.rating.sectionId, nodes: entry.text.bodyNodes };
+  const { score, alternative, sectionId } = entry.rating;
+  forms[slug] = { score, ...(alternative && { alternative }), sectionId, nodes: entry.text.bodyNodes };
 }
 
 function sortByKey<T>(record: Record<string, T>): Record<string, T> {

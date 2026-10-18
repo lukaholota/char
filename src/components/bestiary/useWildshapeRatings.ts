@@ -51,7 +51,11 @@ export function useWildshapeRatings(ruleset: Ruleset, wildshape: WildshapePickin
     captureRpgbotEvent("rpgbot_wildshape_recommendations_toggled", { enabled: next });
   }, [setPreference]);
 
-  const findRating = useCallback((entry: CreatureIndexEntry) => (catalog ? findWildshapeFormRating(catalog, entry.key) : null), [catalog]);
+  const isMoonCircle = standing?.isMoonCircle ?? false;
+  const findRating = useCallback(
+    (entry: CreatureIndexEntry) => (catalog ? findWildshapeFormRating(catalog, entry.key, isMoonCircle) : null),
+    [catalog, isMoonCircle],
+  );
 
   const rankRecommendedFirst = useCallback(
     (entries: CreatureIndexEntry[]) => (catalog ? sortByBestRating(entries, (entry) => findRecommendationScore(findRating(entry), findEligibility(entry))) : entries),

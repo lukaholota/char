@@ -12,7 +12,7 @@ import copy
 import hashlib
 import json
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import urldefrag
 
@@ -32,6 +32,7 @@ SIGNAL_LEGEND = "legend"
 SIGNAL_DECORATIVE = "decorative"
 SIGNAL_HEADING = "heading"
 SIGNAL_OPTION = "option"
+SIGNAL_CONTINUATION = "continuation"
 LABEL_SUFFIX_CHARACTERS = ":.!?(—-,;"
 TRANSLATION_TOKEN = re.compile(
     r"(?<!\\)\[\[(\d+)\|(.+?)\]\]|(?<!\\)\*\*(.+?)(?<!\\)\*\*|(?<!\\)\*(.+?)(?<!\\)\*|\^\^(.+?)\^\^", re.S)
@@ -41,6 +42,9 @@ HEADING_SIGNAL = re.compile(r"wp-block-heading rating-([a-z+-]*) (.+)", re.S)
 FLIPPED_HEADING_SIGNAL = re.compile(r"rating- wp-block-heading (.+)", re.S)
 REVERSED_HEADING_SIGNAL = re.compile(r"rating-([a-z+-]+) wp-block-heading (.+)", re.S)
 HEADING_LOCATION = re.compile(r"h[1-6]/")
+ORPHAN_ITEM_LOCATION = re.compile(r"(^|/)li\[\d+\]$")
+CONDITION_LINE = re.compile(r"^умова:[ \t]*([^\n]*)$", re.M)
+SUBCLASS_KEY = re.compile(r"[A-Z][A-Z0-9_]*")
 PAIRED_MARKER = re.compile(r"\{\{([^{}|]+)\|[^{}]*\}\}")
 DUPLICATE_ID_DETAIL = re.compile(r"(\S+) -> (\S+)")
 REVIEWED_AT = re.compile(r"^<!-- issueReviewedAt: (\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z) -->$", re.M)
@@ -54,6 +58,8 @@ EVIDENCE = {
     "legend": "Rating legend, not an option recommendation",
     "decorative": "Uncolored decorative CSS class on heading, not an author rating",
     "matched": "Source-rated item matched by label and order; color retained",
+    "continuation": "Second span of a name rated in two colors; its color is kept as the rating alternative",
+    "same-color-continuation": "Second span of a split name in the same color; the rating is taken from the first span",
     "uncolored": "Source class has no color; option kept without score",
     "splash": "Decorative splash image without analytical prose",
     "video": "Embedded video; videos are outside the corpus (owner decision 2026-10-01)",
@@ -82,6 +88,8 @@ class RatingSignal:
     color: str
     label: str
     in_heading: bool = False
+    in_list_item: bool = False
+    alternative: "RatingSignal | None" = None
 
 
 @dataclass
@@ -90,6 +98,7 @@ class RatingPlan:
     matches: dict
     heading_matches: dict
     unmatched: list
+    continuations: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -102,6 +111,7 @@ class Worksheet:
     reviewed_at: str
     headings: dict
     fragments: dict
+    conditions: dict = field(default_factory=dict)
 
 
 def collapse_whitespace(value):
@@ -225,7 +235,7 @@ def parse_rating_signal(issue_index, detail, location=""):
     if option:
         color = option.group(1)
         return RatingSignal(issue_index, SIGNAL_OPTION, f"rating-{color}", color if color in COLOR_SCORES else "", option.group(2),
-                            in_heading=bool(HEADING_LOCATION.match(location)))
+                            in_heading=bool(HEADING_LOCATION.match(location)), in_list_item=location.startswith("li/"))
     raise ValueError(f"Unrecognized rating signal at issue {issue_index}: {detail}")
 
 
@@ -276,11 +286,28 @@ def starts_with_label_at(nodes, text, offset, label):
     return not suffix or ends_at_boundary or suffix[0].isspace() or suffix[0] in LABEL_SUFFIX_CHARACTERS
 
 
-def find_row_for_label(rows, position, label):
+def find_row_for_label(rows, position, label, accepts_row=lambda row: True):
     for index in range(position, len(rows)):
-        if starts_with_label(rows[index].nodes, label):
+        if accepts_row(rows[index]) and starts_with_label(rows[index].nodes, label):
             return index
     return None
+
+
+def list_orphan_item_blocks(stage):
+    return {issue["detail"].strip() for issue in stage["issues"]
+            if issue["code"] == "provisional-id" and ORPHAN_ITEM_LOCATION.search(issue.get("location", ""))}
+
+
+def is_list_row(row, orphan_blocks):
+    return row.kind == KIND_ITEM or (row.kind == KIND_PARAGRAPH and row.block_id in orphan_blocks)
+
+
+def find_row_for_signal(rows, position, signal, orphan_blocks):
+    if signal.in_list_item:
+        found = find_row_for_label(rows, position, signal.label, lambda row: is_list_row(row, orphan_blocks))
+        if found is not None:
+            return found
+    return find_row_for_label(rows, position, signal.label)
 
 
 def find_heading_for_label(stage, label, taken):
@@ -308,12 +335,21 @@ def is_split_label_continuation(stage, signal, previous_signal, previous_row):
     return adjacent_spans and any(starts_with_label(previous_row.nodes, label) for label in joined_labels)
 
 
+def attach_continuation(plan, signal, previous_signal):
+    signal.kind = SIGNAL_CONTINUATION
+    plan.continuations[signal.issue_index] = previous_signal
+    if signal.color and signal.color != previous_signal.color:
+        previous_signal.alternative = signal
+        previous_signal.source_class = f"rating-{previous_signal.color}+{signal.color}"
+
+
 def plan_ratings(stage, fragments):
     contents = find_contents_targets(stage, fragments)
     rows = [fragment for fragment in fragments
             if fragment.section_id != LEGEND_SECTION_ID and fragment.key not in contents]
     section_by_heading = {collapse_whitespace(section["heading"]): section["sectionId"] for section in stage["sections"]}
     signals = parse_rating_signals(stage)
+    orphan_blocks = list_orphan_item_blocks(stage)
     plan = RatingPlan(signals, {}, {}, [])
     position = 0
     previous_signal = previous_row = None
@@ -328,14 +364,14 @@ def plan_ratings(stage, fragments):
                 plan.unmatched.append(signal)
             continue
         if is_split_label_continuation(stage, signal, previous_signal, previous_row):
-            plan.unmatched.append(signal)
+            attach_continuation(plan, signal, previous_signal)
             continue
         if signal.in_heading:
             section_id = find_heading_for_label(stage, signal.label, plan.heading_matches)
             if section_id:
                 plan.heading_matches[section_id] = signal
                 continue
-        found = find_row_for_label(rows, position, signal.label)
+        found = find_row_for_signal(rows, position, signal, orphan_blocks)
         if found is not None:
             plan.matches[rows[found].key] = signal
             position = found + 1
@@ -367,11 +403,14 @@ def find_prefill(fragment, markup, shared_fragments):
     return shared_fragments.get(markup, "")
 
 
-def build_fragment_lines(fragment, tag, markup, contents_target, shared_fragments):
+def build_fragment_lines(fragment, signal, markup, contents_target, shared_fragments):
     kind = KIND_CONTENTS if contents_target else fragment.kind
+    tag = signal.source_class if signal else UNRATED_TAG
     lines = [f"### {fragment.key} · {kind} · {tag}", "", f"> {markup}", ""]
     if contents_target:
         return lines + [f"Береться із заголовка розділу: {contents_target[0]}", ""]
+    if signal and signal.alternative:
+        lines += ["умова: ", ""]
     return lines + ["**Українською:**", find_prefill(fragment, markup, shared_fragments), ""]
 
 
@@ -389,8 +428,7 @@ def render_worksheet(stage, slug, ruleset, topics, shared=None):
         lines += [f"## {section['heading']}", f"<!-- sectionId: {section['sectionId']}; rating: {tag} -->", "",
                   "**Український заголовок:**", shared_headings.get(collapse_whitespace(section["heading"]), ""), ""]
         for fragment in (item for item in fragments if item.section_id == section["sectionId"]):
-            signal = plan.matches.get(fragment.key)
-            lines += build_fragment_lines(fragment, signal.source_class if signal else UNRATED_TAG,
+            lines += build_fragment_lines(fragment, plan.matches.get(fragment.key),
                                           render_source_markup(fragment.nodes), contents.get(fragment.key),
                                           shared_fragments)
     return "\n".join(lines), plan
@@ -426,6 +464,16 @@ def parse_worksheet_headings(content):
     return headings
 
 
+def parse_worksheet_conditions(content):
+    conditions = {}
+    for match in FRAGMENT_HEADER.finditer(content):
+        key, body = match.group(1), match.group(4).split("**Українською:**", 1)[0]
+        condition = CONDITION_LINE.search(body)
+        if condition:
+            conditions[key] = condition.group(1).strip()
+    return conditions
+
+
 def parse_worksheet_fragments(content):
     fragments = {}
     for match in FRAGMENT_HEADER.finditer(content):
@@ -445,7 +493,8 @@ def parse_worksheet(content):
     title, fields, reviewed_at = parse_worksheet_header(content)
     return Worksheet(title, fields["sourceRevisionId"], fields["articleSlug"], fields["ruleset"],
                      [topic.strip() for topic in fields["topics"].split(",") if topic.strip()],
-                     reviewed_at, parse_worksheet_headings(content), parse_worksheet_fragments(content))
+                     reviewed_at, parse_worksheet_headings(content), parse_worksheet_fragments(content),
+                     parse_worksheet_conditions(content))
 
 
 def unescape_translation(value):
@@ -568,7 +617,29 @@ def build_rating_record(article_id, translation_id, number, section_id, block_id
     return record
 
 
-def build_ratings(article_id, translation_id, sections, translated, plan):
+def build_alternative(color, condition):
+    label, _, subclass_key = (part.strip() for part in condition.partition("|"))
+    if not label or (subclass_key and not SUBCLASS_KEY.fullmatch(subclass_key)):
+        raise ValueError(f"Alternative condition needs a label and an optional SUBCLASS_KEY: {condition}")
+    alternative = {"score": COLOR_SCORES[color], "sourceColor": color, "condition": label}
+    return {**alternative, "subclassKey": subclass_key} if subclass_key else alternative
+
+
+def collect_alternatives(sheet, plan):
+    alternatives = {}
+    for key, signal in plan.matches.items():
+        condition = sheet.conditions.get(key, "")
+        if signal.alternative and not condition:
+            raise ValueError(f"Missing alternative condition: {key}")
+        if signal.alternative:
+            alternatives[key] = build_alternative(signal.alternative.color, condition)
+    unexpected = sorted(set(sheet.conditions) - set(alternatives))
+    if unexpected:
+        raise ValueError(f"Alternative condition on a fragment rated in one color: {unexpected}")
+    return alternatives
+
+
+def build_ratings(article_id, translation_id, sections, translated, plan, alternatives):
     ratings, rating_ids = [], {}
     for section in sections:
         section_id = section["sectionId"]
@@ -587,7 +658,11 @@ def build_ratings(article_id, translation_id, sections, translated, plan):
             option_id = f"{section_id}-{re.sub(r'[^A-Za-z0-9_-]', '-', key)}"
             ratings.append(build_rating_record(article_id, translation_id, len(ratings) + 1, section_id, block_id,
                                                option_id, find_rating_context(nodes), signal))
+            if key in alternatives:
+                ratings[-1]["alternative"] = alternatives[key]
             rating_ids[signal.issue_index] = ratings[-1]["ratingId"]
+    for issue_index, main_signal in plan.continuations.items():
+        rating_ids[issue_index] = rating_ids[main_signal.issue_index]
     return ratings, rating_ids
 
 
@@ -597,6 +672,9 @@ def find_rating_decision(issue_index, plan, rating_ids):
         return {"disposition": "excluded-noncontent", "evidence": EVIDENCE["legend"]}
     if signal.kind == SIGNAL_DECORATIVE:
         return {"disposition": "excluded-noncontent", "evidence": EVIDENCE["decorative"]}
+    if signal.kind == SIGNAL_CONTINUATION:
+        evidence = EVIDENCE["continuation" if plan.continuations[issue_index].alternative is signal else "same-color-continuation"]
+        return {"disposition": "preserved", "evidence": evidence, "ratingIds": [rating_ids[issue_index]]}
     if issue_index in rating_ids:
         evidence = EVIDENCE["matched"] if signal.color else EVIDENCE["uncolored"]
         return {"disposition": "preserved", "evidence": evidence, "ratingIds": [rating_ids[issue_index]]}
@@ -693,7 +771,8 @@ def compile_article(stage, sheet_text, extra_decisions):
     article_id = f"rpgbot-{sheet.slug}-{RULESET_YEARS[sheet.ruleset]}"
     translation_id = f"translation-{article_id}-draft1"
     sections, translated = translate_sections(stage, sheet, plan, contents)
-    ratings, rating_ids = build_ratings(article_id, translation_id, sections, translated, plan)
+    alternatives = collect_alternatives(sheet, plan)
+    ratings, rating_ids = build_ratings(article_id, translation_id, sections, translated, plan, alternatives)
     decisions = build_issue_decisions(stage, plan, rating_ids, extra_decisions)
     document = build_article_document(stage, sheet, sections, ratings, article_id, translation_id)
     review = {"sourceRevisionId": sheet.revision_id, "reviewedAt": sheet.reviewed_at, "issueDecisions": decisions}

@@ -332,7 +332,7 @@ Infernal Legacy{{Infernal Legacy}}: набір цікавий, але засто
 **Український заголовок:**
 Монах
 
-### block-section-custom-origin-monk-1 · абзац · rating-green
+### block-section-custom-origin-monk-1 · абзац · без оцінки
 
 > Glasya tiefling is basically your only good option, but it is a very good option.
 
@@ -442,7 +442,7 @@ Infernal Legacy{{Infernal Legacy}}: набір цікавий, але засто
 **Український заголовок:**
 Варвар
 
-### block-section-barbarian-1 · абзац · rating-green
+### block-section-barbarian-1 · абзац · без оцінки
 
 > Zariel Tiefling is the closest you’ll get to a good option for a Tiefling barbarian, but even that isn’t a great option. You can’t cast spells (including racial innate spellcasting) while raging, so you give up one of the Tiefling’s most interest racial traits while raging.
 
@@ -508,14 +508,14 @@ Infernal Legacy{{Infernal Legacy}}: набір цікавий, але засто
 **Українською:**
 Підклас залежить від підраси. Ось кілька рекомендацій для найкращих, на думку автора, Тифлінгів-Воїнів.
 
-### block-section-fighter-3/item/0 · пункт · без оцінки
+### block-section-fighter-3/item/0 · пункт · rating-green
 
 > Glasya: Consider a Dexterity-based Purple Dragon Knight with an emphasis on stealth. A good fit in a party full of sneaky characters like rogues, trickery clerics, and illusionists.
 
 **Українською:**
 Гласія{{Tiefling (Glasya)}}: Воїн на Спритності, Purple Dragon Knight{{Purple Dragon Knight}}, із наголосом на Непомітності: добре для групи Пройдисвітів, Кліриків підступності й ілюзіоністів.
 
-### block-section-fighter-3/item/1 · пункт · без оцінки
+### block-section-fighter-3/item/1 · пункт · rating-green
 
 > Zariel: An excellent option for a front-line Purple Dragon Knight. The spells include smite spells from the Paladin spell list, offering some great offensive options.
 
@@ -542,7 +542,7 @@ Infernal Legacy{{Infernal Legacy}}: набір цікавий, але засто
 **Український заголовок:**
 Монах
 
-### block-section-monk-1 · абзац · rating-green
+### block-section-monk-1 · абзац · без оцінки
 
 > Dispater Tiefling and Glasya Tiefling are both options because they provide relevant ability increases, but I think the Feral variant is your best bet. Glasya can be very sneaky and tricky thanks to their free spells, but the vanilla tiefling spells may be a better complement to the monk’s combat abilities, offering a mix of magical utility and damage that monks can’t replicate on their own.
 
@@ -569,7 +569,7 @@ Infernal Legacy{{Infernal Legacy}}: набір цікавий, але засто
 **Українською:**
 Багато варіантів добре працюють Паладинами, тому легко створити особливого персонажа. Харизма чудова, але зазвичай бажані також Сила чи Спритність. Blessed Warrior{{Blessed Warrior}} дозволяє натомість зосередитися на Харизмі. Враховуйте внесок расових заклинань: нижче рекомендації для найдоречніших підрас.
 
-### block-section-paladin-3/item/0 · пункт · без оцінки
+### block-section-paladin-3/item/0 · пункт · rating-green
 
 > Dispater: The ability scores line up nicely for a Dexterity-based Paladin, and the spells make for an unconventional character. Disguises and the ability to detect thoughts may help you to locate and defeat enemies by more subtle means than a typical paladin.
 

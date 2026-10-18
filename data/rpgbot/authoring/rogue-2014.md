@@ -411,9 +411,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Статура{{Con}}: ХП завжди важливі, особливо для ближніх Пройдисвітів.
 
-### block-section-ability-scores-5 · абзац · rating-green
+### block-section-ability-scores-5 · абзац · rating-green+orange
 
 > Int: Arcane Tricksters need Intelligence for their spells, but other Rogues only need it for Investigation.
+
+умова: Пройдисвіти, крім Містичного спритника
 
 **Українською:**
 Інтелект{{Int}}: Містичним спритникам Інтелект потрібен для заклинань, а решті Пройдисвітів — лише для Розслідування.

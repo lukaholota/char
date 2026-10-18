@@ -299,9 +299,11 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 {{Модифікації броні|Armor Modifications}}: важко вирішувати, куди витрачати інфузії. Можна віддавати друзям, і вони можуть цього очікувати, особливо в світі з малою кількістю магічних предметів. Тут дві додаткові інфузії лише для себе, що зменшує тиск. Окремі частини дозволяють мати найкращі варіанти й далі носити костюм.
 
-### block-section-armorer-subclass-features-1/item/11 · пункт · rating-green
+### block-section-armorer-subclass-features-1/item/11 · пункт · rating-green+blue
 
 > Perfected Armor The guardian version of this is good but competes for your reaction with the other amazing Artificer ability Flash of Genius and, considering that your job is protecting people, only using your reaction to pull something and punch it when you could be giving them a massive bonus on, for instance, a save vs finger of death is inevitably going to lead to some moment where you tear your hair out because you already used your reaction. The Infiltrator version is phenomenal. If your first attack hits the benefits apply to the second attack so you’re always going to want to save your extra d6 for the second roll as the advantage makes it more likely to crit and multiply the bonus die.
+
+умова: Лазутчик
 
 **Українською:**
 {{Вдосконалена броня|Perfected Armor}}: Оцінки моделей: Вартовий — 3/4, Добре (зелений); Лазутчик — 4/4, Чудово (синій). Вартовий хороший, але змагається за реакцію зі {{Спалах геніальності|Flash of Genius}}. Ваша роль — захищати; якщо витратите реакцію на підтягування й удар, коли могли дати великий бонус ряткидку від Палець смерті [Finger of Death], рано чи пізно пошкодуєте. Лазутчик феноменальний: влучання першої атаки посилює другу. Бережіть додатковий к6 для другої: перевага збільшує ймовірність критичного влучання й подвоєння кістки.
@@ -326,16 +328,20 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 Сил: не можете мати високими чотири характеристики, а Сила недостатньо корисна.
 
-### block-section-ability-scores-3 · абзац · rating-orange
+### block-section-ability-scores-3 · абзац · rating-orange+green
 
 > De x: Guardian primaries won’t need any. Infiltrator primaries will take this after int to help with stealth and sleight of hand, as well as filling out the breastplate cap.
+
+умова: Лазутчик
 
 **Українською:**
 Спр: джерело дає дві оцінки — 2/4, Прийнятно (помаранчевий), і 3/4, Добре (зелений), відповідно до різних основних моделей. Вартовому майже не потрібна. Лазутчик підвищує після Інтелекту для Непомітності, Спритності рук і максимального КБ кіраси.
 
-### block-section-ability-scores-4 · абзац · rating-green
+### block-section-ability-scores-4 · абзац · rating-green+orange
 
 > Con: Guardian primaries will bump this after int. Infiltrator primaries still want some but having proficiency on con saves helps enormously with maintaining concentration and you shouldn’t need all the hit points your tank cousin does.
+
+умова: Лазутчик
 
 **Українською:**
 Ста: джерело дає дві оцінки — 3/4, Добре (зелений), і 2/4, Прийнятно (помаранчевий), відповідно до різних основних моделей. Вартовий підвищує після Інтелекту. Лазутчик теж хоче трохи, але володіння ряткидками сильно допомагає концентрації, а ХП не потрібно стільки, як танку.

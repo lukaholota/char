@@ -1,6 +1,7 @@
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { parseArgs } from "node:util";
+import { toEntitySlug } from "../../src/lib/slug-utils";
 import { parseArticleDocument } from "../../src/lib/optimization/document";
 import { buildSpellRatingFiles, findSpellRatingListKey } from "../../src/lib/optimization/spell-rating-generation";
 import { readSourceManifest } from "../../src/lib/optimization/source-policy";
@@ -11,6 +12,7 @@ import type { ArticleDocument } from "../../src/lib/optimization/types";
 const { values } = parseArgs({ options: {
   input: { type: "string", default: "data/rpgbot" },
   spells: { type: "string", default: "data/2014/spells.json" },
+  creatures: { type: "string", default: "src/lib/generated/creatures.json" },
   output: { type: "string", default: "src/lib/generated" },
 } });
 
@@ -21,9 +23,10 @@ async function main() {
   const input = resolve(values.input!);
   const documents = await readSpellListDocuments(join(input, "uk"));
   const spells = JSON.parse(await readFile(resolve(values.spells!), "utf8")) as { engName: string; level: number }[];
+  const creatureSlugs = await readCreatureSlugs2014(resolve(values.creatures!));
   const sourceUrls = await readSourceUrls(join(input, "manifest.json"));
 
-  const generated = await buildSpellRatingFiles(documents, spells, sourceUrls);
+  const generated = await buildSpellRatingFiles(documents, spells, creatureSlugs, sourceUrls);
   failOnUnresolvedNames(generated.unresolved);
   failOnShrunkOutput(generated.catalog);
 
@@ -48,6 +51,11 @@ async function readSpellListDocuments(directory: string): Promise<Map<string, Ar
     if (listKey) documents.set(listKey, parseArticleDocument(JSON.parse(await readFile(join(directory, fileName), "utf8"))));
   }
   return documents;
+}
+
+async function readCreatureSlugs2014(path: string): Promise<Set<string>> {
+  const creatures = JSON.parse(await readFile(path, "utf8")) as { nameEng: string; ruleset: string }[];
+  return new Set(creatures.filter((creature) => creature.ruleset === "RULES_2014").map((creature) => toEntitySlug(creature.nameEng)));
 }
 
 async function readSourceUrls(manifestPath: string): Promise<Map<string, string>> {

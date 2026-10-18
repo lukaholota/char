@@ -280,7 +280,7 @@ RPGbot використовує кольорову шкалу, яку легко
 **Український заголовок:**
 Школа хронургії (EGtW)
 
-### block-section-chronurgy-1 · абзац · rating-blue
+### block-section-chronurgy-1 · абзац · без оцінки
 
 > Chronal Shift and Convergent Future feel very similar in function to the School of Divination’s Portent feature, and if you want that feature but don’t share my love for divination spells, Chronurgy Magic is a great option.
 
@@ -301,7 +301,7 @@ RPGbot використовує кольорову шкалу, яку легко
 **Українською:**
 [[1|Гайд Чарівника Школи хронургії]]
 
-### block-section-chronurgy-4/item/0 · пункт · без оцінки
+### block-section-chronurgy-4/item/0 · пункт · rating-blue
 
 > Chronal Shift: Rerolls are always great, and you can use this after the target rerolls. The target can be you, an ally, or an enemy, so you can use this to divert critical hits, to offer another attempt on failed saves, or if you’re not worried about your own safety you could use this to let allies reroll missed attacks. Generally you should save this to be used defensively. Rerolling one ally’s missed attack will rarely save a life, but rerolling saves will save lives constantly.
 
