@@ -17,7 +17,7 @@ export function SpellRatingBadge({ matches, spellName, spellEngName, className }
   const focus = useReadingDialogFocus();
   const best = findBestSpellRating(matches);
   if (!best) return null;
-  const label = describeMatchLabel(best);
+  const { label } = describeRating({ score: best.score, context: "" });
 
   return (
     <span className="inline-flex" onClick={(event) => event.stopPropagation()}>
@@ -42,10 +42,4 @@ export function SpellRatingBadge({ matches, spellName, spellEngName, className }
       </Dialog>
     </span>
   );
-}
-
-function describeMatchLabel(match: SpellRatingMatch): string {
-  const { label } = describeRating({ score: match.score, context: "" });
-  if (!match.alternative) return label;
-  return `${label} · ${match.alternative.condition}: ${describeRating({ score: match.alternative.score, context: "" }).label}`;
 }

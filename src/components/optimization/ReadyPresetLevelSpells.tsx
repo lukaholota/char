@@ -35,7 +35,7 @@ function OpenPickGroup({ slot, assembly, context }: { slot: OpenPickSlot; assemb
     <div className="mt-4"><PresetSpellPicker label={`${label} · ${slot.characterLevel}-й рівень`}
       spells={candidates.filter((spell) => spell.spellId !== undefined).map((spell) => ({ ...spell, school: spell.school ?? null, spellId: spell.spellId!, ruleset: "RULES_2014" }))}
       selectedIds={chosen.flatMap((key) => pool.find((spell) => spell.key === key)?.spellId ?? [])}
-      limit={slot.count} ratedCaster={{ className: slot.classKey, subclassName: slot.schoolLimitedSubclassKey }}
+      limit={slot.count} ratedCaster={{ className: slot.classKey, subclassName: slot.subclassKey }}
       onChange={(ids) => assembly.chooseSpells(slot.id, ids.map((id) => pool.find((spell) => spell.spellId === id)!.key))} /></div>
   </fieldset>;
 }

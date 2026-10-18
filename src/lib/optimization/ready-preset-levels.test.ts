@@ -163,6 +163,14 @@ describe("Eldritch Knight school limit on open spell picks", () => {
     expect(findAssemblyChoiceProblem(buildContext("fighter-eldritch-knight-2014", 19, { "19:knownSpells": ["counterspell"] }).context)).toBeNull();
   });
 
+  it("gives every open pick the step's subclass, so the picker scores for it", () => {
+    const { context } = buildContext("warlock-hexblade-2014", 20);
+    const slots = listOpenPickSlots(context.levels, 20);
+    expect(slots.length).toBeGreaterThan(0);
+    expect(slots.map((slot) => slot.subclassKey)).toEqual(slots.map(() => "HEXBLADE"));
+    expect(slots.every((slot) => slot.schoolLimitedSubclassKey === undefined)).toBe(true);
+  });
+
   it("does not limit the open picks of other casters", () => {
     const { context } = buildContext("sorcadin-clockwork-2014", 7);
     const [slot] = listOpenPickSlots(context.levels, 7);

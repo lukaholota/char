@@ -67,7 +67,7 @@ const scores = { red: 1, orange: 2, green: 3, blue: 4 } as const;
 const ratingScoreSchema = z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]);
 const ratingColorSchema = z.enum(["red", "orange", "green", "blue"]);
 const ratingAlternativeSchema = z.strictObject({
-  score: ratingScoreSchema, sourceColor: ratingColorSchema, condition: text, subclassKey: text.optional(),
+  score: ratingScoreSchema, sourceColor: ratingColorSchema, condition: text, subclassKeys: z.array(text).min(1).optional(),
 }).refine((alternative) => alternative.score === scores[alternative.sourceColor], "Alternative score/color mismatch");
 export const ratingSchema = z.strictObject({
   ratingId: idSchema, articleId: idSchema, translationRevisionId: idSchema, sectionId: idSchema,

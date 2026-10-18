@@ -5,7 +5,7 @@ export type SpellRatingScore = 1 | 2 | 3 | 4;
 export type KnownSpell = { engName: string; level: number };
 
 export type SpellRatingCommentSource = { nodes: InlineNode[]; sectionId: string };
-export type SpellRatingAlternative = { score: SpellRatingScore; condition: string };
+export type SpellRatingAlternative = { score: SpellRatingScore; condition: string; subclassKeys: string[] };
 
 export type ExtractedSpellRatings = {
   scores: Record<string, SpellRatingScore>;
@@ -39,9 +39,15 @@ export function extractSpellRatings(document: ArticleDocument, spells: readonly 
     const chosen = chooseEntryForSpellLevel(candidates, levelBySlug.get(slug)!);
     scores[slug] = chosen.rating.score;
     if (chosen.text.bodyNodes.length > 0) comments[slug] = { nodes: chosen.text.bodyNodes, sectionId: chosen.rating.sectionId };
-    if (chosen.rating.alternative) alternatives[slug] = { score: chosen.rating.alternative.score, condition: chosen.rating.alternative.condition };
+    if (chosen.rating.alternative) alternatives[slug] = findSubclassAlternative(chosen.rating.alternative, slug);
   }
   return { scores: sortBySlug(scores), comments: sortBySlug(comments), alternatives: sortBySlug(alternatives), unresolvedNames };
+}
+
+/// Пікер показує персонажу лише його оцінку, тож друга оцінка без підкласів нікому не дісталася б.
+function findSubclassAlternative(alternative: NonNullable<AnalysisRating["alternative"]>, slug: string): SpellRatingAlternative {
+  if (!alternative.subclassKeys) throw new Error(`Друга оцінка заклинання ${slug} не називає підклас: «${alternative.condition}»`);
+  return { score: alternative.score, condition: alternative.condition, subclassKeys: alternative.subclassKeys };
 }
 
 function resolveEntriesToSpells(entries: RatingEntry[], levelBySlug: ReadonlyMap<string, number>) {

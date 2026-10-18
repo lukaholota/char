@@ -35,6 +35,7 @@ export function buildReadyPresetOptions(draft: Partial<PersFormData>, content: C
   const knownLanguages = [...new Set([...race.languages, ...characterClass.languages, ...featureLanguages, ...(subrace?.additionalLanguages ?? [])])];
   return {
     className: characterClass.name,
+    subclassName: chosenSubclass?.name ?? null,
     choiceGroups: {
       classOptions: groupPickableOptions(listFirstLevelClassOptions(characterClass)),
       subclassOptions: groupPickableOptions(chosenSubclass ? listFirstLevelSubclassOptions(chosenSubclass) : []),

@@ -1,6 +1,8 @@
 // @vitest-environment jsdom
+import { readdirSync, readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
+import { getAllClasses } from "@/lib/classesData";
 import { ArticleBlock, type BlockContext } from "@/components/optimization/ArticleBlocks";
 import { RatingBadge } from "@/components/optimization/RatingBadge";
 import { SpellRatingBadge } from "@/components/spells/SpellRatingBadge";
@@ -8,6 +10,9 @@ import { SpellRatingChipButton } from "@/components/spells/SpellRatingChipButton
 import { parseArticleDocument } from "@/lib/optimization/document";
 import { ratingSchema } from "@/lib/optimization/schema";
 import { extractSpellRatings } from "@/lib/optimization/spell-rating-extraction";
+import { buildSpellScoreFinder } from "@/lib/optimization/ready-preset-spell-scores";
+import { spellRatingCatalog } from "@/lib/optimization/spell-rating-catalog";
+import { findRatingListKeys } from "@/lib/optimization/spell-rating-casters";
 import { createSpellRatingFinder, type SpellRatingCatalog } from "@/lib/optimization/spell-rating-lookup";
 import type { AnalysisRating, InlineNode } from "@/lib/optimization/types";
 import { extractWildshapeRatings } from "@/lib/optimization/wildshape-rating-extraction";
@@ -18,8 +23,9 @@ vi.mock("next/navigation", () => ({ usePathname: () => "/rules/optimization" }))
 
 afterEach(cleanup);
 
-const MOON = { score: 4, sourceColor: "blue", condition: "Коло місяця", subclassKey: "CIRCLE_OF_THE_MOON" } as const;
-const HEXBLADE = { score: 4, sourceColor: "blue", condition: "Відьмацький клинок" } as const;
+type Alternative = NonNullable<AnalysisRating["alternative"]>;
+const MOON: Alternative = { score: 4, sourceColor: "blue", condition: "Коло місяця", subclassKeys: ["CIRCLE_OF_THE_MOON"] };
+const HEXBLADE: Alternative = { score: 4, sourceColor: "blue", condition: "Відьмацький клинок", subclassKeys: ["HEXBLADE"] };
 const text = (value: string): InlineNode => ({ type: "text", text: value });
 
 const octopusRating: AnalysisRating = {
@@ -87,26 +93,63 @@ describe("друга оцінка RPGbot — для кожного спожив�
     expect(findWildshapeFormRating(catalog, "wolf", true)?.score).toBe(3);
   });
 
-  it("заклинання несуть альтернативу від статті до збігу в пікері", () => {
+  it("заклинання: персонаж бачить лише оцінку свого підкласу", () => {
     const rating = { ...octopusRating, context: "Громовий клинок [Booming Blade]", alternative: HEXBLADE };
     const document = buildArticle("section-cantrips", [text("Громовий клинок [Booming Blade]: для ближнього бою.")], rating);
     const extracted = extractSpellRatings(document, [{ engName: "Booming Blade", level: 0 }]);
-    expect(extracted.alternatives).toEqual({ "booming-blade": { score: 4, condition: "Відьмацький клинок" } });
+    expect(extracted.alternatives).toEqual({ "booming-blade": { score: 4, condition: "Відьмацький клинок", subclassKeys: ["HEXBLADE"] } });
 
     const catalog: SpellRatingCatalog = { lists: { warlock: { titleUk: "", articleSlug: "", sourceUrl: "", scores: extracted.scores, alternatives: extracted.alternatives } } };
-    const finder = createSpellRatingFinder(catalog, [{ className: "WARLOCK_2014", subclassName: null }]);
-    expect(finder("Booming Blade")).toEqual([{ listKey: "warlock", score: 1, alternative: { score: 4, condition: "Відьмацький клинок" } }]);
+    const findFor = (subclassName: string | null) => createSpellRatingFinder(catalog, [{ className: "WARLOCK_2014", subclassName }])("Booming Blade");
+    expect(findFor("HEXBLADE")).toEqual([{ listKey: "warlock", score: 4 }]);
+    expect(findFor("THE_FIEND")).toEqual([{ listKey: "warlock", score: 1 }]);
+    expect(findFor(null)).toEqual([{ listKey: "warlock", score: 1 }]);
   });
 
-  it("значки заклинань у каталозі й пікері показують обидві оцінки з умовою", () => {
-    const match = { listKey: "warlock", score: 1, alternative: { score: 4, condition: "Відьмацький клинок" } } as const;
+  it("друга оцінка заклинання без підкласу не проходить генерацію", () => {
+    const rating = { ...octopusRating, context: "Громовий клинок [Booming Blade]", alternative: { score: 4, sourceColor: "blue", condition: "для ближнього бою" } satisfies Alternative };
+    const document = buildArticle("section-cantrips", [text("Громовий клинок [Booming Blade]: для ближнього бою.")], rating);
+    expect(() => extractSpellRatings(document, [{ engName: "Booming Blade", level: 0 }])).toThrow(/не називає підклас/);
+  });
+
+  it("каталог: винахідник-Зброяр і Бойовий коваль отримують свою оцінку, Алхімік — основну", () => {
+    const findFor = (subclassName: string) => createSpellRatingFinder(spellRatingCatalog, [{ className: "ARTIFICER_2014", subclassName }])("Booming Blade");
+    expect(findFor("ARMORER")).toEqual([{ listKey: "artificer", score: 4 }]);
+    expect(findFor("BATTLE_SMITH")).toEqual([{ listKey: "artificer", score: 4 }]);
+    expect(findFor("ALCHEMIST")).toEqual([{ listKey: "artificer", score: 1 }]);
+  });
+
+  it("пресет і підвищення рівня рахують заклинання за підкласом", () => {
+    expect(buildSpellScoreFinder("WARLOCK_2014", "HEXBLADE")("Booming Blade")).toBe(4);
+    expect(buildSpellScoreFinder("WARLOCK_2014", "THE_FIEND")("Booming Blade")).toBe(1);
+  });
+
+  it("кожен підклас другої оцінки існує в редакції статті, а підклас заклинання читає її список", () => {
+    const articles = readdirSync("data/rpgbot/uk").filter((file) => file.endsWith(".json"))
+      .map((file) => JSON.parse(readFileSync(`data/rpgbot/uk/${file}`, "utf8")) as { article: { slug: string; ruleset: "RULES_2014" | "RULES_2024" }; ratings: AnalysisRating[] });
+    const unknown = articles.flatMap(({ article, ratings }) => {
+      const subclassKeys = new Set(getAllClasses(article.ruleset).flatMap((entry) => entry.subclasses.map((subclass) => subclass.key)));
+      return ratings.flatMap((rating) => rating.alternative?.subclassKeys ?? []).filter((key) => !subclassKeys.has(key)).map((key) => `${article.slug}: ${key}`);
+    });
+    expect(unknown).toEqual([]);
+
+    const classes = getAllClasses("RULES_2014");
+    const unreachable = Object.entries(spellRatingCatalog.lists).flatMap(([listKey, list]) => Object.values(list.alternatives ?? {})
+      .flatMap((alternative) => alternative.subclassKeys)
+      .filter((subclassKey) => !classes.some((entry) => entry.subclasses.some((subclass) => subclass.key === subclassKey)
+        && findRatingListKeys({ className: entry.key, subclassName: subclassKey }).includes(listKey)))
+      .map((subclassKey) => `${listKey}: ${subclassKey}`));
+    expect(unreachable).toEqual([]);
+  });
+
+  it("значки заклинань показують одну оцінку", () => {
+    const match = { listKey: "warlock", score: 4 } as const;
     const catalogBadge = render(<SpellRatingBadge matches={[match]} spellName="Громовий клинок" spellEngName="Booming Blade" />);
-    expect(findBadgeTones(catalogBadge.container)).toEqual(["red", "blue"]);
-    expect(screen.getByRole("button", { name: /Погано · Відьмацький клинок: Чудово/ })).toBeTruthy();
+    expect(findBadgeTones(catalogBadge.container)).toEqual(["blue"]);
+    expect(screen.getByRole("button", { name: "Оцінка RPGbot для «Громовий клинок»: Чудово" })).toBeTruthy();
     catalogBadge.unmount();
 
     const chip = render(<SpellRatingChipButton rating={match} spell={{ spellId: 1, engName: "Booming Blade", ruleset: "RULES_2014" }} spellName="Громовий клинок" />);
-    expect(findBadgeTones(chip.container)).toEqual(["red", "blue"]);
-    expect(screen.getByText("Відьмацький клинок")).toBeTruthy();
+    expect(findBadgeTones(chip.container)).toEqual(["blue"]);
   });
 });

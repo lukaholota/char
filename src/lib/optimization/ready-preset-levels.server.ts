@@ -264,6 +264,7 @@ function findCatalogSpell(spells: SpellCatalog, key: string): LevelSpell {
 function buildOpenPicks(decisions: LevelDecisions, step: BuildProgressionStep, subclassKey: string | null, context: BuildContext): LevelOpenPick[] {
   return (decisions.openSpellPicks ?? []).map((pick) => ({
     category: pick.category, count: pick.count, poolId: registerSpellPool(step, pick.category, subclassKey, context),
+    ...(subclassKey ? { subclassKey } : {}),
     ...withSchoolLimit(findSchoolLimitedSubclassKey(step, pick.category, subclassKey)),
   }));
 }

@@ -107,11 +107,19 @@
    "alternatives": {
     "booming-blade": {
      "score": 4,
-     "condition": "Зброяр і Бойовий коваль"
+     "condition": "Зброяр і Бойовий коваль",
+     "subclassKeys": [
+      "ARMORER",
+      "BATTLE_SMITH"
+     ]
     },
     "green-flame-blade": {
      "score": 4,
-     "condition": "Зброяр і Бойовий коваль"
+     "condition": "Зброяр і Бойовий коваль",
+     "subclassKeys": [
+      "ARMORER",
+      "BATTLE_SMITH"
+     ]
     }
    }
   },
@@ -1241,15 +1249,24 @@
    "alternatives": {
     "booming-blade": {
      "score": 4,
-     "condition": "Відьмацький клинок"
+     "condition": "Відьмацький клинок",
+     "subclassKeys": [
+      "HEXBLADE"
+     ]
     },
     "green-flame-blade": {
      "score": 4,
-     "condition": "Відьмацький клинок"
+     "condition": "Відьмацький клинок",
+     "subclassKeys": [
+      "HEXBLADE"
+     ]
     },
     "sword-burst": {
      "score": 4,
-     "condition": "Відьмацький клинок"
+     "condition": "Відьмацький клинок",
+     "subclassKeys": [
+      "HEXBLADE"
+     ]
     }
    }
   },
@@ -1598,7 +1615,10 @@
    "alternatives": {
     "sword-burst": {
      "score": 4,
-     "condition": "Школа співу клинків"
+     "condition": "Школа співу клинків",
+     "subclassKeys": [
+      "SCHOOL_OF_BLADESINGING"
+     ]
     }
    }
   }

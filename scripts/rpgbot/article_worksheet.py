@@ -618,11 +618,12 @@ def build_rating_record(article_id, translation_id, number, section_id, block_id
 
 
 def build_alternative(color, condition):
-    label, _, subclass_key = (part.strip() for part in condition.partition("|"))
-    if not label or (subclass_key and not SUBCLASS_KEY.fullmatch(subclass_key)):
-        raise ValueError(f"Alternative condition needs a label and an optional SUBCLASS_KEY: {condition}")
+    label, has_keys, keys = (part.strip() for part in condition.partition("|"))
+    subclass_keys = [key.strip() for key in keys.split(",")] if has_keys else []
+    if not label or not all(SUBCLASS_KEY.fullmatch(key) for key in subclass_keys):
+        raise ValueError(f"Alternative condition needs a label and optional SUBCLASS_KEY, SUBCLASS_KEY: {condition}")
     alternative = {"score": COLOR_SCORES[color], "sourceColor": color, "condition": label}
-    return {**alternative, "subclassKey": subclass_key} if subclass_key else alternative
+    return {**alternative, "subclassKeys": subclass_keys} if subclass_keys else alternative
 
 
 def collect_alternatives(sheet, plan):

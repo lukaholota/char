@@ -540,10 +540,15 @@ class TwoColourRatingTest(unittest.TestCase):
         rating = document["ratings"][-1]
         self.assertEqual((rating["sourceColor"], rating["score"], rating["alternative"]),
                          ("blue", 4, {"score": 1, "sourceColor": "red", "condition": "Коло Місяця",
-                                      "subclassKey": "CIRCLE_OF_THE_MOON"}))
+                                      "subclassKeys": ["CIRCLE_OF_THE_MOON"]}))
         decisions = review["issueDecisions"][-2:]
         self.assertEqual([decision["ratingIds"] for decision in decisions], [[rating["ratingId"]]] * 2)
         self.assertEqual([decision["disposition"] for decision in decisions], ["preserved"] * 2)
+
+    def test_condition_names_every_subclass_it_covers(self):
+        stage, sheet = self.render_split()
+        document, _, _ = self.compile_split(stage, sheet, "Зброяр і Бойовий коваль | ARMORER, BATTLE_SMITH")
+        self.assertEqual(document["ratings"][-1]["alternative"]["subclassKeys"], ["ARMORER", "BATTLE_SMITH"])
 
     def test_condition_without_subclass_key_is_kept_alone(self):
         stage, sheet = self.render_split()

@@ -47,6 +47,16 @@ function renderChoices(slug: string) {
 }
 
 describe("ready preset spells for every caster kind", () => {
+  it("rates the Hexblade cantrips for the Hexblade, not for any Warlock", async () => {
+    const findBoomingBladeRating = () => screen.findByRole("button", { name: "Оцінка RPGbot для «Гримучий Клинок [Booming Blade]»: відкрити аналіз" });
+    const { options } = renderSpells("warlock-hexblade-2014");
+    expect(options.subclassName).toBe("HEXBLADE");
+    expect((await findBoomingBladeRating()).textContent).toContain("Чудово");
+    cleanup();
+    renderSpells("warlock-fiend-2014");
+    expect((await findBoomingBladeRating()).textContent).not.toContain("Чудово");
+  });
+
   it("shows the Warlock cantrips and known spells as the author's choice and lets a known spell change", () => {
     const { draft, update } = renderSpells("warlock-fiend-2014");
     expect(screen.getByText("Замовляння класу")).toBeTruthy();

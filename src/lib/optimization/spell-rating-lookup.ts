@@ -1,16 +1,16 @@
 import { toEntitySlug } from "@/lib/slug-utils";
 import { findRatingListKeys, type RatedCaster } from "./spell-rating-casters";
-import type { SpellRatingAlternative, SpellRatingScore } from "./spell-rating-extraction";
+import type { SpellRatingScore } from "./spell-rating-extraction";
 
 export type SpellRatingList = {
   titleUk: string;
   articleSlug: string;
   sourceUrl: string;
   scores: Record<string, number>;
-  alternatives?: Record<string, { score: number; condition: string }>;
+  alternatives?: Record<string, { score: number; condition: string; subclassKeys: string[] }>;
 };
 export type SpellRatingCatalog = { lists: Record<string, SpellRatingList> };
-export type SpellRatingMatch = { listKey: string; score: SpellRatingScore; alternative?: SpellRatingAlternative };
+export type SpellRatingMatch = { listKey: string; score: SpellRatingScore };
 
 export const RECOMMENDED_MIN_SCORE: SpellRatingScore = 3;
 
@@ -19,30 +19,31 @@ export function isSpellRatingScore(value: unknown): value is SpellRatingScore {
 }
 
 export function createSpellRatingFinder(catalog: SpellRatingCatalog, casters: readonly RatedCaster[]) {
-  const listKeyChains = casters.map(findRatingListKeys).filter((chain) => chain.length > 0);
+  const rated = casters.map((caster) => ({ caster, chain: findRatingListKeys(caster) })).filter(({ chain }) => chain.length > 0);
 
   return function findSpellRatingMatches(spellEngName: string): SpellRatingMatch[] {
     const slug = toEntitySlug(spellEngName);
-    const matches = listKeyChains.flatMap((chain) => {
-      const match = findFirstMatchInChain(catalog, chain, slug);
+    const matches = rated.flatMap(({ caster, chain }) => {
+      const match = findFirstMatchInChain(catalog, chain, slug, caster);
       return match ? [match] : [];
     });
     return keepFirstMatchPerList(matches);
   };
 }
 
-function findFirstMatchInChain(catalog: SpellRatingCatalog, chain: readonly string[], slug: string): SpellRatingMatch | null {
+function findFirstMatchInChain(catalog: SpellRatingCatalog, chain: readonly string[], slug: string, caster: RatedCaster): SpellRatingMatch | null {
   for (const listKey of chain) {
     const list = catalog.lists[listKey];
-    const score = list?.scores[slug];
-    if (isSpellRatingScore(score)) return { listKey, score, ...findListAlternative(list, slug) };
+    const score = list && findCasterScore(list, slug, caster);
+    if (score) return { listKey, score };
   }
   return null;
 }
 
-function findListAlternative(list: SpellRatingList, slug: string): { alternative?: SpellRatingAlternative } {
+function findCasterScore(list: SpellRatingList, slug: string, caster: RatedCaster): SpellRatingScore | null {
   const alternative = list.alternatives?.[slug];
-  return alternative && isSpellRatingScore(alternative.score) ? { alternative: { score: alternative.score, condition: alternative.condition } } : {};
+  const score = caster.subclassName && alternative?.subclassKeys.includes(caster.subclassName) ? alternative.score : list.scores[slug];
+  return isSpellRatingScore(score) ? score : null;
 }
 
 function keepFirstMatchPerList(matches: SpellRatingMatch[]): SpellRatingMatch[] {

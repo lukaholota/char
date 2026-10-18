@@ -174,7 +174,7 @@ RPGbot використовує кольорову шкалу, яку легко
 
 > Booming Blade[[1|SCAG / TCoE]]: Excellent for the Armorer and the Battle Smith, but most other artificers should never be in a position to use this. Note that Tasha’s Cauldron of Everything published an updated version of Booming Blade.
 
-умова: Зброяр і Бойовий коваль
+умова: Зброяр і Бойовий коваль | ARMORER, BATTLE_SMITH
 
 **Українською:**
 Гримучий Клинок [Booming Blade][[1|SCAG / TCoE]]: чудово для Зброяра{{Armorer}} і Бойового коваля{{Battle Smith}}, але більшість інших винахідників ніколи не повинні опинятися в позиції, де це можна використати. Зауважте, що «Казан Таші з усім» опублікував оновлену версію Гримучого Клинка [Booming Blade].
@@ -211,7 +211,7 @@ RPGbot використовує кольорову шкалу, яку легко
 
 > Green-Flame Blade[[1|SCAG]]: Excellent for the Armorer and the Battle Smith, but most other artificers should never be in a position to use this. Note that Tasha’s Cauldron of Everything published an updated version of Green-Flame Blade.
 
-умова: Зброяр і Бойовий коваль
+умова: Зброяр і Бойовий коваль | ARMORER, BATTLE_SMITH
 
 **Українською:**
 Клинок Зеленого Полумʼя [Green-Flame Blade][[1|SCAG]]: чудово для Зброяра{{Armorer}} і Бойового коваля{{Battle Smith}}, але більшість інших винахідників ніколи не повинні опинятися в позиції, де це можна використати. Зауважте, що «Казан Таші з усім» опублікував оновлену версію Клинка Зеленого Полумʼя [Green-Flame Blade].

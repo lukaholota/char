@@ -74,7 +74,7 @@ function buildFormRatings(forms: Record<string, WildshapeRatingSource>, markdown
 }
 
 function findMoonScore(form: WildshapeRatingSource): { moonScore?: number } {
-  return form.alternative?.subclassKey === MOON_CIRCLE_SUBCLASS ? { moonScore: form.alternative.score } : {};
+  return form.alternative?.subclassKeys?.includes(MOON_CIRCLE_SUBCLASS) ? { moonScore: form.alternative.score } : {};
 }
 
 function findSection(sections: readonly ArticleSection[], sectionId: string): ArticleSection {
