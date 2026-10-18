@@ -9,10 +9,12 @@ const posthog = vi.hoisted(() => ({
 const session = vi.hoisted(() => ({ current: { data: null as { user: { id: string; email?: string } } | null, status: "unauthenticated" } }));
 const idle = vi.hoisted(() => ({ callbacks: [] as Array<() => void> }));
 const route = vi.hoisted(() => ({ pathname: "/" }));
+const sdk = vi.hoisted(() => ({ isBlocked: false }));
+const mockPostHogSdk = vi.hoisted(() => () => (sdk.isBlocked ? Promise.reject(new TypeError("Failed to fetch dynamically imported module")) : { default: posthog }));
 /// Динамічний import SDK під навантаженням повного прогону в CI буває довшим за стандартну секунду waitFor.
 const SDK_IMPORT_WAIT = { timeout: 10_000 };
 
-vi.mock("posthog-js", () => ({ default: posthog }));
+vi.mock("posthog-js", mockPostHogSdk);
 vi.mock("next-auth/react", () => ({ useSession: () => session.current }));
 vi.mock("next/navigation", () => ({ usePathname: () => route.pathname }));
 vi.mock("@/components/ui/PersEditionPin", () => ({ useActiveEdition: () => "2014", useIsEditionPinnedByPage: () => false, findPinnedRuleset: () => null }));
@@ -34,7 +36,8 @@ async function loadSdk() {
 
 beforeEach(() => {
   vi.resetModules();
-  vi.doMock("posthog-js", () => ({ default: posthog }));
+  sdk.isBlocked = false;
+  vi.doMock("posthog-js", mockPostHogSdk);
   Object.values(posthog).forEach((spy) => spy.mockReset());
   session.current = { data: null, status: "unauthenticated" };
   idle.callbacks.length = 0;
@@ -113,8 +116,7 @@ describe("session replay", () => {
   it("a blocked SDK leaves the creator working", async () => {
     const warning = vi.spyOn(console, "warn").mockImplementation(() => undefined);
     route.pathname = "/char/create";
-    vi.resetModules();
-    vi.doMock("posthog-js", () => Promise.reject(new TypeError("Failed to fetch dynamically imported module")));
+    sdk.isBlocked = true;
     const view = await renderProvider();
 
     idle.callbacks.splice(0).forEach((callback) => callback());
