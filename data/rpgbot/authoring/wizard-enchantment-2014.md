@@ -700,7 +700,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Courtier. Insight and Persuasion fit our skill needs, and two languages means that we can play a Face with less reliance on Comprehend Languages and Tongues.
 
 **Українською:**
-Придворний{{Courtier}}. Аналіз Поведінки й Переконання відповідають нашим потребам у навичках, а дві мови означають, що ми можемо грати «обличчя», менше покладаючись на Розуміння мов [Comprehend Languages] і Мови [Tongues].
+Придворний{{Courtier}}. Аналіз поведінки й Переконання відповідають нашим потребам у навичках, а дві мови означають, що ми можемо грати «обличчя», менше покладаючись на Розуміння мов [Comprehend Languages] і Мови [Tongues].
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -713,7 +713,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll select Arcana and Insight from our two class skills. Insight becomes redundant with our background, so we’ll trade it for Deception. We’ll use our two kenku skill proficiencies to get Intimidation and either History or Religion depending on our party’s needs. We end up with Arcana, Deception, Insight, Intimidation, Persuasion, and either History or Religion, covering two Intelligence-based knowledge skills and the full suite of Face skills.
 
 **Українською:**
-Зі своїх двох класових навичок оберемо Магію й Аналіз Поведінки. Аналіз Поведінки стає зайвим через передісторію, тож замінимо його на Обман. Два володіння навичками від кенку використаємо, щоб отримати Залякування й або Історію, або Релігію — залежно від потреб нашої групи. У підсумку маємо Магію, Обман, Аналіз Поведінки, Залякування, Переконання й або Історію, або Релігію, що покриває дві навички знань на основі Інтелекту й повний набір навичок «обличчя».
+Зі своїх двох класових навичок оберемо Магію й Аналіз поведінки. Аналіз поведінки стає зайвим через передісторію, тож замінимо його на Обман. Два володіння навичками від кенку використаємо, щоб отримати Залякування й або Історію, або Релігію — залежно від потреб нашої групи. У підсумку маємо Магію, Обман, Аналіз поведінки, Залякування, Переконання й або Історію, або Релігію, що покриває дві навички знань на основі Інтелекту й повний набір навичок «обличчя».
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

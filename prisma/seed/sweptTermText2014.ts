@@ -77,6 +77,14 @@ const SWEPT_FEATURES_2014 = [
   "Soul of Deceit",
   "Panache",
   "Implements of Mercy",
+  /// «Аналіз поведінки» з малої «п», як інші навички (2026-10-18).
+  "Tactical Assessment",
+  "Bonus Proficiency (Cavalier)",
+  "Royal Envoy",
+  "Stone Rune",
+  "Bonus Proficiency (Samurai)",
+  "Implement of Peace",
+  "Mantle of Whispers",
 ] as const;
 
 /// Фанатика тут більше немає: його опис звірено з джерелом і везе `seed:catalog-prose-2014` (KR33.7).

@@ -825,14 +825,14 @@ RPGbot використовує кольорову шкалу, яку легко
 > Our race and background have allowed us to get all the Scholarly skills, Arcana, History, Nature, and Religion. At first level, the Bard can pick any three skills, so since we’re already a little invested into Intelligence, we’ll take the final option there, Investigation, as well as Insight and Persuasion to perform the Face role that we already have the Charisma for.
 
 **Українською:**
-Завдяки расі й передісторії ми вже маємо всі наукові навички: Магію{{Arcana}}, Історію{{History}}, Природу{{Nature}} і Релігію{{Religion}}. На 1-му рівні Бард може обрати будь-які три навички. Оскільки ми вже трохи вклалися в Інтелект, беремо останню навичку з нього — Розслідування{{Investigation}}, а також {{Аналіз Поведінки|Insight}} і Переконання{{Persuasion}}, щоб виконувати роль «обличчя», на яку нам уже вистачає Харизми.
+Завдяки расі й передісторії ми вже маємо всі наукові навички: Магію{{Arcana}}, Історію{{History}}, Природу{{Nature}} і Релігію{{Religion}}. На 1-му рівні Бард може обрати будь-які три навички. Оскільки ми вже трохи вклалися в Інтелект, беремо останню навичку з нього — Розслідування{{Investigation}}, а також {{Аналіз поведінки|Insight}} і Переконання{{Persuasion}}, щоб виконувати роль «обличчя», на яку нам уже вистачає Харизми.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 
 > But unlike most, our skills don’t end there. At third level, when we take the College of Lore, we get three more skills. As such, we’ll take the rest of the Face’s set, Deception and Intimidation, as well as Perception. Also at third level, all Bards get Expertise in two skills. Now we could use this to boost our already impressive Face skills, but instead we’ll take the Expertise at this level for Insight and Perception to reinforce some of our weaker, but important, skills.
 
 **Українською:**
-Але, на відміну від більшості, наші навички на цьому не закінчуються. На 3-му рівні, коли ми обираємо {{Колегію знань|College of Lore}}, ми отримуємо ще три навички. Тож беремо решту набору «обличчя» — Обман{{Deception}} і Залякування{{Intimidation}}, а також Уважність{{Perception}}. На цьому ж рівні всі Барди здобувають Експертизу в двох навичках. Ми могли б вкласти її в і без того вражаючі навички «обличчя», але натомість беремо Експертизу на цьому рівні в {{Аналізі Поведінки|Insight}} та Уважності, щоб підтягнути кілька слабших, але важливих навичок.
+Але, на відміну від більшості, наші навички на цьому не закінчуються. На 3-му рівні, коли ми обираємо {{Колегію знань|College of Lore}}, ми отримуємо ще три навички. Тож беремо решту набору «обличчя» — Обман{{Deception}} і Залякування{{Intimidation}}, а також Уважність{{Perception}}. На цьому ж рівні всі Барди здобувають Експертизу в двох навичках. Ми могли б вкласти її в і без того вражаючі навички «обличчя», але натомість беремо Експертизу на цьому рівні в {{Аналізі поведінки|Insight}} та Уважності, щоб підтягнути кілька слабших, але важливих навичок.
 
 ### block-section-skills-and-tools-3 · абзац · без оцінки
 
@@ -846,7 +846,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Our final list of skills is Proficiency in Arcana, History, Investigation, Nature, Religion, and Stealth, and Expertise in Deception, Insight, Intimidation, Perception, and Persuasion. And thanks to Jack of all Trades, every other skill gains half of our Proficiency bonus.
 
 **Українською:**
-Наш підсумковий список навичок: володіння Магією, Історією, Розслідуванням, Природою, Релігією й Непомітністю, а також Експертиза в Обмані, Аналізі Поведінки, Залякуванні, Уважності й Переконанні. А завдяки «Майстру на всі руки»{{Jack of All Trades}} кожна інша навичка отримує половину нашого Бонусу Майстерності.
+Наш підсумковий список навичок: володіння Магією, Історією, Розслідуванням, Природою, Релігією й Непомітністю, а також Експертиза в Обмані, Аналізі поведінки, Залякуванні, Уважності й Переконанні. А завдяки «Майстру на всі руки»{{Jack of All Trades}} кожна інша навичка отримує половину нашого Бонусу Майстерності.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->
@@ -929,7 +929,7 @@ RPGbot використовує кольорову шкалу, яку легко
 
 **Українською:**
 «Бардське натхнення»{{Bardic Inspiration}} — к6
-Навички: – Магія – Історія – Аналіз Поведінки – Розслідування – Природа – Переконання – Релігія
+Навички: – Магія – Історія – Аналіз поведінки – Розслідування – Природа – Переконання – Релігія
 Чаротворство{{Spellcasting}}
 Замовляння: – Штукарство [Prestidigitation] – Злісне глузування [Vicious Mockery]
 Заклинання 1-го рівня: – Дисонуючий шепіт [Dissonant Whispers] – Цілюще слово [healing word] – Сріблясті шпильки [Silvery Barbs] – Сон [Sleep]
@@ -980,7 +980,7 @@ RPGbot використовує кольорову шкалу, яку легко
 {{Колегія знань|College of Lore}}
 Додаткові навички: – Обман – Залякування – Уважність
 «Ріжучі слова»{{Cutting Words}}
-Експертиза: – Аналіз Поведінки – Уважність
+Експертиза: – Аналіз поведінки – Уважність
 Чаротворство{{Spellcasting}}
 Заклинання 2-го рівня: – Покращення здібності [Enhance Ability] – Друзки [Shatter]
 Прибране заклинання: Сон [Sleep]
@@ -990,7 +990,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We take on the College of Lore at this level, getting three more skills right away, Deception, Intimidation, and Perception. We also get Cutting Words here, a way to use our Bardic Inspiration as a reaction ability to lower an attack roll, ability check, or the damage of an attack. Now, between this and Silvery Barbs, we have multiple reaction abilities to use. Use Silvery Barbs on important enemy saves or to cancel a natural 20, and use Cutting Words to cancel near hits that beat AC by 1 or 2 points. Additionally we gain Expertise in two skills now, which we place on Insight and Perception to shore up weaknesses in our skills. For a 2nd-level spell, we’ll take Enhance Ability and we’ll replace Sleep with Shatter. Since we’re replacing the party’s wizard-equivalent, Shatter is a fine area damage spell to have on hand.
 
 **Українською:**
-На цьому рівні вступаємо до {{Колегії знань|College of Lore}} і відразу здобуваємо ще три навички: Обман, Залякування й Уважність. Також отримуємо «Ріжучі слова»{{Cutting Words}} — реакцією можемо витратити кістку Бардського натхнення{{Bardic Inspiration}}, щоб знизити кидок атаки, перевірку характеристики або шкоду від атаки. Тепер, маючи це вміння й Сріблясті шпильки [Silvery Barbs], ми можемо використовувати кілька реакцій. Використовуйте Сріблясті шпильки [Silvery Barbs] проти важливих ряткидків ворогів або щоб скасувати природну 20, а «Ріжучі слова» — щоб перетворити на промах влучання, які лише на 1–2 пункти перевищили КБ. Крім того, ми зараз здобуваємо Експертизу в двох навичках і вкладаємо її в Аналіз Поведінки та Уважність, щоб підтягнути слабші місця. Із заклинань 2-го рівня беремо Покращення здібності [Enhance Ability], а Сон [Sleep] замінюємо на Друзки [Shatter]. Оскільки ми замінюємо в групі чарівника, Друзки [Shatter] — добре заклинання шкоди по області, яке варто мати напохваті.
+На цьому рівні вступаємо до {{Колегії знань|College of Lore}} і відразу здобуваємо ще три навички: Обман, Залякування й Уважність. Також отримуємо «Ріжучі слова»{{Cutting Words}} — реакцією можемо витратити кістку Бардського натхнення{{Bardic Inspiration}}, щоб знизити кидок атаки, перевірку характеристики або шкоду від атаки. Тепер, маючи це вміння й Сріблясті шпильки [Silvery Barbs], ми можемо використовувати кілька реакцій. Використовуйте Сріблясті шпильки [Silvery Barbs] проти важливих ряткидків ворогів або щоб скасувати природну 20, а «Ріжучі слова» — щоб перетворити на промах влучання, які лише на 1–2 пункти перевищили КБ. Крім того, ми зараз здобуваємо Експертизу в двох навичках і вкладаємо її в Аналіз поведінки та Уважність, щоб підтягнути слабші місця. Із заклинань 2-го рівня беремо Покращення здібності [Enhance Ability], а Сон [Sleep] замінюємо на Друзки [Shatter]. Оскільки ми замінюємо в групі чарівника, Друзки [Shatter] — добре заклинання шкоди по області, яке варто мати напохваті.
 
 ### block-section-levels-1/row/3/0 · комірка таблиці · без оцінки
 

@@ -241,7 +241,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > [[1|Inquisitive]]: Masters of Insight and Investigation, the Inquisitive is hard to surprise or fool, and they can use their keen insight to allow them to Sneak Attack foes more easily than most rogues.
 
 **Українською:**
-[[1|Допитливий]]: майстри Аналізу Поведінки й Розслідування; Допитливого важко застати зненацька чи обдурити, а завдяки проникливості він може легше за більшість Пройдисвітів завдавати ворогам «підступних атак».
+[[1|Допитливий]]: майстри Аналізу поведінки й Розслідування; Допитливого важко застати зненацька чи обдурити, а завдяки проникливості він може легше за більшість Пройдисвітів завдавати ворогам «підступних атак».
 
 ### block-section-class-features-10/item/3 · пункт · без оцінки
 
@@ -425,7 +425,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wis: Helpful for Insight, Perception, and saves. Inquisitives will want a bit more to power Unerring Eye, but Expertise will outweigh your ability modifier anyway so you don’t need much.
 
 **Українською:**
-Мудрість{{Wis}}: корисна для Аналізу Поведінки, Уважності й ряткидків. Допитливим знадобиться трохи більше для «Безпомилкового ока»{{Unerring Eye}}, але «Експертиза» й так переважить ваш модифікатор характеристики, тож багато Мудрості не потрібно.
+Мудрість{{Wis}}: корисна для Аналізу поведінки, Уважності й ряткидків. Допитливим знадобиться трохи більше для «Безпомилкового ока»{{Unerring Eye}}, але «Експертиза» й так переважить ваш модифікатор характеристики, тож багато Мудрості не потрібно.
 
 ### block-section-ability-scores-7 · абзац · rating-orange
 
@@ -745,7 +745,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Insight (Wis): Important for a Face.
 
 **Українською:**
-{{Аналіз Поведінки|Insight}} (Мудрість): важливий для «обличчя».
+{{Аналіз поведінки|Insight}} (Мудрість): важливий для «обличчя».
 
 ### block-section-skills-1/item/4 · пункт · rating-green
 
@@ -828,7 +828,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Acolyte[[1|PHB]]: Insight and Religion can be decent options for a Rogue with the right abilities, and extra languages are helpful for a Face.
 
 **Українською:**
-Послушник{{Acolyte}} [[1|PHB]]: Аналіз Поведінки й Релігія можуть бути пристойними варіантами для Пройдисвіта з потрібними здібностями, а додаткові мови корисні «обличчю».
+Послушник{{Acolyte}} [[1|PHB]]: Аналіз поведінки й Релігія можуть бути пристойними варіантами для Пройдисвіта з потрібними здібностями, а додаткові мови корисні «обличчю».
 
 ### block-section-background-4/item/1 · пункт · rating-blue
 
@@ -842,7 +842,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > City Watch[[1|SCAG]]: Athletics doesn’t do much for Rogues, but Insight and free languages are great for a Face.
 
 **Українською:**
-Міська варта{{City Watch}} [[1|SCAG]]: Атлетика мало що дає Пройдисвітам, але Аналіз Поведінки й безкоштовні мови чудові для «обличчя».
+Міська варта{{City Watch}} [[1|SCAG]]: Атлетика мало що дає Пройдисвітам, але Аналіз поведінки й безкоштовні мови чудові для «обличчя».
 
 ### block-section-background-4/item/3 · пункт · rating-green
 
@@ -2150,7 +2150,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > If you choose the Criminal background, you’ll get a redundant Stealth proficiency which you can trade for Insight or Intimidation. If you choose the Noble background you’ll get a redundant Persuasion proficiency which you can trade for Deception.
 
 **Українською:**
-Якщо ви оберете передісторію Злочинця, отримаєте надлишкове володіння Непомітністю, яке можна обміняти на Аналіз Поведінки чи Залякування. Якщо оберете передісторію Аристократа, отримаєте надлишкове володіння Переконанням, яке можна обміняти на Обман.
+Якщо ви оберете передісторію Злочинця, отримаєте надлишкове володіння Непомітністю, яке можна обміняти на Аналіз поведінки чи Залякування. Якщо оберете передісторію Аристократа, отримаєте надлишкове володіння Переконанням, яке можна обміняти на Обман.
 
 ### block-section-skills-and-tools-4 · абзац · без оцінки
 

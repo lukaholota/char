@@ -831,7 +831,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > A Constitution increase, one damage resistance, and Modular Gold Plating. Born to Serve can be a problem if you’re ever alone in a social situation, so either have a wiser friend on hand or take proficiency Insight.
 
 **Українською:**
-Підвищення Статури, опір до одного типу шкоди й «Модульне золоте покриття»{{Modular Gold Plating}}. «Створений служити»{{Born to Serve}} може стати проблемою, якщо ви опинитеся наодинці в соціальній ситуації, тож тримайте поруч мудрішого друга або візьміть володіння Аналізом Поведінки.
+Підвищення Статури, опір до одного типу шкоди й «Модульне золоте покриття»{{Modular Gold Plating}}. «Створений служити»{{Born to Serve}} може стати проблемою, якщо ви опинитеся наодинці в соціальній ситуації, тож тримайте поруч мудрішого друга або візьміть володіння Аналізом поведінки.
 
 ### block-section-21-2 · абзац · без оцінки
 

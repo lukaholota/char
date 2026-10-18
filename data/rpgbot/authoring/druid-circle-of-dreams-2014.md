@@ -733,7 +733,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’re taking Far Traveler for the Insight and Perception. And because it makes sense we’ve traveled far from Limbo.
 
 **Українською:**
-Беремо Далекий мандрівник{{Far Traveler}} заради Аналізу Поведінки й Уважності. А ще це логічно: ми далеко мандрували від Лімбу{{Limbo}}.
+Беремо Далекий мандрівник{{Far Traveler}} заради Аналізу поведінки й Уважності. А ще це логічно: ми далеко мандрували від Лімбу{{Limbo}}.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -746,7 +746,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From Druid we’re taking Nature and Survival. From Far Traveler we gain Insight and Perception.
 
 **Українською:**
-Від Друїда беремо Природу й Виживання. Від Далекого мандрівника отримуємо Аналіз Поведінки й Уважність.
+Від Друїда беремо Природу й Виживання. Від Далекого мандрівника отримуємо Аналіз поведінки й Уважність.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

@@ -585,7 +585,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Our choice of background doesn’t matter much to the build, so pick something that appeals to you or that helps support your role in the party. If you can’t decide, Acolyte is a great option. Take Insight, Persuasion, and two languages that are common in the setting where your campaign takes place.
 
 **Українською:**
-Наш вибір передісторії майже не впливає на збірку, тож оберіть те, що вам до душі або що допомагає у вашій ролі в групі. Якщо не можете вирішити, Послушник{{Acolyte}} — чудовий варіант. Візьміть Аналіз Поведінки, Переконання та дві мови, поширені в сеттингу, де відбувається ваша кампанія.
+Наш вибір передісторії майже не впливає на збірку, тож оберіть те, що вам до душі або що допомагає у вашій ролі в групі. Якщо не можете вирішити, Послушник{{Acolyte}} — чудовий варіант. Візьміть Аналіз поведінки, Переконання та дві мови, поширені в сеттингу, де відбувається ваша кампанія.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->

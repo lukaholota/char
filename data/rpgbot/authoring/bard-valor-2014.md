@@ -895,7 +895,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From Half-Elf, we gain Arcana and Perception. From Bard, we gain Intimidation, Insight, and Persuasion. From Criminal we gain Deception and Stealth.
 
 **Українською:**
-Від напівельфа{{Half-Elf}} отримуємо Магію й Уважність. Від Барда — Залякування, Аналіз Поведінки й Переконання. Від Злочинця{{Criminal}} — Обман і Непомітність.
+Від напівельфа{{Half-Elf}} отримуємо Магію й Уважність. Від Барда — Залякування, Аналіз поведінки й Переконання. Від Злочинця{{Criminal}} — Обман і Непомітність.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 
@@ -988,7 +988,7 @@ RPGbot використовує кольорову шкалу, яку легко
 Чаротворство{{Spellcasting}}
 Замовляння: – [[1|Магічна рука]] [Mage Hand] – [[2|Мала ілюзія]] [Minor Illusion]
 Заклинання 1-го рівня: – Вогники фей [Faerie fire] – Цілюще слово [healing word] – [[3|Сріблясті шпильки]] [Silvery Barbs] – Сон [Sleep]
-Навички й інструменти: – Магія – Обман – Аналіз Поведінки – Залякування – Уважність – Переконання – Непомітність – Інструменти злодія
+Навички й інструменти: – Магія – Обман – Аналіз поведінки – Залякування – Уважність – Переконання – Непомітність – Інструменти злодія
 
 ### block-section-levels-1/row/0/2 · комірка таблиці · без оцінки
 
@@ -1034,7 +1034,7 @@ RPGbot використовує кольорову шкалу, яку легко
 {{Колегія доблесті|College of Valor}}
 Додаткові володіння{{Bonus Proficiencies}}
 «Бойове натхнення»{{Combat Inspiration}}
-Експертиза{{Expertise}}: – Аналіз Поведінки – Непомітність
+Експертиза{{Expertise}}: – Аналіз поведінки – Непомітність
 Чаротворство{{Spellcasting}}
 Заклинання 2-го рівня: – Покращення здібності [Enhance Ability] – Друзки [Shatter]
 
@@ -1043,7 +1043,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We take the College of Valor, gaining Medium Armor, Shield, and Martial Weapon proficiencies. Switch to a Longbow when it is convenient as long as it is before we get Extra Attack at level 6. Combat Inspiration is a great way to boost our allies. As mentioned above in the features section, using this defensively to negate an attack is far better than adding a little damage to a single attack. For Expertise, we’re taking Insight to compensate for our low Wisdom in regards to negotiation and other social challenges. We’re taking Stealth so we can be great at Stealth. With 2nd-level spells, Enhance Ability is a generally useful buff for all sorts of skill challenges and Shatter is a solid damage option that is good to keep in your pocket for the rest of your career.
 
 **Українською:**
-Обираємо {{Колегію доблесті|College of Valor}} й отримуємо володіння обладунками середньої ваги, щитами та бойовою зброєю. Щойно буде зручно, переходьте на довгий лук — але зробіть це до 6-го рівня, коли зʼявиться Додаткова атака{{Extra Attack}}. «Бойове натхнення»{{Combat Inspiration}} чудово підсилює союзників. Як уже згадувалося в розділі про вміння {{Колегії доблесті|College of Valor}}, краще застосувати його для захисту й скасувати атаку, ніж трохи підвищити шкоду від одного удару. Для Експертизи{{Expertise}} беремо Аналіз Поведінки, щоб компенсувати низьку Мудрість під час переговорів та інших соціальних випробувань. Непомітність обираємо, щоб бути в ній справді добрими. Серед заклинань 2-го рівня Покращення здібності [Enhance Ability] — універсальне підсилення для найрізноманітніших випробувань навичок, а Друзки [Shatter] — надійний варіант шкоди, який варто тримати про запас до кінця карʼєри.
+Обираємо {{Колегію доблесті|College of Valor}} й отримуємо володіння обладунками середньої ваги, щитами та бойовою зброєю. Щойно буде зручно, переходьте на довгий лук — але зробіть це до 6-го рівня, коли зʼявиться Додаткова атака{{Extra Attack}}. «Бойове натхнення»{{Combat Inspiration}} чудово підсилює союзників. Як уже згадувалося в розділі про вміння {{Колегії доблесті|College of Valor}}, краще застосувати його для захисту й скасувати атаку, ніж трохи підвищити шкоду від одного удару. Для Експертизи{{Expertise}} беремо Аналіз поведінки, щоб компенсувати низьку Мудрість під час переговорів та інших соціальних випробувань. Непомітність обираємо, щоб бути в ній справді добрими. Серед заклинань 2-го рівня Покращення здібності [Enhance Ability] — універсальне підсилення для найрізноманітніших випробувань навичок, а Друзки [Shatter] — надійний варіант шкоди, який варто тримати про запас до кінця карʼєри.
 
 ### block-section-levels-1/row/3/0 · комірка таблиці · без оцінки
 

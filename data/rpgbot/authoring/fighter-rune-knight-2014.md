@@ -286,9 +286,9 @@ RPGbot використовує кольорову шкалу, яку легко
 > Stone Rune: Spectacular passive effects. When you’re building out your initial Ability Scores, you will typically max out your Strength or your Dexterity (depending on your build), then ideally you’ll raise your Constitution as much as makes sense. After that, Wisdom is a great third-highest ability score both for skills and for saving throws. After that, Insight isn’t much of a stretch. Perpetual Advantage on Wisdom (Insight) means a +5 bonus to your Passive Insight, which is a boon for your whole party. You also get 120 ft. Darkvision, which is great for races like the Dragonborn and the Human which don’t get it naturally. Even races with Darkvision tend to only have 60 ft range. The active effect is a Wisdom-based save-or-suck charm effect used as a Reaction. It’s not quite as good as Hold Monster, but it’s close, and like Hold Monster the target can repeat their save at the end of each of their turns. If you pair this with Fire Rune, you have one powerful single-target crowd control effect which can affect big dumb enemies (Stone Rune) and one for smart, frail enemies (Fire Rune).
 
 **Українською:**
-Руна каменю{{Stone Rune}}: вражаючі пасивні ефекти. Коли ви будуєте початкові характеристики, ви зазвичай максимізуєте Силу або Спритність (залежно від збірки), а потім ідеально піднімаєте Статуру наскільки є сенс. Після цього Мудрість — чудова третя за величиною характеристика і для навичок, і для ряткидків. Після цього Аналіз Поведінки — невелика відмінність.
+Руна каменю{{Stone Rune}}: вражаючі пасивні ефекти. Коли ви будуєте початкові характеристики, ви зазвичай максимізуєте Силу або Спритність (залежно від збірки), а потім ідеально піднімаєте Статуру наскільки є сенс. Після цього Мудрість — чудова третя за величиною характеристика і для навичок, і для ряткидків. Після цього Аналіз поведінки — невелика відмінність.
 
-Постійна Перевага на кубику на Мудрість (Аналіз Поведінки) означає бонус +5 до вашого Пасивного Аналізу Поведінки, що благо для всієї групи. Ви також отримуєте Темний зір на 120 фт., чудовий для рас на кшталт Дракононароджених і Людей, у яких його немає від природи. Навіть раси з Темним зором зазвичай мають дальність лише 60 фт.
+Постійна Перевага на кубику на Мудрість (Аналіз поведінки) означає бонус +5 до вашого Пасивного Аналізу поведінки, що благо для всієї групи. Ви також отримуєте Темний зір на 120 фт., чудовий для рас на кшталт Дракононароджених і Людей, у яких його немає від природи. Навіть раси з Темним зором зазвичай мають дальність лише 60 фт.
 
 Активний ефект — ефект причарування типу «ряткидок або страждай» на основі Мудрості, що застосовується Реакцією. Він не зовсім такий хороший, як «Стримування монстра [Hold Monster]», але близький, і, як і «Стримування монстра», ціль може повторювати ряткидок наприкінці кожного свого ходу. Якщо поєднати це з «Руною вогню», у вас є один потужний ефект контролю натовпу по одній цілі, що може діяти на великих дурних ворогів («Руна каменю»), і один для розумних тендітних ворогів («Руна вогню»).
 
@@ -390,7 +390,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wis: Wisdom saves are a thing we might want to watch out for, and Insight and Perception are useful to everyone.
 
 **Українською:**
-Мудрість: ряткидки Мудрості — те, за чим нам, можливо, варто стежити, а Аналіз Поведінки та Уважність корисні кожному.
+Мудрість: ряткидки Мудрості — те, за чим нам, можливо, варто стежити, а Аналіз поведінки та Уважність корисні кожному.
 
 ### block-section-rune-knight-ability-scores-6 · абзац · rating-orange
 
@@ -1032,7 +1032,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From the Fighter list, we’re taking Athletics and Perception. From customising our origin, we trade in the Tabaxi skills for Medicine and Animal Handling. Finally from our custom background we take Insight and Survival, as well as Brewer’s Supplies and Thieves’ Tools.
 
 **Українською:**
-З переліку Воїна беремо Атлетику й Уважність. Від налаштування походження міняємо навички Табаксі на Медицину й Поводження з тваринами. Нарешті, від нашої власної передісторії беремо Аналіз Поведінки й Виживання, а також приладдя пивовара й інструменти злодія.
+З переліку Воїна беремо Атлетику й Уважність. Від налаштування походження міняємо навички Табаксі на Медицину й Поводження з тваринами. Нарешті, від нашої власної передісторії беремо Аналіз поведінки й Виживання, а також приладдя пивовара й інструменти злодія.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

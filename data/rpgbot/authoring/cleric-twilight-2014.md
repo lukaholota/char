@@ -823,7 +823,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Race gives us Survival, Background gives us Perception, Animal Handling, Herbalism Kit and a wildcard, and Cleric gives us Insight and Medicine, rounding out our uses of Wisdom. If you don’t have any fixes in place for [[1|Medicine being unhelpful]], pick up Persuasion proficiency instead. People are often willing to talk to clerics because there’s an inherent trustworthiness in someone who devotes themselves to a higher power, even if the particulars of the deity might leave something to be desired.
 
 **Українською:**
-Раса дає нам Виживання, передісторія дає Уважність, Поводження з тваринами, набір травника{{Herbalism Kit}} і одне на вибір, а Клірик дає Аналіз Поведінки й Медицину, завершуючи наші застосування Мудрості. Якщо у вас немає жодних способів виправити [[1|марність Медицини]], натомість візьміть володіння Переконанням. Люди часто охоче розмовляють із кліриками, бо в тому, хто присвятив себе вищій силі, є природна надійність, навіть якщо особливості божества залишають бажати кращого.
+Раса дає нам Виживання, передісторія дає Уважність, Поводження з тваринами, набір травника{{Herbalism Kit}} і одне на вибір, а Клірик дає Аналіз поведінки й Медицину, завершуючи наші застосування Мудрості. Якщо у вас немає жодних способів виправити [[1|марність Медицини]], натомість візьміть володіння Переконанням. Люди часто охоче розмовляють із кліриками, бо в тому, хто присвятив себе вищій силі, є природна надійність, навіть якщо особливості божества залишають бажати кращого.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

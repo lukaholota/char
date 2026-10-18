@@ -532,7 +532,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Far Traveler. Insight and Perception are excellent skills for the Monk, and we also get proficiency with an instrument. That’s not especially useful, but we get Performance from two sources, and if you use Performance and an instrument, you get Advantage on the check. Our Charisma is only 8, but maybe it’ll help at some point.
 
 **Українською:**
-Далекий мандрівник{{Far Traveler}}. Аналіз Поведінки й Уважність — чудові навички для Монаха, і ми також отримуємо Володіння музичним інструментом. Це не надто корисно, але Виступ ми отримуємо з двох джерел, а якщо використовувати Виступ і інструмент, на перевірці буде Перевага на кубику. Наша Харизма лише 8, але, може, колись це допоможе.
+Далекий мандрівник{{Far Traveler}}. Аналіз поведінки й Уважність — чудові навички для Монаха, і ми також отримуємо Володіння музичним інструментом. Це не надто корисно, але Виступ ми отримуємо з двох джерел, а якщо використовувати Виступ і інструмент, на перевірці буде Перевага на кубику. Наша Харизма лише 8, але, може, колись це допоможе.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -545,7 +545,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We get Performance and Persuasion for free as a Satyr. We’ll take History and Stealth with our class skills. We get Insight and Perception from our Background.
 
 **Українською:**
-Як Сатир, ми безплатно отримуємо Виступ і Переконання. Серед класових навичок оберемо Історію та Непомітність. Аналіз Поведінки й Уважність отримуємо від передісторії.
+Як Сатир, ми безплатно отримуємо Виступ і Переконання. Серед класових навичок оберемо Історію та Непомітність. Аналіз поведінки й Уважність отримуємо від передісторії.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

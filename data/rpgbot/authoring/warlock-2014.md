@@ -782,7 +782,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Since Warlocks already have high Charisma and access to two Face skills, look for Persuasion, bonus languages, and possibly Insight. If you have high Dexterity, you could also pick up some Rogue skills and Thieves’ Tools proficiency.
 
 **Українською:**
-Оскільки Чорнокнижники вже мають високу Харизму й доступ до двох навичок «обличчя», шукайте Переконання, додаткові мови й, можливо, Аналіз Поведінки. Якщо у вас висока Спритність, можна також отримати навички Пройдисвіта й володіння інструментами злодія.
+Оскільки Чорнокнижники вже мають високу Харизму й доступ до двох навичок «обличчя», шукайте Переконання, додаткові мови й, можливо, Аналіз поведінки. Якщо у вас висока Спритність, можна також отримати навички Пройдисвіта й володіння інструментами злодія.
 
 ### block-section-background-3 · абзац · без оцінки
 
@@ -796,7 +796,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Acolyte ^^(^^[[1|PHB]]^^)^^: Insight, two languages, and a knowledge skill.
 
 **Українською:**
-Послушник{{Acolyte}} ^^(^^[[1|PHB]]^^)^^: Аналіз Поведінки, дві мови й навичка на знання.
+Послушник{{Acolyte}} ^^(^^[[1|PHB]]^^)^^: Аналіз поведінки, дві мови й навичка на знання.
 
 ### block-section-background-4/item/1 · пункт · rating-orange
 
@@ -810,7 +810,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > City Watch ^^(^^[[1|SCAG]]^^)^^: Insight and two Languages, but Athletics is essentially worthless.
 
 **Українською:**
-Міська варта{{City Watch}} ^^(^^[[1|SCAG]]^^)^^: Аналіз Поведінки й дві мови, але Атлетика, по суті, марна.
+Міська варта{{City Watch}} ^^(^^[[1|SCAG]]^^)^^: Аналіз поведінки й дві мови, але Атлетика, по суті, марна.
 
 ### block-section-background-4/item/3 · пункт · rating-blue
 
@@ -838,7 +838,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Faction Agent ^^(^^[[1|SCAG]]^^)^^: Insight, and you can pick whatever Face skill or Knowledge skill you want. Two languages, too!
 
 **Українською:**
-Агент фракції{{Faction Agent}} ^^(^^[[1|SCAG]]^^)^^: Аналіз Поведінки, а ще можна обрати будь-яку навичку «обличчя» чи навичку на знання. І дві мови теж!
+Агент фракції{{Faction Agent}} ^^(^^[[1|SCAG]]^^)^^: Аналіз поведінки, а ще можна обрати будь-яку навичку «обличчя» чи навичку на знання. І дві мови теж!
 
 ### block-section-background-4/item/7 · пункт · rating-green
 

@@ -732,7 +732,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Race gives us Perception (to notice those bulging sacks of treasure) and Stealth (to steal them), Background gives us Nature, Animal Handling, Herbalism Kit, and Thieves’ tools, and Cleric gives us Insight and Religion. At first level, we get Arcana and History (with expertise no less) from the domain.
 
 **Українською:**
-Раса дає нам Уважність (щоб помічати ті розпухлі мішки зі скарбами) і Непомітність (щоб їх поцупити), передісторія дає Природу, Поводження з тваринами, Набір травника й Інструменти злодія, а Клірик дає Аналіз Поведінки й Релігію. На першому рівні від домену ми отримуємо Магію й Історію (до того ж з експертизою).
+Раса дає нам Уважність (щоб помічати ті розпухлі мішки зі скарбами) і Непомітність (щоб їх поцупити), передісторія дає Природу, Поводження з тваринами, Набір травника й Інструменти злодія, а Клірик дає Аналіз поведінки й Релігію. На першому рівні від домену ми отримуємо Магію й Історію (до того ж з експертизою).
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

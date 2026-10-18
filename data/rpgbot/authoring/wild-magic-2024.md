@@ -649,7 +649,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We get Animal Handling and Persuasion from our Background, plus Navigator’s Tools. We’ll take Deception and Insight from our two Sorcerer class skills.
 
 **Українською:**
-Походження дає Догляд за тваринами, Переконання та інструменти навігатора. Із двох класових навичок Чародія беремо Обман і Аналіз Поведінки.
+Походження дає Догляд за тваринами, Переконання та інструменти навігатора. Із двох класових навичок Чародія беремо Обман і Аналіз поведінки.
 
 ## Feats and Ability Score Increases
 <!-- sectionId: section-feats-and-ability-score-increases -->

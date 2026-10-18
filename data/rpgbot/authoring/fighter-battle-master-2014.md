@@ -473,7 +473,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Tactical Assessment (U)[[1|TCoE]]: The affected skills are difficult choices for the Fighter, with the possible exception of Insight, so you may see little benefit from taking this.
 
 **Українською:**
-Тактична оцінка{{Tactical Assessment}} (Д)[[1|TCoE]]: навички, на які вона впливає, — важкий вибір для Воїна, можливо, за винятком Аналізу Поведінки, тож користі від цього може бути мало.
+Тактична оцінка{{Tactical Assessment}} (Д)[[1|TCoE]]: навички, на які вона впливає, — важкий вибір для Воїна, можливо, за винятком Аналізу поведінки, тож користі від цього може бути мало.
 
 ### block-section-battle-master-maneuvers-3/item/22 · пункт · rating-blue
 
@@ -1117,7 +1117,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’re going to take Courtier for access to Persuasion. Normally, the background also grants Insight, but we’ll be taking Insight from Fighter which allows us to replace the Insight granted by Courtier with any skill. In this case, Deception. Choose whatever languages work in your campaign.
 
 **Українською:**
-Беремо Придворного заради Переконання. Зазвичай передісторія дає й Аналіз Поведінки, але ми візьмемо Аналіз Поведінки від Воїна, що дозволяє замінити Аналіз Поведінки від Придворного будь-якою навичкою. У цьому разі — Обманом. Оберіть будь-які мови, що годяться у вашій кампанії.
+Беремо Придворного заради Переконання. Зазвичай передісторія дає й Аналіз поведінки, але ми візьмемо Аналіз поведінки від Воїна, що дозволяє замінити Аналіз поведінки від Придворного будь-якою навичкою. У цьому разі — Обманом. Оберіть будь-які мови, що годяться у вашій кампанії.
 
 ### block-section-background-2 · абзац · без оцінки
 
@@ -1144,7 +1144,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From Fighter we’re taking Intimidation and Insight. From Courtier we’re getting Persuasion and Deception.
 
 **Українською:**
-Від Воїна беремо Залякування й Аналіз Поведінки. Від Придворного — Переконання й Обман.
+Від Воїна беремо Залякування й Аналіз поведінки. Від Придворного — Переконання й Обман.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->
@@ -1247,7 +1247,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Fighting Style: Archery Second Wind Skills -Deception -Insight -Intimidation -Persuasion
 
 **Українською:**
-Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання, Навички: Обман, Аналіз Поведінки, Залякування, Переконання
+Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання, Навички: Обман, Аналіз поведінки, Залякування, Переконання
 
 ### block-section-levels-1/row/0/2 · комірка таблиці · без оцінки
 

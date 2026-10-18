@@ -578,7 +578,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll select Insight and Perception from our class skills to help compensate for our horrid Wisdom, then we get Athletics and Intimidation from our background. Extremely typical for a fighter. We’re also proficient in a gaming set and land vehicles, but those don’t come up often.
 
 **Українською:**
-Оберемо Аналіз Поведінки та Уважність з навичок класу, щоб компенсувати нашу жахливу Мудрість, а потім отримаємо Атлетику й Залякування від передісторії. Надзвичайно типово для воїна. Також володіємо ігровим набором і наземним транспортом, але вони рідко знадобляться.
+Оберемо Аналіз поведінки та Уважність з навичок класу, щоб компенсувати нашу жахливу Мудрість, а потім отримаємо Атлетику й Залякування від передісторії. Надзвичайно типово для воїна. Також володіємо ігровим набором і наземним транспортом, але вони рідко знадобляться.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

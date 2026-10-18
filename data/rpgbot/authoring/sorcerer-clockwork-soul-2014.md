@@ -781,7 +781,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’re taking the Guild Artisan background, getting Insight, Persuasion, and a free choice of Artisan’s tool. We’re taking Tinker’s Tools.
 
 **Українською:**
-Беремо передісторію Гільдійський ремісник{{Guild Artisan}}: отримуємо Аналіз Поведінки{{Insight}}, Переконання{{Persuasion}} і вільний вибір одного з інструментів ремісника. Беремо Інструменти лудильника{{Tinker’s Tools}}.
+Беремо передісторію Гільдійський ремісник{{Guild Artisan}}: отримуємо Аналіз поведінки{{Insight}}, Переконання{{Persuasion}} і вільний вибір одного з інструментів ремісника. Беремо Інструменти лудильника{{Tinker’s Tools}}.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -794,7 +794,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > For skills, we have Arcana, Insight, Intimidation and Persuasion at first level. Later on we take Perception when we pick up the Skill Expert feat.
 
 **Українською:**
-З навичок на першому рівні маємо Магію{{Arcana}}, Аналіз Поведінки{{Insight}}, Залякування{{Intimidation}} і Переконання{{Persuasion}}. Пізніше додаємо Уважність{{Perception}}, коли беремо рису «Експерт у навичках»{{Skill Expert}}.
+З навичок на першому рівні маємо Магію{{Arcana}}, Аналіз поведінки{{Insight}}, Залякування{{Intimidation}} і Переконання{{Persuasion}}. Пізніше додаємо Уважність{{Perception}}, коли беремо рису «Експерт у навичках»{{Skill Expert}}.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 
@@ -899,7 +899,7 @@ RPGbot використовує кольорову шкалу, яку легко
 – Захист від зла й добра (К)
 Навички:
 – Магія
-– Аналіз Поведінки
+– Аналіз поведінки
 – Залякування
 – Переконання
 Інструменти:

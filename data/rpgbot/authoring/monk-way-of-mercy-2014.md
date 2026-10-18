@@ -213,7 +213,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Implements of Mercy: Insight and Medicine are both Wisdom-based, which makes them good skills for the Monk. Unfortunately, Medicine is borderline useless (although check out some of our [[1|suggestions]] to fix that), as its sole written function is made obsolete by the Healer’s Kit. Herbalism Kit does allow you to craft Potions of Healing, though, which is nice. You also get a neat mask as a class feature. It doesn’t do anything. You don’t need it to do anything and technically you don’t even need to wear it.
 
 **Українською:**
-{{Знаряддя милосердя|Implements of Mercy}}: Аналіз Поведінки й Медицина обидві засновані на Мудрості, що робить їх хорошими навичками для Монаха.
+{{Знаряддя милосердя|Implements of Mercy}}: Аналіз поведінки й Медицина обидві засновані на Мудрості, що робить їх хорошими навичками для Монаха.
 
 На жаль, Медицина майже марна (хоча погляньте на деякі з наших [[1|порад]], як це виправити), бо її єдину прописану функцію робить зайвою Набір цілителя. Набір травника, втім, дає змогу виготовляти «Зілля лікування [Potion of Healing]», що приємно. Ви також отримуєте гарну маску як класове уміння. Вона нічого не робить. Вам не треба, щоб вона щось робила, і формально її навіть не треба носити.
 
@@ -748,7 +748,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From the class we get Acrobatics and Stealth, Perception and Survival from the Background, and Thieves’ Tools proficiency from the race. At level 3 we’ll pick up Insight, Medicine, and the Herbalism kit, nicely rounding out the uses of our high Wisdom. For the flavor tool we get from being a monk, choose leatherworker’s tools so you can fashion yourself a mask.
 
 **Українською:**
-Від класу отримуємо Акробатику й Непомітність, від передісторії — Уважність і Виживання, а від раси — Володіння Інструментами злодія. На 3-му рівні додамо Аналіз Поведінки, Медицину й Набір травника, гарно доповнивши застосування нашої високої Мудрості. Як «тематичний» інструмент, який ми отримуємо від того, що ми Монах, оберіть інструменти чинбаря, щоб змайструвати собі маску.
+Від класу отримуємо Акробатику й Непомітність, від передісторії — Уважність і Виживання, а від раси — Володіння Інструментами злодія. На 3-му рівні додамо Аналіз поведінки, Медицину й Набір травника, гарно доповнивши застосування нашої високої Мудрості. Як «тематичний» інструмент, який ми отримуємо від того, що ми Монах, оберіть інструменти чинбаря, щоб змайструвати собі маску.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

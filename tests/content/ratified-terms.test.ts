@@ -96,6 +96,18 @@ function findRetiredInsightMentions(): string[] {
   );
 }
 
+/// Навички в словнику — з малої в другому слові («Спритність рук»), тож і Insight один: «Аналіз поведінки».
+const TITLE_CASE_INSIGHT = /Аналіз\p{L}* Поведінки/u;
+const TITLE_CASE_INSIGHT_CARRIERS = [...INSIGHT_CARRIER_FILES, ...collectFiles(join(ROOT, "data/rpgbot/authoring"), ".md")];
+
+function findTitleCaseInsight(): string[] {
+  return TITLE_CASE_INSIGHT_CARRIERS.flatMap((file) =>
+    readFileSync(file, "utf-8")
+      .split("\n")
+      .flatMap((line, index) => (TITLE_CASE_INSIGHT.test(line) ? [`${relative(ROOT, file)}:${index + 1}`] : [])),
+  );
+}
+
 function findMatches(patterns: RegExp[]): string[] {
   const matches: string[] = [];
 
@@ -124,5 +136,9 @@ describe("KR23.7 / KR23.8 — ратифіковані терміни", () => {
 
   it("називає навичку Insight «Аналіз поведінки»", () => {
     expect(findRetiredInsightMentions()).toEqual([]);
+  });
+
+  it("пише «Аналіз поведінки» з малої «п», як інші навички", () => {
+    expect(findTitleCaseInsight()).toEqual([]);
   });
 });

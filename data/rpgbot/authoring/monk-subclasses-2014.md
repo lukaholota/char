@@ -239,7 +239,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Implements of Mercy: Insight and Medicine are both Wisdom-based, which makes them good skills for the Monk. Unfortunately, Medicine is borderline useless (although check out some of our [[1|suggestions]] to fix that), as its sole written function is made obsolete by the Healer’s Kit. Herbalism Kit does allow you to craft Potions of Healing, though, which is nice. You also get a neat mask as a class feature. It doesn’t do anything. You don’t need it to do anything and technically you don’t even need to wear it.
 
 **Українською:**
-{{Знаряддя милосердя|Implements of Mercy}}: Аналіз Поведінки й Медицина обидві засновані на Мудрості, що робить їх хорошими навичками для Монаха.
+{{Знаряддя милосердя|Implements of Mercy}}: Аналіз поведінки й Медицина обидві засновані на Мудрості, що робить їх хорошими навичками для Монаха.
 
 На жаль, Медицина майже марна (хоча погляньте на деякі з наших [[1|порад]], як це виправити), бо її єдину прописану функцію робить зайвою Набір цілителя. Набір травника, втім, дає змогу виготовляти «Зілля лікування [Potion of Healing]», що приємно. Ви також отримуєте гарну маску як класове уміння. Вона нічого не робить. Вам не треба, щоб вона щось робила, і формально її навіть не треба носити.
 
@@ -582,7 +582,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wisdom of the Spirit: Time to take your magical punch ghost into a social situation? Here you go. Insight is likely the only contribution you’ll be making to conversations since nearly every monk dumps Charisma. Monks are too MAD to invest any serious resources outside of Dex/Con/Wis.
 
 **Українською:**
-{{Мудрість духу|Wisdom of the Spirit}}: час забрати свого магічного привида-кулака в соціальну ситуацію? Прошу. Аналіз Поведінки — імовірно, єдиний ваш внесок у розмови, бо майже кожен Монах занедбує Харизму. Монахи надто залежні від багатьох характеристик (MAD), щоб вкладати серйозні ресурси за межами Спритності/Статури/Мудрості.
+{{Мудрість духу|Wisdom of the Spirit}}: час забрати свого магічного привида-кулака в соціальну ситуацію? Прошу. Аналіз поведінки — імовірно, єдиний ваш внесок у розмови, бо майже кожен Монах занедбує Харизму. Монахи надто залежні від багатьох характеристик (MAD), щоб вкладати серйозні ресурси за межами Спритності/Статури/Мудрості.
 
 ### block-section-astral-self-7/item/4 · пункт · rating-orange
 

@@ -558,7 +558,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Far Traveler. Insight and Perception are great skills on a Cleric, and we can use the instrument proficiency to be proficient in flutes for snake charming purposes.
 
 **Українською:**
-Далекий мандрівник{{Far Traveler}}. Аналіз Поведінки й Уважність — чудові навички для Клірика, а володіння музичним інструментом можна використати, щоб володіти флейтами{{Flute}} для чарування змій.
+Далекий мандрівник{{Far Traveler}}. Аналіз поведінки й Уважність — чудові навички для Клірика, а володіння музичним інструментом можна використати, щоб володіти флейтами{{Flute}} для чарування змій.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -571,7 +571,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll use our Cleric class skills to get History and Religion. We’ll get Insight and Perception, plus one gaming set and one instrument from our background.
 
 **Українською:**
-Навички класу Клірика використаємо, щоб отримати Історію й Релігію. Аналіз Поведінки й Уважність, а також один ігровий набір і один музичний інструмент отримуємо від передісторії.
+Навички класу Клірика використаємо, щоб отримати Історію й Релігію. Аналіз поведінки й Уважність, а також один ігровий набір і один музичний інструмент отримуємо від передісторії.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

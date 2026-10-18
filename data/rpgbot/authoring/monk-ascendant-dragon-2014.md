@@ -575,7 +575,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Far Traveler. Insight and Perception are great skills for us, and traveling the world (possibly to meet various dragons) is a cool backstory.
 
 **Українською:**
-Далекий мандрівник{{Far Traveler}}. Аналіз Поведінки й Уважність — чудові для нас навички, а мандри світом (можливо, щоб зустріти різних драконів) — класна передісторія.
+Далекий мандрівник{{Far Traveler}}. Аналіз поведінки й Уважність — чудові для нас навички, а мандри світом (можливо, щоб зустріти різних драконів) — класна передісторія.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -588,7 +588,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll take History and Stealth from our Monk class skills, then we get Insight and Perception from our Background.
 
 **Українською:**
-З класових навичок Монаха беремо Історію й Непомітність, а Аналіз Поведінки й Уважність отримуємо від Передісторії.
+З класових навичок Монаха беремо Історію й Непомітність, а Аналіз поведінки й Уважність отримуємо від Передісторії.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->

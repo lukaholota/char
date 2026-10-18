@@ -2162,7 +2162,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Implement of Peace: A free skill is always welcome. Insight is typically a great choice for the Cleric since it’s Wisdom-based, but Persuasion is also very helpful.
 
 **Українською:**
-{{Знаряддя миру|Implement of Peace}}: безкоштовна навичка завжди доречна. Аналіз Поведінки зазвичай чудовий вибір для Клірика, бо він базується на Мудрості, але Переконання теж дуже корисне.
+{{Знаряддя миру|Implement of Peace}}: безкоштовна навичка завжди доречна. Аналіз поведінки зазвичай чудовий вибір для Клірика, бо він базується на Мудрості, але Переконання теж дуже корисне.
 
 ### block-section-peace-domain-11/item/7 · пункт · rating-blue
 

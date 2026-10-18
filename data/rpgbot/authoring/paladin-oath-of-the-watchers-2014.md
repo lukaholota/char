@@ -817,7 +817,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From Harengon, we use customized origin to take Insight. From Paladin, we choose Athletics and Persuasion. From Feylost, we gain Deception and Survival.
 
 **Українською:**
-Від Гаренгона{{Harengon}} ми беремо {{Аналіз Поведінки|Insight}} завдяки налаштуванню походження. Від класу паладина обираємо Атлетику й Переконання. Від «{{Загубленого у Світі Фей|Feylost}}» отримуємо Обман і Виживання.
+Від Гаренгона{{Harengon}} ми беремо {{Аналіз поведінки|Insight}} завдяки налаштуванню походження. Від класу паладина обираємо Атлетику й Переконання. Від «{{Загубленого у Світі Фей|Feylost}}» отримуємо Обман і Виживання.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->
@@ -906,7 +906,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Divine Sense Lay on Hands Skills -Athletics -Deception -Insight -Persuasion -Survival
 
 **Українською:**
-Божественне відчуття{{Divine Sense}}; {{Цілющі руки|Lay on Hands}}; Навички: Атлетика{{Athletics}}, Обман{{Deception}}, {{Аналіз Поведінки|Insight}}, Переконання{{Persuasion}}, Виживання{{Survival}}
+Божественне відчуття{{Divine Sense}}; {{Цілющі руки|Lay on Hands}}; Навички: Атлетика{{Athletics}}, Обман{{Deception}}, {{Аналіз поведінки|Insight}}, Переконання{{Persuasion}}, Виживання{{Survival}}
 
 ### block-section-levels-1/row/0/2 · комірка таблиці · без оцінки
 

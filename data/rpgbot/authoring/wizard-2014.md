@@ -629,7 +629,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Insight (Wis): You likely don’t have enough Wisdom to be particularly good at this, but it can be helpful if your party’s Face doesn’t have it.
 
 **Українською:**
-{{Аналіз Поведінки|Insight}} (Мудрість): Мудрості вам, імовірно, бракує, щоб бути в цьому особливо добрим, але це може бути корисно, якщо «обличчя» групи цієї навички не має.
+{{Аналіз поведінки|Insight}} (Мудрість): Мудрості вам, імовірно, бракує, щоб бути в цьому особливо добрим, але це може бути корисно, якщо «обличчя» групи цієї навички не має.
 
 ### block-section-skills-1/item/3 · пункт · rating-green
 
@@ -691,7 +691,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Clan Crafter[[1|SCAG]]: History is good, but Wizards typically don’t get a lot of use out of Insight, and artificer’s tools aren’t terribly useful.
 
 **Українською:**
-Клановий ремісник{{Clan Crafter}} [[1|SCAG]]: Історія добра, але Чарівники зазвичай мало користуються Аналізом Поведінки, а інструменти винахідника не надто корисні.
+Клановий ремісник{{Clan Crafter}} [[1|SCAG]]: Історія добра, але Чарівники зазвичай мало користуються Аналізом поведінки, а інструменти винахідника не надто корисні.
 
 ### block-section-background-4/item/2 · пункт · rating-blue
 
@@ -705,7 +705,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Faction Agent[[1|SCAG]]: Insight is okay, and the flexible skill choice is nice, but you can get the languages magically.
 
 **Українською:**
-Агент фракції{{Faction Agent}} [[1|SCAG]]: Аналіз Поведінки непоганий, і гнучкий вибір навички приємний, але мови можна отримати магією.
+Агент фракції{{Faction Agent}} [[1|SCAG]]: Аналіз поведінки непоганий, і гнучкий вибір навички приємний, але мови можна отримати магією.
 
 ### block-section-background-4/item/4 · пункт · rating-orange
 
@@ -1693,7 +1693,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Acolyte gives you proficiency in Insight and Religion, both of which are on your skill list, but Insight should usually be left to someone with higher Wisdom if anyone else in the party has it. You also get two languages, but again: Comprehend Languages as a ritual.
 
 **Українською:**
-Послушник дає володіння Аналізом Поведінки й Релігією, обидві з яких є у вашому списку навичок, але Аналіз Поведінки зазвичай варто лишити комусь із вищою Мудрістю, якщо це є в когось іще в групі. Ви також отримуєте дві мови, але знову: Розуміння мов [Comprehend Languages] як ритуал.
+Послушник дає володіння Аналізом поведінки й Релігією, обидві з яких є у вашому списку навичок, але Аналіз поведінки зазвичай варто лишити комусь із вищою Мудрістю, якщо це є в когось іще в групі. Ви також отримуєте дві мови, але знову: Розуміння мов [Comprehend Languages] як ритуал.
 
 ### block-section-background-1-3 · абзац · без оцінки
 

@@ -543,7 +543,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll use our class skills to get proficiency in Insight and Perception, then we’ll get Athletics and Survival from our background. We’ll also get Cartographer’s Tools and water vehicles from our background. At level 3 we’ll add proficient in Navigator’s Tools since we’re already proficiency in water vehicles.
 
 **Українською:**
-З класових навичок візьмемо Аналіз Поведінки й Уважність, а потім отримаємо Атлетику й Виживання від передісторії. Також отримаємо інструменти картографа та водний транспорт від передісторії. На 3-му рівні додамо володіння інструментами навігатора, бо водний транспорт у нас уже є.
+З класових навичок візьмемо Аналіз поведінки й Уважність, а потім отримаємо Атлетику й Виживання від передісторії. Також отримаємо інструменти картографа та водний транспорт від передісторії. На 3-му рівні додамо володіння інструментами навігатора, бо водний транспорт у нас уже є.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

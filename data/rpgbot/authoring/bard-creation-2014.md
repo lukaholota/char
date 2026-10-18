@@ -295,7 +295,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wis: Skills like Perception and Insight are always useful. Insight especially if we’re going to be the Face.
 
 **Українською:**
-Мдр: навички на кшталт Уважності й {{Аналізу Поведінки|Insight}} завжди корисні. Аналіз Поведінки особливо стане в пригоді, якщо ми будемо обличчям групи.
+Мдр: навички на кшталт Уважності й {{Аналізу поведінки|Insight}} завжди корисні. Аналіз поведінки особливо стане в пригоді, якщо ми будемо обличчям групи.
 
 ### block-section-college-of-creation-ability-scores-7 · абзац · rating-blue
 
@@ -785,7 +785,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > For our Background we choose Investigator. This gives us Insight and Perception as well as Disguise Kit and Thieves’ Tools. The Insight is useful for Face duty, while the Perception and Thieves’ Tools allow us to perform some Scout duties.
 
 **Українською:**
-За передісторію ми обираємо Слідчого{{Investigator}}. Він дає нам навички Аналіз Поведінки й Уважність, а також Набір для гриму та Інструменти злодія. Аналіз Поведінки стане в пригоді для ролі «обличчя» групи, а Уважність та Інструменти злодія допоможуть виконувати функції розвідника.
+За передісторію ми обираємо Слідчого{{Investigator}}. Він дає нам навички Аналіз поведінки й Уважність, а також Набір для гриму та Інструменти злодія. Аналіз поведінки стане в пригоді для ролі «обличчя» групи, а Уважність та Інструменти злодія допоможуть виконувати функції розвідника.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -798,7 +798,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From Bard, we’re taking the Face skills, Deception, Intimidation, and Persuasion, and three musical instruments. The choice of specific instruments is up to preference. For example, I always take Bagpipes. From Background we get Insight and Perception.
 
 **Українською:**
-Від Барда ми беремо навички для ролі «обличчя»: Обман, Залякування й Переконання, а також три музичні інструменти. Конкретні інструменти обирайте до смаку. Наприклад, я завжди беру волинку. Від передісторії отримуємо Аналіз Поведінки й Уважність.
+Від Барда ми беремо навички для ролі «обличчя»: Обман, Залякування й Переконання, а також три музичні інструменти. Конкретні інструменти обирайте до смаку. Наприклад, я завжди беру волинку. Від передісторії отримуємо Аналіз поведінки й Уважність.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 
@@ -812,7 +812,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > On top of that, at third level we’re taking Expertise in Insight and Perception, in order to counteract our lower Wisdom. At tenth level, we can choose two of the remaining three Face skills to gain Expertise in, and which two you choose really depends on how you want to focus.
 
 **Українською:**
-Крім того, на 3-му рівні ми беремо Експертизу{{Expertise}} в Аналізі Поведінки й Уважності, щоб компенсувати нижчу Мудрість. На 10-му рівні ми зможемо отримати Експертизу ще у двох із трьох навичок для ролі «обличчя»; вибір залежить від того, на чому ви хочете зосередитися.
+Крім того, на 3-му рівні ми беремо Експертизу{{Expertise}} в Аналізі поведінки й Уважності, щоб компенсувати нижчу Мудрість. На 10-му рівні ми зможемо отримати Експертизу ще у двох із трьох навичок для ролі «обличчя»; вибір залежить від того, на чому ви хочете зосередитися.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->
@@ -916,7 +916,7 @@ RPGbot використовує кольорову шкалу, яку легко
 
 **Українською:**
 Бардське натхнення{{Bardic Inspiration}} — к6
-Навички: Обман, Аналіз Поведінки, Залякування, Уважність, Переконання
+Навички: Обман, Аналіз поведінки, Залякування, Уважність, Переконання
 
 ### block-section-levels-1/row/0/2 · комірка таблиці · без оцінки
 
@@ -977,7 +977,7 @@ RPGbot використовує кольорову шкалу, яку легко
 {{Колегія творення|College of Creation}}
 «Іскра потенціалу»{{Mote of Potential}}
 «Виступ творення»{{Performance of Creation}}
-Експертиза{{Expertise}}: Аналіз Поведінки, Уважність
+Експертиза{{Expertise}}: Аналіз поведінки, Уважність
 
 ### block-section-levels-1/row/2/2 · комірка таблиці · без оцінки
 

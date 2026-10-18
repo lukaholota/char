@@ -551,7 +551,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Faction Agent. What faction? Probably something nefarious. Get proficiency in Insight, Perception, and two languages.
 
 **Українською:**
-Агент фракції{{Faction Agent}}. Якої фракції? Імовірно, якоїсь підступної. Дає володіння Аналізом Поведінки, Уважністю та двома мовами.
+Агент фракції{{Faction Agent}}. Якої фракції? Імовірно, якоїсь підступної. Дає володіння Аналізом поведінки, Уважністю та двома мовами.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -564,7 +564,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll use our two Cleric class skills to get proficiency in History and Religion, plus Insight and Perception from our Background.
 
 **Українською:**
-Дві класові навички Клірика ми використаємо, щоб отримати володіння Історією й Релігією, а Аналіз Поведінки й Уважність отримаємо від передісторії.
+Дві класові навички Клірика ми використаємо, щоб отримати володіння Історією й Релігією, а Аналіз поведінки й Уважність отримаємо від передісторії.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->

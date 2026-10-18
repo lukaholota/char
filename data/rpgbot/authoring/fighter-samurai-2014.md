@@ -834,7 +834,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Nothing from our Race. From Fighter we take Survival and Acrobatics. Samurai grants an additional choice and 3rd level so we take Insight because we have some Wisdom. As mentioned above, our Background grants Stealth and Perception as well as Playing Card Set.
 
 **Українською:**
-Нічого від раси. Від Воїна беремо Виживання й Акробатику. Самурай дає додатковий вибір на 3-му рівні, тож беремо Аналіз Поведінки, бо маємо трохи Мудрості. Як зазначено вище, наша передісторія дає Непомітність і Уважність, а також Набір гральних карт.
+Нічого від раси. Від Воїна беремо Виживання й Акробатику. Самурай дає додатковий вибір на 3-му рівні, тож беремо Аналіз поведінки, бо маємо трохи Мудрості. Як зазначено вище, наша передісторія дає Непомітність і Уважність, а також Набір гральних карт.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->
@@ -972,14 +972,14 @@ RPGbot використовує кольорову шкалу, яку легко
 > Martial Archetype=>Samurai Bonus Proficiency=>Insight Fighting Spirit
 
 **Українською:**
-Військовий Архетип{{Martial Archetype}}: Самурай, Додаткова майстерність: Аналіз Поведінки, Бойовий дух
+Військовий Архетип{{Martial Archetype}}: Самурай, Додаткова майстерність: Аналіз поведінки, Бойовий дух
 
 ### block-section-levels-1/row/2/2 · комірка таблиці · без оцінки
 
 > We get the Samurai subclass. We get a free skill proficiency and take Insight because we have the Wisdom score to make use of it. Fighting spirit is great. We already had a similar ability from Draconic Cry, but Fighting Spirit will give us some Temporary HP and work from any range while Draconic Cry is limited to 10 feet. We can use these abilities in different situations so it’s great to have both. If nothing else, think of Draconic Cry as additional uses per day of Fighting Spirit.
 
 **Українською:**
-Ми отримуємо підклас Самурая. Ми отримуємо безкоштовне володіння навичкою й беремо Аналіз Поведінки, бо маємо показник Мудрості, щоб це використовувати. «Бойовий дух» чудовий. У нас уже була схожа здатність від «Драконячого крику», але «Бойовий дух» дасть трохи тимчасових ХП і працює з будь-якої дистанції, тоді як «Драконячий крик» обмежений 10 футами.
+Ми отримуємо підклас Самурая. Ми отримуємо безкоштовне володіння навичкою й беремо Аналіз поведінки, бо маємо показник Мудрості, щоб це використовувати. «Бойовий дух» чудовий. У нас уже була схожа здатність від «Драконячого крику», але «Бойовий дух» дасть трохи тимчасових ХП і працює з будь-якої дистанції, тоді як «Драконячий крик» обмежений 10 футами.
 
 Ми можемо використовувати ці здібності в різних ситуаціях, тож чудово мати обидві. Принаймні вважайте «Драконячий крик» додатковими використаннями «Бойового духу» на день.
 

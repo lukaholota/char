@@ -201,7 +201,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Divine Sense: Certainly better than relying on Insight.
 
 **Українською:**
-Божественне відчуття{{Divine Sense}}: безперечно краще, ніж покладатися на Аналіз Поведінки.
+Божественне відчуття{{Divine Sense}}: безперечно краще, ніж покладатися на Аналіз поведінки.
 
 ### block-section-class-features-6 · абзац · rating-blue
 
@@ -953,7 +953,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Insight (Wis): Helpful for a Face, but you may not have enough Wisdom to back it up.
 
 **Українською:**
-Аналіз Поведінки (Муд): корисний «обличчю», але Мудрості для надійних перевірок може забракнути.
+Аналіз поведінки (Муд): корисний «обличчю», але Мудрості для надійних перевірок може забракнути.
 
 ### block-section-skills-1/item/2 · пункт · rating-green
 
@@ -1022,7 +1022,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > City Watch[[1|SCAG]]: Athletics and Insight are both fine choices, and two languages are great.
 
 **Українською:**
-Міська варта{{City Watch}}[[1|SCAG]]: Атлетика й Аналіз Поведінки цілком добрі навички, а дві мови — чудово.
+Міська варта{{City Watch}}[[1|SCAG]]: Атлетика й Аналіз поведінки цілком добрі навички, а дві мови — чудово.
 
 ### block-section-background-4/item/2 · пункт · rating-green
 
@@ -1036,14 +1036,14 @@ RPGbot використовує кольорову шкалу, яку легко
 > Faction Agent[[1|SCAG]]: Insight, plus the mental skill of your choice allows you to pick up Deception or Intimidation, and you get two languages. I don’t think it was the intent of the background, but I can’t see a reason why your faction couldn’t be a church or a knightly order of some sort.
 
 **Українською:**
-Агент фракції{{Faction Agent}}[[1|SCAG]]: Аналіз Поведінки плюс ментальна навичка на ваш вибір дають змогу взяти Обман чи Залякування, а ще ви отримуєте дві мови. Не думаю, що це задумано в передісторії, але не бачу причин, чому б вашою фракцією не могла бути церква чи якийсь лицарський орден.
+Агент фракції{{Faction Agent}}[[1|SCAG]]: Аналіз поведінки плюс ментальна навичка на ваш вибір дають змогу взяти Обман чи Залякування, а ще ви отримуєте дві мови. Не думаю, що це задумано в передісторії, але не бачу причин, чому б вашою фракцією не могла бути церква чи якийсь лицарський орден.
 
 ### block-section-background-4/item/4 · пункт · rating-orange
 
 > Far Traveler[[1|SCAG]]: Insight and Perception are both great skills, but Paladins frequently dump Wisdom. The bonus languages are also nice.
 
 **Українською:**
-Далекий мандрівник{{Far Traveler}}[[1|SCAG]]: Аналіз Поведінки й Уважність — чудові навички, але Паладини часто занедбують Мудрість. Додаткові мови теж корисні.
+Далекий мандрівник{{Far Traveler}}[[1|SCAG]]: Аналіз поведінки й Уважність — чудові навички, але Паладини часто занедбують Мудрість. Додаткові мови теж корисні.
 
 ### block-section-background-4/item/5 · пункт · rating-orange
 

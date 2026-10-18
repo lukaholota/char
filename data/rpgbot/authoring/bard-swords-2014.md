@@ -655,7 +655,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We get Perception and Stealth from our race, History and Persuasion from our background, and our choice of any three skills from our class. We’ll choose Intimidation, Insight, and Sleight of Hand.
 
 **Українською:**
-Від раси маємо Уважність і Непомітність, від передісторії — Історію й Переконання, а клас дає на вибір будь-які три навички. Беремо Залякування, Аналіз Поведінки й Спритність рук.
+Від раси маємо Уважність і Непомітність, від передісторії — Історію й Переконання, а клас дає на вибір будь-які три навички. Беремо Залякування, Аналіз поведінки й Спритність рук.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

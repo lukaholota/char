@@ -515,7 +515,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Courtier. That gets us proficiency in Insight, Persuasion, and two languages.
 
 **Українською:**
-Придворний{{Courtier}}. Він дає нам володіння навичками Аналіз Поведінки та Переконання й двома мовами.
+Придворний{{Courtier}}. Він дає нам володіння навичками Аналіз поведінки та Переконання й двома мовами.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -528,7 +528,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll learn Deception and Intimidation from our class skills plus Insight and Persuasion from the Courtier background. Courtier also gets us two languages, which we can use for things like Elvish and Sylvan (commonly spoken by fey).
 
 **Українською:**
-Із класових навичок ми візьмемо Обман і Залякування, а від передісторії Придворного{{Courtier}} — Аналіз Поведінки та Переконання. Придворний також дає нам дві мови — скажімо, ельфійську та сільван (ними зазвичай розмовляють феї).
+Із класових навичок ми візьмемо Обман і Залякування, а від передісторії Придворного{{Courtier}} — Аналіз поведінки та Переконання. Придворний також дає нам дві мови — скажімо, ельфійську та сільван (ними зазвичай розмовляють феї).
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

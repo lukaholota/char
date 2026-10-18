@@ -614,7 +614,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Guild Artisan feels appropriate. Insight is a great skill for the Cleric, and we can trade Persuasion for Perception. The language and artisan’s tool aren’t important.
 
 **Українською:**
-Гільдійський ремісник{{Guild Artisan}} здається доречним. Аналіз Поведінки — чудова навичка для Клірика, а Переконання можна обміняти на Уважність. Мова й інструмент ремісника не важливі.
+Гільдійський ремісник{{Guild Artisan}} здається доречним. Аналіз поведінки — чудова навичка для Клірика, а Переконання можна обміняти на Уважність. Мова й інструмент ремісника не важливі.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -627,7 +627,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll take History and Religion from our class skills and deal with being bad at them, then Insight and Perception from our background. We’ll get one type of Artisan’s Tools from our background and Smith’s Tools from our subclass at level 1.
 
 **Українською:**
-З класових навичок візьмемо Історію й Релігію й змиримося з тим, що ми в них погані, а Аналіз Поведінки й Уважність отримаємо від передісторії. Один вид інструментів ремісника ми отримаємо від передісторії, а ковальські інструменти — від підкласу на 1-му рівні.
+З класових навичок візьмемо Історію й Релігію й змиримося з тим, що ми в них погані, а Аналіз поведінки й Уважність отримаємо від передісторії. Один вид інструментів ремісника ми отримаємо від передісторії, а ковальські інструменти — від підкласу на 1-му рівні.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

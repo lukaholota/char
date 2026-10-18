@@ -544,7 +544,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Faction Agent. Weirdly, the Warlock’s skill list doesn’t include Persuasion, so we want it from our background. This gets us both Insight and Persuasion, plus two languages to support our role as a Face.
 
 **Українською:**
-Агент фракції{{Faction Agent}}. Дивно, але в списку навичок Чорнокнижника немає Переконання, тож ми хочемо отримати його від передісторії. Це дає нам і Аналіз Поведінки, і Переконання, а також дві мови для підтримки нашої ролі «обличчя».
+Агент фракції{{Faction Agent}}. Дивно, але в списку навичок Чорнокнижника немає Переконання, тож ми хочемо отримати його від передісторії. Це дає нам і Аналіз поведінки, і Переконання, а також дві мови для підтримки нашої ролі «обличчя».
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -557,7 +557,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll take Arcana and History from our class, giving us Arcana, History, Insight, and Persuasion. We got languages from our background, so we don’t have any tool proficiencies.
 
 **Українською:**
-Із класу беремо Магію й Історію, тож маємо Магію, Історію, Аналіз Поведінки та Переконання. Мови ми отримали від передісторії, тому жодних володінь інструментами в нас немає.
+Із класу беремо Магію й Історію, тож маємо Магію, Історію, Аналіз поведінки та Переконання. Мови ми отримали від передісторії, тому жодних володінь інструментами в нас немає.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->

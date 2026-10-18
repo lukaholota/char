@@ -828,7 +828,7 @@ D&D 5e також жодним чином не обробляє параболі
 > We’ll select Insight and Stealth as our two monk skills. We get Sleight of Hand, Stealth, Disguise Kit, and Thieves’ Tools from the Urchin background. Since Stealth is duplicated, we can replace it with any other skill to get around the Monk’s limited skill options, and we’ll take Perception instead. Get one more skill of our choice from being a Variant Human which you can put into whatever you want. We already have all of the good Dexterity and Wisdom-based skills, so it’s not especially important. Acrobatics is fine.
 
 **Українською:**
-Оберемо Аналіз Поведінки та Непомітність як дві навички Монаха. Від передісторії «Безпритульний» отримуємо Спритність рук, Непомітність, Набір для гриму та Інструменти злодія. Оскільки Непомітність дублюється, її можна замінити будь-якою іншою навичкою, щоб обійти обмежені варіанти навичок Монаха, і ми візьмемо натомість Уважність.
+Оберемо Аналіз поведінки та Непомітність як дві навички Монаха. Від передісторії «Безпритульний» отримуємо Спритність рук, Непомітність, Набір для гриму та Інструменти злодія. Оскільки Непомітність дублюється, її можна замінити будь-якою іншою навичкою, щоб обійти обмежені варіанти навичок Монаха, і ми візьмемо натомість Уважність.
 
 Ще одну навичку на наш вибір отримуємо від Варіанта людини, і її можна вкласти будь-куди. Усі добрі навички на основі Спритності й Мудрості в нас уже є, тож це не дуже важливо. Акробатика підійде.
 

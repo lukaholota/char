@@ -692,7 +692,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Shifter. We get proficiency in Intimidation and one of two options. If you’re really worried about that slow speed because of armor, using Swiftstride will fix that. That said, I would probably use Wildhunt for the ability to vibe check someone with Insight or when rolling Perception/Survival for finding or tracking things.
 
 **Українською:**
-Перевертень{{Shifter}}. Ми отримуємо володіння Залякуванням і одним із двох варіантів. Якщо вас справді непокоїть повільна швидкість через обладунок, «Швидкий крок»{{Swiftstride}} це виправить. Проте я б, імовірно, взяв «Дикого мисливця»{{Wildhunt}} заради можливості «перевірити вайб» когось Аналізом Поведінки або під час кидків Уважності/Виживання, щоб щось знайти чи вистежити.
+Перевертень{{Shifter}}. Ми отримуємо володіння Залякуванням і одним із двох варіантів. Якщо вас справді непокоїть повільна швидкість через обладунок, «Швидкий крок»{{Swiftstride}} це виправить. Проте я б, імовірно, взяв «Дикого мисливця»{{Wildhunt}} заради можливості «перевірити вайб» когось Аналізом поведінки або під час кидків Уважності/Виживання, щоб щось знайти чи вистежити.
 
 ## Background
 <!-- sectionId: section-background; rating: none -->
@@ -718,7 +718,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’re going to be a Face (although slightly less good than the Cleric 1/Sorcerer X version), so we act like it. Starting with Cleric gives us Medicine and Insight, while the bonus proficiency in Persuasion comes from the domain. These, combined with our race and background gives us proficiency in every standard Face skill (Deception, Insight, Intimidation, Persuasion) and a total of 6 skill proficiencies.
 
 **Українською:**
-Ми будемо «обличчям» (хоч і трохи гіршим за версію Клірик 1/Чародій X), тож поводимося відповідно. Початок із Клірика дає нам Медицину й Аналіз Поведінки, а додаткове володіння Переконанням — від домену. Разом із расою й передісторією це дає нам володіння всіма стандартними навичками «обличчя» (Обман, Аналіз Поведінки, Залякування, Переконання) і загалом 6 володінь навичками.
+Ми будемо «обличчям» (хоч і трохи гіршим за версію Клірик 1/Чародій X), тож поводимося відповідно. Початок із Клірика дає нам Медицину й Аналіз поведінки, а додаткове володіння Переконанням — від домену. Разом із расою й передісторією це дає нам володіння всіма стандартними навичками «обличчя» (Обман, Аналіз поведінки, Залякування, Переконання) і загалом 6 володінь навичками.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

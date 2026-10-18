@@ -628,7 +628,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Investigator from Van Richten’s Guide to Ravenloft. We’ll choose Insight and Investigation for our skills, and we disguise kit and thieve’s tools.
 
 **Українською:**
-Слідчий{{Investigator}} з Путівника Ван Ріхтена по Равенлофту{{Van Richten’s Guide to Ravenloft}}. Оберемо Аналіз Поведінки й Розслідування, а також набір для гриму та інструменти злодія.
+Слідчий{{Investigator}} з Путівника Ван Ріхтена по Равенлофту{{Van Richten’s Guide to Ravenloft}}. Оберемо Аналіз поведінки й Розслідування, а також набір для гриму та інструменти злодія.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -641,7 +641,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From our class we’ll learn Arcana so that we can make spell scrolls and Perception because it’s just a really good skill. Artificer also gives us thieves’ tools, tinker’s tools, and an artisan’s tool of our choice. We get Insight, investigation, disguise kit, and thieves’ tools from our background. We’ll replace the redundant thieves’ tools with another tool of our choice like herbalist’s kit.
 
 **Українською:**
-Від класу вивчимо Магію, щоб виготовляти сувої заклинань, і Уважність, бо це просто дуже хороша навичка. Винахідник також дає інструменти злодія, інструменти лудильника й інструменти ремісника на вибір. Походження дає Аналіз Поведінки, Розслідування, набір для гриму й інструменти злодія. Повторні інструменти злодія замінимо іншими на вибір, наприклад набором травника.
+Від класу вивчимо Магію, щоб виготовляти сувої заклинань, і Уважність, бо це просто дуже хороша навичка. Винахідник також дає інструменти злодія, інструменти лудильника й інструменти ремісника на вибір. Походження дає Аналіз поведінки, Розслідування, набір для гриму й інструменти злодія. Повторні інструменти злодія замінимо іншими на вибір, наприклад набором травника.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

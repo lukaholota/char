@@ -279,7 +279,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wis: Traditionally, the party expects the Bard to be the capital F Face and if you’re going to do that then you probably want to know when people lie to you, so you want Wisdom for Insight.
 
 **Українською:**
-Мдр: традиційно група очікує, що Бард буде головним «обличчям». Якщо ви берете на себе цю роль, то варто помічати, коли вам брешуть, тож вам потрібна Мудрість для Аналізу Поведінки.
+Мдр: традиційно група очікує, що Бард буде головним «обличчям». Якщо ви берете на себе цю роль, то варто помічати, коли вам брешуть, тож вам потрібна Мудрість для Аналізу поведінки.
 
 ### block-section-college-of-glamour-bard-ability-scores-6 · абзац · rating-blue
 
@@ -732,7 +732,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > For background we choose Far Traveller primarily for Insight and Perception, but also granting us Tool proficiency with a Dragonchess Set which is thematic for our concept as a battlefield strategist.
 
 **Українською:**
-За передісторію беремо Далекого мандрівника{{Far Traveller}}: передусім заради Аналізу Поведінки й Уважності, але ще й заради володіння інструментом — {{набором для драконячих шахів|Dragonchess Set}}, що тематично пасує до нашого образу бойового стратега.
+За передісторію беремо Далекого мандрівника{{Far Traveller}}: передусім заради Аналізу поведінки й Уважності, але ще й заради володіння інструментом — {{набором для драконячих шахів|Dragonchess Set}}, що тематично пасує до нашого образу бойового стратега.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -907,7 +907,7 @@ RPGbot використовує кольорову шкалу, яку легко
 Підклас: {{Колегія гламуру|College of Glamour}}
 «Мантія натхнення»{{Mantle of Inspiration}} (5 тимчасових ХП)
 «Зачаровуючий виступ»{{Enthralling Performance}}
-Експертиза{{Expertise}}: – Аналіз Поведінки – Уважність
+Експертиза{{Expertise}}: – Аналіз поведінки – Уважність
 Відомі заклинання: – Збільшення/Зменшення [Enlarge/Reduce]
 
 ### block-section-levels-1/row/3/2 · комірка таблиці · без оцінки
@@ -915,7 +915,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > It’s fourth level now and we’re getting our diploma from the College of Glamour a little later because we went to school part-time by taking those Fighter electives for a dual-major down the line. With our subclass, we can now use a Bonus Action to spend a Bardic Inspiration die and grant temporary HP to our allies. We take our Expertise in Insight and Perception to make up for our lower Wisdom score. Enlarge/Reduce is a solid support spell for this level. Giving one of your front line teammates a larger square to block with can be the difference between getting swarmed and entirely gumming up a hall or doorway.
 
 **Українською:**
-Тепер четвертий рівень, і ми трохи пізніше отримуємо диплом {{Колегії гламуру|College of Glamour}}: через мультикласування ми ходили до школи на пів ставки й брали факультативи Воїна заради подвійної спеціальності. Підклас дає змогу бонусною дією витратити кістку Бардського натхнення{{Bardic Inspiration}} й надати союзникам тимчасові ХП. Експертизу{{Expertise}} беремо в Аналізі Поведінки й Уважності, щоб надолужити невисоку Мудрість. Збільшення/Зменшення [Enlarge/Reduce] — хороше заклинання підтримки для цього рівня. Якщо збільшити простір, який займає союзник на передовій, він зможе краще перекрити прохід: це може вирішити, чи вороги вас оточать, чи ви повністю заблокуєте коридор або двері.
+Тепер четвертий рівень, і ми трохи пізніше отримуємо диплом {{Колегії гламуру|College of Glamour}}: через мультикласування ми ходили до школи на пів ставки й брали факультативи Воїна заради подвійної спеціальності. Підклас дає змогу бонусною дією витратити кістку Бардського натхнення{{Bardic Inspiration}} й надати союзникам тимчасові ХП. Експертизу{{Expertise}} беремо в Аналізі поведінки й Уважності, щоб надолужити невисоку Мудрість. Збільшення/Зменшення [Enlarge/Reduce] — хороше заклинання підтримки для цього рівня. Якщо збільшити простір, який займає союзник на передовій, він зможе краще перекрити прохід: це може вирішити, чи вороги вас оточать, чи ви повністю заблокуєте коридор або двері.
 
 ### block-section-levels-1/row/4/0 · комірка таблиці · без оцінки
 

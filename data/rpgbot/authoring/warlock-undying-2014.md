@@ -557,7 +557,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Since we’re starting with a level in Fighter, we pick our class skills from the Fighter’s list. We’ll take Insight and Intimidation. We get Athletics and Intimidation from our background. We’ll take Beguiling Influence to get Deception and Persuasion. That leaves us with one additional skill proficiency from our race, which we’ll put into Perception.
 
 **Українською:**
-Оскільки ми починаємо з рівня Воїна, класові навички обираємо зі списку Воїна. Візьмемо Аналіз Поведінки й Залякування. Атлетику й Залякування отримуємо від передісторії. «Спокусливий вплив»{{Beguiling Influence}} дасть нам Обман і Переконання. Лишається одне додаткове володіння навичкою від раси, яке вкладемо в Уважність.
+Оскільки ми починаємо з рівня Воїна, класові навички обираємо зі списку Воїна. Візьмемо Аналіз поведінки й Залякування. Атлетику й Залякування отримуємо від передісторії. «Спокусливий вплив»{{Beguiling Influence}} дасть нам Обман і Переконання. Лишається одне додаткове володіння навичкою від раси, яке вкладемо в Уважність.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->

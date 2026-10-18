@@ -775,7 +775,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Haunted one would be amusing for referencing whatever horrible incident made us the way we are, but I think I’d prefer to focus on the fact that we’ve separated ourselves from society to keep them safe and pick Hermit. On the other hand, the skills from Hermit are kind of awful for us, so let’s change them up for Perception (it’s always good) and Insight (to fill out the Face role that Sorcerers are naturally good at).
 
 **Українською:**
-{{Переслідуваний|Haunted One}} був би кумедним — натяк на те жахливе, що сталося й зробило нас такими, але, гадаю, я б радше наголосив на тому, що ми відгородилися від суспільства, щоб його захистити, і обрав Відлюдника{{Hermit}}. З іншого боку, навички Відлюдника для нас доволі кепські, тож замінімо їх на Уважність (вона завжди корисна) й Аналіз Поведінки (щоб закрити роль «обличчя», до якої Чародії від природи здібні).
+{{Переслідуваний|Haunted One}} був би кумедним — натяк на те жахливе, що сталося й зробило нас такими, але, гадаю, я б радше наголосив на тому, що ми відгородилися від суспільства, щоб його захистити, і обрав Відлюдника{{Hermit}}. З іншого боку, навички Відлюдника для нас доволі кепські, тож замінімо їх на Уважність (вона завжди корисна) й Аналіз поведінки (щоб закрити роль «обличчя», до якої Чародії від природи здібні).
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -788,7 +788,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We take Deception and Persuasion from the class and add them to the Intimidation, Perception, and Insight we have so far. We’re also happy about the Herbalism Kit that lets us craft potions to fill in the supportive capabilities the subclass doesn’t cover.
 
 **Українською:**
-Від класу беремо Обман і Переконання та додаємо їх до Залякування, Уважності й Аналізу Поведінки, які вже маємо. Також нас тішить володіння набором травника{{Herbalism Kit}}: він дає змогу виготовляти зілля й закривати підтримувальні можливості, яких підклас не покриває.
+Від класу беремо Обман і Переконання та додаємо їх до Залякування, Уважності й Аналізу поведінки, які вже маємо. Також нас тішить володіння набором травника{{Herbalism Kit}}: він дає змогу виготовляти зілля й закривати підтримувальні можливості, яких підклас не покриває.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->

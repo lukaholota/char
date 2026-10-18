@@ -132,8 +132,8 @@ const SUBRACE_FEATURE_SEED_INPUTS: SeedFeatureCreateInput[] = [
       name: "Проникливе чуття",
       engName: "Incisive Sense",
       description:
-        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">Перевагу</a> на перевірки Інтелекту (Розслідування) та Мудрості (Аналіз Поведінки).",
-      shortDescription: "Перевага на Розслідування та Аналіз Поведінки.",
+        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">Перевагу</a> на перевірки Інтелекту (Розслідування) та Мудрості (Аналіз поведінки).",
+      shortDescription: "Перевага на Розслідування та Аналіз поведінки.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {

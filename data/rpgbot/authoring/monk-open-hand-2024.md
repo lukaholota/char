@@ -646,7 +646,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We get Acrobatics and Perception from Sailor. We get Perception and Stealth from Tabaxi. We’ll take any 2 skills from our Monk class skill options. It doesn’t matter to this build. History and Insight are fine options.
 
 **Українською:**
-Від Моряка{{Sailor}} ми отримуємо Акробатику й Уважність. Від Табаксі{{Tabaxi}} — Уважність і Непомітність. Із класових навичок Монаха беремо будь-які 2. Для цієї збірки це не має значення. Історія й Аналіз Поведінки — непогані варіанти.
+Від Моряка{{Sailor}} ми отримуємо Акробатику й Уважність. Від Табаксі{{Tabaxi}} — Уважність і Непомітність. Із класових навичок Монаха беремо будь-які 2. Для цієї збірки це не має значення. Історія й Аналіз поведінки — непогані варіанти.
 
 ### block-section-skill-and-tool-proficiencies-2 · абзац · без оцінки
 

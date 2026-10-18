@@ -34,7 +34,7 @@
 > Things get murky when we consider why the Assassin also has a pair of features designed around Deception and Infiltration. The rules of Surprise only mention Stealth and Perception, but we could (and do) argue that Deception versus Insight should also be a valid method of imposing *Surprised* on a target. That stompy Paladin from earlier certainly has enough Charisma to lie through their teeth.
 
 **Українською:**
-Все стає туманнішим, коли ми розглядаємо, чому в Убивці також є пара умінь, спроєктованих навколо Обману й проникнення. Правила Раптовості згадують лише Непомітність і Уважність, але ми могли б (і справді) стверджувати, що Обман проти Аналізу Поведінки також має бути чинним способом накласти на ціль стан *застигнутого зненацька*. Той топчучий Паладин раніше, безперечно, має достатньо Харизми, щоб брехати без запинки.
+Все стає туманнішим, коли ми розглядаємо, чому в Убивці також є пара умінь, спроєктованих навколо Обману й проникнення. Правила Раптовості згадують лише Непомітність і Уважність, але ми могли б (і справді) стверджувати, що Обман проти Аналізу поведінки також має бути чинним способом накласти на ціль стан *застигнутого зненацька*. Той топчучий Паладин раніше, безперечно, має достатньо Харизми, щоб брехати без запинки.
 
 ## Table of Contents
 <!-- sectionId: section-2; rating: none -->
@@ -228,7 +228,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Infiltration Expertise: Rules as Written, Surprised is Stealth versus Perception, but Surprised is also up to the DM. If you’re playing an Assassin (or if you have an Assassin player in your game), I would suggest that Deception versus Insight is equally valid for imposing Surprise. You’re not a band of murder hobos, you’re a humble merchant and this is your staff. And then you Surprise them with murder. Obviously this is only useful if your campaign has situations where lying like this will be helpful. Many campaigns just don’t have situations where you can be an operative on the inside.
 
 **Українською:**
-Майстерність проникнення{{Infiltration Expertise}}: за правилами «як написано» стан «застигнутий зненацька» — це Непомітність проти Уважності, але це також залежить від Майстра. Якщо ви граєте Убивцю (чи якщо у вашій грі є гравець-Убивця), я б запропонував, що Обман проти Аналізу Поведінки так само чинний для накладання раптовості. Ви не банда вбивць-волоцюг, ви скромний купець, а це ваш персонал. А тоді ви застаєте їх зненацька вбивством.
+Майстерність проникнення{{Infiltration Expertise}}: за правилами «як написано» стан «застигнутий зненацька» — це Непомітність проти Уважності, але це також залежить від Майстра. Якщо ви граєте Убивцю (чи якщо у вашій грі є гравець-Убивця), я б запропонував, що Обман проти Аналізу поведінки так само чинний для накладання раптовості. Ви не банда вбивць-волоцюг, ви скромний купець, а це ваш персонал. А тоді ви застаєте їх зненацька вбивством.
 
 Очевидно, це корисно лише якщо у вашій кампанії є ситуації, де така брехня допоможе. У багатьох кампаніях просто немає ситуацій, де можна бути оперативником всередині.
 
@@ -292,14 +292,14 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wis: It’s about as useful to us as it is to most people, i.e. Insight, Perception and Saves, but we don’t get anything special out of it beyond that general utility.
 
 **Українською:**
-Мудрість{{Wis}}: вона така ж корисна для нас, як і для більшості людей, тобто Аналіз Поведінки, Уважність і ряткидки, але понад цю загальну корисність нічого особливого ми з неї не отримуємо.
+Мудрість{{Wis}}: вона така ж корисна для нас, як і для більшості людей, тобто Аналіз поведінки, Уважність і ряткидки, але понад цю загальну корисність нічого особливого ми з неї не отримуємо.
 
 ### block-section-assassin-ability-scores-7 · абзац · rating-green
 
 > Cha: We gain some benefits to Deception and Disguise that would benefit from Charisma. If your DM agrees with my assertion above about Deception vs Insight for Surprise this might even jump to Blue.
 
 **Українською:**
-Харизма{{Cha}}: ми отримуємо деякі переваги в Обмані й маскуванні, що виграли б від Харизми. Якщо ваш Майстер погодиться з моїм твердженням вище про Обман проти Аналізу Поведінки для Раптовості, вона навіть може стрибнути до синього.
+Харизма{{Cha}}: ми отримуємо деякі переваги в Обмані й маскуванні, що виграли б від Харизми. Якщо ваш Майстер погодиться з моїм твердженням вище про Обман проти Аналізу поведінки для Раптовості, вона навіть може стрибнути до синього.
 
 ### block-section-assassin-ability-scores-8/header/1 · заголовок таблиці · без оцінки
 
@@ -767,7 +767,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We start with point buy and put 15s in Dexterity, Constitution, and Charisma. Then we choose to add +1s to each of those for 16s in everything we care about. Truth be told, you could just ignore the face skills if you wanted to have a different set such as picking Wisdom for Perception and Insight boosts. We’re not doing that here, but it’s an option. Just because you have features for disguising and deceiving doesn’t mean you have to use them if they don’t fit your campaign.
 
 **Українською:**
-Ми починаємо з купівлі характеристик і ставимо 15 у Спритність, Статуру й Харизму. Потім додаємо +1 до кожної, щоб мати 16 у всьому, що нас цікавить. Правду кажучи, можна просто проігнорувати навички «обличчя», якщо ви хочете інший набір, скажімо, обрати Мудрість для підвищення Уважності й Аналізу Поведінки. Ми цього тут не робимо, але це варіант. Те, що у вас є уміння для маскування й обману, не означає, що ви мусите ними користуватися, якщо вони не пасують вашій кампанії.
+Ми починаємо з купівлі характеристик і ставимо 15 у Спритність, Статуру й Харизму. Потім додаємо +1 до кожної, щоб мати 16 у всьому, що нас цікавить. Правду кажучи, можна просто проігнорувати навички «обличчя», якщо ви хочете інший набір, скажімо, обрати Мудрість для підвищення Уважності й Аналізу поведінки. Ми цього тут не робимо, але це варіант. Те, що у вас є уміння для маскування й обману, не означає, що ви мусите ними користуватися, якщо вони не пасують вашій кампанії.
 
 ### block-section-abilities-2/header/1 · заголовок таблиці · без оцінки
 
@@ -995,14 +995,14 @@ RPGbot використовує кольорову шкалу, яку легко
 > From Harengon, we gain Perception. From Rogue, we gain Acrobatics, Insight, Persuasion, and Stealth. From Faceless we gain Deception and Intimidation.
 
 **Українською:**
-Від Гаренгона ми отримуємо Уважність. Від Пройдисвіта — Акробатику, Аналіз Поведінки, Переконання й Непомітність. Від Безликого — Обман і Залякування.
+Від Гаренгона ми отримуємо Уважність. Від Пройдисвіта — Акробатику, Аналіз поведінки, Переконання й Непомітність. Від Безликого — Обман і Залякування.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 
 > Because we get to choose Expertises as a Rogue, we choose Deception and Stealth at first level and Insight and Perception at sixth level.
 
 **Українською:**
-Оскільки як Пройдисвіт ми обираємо «Експертизу», ми обираємо Обман і Непомітність на першому рівні й Аналіз Поведінки та Уважність на шостому.
+Оскільки як Пройдисвіт ми обираємо «Експертизу», ми обираємо Обман і Непомітність на першому рівні й Аналіз поведінки та Уважність на шостому.
 
 ### block-section-skills-and-tools-3 · абзац · без оцінки
 
@@ -1117,7 +1117,7 @@ RPGbot використовує кольорову шкалу, яку легко
 Навички (+ Експертиза)
 -Акробатика
 +Обман
--Аналіз Поведінки
+-Аналіз поведінки
 -Залякування
 -Переконання
 +Непомітність
@@ -1275,7 +1275,7 @@ RPGbot використовує кольорову шкалу, яку легко
 
 **Українською:**
 Експертиза
-+Аналіз Поведінки
++Аналіз поведінки
 +Уважність
 
 ### block-section-levels-1/row/5/3 · комірка таблиці · без оцінки

@@ -192,7 +192,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Proficiencies: No armor or shields, and only the most basic weapons, but the Sorcerer skill list contains *all* of the Face skills, including Insight.
 
 **Українською:**
-Володіння{{Proficiencies}}: жодних обладунків чи щитів і лише найпростіша зброя, зате у списку навичок Чародія є *всі* навички «обличчя», зокрема Аналіз Поведінки.
+Володіння{{Proficiencies}}: жодних обладунків чи щитів і лише найпростіша зброя, зате у списку навичок Чародія є *всі* навички «обличчя», зокрема Аналіз поведінки.
 
 ### block-section-class-features-5 · абзац · rating-blue
 
@@ -442,7 +442,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wis: Wisdom saves are common, and Insight is helpful for a Face.
 
 **Українською:**
-Мудрість{{Wis}}: ряткидки Мудрості трапляються часто, а Аналіз Поведінки корисний для «обличчя».
+Мудрість{{Wis}}: ряткидки Мудрості трапляються часто, а Аналіз поведінки корисний для «обличчя».
 
 ### block-section-ability-scores-7 · абзац · rating-blue
 
@@ -643,7 +643,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Insight (Wis): Helpful for a Face, but you may not have enough Wisdom to back it up.
 
 **Українською:**
-{{Аналіз Поведінки|Insight}} (Мудрість): корисний для «обличчя», але Мудрості, щоб це підкріпити, у вас може не вистачати.
+{{Аналіз поведінки|Insight}} (Мудрість): корисний для «обличчя», але Мудрості, щоб це підкріпити, у вас може не вистачати.
 
 ### block-section-skills-1/item/3 · пункт · rating-blue
 
@@ -698,7 +698,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Acolyte[[1|PHB]]: Insight and two languages.
 
 **Українською:**
-Послушник{{Acolyte}} [[1|PHB]]: Аналіз Поведінки й дві мови.
+Послушник{{Acolyte}} [[1|PHB]]: Аналіз поведінки й дві мови.
 
 ### block-section-background-4/item/1 · пункт · rating-green
 
@@ -712,14 +712,14 @@ RPGbot використовує кольорову шкалу, яку легко
 > Courtier[[1|SCAG]]: You probably don’t have the Wisdom to back up Insight, but it’s still great on a Face, and you get a Face skill and two languages.
 
 **Українською:**
-Придворний{{Courtier}} [[1|SCAG]]: Мудрості, щоб підкріпити Аналіз Поведінки, у вас, імовірно, немає, але для «обличчя» він усе одно чудовий, а ще ви отримуєте навичку «обличчя» й дві мови.
+Придворний{{Courtier}} [[1|SCAG]]: Мудрості, щоб підкріпити Аналіз поведінки, у вас, імовірно, немає, але для «обличчя» він усе одно чудовий, а ще ви отримуєте навичку «обличчя» й дві мови.
 
 ### block-section-background-4/item/3 · пункт · rating-blue
 
 > Faction Agent[[1|SCAG]]: Insight and your choice of a bunch of skills including the Face skills you need, plus two languages.
 
 **Українською:**
-Агент фракції{{Faction Agent}} [[1|SCAG]]: Аналіз Поведінки та ваш вибір із кількох навичок, зокрема навичок «обличчя», які вам потрібні, плюс дві мови.
+Агент фракції{{Faction Agent}} [[1|SCAG]]: Аналіз поведінки та ваш вибір із кількох навичок, зокрема навичок «обличчя», які вам потрібні, плюс дві мови.
 
 ### block-section-background-4/item/4 · пункт · rating-blue
 
@@ -1622,7 +1622,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > With high Charisma and access to all four Face skills, there is little reason for you to not be the party’s Face. Between your background and your class skills, try to end up with Deception, Intimidation, and Persuasion. Get Insight if it’s convenient, but your Wisdom isn’t high enough to be especially good at it so hopefully someone in your party can fill in the gap.
 
 **Українською:**
-З високою Харизмою й доступом до всіх чотирьох навичок «обличчя» мало причин не стати «обличчям» групи. Між передісторією та класовими навичками постарайтеся отримати Обман, Залякування й Переконання. Візьміть Аналіз Поведінки, якщо це зручно, але ваша Мудрість недостатньо висока, щоб бути в ньому особливо добрим, тож сподіваймося, що хтось у вашій групі заповнить цю прогалину.
+З високою Харизмою й доступом до всіх чотирьох навичок «обличчя» мало причин не стати «обличчям» групи. Між передісторією та класовими навичками постарайтеся отримати Обман, Залякування й Переконання. Візьміть Аналіз поведінки, якщо це зручно, але ваша Мудрість недостатньо висока, щоб бути в ньому особливо добрим, тож сподіваймося, що хтось у вашій групі заповнить цю прогалину.
 
 ## Background
 <!-- sectionId: section-background-1; rating: none -->

@@ -20,7 +20,7 @@
 > If you want to be really good at noticing stuff, the Inquisitive Rogue is the way to do it. With the Inquisitive’s subclass features and the Expertise, there’s no one who could reasonably compete with the Inquisitive Rogue’s powers of perception. However, their emphasis on Insight, Investigation, and Perception is their only noteworthy feature, and over-specialization in those aspects leaves them with nothing exciting to do beyond the Rogue’s base class features.
 
 **Українською:**
-Якщо ви хочете бути справді добрим у помічанні речей, Пройдисвіт-Допитливий — це шлях. З уміннями підкласу Допитливого та «Експертизою»{{Expertise}} ніхто не зможе розумно змагатися з силою сприйняття Пройдисвіта-Допитливого. Однак їхній акцент на Аналізі Поведінки, Розслідуванні й Уважності — єдина варта уваги риса, а надмірна спеціалізація в цих аспектах лишає їх без чогось цікавого, окрім базових умінь класу Пройдисвіта.
+Якщо ви хочете бути справді добрим у помічанні речей, Пройдисвіт-Допитливий — це шлях. З уміннями підкласу Допитливого та «Експертизою»{{Expertise}} ніхто не зможе розумно змагатися з силою сприйняття Пройдисвіта-Допитливого. Однак їхній акцент на Аналізі поведінки, Розслідуванні й Уважності — єдина варта уваги риса, а надмірна спеціалізація в цих аспектах лишає їх без чогось цікавого, окрім базових умінь класу Пройдисвіта.
 
 ### block-section-introduction-2 · абзац · без оцінки
 
@@ -204,7 +204,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Ear for Deceit: This only applies to Wisdom (Insight) check to determine if a creature is lying, and while it’s nice to have that level of insurance, it’s still only situationally useful and it’s easy to misread this and assume that it applies to Eye for Detail and Insightful Fighting.
 
 **Українською:**
-Нюх на брехню{{Ear for Deceit}}: стосується лише перевірок Мудрості (Аналіз Поведінки) для визначення, чи бреше істота, і хоч приємно мати такий рівень страховки, це все одно лише ситуативно корисно, а ще це легко неправильно зрозуміти й припустити, що воно застосовується до «Ока на деталі»{{Eye for Detail}} та «Проникливого бою».
+Нюх на брехню{{Ear for Deceit}}: стосується лише перевірок Мудрості (Аналіз поведінки) для визначення, чи бреше істота, і хоч приємно мати такий рівень страховки, це все одно лише ситуативно корисно, а ще це легко неправильно зрозуміти й припустити, що воно застосовується до «Ока на деталі»{{Eye for Detail}} та «Проникливого бою».
 
 ### block-section-features-1/item/1 · пункт · rating-orange
 
@@ -218,7 +218,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Insightful Fighting: I hope you took Expertise with Insight, because it’s your signature feature and if you can’t reliably pass this check you’re basically back to core rogue features in combat. The effect lasts for a full minute so you have plenty of time to benefit without repeatedly spending your Bonus Action on the same target. Even if you lose the opposed check, you can try again the following round, and the every round after that until you succeed. Of course, if you have another ally fighting your target in melee, this gets you absolutely nothing. Compare this to the Steady Aim Optional Class Feature: Steady Aim is a Bonus Action, doesn’t require a check that you might fail, and grants Advantage on your attack rather than simply enabling you to use Sneak Attack. Insightful Fighting lasts for a full minute, but only if you don’t change targets.
 
 **Українською:**
-Проникливий бій{{Insightful Fighting}}: сподіваюся, ви взяли «Експертизу» в Аналізі Поведінки, бо це ваше визначальне уміння, і якщо ви не можете стабільно проходити цю перевірку, у бою ви, по суті, повертаєтеся до базових умінь Пройдисвіта. Ефект триває цілу хвилину, тож у вас вдосталь часу скористатися ним, не витрачаючи повторно бонусну дію на ту саму ціль. Навіть якщо ви програли змагальну перевірку, можна спробувати знову наступного раунду, і кожного наступного, поки не вдасться.
+Проникливий бій{{Insightful Fighting}}: сподіваюся, ви взяли «Експертизу» в Аналізі поведінки, бо це ваше визначальне уміння, і якщо ви не можете стабільно проходити цю перевірку, у бою ви, по суті, повертаєтеся до базових умінь Пройдисвіта. Ефект триває цілу хвилину, тож у вас вдосталь часу скористатися ним, не витрачаючи повторно бонусну дію на ту саму ціль. Навіть якщо ви програли змагальну перевірку, можна спробувати знову наступного раунду, і кожного наступного, поки не вдасться.
 
 Звісно, якщо інший союзник бʼється з вашою ціллю в ближньому бою, це не дасть вам абсолютно нічого. Порівняйте це з додатковим класовим умінням «Стійке прицілювання»{{Steady Aim}}: воно — бонусна дія, не вимагає перевірки, яку можна провалити, й дає Перевагу на вашу атаку, а не просто дозволяє користуватися «Підступною атакою». «Проникливий бій» триває цілу хвилину, але лише якщо ви не змінюєте цілей.
 
@@ -256,7 +256,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Little different from a [[1|typical Rogue]]. You need decent Wisdom since you’re going to rely heavily on Insight, but 14 is plenty.
 
 **Українською:**
-Мало чим відрізняється від [[1|типового Пройдисвіта]]. Вам потрібна пристойна Мудрість, бо ви будете сильно покладатися на Аналіз Поведінки, але 14 цілком достатньо.
+Мало чим відрізняється від [[1|типового Пройдисвіта]]. Вам потрібна пристойна Мудрість, бо ви будете сильно покладатися на Аналіз поведінки, але 14 цілком достатньо.
 
 ## Inquisitive Rogue Races
 <!-- sectionId: section-races; rating: none -->
@@ -334,7 +334,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’re going to lean into the Inquisitive’s concept and focus on the Insight, Investigation, and Perception skills.
 
 **Українською:**
-Ми схилимося до концепції Допитливого й зосередимося на навичках Аналіз Поведінки, Розслідування й Уважність.
+Ми схилимося до концепції Допитливого й зосередимося на навичках Аналіз поведінки, Розслідування й Уважність.
 
 ## Ability Scores
 <!-- sectionId: section-ability-scores-2; rating: none -->
@@ -533,7 +533,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll use our class skills to select Insight, Perception, Sleight of Hand, and Stealth. We’ll add Insight from our race. We get proficiency in Thieve’s Tools from our class and one other tool from our race.
 
 **Українською:**
-Ми використаємо наші класові навички, щоб обрати Аналіз Поведінки, Уважність, Спритність рук і Непомітність. Додамо Аналіз Поведінки від раси. Ми отримуємо володіння інструментами злодія від класу й один інший інструмент від раси.
+Ми використаємо наші класові навички, щоб обрати Аналіз поведінки, Уважність, Спритність рук і Непомітність. Додамо Аналіз поведінки від раси. Ми отримуємо володіння інструментами злодія від класу й один інший інструмент від раси.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 
@@ -622,7 +622,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Expertise – Insight – Perception Sneak Attack +1d6 Thieves’ Cant
 
 **Українською:**
-Експертиза – Аналіз Поведінки – Уважність
+Експертиза – Аналіз поведінки – Уважність
 Підступна атака +1к6
 Злодійська мова
 
@@ -678,7 +678,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Ear for Deceit is an early taste of Reliable Talent. Eye for Detail is helpful for countering hidden and invisible enemies. Insightful Fighting is our signature combat tactic. Ear For Deceit doesn’t apply, unfortunately, so you do still need to roll an Insight check. Fortunately, we have Expertise and passable Wisdom, plus most creatures aren’t proficient in Deception, so you should pass most of the time. Of course, if you’re fighting multiple enemies, moving Insightful Fighting presents an annoying action tax. Use Steady Aim in those cases.
 
 **Українською:**
-«Нюх на брехню» — ранній смак «Надійного таланту». «Око на деталі» корисне для протидії прихованим і невидимим ворогам. «Проникливий бій» — наша визначальна бойова тактика. «Нюх на брехню», на жаль, не застосовується, тож вам усе одно треба кидати перевірку Аналізу Поведінки. На щастя, у нас є «Експертиза» й пристойна Мудрість, а більшість істот не мають володіння Обманом, тож ви маєте проходити здебільшого.
+«Нюх на брехню» — ранній смак «Надійного таланту». «Око на деталі» корисне для протидії прихованим і невидимим ворогам. «Проникливий бій» — наша визначальна бойова тактика. «Нюх на брехню», на жаль, не застосовується, тож вам усе одно треба кидати перевірку Аналізу поведінки. На щастя, у нас є «Експертиза» й пристойна Мудрість, а більшість істот не мають володіння Обманом, тож ви маєте проходити здебільшого.
 
 Звісно, якщо ви бʼєтеся з кількома ворогами, переміщення «Проникливого бою» створює дратівливий податок на дії. У таких випадках користуйтеся «Стійким прицілюванням».
 

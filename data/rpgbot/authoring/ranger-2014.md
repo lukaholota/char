@@ -1196,7 +1196,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Insight (Wis): Rangers need a bit of Wisdom, so pick this up to back up your party’s Face.
 
 **Українською:**
-Аналіз Поведінки{{Insight}} (Мудрість): Слідопитам потрібно трохи Мудрості, тож візьміть це, щоб підстрахувати «обличчя» вашої групи.
+Аналіз поведінки{{Insight}} (Мудрість): Слідопитам потрібно трохи Мудрості, тож візьміть це, щоб підстрахувати «обличчя» вашої групи.
 
 ### block-section-skills-1/item/3 · пункт · rating-orange
 
@@ -1272,7 +1272,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > City Watch[[1|SCAG]]: Athletics and Insight are both passable options, but the languages are totally wasted.
 
 **Українською:**
-Міська варта{{City Watch}} [[1|SCAG]]: Атлетика й Аналіз Поведінки — обидві прийнятні, але мови пропадають марно.
+Міська варта{{City Watch}} [[1|SCAG]]: Атлетика й Аналіз поведінки — обидві прийнятні, але мови пропадають марно.
 
 ### block-section-background-4/item/2 · пункт · rating-blue
 
@@ -1286,7 +1286,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Far Traveler[[1|SCAG]]: Insight is passable and Perception is fantastic. The instrument/gaming set proficiency might actually be more useful for you than the language.
 
 **Українською:**
-Далекий мандрівник{{Far Traveler}} [[1|SCAG]]: Аналіз Поведінки прийнятний, а Уважність фантастична. Володіння музичним інструментом чи ігровим набором може бути для вас корисніше, ніж мова.
+Далекий мандрівник{{Far Traveler}} [[1|SCAG]]: Аналіз поведінки прийнятний, а Уважність фантастична. Володіння музичним інструментом чи ігровим набором може бути для вас корисніше, ніж мова.
 
 ### block-section-background-4/item/4 · пункт · rating-green
 

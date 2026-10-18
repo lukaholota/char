@@ -62,7 +62,7 @@ it("shows bound features beside the official description and opens the exact ana
   expect(screen.getByText("Офіційний текст")).toBeTruthy();
   expect(button.getAttribute("aria-haspopup")).toBe("dialog");
   expect(screen.getByRole("link", { name: "Відкрити в статті" }).getAttribute("href")).toBe(feature.href);
-  expect(screen.getByRole("dialog").textContent).toMatch(/Аналіз Поведінки й Медицина обидві/);
+  expect(screen.getByRole("dialog").textContent).toMatch(/Аналіз поведінки й Медицина обидві/);
   fireEvent.click(screen.getByRole("button", { name: "Закрити", exact: true }));
   await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
   expect(screen.getByText("Офіційний текст")).toBeTruthy();

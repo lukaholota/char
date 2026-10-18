@@ -767,7 +767,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Take Insight and Medicine from the class to round out the useful Wisdom skills, and the Herbalism Kit from the background will come in handy to make potions while you wander.
 
 **Українською:**
-Із класу беремо Аналіз Поведінки й Медицину, щоб доповнити корисні навички Мудрості, а Набір травника{{Herbalism Kit}} від передісторії стане в пригоді для виготовлення зілль під час мандрів.
+Із класу беремо Аналіз поведінки й Медицину, щоб доповнити корисні навички Мудрості, а Набір травника{{Herbalism Kit}} від передісторії стане в пригоді для виготовлення зілль під час мандрів.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

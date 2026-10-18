@@ -545,7 +545,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll select Insight and Stealth with our class skills. Urchin gets us Sleight of Hand and Stealth, and we’ll replace the redundant Stealth with Perception. We’ll use our additional skill from Variant Human to take Investigation. We also get Thieves’ Tools and a gaming set from Urchin. That gives us everything that we need to serve as our party’s Scout.
 
 **Українською:**
-Серед класових навичок оберемо Аналіз Поведінки та Непомітність. Безпритульний дає Спритність рук і Непомітність, а зайву Непомітність замінимо на Уважність. Додаткову навичку від Варіанта людини використаємо на Розслідування. Також від Безпритульного отримуємо Інструменти злодія та ігровий набір. Це дає все потрібне, щоб бути розвідником нашої групи.
+Серед класових навичок оберемо Аналіз поведінки та Непомітність. Безпритульний дає Спритність рук і Непомітність, а зайву Непомітність замінимо на Уважність. Додаткову навичку від Варіанта людини використаємо на Розслідування. Також від Безпритульного отримуємо Інструменти злодія та ігровий набір. Це дає все потрібне, щоб бути розвідником нашої групи.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->

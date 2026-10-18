@@ -218,9 +218,9 @@ RPGbot використовує кольорову шкалу, яку легко
 > Royal Envoy: Persuasion is the king of social skills, and Expertise with it will go a very long way, compensating for even a more modest Charisma score. The free skill proficiency is nice, too, but if you’re planning to play a Face, then you probably have both Persuasion and Intimidation, and quite possibly have Insight as well. Animal Handling is fun flavor for a knight, but not especially useful since mounted combat is such a niche option in 5e. If you start your build planning to be a Purple Dragon Knight, you might leave Insight or Intimidation open so that you can make use of this free proficiency.
 
 **Українською:**
-Королівський посланець{{Royal Envoy}}: Переконання — король соціальних навичок, і Експертиза в ньому дуже допоможе, компенсуючи навіть скромніший показник Харизми. Безкоштовне володіння навичкою теж приємне, але якщо ви плануєте грати «обличчя», то, імовірно, вже маєте і Переконання, і Залякування, і, цілком можливо, Аналіз Поведінки.
+Королівський посланець{{Royal Envoy}}: Переконання — король соціальних навичок, і Експертиза в ньому дуже допоможе, компенсуючи навіть скромніший показник Харизми. Безкоштовне володіння навичкою теж приємне, але якщо ви плануєте грати «обличчя», то, імовірно, вже маєте і Переконання, і Залякування, і, цілком можливо, Аналіз поведінки.
 
-Поводження з тваринами — веселий смак для лицаря, але не особливо корисне, бо бій верхи в 5e — дуже нішевий варіант. Якщо ви з самого початку плануєте збірку як Лицаря Пурпурового Дракона, можливо, лишите Аналіз Поведінки чи Залякування вільними, щоб скористатися цим безкоштовним володінням.
+Поводження з тваринами — веселий смак для лицаря, але не особливо корисне, бо бій верхи в 5e — дуже нішевий варіант. Якщо ви з самого початку плануєте збірку як Лицаря Пурпурового Дракона, можливо, лишите Аналіз поведінки чи Залякування вільними, щоб скористатися цим безкоштовним володінням.
 
 ### block-section-features-1/item/2 · пункт · rating-blue
 
@@ -462,7 +462,7 @@ PDK — Воїн і досі хоче Воювати.
 > Skill Expert[[1|TCoE]]: We’re getting Expertise in Persuasion, which is great, but we could also pick up Expertise in Insight to help in our Negotiations.
 
 **Українською:**
-{{Експерт у навичках|Skill Expert}}[[1|TCoE]]: ми отримуємо Експертизу в Переконанні, що чудово, але можна взяти й Експертизу в Аналізі Поведінки, щоб допомогти в наших переговорах.
+{{Експерт у навичках|Skill Expert}}[[1|TCoE]]: ми отримуємо Експертизу в Переконанні, що чудово, але можна взяти й Експертизу в Аналізі поведінки, щоб допомогти в наших переговорах.
 
 ## Purple Dragon Knight Weapons and Armor
 <!-- sectionId: section-purple-dragon-knight-weapons-and-armor; rating: none -->
@@ -749,7 +749,7 @@ PDK — Воїн і досі хоче Воювати.
 > From Fighter we’re going to choose Acrobatics and Insight. This allows us to start with most of the typical face skills when added to our Background skills. When we reach Fighter 7, Royal Envoy will grant us Persuasion with Expertise, the last skill we need.
 
 **Українською:**
-Від Воїна оберемо Акробатику й Аналіз Поведінки. Разом із навичками передісторії це дає більшість типових навичок «обличчя». Коли ми досягнемо Воїна 7, «Королівський посланець» дасть нам Переконання з Експертизою — останню потрібну навичку.
+Від Воїна оберемо Акробатику й Аналіз поведінки. Разом із навичками передісторії це дає більшість типових навичок «обличчя». Коли ми досягнемо Воїна 7, «Королівський посланець» дасть нам Переконання з Експертизою — останню потрібну навичку.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->
@@ -874,7 +874,7 @@ PDK — Воїн і досі хоче Воювати.
 > Fighting Style: Archery Second Wind Skills – Acrobatics – Deception – Insight – Intimidation
 
 **Українською:**
-Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання, Навички: Акробатика, Обман, Аналіз Поведінки, Залякування
+Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання, Навички: Акробатика, Обман, Аналіз поведінки, Залякування
 
 ### block-section-levels-1/row/0/2 · комірка таблиці · без оцінки
 

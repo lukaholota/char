@@ -643,7 +643,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Insight (Wis): Great for a Face, but many Faces don’t have good enough Wisdom to back this up.
 
 **Українською:**
-Аналіз Поведінки{{Insight}} (Мудрість): чудовий для «обличчя», але в багатьох «облич» недостатньо добра Мудрість, щоб це підкріпити.
+Аналіз поведінки{{Insight}} (Мудрість): чудовий для «обличчя», але в багатьох «облич» недостатньо добра Мудрість, щоб це підкріпити.
 
 ### block-section-skills-1/item/3 · пункт · rating-red
 
@@ -698,7 +698,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Druids don’t get a lot of great options with skills, but since they need so few ability scores they can afford a bit of Intelligence to back up Knowledge skills, and they have the Wisdom to back up important skills like Insight and Perception. Unfortunately, Druids dodn’t get any Face skills so even if you put some resources into Charisma you’ll need to scrabe together enough skill proficiencies from your race and your background to get by.
 
 **Українською:**
-У Друїдів небагато чудових варіантів навичок, але оскільки їм потрібно так мало характеристик, вони можуть дозволити собі трохи Інтелекту, щоб підкріпити навички на знання, а Мудрості їм вистачає для важливих навичок, як-от Аналіз Поведінки й Уважність. На жаль, Друїди не отримують жодних навичок «обличчя», тож навіть якщо ви вкладете трохи ресурсів у Харизму, вам доведеться наскребти достатньо володінь навичками від раси й передісторії, щоб якось обійтися.
+У Друїдів небагато чудових варіантів навичок, але оскільки їм потрібно так мало характеристик, вони можуть дозволити собі трохи Інтелекту, щоб підкріпити навички на знання, а Мудрості їм вистачає для важливих навичок, як-от Аналіз поведінки й Уважність. На жаль, Друїди не отримують жодних навичок «обличчя», тож навіть якщо ви вкладете трохи ресурсів у Харизму, вам доведеться наскребти достатньо володінь навичками від раси й передісторії, щоб якось обійтися.
 
 ### block-section-background-3 · абзац · без оцінки
 
@@ -712,14 +712,14 @@ RPGbot використовує кольорову шкалу, яку легко
 > Acolyte[[1|PHB]]: Insight, a Knowledge skill and two languages, but with no conversation skills the languages don’t help the Druid much.
 
 **Українською:**
-Послушник{{Acolyte}} [[1|PHB]]: Аналіз Поведінки, навичка на знання й дві мови, але без навичок спілкування мови Друїду мало допомагають.
+Послушник{{Acolyte}} [[1|PHB]]: Аналіз поведінки, навичка на знання й дві мови, але без навичок спілкування мови Друїду мало допомагають.
 
 ### block-section-background-4/item/1 · пункт · rating-orange
 
 > Clan Crafter[[1|SCAG]]: History and Insight are both fine skills for the Druid, but the other benefits don’t do much for you.
 
 **Українською:**
-Клановий ремісник{{Clan Crafter}} [[1|SCAG]]: Історія й Аналіз Поведінки — обидві пристойні навички для Друїда, але решта переваг вам мало що дає.
+Клановий ремісник{{Clan Crafter}} [[1|SCAG]]: Історія й Аналіз поведінки — обидві пристойні навички для Друїда, але решта переваг вам мало що дає.
 
 ### block-section-background-4/item/2 · пункт · rating-green
 
@@ -733,7 +733,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Faction Agent[[1|SCAG]]: Insight and your choice of a wide range of helpful skills, plus two languages.
 
 **Українською:**
-Агент фракції{{Faction Agent}} [[1|SCAG]]: Аналіз Поведінки та навичка на ваш вибір із широкого переліку корисних, плюс дві мови.
+Агент фракції{{Faction Agent}} [[1|SCAG]]: Аналіз поведінки та навичка на ваш вибір із широкого переліку корисних, плюс дві мови.
 
 ### block-section-background-4/item/4 · пункт · rating-orange
 
@@ -754,14 +754,14 @@ RPGbot використовує кольорову шкалу, яку легко
 > Guild Artisan[[1|PHB]]: Insight is the only useful bit.
 
 **Українською:**
-Гільдійський ремісник{{Guild Artisan}} [[1|PHB]]: корисний лише Аналіз Поведінки.
+Гільдійський ремісник{{Guild Artisan}} [[1|PHB]]: корисний лише Аналіз поведінки.
 
 ### block-section-background-4/item/7 · пункт · rating-green
 
 > Hermit[[1|PHB]]: Medicine isn’t a terribly useful skill, but Medicine and Insight both capitalize on your Wisdom. The Herablism Kit is redundant (Druids get proficiency by default), so you can retrain into any other tool.
 
 **Українською:**
-Відлюдник{{Hermit}} [[1|PHB]]: Медицина — не надто корисна навичка, але і Медицина, і Аналіз Поведінки користуються вашою Мудрістю. Набір травника зайвий (Друїди отримують володіння ним за замовчуванням), тож його можна замінити на будь-який інший інструмент.
+Відлюдник{{Hermit}} [[1|PHB]]: Медицина — не надто корисна навичка, але і Медицина, і Аналіз поведінки користуються вашою Мудрістю. Набір травника зайвий (Друїди отримують володіння ним за замовчуванням), тож його можна замінити на будь-який інший інструмент.
 
 ### block-section-background-4/item/8 · пункт · rating-orange
 

@@ -558,7 +558,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Little bearing on the build, but we’ll take Courtier. That gets us Insight, Persuasion, and two languages.
 
 **Українською:**
-Це майже не впливає на збірку, але ми візьмемо Придворного{{Courtier}}. Він дає Аналіз Поведінки, Переконання та дві мови.
+Це майже не впливає на збірку, але ми візьмемо Придворного{{Courtier}}. Він дає Аналіз поведінки, Переконання та дві мови.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->

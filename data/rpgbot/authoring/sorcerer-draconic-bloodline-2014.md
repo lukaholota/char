@@ -585,7 +585,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From our class skills we’ll take Insight and Intimidation. With History and Persuasion from our Background, we don’t have every Face skill, but we can survive without deceiving people.
 
 **Українською:**
-З класових навичок беремо Аналіз Поведінки й Залякування. З Історією та Переконанням від передісторії в нас немає всіх навичок «обличчя», але без обману людей ми якось проживемо.
+З класових навичок беремо Аналіз поведінки й Залякування. З Історією та Переконанням від передісторії в нас немає всіх навичок «обличчя», але без обману людей ми якось проживемо.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->

@@ -482,7 +482,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > MotM Changeling. Two skills and Shapechanger offer a lot of utility in any campaign where College of Whispers would be useful. We’ll choose Insight and Persuasion for our racial skills.
 
 **Українською:**
-«Змінник»{{Changeling}} з MotM. Дві навички та «Перевертень»{{Shapechanger}} дають багато користі в будь-якій кампанії, де Колегія шепотів буде доречною. Для расових навичок оберемо Аналіз Поведінки й Переконання.
+«Змінник»{{Changeling}} з MotM. Дві навички та «Перевертень»{{Shapechanger}} дають багато користі в будь-якій кампанії, де Колегія шепотів буде доречною. Для расових навичок оберемо Аналіз поведінки й Переконання.
 
 ## Background
 <!-- sectionId: section-background; rating: none -->
@@ -508,7 +508,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We get three skills from our class, which we’ll put into Intimidation, Investigation, and Perception. That leaves us with Deception, Insight, Intimidation, Investigation, Perception, and Persuasion, Sleight of Hand. All of the Face skills, plus a handful of Scout skills. We won’t have Stealth, but bards can cast Invisibility, so I think we’ll be okay.
 
 **Українською:**
-Три навички від класу вкладемо в Залякування, Розслідування й Уважність. Тож у нас будуть Обман, Аналіз Поведінки, Залякування, Розслідування, Уважність, Переконання та Спритність рук. Це всі навички «обличчя» плюс кілька навичок розвідника. Непомітності не буде, але Барди можуть накладати Невидимість [Invisibility], тож, думаю, упораємося.
+Три навички від класу вкладемо в Залякування, Розслідування й Уважність. Тож у нас будуть Обман, Аналіз поведінки, Залякування, Розслідування, Уважність, Переконання та Спритність рук. Це всі навички «обличчя» плюс кілька навичок розвідника. Непомітності не буде, але Барди можуть накладати Невидимість [Invisibility], тож, думаю, упораємося.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->
@@ -640,7 +640,7 @@ RPGbot використовує кольорову шкалу, яку легко
 Колегія Бардів{{Bard College}}: Бард {{Колегії шепотів|College of Whispers}}
 «Слова жаху»{{Words of Terror}}
 «Психічні леза»{{Psychic Blades}} (2к6)
-Експертиза{{Expertise}}: – Обман – Аналіз Поведінки
+Експертиза{{Expertise}}: – Обман – Аналіз поведінки
 Нове відоме заклинання: – Вгамування емоцій [Calm Emotions]
 
 ### block-section-levels-1/row/2/2 · комірка таблиці · без оцінки
@@ -648,7 +648,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Psychic Blades is the only thing in the whole subclass which is combat-related. It’s a decent amount of damage, but not enough to make weapons a go-to combat option. Your best bet is to use it to quickly dispatch low-CR enemies rather than getting into actual combat. Even then, you’re dealing something like 13 damage on average, which is only enough to one-shot very weak enemies. Calm Emotions can turn a violent situation into a briefly non-violent one. It only lasts one minute, but that’s conveniently just enough time to use Words of Terror. Outside of combat, Words of Terror is a great way to terrify NPCs. The 1-minute conversation time is short enough that you can qualify with a polite conversation with a stranger like asking for directions or checking out at a grocery store. Making a creature [[1|Frightened]] of you for a full hour means that they’re going to struggle to perform ability checks or to move around, potentially making a social situation very difficult for them. Remember that Disadvantage on an Ability Check also reduces a creature’s passive skill by 5, making a Frightened creature’s Passive Insight and Passive Perception scores easy for you to beat. Make a creature Frightened, then lie to them. With Expertise and high Charisma, you’re nearly guaranteed to succeed.
 
 **Українською:**
-«Психічні леза»{{Psychic Blades}} — єдине в усьому підкласі, що стосується бою. Шкода пристойна, але замала, щоб зробити зброю основним бойовим вибором. Найкраще використовувати їх, щоб швидко розправлятися зі слабкими за ПН ворогами, а не вступати в справжній бій. Навіть тоді в середньому виходить близько 13 шкоди, чого досить лише для миттєвого вбивства дуже слабких ворогів. Вгамування емоцій [Calm Emotions] може перетворити насильницьку ситуацію на ненадовго мирну. Воно триває лише одну хвилину, але цього якраз вистачає, щоб застосувати «Слова жаху»{{Words of Terror}}. Поза боєм «Слова жаху»{{Words of Terror}} — чудовий спосіб налякати НІПів. Умова про розмову тривалістю 1 хвилина досить коротка, щоб її виконала навіть чемна розмова з незнайомцем, як-от спитати дорогу чи розрахуватися в крамниці. Якщо істота на цілу годину стане [[1|Наляканою]] вами, їй буде складно проходити перевірки характеристик і пересуватися, що може дуже ускладнити для неї соціальну ситуацію. Памʼятайте: Перешкода на перевірку характеристики також зменшує пасивний показник навички істоти на 5, тож пасивні показники Аналізу Поведінки й Уважності наляканої істоти вам легко перевершити. Налякайте істоту, а потім збрешіть їй. З Експертизою{{Expertise}} та високою Харизмою ви майже напевно досягнете успіху.
+«Психічні леза»{{Psychic Blades}} — єдине в усьому підкласі, що стосується бою. Шкода пристойна, але замала, щоб зробити зброю основним бойовим вибором. Найкраще використовувати їх, щоб швидко розправлятися зі слабкими за ПН ворогами, а не вступати в справжній бій. Навіть тоді в середньому виходить близько 13 шкоди, чого досить лише для миттєвого вбивства дуже слабких ворогів. Вгамування емоцій [Calm Emotions] може перетворити насильницьку ситуацію на ненадовго мирну. Воно триває лише одну хвилину, але цього якраз вистачає, щоб застосувати «Слова жаху»{{Words of Terror}}. Поза боєм «Слова жаху»{{Words of Terror}} — чудовий спосіб налякати НІПів. Умова про розмову тривалістю 1 хвилина досить коротка, щоб її виконала навіть чемна розмова з незнайомцем, як-от спитати дорогу чи розрахуватися в крамниці. Якщо істота на цілу годину стане [[1|Наляканою]] вами, їй буде складно проходити перевірки характеристик і пересуватися, що може дуже ускладнити для неї соціальну ситуацію. Памʼятайте: Перешкода на перевірку характеристики також зменшує пасивний показник навички істоти на 5, тож пасивні показники Аналізу поведінки й Уважності наляканої істоти вам легко перевершити. Налякайте істоту, а потім збрешіть їй. З Експертизою{{Expertise}} та високою Харизмою ви майже напевно досягнете успіху.
 
 ### block-section-levels-1/row/3/0 · комірка таблиці · без оцінки
 

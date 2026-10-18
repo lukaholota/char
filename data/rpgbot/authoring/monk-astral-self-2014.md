@@ -251,7 +251,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wisdom of the Spirit: Time to take your magical punch ghost into a social situation? Here you go. Insight is likely the only contribution you’ll be making to conversations since nearly every monk dumps Charisma. Monks are too MAD to invest any serious resources outside of Dex/Con/Wis.
 
 **Українською:**
-{{Мудрість духу|Wisdom of the Spirit}}: час забрати свого магічного привида-кулака в соціальну ситуацію? Прошу. Аналіз Поведінки — імовірно, єдиний ваш внесок у розмови, бо майже кожен Монах занедбує Харизму. Монахи надто залежні від багатьох характеристик (MAD), щоб вкладати серйозні ресурси за межами Спритності/Статури/Мудрості.
+{{Мудрість духу|Wisdom of the Spirit}}: час забрати свого магічного привида-кулака в соціальну ситуацію? Прошу. Аналіз поведінки — імовірно, єдиний ваш внесок у розмови, бо майже кожен Монах занедбує Харизму. Монахи надто залежні від багатьох характеристик (MAD), щоб вкладати серйозні ресурси за межами Спритності/Статури/Мудрості.
 
 ### block-section-features-1/item/4 · пункт · rating-orange
 
@@ -918,7 +918,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Dhampir gives us any two skills, so we take Insight and Perception, while Monk gives us another two, where we take Athletics and Stealth. From our Background, Survival and Sleight of Hand would be fine choices since our mixture of Stealth and Climb Speed are great for infiltration tasks.
 
 **Українською:**
-Дампір дає нам будь-які дві навички, тож беремо Аналіз Поведінки й Уважність, а Монах дає ще дві, де ми беремо Атлетику й Непомітність. Від передісторії добрим вибором були б Виживання та Спритність рук, бо наше поєднання Непомітності й швидкості лазіння чудове для завдань проникнення.
+Дампір дає нам будь-які дві навички, тож беремо Аналіз поведінки й Уважність, а Монах дає ще дві, де ми беремо Атлетику й Непомітність. Від передісторії добрим вибором були б Виживання та Спритність рук, бо наше поєднання Непомітності й швидкості лазіння чудове для завдань проникнення.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->
@@ -1111,7 +1111,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Our unarmed attacks count as magic to beat resistances. We now have the second part of our Astral Self. This is mostly a utility upgrade. Advantage on Intimidation and Insight is okay and Super Whispering and Shouting is comical but also has useful applications. Astral Sight however, is the Devil’s Sight Invocation, and not figuratively but literally word for word the same functionality. This can allow us some team synergy if we’re working alongside a Ball of Darkness Warlock.
 
 **Українською:**
-Наші удари без зброї рахуються магічними, щоб долати опори. Тепер у нас є друга частина астрального «я». Це здебільшого допоміжне покращення. Перевага на кубику на Залякування й Аналіз Поведінки — нормально, а надшепіт і надкрик кумедні, але мають і корисні застосування. «Астральний зір» — це виклик «Зір диявола», причому не образно, а буквально слово в слово та сама функція. Це може дати нам синергію з командою, якщо ми працюємо поруч із Чорнокнижником із кулею темряви.
+Наші удари без зброї рахуються магічними, щоб долати опори. Тепер у нас є друга частина астрального «я». Це здебільшого допоміжне покращення. Перевага на кубику на Залякування й Аналіз поведінки — нормально, а надшепіт і надкрик кумедні, але мають і корисні застосування. «Астральний зір» — це виклик «Зір диявола», причому не образно, а буквально слово в слово та сама функція. Це може дати нам синергію з командою, якщо ми працюємо поруч із Чорнокнижником із кулею темряви.
 
 ### block-section-levels-1/row/6/0 · комірка таблиці · без оцінки
 

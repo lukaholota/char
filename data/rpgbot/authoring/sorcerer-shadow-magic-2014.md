@@ -310,7 +310,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wis: Perception and Insight.
 
 **Українською:**
-Мудрість{{Wis}}: Уважність і Аналіз Поведінки.
+Мудрість{{Wis}}: Уважність і Аналіз поведінки.
 
 ### block-section-shadow-magic-origin-ability-scores-7 · абзац · rating-blue
 
@@ -862,7 +862,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Our first level is going to be Fighter for Heavy Armor and Shield proficiency, which means we have to pick off the Fighter list at first level. Well conveniently, Fighters can pick Intimidate and Insight. Because we’re getting Insight from our class, when taking Coutier we get to replace Insight with any skill. This allows us to pick Deception while the background also grants us Persuasion.
 
 **Українською:**
-Наш перший рівень буде Воїном — заради володіння важкими обладунками й щитами, а це означає, що на першому рівні навички доведеться обирати зі списку Воїна. На щастя, Воїн може обрати Залякування й Аналіз Поведінки. Оскільки Аналіз Поведінки ми отримуємо від класу, то з Придворним{{Courtier}} можемо замінити Аналіз Поведінки на будь-яку навичку. Це дозволяє нам обрати Обман, тоді як передісторія ще й дає Переконання.
+Наш перший рівень буде Воїном — заради володіння важкими обладунками й щитами, а це означає, що на першому рівні навички доведеться обирати зі списку Воїна. На щастя, Воїн може обрати Залякування й Аналіз поведінки. Оскільки Аналіз поведінки ми отримуємо від класу, то з Придворним{{Courtier}} можемо замінити Аналіз поведінки на будь-яку навичку. Це дозволяє нам обрати Обман, тоді як передісторія ще й дає Переконання.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 
@@ -889,7 +889,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Fifth level, Sorcerer 4: Skill Expert (+1 Charisma). We actually have options here based on the rest of the party. If nobody else in the party is good at Insight, we’re taking Expertise in that because we need to be on par with that skill as the Face. If someone else will cover that during negotiations, we can take the Expertise in one of our other Face skills depending on exactly how we want to lean. For the sake of being a horrible goose, this example took Deception expertise. The skill we learn is mostly up to preference, but we’re taking Acrobatics because we live the motto “the goose is loose.”
 
 **Українською:**
-5-й рівень, Чародій 4: «Експерт у навичках»{{Skill Expert}} (+1 до Харизми). Тут у нас насправді є варіанти залежно від решти групи. Якщо ніхто більше в групі не добрий в Аналізі Поведінки, беремо в ньому Експертизу, бо як «обличчю» нам потрібно бути на рівні в цій навичці. Якщо хтось інший прикриє це під час перемовин, можемо взяти Експертизу в одній з інших наших навичок «обличчя» залежно від того, куди саме хочемо зміщувати акцент. Заради образу жахливого гусака цей приклад узяв Експертизу в Обмані. Навичка, яку ми вивчаємо, здебільшого залежить від уподобань, але ми беремо Акробатику, бо живемо за гаслом «гусак на волі».
+5-й рівень, Чародій 4: «Експерт у навичках»{{Skill Expert}} (+1 до Харизми). Тут у нас насправді є варіанти залежно від решти групи. Якщо ніхто більше в групі не добрий в Аналізі поведінки, беремо в ньому Експертизу, бо як «обличчю» нам потрібно бути на рівні в цій навичці. Якщо хтось інший прикриє це під час перемовин, можемо взяти Експертизу в одній з інших наших навичок «обличчя» залежно від того, куди саме хочемо зміщувати акцент. Заради образу жахливого гусака цей приклад узяв Експертизу в Обмані. Навичка, яку ми вивчаємо, здебільшого залежить від уподобань, але ми беремо Акробатику, бо живемо за гаслом «гусак на волі».
 
 ### block-section-feats-3 · абзац · без оцінки
 
@@ -962,7 +962,7 @@ RPGbot використовує кольорову шкалу, яку легко
 – Ріг
 Навички:
 – Обман
-– Аналіз Поведінки
+– Аналіз поведінки
 – Залякування
 – Переконання
 

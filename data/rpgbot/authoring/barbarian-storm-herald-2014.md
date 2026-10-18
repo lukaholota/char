@@ -601,7 +601,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Our background matters very little to the build, but I recommend something that doesn’t overlap with the Barbarian’s list of class skills since we’ll already get a total of 4 of those. Getting Insight would help you contribute to social situations, and Stealth is decent on a Barbarian.
 
 **Українською:**
-Наша передісторія дуже мало впливає на збірку, але я раджу щось, що не перетинається зі списком класових навичок Варвара, бо ми вже отримаємо 4 з них. Отримання Аналізу Поведінки допоможе вам вносити вклад у соціальні ситуації, а Непомітність непогана для Варвара.
+Наша передісторія дуже мало впливає на збірку, але я раджу щось, що не перетинається зі списком класових навичок Варвара, бо ми вже отримаємо 4 з них. Отримання Аналізу поведінки допоможе вам вносити вклад у соціальні ситуації, а Непомітність непогана для Варвара.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->

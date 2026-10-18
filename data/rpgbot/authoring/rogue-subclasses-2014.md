@@ -298,7 +298,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Infiltration Expertise: Rules as Written, Surprised is Stealth versus Perception, but Surprised is also up to the DM. If you’re playing an Assassin (or if you have an Assassin player in your game), I would suggest that Deception versus Insight is equally valid for imposing Surprise. You’re not a band of murder hobos, you’re a humble merchant and this is your staff. And then you Surprise them with murder. Obviously this is only useful if your campaign has situations where lying like this will be helpful. Many campaigns just don’t have situations where you can be an operative on the inside.
 
 **Українською:**
-Майстерність проникнення{{Infiltration Expertise}}: за правилами «як написано» стан «застигнутий зненацька» — це Непомітність проти Уважності, але це також залежить від Майстра. Якщо ви граєте Убивцю (чи якщо у вашій грі є гравець-Убивця), я б запропонував, що Обман проти Аналізу Поведінки так само чинний для накладання раптовості. Ви не банда вбивць-волоцюг, ви скромний купець, а це ваш персонал. А тоді ви застаєте їх зненацька вбивством.
+Майстерність проникнення{{Infiltration Expertise}}: за правилами «як написано» стан «застигнутий зненацька» — це Непомітність проти Уважності, але це також залежить від Майстра. Якщо ви граєте Убивцю (чи якщо у вашій грі є гравець-Убивця), я б запропонував, що Обман проти Аналізу поведінки так само чинний для накладання раптовості. Ви не банда вбивць-волоцюг, ви скромний купець, а це ваш персонал. А тоді ви застаєте їх зненацька вбивством.
 
 Очевидно, це корисно лише якщо у вашій кампанії є ситуації, де така брехня допоможе. У багатьох кампаніях просто немає ситуацій, де можна бути оперативником всередині.
 
@@ -327,7 +327,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > If you want to be really good at Insight and Perception, this is the way to do it. Combined with Expertise there’s no one who could reasonably compete with the Inquisitive’s powers of perception.
 
 **Українською:**
-Якщо ви хочете бути справді добрим в Аналізі Поведінки й Уважності, це шлях. У поєднанні з «Експертизою»{{Expertise}} ніхто не зможе розумно змагатися з силою сприйняття Допитливого.
+Якщо ви хочете бути справді добрим в Аналізі поведінки й Уважності, це шлях. У поєднанні з «Експертизою»{{Expertise}} ніхто не зможе розумно змагатися з силою сприйняття Допитливого.
 
 ### block-section-inquisitive-2 · абзац · без оцінки
 
@@ -348,7 +348,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Ear for Deceit: This only applies to Wisdom (Insight) check to determine if a creature is lying, and while it’s nice to have that level of insurance, it’s still only situationally useful and it’s easy to misread this and assume that it applies to Eye for Detail and Insightful Fighting.
 
 **Українською:**
-Нюх на брехню{{Ear for Deceit}}: стосується лише перевірок Мудрості (Аналіз Поведінки) для визначення, чи бреше істота, і хоч приємно мати такий рівень страховки, це все одно лише ситуативно корисно, а ще це легко неправильно зрозуміти й припустити, що воно застосовується до «Ока на деталі»{{Eye for Detail}} та «Проникливого бою».
+Нюх на брехню{{Ear for Deceit}}: стосується лише перевірок Мудрості (Аналіз поведінки) для визначення, чи бреше істота, і хоч приємно мати такий рівень страховки, це все одно лише ситуативно корисно, а ще це легко неправильно зрозуміти й припустити, що воно застосовується до «Ока на деталі»{{Eye for Detail}} та «Проникливого бою».
 
 ### block-section-inquisitive-4/item/1 · пункт · rating-orange
 
@@ -362,7 +362,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Insightful Fighting: I hope you took Expertise with Insight, because it’s your signature feature and if you can’t reliably pass this check you’re basically back to core rogue features in combat. The effect lasts for a full minute so you have plenty of time to benefit without repeatedly spending your Bonus Action on the same target. Even if you lose the opposed check, you can try again the following round, and the every round after that until you succeed. Of course, if you have another ally fighting your target in melee, this gets you absolutely nothing. Compare this to the Steady Aim Optional Class Feature: Steady Aim is a Bonus Action, doesn’t require a check that you might fail, and grants Advantage on your attack rather than simply enabling you to use Sneak Attack. Insightful Fighting lasts for a full minute, but only if you don’t change targets.
 
 **Українською:**
-Проникливий бій{{Insightful Fighting}}: сподіваюся, ви взяли «Експертизу» в Аналізі Поведінки, бо це ваше визначальне уміння, і якщо ви не можете стабільно проходити цю перевірку, у бою ви, по суті, повертаєтеся до базових умінь Пройдисвіта. Ефект триває цілу хвилину, тож у вас вдосталь часу скористатися ним, не витрачаючи повторно бонусну дію на ту саму ціль. Навіть якщо ви програли змагальну перевірку, можна спробувати знову наступного раунду, і кожного наступного, поки не вдасться.
+Проникливий бій{{Insightful Fighting}}: сподіваюся, ви взяли «Експертизу» в Аналізі поведінки, бо це ваше визначальне уміння, і якщо ви не можете стабільно проходити цю перевірку, у бою ви, по суті, повертаєтеся до базових умінь Пройдисвіта. Ефект триває цілу хвилину, тож у вас вдосталь часу скористатися ним, не витрачаючи повторно бонусну дію на ту саму ціль. Навіть якщо ви програли змагальну перевірку, можна спробувати знову наступного раунду, і кожного наступного, поки не вдасться.
 
 Звісно, якщо інший союзник бʼється з вашою ціллю в ближньому бою, це не дасть вам абсолютно нічого. Порівняйте це з додатковим класовим умінням «Стійке прицілювання»{{Steady Aim}}: воно — бонусна дія, не вимагає перевірки, яку можна провалити, й дає Перевагу на вашу атаку, а не просто дозволяє користуватися «Підступною атакою». «Проникливий бій» триває цілу хвилину, але лише якщо ви не змінюєте цілей.
 

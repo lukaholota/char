@@ -539,7 +539,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Cloistered Scholar or Sage. The features of either arguably improve our ability to find somewhere to add spells to our spellbook, which might be the first time on this site that we’ve ever found a way to make background features matter. We’ll customize the background (yes, that’s allowed an in the PHB) to replace the skills with Insight and Perception, and we’ll keep the two languages from either background.
 
 **Українською:**
-Замкнений учений{{Cloistered Scholar}} або Мудрець{{Sage}}. Уміння будь-якого з них, імовірно, покращують нашу здатність знайти, де додати заклинання до книги заклинань, що, можливо, вперше на цьому сайті показує, як змусити уміння передісторій мати значення. Ми налаштуємо передісторію (так, це дозволено в PHB), замінивши навички на Аналіз Поведінки й Уважність, і збережемо дві мови від будь-якої з передісторій.
+Замкнений учений{{Cloistered Scholar}} або Мудрець{{Sage}}. Уміння будь-якого з них, імовірно, покращують нашу здатність знайти, де додати заклинання до книги заклинань, що, можливо, вперше на цьому сайті показує, як змусити уміння передісторій мати значення. Ми налаштуємо передісторію (так, це дозволено в PHB), замінивши навички на Аналіз поведінки й Уважність, і збережемо дві мови від будь-якої з передісторій.
 
 ### block-section-background-2 · абзац · без оцінки
 
@@ -559,7 +559,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll take Arcana and Investigation from wizard. We can use Arcana for identifying spells in combat, Perception is a crucial defense, Insight is a good passive skill in social situations, and Investigation will help us do things like finding traps since the spell Find Traps isn’t a wizard spell.
 
 **Українською:**
-Від чарівника беремо Магію й Розслідування. Магію можна використовувати для розпізнавання заклинань у бою, Уважність — ключовий захист, Аналіз Поведінки — добра пасивна навичка в соціальних ситуаціях, а Розслідування допоможе робити такі речі, як пошук пасток, бо заклинання Пошук пасток [Find Traps] не є заклинанням чарівника.
+Від чарівника беремо Магію й Розслідування. Магію можна використовувати для розпізнавання заклинань у бою, Уважність — ключовий захист, Аналіз поведінки — добра пасивна навичка в соціальних ситуаціях, а Розслідування допоможе робити такі речі, як пошук пасток, бо заклинання Пошук пасток [Find Traps] не є заклинанням чарівника.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

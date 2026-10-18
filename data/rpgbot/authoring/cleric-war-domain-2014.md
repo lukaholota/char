@@ -866,7 +866,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From Cleric, we take Insight, because it’s the only really useful Wisdom skill on our class list, and Religion to know the Undead. We’re not really great in the skill department, but that’s not really our job anyway.
 
 **Українською:**
-Від Клірика беремо Аналіз Поведінки, бо це єдина по-справжньому корисна навичка Мудрості в нашому класовому списку, і Релігію, щоб знати нежить. З навичками в нас не дуже, але це, власне, і не наша робота.
+Від Клірика беремо Аналіз поведінки, бо це єдина по-справжньому корисна навичка Мудрості в нашому класовому списку, і Релігію, щоб знати нежить. З навичками в нас не дуже, але це, власне, і не наша робота.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

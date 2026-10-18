@@ -761,7 +761,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Faction agent. We’ll be a member of the Tri-Lamb fraternal order of shepherds. That gets us proficiency in Insight, one Charisma-based skill, and two languages.
 
 **Українською:**
-Агент фракції{{Faction Agent}}. Ми будемо членами братського ордену пастухів «Три-Ягняти»{{Tri-Lamb}}. Це дає нам володіння Аналізом Поведінки, однією навичкою на основі Харизми й двома мовами.
+Агент фракції{{Faction Agent}}. Ми будемо членами братського ордену пастухів «Три-Ягняти»{{Tri-Lamb}}. Це дає нам володіння Аналізом поведінки, однією навичкою на основі Харизми й двома мовами.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->
@@ -774,7 +774,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > For our two class skills, we’ll take Nature and Perception. We get Performance and Persuasion from our race. We get Insight and a Charisma-based skill from our background, so we’ll take Deception so that we can fleece people. We’ll look disapprovingly at Animal Handling, the black sheep of skills.
 
 **Українською:**
-Для двох класових навичок беремо Природу й Уважність. Виступ і Переконання отримуємо від раси. Від передісторії отримуємо Аналіз Поведінки й навичку на основі Харизми, тож беремо Обман, щоб було чим стригти людей. Ми з осудом поглядатимемо на Поводження з тваринами — паршиву вівцю серед навичок.
+Для двох класових навичок беремо Природу й Уважність. Виступ і Переконання отримуємо від раси. Від передісторії отримуємо Аналіз поведінки й навичку на основі Харизми, тож беремо Обман, щоб було чим стригти людей. Ми з осудом поглядатимемо на Поводження з тваринами — паршиву вівцю серед навичок.
 
 ### block-section-skills-and-tools-2 · абзац · без оцінки
 

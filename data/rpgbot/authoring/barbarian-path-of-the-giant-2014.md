@@ -301,7 +301,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wis: Perception, Insight, and other related checks and saves are good to be good at. So if you do have points for it then you can be aware so you don’t get Clobbered.
 
 **Українською:**
-Мудрість{{Wis}}: Уважність, Аналіз Поведінки та інші повʼязані перевірки й ряткидки — добре бути в них добрим. Тож якщо у вас є очки на неї, ви можете бути уважним, і вас не розтрощать.
+Мудрість{{Wis}}: Уважність, Аналіз поведінки та інші повʼязані перевірки й ряткидки — добре бути в них добрим. Тож якщо у вас є очки на неї, ви можете бути уважним, і вас не розтрощать.
 
 ### block-section-ability-scores-7 · абзац · rating-red
 

@@ -869,7 +869,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We get Perception from our race, Sleight of Hand, Stealth, and Thieve’s tools from our background, and we’ll take Insight and Survival from our class. Survival is borderline useless, but we dumped Intelligence and Strength, so our options aren’t great.
 
 **Українською:**
-Уважність ми отримуємо від раси, Спритність рук, Непомітність та інструменти злодія — від передісторії, а Аналіз Поведінки й Виживання візьмемо від класу. Виживання майже марне, але ми скинули Інтелект і Силу, тож варіанти у нас невеликі.
+Уважність ми отримуємо від раси, Спритність рук, Непомітність та інструменти злодія — від передісторії, а Аналіз поведінки й Виживання візьмемо від класу. Виживання майже марне, але ми скинули Інтелект і Силу, тож варіанти у нас невеликі.
 
 ## Feats
 <!-- sectionId: section-feats-2; rating: none -->

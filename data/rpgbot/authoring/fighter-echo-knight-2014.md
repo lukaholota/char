@@ -739,7 +739,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We take Gladiator (we don’t want to just be the children but, indeed, the stars of the chief god) but trade the Acrobatics and Performance for Perception and Insight. Gotta be able to see and intuit what your opponents are doing. Then trade the Disguise Kit proficiency for Cartographer’s Tools so you can be the guardians of navigation and prevent sailors from crashing into things.
 
 **Українською:**
-Беремо Гладіатора (ми не хочемо бути просто дітьми, а справді зірками головного бога), але міняємо Акробатику й Виступ на Уважність і Аналіз Поведінки. Треба вміти бачити й розуміти, що роблять супротивники. Потім міняємо володіння Набором для маскування на Інструменти картографа, щоб бути охоронцями навігації й не давати морякам на щось налітати.
+Беремо Гладіатора (ми не хочемо бути просто дітьми, а справді зірками головного бога), але міняємо Акробатику й Виступ на Уважність і Аналіз поведінки. Треба вміти бачити й розуміти, що роблять супротивники. Потім міняємо володіння Набором для маскування на Інструменти картографа, щоб бути охоронцями навігації й не давати морякам на щось налітати.
 
 ## Skills and Tools
 <!-- sectionId: section-skills-and-tools; rating: none -->

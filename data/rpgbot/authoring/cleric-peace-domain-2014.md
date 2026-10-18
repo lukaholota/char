@@ -266,7 +266,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Implement of Peace: A free skill is always welcome. Insight is typically a great choice for the Cleric since it’s Wisdom-based, but Persuasion is also very helpful.
 
 **Українською:**
-{{Знаряддя миру|Implement of Peace}}: безкоштовна навичка завжди доречна. Аналіз Поведінки зазвичай чудовий вибір для Клірика, бо він базується на Мудрості, але Переконання теж дуже корисне.
+{{Знаряддя миру|Implement of Peace}}: безкоштовна навичка завжди доречна. Аналіз поведінки зазвичай чудовий вибір для Клірика, бо він базується на Мудрості, але Переконання теж дуже корисне.
 
 ### block-section-features-1/item/7 · пункт · rating-blue
 
@@ -907,7 +907,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We chose the Acolyte background. Normally this gives Insight and Religion, but as we’re getting those from Peace and Cleric, they can be freely swapped to any skill. Perception and Survival are good matches to our high Wisdom score.
 
 **Українською:**
-Ми обрали передісторію Послушника{{Acolyte}}. Зазвичай вона дає Аналіз Поведінки й Релігію, але оскільки ми отримуємо їх від Домену миру й Клірика, їх можна вільно замінити на будь-які навички. Уважність і Виживання — добре поєднуються з нашою високою Мудрістю.
+Ми обрали передісторію Послушника{{Acolyte}}. Зазвичай вона дає Аналіз поведінки й Релігію, але оскільки ми отримуємо їх від Домену миру й Клірика, їх можна вільно замінити на будь-які навички. Уважність і Виживання — добре поєднуються з нашою високою Мудрістю.
 
 ### block-section-background-2 · абзац · без оцінки
 
@@ -927,7 +927,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > From Cleric, we take History and Religion. Peace gives us a few options as well: we’re taking Insight. Acolyte gives us Perception and Survival.
 
 **Українською:**
-Від Клірика беремо Історію й Релігію. Домен миру теж дає кілька варіантів: беремо Аналіз Поведінки. Послушник дає Уважність і Виживання.
+Від Клірика беремо Історію й Релігію. Домен миру теж дає кілька варіантів: беремо Аналіз поведінки. Послушник дає Уважність і Виживання.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

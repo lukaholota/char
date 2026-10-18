@@ -701,7 +701,7 @@ f
 > City Watch[[1|SCAG]]: Athletics is great, Insight may be a hard choice and you won’t get much from the ability to speak two languages with your garbage Charisma.
 
 **Українською:**
-Міська варта{{City Watch}} [[1|SCAG]]: Атлетика чудова, Аналіз Поведінки може бути складним вибором, а від можливості говорити двома мовами з вашою жахливою Харизмою користі буде небагато.
+Міська варта{{City Watch}} [[1|SCAG]]: Атлетика чудова, Аналіз поведінки може бути складним вибором, а від можливості говорити двома мовами з вашою жахливою Харизмою користі буде небагато.
 
 ### block-section-background-4/item/1 · пункт · rating-orange
 

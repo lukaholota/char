@@ -844,7 +844,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Wayfarer gives us Insight, Stealth, and Thieves’ tools, ideal for the Scout role we’re poised to fulfill. We’ll also pick up Acrobatics and Athletics from our class and Perception from our Species, rounding us out into a decently balanced character.
 
 **Українською:**
-Мандрівник дає Аналіз Поведінки, Непомітність і володіння злодійськими інструментами — саме те для ролі розвідника. Від класу беремо Акробатику й Атлетику, від виду — Уважність. Так виходить досить збалансований персонаж.
+Мандрівник дає Аналіз поведінки, Непомітність і володіння злодійськими інструментами — саме те для ролі розвідника. Від класу беремо Акробатику й Атлетику, від виду — Уважність. Так виходить досить збалансований персонаж.
 
 ## Feats and Ability Score Increases
 <!-- sectionId: section-feats-and-ability-score-increases -->

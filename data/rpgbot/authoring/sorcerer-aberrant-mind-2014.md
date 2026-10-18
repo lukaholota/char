@@ -732,7 +732,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Since we’ll be capping Charisma and have a passable Dexterity, it makes sense to grab Intimidation and Persuasion from the class, Insight and Deception from Faction Agent, and use the Warforged proficiencies to round us out with Arcana and Thieves’ Tools so we can be a backup for if the Rogue is incapacitated.
 
 **Українською:**
-Оскільки ми доведемо Харизму до максимуму, а Спритність у нас пристойна, є сенс узяти Залякування й Переконання від класу, Аналіз Поведінки й Обман від Агента фракції{{Faction Agent}}, а володіннями Воєнокованого{{Warforged}} завершимо картину: Магія й інструменти злодія{{Thieves’ Tools}}, щоб ми могли підстрахувати групу, якщо Пройдисвіт стане Недієздатним.
+Оскільки ми доведемо Харизму до максимуму, а Спритність у нас пристойна, є сенс узяти Залякування й Переконання від класу, Аналіз поведінки й Обман від Агента фракції{{Faction Agent}}, а володіннями Воєнокованого{{Warforged}} завершимо картину: Магія й інструменти злодія{{Thieves’ Tools}}, щоб ми могли підстрахувати групу, якщо Пройдисвіт стане Недієздатним.
 
 ## Feats
 <!-- sectionId: section-feats; rating: none -->

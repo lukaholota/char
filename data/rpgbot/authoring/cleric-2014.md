@@ -853,7 +853,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Insight (Wis): Helpful for a Face, and you have the Wisdom to back it up. Since many Faces tend to have low Wisdom, it’s a very good idea for you to pick this up.
 
 **Українською:**
-{{Аналіз Поведінки|Insight}} (Мудрість): корисний для «обличчя», а Мудрості для цього у вас вистачає. Оскільки в багатьох «облич» Мудрість зазвичай низька, вам дуже варто це взяти.
+{{Аналіз поведінки|Insight}} (Мудрість): корисний для «обличчя», а Мудрості для цього у вас вистачає. Оскільки в багатьох «облич» Мудрість зазвичай низька, вам дуже варто це взяти.
 
 ### block-section-skills-1/item/2 · пункт · rating-red
 
@@ -894,7 +894,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Clerics have high Wisdom, so skills like Insight and Perception are helpful, but other skills will be of varying usefulness depending on your ability scores.
 
 **Українською:**
-У Кліриків висока Мудрість, тож навички на кшталт Аналізу Поведінки та Уважності корисні, а решта навичок матимуть різну користь залежно від ваших характеристик.
+У Кліриків висока Мудрість, тож навички на кшталт Аналізу поведінки та Уважності корисні, а решта навичок матимуть різну користь залежно від ваших характеристик.
 
 ### block-section-background-3 · абзац · без оцінки
 
@@ -908,14 +908,14 @@ RPGbot використовує кольорову шкалу, яку легко
 > Acolyte[[1|PHB]]: The default Cleric background, and it’s a solid choice. Insight is great for Clerics and Religion is an obvious choice (though not particularly great since many Clerics dump Intelligence). Bonus languages are nice at low levels since Clerics don’t get Comprehend Languages, but they do get Tongues as a 3rd-level spell.
 
 **Українською:**
-Послушник{{Acolyte}} [[1|PHB]]: типова передісторія Клірика, і це надійний вибір. Аналіз Поведінки чудовий для Кліриків, а Релігія — очевидний вибір (хоч і не особливо чудовий, бо багато Кліриків занедбують Інтелект). Додаткові мови приємні на низьких рівнях, бо Клірики не отримують Розуміння мов [Comprehend Languages], зате отримують Мови [Tongues] як заклинання 3-го рівня.
+Послушник{{Acolyte}} [[1|PHB]]: типова передісторія Клірика, і це надійний вибір. Аналіз поведінки чудовий для Кліриків, а Релігія — очевидний вибір (хоч і не особливо чудовий, бо багато Кліриків занедбують Інтелект). Додаткові мови приємні на низьких рівнях, бо Клірики не отримують Розуміння мов [Comprehend Languages], зате отримують Мови [Tongues] як заклинання 3-го рівня.
 
 ### block-section-background-4/item/1 · пункт · rating-green
 
 > City Watch[[1|SCAG]]: Insight is great, but Athletics is hard for Clerics.
 
 **Українською:**
-Міська варта{{City Watch}} [[1|SCAG]]: Аналіз Поведінки чудовий, а от Атлетика для Кліриків важка.
+Міська варта{{City Watch}} [[1|SCAG]]: Аналіз поведінки чудовий, а от Атлетика для Кліриків важка.
 
 ### block-section-background-4/item/2 · пункт · rating-orange
 
@@ -929,7 +929,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Courtier[[1|SCAG]]: Insight and Persuasion are great if you get stuck playing the Face, and the bonus languages will be great until you can use Tongues.
 
 **Українською:**
-Придворний{{Courtier}} [[1|SCAG]]: Аналіз Поведінки й Переконання чудові, якщо вам випало грати «обличчя», а додаткові мови будуть чудовими, поки ви не зможете використовувати Мови [Tongues].
+Придворний{{Courtier}} [[1|SCAG]]: Аналіз поведінки й Переконання чудові, якщо вам випало грати «обличчя», а додаткові мови будуть чудовими, поки ви не зможете використовувати Мови [Tongues].
 
 ### block-section-background-4/item/4 · пункт · rating-orange
 
@@ -943,7 +943,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Faction Agent[[1|SCAG]]: Insight is great, and the free mental skill will let you pick up Perception or whatever other skill you decide you need. The bonus languages will be great until you can use Tongues.
 
 **Українською:**
-Агент фракції{{Faction Agent}} [[1|SCAG]]: Аналіз Поведінки чудовий, а безкоштовна розумова навичка дозволить узяти Уважність чи будь-яку іншу навичку, яка вам знадобиться. Додаткові мови будуть чудовими, поки ви не зможете використовувати Мови [Tongues].
+Агент фракції{{Faction Agent}} [[1|SCAG]]: Аналіз поведінки чудовий, а безкоштовна розумова навичка дозволить узяти Уважність чи будь-яку іншу навичку, яка вам знадобиться. Додаткові мови будуть чудовими, поки ви не зможете використовувати Мови [Tongues].
 
 ### block-section-background-4/item/6 · пункт · rating-green
 
@@ -964,7 +964,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > Hermit[[1|PHB]]: Medicine isn’t a terribly useful skill, but Medicine and Insight both capitalize on your Wisdom and the Herablism Kit allows you to make healing potions.
 
 **Українською:**
-Відлюдник{{Hermit}} [[1|PHB]]: Медицина — не надто корисна навичка, але і Медицина, і Аналіз Поведінки користуються вашою Мудрістю, а набір травника дозволяє виготовляти цілющі зілля.
+Відлюдник{{Hermit}} [[1|PHB]]: Медицина — не надто корисна навичка, але і Медицина, і Аналіз поведінки користуються вашою Мудрістю, а набір травника дозволяє виготовляти цілющі зілля.
 
 ### block-section-background-4/item/9 · пункт · rating-orange
 
@@ -2140,7 +2140,7 @@ RPGbot використовує кольорову шкалу, яку легко
 > We’ll take Insight and Persuasion. That positions us well to serve as a Face if no one else in the party has those capabilities. You might drop one of those skills in favor of Medicine, but Medicine is extremely limited and your healing capabilities come from your magic rather than your skills.
 
 **Українською:**
-Беремо Аналіз Поведінки й Переконання. Це добре готує нас до ролі «обличчя», якщо ні в кого іншого в групі цих умінь немає. Можна відмовитися від однієї з цих навичок на користь Медицини, але Медицина вкрай обмежена, а ваші лікувальні здібності походять із магії, а не з навичок.
+Беремо Аналіз поведінки й Переконання. Це добре готує нас до ролі «обличчя», якщо ні в кого іншого в групі цих умінь немає. Можна відмовитися від однієї з цих навичок на користь Медицини, але Медицина вкрай обмежена, а ваші лікувальні здібності походять із магії, а не з навичок.
 
 ## Background
 <!-- sectionId: section-background-1; rating: none -->
