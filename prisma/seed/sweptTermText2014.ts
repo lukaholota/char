@@ -1,6 +1,7 @@
 import type { PrismaClient, Subclasses } from "@prisma/client";
 import { readInfusionFeatureSeedInputs } from "./infusionFeaturesSeed";
 import { readRaceFeatureSeedInputs } from "./raceFeatureSeed";
+import { readSubraceFeatureSeedInputs } from "./subraceFeatureSeed";
 import { readSubclassFeatureSeedInputs } from "./subclassFeatureSeed";
 import { readSubclassSeedInputs } from "./subclassSeed";
 
@@ -85,6 +86,8 @@ const SWEPT_FEATURES_2014 = [
   "Bonus Proficiency (Samurai)",
   "Implement of Peace",
   "Mantle of Whispers",
+  /// Риса блідого ельфа: у базі ще «Історії [Investigation]» замість «Розслідування» — власник погодив (2026-10-18).
+  "Incisive Sense",
 ] as const;
 
 /// Фанатика тут більше немає: його опис звірено з джерелом і везе `seed:catalog-prose-2014` (KR33.7).
@@ -172,7 +175,7 @@ async function findSubclassDrift(prisma: PrismaClient): Promise<SweptTextChange[
 
 function readSweptFeatures(): { engName: string; name: string; shortDescription: string; description: string }[] {
   const swept = new Set<string>(SWEPT_FEATURES_2014);
-  const found = [...readSubclassFeatureSeedInputs(), ...readInfusionFeatureSeedInputs(), ...readRaceFeatureSeedInputs()]
+  const found = [...readSubclassFeatureSeedInputs(), ...readInfusionFeatureSeedInputs(), ...readRaceFeatureSeedInputs(), ...readSubraceFeatureSeedInputs()]
     .filter((input) => swept.has(input.engName))
     .map((input) => ({
       engName: input.engName,

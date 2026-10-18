@@ -13,7 +13,7 @@ function buildEmptyDatabase(): PrismaClient {
 }
 
 describe("білий список зведеного тексту 2014", () => {
-  it("кожне імʼя знаходиться в сідах фіч підкласів, вливань і рас", async () => {
+  it("кожне імʼя знаходиться в сідах фіч підкласів, вливань, рас і підрас", async () => {
     await expect(findSweptTextDrift(buildEmptyDatabase())).resolves.toEqual([]);
   });
 });
