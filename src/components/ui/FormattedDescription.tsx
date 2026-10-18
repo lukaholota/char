@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 import { expandGlossaryMarkersToHtml } from "@/lib/refs/glossary-marker";
+import { stripProseIndent } from "@/lib/markdown-prose-indent";
 import { GlossaryTerm } from "@/components/ui/GlossaryTerm";
 import { findSpellLinkInHref } from "@/lib/spell-link";
 import { SpellAnchor } from "@/components/ui/SpellAnchor";
@@ -136,7 +137,7 @@ export const FormattedDescription = React.memo(function FormattedDescription({
           abbr: ({ title, children }) => <GlossaryTerm original={title ?? ""}>{children}</GlossaryTerm>,
         }}
       >
-        {expandGlossaryMarkersToHtml(preserveSingleLineBreaks(content))}
+        {expandGlossaryMarkersToHtml(preserveSingleLineBreaks(stripProseIndent(content ?? "")))}
       </ReactMarkdown>
     </div>
   );

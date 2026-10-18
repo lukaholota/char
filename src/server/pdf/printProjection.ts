@@ -3,13 +3,14 @@ import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 
+import { stripProseIndent } from "@/lib/markdown-prose-indent";
 import { stripGlossaryMarkers } from "@/lib/refs/glossary-marker";
 
 const HTML_LINK = /<a\b[^>]*>([\s\S]*?)<\/a>/gi;
 const MARKDOWN_LINK = /(?<!!)\[([^\]]+)\]\([^)\s]+\)/g;
 
 export function preparePrintableMarkdown(markdown: string): string {
-  return stripLinks(stripGlossaryMarkers(markdown));
+  return stripLinks(stripGlossaryMarkers(stripProseIndent(markdown)));
 }
 
 function stripLinks(text: string): string {
