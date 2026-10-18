@@ -19,6 +19,7 @@ import { Badge } from "@/components/ui/badge";
 
 import { ReactNode } from "react";
 import type { EntityRef } from "@/lib/optimization/types";
+import type { RpgbotPlacement } from "@/lib/monitoring/rpgbot-analytics-model";
 import { FeatureAnalysis } from "@/components/optimization/FeatureAnalysis";
 import { SubclassAnalysisProvider } from "@/components/optimization/SubclassAnalysisContext";
 import { SubclassAnalysis } from "@/components/optimization/SubclassAnalysis";
@@ -30,6 +31,7 @@ import { CatalogCardContent } from "@/components/optimization/CatalogCardContent
 
 interface Props {
   analysisEntity?: EntityRef;
+  analysisPlacement?: RpgbotPlacement;
   subclass: any;
   triggerClassName?: string;
   trigger?: ReactNode;
@@ -40,6 +42,7 @@ export const SubclassInfoModal = ({
   triggerClassName,
   trigger,
   analysisEntity,
+  analysisPlacement = "creator",
 }: Props) => {
   const name = translateSubclassName(subclass.name);
   const source = subclass.legacySource ?? subclass.source;
@@ -56,9 +59,9 @@ export const SubclassInfoModal = ({
 
   const cardHref = buildClassCardHref(subclass.ruleset, subclass.classId, subclass.subclassId);
   const body = (
-      <SubclassAnalysisProvider entity={analysisEntity} placement="creator">
+      <SubclassAnalysisProvider entity={analysisEntity} placement={analysisPlacement}>
       <BranchCover src={getSubclassImagePath(subclass.name)} alt={name} sizes="(min-width: 640px) 560px, 100vw" />
-      {analysisEntity ? <SubclassAnalysis entity={analysisEntity} placement="creator" /> : null}
+      {analysisEntity ? <SubclassAnalysis entity={analysisEntity} placement={analysisPlacement} /> : null}
       <InfoGrid>
         <InfoPill
           label="Джерело"

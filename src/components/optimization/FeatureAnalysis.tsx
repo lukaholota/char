@@ -9,7 +9,7 @@ import { describeRating } from "@/lib/optimization/article-view";
 import { AnalystEye } from "./AnalystAvatar";
 import { ArticleBlock } from "./ArticleBlocks";
 import { InlineContent } from "./InlineContent";
-import { RatingBadge } from "./RatingBadge";
+import { RatingBadge, ScoreChip } from "./RatingBadge";
 import { SubclassAnalysisContext } from "./SubclassAnalysisContext";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useReadingDialogFocus } from "@/hooks/useReadingDialogFocus";
@@ -33,10 +33,12 @@ export function FeatureAnalysis({ featureKey, name, level }: { featureKey?: stri
 function BoundFeatureAnalysis({ feature, name, placement, subclass }: { feature: z.infer<typeof featureAnalysisSchema>; name: string; placement?: RpgbotPlacement; subclass?: EntityRef }) {
   const [open, setOpen] = useState(false);
   const focus = useReadingDialogFocus();
+  const rating = feature.rating ? describeRating(feature.rating) : null;
+  const label = rating?.score === undefined ? `Аналіз RPGbot: ${name}` : `Аналіз RPGbot: ${name}, ${rating.score} з 4, ${rating.label.toLowerCase()}`;
   return <>
-    <button type="button" aria-label={`Аналіз RPGbot: ${name}`} title={`Аналіз RPGbot: ${name}`} aria-haspopup="dialog"
-      onClick={(event) => { focus.rememberTrigger(event.currentTarget); setOpen(true); captureRpgbotEvent("rpgbot_feature_analysis_opened", { placement, feature_key: feature.binding.entity.entityKey, subclass_key: subclass?.entityKey, class_key: subclass?.parentKey, rating_score: feature.rating?.score }); }} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-slate-300 hover:bg-white/5">
-      <AnalystEye tone={feature.rating ? describeRating(feature.rating).tone : "none"} />
+    <button type="button" aria-label={label} title={label} aria-haspopup="dialog"
+      onClick={(event) => { focus.rememberTrigger(event.currentTarget); setOpen(true); captureRpgbotEvent("rpgbot_feature_analysis_opened", { placement, feature_key: feature.binding.entity.entityKey, subclass_key: subclass?.entityKey, class_key: subclass?.parentKey, rating_score: feature.rating?.score }); }} className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg px-1 text-slate-300 hover:bg-white/5">
+      {rating?.score === undefined ? <AnalystEye tone="none" /> : <ScoreChip rating={rating} eyeClassName="[@container(min-width:30rem)]:block" labelClassName="[@container(min-width:20rem)]:inline" />}
     </button>
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent {...focus.dialogProps} className="max-h-[90dvh] w-[calc(100vw-2rem)] max-w-2xl overflow-y-auto text-sm leading-relaxed text-slate-300">

@@ -1132,6 +1132,7 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
             cls={selectedClass as unknown as ClassI}
             formId="subclass-form"
             onNextDisabledChange={onNextDisabledChange}
+            analysisPlacement="levelup"
           />
         );
       case "class-choices":

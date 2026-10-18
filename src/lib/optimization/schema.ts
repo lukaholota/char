@@ -177,6 +177,7 @@ export const featureAnalysisSchema = z.object({
 });
 export const slicePreviewSchema = z.object({
   binding: bindingSchema, slug: idSchema, title: text, href, guideHref: href.nullable().default(null),
+  intro: text.nullable().default(null),
   rating: ratingSchema.optional(),
   builds: z.array(z.object({ buildId: idSchema, title: text, guideHref: href })),
   features: z.array(featureAnalysisSchema).default([]),

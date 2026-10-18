@@ -3,17 +3,17 @@
 import { ModeLink } from "@/components/no-ai/ModeLink";
 
 import { useEffect, useRef, useState } from "react";
-import type { EntityRef, ArticleDocument } from "@/lib/optimization/types";
+import type { AnalysisRating, EntityRef, ArticleDocument } from "@/lib/optimization/types";
 import { describeRating } from "@/lib/optimization/article-view";
 import { documentSchema } from "@/lib/optimization/schema";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { findEditionAccent } from "@/styles/edition-accent";
 import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
 import { buildRpgbotCtaProps, type RpgbotPlacement } from "@/lib/monitoring/rpgbot-analytics-model";
 import { useRpgbotSurfaceView } from "@/lib/monitoring/use-rpgbot-surface-view";
 import { AnalystAvatar } from "./AnalystAvatar";
 import { ModalArticle } from "./ModalArticle";
-import { RatingBadge } from "./RatingBadge";
+import { RatingBadge, ScoreChip } from "./RatingBadge";
+import { HoverHint } from "@/components/ui/HoverHint";
 import { useSubclassAnalysis } from "./SubclassAnalysisContext";
 import { useCharacterSourceBuild } from "./CharacterSourceBuildContext";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -69,21 +69,22 @@ export function SubclassAnalysis({ entity, placement }: { entity: EntityRef; pla
   return <div className={`mt-4 rounded-xl border p-4 ${accent.border} ${accent.fill}`}>
     <div className="mb-3 flex items-center gap-3">
       <AnalystAvatar tone={verdictTone} />
-      <div>
-        <h3 className="font-rpg-display text-lg text-slate-100">Аналіз RPGbot</h3>
+      <div className="min-w-0 flex-1 [container-type:inline-size]">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <h3 className="font-rpg-display text-lg text-slate-100">Аналіз RPGbot</h3>
+          {preview?.rating ? <HeadingScore rating={preview.rating} /> : null}
+        </div>
         {entity.ruleset === "RULES_2024" ? <p className="text-xs text-amber-200">Приватна чернетка · 2024</p> : null}
       </div>
     </div>
     {visibleError ? <p role="alert" className="text-sm text-rose-200">{visibleError}</p> : null}
     {preview ? <>
-        {preview.rating ? <RatingBadge rating={preview.rating} /> : null}
-        <FormattedDescription content={preview.binding.preview} className="text-sm text-slate-300" />
-        {preview.rating ? <p className="mt-2 text-xs text-slate-400">Контекст оцінки: {preview.rating.context}.</p> : null}
+        {preview.intro ? <p className="line-clamp-3 text-sm leading-relaxed text-slate-300">{preview.intro}</p> : null}
         {preview.guideHref
-          ? <ModeLink prefetch={false} href={preview.guideHref} {...buildRpgbotCtaProps("open_article", "subclass_analysis", preview.slug)} className={`mt-3 inline-flex min-h-11 items-center underline ${accent.text}`}>Читати повний гайд підкласу</ModeLink>
-          : <button type="button" aria-disabled={loading} onClick={(event) => openArticle(event.currentTarget)} className={`mt-3 min-h-11 underline ${accent.text}`}>{loading ? "Завантаження…" : "Читати повний аналіз"}</button>}
-      <div className="mt-3 flex flex-wrap gap-3 text-sm">
-        {character ? <SourceBuildNote builds={preview.builds} sourceBuildId={character.sourceBuildId} accentText={accent.text} /> : preview.builds.map((build) => <ModeLink prefetch={false} key={build.buildId} {...buildRpgbotCtaProps(build.buildId === "build-monk-shadow-2014" ? "create_from_preset" : "assemble_build", "subclass_analysis", build.buildId)} href={build.buildId === "build-monk-shadow-2014" ? "/char/create?preset=monk-shadow-2014&from=subclass_analysis" : entity.ruleset === "RULES_2024" ? `/2024/optimization/build?build=${build.buildId}` : `/optimization/build?build=${build.buildId}&from=subclass_analysis`} className={`min-h-11 rounded-lg border px-3 py-2 ${accent.border} ${accent.text}`}>{build.buildId === "build-monk-shadow-2014" ? "Створити Монаха тіні за готовим білдом" : `Зібрати цей варіант: ${build.title}`}</ModeLink>)}
+          ? <ModeLink prefetch={false} href={preview.guideHref} {...buildRpgbotCtaProps("open_article", "subclass_analysis", preview.slug)} className={`inline-flex min-h-11 items-center text-sm underline ${accent.text}`}>Читати повністю</ModeLink>
+          : <button type="button" aria-disabled={loading} onClick={(event) => openArticle(event.currentTarget)} className={`min-h-11 text-sm underline ${accent.text}`}>{loading ? "Завантаження…" : "Читати повністю"}</button>}
+      <div className="flex flex-wrap gap-3 text-sm empty:hidden">
+        {character ? <SourceBuildNote builds={preview.builds} sourceBuildId={character.sourceBuildId} accentText={accent.text} /> : placement === "levelup" ? null : preview.builds.map((build) => <ModeLink prefetch={false} key={build.buildId} {...buildRpgbotCtaProps(build.buildId === "build-monk-shadow-2014" ? "create_from_preset" : "assemble_build", "subclass_analysis", build.buildId)} href={build.buildId === "build-monk-shadow-2014" ? "/char/create?preset=monk-shadow-2014&from=subclass_analysis" : entity.ruleset === "RULES_2024" ? `/2024/optimization/build?build=${build.buildId}` : `/optimization/build?build=${build.buildId}&from=subclass_analysis`} className={`min-h-11 rounded-lg border px-3 py-2 ${accent.border} ${accent.text}`}>{build.buildId === "build-monk-shadow-2014" ? "Створити Монаха тіні за готовим білдом" : `Зібрати цей варіант: ${build.title}`}</ModeLink>)}
       </div>
     </> : null}
     <Dialog open={articleOpen} onOpenChange={setArticleOpen}>
@@ -93,6 +94,14 @@ export function SubclassAnalysis({ entity, placement }: { entity: EntityRef; pla
       </DialogContent>
     </Dialog>
   </div>;
+}
+
+function HeadingScore({ rating }: { rating: AnalysisRating }) {
+  if (rating.alternative) return <RatingBadge rating={rating} className="mr-0" />;
+  const view = describeRating(rating);
+  return <HoverHint text={view.hint}>
+    <span><span className="sr-only">{view.summary}.</span><ScoreChip rating={view} labelClassName="[@container(min-width:14rem)]:inline" /></span>
+  </HoverHint>;
 }
 
 function SourceBuildNote({ builds, sourceBuildId, accentText }: { builds: readonly { buildId: string; title: string; guideHref: string }[]; sourceBuildId: string | null; accentText: string }) {

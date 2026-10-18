@@ -16,6 +16,7 @@ import { Suspense } from "react";
 
 const mocks = vi.hoisted(() => ({ pathname: "/rules/optimization/monk-2014", openSpellLink: vi.fn(), openTermLink: vi.fn() }));
 vi.mock("next/navigation", () => ({ usePathname: () => mocks.pathname }));
+const isAnalysisButtonOf = (featureName: string) => (accessibleName: string) => accessibleName === `Аналіз RPGbot: ${featureName}` || accessibleName.startsWith(`Аналіз RPGbot: ${featureName}, `);
 // The site bundles the App Router `next/dynamic`, which suspends; the package entry is the pages one.
 vi.mock("next/dynamic", async () => ({ default: (await import("next/dist/shared/lib/app-dynamic")).default }));
 vi.mock("@/lib/spell-link", async (importOriginal) => ({ ...(await importOriginal<typeof import("@/lib/spell-link")>()), openSpellLink: mocks.openSpellLink }));
@@ -140,7 +141,7 @@ it("opens only the official text from the article without fetching or repeating 
   expect(fetch).not.toHaveBeenCalled();
   fireEvent.click(screen.getByRole("link", { name: reference.name }));
   await screen.findByRole("dialog");
-  expect(screen.queryByRole("button", { name: `Аналіз RPGbot: ${feature.name}` })).toBeNull();
+  expect(screen.queryByRole("button", { name: isAnalysisButtonOf(feature.name) })).toBeNull();
   expect(fetch).not.toHaveBeenCalled();
 });
 

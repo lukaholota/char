@@ -114,7 +114,7 @@ function EntryItem({
         isTarget && cn("outline-2 outline-offset-2 [outline-style:solid]", findAccentVariant(is2024, { prism: "outline-prism-400/70", arcane: "outline-arcane-400/70" })),
       )}
     >
-      <div className="flex items-center pr-2">
+      <div className="flex items-center pr-2 [container-type:inline-size]">
       <button
         type="button"
         aria-expanded={isExpanded}

@@ -17,15 +17,17 @@ import { z } from "zod";
 import { translateSubclassName, translateSubclassNameEng } from "@/lib/refs/subclass-name";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import { constructorSubclassEntity } from "@/lib/optimization/bindings";
+import type { RpgbotPlacement } from "@/lib/monitoring/rpgbot-analytics-model";
 import { buildSkillsAfterSubclassSwitch } from "@/lib/components/characterCreator/subclass-skill-picks";
 
 interface Props {
   cls: ClassI;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
+  analysisPlacement?: RpgbotPlacement;
 }
 
-export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
+export const SubclassForm = ({ cls, formId, onNextDisabledChange, analysisPlacement }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
 
   const requiredSubclassSchema = useMemo(
@@ -91,6 +93,7 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
     subclasses.map((sc) => (
       <SubclassCardOption
         cls={cls}
+        analysisPlacement={analysisPlacement}
         key={sc.subclassId}
         subclass={sc}
         chosen={sc.subclassId === chosenId}
@@ -162,7 +165,7 @@ function useScrollToChosenOnArrival(chosenId: number | null) {
   }, []);
 }
 
-function SubclassCardOption({ cls, subclass, chosen, onChoose }: { cls: ClassI; subclass: SubclassI; chosen: boolean; onChoose: () => void }) {
+function SubclassCardOption({ cls, subclass, chosen, onChoose, analysisPlacement }: { cls: ClassI; subclass: SubclassI; chosen: boolean; onChoose: () => void; analysisPlacement?: RpgbotPlacement }) {
   const visual = { ...getClassVisual(cls.name), imageSrc: getSubclassImagePath(subclass.name) };
 
   return (
@@ -174,7 +177,7 @@ function SubclassCardOption({ cls, subclass, chosen, onChoose }: { cls: ClassI; 
         visual={visual}
         isSelected={chosen}
         is2024={cls.ruleset === "RULES_2024"}
-        infoModal={<SubclassInfoModal subclass={subclass} analysisEntity={constructorSubclassEntity(cls, subclass)} />}
+        infoModal={<SubclassInfoModal subclass={subclass} analysisEntity={constructorSubclassEntity(cls, subclass)} analysisPlacement={analysisPlacement} />}
         onClick={(e) => {
           if ((e.target as HTMLElement | null)?.closest?.("[data-stop-card-click]")) return;
           onChoose();

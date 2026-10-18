@@ -14,7 +14,7 @@ export const RPGBOT_CTAS = [
 ] as const;
 export type RpgbotCta = (typeof RPGBOT_CTAS)[number];
 
-export type RpgbotPlacement = "catalog" | "creator";
+export type RpgbotPlacement = "catalog" | "creator" | "levelup";
 export const READ_DEPTH_MILESTONES = [25, 50, 75, 100] as const;
 export type ReadDepthMilestone = (typeof READ_DEPTH_MILESTONES)[number];
 

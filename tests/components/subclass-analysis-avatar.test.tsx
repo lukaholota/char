@@ -24,6 +24,7 @@ function buildPreview(score?: 1 | 2 | 3 | 4, builds: { buildId: string; title: s
       preview: "Надійний підклас для старту.", ratingIds: [], evidence: "Звірено вручну", reviewedAt: "2026-10-03T00:00:00Z",
     },
     slug: "monk-2014", title: "Монах", href: "/rules/optimization/monk-2014", guideHref, builds,
+    intro: "Відкрита долоня — найпростіший Монах для старту: удари з ефектами й мало рішень на хід.",
     rating: score === undefined ? undefined : {
       ratingId: "rating-open-hand", articleId: "monk-2014", translationRevisionId: "monk-2014-uk", sectionId: "open-hand",
       targetBlockId: "open-hand-heading", context: "Порівняння підкласів", score, explanation: "Пояснення автора",
@@ -80,13 +81,13 @@ const BUILDS = [
   { buildId: "build-monk-open-hand-tank-2014", title: "Монаха-захисника", guideHref: "/rules/optimization/monk-open-hand-2014#build-b" },
 ];
 
-async function renderBuildLinks(character: CharacterSourceBuild | null, guideHref: string | null = null) {
+async function renderBuildLinks(character: CharacterSourceBuild | null, guideHref: string | null = null, placement: "catalog" | "creator" | "levelup" = "catalog") {
   vi.stubGlobal("fetch", vi.fn(async () => ({ ok: true, json: async () => buildPreview(3, BUILDS, guideHref) })));
   render(
     <NoAiModeProvider>
       <SessionContext.Provider value={OWNER_SESSION}>
         <CharacterSourceBuildContext.Provider value={character}>
-          <SubclassAnalysis entity={ENTITY} placement="catalog" />
+          <SubclassAnalysis entity={ENTITY} placement={placement} />
         </CharacterSourceBuildContext.Provider>
       </SessionContext.Provider>
     </NoAiModeProvider>,
@@ -107,6 +108,14 @@ describe("варіанти збірки в аналізі підкласу", () 
     expect(screen.getByRole("link", { name: "Монаха-захисника" }).getAttribute("href")).toBe("/rules/optimization/monk-open-hand-2014#build-b");
   });
 
+  it("у створенні пропонує варіанти, а при підвищенні рівня — ні", async () => {
+    await renderBuildLinks(null, null, "creator");
+    expect(screen.getAllByRole("link", { name: /Зібрати цей варіант/ })).toHaveLength(2);
+    cleanup();
+    await renderBuildLinks(null, null, "levelup");
+    expect(screen.queryByRole("link", { name: /Зібрати цей варіант/ })).toBeNull();
+  });
+
   it("на аркуші персонажа, зібраного вручну, не показує ні посилань, ні примітки", async () => {
     await renderBuildLinks({ sourceBuildId: null, guide: null });
     expect(screen.queryByRole("link", { name: /Зібрати цей варіант/ })).toBeNull();
@@ -117,14 +126,23 @@ describe("варіанти збірки в аналізі підкласу", () 
 describe("посилання на повний аналіз підкласу", () => {
   it("веде на окремий гайд підкласу, коли він є, і не дублює його посиланням на статтю-порівняння", async () => {
     await renderBuildLinks(null, "/rules/optimization/monk-open-hand-2014");
-    expect(screen.getByRole("link", { name: "Читати повний гайд підкласу" }).getAttribute("href")).toBe("/rules/optimization/monk-open-hand-2014");
-    expect(screen.queryByRole("button", { name: "Читати повний аналіз" })).toBeNull();
+    expect(screen.getByRole("link", { name: "Читати повністю" }).getAttribute("href")).toBe("/rules/optimization/monk-open-hand-2014");
+    expect(screen.queryByRole("button", { name: "Читати повністю" })).toBeNull();
     expect(screen.queryByRole("link", { name: "Відкрити статтю" })).toBeNull();
   });
 
   it("без окремого гайду відкриває розділ статті у вікні", async () => {
     await renderBuildLinks(null);
-    expect(screen.getByRole("button", { name: "Читати повний аналіз" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Читати повністю" })).toBeTruthy();
     expect(screen.queryByRole("link", { name: "Відкрити статтю" })).toBeNull();
+  });
+
+  it("оцінка стоїть у рядку заголовка, а замість джерела й контексту — початок гайду", async () => {
+    await renderBuildLinks(null, "/rules/optimization/monk-open-hand-2014");
+    const heading = screen.getByRole("heading", { name: "Аналіз RPGbot" });
+    expect(heading.parentElement?.querySelector("[data-rating-tone='green']")).toBeTruthy();
+    expect(screen.getByText(/^Відкрита долоня — найпростіший Монах/).className).toContain("line-clamp-3");
+    expect(screen.queryByText("Надійний підклас для старту.")).toBeNull();
+    expect(screen.queryByText(/Контекст оцінки/)).toBeNull();
   });
 });

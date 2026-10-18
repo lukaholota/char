@@ -49,3 +49,12 @@ function ScoreBadge({ rating, caption, className }: { rating: Pick<AnalysisRatin
     </HoverHint>
   );
 }
+
+// Steps by the nearest inline-size container: score only, then the label and the eye once their classes switch them on.
+export function ScoreChip({ rating, labelClassName, eyeClassName }: { rating: ReturnType<typeof describeRating>; labelClassName?: string; eyeClassName?: string }) {
+  return <span aria-hidden data-rating-tone={rating.tone} className={cn("inline-flex items-center gap-1 whitespace-nowrap rounded-md border px-1.5 py-0.5 font-sans text-xs font-semibold", RATING_TONE_CLASSES[rating.tone])}>
+    <AnalystEye tone={rating.tone} className={cn("-my-0.5 -ml-0.5 hidden", eyeClassName)} />
+    <span>{rating.score}/4</span>
+    <span className={cn("hidden", labelClassName)}>{rating.label}</span>
+  </span>;
+}

@@ -12,6 +12,7 @@ import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 
 vi.mock("next/navigation", () => ({ usePathname: () => "/classes" }));
+const isAnalysisButtonOf = (featureName: string) => (accessibleName: string) => accessibleName === `Аналіз RPGbot: ${featureName}` || accessibleName.startsWith(`Аналіз RPGbot: ${featureName}, `);
 const entity = { ruleset: "RULES_2014", kind: "subclass", parentKey: "MONK_2014", entityKey: "WAY_OF_MERCY" } as const;
 const owner = { data: { user: { email: "lukagolota1@gmail.com" }, expires: "2099-01-01T00:00:00Z" }, status: "authenticated" as const, update: vi.fn() };
 
@@ -21,7 +22,7 @@ vi.setConfig({ testTimeout: 60_000 });
 
 it("opens the full subclass analysis in an additional dialog and retains the official description", async () => {
   const { fetch } = await renderFeatureAnalysis("player@example.com", { guideHref: null });
-  const button = await screen.findByRole("button", { name: "Читати повний аналіз" });
+  const button = await screen.findByRole("button", { name: "Читати повністю" });
   const preview = (await readSlicePreview(entity))!;
   const document = (await readSliceArticle(preview.slug, entity.ruleset))!;
   fetch.mockImplementationOnce(async () => ({ ok: true, json: async () => document }));
@@ -53,10 +54,10 @@ async function renderFeatureAnalysis(email = owner.data.user.email, previewChang
 
 it("shows bound features beside the official description and opens the exact analysis in a separate dialog", async () => {
   const { fetch, feature } = await renderFeatureAnalysis();
-  await waitFor(() => expect(screen.getAllByRole("button", { name: `Аналіз RPGbot: ${feature.name}` })).toHaveLength(2));
+  await waitFor(() => expect(screen.getAllByRole("button", { name: isAnalysisButtonOf(feature.name) })).toHaveLength(2));
   expect(fetch).toHaveBeenCalledTimes(1);
   expect(screen.queryByRole("button", { name: "Аналіз RPGbot: Без прив’язки" })).toBeNull();
-  const button = screen.getAllByRole("button", { name: `Аналіз RPGbot: ${feature.name}` })[0];
+  const button = screen.getAllByRole("button", { name: isAnalysisButtonOf(feature.name) })[0];
   fireEvent.click(button);
   await screen.findByRole("dialog");
   expect(screen.getByText("Офіційний текст")).toBeTruthy();
@@ -68,9 +69,16 @@ it("shows bound features beside the official description and opens the exact ana
   expect(screen.getByText("Офіційний текст")).toBeTruthy();
 });
 
+it("shows the feature score in the card header and names it for screen readers", async () => {
+  const { feature } = await renderFeatureAnalysis();
+  const [button] = await screen.findAllByRole("button", { name: isAnalysisButtonOf(feature.name) });
+  expect(button.getAttribute("aria-label")).toBe(`Аналіз RPGbot: ${feature.name}, 3 з 4, добре`);
+  expect(button.querySelector("[data-rating-tone]")?.textContent).toBe("3/4Добре");
+});
+
 it("shows public 2014 analysis for a non-owner", async () => {
   const { fetch, feature } = await renderFeatureAnalysis("player@example.com");
-  await screen.findAllByRole("button", { name: `Аналіз RPGbot: ${feature.name}` });
+  await screen.findAllByRole("button", { name: isAnalysisButtonOf(feature.name) });
   expect(fetch).toHaveBeenCalledTimes(1);
   expect(screen.queryByText(/Приватна чернетка/)).toBeNull();
 });
@@ -83,7 +91,7 @@ it("loads public 2014 without a session provider", async () => {
   render(<NoAiModeProvider><SubclassAnalysisProvider entity={entity} placement="catalog">
     <FeatureAnalysis name={feature.name} level={feature.level} />
   </SubclassAnalysisProvider></NoAiModeProvider>);
-  await screen.findByRole("button", { name: `Аналіз RPGbot: ${feature.name}` });
+  await screen.findByRole("button", { name: isAnalysisButtonOf(feature.name) });
   expect(fetch).toHaveBeenCalledTimes(1);
 });
 
@@ -114,7 +122,7 @@ it("loads creator analysis only when the subclass dialog opens and the catalog c
   </SessionContext.Provider></NoAiModeProvider>);
   expect(countAnalysisRequests()).toBe(0);
   fireEvent.click(screen.getByRole("button", { name: "Деталі" }));
-  await screen.findByRole("button", { name: `Аналіз RPGbot: ${preview.features[0].name}` });
+  await screen.findByRole("button", { name: isAnalysisButtonOf(preview.features[0].name) });
   expect(countAnalysisRequests()).toBe(1);
   expect(screen.getAllByRole("button", { name: /^Аналіз RPGbot:/ })).toHaveLength(6);
 });
@@ -129,7 +137,7 @@ it("requires the creator level and resets expansion when the feature binding cha
   </NoAiModeProvider>;
   const view = render(renderBoundFeature(feature.level + 1));
   expect(screen.queryByRole("button")).toBeNull();
-  const findAnalysisButton = () => screen.getByRole("button", { name: `Аналіз RPGbot: ${feature.name}` });
+  const findAnalysisButton = () => screen.getByRole("button", { name: isAnalysisButtonOf(feature.name) });
   view.rerender(renderBoundFeature(feature.level));
   fireEvent.click(findAnalysisButton());
   expect(screen.getByRole("dialog")).toBeTruthy();
@@ -147,7 +155,7 @@ it("joins creator features by their shared native key when the Ukrainian display
   renamed.name = "Уточнена українська назва";
   render(<NoAiModeProvider><SubclassInfoModal subclass={subclass} analysisEntity={entity} trigger={<button>Деталі</button>} /></NoAiModeProvider>);
   fireEvent.click(screen.getByRole("button", { name: "Деталі" }));
-  await screen.findByRole("button", { name: `Аналіз RPGbot: ${renamed.name}` });
+  await screen.findByRole("button", { name: isAnalysisButtonOf(renamed.name) });
   expect(screen.getAllByRole("button", { name: /^Аналіз RPGbot:/ })).toHaveLength(preview.features.length);
 });
 
@@ -158,7 +166,7 @@ async function closeDialog() {
 
 it("returns focus to the full analysis button after the slow article request and a tap that never focused it", async () => {
   const { fetch } = await renderFeatureAnalysis("player@example.com", { guideHref: null });
-  const button = await screen.findByRole("button", { name: "Читати повний аналіз" });
+  const button = await screen.findByRole("button", { name: "Читати повністю" });
   const preview = (await readSlicePreview(entity))!;
   const document = (await readSliceArticle(preview.slug, entity.ruleset))!;
   fetch.mockImplementationOnce(() => new Promise((resolve) => setTimeout(() => resolve({ ok: true, json: async () => document }), 50)));
@@ -173,7 +181,7 @@ it("returns focus to the full analysis button after the slow article request and
 
 it("returns focus to the feature eye button after a tap that never focused it", async () => {
   const { feature } = await renderFeatureAnalysis();
-  const [eye] = await screen.findAllByRole("button", { name: `Аналіз RPGbot: ${feature.name}` });
+  const [eye] = await screen.findAllByRole("button", { name: isAnalysisButtonOf(feature.name) });
   fireEvent.click(eye);
   await screen.findByRole("dialog");
   await closeDialog();
@@ -182,7 +190,7 @@ it("returns focus to the feature eye button after a tap that never focused it", 
 
 it("does not start a second article request while the first one is loading", async () => {
   const { fetch } = await renderFeatureAnalysis("player@example.com", { guideHref: null });
-  const button = await screen.findByRole("button", { name: "Читати повний аналіз" });
+  const button = await screen.findByRole("button", { name: "Читати повністю" });
   fetch.mockImplementationOnce(() => new Promise(() => undefined));
   fireEvent.click(button);
   fireEvent.click(button);

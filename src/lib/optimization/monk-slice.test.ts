@@ -84,3 +84,12 @@ describe.skipIf(!existsSync("data/rpgbot/builds/build-monk-shadow-2014.json"))("
     await expect(readSliceArticle("../monk-shadow-2014", "RULES_2014")).rejects.toThrow();
   });
 });
+
+describe("початок гайду в превʼю підкласу", () => {
+  it("бере перший абзац вступу гайду, минаючи епіграф і маркери глосарію", async () => {
+    const evoker = await readSlicePreview({ ruleset: "RULES_2014", kind: "subclass", parentKey: "WIZARD_2014", entityKey: "SCHOOL_OF_EVOCATION" });
+    expect(evoker?.intro).toMatch(/^Робота Чарівника Школи втілення/);
+    const mercy = await readSlicePreview({ ruleset: "RULES_2014", kind: "subclass", parentKey: "MONK_2014", entityKey: "WAY_OF_MERCY" });
+    expect(mercy?.intro).toMatch(/^Зʼявившись у грі з «Казана Таші з усім» як/);
+  });
+});
