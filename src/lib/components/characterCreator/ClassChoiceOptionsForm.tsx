@@ -107,11 +107,7 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     } else {
       disabled = groupedOptions.some(({ groupName }) => {
         const required = Math.max(1, Number(groupPickCounts?.[groupName] ?? pickCount) || 1);
-        const selected = selections[groupName];
-        if (Array.isArray(selected)) {
-          return selected.length < required;
-        }
-        return !selected;
+        return countGroupSelection(selections[groupName]) < required;
       });
     }
 

@@ -13,7 +13,7 @@ describe("KR31.2 — перевірка class choices під час створе
       className: "BARD_2024",
       selections: { "Класові інструменти": [1] },
       available,
-    })).toBe("Оберіть 3 опц.");
+    })).toBe("«Класові інструменти»: оберіть 3 опц.");
 
     expect(findCreationChoicePoolProblem({
       ruleset: "RULES_2024",

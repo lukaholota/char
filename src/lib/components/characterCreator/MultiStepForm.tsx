@@ -51,6 +51,7 @@ import { isCreationStepCompleted } from "./creation-step-completion";
 import { CreationStepLayout } from "./CreationStepLayout";
 import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 import { hasWeaponMastery } from "@/rules/weapon-mastery";
+import { findCreationGroupPickCounts } from "@/rules/creation-choice-pools";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
 import { captureCreationFailed, captureCreationStarted, findCreationAnalytics, finishCreationAttempt } from "@/lib/monitoring/funnel-analytics";
@@ -187,7 +188,7 @@ export const MultiStepForm = (
       const result = await createCharacter(currentData, findCreationAnalytics());
 
       if (result.error) {
-        captureCreationFailed(analyticsEdition, "server");
+        captureCreationFailed(analyticsEdition, "server", "manual", result.error);
         toast.error("Помилка створення", {
           description: result.error
         });
@@ -875,6 +876,7 @@ export const MultiStepForm = (
         return (
           <ClassChoiceOptionsForm
             selectedClass={cls}
+            groupPickCounts={cls && findCreationGroupPickCounts(cls.name, (cls.classChoiceOptions || []).map((opt) => opt.choiceOption.groupName))}
             formId={activeFormId}
             onNextDisabledChange={handleNextDisabledChange}
           />

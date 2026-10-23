@@ -39,6 +39,19 @@ function groupAllowedIds(available: AvailableChoice[]): Map<string, Set<number>>
   return grouped;
 }
 
+export function findCreationGroupPickCount(className: string, groupName: string): number {
+  return picksAtLevelForGroup({
+    scope: "class",
+    className,
+    groupName: baseChoiceGroupName(groupName),
+    levelAfter: 1,
+  });
+}
+
+export function findCreationGroupPickCounts(className: string, groupNames: string[]): Record<string, number> {
+  return Object.fromEntries(groupNames.map((groupName) => [groupName, findCreationGroupPickCount(className, groupName)]));
+}
+
 export function findCreationChoicePoolProblem(input: CreationChoicePoolInput): string | null {
   if (input.ruleset !== "RULES_2024") return null;
 
@@ -65,13 +78,8 @@ export function findCreationChoicePoolProblem(input: CreationChoicePoolInput): s
       return "Обрана опція не з тієї групи";
     }
 
-    const expected = picksAtLevelForGroup({
-      scope: "class",
-      className: input.className,
-      groupName,
-      levelAfter: 1,
-    });
-    if (selected.length !== expected) return `Оберіть ${expected} опц.`;
+    const expected = findCreationGroupPickCount(input.className, groupName);
+    if (selected.length !== expected) return `«${groupName}»: оберіть ${expected} опц.`;
   }
 
   return null;

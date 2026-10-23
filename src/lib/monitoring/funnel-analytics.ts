@@ -16,7 +16,7 @@ type Edition = "2014" | "2024";
 export type FunnelEventProperties = {
   character_creation_started: { edition: Edition; creation_path: CreationPath; creation_attempt_id: string; is_auth_return: boolean };
   character_creation_first_choice: { edition: Edition; creation_path: CreationPath; creation_attempt_id: string };
-  character_create_failed: { edition: Edition; creation_path: CreationPath; creation_attempt_id: string | null; reason: CreationFailureReason };
+  character_create_failed: { edition: Edition; creation_path: CreationPath; creation_attempt_id: string | null; reason: CreationFailureReason; message?: string };
   auth_requested: { trigger: AuthTrigger };
   auth_started: { method: AuthMethod; trigger: AuthTrigger | null };
   auth_completed: { method: AuthMethod };
@@ -102,8 +102,8 @@ export function captureCreationFirstChoice(edition: Edition, creationPath: Creat
   captureFunnelEvent("character_creation_first_choice", { edition, creation_path: creationPath, creation_attempt_id: attemptId });
 }
 
-export function captureCreationFailed(edition: Edition, reason: CreationFailureReason, creationPath: CreationPath = "manual"): void {
-  captureFunnelEvent("character_create_failed", { edition, creation_path: creationPath, creation_attempt_id: creationAttemptId, reason });
+export function captureCreationFailed(edition: Edition, reason: CreationFailureReason, creationPath: CreationPath = "manual", message?: string): void {
+  captureFunnelEvent("character_create_failed", { edition, creation_path: creationPath, creation_attempt_id: creationAttemptId, reason, message });
 }
 
 export function findCreationAnalytics(): { creationAttemptId: string | null; sessionId: string | null } {
