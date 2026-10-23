@@ -30,6 +30,34 @@ export function listRacialChoiceGroups(source: RacialChoiceGroupSource): unknown
   return [...raceGroups, ...fallbackGroups, ...subraceGroups];
 }
 
+/** Groups the creator asks to fill: the server's list without its plain-bonus fallback, which the player cannot redistribute. */
+export function listOfferedRacialChoiceGroups(source: RacialChoiceGroupSource): unknown[] {
+  const raceGroups = extractFlexibleGroups(findEffectiveRacialASI(source), findRacialAbilityMode(source.isDefaultASI));
+  const subraceGroups = !source.isDefaultASI && !source.subraceReplacesASI ? plainAsiChoiceGroups(source.subraceASI) : [];
+  return [...raceGroups, ...subraceGroups];
+}
+
+/** Choices made for another race, subrace or variant would be rejected by the server, so they are dropped, not shown as the player's mistake. */
+export function keepFittingRacialChoices<Choice extends RacialAbilityChoice>(groups: readonly unknown[], choices: readonly Choice[]): Choice[] {
+  const seenGroups = new Set<number>();
+  return choices.filter((choice) => {
+    const group = groups[choice.groupIndex];
+    if (!group || seenGroups.has(choice.groupIndex)) return false;
+    seenGroups.add(choice.groupIndex);
+    const { choiceCount } = readRacialChoiceGroup(group);
+    return choice.choiceCount === choiceCount
+      && choice.selectedAbilities.length <= choiceCount
+      && new Set(choice.selectedAbilities).size === choice.selectedAbilities.length;
+  });
+}
+
+export function findRacialChoiceStepProblem(groups: readonly unknown[], choices: readonly Pick<RacialAbilityChoice, "groupIndex" | "selectedAbilities">[]): string | null {
+  const isEveryGroupFilled = groups.every((group, groupIndex) =>
+    choices.find((choice) => choice.groupIndex === groupIndex)?.selectedAbilities.length === readRacialChoiceGroup(group).choiceCount);
+  if (!isEveryGroupFilled) return "Розподіліть усі расові бонуси.";
+  return findRacialChoiceSelectionProblem(groups, choices);
+}
+
 export function readRacialChoiceGroup(group: unknown): RacialChoiceGroup {
   const record = typeof group === "object" && group !== null ? (group as Record<string, unknown>) : {};
   return { value: Number(record.value) || 1, choiceCount: Number(record.choiceCount) || 0, unique: record.unique === true };

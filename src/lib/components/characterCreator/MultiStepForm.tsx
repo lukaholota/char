@@ -48,6 +48,7 @@ import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { getRulesStrategy } from "@/rules/strategies";
 import { countOriginLanguageChoices } from "@/rules/languages";
 import { isCreationStepCompleted } from "./creation-step-completion";
+import { findStaleDraftReset } from "./creation-draft-reset";
 import { CreationStepLayout } from "./CreationStepLayout";
 import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 import { hasWeaponMastery } from "@/rules/weapon-mastery";
@@ -214,41 +215,19 @@ export const MultiStepForm = (
     }
   }
 
-  const prevClassIdRef = useRef<number | null>(formData.classId || null);
-  const prevRaceIdRef = useRef<number | null>(formData.raceId || null);
+  const previousDraftRef = useRef<{ formData: typeof formData; resetNonce: number } | null>(null);
 
   useEffect(() => {
-    if (formData.classId && prevClassIdRef.current && formData.classId !== prevClassIdRef.current) {
-       updateFormData({
-         subclassId: undefined,
-         classChoiceSelections: {},
-         subclassChoiceSelections: {},
-         classOptionalFeatureSelections: {},
-         skillsSchema: undefined,
-         skills: [],
-         expertiseSchema: undefined,
-         languagesSchema: undefined,
-         equipmentSchema: undefined,
-         equipment: [],
-         choiceGroupToId: {},
-         anyWeaponSelection: {},
-        } as any);
+    if (!isHydrated) {
+      previousDraftRef.current = null;
+      return;
     }
-    prevClassIdRef.current = formData.classId || null;
-  }, [formData.classId, updateFormData]);
-
-  useEffect(() => {
-    if (formData.raceId && prevRaceIdRef.current && formData.raceId !== prevRaceIdRef.current) {
-       updateFormData({
-         subraceId: undefined,
-         raceVariantId: undefined,
-         raceChoiceSelections: {},
-         skillsSchema: undefined,
-         skills: [],
-       });
-    }
-    prevRaceIdRef.current = formData.raceId || null;
-  }, [formData.raceId, updateFormData]);
+    const previous = previousDraftRef.current;
+    previousDraftRef.current = { formData, resetNonce };
+    if (!previous || previous.resetNonce !== resetNonce) return;
+    const staleReset = findStaleDraftReset(previous.formData, formData);
+    if (Object.keys(staleReset).length) updateFormData(staleReset);
+  }, [formData, isHydrated, resetNonce, updateFormData]);
 
   const race = useMemo(() => races.find(r => r.raceId === formData.raceId) as RaceI, [races, formData.raceId])
   const subrace = useMemo(

@@ -27,6 +27,10 @@ import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import type { RulesetId } from "@/rules/strategies/types";
 import { buildScoresBeforeBackgroundAsi } from "@/rules/character-creation";
 import { toast } from "sonner";
+import { findRacialChoiceStepProblem, keepFittingRacialChoices, listOfferedRacialChoiceGroups } from "@/rules/racial-ability-choices";
+
+type RacialBonusGroup = { groupName: string; value: number; choiceCount: number; unique: boolean };
+type RacialChoice = { groupIndex: number; choiceCount: number; selectedAbilities: Ability[] };
 
 
 interface Props {
@@ -53,7 +57,6 @@ export const ASIForm = (
   const [highlightRacialBonuses, setHighlightRacialBonuses] = useState(false);
 
   const subraceId = usePersFormStore((s) => s.formData.subraceId);
-  const storeRaceVariantId = usePersFormStore((s) => s.formData.raceVariantId);
 
   const subrace = useMemo(() => {
     return (race.subraces || []).find((sr: any) => sr.subraceId === (subraceId ?? undefined));
@@ -109,11 +112,7 @@ export const ASIForm = (
 
   const { form, onSubmit } = useStepForm(asiSchema, (data) => {
     // Custom validation: if the race has flexible ASI groups, user must allocate all of them.
-    const groups: Array<{
-      groupIndex: number;
-      choiceCount: number;
-      selectedAbilities: Ability[];
-    }> = form.getValues(racialBonusSchemaPath as any) || [];
+    const groups: RacialChoice[] = form.getValues(racialBonusSchemaPath as any) || [];
 
     if (backgroundAsi.step && !backgroundAsi.complete) {
       toast.error("Оберіть бонуси походження", {
@@ -123,17 +122,11 @@ export const ASIForm = (
       return;
     }
 
-    const hasRacialChoices = (racialBonusGroups?.length ?? 0) > 0;
-    const missingSomeChoice = hasRacialChoices && (racialBonusGroups ?? []).some((group: any, groupIndex: number) => {
-      const current = groups.find((g) => g.groupIndex === groupIndex);
-      const selectedCount = (current?.selectedAbilities ?? []).length;
-      return selectedCount < Number(group.choiceCount ?? 0);
-    });
-
-    if (missingSomeChoice) {
+    const submittedRacialProblem = findRacialChoiceStepProblem(racialBonusGroups, groups);
+    if (submittedRacialProblem) {
       form.setError("racialBonusChoiceSchema", {
         type: "manual",
-        message: "Оберіть потрібну кількість расових бонусів.",
+        message: submittedRacialProblem,
       });
       toast.error("Оберіть расові бонуси", {
         description: "Потрібно заповнити всі варіанти бонусів до статів.",
@@ -197,12 +190,6 @@ export const ASIForm = (
         .map((option) => ({ ASI: option.ASI })),
     });
   }, [ruleset, asiSystem, watchedPointBuyAsi, watchedSimpleAsi, watchedCustomAsi, isDefaultASI, race, raceVariant, subrace, subraceReplacesAsi, raceChoiceSelections])
-
-  const asiStepHint = findAsiStepHint(asiSystem === asiSystems.POINT_BUY ? points : 0, Boolean(backgroundAsi.step && !backgroundAsi.complete));
-  useNextStepHint(asiStepHint);
-  useEffect(() => {
-    onNextDisabledChange?.(asiStepHint !== null);
-  }, [asiStepHint, onNextDisabledChange])
 
   const racialBonusSchemaPath = `racialBonusChoiceSchema.${ isDefaultASI ? 'basicChoices' : 'tashaChoices' }` as const;
 
@@ -389,81 +376,31 @@ export const ASIForm = (
     setPrevRaceId(race.raceId)
   }, [form, prevRaceId, race.raceId, setPrevRaceId])
 
-  const prevRaceDetailsRef = useRef<{
-    subraceId: number | undefined;
-    raceVariantId: number | null | undefined;
-  }>({
-    subraceId,
-    raceVariantId: storeRaceVariantId,
-  });
+  const racialBonusGroups = useMemo(() => listOfferedRacialChoiceGroups({
+    isDefaultASI,
+    raceASI: race.ASI,
+    variantASI: raceVariant?.overridesRaceASI,
+    subraceASI: subrace?.additionalASI,
+    subraceReplacesASI: subraceReplacesAsi,
+  }) as RacialBonusGroup[], [isDefaultASI, race, raceVariant, subrace, subraceReplacesAsi]);
 
   useEffect(() => {
-    const prev = prevRaceDetailsRef.current;
-    if (prev.subraceId !== subraceId || prev.raceVariantId !== storeRaceVariantId) {
-      form.setValue(`racialBonusChoiceSchema.tashaChoices`, [])
-      form.setValue(`racialBonusChoiceSchema.basicChoices`, [])
-    }
+    const choices: RacialChoice[] = form.getValues(racialBonusSchemaPath) ?? [];
+    const fittingChoices = keepFittingRacialChoices(racialBonusGroups, choices);
+    if (fittingChoices.length !== choices.length) form.setValue(racialBonusSchemaPath, fittingChoices, { shouldDirty: true });
+  }, [form, racialBonusGroups, racialBonusSchemaPath]);
 
-    prevRaceDetailsRef.current = {
-      subraceId,
-      raceVariantId: storeRaceVariantId,
-    };
-  }, [form, storeRaceVariantId, subraceId]);
+  const racialChoiceProblem = useMemo(
+    () => findRacialChoiceStepProblem(racialBonusGroups, (watchedRacialBonusChoices as RacialChoice[] | undefined) ?? []),
+    [racialBonusGroups, watchedRacialBonusChoices],
+  );
+  const isRacialBonusComplete = racialChoiceProblem === null;
 
-  const subraceAsiGroups = useMemo(() => {
-    // Convert fixed additionalASI into "flexible" groups for Tasha-style picking.
-    // Example: { STR: 2, CON: 1 } -> groups: (+2 choose 1 unique), (+1 choose 1 unique)
-    const entries = Object.entries(subraceFixedAsi);
-    if (!entries.length) {
-      return [] as Array<{ groupName: string; value: number; choiceCount: number; unique: boolean }>;
-    }
-
-    // Under Tasha-style allocation we want these bonuses to be free-pick (any ability),
-    // but preserve how many bonuses of a given value exist.
-    const byValue = new Map<number, number>();
-    for (const [_ability, value] of entries) {
-      const num = Number(value);
-      if (!Number.isFinite(num) || num === 0) continue;
-      byValue.set(num, (byValue.get(num) ?? 0) + 1);
-    }
-
-    // Each distinct value becomes its own group. choiceCount = count of bonuses with that value.
-    // In Tasha mode, user can assign them to any abilities (unique rules prevent duplicates between groups).
-    const groups = Array.from(byValue.entries())
-      .sort((a, b) => b[0] - a[0])
-      .map(([value, count]) => ({
-        groupName: `+${value} до ${count}`,
-        value,
-        choiceCount: count,
-        unique: true,
-      }));
-
-    return groups;
-  }, [subraceFixedAsi]);
-
-  const racialBonusGroups = useMemo(() => {
-    const baseGroups = isDefaultASI
-      ? (raceAsi.basic?.flexible?.groups ?? [])
-      : (raceAsi.tasha?.flexible.groups ?? []);
-
-    if (!isDefaultASI && subraceAsiGroups.length) {
-      return [...baseGroups, ...subraceAsiGroups];
-    }
-
-    return baseGroups;
-  }, [isDefaultASI, raceAsi, subraceAsiGroups])
-
-  const isRacialBonusComplete = useMemo(() => {
-    if (!(racialBonusGroups?.length ?? 0)) return true;
-    const groups: Array<{ groupIndex: number; selectedAbilities: Ability[] }> =
-      (watchedRacialBonusChoices as any) || [];
-
-    return (racialBonusGroups ?? []).every((group: any, groupIndex: number) => {
-      const current = groups.find((g) => g.groupIndex === groupIndex);
-      const selectedCount = (current?.selectedAbilities ?? []).length;
-      return selectedCount >= Number(group.choiceCount ?? 0);
-    });
-  }, [racialBonusGroups, watchedRacialBonusChoices]);
+  const asiStepHint = findAsiStepHint(asiSystem === asiSystems.POINT_BUY ? points : 0, Boolean(backgroundAsi.step && !backgroundAsi.complete), racialChoiceProblem);
+  useNextStepHint(asiStepHint);
+  useEffect(() => {
+    onNextDisabledChange?.(asiStepHint !== null);
+  }, [asiStepHint, onNextDisabledChange])
 
   useEffect(() => {
     if (form.formState.errors.racialBonusChoiceSchema && isRacialBonusComplete) {
