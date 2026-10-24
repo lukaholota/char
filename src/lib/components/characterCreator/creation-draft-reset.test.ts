@@ -42,6 +42,34 @@ describe("findStaleDraftReset", () => {
     });
   });
 
+  it("зміна передісторії скидає її бонуси, рису походження з опціями й заклинаннями, навички та мови", () => {
+    const previous = {
+      backgroundId: 1,
+      backgroundAsiChoice: { mode: "+2/+1", plusTwo: "WIS", plusOne: "INT" } as never,
+      backgroundFeatChoiceSelections: { List: 4 },
+      featSpellSelections: { BACKGROUND_ORIGIN: [1, 2, 3], SPECIES_VERSATILITY: [7] } as never,
+      skills: ["ARCANA"],
+      classId: 3,
+    };
+    expect(findStaleDraftReset(previous, { ...previous, backgroundId: 2 })).toEqual({
+      backgroundAsiChoice: undefined,
+      backgroundFeatChoiceSelections: {},
+      featSpellSelections: { SPECIES_VERSATILITY: [7] },
+      skills: [],
+    });
+  });
+
+  it("інший список «Посвяченого у магію» скидає заклинання лише цієї риси", () => {
+    const previous = { backgroundFeatChoiceSelections: { List: 4 }, featSpellSelections: { BACKGROUND_ORIGIN: [1], SPECIES_VERSATILITY: [7] } as never };
+    expect(findStaleDraftReset(previous, { ...previous, backgroundFeatChoiceSelections: { List: 5 } })).toEqual({ featSpellSelections: { SPECIES_VERSATILITY: [7] } });
+  });
+
+  it("інша риса скидає її опції, а зміна навичок — експертизу", () => {
+    const previous = { featId: 9, featChoiceSelections: { Skill: [1, 2, 3] }, skills: ["STEALTH"], expertiseSchema: { expertises: ["STEALTH"] } as never };
+    expect(findStaleDraftReset(previous, { ...previous, featId: 10 })).toEqual({ featChoiceSelections: {} });
+    expect(findStaleDraftReset(previous, { ...previous, skills: ["ARCANA"] })).toEqual({ expertiseSchema: undefined });
+  });
+
   it("поле, яке змінилось разом із джерелом (пресет), лишається", () => {
     const previous = { raceId: 1, racialBonusChoiceSchema: racialChoices };
     const next = { raceId: 2, racialBonusChoiceSchema: { basicChoices: [], tashaChoices: [] } };

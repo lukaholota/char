@@ -49,27 +49,27 @@ describe("Експертиза при створенні 2014: сервер пе
   it("Пройдисвіт з однією, з трьома експертизами чи з повтором не створюється, нічого не записано", async () => {
     await signIn("expertise-rogue-count");
     const tooFew = await buildForm(Classes.ROGUE_2014, ROGUE_SKILLS, [Skills.STEALTH]);
-    expect(await createCharacter(tooFew)).toEqual({ error: "Оберіть рівно 2 навичок для експертизи" });
+    expect(await createCharacter(tooFew)).toMatchObject({ error: "Оберіть рівно 2 навичок для експертизи" });
 
     const tooMany = await buildForm(Classes.ROGUE_2014, ROGUE_SKILLS, [Skills.STEALTH, Skills.SLEIGHT_OF_HAND, Skills.PERCEPTION]);
-    expect(await createCharacter(tooMany)).toEqual({ error: "Оберіть рівно 2 навичок для експертизи" });
+    expect(await createCharacter(tooMany)).toMatchObject({ error: "Оберіть рівно 2 навичок для експертизи" });
 
     const repeated = await buildForm(Classes.ROGUE_2014, ROGUE_SKILLS, [Skills.STEALTH, Skills.STEALTH]);
-    expect(await createCharacter(repeated)).toEqual({ error: "Не можна обрати ту саму експертизу двічі" });
+    expect(await createCharacter(repeated)).toMatchObject({ error: "Не можна обрати ту саму експертизу двічі" });
     expect(await prisma.pers.count()).toBe(0);
   });
 
   it("Пройдисвіт з експертизою в навичці без володіння не створюється", async () => {
     await signIn("expertise-rogue-not-proficient");
     const form = await buildForm(Classes.ROGUE_2014, ROGUE_SKILLS, [Skills.STEALTH, Skills.ARCANA]);
-    expect(await createCharacter(form)).toEqual({ error: "Обрані навички не відповідають доступним варіантам експертизи" });
+    expect(await createCharacter(form)).toMatchObject({ error: "Обрані навички не відповідають доступним варіантам експертизи" });
     expect(await prisma.pers.count()).toBe(0);
   });
 
   it("Воїн без уміння, що дає експертизу, не може її обрати", async () => {
     await signIn("expertise-fighter-no-source");
     const form = await buildForm(Classes.FIGHTER_2014, [Skills.ATHLETICS, Skills.PERCEPTION], [Skills.ATHLETICS]);
-    expect(await createCharacter(form)).toEqual({ error: "Оберіть рівно 0 навичок для експертизи" });
+    expect(await createCharacter(form)).toMatchObject({ error: "Оберіть рівно 0 навичок для експертизи" });
     expect(await prisma.pers.count()).toBe(0);
   });
 

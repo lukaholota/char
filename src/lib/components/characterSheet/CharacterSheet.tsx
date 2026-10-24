@@ -324,14 +324,15 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
                    variant="secondary"
                    className={`${mobileTextButtonClassName} bg-indigo-600/20 hover:bg-indigo-600/30 border-indigo-500/30`}
                    onClick={handleLevelUp}
-                   disabled={isLevelUpPending || isCopyPending || isRenamePending}
+                   disabled={pers.level >= 20 || isLevelUpPending || isCopyPending || isRenamePending}
+                   title={pers.level >= 20 ? "Досягнуто максимального рівня — 20" : undefined}
                  >
                    {isLevelUpPending ? (
                      <Loader2 className="w-4 h-4 animate-spin" />
                    ) : (
                      <ArrowUpCircle className="w-4 h-4" />
                    )}
-                   <span className={mobileTextLabelClassName}>Підняти рівень</span>
+                   <span className={mobileTextLabelClassName}>{pers.level >= 20 ? "Максимальний рівень" : "Підняти рівень"}</span>
                  </Button>
                )}
              </div>

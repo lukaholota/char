@@ -4,6 +4,7 @@ import { useEffect, useMemo, type ReactNode } from "react";
 import { useSpellRatingContextStore } from "@/lib/stores/spellRatingContextStore";
 import { RpgbotRecommendationToggle } from "@/components/spells/RpgbotRecommendationToggle";
 import { SpellChoiceGrid, type SpellPickTracking } from "@/components/spells/SpellChoiceGrid";
+import { SpellPicks } from "@/components/spells/SpellPicks";
 import { readRpgbotRecommendationsPreference, useRpgbotRecommendationsPreference } from "@/hooks/useRpgbotRecommendationsPreference";
 import { captureRpgbotEvent, type SpellPickSection } from "@/lib/monitoring/rpgbot-analytics";
 import { useSpellRatingFinder } from "@/hooks/useSpellRatingFinder";
@@ -20,6 +21,7 @@ import {
   type SpellCountLimit,
 } from "@/rules/class-spell-choices-2024";
 import { countOutsideSchools, describeSchoolLimit2014, findSchoolLimitProblem, isOutsideSchools } from "@/rules/class-spell-choices-2014";
+import { isListPreparedCaster2014 } from "@/rules/initial-prepared-spells-2014";
 import { isSwapStarted, type SpellSwap } from "@/rules/class-spell-swaps-2024";
 import type { SpellChoiceOption, SpellSchoolLimit } from "@/rules/spell-choice-filter";
 import type { UkrainianWordForms } from "@/lib/ukrainian-plural";
@@ -30,13 +32,16 @@ interface Props {
   offer: ClassSpellOffer;
   onNextDisabledChange?: (disabled: boolean) => void;
   highestLevelFirst?: boolean;
+  renderExtraPicks?: (ratings: SpellPickRatings) => ReactNode;
 }
+
+export type SpellPickRatings = { findRatingMatches?: (spell: SpellChoiceOption) => SpellRatingMatch[]; pickTracking?: SpellPickTracking };
 
 /**
  * Замовляння, книга чарівника й підготовлені (у 2014 — відомі), які клас дає обрати: конструктор 2024 (Р43)
  * і майстер підвищення обох редакцій. Обовʼязкова квота — мінімум, доганяння таблиці 2014 — понад нього.
  */
-export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevelFirst = false }: Props) {
+export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevelFirst = false, renderExtraPicks }: Props) {
   const { formData, updateFormData } = usePersFormStore();
   const limits = findSelectionLimits(offer.quota, offer.catchUp, offer.canSkipPrepared);
   const selection = useMemo(() => keepOfferedSpells(formData.classSpells ?? EMPTY_CLASS_SPELL_SELECTION, offer), [formData.classSpells, offer]);
@@ -46,8 +51,13 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
   const preparable = findPreparableSpells(offer, selection);
   const usesBook = offer.quota.spellbook > 0 || offer.bookSpells.length > 0;
   const is2014 = offer.ruleset === "RULES_2014";
+  const preparesFromList = is2014 && isListPreparedCaster2014(offer.className);
+  const preparedTitle = is2014 && !preparesFromList ? "Нові заклинання" : "Підготовлені заклинання";
   const canTakeOutsideSchools = buildSchoolGate(offer, selection);
+  const findPreparedGate = (preparedIds: number[]) => buildSchoolGate(offer, { ...selection, preparedIds });
   const ratings = useRpgbotRatings(offer);
+  const speciesCantrips = offer.speciesSpells?.filter((spell) => spell.level === 0) ?? [];
+  const speciesLeveledSpells = offer.speciesSpells?.filter((spell) => spell.level > 0) ?? [];
 
   useEffect(() => {
     onNextDisabledChange?.(!isComplete);
@@ -66,7 +76,9 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
 
       {limits.cantrips.max > 0 && (
         <SpellChoiceSection title="Замовляння" chosen={selection.cantripIds.length} limit={limits.cantrips} catchUp={offer.catchUp.cantrips}>
-          <SpellChoiceGrid
+          <SpellPicks
+            title="Замовляння"
+            grantedSpells={speciesCantrips}
             spells={offer.cantrips}
             selectedIds={selection.cantripIds}
             limit={limits.cantrips.max}
@@ -81,7 +93,9 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
 
       {limits.spellbook.max > 0 && (
         <SpellChoiceSection title="Книга заклинань" chosen={selection.spellbookIds.length} limit={limits.spellbook} catchUp={offer.catchUp.spellbook}>
-          <SpellChoiceGrid
+          <SpellPicks
+            title="Книга заклинань"
+            grantedSpells={speciesLeveledSpells}
             spells={offer.spells}
             selectedIds={selection.spellbookIds}
             limit={limits.spellbook.max}
@@ -95,8 +109,8 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
       )}
 
       {limits.prepared.max > 0 && (
-        <SpellChoiceSection title={is2014 ? "Нові заклинання" : "Підготовлені заклинання"} chosen={selection.preparedIds.length} limit={limits.prepared} catchUp={offer.catchUp.prepared}>
-          {offer.canSkipPrepared && (
+        <SpellChoiceSection title={preparedTitle} chosen={selection.preparedIds.length} limit={limits.prepared} catchUp={preparesFromList ? 0 : offer.catchUp.prepared}>
+          {(offer.canSkipPrepared || preparesFromList) && (
             <p className="text-sm text-slate-400">
               Необовʼязково: {offer.classLabel.toLowerCase()} переставляє підготовлені після кожного тривалого відпочинку, тож можна доготувати їх на листі.
             </p>
@@ -105,13 +119,15 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
           {usesBook && preparable.length === 0 ? (
             <p className="text-sm text-slate-400">Спершу оберіть заклинання до книги — готувати можна лише з неї.</p>
           ) : (
-            <SpellChoiceGrid
+            <SpellPicks
+              title={preparedTitle}
+              grantedSpells={usesBook ? [] : speciesLeveledSpells}
               spells={preparable}
               selectedIds={selection.preparedIds}
               limit={limits.prepared.max}
               onChange={(preparedIds) => updateSelection({ preparedIds })}
               findGroupLabel={findLevelLabel}
-              isSelectable={canTakeOutsideSchools}
+              findSelectableGate={findPreparedGate}
               highestLevelFirst={highestLevelFirst}
               findRatingMatches={ratings.findMatches}
               pickTracking={ratings.trackPicks("prepared")}
@@ -146,6 +162,8 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
           pickTracking={ratings.trackPicks("prepared_swap")}
         />
       )}
+
+      {renderExtraPicks?.({ findRatingMatches: ratings.findMatches, pickTracking: ratings.trackPicks("prepared") })}
     </div>
   );
 }
@@ -238,7 +256,7 @@ function SpellSwapSection(props: {
   );
 }
 
-function SpellChoiceSection(props: { title: string; chosen: number; limit: SpellCountLimit; catchUp: number; children: ReactNode }) {
+export function SpellChoiceSection(props: { title: string; chosen: number; limit: SpellCountLimit; catchUp: number; children: ReactNode }) {
   const required = props.limit.max - props.catchUp;
   return (
     <section aria-label={props.title} className="glass-card space-y-3 rounded-2xl border border-white/10 p-4">
@@ -300,6 +318,7 @@ function describeQuota(offer: ClassSpellOffer): string {
     offer.quota.prepared > 0 ? `${newSpellsLabel}: ${offer.quota.prepared}` : null,
   ].filter(Boolean);
   const hasCatchUp = offer.catchUp.cantrips + offer.catchUp.prepared + offer.catchUp.spellbook > 0;
+  if (parts.length === 0 && hasCatchUp && isListPreparedCaster2014(offer.className)) return `${offer.classLabel}: нових заклинань на цьому рівні немає, але можна підготувати ще кілька зі свого списку.`;
   if (parts.length === 0 && hasCatchUp) return `${offer.classLabel}: обовʼязкових нових заклинань на цьому рівні немає, але до таблиці класу можна додати.`;
   if (parts.length === 0) return `${offer.classLabel}: нових заклинань на цьому рівні немає, але одне можна замінити.`;
   return `${offer.classLabel} обирає ${offer.spellListNote ?? "зі свого списку"} — ${parts.join(", ")}. Заклинання від раси й класових рис додаються самі.`;

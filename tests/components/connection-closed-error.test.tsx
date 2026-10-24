@@ -7,7 +7,9 @@ const reportBoundaryError = vi.fn();
 
 vi.mock("next/navigation", () => ({ useRouter: () => ({ refresh }) }));
 vi.mock("@/lib/monitoring/report-error", () => ({ reportBoundaryError: (error: unknown) => reportBoundaryError(error) }));
-vi.mock("@/components/errors/WildMagicErrorScreen", () => ({ WildMagicErrorScreen: () => <div>Загальна помилка</div> }));
+vi.mock("@/components/errors/WildMagicErrorScreen", () => ({
+  WildMagicErrorScreen: ({ onRetry }: { onRetry: () => void }) => <button onClick={onRetry}>Загальна помилка</button>,
+}));
 
 import ErrorBoundary from "@/app/error";
 
@@ -45,5 +47,19 @@ describe("обрив RSC-відповіді на навігації", () => {
 
     expect(screen.getByText("Загальна помилка")).toBeTruthy();
     expect(reportBoundaryError).toHaveBeenCalledTimes(1);
+  });
+
+  it("повтор на загальному екрані перезавантажує сторінку — reset не довантажує зламаний чанк", () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    const reload = vi.fn();
+    vi.stubGlobal("location", { ...window.location, reload });
+    const reset = vi.fn();
+    render(<ErrorBoundary error={new Error("Failed to load chunk")} reset={reset} />);
+
+    fireEvent.click(screen.getByText("Загальна помилка"));
+
+    expect(reload).toHaveBeenCalledTimes(1);
+    expect(reset).not.toHaveBeenCalled();
+    vi.unstubAllGlobals();
   });
 });

@@ -6,6 +6,7 @@ import { itemRarityTranslations, magicItemTypeTranslations } from "@/lib/refs/tr
 import { cn } from "@/lib/utils";
 import { findAccentVariant } from "@/styles/edition-accent";
 import { EditionAccentChip } from "@/components/ui/EditionAccent";
+import { translateAttunementCondition } from "./attunement-condition";
 
 export type MagicItemDetail = {
   magicItemId: number;
@@ -98,7 +99,9 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
               <>
                 <span className="text-slate-500">•</span>
                 <span className={findAccentVariant(is2024, { prism: "text-prism-300/90", arcane: "text-arcane-300/80" })}>
-                  {item.attunementConditionEng ? `Налаштування (${item.attunementConditionEng})` : "Потребує налаштування"}
+                  {item.attunementConditionEng
+                    ? `Налаштування: ${translateAttunementCondition(item.attunementConditionEng) ?? `умова в оригіналі — ${item.attunementConditionEng}`}`
+                    : "Потребує налаштування"}
                 </span>
               </>
             )}

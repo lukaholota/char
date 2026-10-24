@@ -3,6 +3,7 @@ import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import type { Ruleset } from "@prisma/client";
 import { characterLevelOnly } from "@/rules/character-level";
 import { dropReplacedSpeciesTraits, findEarnedSpeciesFeatureIds, findVariantReplacedFeatureIds } from "@/rules/species-grants";
+import { findMissingSpeciesGrants } from "@/server/db/species-level-grants";
 
 // KR6.3: hardcoded until the edition switch (O6 Крок 5) lets pers.ruleset drive this.
 const ACTIVE_RULESET: Ruleset = "RULES_2014";
@@ -132,30 +133,14 @@ export async function loadCreationContent(data: PersFormData) {
           select: { featureId: true },
         })
       : [],
-    raceChoiceOptionIds.length
-      ? prisma.raceChoiceOption.findMany({
-          where: { optionId: { in: raceChoiceOptionIds } },
-          include: {
-            traitFeature: { select: { engName: true, name: true } },
-            traits: {
-              select: {
-                feature: { select: { engName: true, name: true, givesSpells: { select: { spellId: true } } } },
-              },
-            },
-            spells: { select: { spellId: true, characterLevel: true } },
-          },
-        })
-      : [],
+    loadRaceChoiceOptionsWithSpells(raceChoiceOptionIds),
     raceChoiceOptionIds.length
       ? prisma.raceChoiceOptionTrait.findMany({
           where: { optionId: { in: raceChoiceOptionIds } },
           select: { featureId: true },
         })
       : [],
-    prisma.raceTrait.findMany({
-      where: { raceId: data.raceId },
-      select: { level: true, feature: { select: { engName: true, name: true, givesSpells: { select: { spellId: true } } } } },
-    }),
+    loadRaceTraitsWithSpells(data.raceId),
   ] as const);
 
   const variantReplacedFeatureIds = findVariantReplacedFeatureIds(variant ? [variant] : []);
@@ -251,6 +236,41 @@ export async function loadCreationContent(data: PersFormData) {
     featsGrantedByChoiceOptions,
     featGrantingFeatureIds,
   };
+}
+
+/** Кроки заклинань конструктора не пропонують того, що вже дає вид, — інакше створення відмовить через повтор. */
+export async function loadCreationSpeciesSpellIds(raceId: number, raceChoiceOptionIds: readonly number[]): Promise<number[]> {
+  const [race, raceTraits, raceChoiceOptions] = await Promise.all([
+    prisma.race.findUnique({ where: { raceId }, select: { ruleset: true } }),
+    loadRaceTraitsWithSpells(raceId),
+    loadRaceChoiceOptionsWithSpells(raceChoiceOptionIds),
+  ]);
+  if (!race) return [];
+  const grants = findMissingSpeciesGrants({ ruleset: race.ruleset, characterLevel: 1, raceTraits, raceChoiceOptions, ownedFeatureIds: [], ownedSpellIds: [] });
+  return grants.spells.map((spell) => spell.spellId);
+}
+
+function loadRaceTraitsWithSpells(raceId: number) {
+  return prisma.raceTrait.findMany({
+    where: { raceId },
+    select: { featureId: true, level: true, feature: { select: { engName: true, name: true, givesSpells: { select: { spellId: true } } } } },
+  });
+}
+
+async function loadRaceChoiceOptionsWithSpells(raceChoiceOptionIds: readonly number[]) {
+  if (!raceChoiceOptionIds.length) return [];
+  return prisma.raceChoiceOption.findMany({
+    where: { optionId: { in: [...raceChoiceOptionIds] } },
+    include: {
+      traitFeature: { select: { engName: true, name: true } },
+      traits: {
+        select: {
+          feature: { select: { engName: true, name: true, givesSpells: { select: { spellId: true } } } },
+        },
+      },
+      spells: { select: { spellId: true, characterLevel: true } },
+    },
+  });
 }
 
 function uniquePositiveIds(values: Array<number | number[] | undefined>): number[] {

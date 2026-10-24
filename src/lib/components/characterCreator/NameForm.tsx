@@ -6,7 +6,6 @@ import { useStepForm } from "@/hooks/useStepForm";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   backgroundTranslations,
   classTranslations,
@@ -15,7 +14,6 @@ import {
   featTranslations,
   asiSystemTranslations,
   asiModeTranslations,
-  sourceTranslations,
 } from "@/lib/refs/translation";
 import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types";
 import type { RaceVariant } from "@prisma/client";
@@ -25,26 +23,12 @@ import clsx from "clsx";
 import { HelpCircle } from "lucide-react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { Weapon } from "@prisma/client";
-import {
-  formatArmorProficiencies,
-  formatASI,
-  formatList,
-  formatLanguages,
-  formatMulticlassReqs,
-  formatSkillProficiencies,
-  formatSpeeds,
-  formatToolProficiencies,
-  formatWeaponProficiencies,
-  translateValue,
-} from "@/lib/components/characterCreator/infoUtils";
+import { translateValue } from "@/lib/components/characterCreator/infoUtils";
 import {
   ControlledInfoDialog,
-  InfoGrid,
-  InfoPill,
   InfoSectionTitle,
 } from "@/lib/components/characterCreator/EntityInfoDialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { SourceBadge } from "@/lib/components/characterCreator/SourceBadge";
 import { RaceInfoModal } from "@/lib/components/characterCreator/modals/RaceInfoModal";
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
@@ -53,14 +37,19 @@ import { SubraceInfoModal } from "@/lib/components/characterCreator/modals/Subra
 import { RaceVariantInfoModal } from "@/lib/components/characterCreator/modals/RaceVariantInfoModal";
 import { FeatInfoModal } from "@/lib/components/characterCreator/modals/FeatInfoModal";
 import { describeEquipmentRow } from "@/lib/components/characterCreator/equipment-choices";
+import type { Ruleset } from "@/rules/types";
+import { sumFeatureHitPointsPerLevel } from "@/rules/hit-points";
+import { CreationSelectionSummary } from "./CreationSelectionSummary";
 
 interface Props {
   formId: string;
+  ruleset?: Ruleset;
   race?: RaceI;
   raceVariant?: RaceVariant | null;
   selectedClass?: ClassI;
   background?: BackgroundI;
   backgroundFeat?: FeatPrisma | null;
+  speciesFeat?: FeatPrisma | null;
   feat?: FeatPrisma | null;
   weapons?: Weapon[];
   onSuccess?: () => void;
@@ -222,30 +211,36 @@ const StatsSummary = ({ stats }: { stats: ReturnType<typeof useCharacterStats> }
 
 export const NameForm = ({
   formId,
+  ruleset,
   race,
   raceVariant,
   selectedClass,
   background,
   backgroundFeat,
+  speciesFeat,
   feat,
   weapons,
   onSuccess,
 }: Props) => {
   const { form, onSubmit } = useStepForm(nameSchema, (data) => {
     const trimmed = String(data?.name ?? "").trim();
-    if (!trimmed && currentName) {
-      form.setValue("name", currentName, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+    const chosenName = trimmed || currentName;
+    if (!chosenName) {
+      form.setError("name", { message: "Введіть імʼя або дочекайтеся підказки." });
+      return;
     }
+    form.setValue("name", chosenName, { shouldDirty: true, shouldTouch: true, shouldValidate: true });
+    usePersFormStore.getState().updateFormData({ name: chosenName });
     onSuccess?.();
   });
-  const stats = useCharacterStats({ race, raceVariant, feat });
+  const stats = useCharacterStats({ ruleset, race, raceVariant, background, backgroundFeat, speciesFeat, feat });
 
   const { currentName, generateName, options: nameGeneratorOptions } = useCharacterNameGenerator();
   const formData = usePersFormStore((s) => s.formData);
 
   const hasTough = useMemo(() => {
-    return (feat?.name === "TOUGH") || (backgroundFeat?.name === "TOUGH");
-  }, [feat, backgroundFeat]);
+    return [feat, backgroundFeat, speciesFeat].some((chosen) => chosen?.name === "TOUGH");
+  }, [feat, backgroundFeat, speciesFeat]);
 
   const [packInfoOpen, setPackInfoOpen] = useState(false);
   const [currentPack, setCurrentPack] = useState<any>(null);
@@ -256,6 +251,9 @@ export const NameForm = ({
 
   const subrace = (race?.subraces || []).find((sr: any) => sr.subraceId === (formData.subraceId ?? undefined));
   const subraceName = subrace ? translateValue((subrace as any).name) : undefined;
+  const traitHp = sumFeatureHitPointsPerLevel([
+    ...(race?.traits ?? []), ...(subrace?.traits ?? []),
+  ].filter((trait) => !("level" in trait) || trait.level <= 1).map((trait) => trait.feature));
   const raceVariantName = raceVariant ? translateValue((raceVariant as any).name) : undefined;
 
   const subclass = (selectedClass?.subclasses || []).find((sc: any) => sc.subclassId === (formData.subclassId ?? undefined));
@@ -330,7 +328,7 @@ export const NameForm = ({
   const resolveClassChoiceLabel = (optionId: number) => {
     const list = (selectedClass?.classChoiceOptions || []) as any[];
     const found = list.find(
-      (x) => Number(x.choiceOptionId) === Number(optionId) || Number(x.optionId) === Number(optionId)
+      (x) => Number(x.choiceOptionId) === Number(optionId)
     );
     return found;
   };
@@ -338,7 +336,7 @@ export const NameForm = ({
   const resolveSubclassChoiceLabel = (optionId: number) => {
     const list = ((subclass as any)?.subclassChoiceOptions || []) as any[];
     const found = list.find(
-      (x) => Number(x.choiceOptionId) === Number(optionId) || Number(x.optionId) === Number(optionId)
+      (x) => Number(x.choiceOptionId) === Number(optionId)
     );
     return found;
   };
@@ -375,11 +373,15 @@ export const NameForm = ({
               placeholder={currentName || "Наприклад, Аравор"}
               {...form.register('name')}
               className="w-full border-white/10 bg-white/5 text-white focus-visible:ring-arcane-400/30"
+              aria-invalid={Boolean(form.formState.errors.name)}
+              aria-describedby="name-error"
             />
+            {form.formState.errors.name && <p id="name-error" role="alert" className="text-sm text-red-400">{form.formState.errors.name.message}</p>}
             <NameSuggestionHint currentName={currentName} />
           </div>
 
           <NameGeneratorOptionsPanel {...nameGeneratorOptions} />
+          <p className="text-sm text-slate-400">Якщо лишити поле порожнім, буде збережено імʼя «{currentName || "Безіменний"}».</p>
 
           <div className="grid gap-3 md:grid-cols-3">
             {race && (
@@ -414,7 +416,7 @@ export const NameForm = ({
                  <div className="flex items-center justify-between">
                    <div className="text-xs uppercase tracking-[0.14em] text-slate-400">Максимум HP</div>
                    <div className="text-xl font-bold text-emerald-400">
-                     {selectedClass.hitDie + stats.CON.mod + (hasTough ? 2 : 0)}
+                     {selectedClass.hitDie + stats.CON.mod + (hasTough ? 2 : 0) + traitHp}
                    </div>
                  </div>
                  {hasTough && (
@@ -425,6 +427,8 @@ export const NameForm = ({
                </div>
              )}
           </div>
+
+          <CreationSelectionSummary ruleset={ruleset ?? formData.ruleset ?? "RULES_2014"} weapons={weapons ?? []} />
 
           <div className="grid gap-3 md:grid-cols-2">
             {Object.keys(raceChoiceSelections).length > 0 && (
@@ -606,6 +610,7 @@ export const NameForm = ({
 
           <div className="glass-panel rounded-xl border border-white/10 bg-white/5 p-3">
             <div className="text-xs uppercase tracking-[0.14em] text-slate-400">Спорядження</div>
+            {startingEquipment.some((option) => option.item === "Інструменти ремісника або Музичний інструмент") && <p className="mt-1 text-sm text-slate-400">Назву інструмента з пакунка можна уточнити у спорядженні на листі. Володіння інструментом — окремий вибір.</p>}
             <div className="mt-2 space-y-2">
               {Object.keys(choiceGroupToId).length ? (
                 Object.entries(choiceGroupToId).map(([group, optionIds]) => (
@@ -656,7 +661,6 @@ export const NameForm = ({
             </div>
           </div>
 
-          <p className="text-xs text-slate-500">Це ім&apos;я побачите у підсумку та на листі персонажа.</p>
         </CardContent>
       </Card>
 

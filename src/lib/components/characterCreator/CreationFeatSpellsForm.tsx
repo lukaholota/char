@@ -6,6 +6,7 @@ import { getCreationFeatSpellOffer } from "@/lib/actions/feat-spell-actions";
 import { featTranslations } from "@/lib/refs/translation";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { FeatSpellChoiceOffer } from "@/rules/feat-spell-choices";
+import { useCreationSpecies } from "./useCreationSpecies";
 
 export type CreationFeatSpellSource = "BACKGROUND_ORIGIN" | "SPECIES_VERSATILITY";
 
@@ -42,7 +43,7 @@ export const CreationFeatSpellsForm = ({ feats, formId, onNextDisabledChange }: 
   }, []);
 
   const selections = formData.featSpellSelections ?? {};
-  const classSpellIds = useMemo(() => collectClassSpellIds(formData.classSpells), [formData.classSpells]);
+  const classSpellIds = useMemo(() => [...collectClassSpellIds(formData.classSpells), ...(formData.initialPreparedSpellIds ?? [])], [formData.classSpells, formData.initialPreparedSpellIds]);
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
@@ -106,16 +107,17 @@ function useCreationFeatSpellOffer(feat: CreationSpellFeat): FeatSpellChoiceOffe
     .filter((id) => Number.isInteger(id) && id > 0)
     .sort((a, b) => a - b)
     .join(",");
+  const species = useCreationSpecies();
 
   useEffect(() => {
     let isCurrent = true;
-    getCreationFeatSpellOffer(feat.featId, optionKey ? optionKey.split(",").map(Number) : []).then((loaded) => {
+    getCreationFeatSpellOffer(feat.featId, optionKey ? optionKey.split(",").map(Number) : [], species).then((loaded) => {
       if (isCurrent) setOffer(loaded);
     });
     return () => {
       isCurrent = false;
     };
-  }, [feat.featId, optionKey]);
+  }, [feat.featId, optionKey, species]);
 
   return offer;
 }

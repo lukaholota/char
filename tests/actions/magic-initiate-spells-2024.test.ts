@@ -14,6 +14,7 @@ vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: <T>(fn: 
 import { auth } from "@/lib/auth";
 import { createCharacter } from "@/lib/actions/character";
 import { getCreationFeatSpellOffer } from "@/lib/actions/feat-spell-actions";
+import { getCreationSpellOffer } from "@/lib/actions/class-actions";
 import { getLevelUpFeatSpellOffer, levelUpCharacter } from "@/lib/actions/levelup";
 
 vi.setConfig({ testTimeout: 120_000 });
@@ -48,9 +49,9 @@ async function findMagicInitiate() {
 }
 
 /** Клірик-мудрець: риса походження «Посвячений у магію» від Мудреця, клас свої заклинання добирає хелпером. */
-async function buildSageCleric(input: { featSpellSelections?: PersFormData["featSpellSelections"]; list?: "Cleric" | "Wizard"; human?: "Cleric" | "Druid" }) {
+async function buildSageCleric(input: { featSpellSelections?: PersFormData["featSpellSelections"]; list?: "Cleric" | "Druid" | "Wizard"; human?: "Cleric" | "Druid"; tiefling?: boolean }) {
   const [race, cleric, sage] = await Promise.all([
-    prisma.race.findFirstOrThrow({ where: { name: Races.HUMAN_2024 } }),
+    prisma.race.findFirstOrThrow({ where: { name: input.tiefling ? Races.TIEFLING_2024 : Races.HUMAN_2024 } }),
     prisma.class.findFirstOrThrow({ where: { name: Classes.CLERIC_2024 } }),
     prisma.background.findFirstOrThrow({ where: { name: BackgroundCategory.SAGE_2024 } }),
   ]);
@@ -74,9 +75,18 @@ async function buildSageCleric(input: { featSpellSelections?: PersFormData["feat
           speciesFeatChoiceSelections: await buildInitiateChoices(input.human!, "WIS"),
         }
       : {}),
+    ...(input.tiefling ? { raceChoiceSelections: await buildAbyssalLegacyChoices(race.raceId) } : {}),
     ...(input.featSpellSelections ? { featSpellSelections: input.featSpellSelections } : {}),
   });
-  return withCreationSpells(form, { cantrips: ["Guidance", "Sacred Flame", "Thaumaturgy"] });
+  return withCreationSpells(form, { cantrips: ["Guidance", "Sacred Flame", input.tiefling ? "Light" : "Thaumaturgy"] });
+}
+
+async function buildAbyssalLegacyChoices(raceId: number): Promise<Record<string, number>> {
+  const options = await prisma.raceChoiceOption.findMany({
+    where: { raceId, optionNameEng: { in: ["Abyssal", "WIS"] } },
+    select: { optionId: true, choiceGroupName: true },
+  });
+  return Object.fromEntries(options.map((option) => [option.choiceGroupName, option.optionId]));
 }
 
 async function readFeatSpells(persId: number) {
@@ -108,7 +118,7 @@ describe("KR31.5 — «Посвячений у магію» 2024 дає обра
     await signIn("initiate-missing");
     const form = await buildSageCleric({ featSpellSelections: { BACKGROUND_ORIGIN: [] } });
 
-    expect(await createCharacter(form)).toEqual({ error: "Оберіть 2 замовляння риси" });
+    expect(await createCharacter(form)).toEqual({ error: "Оберіть 2 замовляння риси", fixAtSteps: ["featSpells"] });
     expect(await prisma.pers.count()).toBe(0);
   });
 
@@ -116,14 +126,14 @@ describe("KR31.5 — «Посвячений у магію» 2024 дає обра
     await signIn("initiate-foreign");
     const form = await buildSageCleric({ featSpellSelections: { BACKGROUND_ORIGIN: await findSpellIds(["Fire Bolt", "Guidance", "Shield"]) } });
 
-    expect(await createCharacter(form)).toEqual({ error: "Обране заклинання не підходить цій рисі" });
+    expect(await createCharacter(form)).toEqual({ error: "Обране заклинання не підходить цій рисі", fixAtSteps: ["featSpells"] });
   });
 
   it("замовляння, яке вже обрано класом, риса другий раз не бере", async () => {
     await signIn("initiate-class-overlap");
     const form = await buildSageCleric({ list: "Cleric", featSpellSelections: { BACKGROUND_ORIGIN: await findSpellIds(["Guidance", "Light", "Sanctuary"]) } });
 
-    expect(await createCharacter(form)).toEqual({ error: "Це заклинання вже дає інше джерело — оберіть інше" });
+    expect(await createCharacter(form)).toEqual({ error: "Це заклинання вже дає інше джерело — оберіть інше", fixAtSteps: ["featSpells"] });
   });
 
   it("Людина з двома рисами: той самий Світло від передісторії й від виду не приймається", async () => {
@@ -134,7 +144,38 @@ describe("KR31.5 — «Посвячений у магію» 2024 дає обра
       featSpellSelections: { BACKGROUND_ORIGIN: [light, fireBolt, shield], SPECIES_VERSATILITY: [light, spareTheDying, bless] },
     });
 
-    expect(await createCharacter(clash)).toEqual({ error: "Це заклинання вже дає інше джерело — оберіть інше" });
+    expect(await createCharacter(clash)).toEqual({ error: "Це заклинання вже дає інше джерело — оберіть інше", fixAtSteps: ["featSpells"] });
+  });
+
+  it("Тіфлінг із безодні: Отруйний бризок уже дає вид — крок риси його не пропонує, а сервер відсилає саме на цей крок", async () => {
+    await signIn("initiate-tiefling");
+    const { featId } = await findMagicInitiate();
+    const [poisonSpray, druidcraft, goodberry] = await findSpellIds(["Poison Spray", "Druidcraft", "Goodberry"]);
+    const tiefling = await prisma.race.findFirstOrThrow({ where: { name: Races.TIEFLING_2024 }, select: { raceId: true } });
+    const species = { raceId: tiefling.raceId, raceChoiceOptionIds: Object.values(await buildAbyssalLegacyChoices(tiefling.raceId)) };
+    const druid = Object.values(await buildInitiateChoices("Druid", "INT"));
+
+    const offeredCantripIds = async (forSpecies: typeof species | null) =>
+      ((await getCreationFeatSpellOffer(featId, druid, forSpecies))?.picks[0]?.spells ?? []).map((spell) => spell.spellId);
+    expect(await offeredCantripIds(null)).toContain(poisonSpray);
+    expect(await offeredCantripIds(species)).not.toContain(poisonSpray);
+
+    const form = await buildSageCleric({ tiefling: true, list: "Druid", featSpellSelections: { BACKGROUND_ORIGIN: [poisonSpray, druidcraft, goodberry] } });
+    expect(await createCharacter(form)).toEqual({ error: "Це заклинання вже дає інше джерело — оберіть інше", fixAtSteps: ["featSpells"] });
+  });
+
+  it("клірик-тіфлінг: Дивотворство від виду не серед замовлянь на вибір, а показане окремо як уже наявне", async () => {
+    const [thaumaturgy] = await findSpellIds(["Thaumaturgy"]);
+    const cleric = await prisma.class.findFirstOrThrow({ where: { name: Classes.CLERIC_2024 }, select: { classId: true } });
+    const tiefling = await prisma.race.findFirstOrThrow({ where: { name: Races.TIEFLING_2024 }, select: { raceId: true } });
+    const species = { raceId: tiefling.raceId, raceChoiceOptionIds: Object.values(await buildAbyssalLegacyChoices(tiefling.raceId)) };
+
+    const withoutSpecies = await getCreationSpellOffer(cleric.classId, []);
+    const withSpecies = await getCreationSpellOffer(cleric.classId, [], null, species);
+
+    expect(withoutSpecies?.cantrips.map((spell) => spell.spellId)).toContain(thaumaturgy);
+    expect(withSpecies?.cantrips.map((spell) => spell.spellId)).not.toContain(thaumaturgy);
+    expect(withSpecies?.speciesSpells?.map((spell) => spell.spellId)).toEqual([thaumaturgy]);
   });
 
   it("список для кроку конструктора: лише замовляння й заклинання 1-го рівня обраного списку", async () => {

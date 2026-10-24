@@ -1,256 +1,66 @@
-import { useMemo } from 'react';
-import { usePersFormStore } from '@/lib/stores/persFormStore';
-import { Ability } from "@/lib/prisma-enums";
+import { useMemo } from "react";
 import type { RaceVariant } from "@prisma/client";
-import { RaceI, FeatPrisma, RaceASI } from '@/lib/types/model-types';
-import { normalizeRaceASI } from '@/lib/components/characterCreator/infoUtils';
+import { usePersFormStore } from "@/lib/stores/persFormStore";
+import type { BackgroundI, FeatPrisma, RaceI } from "@/lib/types/model-types";
+import { buildCreationAbilityScores, type CreationAbilityInput } from "@/rules/character-creation";
+import { ABILITY_KEYS } from "@/rules/feat-grants";
+import type { AbilityKey, Ruleset } from "@/rules/types";
 
-const attributes = [
-  { key: Ability.STR, label: 'Сила' },
-  { key: Ability.DEX, label: 'Спритність' },
-  { key: Ability.CON, label: 'Статура' },
-  { key: Ability.INT, label: 'Інтелект' },
-  { key: Ability.WIS, label: 'Мудрість' },
-  { key: Ability.CHA, label: 'Харизма' },
-];
-
-interface UseCharacterStatsProps {
+type Props = {
+  ruleset?: Ruleset;
   race?: RaceI;
   raceVariant?: RaceVariant | null;
+  background?: BackgroundI;
+  backgroundFeat?: FeatPrisma | null;
+  speciesFeat?: FeatPrisma | null;
   feat?: FeatPrisma | null;
-}
-
-export const useCharacterStats = ({ race, raceVariant, feat }: UseCharacterStatsProps) => {
-  const { formData } = usePersFormStore();
-
-  const stats = useMemo(() => {
-    const scores: Record<
-      string,
-      {
-        base: number;
-        bonus: number;
-        total: number;
-        mod: number;
-        breakdown: Array<{ source: string; value: number }>;
-      }
-    > = {};
-
-    // 1. Base Scores
-    const baseScores: Record<string, number> = {
-      STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 10, CHA: 10
-    };
-
-    if (formData.asiSystem === 'POINT_BUY') {
-      formData.asi?.forEach(s => baseScores[s.ability] = s.value);
-    } else if (formData.asiSystem === 'SIMPLE') {
-      formData.simpleAsi?.forEach(s => baseScores[s.ability] = s.value);
-    } else if (formData.asiSystem === 'CUSTOM' && formData.customAsi) {
-      formData.customAsi.forEach(s => baseScores[s.ability] = Number(s.value) || 10);
-    }
-
-    // Initialize result structure
-    attributes.forEach((attr) => {
-      scores[attr.key] = { base: baseScores[attr.key], bonus: 0, total: 0, mod: 0, breakdown: [] };
-    });
-
-    const addBonus = (ability: string, value: number, source: string) => {
-      if (!scores[ability]) return;
-      const n = Number(value);
-      if (!Number.isFinite(n) || n === 0) return;
-      scores[ability].bonus += n;
-
-      const existing = scores[ability].breakdown.find((x) => x.source === source);
-      if (existing) existing.value += n;
-      else scores[ability].breakdown.push({ source, value: n });
-    };
-
-    const subrace = (race?.subraces || []).find((sr: any) => sr.subraceId === (formData.subraceId ?? undefined));
-    const subraceReplacesAsi = Boolean((subrace as any)?.replacesASI);
-
-    // 2. Racial Bonuses (Fixed)
-    const effectiveASI = normalizeRaceASI(
-      (raceVariant?.overridesRaceASI ?? (subraceReplacesAsi ? (subrace as any)?.additionalASI : race?.ASI)) as any
-    ) as RaceASI | undefined;
-
-    if (formData.isDefaultASI) {
-      if (effectiveASI?.basic?.simple) {
-        Object.entries(effectiveASI.basic.simple).forEach(([ability, bonus]) => {
-          addBonus(ability, Number(bonus), "за расу");
-        });
-      }
-
-      if (!subraceReplacesAsi) {
-        const additionalASI = (subrace as any)?.additionalASI as Record<string, number> | undefined;
-        if (additionalASI && typeof additionalASI === 'object') {
-          Object.entries(additionalASI).forEach(([ability, bonus]) => {
-            addBonus(ability, Number(bonus), "за підрасу");
-          });
-        }
-      }
-    }
-
-    // 3. Racial Bonuses (Choices)
-    if (formData.racialBonusChoiceSchema) {
-      const choices = formData.isDefaultASI
-        ? formData.racialBonusChoiceSchema.basicChoices
-        : formData.racialBonusChoiceSchema.tashaChoices;
-
-      if (choices?.length) {
-        const raceGroups = formData.isDefaultASI
-          ? (effectiveASI?.basic?.flexible?.groups ?? [])
-          : (effectiveASI?.tasha?.flexible?.groups ?? []);
-
-        const additionalASI = (subrace as any)?.additionalASI as Record<string, number> | undefined;
-        const subraceGroups = !subraceReplacesAsi && !formData.isDefaultASI && additionalASI && typeof additionalASI === 'object'
-          ? (() => {
-              const byValue = new Map<number, number>();
-              Object.entries(additionalASI).forEach(([_ability, bonus]) => {
-                const value = Number(bonus);
-                if (!Number.isFinite(value) || value === 0) return;
-                byValue.set(value, (byValue.get(value) ?? 0) + 1);
-              });
-              return Array.from(byValue.entries())
-                .sort((a, b) => b[0] - a[0])
-                .map(([value, count]) => ({
-                  groupName: `+${value} до ${count}`,
-                  value,
-                  choiceCount: count,
-                  unique: true,
-                }));
-            })()
-          : [];
-
-        const allGroups = [...raceGroups, ...subraceGroups] as any[];
-
-        choices.forEach((choice) => {
-          const group = allGroups[choice.groupIndex];
-          const value = group?.value;
-          const bonusValue = typeof value === 'number' ? value : 1;
-
-          const source = choice.groupIndex < raceGroups.length ? "за расу" : "за підрасу";
-
-          choice.selectedAbilities.forEach((ability) => {
-            addBonus(ability, bonusValue, source);
-          });
-        });
-      }
-    }
-
-    // 4. Feat Bonuses (Fixed)
-    if (feat?.grantedASI) {
-       const abilityKeys = new Set(["STR", "DEX", "CON", "INT", "WIS", "CHA"]);
-       const featASI = feat.grantedASI as any;
-       const apply = (ability: string, bonus: unknown) => {
-         const upper = String(ability).toUpperCase();
-         if (!abilityKeys.has(upper)) return;
-         addBonus(upper, Number(bonus), "за рису");
-       };
-
-       if (featASI?.basic?.simple && typeof featASI.basic.simple === "object") {
-         Object.entries(featASI.basic.simple).forEach(([ability, bonus]) => apply(ability, bonus));
-       } else if (featASI && typeof featASI === "object" && !Array.isArray(featASI)) {
-         Object.entries(featASI).forEach(([ability, bonus]) => apply(ability, bonus));
-       }
-    }
-
-    // 5. Feat Bonuses (Choices)
-    // We need to look at featChoiceSelections and map them to abilities
-    if (feat && formData.featChoiceSelections) {
-        Object.values(formData.featChoiceSelections).forEach(optionId => {
-            // Find the option in the feat's options
-            const option = feat.featChoiceOptions.find(o => o.choiceOptionId === optionId);
-            if (option) {
-                const co: any = option.choiceOption;
-                const effectKind = String(co?.effectKind ?? "").trim();
-
-                if (effectKind === "ASI") {
-                  const abilityRaw = String(co?.effectAbility ?? "").trim();
-                  const amount = Number(co?.effectAmount ?? 1);
-                  const toAbility = (value: string): string | null => {
-                    const v = String(value || "").trim();
-                    const upper = v.toUpperCase();
-                    if (upper === "STR" || upper === "DEX" || upper === "CON" || upper === "INT" || upper === "WIS" || upper === "CHA") {
-                      return upper;
-                    }
-                    switch (v) {
-                      case "Strength":
-                        return "STR";
-                      case "Dexterity":
-                        return "DEX";
-                      case "Constitution":
-                        return "CON";
-                      case "Intelligence":
-                        return "INT";
-                      case "Wisdom":
-                        return "WIS";
-                      case "Charisma":
-                        return "CHA";
-                      default:
-                        return null;
-                    }
-                  };
-
-                  const ability = toAbility(abilityRaw);
-                  if (ability) addBonus(ability, Number.isFinite(amount) ? amount : 1, "за рису");
-                  return;
-                }
-
-                const nameEng = co.optionNameEng;
-
-                const tail = (() => {
-                  const match = String(nameEng).match(/\(([^)]+)\)\s*$/);
-                  return (match?.[1] ?? "").trim();
-                })();
-
-                const toAbility = (value: string): string | null => {
-                  const v = String(value || "").trim();
-                  const upper = v.toUpperCase();
-                  if (upper === "STR" || upper === "DEX" || upper === "CON" || upper === "INT" || upper === "WIS" || upper === "CHA") {
-                    return upper;
-                  }
-                  switch (v) {
-                    case "Strength":
-                      return "STR";
-                    case "Dexterity":
-                      return "DEX";
-                    case "Constitution":
-                      return "CON";
-                    case "Intelligence":
-                      return "INT";
-                    case "Wisdom":
-                      return "WIS";
-                    case "Charisma":
-                      return "CHA";
-                    default:
-                      return null;
-                  }
-                };
-
-                const abilityFromTail = toAbility(tail);
-                if (abilityFromTail) {
-                  addBonus(abilityFromTail, 1, "за рису");
-                  return;
-                }
-
-                // Backward compat fallback
-                if (nameEng.includes('Strength')) addBonus('STR', 1, "за рису");
-                else if (nameEng.includes('Dexterity')) addBonus('DEX', 1, "за рису");
-                else if (nameEng.includes('Constitution')) addBonus('CON', 1, "за рису");
-                else if (nameEng.includes('Intelligence')) addBonus('INT', 1, "за рису");
-                else if (nameEng.includes('Wisdom')) addBonus('WIS', 1, "за рису");
-                else if (nameEng.includes('Charisma')) addBonus('CHA', 1, "за рису");
-            }
-        });
-    }
-
-    // Calculate Totals and Mods
-    Object.keys(scores).forEach(key => {
-        scores[key].total = scores[key].base + scores[key].bonus;
-        scores[key].mod = Math.floor((scores[key].total - 10) / 2);
-    });
-
-    return scores;
-  }, [formData, race, raceVariant, feat]);
-
-  return stats;
 };
+
+type StatPreview = {
+  base: number;
+  bonus: number;
+  total: number;
+  mod: number;
+  breakdown: Array<{ source: string; value: number }>;
+};
+
+export function useCharacterStats({ ruleset, race, raceVariant, background, backgroundFeat, speciesFeat, feat }: Props) {
+  const formData = usePersFormStore((state) => state.formData);
+  return useMemo(() => {
+    const subrace = race?.subraces.find((candidate) => candidate.subraceId === formData.subraceId);
+    const input: CreationAbilityInput = {
+      ruleset: ruleset ?? formData.ruleset ?? "RULES_2014",
+      asiSystem: formData.asiSystem ?? "POINT_BUY",
+      pointBuy: formData.asi ?? [], simple: formData.simpleAsi ?? [], custom: formData.customAsi,
+      isDefaultASI: formData.isDefaultASI ?? true,
+      raceASI: race?.ASI, variantASI: raceVariant?.overridesRaceASI,
+      subraceASI: subrace?.additionalASI, subraceReplacesASI: Boolean(subrace?.replacesASI),
+      racialChoices: formData.racialBonusChoiceSchema,
+      raceChoiceAbilityBonuses: Object.values(formData.raceChoiceSelections ?? {}).flatMap((id) => {
+        const choice = race?.raceChoiceOptions.find((candidate) => candidate.optionId === id);
+        return choice ? [{ ASI: choice.ASI }] : [];
+      }),
+      backgroundAbilityOptions: background?.abilityOptions,
+      backgroundAsiChoice: formData.backgroundAsiChoice,
+      feats: [
+        { feat, selections: formData.featChoiceSelections },
+        { feat: backgroundFeat, selections: formData.backgroundFeatChoiceSelections },
+        { feat: speciesFeat, selections: formData.speciesFeatChoiceSelections },
+      ].flatMap(({ feat: chosen, selections }) => chosen ? [{ source: chosen, chosenOptionIds: [...new Set(Object.values(selections ?? {}).flat())] }] : []),
+    };
+    const base = buildCreationAbilityScores({ ...input, raceASI: null, variantASI: null, subraceASI: null,
+      racialChoices: undefined, raceChoiceAbilityBonuses: [], backgroundAsiChoice: undefined, feats: [] }).scores;
+    const species = buildCreationAbilityScores({ ...input, backgroundAsiChoice: undefined, feats: [] }).scores;
+    const origin = buildCreationAbilityScores({ ...input, feats: [] }).scores;
+    const final = buildCreationAbilityScores(input).scores;
+    return Object.fromEntries(ABILITY_KEYS.map((ability) => [ability, {
+      base: base[ability], bonus: final[ability] - base[ability], total: final[ability],
+      mod: Math.floor((final[ability] - 10) / 2),
+      breakdown: [
+        { source: "За расу", value: species[ability] - base[ability] },
+        { source: "За походження", value: origin[ability] - species[ability] },
+        { source: "За риси", value: final[ability] - origin[ability] },
+      ].filter((entry) => entry.value !== 0),
+    }])) as Record<AbilityKey, StatPreview>;
+  }, [formData, ruleset, race, raceVariant, background, backgroundFeat, speciesFeat, feat]);
+}

@@ -39,9 +39,6 @@ function SpellRatingEntry({ match, spellEngName, list }: { match: SpellRatingMat
           <a href={buildDraftArticleHref("RULES_2014", list.articleSlug, comment?.sectionId)} target="_blank" rel="noopener noreferrer" {...buildRpgbotCtaProps("open_ukrainian_article", "spell_rating_panel", list.articleSlug)} className="inline-block min-h-10 py-2 text-amber-200 underline md:min-h-0 md:py-0">
             Читати розбір українською
           </a>
-          <a href={list.sourceUrl} target="_blank" rel="noopener noreferrer" {...buildRpgbotCtaProps("open_original", "spell_rating_panel", list.articleSlug)} className="inline-block min-h-10 py-2 text-slate-400 underline md:min-h-0 md:py-0">
-            Оригінал на RPGbot
-          </a>
         </div>
       )}
     </section>

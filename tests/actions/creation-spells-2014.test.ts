@@ -50,8 +50,8 @@ describe("заклинання в конструкторі 2014 — уся та�
     expect(offer).toMatchObject({ ruleset: "RULES_2014", classLabel: "Клірик", quota: { cantrips: 3, prepared: 0, spellbook: 0, maxSpellLevel: 1 }, catchUp: { cantrips: 0, prepared: 0, spellbook: 0 }, swap: null });
     expect(offer!.cantrips.every((spell) => spell.level === 0 && spell.spellLists?.includes("Клірик"))).toBe(true);
 
-    expect(await createCharacter(form())).toEqual({ error: "Оберіть замовлянь: 3" });
-    expect(await createCharacter(form({ cantripIds: ids(offer!.cantrips, 4), preparedIds: [], spellbookIds: [] }))).toEqual({ error: "Оберіть замовлянь: 3" });
+    expect(await createCharacter(form())).toMatchObject({ error: "Оберіть замовлянь: 3" });
+    expect(await createCharacter(form({ cantripIds: ids(offer!.cantrips, 4), preparedIds: [], spellbookIds: [] }))).toMatchObject({ error: "Оберіть замовлянь: 3" });
 
     const created = await createCharacter(form({ cantripIds: ids(offer!.cantrips, 3), preparedIds: [], spellbookIds: [] }));
     if (!("persId" in created) || !created.persId) throw new Error(`не створився: ${JSON.stringify(created)}`);

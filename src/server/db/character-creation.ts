@@ -65,11 +65,14 @@ import { loadPreparedListSpellIds } from "@/server/db/initial-prepared-spells-20
 import { findReadyPresetCreationResult, lockReadyPresetCreation, saveReadyPresetCreationOperation } from "@/server/db/ready-preset-creation-operation";
 import { createCharacterFromBuildPlan, type BuildStartPreparation } from "@/server/db/build-assembly-creation";
 
+/** Кроки конструктора, де гравець виправляє відмову, — від найточнішого; конструктор відкриває перший наявний. */
+export type CreationProblem = { error: string; fixAtSteps?: readonly string[] };
 export type CreateCharacterResult =
-  | { error: string; details?: unknown; success?: undefined; persId?: undefined }
+  | { error: string; fixAtSteps?: readonly string[]; details?: unknown; success?: undefined; persId?: undefined }
   | { error?: undefined; details?: undefined; success: true; persId: number };
-type RequiredUser = { value: { id: number; email: string | null } } | { error: string };
-type ParsedCreateInput = { value: PersFormData } | { error: string; details: unknown };
+const FEAT_STEPS = ["feat", "backgroundFeat", "speciesFeatChoices", "featChoices", "backgroundFeatChoices"];
+type RequiredUser = { value: { id: number; email: string | null } } | CreationProblem;
+type ParsedCreateInput = { value: PersFormData } | { error: string; details: unknown; fixAtSteps?: readonly string[] };
 type LoadedCreationContent = Awaited<ReturnType<typeof loadCreationContent>>;
 type RequiredCreationContent = LoadedCreationContent & {
   race: NonNullable<LoadedCreationContent["race"]>;
@@ -87,7 +90,7 @@ type CharacterBuild = {
   featIdsFromChoiceOptions: number[];
   featOptionFeatureIds: number[];
 };
-type CharacterBuildResult = CharacterBuild | { error: string };
+type CharacterBuildResult = CharacterBuild | CreationProblem;
 type ChosenClassSpells = { offer: ClassSpellOffer; selection: ClassSpellSelection } | null;
 type ChosenClassOptionSpells = { sourceName: string; spellIds: number[] } | null;
 
@@ -100,7 +103,7 @@ export async function createCharacter(input: PersFormData, analytics?: unknown):
   if ("error" in user) return { error: user.error };
 
   const data = parseCreateInput(input);
-  if ("error" in data) return { error: data.error, details: data.details };
+  if ("error" in data) return data;
 
   if (data.value.ruleset === "RULES_2024" && !isRules2024Allowed()) {
     return { error: "Правила 2024 наразі доступні лише для адміністратора/власника." };
@@ -130,7 +133,7 @@ export async function createCharacterFromBuild(request: unknown): Promise<Create
 
 async function prepareBuildStart(user: AuthenticatedUser, input: PersFormData): Promise<BuildStartPreparation> {
   const data = parseCreateInput(input);
-  if ("error" in data) return { error: data.error, details: data.details };
+  if ("error" in data) return data;
 
   if (data.value.ruleset === "RULES_2024" && !isRules2024Allowed()) {
     return { error: "Правила 2024 наразі доступні лише для адміністратора/власника." };
@@ -144,7 +147,7 @@ async function prepareBuildStart(user: AuthenticatedUser, input: PersFormData): 
   return { write: async (tx) => (await write.write(tx)).pers.persId };
 }
 
-async function prepareCharacterCreation(input: PersFormData): Promise<PreparedCharacterCreation | { error: string }> {
+async function prepareCharacterCreation(input: PersFormData): Promise<PreparedCharacterCreation | CreationProblem> {
   const content = await loadCreationContent(input);
   const character = buildCharacter(input, content);
   if ("error" in character) return character;
@@ -153,7 +156,7 @@ async function prepareCharacterCreation(input: PersFormData): Promise<PreparedCh
   if ("error" in chosenSpells) return chosenSpells;
 
   const preparedSpellProblem = await findInitialPreparedProblem(input, content, character, chosenSpells.value);
-  if (preparedSpellProblem) return { error: preparedSpellProblem };
+  if (preparedSpellProblem) return { error: preparedSpellProblem, fixAtSteps: ["spells"] };
   return { character, chosenSpells: chosenSpells.value };
 }
 
@@ -203,10 +206,27 @@ function parseCreateInput(input: PersFormData): ParsedCreateInput {
   const validation = fullCharacterSchema.safeParse(input);
 
   if (!validation.success) {
-    return { error: "Validation failed", details: validation.error.flatten() };
+    const details = validation.error.flatten();
+    const missingSteps = findMissingChoiceSteps(Object.keys(details.fieldErrors));
+    if (!missingSteps.length) return { error: "Validation failed", details };
+    return { error: `Оберіть ${joinWithAnd(missingSteps.map((step) => step.label))}.`, details, fixAtSteps: missingSteps.map((step) => step.id) };
   }
 
   return { value: validation.data };
+}
+
+const REQUIRED_CHOICE_STEPS = [
+  { field: "raceId", id: "race", label: "расу" },
+  { field: "classId", id: "class", label: "клас" },
+  { field: "backgroundId", id: "background", label: "передісторію" },
+] as const;
+
+function findMissingChoiceSteps(invalidFields: readonly string[]) {
+  return REQUIRED_CHOICE_STEPS.filter((step) => invalidFields.includes(step.field));
+}
+
+function joinWithAnd(words: readonly string[]): string {
+  return words.length > 1 ? `${words.slice(0, -1).join(", ")} і ${words.at(-1)}` : words.join("");
 }
 
 type LoadedCreationFeat = NonNullable<LoadedCreationContent["feat"]>;
@@ -268,7 +288,7 @@ function buildCharacter(
   // передумова звіряється лише проти того, що обирається в цьому самому пакеті.
   if (characterClass.name === "WARLOCK_2024") {
     const invocationProblem = findInvocationCreationProblem(content.selectedChoiceOptions);
-    if (invocationProblem) return { error: invocationProblem };
+    if (invocationProblem) return { error: invocationProblem, fixAtSteps: ["classChoices"] };
   }
 
   const ruleset = (validData.ruleset ?? characterClass.ruleset ?? "RULES_2014") as RulesetId;
@@ -281,7 +301,7 @@ function buildCharacter(
       groupName: entry.choiceOption.groupName,
     })),
   });
-  if (classChoiceProblem) return { error: classChoiceProblem };
+  if (classChoiceProblem) return { error: classChoiceProblem, fixAtSteps: ["classChoices", "subclassChoices"] };
 
   // Риса від вибору (бойовий стиль класу, друга риса Людини 2024) має рахуватися разом із
   // рештою — інакше персонаж отримає її запис, але не її хіти й характеристики.
@@ -289,7 +309,7 @@ function buildCharacter(
 
   const featPicks = collectCreationFeatPicks(validData, content, grantedFeats);
   const featProblem = findFeatPackageProblem(featPicks);
-  if (featProblem) return { error: featProblem };
+  if (featProblem) return { error: featProblem, fixAtSteps: FEAT_STEPS };
 
   const backgroundAsiChoice = validData.backgroundAsiChoice as BackgroundASIChoice | undefined;
   const backgroundAsiProblem = findBackgroundAsiProblem(
@@ -297,13 +317,13 @@ function buildCharacter(
     background.abilityOptions,
     backgroundAsiChoice,
   );
-  if (backgroundAsiProblem) return { error: backgroundAsiProblem };
+  if (backgroundAsiProblem) return { error: backgroundAsiProblem, fixAtSteps: ["asi"] };
 
   const racialChoiceProblem = findCreationRacialChoiceProblem(ruleset, validData, { race, variant, subrace });
-  if (racialChoiceProblem) return { error: racialChoiceProblem };
+  if (racialChoiceProblem) return { error: racialChoiceProblem, fixAtSteps: ["asi", "raceChoices"] };
 
   const skillChoiceProblem = findCreationSkillChoiceProblem(validData, { ...content, background });
-  if (skillChoiceProblem) return { error: skillChoiceProblem };
+  if (skillChoiceProblem) return { error: skillChoiceProblem, fixAtSteps: ["skills"] };
 
   const initialState = buildInitialCharacterState({
     ruleset,
@@ -497,7 +517,7 @@ function findSpeciesSpellsAtCreation(content: LoadedCreationContent, ruleset: Ru
 async function findChosenCreationSpells(
   validData: PersFormData,
   content: LoadedCreationContent,
-): Promise<{ value: ChosenCreationSpells } | { error: string }> {
+): Promise<{ value: ChosenCreationSpells } | CreationProblem> {
   const ruleset = (validData.ruleset ?? content.characterClass?.ruleset ?? "RULES_2014") as Ruleset;
   const speciesSpellIds = findSpeciesSpellsAtCreation(content, ruleset).map((spell) => spell.spellId);
   const classSpells = await findChosenClassSpells(validData, content, speciesSpellIds);
@@ -519,7 +539,7 @@ async function findChosenCreationSpells2014(
   content: LoadedCreationContent,
   classSpells: ChosenClassSpells,
   speciesSpellIds: readonly number[],
-): Promise<{ value: ChosenCreationSpells } | { error: string }> {
+): Promise<{ value: ChosenCreationSpells } | CreationProblem> {
   const classSelectionIds = collectClassSelectionIds(classSpells);
   const featSpells = await findChosenFeatSpells2014(validData, content, [...speciesSpellIds, ...classSelectionIds]);
   if ("error" in featSpells) return featSpells;
@@ -538,18 +558,18 @@ async function findChosenFeatSpells2014(
   validData: PersFormData,
   content: LoadedCreationContent,
   takenSpellIds: readonly number[],
-): Promise<{ value: GrantedSpell[] } | { error: string }> {
+): Promise<{ value: GrantedSpell[] } | CreationProblem> {
   const selectedSpellIds = validData.featSpellSelections?.CLASS_ASI;
   if (!selectedSpellIds) return { value: [] };
   const { problem, spells } = await findFeatSpellChoiceProblem2014(prisma, { featName: content.feat?.name ?? "", selectedSpellIds, unavailableSpellIds: takenSpellIds });
-  return problem ? { error: problem } : { value: spells };
+  return problem ? { error: problem, fixAtSteps: FEAT_STEPS } : { value: spells };
 }
 
 async function findChosenRaceSpells2014(
   validData: PersFormData,
   content: LoadedCreationContent,
   takenSpellIds: readonly number[],
-): Promise<{ value: GrantedSpell[] } | { error: string }> {
+): Promise<{ value: GrantedSpell[] } | CreationProblem> {
   if (!content.race) return { value: [] };
   const { problem, spells } = await findRaceSpellChoiceProblem2014(prisma, {
     race: content.race.name,
@@ -558,14 +578,14 @@ async function findChosenRaceSpells2014(
     selectedSpellIds: validData.raceSpellIds ?? [],
     unavailableSpellIds: takenSpellIds,
   });
-  return problem ? { error: problem } : { value: spells };
+  return problem ? { error: problem, fixAtSteps: ["raceSpells", "raceChoices"] } : { value: spells };
 }
 
 async function findChosenClassSpells(
   validData: PersFormData,
   content: LoadedCreationContent,
   speciesSpellIds: readonly number[],
-): Promise<{ value: ChosenClassSpells } | { error: string }> {
+): Promise<{ value: ChosenClassSpells } | CreationProblem> {
   const { offer, problem } = await findClassSpellProblem(prisma, {
     classId: validData.classId,
     classLevel: 1,
@@ -575,7 +595,7 @@ async function findChosenClassSpells(
     selection: validData.classSpells,
     unavailableSpellIds: speciesSpellIds,
   });
-  if (problem) return { error: problem };
+  if (problem) return { error: problem, fixAtSteps: ["spells"] };
   return { value: offer && validData.classSpells ? { offer, selection: validData.classSpells } : null };
 }
 
@@ -589,7 +609,7 @@ async function findChosenClassOptionSpells(
   validData: PersFormData,
   content: LoadedCreationContent,
   takenSpellIds: readonly number[],
-): Promise<{ value: ChosenClassOptionSpells } | { error: string }> {
+): Promise<{ value: ChosenClassOptionSpells } | CreationProblem> {
   const selectedSpellIds = validData.classOptionSpellIds ?? [];
   const { problem, sourceName } = await findClassOptionSpellProblem(prisma, {
     newlyChosenOptionIds: content.selectedChoiceOptionIds,
@@ -597,7 +617,7 @@ async function findChosenClassOptionSpells(
     unavailableSpellIds: takenSpellIds,
     selectedSpellIds,
   });
-  if (problem) return { error: problem };
+  if (problem) return { error: problem, fixAtSteps: ["spells", "subclass"] };
   return { value: sourceName ? { sourceName, spellIds: selectedSpellIds } : null };
 }
 
@@ -612,7 +632,7 @@ async function findChosenFeatSpells(
   validData: PersFormData,
   content: LoadedCreationContent,
   unavailableSpellIds: readonly number[],
-): Promise<{ value: GrantedSpell[] } | { error: string }> {
+): Promise<{ value: GrantedSpell[] } | CreationProblem> {
   const chosen: GrantedSpell[] = [];
 
   for (const pick of collectCreationFeatPicks(validData, content, findFeatsGrantedByCreationChoices(content))) {
@@ -625,7 +645,7 @@ async function findChosenFeatSpells(
       selectedSpellIds,
       unavailableSpellIds: [...unavailableSpellIds, ...chosen.map((spell) => spell.spellId)],
     });
-    if (problem) return { error: problem };
+    if (problem) return { error: problem, fixAtSteps: ["featSpells"] };
     chosen.push(...buildChosenFeatSpells(pick.feat.name, selectedSpellIds));
   }
 
@@ -710,7 +730,7 @@ function prepareCharacterWrite(
   user: AuthenticatedUser,
   character: CharacterBuild,
   chosenSpells: ChosenCreationSpells,
-): { error: string } | CharacterWrite {
+): CreationProblem | CharacterWrite {
   const { validData, content, scores, savingThrows, currentSpellSlots, currentPactSlots, maxHp, featOptionFeatureIds } = character;
 
   const {
@@ -1057,7 +1077,7 @@ function prepareCharacterWrite(
       ...expertiseFromClassSubclassChoices,
     ],
   });
-  if (expertiseProblem) return { error: expertiseProblem };
+  if (expertiseProblem) return { error: expertiseProblem, fixAtSteps: ["expertise"] };
 
   if (allFeatureIdsToCreate.length > 0) {
     for (const f of features) {

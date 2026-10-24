@@ -8,6 +8,7 @@ import { Ruleset } from "@/lib/prisma-enums";
 import type { CreatureSpeeds } from "@/rules/creature-speed";
 import creatures2014Json from "@/lib/generated/creatures.json";
 import creatures2024Json from "@/lib/generated/creatures2024.json";
+import { resolveCreatureAlias } from "@/lib/creature-aliases";
 import optimizationSupplements from "@/lib/generated/optimization-entity-supplements-2014.json";
 import {
   type CreatureIndexEntry,
@@ -88,7 +89,9 @@ creatures2014.push(...optimizationSupplements.creatures.filter((creature) => !cr
   .map((creature, index) => ({ ...creature, creatureId: maxCreatureId2014 + index + 1, ruleset: "RULES_2014" as const })));
 
 // 2024 creatures
-const creatures2024: CreatureData[] = (creatures2024Json as CreatureData[]).map((c, index) => ({
+const creatures2024: CreatureData[] = (creatures2024Json as CreatureData[]).filter((creature) =>
+  resolveCreatureAlias(creature.nameEng, "RULES_2024") === toEntitySlug(creature.nameEng)
+).map((c, index) => ({
   ...c,
   creatureId: c.creatureId || 20001 + index,
   ruleset: "RULES_2024" as Ruleset,
@@ -106,6 +109,8 @@ export function getAllCreatures(ruleset: Ruleset = "RULES_2014"): CreatureData[]
  */
 export function getCreatureById(id: number, ruleset: Ruleset = "RULES_2014"): CreatureData | undefined {
   const list = getAllCreatures(ruleset);
+  const alias = resolveCreatureAlias(String(id), ruleset);
+  if (alias !== String(id)) return findCreatureByKey(alias, ruleset) ?? undefined;
   return list.find((c) => c.creatureId === id);
 }
 
@@ -120,7 +125,7 @@ export function getCreatureByIdOrSlug(idOrSlug: string, ruleset: Ruleset = "RULE
     return getCreatureById(Math.trunc(asNumber), ruleset);
   }
 
-  const slug = toEntitySlug(trimmed);
+  const slug = resolveCreatureAlias(trimmed, ruleset);
   const list = getAllCreatures(ruleset);
   return list.find(
     (c) =>
@@ -141,7 +146,7 @@ export function buildCreatureKey(creature: Pick<CreatureData, "nameEng">): strin
 /// Читач ключа. Порожній результат — не помилка, а стан: істота могла випасти з каталогу між
 /// прикріпленням і читанням. Той, хто малює, показує «форма недоступна» й лишає рядок цілим.
 export function findCreatureByKey(key: string, ruleset: Ruleset): CreatureData | null {
-  const normalized = toEntitySlug(key);
+  const normalized = resolveCreatureAlias(key, ruleset);
   if (!normalized) return null;
 
   return getAllCreatures(ruleset).find((c) => toEntitySlug(c.nameEng) === normalized) ?? null;

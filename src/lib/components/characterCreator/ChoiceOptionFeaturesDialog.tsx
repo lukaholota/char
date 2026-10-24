@@ -45,9 +45,6 @@ function ChoiceOptionRatingSection({ rating }: { rating: ChoiceOptionRating }) {
         <a href={rating.articleHref} target="_blank" rel="noopener noreferrer" className="inline-block min-h-10 py-2 text-amber-200 underline md:min-h-0 md:py-0">
           Читати розбір українською
         </a>
-        <a href={rating.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-block min-h-10 py-2 text-slate-400 underline md:min-h-0 md:py-0">
-          Оригінал на RPGbot
-        </a>
       </div>
     </section>
   );

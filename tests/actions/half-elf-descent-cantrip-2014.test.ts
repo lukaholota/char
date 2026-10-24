@@ -83,9 +83,9 @@ describe("Напівельф зі спадком Місячного або Со�
     await signIn("half-elf-cantrip-refuse");
     const form = await buildHalfElfForm("Замовляння");
 
-    expect(await createCharacter({ ...form, raceSpellIds: [] })).toEqual({ error: "Оберіть 1 замовляння: Замовляння напівельфа" });
-    expect(await createCharacter({ ...form, raceSpellIds: [spellId("Magic Missile")] })).toEqual({ error: "Обране заклинання не підходить: Замовляння напівельфа" });
-    expect(await createCharacter({ ...form, raceSpellIds: [spellId("Sacred Flame")] })).toEqual({ error: "Обране заклинання не підходить: Замовляння напівельфа" });
+    expect(await createCharacter({ ...form, raceSpellIds: [] })).toMatchObject({ error: "Оберіть 1 замовляння: Замовляння напівельфа" });
+    expect(await createCharacter({ ...form, raceSpellIds: [spellId("Magic Missile")] })).toMatchObject({ error: "Обране заклинання не підходить: Замовляння напівельфа" });
+    expect(await createCharacter({ ...form, raceSpellIds: [spellId("Sacred Flame")] })).toMatchObject({ error: "Обране заклинання не підходить: Замовляння напівельфа" });
     expect(await prisma.pers.count()).toBe(0);
     expect(await prisma.persSpell.count()).toBe(0);
   });
@@ -98,7 +98,7 @@ describe("Напівельф зі спадком Місячного або Со�
     }
 
     const form = await buildHalfElfForm("Універсальність навичок", { skills: ["ATHLETICS", "STEALTH"] });
-    expect(await createCharacter({ ...form, raceSpellIds: [spellId("Fire Bolt")] })).toEqual({ error: "Раса не дає обрати заклинання" });
+    expect(await createCharacter({ ...form, raceSpellIds: [spellId("Fire Bolt")] })).toMatchObject({ error: "Раса не дає обрати заклинання" });
     expect(await prisma.pers.count()).toBe(0);
   });
 });

@@ -1,11 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ORIGIN = "https://char.holota.family";
 const SERVICE_WORKER_PATH = path.join(process.cwd(), "public", "sw.js");
 
-type FakeRequest = { url: string; method: string; mode?: string };
+type FakeRequest = { url: string; method: string; mode?: string; headers?: Headers };
 
 function toCacheKey(request: FakeRequest | string): string {
   return new URL(typeof request === "string" ? request : request.url, ORIGIN).toString();
@@ -32,6 +32,7 @@ function createCacheStorage() {
       return {
         async put(request: FakeRequest | string, response: Response) {
           await writes.hold;
+          store.delete(toCacheKey(request));
           store.set(toCacheKey(request), response);
         },
         async match(request: FakeRequest | string) {
@@ -311,5 +312,80 @@ describe("офлайн-готовність — сторінка, відкрит
 
     expect(replies).toEqual([{ saved: false }]);
     expect(worker.caches.stores.get("char-pages-v1")?.has(`${ORIGIN}/char/42`)).toBeFalsy();
+  });
+});
+
+/// Відгук гравця 2026-10-24: на вулиці без світла звʼязок ледь живий — запити не падають, а висять,
+/// і застосунок стояв на заставці, хоча лист був збережений.
+describe("ледь живий звʼязок", () => {
+  const hangingNetwork = async () => new Promise<Response>(() => undefined);
+  const routerRequest: FakeRequest = {
+    url: `${ORIGIN}/char/42?_rsc=abc`,
+    method: "GET",
+    headers: new Headers({ RSC: "1" }),
+  };
+
+  afterEach(() => vi.useRealTimers());
+
+  async function settleAfter(respondedWith: Promise<Response> | null, ms: number) {
+    let settled: Response | "висить" = "висить";
+    void respondedWith?.then((response) => (settled = response));
+    await vi.advanceTimersByTimeAsync(ms);
+    return settled;
+  }
+
+  it("за кілька секунд без відповіді віддає збережений лист", async () => {
+    const worker = await startWorkerWithCachedSheet(hangingNetwork);
+    vi.useFakeTimers();
+
+    const response = await settleAfter(sendFetch(worker, sheetNavigation).respondedWith, 4000);
+
+    await expect((response as Response).text()).resolves.toBe("лист із кешу");
+  });
+
+  it("без збереженої сторінки чекає на мережу далі, а не показує «немає мережі»", async () => {
+    const worker = startServiceWorker(hangingNetwork);
+    await worker.dispatch("install", {});
+    vi.useFakeTimers();
+
+    expect(await settleAfter(sendFetch(worker, sheetNavigation).respondedWith, 10_000)).toBe("висить");
+  });
+
+  it("після одного зависання наступна сторінка відкривається з кешу одразу", async () => {
+    const worker = await startWorkerWithCachedSheet(hangingNetwork);
+    vi.useFakeTimers();
+    await settleAfter(sendFetch(worker, sheetNavigation).respondedWith, 4000);
+    const pages = await worker.caches.open("char-pages-v1");
+    await pages.put(sheetNavigation, new Response("лист із кешу"));
+
+    const response = await settleAfter(sendFetch(worker, sheetNavigation).respondedWith, 10);
+
+    await expect((response as Response).text()).resolves.toBe("лист із кешу");
+  });
+
+  it("клієнтський перехід на збережений лист здається, щоб роутер завантажив сторінку з кешу", async () => {
+    const worker = await startWorkerWithCachedSheet(hangingNetwork);
+    vi.useFakeTimers();
+
+    const response = await settleAfter(sendFetch(worker, routerRequest).respondedWith, 4000);
+
+    expect((response as Response).status).toBe(504);
+  });
+
+  it("клієнтський перехід зі швидкою мережею бере відповідь сервера", async () => {
+    const worker = await startWorkerWithCachedSheet(async () => new Response("rsc"));
+
+    await expect((await requestPage(worker, routerRequest))?.text()).resolves.toBe("rsc");
+  });
+
+  it("файл, яким користуються, переїжджає в кінець черги на викидання", async () => {
+    const worker = startServiceWorker(async () => new Response("файл"));
+    const css = { url: `${ORIGIN}/_next/static/chunks/app.css`, method: "GET" };
+    await requestPage(worker, css);
+    await requestPage(worker, { url: `${ORIGIN}/_next/static/chunks/page.js`, method: "GET" });
+
+    await requestPage(worker, css);
+
+    expect([...(worker.caches.stores.get("char-shell-v1")?.keys() ?? [])].at(-1)).toBe(css.url);
   });
 });

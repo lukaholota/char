@@ -47,7 +47,7 @@ import { toast } from "sonner";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { getRulesStrategy } from "@/rules/strategies";
 import { countOriginLanguageChoices } from "@/rules/languages";
-import { isCreationStepCompleted } from "./creation-step-completion";
+import { canJumpForwardTo, isCreationStepCompleted } from "./creation-step-completion";
 import { findStaleDraftReset } from "./creation-draft-reset";
 import { CreationStepLayout } from "./CreationStepLayout";
 import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
@@ -113,6 +113,7 @@ export const MultiStepForm = (
   const [nextDisabled, setNextDisabled] = useState(false);
   const [nextStepHint, setNextStepHint] = useNextStepHintState(currentStep);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serverProblem, setServerProblem] = useState<{ stepId: string; message: string } | null>(null);
   const [initialDataForStep, setInitialDataForStep] = useState<string>("");
   const [highestStepCompleted, setHighestStepCompleted] = useState<number>(0);
   const router = useModeRouter();
@@ -189,10 +190,14 @@ export const MultiStepForm = (
       const result = await createCharacter(currentData, findCreationAnalytics());
 
       if (result.error) {
-        captureCreationFailed(analyticsEdition, "server", "manual", result.error);
-        toast.error("Помилка створення", {
-          description: result.error
-        });
+        const fixStepIndex = findFixStepIndex(steps, result.fixAtSteps);
+        captureCreationFailed(analyticsEdition, "server", "manual", result.error, steps[fixStepIndex]?.id);
+        if (fixStepIndex >= 0) {
+          setServerProblem({ stepId: steps[fixStepIndex].id, message: result.error });
+          setCurrentStep(fixStepIndex + 1);
+        } else {
+          toast.error("Помилка створення", { description: result.error });
+        }
         if (result.details) {
             console.error(result.details);
         }
@@ -706,22 +711,20 @@ export const MultiStepForm = (
 
   useBuildCreatorStep(initialRuleset, steps, isHydrated, ignoreAutomaticStep);
 
+  const activeStepId = steps[currentStep - 1]?.id;
+  useEffect(() => {
+    if (serverProblem && activeStepId !== serverProblem.stepId) setServerProblem(null);
+  }, [activeStepId, serverProblem]);
+
+  const canJumpTo = useCallback(
+    (stepOrder: number) =>
+      stepOrder <= currentStep || (!nextDisabled && canJumpForwardTo({ steps, stepOrder, highestStepCompleted: Math.max(highestStepCompleted, currentStep), data: formData })),
+    [steps, currentStep, highestStepCompleted, formData, nextDisabled],
+  );
+
   const jumpToStep = useCallback((stepOrder: number) => {
-    const targetStep = steps[stepOrder - 1];
-    if (!targetStep) return;
-    
-    // Allow jumping back to any step
-    if (stepOrder < currentStep) {
-      setCurrentStep(stepOrder);
-      return;
-    }
-    
-    // Allow jumping forward only to the next step OR any already completed step
-    const canJumpForward = stepOrder === currentStep + 1 || isCreationStepCompleted(targetStep.id, formData);
-    if (canJumpForward) {
-      setCurrentStep(stepOrder);
-    }
-  }, [steps, currentStep, setCurrentStep, formData]);
+    if (steps[stepOrder - 1] && canJumpTo(stepOrder)) setCurrentStep(stepOrder);
+  }, [steps, canJumpTo, setCurrentStep]);
 
   const renderStep = () => {
     const activeComponent = steps[currentStep - 1]?.component;
@@ -878,7 +881,7 @@ export const MultiStepForm = (
           />
         );
       case "spells":
-        return <CreationSpellsForm selectedClass={cls} formId={activeFormId} onNextDisabledChange={handleNextDisabledChange} />;
+        return <CreationSpellsForm selectedClass={cls} formId={activeFormId} abilityScores={creationAbilityScores} onNextDisabledChange={handleNextDisabledChange} />;
       case "background":
         return (
           <BackgroundsForm
@@ -982,11 +985,13 @@ export const MultiStepForm = (
         return (
           <NameForm
             formId={activeFormId}
+            ruleset={currentRuleset}
             race={race}
             raceVariant={raceVariant}
             selectedClass={cls}
             background={bg}
             backgroundFeat={backgroundFeat as any}
+            speciesFeat={speciesFeat}
             feat={feat}
             weapons={weapons}
             onSuccess={handleFinalSubmit}
@@ -1043,7 +1048,7 @@ export const MultiStepForm = (
       currentStep={currentStep}
       progress={progress}
       isStepDone={(stepOrder) => stepOrder <= highestStepCompleted && isCreationStepCompleted(steps[stepOrder - 1].id, formData)}
-      canJumpTo={(stepOrder) => stepOrder <= highestStepCompleted + 1 || isCreationStepCompleted(steps[stepOrder - 1].id, formData)}
+      canJumpTo={canJumpTo}
       onJump={jumpToStep}
       onHintChange={setNextStepHint}
       activeFormId={activeFormId}
@@ -1061,9 +1066,20 @@ export const MultiStepForm = (
         </>
       }
     >
+      {serverProblem && serverProblem.stepId === activeStepId ? (
+        <div role="alert" className="mb-4 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-100">
+          <p className="font-semibold">Персонажа не створено — виправте цей крок</p>
+          <p>{serverProblem.message}</p>
+        </div>
+      ) : null}
       {isDraftActive ? <React.Fragment key={resetNonce}>{renderStep()}</React.Fragment> : null}
     </CreationStepLayout>
   )
+}
+
+function findFixStepIndex(steps: readonly { id: string }[], fixAtSteps: readonly string[] | undefined): number {
+  const stepId = fixAtSteps?.find((id) => steps.some((step) => step.id === id));
+  return stepId ? steps.findIndex((step) => step.id === stepId) : -1;
 }
 
 export default MultiStepForm

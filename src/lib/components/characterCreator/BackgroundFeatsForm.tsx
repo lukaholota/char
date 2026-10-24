@@ -42,7 +42,7 @@ export const BackgroundFeatsForm = ({ feats, formId, onNextDisabledChange, race,
   const [prereqReason, setPrereqReason] = useState<string | undefined>(undefined);
   
   const { form, onSubmit } = useStepForm(backgroundFeatSchema, (data) => {
-    updateFormData({ backgroundFeatId: data.backgroundFeatId, backgroundFeatChoiceSelections: {} } as any);
+    updateFormData({ backgroundFeatId: data.backgroundFeatId });
     nextStep();
   });
   

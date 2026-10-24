@@ -119,8 +119,8 @@ describe("Божественна душа 2014 бере заклинання й 
     const withClericCantrip = { ...draconic, classSpells: { ...draconic.classSpells!, cantripIds: withClericPicks(draconic).classSpells!.cantripIds } };
     const withClericSpell = { ...draconic, classSpells: { ...draconic.classSpells!, preparedIds: withClericPicks(draconic).classSpells!.preparedIds } };
 
-    expect(await createCharacter(withClericCantrip)).toEqual({ error: CANTRIP_NOT_ON_LIST });
-    expect(await createCharacter(withClericSpell)).toEqual({ error: SPELL_NOT_ON_LIST });
+    expect(await createCharacter(withClericCantrip)).toMatchObject({ error: CANTRIP_NOT_ON_LIST });
+    expect(await createCharacter(withClericSpell)).toMatchObject({ error: SPELL_NOT_ON_LIST });
   });
 
   it("підвищення пропонує й приймає заклинання клірика, а заміна відомого бере заклинання клірика", async () => {

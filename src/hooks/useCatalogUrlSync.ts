@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getSearchParamsFromLocation, replaceUrlSearchParams } from "@/lib/catalog-url-helpers";
 
 type InitialSearchParams = Record<string, string | string[] | undefined>;
@@ -18,7 +18,7 @@ export function useCatalogUrlSync<T extends { q: string }>(
     return Array.isArray(raw) ? raw[0] ?? "" : raw ?? "";
   })();
 
-  const [qInput, setQInput] = useState(initialQ);
+  const [qInput, updateQInput] = useState(initialQ);
   const debounceRef = useRef<number | null>(null);
 
   const [selection, setSelection] = useState<T>(() => {
@@ -32,10 +32,12 @@ export function useCatalogUrlSync<T extends { q: string }>(
 
   useEffect(() => {
     const sync = () => {
+      if (debounceRef.current) window.clearTimeout(debounceRef.current);
+      debounceRef.current = null;
       const next = parseSelection(getSearchParamsFromLocation());
       setSelection(next);
       const nextQ = next.q || "";
-      setQInput((prev) => (prev === nextQ ? prev : nextQ));
+      updateQInput((prev) => (prev === nextQ ? prev : nextQ));
     };
 
     window.addEventListener("popstate", sync);
@@ -45,23 +47,22 @@ export function useCatalogUrlSync<T extends { q: string }>(
     return () => {
       window.removeEventListener("popstate", sync);
       window.removeEventListener("locationchange", sync);
+      if (debounceRef.current) window.clearTimeout(debounceRef.current);
     };
   }, [parseSelection]);
 
-  useEffect(() => {
+  const setQInput = useCallback((nextQuery: string) => {
+    updateQInput(nextQuery);
     if (debounceRef.current) window.clearTimeout(debounceRef.current);
     debounceRef.current = window.setTimeout(() => {
+      debounceRef.current = null;
       const next = getSearchParamsFromLocation();
-      const normalized = qInput.trim();
+      const normalized = nextQuery.trim();
       if (!normalized) next.delete("q");
-      else next.set("q", qInput);
+      else next.set("q", nextQuery);
       replaceUrlSearchParams(next);
     }, 250);
-
-    return () => {
-      if (debounceRef.current) window.clearTimeout(debounceRef.current);
-    };
-  }, [qInput]);
+  }, []);
 
   return {
     qInput,

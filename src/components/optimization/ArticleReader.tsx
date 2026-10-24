@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useScrollToUrlHash } from "@/hooks/useScrollToUrlHash";
-import { buildRpgbotCtaProps } from "@/lib/monitoring/rpgbot-analytics-model";
 import { useRpgbotArticleReading } from "@/lib/monitoring/use-rpgbot-article-reading";
 import { useRpgbotSurfaceView } from "@/lib/monitoring/use-rpgbot-surface-view";
 import { EditionAccentChip } from "@/components/ui/EditionAccent";
@@ -12,7 +11,6 @@ import {
 } from "@/lib/optimization/article-view";
 import type { AnalysisArticle, AnalysisRating, ContentReference, SourceRevision, TranslationRevision } from "@/lib/optimization/types";
 import { ContentReferenceProvider } from "./ContentReferenceProvider";
-import { cn } from "@/lib/utils";
 import { findEditionAccent } from "@/styles/edition-accent";
 import { AnalystAvatar } from "./AnalystAvatar";
 import type { BlockContext } from "./ArticleBlocks";
@@ -44,7 +42,7 @@ const REVISION_STATUS_LABELS: Record<TranslationRevision["status"], string> = {
   stale: "переклад застарів",
 };
 
-export function ArticleReader({ article, revision, ratings, sourceRevision, sourceUrl, linkTargets, groups, ruleCategories, contentReferences, catalogLinks }: ArticleReaderProps) {
+export function ArticleReader({ article, revision, ratings, sourceRevision, linkTargets, groups, ruleCategories, contentReferences, catalogLinks }: ArticleReaderProps) {
   useScrollToUrlHash();
   const outline = buildArticleOutline(revision.sections);
   const [landingSection] = useState(findLandingSection);
@@ -64,7 +62,7 @@ export function ArticleReader({ article, revision, ratings, sourceRevision, sour
     <ReaderLayout
       ruleset={article.ruleset} currentSlug={article.slug} currentTitle={article.titleUk} groups={groups}
       sectionEntries={buildSectionTocEntries(tree)} ruleCategories={ruleCategories}
-      header={<ArticleHeaderCard article={article} revision={revision} sourceRevision={sourceRevision} sourceUrl={sourceUrl} is2024={is2024} accent={accent} />}
+      header={<ArticleHeaderCard article={article} revision={revision} sourceRevision={sourceRevision} is2024={is2024} accent={accent} />}
     >
       <ContentReferenceProvider references={contentReferences} surface="article_reader">
         {tree.map((node) => <SectionCard key={node.sectionId} node={node} is2024={is2024} contextFor={contextFor} headingLinks={catalogLinks?.headingLinks} />)}
@@ -79,12 +77,12 @@ function findLandingSection(): string | undefined {
   return decodeURIComponent(window.location.hash.slice(1));
 }
 
-type HeaderCardProps = Pick<ArticleReaderProps, "article" | "revision" | "sourceRevision" | "sourceUrl"> & {
+type HeaderCardProps = Pick<ArticleReaderProps, "article" | "revision" | "sourceRevision"> & {
   is2024: boolean;
   accent: ReturnType<typeof findEditionAccent>["solid"];
 };
 
-function ArticleHeaderCard({ article, revision, sourceRevision, sourceUrl, is2024, accent }: HeaderCardProps) {
+function ArticleHeaderCard({ article, revision, sourceRevision, is2024, accent }: HeaderCardProps) {
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-950/70 p-6 shadow-2xl backdrop-blur-xl md:p-8">
       <div className="space-y-5">
@@ -107,7 +105,7 @@ function ArticleHeaderCard({ article, revision, sourceRevision, sourceUrl, is202
           <dt>Автори</dt>
           <dd>{sourceRevision.authors.join(", ")}</dd>
           <dt>Оригінал</dt>
-          <dd>{sourceUrl ? <a href={sourceUrl} target="_blank" rel="noreferrer" {...buildRpgbotCtaProps("open_original", "article_reader", article.slug)} className={cn("break-all underline underline-offset-2", accent.text)}>{sourceUrl}</a> : sourceRevision.title}</dd>
+          <dd>{sourceRevision.title}</dd>
           <dt>Звірено</dt>
           <dd>{DATE_FORMAT.format(new Date(sourceRevision.fetchedAt))}</dd>
           {sourceRevision.sourceUpdatedAt ? (<><dt>Оновлено в оригіналі</dt><dd>{DATE_FORMAT.format(new Date(sourceRevision.sourceUpdatedAt))}</dd></>) : null}

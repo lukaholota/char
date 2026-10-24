@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 
 import type { ClassSpellOffer } from "@/rules/class-spell-choices-2024";
+import { listOfferedSpells, pickSpell, removeSpell, section } from "../helpers/spell-picks-ui";
 
 vi.hoisted(() => {
   const entries = new Map<string, string>();
@@ -21,6 +22,12 @@ vi.hoisted(() => {
     } satisfies Storage,
   });
 });
+
+globalThis.ResizeObserver ??= class {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+};
 
 const spell = (spellId: number, name: string, level: number) => ({ spellId, name, engName: name, level, school: "EVOCATION", spellLists: ["Чарівник"] });
 
@@ -54,34 +61,31 @@ async function renderForm() {
   return onNextDisabledChange;
 }
 
-const section = (name: string) => within(screen.getByRole("region", { name }));
-const click = (name: string, spellName: string) => fireEvent.click(section(name).getByRole("button", { name: new RegExp(`^${spellName}`) }));
-
 describe("KR31.5 — крок «Заклинання» конструктора 2024 (P6-class-sweep-level1-07)", () => {
   it("чарівник готує лише з книги: до книги підготовлених не запропоновано", async () => {
     await renderForm();
 
     expect(section("Підготовлені заклинання").getByText(/Спершу оберіть заклинання до книги/)).toBeTruthy();
 
-    click("Книга заклинань", "Щит");
-    click("Книга заклинань", "Сон");
+    pickSpell("Книга заклинань", "Щит");
+    pickSpell("Книга заклинань", "Сон");
 
-    expect(section("Підготовлені заклинання").getAllByRole("button", { pressed: false }).map((button) => button.getAttribute("aria-label"))).toEqual(["Щит", "Сон"]);
+    expect(listOfferedSpells("Підготовлені заклинання")).toEqual(["Щит", "Сон"]);
   });
 
   it("«Далі» відкривається лише з повним вибором у кожній групі", async () => {
     const onNextDisabledChange = await renderForm();
     expect(onNextDisabledChange).toHaveBeenLastCalledWith(true);
 
-    click("Замовляння", "Вогняний снаряд");
-    click("Книга заклинань", "Щит");
-    click("Книга заклинань", "Сон");
-    click("Книга заклинань", "Чарівна стріла");
-    expect(section("Книга заклинань").getByRole("button", { name: /^Обладунок мага/ })).toHaveProperty("disabled", true);
-    click("Підготовлені заклинання", "Щит");
+    pickSpell("Замовляння", "Вогняний снаряд");
+    pickSpell("Книга заклинань", "Щит");
+    pickSpell("Книга заклинань", "Сон");
+    pickSpell("Книга заклинань", "Чарівна стріла");
+    expect(section("Книга заклинань").queryByRole("button", { name: "Додати: Книга заклинань" })).toBeNull();
+    pickSpell("Підготовлені заклинання", "Щит");
     expect(onNextDisabledChange).toHaveBeenLastCalledWith(true);
 
-    click("Підготовлені заклинання", "Сон");
+    pickSpell("Підготовлені заклинання", "Сон");
 
     await waitFor(() => expect(onNextDisabledChange).toHaveBeenLastCalledWith(false));
     expect(usePersFormStore.getState().formData.classSpells).toEqual({ cantripIds: [1], spellbookIds: [11, 12, 13], preparedIds: [11, 12] });
@@ -90,10 +94,10 @@ describe("KR31.5 — крок «Заклинання» конструктора 
   it("заклинання, прибране з книги, зникає й з підготовлених", async () => {
     await renderForm();
 
-    click("Книга заклинань", "Щит");
-    click("Книга заклинань", "Сон");
-    click("Підготовлені заклинання", "Щит");
-    click("Книга заклинань", "Щит");
+    pickSpell("Книга заклинань", "Щит");
+    pickSpell("Книга заклинань", "Сон");
+    pickSpell("Підготовлені заклинання", "Щит");
+    removeSpell("Книга заклинань", "Щит");
 
     expect(usePersFormStore.getState().formData.classSpells?.preparedIds).toEqual([]);
   });
@@ -104,6 +108,81 @@ describe("крок «Заклинання» конструктора 2014 — п
     usePersFormStore.setState({ formData: { classChoiceSelections: { invocation: 3 }, subclassId: 44, subclassChoiceSelections: { genieKind: 7 } } as never, isHydrated: true });
     render(<CreationSpellsForm selectedClass={{ classId: 120, name: "WARLOCK_2014" } as never} formId="spells-form" />);
 
-    await waitFor(() => expect(vi.mocked(getCreationSpellOffer)).toHaveBeenLastCalledWith(120, [3, 7], 44));
+    await waitFor(() => expect(vi.mocked(getCreationSpellOffer)).toHaveBeenLastCalledWith(120, [3, 7], 44, null));
+  });
+});
+
+describe("крок «Заклинання» конструктора 2014 — підготовлені на 1-му рівні", () => {
+  const clericOffer: ClassSpellOffer = {
+    ...wizardOffer,
+    className: "CLERIC_2014",
+    classLabel: "Клірик",
+    ruleset: "RULES_2014",
+    quota: { cantrips: 1, prepared: 0, spellbook: 0, maxSpellLevel: 1 },
+    spells: [spell(21, "Благословення", 1), spell(22, "Лікування ран", 1), spell(23, "Нанесення ран", 1)],
+  };
+  const wizard2014Offer: ClassSpellOffer = { ...wizardOffer, className: "WIZARD_2014", ruleset: "RULES_2014", quota: { cantrips: 1, prepared: 0, spellbook: 3, maxSpellLevel: 1 } };
+  const scores = (wis: number, int = 10) => ({ STR: 10, DEX: 10, CON: 10, INT: int, WIS: wis, CHA: 10 });
+
+  afterEach(() => vi.mocked(getCreationSpellOffer).mockResolvedValue(wizardOffer));
+
+  async function renderCleric(wis: number) {
+    vi.mocked(getCreationSpellOffer).mockResolvedValue(clericOffer);
+    usePersFormStore.setState({ formData: { classChoiceSelections: {} } as never, isHydrated: true });
+    const onNextDisabledChange = vi.fn();
+    const view = render(<CreationSpellsForm selectedClass={{ classId: 2, name: "CLERIC_2014" } as never} formId="spells-form" abilityScores={scores(wis)} onNextDisabledChange={onNextDisabledChange} />);
+    await screen.findByRole("region", { name: "Підготовлені заклинання" });
+    return { ...view, onNextDisabledChange };
+  }
+
+  it("клірик готує зі списку класу до модифікатора Мудрості + рівень, і це не обовʼязково", async () => {
+    const { onNextDisabledChange } = await renderCleric(14);
+
+    expect(section("Підготовлені заклинання").getByText("0 з 3")).toBeTruthy();
+    pickSpell("Замовляння", "Вогняний снаряд");
+    await waitFor(() => expect(onNextDisabledChange).toHaveBeenLastCalledWith(false));
+
+    pickSpell("Підготовлені заклинання", "Благословення");
+    pickSpell("Підготовлені заклинання", "Лікування ран");
+
+    expect(usePersFormStore.getState().formData.initialPreparedSpellIds).toEqual([21, 22]);
+    expect(usePersFormStore.getState().formData.classSpells?.preparedIds ?? []).toEqual([]);
+  });
+
+  it("нижча Мудрість після вибору обрізає зайві підготовлені", async () => {
+    const { rerender } = await renderCleric(14);
+    pickSpell("Підготовлені заклинання", "Благословення");
+    pickSpell("Підготовлені заклинання", "Лікування ран");
+
+    rerender(<CreationSpellsForm selectedClass={{ classId: 2, name: "CLERIC_2014" } as never} formId="spells-form" abilityScores={scores(10)} />);
+
+    await waitFor(() => expect(usePersFormStore.getState().formData.initialPreparedSpellIds).toEqual([21]));
+  });
+
+  it("чарівник 2014 готує лише з книги й до модифікатора Інтелекту + рівень", async () => {
+    vi.mocked(getCreationSpellOffer).mockResolvedValue(wizard2014Offer);
+    usePersFormStore.setState({ formData: { classChoiceSelections: {} } as never, isHydrated: true });
+    render(<CreationSpellsForm selectedClass={{ classId: 3, name: "WIZARD_2014" } as never} formId="spells-form" abilityScores={scores(10, 14)} />);
+    await screen.findByRole("region", { name: "Підготовлені заклинання" });
+
+    expect(section("Підготовлені заклинання").getByText(/Спершу оберіть заклинання до книги/)).toBeTruthy();
+    pickSpell("Книга заклинань", "Щит");
+    pickSpell("Книга заклинань", "Сон");
+    expect(listOfferedSpells("Підготовлені заклинання")).toEqual(["Щит", "Сон"]);
+
+    pickSpell("Підготовлені заклинання", "Сон");
+    removeSpell("Книга заклинань", "Сон");
+
+    await waitFor(() => expect(usePersFormStore.getState().formData.initialPreparedSpellIds).toEqual([]));
+    expect(section("Підготовлені заклинання").getByText("0 з 3")).toBeTruthy();
+  });
+
+  it("класам без підготовки зі списку розділу не показує", async () => {
+    vi.mocked(getCreationSpellOffer).mockResolvedValue({ ...clericOffer, className: "SORCERER_2014", quota: { ...clericOffer.quota, prepared: 2 } });
+    usePersFormStore.setState({ formData: { classChoiceSelections: {} } as never, isHydrated: true });
+    render(<CreationSpellsForm selectedClass={{ classId: 4, name: "SORCERER_2014" } as never} formId="spells-form" abilityScores={scores(18, 18)} />);
+    await screen.findByRole("region", { name: "Нові заклинання" });
+
+    expect(screen.queryByRole("region", { name: "Підготовлені заклинання" })).toBeNull();
   });
 });

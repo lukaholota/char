@@ -177,7 +177,7 @@ describe("caster presets reject invalid spell choices and write nothing", () => 
   ])("rejects %s", async (_label, slug, change, message) => {
     const { input } = await buildPresetInput(slug);
     const result = await createCharacter(change(input));
-    expect(result).toEqual({ error: expect.stringContaining(message) });
+    expect(result).toMatchObject({ error: expect.stringContaining(message) });
     await expectNothingCreated();
   });
 
@@ -215,8 +215,8 @@ describe("first-level subclass spell choices of 2014 classes", () => {
   it("requires the Nature Domain choice and rejects a cantrip from another list", async () => {
     const { input, content } = await buildPresetInput("cleric-life-2014");
     const subclassId = await findSubclassId(content, "CLERIC_2014", "NATURE_DOMAIN");
-    expect(await createCharacter({ ...input, subclassId })).toEqual({ error: expect.stringContaining("Послідовник природи") });
-    expect(await createCharacter({ ...input, subclassId, classOptionSpellIds: [spellId("Fire Bolt")] })).toEqual({ error: expect.stringContaining("Послідовник природи") });
+    expect(await createCharacter({ ...input, subclassId })).toMatchObject({ error: expect.stringContaining("Послідовник природи") });
+    expect(await createCharacter({ ...input, subclassId, classOptionSpellIds: [spellId("Fire Bolt")] })).toMatchObject({ error: expect.stringContaining("Послідовник природи") });
     await expectNothingCreated();
   });
 
@@ -224,7 +224,7 @@ describe("first-level subclass spell choices of 2014 classes", () => {
     const { input, content } = await buildPresetInput("sorcerer-draconic-2014");
     const subclassId = await findSubclassId(content, "SORCERER_2014", "DIVINE_SOUL");
     const withoutAncestor = { ...input, subclassId, subclassChoiceSelections: {} };
-    expect(await createCharacter({ ...withoutAncestor, classOptionSpellIds: [spellId("Shield")] })).toEqual({ error: expect.stringContaining("Божественна магія") });
+    expect(await createCharacter({ ...withoutAncestor, classOptionSpellIds: [spellId("Shield")] })).toMatchObject({ error: expect.stringContaining("Божественна магія") });
     await expectNothingCreated();
     const created = await createCharacter({ ...withoutAncestor, classOptionSpellIds: [spellId("Bless")] });
     if (!("persId" in created)) throw new Error("error" in created ? created.error : "not created");

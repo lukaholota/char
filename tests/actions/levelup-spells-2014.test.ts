@@ -124,6 +124,33 @@ describe("заклинання на підвищенні рівня 2014 — п�
   });
 });
 
+describe("клірик 2014 на підвищенні — доготувати зі списку до ліміту за бажанням", () => {
+  it("клірик 1 → 2 з Мудрістю 14 і одним підготовленим: можна ще три, понад ліміт — ні", async () => {
+    await signIn("levelup-2014-cleric");
+    const { persId, classId } = await createCaster2014(Classes.CLERIC_2014, Subclasses.LIFE_DOMAIN);
+    const subclassId = (await prisma.pers.findUniqueOrThrow({ where: { persId } })).subclassId;
+    await prisma.pers.update({ where: { persId }, data: { wis: 14 } });
+    const before = await getLevelUpSpellOffer(persId, classId, subclassId, []);
+    const [prepared, unprepared] = ids(before!.spells, 2);
+    await prisma.persSpell.createMany({
+      data: [prepared, unprepared].map((spellId) => ({ persId, spellId, learnedAtLevel: 1, origin: SpellOrigin.CLASS, badgeText: "Клірик", isPrepared: spellId === prepared })),
+    });
+
+    const offer = await getLevelUpSpellOffer(persId, classId, subclassId, []);
+    expect(offer).toMatchObject({ quota: { prepared: 0, maxSpellLevel: 1 }, catchUp: { prepared: 3 } });
+    expect(offer!.spells.every((spell) => spell.level === 1 && spell.spellLists?.includes("Клірик"))).toBe(true);
+
+    const form = (preparedIds: number[]) => minimalLevelUpForm({ classId, subclassId, classSpells: { cantripIds: [], spellbookIds: [], preparedIds } });
+    expect(await levelUpCharacter(persId, form(ids(offer!.spells, 4)))).toEqual({ error: "Оберіть нових заклинань: не більше 3" });
+    const picked = ids(offer!.spells, 2);
+    expect(await levelUpCharacter(persId, form(picked))).not.toHaveProperty("error");
+
+    const rows = (await readClassRows(persId)).filter((row) => picked.includes(row.spellId));
+    expect(rows).toHaveLength(2);
+    expect(rows.every((row) => row.origin === SpellOrigin.CLASS && row.badgeText === "Клірик" && row.isPrepared && row.learnedAtLevel === 2)).toBe(true);
+  });
+});
+
 async function levelUpOrThrow(persId: number, form: ReturnType<typeof minimalLevelUpForm>) {
   const result = await levelUpCharacter(persId, form);
   if (result && "error" in result) throw new Error(result.error);

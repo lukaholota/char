@@ -63,6 +63,8 @@ export type ClassSpellOffer = {
   schoolLimit?: SpellSchoolLimit | null;
   /** 2014: звідки береться список — «зі списку чарівника», «з розширеного списку покровителя». */
   spellListNote?: string | null;
+  /** Конструктор: заклинання зі списку класу, які вже дає вид, — показуються обраними, у ліміт не входять. */
+  speciesSpells?: SpellChoiceOption[];
 };
 
 export type ClassSpellFilters = {

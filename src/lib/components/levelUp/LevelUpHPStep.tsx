@@ -13,6 +13,7 @@ import { findAbilityScoresAfterLevelUp } from "@/rules/levelup-ability-scores";
 import type { Ruleset } from "@/rules/types";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import { findHpStepHint } from "@/lib/components/levelUp/level-up-next-hints";
+import type { HitPointSource } from "./levelup-hit-point-sources";
 
 interface Props {
   hitDie: number; // e.g. 10 for d10
@@ -22,6 +23,7 @@ interface Props {
   nextLevel: number;
   /** Хіти за рівень від рис (Дворфська витривалість +1) — той самий доданок, що й у сервера. */
   traitHitPointsPerLevel: number;
+  hitPointSources?: readonly HitPointSource[];
   ruleset?: Ruleset | null;
   formId: string;
   onNextDisabledChange?: (disabled: boolean) => void;
@@ -38,6 +40,7 @@ export default function LevelUpHPStep({
   persFeats,
   nextLevel,
   traitHitPointsPerLevel,
+  hitPointSources = [],
   ruleset,
   formId,
   onNextDisabledChange,
@@ -67,7 +70,8 @@ export default function LevelUpHPStep({
     ruleset,
     classIncreases: formData.customAsi,
     feat: selectedFeat,
-  }), [baseStats, formData.customAsi, selectedFeat, ruleset]);
+    featChoiceSelections: formData.featChoiceSelections,
+  }), [baseStats, formData.customAsi, formData.featChoiceSelections, selectedFeat, ruleset]);
 
   const conMod = useMemo(() => getAbilityMod(effectiveStats.CON), [effectiveStats.CON]);
   const avg = useMemo(() => averageHitDie(hitDie), [hitDie]);
@@ -180,6 +184,14 @@ export default function LevelUpHPStep({
                     {totalIncrease !== null ? `+${totalIncrease}` : "?"}
                 </span>
             </div>
+            <p className="mt-2 text-sm text-slate-400">
+              Кістка {hpIncrease ?? "?"} + СТА {newConMod}
+              {toughBonus > 0 ? ` + Здоровань ${toughBonus}` : ""}
+              {hitPointSources.length > 0
+                ? hitPointSources.map((source) => ` + ${source.name} ${source.amount}`).join("")
+                : traitHitPointsPerLevel > 0 ? ` + Від умінь ${traitHitPointsPerLevel}` : ""}
+              {retroactiveConHp > 0 ? ` + За попередні рівні ${retroactiveConHp}` : ""}
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-2">

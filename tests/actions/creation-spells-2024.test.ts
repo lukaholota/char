@@ -122,7 +122,7 @@ describe("KR31.5 — заклинання 1-го рівня в конструк�
     await signIn("creation-spells-missing");
     const { form } = await buildForm({ className: Classes.WIZARD_2024 });
 
-    expect(await createCharacter(form)).toEqual({ error: "Оберіть замовлянь: 3" });
+    expect(await createCharacter(form)).toMatchObject({ error: "Оберіть замовлянь: 3" });
     expect(await prisma.pers.count()).toBe(0);
   });
 
@@ -136,7 +136,7 @@ describe("KR31.5 — заклинання 1-го рівня в конструк�
       classSpells: { cantripIds: await findSpellIds(CLERIC_CANTRIPS.slice(0, 3)), preparedIds: [], spellbookIds: [] },
     });
 
-    expect(await createCharacter(form)).toEqual({ error: "Оберіть підготовлених заклинань: 4" });
+    expect(await createCharacter(form)).toMatchObject({ error: "Оберіть підготовлених заклинань: 4" });
     expect(await prisma.pers.count()).toBe(0);
   });
 
@@ -151,7 +151,7 @@ describe("KR31.5 — заклинання 1-го рівня в конструк�
       },
     });
 
-    expect(await createCharacter(form)).toEqual({ error: "Обране замовляння не з вашого списку класу" });
+    expect(await createCharacter(form)).toMatchObject({ error: "Обране замовляння не з вашого списку класу" });
   });
 
   it("високий ельф не бере Prestidigitation другий раз замовлянням класу", async () => {
@@ -169,7 +169,7 @@ describe("KR31.5 — заклинання 1-го рівня в конструк�
       classSpells: { cantripIds: await findSpellIds(["Fire Bolt", "Mage Hand", "Prestidigitation"]), spellbookIds: book, preparedIds: book.slice(0, 4) },
     });
 
-    expect(await createCharacter(form)).toEqual({ error: "Це заклинання вже дає інше джерело — оберіть інше" });
+    expect(await createCharacter(form)).toMatchObject({ error: "Це заклинання вже дає інше джерело — оберіть інше" });
   });
 
   it("список для кроку: слідопит без Hunter's Mark, воїн без кроку", async () => {

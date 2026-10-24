@@ -289,6 +289,7 @@ export const EquipmentForm = ({selectedClass, background, weapons, formId, onNex
             <CardTitle className="text-white">Спорядження</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
+            {selectedClass.startingEquipmentOption.some((option) => option.item === "Інструменти ремісника або Музичний інструмент") && <p className="text-sm text-slate-400">Пакунок містить інструмент на вибір. Його назву можна уточнити у спорядженні на листі; вибір володіння не обирає предмет автоматично.</p>}
             {Object.entries(choiceGroupsGrouped).map(([choiceGroup, choiceGroupToOptionGroup]) => {
               const letters = Object.keys(choiceGroupToOptionGroup)
               const isChoice = letters.length > 1

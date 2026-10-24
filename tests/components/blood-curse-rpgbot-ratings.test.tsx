@@ -71,7 +71,7 @@ describe("оцінки RPGbot у виборі кривавих проклять"
     const dialog = await screen.findByRole("dialog");
     expect(within(dialog).getByRole("heading", { name: "Оцінка RPGbot" })).toBeTruthy();
     expect(within(dialog).getByRole("link", { name: "Читати розбір українською" }).getAttribute("href")).toBe("/rules/optimization/blood-hunter-2014#section-blood-curses");
-    expect(within(dialog).getByRole("link", { name: "Оригінал на RPGbot" }).getAttribute("href")).toMatch(/^https:\/\/rpgbot\.net\//);
+    expect(within(dialog).queryByRole("link", { name: "Оригінал на RPGbot" })).toBeNull();
   });
 
   it("вимкнені рекомендації ховають оцінки й памʼятаються", async () => {

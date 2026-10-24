@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 
 import type { ClassSpellOffer } from "@/rules/class-spell-choices-2024";
+import { pickSpell } from "../helpers/spell-picks-ui";
 
 vi.hoisted(() => {
   const entries = new Map<string, string>();
@@ -59,9 +60,6 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 
 afterEach(cleanup);
 
-const click = (region: string, spellName: string) =>
-  fireEvent.click(within(screen.getAllByRole("region", { name: region })[0]).getByRole("button", { name: new RegExp(`^${spellName}`) }));
-
 describe("Pact of the Tome 2024 — Книга тіней у кроці «Заклинання» конструктора", () => {
   it("«Далі» відкривається лише з повною Книгою тіней, а обране класом до книги не пропонується", async () => {
     usePersFormStore.setState({ formData: { classChoiceSelections: { "Потойбічні виклики": 7 } } as never, isHydrated: true });
@@ -69,8 +67,8 @@ describe("Pact of the Tome 2024 — Книга тіней у кроці «Зак
     render(<CreationSpellsForm selectedClass={{ classId: 349, name: "WARLOCK_2024" } as never} formId="spells-form" onNextDisabledChange={onNextDisabledChange} />);
     const book = await screen.findByRole("region", { name: "Книга тіней" });
 
-    click("Замовляння", "Світло");
-    click("Підготовлені заклинання", "Прокляття");
+    pickSpell("Замовляння", "Світло");
+    pickSpell("Підготовлені заклинання", "Прокляття");
     expect(onNextDisabledChange).toHaveBeenLastCalledWith(true);
     expect(within(book).queryByRole("button", { name: /^Світло/ })).toBeNull();
 

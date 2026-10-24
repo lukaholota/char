@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 
 import { ClassSpellChoiceStep } from "@/components/spells/ClassSpellChoiceStep";
+import { closeSheet, listOfferedSpells, openAddSheet, openReplaceSheet, pickSpell, removeSpell, section, sheet } from "../helpers/spell-picks-ui";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { ClassSpellOffer } from "@/rules/class-spell-choices-2024";
 
@@ -84,8 +85,7 @@ const bardLevelSix2014: ClassSpellOffer = {
   canSkipPrepared: false,
 };
 
-const section = (name: string) => within(screen.getByRole("region", { name }));
-const click = (name: string, spellName: string) => fireEvent.click(section(name).getByRole("button", { name: new RegExp(`^${spellName}`) }));
+const clickInline = (name: string, spellName: string) => fireEvent.click(section(name).getByRole("button", { name: new RegExp(`^${spellName}`) }));
 
 describe("KR31.5 — крок «Заклинання» на підвищенні рівня 2024 (L08-levelup-machine-11)", () => {
   it("чарівник може підготувати заклинання, що вже лежить у книзі, ще до нових записів", async () => {
@@ -94,12 +94,12 @@ describe("KR31.5 — крок «Заклинання» на підвищенні
     render(<ClassSpellChoiceStep offer={wizardLevelTwo} onNextDisabledChange={onNextDisabledChange} />);
 
     expect(screen.queryByRole("region", { name: "Замовляння" })).toBeNull();
-    expect(section("Підготовлені заклинання").getAllByRole("button", { pressed: false }).map((button) => button.getAttribute("aria-label"))).toEqual(["Виявлення магії"]);
+    expect(listOfferedSpells("Підготовлені заклинання")).toEqual(["Виявлення магії"]);
 
-    click("Підготовлені заклинання", "Виявлення магії");
-    click("Книга заклинань", "Щит");
+    pickSpell("Підготовлені заклинання", "Виявлення магії");
+    pickSpell("Книга заклинань", "Щит");
     expect(onNextDisabledChange).toHaveBeenLastCalledWith(true);
-    click("Книга заклинань", "Сон");
+    pickSpell("Книга заклинань", "Сон");
 
     await waitFor(() => expect(onNextDisabledChange).toHaveBeenLastCalledWith(false));
     expect(usePersFormStore.getState().formData.classSpells).toEqual({ cantripIds: [], spellbookIds: [11, 12], preparedIds: [21] });
@@ -109,11 +109,11 @@ describe("KR31.5 — крок «Заклинання» на підвищенні
     usePersFormStore.setState({ formData: {} as never, isHydrated: true });
     render(<ClassSpellChoiceStep offer={{ ...wizardLevelTwo, bookOnlySpellIds: [11] }} />);
 
-    click("Книга заклинань", "Щит");
-    click("Книга заклинань", "Сон");
+    pickSpell("Книга заклинань", "Щит");
+    pickSpell("Книга заклинань", "Сон");
 
     await waitFor(() => expect(usePersFormStore.getState().formData.classSpells?.spellbookIds).toEqual([11, 12]));
-    expect(section("Підготовлені заклинання").getAllByRole("button", { pressed: false }).map((button) => button.getAttribute("aria-label"))).toEqual(["Виявлення магії", "Сон"]);
+    expect(listOfferedSpells("Підготовлені заклинання")).toEqual(["Виявлення магії", "Сон"]);
   });
 
   it("заміна необовʼязкова: без неї «Далі» відкрите, почата — лише з обома половинами (L08-levelup-machine-11)", async () => {
@@ -122,9 +122,9 @@ describe("KR31.5 — крок «Заклинання» на підвищенні
     render(<ClassSpellChoiceStep offer={sorcererLevelFour} onNextDisabledChange={onNextDisabledChange} />);
     expect(onNextDisabledChange).toHaveBeenLastCalledWith(false);
 
-    click("Замінити підготовлене заклинання", "Щит");
+    clickInline("Замінити підготовлене заклинання", "Щит");
     await waitFor(() => expect(onNextDisabledChange).toHaveBeenLastCalledWith(true));
-    click("Замінити підготовлене заклинання", "Туманний крок");
+    clickInline("Замінити підготовлене заклинання", "Туманний крок");
 
     await waitFor(() => expect(onNextDisabledChange).toHaveBeenLastCalledWith(false));
     expect(usePersFormStore.getState().formData.classSpells).toEqual({ cantripIds: [], spellbookIds: [], preparedIds: [], preparedSwap: { dropId: 61, addId: 42 } });
@@ -138,7 +138,7 @@ describe("KR31.5 — крок «Заклинання» на підвищенні
 
     expect(section("Підготовлені заклинання").getByText(/^Необовʼязково: друїд переставляє підготовлені/)).toBeTruthy();
     expect(skippable).toHaveBeenLastCalledWith(false);
-    click("Підготовлені заклинання", "Сон");
+    pickSpell("Підготовлені заклинання", "Сон");
     await waitFor(() => expect(usePersFormStore.getState().formData.classSpells?.preparedIds).toEqual([41]));
     expect(skippable).toHaveBeenLastCalledWith(false);
     cleanup();
@@ -164,13 +164,13 @@ describe("крок «Заклинання» на підвищенні рівня
     expect(screen.getByRole("region", { name: "Замінити відоме заклинання" })).toBeTruthy();
     expect(onNextDisabledChange).toHaveBeenLastCalledWith(true);
 
-    click("Нові заклинання", "Сон");
+    pickSpell("Нові заклинання", "Сон");
     await waitFor(() => expect(onNextDisabledChange).toHaveBeenLastCalledWith(false));
 
-    click("Нові заклинання", "Туманний крок");
-    click("Нові заклинання", "Вогняна куля");
-    expect(section("Нові заклинання").getByRole("button", { name: /^Щит/ })).toHaveProperty("disabled", true);
-    click("Замовляння", "Світло");
+    pickSpell("Нові заклинання", "Туманний крок");
+    pickSpell("Нові заклинання", "Вогняна куля");
+    expect(section("Нові заклинання").queryByRole("button", { name: "Додати: Нові заклинання" })).toBeNull();
+    pickSpell("Замовляння", "Світло");
 
     await waitFor(() => expect(usePersFormStore.getState().formData.classSpells).toEqual({ cantripIds: [72], spellbookIds: [], preparedIds: [81, 82, 83] }));
     expect(onNextDisabledChange).toHaveBeenLastCalledWith(false);
@@ -203,13 +203,90 @@ describe("крок «Заклинання» третинного підклас�
     expect(screen.getByText(/^Воїн обирає зі списку чарівника \(Потойбічний лицар\) — нових заклинань: 3/)).toBeTruthy();
     expect(section("Нові заклинання").getByText("Школи підкласу — «Захист» і «Втілення»; поза ними можна взяти ще 1.")).toBeTruthy();
 
-    click("Нові заклинання", "Сон");
-    await waitFor(() => expect(section("Нові заклинання").getByRole("button", { name: /^Маскування/ })).toHaveProperty("disabled", true));
-    expect(section("Нові заклинання").getByRole("button", { name: /^Щит/ })).toHaveProperty("disabled", false);
+    pickSpell("Нові заклинання", "Сон");
+    openAddSheet("Нові заклинання");
+    expect(sheet().getByRole("button", { name: /^Маскування/ })).toHaveProperty("disabled", true);
+    expect(sheet().getByRole("button", { name: /^Щит/ })).toHaveProperty("disabled", false);
+    closeSheet();
 
-    click("Нові заклинання", "Щит");
-    click("Нові заклинання", "Чарівна стріла");
+    pickSpell("Нові заклинання", "Щит");
+    pickSpell("Нові заклинання", "Чарівна стріла");
     await waitFor(() => expect(onNextDisabledChange).toHaveBeenLastCalledWith(false));
     expect(usePersFormStore.getState().formData.classSpells).toEqual({ cantripIds: [], spellbookIds: [], preparedIds: [12, 11, 13] });
+
+    openReplaceSheet("Нові заклинання", "Сон");
+    expect(sheet().getByRole("button", { name: /^Маскування/ })).toHaveProperty("disabled", false);
+  });
+
+  it("замовляння від раси видно в секції як уже наявне, а ліміт класу воно не займає", () => {
+    usePersFormStore.setState({ formData: {} as never, isHydrated: true });
+    const clericWithSpeciesCantrip: ClassSpellOffer = {
+      ...druidLevelThree,
+      className: "CLERIC_2024",
+      classLabel: "Клірик",
+      quota: { cantrips: 1, prepared: 0, spellbook: 0, maxSpellLevel: 1 },
+      cantrips: [spell(31, "Світло", 0)],
+      speciesSpells: [spell(33, "Дивотворство", 0)],
+    };
+    render(<ClassSpellChoiceStep offer={clericWithSpeciesCantrip} />);
+
+    expect(section("Замовляння").getByRole("button", { name: "Опис: Дивотворство" })).toBeTruthy();
+    expect(section("Замовляння").getByText("від раси, поза лімітом")).toBeTruthy();
+    expect(section("Замовляння").getByText("0 з 1")).toBeTruthy();
+    openAddSheet("Замовляння");
+    expect(sheet().queryByRole("button", { name: /^Дивотворство/ })).toBeNull();
+  });
+});
+
+describe("обране заклинання — чип: тап одразу відкриває заміну", () => {
+  it("заміна стає на те саме місце, а «Прибрати» звільняє слот", async () => {
+    usePersFormStore.setState({ formData: {} as never, isHydrated: true });
+    render(<ClassSpellChoiceStep offer={wizardLevelTwo} />);
+    pickSpell("Книга заклинань", "Щит");
+    pickSpell("Книга заклинань", "Сон");
+    expect(section("Книга заклинань").queryByRole("button", { name: "Додати: Книга заклинань" })).toBeNull();
+
+    openReplaceSheet("Книга заклинань", "Щит");
+    expect(sheet().getByRole("heading", { name: "Замінити «Щит»" })).toBeTruthy();
+    expect(sheet().queryByRole("button", { name: /^Сон/ })).toBeNull();
+    fireEvent.click(sheet().getByRole("button", { name: /^Чарівна стріла/ }));
+
+    await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+    expect(usePersFormStore.getState().formData.classSpells?.spellbookIds).toEqual([13, 12]);
+
+    removeSpell("Книга заклинань", "Сон");
+    expect(usePersFormStore.getState().formData.classSpells?.spellbookIds).toEqual([13]);
+    expect(section("Книга заклинань").getByRole("button", { name: "Додати: Книга заклинань" })).toBeTruthy();
+  });
+});
+
+describe("клірик 2014 на підвищенні — доготувати підготовлені за бажанням", () => {
+  const clericLevelTwo2014: ClassSpellOffer = {
+    className: "CLERIC_2014",
+    classLabel: "Клірик",
+    ruleset: "RULES_2014",
+    quota: { cantrips: 0, prepared: 0, spellbook: 0, maxSpellLevel: 1 },
+    catchUp: { cantrips: 0, prepared: 2, spellbook: 0 },
+    cantrips: [],
+    spells: [spell(81, "Благословення", 1), spell(82, "Лікування ран", 1), spell(83, "Нанесення ран", 1)],
+    bookSpells: [],
+    bookOnlySpellIds: [],
+    swap: null,
+    canSkipPrepared: false,
+  };
+
+  it("показує «Підготовлені заклинання» без мови про таблицю й не тримає «Далі»", async () => {
+    usePersFormStore.setState({ formData: {} as never, isHydrated: true });
+    const onNextDisabledChange = vi.fn();
+    render(<ClassSpellChoiceStep offer={clericLevelTwo2014} onNextDisabledChange={onNextDisabledChange} />);
+
+    expect(screen.getByText("Клірик: нових заклинань на цьому рівні немає, але можна підготувати ще кілька зі свого списку.")).toBeTruthy();
+    expect(section("Підготовлені заклинання").getByText(/^Необовʼязково: клірик переставляє підготовлені/)).toBeTruthy();
+    expect(screen.queryByText(/До таблиці бракує/)).toBeNull();
+    await waitFor(() => expect(onNextDisabledChange).toHaveBeenLastCalledWith(false));
+
+    pickSpell("Підготовлені заклинання", "Лікування ран");
+
+    expect(usePersFormStore.getState().formData.classSpells?.preparedIds).toEqual([82]);
   });
 });

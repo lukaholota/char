@@ -110,7 +110,7 @@ describe("Wizard Evocation 2014 preset in the database", () => {
     const input = await buildPresetInput("wizard-evocation-2014");
     const foreignSpellId = await findForeignSpellId();
     const result = await createCharacter({ ...input, initialPreparedSpellIds: [...input.initialPreparedSpellIds!.slice(0, 3), foreignSpellId] });
-    expect(result).toEqual({ error: message });
+    expect(result).toEqual({ error: message, fixAtSteps: ["spells"] });
     await expectNothingCreated();
   });
 
@@ -118,7 +118,7 @@ describe("Wizard Evocation 2014 preset in the database", () => {
     const input = await buildPresetInput("wizard-evocation-2014");
     const [first] = input.initialPreparedSpellIds!;
     const result = await createCharacter({ ...input, initialPreparedSpellIds: [first, first] });
-    expect(result).toEqual({ error: "Підготовлене заклинання обрано двічі" });
+    expect(result).toEqual({ error: "Підготовлене заклинання обрано двічі", fixAtSteps: ["spells"] });
     await expectNothingCreated();
   });
 
@@ -126,7 +126,7 @@ describe("Wizard Evocation 2014 preset in the database", () => {
     const input = await buildPresetInput("wizard-evocation-2014");
     const [findFamiliar] = await findSpellIdsByName(["Find Familiar"]);
     const result = await createCharacter({ ...input, initialPreparedSpellIds: [...input.initialPreparedSpellIds!, findFamiliar] });
-    expect(result).toEqual({ error: "Забагато підготовлених заклинань для вашого Інтелекту" });
+    expect(result).toEqual({ error: "Забагато підготовлених заклинань для вашого Інтелекту", fixAtSteps: ["spells"] });
     await expectNothingCreated();
   });
 
@@ -134,7 +134,7 @@ describe("Wizard Evocation 2014 preset in the database", () => {
     const input = await buildPresetInput("wizard-evocation-2014");
     const weakIntelligence = input.asi!.map((entry) => entry.ability === "INT" ? { ...entry, value: 7 } : entry);
     const tooMany = await createCharacter({ ...input, asi: weakIntelligence });
-    expect(tooMany).toEqual({ error: "Забагато підготовлених заклинань для вашого Інтелекту" });
+    expect(tooMany).toEqual({ error: "Забагато підготовлених заклинань для вашого Інтелекту", fixAtSteps: ["spells"] });
     await expectNothingCreated();
     const oneSpell = await createCharacter({ ...input, asi: weakIntelligence, initialPreparedSpellIds: input.initialPreparedSpellIds!.slice(0, 1) });
     expect(oneSpell).toHaveProperty("persId");
@@ -144,7 +144,7 @@ describe("Wizard Evocation 2014 preset in the database", () => {
     const fighter = await buildPresetInput("fighter-champion-shield-2014");
     const [magicMissile] = await findSpellIdsByName(["Magic Missile"]);
     const result = await createCharacter({ ...fighter, initialPreparedSpellIds: [magicMissile] });
-    expect(result).toEqual({ error: "Стартова підготовка з книги доступна лише Чарівнику 2014" });
+    expect(result).toEqual({ error: "Стартова підготовка з книги доступна лише Чарівнику 2014", fixAtSteps: ["spells"] });
     await expectNothingCreated();
   });
 

@@ -7,6 +7,8 @@ import { buildImportedCreaturesFrom5etools } from "./5etools/creature-batches";
 import { stampCreatureImages } from "./aidedd/creature-images";
 import { failOnShrunkCatalog } from "./lib/fail-on-shrunk-catalog";
 import { stampCreatureSpeeds } from "./lib/stamp-creature-speeds";
+import { resolveCreatureAlias } from "../src/lib/creature-aliases";
+import { toEntitySlug } from "../src/lib/slug-utils";
 
 const OUTPUT_PATH = join(process.cwd(), "src/lib/generated/creatures2024.json");
 
@@ -268,7 +270,9 @@ const importedIds = new Set(imported.map((creature) => creature.creatureId));
 /// Успадкований запис, чий id є серед імпортованих, заміщується імпортованим — те саме
 /// правило, за яким живе каталог 2014. Без нього дві істоти з тим самим id розійшлися б по
 /// двох записах, і сторінка показала б випадковий.
-const keptHandWritten = handWrittenCreatures2024.filter((creature) => !importedIds.has(creature.creatureId));
+const keptHandWritten = handWrittenCreatures2024.filter((creature) =>
+  !importedIds.has(creature.creatureId) && resolveCreatureAlias(creature.nameEng, "RULES_2024") === toEntitySlug(creature.nameEng)
+);
 export const monsters2024List = stampCreatureSpeeds(
   stampCreatureImages([...keptHandWritten, ...imported], "RULES_2024")
 );

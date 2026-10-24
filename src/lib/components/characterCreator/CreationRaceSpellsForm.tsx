@@ -16,8 +16,8 @@ export const CreationRaceSpellsForm = ({ formId, onNextDisabledChange }: Props) 
   const { formData, updateFormData, nextStep } = usePersFormStore();
   const offer = useCreationRaceSpellOffer(formData.raceId, formData.subraceId ?? null, formData.raceChoiceSelections);
   const takenSpellIds = useMemo(
-    () => [...(formData.classSpells?.cantripIds ?? []), ...(formData.classSpells?.spellbookIds ?? []), ...(formData.classSpells?.preparedIds ?? []), ...(formData.classOptionSpellIds ?? [])],
-    [formData.classSpells, formData.classOptionSpellIds],
+    () => [...(formData.classSpells?.cantripIds ?? []), ...(formData.classSpells?.spellbookIds ?? []), ...(formData.classSpells?.preparedIds ?? []), ...(formData.classOptionSpellIds ?? []), ...(formData.initialPreparedSpellIds ?? [])],
+    [formData.classSpells, formData.classOptionSpellIds, formData.initialPreparedSpellIds],
   );
   const [isPickComplete, setIsPickComplete] = useState(false);
   const isComplete = offer !== undefined && (offer === null || isPickComplete);

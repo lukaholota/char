@@ -74,10 +74,10 @@ import {
 import { calculateFinalAbilityScores, calculateFinalStat } from "@/lib/logic/bonus-calculator";
 import { describeMulticlassEntryProblem, findMulticlassEntryProblem, type MulticlassRuleset } from "@/rules/multiclass-entry";
 import { describeMulticlassLock } from "./multiclass-lock-note";
-import { findAbilityScoresAfterLevelUp } from "@/rules/levelup-ability-scores";
 import { getRulesStrategy } from "@/rules/strategies";
 import { findInfusionPicksAtLevel } from "@/rules/artificer-infusions";
-import { sumLevelUpFeatureHitPoints, toHitPointGrantingFeature } from "@/rules/hit-points";
+import { toHitPointGrantingFeature } from "@/rules/hit-points";
+import { findLevelUpHitPointSources } from "./levelup-hit-point-sources";
 import { countPickableMulticlassSkills, findMulticlassSkillChoice, MULTICLASS_SKILL_SELECTION_KEY } from "@/rules/multiclass-skill-choice";
 import { SkillsEnum } from "@/lib/types/enums";
 import {
@@ -106,7 +106,7 @@ import {
 } from "@/lib/components/levelUp/level-up-spell-offers";
 import type { RulesetId } from "@/rules/strategies/types";
 import { findVisibleOptionalFeatures } from "@/lib/components/levelUp/levelup-optional-features";
-import { BastionLevelUpNote } from "@/components/bastions/BastionLevelUpNote";
+import { LevelUpConfirmStep } from "./LevelUpConfirmStep";
 import { LevelUpFooter } from "@/lib/components/levelUp/LevelUpFooter";
 import { NextStepHintProvider, useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 
@@ -762,16 +762,18 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
 
   /// Доданки мають бути ті самі, що й у `levelup-persistence`: без них майстер показував +8, а
   /// записував +9 (P4-regression-2014-04).
-  const traitHitPointsPerLevel = sumLevelUpFeatureHitPoints({
-    ownedFeatures: ((pers as any)?.features ?? []).map((entry: any) => toHitPointGrantingFeature(entry.feature)),
+  const hitPointSources = findLevelUpHitPointSources({
+    ownedFeatures: ((pers as any)?.features ?? []).map((entry: any) => ({ ...toHitPointGrantingFeature(entry.feature), name: entry.feature.name })),
     gainedFeatures: [...newClassFeatures, ...newSubclassFeatures].map((entry: any) => ({
       featureId: entry.featureId,
+      name: entry.feature?.name ?? "Від умінь",
       bonusHitPointsPerLevel: entry.feature?.bonusHitPointsPerLevel ?? null,
       grantingClassIds: selectedClass ? [selectedClass.classId] : [],
     })),
     leveledClassId: selectedClass?.classId ?? 0,
     classLevelAfter,
   });
+  const traitHitPointsPerLevel = hitPointSources.reduce((total, source) => total + source.amount, 0);
 
   // Риса виду відкривається рівнем ПЕРСОНАЖА, тому обраний клас на неї не впливає (§4).
   const newSpeciesTraits = useMemo(() => {
@@ -1330,6 +1332,7 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
           <LevelUpHPStep
             hitDie={selectedClass!.hitDie}
             traitHitPointsPerLevel={traitHitPointsPerLevel}
+            hitPointSources={hitPointSources}
             baseStats={{
               str: pers.str,
               dex: pers.dex,
@@ -1348,7 +1351,7 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
         );
       case "confirm":
         return (
-          <ConfirmStep
+          <LevelUpConfirmStep
             totalLevel={nextLevel}
             className={selectedClassName}
             classLevelAfter={classLevelAfter}
@@ -1356,6 +1359,10 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
             pers={pers}
             allFeats={feats}
             traitHitPointsPerLevel={traitHitPointsPerLevel}
+            hitPointSources={hitPointSources}
+            selectedClass={selectedClass as unknown as ClassI}
+            effectiveSubclass={effectiveSubclass as unknown as SubclassI}
+            newFeatures={[...newClassFeatures, ...newSubclassFeatures, ...newSpeciesTraits]}
           />
         );
       default:
@@ -1645,182 +1652,6 @@ function SummaryStep({
           <p className="text-sm text-slate-400 italic">Опис відсутній</p>
         )}
       </ControlledInfoDialog>
-    </Card>
-  );
-}
-
-function ConfirmStep({
-  totalLevel,
-  className,
-  classLevelAfter,
-  formData,
-  pers,
-  allFeats,
-  traitHitPointsPerLevel,
-}: {
-  totalLevel: number;
-  className: string;
-  classLevelAfter: number;
-  formData: any;
-  pers: any;
-  allFeats: any[];
-  traitHitPointsPerLevel: number;
-}) {
-  const asiChosen =
-    Array.isArray(formData.customAsi) && formData.customAsi.length > 0;
-  const featChosen = Boolean(formData.featId);
-
-  // 1) CON calculation
-  const oldConMod = Math.floor((pers.con - 10) / 2);
-  const selectedFeat = formData.featId
-    ? allFeats.find((f) => f.featId === Number(formData.featId))
-    : null;
-  const nextCon = findAbilityScoresAfterLevelUp({
-    scores: { STR: pers.str, DEX: pers.dex, CON: pers.con, INT: pers.int, WIS: pers.wis, CHA: pers.cha },
-    ruleset: pers.ruleset,
-    classIncreases: formData.customAsi,
-    feat: selectedFeat,
-  }).CON;
-  const newConMod = Math.floor((nextCon - 10) / 2);
-  const conModDiff = newConMod - oldConMod;
-  const retroactiveConHp = conModDiff * pers.level;
-
-  // 2) Tough logic
-  const alreadyHasTough = (pers?.feats || []).some(
-    (pf: any) => pf.feat?.name === "TOUGH"
-  );
-  const takingTough = selectedFeat?.name === "TOUGH";
-  const hitDiePart = Number(formData.levelUpHpIncrease) || 0;
-
-
-  let toughBonus = 0;
-  let toughText = null as string | null;
-  if (takingTough) {
-    toughBonus = 2 * totalLevel;
-    toughText = `Риса Здоровань [Tough] при отриманні дає рівень (${totalLevel}) * 2 хп = +${toughBonus} хп.`;
-  } else if (alreadyHasTough) {
-    toughBonus = 2;
-    toughText = `Риса Здоровань [Tough] дає +2 хп за новий рівень.`;
-  }
-
-  const totalHpIncrease =
-    hitDiePart + newConMod + toughBonus + retroactiveConHp + traitHitPointsPerLevel;
-
-  const optionalChosen =
-    formData.classOptionalFeatureSelections &&
-    Object.values(
-      formData.classOptionalFeatureSelections as Record<string, boolean>
-    ).some((v) => v === true);
-
-  return (
-    <Card className="glass-card backdrop-blur-xl">
-      <CardHeader>
-        <CardTitle className="text-xl font-light tracking-wide text-slate-100">
-          Перевірка змін
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="glass-panel border-gradient-rpg rounded-xl p-4 bg-white/5 border-white/10">
-          <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">
-            Новий загальний рівень:
-          </p>
-          <p className="text-lg font-semibold text-white">{totalLevel}</p>
-          <p className="text-[10px] uppercase tracking-widest text-slate-400 mt-2 mb-1">
-            Підвищується:
-          </p>
-          <p className="text-lg font-semibold text-white">
-            {className} (рівень {classLevelAfter})
-          </p>
-
-          {toughText && (
-            <div className="mt-4 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-              <p className="text-xs text-emerald-400 font-medium">
-                {toughText}
-              </p>
-            </div>
-          )}
-
-          {retroactiveConHp > 0 && (
-            <div className="mt-2 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
-              <p className="text-xs text-blue-400 font-medium">
-                Ретроактивне HP (збільшення СТАТУРИ): +{retroactiveConHp} за
-                минулі рівні ({pers.level} рівнів * {conModDiff}).
-              </p>
-            </div>
-          )}
-        </div>
-        <BastionLevelUpNote persId={pers.persId} ruleset={pers.ruleset} fromLevel={pers.level} toLevel={totalLevel} />
-
-        <div className="space-y-2">
-          {formData.subclassId ? (
-            <div className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm text-slate-200">Підклас обрано</span>
-            </div>
-          ) : null}
-
-          {Object.keys(formData.classChoiceSelections || {}).length > 0 ? (
-            <div className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm text-slate-200">Опції класу обрано</span>
-            </div>
-          ) : null}
-
-          {Object.keys(formData.subclassChoiceSelections || {}).length > 0 ? (
-            <div className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm text-slate-200">
-                Опції підкласу обрано
-              </span>
-            </div>
-          ) : null}
-
-          {asiChosen ? (
-            <div className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm text-slate-200">
-                Покращення характеристик
-              </span>
-            </div>
-          ) : null}
-
-          {featChosen ? (
-            <div className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm text-slate-200">Риса обрана</span>
-            </div>
-          ) : null}
-
-          {optionalChosen ? (
-            <div className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-emerald-400" />
-              <span className="text-sm text-slate-200">
-                Опціональні фічі / заміни обрано
-              </span>
-            </div>
-          ) : null}
-
-          {typeof formData.levelUpHpIncrease === "number" ? (
-            <div className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-emerald-400" />
-              <div className="flex flex-col">
-                <span className="text-sm text-slate-200 font-bold">
-                  Приріст HP: +{totalHpIncrease}
-                </span>
-                <span className="text-[10px] text-slate-400">
-                  (Кістка {hitDiePart} + СТАТ{" "}
-                  {newConMod >= 0 ? `+${newConMod}` : newConMod}
-                  {toughBonus > 0 ? ` + Здоровань +${toughBonus}` : ""}
-                  {retroactiveConHp > 0
-                    ? ` + Ретроактивне +${retroactiveConHp}`
-                    : ""}
-                  )
-                </span>
-              </div>
-            </div>
-          ) : null}
-        </div>
-      </CardContent>
     </Card>
   );
 }

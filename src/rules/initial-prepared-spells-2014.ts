@@ -32,6 +32,10 @@ export function findListPreparedAbility2014(className: string): "INT" | "WIS" | 
   return LIST_PREPARED_CASTERS_2014[className]?.ability ?? null;
 }
 
+export function findInitialPreparedLimit2014(className: string, scores: Readonly<Record<"INT" | "WIS", number>>): number {
+  return className === "WIZARD_2014" ? findInitialWizardPreparedLimit(scores.INT) : findInitialListPreparedLimit(className, scores);
+}
+
 export function findInitialListPreparedLimit(className: string, scores: Readonly<Record<"INT" | "WIS", number>>): number {
   return findListPreparedLimit(className, scores, 1);
 }
@@ -40,6 +44,13 @@ export function findListPreparedLimit(className: string, scores: Readonly<Record
   const caster = LIST_PREPARED_CASTERS_2014[className];
   if (!caster) return 0;
   return Math.max(1, calculateAbilityModifier(scores[caster.ability]) + Math.floor(classLevel / caster.levelDivisor));
+}
+
+/** Р44, доповнення: на підвищенні клірик, друїд і винахідник 2014 можуть доготувати заклинання до ліміту — за бажанням. */
+export function findListPreparedRoom2014(input: {
+  className: string; classLevel: number; scores: Readonly<Record<"INT" | "WIS", number>>; preparedCount: number;
+}): number {
+  return Math.max(0, findListPreparedLimit(input.className, input.scores, input.classLevel) - input.preparedCount);
 }
 
 export type InitialPreparedSelection = {

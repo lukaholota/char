@@ -42,7 +42,7 @@ export const FeatsForm = ({ feats, formId, onNextDisabledChange, race, subrace, 
   const [prereqReason, setPrereqReason] = useState<string | undefined>(undefined);
 
   const { form, onSubmit } = useStepForm(featSchema, (data) => {
-    updateFormData({ featId: data.featId, featChoiceSelections: {} } as any);
+    updateFormData({ featId: data.featId });
     nextStep();
   });
   

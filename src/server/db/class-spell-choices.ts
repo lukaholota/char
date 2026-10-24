@@ -9,6 +9,7 @@
 import { type Prisma, type PrismaClient, SpellOrigin } from "@prisma/client";
 
 import { classTranslations } from "@/lib/refs/translation";
+import { findListPreparedRoom2014 } from "@/rules/initial-prepared-spells-2014";
 import {
   buildClassSpellFilters2014,
   canSwapKnownSpellOnLevel2014,
@@ -80,8 +81,11 @@ type AllowanceInput = {
   chosenClassOptionNames: string[];
   owned: OwnedSpell[];
   persId: number | null;
+  preparationScores: PreparationScores | null;
   cantripPool: PactCantripPool | null;
 };
+
+type PreparationScores = Record<"INT" | "WIS", number>;
 
 const NO_SWAP: SwappableSpellIds = { cantripIds: [], preparedIds: [] };
 
@@ -107,12 +111,13 @@ async function loadClassSpellChoice(
   client: DatabaseClient,
   input: ClassSpellOfferInput,
 ): Promise<{ offer: ClassSpellOffer; filters: ClassSpellFilters } | null> {
-  const [characterClass, subclass, optionNames, owned, otherClassLevels] = await Promise.all([
+  const [characterClass, subclass, optionNames, owned, otherClassLevels, preparationScores] = await Promise.all([
     client.class.findUnique({ where: { classId: input.classId }, select: { name: true, ruleset: true } }),
     input.subclassId ? client.subclass.findUnique({ where: { subclassId: input.subclassId }, select: { name: true } }) : null,
     loadChoiceOptionNames(client, input.chosenClassOptionIds),
     loadOwnedSpells(client, input.persId),
     loadOtherClassLevels(client, input.persId, input.classId),
+    loadPreparationScores(client, input.persId),
   ]);
   if (!characterClass) return null;
 
@@ -127,6 +132,7 @@ async function loadClassSpellChoice(
     chosenClassOptionNames: optionNames,
     owned,
     persId: input.persId,
+    preparationScores,
     cantripPool: findPactCantripPool({
       leveling: { className: characterClass.name, classLevel: input.classLevel, subclassName: subclass?.name ?? null },
       otherClassLevels,
@@ -210,13 +216,22 @@ function findOfferAllowance2014(input: AllowanceInput): OfferAllowance | null {
     cantripPool: input.cantripPool,
   });
   const quota = allowance?.quota ?? { ...NO_SPELLS, maxSpellLevel: knowledge.maxSpellLevel };
+  const catchUp = allowance?.catchUp ?? NO_SPELLS;
+  const preparationRoom = input.preparationScores
+    ? findListPreparedRoom2014({
+        className: input.className,
+        classLevel: input.classLevel,
+        scores: input.preparationScores,
+        preparedCount: ownedOfClass.filter((spell) => spell.level > 0 && spell.isPrepared).length,
+      })
+    : 0;
   const schoolLimit = findSchoolLimit2014({ caster, classLevel: input.classLevel, ownedOfClass });
   const swappable = canSwapKnownSpellOnLevel2014(input.className, input.subclassName)
     ? { cantripIds: [], preparedIds: ownedOfClass.filter((spell) => spell.level > 0).map((spell) => spell.spellId) }
     : NO_SWAP;
   return {
     quota,
-    catchUp: allowance?.catchUp ?? NO_SPELLS,
+    catchUp: { ...catchUp, prepared: catchUp.prepared + preparationRoom },
     filters: buildClassSpellFilters2014({ lists, quota, schoolLimit }),
     swappable,
     schoolLimit,
@@ -394,6 +409,13 @@ function countOwnedCantripsByClass(owned: OwnedSpell[], classLevels: readonly Pa
       return [entry.className, owned.filter((spell) => spell.level === 0 && spell.badgeText === label && !spell.excludeFromPreparedCount).length];
     }),
   );
+}
+
+/** shortcut: бере значення до збільшення характеристики цього ж підвищення — решту гравець доготує на листі. */
+async function loadPreparationScores(client: DatabaseClient, persId: number | null): Promise<PreparationScores | null> {
+  if (!persId) return null;
+  const pers = await client.pers.findUnique({ where: { persId }, select: { int: true, wis: true } });
+  return pers ? { INT: pers.int, WIS: pers.wis } : null;
 }
 
 async function loadOwnedSpells(client: DatabaseClient, persId: number | null) {

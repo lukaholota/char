@@ -87,7 +87,7 @@ export function CreatureStatblockCard({
           <Shield className={cn("h-5 w-5 shrink-0", findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" }))} />
           <div className="min-w-0">
             <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Клас обладунку</div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-200 truncate">{creature.ac || "10"}</div>
+            <div className="text-xs sm:text-sm font-semibold text-slate-200 break-words">{creature.ac || "10"}</div>
           </div>
         </div>
 
@@ -95,7 +95,7 @@ export function CreatureStatblockCard({
           <Heart className="h-5 w-5 shrink-0 text-rose-400" />
           <div className="min-w-0">
             <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Хіт-поінти</div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-200 truncate">{creature.hp || "10"}</div>
+            <div className="text-xs sm:text-sm font-semibold text-slate-200 break-words">{creature.hp || "10"}</div>
           </div>
         </div>
 
@@ -104,7 +104,7 @@ export function CreatureStatblockCard({
             <Swords className="h-5 w-5 shrink-0 text-violet-400" />
             <div className="min-w-0">
               <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Ініціатива</div>
-              <div className="text-xs sm:text-sm font-semibold text-slate-200 truncate">{creature.initiative}</div>
+              <div className="text-xs sm:text-sm font-semibold text-slate-200 break-words">{creature.initiative}</div>
             </div>
           </div>
         )}
@@ -113,7 +113,7 @@ export function CreatureStatblockCard({
           <Zap className="h-5 w-5 shrink-0 text-amber-400" />
           <div className="min-w-0">
             <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Швидкість</div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-200 truncate">{creature.speed || "30 фт."}</div>
+            <div className="text-xs sm:text-sm font-semibold text-slate-200 break-words">{creature.speed || "30 фт."}</div>
           </div>
         </div>
       </div>

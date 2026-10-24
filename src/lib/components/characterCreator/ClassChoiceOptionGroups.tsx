@@ -92,6 +92,7 @@ function ClassChoiceOptionGroup({
           </Badge>
         </div>
 
+        {options.some((option) => option.choiceOption.optionNameEng?.startsWith("Class Tool ")) && <p className="text-sm text-slate-400">Це володіння інструментом. Сам предмет належить до спорядження; його можна уточнити на листі.</p>}
         <div className="grid grid-cols-1 gap-3">
           {orderedOptions.map(({ option, prerequisite, cardText, rating }) => (
             <ClassChoiceOptionCard
@@ -134,7 +135,9 @@ function ClassChoiceOptionCard({
   onSelectOption,
   onShowFeatures,
 }: CardProps) {
-  const label = cardText.title || translateOptionNameEng(option);
+  const label = option.choiceOption.optionNameEng?.startsWith("Class Tool ")
+    ? option.choiceOption.optionName
+    : cardText.title || translateOptionNameEng(option);
   const locked = !prerequisite.met;
 
   return (

@@ -5,6 +5,9 @@ import { loadClassSubclasses } from "@/server/db/class-content";
 import { loadCreationSpellOffer, type ClassSpellOffer } from "@/server/db/class-spell-choices";
 import { loadClassOptionSpellOffer, type ClassOptionSpellOffer } from "@/server/db/class-option-spell-choices";
 import { loadRaceAtCreation2014, loadRaceSpellOffer2014, type RaceSpellOffer2014 } from "@/server/db/race-spell-choices-2014";
+import { loadCreationSpeciesSpellIds } from "@/server/db/creation-content";
+
+export type CreationSpecies = { raceId: number; raceChoiceOptionIds: number[] };
 
 export async function getSubclassesByClassId(classId: number) {
   const normalizedClassId = Number(classId);
@@ -14,7 +17,12 @@ export async function getSubclassesByClassId(classId: number) {
 }
 
 /** Підклас 1-го рівня важить для 2014: покровитель чорнокнижника додає свій розширений список. */
-export async function getCreationSpellOffer(classId: number, classChoiceOptionIds: number[], subclassId: number | null = null): Promise<ClassSpellOffer | null> {
+export async function getCreationSpellOffer(
+  classId: number,
+  classChoiceOptionIds: number[],
+  subclassId: number | null = null,
+  species: CreationSpecies | null = null,
+): Promise<ClassSpellOffer | null> {
   const normalizedClassId = Number(classId);
   if (!Number.isFinite(normalizedClassId) || normalizedClassId <= 0) return null;
 
@@ -22,7 +30,23 @@ export async function getCreationSpellOffer(classId: number, classChoiceOptionId
     .map(Number)
     .filter((id) => Number.isInteger(id) && id > 0);
   const normalizedSubclassId = Number.isInteger(Number(subclassId)) && Number(subclassId) > 0 ? Number(subclassId) : null;
-  return loadCreationSpellOffer(prisma, { classId: normalizedClassId, subclassId: normalizedSubclassId, classChoiceOptionIds: optionIds });
+  const [offer, speciesSpellIds] = await Promise.all([
+    loadCreationSpellOffer(prisma, { classId: normalizedClassId, subclassId: normalizedSubclassId, classChoiceOptionIds: optionIds }),
+    findSpeciesSpellIds(species),
+  ]);
+  if (!offer) return null;
+  const isTaken = (spell: { spellId: number }) => speciesSpellIds.includes(spell.spellId);
+  return {
+    ...offer,
+    cantrips: offer.cantrips.filter((spell) => !isTaken(spell)),
+    spells: offer.spells.filter((spell) => !isTaken(spell)),
+    speciesSpells: [...offer.cantrips, ...offer.spells].filter(isTaken),
+  };
+}
+
+export async function findSpeciesSpellIds(species: CreationSpecies | null | undefined): Promise<number[]> {
+  const [raceId] = toPositiveIds([species?.raceId]);
+  return raceId ? loadCreationSpeciesSpellIds(raceId, toPositiveIds(species?.raceChoiceOptionIds)) : [];
 }
 
 /** Книга тіней і риса підкласу 1-го рівня в конструкторі: заклинання, уже обрані класом і рисою, не пропонуються. */
@@ -30,12 +54,13 @@ export async function getCreationClassOptionSpellOffer(
   classChoiceOptionIds: number[],
   takenSpellIds: number[],
   subclassId: number | null = null,
+  species: CreationSpecies | null = null,
 ): Promise<ClassOptionSpellOffer | null> {
   const [normalizedSubclassId] = toPositiveIds([subclassId]);
   return loadClassOptionSpellOffer(prisma, {
     newlyChosenOptionIds: toPositiveIds(classChoiceOptionIds),
     subclassAtLevel: normalizedSubclassId ? { subclassId: normalizedSubclassId, classLevel: 1 } : null,
-    unavailableSpellIds: toPositiveIds(takenSpellIds),
+    unavailableSpellIds: [...toPositiveIds(takenSpellIds), ...(await findSpeciesSpellIds(species))],
   });
 }
 

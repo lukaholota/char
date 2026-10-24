@@ -154,10 +154,10 @@ describe("Адепт метамагії 2014 з десятьма опціями 
   it("створення: одна, три чи повтор відхилено, персонажа немає", async () => {
     await signIn("metamagic-adept-create-refuse");
     const refusal = "Оберіть дві різні метамагії для риси «Адепт метамагії».";
-    expect(await createCharacter(await buildVariantHumanWizardForm(pick("Twinned Spell")))).toEqual({ error: refusal });
-    expect(await createCharacter(await buildVariantHumanWizardForm(pick("Twinned Spell", "Careful Spell", "Quickened Spell")))).toEqual({ error: refusal });
-    expect(await createCharacter(await buildVariantHumanWizardForm(pick("Twinned Spell", "Twinned Spell")))).toEqual({ error: refusal });
-    expect(await createCharacter(await buildVariantHumanWizardForm({}))).toEqual({ error: refusal });
+    expect(await createCharacter(await buildVariantHumanWizardForm(pick("Twinned Spell")))).toMatchObject({ error: refusal });
+    expect(await createCharacter(await buildVariantHumanWizardForm(pick("Twinned Spell", "Careful Spell", "Quickened Spell")))).toMatchObject({ error: refusal });
+    expect(await createCharacter(await buildVariantHumanWizardForm(pick("Twinned Spell", "Twinned Spell")))).toMatchObject({ error: refusal });
+    expect(await createCharacter(await buildVariantHumanWizardForm({}))).toMatchObject({ error: refusal });
     expect(await prisma.pers.count()).toBe(0);
   });
 

@@ -1,4 +1,5 @@
 "use client";
+import { listTocSubsections } from "./toc-sections";
 
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useCallback, useState, useMemo } from "react";
@@ -448,7 +449,7 @@ function buildCurrentEntries(
     title: article.title,
     href: `#${article.slug}`,
     samePage: true,
-    subsections: article.subsections.map((sub) => ({
+    subsections: listTocSubsections(article).map((sub) => ({
       id: sub.id,
       title: sub.title,
       href: `#${sub.id}`,
@@ -499,7 +500,7 @@ function buildOtherEntries(categoryHref: string, articles: TocArticle[]): TocLin
     title: article.title,
     href: `${categoryHref}#${article.slug}`,
     samePage: false,
-    subsections: article.subsections.map((sub) => ({
+    subsections: listTocSubsections(article).map((sub) => ({
       id: sub.id,
       title: sub.title,
       href: `${categoryHref}#${sub.id}`,

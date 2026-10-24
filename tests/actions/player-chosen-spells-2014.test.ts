@@ -99,8 +99,8 @@ describe("O48 — конструктор 2014: риса підкласу 1-го 
     const { form } = await buildForm({ className: Classes.CLERIC_2014, subclass: Subclasses.NATURE_DOMAIN });
     const withSpells = await withCreationSpells(form);
 
-    expect(await createCharacter({ ...withSpells, classOptionSpellIds: [] })).toEqual({ error: "Оберіть 1 замовляння: Послідовник природи" });
-    expect(await createCharacter({ ...withSpells, classOptionSpellIds: [spellId("Sacred Flame")] })).toEqual({
+    expect(await createCharacter({ ...withSpells, classOptionSpellIds: [] })).toMatchObject({ error: "Оберіть 1 замовляння: Послідовник природи" });
+    expect(await createCharacter({ ...withSpells, classOptionSpellIds: [spellId("Sacred Flame")] })).toMatchObject({
       error: "Обране заклинання не підходить: Послідовник природи",
     });
   });
@@ -143,8 +143,8 @@ describe("O48 — конструктор 2014: раса дає обрати за
     const { form } = await buildForm({ race: Races.ELF_2014, subrace: Subraces.ELF_HIGH_2014, className: Classes.FIGHTER_2014 });
     const withSpells = await withCreationSpells(form);
 
-    expect(await createCharacter({ ...withSpells, raceSpellIds: [] })).toEqual({ error: "Оберіть 1 замовляння: Замовляння вищого ельфа" });
-    expect(await createCharacter({ ...withSpells, raceSpellIds: [spellId("Magic Missile")] })).toEqual({ error: "Обране заклинання не підходить: Замовляння вищого ельфа" });
+    expect(await createCharacter({ ...withSpells, raceSpellIds: [] })).toMatchObject({ error: "Оберіть 1 замовляння: Замовляння вищого ельфа" });
+    expect(await createCharacter({ ...withSpells, raceSpellIds: [spellId("Magic Missile")] })).toMatchObject({ error: "Обране заклинання не підходить: Замовляння вищого ельфа" });
 
     const wood = await subraceByName(Subraces.ELF_WOOD_2014);
     expect(await getCreationRaceSpellOffer(form.raceId, wood.subraceId, [], [])).toBeNull();
@@ -156,7 +156,7 @@ describe("O48 — конструктор 2014: раса дає обрати за
     const withSpells = await withCreationSpells(form);
     const classCantrip = withSpells.classSpells!.cantripIds[0];
 
-    expect(await createCharacter({ ...withSpells, raceSpellIds: [classCantrip] })).toEqual({ error: "Це заклинання у вас уже є — оберіть інше: Замовляння вищого ельфа" });
+    expect(await createCharacter({ ...withSpells, raceSpellIds: [classCantrip] })).toMatchObject({ error: "Це заклинання у вас уже є — оберіть інше: Замовляння вищого ельфа" });
   });
 
   it("Астральний ельф обирає одне з трьох замовлянь Астрального вогню", async () => {

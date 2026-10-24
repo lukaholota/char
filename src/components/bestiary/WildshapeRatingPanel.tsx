@@ -50,9 +50,6 @@ export function WildshapeRatingPanel({ catalog, rating, eligibility, creatureKey
         <a href={buildDraftArticleHref("RULES_2014", catalog.articleSlug, rating.sectionId)} target="_blank" rel="noopener noreferrer" {...buildRpgbotCtaProps("open_ukrainian_article", "wildshape_rating_panel", catalog.articleSlug)} className="inline-block min-h-10 py-2 text-amber-200 underline md:min-h-0 md:py-0">
           Читати розбір українською
         </a>
-        <a href={catalog.sourceUrl} target="_blank" rel="noopener noreferrer" {...buildRpgbotCtaProps("open_original", "wildshape_rating_panel", catalog.articleSlug)} className="inline-block min-h-10 py-2 text-slate-400 underline md:min-h-0 md:py-0">
-          Оригінал на RPGbot
-        </a>
       </div>
     </section>
   );

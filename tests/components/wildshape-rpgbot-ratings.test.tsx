@@ -136,7 +136,7 @@ describe("панель оцінки форми", () => {
     expect(screen.getByRole("heading", { name: "Оцінка RPGbot" })).toBeTruthy();
     expect(screen.getByText(/1\/4/)).toBeTruthy();
     expect(screen.getByRole("link", { name: "Читати розбір українською" }).getAttribute("href")).toBe(`/rules/optimization/druid-wild-shape-2014#${rating.sectionId}`);
-    expect(screen.getByRole("link", { name: "Оригінал на RPGbot" }).getAttribute("href")).toBe(wildshapeRatingCatalog.sourceUrl);
+    expect(screen.queryByRole("link", { name: "Оригінал на RPGbot" })).toBeNull();
     expect(posthog.capturePostHogEvent).toHaveBeenCalledWith("rpgbot_surface_viewed", { product_area: "rpgbot", surface: "wildshape_rating_panel", entity_key: "blood-hawk", rating_score: 1 });
   });
 

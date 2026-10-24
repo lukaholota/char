@@ -135,7 +135,7 @@ async function buildCreationFeatSpells(form: PersFormData): Promise<PersFormData
   const selections: NonNullable<PersFormData["featSpellSelections"]> = {};
   for (const slot of slots) {
     if (!slot.featId) continue;
-    const offer = await loadCreationFeatSpellOffer(prisma, { featId: slot.featId, chosenOptionIds: Object.values(slot.selections ?? {}).flat() });
+    const offer = await loadCreationFeatSpellOffer(prisma, { featId: slot.featId, chosenOptionIds: Object.values(slot.selections ?? {}).flat(), unavailableSpellIds: [] });
     if (!offer) continue;
     selections[slot.source] = pickFeatSpells(offer, taken);
   }

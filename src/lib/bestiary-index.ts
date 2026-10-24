@@ -3,6 +3,7 @@ import type { CreatureData } from "./bestiaryData";
 import { matchesSourceSelection, type SourceSelection } from "./catalog-source-filter";
 import { findSourceLabel } from "./refs/source-label";
 import { toEntitySlug } from "./slug-utils";
+import { parseChallengeRating } from "@/rules/wildshape";
 
 /// Рядок списку бестіарію, і нічого більше (дефект №9 у docs/STATE.md). Каталог істот важить
 /// 4,7 МіБ, і 64% цієї ваги — тексти дій, особливостей і описів, які потрібні лише розгорнутому
@@ -160,7 +161,14 @@ export function collectCreatureSizes(entries: readonly CreatureIndexEntry[]): st
 }
 
 export function collectCreatureCRs(entries: readonly CreatureIndexEntry[]): string[] {
-  return collectDistinct(entries, (entry) => entry.challenge.trim());
+  return collectDistinct(entries, (entry) => entry.challenge.trim()).sort((left, right) => {
+    const leftCR = parseChallengeRating(left);
+    const rightCR = parseChallengeRating(right);
+    if (leftCR === null || rightCR === null) {
+      return (leftCR === null ? 1 : 0) - (rightCR === null ? 1 : 0) || left.localeCompare(right, "uk");
+    }
+    return leftCR - rightCR;
+  });
 }
 
 export function collectCreatureSources(entries: readonly CreatureIndexEntry[]): string[] {

@@ -52,6 +52,7 @@ import {
 import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getCreatureVisual } from "@/components/catalogs/catalog-visuals";
 import { toEntitySlug } from "@/lib/slug-utils";
+import { resolveCreatureAlias } from "@/lib/creature-aliases";
 import { cn } from "@/lib/utils";
 import { HomebrewCatalogBanner } from "@/components/homebrew/HomebrewCatalogBanner";
 import { HomebrewToggleButton } from "@/components/homebrew/HomebrewToggleButton";
@@ -126,14 +127,14 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
       const byParam = index.find(
         (entry) =>
           String(entry.creatureId) === selection.creature ||
-          entry.key === toEntitySlug(selection.creature) ||
+          entry.key === resolveCreatureAlias(selection.creature, ruleset) ||
           entry.nameEng.toLowerCase() === selection.creature.toLowerCase() ||
           entry.name.toLowerCase() === selection.creature.toLowerCase()
       );
       if (byParam) return byParam;
     }
     return ordered[0] ?? null;
-  }, [ordered, selection.creature, index]);
+  }, [ordered, selection.creature, index, ruleset]);
 
   const focusCreatureFromUrl = useCallback((source: "initial" | "search" | "popstate") => {
     if (source === "popstate" && closingModalRef.current) {
@@ -144,12 +145,12 @@ export function BestiaryClient({ ruleset = "RULES_2014", index: catalogIndex, in
     if (!requested || window.innerWidth >= 1024) return;
     const target = index.find(
       (entry) => String(entry.creatureId) === requested ||
-        entry.key === toEntitySlug(requested) ||
+        entry.key === resolveCreatureAlias(requested, ruleset) ||
         entry.nameEng.toLowerCase() === requested.toLowerCase() ||
         entry.name.toLowerCase() === requested.toLowerCase()
     );
     if (target) setModalCreature(target);
-  }, [index]);
+  }, [index, ruleset]);
 
   useCatalogDeepLinkFocus(focusCreatureFromUrl);
 

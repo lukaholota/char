@@ -60,7 +60,7 @@ export async function loadFeatSpellChoiceOffer(
 
 export async function loadCreationFeatSpellOffer(
   client: DatabaseClient,
-  input: { featId: number; chosenOptionIds: readonly number[] },
+  input: { featId: number; chosenOptionIds: readonly number[]; unavailableSpellIds: readonly number[] },
 ): Promise<FeatSpellChoiceOffer | null> {
   const feat = await client.feat.findUnique({ where: { featId: input.featId }, select: { name: true, ruleset: true } });
   if (!feat) return null;
@@ -68,7 +68,7 @@ export async function loadCreationFeatSpellOffer(
     ruleset: feat.ruleset as RulesetId,
     featName: feat.name,
     chosenOptionIds: input.chosenOptionIds,
-    unavailableSpellIds: [],
+    unavailableSpellIds: input.unavailableSpellIds,
   });
 }
 

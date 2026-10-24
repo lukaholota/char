@@ -35,7 +35,8 @@ export default function Error({
   if (isStaleAction) return <StaleActionNotice />
   if (isConnectionClosed) return <ConnectionClosedNotice reset={reset} />
 
-  return <WildMagicErrorScreen seed={error.digest} onRetry={reset} />
+  // reset() лише перемальовує межу: недовантажений чанк чи дані сторінки так і лишаються зламаними.
+  return <WildMagicErrorScreen seed={error.digest} onRetry={() => window.location.reload()} />
 }
 
 function StaleActionNotice() {

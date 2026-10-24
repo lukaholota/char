@@ -97,7 +97,7 @@ describe("стартова підготовка Клірика, Друїда й 
       [[spellId("Command"), spellId("Command")], "Підготовлене заклинання обрано двічі"],
     ];
     for (const [ids, error] of refusals) {
-      expect(await createCharacter({ ...form, initialPreparedSpellIds: ids })).toEqual({ error });
+      expect(await createCharacter({ ...form, initialPreparedSpellIds: ids })).toEqual({ error, fixAtSteps: ["spells"] });
     }
     expect(await prisma.pers.count()).toBe(0);
     expect(await countSpells()).toBe(0);
@@ -106,12 +106,12 @@ describe("стартова підготовка Клірика, Друїда й 
   it("ліміт — модифікатор характеристики плюс рівень, не менше одного; Винахідник не додає половину рівня на 1-му", async () => {
     await signIn("prepared-limit");
     const weakCleric = await buildForm(Classes.CLERIC_2014, Subclasses.LIFE_DOMAIN, { asi: WEAK_SCORES });
-    expect(await createCharacter({ ...weakCleric, initialPreparedSpellIds: [spellId("Command"), spellId("Sanctuary")] })).toEqual({ error: "Забагато підготовлених заклинань для вашої характеристики" });
+    expect(await createCharacter({ ...weakCleric, initialPreparedSpellIds: [spellId("Command"), spellId("Sanctuary")] })).toEqual({ error: "Забагато підготовлених заклинань для вашої характеристики", fixAtSteps: ["spells"] });
     expect(await createCharacter({ ...weakCleric, initialPreparedSpellIds: [spellId("Command")] })).not.toHaveProperty("error");
 
     const artificer = await buildForm(Classes.ARTIFICER_2014);
     const picks = ["Cure Wounds", "Detect Magic", "Faerie Fire", "Grease"].map(spellId);
-    expect(await createCharacter({ ...artificer, initialPreparedSpellIds: picks })).toEqual({ error: "Забагато підготовлених заклинань для вашої характеристики" });
+    expect(await createCharacter({ ...artificer, initialPreparedSpellIds: picks })).toEqual({ error: "Забагато підготовлених заклинань для вашої характеристики", fixAtSteps: ["spells"] });
     expect(await createCharacter({ ...artificer, initialPreparedSpellIds: picks.slice(0, 3) })).not.toHaveProperty("error");
   });
 

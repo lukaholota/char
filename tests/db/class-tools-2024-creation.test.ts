@@ -60,7 +60,7 @@ describe("KR31.2 — класові інструменти під час ств�
     const options = toolChoices("BARD_2024");
 
     const rejected = await createCharacter(await baseForm("BARD_2024", [options[0].choiceOptionId]));
-    expect(rejected).toHaveProperty("error", "Оберіть 3 опц.");
+    expect(rejected).toHaveProperty("error", "«Класові інструменти»: оберіть 3 опц.");
 
     const selected = options.slice(0, 3);
     const created = await createCharacter(await baseForm(

@@ -19,6 +19,7 @@ import {
   setHeroicInspirationCount,
 } from "@/lib/actions/combat-actions";
 import { HeroicInspirationRow } from "@/lib/components/characterSheet/HeroicInspirationRow";
+import { SheetNotesField } from "@/lib/components/characterSheet/SheetNotesField";
 import { grantsHeroicInspirationOnLongRest, limitHeroicInspirationCount } from "@/rules/heroic-inspiration";
 import { applyOfflineOperation, type OfflineOperation, type OfflinePersState } from "@/lib/offline/operations";
 import { createOperationId } from "@/lib/offline/queue";
@@ -905,15 +906,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
 
         {detailsOpen ? (
           <div className="mt-3 rounded-xl border border-white/10 bg-slate-900/40 p-3 space-y-3">
-            <div className="space-y-1">
-              <div className="text-xs font-semibold text-slate-200">Нотатки</div>
-              <textarea
-                value={draftNotes}
-                onChange={(e) => setDraftNotes(e.target.value)}
-                style={{ fieldSizing: "content" }}
-                className="w-full min-h-28 rounded-md border border-white/10 bg-slate-950/40 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-1 focus:ring-white/20"
-              />
-            </div>
+            <SheetNotesField value={draftNotes} onChange={setDraftNotes} />
 
             {/* Alignment & XP */}
             <div className="grid grid-cols-2 gap-3">

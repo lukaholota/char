@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
 import { Check, Info } from "lucide-react";
 import { SpellRatingChipButton } from "@/components/spells/SpellRatingChipButton";
 import { SpellSummary } from "@/components/spells/SpellSummary";
@@ -75,7 +75,7 @@ export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGrou
                   spell={spell}
                   isSelected={isSelected}
                   isDisabled={isBlocked(spell, isSelected)}
-                  onToggle={toggleSpell}
+                  onPress={() => toggleSpell(spell.spellId)}
                   ratingMatches={findRatingMatches?.(spell) ?? []}
                 />
               );
@@ -87,18 +87,23 @@ export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGrou
   );
 }
 
-function SpellChoiceCard({
+/** Без `onPress` картка лише показує заклинання: опис і оцінка відкриваються, а вибрати нічого не можна. */
+export function SpellChoiceCard({
   spell,
   isSelected,
-  isDisabled,
-  onToggle,
+  isDisabled = false,
+  onPress,
+  pressLabel = spell.name,
   ratingMatches,
+  note,
 }: {
   spell: SpellChoiceOption;
-  isSelected: boolean;
-  isDisabled: boolean;
-  onToggle: (spellId: number) => void;
+  isSelected?: boolean;
+  isDisabled?: boolean;
+  onPress?: () => void;
+  pressLabel?: string;
   ratingMatches: SpellRatingMatch[];
+  note?: ReactNode;
 }) {
   const is2024 = spell.ruleset === "RULES_2024";
   const bestRating = findBestSpellRating(ratingMatches);
@@ -113,14 +118,16 @@ function SpellChoiceCard({
         isDisabled && "opacity-40",
       )}
     >
-      <button
-        type="button"
-        onClick={() => onToggle(spell.spellId)}
-        disabled={isDisabled}
-        aria-pressed={isSelected}
-        aria-label={spell.name}
-        className="absolute inset-0 z-0 rounded-xl disabled:cursor-not-allowed"
-      />
+      {onPress && (
+        <button
+          type="button"
+          onClick={onPress}
+          disabled={isDisabled}
+          aria-pressed={isSelected}
+          aria-label={pressLabel}
+          className="absolute inset-0 z-0 rounded-xl disabled:cursor-not-allowed"
+        />
+      )}
       <div className="pointer-events-none relative z-10 flex min-w-0 flex-1 items-center gap-2 p-3 text-left">
         <SpellSummary
           spell={{
@@ -133,8 +140,13 @@ function SpellChoiceCard({
             isConcentration: spell.isConcentration ?? false,
           }}
           is2024={is2024}
-          isSelected={isSelected}
-          factBadges={bestRating && <SpellRatingChipButton rating={bestRating} spell={spell} spellName={spell.name} />}
+          isSelected={isSelected === true}
+          factBadges={
+            <>
+              {bestRating && <SpellRatingChipButton rating={bestRating} spell={spell} spellName={spell.name} />}
+              {note}
+            </>
+          }
         />
         {isSelected && <Check className={cn("h-5 w-5 shrink-0", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))} />}
       </div>

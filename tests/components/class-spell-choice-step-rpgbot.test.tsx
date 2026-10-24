@@ -5,8 +5,10 @@ import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-li
 import { ClassSpellChoiceStep } from "@/components/spells/ClassSpellChoiceStep";
 import { SpellModalRatings } from "@/components/spells/SpellModalRatings";
 import { SpellRatingBadge } from "@/components/spells/SpellRatingBadge";
+import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { useSpellRatingContextStore } from "@/lib/stores/spellRatingContextStore";
 import type { ClassSpellOffer } from "@/rules/class-spell-choices-2024";
+import { closeSheet, openAddSheet, sheet } from "../helpers/spell-picks-ui";
 
 vi.hoisted(() => {
   const entries = new Map<string, string>();
@@ -30,6 +32,7 @@ afterEach(() => {
   cleanup();
   window.localStorage.clear();
   useSpellRatingContextStore.setState({ casters: [], isRatingFocusRequested: false });
+  usePersFormStore.setState({ formData: {} as never });
 });
 
 const spell = (spellId: number, engName: string, level: number) => ({ spellId, name: `${engName} UA`, engName, level, school: "ENCHANTMENT", spellLists: ["Бард"] });
@@ -52,7 +55,8 @@ const barbarian2014: ClassSpellOffer = { ...bard2014, className: "BARBARIAN_2014
 const bard2024: ClassSpellOffer = { ...bard2014, className: "BARD_2024", ruleset: "RULES_2024" };
 
 
-const listSpellOrder = () => screen.getAllByRole("button", { pressed: false }).map((button) => button.getAttribute("aria-label"));
+const listSpellOrder = () => sheet().getAllByRole("button", { pressed: false }).map((button) => button.getAttribute("aria-label"));
+const openNewSpells = () => openAddSheet("Нові заклинання");
 const findRatingChips = () => [...document.querySelectorAll("[data-rating-tone]")].map((chip) => chip.lastElementChild?.textContent?.trim());
 
 const findRecommendationSwitch = () => screen.getByRole("switch", { name: /рекомендації RPGbot/i });
@@ -69,17 +73,21 @@ describe("рекомендації RPGbot на кроці заклинань к�
 
   it("за замовчуванням уже показує оцінки чипами й ставить найкращі заклинання рівня першими", async () => {
     render(<ClassSpellChoiceStep offer={bard2014} />);
+    expect(findRecommendationSwitch()).toHaveProperty("ariaChecked", "true");
+    openNewSpells();
 
     await waitFor(() => expect(findRatingChips()).toEqual(["4/4 Чудово", "3/4 Добре", "2/4 Прийнятно"]));
-    expect(findRecommendationSwitch()).toHaveProperty("ariaChecked", "true");
     expect(listSpellOrder()).toEqual(["Sleep UA", "Cure Wounds UA", "Speak with Animals UA", "Misty Step UA"]);
   });
 
   it("після вимкнення повертає початковий список без бейджів", async () => {
     render(<ClassSpellChoiceStep offer={bard2014} />);
+    openNewSpells();
     await waitFor(() => expect(findRatingChips().length).toBeGreaterThan(0));
+    closeSheet();
 
     fireEvent.click(findRecommendationSwitch());
+    openNewSpells();
 
     await waitFor(() => expect(findRatingChips()).toEqual([]));
     expect(listSpellOrder()).toEqual(["Speak with Animals UA", "Cure Wounds UA", "Sleep UA", "Misty Step UA"]);
@@ -93,11 +101,14 @@ describe("рекомендації RPGbot на кроці заклинань к�
     render(<ClassSpellChoiceStep offer={bard2014} />);
 
     expect(findRecommendationSwitch()).toHaveProperty("ariaChecked", "false");
+    openNewSpells();
+    expect(listSpellOrder()).toHaveLength(4);
     expect(findRatingChips()).toEqual([]);
   });
 
   it("не вибирає заклинання саме від появи чипів оцінки", async () => {
     render(<ClassSpellChoiceStep offer={bard2014} />);
+    openNewSpells();
     await waitFor(() => expect(findRatingChips().length).toBeGreaterThan(0));
 
     expect(screen.queryAllByRole("button", { pressed: true })).toHaveLength(0);
@@ -105,11 +116,24 @@ describe("рекомендації RPGbot на кроці заклинань к�
 
   it("показує пояснення рівня оцінки в підказці при наведенні", async () => {
     render(<ClassSpellChoiceStep offer={bard2014} />);
+    openNewSpells();
     await waitFor(() => expect(findRatingChips().length).toBeGreaterThan(0));
 
     fireEvent.mouseEnter(document.querySelector("[data-rating-tone]")!.parentElement!);
 
     expect((await screen.findByRole("tooltip")).textContent).toBe("Чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні.");
+  });
+
+  it("обране заклинання лишається карткою каталогу: опис і оцінка відкриваються без заміни", async () => {
+    render(<ClassSpellChoiceStep offer={bard2014} />);
+    openNewSpells();
+    fireEvent.click(await screen.findByRole("button", { name: "Sleep UA" }));
+    closeSheet();
+
+    const chosen = within(screen.getByRole("region", { name: "Нові заклинання" }));
+    expect(chosen.getByRole("button", { name: "Опис: Sleep UA" })).toBeTruthy();
+    expect(chosen.getByRole("button", { name: "Оцінка RPGbot для «Sleep UA»: відкрити аналіз" })).toBeTruthy();
+    expect(chosen.getByRole("button", { name: "Sleep UA: замінити або прибрати" })).toBeTruthy();
   });
 
   it("передає клас у контекст модалки заклинання, поки рекомендації ввімкнені", () => {
@@ -124,6 +148,7 @@ describe("рекомендації RPGbot на кроці заклинань к�
     const openedSpells: unknown[] = [];
     window.addEventListener("spell:open", (event) => openedSpells.push((event as CustomEvent).detail), { once: true });
     render(<ClassSpellChoiceStep offer={bard2014} />);
+    openNewSpells();
 
     fireEvent.click(await screen.findByRole("button", { name: "Оцінка RPGbot для «Sleep UA»: відкрити аналіз" }));
 
@@ -168,6 +193,6 @@ describe("діалог оцінки RPGbot у каталозі", () => {
     const articleLink = within(dialog).getByRole("link", { name: "Читати розбір українською" });
     await waitFor(() => expect(articleLink.getAttribute("href")).toBe("/rules/optimization/bard-spells-2014#section-spells-1"));
     await waitFor(() => expect(dialog.querySelector("section p")?.textContent?.length ?? 0).toBeGreaterThan(40));
-    expect(within(dialog).getByRole("link", { name: "Оригінал на RPGbot" }).getAttribute("href")).toMatch(/^https:\/\/rpgbot\.net\//);
+    expect(within(dialog).queryByRole("link", { name: "Оригінал на RPGbot" })).toBeNull();
   });
 });
