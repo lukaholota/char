@@ -10,7 +10,9 @@ import { PRIVATE_ELEMENT_CLASS } from "@/lib/monitoring/session-replay";
 import { cn } from "@/lib/utils";
 import type { PersHomeItem } from "./CharHomeClient";
 
-type Props = { pers: PersHomeItem; selectionMode: boolean; isSelected: boolean; contextLabel?: string | null };
+export type PersCardFields = Pick<PersHomeItem, "name" | "portraitKey" | "ruleset" | "isPinned" | "raceName" | "className" | "level">;
+
+type Props = { pers: PersCardFields; selectionMode: boolean; isSelected: boolean; contextLabel?: string | null };
 
 export function PersCardBody({ pers, selectionMode, isSelected, contextLabel }: Props) {
   return (

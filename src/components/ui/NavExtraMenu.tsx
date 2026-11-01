@@ -10,7 +10,7 @@ import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useCallback, useMemo, useRef, useState, RefObject } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
-import { Menu, LogIn, LogOut, Home, Heart, Search, Sparkles, MessageSquareWarning } from "lucide-react";
+import { Menu, LogIn, LogOut, Home, Heart, Search, Sparkles, MessageSquareWarning, ScrollText } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { forgetOfflinePages } from "@/lib/offline/service-worker";
 import { flushOfflineQueue } from "@/lib/offline/queue";
@@ -29,7 +29,7 @@ import { useActiveEdition } from "@/components/ui/PersEditionPin";
 import { useOmniSearchStore } from "@/lib/stores/omniSearchStore";
 import { MENU_PANEL } from "@/components/ui/menu-panel";
 import { collectMenuCatalogs, findCatalogHref, findCatalogTitle, type CatalogEntry } from "@/lib/catalogs/catalog-registry";
-import type { Edition } from "@/rules/route-helpers";
+import { getTargetEditionPath, type Edition } from "@/rules/route-helpers";
 import { buildRpgbotCtaProps } from "@/lib/monitoring/rpgbot-analytics-model";
 
 const InstallAppInstructions = dynamic(() => import("@/components/pwa/InstallAppInstructions").then((module) => module.InstallAppInstructions), { loading: () => null });
@@ -83,7 +83,8 @@ function buildCatalogLinks(is2024: boolean, showHome: boolean): CatalogLink[] {
     ? [{ href: spellsHref, icon: Sparkles, label: findCatalogTitle("spells"), iconClass: accent, mobileOnly: true }]
     : [];
 
-  return [...home, ...mobileSpells, ...catalogs];
+  const games: CatalogLink = { href: getTargetEditionPath("/games", edition), icon: ScrollText, label: "Ігрові кімнати", iconClass: accent };
+  return [...home, ...mobileSpells, ...catalogs, games];
 }
 
 /// Каталог, що є в обох редакціях, у 2024 несе рік — «Класи 2024»; каталог однієї редакції

@@ -36,6 +36,7 @@ import type { SpellBuffCatalogEntry } from "@/lib/logic/state-labels";
 import { SheetStatesProvider } from "./states/SheetStatesContext";
 import { StatesSheet } from "./states/StatesSheet";
 import { StatusChips } from "./states/StatusChips";
+import { showSheetPers } from "@/lib/stores/sheetPersStore";
 import { useSheetStates } from "./states/useSheetStates";
 import { CharacterSourceBuildContext, type CharacterSourceBuild } from "@/components/optimization/CharacterSourceBuildContext";
 
@@ -87,6 +88,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
   }, [pers, groupedFeatures]);
 
   useEffect(() => showQueuedOperations(), [showQueuedOperations]);
+  useEffect(() => (isReadOnly ? undefined : showSheetPers({ persId: pers.persId, name: pers.name })), [isReadOnly, pers.persId, pers.name]);
   const sourceBuild = useMemo(() => ({ sourceBuildId: pers.sourceBuildId, guide: sourceBuildGuide }), [pers.sourceBuildId, sourceBuildGuide]);
   const sheetStates = useSheetStates({ pers: localPers, onPersUpdate: setLocalPers, groupedFeatures: localGroupedFeatures, catalog: spellBuffCatalog, isReadOnly, onFeaturesChanged: () => reloadFeatures() });
 

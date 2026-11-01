@@ -8,7 +8,7 @@ import { buildReturnUrl, detectBrowserEnvironment, readBrowserSignals, type InAp
 export type InAppPlacement = "auth_dialog" | "creator" | "preset" | "other";
 export type ExternalBrowserMethod = "android_intent" | "ios_safari_scheme" | "ios_chrome_scheme" | "system_share" | "instructions_only" | "other";
 export type InAppDismissAction = "continue_here" | "close";
-export type AuthTrigger = "creator_submit" | "preset_submit" | "nav" | "discussion" | "homebrew" | "other";
+export type AuthTrigger = "creator_submit" | "preset_submit" | "nav" | "discussion" | "homebrew" | "game" | "other";
 export type AuthFailureReason = "provider_error" | "network" | "no_credential" | "returned_signed_out";
 export type CreationFailureReason = "server" | "network";
 type Edition = "2014" | "2024";

@@ -1,4 +1,4 @@
-import type { Edition } from "@/rules/route-helpers";
+import { getTargetEditionPath, type Edition } from "@/rules/route-helpers";
 import {
   collectCatalogsOfEdition,
   findCatalogHomeTitle,
@@ -38,6 +38,11 @@ export const HOME_EDITION_HEADINGS: Record<Edition, { system: string; homePath: 
   "2024": { system: "D&D 5.5e", homePath: "/2024" },
 };
 
+/// Кімнати не каталог і однакові в обох редакціях, тож у реєстрі їх немає; адреса лише тримає редакцію сайту.
+function buildGamesHomeCategory(edition: Edition): HomeCategory {
+  return { slug: "games", title: "Ігрові кімнати", placement: "tile", accent: "emberGold", href: getTargetEditionPath("/games", edition) };
+}
+
 export function collectHomeCategories(edition: Edition): HomeCategory[] {
   return collectCatalogsOfEdition(edition).map((entry) => buildHomeCategory(entry, edition));
 }
@@ -56,6 +61,7 @@ export function collectHomeCardRows(edition: Edition): HomeCardRows {
     tiles: [
       ...desktopHeroes.map((category) => buildHomeCard(category, "tile", "phone")),
       ...tiles.map((category) => buildHomeCard(category, "tile", "all")),
+      buildHomeCard(buildGamesHomeCategory(edition), "tile", "all"),
     ],
   };
 }

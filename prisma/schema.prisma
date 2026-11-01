@@ -39,6 +39,9 @@ model User {
   contentReports         ContentReport[]          @relation("ContentReportReporter")
   resolvedContentReports ContentReport[]          @relation("ContentReportResolver")
   contentVotes           ContentVote[]
+  gameRollEvents         GameRollEvent[]
+  ownedGameSessions      GameSession[]
+  gameSessionMembers     GameSessionMember[]
   homebrewEntries        HomebrewEntry[]
   perses                 Pers[]
   additionalPerses       PersAdditionalUser[]
@@ -679,6 +682,8 @@ model Pers {
   passiveBonuses              Json?                    @map("passive_bonuses")
   sourceBuildId               String?                  @map("source_build_id")
   sourceBuildRevisionId       String?                  @map("source_build_revision_id")
+  gameRollEvents              GameRollEvent[]
+  gameSessionMembers          GameSessionMember[]
   background                  Background               @relation(fields: [backgroundId], references: [backgroundId])
   class                       Class                    @relation(fields: [classId], references: [classId])
   folder                      PersFolder?              @relation(fields: [folderId], references: [folderId])
@@ -1486,6 +1491,67 @@ model PersEffect {
 
   @@unique([persId, effectKey], map: "pers_effect_one_per_key")
   @@map("pers_effect")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model GameRollEvent {
+  id             BigInt      @id @default(autoincrement()) @map("game_roll_event_id")
+  gameSessionId  Int         @map("game_session_id")
+  seq            BigInt
+  authorUserId   Int?        @map("author_user_id")
+  persId         Int?        @map("pers_id")
+  idempotencyKey String      @map("idempotency_key") @db.Uuid
+  visibility     String      @db.VarChar(8)
+  source         String      @db.VarChar(16)
+  authorName     String      @map("author_name") @db.VarChar(100)
+  persName       String?     @map("pers_name") @db.VarChar(100)
+  label          String      @db.VarChar(120)
+  roll           Json
+  total          Int
+  rolledAt       DateTime    @map("rolled_at") @db.Timestamptz(6)
+  createdAt      DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  author         User?       @relation(fields: [authorUserId], references: [id], onUpdate: NoAction)
+  gameSession    GameSession @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  pers           Pers?       @relation(fields: [persId], references: [persId], onUpdate: NoAction)
+
+  @@unique([gameSessionId, authorUserId, idempotencyKey])
+  @@unique([gameSessionId, seq])
+  @@map("game_roll_event")
+}
+
+model GameSession {
+  id           Int                 @id @default(autoincrement()) @map("game_session_id")
+  ownerUserId  Int                 @map("owner_user_id")
+  name         String              @db.VarChar(80)
+  inviteToken  String?             @unique @map("invite_token") @db.VarChar(64)
+  lastEventSeq BigInt              @default(0) @map("last_event_seq")
+  archivedAt   DateTime?           @map("archived_at") @db.Timestamptz(6)
+  createdAt    DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime            @default(now()) @map("updated_at") @db.Timestamptz(6)
+  rollEvents   GameRollEvent[]
+  owner        User                @relation(fields: [ownerUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  members      GameSessionMember[]
+
+  @@index([ownerUserId], map: "game_session_owner_idx")
+  @@map("game_session")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model GameSessionMember {
+  id            Int         @id @default(autoincrement()) @map("game_session_member_id")
+  gameSessionId Int         @map("game_session_id")
+  userId        Int         @map("user_id")
+  role          String      @db.VarChar(8)
+  persId        Int?        @map("pers_id")
+  joinedAt      DateTime    @default(now()) @map("joined_at") @db.Timestamptz(6)
+  lastSeenAt    DateTime?   @map("last_seen_at") @db.Timestamptz(6)
+  gameSession   GameSession @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  pers          Pers?       @relation(fields: [persId], references: [persId], onUpdate: NoAction)
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([gameSessionId, userId])
+  @@index([userId], map: "game_session_member_user_idx")
+  @@map("game_session_member")
 }
 
 enum AOEShapes {

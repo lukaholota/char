@@ -401,3 +401,36 @@ nav[data-safe-navigation], [data-safe-sheet-tabs].fixed {
 [data-entering] [data-entrance-layer] {
   will-change: opacity, transform;
 }
+
+@keyframes game-entry-in {
+  from {
+    opacity: 0.01;
+    transform: translateY(14px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes game-die-tumble {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.game-entry-in {
+  transform-origin: bottom left;
+  animation: game-entry-in 280ms cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+}
+
+.game-die-tumble {
+  animation: game-die-tumble 0.8s cubic-bezier(0.45, 0.1, 0.55, 0.9) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-entry-in,
+  .game-die-tumble {
+    animation: none;
+  }
+}

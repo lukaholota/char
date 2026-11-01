@@ -6,10 +6,16 @@ import { countD20Dice, type D20Mode } from "@/rules/dice-roll";
 import { diceService } from "./diceService";
 import { rollAfterHeldTrayResize } from "./dice-tray-layout";
 import { buildRollOutcome, listRollNotations, type DiceRollOutcome, type PendingRollMeta } from "./roll-contexts";
+import { buildActionGameRoll, buildFreeGameRoll, takeDiceToPublish } from "@/lib/components/game/build-game-roll";
+import { announceGameRollStart, captureGameRollTarget, publishGameRoll, settleGameRollStart, type GameRollTarget } from "@/lib/components/game/game-roll-publisher";
 
 export type PoolDie = { sides: number; value: number; rollId?: number | string };
 
 const SETTLE_GUARD_MS = 10000;
+
+type PendingPublication =
+  | { kind: "action"; target: GameRollTarget | null; context: DiceRollContext; action: DiceRollAction; d20Mode: D20Mode }
+  | { kind: "append" | "reroll"; target: GameRollTarget | null };
 
 export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | null, isLayoutSettled: boolean) {
   const isServiceReady = useSyncExternalStore(subscribeToDiceService, readIsDiceServiceReady, readIsDiceServiceReadyOnServer);
@@ -20,6 +26,8 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
   const [pool, setPool] = useState<PoolDie[]>([]);
   const isOpenRef = useRef(isOpen);
   const pendingMetaRef = useRef<PendingRollMeta | null>(null);
+  const pendingPublicationRef = useRef<PendingPublication | null>(null);
+  const publishedDiceRef = useRef(new Set<string>());
   const rollContextRef = useRef(rollContext);
   rollContextRef.current = rollContext;
   const settleGuardRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -41,6 +49,8 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
 
   const reset = useCallback(() => {
     pendingMetaRef.current = null;
+    pendingPublicationRef.current = null;
+    publishedDiceRef.current.clear();
     clearSettleGuard();
     setIsRolling(false);
     setActiveActionKey(null);
@@ -59,6 +69,8 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
       setPool(result.rolls);
       const next = pending ? buildRollOutcome(pending, result.rolls.map((roll) => roll.value)) : null;
       setOutcome(next);
+      publishCompletedRoll(pendingPublicationRef.current, next, result.rolls, publishedDiceRef.current);
+      pendingPublicationRef.current = null;
       const check = rollContextRef.current?.check;
       if (next?.d20Mode && check) check.onResult(next.total >= check.dc);
     });
@@ -79,6 +91,8 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
         mainDiceCount: action.isD20 ? countD20Dice(d20Mode) : action.count,
         extraDice: action.extraDice ?? [],
       };
+      const context = rollContextRef.current;
+      holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget("sheet"), context, action, d20Mode } : null);
       setActiveActionKey(action.key);
       startRolling();
       const notations = listRollNotations(action, d20Mode);
@@ -96,6 +110,7 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
     (sides: number) => {
       if (!isReady) return;
       pendingMetaRef.current = null;
+      holdPublication(pendingPublicationRef, { kind: "append", target: captureGameRollTarget("free") });
       startRolling();
       rollAfterHeldTrayResize(() => {
         void diceService.roll(1, sides, { append: true });
@@ -117,6 +132,7 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
   const rerollPool = useCallback(() => {
     if (!isReady || !pool.length) return;
     pendingMetaRef.current = null;
+    holdPublication(pendingPublicationRef, { kind: "reroll", target: captureGameRollTarget("free") });
     startRolling();
     const notations = describePoolNotations(pool);
     rollAfterHeldTrayResize(() => {
@@ -125,11 +141,26 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
   }, [isReady, pool, startRolling]);
 
   const clearPool = useCallback(() => {
+    publishedDiceRef.current.clear();
     setPool([]);
     diceService.clear();
   }, []);
 
   return { isReady, isRolling, activeActionKey, outcome, pool, rollAction, addFreeDie, removeFreeDie, rerollPool, clearPool };
+}
+
+function holdPublication(ref: { current: PendingPublication | null }, publication: PendingPublication | null) {
+  ref.current = publication;
+  if (publication?.target) announceGameRollStart(publication.target);
+}
+
+/// Кожен кубик іде в журнал рівно раз: дія й перекид публікують увесь стіл, докинутий кубик — лише себе.
+function publishCompletedRoll(pending: PendingPublication | null, outcome: DiceRollOutcome | null, dice: PoolDie[], publishedDice: Set<string>) {
+  const fresh = takeDiceToPublish(dice, publishedDice, pending?.kind === "append");
+  if (!pending?.target) return;
+  const publication = pending.kind === "action" ? (outcome ? buildActionGameRoll(pending, outcome) : null) : buildFreeGameRoll(fresh);
+  if (publication) publishGameRoll(pending.target, publication);
+  else settleGameRollStart(pending.target);
 }
 
 const subscribeToDiceService = (listener: () => void) => diceService.subscribeStatus(listener);

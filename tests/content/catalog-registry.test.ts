@@ -20,9 +20,9 @@ const APP = join(ROOT, "src/app");
 const EDITIONS = ["2014", "2024"] as const;
 
 /// Сторінки верхнього рівня, які не є каталогами: службові перевірки, офлайн-заглушка,
-/// показ екранів помилки для розробки й порожній стаб `pers/home`. Новий маршрут поза цим
+/// показ екранів помилки для розробки, порожній стаб `pers/home` та ігрові кімнати. Новий маршрут поза цим
 /// списком мусить потрапити в реєстр.
-const NON_CATALOG_ROUTES = new Set(["offline", "posthog-check", "sentry-check", "error-preview", "pers", "qa-sign-in"]);
+const NON_CATALOG_ROUTES = new Set(["offline", "posthog-check", "sentry-check", "error-preview", "pers", "qa-sign-in", "games"]);
 
 /// Споживачі, які до O36 тримали власну копію списку каталогів.
 const REGISTRY_CONSUMERS = [

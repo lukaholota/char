@@ -8,6 +8,7 @@ import { Providers } from "@/app/providers";
 import { GlobalModals } from "@/components/ui/GlobalModals";
 import { DiceOverlay } from "@/lib/components/dice/DiceOverlay";
 import { DiceTray } from "@/lib/components/dice/DiceTray";
+import { GameSessionDockLoader } from "@/components/games/GameSessionDockLoader";
 import { RootGrid } from "@/components/ui/RootGrid";
 import { RouterPopStateFilter } from "@/components/ui/RouterPopStateFilter";
 import { RESERVE_FIRST_POPSTATE_LISTENER_SCRIPT } from "@/lib/router-popstate-filter";
@@ -108,6 +109,7 @@ export default function RootLayout(
       <GlobalModals />
       <DiceOverlay />
       <DiceTray />
+      <GameSessionDockLoader />
     </Providers>
     </body>
     </html>

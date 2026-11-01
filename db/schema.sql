@@ -2284,6 +2284,122 @@ ALTER SEQUENCE public.fighting_style_id_seq OWNED BY public.fighting_style.id;
 
 
 --
+-- Name: game_roll_event; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_roll_event (
+    game_roll_event_id bigint NOT NULL,
+    game_session_id integer NOT NULL,
+    seq bigint NOT NULL,
+    author_user_id integer,
+    pers_id integer,
+    idempotency_key uuid NOT NULL,
+    visibility character varying(8) NOT NULL,
+    source character varying(16) NOT NULL,
+    author_name character varying(100) NOT NULL,
+    pers_name character varying(100),
+    label character varying(120) NOT NULL,
+    roll jsonb NOT NULL,
+    total integer NOT NULL,
+    rolled_at timestamp with time zone NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT game_roll_event_source_check CHECK (((source)::text = ANY ((ARRAY['CHARACTER'::character varying, 'FREE'::character varying, 'CREATURE'::character varying])::text[]))),
+    CONSTRAINT game_roll_event_visibility_check CHECK (((visibility)::text = ANY ((ARRAY['PUBLIC'::character varying, 'GM'::character varying, 'SELF'::character varying])::text[])))
+);
+
+
+--
+-- Name: game_roll_event_game_roll_event_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_roll_event_game_roll_event_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_roll_event_game_roll_event_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_roll_event_game_roll_event_id_seq OWNED BY public.game_roll_event.game_roll_event_id;
+
+
+--
+-- Name: game_session; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_session (
+    game_session_id integer NOT NULL,
+    owner_user_id integer NOT NULL,
+    name character varying(80) NOT NULL,
+    invite_token character varying(64),
+    last_event_seq bigint DEFAULT 0 NOT NULL,
+    archived_at timestamp with time zone,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+--
+-- Name: game_session_game_session_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_session_game_session_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_session_game_session_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_session_game_session_id_seq OWNED BY public.game_session.game_session_id;
+
+
+--
+-- Name: game_session_member; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_session_member (
+    game_session_member_id integer NOT NULL,
+    game_session_id integer NOT NULL,
+    user_id integer NOT NULL,
+    role character varying(8) NOT NULL,
+    pers_id integer,
+    joined_at timestamp with time zone DEFAULT now() NOT NULL,
+    last_seen_at timestamp with time zone,
+    CONSTRAINT game_session_member_role_check CHECK (((role)::text = ANY ((ARRAY['GM'::character varying, 'PLAYER'::character varying])::text[])))
+);
+
+
+--
+-- Name: game_session_member_game_session_member_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_session_member_game_session_member_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_session_member_game_session_member_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_session_member_game_session_member_id_seq OWNED BY public.game_session_member.game_session_member_id;
+
+
+--
 -- Name: homebrew_creature; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -4331,6 +4447,27 @@ ALTER TABLE ONLY public.fighting_style ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
+-- Name: game_roll_event game_roll_event_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_roll_event ALTER COLUMN game_roll_event_id SET DEFAULT nextval('public.game_roll_event_game_roll_event_id_seq'::regclass);
+
+
+--
+-- Name: game_session game_session_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session ALTER COLUMN game_session_id SET DEFAULT nextval('public.game_session_game_session_id_seq'::regclass);
+
+
+--
+-- Name: game_session_member game_session_member_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session_member ALTER COLUMN game_session_member_id SET DEFAULT nextval('public.game_session_member_game_session_member_id_seq'::regclass);
+
+
+--
 -- Name: homebrew_entry homebrew_entry_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -4953,6 +5090,62 @@ ALTER TABLE ONLY public.feature
 
 ALTER TABLE ONLY public.fighting_style
     ADD CONSTRAINT fighting_style_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: game_roll_event game_roll_event_game_session_id_author_user_id_idempotency__key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_roll_event
+    ADD CONSTRAINT game_roll_event_game_session_id_author_user_id_idempotency__key UNIQUE (game_session_id, author_user_id, idempotency_key);
+
+
+--
+-- Name: game_roll_event game_roll_event_game_session_id_seq_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_roll_event
+    ADD CONSTRAINT game_roll_event_game_session_id_seq_key UNIQUE (game_session_id, seq);
+
+
+--
+-- Name: game_roll_event game_roll_event_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_roll_event
+    ADD CONSTRAINT game_roll_event_pkey PRIMARY KEY (game_roll_event_id);
+
+
+--
+-- Name: game_session game_session_invite_token_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session
+    ADD CONSTRAINT game_session_invite_token_key UNIQUE (invite_token);
+
+
+--
+-- Name: game_session_member game_session_member_game_session_id_user_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session_member
+    ADD CONSTRAINT game_session_member_game_session_id_user_id_key UNIQUE (game_session_id, user_id);
+
+
+--
+-- Name: game_session_member game_session_member_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session_member
+    ADD CONSTRAINT game_session_member_pkey PRIMARY KEY (game_session_member_id);
+
+
+--
+-- Name: game_session game_session_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session
+    ADD CONSTRAINT game_session_pkey PRIMARY KEY (game_session_id);
 
 
 --
@@ -5665,6 +5858,20 @@ CREATE UNIQUE INDEX feature_feature_id_key ON public.feature USING btree (featur
 --
 
 CREATE UNIQUE INDEX fighting_style_eng_name_key ON public.fighting_style USING btree (eng_name);
+
+
+--
+-- Name: game_session_member_user_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_session_member_user_idx ON public.game_session_member USING btree (user_id);
+
+
+--
+-- Name: game_session_owner_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_session_owner_idx ON public.game_session USING btree (owner_user_id);
 
 
 --
@@ -6432,6 +6639,62 @@ ALTER TABLE ONLY public.feat_choice_option
 
 ALTER TABLE ONLY public.spell_classes
     ADD CONSTRAINT fk_spell_classes FOREIGN KEY (spell_id) REFERENCES public.spell(spell_id);
+
+
+--
+-- Name: game_roll_event game_roll_event_author_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_roll_event
+    ADD CONSTRAINT game_roll_event_author_user_id_fkey FOREIGN KEY (author_user_id) REFERENCES public."user"(user_id) ON DELETE SET NULL;
+
+
+--
+-- Name: game_roll_event game_roll_event_game_session_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_roll_event
+    ADD CONSTRAINT game_roll_event_game_session_id_fkey FOREIGN KEY (game_session_id) REFERENCES public.game_session(game_session_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_roll_event game_roll_event_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_roll_event
+    ADD CONSTRAINT game_roll_event_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE SET NULL;
+
+
+--
+-- Name: game_session_member game_session_member_game_session_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session_member
+    ADD CONSTRAINT game_session_member_game_session_id_fkey FOREIGN KEY (game_session_id) REFERENCES public.game_session(game_session_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_session_member game_session_member_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session_member
+    ADD CONSTRAINT game_session_member_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE SET NULL;
+
+
+--
+-- Name: game_session_member game_session_member_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session_member
+    ADD CONSTRAINT game_session_member_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_session game_session_owner_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session
+    ADD CONSTRAINT game_session_owner_user_id_fkey FOREIGN KEY (owner_user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
 
 
 --
