@@ -5,6 +5,7 @@ import { enableHomebrewParam } from "@/lib/catalog-source-filter";
 import { updateUrlSearchParams } from "@/lib/catalog-url-helpers";
 import { useRememberedHomebrewToggle } from "@/hooks/useRememberedHomebrewToggle";
 import { fetchHomebrewEntries } from "@/lib/catalog-reads";
+import { useNoAiMode } from "@/components/no-ai/NoAiModeProvider";
 import type { HomebrewKind, HomebrewRuleset } from "@/lib/logic/homebrew-input";
 import type { HomebrewCatalogEntry } from "@/lib/logic/homebrew-view";
 import type { HomebrewSort } from "@/lib/logic/homebrew-catalog";
@@ -13,12 +14,13 @@ type HomebrewQuery = { kind: HomebrewKind; ruleset: HomebrewRuleset; sort: Homeb
 
 export function useCommunityHomebrew({ kind, ruleset, sort }: HomebrewQuery, isEnabled: boolean): HomebrewCatalogEntry[] {
   const [loaded, setLoaded] = useState<{ queryKey: string; entries: HomebrewCatalogEntry[] } | null>(null);
-  const queryKey = `${kind}:${ruleset}:${sort}`;
+  const { enabled: noAi } = useNoAiMode();
+  const queryKey = `${kind}:${ruleset}:${sort}:${noAi}`;
 
   useEffect(() => {
     if (!isEnabled) return;
     let isCancelled = false;
-    fetchHomebrewEntries({ kind, ruleset, sort })
+    fetchHomebrewEntries({ kind, ruleset, sort, noAi })
       .then((entries) => {
         if (!isCancelled) setLoaded({ queryKey, entries });
       })
@@ -26,7 +28,7 @@ export function useCommunityHomebrew({ kind, ruleset, sort }: HomebrewQuery, isE
     return () => {
       isCancelled = true;
     };
-  }, [kind, ruleset, sort, queryKey, isEnabled]);
+  }, [kind, ruleset, sort, noAi, queryKey, isEnabled]);
 
   return isEnabled && loaded?.queryKey === queryKey ? loaded.entries : [];
 }

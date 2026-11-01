@@ -22,8 +22,8 @@ export function fetchCreatureKeysMatchingText(query: string, ruleset: Ruleset): 
   return fetchJson("/api/bestiary/text-matches", { q: query, ruleset });
 }
 
-export function fetchHomebrewEntries(input: { kind: HomebrewKind; ruleset: Ruleset; sort: "TOP" | "NEW" }): Promise<HomebrewCatalogEntry[]> {
-  return fetchJson("/api/homebrew", input);
+export function fetchHomebrewEntries({ noAi, ...input }: { kind: HomebrewKind; ruleset: Ruleset; sort: "TOP" | "NEW"; noAi: boolean }): Promise<HomebrewCatalogEntry[]> {
+  return fetchJson("/api/homebrew", { ...input, ...buildNoAiParam(noAi) });
 }
 
 export function fetchBastionFacility(slug: string): Promise<BastionFacilityData | null> {
@@ -34,8 +34,12 @@ export function fetchReferenceCard(href: string): Promise<ReferenceCard> {
   return fetchJson("/api/reference-card", { href });
 }
 
-export function fetchDiscussion(target: string): Promise<DiscussionView | null> {
-  return fetchJson("/api/discussion", { target });
+export function fetchDiscussion(target: string, noAi: boolean): Promise<DiscussionView | null> {
+  return fetchJson("/api/discussion", { target, ...buildNoAiParam(noAi) });
+}
+
+function buildNoAiParam(noAi: boolean): Record<string, string> {
+  return noAi ? { noAi: "1" } : {};
 }
 
 async function fetchJson<T>(path: string, params: Record<string, string>): Promise<T> {

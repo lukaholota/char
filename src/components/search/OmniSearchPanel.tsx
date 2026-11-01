@@ -21,7 +21,7 @@ import { buildAnalyticsQuery } from "@/lib/search/searchQuery";
 import { fetchRpgbotSectionMatches } from "@/lib/search/rpgbotSectionSearch";
 import { findRpgbotSearchResult } from "@/lib/search/rpgbotSearchData";
 import { useActiveEdition } from "@/components/ui/PersEditionPin";
-import { useNoAiHref } from "@/components/no-ai/NoAiModeProvider";
+import { useNoAiHref, useNoAiMode } from "@/components/no-ai/NoAiModeProvider";
 import type { Edition } from "@/rules/route-helpers";
 import { cn } from "@/lib/utils";
 import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
@@ -48,6 +48,7 @@ export function OmniSearchPanel({ onClose }: Props) {
 
   const edition = useActiveEdition();
   const ruleset = edition === "2024" ? "RULES_2024" : "RULES_2014";
+  const { enabled: noAi } = useNoAiMode();
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -56,7 +57,7 @@ export function OmniSearchPanel({ onClose }: Props) {
   const personalSearch = useDeferredServerSearch(query, searchUserPersAndFolders);
   const homebrewSearch = useDeferredServerSearch(
     query,
-    useCallback((trimmed: string) => searchHomebrewEntries(trimmed, ruleset), [ruleset]),
+    useCallback((trimmed: string) => searchHomebrewEntries(trimmed, ruleset, noAi), [ruleset, noAi]),
   );
   const personalResults = personalSearch.hits;
   const homebrewResults = homebrewSearch.hits;

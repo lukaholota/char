@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildHomebrewCatalogHref, parseHomebrewKind, parseHomebrewSort } from "./homebrew-catalog";
+import { buildHomebrewCatalogHref, parseHomebrewEntryId, parseHomebrewKind, parseHomebrewSort } from "./homebrew-catalog";
 
 describe("адреса каталогу хоумбрю", () => {
   it("вибраний запис відкривається тим самим параметром, що й звичайна істота чи заклинання", () => {
@@ -17,5 +17,11 @@ describe("адреса каталогу хоумбрю", () => {
     expect(parseHomebrewKind("CREATURE")).toBe("CREATURE");
     expect(parseHomebrewKind(["CREATURE"])).toBe("SPELL");
     expect(parseHomebrewKind(undefined)).toBe("SPELL");
+  });
+
+  it("номер запису з адреси — лише додатне ціле в межах колонки, решта веде на 404", () => {
+    expect(parseHomebrewEntryId("42")).toBe(42);
+    expect(parseHomebrewEntryId("2147483647")).toBe(2_147_483_647);
+    for (const raw of ["${i.entryId}${n", ":entryId", "0", "-3", "1.5", "1e3", " 7", "2147483648", ""]) expect(parseHomebrewEntryId(raw)).toBeNull();
   });
 });

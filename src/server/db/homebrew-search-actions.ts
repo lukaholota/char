@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { buildQueryVariants } from "@/lib/search/searchQuery";
 import type { HomebrewKind, HomebrewRuleset } from "@/lib/logic/homebrew-input";
+import { excludeAiAuthorIds } from "@/lib/no-ai/ai-authors";
 
 /// Хоумбрю спільноти живе в базі, а не в згенерованому JSON, тому шукається серверною дією —
 /// як «Мої персонажі» (Р14), тільки без власника: каталог публічний.
@@ -20,13 +21,14 @@ const MAX_HITS = 8;
 
 const KIND_LABELS: Record<HomebrewKind, string> = { SPELL: "Заклинання", CREATURE: "Істота" };
 
-export async function searchHomebrewEntries(query: string, ruleset: HomebrewRuleset): Promise<HomebrewSearchHit[]> {
+export async function searchHomebrewEntries(query: string, ruleset: HomebrewRuleset, hideAiAuthors = false): Promise<HomebrewSearchHit[]> {
   const trimmed = query.trim();
   if (trimmed.length < MIN_QUERY_LENGTH) return [];
 
   const entries = await prisma.homebrewEntry.findMany({
     where: {
       deletedAt: null,
+      authorUserId: excludeAiAuthorIds(hideAiAuthors),
       OR: [{ ruleset }, { ruleset: null }],
       AND: buildNameMatchFilter(buildQueryVariants(trimmed)),
     },

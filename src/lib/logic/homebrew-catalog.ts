@@ -12,6 +12,15 @@ export function parseHomebrewSort(raw: string | string[] | null | undefined): Ho
   return raw === "new" ? "NEW" : "TOP";
 }
 
+const MAX_STORED_ID = 2_147_483_647;
+
+/// Краулери ходять по шаблонних рядках із бандла (`/homebrew/${…}`) — такий id має давати 404, а не падіння Prisma.
+export function parseHomebrewEntryId(raw: string): number | null {
+  if (!/^\d+$/.test(raw)) return null;
+  const entryId = Number(raw);
+  return entryId > 0 && entryId <= MAX_STORED_ID ? entryId : null;
+}
+
 export function buildHomebrewCreatureKey(entryId: number): string {
   return `homebrew-${entryId}`;
 }

@@ -20,6 +20,7 @@ import { HOMEBREW_ENTRIES_PER_DAY, findEntryLimitStart } from "@/rules/homebrew-
 import { deleteStoredImage, storeSquareImage } from "@/server/media/image-upload";
 import { findContentViewer, NOT_SIGNED_IN, type ContentViewer as Viewer } from "@/server/db/content-viewer";
 import { deleteHomebrewEntryAsModerator, readImageKey } from "@/server/db/homebrew-removal";
+import { excludeAiAuthorIds } from "@/lib/no-ai/ai-authors";
 
 type SaveResult = { success: true; entryId: number } | { success: false; error?: string; fieldErrors?: HomebrewFieldErrors };
 type ActionResult = { success: true } | { success: false; error: string };
@@ -34,26 +35,27 @@ const ENTRY_INCLUDE = {
 
 type LoadedEntry = Prisma.HomebrewEntryGetPayload<{ include: typeof ENTRY_INCLUDE }>;
 
-export async function listHomebrewEntries(input: { kind: HomebrewKind; ruleset: HomebrewRuleset; sort: "TOP" | "NEW" }): Promise<HomebrewCatalogEntry[]> {
+export async function listHomebrewEntries(input: { kind: HomebrewKind; ruleset: HomebrewRuleset; sort: "TOP" | "NEW"; hideAiAuthors?: boolean }): Promise<HomebrewCatalogEntry[]> {
+  const hideAiAuthors = input.hideAiAuthors ?? false;
   const viewer = await findContentViewer();
   const entries = await prisma.homebrewEntry.findMany({
-    where: { kind: input.kind, OR: [{ ruleset: input.ruleset }, { ruleset: null }], deletedAt: null },
+    where: { kind: input.kind, OR: [{ ruleset: input.ruleset }, { ruleset: null }], deletedAt: null, authorUserId: excludeAiAuthorIds(hideAiAuthors) },
     include: ENTRY_INCLUDE,
     orderBy: input.sort === "TOP" ? [{ score: "desc" }, { createdAt: "desc" }] : [{ createdAt: "desc" }],
     take: MAX_LISTED_ENTRIES,
   });
   const targets = entries.map((entry) => buildDiscussionTarget({ kind: "HOMEBREW", entryId: entry.homebrewEntryId }));
-  const [myVotes, commentCounts] = await Promise.all([loadMyVotes(viewer.userId, targets), countComments(targets)]);
+  const [myVotes, commentCounts] = await Promise.all([loadMyVotes(viewer.userId, targets), countComments(targets, hideAiAuthors)]);
   return entries.flatMap((entry, index) => toCatalogEntry(entry, input.ruleset, { myVote: myVotes.get(targets[index]) ?? 0, commentCount: commentCounts.get(targets[index]) ?? 0, canEdit: canViewerEdit(viewer, entry) }) ?? []);
 }
 
-export async function loadHomebrewEntry(entryId: number, preferredRuleset: HomebrewRuleset = "RULES_2014"): Promise<HomebrewCatalogEntry | null> {
+export async function loadHomebrewEntry(entryId: number, preferredRuleset: HomebrewRuleset = "RULES_2014", hideAiAuthors = false): Promise<HomebrewCatalogEntry | null> {
   const viewer = await findContentViewer();
-  const entry = await prisma.homebrewEntry.findFirst({ where: { homebrewEntryId: entryId, deletedAt: null }, include: ENTRY_INCLUDE });
+  const entry = await prisma.homebrewEntry.findFirst({ where: { homebrewEntryId: entryId, deletedAt: null, authorUserId: excludeAiAuthorIds(hideAiAuthors) }, include: ENTRY_INCLUDE });
   if (!entry) return null;
 
   const target = buildDiscussionTarget({ kind: "HOMEBREW", entryId });
-  const [myVotes, commentCounts] = await Promise.all([loadMyVotes(viewer.userId, [target]), countComments([target])]);
+  const [myVotes, commentCounts] = await Promise.all([loadMyVotes(viewer.userId, [target]), countComments([target], hideAiAuthors)]);
   return toCatalogEntry(entry, preferredRuleset, { myVote: myVotes.get(target) ?? 0, commentCount: commentCounts.get(target) ?? 0, canEdit: canViewerEdit(viewer, entry) });
 }
 
@@ -168,9 +170,9 @@ async function loadMyVotes(userId: number | null, targets: string[]): Promise<Ma
   return new Map(votes.map((vote) => [vote.target, vote.value === 1 ? 1 : -1]));
 }
 
-async function countComments(targets: string[]): Promise<Map<string, number>> {
+async function countComments(targets: string[], hideAiAuthors: boolean): Promise<Map<string, number>> {
   if (!targets.length) return new Map();
-  const counts = await prisma.contentComment.groupBy({ by: ["target"], where: { target: { in: targets }, deletedAt: null }, _count: { _all: true } });
+  const counts = await prisma.contentComment.groupBy({ by: ["target"], where: { target: { in: targets }, deletedAt: null, userId: excludeAiAuthorIds(hideAiAuthors) }, _count: { _all: true } });
   return new Map(counts.map((count) => [count.target, count._count._all]));
 }
 

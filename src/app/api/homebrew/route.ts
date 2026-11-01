@@ -8,6 +8,6 @@ export async function GET(request: Request) {
   const ruleset = readRuleset(params);
   if (!kind || !ruleset) return respondBadRequest("Потрібні kind і ruleset");
 
-  const entries = await listHomebrewEntries({ kind, ruleset, sort: params.get("sort") === "NEW" ? "NEW" : "TOP" });
+  const entries = await listHomebrewEntries({ kind, ruleset, sort: params.get("sort") === "NEW" ? "NEW" : "TOP", hideAiAuthors: params.get("noAi") === "1" });
   return NextResponse.json(entries, { headers: { "Cache-Control": "no-store" } });
 }

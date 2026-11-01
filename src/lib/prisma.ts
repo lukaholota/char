@@ -10,8 +10,11 @@ const globalForPrisma = globalThis as unknown as {
 // відкривали нове: окремий процес Postgres плюс SCRAM, ~20–50 мс, майже половина часу
 // в базі за тиждень (Sentry, 2026-09-25, JAVASCRIPT-NEXTJS-18/-19). `allowExitOnIdle` —
 // щоб скрипти й тести без `$disconnect` не висіли ці пʼять хвилин перед виходом.
+// `max` 30 замість дефолтних 10: include-и Prisma йдуть паралельно й чекали вільного
+// зʼєднання до 600 мс (Sentry, 2026-11-01); на проді max_connections 100, зайнято ~13.
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  max: 30,
   idleTimeoutMillis: 5 * 60_000,
   allowExitOnIdle: true,
 });

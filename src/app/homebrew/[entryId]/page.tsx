@@ -8,18 +8,22 @@ import { ContentDiscussion } from "@/components/discussion/ContentDiscussion";
 import { HomebrewByline, HomebrewEntryButtons } from "@/components/homebrew/HomebrewEntryDetails";
 import { loadHomebrewEntry } from "@/lib/actions/homebrew-actions";
 import { buildDiscussionTarget } from "@/lib/logic/content-discussion";
-import { buildHomebrewCatalogHref } from "@/lib/logic/homebrew-catalog";
+import { buildHomebrewCatalogHref, parseHomebrewEntryId } from "@/lib/logic/homebrew-catalog";
+import { isNoAiRequest } from "@/lib/no-ai/no-ai-server";
 
 type PageProps = { params: Promise<{ entryId: string }>; searchParams: Promise<{ edition?: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const entry = await loadHomebrewEntry(Number((await params).entryId));
+  const entryId = parseHomebrewEntryId((await params).entryId);
+  const entry = entryId ? await loadHomebrewEntry(entryId, "RULES_2014", await isNoAiRequest()) : null;
   return { title: entry ? `${entry.name} — хоумбрю спільноти` : "Хоумбрю не знайдено", robots: { index: false } };
 }
 
 export default async function HomebrewEntryPage({ params, searchParams }: PageProps) {
   const is2024 = (await searchParams).edition === "2024";
-  const entry = await loadHomebrewEntry(Number((await params).entryId), is2024 ? "RULES_2024" : "RULES_2014");
+  const entryId = parseHomebrewEntryId((await params).entryId);
+  if (!entryId) notFound();
+  const entry = await loadHomebrewEntry(entryId, is2024 ? "RULES_2024" : "RULES_2014", await isNoAiRequest());
   if (!entry) notFound();
 
   return (

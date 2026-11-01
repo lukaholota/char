@@ -18,13 +18,14 @@ import { readDisplayName } from "@/rules/display-name";
 import { COMMENTS_PER_HOUR, findCommentLimitStart, readCommentBody } from "@/rules/discussion-limits";
 import { findContentViewer, NOT_SIGNED_IN, type ContentViewer } from "@/server/db/content-viewer";
 import { findDiscussionTarget } from "@/server/db/content-targets";
+import { excludeAiAuthorIds } from "@/lib/no-ai/ai-authors";
 
 type ActionResult = { success: true } | { success: false; error: string };
 type VoteResult = { success: true; score: number; myVote: VoteValue } | { success: false; error: string };
 
 const TARGET_NOT_FOUND = "Запис не знайдено";
 
-export async function loadDiscussion(rawTarget: string): Promise<DiscussionView | null> {
+export async function loadDiscussion(rawTarget: string, hideAiAuthors = false): Promise<DiscussionView | null> {
   const target = parseDiscussionTarget(rawTarget);
   if (!target) return null;
   const lookup = await findDiscussionTarget(target);
@@ -32,7 +33,7 @@ export async function loadDiscussion(rawTarget: string): Promise<DiscussionView 
 
   const viewer = await findContentViewer();
   const key = buildDiscussionTarget(target);
-  const [score, myVote, comments] = await Promise.all([sumTargetVotes(prisma, key), findMyTargetVote(viewer, key), loadTargetComments(key)]);
+  const [score, myVote, comments] = await Promise.all([sumTargetVotes(prisma, key), findMyTargetVote(viewer, key), loadTargetComments(key, hideAiAuthors)]);
   const myCommentVotes = await loadMyCommentVotes(viewer, comments.map((comment) => comment.contentCommentId));
   const isOwnTarget = viewer.userId !== null && lookup.authorUserId === viewer.userId;
 
@@ -144,9 +145,9 @@ async function findMyTargetVote(viewer: ContentViewer, target: string): Promise<
   return toVoteValue(vote?.value);
 }
 
-async function loadTargetComments(target: string) {
+async function loadTargetComments(target: string, hideAiAuthors: boolean) {
   const comments = await prisma.contentComment.findMany({
-    where: { target },
+    where: { target, userId: excludeAiAuthorIds(hideAiAuthors) },
     include: { user: { select: { name: true, displayName: true, email: true } } },
     orderBy: { createdAt: "asc" },
   });

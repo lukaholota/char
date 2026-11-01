@@ -5,6 +5,7 @@ import { Flag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { voteContent } from "@/lib/actions/content-discussion-actions";
 import { fetchDiscussion } from "@/lib/catalog-reads";
+import { useNoAiMode } from "@/components/no-ai/NoAiModeProvider";
 import type { DiscussionCommentView, DiscussionView, DiscussionViewerName } from "@/lib/logic/content-discussion";
 import { cn } from "@/lib/utils";
 import { DiscussionCommentCard, DiscussionCommentForm } from "./DiscussionComment";
@@ -107,15 +108,17 @@ function buildEmptyDiscussion(target: string): DiscussionView {
 }
 
 function useDiscussion(target: string) {
-  const [loaded, setLoaded] = useState<{ target: string; discussion: DiscussionView | null } | null>(null);
+  const { enabled: noAi } = useNoAiMode();
+  const queryKey = `${target}:${noAi}`;
+  const [loaded, setLoaded] = useState<{ queryKey: string; discussion: DiscussionView | null } | null>(null);
 
   const reload = useCallback(() => {
-    fetchDiscussion(target)
-      .then((discussion) => setLoaded({ target, discussion }))
+    fetchDiscussion(target, noAi)
+      .then((discussion) => setLoaded({ queryKey: `${target}:${noAi}`, discussion }))
       .catch((error: unknown) => console.error("Не вдалося завантажити обговорення", error));
-  }, [target]);
+  }, [target, noAi]);
 
   useEffect(reload, [reload]);
 
-  return { discussion: loaded?.target === target ? loaded.discussion : undefined, reload };
+  return { discussion: loaded?.queryKey === queryKey ? loaded.discussion : undefined, reload };
 }
