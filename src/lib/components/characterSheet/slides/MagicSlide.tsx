@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowUpDown, Check, Dice6, Plus, SlidersHorizontal, Wand2 } from "lucide-react";
+import { ArrowUpDown, Check, Plus, SlidersHorizontal, Wand2 } from "lucide-react";
 import { memo, useEffect, useMemo, useState, useTransition } from "react";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,7 @@ import type { SpellSource } from "@/rules/spell-sources";
 import { openHomebrewSpell, openSpellLink } from "@/lib/spell-link";
 import { buildPersSpellLink, getPersSpellId, listCatalogSpellLinks } from "./sheet-spell-links";
 import { buildSheetSpellRoll, type CastSlot } from "./sheet-spell-rolls";
+import { SpellRollButton } from "./SpellRollButton";
 import { describeTargetSave } from "@/lib/components/dice/roll-contexts";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { preloadSpellCardsWhenIdle } from "@/lib/spell-cards";
@@ -631,18 +632,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
           <CastSpellMenu spellName={String(ps?.spell?.name ?? "")} options={castOptions} disabled={isPending} onCast={(option) => castSpell(ps, option)} />
         )}
         {isReadOnly || !spellRoll ? null : (
-          <button
-            type="button"
-            aria-label={`Кинути кубики «${String(ps?.spell?.name ?? "")}»${lastCastSlot ? `, ${lastCastSlot.slotLabel.toLocaleLowerCase("uk")}` : ""}`}
-            title={lastCastSlot ? `Кинути: ${lastCastSlot.slotLabel.toLocaleLowerCase("uk")}` : "Кинути кубики"}
-            className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-md border border-amber-400/30 bg-amber-500/10 text-amber-200 hover:bg-amber-500/20"
-            onClick={(event) => {
-              event.stopPropagation();
-              openRoll(spellRoll);
-            }}
-          >
-            <Dice6 className="h-3.5 w-3.5" />
-          </button>
+          <SpellRollButton spellName={String(ps?.spell?.name ?? "")} lastCastSlot={lastCastSlot} onRoll={() => openRoll(spellRoll)} />
         )}
         <Button
           type="button"
