@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
+import type { Components, Options } from "react-markdown";
 import { expandGlossaryMarkersToHtml } from "@/lib/refs/glossary-marker";
 import { stripProseIndent } from "@/lib/markdown-prose-indent";
 import { GlossaryTerm } from "@/components/ui/GlossaryTerm";
@@ -13,6 +14,7 @@ import { SpellAnchor } from "@/components/ui/SpellAnchor";
 import { RuleTermAnchor } from "@/components/ui/RuleTermAnchor";
 import { findTermLinkInHref } from "@/lib/term-link";
 import { CreatureAnchor, findCreatureReadingLink } from "@/components/ui/CreatureAnchor";
+import { CREATURE_ROLL_TAG, CreatureRollChip, readRollChipData, rehypeCreatureRolls } from "@/components/bestiary/creature-roll-chips";
 
 const sanitizeSchema = {
   ...defaultSchema,
@@ -47,6 +49,12 @@ const sanitizeSchema = {
   },
 } as const;
 
+const ROLL_CHIP_COMPONENTS = {
+  [CREATURE_ROLL_TAG]: ({ node, children }: { node?: { properties?: Record<string, unknown> }; children?: React.ReactNode }) => (
+    <CreatureRollChip data={readRollChipData(node?.properties?.dataRoll)}>{children}</CreatureRollChip>
+  ),
+} as Components;
+
 function preserveSingleLineBreaks(markdown?: string | null): string {
   const safe = typeof markdown === "string" ? markdown : "";
   const normalized = safe.replace(/\r\n/g, "\n");
@@ -67,17 +75,25 @@ export const FormattedDescription = React.memo(function FormattedDescription({
   content,
   className,
   headingAnchors,
+  rollsForCreature,
 }: {
   content?: string | null;
   className?: string;
   headingAnchors?: Readonly<Record<string, string>>;
+  /// Назва істоти: кубики в тексті її дій стають кнопками кидка.
+  rollsForCreature?: string;
 }) {
+  const rehypePlugins = React.useMemo<NonNullable<Options["rehypePlugins"]>>(
+    () => [[rehypeRaw], [rehypeSanitize, sanitizeSchema], ...(rollsForCreature ? [[rehypeCreatureRolls, { creatureName: rollsForCreature }] as [typeof rehypeCreatureRolls, { creatureName: string }]] : [])],
+    [rollsForCreature],
+  );
   return (
     <div className={className}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[[rehypeRaw], [rehypeSanitize, sanitizeSchema]]}
+        rehypePlugins={rehypePlugins}
         components={{
+          ...ROLL_CHIP_COMPONENTS,
           h3: ({ children }) => <h3 id={headingAnchors?.[React.Children.toArray(children).join("")]} className="scroll-mt-24">{children}</h3>,
           em: ({ children, node }) => {
             const hasBoldHeading = node?.children.some((child) => child.type === "element" && child.tagName === "strong");

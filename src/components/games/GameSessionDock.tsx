@@ -1,11 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ChevronDown, ScrollText, X } from "lucide-react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
+import { ChevronDown, PictureInPicture2, ScrollText, X } from "lucide-react";
+import { toast } from "sonner";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { retryGameRollOutbox } from "@/lib/components/game/game-roll-publisher";
+import { canPopOutJournal, closeJournalPopout, popOutJournal, useJournalPopoutStore } from "@/lib/components/game/journal-popout";
 import { useGameSessionLiveStore, type GameConnectionStatus } from "@/lib/components/game/game-session-live-store";
 import { useGameSessionConnection } from "@/lib/components/game/useGameSessionConnection";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
@@ -27,9 +30,15 @@ export function GameSessionDock() {
   const isDesktop = useMediaQuery("md");
   const [isOpen, setIsOpen] = useState(false);
   const myUserId = useGameSessionLiveStore((state) => state.view?.myUserId ?? null);
-  useGameSessionConnection(viewedRoomId ?? active?.id ?? null);
+  const popout = useJournalPopoutStore((state) => state.popout);
+  const roomId = viewedRoomId ?? active?.id ?? null;
+  useGameSessionConnection(roomId);
   useEffect(() => retryGameRollOutbox(), []);
+  useEffect(() => {
+    if (roomId === null) closeJournalPopout();
+  }, [roomId]);
 
+  if (popout) return createPortal(<PopoutJournal myUserId={myUserId} />, popout.document.body);
   if (!active || viewedRoomId !== null) return null;
   if (isDesktop) return <DesktopDock isOpen={isOpen} onOpenChange={setIsOpen} />;
   return (
@@ -99,10 +108,63 @@ function DesktopDock({ isOpen, onOpenChange }: { isOpen: boolean; onOpenChange: 
   );
 }
 
-function DockHeader({ onClose, isCollapse = false }: { onClose: () => void; isCollapse?: boolean }) {
+/// Журнал у вікні поверх гри: без кнопок закриття, бо в такого вікна є власне.
+function PopoutJournal({ myUserId }: { myUserId: number | null }) {
+  const name = useGameSessionLiveStore((state) => state.view?.name ?? "");
+  const status = useGameSessionLiveStore((state) => state.status);
+  return (
+    <div className="flex h-dvh flex-col bg-slate-950 text-slate-100">
+      <div className="shrink-0 space-y-2 border-b border-white/10 px-3 py-2">
+        <div className="flex items-center gap-2">
+          <StatusDot status={status} />
+          <h1 className="min-w-0 flex-1 truncate font-rpg-display text-lg text-slate-50">{name}</h1>
+          <GameSoundToggle />
+        </div>
+        <RollVisibilityRow surface="popout" />
+      </div>
+      <GameJournal myUserId={myUserId} className="min-h-0 flex-1" />
+    </div>
+  );
+}
+
+const subscribeToNothing = () => () => undefined;
+
+export function PopOutJournalButton({ onPopOut }: { onPopOut?: () => void }) {
+  const canPopOut = useSyncExternalStore(subscribeToNothing, canPopOutJournal, () => false);
+  if (!canPopOut) return null;
+  const popOut = () =>
+    popOutJournal().then(
+      () => {
+        onPopOut?.();
+        captureGameEvent("game_journal_opened", { surface: "popout" });
+      },
+      () => toast.error("Не вдалося відкрити окреме вікно"),
+    );
+  return (
+    <button type="button" onClick={() => void popOut()} aria-label="Винести журнал в окреме вікно" title="Журнал в окремому вікні поверх гри — його можна зробити вузьким" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-slate-300 hover:bg-white/10 hover:text-white">
+      <PictureInPicture2 className="h-5 w-5" aria-hidden />
+    </button>
+  );
+}
+
+function RollVisibilityRow({ surface }: { surface: "dock" | "popout" }) {
   const active = useGameSessionStore((state) => state.active);
   const visibility = useGameSessionStore((state) => (state.active ? state.visibilityBySession[state.active.id] ?? "PUBLIC" : "PUBLIC"));
   const setVisibility = useGameSessionStore((state) => state.setVisibility);
+  if (!active) return null;
+  return (
+    <div className="flex items-center justify-between gap-2">
+      <span className="text-xs text-slate-400">Мої кидки бачать:</span>
+      <VisibilityPicker value={visibility} onChange={(next) => {
+        setVisibility(active.id, next);
+        captureGameEvent("game_roll_visibility_changed", { visibility: next, surface });
+      }} />
+    </div>
+  );
+}
+
+function DockHeader({ onClose, isCollapse = false }: { onClose: () => void; isCollapse?: boolean }) {
+  const active = useGameSessionStore((state) => state.active);
   const gamesHref = useGamesHref();
   if (!active) return null;
   const Icon = isCollapse ? ChevronDown : X;
@@ -116,6 +178,7 @@ function DockHeader({ onClose, isCollapse = false }: { onClose: () => void; isCo
         )}
         {isCollapse ? null : <DialogDescription className="sr-only">Спільний журнал кидків кімнати</DialogDescription>}
         <GameSoundToggle />
+        <PopOutJournalButton onPopOut={onClose} />
         <Link href={gamesHref(`/games/${active.id}`)} onClick={onClose} className="flex min-h-10 items-center rounded-lg px-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">
           Кімната
         </Link>
@@ -123,13 +186,7 @@ function DockHeader({ onClose, isCollapse = false }: { onClose: () => void; isCo
           <Icon className="h-5 w-5" />
         </button>
       </div>
-      <div className="flex items-center justify-between gap-2">
-        <span className="text-xs text-slate-400">Мої кидки бачать:</span>
-        <VisibilityPicker value={visibility} onChange={(next) => {
-          setVisibility(active.id, next);
-          captureGameEvent("game_roll_visibility_changed", { visibility: next, surface: "dock" });
-        }} />
-      </div>
+      <RollVisibilityRow surface="dock" />
     </div>
   );
 }

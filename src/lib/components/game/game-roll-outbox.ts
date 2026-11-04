@@ -59,7 +59,7 @@ export async function sendQueuedGameRoll(item: QueuedGameRoll): Promise<SendOutc
     const response = await fetch(`/api/game-sessions/${item.sessionId}/events`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(item.draft),
+      body: JSON.stringify({ ...item.draft, sentAt: new Date().toISOString() }),
       cache: "no-store",
     });
     if (response.ok) return { kind: "sent", event: ((await response.json()) as { event: GameRollEventView }).event };

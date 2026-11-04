@@ -30,8 +30,12 @@ export interface DiceRollContext {
   /// Дія, яку панель кидає одразу після відкриття — тап по числу на листі і є кидком.
   autoRollKey?: string;
   onEdit?: () => void;
+  /// Кидок істоти з бестіарію йде в кімнату вільним кидком, а не від персонажа з листа.
+  isCreatureRoll?: boolean;
   /// Кидок проти СК (ряткидок концентрації): панель показує вердикт і повідомляє про нього раз.
   check?: { dc: number; successText: string; failureText: string; onResult: (isSuccess: boolean) => void };
+  /// Ряткидок, який кидає ціль заклинання: панель і журнал показують його СК поруч зі шкодою.
+  targetSave?: { abilityName: string; dc: number };
 }
 
 interface DiceUIState {

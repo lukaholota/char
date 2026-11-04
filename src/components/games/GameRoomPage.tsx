@@ -14,6 +14,7 @@ import { VisibilitySegments } from "./GameRollTargetBar";
 import { GameRoomManagement } from "./GameRoomManagement";
 import { GameRoomPersPicker } from "./GameRoomPersPicker";
 import { GameRoomInvite, GameRoomMembers, ROOM_CARD } from "./GameRoomSidebar";
+import { PopOutJournalButton } from "./GameSessionDock";
 import { useGamesHref } from "./use-games-href";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 
@@ -42,6 +43,7 @@ export function GameRoomPage({ initialView, bindablePers }: { initialView: GameS
             <div className="flex items-center gap-2 border-b border-white/10 py-2 pl-4 pr-2">
               <h2 className="flex-1 font-rpg-display text-lg text-slate-100">Журнал кидків</h2>
               <GameSoundToggle />
+              <PopOutJournalButton />
             </div>
             <GameJournal myUserId={view.myUserId} className="flex-1" />
           </section>

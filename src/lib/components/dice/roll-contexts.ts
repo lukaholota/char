@@ -1,5 +1,8 @@
 import type { DiceRollAction, DiceRollContext, ExtraDie, RollStateView } from "@/lib/stores/diceUIStore";
 import { parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
+import type { CreatureRoll } from "@/rules/creature-rolls";
+import type { SpellRollPlan } from "@/rules/spell-dice-2014";
+import type { AbilityKey } from "@/rules/types";
 
 export type AbilityRollKind = "check" | "save";
 
@@ -66,6 +69,60 @@ export function buildWeaponRollContext(input: {
     ],
     autoRollKey: "attack",
   };
+}
+
+const ABILITY_GENITIVE: Record<AbilityKey, string> = { STR: "Сили", DEX: "Спритності", CON: "Статури", INT: "Інтелекту", WIS: "Мудрості", CHA: "Харизми" };
+
+/// Шкода, що приходить пізніше (Мітка мисливця, зони), не кидається сама: панель чекає натискання.
+export function buildSpellRollContext(input: {
+  spellName: string;
+  plan: SpellRollPlan;
+  slotLabel?: string;
+  attackBonus: number;
+  saveDC: number;
+  attackState?: RollStateView;
+}): DiceRollContext {
+  const { plan } = input;
+  const actions = [
+    ...(plan.attack ? [buildD20Action("spell-attack", "Атака", input.attackBonus, input.attackState)] : []),
+    ...plan.rolls.map((roll): DiceRollAction => ({ key: roll.key, label: roll.label, count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false })),
+  ];
+  const pieces = plan.pieces ? `${plan.pieces.label}: ${plan.pieces.count}` : null;
+  return {
+    title: input.spellName,
+    subtitle: [input.slotLabel, pieces].filter(Boolean).join(" · ") || undefined,
+    actions,
+    autoRollKey: plan.rollsLater ? undefined : actions[0]?.key,
+    targetSave: plan.save ? { abilityName: ABILITY_GENITIVE[plan.save], dc: input.saveDC } : undefined,
+  };
+}
+
+export function describeTargetSave(save: NonNullable<DiceRollContext["targetSave"]>): string {
+  return `ряткидок ${save.abilityName} СК ${save.dc}`;
+}
+
+const MAX_CREATURE_ACTIONS = 4;
+
+/// Абзац з купою кубиків (опис чаротворення) не влазить у ряд кнопок — тоді в панелі лише натиснутий.
+export function buildCreatureActionRollContext(input: { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number }): DiceRollContext {
+  const indexes = input.rolls.length <= MAX_CREATURE_ACTIONS ? input.rolls.map((_, index) => index) : [input.index];
+  return {
+    title: input.creatureName,
+    subtitle: input.actionName || undefined,
+    actions: indexes.map((index) => buildCreatureAction(`roll-${index}`, input.rolls[index])),
+    autoRollKey: `roll-${input.index}`,
+    isCreatureRoll: true,
+  };
+}
+
+function buildCreatureAction(key: string, roll: CreatureRoll): DiceRollAction {
+  if (roll.kind === "attack") return buildD20Action(key, "Атака", roll.bonus);
+  if (roll.kind === "recharge") return { key, label: roll.from < 6 ? `Перезарядка ${roll.from}–6` : "Перезарядка 6", count: 1, sides: 6, bonus: 0, isD20: false };
+  return { key, label: "Шкода", count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false };
+}
+
+export function buildCreatureD20RollContext(creatureName: string, subtitle: string | undefined, actions: DiceRollAction[]): DiceRollContext {
+  return { title: creatureName, subtitle, actions, autoRollKey: actions[0]?.key, isCreatureRoll: true };
 }
 
 export type PendingRollMeta = {

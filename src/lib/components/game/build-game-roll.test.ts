@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildD20Action, buildRollOutcome, buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
+import { buildCreatureActionRollContext, buildD20Action, buildRollOutcome, buildSpellRollContext, buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
 import { findGameRollProblem } from "@/rules/game-roll";
 import { buildActionGameRoll, buildFreeGameRoll, takeDiceToPublish } from "./build-game-roll";
 
@@ -42,6 +42,27 @@ describe("buildActionGameRoll", () => {
   });
 });
 
+describe("кидок істоти з бестіарію", () => {
+  const owlbear = buildCreatureActionRollContext({
+    creatureName: "Сововедмідь",
+    actionName: "Роздирання",
+    rolls: [{ kind: "attack", bonus: 7 }, { kind: "damage", count: 2, sides: 8, bonus: 5 }],
+    index: 1,
+  });
+
+  it("іде вільним кидком з назвою істоти й дії, а шкода — з її кубиками", () => {
+    expect(owlbear.autoRollKey).toBe("roll-1");
+    const published = rollAction(owlbear, 1, "NORMAL", [3, 8]);
+    expect(published).toMatchObject({ label: "Сововедмідь · Роздирання · Шкода", isFromSheet: false });
+    expect(published.roll).toMatchObject({ d20Mode: null, groups: [{ sides: 8, values: [3, 8] }], bonus: 5, total: 16 });
+    expect(findGameRollProblem(published.roll)).toBeNull();
+  });
+
+  it("атака кидає к20 з бонусом", () => {
+    expect(rollAction(owlbear, 0, "NORMAL", [11]).roll).toMatchObject({ d20Mode: "NORMAL", groups: [{ sides: 20, values: [11] }], total: 18 });
+  });
+});
+
 describe("buildFreeGameRoll", () => {
   it("groups dice by sides and names them with «к»", () => {
     const published = buildFreeGameRoll([{ sides: 8, value: 3 }, { sides: 6, value: 2 }, { sides: 6, value: 6 }]);
@@ -66,5 +87,22 @@ describe("takeDiceToPublish", () => {
     expect(takeDiceToPublish(withAdded, published, true)).toEqual([]);
 
     expect(takeDiceToPublish(withAdded, published, false)).toEqual(withAdded);
+  });
+});
+
+describe("шкода заклинання в журналі", () => {
+  const fireball = buildSpellRollContext({
+    spellName: "Вогняна куля",
+    plan: { attack: false, save: "DEX", rollsLater: false, pieces: null, rolls: [{ key: "spell-0", label: "Шкода", count: 9, sides: 6, bonus: 0 }] },
+    slotLabel: "Слот 4 рівня",
+    attackBonus: 7,
+    saveDC: 15,
+  });
+
+  it("підписана СК ряткидка цілі й іде від персонажа", () => {
+    const published = rollAction(fireball, 0, "NORMAL", [1, 2, 3, 4, 5, 6, 1, 2, 3]);
+    expect(published).toMatchObject({ label: "Вогняна куля · Шкода · ряткидок Спритності СК 15", isFromSheet: true });
+    expect(published.roll).toMatchObject({ groups: [{ sides: 6, values: [1, 2, 3, 4, 5, 6, 1, 2, 3] }], total: 27 });
+    expect(findGameRollProblem(published.roll)).toBeNull();
   });
 });

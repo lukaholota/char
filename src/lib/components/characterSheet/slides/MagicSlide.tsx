@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { PersWithRelations } from "@/lib/actions/pers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowUpDown, Check, Plus, SlidersHorizontal, Wand2 } from "lucide-react";
+import { ArrowUpDown, Check, Dice6, Plus, SlidersHorizontal, Wand2 } from "lucide-react";
 import { memo, useEffect, useMemo, useState, useTransition } from "react";
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { Button } from "@/components/ui/button";
@@ -25,6 +25,9 @@ import SpellcastingSourceCards from "@/lib/components/characterSheet/shared/Spel
 import type { SpellSource } from "@/rules/spell-sources";
 import { openHomebrewSpell, openSpellLink } from "@/lib/spell-link";
 import { buildPersSpellLink, getPersSpellId, listCatalogSpellLinks } from "./sheet-spell-links";
+import { buildSheetSpellRoll, type CastSlot } from "./sheet-spell-rolls";
+import { describeTargetSave } from "@/lib/components/dice/roll-contexts";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { preloadSpellCardsWhenIdle } from "@/lib/spell-cards";
 import { buildHomebrewSheetSpellRows, isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
 import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
@@ -181,12 +184,15 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
   const [confirmDeleteInBadgeEditor, setConfirmDeleteInBadgeEditor] = useState(false);
 
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
+  const [lastCastSlotBySpellId, setLastCastSlotBySpellId] = useState<Record<number, CastSlot>>({});
+  const openRoll = useDiceUIStore((state) => state.openRoll);
   const [modifyConfig, setModifyConfig] = useState<ModifyConfig | null>(null);
 
   useEffect(() => {
     setLocalPers(pers);
   }, [pers]);
 
+  const spellAttackState = useMemo(() => describeRollState(localPers, { kind: "attack" }, "ATTACK"), [localPers]);
   const spellcastingStatRows = useMemo(
     () => buildSpellcastingStatRows(localPers, spellcastingSources),
     [localPers, spellcastingSources],
@@ -586,10 +592,18 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     if (option.kind === "FREE_USE") spendFreeCastUse(option.featureId, option.remaining);
     else if (option.kind === "PACT_SLOT") spendPactSlotOnce();
     else spendSpellSlotOfLevel(option.slotLevel);
-    const slotLabel = describeSlot(option).toLocaleLowerCase("uk");
-    if (sheetStates && ps?.spell) sheetStates.onSpellCast(ps.spell, slotLabel);
-    else toast.info(`«${ps?.spell?.name ?? "Заклинання"}»: ${slotLabel}`);
+    const slot = { slotLevel: option.kind === "FREE_USE" ? Number(ps?.spell?.level ?? 0) : option.slotLevel, slotLabel: describeSlot(option) };
+    const roll = buildSpellRoll(ps, slot);
+    const castText = [slot.slotLabel.toLocaleLowerCase("uk"), roll?.targetSave ? describeTargetSave(roll.targetSave) : null].filter(Boolean).join(" · ");
+    if (sheetStates && ps?.spell) sheetStates.onSpellCast(ps.spell, castText);
+    else toast.info(`«${ps?.spell?.name ?? "Заклинання"}»: ${castText}`);
+    const spellId = getPersSpellId(ps);
+    if (spellId !== null) setLastCastSlotBySpellId((prev) => ({ ...prev, [spellId]: slot }));
+    if (roll) openRoll(roll);
   };
+
+  const buildSpellRoll = (ps: any, slot: CastSlot | null) =>
+    buildSheetSpellRoll({ pers: localPers, persSpell: ps, statRows: spellcastingStatRows, slot, attackState: spellAttackState });
 
   const renderSpellActions = (ps: any) => {
     const spellId = Number(ps?.spellId ?? ps?.spell?.spellId);
@@ -608,11 +622,27 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
       pact: pactInfo ? { current: localPactSlots, max: pactInfo.max, slotLevel: pactInfo.slotLevel } : null,
       freeCasts: findFreeSpellCastsForSpell(freeSpellCasts, spellId),
     });
+    const lastCastSlot = lastCastSlotBySpellId[spellId] ?? null;
+    const spellRoll = isReadOnly ? null : buildSpellRoll(ps, lastCastSlot);
 
     return (
       <div className="flex items-center gap-1">
         {isReadOnly ? null : (
           <CastSpellMenu spellName={String(ps?.spell?.name ?? "")} options={castOptions} disabled={isPending} onCast={(option) => castSpell(ps, option)} />
+        )}
+        {isReadOnly || !spellRoll ? null : (
+          <button
+            type="button"
+            aria-label={`Кинути кубики «${String(ps?.spell?.name ?? "")}»${lastCastSlot ? `, ${lastCastSlot.slotLabel.toLocaleLowerCase("uk")}` : ""}`}
+            title={lastCastSlot ? `Кинути: ${lastCastSlot.slotLabel.toLocaleLowerCase("uk")}` : "Кинути кубики"}
+            className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-md border border-amber-400/30 bg-amber-500/10 text-amber-200 hover:bg-amber-500/20"
+            onClick={(event) => {
+              event.stopPropagation();
+              openRoll(spellRoll);
+            }}
+          >
+            <Dice6 className="h-3.5 w-3.5" />
+          </button>
         )}
         <Button
           type="button"
@@ -766,7 +796,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
       <SpellcastingSourceCards
         rows={spellcastingStatRows}
         isReadOnly={isReadOnly}
-        attackState={describeRollState(localPers, { kind: "attack" }, "ATTACK")}
+        attackState={spellAttackState}
         onEdit={(field, ability) => setModifyConfig({ type: "simple", field, ability: ability ?? undefined })}
       />
 

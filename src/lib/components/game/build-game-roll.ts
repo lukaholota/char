@@ -1,7 +1,7 @@
 import type { DiceRollAction, DiceRollContext } from "@/lib/stores/diceUIStore";
 import { GAME_ROLL_LIMITS, type GameRoll } from "@/rules/game-roll";
 import type { D20Mode } from "@/rules/dice-roll";
-import type { DiceRollOutcome } from "@/lib/components/dice/roll-contexts";
+import { describeTargetSave, type DiceRollOutcome } from "@/lib/components/dice/roll-contexts";
 
 export type GameRollPublication = { label: string; roll: GameRoll; isFromSheet: boolean };
 
@@ -18,7 +18,8 @@ export function buildActionGameRoll({ context, action, d20Mode }: ActionRequest,
     total: outcome.total,
     check: isD20 && context.check ? { dc: context.check.dc, isSuccess: outcome.total >= context.check.dc } : null,
   };
-  return { label: clip(`${context.title} · ${action.label}`, GAME_ROLL_LIMITS.label), roll, isFromSheet: true };
+  const labelParts = context.isCreatureRoll ? [context.title, context.subtitle, action.label] : [context.title, action.label, isD20 || !context.targetSave ? null : describeTargetSave(context.targetSave)];
+  return { label: clip(labelParts.filter(Boolean).join(" · "), GAME_ROLL_LIMITS.label), roll, isFromSheet: !context.isCreatureRoll };
 }
 
 export function buildFreeGameRoll(dice: ReadonlyArray<{ sides: number; value: number }>): GameRollPublication | null {

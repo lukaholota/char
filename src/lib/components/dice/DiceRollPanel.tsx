@@ -48,6 +48,7 @@ export function DiceRollPanel({ context, activeActionKey, isReady, isRolling, ou
         </div>
       ) : null}
 
+      {context.targetSave ? <TargetSaveLine save={context.targetSave} /> : null}
       <OutcomeCard action={activeAction} outcome={outcome} isRolling={isRolling} />
       {context.check && outcome && !isRolling ? <CheckVerdict total={outcome.total} check={context.check} /> : null}
 
@@ -88,7 +89,7 @@ function OutcomeCard({ action, outcome, isRolling }: { action: DiceRollAction; o
   return (
     <div className="rounded-2xl border border-amber-400/25 bg-amber-500/10 px-4 py-3 text-center" aria-live="polite">
       <div className="text-[11px] font-semibold uppercase tracking-wide text-amber-200/80">
-        {action.label} · {describeActionDice(action)} {formatModifier(action.bonus)}
+        {action.label} · {describeActionDice(action)}{action.isD20 || action.bonus ? ` ${formatModifier(action.bonus)}` : null}
         {action.extraDice?.length ? ` ${formatExtraDice(action.extraDice)}` : null}
       </div>
       <StateLine action={action} />
@@ -104,6 +105,15 @@ function OutcomeCard({ action, outcome, isRolling }: { action: DiceRollAction; o
       <div className="mt-1.5 min-h-4 text-xs font-medium text-amber-100/80">
         {isRolling ? "Кубики летять…" : shown ? describeOutcome(shown) : "Торкніться кнопки, щоб кинути"}
       </div>
+    </div>
+  );
+}
+
+function TargetSaveLine({ save }: { save: NonNullable<DiceRollContext["targetSave"]> }) {
+  return (
+    <div className="flex items-baseline justify-center gap-2 rounded-xl border border-sky-400/25 bg-sky-500/10 px-3 py-2 text-sm text-sky-100">
+      Ціль кидає ряткидок {save.abilityName}
+      <span className="text-base font-black text-sky-50">СК {save.dc}</span>
     </div>
   );
 }

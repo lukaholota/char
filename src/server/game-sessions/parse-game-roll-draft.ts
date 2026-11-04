@@ -26,13 +26,20 @@ export function parseGameRollDraft(body: unknown, now = Date.now()): { draft: Ga
       persId: input.persId as number | null,
       label,
       roll: pickRollFields(input.roll as GameRoll),
-      rolledAt: clampRollTime(rolledAt, now),
+      rolledAt: alignRollTime(rolledAt, readClientTime(input.sentAt), now),
     },
   };
 }
 
-function clampRollTime(rolledAt: Date, now: number): Date {
-  return new Date(Math.min(now, Math.max(now - MAX_ROLL_AGE_MS, rolledAt.getTime())));
+function readClientTime(value: unknown): number | null {
+  const time = typeof value === "string" ? Date.parse(value) : Number.NaN;
+  return Number.isNaN(time) ? null : time;
+}
+
+/// Годинник гравця може відставати на хвилини: беремо лише те, скільки кидок чекав за тим самим годинником.
+function alignRollTime(rolledAt: Date, sentAt: number | null, now: number): Date {
+  const waited = sentAt === null ? now - rolledAt.getTime() : sentAt - rolledAt.getTime();
+  return new Date(now - Math.min(MAX_ROLL_AGE_MS, Math.max(0, waited)));
 }
 
 function pickRollFields(roll: GameRoll): GameRoll {

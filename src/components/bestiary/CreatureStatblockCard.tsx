@@ -10,6 +10,12 @@ import { formatCreatureXp } from "@/lib/logic/creature-xp";
 import { Shield, Heart, Zap, Swords } from "lucide-react";
 import { findAccentVariant } from "@/styles/edition-accent";
 import { EditionAccentChip } from "@/components/ui/EditionAccent";
+import { CreatureBonusChips, CreatureInitiativeChip } from "@/components/bestiary/creature-roll-chips";
+import { buildCreatureD20RollContext, buildD20Action } from "@/lib/components/dice/roll-contexts";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { attributesUkrFull } from "@/lib/refs/translation";
+import { findSaveBonus, readAbilityModifier, readSignedNumber } from "@/rules/creature-rolls";
+import { D20Icon } from "@/lib/components/icons/D20Icon";
 
 export function CreatureStatblockCard({
   creature,
@@ -32,7 +38,13 @@ export function CreatureStatblockCard({
     { label: "ІНТ", eng: "INT", val: creature.intelligence || "10 (+0)" },
     { label: "МУД", eng: "WIS", val: creature.wisdom || "10 (+0)" },
     { label: "ХАР", eng: "CHA", val: creature.charisma || "10 (+0)" },
-  ];
+  ] as const;
+  const initiativeBonus = creature.initiative ? readSignedNumber(creature.initiative) : null;
+  const rollAbility = (ability: (typeof abilities)[number], modifier: number) => {
+    const save = findSaveBonus(creature.savingThrows, ability.label) ?? modifier;
+    const actions = [buildD20Action("check", "Перевірка", modifier), buildD20Action("save", "Ряткидок", save)];
+    useDiceUIStore.getState().openRoll(buildCreatureD20RollContext(creature.name, attributesUkrFull[ability.eng], actions));
+  };
 
   return (
     <div
@@ -104,7 +116,9 @@ export function CreatureStatblockCard({
             <Swords className="h-5 w-5 shrink-0 text-violet-400" />
             <div className="min-w-0">
               <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Ініціатива</div>
-              <div className="text-xs sm:text-sm font-semibold text-slate-200 break-words">{creature.initiative}</div>
+              <div className="text-xs sm:text-sm font-semibold text-slate-200 break-words">
+                {initiativeBonus === null ? creature.initiative : <CreatureInitiativeChip creatureName={creature.name} bonus={initiativeBonus}>{creature.initiative}</CreatureInitiativeChip>}
+              </div>
             </div>
           </div>
         )}
@@ -121,20 +135,38 @@ export function CreatureStatblockCard({
       {/* Ability Scores Table */}
       <div className="mt-3 rounded-xl border border-white/10 bg-slate-900/50 p-2 sm:p-3 glass-panel">
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2 text-center">
-          {abilities.map((ab) => (
-            <div key={ab.eng} className="flex flex-col items-center justify-center p-1 sm:p-1.5 rounded-lg bg-white/[0.02] border border-white/5">
-              <span className="text-[10px] sm:text-xs font-bold text-slate-400">{ab.label}</span>
-              <span className="text-[9px] font-mono text-slate-500 hidden sm:block">[{ab.eng}]</span>
-              <span
-                className={cn(
-                  "mt-0.5 text-xs sm:text-sm font-semibold",
-                  findAccentVariant(is2024, { prism: "text-prism-200", arcane: "text-arcane-200" })
-                )}
+          {abilities.map((ab) => {
+            const modifier = readAbilityModifier(ab.val);
+            const cellContent = (
+              <>
+                <span className="text-[10px] sm:text-xs font-bold text-slate-400">{ab.label}</span>
+                <span className="text-[9px] font-mono text-slate-500 hidden sm:block">[{ab.eng}]</span>
+                <span
+                  className={cn(
+                    "mt-0.5 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold",
+                    findAccentVariant(is2024, { prism: "text-prism-200", arcane: "text-arcane-200" })
+                  )}
+                >
+                  {modifier === null ? null : <D20Icon className="h-3 w-3 shrink-0 text-amber-300/80" aria-hidden />}
+                  {ab.val}
+                </span>
+              </>
+            );
+            const cellClass = "flex flex-col items-center justify-center p-1 sm:p-1.5 rounded-lg bg-white/[0.02] border border-white/5";
+            return modifier === null ? (
+              <div key={ab.eng} className={cellClass}>{cellContent}</div>
+            ) : (
+              <button
+                key={ab.eng}
+                type="button"
+                aria-label={`Кинути: ${attributesUkrFull[ab.eng]} ${ab.val}`}
+                onClick={() => rollAbility(ab, modifier)}
+                className={cn(cellClass, "transition hover:border-amber-400/40 hover:bg-amber-500/10 active:scale-95")}
               >
-                {ab.val}
-              </span>
-            </div>
-          ))}
+                {cellContent}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -143,12 +175,12 @@ export function CreatureStatblockCard({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
           {creature.savingThrows && (
             <div>
-              <span className="font-semibold text-slate-400">Рятівні кидки:</span> {creature.savingThrows}
+              <span className="font-semibold text-slate-400">Рятівні кидки:</span> <CreatureBonusChips creatureName={creature.name} text={creature.savingThrows} kind="save" />
             </div>
           )}
           {creature.skills && (
             <div>
-              <span className="font-semibold text-slate-400">Навички:</span> {creature.skills}
+              <span className="font-semibold text-slate-400">Навички:</span> <CreatureBonusChips creatureName={creature.name} text={creature.skills} kind="skill" />
             </div>
           )}
           {creature.gear && (
@@ -210,19 +242,21 @@ export function CreatureStatblockCard({
         </div>
       </div>
 
-      <ProseSection title="Особливості" content={creature.specialAbilities} />
-      <ProseSection title="Дії" content={creature.actions} titleClassName={actionTone} />
-      <ProseSection title="Бонусні дії" content={creature.bonusActions} titleClassName={actionTone} />
-      <ProseSection title="Реакції" content={creature.reactions} />
+      <ProseSection title="Особливості" content={creature.specialAbilities} rollsForCreature={creature.name} />
+      <ProseSection rollsForCreature={creature.name} title="Дії" content={creature.actions} titleClassName={actionTone} />
+      <ProseSection rollsForCreature={creature.name} title="Бонусні дії" content={creature.bonusActions} titleClassName={actionTone} />
+      <ProseSection rollsForCreature={creature.name} title="Реакції" content={creature.reactions} />
       <ProseSection
         title="Легендарні дії"
         content={creature.legendaryActions}
+        rollsForCreature={creature.name}
         titleClassName="text-purple-300"
       />
       <ProseSection title="Лігво" content={creature.lairInfo} titleClassName="text-purple-300" />
       <ProseSection
         title="Дії Лігва"
         content={creature.lairActions}
+        rollsForCreature={creature.name}
         titleClassName="text-purple-300"
       />
       <ProseSection
@@ -233,6 +267,7 @@ export function CreatureStatblockCard({
       <ProseSection
         title="Міфічні дії"
         content={joinMythicSection(creature)}
+        rollsForCreature={creature.name}
         titleClassName="text-purple-300"
       />
 
@@ -259,10 +294,12 @@ function ProseSection({
   title,
   content,
   titleClassName = "text-slate-400",
+  rollsForCreature,
 }: {
   title: string;
   content?: string | null;
   titleClassName?: string;
+  rollsForCreature?: string;
 }) {
   if (!content) return null;
 
@@ -270,7 +307,7 @@ function ProseSection({
     <div className="mt-4 space-y-1.5">
       <div className={cn("text-xs font-semibold uppercase tracking-wider", titleClassName)}>{title}</div>
       <div className="glass-panel rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2 break-words">
-        <FormattedDescription content={content} />
+        <FormattedDescription content={content} rollsForCreature={rollsForCreature} />
       </div>
     </div>
   );

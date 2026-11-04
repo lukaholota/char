@@ -92,7 +92,7 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
         extraDice: action.extraDice ?? [],
       };
       const context = rollContextRef.current;
-      holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget("sheet"), context, action, d20Mode } : null);
+      holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget(context.isCreatureRoll ? "free" : "sheet"), context, action, d20Mode } : null);
       setActiveActionKey(action.key);
       startRolling();
       const notations = listRollNotations(action, d20Mode);

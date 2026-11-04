@@ -6,6 +6,7 @@ import {
   buildRollOutcome,
   buildSkillRollContext,
   buildSpellAttackRollContext,
+  buildSpellRollContext,
   buildWeaponRollContext,
   formatExtraDice,
   listRollNotations,
@@ -112,5 +113,28 @@ describe("стан панелі кубиків", () => {
     store.getState().openRoll(buildInitiativeRollContext(2));
     store.getState().toggle();
     expect(store.getState().isOpen).toBe(false);
+  });
+});
+
+describe("кидок заклинання", () => {
+  const fireball = { attack: false, save: "DEX" as const, rollsLater: false, pieces: null, rolls: [{ key: "spell-0", label: "Шкода", count: 9, sides: 6, bonus: 0 }] };
+
+  it("Вогняна куля кидає шкоду одразу й показує СК ряткидка цілі", () => {
+    const context = buildSpellRollContext({ spellName: "Вогняна куля", plan: fireball, slotLabel: "Слот 4 рівня", attackBonus: 7, saveDC: 15 });
+    expect(context).toMatchObject({ title: "Вогняна куля", subtitle: "Слот 4 рівня", autoRollKey: "spell-0", targetSave: { abilityName: "Спритності", dc: 15 } });
+    expect(context.actions).toEqual([{ key: "spell-0", label: "Шкода", count: 9, sides: 6, bonus: 0, isD20: false }]);
+  });
+
+  it("атака заклинанням іде першою й кидається одразу, промені — в підписі", () => {
+    const ray = { attack: true, save: null, rollsLater: false, pieces: { label: "Променів", count: 4 }, rolls: [{ key: "spell-0", label: "Шкода", count: 2, sides: 6, bonus: 0 }] };
+    const context = buildSpellRollContext({ spellName: "Пекучий промінь", plan: ray, slotLabel: "Слот 3 рівня", attackBonus: 7, saveDC: 15 });
+    expect(context.actions.map((action) => action.key)).toEqual(["spell-attack", "spell-0"]);
+    expect(context).toMatchObject({ subtitle: "Слот 3 рівня · Променів: 4", autoRollKey: "spell-attack", targetSave: undefined });
+    expect(context.actions[0]).toMatchObject({ isD20: true, bonus: 7 });
+  });
+
+  it("шкода, що приходить пізніше, не кидається сама", () => {
+    const mark = { attack: false, save: null, rollsLater: true, pieces: null, rolls: [{ key: "spell-0", label: "Шкода", count: 1, sides: 6, bonus: 0 }] };
+    expect(buildSpellRollContext({ spellName: "Мітка мисливця", plan: mark, attackBonus: 5, saveDC: 13 }).autoRollKey).toBeUndefined();
   });
 });

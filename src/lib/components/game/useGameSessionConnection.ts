@@ -8,13 +8,14 @@ import type { GameSessionView } from "@/server/db/game-sessions";
 import { createSseParser, type SseMessage } from "./sse-parser";
 import { addGameEvents, markMemberRolling, resetLiveSession, setConnectionStatus, setHasOlder, setSessionView, useGameSessionLiveStore, type GameConnectionStatus } from "./game-session-live-store";
 import { flushGameRollOutbox } from "./game-roll-publisher";
+import { isJournalPoppedOut, useJournalPopoutStore } from "./journal-popout";
 import { playRollChime, unlockRollChimeOnFirstTap } from "./play-roll-chime";
 
 const SILENCE_LIMIT_MS = 45_000;
 const HIDDEN_GRACE_MS = 30_000;
 const MAX_BACKOFF_MS = 30_000;
 
-/// Одне зʼєднання на вкладку. Сховану вкладку відпускаємо: iOS однаково вбʼє сокет, а при поверненні курсор дожене пропущене.
+/// Одне зʼєднання на вкладку. Сховану вкладку відпускаємо, якщо журнал не винесено в окреме вікно: iOS однаково вбʼє сокет, а при поверненні курсор дожене пропущене.
 export function useGameSessionConnection(sessionId: number | null) {
   useEffect(() => {
     resetLiveSession(sessionId);
@@ -35,6 +36,7 @@ function startConnection(sessionId: number) {
   let silenceTimer: ReturnType<typeof setTimeout> | undefined;
 
   const setStatus = (status: GameConnectionStatus) => setConnectionStatus(sessionId, status);
+  const isAsleep = () => document.visibilityState === "hidden" && !isJournalPoppedOut();
 
   const finish = (status: GameConnectionStatus) => {
     stopStream();
@@ -51,7 +53,7 @@ function startConnection(sessionId: number) {
 
   const scheduleRetry = () => {
     stopStream();
-    if (isStopped || document.visibilityState === "hidden") return;
+    if (isStopped || isAsleep()) return;
     if (!navigator.onLine) return setStatus("offline");
     setStatus("reconnecting");
     const delay = Math.min(MAX_BACKOFF_MS, 1000 * 2 ** attempt) * (0.5 + Math.random());
@@ -136,7 +138,7 @@ function startConnection(sessionId: number) {
 
   const resume = () => {
     clearTimeout(hiddenTimer);
-    if (isStopped || document.visibilityState === "hidden") return;
+    if (isStopped || isAsleep()) return;
     if (!abort) {
       attempt = 0;
       void connect();
@@ -144,7 +146,7 @@ function startConnection(sessionId: number) {
   };
 
   const onVisibilityChange = () => {
-    if (document.visibilityState === "visible") return resume();
+    if (!isAsleep()) return resume();
     clearTimeout(hiddenTimer);
     hiddenTimer = setTimeout(() => {
       stopStream();
@@ -161,6 +163,7 @@ function startConnection(sessionId: number) {
   window.addEventListener("offline", onOffline);
   window.addEventListener("pageshow", resume);
   document.addEventListener("visibilitychange", onVisibilityChange);
+  const stopPopoutWatch = useJournalPopoutStore.subscribe(onVisibilityChange);
   const stopChimeUnlock = unlockRollChimeOnFirstTap();
   void connect();
 
@@ -173,6 +176,7 @@ function startConnection(sessionId: number) {
       window.removeEventListener("offline", onOffline);
       window.removeEventListener("pageshow", resume);
       document.removeEventListener("visibilitychange", onVisibilityChange);
+      stopPopoutWatch();
       stopChimeUnlock();
     },
   };
