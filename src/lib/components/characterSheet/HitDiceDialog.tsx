@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -26,14 +26,15 @@ export default function HitDiceDialog({ pers, open, onOpenChange, onPersUpdate }
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [remaining, setRemaining] = useState<Record<number, number>>({});
 
+  const [wasOpen, setWasOpen] = useState(false);
+
   const pools = useMemo(() => collectPersHitDicePools(pers), [pers]);
 
-  useEffect(() => {
-    if (!open) return;
-    const initial: Record<number, number> = {};
-    for (const pool of pools) initial[pool.classId] = pool.current;
-    setRemaining(initial);
-  }, [open, pools]);
+  // The sheet hands us a fresh pers object on unrelated re-renders; reset the draft only when the dialog opens.
+  if (open !== wasOpen) {
+    setWasOpen(open);
+    if (open) setRemaining(Object.fromEntries(pools.map((pool) => [pool.classId, pool.current])));
+  }
 
   const changeRemaining = (classId: number, delta: number) => {
     const pool = pools.find((candidate) => candidate.classId === classId);
