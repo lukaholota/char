@@ -100,6 +100,7 @@ function TraySheet({ title, subtitle, layoutKey, isRolling, hasDiceOnTable, onLa
       ref={ref}
       role="dialog"
       aria-label={title}
+      data-dice-tray
       initial={{ y: "100%" }}
       animate={{ y: 0 }}
       exit={{ y: "100%" }}
@@ -113,7 +114,7 @@ function TraySheet({ title, subtitle, layoutKey, isRolling, hasDiceOnTable, onLa
       onDragEnd={handleDragEnd}
       style={{ zIndex: DICE_TRAY_Z_INDEX }}
       className={cn(
-        "fixed inset-x-0 bottom-0 px-safe rounded-t-3xl border border-white/10 bg-slate-950/90 shadow-2xl shadow-black/50 backdrop-blur-xl",
+        "pointer-events-auto fixed inset-x-0 bottom-0 px-safe rounded-t-3xl border border-white/10 bg-slate-950/90 shadow-2xl shadow-black/50 backdrop-blur-xl",
         "pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))]",
         "md:inset-x-auto md:bottom-6 md:right-6 md:w-[26rem] md:rounded-3xl",
       )}

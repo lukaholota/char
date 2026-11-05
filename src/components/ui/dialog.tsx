@@ -83,9 +83,10 @@ function isFromAnyDialogLayer(target: EventTarget | null) {
   return Boolean(target.closest("[data-rpg-dialog-content], [data-rpg-dialog-overlay]"));
 }
 
+/// Лоток кубиків живе поза модалкою, але кидок зі статблоку в модалці керується саме з нього.
 function isFromAnyDialogContent(target: EventTarget | null) {
   if (!(target instanceof Element)) return false;
-  return Boolean(target.closest("[data-rpg-dialog-content]"));
+  return Boolean(target.closest("[data-rpg-dialog-content], [data-dice-tray]"));
 }
 
 const DialogContent = React.forwardRef<
