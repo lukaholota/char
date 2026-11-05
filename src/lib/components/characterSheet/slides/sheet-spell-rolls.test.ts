@@ -29,9 +29,14 @@ describe("кидок заклинання з листа", () => {
     expect(roll?.actions).toMatchObject([{ label: "Лікування", count: 1, sides: 8, bonus: 3 }]);
   });
 
-  it("домашнє заклинання з книжною назвою й заклинання 2024 кубиків не мають", () => {
+  it("домашнє заклинання з книжною назвою кубиків не має", () => {
     const homebrew = { spellId: -5, spell: { ...fireball.spell, spellId: -5 } };
     expect(buildSheetSpellRoll({ pers, persSpell: homebrew, statRows, slot: null })).toBeNull();
-    expect(buildSheetSpellRoll({ pers, persSpell: { ...fireball, spell: { ...fireball.spell, ruleset: "RULES_2024" } }, statRows, slot: null })).toBeNull();
+  });
+
+  it("персонаж 2024 кидає за правилами 2024", () => {
+    const pers2024 = { ...pers, ruleset: "RULES_2024" } as PersWithRelations;
+    const cure2024 = { ...cureWounds, spell: { ...cureWounds.spell, spellId: 20050, ruleset: undefined } };
+    expect(buildSheetSpellRoll({ pers: pers2024, persSpell: cure2024, statRows, slot: null })?.actions).toMatchObject([{ label: "Лікування", count: 2, sides: 8, bonus: 3 }]);
   });
 });

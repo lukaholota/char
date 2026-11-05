@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import spells from "@/lib/generated/spells.json";
-import { findCantripTier, findSpellDice, listSpellDice2014, planSpellRolls, type SpellDice } from "@/rules/spell-dice-2014";
+import { findCantripTier, findSpellDice, listSpellDice, planSpellRolls, type SpellDice } from "@/rules/spell-dice";
 
 const spells2014 = (spells as Array<{ engName: string; level: number; description: string; ruleset?: string }>).filter((spell) => (spell.ruleset ?? "RULES_2014") === "RULES_2014");
 
@@ -48,8 +48,7 @@ describe("кубики заклинань 2014 до 3-го рівня", () => {
     expect(dice(plan("Cure Wounds", 2))).toEqual(["Лікування 2к8+3"]);
   });
 
-  it("2024 і заклинання вище 3-го рівня не мають кубиків", () => {
-    expect(findSpellDice({ engName: "Fireball", level: 3, ruleset: "RULES_2024" })).toBeNull();
+  it("заклинання вище 3-го рівня не мають кубиків", () => {
     expect(findSpellDice({ engName: "Cone of Cold", level: 5, ruleset: "RULES_2014" })).toBeNull();
   });
 });
@@ -64,12 +63,12 @@ const UPCAST_WITHOUT_DICE = ["Cordon of Arrows", "Tasha's Mind Whip"];
 
 describe("таблиця кубиків збігається з описами заклинань", () => {
   it("кожне заклинання таблиці є в каталозі 2014, а його кубики, ряткидок і атака — в описі", () => {
-    const mismatches = listSpellDice2014().flatMap(([engName, spellDice]) => findMismatches(engName, spellDice));
+    const mismatches = listSpellDice("RULES_2014").flatMap(([engName, spellDice]) => findMismatches(engName, spellDice));
     expect(mismatches).toEqual([]);
   });
 
   it("кожне заклинання 0–3 рівня з кубиками в описі або має кидки, або свідомо пропущене", () => {
-    const known = new Set([...listSpellDice2014().map(([engName]) => engName), ...WITHOUT_ROLLS]);
+    const known = new Set([...listSpellDice("RULES_2014").map(([engName]) => engName), ...WITHOUT_ROLLS]);
     const missing = spells2014.filter((spell) => spell.level <= 3 && /\d+к\d+/u.test(spell.description) && !known.has(spell.engName)).map((spell) => spell.engName);
     expect(missing).toEqual([]);
   });

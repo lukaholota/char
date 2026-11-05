@@ -161,13 +161,60 @@ const SPELL_DICE_2014: Readonly<Record<string, SpellDice>> = {
   "Wind Wall": { save: "STR", rolls: [damage(3, 8, 0)] },
 };
 
-export function listSpellDice2014(): ReadonlyArray<[string, SpellDice]> {
-  return Object.entries(SPELL_DICE_2014);
+const SAME_IN_2024 = [
+  "Acid Splash", "Eldritch Blast", "Fire Bolt", "Mind Sliver", "Produce Flame", "Ray of Frost", "Sacred Flame", "Shocking Grasp",
+  "Thorn Whip", "Thunderclap", "Toll the Dead", "Word of Radiance",
+  "Arms of Hadar", "Burning Hands", "Chromatic Orb", "Dissonant Whispers", "Divine Favor", "Ensnaring Strike", "Guiding Bolt",
+  "Hellish Rebuke", "Hex", "Hunter's Mark", "Ice Knife", "Magic Missile", "Ray of Sickness", "Thunderwave",
+  "Cloud of Daggers", "Dragon's Breath", "Flaming Sphere", "Heat Metal", "Melf's Acid Arrow", "Mind Spike", "Moonbeam",
+  "Scorching Ray", "Shatter", "Spike Growth",
+  "Aura of Vitality", "Bestow Curse", "Call Lightning", "Crusader's Mantle", "Elemental Weapon", "Fireball", "Glyph of Warding",
+  "Lightning Arrow", "Lightning Bolt", "Spirit Guardians", "Vampiric Touch",
+];
+
+/// У 2024 кари накладаються вже після влучання, тож шкода кидається одразу.
+const SPELL_DICE_2024: Readonly<Record<string, SpellDice>> = {
+  ...Object.fromEntries(SAME_IN_2024.map((engName) => [engName, SPELL_DICE_2014[engName]])),
+  "Chill Touch": { attack: true, rolls: [cantrip(1, 10)] },
+  "Poison Spray": { attack: true, rolls: [cantrip(1, 12)] },
+  "Sorcerous Burst": { attack: true, rolls: [cantrip(1, 8)] },
+  "Starry Wisp": { attack: true, rolls: [cantrip(1, 8)] },
+  "True Strike": { attack: true, rolls: [{ label: "Променева", count: 0, sides: 6 }] },
+  "Vicious Mockery": { save: "WIS", rolls: [cantrip(1, 6)] },
+
+  "Cure Wounds": { rolls: [{ ...healing(2, 8), perSlot: 2 }] },
+  "Divine Smite": { rolls: [damage(2, 8), { label: "Почварі чи невмерлому", count: 1, sides: 8 }] },
+  "False Life": { rolls: [{ label: "Тимчасові хіти", count: 2, sides: 4, bonus: 4, bonusPerSlot: 5 }] },
+  "Hail of Thorns": { save: "DEX", rolls: [damage(1, 10)] },
+  "Healing Word": { rolls: [{ ...healing(2, 4), perSlot: 2 }] },
+  "Inflict Wounds": { save: "CON", rolls: [damage(2, 10)] },
+  "Searing Smite": { save: "CON", rolls: [damage(1, 6)] },
+  "Thunderous Smite": { save: "STR", rolls: [damage(2, 6)] },
+  "Witch Bolt": { attack: true, rolls: [damage(2, 12), { label: "Наступні ходи", count: 1, sides: 12 }] },
+  "Wrathful Smite": { save: "WIS", rolls: [damage(1, 6)] },
+
+  "Cordon of Arrows": { save: "DEX", rollsLater: true, rolls: [damage(2, 4, 0)] },
+  "Flame Blade": { attack: true, rollsLater: true, rolls: [{ ...damage(3, 6), addsModifier: true }] },
+  "Phantasmal Force": { save: "INT", rollsLater: true, rolls: [damage(2, 8, 0)] },
+  "Prayer of Healing": { rolls: [{ label: "Лікування", count: 2, sides: 8, perSlot: 1 }] },
+  "Shining Smite": { rolls: [damage(2, 6)] },
+  "Spiritual Weapon": { attack: true, rolls: [{ ...damage(1, 8), addsModifier: true }] },
+
+  "Blinding Smite": { save: "CON", rolls: [damage(3, 8)] },
+  "Hunger of Hadar": { save: "DEX", rollsLater: true, rolls: [{ label: "Холод", count: 2, sides: 6, perSlot: 1 }, { label: "Кислота", count: 2, sides: 6 }] },
+  "Conjure Animals": { save: "DEX", rollsLater: true, rolls: [damage(3, 10)] },
+  "Conjure Barrage": { save: "DEX", rolls: [damage(5, 8)] },
+  "Mass Healing Word": { rolls: [healing(2, 4)] },
+  "Wind Wall": { save: "STR", rolls: [damage(4, 8, 0)] },
+};
+
+export function listSpellDice(ruleset: "RULES_2014" | "RULES_2024"): ReadonlyArray<[string, SpellDice]> {
+  return Object.entries(ruleset === "RULES_2024" ? SPELL_DICE_2024 : SPELL_DICE_2014);
 }
 
 export function findSpellDice(spell: { engName?: string | null; level: number; ruleset?: string | null }): SpellDice | null {
-  if (spell.ruleset === "RULES_2024" || spell.level > MAX_SPELL_LEVEL || !spell.engName) return null;
-  return SPELL_DICE_2014[spell.engName] ?? null;
+  if (spell.level > MAX_SPELL_LEVEL || !spell.engName) return null;
+  return (spell.ruleset === "RULES_2024" ? SPELL_DICE_2024 : SPELL_DICE_2014)[spell.engName] ?? null;
 }
 
 export function planSpellRolls(dice: SpellDice, input: SpellRollInput): SpellRollPlan {

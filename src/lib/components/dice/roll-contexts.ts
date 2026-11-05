@@ -1,7 +1,7 @@
 import type { DiceRollAction, DiceRollContext, ExtraDie, RollStateView } from "@/lib/stores/diceUIStore";
 import { parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
 import type { CreatureRoll } from "@/rules/creature-rolls";
-import type { SpellRollPlan } from "@/rules/spell-dice-2014";
+import type { SpellRollPlan } from "@/rules/spell-dice";
 import type { AbilityKey } from "@/rules/types";
 
 export type AbilityRollKind = "check" | "save";

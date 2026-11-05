@@ -4,7 +4,7 @@ import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
 import { isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
 import type { SpellcastingStatRow } from "@/lib/logic/spellcasting-stats";
 import type { DiceRollContext } from "@/lib/stores/diceUIStore";
-import { findSpellDice, planSpellRolls } from "@/rules/spell-dice-2014";
+import { findSpellDice, planSpellRolls } from "@/rules/spell-dice";
 import { getPersSpellId } from "./sheet-spell-links";
 
 type SheetSpellRow = {
