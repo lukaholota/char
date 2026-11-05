@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { GameJournal, GameSoundToggle } from "./GameJournal";
 import { VisibilitySegments } from "./GameRollTargetBar";
 import { GameRoomManagement } from "./GameRoomManagement";
+import { GameRoomMap } from "./GameRoomMap";
 import { GameRoomPersPicker } from "./GameRoomPersPicker";
 import { GameRoomInvite, GameRoomMembers, ROOM_CARD } from "./GameRoomSidebar";
 import { PopOutJournalButton } from "./GameSessionDock";
@@ -39,6 +40,7 @@ export function GameRoomPage({ initialView, bindablePers }: { initialView: GameS
         <div className="min-w-0 space-y-4">
           {isGmAlone ? <GameRoomInvite view={view} isProminent /> : null}
           <RollTargetCard view={view} />
+          <GameRoomMap view={view} />
           <section aria-label="Журнал кімнати" className="flex min-h-48 max-h-[min(36rem,65dvh)] flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60">
             <div className="flex items-center gap-2 border-b border-white/10 py-2 pl-4 pr-2">
               <h2 className="flex-1 font-rpg-display text-lg text-slate-100">Журнал кидків</h2>

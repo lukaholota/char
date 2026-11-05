@@ -1528,6 +1528,7 @@ model GameSession {
   archivedAt   DateTime?           @map("archived_at") @db.Timestamptz(6)
   createdAt    DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt    DateTime            @default(now()) @map("updated_at") @db.Timestamptz(6)
+  mapImageKey  String?             @map("map_image_key") @db.VarChar(200)
   rollEvents   GameRollEvent[]
   owner        User                @relation(fields: [ownerUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   members      GameSessionMember[]
@@ -1545,6 +1546,8 @@ model GameSessionMember {
   persId        Int?        @map("pers_id")
   joinedAt      DateTime    @default(now()) @map("joined_at") @db.Timestamptz(6)
   lastSeenAt    DateTime?   @map("last_seen_at") @db.Timestamptz(6)
+  tokenX        Float?      @map("token_x") @db.Real
+  tokenY        Float?      @map("token_y") @db.Real
   gameSession   GameSession @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   pers          Pers?       @relation(fields: [persId], references: [persId], onUpdate: NoAction)
   user          User        @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)

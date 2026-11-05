@@ -2,14 +2,16 @@ import { randomBytes } from "node:crypto";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { prisma } from "@/lib/prisma";
 import type { GameRollVisibility } from "@/rules/game-roll";
+import type { TokenPosition } from "@/rules/game-map";
 import { canEditPers } from "@/server/db/pers-actions";
+import { deleteStoredImage, storeScreenshotImage } from "@/server/media/image-upload";
 
 export const GAME_SESSION_LIMITS = { members: 12, activeOwnedSessions: 30, name: 80 } as const;
 const ONLINE_WINDOW_MS = 60_000;
 export const GAME_SESSION_SIGNAL_CHANNEL = "game_session";
 
 export type GameSessionRole = "GM" | "PLAYER";
-export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers";
+export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map";
 export type GameSessionResult<T> = { ok: true; value: T } | { ok: false; error: GameSessionFailure };
 
 export type GameSessionMemberView = {
@@ -20,6 +22,7 @@ export type GameSessionMemberView = {
   persName: string | null;
   avatarUrl: string | null;
   isOnline: boolean;
+  token: TokenPosition | null;
 };
 
 export type GameSessionView = {
@@ -30,6 +33,7 @@ export type GameSessionView = {
   myRole: GameSessionRole;
   myPersId: number | null;
   inviteToken: string | null;
+  mapImageUrl: string | null;
   members: GameSessionMemberView[];
 };
 
@@ -103,26 +107,7 @@ export async function listGameSessionsForUser(userId: number): Promise<GameSessi
 }
 
 export async function findGameSessionView(sessionId: number, viewerUserId: number): Promise<GameSessionView | null> {
-  const session = await prisma.gameSession.findUnique({
-    where: { id: sessionId },
-    select: {
-      id: true,
-      name: true,
-      archivedAt: true,
-      inviteToken: true,
-      members: {
-        orderBy: { joinedAt: "asc" },
-        select: {
-          userId: true,
-          role: true,
-          persId: true,
-          lastSeenAt: true,
-          pers: { select: { name: true, portraitKey: true } },
-          user: { select: { id: true, displayName: true, name: true, image: true } },
-        },
-      },
-    },
-  });
+  const session = await findSessionWithMembers(sessionId);
   const me = session?.members.find((member) => member.userId === viewerUserId);
   if (!session || !me) return null;
   const now = Date.now();
@@ -134,6 +119,7 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
     myRole: me.role as GameSessionRole,
     myPersId: me.persId,
     inviteToken: me.role === "GM" ? session.inviteToken : null,
+    mapImageUrl: session.mapImageKey ? buildMediaImageUrl(session.mapImageKey, "full") : null,
     members: session.members.map((member) => ({
       userId: member.userId,
       name: buildMemberName(member.user),
@@ -142,8 +128,35 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
       persName: member.pers?.name ?? null,
       avatarUrl: buildAvatarUrl(member.pers?.portraitKey, member.user.image),
       isOnline: member.lastSeenAt !== null && now - member.lastSeenAt.getTime() < ONLINE_WINDOW_MS,
+      token: member.persId !== null && member.tokenX !== null && member.tokenY !== null ? { x: member.tokenX, y: member.tokenY } : null,
     })),
   };
+}
+
+function findSessionWithMembers(sessionId: number) {
+  return prisma.gameSession.findUnique({
+    where: { id: sessionId },
+    select: {
+      id: true,
+      name: true,
+      archivedAt: true,
+      inviteToken: true,
+      mapImageKey: true,
+      members: {
+        orderBy: { joinedAt: "asc" },
+        select: {
+          userId: true,
+          role: true,
+          persId: true,
+          lastSeenAt: true,
+          tokenX: true,
+          tokenY: true,
+          pers: { select: { name: true, portraitKey: true } },
+          user: { select: { id: true, displayName: true, name: true, image: true } },
+        },
+      },
+    },
+  });
 }
 
 async function findGmSession(sessionId: number, userId: number) {
@@ -151,6 +164,58 @@ async function findGmSession(sessionId: number, userId: number) {
   if (!membership) return fail("not_found");
   if (membership.role !== "GM") return fail("forbidden");
   return succeed(membership);
+}
+
+async function findActiveGmSession(sessionId: number, userId: number) {
+  const gm = await findGmSession(sessionId, userId);
+  if (gm.ok && gm.value.gameSession.archivedAt) return fail("archived");
+  return gm;
+}
+
+/// Нова мапа — нова сцена: старі позиції на ній нічого не означають, тож усі токени повертаються в ряд під мапою.
+export async function setGameSessionMap(sessionId: number, userId: number, file: unknown): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const stored = file === null ? { key: null } : await storeMapImage(sessionId, file);
+  if ("error" in stored) {
+    console.warn("Мапу кімнати не збережено", sessionId, stored.error);
+    return fail("bad_image");
+  }
+  // Сирий UPDATE атомарно повертає старий ключ: Prisma update віддає лише новий рядок.
+  const [previous] = await prisma.$transaction([
+    prisma.$queryRaw<{ previous_key: string | null }[]>`
+      UPDATE game_session gs SET map_image_key = ${stored.key}, updated_at = now()
+      FROM game_session previous
+      WHERE gs.game_session_id = ${sessionId} AND previous.game_session_id = gs.game_session_id
+      RETURNING previous.map_image_key AS previous_key`,
+    prisma.gameSessionMember.updateMany({ where: { gameSessionId: sessionId }, data: { tokenX: null, tokenY: null } }),
+  ]);
+  await deleteStoredImage(previous[0]?.previous_key);
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+async function storeMapImage(sessionId: number, file: unknown) {
+  try {
+    return await storeScreenshotImage(file, `games/${sessionId}/map`);
+  } catch (error) {
+    return { error: String(error) };
+  }
+}
+
+/// Свій токен рухає гравець, будь-який — майстер; position null повертає токен у ряд під мапою.
+export async function moveGameToken(sessionId: number, userId: number, tokenUserId: number, position: TokenPosition | null): Promise<GameSessionResult<null>> {
+  const membership = await findMembership(sessionId, userId);
+  if (!membership) return fail("not_found");
+  if (membership.gameSession.archivedAt) return fail("archived");
+  if (tokenUserId !== userId && membership.role !== "GM") return fail("forbidden");
+  const moved = await prisma.gameSessionMember.updateMany({
+    where: { gameSessionId: sessionId, userId: tokenUserId, persId: { not: null }, gameSession: { mapImageKey: { not: null } } },
+    data: { tokenX: position?.x ?? null, tokenY: position?.y ?? null },
+  });
+  if (!moved.count) return fail("no_map");
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
 }
 
 export async function renameGameSession(sessionId: number, userId: number, rawName: unknown): Promise<GameSessionResult<null>> {

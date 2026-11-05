@@ -2339,7 +2339,8 @@ CREATE TABLE public.game_session (
     last_event_seq bigint DEFAULT 0 NOT NULL,
     archived_at timestamp with time zone,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    updated_at timestamp with time zone DEFAULT now() NOT NULL
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    map_image_key character varying(200)
 );
 
 
@@ -2375,7 +2376,10 @@ CREATE TABLE public.game_session_member (
     pers_id integer,
     joined_at timestamp with time zone DEFAULT now() NOT NULL,
     last_seen_at timestamp with time zone,
-    CONSTRAINT game_session_member_role_check CHECK (((role)::text = ANY ((ARRAY['GM'::character varying, 'PLAYER'::character varying])::text[])))
+    token_x real,
+    token_y real,
+    CONSTRAINT game_session_member_role_check CHECK (((role)::text = ANY ((ARRAY['GM'::character varying, 'PLAYER'::character varying])::text[]))),
+    CONSTRAINT game_session_member_token_check CHECK ((((token_x IS NULL) = (token_y IS NULL)) AND ((token_x IS NULL) OR (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision)) AND ((token_y >= (0)::double precision) AND (token_y <= (1)::double precision))))))
 );
 
 

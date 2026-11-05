@@ -16,6 +16,8 @@ type GameEventProperties = {
   game_session_archived: { is_archived: boolean };
   game_session_left: Record<string, never>;
   game_member_removed: Record<string, never>;
+  game_map_changed: { has_map: boolean };
+  game_token_moved: { is_own: boolean; is_on_map: boolean };
 };
 
 /// Без назв кімнат, міток і значень кидків — лише як люди користуються кімнатами.
