@@ -1520,18 +1520,20 @@ model GameRollEvent {
 }
 
 model GameSession {
-  id           Int                 @id @default(autoincrement()) @map("game_session_id")
-  ownerUserId  Int                 @map("owner_user_id")
-  name         String              @db.VarChar(80)
-  inviteToken  String?             @unique @map("invite_token") @db.VarChar(64)
-  lastEventSeq BigInt              @default(0) @map("last_event_seq")
-  archivedAt   DateTime?           @map("archived_at") @db.Timestamptz(6)
-  createdAt    DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt    DateTime            @default(now()) @map("updated_at") @db.Timestamptz(6)
-  mapImageKey  String?             @map("map_image_key") @db.VarChar(200)
-  rollEvents   GameRollEvent[]
-  owner        User                @relation(fields: [ownerUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  members      GameSessionMember[]
+  id               Int                 @id @default(autoincrement()) @map("game_session_id")
+  ownerUserId      Int                 @map("owner_user_id")
+  name             String              @db.VarChar(80)
+  inviteToken      String?             @unique @map("invite_token") @db.VarChar(64)
+  lastEventSeq     BigInt              @default(0) @map("last_event_seq")
+  archivedAt       DateTime?           @map("archived_at") @db.Timestamptz(6)
+  createdAt        DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime            @default(now()) @map("updated_at") @db.Timestamptz(6)
+  mapImageKey      String?             @map("map_image_key") @db.VarChar(200)
+  creatureNameMode String              @default("short") @map("creature_name_mode") @db.VarChar(8)
+  mapCreatures     GameMapCreature[]
+  rollEvents       GameRollEvent[]
+  owner            User                @relation(fields: [ownerUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  members          GameSessionMember[]
 
   @@index([ownerUserId], map: "game_session_owner_idx")
   @@map("game_session")
@@ -1555,6 +1557,26 @@ model GameSessionMember {
   @@unique([gameSessionId, userId])
   @@index([userId], map: "game_session_member_user_idx")
   @@map("game_session_member")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model GameMapCreature {
+  id            Int         @id @default(autoincrement()) @map("game_map_creature_id")
+  gameSessionId Int         @map("game_session_id")
+  creatureKey   String      @map("creature_key") @db.VarChar(120)
+  ruleset       Ruleset
+  number        Int         @db.SmallInt
+  isAlly        Boolean     @default(false) @map("is_ally")
+  tokenX        Float?      @map("token_x") @db.Real
+  tokenY        Float?      @map("token_y") @db.Real
+  createdAt     DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  customName    String?     @map("custom_name") @db.VarChar(40)
+  tokenSize     String?     @map("token_size") @db.VarChar(10)
+  gameSession   GameSession @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([gameSessionId], map: "game_map_creature_session_idx")
+  @@map("game_map_creature")
 }
 
 enum AOEShapes {

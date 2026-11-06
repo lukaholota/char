@@ -1,8 +1,10 @@
 import { randomBytes } from "node:crypto";
+import { getCreatureIndex } from "@/lib/bestiaryData";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { prisma } from "@/lib/prisma";
 import type { GameRollVisibility } from "@/rules/game-roll";
 import type { TokenPosition } from "@/rules/game-map";
+import { buildMapCreatureViews, parseTokenNameMode, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
 import { canEditPers } from "@/server/db/pers-actions";
 import { deleteStoredImage, storeScreenshotImage } from "@/server/media/image-upload";
 
@@ -11,7 +13,7 @@ const ONLINE_WINDOW_MS = 60_000;
 export const GAME_SESSION_SIGNAL_CHANNEL = "game_session";
 
 export type GameSessionRole = "GM" | "PLAYER";
-export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map";
+export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone";
 export type GameSessionResult<T> = { ok: true; value: T } | { ok: false; error: GameSessionFailure };
 
 export type GameSessionMemberView = {
@@ -35,6 +37,8 @@ export type GameSessionView = {
   inviteToken: string | null;
   mapImageUrl: string | null;
   members: GameSessionMemberView[];
+  creatures: MapCreatureView[];
+  creatureNameMode: TokenNameMode;
 };
 
 export type GameSessionListItem = { id: number; name: string; isArchived: boolean; myRole: GameSessionRole; memberCount: number; updatedAt: string };
@@ -130,7 +134,13 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
       isOnline: member.lastSeenAt !== null && now - member.lastSeenAt.getTime() < ONLINE_WINDOW_MS,
       token: member.persId !== null && member.tokenX !== null && member.tokenY !== null ? { x: member.tokenX, y: member.tokenY } : null,
     })),
+    creatures: buildMapCreatureViews(session.mapCreatures, findCatalogCreature, me.role === "GM"),
+    creatureNameMode: parseTokenNameMode(session.creatureNameMode) ?? "short",
   };
+}
+
+export function findCatalogCreature(key: string, ruleset: MapCreatureView["ruleset"]) {
+  return getCreatureIndex(ruleset).find((entry) => entry.key === key) ?? null;
 }
 
 function findSessionWithMembers(sessionId: number) {
@@ -142,6 +152,7 @@ function findSessionWithMembers(sessionId: number) {
       archivedAt: true,
       inviteToken: true,
       mapImageKey: true,
+      creatureNameMode: true,
       members: {
         orderBy: { joinedAt: "asc" },
         select: {
@@ -155,6 +166,10 @@ function findSessionWithMembers(sessionId: number) {
           user: { select: { id: true, displayName: true, name: true, image: true } },
         },
       },
+      mapCreatures: {
+        orderBy: [{ createdAt: "asc" }, { id: "asc" }],
+        select: { id: true, creatureKey: true, ruleset: true, number: true, isAlly: true, customName: true, tokenSize: true, tokenX: true, tokenY: true },
+      },
     },
   });
 }
@@ -166,13 +181,13 @@ async function findGmSession(sessionId: number, userId: number) {
   return succeed(membership);
 }
 
-async function findActiveGmSession(sessionId: number, userId: number) {
+export async function findActiveGmSession(sessionId: number, userId: number) {
   const gm = await findGmSession(sessionId, userId);
   if (gm.ok && gm.value.gameSession.archivedAt) return fail("archived");
   return gm;
 }
 
-/// Нова мапа — нова сцена: старі позиції на ній нічого не означають, тож усі токени повертаються в ряд під мапою.
+/// Нова мапа — нова сцена: токени героїв повертаються в ряд під мапою, а істоти попередньої сцени зникають.
 export async function setGameSessionMap(sessionId: number, userId: number, file: unknown): Promise<GameSessionResult<null>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
@@ -189,6 +204,7 @@ export async function setGameSessionMap(sessionId: number, userId: number, file:
       WHERE gs.game_session_id = ${sessionId} AND previous.game_session_id = gs.game_session_id
       RETURNING previous.map_image_key AS previous_key`,
     prisma.gameSessionMember.updateMany({ where: { gameSessionId: sessionId }, data: { tokenX: null, tokenY: null } }),
+    prisma.gameMapCreature.deleteMany({ where: { gameSessionId: sessionId } }),
   ]);
   await deleteStoredImage(previous[0]?.previous_key);
   await signalGameSession(sessionId, "session");

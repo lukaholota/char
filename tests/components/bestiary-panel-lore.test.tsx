@@ -12,6 +12,7 @@ vi.mock("@/components/bestiary/CreatureStatblockCard", () => ({
     <div data-statblock-card data-lore-passed={loreGroupDescription ? "так" : "ні"} />
   ),
 }));
+vi.mock("@/components/bestiary/RoomCreatureAddPanel", () => ({ RoomCreatureAddPanel: () => null }));
 vi.mock("@/components/bestiary/CreatureDiscussion", () => ({
   CreatureDiscussion: () => null,
 }));

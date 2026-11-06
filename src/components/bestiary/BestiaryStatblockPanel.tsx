@@ -9,6 +9,7 @@ import type { WildshapeRatings } from "@/components/bestiary/useWildshapeRatings
 import { WildshapeRatingPanel } from "@/components/bestiary/WildshapeRatingPanel";
 import { findEntryUnlockLevel } from "@/lib/bestiary-wildshape";
 import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
+import { RoomCreatureAddPanel } from "@/components/bestiary/RoomCreatureAddPanel";
 import { CreatureDiscussion } from "@/components/bestiary/CreatureDiscussion";
 import { CreatureLoreSection } from "@/components/bestiary/CreatureLoreSection";
 import { HomebrewByline, HomebrewEntryButtons } from "@/components/homebrew/HomebrewEntryDetails";
@@ -48,6 +49,7 @@ export function StatblockPanel({
 
   return (
     <div className="space-y-3">
+      {homebrewEntry ? null : <RoomCreatureAddPanel creature={creature} ruleset={is2024 ? "RULES_2024" : "RULES_2014"} />}
       {eligibility && (
         <WildshapeAddFormButton
           eligibility={eligibility}

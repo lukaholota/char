@@ -1,7 +1,9 @@
 import { useState, useSyncExternalStore } from "react";
+import { parseTokenNameMode, type TokenNameMode } from "@/rules/game-map-creatures";
 
 export const TOKEN_SCALE_RANGE = { min: 0.6, max: 1.6, step: 0.1 } as const;
 export const SMALLEST_SCALE_WITH_NAMES = 0.8;
+export const TOKEN_SIZE_PX = 44;
 
 const subscribeToNothing = () => () => undefined;
 
@@ -20,6 +22,18 @@ export function useTokenScale(sessionId: number) {
     writeStored(storageKey, String(scale));
   };
   return [chosen ?? remembered, changeScale] as const;
+}
+
+/// Імена героїв кожен обирає для себе; імена істот — майстер для всіх (game_session.creature_name_mode).
+export function useHeroNameMode(sessionId: number) {
+  const storageKey = `game-map:hero-name-mode:${sessionId}`;
+  const remembered = useSyncExternalStore(subscribeToNothing, () => parseTokenNameMode(readStored(storageKey)) ?? "short", () => "short" as const);
+  const [chosen, setChosen] = useState<TokenNameMode | null>(null);
+  const changeMode = (mode: TokenNameMode) => {
+    setChosen(mode);
+    writeStored(storageKey, mode);
+  };
+  return [chosen ?? remembered, changeMode] as const;
 }
 
 function readStored(key: string): string | null {

@@ -18,6 +18,9 @@ type GameEventProperties = {
   game_member_removed: Record<string, never>;
   game_map_changed: { has_map: boolean };
   game_token_moved: { is_own: boolean; is_on_map: boolean };
+  game_creatures_added: { count: number; edition: "2014" | "2024" };
+  game_creature_moved: { is_on_map: boolean };
+  game_creature_statblock_opened: { is_gm: boolean };
 };
 
 /// Без назв кімнат, міток і значень кидків — лише як люди користуються кімнатами.

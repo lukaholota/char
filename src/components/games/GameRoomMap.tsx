@@ -12,12 +12,15 @@ import { shrinkScreenshotForUpload } from "@/lib/components/portrait/resize-imag
 import { ACCEPTED_IMAGE_MIME_TYPES, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
-import { findTokenPositionInRect, shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
+import { TOKEN_ARROW_STEPS, findTokenPositionInRect, shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
 import { GameAvatar } from "./GameAvatar";
+import { useMapCreatureTokens } from "./MapCreatureTokens";
 import { ROOM_CARD } from "./GameRoomSidebar";
 import { useTokenDrag, type TokenGhost } from "./use-token-drag";
-import { SMALLEST_SCALE_WITH_NAMES, TOKEN_SCALE_RANGE, useTokenScale } from "./use-token-scale";
+import type { TokenNameMode } from "@/rules/game-map-creatures";
+import { TokenName, TokenNameModePicker } from "./TokenName";
+import { SMALLEST_SCALE_WITH_NAMES, TOKEN_SCALE_RANGE, TOKEN_SIZE_PX, useHeroNameMode, useTokenScale } from "./use-token-scale";
 
 const FULLSCREEN_MAP =
   "inset-0 left-0 top-0 flex h-dvh max-h-none w-full max-w-none translate-x-0 translate-y-0 flex-col gap-3 rounded-none border-0 bg-slate-950 bg-none p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-none sm:p-6";
@@ -40,19 +43,14 @@ const LANDSCAPE_SIDE_LAYOUT: SideLayout = {
   slider: "landscape:flex-none landscape:flex-col landscape:items-stretch landscape:gap-1",
 };
 
-const ARROW_STEPS: Record<string, TokenPosition> = {
-  ArrowLeft: { x: -0.02, y: 0 },
-  ArrowRight: { x: 0.02, y: 0 },
-  ArrowUp: { x: 0, y: -0.02 },
-  ArrowDown: { x: 0, y: 0.02 },
-};
-
 export function GameRoomMap({ view }: { view: GameSessionView }) {
   const canEditMap = view.myRole === "GM" && !view.isArchived;
   const upload = useMapUpload(view.id);
   const moves = useTokenMoves(view);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [tokenScale, changeTokenScale] = useTokenScale(view.id);
+  const [heroNameMode, changeHeroNameMode] = useHeroNameMode(view.id);
+  const heroNames = { mode: heroNameMode, onChange: changeHeroNameMode };
   const [isTurned, setIsTurned] = useState(false);
   const changeFullscreen = (isOpen: boolean) => {
     setIsFullscreen(isOpen);
@@ -79,11 +77,11 @@ export function GameRoomMap({ view }: { view: GameSessionView }) {
         </Button>
         {canEditMap ? <MapGmControls sessionId={view.id} upload={upload} /> : null}
       </div>
-      <TokenBoard view={view} moves={moves} tokenScale={tokenScale} onTokenScaleChange={changeTokenScale} mapImageUrl={view.mapImageUrl} maxMapHeight="calc(100dvh - 13rem)" onMapClick={() => setIsFullscreen(true)} />
+      <TokenBoard view={view} moves={moves} tokenScale={tokenScale} onTokenScaleChange={changeTokenScale} heroNames={heroNames} mapImageUrl={view.mapImageUrl} maxMapHeight="calc(100dvh - 13rem)" onMapClick={() => setIsFullscreen(true)} />
       <Dialog open={isFullscreen} onOpenChange={changeFullscreen}>
         <DialogContent data-safe-dialog={undefined} aria-describedby={undefined} closeLabel="Згорнути мапу" className={cn(FULLSCREEN_MAP, isTurned && TURNED_MAP)}>
           <DialogTitle className="truncate pr-12 normal-case leading-10 tracking-normal">{view.name}</DialogTitle>
-          {isFullscreen ? <TokenBoard view={view} moves={moves} tokenScale={tokenScale} onTokenScaleChange={changeTokenScale} mapImageUrl={view.mapImageUrl} maxMapHeight="calc(100cqh - var(--map-footer))" isFullscreen turn={{ isTurned, toggle: () => setIsTurned(!isTurned) }} /> : null}
+          {isFullscreen ? <TokenBoard view={view} moves={moves} tokenScale={tokenScale} onTokenScaleChange={changeTokenScale} heroNames={heroNames} mapImageUrl={view.mapImageUrl} maxMapHeight="calc(100cqh - var(--map-footer))" isFullscreen turn={{ isTurned, toggle: () => setIsTurned(!isTurned) }} /> : null}
         </DialogContent>
       </Dialog>
       {upload.input}
@@ -161,6 +159,7 @@ type TokenBoardProps = {
   moves: TokenMoves;
   tokenScale: number;
   onTokenScaleChange: (scale: number) => void;
+  heroNames: { mode: TokenNameMode; onChange: (mode: TokenNameMode) => void };
   mapImageUrl: string;
   maxMapHeight: string;
   isFullscreen?: boolean;
@@ -168,7 +167,7 @@ type TokenBoardProps = {
   onMapClick?: () => void;
 };
 
-function TokenBoard({ view, moves, tokenScale, onTokenScaleChange, mapImageUrl, maxMapHeight, isFullscreen = false, turn, onMapClick }: TokenBoardProps) {
+function TokenBoard({ view, moves, tokenScale, onTokenScaleChange, heroNames, mapImageUrl, maxMapHeight, isFullscreen = false, turn, onMapClick }: TokenBoardProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const [isBroken, setIsBroken] = useState(false);
   const [aspectRatio, setAspectRatio] = useState<number | null>(null);
@@ -183,13 +182,16 @@ function TokenBoard({ view, moves, tokenScale, onTokenScaleChange, mapImageUrl, 
     const member = view.members.find((candidate) => candidate.userId === userId);
     if (member && (position || moves.findPosition(member))) void moves.sendPosition(userId, position);
   }, (point) => findDropPosition(point) !== null);
+  const creatures = useMapCreatureTokens({ view, tokenScale, findDropPosition, isTurned: isQuarterTurned });
+  const anyGhost = ghost ?? creatures.ghost;
   const readAspectRatio = (image: HTMLImageElement | null) => {
     if (image?.complete && image.naturalWidth > 0) setAspectRatio(image.naturalWidth / image.naturalHeight);
   };
   const heroes = view.members.filter((member) => member.persId !== null);
-  const draggedMember = ghost ? view.members.find((member) => member.userId === ghost.userId) : undefined;
+  const draggedMember = ghost ? view.members.find((member) => member.userId === ghost.id) : undefined;
   const waiting = heroes.filter((member) => !moves.findPosition(member));
-  const hasPlacedTokens = waiting.length < heroes.length;
+  const hasPlacedHeroes = waiting.length < heroes.length;
+  const hasPlacedTokens = hasPlacedHeroes || creatures.hasPlaced;
   const canTurn = turn && (turn.isTurned || (aspectRatio ?? 0) > 1);
   const side = isFullscreen ? (turn?.isTurned ? SIDE_LAYOUT : LANDSCAPE_SIDE_LAYOUT) : null;
 
@@ -197,7 +199,7 @@ function TokenBoard({ view, moves, tokenScale, onTokenScaleChange, mapImageUrl, 
     const isMovable = canMove(member);
     const isPlaced = moves.findPosition(member) !== null;
     const onKeyDown = (event: KeyboardEvent) => {
-      const step = ARROW_STEPS[event.key];
+      const step = TOKEN_ARROW_STEPS[event.key];
       if (step && isPlaced) moves.showPosition(member.userId, shiftTokenPosition(moves.findPosition(member), step));
       else if ((event.key === "Enter" || event.key === " ") && !isPlaced) void moves.sendPosition(member.userId, shiftTokenPosition(null, { x: 0, y: 0 }));
       else if ((event.key === "Delete" || event.key === "Backspace") && isPlaced) void moves.sendPosition(member.userId, null);
@@ -205,10 +207,10 @@ function TokenBoard({ view, moves, tokenScale, onTokenScaleChange, mapImageUrl, 
       event.preventDefault();
     };
     const onKeyUp = (event: KeyboardEvent) => {
-      if (ARROW_STEPS[event.key] && isPlaced) void moves.sendPosition(member.userId, moves.findPosition(member));
+      if (TOKEN_ARROW_STEPS[event.key] && isPlaced) void moves.sendPosition(member.userId, moves.findPosition(member));
     };
     return (
-      <TokenFace member={member} isMine={member.userId === view.myUserId} isDimmed={ghost?.userId === member.userId} scale={scale}>
+      <TokenFace member={member} isMine={member.userId === view.myUserId} isDimmed={ghost?.id === member.userId} scale={scale} nameMode={heroNames.mode}>
         {isMovable ? (
           <button
             type="button"
@@ -228,6 +230,7 @@ function TokenBoard({ view, moves, tokenScale, onTokenScaleChange, mapImageUrl, 
       <TokenTray view={view} waiting={waiting} hasHeroes={heroes.length > 0} isFullscreen={isFullscreen}>
         {waiting.map((member) => <li key={member.userId}>{renderToken(member)}</li>)}
       </TokenTray>
+      {creatures.tray}
       {isBroken ? (
         <p role="alert" className="rounded-xl border border-rose-400/30 bg-rose-500/10 p-4 text-sm text-rose-100">Не вдалося показати мапу. Оновіть сторінку або попросіть майстра завантажити її ще раз.</p>
       ) : (
@@ -237,8 +240,8 @@ function TokenBoard({ view, moves, tokenScale, onTokenScaleChange, mapImageUrl, 
             className={cn(
               "relative mx-auto select-none rounded-xl",
               !aspectRatio && "bg-white/5",
-              ghost && "ring-2",
-              ghost && (ghost.isOverTarget ? "ring-arcane-300" : "ring-white/20"),
+              anyGhost && "ring-2",
+              anyGhost && (anyGhost.isOverTarget ? "ring-arcane-300" : "ring-white/20"),
               side?.map,
             )}
             style={{ aspectRatio: aspectRatio ?? 4 / 3, width: `min(100% - var(--map-side, 0px), calc(${maxMapHeight} * ${aspectRatio ?? 4 / 3}))` }}
@@ -263,10 +266,12 @@ function TokenBoard({ view, moves, tokenScale, onTokenScaleChange, mapImageUrl, 
                 </div>
               ) : null;
             })}
+            {creatures.mapTokens}
           </div>
           {hasPlacedTokens || canTurn ? (
-            <div className={cn("mx-auto flex w-full max-w-md items-center justify-center gap-3", side?.controls)}>
+            <div className={cn("mx-auto flex w-full max-w-md flex-wrap items-center justify-center gap-3", side?.controls)}>
               {hasPlacedTokens ? <TokenScaleSlider scale={tokenScale} onChange={onTokenScaleChange} className={side?.slider} /> : null}
+              {hasPlacedHeroes ? <TokenNameModePicker label="Імена героїв" mode={heroNames.mode} onChange={heroNames.onChange} className={side?.slider} /> : null}
               {canTurn ? (
                 <Button type="button" variant="outline" onClick={turn.toggle} aria-pressed={turn.isTurned} aria-label="Повернути мапу горизонтально" className="hidden h-11 shrink-0 gap-2 px-3 portrait:flex">
                   <RotateCw className="h-4 w-4" aria-hidden />
@@ -277,7 +282,8 @@ function TokenBoard({ view, moves, tokenScale, onTokenScaleChange, mapImageUrl, 
           ) : null}
         </div>
       )}
-      {ghost && draggedMember ? <DraggedToken ghost={ghost} member={draggedMember} isMine={ghost.userId === view.myUserId} isTurned={isQuarterTurned()} isLeavingMap={!ghost.isOverTarget && moves.findPosition(draggedMember) !== null} /> : null}
+      {ghost && draggedMember ? <DraggedToken ghost={ghost} member={draggedMember} isMine={ghost.id === view.myUserId} isTurned={isQuarterTurned()} isLeavingMap={!ghost.isOverTarget && moves.findPosition(draggedMember) !== null} /> : null}
+      {creatures.overlay}
     </div>
   );
 }
@@ -319,18 +325,18 @@ function TokenScaleSlider({ scale, onChange, className }: { scale: number; onCha
   );
 }
 
-const AVATAR_SIZE_PX = 44;
+type TokenFaceProps = { member: GameSessionMemberView; isMine: boolean; isDimmed?: boolean; scale?: number; nameMode?: TokenNameMode; children?: ReactNode };
 
-function TokenFace({ member, isMine, isDimmed, scale = 1, children }: { member: GameSessionMemberView; isMine: boolean; isDimmed?: boolean; scale?: number; children?: ReactNode }) {
+function TokenFace({ member, isMine, isDimmed, scale = 1, nameMode = "short", children }: TokenFaceProps) {
   const name = member.persName ?? member.name;
-  const avatarSize = Math.round(AVATAR_SIZE_PX * scale);
+  const avatarSize = Math.round(TOKEN_SIZE_PX * scale);
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={name}>
       <div className="relative" style={{ width: avatarSize, height: avatarSize }}>
         <GameAvatar src={member.avatarUrl} name={name} className={cn("h-full w-full border-2 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", isMine ? "border-arcane-300" : "border-white/70")} />
         {children}
       </div>
-      {scale >= SMALLEST_SCALE_WITH_NAMES ? <span className="mt-0.5 max-w-16 truncate rounded bg-slate-950/80 px-1 text-xs leading-4 text-slate-100">{name}</span> : null}
+      {scale >= SMALLEST_SCALE_WITH_NAMES ? <TokenName name={name} mode={nameMode} tokenSize={avatarSize} /> : null}
     </div>
   );
 }

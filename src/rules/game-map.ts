@@ -1,6 +1,13 @@
 export type TokenPosition = { x: number; y: number };
 type Rect = { left: number; top: number; width: number; height: number };
 
+export const TOKEN_ARROW_STEPS: Record<string, TokenPosition> = {
+  ArrowLeft: { x: -0.02, y: 0 },
+  ArrowRight: { x: 0.02, y: 0 },
+  ArrowUp: { x: 0, y: -0.02 },
+  ArrowDown: { x: 0, y: 0.02 },
+};
+
 const clampToMap = (value: number) => Math.round(Math.min(1, Math.max(0, value)) * 10_000) / 10_000;
 
 /// Позиція токена — частка ширини й висоти мапи, тож не залежить від розміру екрана.

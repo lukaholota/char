@@ -2,8 +2,10 @@
 
 import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 import { parseTokenPosition } from "@/rules/game-map";
+import { MAP_CREATURE_LIMITS, parseCreatureTokenSize, parseNewMapCreatures, parseTokenNameMode } from "@/rules/game-map-creatures";
 import { findCurrentUserId } from "@/server/db/current-user";
 import { tryTakeTokenMoveSlot } from "@/server/game-sessions/game-session-limits";
+import { addMapCreatures, moveMapCreature, removeMapCreatures, setCreatureNameMode, setMapCreatureSize } from "@/server/db/game-map-creatures";
 import {
   bindMemberPers,
   createGameSession,
@@ -33,6 +35,9 @@ const FAILURE_MESSAGES: Record<GameSessionFailure | "signed_out" | "too_fast", s
   bad_pers: "Цього персонажа не можна привʼязати",
   bad_image: "Не вдалося завантажити мапу — спробуйте іншу картинку",
   no_map: "Мапи вже немає або токен без персонажа",
+  bad_creature: "Цієї істоти немає в бестіарії",
+  creature_limit: `На мапі вже ${MAP_CREATURE_LIMITS.perSession} істот — приберіть зайвих`,
+  creature_gone: "Цієї істоти вже немає на мапі",
 };
 
 type UserActionResult<T> = GameSessionResult<T> | { ok: false; error: "too_fast" };
@@ -100,5 +105,48 @@ export async function moveGameTokenAction(sessionId: number, tokenUserId: number
     if (!isId(sessionId) || !isId(tokenUserId) || (rawPosition !== null && !position)) return rejectBadInput;
     if (!tryTakeTokenMoveSlot(userId)) return { ok: false as const, error: "too_fast" as const };
     return moveGameToken(sessionId, userId, tokenUserId, position);
+  });
+}
+
+const tooFast = { ok: false as const, error: "too_fast" as const };
+
+export async function addMapCreaturesAction(sessionId: number, rawInput: unknown) {
+  const input = parseNewMapCreatures(rawInput);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !input) return rejectBadInput;
+    if (!tryTakeTokenMoveSlot(userId)) return tooFast;
+    return addMapCreatures(sessionId, userId, input);
+  });
+}
+
+export async function moveMapCreatureAction(sessionId: number, creatureId: number, rawPosition: unknown) {
+  const position = parseTokenPosition(rawPosition);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(creatureId) || !position) return rejectBadInput;
+    if (!tryTakeTokenMoveSlot(userId)) return tooFast;
+    return moveMapCreature(sessionId, userId, creatureId, position);
+  });
+}
+
+export async function removeMapCreaturesAction(sessionId: number, creatureId: number | null) {
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || (creatureId !== null && !isId(creatureId))) return rejectBadInput;
+    return removeMapCreatures(sessionId, userId, creatureId);
+  });
+}
+
+export async function setMapCreatureSizeAction(sessionId: number, creatureId: number, rawSize: unknown) {
+  const size = parseCreatureTokenSize(rawSize);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(creatureId) || !size) return rejectBadInput;
+    return setMapCreatureSize(sessionId, userId, creatureId, size);
+  });
+}
+
+export async function setCreatureNameModeAction(sessionId: number, rawMode: unknown) {
+  const mode = parseTokenNameMode(rawMode);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !mode) return rejectBadInput;
+    return setCreatureNameMode(sessionId, userId, mode);
   });
 }

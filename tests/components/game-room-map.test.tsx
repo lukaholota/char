@@ -1,11 +1,22 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import type { MapCreatureView } from "@/rules/game-map-creatures";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
 
-const mocks = vi.hoisted(() => ({ moveGameTokenAction: vi.fn(), refresh: vi.fn() }));
-vi.mock("@/lib/actions/game-sessions", () => ({ moveGameTokenAction: mocks.moveGameTokenAction, setGameMapAction: vi.fn(), clearGameMapAction: vi.fn() }));
-vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ refresh: mocks.refresh }) }));
+const mocks = vi.hoisted(() => ({ moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), refresh: vi.fn() }));
+vi.mock("@/lib/actions/game-sessions", () => ({
+  moveGameTokenAction: mocks.moveGameTokenAction,
+  moveMapCreatureAction: mocks.moveMapCreatureAction,
+  removeMapCreaturesAction: mocks.removeMapCreaturesAction,
+  setMapCreatureSizeAction: mocks.setMapCreatureSizeAction,
+  setCreatureNameModeAction: mocks.setCreatureNameModeAction,
+  addMapCreaturesAction: vi.fn(),
+  setGameMapAction: vi.fn(),
+  clearGameMapAction: vi.fn(),
+}));
+vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ refresh: mocks.refresh }), useNoAiMode: () => ({ enabled: false }) }));
+vi.mock("@/hooks/useCreatureStatblock", () => ({ useCreatureStatblock: () => ({ creature: null, loreGroup: null }) }));
 vi.mock("@/lib/monitoring/game-analytics", () => ({ captureGameEvent: vi.fn() }));
 
 import { GameRoomMap } from "@/components/games/GameRoomMap";
@@ -13,6 +24,10 @@ import { GameRoomMap } from "@/components/games/GameRoomMap";
 beforeEach(() => {
   vi.clearAllMocks();
   mocks.moveGameTokenAction.mockResolvedValue({ ok: true, value: null });
+  mocks.moveMapCreatureAction.mockResolvedValue({ ok: true, value: null });
+  mocks.removeMapCreaturesAction.mockResolvedValue({ ok: true, value: null });
+  mocks.setMapCreatureSizeAction.mockResolvedValue({ ok: true, value: null });
+  mocks.setCreatureNameModeAction.mockResolvedValue({ ok: true, value: null });
 });
 afterEach(cleanup);
 
@@ -24,8 +39,26 @@ function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
   return {
     id: 7, name: "Печера", isArchived: false, myUserId: 2, myRole: "PLAYER", myPersId: 20, inviteToken: null, mapImageUrl: "https://media.test/games/7/map/a.webp",
     members: [member(1, "GM", null), member(2, "PLAYER", "Арвен"), member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 })],
+    creatures: [],
+    creatureNameMode: "short",
     ...overrides,
   };
+}
+
+const goblin = (id: number, badge: number, token: MapCreatureView["token"] = null): MapCreatureView => ({
+  id, creatureKey: "goblin", ruleset: "RULES_2014", label: `Гоблін ${badge}`, statblockName: null, badge, isAlly: false, imageUrl: null, isRoundImage: false, tokenSize: "medium", token,
+});
+const gmView = (overrides: Partial<GameSessionView> = {}) => buildView({ myUserId: 1, myRole: "GM", myPersId: null, ...overrides });
+
+function drag(token: HTMLElement, from: { clientX: number; clientY: number }, to: { clientX: number; clientY: number }) {
+  fireEvent.pointerDown(token, { button: 0, ...from, pointerId: 1 });
+  fireEvent.pointerMove(token, { ...to, pointerId: 1 });
+  fireEvent.pointerUp(token, { ...to, pointerId: 1 });
+}
+
+function tap(token: HTMLElement) {
+  fireEvent.pointerDown(token, { button: 0, clientX: 200, clientY: 100, pointerId: 1 });
+  fireEvent.pointerUp(token, { clientX: 200, clientY: 100, pointerId: 1 });
 }
 
 function placeMap() {
@@ -119,7 +152,6 @@ describe("мапа кімнати", () => {
   it("повзунок зменшує лише токени на мапі, ховає дрібні імена й памʼятає розмір для кімнати", () => {
     const stored = new Map<string, string>();
     Object.defineProperty(window, "localStorage", { configurable: true, value: { getItem: (key: string) => stored.get(key) ?? null, setItem: (key: string, value: string) => void stored.set(key, value) } });
-    const gmView = (overrides: Partial<GameSessionView> = {}) => buildView({ myUserId: 1, myRole: "GM", myPersId: null, ...overrides });
     const { unmount } = render(<GameRoomMap view={gmView()} />);
     const map = placeMap();
     const readAvatarSize = (scope: HTMLElement, name: RegExp) => within(scope).getByRole("button", { name }).parentElement!.style.width;
@@ -137,5 +169,73 @@ describe("мапа кімнати", () => {
     cleanup();
     render(<GameRoomMap view={gmView({ id: 8 })} />);
     expect(readAvatarSize(placeMap(), /Токен «Торин»/)).toBe("44px");
+  });
+
+  it("майстер ставить істоту з ряду на мапу, дотиком відкриває статблок і прибирає її — з картки або витягнувши за мапу", async () => {
+    render(<GameRoomMap view={gmView({ creatures: [goblin(51, 1), goblin(52, 2, { x: 0.5, y: 0.5 }), goblin(53, 3, { x: 0.25, y: 0.25 })] })} />);
+    const map = placeMap();
+    const tray = screen.getByRole("list", { name: "Істоти поза мапою" });
+    drag(within(tray).getByRole("button", { name: /«Гоблін 1»/ }), { clientX: 10, clientY: 300 }, { clientX: 100, clientY: 150 });
+    expect(mocks.moveMapCreatureAction).toHaveBeenCalledWith(7, 51, { x: 0.25, y: 0.75 });
+
+    const placed = within(map).getByRole("button", { name: /Ворог «Гоблін 2»/ });
+    fireEvent.pointerDown(placed, { button: 0, clientX: 200, clientY: 100, pointerId: 1 });
+    fireEvent.pointerUp(placed, { clientX: 201, clientY: 100, pointerId: 1 });
+    const statblock = screen.getByRole("dialog", { name: "Гоблін 2" });
+    expect(within(statblock).getByText("Ворог")).toBeTruthy();
+    fireEvent.click(within(statblock).getByRole("button", { name: "Прибрати з мапи" }));
+    expect(mocks.removeMapCreaturesAction).toHaveBeenCalledWith(7, 52);
+    expect(within(map).queryByRole("button", { name: /«Гоблін 2»/ })).toBeNull();
+
+    drag(within(map).getByRole("button", { name: /«Гоблін 3»/ }), { clientX: 100, clientY: 50 }, { clientX: 100, clientY: 260 });
+    expect(mocks.removeMapCreaturesAction).toHaveBeenCalledWith(7, 53);
+    expect(mocks.moveMapCreatureAction).toHaveBeenCalledTimes(1);
+  });
+
+  it("гравець не рухає істот і не має ряду майстра, але дотиком відкриває статблок без кнопки «прибрати»", () => {
+    render(<GameRoomMap view={buildView({ creatures: [goblin(52, 2, { x: 0.5, y: 0.5 })] })} />);
+    const map = placeMap();
+    expect(screen.queryByRole("button", { name: "Додати істот" })).toBeNull();
+    const placed = within(map).getByRole("button", { name: /Ворог «Гоблін 2»/ });
+    drag(placed, { clientX: 200, clientY: 100 }, { clientX: 100, clientY: 260 });
+    expect(mocks.moveMapCreatureAction).not.toHaveBeenCalled();
+    expect(mocks.removeMapCreaturesAction).not.toHaveBeenCalled();
+
+    fireEvent.click(placed);
+    const statblock = screen.getByRole("dialog", { name: "Гоблін 2" });
+    expect(within(statblock).getByText("Завантаження статблоку…")).toBeTruthy();
+    expect(within(statblock).queryByRole("button", { name: "Прибрати з мапи" })).toBeNull();
+  });
+
+  it("майстер обирає розмір кожної істоти й показ імен істот для всіх, а розмір зі статблоку множиться на повзунок", async () => {
+    const dragon = { ...goblin(61, 1, { x: 0.5, y: 0.5 }), label: "Дракон", badge: null, tokenSize: "huge" as const };
+    render(<GameRoomMap view={gmView({ id: 9, creatures: [dragon, goblin(62, 2, { x: 0.25, y: 0.25 })] })} />);
+    const map = placeMap();
+    const readSize = (name: RegExp) => within(map).getByRole("button", { name, hidden: true }).parentElement!.style.width;
+    expect([readSize(/«Дракон»/), readSize(/«Гоблін 2»/)]).toEqual(["88px", "44px"]);
+
+    tap(within(map).getByRole("button", { name: /«Гоблін 2»/ }));
+    const statblock = screen.getByRole("dialog", { name: "Гоблін 2" });
+    fireEvent.click(within(statblock).getByRole("button", { name: "Крихітний" }));
+    expect(mocks.setMapCreatureSizeAction).toHaveBeenCalledWith(9, 62, "tiny");
+    expect(readSize(/«Гоблін 2»/)).toBe("26px");
+
+    fireEvent.keyDown(statblock, { key: "Escape" });
+    fireEvent.click(within(screen.getByRole("group", { name: "Імена істот" })).getByRole("button", { name: "2 рядки" }));
+    expect(mocks.setCreatureNameModeAction).toHaveBeenCalledWith(9, "wrap");
+    expect(within(map).getByText("Дракон").className).toContain("line-clamp-2");
+  });
+
+  it("гравець бачить власне імʼя істоти без статблоку, а майстер — і справжній статблок", () => {
+    const shadow = { ...goblin(71, 1, { x: 0.5, y: 0.5 }), label: "Тінь", badge: null };
+    render(<GameRoomMap view={buildView({ creatures: [{ ...shadow, creatureKey: null }] })} />);
+    fireEvent.click(within(placeMap()).getByRole("button", { name: /«Тінь»/ }));
+    expect(within(screen.getByRole("dialog", { name: "Тінь" })).getByText("Майстер приховав статблок цієї істоти.")).toBeTruthy();
+    expect(screen.queryByRole("group", { name: "Розмір на мапі" })).toBeNull();
+    cleanup();
+
+    render(<GameRoomMap view={gmView({ creatures: [{ ...shadow, statblockName: "Гоблін" }] })} />);
+    tap(within(placeMap()).getByRole("button", { name: /«Тінь»/ }));
+    expect(within(screen.getByRole("dialog", { name: "Тінь" })).getByText("Гравці бачать це імʼя. Статблок: Гоблін")).toBeTruthy();
   });
 });

@@ -23,6 +23,7 @@ import {
   setGameSessionArchived,
   setGameSessionMap,
 } from "@/server/db/game-sessions";
+import { addMapCreatures, moveMapCreature, removeMapCreatures, setCreatureNameMode, setMapCreatureSize } from "@/server/db/game-map-creatures";
 import { openGameSessionStream } from "@/server/game-sessions/game-session-stream";
 
 vi.setConfig({ testTimeout: 60_000 });
@@ -133,5 +134,65 @@ describe("мапа кімнати", () => {
     await moveGameToken(sessionId, player.id, player.id, { x: 0.3, y: 0.7 });
     await readUntil('"token":{"x":0.3,"y":0.7}');
     abort.abort();
+  });
+
+  it("істот кличе лише майстер на мапу; номери беруть найменші вільні, а гравці бачать лише поставлених", async () => {
+    const { gm, player, sessionId } = await createTableWithHeroes();
+    const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 2, isAlly: false, customName: null };
+    expect(await addMapCreatures(sessionId, gm.id, goblins)).toEqual({ ok: false, error: "no_map" });
+    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    expect(await addMapCreatures(sessionId, player.id, goblins)).toEqual({ ok: false, error: "forbidden" });
+    expect(await addMapCreatures(sessionId, gm.id, { ...goblins, creatureKey: "no-such-beast" })).toEqual({ ok: false, error: "bad_creature" });
+
+    expect(await addMapCreatures(sessionId, gm.id, { ...goblins, count: 3 })).toEqual({ ok: true, value: { name: "Гоблін" } });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin-boss", ruleset: "RULES_2014", count: 1, isAlly: true, customName: null });
+    const [first, second] = (await findGameSessionView(sessionId, gm.id))!.creatures;
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures.map((creature) => creature.label)).toEqual(["Гоблін 1", "Гоблін 2", "Гоблін 3", "Гоблін-ватажок"]);
+    await removeMapCreatures(sessionId, gm.id, second.id);
+    await addMapCreatures(sessionId, gm.id, { ...goblins, count: 1 });
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures.map((creature) => creature.badge)).toEqual([1, 3, null, 2]);
+
+    expect((await findGameSessionView(sessionId, player.id))!.creatures).toEqual([]);
+    expect(await moveMapCreature(sessionId, player.id, first.id, { x: 0.3, y: 0.4 })).toEqual({ ok: false, error: "forbidden" });
+    expect(await moveMapCreature(sessionId, gm.id, first.id, { x: 0.3, y: 0.4 })).toEqual({ ok: true, value: null });
+    expect((await findGameSessionView(sessionId, player.id))!.creatures).toMatchObject([{ id: first.id, label: "Гоблін 1", token: { x: 0.3, y: 0.4 } }]);
+    expect(await removeMapCreatures(sessionId, player.id, first.id)).toEqual({ ok: false, error: "forbidden" });
+    expect(await moveMapCreature(sessionId, gm.id, second.id, { x: 0.1, y: 0.1 })).toEqual({ ok: false, error: "creature_gone" });
+  });
+
+  it("на мапі не більше 40 істот; «прибрати всіх» і нова мапа очищують кімнату", async () => {
+    const { gm, sessionId } = await createTableWithHeroes();
+    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 10, isAlly: false, customName: null };
+    for (let batch = 0; batch < 4; batch++) await addMapCreatures(sessionId, gm.id, goblins);
+    expect(await addMapCreatures(sessionId, gm.id, { ...goblins, count: 1 })).toEqual({ ok: false, error: "creature_limit" });
+    expect(await removeMapCreatures(sessionId, gm.id, null)).toEqual({ ok: true, value: null });
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures).toEqual([]);
+
+    await addMapCreatures(sessionId, gm.id, { ...goblins, count: 2 });
+    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures).toEqual([]);
+  });
+
+  it("свою назву істоти гравці бачать без статблоку й картинки; розмір і показ імен змінює лише майстер", async () => {
+    const { gm, player, sessionId } = await createTableWithHeroes();
+    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    const shadows = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 2, isAlly: false, customName: "Тінь" };
+    expect(await addMapCreatures(sessionId, gm.id, shadows)).toEqual({ ok: true, value: { name: "Тінь" } });
+    await addMapCreatures(sessionId, gm.id, { ...shadows, count: 1, customName: null });
+    const gmCreatures = (await findGameSessionView(sessionId, gm.id))!.creatures;
+    expect(gmCreatures.map((creature) => [creature.label, creature.statblockName])).toEqual([["Тінь 1", "Гоблін"], ["Тінь 2", "Гоблін"], ["Гоблін", null]]);
+
+    for (const creature of gmCreatures) await moveMapCreature(sessionId, gm.id, creature.id, { x: 0.5, y: 0.5 });
+    const [hidden, , plain] = (await findGameSessionView(sessionId, player.id))!.creatures;
+    expect(hidden).toMatchObject({ label: "Тінь 1", creatureKey: null, statblockName: null, imageUrl: null });
+    expect(plain).toMatchObject({ label: "Гоблін", creatureKey: "goblin" });
+
+    expect(await setMapCreatureSize(sessionId, player.id, hidden.id, "huge")).toEqual({ ok: false, error: "forbidden" });
+    expect(await setMapCreatureSize(sessionId, gm.id, hidden.id, "huge")).toEqual({ ok: true, value: null });
+    expect(await setCreatureNameMode(sessionId, player.id, "full")).toEqual({ ok: false, error: "forbidden" });
+    expect(await setCreatureNameMode(sessionId, gm.id, "full")).toEqual({ ok: true, value: null });
+    const seenByPlayer = (await findGameSessionView(sessionId, player.id))!;
+    expect([seenByPlayer.creatureNameMode, seenByPlayer.creatures[0].tokenSize, seenByPlayer.creatures[2].tokenSize]).toEqual(["full", "huge", "small"]);
   });
 });

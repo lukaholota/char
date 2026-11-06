@@ -2284,6 +2284,49 @@ ALTER SEQUENCE public.fighting_style_id_seq OWNED BY public.fighting_style.id;
 
 
 --
+-- Name: game_map_creature; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_map_creature (
+    game_map_creature_id integer NOT NULL,
+    game_session_id integer NOT NULL,
+    creature_key character varying(120) NOT NULL,
+    ruleset public."Ruleset" NOT NULL,
+    number smallint NOT NULL,
+    is_ally boolean DEFAULT false NOT NULL,
+    token_x real,
+    token_y real,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    custom_name character varying(40),
+    token_size character varying(10),
+    CONSTRAINT game_map_creature_custom_name_check CHECK (((custom_name IS NULL) OR ((length(btrim((custom_name)::text)) >= 1) AND (length(btrim((custom_name)::text)) <= 40)))),
+    CONSTRAINT game_map_creature_number_check CHECK (((number >= 1) AND (number <= 999))),
+    CONSTRAINT game_map_creature_token_check CHECK ((((token_x IS NULL) = (token_y IS NULL)) AND ((token_x IS NULL) OR (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision)) AND ((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))))),
+    CONSTRAINT game_map_creature_token_size_check CHECK (((token_size)::text = ANY ((ARRAY['tiny'::character varying, 'small'::character varying, 'medium'::character varying, 'large'::character varying, 'huge'::character varying, 'gargantuan'::character varying])::text[])))
+);
+
+
+--
+-- Name: game_map_creature_game_map_creature_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_map_creature_game_map_creature_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_map_creature_game_map_creature_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_map_creature_game_map_creature_id_seq OWNED BY public.game_map_creature.game_map_creature_id;
+
+
+--
 -- Name: game_roll_event; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2340,7 +2383,9 @@ CREATE TABLE public.game_session (
     archived_at timestamp with time zone,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
-    map_image_key character varying(200)
+    map_image_key character varying(200),
+    creature_name_mode character varying(8) DEFAULT 'short'::character varying NOT NULL,
+    CONSTRAINT game_session_creature_name_mode_check CHECK (((creature_name_mode)::text = ANY ((ARRAY['short'::character varying, 'wrap'::character varying, 'full'::character varying])::text[])))
 );
 
 
@@ -4451,6 +4496,13 @@ ALTER TABLE ONLY public.fighting_style ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
+-- Name: game_map_creature game_map_creature_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_map_creature ALTER COLUMN game_map_creature_id SET DEFAULT nextval('public.game_map_creature_game_map_creature_id_seq'::regclass);
+
+
+--
 -- Name: game_roll_event game_roll_event_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -5094,6 +5146,14 @@ ALTER TABLE ONLY public.feature
 
 ALTER TABLE ONLY public.fighting_style
     ADD CONSTRAINT fighting_style_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: game_map_creature game_map_creature_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_map_creature
+    ADD CONSTRAINT game_map_creature_pkey PRIMARY KEY (game_map_creature_id);
 
 
 --
@@ -5862,6 +5922,13 @@ CREATE UNIQUE INDEX feature_feature_id_key ON public.feature USING btree (featur
 --
 
 CREATE UNIQUE INDEX fighting_style_eng_name_key ON public.fighting_style USING btree (eng_name);
+
+
+--
+-- Name: game_map_creature_session_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_map_creature_session_idx ON public.game_map_creature USING btree (game_session_id);
 
 
 --
@@ -6643,6 +6710,14 @@ ALTER TABLE ONLY public.feat_choice_option
 
 ALTER TABLE ONLY public.spell_classes
     ADD CONSTRAINT fk_spell_classes FOREIGN KEY (spell_id) REFERENCES public.spell(spell_id);
+
+
+--
+-- Name: game_map_creature game_map_creature_game_session_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_map_creature
+    ADD CONSTRAINT game_map_creature_game_session_id_fkey FOREIGN KEY (game_session_id) REFERENCES public.game_session(game_session_id) ON DELETE CASCADE;
 
 
 --

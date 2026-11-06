@@ -9,6 +9,7 @@ import type { WildshapeStanding } from "@/server/db/wildshape";
 const posthog = vi.hoisted(() => ({ capturePostHogEvent: vi.fn() }));
 vi.mock("@/lib/monitoring/posthog-client", () => posthog);
 vi.mock("@/components/bestiary/CreatureStatblockCard", () => ({ CreatureStatblockCard: () => null }));
+vi.mock("@/components/bestiary/RoomCreatureAddPanel", () => ({ RoomCreatureAddPanel: () => null }));
 vi.mock("@/components/bestiary/CreatureDiscussion", () => ({ CreatureDiscussion: () => null }));
 vi.mock("@/components/homebrew/HomebrewEntryDetails", () => ({ HomebrewByline: () => null, HomebrewEntryButtons: () => null }));
 
