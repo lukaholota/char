@@ -534,23 +534,13 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
   const spendSpellSlotOfLevel = (level: number) => {
     const idx = level - 1;
     setLocalCurrentSlots((prev) => prev.map((value, index) => (index === idx ? Math.max(0, value - 1) : value)));
-    commitSlotChange(
-      SPELL_SLOTS_MUTATION,
-      buildSlotOperation({ kind: "spend-spell-slot", slotLevel: level }),
-      (operationId) => spendSpellSlot(localPers.persId, level, operationId),
-      applySpellSlotsResult,
-    );
+    commitSlotChange(SPELL_SLOTS_MUTATION, buildSlotOperation({ kind: "spend-spell-slot", slotLevel: level }), (operationId) => spendSpellSlot(localPers.persId, level, operationId), applySpellSlotsResult);
   };
 
   const restoreSpellSlotOfLevel = (level: number, max: number) => {
     const idx = level - 1;
     setLocalCurrentSlots((prev) => prev.map((value, index) => (index === idx ? Math.min(max, value + 1) : value)));
-    commitSlotChange(
-      SPELL_SLOTS_MUTATION,
-      buildSlotOperation({ kind: "restore-spell-slot", slotLevel: level }),
-      (operationId) => restoreSpellSlot(localPers.persId, level, operationId),
-      applySpellSlotsResult,
-    );
+    commitSlotChange(SPELL_SLOTS_MUTATION, buildSlotOperation({ kind: "restore-spell-slot", slotLevel: level }), (operationId) => restoreSpellSlot(localPers.persId, level, operationId), applySpellSlotsResult);
   };
 
   const spendPactSlotOnce = () => {

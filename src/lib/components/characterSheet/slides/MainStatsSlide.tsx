@@ -489,20 +489,11 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   const setSaves = (nextSuccess: number, nextFail: number) => {
     const successes = Math.max(0, Math.min(3, Math.trunc(nextSuccess)));
     const failures = Math.max(0, Math.min(3, Math.trunc(nextFail)));
-
-    commitCombatOperation(
-      buildOperation({ kind: "death-saves", successes, failures }),
-      () => setDeathSaves({ persId, successes, failures }),
-      "Не вдалося оновити кидки смерті",
-    );
+    commitCombatOperation(buildOperation({ kind: "death-saves", successes, failures }), () => setDeathSaves({ persId, successes, failures }), "Не вдалося оновити кидки смерті");
   };
 
   const changeHeroicInspirationCount = (next: number) => {
-    commitCombatOperation(
-      buildOperation({ kind: "heroic-inspiration", heroicInspirationCount: next }),
-      () => setHeroicInspirationCount({ persId, heroicInspirationCount: next }),
-      "Не вдалося оновити натхнення",
-    );
+    commitCombatOperation(buildOperation({ kind: "heroic-inspiration", heroicInspirationCount: next }), () => setHeroicInspirationCount({ persId, heroicInspirationCount: next }), "Не вдалося оновити натхнення");
   };
 
   /// Налаштування не йде в офлайн-чергу: воно міняється рідко, а черга несе лише стан гри.
