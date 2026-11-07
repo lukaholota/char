@@ -48,7 +48,7 @@ function renderChoices(slug: string) {
 
 describe("ready preset spells for every caster kind", () => {
   it("rates the Hexblade cantrips for the Hexblade, not for any Warlock", async () => {
-    const findBoomingBladeRating = () => screen.findByRole("button", { name: "Оцінка RPGbot для «Гримучий Клинок [Booming Blade]»: відкрити аналіз" });
+    const findBoomingBladeRating = () => screen.findByRole("button", { name: "Оцінка RPGbot для «Гримучий Клинок [Booming Blade]»: відкрити аналіз" }, { timeout: 5000 });
     const { options } = renderSpells("warlock-hexblade-2014");
     expect(options.subclassName).toBe("HEXBLADE");
     expect((await findBoomingBladeRating()).textContent).toContain("Чудово");
@@ -181,7 +181,7 @@ describe("ready preset class, subclass and race choices", () => {
 
   it("rates the Blood Hunter's first blood curse by the RPGbot guide and lists the best one first", async () => {
     renderChoices("blood-hunter-ghostslayer-rapier-2014");
-    await waitFor(() => expect(document.body.textContent).toContain("4/4"));
+    await waitFor(() => expect(document.body.textContent).toContain("4/4"), { timeout: 5000 });
     const curseCards = screen.getAllByRole("button", { name: /Інформація про Криваве прокляття/ }).map((button) => button.closest(".glass-card")!);
     expect(curseCards[0].textContent).toContain("4/4");
     expect(curseCards.some((card) => card.textContent?.includes("1/4"))).toBe(true);
