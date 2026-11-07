@@ -10,6 +10,7 @@ const DICE_SIDES = [4, 6, 8, 10, 12, 20, 100] as const;
 type Props = {
   isReady: boolean;
   isRolling: boolean;
+  isSecret: boolean;
   pool: PoolDie[];
   onAdd: (sides: number) => void;
   onRemove: (sides: number) => void;
@@ -17,7 +18,7 @@ type Props = {
   onClear: () => void;
 };
 
-export function FreeDicePanel({ isReady, isRolling, pool, onAdd, onRemove, onReroll, onClear }: Props) {
+export function FreeDicePanel({ isReady, isRolling, isSecret, pool, onAdd, onRemove, onReroll, onClear }: Props) {
   const groups = groupPool(pool);
   const canRoll = isReady && !isRolling;
   return (
@@ -43,15 +44,15 @@ export function FreeDicePanel({ isReady, isRolling, pool, onAdd, onRemove, onRer
       </div>
 
       <div className="rounded-2xl border border-amber-400/25 bg-amber-500/10 px-4 py-3 text-center" aria-live="polite">
-        <div className="text-[11px] font-semibold uppercase tracking-wide text-amber-200/80">Сума</div>
+        <div className="text-xs font-semibold uppercase tracking-wide text-amber-200/80">{isSecret ? "Лише майстру" : "Сума"}</div>
         <div className={cn("mt-1 text-5xl font-black leading-none tabular-nums text-amber-100", isRolling && "animate-pulse text-amber-200/60")}>
-          {isRolling ? "…" : pool.length ? sumPool(pool) : "—"}
+          {isRolling ? "…" : pool.length ? (isSecret ? "?" : sumPool(pool)) : "—"}
         </div>
         <div className="mt-2 flex min-h-6 flex-wrap items-center justify-center gap-1.5 text-xs">
           {groups.length ? (
             groups.map((group) => (
               <span key={group.sides} className="inline-flex items-center gap-1 rounded-full border border-amber-300/25 bg-slate-950/40 py-0.5 pl-2 pr-0.5 font-medium text-amber-100">
-                {group.values.length}к{group.sides}: {group.values.join(", ")}
+                {group.values.length}к{group.sides}{isSecret ? "" : `: ${group.values.join(", ")}`}
                 <button
                   type="button"
                   onClick={() => onRemove(group.sides)}

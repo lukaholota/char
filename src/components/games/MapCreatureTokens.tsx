@@ -1,34 +1,62 @@
 "use client";
 
-import { useState, type KeyboardEvent, type ReactNode } from "react";
+import { createContext, useEffect, useState, type KeyboardEvent, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { toast } from "sonner";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { Button } from "@/components/ui/button";
-import { moveMapCreatureAction, removeMapCreaturesAction, setCreatureNameModeAction, setMapCreatureSizeAction } from "@/lib/actions/game-sessions";
+import { changeMapCreatureHitPointsAction, moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setCreatureNameModeAction, setMapCreatureSizeAction } from "@/lib/actions/game-sessions";
+import { useAreaCastStore } from "@/lib/components/game/area-cast";
+import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
+import { NO_TOKEN_CONDITIONS } from "@/rules/token-conditions";
+import { applyHitPointChange, isCreatureDown, type HitPointChange } from "@/rules/creature-hit-points";
 import { TOKEN_ARROW_STEPS, shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
-import { CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
+import { CREATURE_SIZE_CELLS, CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { AddMapCreaturesDialog } from "./AddMapCreaturesDialog";
+import { TURN_RING_CLASS, useIsCreatureTurn } from "./combat-turn";
+import { DownMark, HitPointBar } from "./MapCreatureHitPoints";
+import { buildCreatureTargetControl, useRollTargetCreatureId } from "./RollTargetControls";
+import { TokenConditionMarks } from "./TokenConditionMarks";
+import { useShownConditions, useTokenConditionChanges } from "./use-token-conditions";
 import { MapCreatureStatblockDialog } from "./MapCreatureStatblockDialog";
+import { readOptimistic, sendOptimistic, showOptimistic, useOptimisticReader } from "./optimistic-values";
 import { useTokenDrag, type TokenGhost } from "./use-token-drag";
-import { TokenName, TokenNameModePicker } from "./TokenName";
-import { SMALLEST_SCALE_WITH_NAMES, TOKEN_SIZE_PX } from "./use-token-scale";
+import { TokenName } from "./TokenName";
+import { TOKEN_SIZE_PX } from "./use-token-scale";
+import { HIGHLIGHT_RING_CLASS, MapTokenSlot, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type PlacedToken, type TokenDrag, type TokenLayout } from "./MapTokenSlot";
+import { askToConfirm } from "@/components/ui/confirm-dialog";
 
 type Point = { clientX: number; clientY: number };
 
-type CreatureTokensInput = { view: GameSessionView; tokenScale: number; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean };
+type CreatureTokensInput = { view: GameSessionView; layout: TokenLayout; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean };
+type OnBoard = { labelWidth: number; isHighlighted: boolean };
 
-/// Істот рухає й прибирає лише майстер; дотик без руху відкриває статблок усім.
-export function useMapCreatureTokens({ view, tokenScale, findDropPosition, isTurned }: CreatureTokensInput) {
+/// Черга бою відкриває картку тієї ж мапи, у якій стоїть: у кімнаті й на весь екран — кожна свою.
+export const OpenCreatureCardContext = createContext<((creatureId: number) => void) | null>(null);
+
+/// Істот рухає й прибирає лише майстер; дотик без руху відкриває картку: майстру — зі статблоком, гравцю — без. Істоту в тумані гравець не бачить зовсім.
+export function useMapCreatureTokens({ view, layout, findDropPosition, isTurned }: CreatureTokensInput) {
   const canEdit = view.myRole === "GM" && !view.isArchived;
   const moves = useCreatureMoves(view);
   const looks = useCreatureLooks(view);
-  const nameMode = tokenScale >= SMALLEST_SCALE_WITH_NAMES ? looks.nameMode : null;
+  const changeConditions = useTokenConditionChanges(view.id);
+  const targetId = useRollTargetCreatureId(view.id);
+  const myHeroName = view.members.find((member) => member.userId === view.myUserId)?.persName ?? null;
+  const findCells = (creature: MapCreatureView) => CREATURE_SIZE_CELLS[looks.findSize(creature)];
+  const findSnappedDrop = (creature: MapCreatureView | undefined, point: Point) => {
+    const position = findDropPosition(point);
+    return position && creature ? snapTokenPosition(position, layout, findCells(creature)) : position;
+  };
   const [openId, setOpenId] = useState<number | null>(null);
+  const isTargeting = useMapTargetingStore((state) => state.targeting !== null);
+  const isCasting = useAreaCastStore((state) => state.cast !== null);
+  useEffect(() => {
+    if (isTargeting || isCasting) setOpenId(null);
+  }, [isTargeting, isCasting]);
   const openStatblock = (id: number) => {
     setOpenId(id);
     captureGameEvent("game_creature_statblock_opened", { is_gm: view.myRole === "GM" });
@@ -36,22 +64,38 @@ export function useMapCreatureTokens({ view, tokenScale, findDropPosition, isTur
   const { ghost, bindToken } = useTokenDrag<number>(
     (id, point) => {
       const creature = view.creatures.find((candidate) => candidate.id === id);
-      const position = findDropPosition(point);
+      const position = findSnappedDrop(creature, point);
       if (creature && (position || moves.findPosition(creature))) void moves.send(id, position);
     },
     (point) => findDropPosition(point) !== null,
     openStatblock,
   );
+  const router = useModeRouter();
+  const renameCreature = async (id: number, name: string) => {
+    const result = await renameMapCreatureAction(view.id, id, name);
+    if (!result.ok) toast.error(result.error);
+    else router.refresh();
+    return result.ok;
+  };
   const removeFromStatblock = (id: number) => {
     setOpenId(null);
     void moves.send(id, null);
   };
-  const shown = view.creatures.filter((creature) => !moves.isRemoved(creature));
+  const shown = view.creatures.filter((creature) => !moves.isRemoved(creature)).map(looks.applyPendingHitPoints);
   const waiting = shown.filter((creature) => !moves.findPosition(creature));
   const dragged = ghost ? shown.find((creature) => creature.id === ghost.id) : undefined;
   const openCreature = shown.find((creature) => creature.id === openId) ?? null;
+  const openConditions = useShownConditions({ kind: "creature", id: openCreature?.id ?? 0 }, openCreature?.conditions ?? NO_TOKEN_CONDITIONS);
 
-  const renderToken = (creature: MapCreatureView, size: number, shownName: TokenNameMode | null) => {
+  const isShownOnMap = (creature: MapCreatureView) => {
+    const position = moves.findPosition(creature);
+    return position !== null && !layout.isHidden(position);
+  };
+  const placed: PlacedToken[] = shown.filter(isShownOnMap).map((creature) => ({ key: `creature-${creature.id}`, creatureId: creature.id, name: creature.label, position: moves.findPosition(creature)!, cells: findCells(creature) }));
+  const draggedFrom = dragged ? moves.findPosition(dragged) : null;
+  const drag: TokenDrag | null = ghost && dragged ? { from: draggedFrom, to: findSnappedDrop(dragged, ghost), cells: findCells(dragged) } : null;
+
+  const renderToken = (creature: MapCreatureView, size: string | number, shownName: TokenNameMode | null, onBoard: OnBoard | null) => {
     const position = moves.findPosition(creature);
     const onKeyDown = (event: KeyboardEvent) => {
       const step = TOKEN_ARROW_STEPS[event.key];
@@ -63,14 +107,15 @@ export function useMapCreatureTokens({ view, tokenScale, findDropPosition, isTur
       event.preventDefault();
     };
     const onKeyUp = (event: KeyboardEvent) => {
-      if (TOKEN_ARROW_STEPS[event.key] && position) void moves.send(creature.id, position);
+      if (TOKEN_ARROW_STEPS[event.key] && position) void moves.send(creature.id, snapTokenPosition(position, layout, findCells(creature)));
     };
-    const hint = canEdit ? (position ? "Дотик — статблок, тягніть або рухайте стрілками; Delete — прибрати" : "Перетягніть на мапу або натисніть Enter") : "Відкрити статблок";
+    const status = `${creature.hitPoints ? `, хіти ${creature.hitPoints.current} з ${creature.hitPoints.max}` : ""}${creature.isDown ? ", повалений" : ""}${creature.id === targetId ? ", ціль" : ""}`;
+    const hint = canEdit ? (position ? "Дотик — статблок, тягніть або рухайте стрілками; Delete — прибрати" : "Перетягніть на мапу або натисніть Enter") : "Відкрити картку істоти";
     return (
-      <CreatureTokenFace creature={creature} size={size} nameMode={shownName} isDimmed={ghost?.id === creature.id}>
+      <CreatureTokenFace creature={creature} size={size} nameMode={shownName} isDimmed={ghost?.id === creature.id} isTarget={creature.id === targetId} onBoard={onBoard}>
         <button
           type="button"
-          aria-label={`${creature.isAlly ? "Союзник" : "Ворог"} «${creature.label}». ${hint}`}
+          aria-label={`${creature.isAlly ? "Союзник" : "Ворог"} «${creature.label}»${status}. ${hint}`}
           className={cn("absolute inset-0 rounded-full", canEdit && "cursor-grab touch-none active:cursor-grabbing")}
           {...(canEdit ? { onKeyDown, onKeyUp, ...bindToken(creature.id) } : { onClick: () => openStatblock(creature.id) })}
         />
@@ -79,42 +124,54 @@ export function useMapCreatureTokens({ view, tokenScale, findDropPosition, isTur
   };
 
   return {
+    openStatblock,
     ghost,
-    hasPlaced: waiting.length < shown.length,
+    drag,
+    placed,
+    hasPlaced: placed.length > 0,
+    names: canEdit && placed.length > 0 ? { mode: looks.nameMode, onChange: looks.sendNameMode } : null,
     tray: canEdit ? (
-      <CreatureTray sessionId={view.id} hasCreatures={shown.length > 0} hasWaiting={waiting.length > 0} names={looks}>
-        {waiting.map((creature) => <li key={creature.id}>{renderToken(creature, TOKEN_SIZE_PX, "short")}</li>)}
+      <CreatureTray sessionId={view.id} hasCreatures={shown.length > 0} hasWaiting={waiting.length > 0}>
+        {waiting.map((creature) => <li key={creature.id}>{renderToken(creature, TOKEN_SIZE_PX, "short", null)}</li>)}
       </CreatureTray>
     ) : null,
-    mapTokens: shown.map((creature) => {
-      const position = moves.findPosition(creature);
-      return position ? (
-        <div key={creature.id} className={cn("absolute -translate-x-1/2 -translate-y-1/2", canEdit && "z-10")} style={{ left: `${position.x * 100}%`, top: `${position.y * 100}%` }}>
-          {renderToken(creature, Math.round(TOKEN_SIZE_PX * tokenScale * CREATURE_TOKEN_SIZE_SCALES[looks.findSize(creature)]), nameMode)}
-        </div>
-      ) : null;
+    mapTokens: shown.filter(isShownOnMap).map((creature) => {
+      const position = moves.findPosition(creature)!;
+      const sizeScale = CREATURE_TOKEN_SIZE_SCALES[looks.findSize(creature)];
+      const size = findBoardTokenSize(layout, findCells(creature), sizeScale);
+      return (
+        <MapTokenSlot key={creature.id} position={position} size={size} className={canEdit ? "z-[11]" : "z-10"}>
+          {renderToken(creature, size, hasTokenNames(layout, findCells(creature)) ? looks.nameMode : null, { labelWidth: findLabelWidth(layout, sizeScale), isHighlighted: layout.isHighlighted(position, findCells(creature)) })}
+        </MapTokenSlot>
+      );
     }),
     overlay: (
       <>
-        {ghost && dragged ? <CreatureGhost ghost={ghost} creature={dragged} nameMode={looks.nameMode} isTurned={isTurned()} isLeavingMap={!ghost.isOverTarget && moves.findPosition(dragged) !== null} /> : null}
+        {ghost && dragged ? (
+          <CreatureGhost ghost={ghost} creature={dragged} size={findGhostTokenSize(layout, findCells(dragged), CREATURE_TOKEN_SIZE_SCALES[looks.findSize(dragged)])} isTurned={isTurned()} isLeavingMap={!ghost.isOverTarget && draggedFrom !== null} />
+        ) : null}
         <MapCreatureStatblockDialog
           creature={openCreature}
           onClose={() => setOpenId(null)}
           onRemove={canEdit && openCreature ? () => removeFromStatblock(openCreature.id) : null}
           size={canEdit && openCreature ? { value: looks.findSize(openCreature), onChange: (size) => void looks.sendSize(openCreature.id, size) } : null}
+          hitPoints={canEdit && openCreature ? { value: openCreature.hitPoints, onChange: (change) => void looks.sendHitPointChange(openCreature, change) } : null}
+          conditions={openCreature ? { value: openConditions, onChange: canEdit ? (change) => void changeConditions({ kind: "creature", id: openCreature.id }, openCreature.conditions, change) : null } : null}
+          target={openCreature && myHeroName && moves.findPosition(openCreature) ? buildCreatureTargetControl(view.id, openCreature.id, targetId, myHeroName) : null}
+          naming={canEdit && openCreature ? { value: openCreature.customName, onSave: (name) => renameCreature(openCreature.id, name) } : null}
         />
       </>
     ),
   };
 }
 
-type TrayProps = { sessionId: number; hasCreatures: boolean; hasWaiting: boolean; names: { nameMode: TokenNameMode; sendNameMode: (mode: TokenNameMode) => void }; children: ReactNode };
+type TrayProps = { sessionId: number; hasCreatures: boolean; hasWaiting: boolean; children: ReactNode };
 
-function CreatureTray({ sessionId, hasCreatures, hasWaiting, names, children }: TrayProps) {
+function CreatureTray({ sessionId, hasCreatures, hasWaiting, children }: TrayProps) {
   const router = useModeRouter();
   const [isClearing, setIsClearing] = useState(false);
   const clearAll = async () => {
-    if (!window.confirm("Прибрати всіх істот з мапи й з ряду?")) return;
+    if (!(await askToConfirm({ title: "Прибрати всіх істот?", description: "Зникнуть і з мапи, і з ряду під нею.", confirmLabel: "Прибрати всіх", isDestructive: true }))) return;
     setIsClearing(true);
     const result = await removeMapCreaturesAction(sessionId, null);
     setIsClearing(false);
@@ -126,7 +183,6 @@ function CreatureTray({ sessionId, hasCreatures, hasWaiting, names, children }: 
       <div className="flex flex-wrap items-center gap-3">
         <AddMapCreaturesDialog sessionId={sessionId} />
         {hasWaiting ? <ul aria-label="Істоти поза мапою" className="flex flex-wrap gap-3">{children}</ul> : null}
-        {hasCreatures ? <TokenNameModePicker label="Імена істот" mode={names.nameMode} onChange={names.sendNameMode} /> : null}
         {hasCreatures ? (
           <Button type="button" variant="ghost" onClick={clearAll} disabled={isClearing} className="ml-auto h-11 px-3 text-slate-400">
             Прибрати всіх
@@ -138,23 +194,27 @@ function CreatureTray({ sessionId, hasCreatures, hasWaiting, names, children }: 
   );
 }
 
-type FaceProps = { creature: MapCreatureView; size?: number; nameMode: TokenNameMode | null; isDimmed?: boolean; children?: ReactNode };
+type FaceProps = { creature: MapCreatureView; size?: string | number; nameMode: TokenNameMode | null; isDimmed?: boolean; isTarget?: boolean; onBoard?: OnBoard | null; children?: ReactNode };
 
-export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, isDimmed, children }: FaceProps) {
+export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, isDimmed, isTarget, onBoard = null, children }: FaceProps) {
   const isArtHidden = useIsArtHidden(creature.imageUrl, "manual");
   const src = isArtHidden ? null : creature.imageUrl;
+  const isTurn = useIsCreatureTurn(creature.id);
+  const labelWidth = onBoard?.labelWidth ?? (typeof size === "number" ? size : TOKEN_SIZE_PX);
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={creature.label}>
-      <div className="relative" style={{ width: size, height: size }}>
-        <div className={cn("relative h-full w-full overflow-hidden rounded-full border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isAlly ? "border-emerald-400" : "border-rose-500")}>
+      <div className={cn("relative rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={{ width: size, height: size }}>
+        <div className={cn("relative h-full w-full overflow-hidden rounded-full border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isDown && "opacity-50 grayscale", creature.isAlly ? "border-emerald-400" : "border-rose-500", isTurn && TURN_RING_CLASS)}>
           {src ? (
             <ContentImage src={src} alt="" provenance="manual" fill sizes="128px" draggable={false} className={creature.isRoundImage ? "object-contain" : "object-cover object-top"} />
           ) : (
-            <span aria-hidden className="grid h-full w-full place-items-center font-rpg-display text-slate-100" style={{ fontSize: Math.max(12, Math.round(size * 0.34)) }}>
+            <span aria-hidden className="grid h-full w-full place-items-center font-rpg-display text-slate-100" style={{ fontSize: typeof size === "number" ? Math.max(12, Math.round(size * 0.34)) : `calc(${size} * 0.34)` }}>
               {buildCreatureInitials(creature.label)}
             </span>
           )}
         </div>
+        {creature.isDown ? <DownMark /> : null}
+        {isTarget ? <span aria-hidden className="pointer-events-none absolute -inset-1.5 rounded-full border-2 border-dashed border-amber-300" /> : null}
         {creature.badge !== null ? (
           <span aria-hidden className={cn("absolute -bottom-1 -right-1 grid h-5 min-w-5 place-items-center rounded-full bg-slate-950 px-1 text-xs leading-none text-slate-100 ring-1", creature.isAlly ? "ring-emerald-400" : "ring-rose-500")}>
             {creature.badge}
@@ -162,76 +222,71 @@ export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, is
         ) : null}
         {children}
       </div>
-      {nameMode ? <TokenName name={creature.label} mode={nameMode} tokenSize={size} /> : null}
+      <div className="flex flex-col items-center">
+        {creature.hitPoints ? <div className="mt-1"><HitPointBar hitPoints={creature.hitPoints} width={labelWidth} /></div> : null}
+        <TokenConditionMarks token={{ kind: "creature", id: creature.id }} conditions={creature.conditions} />
+        {nameMode ? <TokenName name={creature.label} mode={nameMode} tokenSize={labelWidth} /> : null}
+      </div>
     </div>
   );
 }
 
-function CreatureGhost({ ghost, creature, nameMode, isTurned, isLeavingMap }: { ghost: TokenGhost<number>; creature: MapCreatureView; nameMode: TokenNameMode; isTurned: boolean; isLeavingMap: boolean }) {
+function CreatureGhost({ ghost, creature, size, isTurned, isLeavingMap }: { ghost: TokenGhost<number>; creature: MapCreatureView; size: number; isTurned: boolean; isLeavingMap: boolean }) {
   return createPortal(
-    <div className={cn("pointer-events-none fixed z-[10000] flex -translate-x-1/2 -translate-y-1/2 flex-col items-center", isTurned && "rotate-90")} style={{ left: ghost.clientX, top: ghost.clientY }} aria-hidden>
-      <CreatureTokenFace creature={creature} nameMode={nameMode} />
+    <div
+      className="pointer-events-none fixed z-[10000] flex flex-col items-center"
+      style={{ left: ghost.clientX, top: ghost.clientY, transform: `translate(-50%, ${-size / 2}px)${isTurned ? " rotate(90deg)" : ""}`, transformOrigin: `50% ${size / 2}px` }}
+      aria-hidden
+    >
+      <CreatureTokenFace creature={creature} size={size} nameMode={null} />
       {isLeavingMap ? <span className="mt-1 whitespace-nowrap rounded-full bg-rose-950/90 px-2 py-0.5 text-xs text-rose-100 shadow-lg shadow-black/50">Прибрати з мапи</span> : null}
     </div>,
     document.body,
   );
 }
 
-type SentMoves = { creatures: MapCreatureView[]; positions: Map<number, TokenPosition | null> };
-
 /// position null — істоту прибрано: майстер витягнув її з мапи.
 function useCreatureMoves(view: GameSessionView) {
-  const [sent, setSent] = useState<SentMoves | null>(null);
-  const pending = sent?.creatures === view.creatures ? sent.positions : null;
-  const findPosition = (creature: MapCreatureView) => (pending?.has(creature.id) ? (pending.get(creature.id) ?? null) : creature.token);
-  const isRemoved = (creature: MapCreatureView) => pending?.has(creature.id) === true && pending.get(creature.id) === null;
-
-  const show = (id: number, position: TokenPosition | null) =>
-    setSent((previous) => ({ creatures: view.creatures, positions: new Map(previous?.creatures === view.creatures ? previous.positions : []).set(id, position) }));
+  const read = useOptimisticReader();
+  const findPosition = (creature: MapCreatureView) => read(`creature-position:${creature.id}`, creature.token);
+  const isRemoved = (creature: MapCreatureView) => read(`creature-removed:${creature.id}`, false);
+  const show = (id: number, position: TokenPosition | null) => void showOptimistic(`creature-position:${id}`, position);
 
   const send = async (id: number, position: TokenPosition | null) => {
-    show(id, position);
-    const result = position ? await moveMapCreatureAction(view.id, id, position) : await removeMapCreaturesAction(view.id, id);
-    if (!result.ok) {
-      setSent(null);
-      return void toast.error(result.error);
-    }
-    captureGameEvent("game_creature_moved", { is_on_map: position !== null });
+    const result = position
+      ? await sendOptimistic(`creature-position:${id}`, position, () => moveMapCreatureAction(view.id, id, position))
+      : await sendOptimistic(`creature-removed:${id}`, true, () => removeMapCreaturesAction(view.id, id));
+    if (result.ok) captureGameEvent("game_creature_moved", { is_on_map: position !== null });
   };
 
   return { findPosition, isRemoved, show, send };
 }
 
-type SentLooks = { view: GameSessionView; sizes: Map<number, CreatureTokenSize>; nameMode: TokenNameMode | null };
-
-/// Розмір і показ імен майстер бачить одразу; правдою їх робить наступний стан кімнати з сервера.
+/// Розмір, хіти і показ імен майстер бачить одразу; правдою їх робить наступний стан кімнати з сервера.
 function useCreatureLooks(view: GameSessionView) {
   const router = useModeRouter();
-  const [sent, setSent] = useState<SentLooks | null>(null);
-  const pending = sent?.view === view ? sent : null;
-  const show = (change: Partial<Omit<SentLooks, "view">>) =>
-    setSent((previous) => ({ view, sizes: previous?.view === view ? previous.sizes : new Map(), nameMode: previous?.view === view ? previous.nameMode : null, ...change }));
-  const finish = (result: { ok: true } | { ok: false; error: string }) => {
-    if (!result.ok) {
-      setSent(null);
-      return void toast.error(result.error);
-    }
-    router.refresh();
-  };
+  const read = useOptimisticReader();
+  const nameModeKey = `creature-name-mode:${view.id}`;
+  const findHitPointsKey = (creature: MapCreatureView) => `creature-hp:${creature.id}`;
+  const finish = (result: { ok: boolean }) => result.ok && router.refresh();
 
-  const sendSize = async (id: number, size: CreatureTokenSize) => {
-    show({ sizes: new Map(pending?.sizes ?? []).set(id, size) });
-    finish(await setMapCreatureSizeAction(view.id, id, size));
+  const sendSize = async (id: number, size: CreatureTokenSize) => finish(await sendOptimistic(`creature-size:${id}`, size, () => setMapCreatureSizeAction(view.id, id, size)));
+  const sendNameMode = async (mode: TokenNameMode) => finish(await sendOptimistic(nameModeKey, mode, () => setCreatureNameModeAction(view.id, mode)));
+  const sendHitPointChange = async (creature: MapCreatureView, change: HitPointChange) => {
+    const next = applyHitPointChange(readOptimistic(findHitPointsKey(creature), creature.hitPoints), change);
+    finish(await sendOptimistic(findHitPointsKey(creature), next ?? creature.hitPoints, () => changeMapCreatureHitPointsAction(view.id, creature.id, change)));
   };
-  const sendNameMode = async (mode: TokenNameMode) => {
-    show({ nameMode: mode });
-    finish(await setCreatureNameModeAction(view.id, mode));
+  const applyPendingHitPoints = (creature: MapCreatureView): MapCreatureView => {
+    const hitPoints = read(findHitPointsKey(creature), creature.hitPoints);
+    return hitPoints === creature.hitPoints || !hitPoints ? creature : { ...creature, hitPoints, isDown: isCreatureDown(hitPoints) };
   };
 
   return {
-    nameMode: pending?.nameMode ?? view.creatureNameMode,
-    findSize: (creature: MapCreatureView) => pending?.sizes.get(creature.id) ?? creature.tokenSize,
+    nameMode: read(nameModeKey, view.creatureNameMode),
+    findSize: (creature: MapCreatureView) => read(`creature-size:${creature.id}`, creature.tokenSize),
     sendSize,
     sendNameMode,
+    sendHitPointChange,
+    applyPendingHitPoints,
   };
 }

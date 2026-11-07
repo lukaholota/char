@@ -15,8 +15,8 @@ describe("кубики заклинань 2024 до 3-го рівня", () => {
   it("лікування 2024 кидає вдвічі більше кубиків, ніж 2014", () => {
     expect(dice(plan("Cure Wounds", 2))).toEqual(["Лікування 4к8+3"]);
     expect(dice(plan("Healing Word", 1))).toEqual(["Лікування 2к4+3"]);
-    expect(dice(plan("Mass Healing Word", 4))).toEqual(["Лікування 3к4+3"]);
-    expect(dice(plan("Prayer of Healing", 3))).toEqual(["Лікування 3к8"]);
+    expect(dice(plan("Mass Healing Word", 4))).toEqual(["Лікування кожного 3к4+3"]);
+    expect(dice(plan("Prayer of Healing", 3))).toEqual(["Лікування кожного 3к8"]);
   });
 
   it("правила 2024 не протікають у 2014 і навпаки", () => {

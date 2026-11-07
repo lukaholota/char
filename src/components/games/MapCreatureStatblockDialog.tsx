@@ -2,48 +2,87 @@
 
 import { Trash2 } from "lucide-react";
 import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
+import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useCreatureStatblock } from "@/hooks/useCreatureStatblock";
 import { cn } from "@/lib/utils";
 import { CREATURE_TOKEN_SIZES, CREATURE_TOKEN_SIZE_LABELS, type CreatureTokenSize, type MapCreatureView } from "@/rules/game-map-creatures";
+import { DownBadge, MapCreatureHitPoints, type HitPointsControl } from "./MapCreatureHitPoints";
+import { CreaturePlayerNameEditor, type NameControl } from "./CreaturePlayerNameEditor";
+import { RollTargetButton, type TargetControl } from "./RollTargetControls";
+import { TokenConditionToggles, type ConditionsControl } from "./TokenConditionToggles";
 
 type SizeControl = { value: CreatureTokenSize; onChange: (size: CreatureTokenSize) => void };
-type Props = { creature: MapCreatureView | null; onClose: () => void; onRemove: (() => void) | null; size: SizeControl | null };
+type Props = { creature: MapCreatureView | null; onClose: () => void; onRemove: (() => void) | null; size: SizeControl | null; hitPoints: HitPointsControl | null; conditions: ConditionsControl | null; target: TargetControl | null; naming: NameControl | null };
 
-export function MapCreatureStatblockDialog({ creature, onClose, onRemove, size }: Props) {
+/// Майстер править істоту в правій колонці поруч зі статблоком. Гравець статблока не отримує: бачить картинку, стани й ціль унизу.
+export function MapCreatureStatblockDialog({ creature, onClose, onRemove, size, hitPoints, conditions, target, naming }: Props) {
   const { creature: statblock, loreGroup } = useCreatureStatblock(creature?.creatureKey ?? null, creature?.ruleset ?? "RULES_2014", null);
+  const isSplit = size !== null;
+  const isPlayerView = creature !== null && creature.creatureKey === null;
+  const realName = creature?.statblockName ?? statblock?.name ?? creature?.label ?? "";
   return (
     <Dialog open={creature !== null} onOpenChange={(isOpen) => (isOpen ? undefined : onClose())}>
-      <DialogContent aria-describedby={undefined} className="max-w-2xl overflow-y-auto">
-        <div className="flex flex-wrap items-center gap-2 pr-10">
-          <DialogTitle className="normal-case leading-8 tracking-normal">{creature?.label}</DialogTitle>
-          {creature ? (
-            <span className={cn("rounded-full border px-2 py-0.5 text-xs", creature.isAlly ? "border-emerald-400/50 text-emerald-200" : "border-rose-400/50 text-rose-200")}>
-              {creature.isAlly ? "Союзник" : "Ворог"}
-            </span>
+      <DialogContent aria-describedby={undefined} className={cn("max-w-2xl overflow-y-auto", isSplit && SPLIT_DIALOG, isPlayerView && "max-w-md", target && !isSplit && "pb-0")}>
+        <div className="grid gap-2 lg:col-span-2">
+          <div className="flex flex-wrap items-center gap-2 pr-10">
+            <DialogTitle className="normal-case leading-8 tracking-normal">{creature?.label}</DialogTitle>
+            {creature ? (
+              <span className={cn("rounded-full border px-2 py-0.5 text-xs", creature.isAlly ? "border-emerald-400/50 text-emerald-200" : "border-rose-400/50 text-rose-200")}>
+                {creature.isAlly ? "Союзник" : "Ворог"}
+              </span>
+            ) : null}
+            {creature?.isDown ? <DownBadge /> : null}
+          </div>
+        </div>
+        {isPlayerView ? <CreaturePortrait creature={creature} /> : null}
+        <div className={cn("grid content-start gap-4", isSplit && SPLIT_COLUMN)}>
+          {isSplit && target ? <RollTargetButton control={target} /> : null}
+          {naming && creature ? <CreaturePlayerNameEditor key={`${creature.id}-${naming.value}`} control={naming} realName={realName} /> : null}
+          {hitPoints ? <MapCreatureHitPoints control={hitPoints} /> : null}
+          {conditions ? <TokenConditionToggles control={conditions} /> : null}
+          {size ? <TokenSizePicker size={size} /> : null}
+          {onRemove ? (
+            <Button type="button" variant="outline" onClick={onRemove} className="h-11 gap-2 justify-self-start">
+              <Trash2 className="h-4 w-4" aria-hidden />
+              Прибрати з мапи
+            </Button>
           ) : null}
         </div>
-        {creature?.statblockName ? <p className="text-sm text-slate-400">Гравці бачать це імʼя. Статблок: {creature.statblockName}</p> : null}
-        {size ? <TokenSizePicker size={size} /> : null}
-        <StatblockBody creature={creature} statblock={statblock} loreDescription={loreGroup?.description ?? null} />
-        {onRemove ? (
-          <Button type="button" variant="outline" onClick={onRemove} className="h-11 gap-2 justify-self-start">
-            <Trash2 className="h-4 w-4" aria-hidden />
-            Прибрати з мапи
-          </Button>
+        {isPlayerView ? null : (
+          <div className={cn(isSplit && cn(SPLIT_COLUMN, "lg:col-start-1 lg:row-start-2"))}>
+            <StatblockBody creature={creature} statblock={statblock} loreDescription={loreGroup?.description ?? null} />
+          </div>
+        )}
+        {target && !isSplit ? (
+          <div className="sticky bottom-0 -mx-6 border-t border-white/10 bg-slate-950 px-6 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-3">
+            <RollTargetButton control={target} />
+          </div>
         ) : null}
       </DialogContent>
     </Dialog>
   );
 }
 
+const SPLIT_DIALOG = "lg:h-[90dvh] lg:w-[calc(100vw-3rem)] lg:max-w-6xl lg:grid-cols-[minmax(0,1fr)_26rem] lg:grid-rows-[auto_minmax(0,1fr)] lg:gap-x-6 lg:overflow-hidden";
+const SPLIT_COLUMN = "lg:min-h-0 lg:overflow-y-auto lg:overscroll-contain lg:pr-1";
+
 type Statblock = ReturnType<typeof useCreatureStatblock>["creature"];
 
 function StatblockBody({ creature, statblock, loreDescription }: { creature: MapCreatureView | null; statblock: Statblock; loreDescription: string | null }) {
-  if (creature && !creature.creatureKey) return <p className="py-10 text-center text-sm text-slate-400">Майстер приховав статблок цієї істоти.</p>;
   if (!statblock || !creature) return <p className="py-10 text-center text-sm text-slate-400">Завантаження статблоку…</p>;
-  return <CreatureStatblockCard creature={statblock} is2024={creature.ruleset === "RULES_2024"} loreGroupDescription={loreDescription} />;
+  return <CreatureStatblockCard creature={statblock} is2024={creature.ruleset === "RULES_2024"} loreGroupDescription={loreDescription} rollName={creature.label} />;
+}
+
+function CreaturePortrait({ creature }: { creature: MapCreatureView }) {
+  const isArtHidden = useIsArtHidden(creature.imageUrl, "manual");
+  if (!creature.imageUrl || isArtHidden) return null;
+  return (
+    <div className="relative mx-auto aspect-square w-full max-w-64">
+      <ContentImage src={creature.imageUrl} alt={creature.label} provenance="manual" fill sizes="256px" className={creature.isRoundImage ? "object-contain" : "rounded-2xl object-cover object-top"} />
+    </div>
+  );
 }
 
 function TokenSizePicker({ size }: { size: SizeControl }) {

@@ -10,7 +10,7 @@ import {
   type MapCreatureRow,
 } from "@/rules/game-map-creatures";
 
-const goblin = { name: "Гоблін", size: "Малий", imageUrl: "/images/goblin.webp" };
+const goblin = { name: "Гоблін", size: "Малий", hp: "7 (2к6)", imageUrl: "/images/goblin.webp" };
 const wolf = { name: "Вовк", size: "Середній", imageUrl: "/images/wolf.webp", imageShape: "round" as const };
 const findEntry = (key: string) => ({ goblin, wolf })[key as "goblin" | "wolf"] ?? null;
 
@@ -24,6 +24,10 @@ const row = (overrides: Partial<MapCreatureRow>): MapCreatureRow => ({
   tokenSize: null,
   tokenX: null,
   tokenY: null,
+  hpMax: null,
+  hpCurrent: null,
+  conditions: [],
+  exhaustionLevel: 0,
   ...overrides,
 });
 
@@ -62,7 +66,7 @@ describe("істоти на мапі кімнати", () => {
     expect([ownSize.tokenSize, chosenSize.tokenSize]).toEqual(["small", "huge"]);
   });
 
-  it("перейменована істота ховає від гравців статблок і картинку, а номери рахує за своїм імʼям", () => {
+  it("гравцям статблок не віддається ніколи, картинка лишається, а номери рахуються за своїм імʼям", () => {
     const rows = [
       row({ id: 1, number: 1, customName: "Тінь", tokenX: 0.2, tokenY: 0.2 }),
       row({ id: 2, number: 2, customName: "Тінь", tokenX: 0.4, tokenY: 0.4 }),
@@ -70,14 +74,14 @@ describe("істоти на мапі кімнати", () => {
     ];
     const players = buildMapCreatureViews(rows, findEntry, false);
     expect(players.map((view) => [view.label, view.creatureKey, view.imageUrl])).toEqual([
-      ["Тінь 1", null, null],
-      ["Тінь 2", null, null],
-      ["Гоблін", "goblin", "/images/goblin.webp"],
+      ["Тінь 1", null, "/images/goblin.webp"],
+      ["Тінь 2", null, "/images/goblin.webp"],
+      ["Гоблін", null, "/images/goblin.webp"],
     ]);
-    expect(players[0].statblockName).toBeNull();
+    expect([players[0].statblockName, players[0].customName]).toEqual([null, null]);
 
     const [gmShadow] = buildMapCreatureViews(rows, findEntry, true);
-    expect(gmShadow).toMatchObject({ label: "Тінь 1", creatureKey: "goblin", statblockName: "Гоблін", imageUrl: "/images/goblin.webp" });
+    expect(gmShadow).toMatchObject({ label: "Тінь 1", creatureKey: "goblin", statblockName: "Гоблін", customName: "Тінь", imageUrl: "/images/goblin.webp" });
   });
 
   it("нумерує нові копії найменшими вільними номерами", () => {
@@ -106,6 +110,20 @@ describe("істоти на мапі кімнати", () => {
   it("лишає ключ замість назви, якщо істоти вже немає в каталозі", () => {
     const [view] = buildMapCreatureViews([row({ creatureKey: "gone-beast" })], () => null, true);
     expect(view).toMatchObject({ label: "gone-beast", imageUrl: null, isRoundImage: false });
+  });
+
+  it("числа хітів бачить лише майстер, а гравцям іде тільки ознака поваленого", () => {
+    const rows = [
+      row({ id: 1, hpMax: 12, hpCurrent: 5, tokenX: 0.1, tokenY: 0.1 }),
+      row({ id: 2, number: 2, hpMax: 12, hpCurrent: 0, tokenX: 0.2, tokenY: 0.2 }),
+      row({ id: 3, number: 3, tokenX: 0.3, tokenY: 0.3 }),
+    ];
+    expect(buildMapCreatureViews(rows, findEntry, true).map((view) => [view.hitPoints, view.isDown])).toEqual([
+      [{ current: 5, max: 12 }, false],
+      [{ current: 0, max: 12 }, true],
+      [{ current: 7, max: 7 }, false],
+    ]);
+    expect(buildMapCreatureViews(rows, findEntry, false).map((view) => [view.hitPoints, view.isDown])).toEqual([[null, false], [null, true], [null, false]]);
   });
 
   it("бере ініціали без номера копії", () => {

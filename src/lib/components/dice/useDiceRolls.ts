@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
-import type { DiceRollAction, DiceRollContext } from "@/lib/stores/diceUIStore";
+import { useDiceUIStore, type DiceRollAction, type DiceRollContext } from "@/lib/stores/diceUIStore";
 import { countD20Dice, type D20Mode } from "@/rules/dice-roll";
 import { diceService } from "./diceService";
 import { rollAfterHeldTrayResize } from "./dice-tray-layout";
@@ -56,6 +56,7 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
     setActiveActionKey(null);
     setOutcome(null);
     setPool([]);
+    useDiceUIStore.getState().setResultsHidden(false);
     diceService.clear();
   }, [clearSettleGuard]);
 
@@ -92,7 +93,7 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
         extraDice: action.extraDice ?? [],
       };
       const context = rollContextRef.current;
-      holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget(context.isCreatureRoll ? "free" : "sheet"), context, action, d20Mode } : null);
+      holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget(context.isCreatureRoll ? "free" : "sheet", context.rollTarget), context, action, d20Mode } : null);
       setActiveActionKey(action.key);
       startRolling();
       const notations = listRollNotations(action, d20Mode);
@@ -110,13 +111,13 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
     (sides: number) => {
       if (!isReady) return;
       pendingMetaRef.current = null;
-      holdPublication(pendingPublicationRef, { kind: "append", target: captureGameRollTarget("free") });
+      holdPublication(pendingPublicationRef, { kind: "append", target: captureGameRollTarget("pool") }, pool.length > 0);
       startRolling();
       rollAfterHeldTrayResize(() => {
         void diceService.roll(1, sides, { append: true });
       });
     },
-    [isReady, startRolling],
+    [isReady, pool.length, startRolling],
   );
 
   const removeFreeDie = useCallback((sides: number) => {
@@ -132,7 +133,7 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
   const rerollPool = useCallback(() => {
     if (!isReady || !pool.length) return;
     pendingMetaRef.current = null;
-    holdPublication(pendingPublicationRef, { kind: "reroll", target: captureGameRollTarget("free") });
+    holdPublication(pendingPublicationRef, { kind: "reroll", target: captureGameRollTarget("pool") });
     startRolling();
     const notations = describePoolNotations(pool);
     rollAfterHeldTrayResize(() => {
@@ -143,15 +144,23 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
   const clearPool = useCallback(() => {
     publishedDiceRef.current.clear();
     setPool([]);
+    useDiceUIStore.getState().setResultsHidden(false);
     diceService.clear();
   }, []);
 
   return { isReady, isRolling, activeActionKey, outcome, pool, rollAction, addFreeDie, removeFreeDie, rerollPool, clearPool };
 }
 
-function holdPublication(ref: { current: PendingPublication | null }, publication: PendingPublication | null) {
+function holdPublication(ref: { current: PendingPublication | null }, publication: PendingPublication | null, isAddingToTable = false) {
   ref.current = publication;
+  hideResultsOfSecretRoll(publication?.target?.visibility === "SECRET", isAddingToTable);
   if (publication?.target) announceGameRollStart(publication.target);
+}
+
+/// Докинутий відкрито кубик не відкриває стіл: сума показала б і секретні кубики під ним.
+function hideResultsOfSecretRoll(isSecret: boolean, isAddingToTable: boolean) {
+  const { areResultsHidden, setResultsHidden } = useDiceUIStore.getState();
+  setResultsHidden(isSecret || (isAddingToTable && areResultsHidden));
 }
 
 /// Кожен кубик іде в журнал рівно раз: дія й перекид публікують увесь стіл, докинутий кубик — лише себе.

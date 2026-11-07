@@ -28,7 +28,9 @@ import { buildPersSpellLink, getPersSpellId, listCatalogSpellLinks } from "./she
 import { buildSheetSpellRoll, type CastSlot } from "./sheet-spell-rolls";
 import { SpellRollButton } from "./SpellRollButton";
 import { describeTargetSave } from "@/lib/components/dice/roll-contexts";
-import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { openRoomRoll } from "@/lib/components/game/open-room-roll";
+import { startBlessTargeting } from "@/lib/components/game/map-targeting";
+import { isBlessSpell } from "@/lib/components/game/room-blessing";
 import { preloadSpellCardsWhenIdle } from "@/lib/spell-cards";
 import { buildHomebrewSheetSpellRows, isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
 import ModifyStatModal, { ModifyConfig } from "../ModifyStatModal";
@@ -186,7 +188,6 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
 
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
   const [lastCastSlotBySpellId, setLastCastSlotBySpellId] = useState<Record<number, CastSlot>>({});
-  const openRoll = useDiceUIStore((state) => state.openRoll);
   const [modifyConfig, setModifyConfig] = useState<ModifyConfig | null>(null);
 
   useEffect(() => {
@@ -596,11 +597,12 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     const slot = { slotLevel: option.kind === "FREE_USE" ? Number(ps?.spell?.level ?? 0) : option.slotLevel, slotLabel: describeSlot(option) };
     const roll = buildSpellRoll(ps, slot);
     const castText = [slot.slotLabel.toLocaleLowerCase("uk"), roll?.targetSave ? describeTargetSave(roll.targetSave) : null].filter(Boolean).join(" · ");
-    if (sheetStates && ps?.spell) sheetStates.onSpellCast(ps.spell, castText);
+    const isBlessedOnMap = isBlessSpell(ps?.spell) && startBlessTargeting(String(ps.spell.name ?? "Благословення"), slot.slotLevel);
+    if (sheetStates && ps?.spell) sheetStates.onSpellCast(ps.spell, castText, { isTargetedOnMap: isBlessedOnMap });
     else toast.info(`«${ps?.spell?.name ?? "Заклинання"}»: ${castText}`);
     const spellId = getPersSpellId(ps);
     if (spellId !== null) setLastCastSlotBySpellId((prev) => ({ ...prev, [spellId]: slot }));
-    if (roll) openRoll(roll);
+    if (roll) openRoomRoll(roll);
   };
 
   const buildSpellRoll = (ps: any, slot: CastSlot | null) =>
@@ -632,7 +634,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
           <CastSpellMenu spellName={String(ps?.spell?.name ?? "")} options={castOptions} disabled={isPending} onCast={(option) => castSpell(ps, option)} />
         )}
         {isReadOnly || !spellRoll ? null : (
-          <SpellRollButton spellName={String(ps?.spell?.name ?? "")} lastCastSlot={lastCastSlot} onRoll={() => openRoll(spellRoll)} />
+          <SpellRollButton spellName={String(ps?.spell?.name ?? "")} lastCastSlot={lastCastSlot} onRoll={() => openRoomRoll(spellRoll)} />
         )}
         <Button
           type="button"

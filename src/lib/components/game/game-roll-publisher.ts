@@ -1,27 +1,56 @@
 import { toast } from "sonner";
-import { readRollVisibility, useGameSessionStore } from "@/lib/stores/gameSessionStore";
+import { readHeroTargetPersId, readRollTargetCreatureId, readRollVisibility, useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import { useSheetPersStore } from "@/lib/stores/sheetPersStore";
-import type { GameRollVisibility } from "@/rules/game-roll";
+import { buildSecretRollLabel, canSeeGameRollValues, type GameRollVisibility } from "@/rules/game-roll";
+import type { RollTargetRef } from "@/rules/map-target-picks";
 import type { GameRollPublication } from "./build-game-roll";
 import { addGameEvents, addPendingRoll, dropPendingRoll, markMeRolling, stopMeRolling, useGameSessionLiveStore } from "./game-session-live-store";
 import { playRollChime } from "./play-roll-chime";
+import { clearRollVerdict, settleRollVerdict, watchRollVerdict } from "./roll-verdict";
 import { createIdempotencyKey, enqueueGameRoll, flushOutbox, readOutbox, sendQueuedGameRoll, type QueuedGameRoll } from "./game-roll-outbox";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameSessionMemberView } from "@/server/db/game-sessions";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 
-export type GameRollTarget = { sessionId: number; visibility: GameRollVisibility; persId: number | null };
+export type GameRollTarget = { sessionId: number; visibility: GameRollVisibility; persId: number | null; creatureId: number | null; heroPersId?: number | null };
 
 const RETRY_MS = 15_000;
 let runningFlush: Promise<void> | null = null;
 
 /// Ціль фіксується в момент натискання: поки кубики котяться, кімнату можуть змінити в іншій вкладці.
-export function captureGameRollTarget(kind: "sheet" | "free"): GameRollTarget | null {
+/// picked — ціль, обрана на мапі для цього кидка, — важить більше за закріплену; null — свідомо без цілі.
+/// З листа бʼє гравець (будь-яку істоту чи героя), зі статблоку — лише майстер.
+export function captureGameRollTarget(kind: "sheet" | "free" | "pool", picked?: RollTargetRef | null): GameRollTarget | null {
   const active = useGameSessionStore.getState().active;
   if (!active) return null;
   const persId = useSheetPersStore.getState().pers?.persId ?? null;
   if (kind === "sheet" && persId === null) return null;
-  return { sessionId: active.id, visibility: readRollVisibility(active.id), persId: kind === "sheet" ? persId : null };
+  const canTarget = kind === "sheet" || (kind === "free" && useGameSessionLiveStore.getState().view?.myRole === "GM");
+  const sticky = kind === "sheet" ? readStickyCreature(active.id) : readStickyHero(active.id);
+  const aim = canTarget ? (picked === undefined ? sticky : picked) : null;
+  return {
+    sessionId: active.id,
+    visibility: findMyRollVisibility(active.id),
+    persId: kind === "sheet" ? persId : null,
+    creatureId: aim && "creatureId" in aim ? aim.creatureId : null,
+    heroPersId: aim && "persId" in aim ? aim.persId : null,
+  };
+}
+
+function readStickyCreature(sessionId: number): RollTargetRef | null {
+  const creatureId = readRollTargetCreatureId(sessionId);
+  return creatureId === null ? null : { creatureId };
+}
+
+function readStickyHero(sessionId: number): RollTargetRef | null {
+  const persId = readHeroTargetPersId(sessionId);
+  return persId === null ? null : { persId };
+}
+
+/// «Лише майстру» для самого майстра — те саме, що «Лише мені»: результат він бачить.
+function findMyRollVisibility(sessionId: number): GameRollVisibility {
+  const visibility = readRollVisibility(sessionId);
+  return visibility === "SECRET" && useGameSessionLiveStore.getState().view?.myRole === "GM" ? "GM" : visibility;
 }
 
 /// Кімната бачить «кидає…», поки кубики ще котяться; загублений сигнал нічого не ламає, тож без черги й повторів.
@@ -54,11 +83,28 @@ export function publishGameRoll(target: GameRollTarget, publication: GameRollPub
       label: publication.label,
       roll: publication.roll,
       rolledAt: new Date().toISOString(),
+      ...buildRollTargets(target, publication),
     },
   };
   enqueueGameRoll(storage, item);
   showPendingRoll(item);
+  if (item.draft.target || item.draft.heroTarget) watchRollVerdict(item.draft.idempotencyKey);
+  else clearRollVerdict();
   void flushGameRollOutbox();
+}
+
+/// Лікування йде лише героєві: закріплена ціль-ворог його не отримує.
+/// Шкода з ряткидком не знімається повністю: цілі (зона або обрана ціль) кидають ряткидок на сервері.
+function buildRollTargets(target: GameRollTarget, publication: GameRollPublication): Pick<QueuedGameRoll["draft"], "target" | "saves" | "heroTarget"> {
+  const { kind, save, areaTargets } = publication;
+  if (!kind) return { target: null };
+  if (save) {
+    const targets = areaTargets ?? { creatureIds: target.creatureId !== null ? [target.creatureId] : [], persIds: target.heroPersId ? [target.heroPersId] : [] };
+    return targets.creatureIds.length + targets.persIds.length ? { target: null, saves: { ...targets, ...save } } : { target: null };
+  }
+  if (target.heroPersId) return { target: null, heroTarget: { persId: target.heroPersId, kind } };
+  if (kind === "heal") return { target: null };
+  return { target: target.creatureId !== null ? { creatureId: target.creatureId, kind } : null };
 }
 
 function showPendingRoll(item: QueuedGameRoll) {
@@ -71,9 +117,10 @@ function showPendingRoll(item: QueuedGameRoll) {
 
 /// Підпис той самий, що поставить сервер: персонаж з листа, інакше привʼязаний до кімнати.
 function buildPendingEvent({ draft }: QueuedGameRoll, me: GameSessionMemberView): GameRollEventView {
+  const hasValues = canSeeGameRollValues(draft.visibility, { isGm: me.role === "GM" });
   const sheetPers = useSheetPersStore.getState().pers;
   const persName = draft.persId !== null && sheetPers?.persId === draft.persId ? sheetPers.name : me.persName;
-  return { seq: 0, authorUserId: me.userId, authorName: me.name, persName, avatarUrl: me.avatarUrl, source: draft.source, visibility: draft.visibility, label: draft.label, roll: draft.roll, total: draft.roll.total, rolledAt: draft.rolledAt, createdAt: draft.rolledAt };
+  return { seq: 0, authorUserId: me.userId, authorName: me.name, persName, avatarUrl: me.avatarUrl, source: draft.source, visibility: draft.visibility, label: hasValues ? draft.label : buildSecretRollLabel(draft.roll), roll: hasValues ? draft.roll : null, total: hasValues ? draft.roll.total : null, rolledAt: draft.rolledAt, createdAt: draft.rolledAt, target: null, saves: null, heroTarget: null };
 }
 
 export function flushGameRollOutbox(): Promise<void> {
@@ -103,10 +150,12 @@ export function retryGameRollOutbox(): () => void {
 
 function showSentRoll(item: QueuedGameRoll, event: Parameters<typeof addGameEvents>[1][number]) {
   addGameEvents(item.sessionId, [event]);
+  settleRollVerdict(item.draft.idempotencyKey, event);
 }
 
 function reportDroppedRoll(item: QueuedGameRoll, reason: "rejected" | "expired") {
   dropPendingRoll(item.draft.idempotencyKey);
+  clearRollVerdict(item.draft.idempotencyKey);
   captureGameEvent("game_roll_dropped", { reason });
   toast.error(reason === "expired" ? `Кидок «${item.draft.label}» не дійшов до кімнати — звʼязку не було 10 хвилин` : `Кімната не прийняла кидок «${item.draft.label}»`);
 }

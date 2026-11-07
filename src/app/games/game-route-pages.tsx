@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { GameJoinCard } from "@/components/games/GameJoinCard";
 import { GameRoomPage } from "@/components/games/GameRoomPage";
@@ -9,6 +10,7 @@ import { redirectKeepingNoAiMode } from "@/lib/no-ai/no-ai-server";
 import { getTargetEditionPath, type Edition } from "@/rules/route-helpers";
 import { findCurrentUserId } from "@/server/db/current-user";
 import { findGameSessionView, findInvite, listBindablePers, listGameSessionsForUser } from "@/server/db/game-sessions";
+import { RoomHeroSheet, RoomHeroSheetSkeleton } from "./room-hero-sheet";
 
 export const GAME_SESSIONS_METADATA: Metadata = { title: "Ігрові кімнати — ДнД українською", robots: { index: false } };
 export const GAME_ROOM_METADATA: Metadata = { title: "Ігрова кімната — ДнД українською", robots: { index: false } };
@@ -40,7 +42,12 @@ export async function buildGameRoomPage(params: Promise<{ id: string }>, edition
   });
   const view = await findGameSessionView(sessionId, userId);
   if (!view) notFound();
-  return <GameRoomPage initialView={view} bindablePers={bindablePers} />;
+  const heroSheet = view.myPersId === null ? null : (
+    <Suspense fallback={<RoomHeroSheetSkeleton />}>
+      <RoomHeroSheet persId={view.myPersId} />
+    </Suspense>
+  );
+  return <GameRoomPage initialView={view} bindablePers={bindablePers} heroSheet={heroSheet} />;
 }
 
 export async function buildGameJoinPage(params: Promise<{ token: string }>, edition: Edition) {

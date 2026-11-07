@@ -19,7 +19,7 @@ import { formatDiceUkr } from "@/lib/logic/equipment-stats";
 import { damageTypeTranslations, weaponTranslations } from "@/lib/refs/translation";
 import { WeaponMasteryInfoButton } from "./WeaponMasteryInfoButton";
 import { findAttacksPerAction } from "@/rules/attacks-per-action";
-import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { openRoomRoll } from "@/lib/components/game/open-room-roll";
 import { buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
 import { ExtraDiceMark } from "@/lib/components/dice/ExtraDiceMark";
 import AddWeaponDialog from "./AddWeaponDialog";
@@ -40,7 +40,6 @@ type Props = {
  * рядків: слайд і без цього перевалює за межу декомпозиції, а сама секція самодостатня.
  */
 export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props) {
-  const openRoll = useDiceUIStore((state) => state.openRoll);
 
   // Додаткова атака з кількох класів не складається — правило рахує максимум по виданих фічах.
   const attacksPerAction = findAttacksPerAction(
@@ -65,7 +64,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
     const rite = findWeaponCrimsonRite(pers, pw);
     const riteDie = rite ? [{ sides: Number(rite.dice.split("d")[1]), sign: 1 as const, label: rite.rite.name }] : [];
 
-    openRoll(
+    openRoomRoll(
       buildWeaponRollContext({
         weaponName,
         attackBonus: getAttackBonus(pw),
@@ -143,6 +142,15 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
           weaponRows.map((row) => {
             const pw = row.pw;
             const qty = row.kind === "group" ? row.count : 1;
+            const attackBonus = (
+              <span className="text-center">
+                <span className="block text-xl font-black leading-none text-slate-50">
+                  {formatModifier(getAttackBonus(pw))}
+                  <ExtraDiceMark dice={attackState.extraDice} className="ml-1 text-xs" />
+                </span>
+                <span className="mt-0.5 block text-xs text-slate-500">влучання</span>
+              </span>
+            );
             return (
             <div 
               key={row.kind === "group" ? `group-${pw.weaponId}` : pw.persWeaponId}
@@ -181,30 +189,22 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
               </div>
 
               <div className="flex items-center gap-3 sm:gap-4 ml-2">
-                {!isReadOnly && (
-                  <div className="flex items-center gap-1.5">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="h-8 w-8 text-slate-400 hover:bg-white/10 hover:text-slate-100"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        triggerWeaponRollMode(pw);
-                      }}
-                      title="Кинути кубики зброї"
-                    >
-                      <D20Icon className="h-4 w-4" />
-                    </Button>
-                  </div>
+                {isReadOnly ? (
+                  attackBonus
+                ) : (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      triggerWeaponRollMode(pw);
+                    }}
+                    aria-label={`Кинути атаку: ${findWeaponName(pw)} ${formatModifier(getAttackBonus(pw))}`}
+                    className="flex min-h-11 items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2.5 text-slate-400 transition-colors hover:bg-white/10 hover:text-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-arcane-300"
+                  >
+                    <D20Icon className="h-4 w-4" aria-hidden />
+                    {attackBonus}
+                  </button>
                 )}
-
-                <div className="text-center">
-                  <div className="text-xl font-black text-slate-50 leading-none">
-                    {formatModifier(getAttackBonus(pw))}
-                    <ExtraDiceMark dice={attackState.extraDice} className="ml-1 text-xs" />
-                  </div>
-                  <div className="text-[9px] uppercase font-bold text-slate-500 mt-0.5">влучання</div>
-                </div>
                 {!isReadOnly && <CrimsonRiteDialog pers={pers} pw={pw} weaponName={findWeaponName(pw)} />}
                 {!isReadOnly && (
                   <Button 

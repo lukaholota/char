@@ -8,7 +8,7 @@ import { MAX_ROLL_BODY_BYTES, parseGameRollDraft } from "@/server/game-sessions/
 export const dynamic = "force-dynamic";
 
 const PAGE_SIZE = 50;
-const FAILURE_STATUS = { not_found: 404, forbidden: 403, archived: 409, bad_pers: 422 } as Record<string, number>;
+const FAILURE_STATUS = { not_found: 404, forbidden: 403, archived: 409, bad_pers: 422, bad_target: 422 } as Record<string, number>;
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const member = await findMemberRequest((await params).id);

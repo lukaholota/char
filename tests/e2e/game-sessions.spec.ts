@@ -67,7 +67,7 @@ test("ведучий і гравець бачать спільний журна�
   await gm.getByRole("button", { name: "Створити" }).click();
   await gm.waitForURL(/\/games\/\d+$/);
   const sessionId = Number(new URL(gm.url()).pathname.split("/").at(-1));
-  await expect(gm.getByText("Ваші кидки йдуть у цю кімнату")).toBeVisible();
+  await expect(gm.getByRole("button", { name: "Кидки йдуть сюди" })).toBeVisible();
   const inviteLink = await gm.getByLabel("Посилання-запрошення").inputValue();
 
   await player.goto(new URL(inviteLink).pathname);
@@ -81,11 +81,13 @@ test("ведучий і гравець бачать спільний журна�
   expect((await postRoll(playerContext.request, sessionId, "Таємна Скритність", "SELF")).ok()).toBe(true);
   expect((await postRoll(playerContext.request, sessionId, "Перевірка для ведучого", "GM")).ok()).toBe(true);
 
+  await gm.getByRole("tablist", { name: "Бічна панель" }).getByRole("tab", { name: /Журнал/ }).click();
   const gmJournal = gm.getByRole("region", { name: "Журнал кидків" });
   await expect(gmJournal.getByText("Перевірка для ведучого", { exact: true })).toBeVisible();
   await expect(gmJournal.getByText("Атака сокирою", { exact: true })).toHaveCount(1);
   await expect(gmJournal.getByText("Таємна Скритність", { exact: true })).toHaveCount(0);
 
+  await player.getByRole("tablist", { name: "Розділи кімнати" }).getByRole("tab", { name: /Журнал/ }).tap();
   const playerJournal = player.getByRole("region", { name: "Журнал кидків" });
   await expect(playerJournal.getByText("Таємна Скритність", { exact: true })).toBeVisible();
   await expect(playerJournal.getByText("Перевірка для ведучого", { exact: true })).toBeVisible();
@@ -102,9 +104,10 @@ test("ведучий і гравець бачать спільний журна�
   const sheetBox = await sheet.boundingBox();
   expect(sheetBox && sheetBox.y + sheetBox.height).toBeLessThanOrEqual(player.viewportSize()!.height + 1);
 
+  await gm.getByRole("tablist", { name: "Бічна панель" }).getByRole("tab", { name: "Кімната" }).click();
   gm.once("dialog", (dialog) => void dialog.accept());
   await gm.getByRole("button", { name: /Заархівувати кімнату|В архів/ }).click();
-  await expect(gm.getByText("Кімната в архіві", { exact: false }).first()).toBeVisible();
+  await expect(gm.getByRole("button", { name: "Відновити кімнату" })).toBeVisible();
   expect((await postRoll(playerContext.request, sessionId, "Запізнілий кидок", "PUBLIC")).status()).toBe(409);
   await expect(player.getByText("Кімнату заархівовано — кидки знову лише у вас")).toBeVisible();
 

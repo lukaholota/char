@@ -30,6 +30,10 @@ export default defineConfig({
     env: {
       ...process.env,
       DATABASE_URL: testDatabaseUrl,
+      // .env.local несе ключі робочого R2: без підміни e2e-завантаження мап падали б у бакет сайту.
+      R2_MEDIA_ACCOUNT_ID: "e2e-no-media-store",
+      R2_MEDIA_SECRET_ACCESS_KEY: "e2e-no-media-store",
+      NEXT_PUBLIC_MEDIA_URL: `http://127.0.0.1:${PORT}`,
     },
   },
 });

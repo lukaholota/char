@@ -40,6 +40,8 @@ model User {
   resolvedContentReports ContentReport[]          @relation("ContentReportResolver")
   contentVotes           ContentVote[]
   gameRollEvents         GameRollEvent[]
+  gameSceneAreas         GameSceneArea[]
+  gameSceneTokens        GameSceneToken[]
   ownedGameSessions      GameSession[]
   gameSessionMembers     GameSessionMember[]
   homebrewEntries        HomebrewEntry[]
@@ -682,6 +684,7 @@ model Pers {
   passiveBonuses              Json?                    @map("passive_bonuses")
   sourceBuildId               String?                  @map("source_build_id")
   sourceBuildRevisionId       String?                  @map("source_build_revision_id")
+  gameCombatants              GameCombatant[]
   gameRollEvents              GameRollEvent[]
   gameSessionMembers          GameSessionMember[]
   background                  Background               @relation(fields: [backgroundId], references: [backgroundId])
@@ -1494,25 +1497,53 @@ model PersEffect {
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model GameCombatant {
+  id                Int              @id @default(autoincrement()) @map("game_combatant_id")
+  gameSessionId     Int              @map("game_session_id")
+  persId            Int?             @map("pers_id")
+  gameMapCreatureId Int?             @unique(map: "game_combatant_creature_key") @map("game_map_creature_id")
+  initiative        Int              @db.SmallInt
+  initiativeBonus   Int              @map("initiative_bonus") @db.SmallInt
+  sortTiebreak      Float            @default(dbgenerated("random()")) @map("sort_tiebreak") @db.Real
+  gameMapCreature   GameMapCreature? @relation(fields: [gameMapCreatureId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  gameSession       GameSession      @relation("GameSessionCombatants", fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  pers              Pers?            @relation(fields: [persId], references: [persId], onDelete: Cascade, onUpdate: NoAction)
+  currentInSessions GameSession[]    @relation("GameSessionCurrentCombatant")
+
+  @@unique([gameSessionId, persId], map: "game_combatant_session_pers_key")
+  @@index([gameSessionId], map: "game_combatant_session_idx")
+  @@map("game_combatant")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model GameRollEvent {
-  id             BigInt      @id @default(autoincrement()) @map("game_roll_event_id")
-  gameSessionId  Int         @map("game_session_id")
-  seq            BigInt
-  authorUserId   Int?        @map("author_user_id")
-  persId         Int?        @map("pers_id")
-  idempotencyKey String      @map("idempotency_key") @db.Uuid
-  visibility     String      @db.VarChar(8)
-  source         String      @db.VarChar(16)
-  authorName     String      @map("author_name") @db.VarChar(100)
-  persName       String?     @map("pers_name") @db.VarChar(100)
-  label          String      @db.VarChar(120)
-  roll           Json
-  total          Int
-  rolledAt       DateTime    @map("rolled_at") @db.Timestamptz(6)
-  createdAt      DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
-  author         User?       @relation(fields: [authorUserId], references: [id], onUpdate: NoAction)
-  gameSession    GameSession @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  pers           Pers?       @relation(fields: [persId], references: [persId], onUpdate: NoAction)
+  id               BigInt           @id @default(autoincrement()) @map("game_roll_event_id")
+  gameSessionId    Int              @map("game_session_id")
+  seq              BigInt
+  authorUserId     Int?             @map("author_user_id")
+  persId           Int?             @map("pers_id")
+  idempotencyKey   String           @map("idempotency_key") @db.Uuid
+  visibility       String           @db.VarChar(8)
+  source           String           @db.VarChar(16)
+  authorName       String           @map("author_name") @db.VarChar(100)
+  persName         String?          @map("pers_name") @db.VarChar(100)
+  label            String           @db.VarChar(120)
+  roll             Json
+  total            Int
+  rolledAt         DateTime         @map("rolled_at") @db.Timestamptz(6)
+  createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  targetCreatureId Int?             @map("target_creature_id")
+  targetName       String?          @map("target_name") @db.VarChar(80)
+  rollKind         String?          @map("roll_kind") @db.VarChar(8)
+  targetAc         Int?             @map("target_ac") @db.SmallInt
+  isHit            Boolean?         @map("is_hit")
+  hpBefore         Int?             @map("hp_before") @db.SmallInt
+  hpChange         Int?             @map("hp_change") @db.SmallInt
+  hpChangeUndone   Boolean          @default(false) @map("hp_change_undone")
+  author           User?            @relation(fields: [authorUserId], references: [id], onUpdate: NoAction)
+  gameSession      GameSession      @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  pers             Pers?            @relation(fields: [persId], references: [persId], onUpdate: NoAction)
+  targetCreature   GameMapCreature? @relation(fields: [targetCreatureId], references: [id], onUpdate: NoAction)
 
   @@unique([gameSessionId, authorUserId, idempotencyKey])
   @@unique([gameSessionId, seq])
@@ -1520,20 +1551,28 @@ model GameRollEvent {
 }
 
 model GameSession {
-  id               Int                 @id @default(autoincrement()) @map("game_session_id")
-  ownerUserId      Int                 @map("owner_user_id")
-  name             String              @db.VarChar(80)
-  inviteToken      String?             @unique @map("invite_token") @db.VarChar(64)
-  lastEventSeq     BigInt              @default(0) @map("last_event_seq")
-  archivedAt       DateTime?           @map("archived_at") @db.Timestamptz(6)
-  createdAt        DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt        DateTime            @default(now()) @map("updated_at") @db.Timestamptz(6)
-  mapImageKey      String?             @map("map_image_key") @db.VarChar(200)
-  creatureNameMode String              @default("short") @map("creature_name_mode") @db.VarChar(8)
-  mapCreatures     GameMapCreature[]
-  rollEvents       GameRollEvent[]
-  owner            User                @relation(fields: [ownerUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  members          GameSessionMember[]
+  id                       Int                 @id @default(autoincrement()) @map("game_session_id")
+  ownerUserId              Int                 @map("owner_user_id")
+  name                     String              @db.VarChar(80)
+  inviteToken              String?             @unique @map("invite_token") @db.VarChar(64)
+  lastEventSeq             BigInt              @default(0) @map("last_event_seq")
+  archivedAt               DateTime?           @map("archived_at") @db.Timestamptz(6)
+  createdAt                DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                DateTime            @default(now()) @map("updated_at") @db.Timestamptz(6)
+  map_image_key            String?             @db.VarChar(200)
+  creatureNameMode         String              @default("short") @map("creature_name_mode") @db.VarChar(8)
+  combatRound              Int?                @map("combat_round") @db.SmallInt
+  combatTurn               Int?                @map("combat_turn") @db.SmallInt
+  combatCurrentCombatantId Int?                @map("combat_current_combatant_id")
+  activeSceneId            Int?                @map("active_scene_id")
+  combatants               GameCombatant[]     @relation("GameSessionCombatants")
+  mapCreatures             GameMapCreature[]
+  rollEvents               GameRollEvent[]
+  scenes                   GameScene[]         @relation("GameSceneSession")
+  activeScene              GameScene?          @relation("GameSessionActiveScene", fields: [activeSceneId], references: [id], onUpdate: NoAction)
+  combatCurrentCombatant   GameCombatant?      @relation("GameSessionCurrentCombatant", fields: [combatCurrentCombatantId], references: [id], onUpdate: NoAction)
+  owner                    User                @relation(fields: [ownerUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  members                  GameSessionMember[]
 
   @@index([ownerUserId], map: "game_session_owner_idx")
   @@map("game_session")
@@ -1541,18 +1580,22 @@ model GameSession {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model GameSessionMember {
-  id            Int         @id @default(autoincrement()) @map("game_session_member_id")
-  gameSessionId Int         @map("game_session_id")
-  userId        Int         @map("user_id")
-  role          String      @db.VarChar(8)
-  persId        Int?        @map("pers_id")
-  joinedAt      DateTime    @default(now()) @map("joined_at") @db.Timestamptz(6)
-  lastSeenAt    DateTime?   @map("last_seen_at") @db.Timestamptz(6)
-  tokenX        Float?      @map("token_x") @db.Real
-  tokenY        Float?      @map("token_y") @db.Real
-  gameSession   GameSession @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  pers          Pers?       @relation(fields: [persId], references: [persId], onUpdate: NoAction)
-  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id              Int         @id @default(autoincrement()) @map("game_session_member_id")
+  gameSessionId   Int         @map("game_session_id")
+  userId          Int         @map("user_id")
+  role            String      @db.VarChar(8)
+  persId          Int?        @map("pers_id")
+  joinedAt        DateTime    @default(now()) @map("joined_at") @db.Timestamptz(6)
+  lastSeenAt      DateTime?   @map("last_seen_at") @db.Timestamptz(6)
+  token_x         Float?      @db.Real
+  token_y         Float?      @db.Real
+  conditions      String[]    @default([])
+  exhaustionLevel Int         @default(0) @map("exhaustion_level") @db.SmallInt
+  openSceneId     Int?        @map("open_scene_id")
+  gameSession     GameSession @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  openScene       GameScene?  @relation("GameSceneOpenedBy", fields: [openSceneId], references: [id], onUpdate: NoAction)
+  pers            Pers?       @relation(fields: [persId], references: [persId], onUpdate: NoAction)
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([gameSessionId, userId])
   @@index([userId], map: "game_session_member_user_idx")
@@ -1562,21 +1605,83 @@ model GameSessionMember {
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model GameMapCreature {
-  id            Int         @id @default(autoincrement()) @map("game_map_creature_id")
-  gameSessionId Int         @map("game_session_id")
-  creatureKey   String      @map("creature_key") @db.VarChar(120)
-  ruleset       Ruleset
-  number        Int         @db.SmallInt
-  isAlly        Boolean     @default(false) @map("is_ally")
-  tokenX        Float?      @map("token_x") @db.Real
-  tokenY        Float?      @map("token_y") @db.Real
-  createdAt     DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
-  customName    String?     @map("custom_name") @db.VarChar(40)
-  tokenSize     String?     @map("token_size") @db.VarChar(10)
-  gameSession   GameSession @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id              Int             @id @default(autoincrement()) @map("game_map_creature_id")
+  gameSessionId   Int             @map("game_session_id")
+  creatureKey     String          @map("creature_key") @db.VarChar(120)
+  ruleset         Ruleset
+  number          Int             @db.SmallInt
+  isAlly          Boolean         @default(false) @map("is_ally")
+  tokenX          Float?          @map("token_x") @db.Real
+  tokenY          Float?          @map("token_y") @db.Real
+  createdAt       DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+  customName      String?         @map("custom_name") @db.VarChar(40)
+  tokenSize       String?         @map("token_size") @db.VarChar(10)
+  hpMax           Int?            @map("hp_max") @db.SmallInt
+  hpCurrent       Int?            @map("hp_current") @db.SmallInt
+  conditions      String[]        @default([])
+  exhaustionLevel Int             @default(0) @map("exhaustion_level") @db.SmallInt
+  gameSceneId     Int?            @map("game_scene_id")
+  combatant       GameCombatant?
+  scene           GameScene?      @relation(fields: [gameSceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  gameSession     GameSession     @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  rollEvents      GameRollEvent[]
 
   @@index([gameSessionId], map: "game_map_creature_session_idx")
+  @@index([gameSceneId], map: "game_map_creature_scene_idx")
   @@map("game_map_creature")
+}
+
+model GameScene {
+  id            Int                 @id @default(autoincrement()) @map("game_scene_id")
+  sessionId     Int                 @map("game_session_id")
+  name          String              @db.VarChar(60)
+  mapImageKey   String?             @map("map_image_key") @db.VarChar(200)
+  createdAt     DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  gridColumns   Float?              @map("grid_columns") @db.Real
+  gridOffsetX   Float               @default(0) @map("grid_offset_x") @db.Real
+  gridOffsetY   Float               @default(0) @map("grid_offset_y") @db.Real
+  isGridVisible Boolean             @default(true) @map("is_grid_visible")
+  fog           Json?
+  gridOpacity   Float               @default(0.35) @map("grid_opacity") @db.Real
+  mapCreatures  GameMapCreature[]
+  session       GameSession         @relation("GameSceneSession", fields: [sessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  areas         GameSceneArea[]
+  heroTokens    GameSceneToken[]
+  activeIn      GameSession[]       @relation("GameSessionActiveScene")
+  openedBy      GameSessionMember[] @relation("GameSceneOpenedBy")
+
+  @@index([sessionId], map: "game_scene_session_idx")
+  @@map("game_scene")
+}
+
+model GameSceneArea {
+  id        Int       @id @default(autoincrement()) @map("game_scene_area_id")
+  sceneId   Int       @map("game_scene_id")
+  userId    Int       @map("user_id")
+  shape     String    @db.VarChar(8)
+  sizeFeet  Int       @map("size_feet") @db.SmallInt
+  originX   Float     @map("origin_x") @db.Real
+  originY   Float     @map("origin_y") @db.Real
+  angle     Float     @default(0) @db.Real
+  label     String?   @db.VarChar(80)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  scene     GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([sceneId], map: "game_scene_area_scene_idx")
+  @@map("game_scene_area")
+}
+
+model GameSceneToken {
+  sceneId Int       @map("game_scene_id")
+  userId  Int       @map("user_id")
+  tokenX  Float     @map("token_x") @db.Real
+  tokenY  Float     @map("token_y") @db.Real
+  scene   GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user    User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([sceneId, userId])
+  @@map("game_scene_token")
 }
 
 enum AOEShapes {

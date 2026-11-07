@@ -33,6 +33,8 @@ export type SpellRollPlan = {
   save: AbilityKey | null;
   rollsLater: boolean;
   pieces: { label: string; count: number } | null;
+  /// Дротики Чарівної стріли кидаються однією сумою, але цілей може бути стільки, скільки дротиків.
+  darts?: number;
   rolls: SpellRoll[];
 };
 
@@ -43,6 +45,8 @@ const MAX_SPELL_LEVEL = 3;
 const cantrip = (count: number, sides: number): DiceSpec => ({ label: "Шкода", count, sides });
 const damage = (count: number, sides: number, perSlot = 1): DiceSpec => ({ label: "Шкода", count, sides, perSlot });
 const healing = (count: number, sides: number): DiceSpec => ({ label: "Лікування", count, sides, addsModifier: true, perSlot: 1 });
+/// Один кидок лікує кожного з цілей: окремий підпис, щоб мапа не просила обрати одного героя.
+const groupHealing = (spec: DiceSpec): DiceSpec => ({ ...spec, label: "Лікування кожного" });
 
 const SPELL_DICE_2014: Readonly<Record<string, SpellDice>> = {
   "Acid Splash": { save: "DEX", rolls: [cantrip(1, 6)] },
@@ -121,7 +125,7 @@ const SPELL_DICE_2014: Readonly<Record<string, SpellDice>> = {
   "Mind Spike": { save: "WIS", rolls: [damage(3, 8)] },
   "Moonbeam": { save: "CON", rollsLater: true, rolls: [damage(2, 10)] },
   "Phantasmal Force": { save: "INT", rollsLater: true, rolls: [damage(1, 6, 0)] },
-  "Prayer of Healing": { rolls: [healing(2, 8)] },
+  "Prayer of Healing": { rolls: [groupHealing(healing(2, 8))] },
   "Rime's Binding Ice": { save: "CON", rolls: [damage(3, 8)] },
   "Scorching Ray": { attack: true, pieces: { label: "Променів", count: 3, perSlot: 1 }, rolls: [damage(2, 6, 0)] },
   "Shadow Blade": { rollsLater: true, rolls: [{ ...damage(2, 8, 0), countFromSlot: { 3: 3, 5: 4, 7: 5 } }] },
@@ -150,7 +154,7 @@ const SPELL_DICE_2014: Readonly<Record<string, SpellDice>> = {
   "Life Transference": { rolls: [{ label: "Шкода вам", count: 4, sides: 8, perSlot: 1 }] },
   "Lightning Arrow": { save: "DEX", rollsLater: true, rolls: [{ label: "Ціль", count: 4, sides: 8, perSlot: 1 }, { label: "Поруч", count: 2, sides: 8, perSlot: 1 }] },
   "Lightning Bolt": { save: "DEX", rolls: [damage(8, 6)] },
-  "Mass Healing Word": { rolls: [healing(1, 4)] },
+  "Mass Healing Word": { rolls: [groupHealing(healing(1, 4))] },
   "Melf's Minute Meteors": { save: "DEX", rollsLater: true, pieces: { label: "Метеорів", count: 6, perSlot: 2 }, rolls: [damage(2, 6, 0)] },
   "Pulse Wave": { save: "CON", rolls: [damage(6, 6)] },
   "Spirit Guardians": { save: "WIS", rollsLater: true, rolls: [damage(3, 8)] },
@@ -196,7 +200,7 @@ const SPELL_DICE_2024: Readonly<Record<string, SpellDice>> = {
   "Cordon of Arrows": { save: "DEX", rollsLater: true, rolls: [damage(2, 4, 0)] },
   "Flame Blade": { attack: true, rollsLater: true, rolls: [{ ...damage(3, 6), addsModifier: true }] },
   "Phantasmal Force": { save: "INT", rollsLater: true, rolls: [damage(2, 8, 0)] },
-  "Prayer of Healing": { rolls: [{ label: "Лікування", count: 2, sides: 8, perSlot: 1 }] },
+  "Prayer of Healing": { rolls: [groupHealing({ label: "Лікування", count: 2, sides: 8, perSlot: 1 })] },
   "Shining Smite": { rolls: [damage(2, 6)] },
   "Spiritual Weapon": { attack: true, rolls: [{ ...damage(1, 8), addsModifier: true }] },
 
@@ -204,7 +208,7 @@ const SPELL_DICE_2024: Readonly<Record<string, SpellDice>> = {
   "Hunger of Hadar": { save: "DEX", rollsLater: true, rolls: [{ label: "Холод", count: 2, sides: 6, perSlot: 1 }, { label: "Кислота", count: 2, sides: 6 }] },
   "Conjure Animals": { save: "DEX", rollsLater: true, rolls: [damage(3, 10)] },
   "Conjure Barrage": { save: "DEX", rolls: [damage(5, 8)] },
-  "Mass Healing Word": { rolls: [healing(2, 4)] },
+  "Mass Healing Word": { rolls: [groupHealing(healing(2, 4))] },
   "Wind Wall": { save: "STR", rolls: [damage(4, 8, 0)] },
 };
 
@@ -228,6 +232,7 @@ export function planSpellRolls(dice: SpellDice, input: SpellRollInput): SpellRol
     save: dice.save ?? null,
     rollsLater: Boolean(dice.rollsLater),
     pieces: dice.pieces && !dice.pieces.isSummed ? { label: dice.pieces.label, count: pieces ?? 0 } : null,
+    ...(dice.pieces?.isSummed && pieces ? { darts: pieces } : {}),
     rolls,
   };
 }

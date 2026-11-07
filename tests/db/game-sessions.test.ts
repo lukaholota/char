@@ -161,9 +161,45 @@ describe("журнал кидків", () => {
       );
       const after = await listEventsAfter(sessionId, { userId: viewer.id, isGm }, 0, 100);
       const before = await listEventsBefore(sessionId, { userId: viewer.id, isGm }, null, 100);
-      expect(after.map((event) => event.label)).toEqual(expected);
-      expect(before.events.map((event) => event.label)).toEqual(expected);
+      expect(after.map((event) => `${event.authorUserId}:${event.visibility}`)).toEqual(expected);
+      expect(before.events.map((event) => `${event.authorUserId}:${event.visibility}`)).toEqual(expected);
     }
+  });
+
+  it("секретний кидок: майстер бачить усе, автор — лише формулу без значень, інші — нічого, у кожному шляху читання", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const other = await createUser("other");
+    await joinGameSessionByToken((await findGameSessionView(sessionId, gm.id))!.inviteToken!, other.id);
+    const draft = buildDraft({ visibility: "SECRET", label: "1к20", roll: { ...d20Roll, d20Mode: null, bonus: 0, total: 12 } });
+    const inserted = await insertGameRollEvent(sessionId, player.id, draft);
+    const replayed = await insertGameRollEvent(sessionId, player.id, draft);
+    const redacted = { visibility: "SECRET", label: "Секретний кидок · 1к20", roll: null, total: null };
+    expect(inserted.ok && inserted.value).toMatchObject(redacted);
+    expect(replayed.ok && replayed.value).toMatchObject(redacted);
+
+    const asAuthor = { userId: player.id, isGm: false };
+    const authorPages = [await listEventsAfter(sessionId, asAuthor, 0, 10), (await listEventsBefore(sessionId, asAuthor, null, 10)).events];
+    for (const events of authorPages) {
+      expect(events).toHaveLength(1);
+      expect(events[0]).toMatchObject(redacted);
+      expect(JSON.stringify(events)).not.toContain("values");
+    }
+    const abort = new AbortController();
+    const reader = readStreamEvents(openGameSessionStream({ sessionId, userId: player.id, afterSeq: null, abortSignal: abort.signal }));
+    await reader.next("session");
+    expect(await reader.next("roll")).toMatchObject(redacted);
+    abort.abort();
+
+    const [forGm] = await listEventsAfter(sessionId, { userId: gm.id, isGm: true }, 0, 10);
+    expect(forGm).toMatchObject({ visibility: "SECRET", label: "1к20", total: 12, roll: { groups: [{ sides: 20, values: [12] }] } });
+    expect(await listEventsAfter(sessionId, { userId: other.id, isGm: false }, 0, 10)).toEqual([]);
+    expect((await listEventsBefore(sessionId, { userId: other.id, isGm: false }, null, 10)).events).toEqual([]);
+  });
+
+  it("майстер, що кидає секретно, бачить власний кидок повністю", async () => {
+    const { gm, sessionId } = await createTable();
+    const inserted = await insertGameRollEvent(sessionId, gm.id, buildDraft({ visibility: "SECRET", label: "Прихований" }));
+    expect(inserted.ok && inserted.value).toMatchObject({ label: "Прихований", total: 15 });
   });
 
   it("сторінки старших подій ідуть без пропусків і кажуть, чи є ще", async () => {

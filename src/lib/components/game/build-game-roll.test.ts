@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buildCreatureActionRollContext, buildD20Action, buildRollOutcome, buildSpellRollContext, buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
 import { findGameRollProblem } from "@/rules/game-roll";
-import { buildActionGameRoll, buildFreeGameRoll, takeDiceToPublish } from "./build-game-roll";
+import { buildActionGameRoll, buildFreeGameRoll, canRollTakeTarget, findActionRollKind, takeDiceToPublish } from "./build-game-roll";
 
 function rollAction(context: ReturnType<typeof buildWeaponRollContext>, actionIndex: number, d20Mode: "NORMAL" | "ADVANTAGE" | "DISADVANTAGE", values: number[]) {
   const action = context.actions[actionIndex];
@@ -104,5 +104,45 @@ describe("шкода заклинання в журналі", () => {
     expect(published).toMatchObject({ label: "Вогняна куля · Шкода · ряткидок Спритності СК 15", isFromSheet: true });
     expect(published.roll).toMatchObject({ groups: [{ sides: 6, values: [1, 2, 3, 4, 5, 6, 1, 2, 3] }], total: 27 });
     expect(findGameRollProblem(published.roll)).toBeNull();
+  });
+});
+
+describe("шкода заклинання з ряткидком", () => {
+  const fireballPlan = { attack: false, save: "DEX" as const, rollsLater: false, pieces: null, rolls: [{ key: "damage", label: "Шкода", count: 8, sides: 6, bonus: 0 }] };
+  const spell = { engName: "Fireball", level: 3, ruleset: "RULES_2014" as const };
+  const fireball = buildSpellRollContext({ spellName: "Вогняна куля", plan: fireballPlan, attackBonus: 5, saveDC: 15, spell });
+  const rollFireball = (context: typeof fireball) => {
+    const outcome = buildRollOutcome({ actionKey: "damage", label: "Шкода", bonus: 0, d20Mode: null, mainDiceCount: 8, extraDice: [] }, [1, 2, 3, 4, 5, 6, 1, 2]);
+    return buildActionGameRoll({ context, action: context.actions[0], d20Mode: "NORMAL" }, outcome);
+  };
+
+  it("несе заклинання й СК, щоб кімната кинула ряткидки цілей, і зону, якщо її наклали", () => {
+    const targets = { creatureIds: [3, 4], persIds: [7] };
+    expect(rollFireball(fireball)).toMatchObject({ kind: "damage", save: { spell, dc: 15 } });
+    expect(rollFireball(fireball).areaTargets).toBeUndefined();
+    expect(rollFireball({ ...fireball, areaTargets: targets }).areaTargets).toEqual(targets);
+  });
+
+  it("заклинання без шкоди з ряткидком лишається звичайною шкодою", () => {
+    const sleep = buildSpellRollContext({ spellName: "Сон", plan: fireballPlan, attackBonus: 5, saveDC: 15, spell: { ...spell, engName: "Sleep" } });
+    const targets = { creatureIds: [3], persIds: [] };
+    expect(rollFireball({ ...sleep, areaTargets: targets })).not.toHaveProperty("save");
+    expect(rollFireball({ ...sleep, areaTargets: targets })).not.toHaveProperty("areaTargets");
+  });
+});
+
+describe("canRollTakeTarget", () => {
+  const healingWord = buildSpellRollContext({
+    spellName: "Цілюще слово",
+    plan: { attack: false, save: null, rollsLater: false, pieces: null, rolls: [{ key: "spell-0", label: "Лікування", count: 1, sides: 4, bonus: 3 }] },
+    attackBonus: 5,
+    saveDC: 13,
+  });
+
+  it("лікування не бере ціль, атака зброєю й шкода — беруть", () => {
+    expect(canRollTakeTarget(healingWord)).toBe(false);
+    expect(findActionRollKind(healingWord, healingWord.actions[0])).toBe("heal");
+    expect(findActionRollKind({ isCreatureRoll: true }, { ...healingWord.actions[0] })).toBeNull();
+    expect(canRollTakeTarget(buildWeaponRollContext({ weaponName: "Лук", attackBonus: 5, damageBonus: 3, damageDice: "1d8" }))).toBe(true);
   });
 });

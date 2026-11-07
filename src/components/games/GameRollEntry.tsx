@@ -7,12 +7,15 @@ import { findNaturalD20, type GameRoll } from "@/rules/game-roll";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameSessionMemberView } from "@/server/db/game-sessions";
 import { GameAvatar } from "./GameAvatar";
+import { GameRollHeroTargetLine } from "./GameRollHeroTargetLine";
+import { GameRollSavesList } from "./GameRollSavesList";
+import { GameRollTargetLine } from "./GameRollTargetLine";
 
 const LATE_AFTER_MS = 30_000;
 const TIME_FORMAT = new Intl.DateTimeFormat("uk-UA", { hour: "2-digit", minute: "2-digit" });
 
 export function GameRollEntry({ event, isMine, isNew }: { event: GameRollEventView; isMine: boolean; isNew: boolean }) {
-  const natural = findNaturalD20(event.roll);
+  const natural = event.roll ? findNaturalD20(event.roll) : null;
   return (
     <li className={cn("rounded-xl border px-3 py-2", isNew && "game-entry-in", natural === "NAT_20" ? "border-emerald-400/40 bg-emerald-500/10" : natural === "NAT_1" ? "border-rose-400/40 bg-rose-500/10" : "border-white/10 bg-slate-900/50")}>
       <div className="flex items-start gap-3">
@@ -20,12 +23,15 @@ export function GameRollEntry({ event, isMine, isNew }: { event: GameRollEventVi
         <div className="min-w-0 flex-1">
           <EntryAuthor event={event} isMine={isMine} />
           <div className="break-words text-sm font-semibold text-slate-100">{event.label}</div>
-          <RollDetails roll={event.roll} />
+          {event.roll ? <RollDetails roll={event.roll} /> : null}
+          {event.target ? <GameRollTargetLine target={event.target} seq={event.seq} /> : null}
+          {event.saves ? <GameRollSavesList saves={event.saves} seq={event.seq} /> : null}
+          {event.heroTarget ? <GameRollHeroTargetLine target={event.heroTarget} roll={event.roll} total={event.total} seq={event.seq} /> : null}
         </div>
         <div className="shrink-0 text-right">
-          <div className="text-2xl font-bold tabular-nums text-slate-50" aria-label={`Разом ${event.total}`}>{event.total}</div>
+          <div className="text-2xl font-bold tabular-nums text-slate-50" aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>
           {natural ? <div className={cn("text-xs font-semibold", natural === "NAT_20" ? "text-emerald-200" : "text-rose-200")}>{natural === "NAT_20" ? "Природна 20" : "Природна 1"}</div> : null}
-          {event.roll.check ? <CheckMark check={event.roll.check} /> : null}
+          {event.roll?.check ? <CheckMark check={event.roll.check} /> : null}
         </div>
       </div>
     </li>
@@ -57,13 +63,19 @@ function EntryAuthor({ event, isMine }: { event: GameRollEventView; isMine: bool
   );
 }
 
+const VISIBILITY_MARKS = {
+  GM: { Icon: EyeOff, text: "Майстру" },
+  SECRET: { Icon: Lock, text: "Лише майстру" },
+  SELF: { Icon: Lock, text: "Лише мені" },
+} as const;
+
 function VisibilityMark({ visibility }: { visibility: GameRollEventView["visibility"] }) {
   if (visibility === "PUBLIC") return null;
-  const Icon = visibility === "GM" ? EyeOff : Lock;
+  const { Icon, text } = VISIBILITY_MARKS[visibility];
   return (
     <span className="inline-flex items-center gap-1 rounded-md border border-white/10 px-1.5 text-slate-300">
       <Icon className="h-3 w-3" aria-hidden />
-      {visibility === "GM" ? "Майстру" : "Лише мені"}
+      {text}
     </span>
   );
 }

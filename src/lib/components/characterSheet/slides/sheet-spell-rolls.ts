@@ -28,7 +28,9 @@ export function buildSheetSpellRoll(input: {
   const spell = persSpell.spell;
   if (!spell || spellId === null || isHomebrewCatalogId(spellId)) return null;
   const spellLevel = Number(spell.level ?? 0);
-  const dice = findSpellDice({ engName: String(spell.engName ?? ""), level: spellLevel, ruleset: String(spell.ruleset ?? pers.ruleset) });
+  const ruleset = spell.ruleset === "RULES_2024" || (!spell.ruleset && pers.ruleset === "RULES_2024") ? "RULES_2024" : "RULES_2014";
+  const engName = String(spell.engName ?? "");
+  const dice = findSpellDice({ engName, level: spellLevel, ruleset });
   if (!dice) return null;
   const row = findStatRow(input.statRows, persSpell.badgeText);
   const plan = planSpellRolls(dice, {
@@ -44,6 +46,7 @@ export function buildSheetSpellRoll(input: {
     attackBonus: row?.attackBonus ?? 0,
     saveDC: row?.saveDC ?? 0,
     attackState: input.attackState,
+    spell: { engName, level: spellLevel, ruleset },
   });
 }
 

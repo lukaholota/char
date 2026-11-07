@@ -1,11 +1,12 @@
 import sharp from "sharp";
 
-const MAX_INPUT_PIXELS = 40_000_000;
+export const MAX_INPUT_PIXELS = 40_000_000;
 const FULL_SIZE = 512;
 const THUMBNAIL_SIZE = 96;
 const WEBP_QUALITY = 80;
 const SCREENSHOT_EDGE = 1600;
 const SCREENSHOT_WEBP_QUALITY = 72;
+const MAP_THUMBNAIL_EDGE = 320;
 const PRINT_JPEG_QUALITY = 88;
 
 export type ProcessedImage = { full: Uint8Array; thumbnail: Uint8Array };
@@ -36,6 +37,12 @@ export function buildScreenshotWebp(bytes: Uint8Array): Promise<Uint8Array> {
   return job;
 }
 
+export function buildMapThumbnailWebp(bytes: Uint8Array): Promise<Uint8Array> {
+  const job = processingQueue.then(() => encodeMapThumbnailWebp(bytes));
+  processingQueue = job.catch(() => undefined);
+  return job;
+}
+
 export function buildPrintJpeg(bytes: Uint8Array): Promise<Uint8Array> {
   const job = processingQueue.then(() => encodePrintJpeg(bytes));
   processingQueue = job.catch(() => undefined);
@@ -54,6 +61,15 @@ async function encodeScreenshotWebp(bytes: Uint8Array): Promise<Uint8Array> {
   const encoded = await sharp(bytes, { limitInputPixels: MAX_INPUT_PIXELS, failOn: "error" })
     .rotate()
     .resize(SCREENSHOT_EDGE, SCREENSHOT_EDGE, { fit: "inside", withoutEnlargement: true })
+    .webp({ quality: SCREENSHOT_WEBP_QUALITY })
+    .toBuffer();
+  return new Uint8Array(encoded);
+}
+
+async function encodeMapThumbnailWebp(bytes: Uint8Array): Promise<Uint8Array> {
+  const encoded = await sharp(bytes, { limitInputPixels: MAX_INPUT_PIXELS, failOn: "error" })
+    .rotate()
+    .resize(MAP_THUMBNAIL_EDGE, MAP_THUMBNAIL_EDGE, { fit: "inside", withoutEnlargement: true })
     .webp({ quality: SCREENSHOT_WEBP_QUALITY })
     .toBuffer();
   return new Uint8Array(encoded);

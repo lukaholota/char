@@ -1,6 +1,6 @@
 import { pickD20Value, type D20Mode } from "./dice-roll";
 
-export const GAME_ROLL_VISIBILITIES = ["PUBLIC", "GM", "SELF"] as const;
+export const GAME_ROLL_VISIBILITIES = ["PUBLIC", "GM", "SELF", "SECRET"] as const;
 export type GameRollVisibility = (typeof GAME_ROLL_VISIBILITIES)[number];
 
 export const GAME_ROLL_SOURCES = ["CHARACTER", "FREE"] as const;
@@ -39,7 +39,15 @@ export function findNaturalD20(roll: Pick<GameRoll, "d20Mode" | "groups">): "NAT
 
 export function canSeeGameRoll(visibility: GameRollVisibility, viewer: { isAuthor: boolean; isGm: boolean }): boolean {
   if (viewer.isAuthor || visibility === "PUBLIC") return true;
-  return visibility === "GM" && viewer.isGm;
+  return (visibility === "GM" || visibility === "SECRET") && viewer.isGm;
+}
+
+export function canSeeGameRollValues(visibility: GameRollVisibility, viewer: { isGm: boolean }): boolean {
+  return visibility !== "SECRET" || viewer.isGm;
+}
+
+export function buildSecretRollLabel(roll: Pick<GameRoll, "groups">): string {
+  return `Секретний кидок · ${roll.groups.map((group) => `${group.values.length}к${group.sides}`).join(" + ")}`;
 }
 
 export function isGameRollVisibility(value: unknown): value is GameRollVisibility {

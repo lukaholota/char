@@ -1,6 +1,9 @@
 import type { DiceRollAction, DiceRollContext, ExtraDie, RollStateView } from "@/lib/stores/diceUIStore";
+import type { SaveSpellRef } from "@/rules/game-roll-saves";
 import { parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
+import type { CreatureAreaAction } from "@/rules/creature-area-action";
 import type { CreatureRoll } from "@/rules/creature-rolls";
+import { AREA_SHAPE_LABELS } from "@/rules/game-areas";
 import type { SpellRollPlan } from "@/rules/spell-dice";
 import type { AbilityKey } from "@/rules/types";
 
@@ -81,6 +84,7 @@ export function buildSpellRollContext(input: {
   attackBonus: number;
   saveDC: number;
   attackState?: RollStateView;
+  spell?: SaveSpellRef;
 }): DiceRollContext {
   const { plan } = input;
   const actions = [
@@ -88,12 +92,14 @@ export function buildSpellRollContext(input: {
     ...plan.rolls.map((roll): DiceRollAction => ({ key: roll.key, label: roll.label, count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false })),
   ];
   const pieces = plan.pieces ? `${plan.pieces.label}: ${plan.pieces.count}` : null;
+  const targetPicks = plan.pieces ? { count: plan.pieces.count, isSummed: false } : plan.darts ? { count: plan.darts, isSummed: true } : null;
   return {
     title: input.spellName,
     subtitle: [input.slotLabel, pieces].filter(Boolean).join(" · ") || undefined,
     actions,
     autoRollKey: plan.rollsLater ? undefined : actions[0]?.key,
-    targetSave: plan.save ? { abilityName: ABILITY_GENITIVE[plan.save], dc: input.saveDC } : undefined,
+    targetSave: plan.save ? { abilityName: ABILITY_GENITIVE[plan.save], dc: input.saveDC, ...(input.spell ? { spell: input.spell } : {}) } : undefined,
+    ...(targetPicks && targetPicks.count > 1 ? { targetPicks } : {}),
   };
 }
 
@@ -104,14 +110,19 @@ export function describeTargetSave(save: NonNullable<DiceRollContext["targetSave
 const MAX_CREATURE_ACTIONS = 4;
 
 /// Абзац з купою кубиків (опис чаротворення) не влазить у ряд кнопок — тоді в панелі лише натиснутий.
-export function buildCreatureActionRollContext(input: { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number }): DiceRollContext {
+/// Дія з областю й ряткидком (подих) несе їх у кидок: шкода по зоні кидає ряткидки всіх, хто в ній.
+export function buildCreatureActionRollContext(input: { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; area?: CreatureAreaAction }): DiceRollContext {
   const indexes = input.rolls.length <= MAX_CREATURE_ACTIONS ? input.rolls.map((_, index) => index) : [input.index];
+  const { area } = input;
+  const isAreaDamage = area !== undefined && input.rolls[input.index]?.kind === "damage";
   return {
     title: input.creatureName,
     subtitle: input.actionName || undefined,
     actions: indexes.map((index) => buildCreatureAction(`roll-${index}`, input.rolls[index])),
     autoRollKey: `roll-${input.index}`,
     isCreatureRoll: true,
+    ...(area ? { targetSave: { abilityName: ABILITY_GENITIVE[area.ability], dc: area.dc, effect: { ability: area.ability, damageType: area.damageType, isHalfOnSave: area.isHalfOnSave } } } : {}),
+    ...(isAreaDamage ? { targetArea: { label: input.actionName || AREA_SHAPE_LABELS[area.shape], shape: area.shape, sizeFeet: area.sizeFeet } } : {}),
   };
 }
 

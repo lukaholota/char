@@ -19,14 +19,16 @@ import {
   createGameSession,
   findGameSessionView,
   joinGameSessionByToken,
-  moveGameToken,
   setGameSessionArchived,
-  setGameSessionMap,
 } from "@/server/db/game-sessions";
-import { addMapCreatures, moveMapCreature, removeMapCreatures, setCreatureNameMode, setMapCreatureSize } from "@/server/db/game-map-creatures";
+import { moveGameToken } from "@/server/db/game-scenes";
+import { setActiveSceneMap } from "./game-scene-setup";
+import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureSize } from "@/server/db/game-map-creatures";
 import { openGameSessionStream } from "@/server/game-sessions/game-session-stream";
 
 vi.setConfig({ testTimeout: 60_000 });
+
+const findViewedScene = async (sessionId: number, userId: number) => (await findGameSessionView(sessionId, userId))?.viewedSceneId ?? null;
 
 beforeEach(async () => {
   stored.clear();
@@ -74,54 +76,52 @@ const findToken = async (sessionId: number, viewerId: number, tokenUserId: numbe
 describe("мапа кімнати", () => {
   it("мапу ставить лише майстер; нова мапа прибирає стару картинку й повертає токени в ряд", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
-    expect(await setGameSessionMap(sessionId, player.id, await createMapImage())).toEqual({ ok: false, error: "forbidden" });
+    expect(await setActiveSceneMap(sessionId, player.id, await createMapImage())).toEqual({ ok: false, error: "forbidden" });
     expect((await findGameSessionView(sessionId, player.id))!.mapImageUrl).toBeNull();
 
-    expect(await setGameSessionMap(sessionId, gm.id, await createMapImage())).toEqual({ ok: true, value: null });
+    expect(await setActiveSceneMap(sessionId, gm.id, await createMapImage())).toEqual({ ok: true, value: null });
     const firstUrl = (await findGameSessionView(sessionId, player.id))!.mapImageUrl!;
     expect(firstUrl).toMatch(new RegExp(`/games/${sessionId}/map/[0-9a-f-]+\\.webp$`));
     expect([...stored.keys()]).toHaveLength(1);
-    await moveGameToken(sessionId, player.id, player.id, { x: 0.4, y: 0.6 });
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.4, y: 0.6 });
 
-    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
     expect((await findGameSessionView(sessionId, player.id))!.mapImageUrl).not.toBe(firstUrl);
     expect([...stored.keys()]).toHaveLength(1);
     expect(await findToken(sessionId, player.id, player.id)).toBeNull();
 
-    expect(await setGameSessionMap(sessionId, gm.id, new Blob(["не картинка"]))).toEqual({ ok: false, error: "bad_image" });
-    await setGameSessionMap(sessionId, gm.id, null);
-    expect((await findGameSessionView(sessionId, player.id))!.mapImageUrl).toBeNull();
-    expect(stored.size).toBe(0);
+    expect(await setActiveSceneMap(sessionId, gm.id, new Blob(["не картинка"]))).toEqual({ ok: false, error: "bad_image" });
+    expect(stored.size).toBe(1);
   });
 
   it("гравець рухає лише свій токен, майстер — будь-який, а без мапи, персонажа чи в архіві токен стоїть", async () => {
     const { gm, player, other, sessionId } = await createTableWithHeroes();
-    expect(await moveGameToken(sessionId, player.id, player.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "no_map" });
-    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "no_map" });
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
 
-    expect(await moveGameToken(sessionId, player.id, player.id, { x: 0.25, y: 0.75 })).toEqual({ ok: true, value: null });
+    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.25, y: 0.75 })).toEqual({ ok: true, value: null });
     expect(await findToken(sessionId, other.id, player.id)).toEqual({ x: 0.25, y: 0.75 });
-    expect(await moveGameToken(sessionId, player.id, other.id, { x: 0.1, y: 0.1 })).toEqual({ ok: false, error: "forbidden" });
-    expect(await moveGameToken(sessionId, gm.id, other.id, { x: 0.9, y: 0.1 })).toEqual({ ok: true, value: null });
+    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), other.id, { x: 0.1, y: 0.1 })).toEqual({ ok: false, error: "forbidden" });
+    expect(await moveGameToken(sessionId, gm.id, await findViewedScene(sessionId, gm.id), other.id, { x: 0.9, y: 0.1 })).toEqual({ ok: true, value: null });
     expect(await findToken(sessionId, other.id, other.id)).toEqual({ x: 0.9, y: 0.1 });
-    expect(await moveGameToken(sessionId, gm.id, gm.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "no_map" });
+    expect(await moveGameToken(sessionId, gm.id, await findViewedScene(sessionId, gm.id), gm.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "no_map" });
 
-    await moveGameToken(sessionId, player.id, player.id, null);
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, null);
     expect(await findToken(sessionId, gm.id, player.id)).toBeNull();
 
     await bindMemberPers(sessionId, other.id, null);
     expect(await findToken(sessionId, gm.id, other.id)).toBeNull();
 
     const outsider = await createUser("outsider");
-    expect(await moveGameToken(sessionId, outsider.id, player.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "not_found" });
+    expect(await moveGameToken(sessionId, outsider.id, await findViewedScene(sessionId, outsider.id), player.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "not_found" });
     await setGameSessionArchived(sessionId, gm.id, true);
-    expect(await moveGameToken(sessionId, player.id, player.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "archived" });
-    expect(await setGameSessionMap(sessionId, gm.id, null)).toEqual({ ok: false, error: "archived" });
+    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "archived" });
+    expect(await setActiveSceneMap(sessionId, gm.id, await createMapImage())).toEqual({ ok: false, error: "archived" });
   });
 
   it("рух токена приходить іншим учасникам тим самим потоком кімнати", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
-    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
     const abort = new AbortController();
     const reader = openGameSessionStream({ sessionId, userId: gm.id, afterSeq: null, abortSignal: abort.signal }).getReader();
     const decoder = new TextDecoder();
@@ -131,7 +131,7 @@ describe("мапа кімнати", () => {
     };
     await readUntil("event: ready");
 
-    await moveGameToken(sessionId, player.id, player.id, { x: 0.3, y: 0.7 });
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.3, y: 0.7 });
     await readUntil('"token":{"x":0.3,"y":0.7}');
     abort.abort();
   });
@@ -140,7 +140,7 @@ describe("мапа кімнати", () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
     const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 2, isAlly: false, customName: null };
     expect(await addMapCreatures(sessionId, gm.id, goblins)).toEqual({ ok: false, error: "no_map" });
-    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
     expect(await addMapCreatures(sessionId, player.id, goblins)).toEqual({ ok: false, error: "forbidden" });
     expect(await addMapCreatures(sessionId, gm.id, { ...goblins, creatureKey: "no-such-beast" })).toEqual({ ok: false, error: "bad_creature" });
 
@@ -160,9 +160,9 @@ describe("мапа кімнати", () => {
     expect(await moveMapCreature(sessionId, gm.id, second.id, { x: 0.1, y: 0.1 })).toEqual({ ok: false, error: "creature_gone" });
   });
 
-  it("на мапі не більше 40 істот; «прибрати всіх» і нова мапа очищують кімнату", async () => {
+  it("на мапі не більше 40 істот; «прибрати всіх» очищує сцену, а нова мапа знімає істот з мапи", async () => {
     const { gm, sessionId } = await createTableWithHeroes();
-    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
     const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 10, isAlly: false, customName: null };
     for (let batch = 0; batch < 4; batch++) await addMapCreatures(sessionId, gm.id, goblins);
     expect(await addMapCreatures(sessionId, gm.id, { ...goblins, count: 1 })).toEqual({ ok: false, error: "creature_limit" });
@@ -170,13 +170,14 @@ describe("мапа кімнати", () => {
     expect((await findGameSessionView(sessionId, gm.id))!.creatures).toEqual([]);
 
     await addMapCreatures(sessionId, gm.id, { ...goblins, count: 2 });
-    await setGameSessionMap(sessionId, gm.id, await createMapImage());
-    expect((await findGameSessionView(sessionId, gm.id))!.creatures).toEqual([]);
+    await moveMapCreature(sessionId, gm.id, (await findGameSessionView(sessionId, gm.id))!.creatures[0].id, { x: 0.5, y: 0.5 });
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures.map((creature) => creature.token)).toEqual([null, null]);
   });
 
-  it("свою назву істоти гравці бачать без статблоку й картинки; розмір і показ імен змінює лише майстер", async () => {
+  it("гравці не отримують статблок жодної істоти, лише назву; розмір і показ імен змінює лише майстер", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
-    await setGameSessionMap(sessionId, gm.id, await createMapImage());
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
     const shadows = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 2, isAlly: false, customName: "Тінь" };
     expect(await addMapCreatures(sessionId, gm.id, shadows)).toEqual({ ok: true, value: { name: "Тінь" } });
     await addMapCreatures(sessionId, gm.id, { ...shadows, count: 1, customName: null });
@@ -185,8 +186,8 @@ describe("мапа кімнати", () => {
 
     for (const creature of gmCreatures) await moveMapCreature(sessionId, gm.id, creature.id, { x: 0.5, y: 0.5 });
     const [hidden, , plain] = (await findGameSessionView(sessionId, player.id))!.creatures;
-    expect(hidden).toMatchObject({ label: "Тінь 1", creatureKey: null, statblockName: null, imageUrl: null });
-    expect(plain).toMatchObject({ label: "Гоблін", creatureKey: "goblin" });
+    expect(hidden).toMatchObject({ label: "Тінь 1", creatureKey: null, statblockName: null, imageUrl: "/images/creatures/2014/goblin.webp" });
+    expect(plain).toMatchObject({ label: "Гоблін", creatureKey: null });
 
     expect(await setMapCreatureSize(sessionId, player.id, hidden.id, "huge")).toEqual({ ok: false, error: "forbidden" });
     expect(await setMapCreatureSize(sessionId, gm.id, hidden.id, "huge")).toEqual({ ok: true, value: null });
@@ -194,5 +195,75 @@ describe("мапа кімнати", () => {
     expect(await setCreatureNameMode(sessionId, gm.id, "full")).toEqual({ ok: true, value: null });
     const seenByPlayer = (await findGameSessionView(sessionId, player.id))!;
     expect([seenByPlayer.creatureNameMode, seenByPlayer.creatures[0].tokenSize, seenByPlayer.creatures[2].tokenSize]).toEqual(["full", "huge", "small"]);
+
+    expect(await renameMapCreature(sessionId, player.id, hidden.id, null)).toEqual({ ok: false, error: "forbidden" });
+    expect(await renameMapCreature(sessionId, gm.id, hidden.id, null)).toEqual({ ok: true, value: null });
+    expect(await renameMapCreature(sessionId, gm.id, plain.id, "Тінь")).toEqual({ ok: true, value: null });
+    const renamed = (await findGameSessionView(sessionId, player.id))!.creatures;
+    expect(renamed.map((creature) => [creature.label, creature.creatureKey])).toEqual([["Гоблін", null], ["Тінь 2", null], ["Тінь 1", null]]);
+    expect(await renameMapCreature(sessionId, gm.id, 999_999, null)).toEqual({ ok: false, error: "creature_gone" });
+  });
+
+  it("кожна копія кидає свої хіти; майстер бачить числа, гравці — лише чи повалена істота", async () => {
+    const { gm, player, sessionId } = await createTableWithHeroes();
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 10, isAlly: false, customName: null });
+    const stored = await prisma.gameMapCreature.findMany({ where: { gameSessionId: sessionId }, select: { hpMax: true, hpCurrent: true } });
+    expect(stored).toHaveLength(10);
+    for (const { hpMax, hpCurrent } of stored) {
+      expect(hpMax).toBeGreaterThanOrEqual(2);
+      expect(hpMax).toBeLessThanOrEqual(12);
+      expect(hpCurrent).toBe(hpMax);
+    }
+
+    const [target] = (await findGameSessionView(sessionId, gm.id))!.creatures;
+    await moveMapCreature(sessionId, gm.id, target.id, { x: 0.5, y: 0.5 });
+    const { max } = target.hitPoints!;
+    expect(await changeMapCreatureHitPoints(sessionId, gm.id, target.id, { kind: "damage", amount: 1 })).toEqual({ ok: true, value: null });
+
+    const seenByPlayer = (await findGameSessionView(sessionId, player.id))!;
+    expect(seenByPlayer.creatures).toMatchObject([{ id: target.id, hitPoints: null, isDown: false }]);
+    expect(JSON.stringify(seenByPlayer)).not.toMatch(/hpMax|hpCurrent|"current"/);
+
+    await changeMapCreatureHitPoints(sessionId, gm.id, target.id, { kind: "damage", amount: 500 });
+    expect((await findGameSessionView(sessionId, player.id))!.creatures[0]).toMatchObject({ hitPoints: null, isDown: true });
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures[0].hitPoints).toEqual({ current: 0, max });
+  });
+
+  it("хіти міняє лише майстер: шкода не нижче нуля, лікування не вище максимуму, новий максимум підрізає поточні", async () => {
+    const { gm, player, sessionId } = await createTableWithHeroes();
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    const [creature] = (await findGameSessionView(sessionId, gm.id))!.creatures;
+    const readHitPoints = async () => (await findGameSessionView(sessionId, gm.id))!.creatures[0].hitPoints;
+
+    expect(await changeMapCreatureHitPoints(sessionId, player.id, creature.id, { kind: "damage", amount: 1 })).toEqual({ ok: false, error: "forbidden" });
+    expect(await changeMapCreatureHitPoints(sessionId, gm.id, creature.id + 999, { kind: "damage", amount: 1 })).toEqual({ ok: false, error: "creature_gone" });
+
+    await changeMapCreatureHitPoints(sessionId, gm.id, creature.id, { kind: "set_max", amount: 20 });
+    expect((await readHitPoints())!.max).toBe(20);
+    await changeMapCreatureHitPoints(sessionId, gm.id, creature.id, { kind: "heal", amount: 100 });
+    expect(await readHitPoints()).toEqual({ current: 20, max: 20 });
+    await changeMapCreatureHitPoints(sessionId, gm.id, creature.id, { kind: "damage", amount: 8 });
+    expect(await readHitPoints()).toEqual({ current: 12, max: 20 });
+    await changeMapCreatureHitPoints(sessionId, gm.id, creature.id, { kind: "set_max", amount: 5 });
+    expect(await readHitPoints()).toEqual({ current: 5, max: 5 });
+    await changeMapCreatureHitPoints(sessionId, gm.id, creature.id, { kind: "damage", amount: 9 });
+    expect(await readHitPoints()).toEqual({ current: 0, max: 5 });
+  });
+
+  it("стара істота без збережених хітів бере середнє зі статблоку; без числа в статблоці хіти спершу задають", async () => {
+    const { gm, sessionId } = await createTableWithHeroes();
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    await prisma.gameMapCreature.updateMany({ where: { gameSessionId: sessionId }, data: { hpMax: null, hpCurrent: null } });
+    const [legacy] = (await findGameSessionView(sessionId, gm.id))!.creatures;
+    expect(legacy).toMatchObject({ hitPoints: { current: 7, max: 7 }, isDown: false });
+    await changeMapCreatureHitPoints(sessionId, gm.id, legacy.id, { kind: "damage", amount: 3 });
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures[0].hitPoints).toEqual({ current: 4, max: 7 });
+
+    const unknown = await prisma.gameMapCreature.create({ data: { gameSessionId: sessionId, creatureKey: "no-such-beast", ruleset: "RULES_2014", number: 1 } });
+    expect(await changeMapCreatureHitPoints(sessionId, gm.id, unknown.id, { kind: "damage", amount: 1 })).toEqual({ ok: false, error: "no_hit_points" });
+    expect(await changeMapCreatureHitPoints(sessionId, gm.id, unknown.id, { kind: "set_max", amount: 9 })).toEqual({ ok: true, value: null });
   });
 });

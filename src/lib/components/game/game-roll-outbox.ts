@@ -1,4 +1,7 @@
+import type { GameRollHeroTargetDraft } from "@/rules/game-roll-hero-target";
 import type { GameRoll, GameRollVisibility } from "@/rules/game-roll";
+import type { GameRollSavesRequest } from "@/rules/game-roll-saves";
+import type { GameRollTargetDraft } from "@/rules/game-roll-target";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 
 export const GAME_ROLL_OUTBOX_KEY = "holota-game-roll-outbox";
@@ -8,7 +11,7 @@ export const MAX_QUEUED_AGE_MS = 10 * 60_000;
 export type QueuedGameRoll = {
   sessionId: number;
   queuedAt: number;
-  draft: { idempotencyKey: string; visibility: GameRollVisibility; source: "CHARACTER" | "FREE"; persId: number | null; label: string; roll: GameRoll; rolledAt: string };
+  draft: { idempotencyKey: string; visibility: GameRollVisibility; source: "CHARACTER" | "FREE"; persId: number | null; label: string; roll: GameRoll; rolledAt: string; target?: GameRollTargetDraft | null; saves?: GameRollSavesRequest | null; heroTarget?: GameRollHeroTargetDraft | null };
 };
 
 export type SendOutcome = { kind: "sent"; event: GameRollEventView } | { kind: "rejected"; status: number } | { kind: "retry" };

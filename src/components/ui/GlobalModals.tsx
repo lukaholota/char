@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { ConfirmDialogHost } from "./confirm-dialog";
 
 // На старті всі закриті, а разом із markdown-рендерером це сотні КБ коду в кожній сторінці.
 // Заклинання, відкрите адресою (?spell=), модалка підхоплює з URL, щойно змонтується.
@@ -14,6 +15,7 @@ export function GlobalModals() {
       <SpellInfoModal />
       <TermInfoModal />
       <OmniSearchDialog />
+      <ConfirmDialogHost />
     </>
   );
 }

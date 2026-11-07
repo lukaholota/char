@@ -57,7 +57,7 @@ export function RoomCreatureAddPanel({ creature, ruleset }: { creature: Creature
             placeholder={creature.name}
             className="h-10 rounded-xl border border-white/10 bg-slate-950/60 px-3 text-base text-slate-100 placeholder:text-slate-500"
           />
-          <span className="text-xs text-slate-500">Залиште порожнім, щоб показати назву зі статблоку. Зі своїм імʼям гравці не бачать статблок і картинку.</span>
+          <span className="text-xs text-slate-500">Залиште порожнім, щоб показати назву зі статблоку. Статблок гравці не бачать ніколи.</span>
         </label>
         <Button type="button" onClick={add} disabled={isAdding} className="ml-auto h-10 self-end">
           {isAdding ? "Додаю…" : "Додати на мапу"}

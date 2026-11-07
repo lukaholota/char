@@ -21,6 +21,8 @@ describe("кубики заклинань 2014 до 3-го рівня", () => {
   it("Чарівна стріла кидає всі дротики разом, Пекучий промінь — по променю", () => {
     expect(dice(plan("Magic Missile", 2))).toEqual(["Шкода 4к4+4"]);
     expect(plan("Magic Missile", 2).pieces).toBeNull();
+    expect(plan("Magic Missile", 2).darts).toBe(4);
+    expect(plan("Scorching Ray", 3).darts).toBeUndefined();
     expect(plan("Scorching Ray", 3)).toMatchObject({ attack: true, pieces: { label: "Променів", count: 4 } });
     expect(dice(plan("Scorching Ray", 3))).toEqual(["Шкода 2к6"]);
   });

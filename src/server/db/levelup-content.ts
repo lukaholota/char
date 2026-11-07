@@ -7,6 +7,7 @@ const DEFAULT_RULESET: Ruleset = "RULES_2014";
 
 const HIT_POINT_FEATURE_SELECT = {
   featureId: true,
+  name: true,
   bonusHitPointsPerLevel: true,
   classFeatures: { select: { classId: true } },
   subclassFeatures: { select: { subclass: { select: { classId: true } } } },
@@ -96,7 +97,6 @@ export async function loadLevelUpFeatureEffects(featureIds: readonly number[]) {
     where: { featureId: { in: selectedIds } },
     select: {
       ...HIT_POINT_FEATURE_SELECT,
-      name: true,
       engName: true,
       skillProficiencies: true,
       armorProficiencies: true,

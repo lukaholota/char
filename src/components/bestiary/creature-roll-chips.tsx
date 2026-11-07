@@ -3,15 +3,17 @@
 import { Dice6 } from "lucide-react";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { buildCreatureActionRollContext, buildCreatureD20RollContext, buildD20Action } from "@/lib/components/dice/roll-contexts";
-import { useDiceUIStore, type DiceRollContext } from "@/lib/stores/diceUIStore";
+import { openRoomRoll } from "@/lib/components/game/open-room-roll";
+import type { DiceRollContext } from "@/lib/stores/diceUIStore";
 import { attributesUkrFull } from "@/lib/refs/translation";
+import { findCreatureAreaAction, type CreatureAreaAction } from "@/rules/creature-area-action";
 import { findCreatureRolls, splitNamedBonuses, type CreatureRoll } from "@/rules/creature-rolls";
 
 type HastText = { type: "text"; value: string };
 type HastElement = { type: "element"; tagName: string; properties: Record<string, unknown>; children: HastNode[] };
 type HastNode = HastText | HastElement | { type: "comment" | "doctype" | "raw"; value?: string };
 
-export type CreatureRollChipData = { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number };
+export type CreatureRollChipData = { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; area?: CreatureAreaAction };
 
 export const CREATURE_ROLL_TAG = "creature-roll";
 const SKIPPED_TAGS = new Set(["a", "abbr", "code", "pre"]);
@@ -28,8 +30,9 @@ function addRollChips(block: HastElement, creatureName: string) {
   replaceRollText(block, found);
   const actionName = findActionName(block);
   const rolls = found.map(({ roll }) => roll);
+  const area = found.length ? findCreatureAreaAction(readText(block)) : null;
   found.forEach(({ chip }, index) => {
-    const data: CreatureRollChipData = { creatureName, actionName, rolls, index };
+    const data: CreatureRollChipData = { creatureName, actionName, rolls, index, ...(area ? { area } : {}) };
     chip.properties.dataRoll = JSON.stringify(data);
   });
 }
@@ -103,7 +106,7 @@ function RollChip({ isD20, label, onRoll, children }: { isD20: boolean; label: s
       aria-label={label}
       onClick={(event) => {
         event.stopPropagation();
-        useDiceUIStore.getState().openRoll(onRoll());
+        openRoomRoll(onRoll());
       }}
       className="mx-px inline-flex items-baseline gap-1 whitespace-nowrap rounded-md border border-amber-400/30 bg-amber-500/10 px-1 font-semibold text-amber-100 transition hover:border-amber-300/60 hover:bg-amber-500/20 active:scale-95"
     >

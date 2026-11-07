@@ -1,0 +1,198 @@
+import { describe, expect, it } from "vitest";
+import creatures2014 from "@/lib/generated/creatures.json";
+import creatures2024 from "@/lib/generated/creatures2024.json";
+import { findCreatureAreaAction, type CreatureAreaAction } from "@/rules/creature-area-action";
+
+type CatalogCreature = { nameEng: string; actions?: unknown; legendaryActions?: unknown; lairActions?: unknown };
+
+const cone60 = { shape: "cone", sizeFeet: 60, ability: "DEX", dc: 21, damage: { count: 18, sides: 6, bonus: 0 }, damageType: "fire", isHalfOnSave: true } as const;
+
+describe("площа з рятівним кидком у статблоці", () => {
+  it("2014: конус, провал і половина при успіху в окремих реченнях", () => {
+    expect(
+      findCreatureAreaAction(
+        "Вогняний подих{{Fire Breath}} (перезарядка 5–6). Дракон видихає вогонь конусом 60 футів. Кожна істота в цій області повинна пройти рятівний кидок Спритності СК 21. Провал: 63 (18к6) вогняних ушкоджень. Успіх: лише половина ушкодження.",
+      ),
+    ).toEqual(cone60);
+  });
+
+  it("2014: лінія, шкода й половина в одному реченні, ширина не береться", () => {
+    expect(
+      findCreatureAreaAction(
+        "Блискавичний подих. Дракон видихає блискавку лінією 40 футів завдовжки та 5 футів завширшки. Кожна істота на цій лінії має пройти рятівний кидок Спритності СК 12, отримуючи 16 (3к10) блискавичних ушкоджень при провалі або вдвічі менше при успіху.",
+      ),
+    ).toEqual({ shape: "line", sizeFeet: 40, ability: "DEX", dc: 12, damage: { count: 3, sides: 10, bonus: 0 }, damageType: "lightning", isHalfOnSave: true });
+  });
+
+  it("2014: «15-футовий конус», «ряткидок», «шкоди» й «половину цієї шкоди»", () => {
+    expect(
+      findCreatureAreaAction(
+        "Вогняний подих{{Fire Breath}} (перезарядка 6). Мефіт видихає 15-футовий конус вогню. Кожна істота в цій області повинна пройти ряткидок Спритності зі СК 11, отримуючи 7 (2к6) вогняної шкоди при провалі, або половину цього ушкодження при успіху.",
+      ),
+    ).toEqual({ shape: "cone", sizeFeet: 15, ability: "DEX", dc: 11, damage: { count: 2, sides: 6, bonus: 0 }, damageType: "fire", isHalfOnSave: true });
+  });
+
+  it("2014: «у 15-футовому конусі», «у кубі», «радіусом»", () => {
+    const base = (area: string) => `Кожна істота ${area} повинна пройти рятівний кидок Статури СК 13, отримуючи 24 (7к6) отруйних ушкоджень при провалі або вдвічі менше при успіху.`;
+    expect(findCreatureAreaAction(base("у 15-футовому конусі"))).toMatchObject({ shape: "cone", sizeFeet: 15 });
+    expect(findCreatureAreaAction(base("в кубі 30 футів"))).toMatchObject({ shape: "square", sizeFeet: 30 });
+    expect(findCreatureAreaAction(base("у радіусі 20 футів"))).toMatchObject({ shape: "circle", sizeFeet: 20 });
+    expect(findCreatureAreaAction(base("у сфері радіусом 10 футів"))).toMatchObject({ shape: "circle", sizeFeet: 10 });
+    expect(findCreatureAreaAction(base("у циліндрі 10 фт."))).toMatchObject({ shape: "circle", sizeFeet: 10 });
+  });
+
+  it("2014: шкода «у дужках» з українським «К» і мінусом", () => {
+    expect(
+      findCreatureAreaAction("Вибух. Кожна істота у сфері радіусом 20 футів має пройти рятівний кидок Мудрості СК 15. При провалі істота дістає 9 (2К6 − 1) психічної шкоди."),
+    ).toEqual({ shape: "circle", sizeFeet: 20, ability: "WIS", dc: 15, damage: { count: 2, sides: 6, bonus: -1 }, damageType: "psychic", isHalfOnSave: false });
+  });
+
+  it("2024: Конус, Провал й Успіх у форматі «СК N: кожна істота»", () => {
+    expect(
+      findCreatureAreaAction("Рятівний кидок Статури: СК 19, кожна істота в Конусі 60 футів. Провал: 54 (12к8) холодних ушкоджень. Успіх: половина ушкоджень."),
+    ).toEqual({ shape: "cone", sizeFeet: 60, ability: "CON", dc: 19, damage: { count: 12, sides: 8, bonus: 0 }, damageType: "cold", isHalfOnSave: true });
+  });
+
+  it("2024: Сфера радіусом з центром у точці, без половини при успіху", () => {
+    expect(
+      findCreatureAreaAction(
+        "Рятівний кидок Статури: СК 14, кожна істота у Сфері радіусом 30 футів із центром у точці, яку дракон бачить у межах 120 футів. Провал: 7 (2к6) холодних ушкоджень, і Швидкість цілі стає 0 до кінця наступного ходу цілі.",
+      ),
+    ).toEqual({ shape: "circle", sizeFeet: 30, ability: "CON", dc: 14, damage: { count: 2, sides: 6, bonus: 0 }, damageType: "cold", isHalfOnSave: false });
+  });
+
+  it("2024: Випромінювання", () => {
+    expect(
+      findCreatureAreaAction("Рятівний кидок Мудрості: СК 15, кожна істота у Випромінюванні 15 футів, що походить від нальфешні. Провал: 28 (8к6) психічних ушкоджень, і ціль стає Наляканою."),
+    ).toEqual({ shape: "circle", sizeFeet: 15, ability: "WIS", dc: 15, damage: { count: 8, sides: 6, bonus: 0 }, damageType: "psychic", isHalfOnSave: false });
+  });
+
+  it("2024: Лінія завдовжки й завширшки, «фт.» і шкода з бонусом", () => {
+    expect(
+      findCreatureAreaAction("Рятівний кидок Сили: СК 13, кожна істота в Лінії 30 фт. завдовжки і 5 фт. завширшки. Провал: 14 (4к6 + 2) дроблячих ушкоджень. Успіх: Половина ушкодження."),
+    ).toEqual({ shape: "line", sizeFeet: 30, ability: "STR", dc: 13, damage: { count: 4, sides: 6, bonus: 2 }, damageType: "bludgeoning", isHalfOnSave: true });
+  });
+
+  it("2024: тип шкоди після слова «ушкоджень» і половина «в разі успіху»", () => {
+    expect(
+      findCreatureAreaAction("Конус 30 фт. Кожна істота має пройти рятівний кидок Інтелекту СК 17 або отримати 56 (16к6) ушкоджень вогнем (половину в разі успіху)."),
+    ).toEqual({ shape: "cone", sizeFeet: 30, ability: "INT", dc: 17, damage: { count: 16, sides: 6, bonus: 0 }, damageType: "fire", isHalfOnSave: true });
+  });
+
+  it("2014: шкода, що діє «на початку ходу», — не шкода від провалу", () => {
+    expect(
+      findCreatureAreaAction("Кожна істота в конусі 30 футів має пройти рятівний кидок Статури СК 14, інакше отримує стан Отруєний. Вона отримує 5 (1к10) отруйних ушкоджень на початку кожного свого ходу."),
+    ).toBeNull();
+  });
+
+  it("Харизма й ігнорування англійського маркера в назві", () => {
+    expect(
+      findCreatureAreaAction("Крик{{Scream}}. Кожна істота в конусі 10 футів має пройти рятівний кидок Харизми СК 12, отримуючи 3 (1к6) громових ушкоджень при провалі."),
+    ).toMatchObject({ ability: "CHA", damageType: "thunder" });
+  });
+});
+
+describe("площа з рятівним кидком: не розпізнається", () => {
+  const save = "Кожна істота в конусі 30 футів має пройти рятівний кидок Спритності СК 15";
+
+  it("атака ближнього бою", () => {
+    expect(findCreatureAreaAction("Кидок ближньої атаки: +14, досяжність 10 футів, одна ціль. Влучання: 19 (2к10 + 8) колючих ушкоджень.")).toBeNull();
+  });
+
+  it("кидок без площі", () => {
+    expect(findCreatureAreaAction("Одна істота в межах 30 футів має пройти рятівний кидок Спритності СК 15. Провал: 10 (3к6) вогняних ушкоджень.")).toBeNull();
+  });
+
+  it("площа без шкоди", () => {
+    expect(findCreatureAreaAction(`${save}, інакше падає непритомною на 10 хвилин.`)).toBeNull();
+  });
+
+  it("площа без кидка й без СК", () => {
+    expect(findCreatureAreaAction("Дракон видихає вогонь конусом 60 футів, завдаючи 63 (18к6) вогняних ушкоджень.")).toBeNull();
+    expect(findCreatureAreaAction("Конус 30 фт. Кожна істота має пройти рятівний кидок Спритності проти вашої СК або отримати 2к6 стихійних ушкоджень.")).toBeNull();
+  });
+
+  it("кидок невідомої характеристики", () => {
+    expect(findCreatureAreaAction("Кожна істота в конусі 30 футів має пройти рятівний кидок Удачі СК 15. Провал: 10 (3к6) вогняних ушкоджень.")).toBeNull();
+  });
+
+  it("дві різні характеристики кидка", () => {
+    expect(findCreatureAreaAction(`${save}. Провал: ціль повторює рятівний кидок Мудрості СК 15 і отримує 10 (3к6) вогняних ушкоджень.`)).toBeNull();
+  });
+
+  it("два різні розміри площі", () => {
+    expect(findCreatureAreaAction("Кожна істота в конусі 30 футів або в кубі 10 футів має пройти рятівний кидок Спритності СК 15. Провал: 10 (3к6) вогняних ушкоджень.")).toBeNull();
+  });
+
+  it("дві різні СК", () => {
+    expect(findCreatureAreaAction("Кожна істота в конусі 30 футів має пройти рятівний кидок Спритності СК 15 або СК 17. Провал: 10 (3к6) вогняних ушкоджень.")).toBeNull();
+  });
+
+  it("кілька кубиків шкоди або кілька типів", () => {
+    expect(findCreatureAreaAction(`${save}. Провал: 18 (4к8) вогняних ушкоджень і 18 (4к8) громових ушкоджень.`)).toBeNull();
+    expect(findCreatureAreaAction(`${save}. Провал: 18 (4к8) вогняних і громових ушкоджень.`)).toBeNull();
+  });
+
+  it("кубики без типу шкоди", () => {
+    expect(findCreatureAreaAction(`${save}. Провал: ціль віднімає 3 (1к6) від кидків ушкодження.`)).toBeNull();
+    expect(findCreatureAreaAction(`${save}. Провал: 10 (3к6).`)).toBeNull();
+  });
+
+  it("площа тільки після кубиків шкоди", () => {
+    expect(findCreatureAreaAction("Рятівний кидок Спритності: СК 14. Провал: 27 (5к10) силових ушкоджень. Якщо ціль — предмет, він розпадається в куб 10 футів пилу.")).toBeNull();
+  });
+});
+
+describe("площі в статблоках каталогу", () => {
+  const allowedMisses: Record<string, string> = {
+    "Brass Greatwyrm": "кілька подихів в одному абзаці",
+    "Bronze Greatwyrm": "кілька подихів в одному абзаці",
+    "Copper Greatwyrm": "кілька подихів в одному абзаці",
+    "Gold Greatwyrm": "кілька подихів в одному абзаці",
+    "Silver Greatwyrm": "кілька подихів в одному абзаці",
+    "Dracohydra": "тип шкоди на вибір дракогідри",
+    "Dragonbone Golem": "між «конус» і розміром стоїть інше слово",
+    "Draconic Spirit": "СК заклинателя, а не число",
+    "Gold Dragon Wyrmling": "кубики віднімаються від кидків, це не шкода",
+    "Young Gold Dragon": "кубики віднімаються від кидків, це не шкода",
+    "Adult Gold Dragon": "кубики віднімаються від кидків, це не шкода",
+    "Ancient Gold Dragon": "кубики віднімаються від кидків, це не шкода",
+  };
+
+  const readParagraphs = (creature: CatalogCreature) =>
+    [creature.actions, creature.legendaryActions, creature.lairActions]
+      .filter((html): html is string => typeof html === "string")
+      .flatMap((html) => html.split("</p>"))
+      .map((paragraph) => paragraph.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
+
+  const sweep = (catalog: unknown) => {
+    const found: CreatureAreaAction[] = [];
+    const misses: string[] = [];
+    for (const creature of catalog as CatalogCreature[]) {
+      for (const paragraph of readParagraphs(creature)) {
+        const action = findCreatureAreaAction(paragraph);
+        if (action) found.push(action);
+        else if (/подих/i.test(paragraph) && /СК/.test(paragraph) && /\d[кК]\d/.test(paragraph) && !allowedMisses[creature.nameEng]) misses.push(creature.nameEng);
+      }
+    }
+    return { found, misses };
+  };
+
+  it.each([
+    ["2014", creatures2014, 100],
+    ["2024", creatures2024, 60],
+  ])("%s: кожен подих з СК і кубиками розпізнається, межі значень", (edition, catalog, minimumFound) => {
+    const { found, misses } = sweep(catalog);
+    console.info(`площ з рятівним кидком ${edition}: ${found.length}`);
+    expect(misses).toEqual([]);
+    expect(found.length).toBeGreaterThanOrEqual(minimumFound);
+    for (const action of found) {
+      expect(action.sizeFeet).toBeGreaterThanOrEqual(5);
+      expect(action.sizeFeet).toBeLessThanOrEqual(500);
+      expect(action.dc).toBeGreaterThanOrEqual(5);
+      expect(action.dc).toBeLessThanOrEqual(30);
+      expect([4, 6, 8, 10, 12, 20]).toContain(action.damage.sides);
+      expect(action.damage.count).toBeGreaterThanOrEqual(1);
+    }
+  });
+});

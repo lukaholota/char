@@ -18,13 +18,19 @@ export function parseTokenPosition(raw: unknown): TokenPosition | null {
   return { x: clampToMap(x), y: clampToMap(y) };
 }
 
-/// Точка поза мапою — null: так токен прибирають з мапи назад у ряд.
+/// Частки мапи без обрізання: інструменти (лінійка, туман) тягнуть і за край мапи.
 /// isQuarterTurned: мапу повернуто CSS на 90° за годинниковою стрілкою, rect — її рамка на екрані.
-export function findTokenPositionInRect(point: { clientX: number; clientY: number }, rect: Rect, isQuarterTurned = false): TokenPosition | null {
+export function findMapShareInRect(point: { clientX: number; clientY: number }, rect: Rect, isQuarterTurned = false): TokenPosition | null {
   if (rect.width <= 0 || rect.height <= 0) return null;
-  const x = isQuarterTurned ? (point.clientY - rect.top) / rect.height : (point.clientX - rect.left) / rect.width;
-  const y = isQuarterTurned ? (rect.left + rect.width - point.clientX) / rect.width : (point.clientY - rect.top) / rect.height;
-  return x < 0 || x > 1 || y < 0 || y > 1 ? null : parseTokenPosition({ x, y });
+  return isQuarterTurned
+    ? { x: (point.clientY - rect.top) / rect.height, y: (rect.left + rect.width - point.clientX) / rect.width }
+    : { x: (point.clientX - rect.left) / rect.width, y: (point.clientY - rect.top) / rect.height };
+}
+
+/// Точка поза мапою — null: так токен прибирають з мапи назад у ряд.
+export function findTokenPositionInRect(point: { clientX: number; clientY: number }, rect: Rect, isQuarterTurned = false): TokenPosition | null {
+  const share = findMapShareInRect(point, rect, isQuarterTurned);
+  return !share || share.x < 0 || share.x > 1 || share.y < 0 || share.y > 1 ? null : parseTokenPosition(share);
 }
 
 export function shiftTokenPosition(position: TokenPosition | null, step: TokenPosition): TokenPosition {

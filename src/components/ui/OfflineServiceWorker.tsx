@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 import { installOfflineActionGuard } from "@/lib/offline/action-guard";
-import { registerOfflineServiceWorker, savePageForOffline } from "@/lib/offline/service-worker";
+import { registerOfflineServiceWorker, savePageForOffline, unregisterOfflineServiceWorker } from "@/lib/offline/service-worker";
 import { startAppUpdates } from "@/lib/pwa/app-updates";
 import { runWhenIdle } from "@/lib/run-when-idle";
 
@@ -17,7 +17,7 @@ export function OfflineServiceWorker() {
 
   useEffect(() => {
     installOfflineActionGuard();
-    if (process.env.NODE_ENV !== "production") return;
+    if (process.env.NODE_ENV !== "production") return unregisterOfflineServiceWorker();
     registerOfflineServiceWorker();
     return startAppUpdates();
   }, []);

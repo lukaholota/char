@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpCircle, Loader2, Pencil } from "lucide-react";
 import RestButton from "./RestButton";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { ShareDialog } from "./ShareDialog";
 import { useParams } from "next/navigation";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
@@ -41,7 +42,7 @@ import { useSheetStates } from "./states/useSheetStates";
 import { CharacterSourceBuildContext, type CharacterSourceBuild } from "@/components/optimization/CharacterSourceBuildContext";
 
 const mobileIconButtonClassName = "h-10 w-10 gap-0 p-0 sm:h-8 sm:w-8";
-const mobileTextButtonClassName = "h-10 min-w-[5.5rem] justify-start gap-1.5 px-2 text-left sm:h-8 sm:min-w-0 sm:justify-center sm:gap-2 sm:px-3";
+const mobileTextButtonClassName = "col-start-2 h-10 min-w-[5.5rem] justify-start gap-1.5 px-2 text-left sm:h-8 sm:min-w-0 sm:justify-center sm:gap-2 sm:px-3";
 const mobileTextLabelClassName = "block text-[10px] leading-none sm:text-sm";
 
 interface CharacterSheetProps {
@@ -53,9 +54,10 @@ interface CharacterSheetProps {
   editShareToken?: string | null;
   canShare?: boolean;
   sourceBuildGuide?: CharacterSourceBuild["guide"];
+  isEmbedded?: boolean;
 }
 
-export default function CharacterSheet({ pers, spellcastingSources, groupedFeatures, spellBuffCatalog = [], isPublicView, editShareToken, canShare, sourceBuildGuide = null }: CharacterSheetProps) {
+export default function CharacterSheet({ pers, spellcastingSources, groupedFeatures, spellBuffCatalog = [], isPublicView, editShareToken, canShare, sourceBuildGuide = null, isEmbedded = false }: CharacterSheetProps) {
   const [localPers, setLocalPers] = useState<PersWithRelations>(pers);
   const [localGroupedFeatures, setLocalGroupedFeatures] = useState<CharacterFeaturesGroupedResult | null>(groupedFeatures);
   const [isLevelUpPending, setIsLevelUpPending] = useState<boolean>(false);
@@ -266,7 +268,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
                  />
                )}
              </div>
-             <div className="grid shrink-0 grid-cols-[2.5rem_auto] gap-1.5 sm:flex sm:w-auto sm:flex-wrap sm:justify-end sm:gap-2">
+             <div className={cn("grid shrink-0 grid-cols-[2.5rem_auto] gap-1.5", !isEmbedded && "sm:flex sm:w-auto sm:flex-wrap sm:justify-end sm:gap-2")}>
                {isPublicView && (
                    <Button 
                        size="sm" 
@@ -342,7 +344,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
        </div>
       
       <div className="flex-1 min-h-0 md:pb-0 md:overflow-hidden">
-        <CharacterCarousel pers={localPers} spellcastingSources={spellcastingSources} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} reloadFeatures={reloadFeatures} />
+        <CharacterCarousel pers={localPers} spellcastingSources={spellcastingSources} onPersUpdate={setLocalPers} groupedFeatures={localGroupedFeatures} isReadOnly={isReadOnly} reloadFeatures={reloadFeatures} isEmbedded={isEmbedded} />
       </div>
       {isPublicView && signInDialog}
       <StatesSheet />

@@ -5,7 +5,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 
-vi.mock("next/navigation", () => ({ useParams: () => ({ id: "7" }), usePathname: () => "/char/7" }));
+const route = vi.hoisted(() => ({ pathname: "/char/7" }));
+vi.mock("next/navigation", () => ({ useParams: () => ({ id: "7" }), usePathname: () => route.pathname }));
+vi.mock("@/components/no-ai/NoAiModeProvider", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@/components/no-ai/NoAiModeProvider")>()),
+  useRoutePathname: () => route.pathname,
+}));
 vi.mock("@/lib/actions/pers", () => ({
   getUserPersesSpellIndex: vi.fn(async () => [{ persId: 7, name: "Друїдка", spellIds: [], spellKeys: [] }]),
 }));
@@ -19,6 +24,7 @@ import { openSpellLink } from "@/lib/spell-link";
 import { serveSpellCardsFromRoute } from "../helpers/serve-spell-cards";
 
 beforeEach(() => {
+  route.pathname = "/char/7";
   window.history.replaceState({}, "", "/char/7");
   serveSpellCardsFromRoute();
 });
@@ -44,5 +50,15 @@ describe("KR25.2 — заклинання 2024 додається до перс�
         present: true,
       })
     );
+  });
+
+  it("у кімнаті /games/7 номер з адреси не вважається персонажем — лише вибір зі списку", async () => {
+    route.pathname = "/games/7";
+    window.history.replaceState({}, "", "/games/7");
+    render(<SpellInfoModal />);
+    openSpellLink({ spellKey: "produce-flame", ruleset: "RULES_2024" });
+
+    await screen.findByText("Створення вогню [Produce Flame]", {}, { timeout: 5000 });
+    expect((await screen.findByRole("button", { name: "Додати до персонажа" })).getAttribute("aria-haspopup")).toBe("menu");
   });
 });

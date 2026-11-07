@@ -2284,6 +2284,42 @@ ALTER SEQUENCE public.fighting_style_id_seq OWNED BY public.fighting_style.id;
 
 
 --
+-- Name: game_combatant; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_combatant (
+    game_combatant_id integer NOT NULL,
+    game_session_id integer NOT NULL,
+    pers_id integer,
+    game_map_creature_id integer,
+    initiative smallint NOT NULL,
+    initiative_bonus smallint NOT NULL,
+    sort_tiebreak real DEFAULT random() NOT NULL,
+    CONSTRAINT game_combatant_source_check CHECK (((pers_id IS NULL) <> (game_map_creature_id IS NULL)))
+);
+
+
+--
+-- Name: game_combatant_game_combatant_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_combatant_game_combatant_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_combatant_game_combatant_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_combatant_game_combatant_id_seq OWNED BY public.game_combatant.game_combatant_id;
+
+
+--
 -- Name: game_map_creature; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2299,7 +2335,14 @@ CREATE TABLE public.game_map_creature (
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     custom_name character varying(40),
     token_size character varying(10),
+    hp_max smallint,
+    hp_current smallint,
+    conditions text[] DEFAULT '{}'::text[] NOT NULL,
+    exhaustion_level smallint DEFAULT 0 NOT NULL,
+    game_scene_id integer,
     CONSTRAINT game_map_creature_custom_name_check CHECK (((custom_name IS NULL) OR ((length(btrim((custom_name)::text)) >= 1) AND (length(btrim((custom_name)::text)) <= 40)))),
+    CONSTRAINT game_map_creature_exhaustion_check CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
+    CONSTRAINT game_map_creature_hp_check CHECK ((((hp_max IS NULL) AND (hp_current IS NULL)) OR ((hp_max IS NOT NULL) AND (hp_current IS NOT NULL) AND (hp_max >= 1) AND (hp_current >= 0) AND (hp_current <= hp_max)))),
     CONSTRAINT game_map_creature_number_check CHECK (((number >= 1) AND (number <= 999))),
     CONSTRAINT game_map_creature_token_check CHECK ((((token_x IS NULL) = (token_y IS NULL)) AND ((token_x IS NULL) OR (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision)) AND ((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))))),
     CONSTRAINT game_map_creature_token_size_check CHECK (((token_size)::text = ANY ((ARRAY['tiny'::character varying, 'small'::character varying, 'medium'::character varying, 'large'::character varying, 'huge'::character varying, 'gargantuan'::character varying])::text[])))
@@ -2346,8 +2389,18 @@ CREATE TABLE public.game_roll_event (
     total integer NOT NULL,
     rolled_at timestamp with time zone NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
+    target_creature_id integer,
+    target_name character varying(80),
+    roll_kind character varying(8),
+    target_ac smallint,
+    is_hit boolean,
+    hp_before smallint,
+    hp_change smallint,
+    hp_change_undone boolean DEFAULT false NOT NULL,
+    CONSTRAINT game_roll_event_hp_change_check CHECK ((hp_change >= 0)),
+    CONSTRAINT game_roll_event_roll_kind_check CHECK (((roll_kind)::text = ANY ((ARRAY['attack'::character varying, 'damage'::character varying])::text[]))),
     CONSTRAINT game_roll_event_source_check CHECK (((source)::text = ANY ((ARRAY['CHARACTER'::character varying, 'FREE'::character varying, 'CREATURE'::character varying])::text[]))),
-    CONSTRAINT game_roll_event_visibility_check CHECK (((visibility)::text = ANY ((ARRAY['PUBLIC'::character varying, 'GM'::character varying, 'SELF'::character varying])::text[])))
+    CONSTRAINT game_roll_event_visibility_check CHECK (((visibility)::text = ANY ((ARRAY['PUBLIC'::character varying, 'GM'::character varying, 'SELF'::character varying, 'SECRET'::character varying])::text[])))
 );
 
 
@@ -2371,6 +2424,107 @@ ALTER SEQUENCE public.game_roll_event_game_roll_event_id_seq OWNED BY public.gam
 
 
 --
+-- Name: game_scene; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_scene (
+    game_scene_id integer NOT NULL,
+    game_session_id integer NOT NULL,
+    name character varying(60) NOT NULL,
+    map_image_key character varying(200),
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    grid_columns real,
+    grid_offset_x real DEFAULT 0 NOT NULL,
+    grid_offset_y real DEFAULT 0 NOT NULL,
+    is_grid_visible boolean DEFAULT true NOT NULL,
+    fog jsonb,
+    grid_opacity real DEFAULT 0.35 NOT NULL,
+    CONSTRAINT game_scene_grid_columns_check CHECK (((grid_columns >= (2)::double precision) AND (grid_columns <= (300)::double precision))),
+    CONSTRAINT game_scene_grid_offset_x_check CHECK (((grid_offset_x >= (0)::double precision) AND (grid_offset_x < (1)::double precision))),
+    CONSTRAINT game_scene_grid_offset_y_check CHECK (((grid_offset_y >= (0)::double precision) AND (grid_offset_y < (1)::double precision))),
+    CONSTRAINT game_scene_grid_opacity_check CHECK (((grid_opacity >= (0.1)::double precision) AND (grid_opacity <= (1)::double precision))),
+    CONSTRAINT game_scene_name_check CHECK (((length(btrim((name)::text)) >= 1) AND (length(btrim((name)::text)) <= 60)))
+);
+
+
+--
+-- Name: game_scene_area; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_scene_area (
+    game_scene_area_id integer NOT NULL,
+    game_scene_id integer NOT NULL,
+    user_id integer NOT NULL,
+    shape character varying(8) NOT NULL,
+    size_feet smallint NOT NULL,
+    origin_x real NOT NULL,
+    origin_y real NOT NULL,
+    angle real DEFAULT 0 NOT NULL,
+    label character varying(80),
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT game_scene_area_angle_check CHECK (((angle >= (0)::double precision) AND (angle < (360)::double precision))),
+    CONSTRAINT game_scene_area_origin_x_check CHECK (((origin_x >= (0)::double precision) AND (origin_x <= (1)::double precision))),
+    CONSTRAINT game_scene_area_origin_y_check CHECK (((origin_y >= (0)::double precision) AND (origin_y <= (1)::double precision))),
+    CONSTRAINT game_scene_area_shape_check CHECK (((shape)::text = ANY ((ARRAY['circle'::character varying, 'cone'::character varying, 'line'::character varying, 'square'::character varying])::text[]))),
+    CONSTRAINT game_scene_area_size_feet_check CHECK (((size_feet >= 5) AND (size_feet <= 500)))
+);
+
+
+--
+-- Name: game_scene_area_game_scene_area_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_scene_area_game_scene_area_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_scene_area_game_scene_area_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_scene_area_game_scene_area_id_seq OWNED BY public.game_scene_area.game_scene_area_id;
+
+
+--
+-- Name: game_scene_game_scene_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_scene_game_scene_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_scene_game_scene_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_scene_game_scene_id_seq OWNED BY public.game_scene.game_scene_id;
+
+
+--
+-- Name: game_scene_token; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_scene_token (
+    game_scene_id integer NOT NULL,
+    user_id integer NOT NULL,
+    token_x real NOT NULL,
+    token_y real NOT NULL,
+    CONSTRAINT game_scene_token_token_x_check CHECK (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision))),
+    CONSTRAINT game_scene_token_token_y_check CHECK (((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))
+);
+
+
+--
 -- Name: game_session; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2385,6 +2539,11 @@ CREATE TABLE public.game_session (
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
     map_image_key character varying(200),
     creature_name_mode character varying(8) DEFAULT 'short'::character varying NOT NULL,
+    combat_round smallint,
+    combat_turn smallint,
+    combat_current_combatant_id integer,
+    active_scene_id integer,
+    CONSTRAINT game_session_combat_check CHECK ((((combat_round IS NULL) = (combat_turn IS NULL)) AND ((combat_round IS NULL) OR ((combat_round >= 1) AND (combat_turn >= 0))))),
     CONSTRAINT game_session_creature_name_mode_check CHECK (((creature_name_mode)::text = ANY ((ARRAY['short'::character varying, 'wrap'::character varying, 'full'::character varying])::text[])))
 );
 
@@ -2423,6 +2582,10 @@ CREATE TABLE public.game_session_member (
     last_seen_at timestamp with time zone,
     token_x real,
     token_y real,
+    conditions text[] DEFAULT '{}'::text[] NOT NULL,
+    exhaustion_level smallint DEFAULT 0 NOT NULL,
+    open_scene_id integer,
+    CONSTRAINT game_session_member_exhaustion_check CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
     CONSTRAINT game_session_member_role_check CHECK (((role)::text = ANY ((ARRAY['GM'::character varying, 'PLAYER'::character varying])::text[]))),
     CONSTRAINT game_session_member_token_check CHECK ((((token_x IS NULL) = (token_y IS NULL)) AND ((token_x IS NULL) OR (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision)) AND ((token_y >= (0)::double precision) AND (token_y <= (1)::double precision))))))
 );
@@ -4496,6 +4659,13 @@ ALTER TABLE ONLY public.fighting_style ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
+-- Name: game_combatant game_combatant_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_combatant ALTER COLUMN game_combatant_id SET DEFAULT nextval('public.game_combatant_game_combatant_id_seq'::regclass);
+
+
+--
 -- Name: game_map_creature game_map_creature_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -4507,6 +4677,20 @@ ALTER TABLE ONLY public.game_map_creature ALTER COLUMN game_map_creature_id SET 
 --
 
 ALTER TABLE ONLY public.game_roll_event ALTER COLUMN game_roll_event_id SET DEFAULT nextval('public.game_roll_event_game_roll_event_id_seq'::regclass);
+
+
+--
+-- Name: game_scene game_scene_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene ALTER COLUMN game_scene_id SET DEFAULT nextval('public.game_scene_game_scene_id_seq'::regclass);
+
+
+--
+-- Name: game_scene_area game_scene_area_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_area ALTER COLUMN game_scene_area_id SET DEFAULT nextval('public.game_scene_area_game_scene_area_id_seq'::regclass);
 
 
 --
@@ -5149,6 +5333,30 @@ ALTER TABLE ONLY public.fighting_style
 
 
 --
+-- Name: game_combatant game_combatant_creature_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_combatant
+    ADD CONSTRAINT game_combatant_creature_key UNIQUE (game_map_creature_id);
+
+
+--
+-- Name: game_combatant game_combatant_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_combatant
+    ADD CONSTRAINT game_combatant_pkey PRIMARY KEY (game_combatant_id);
+
+
+--
+-- Name: game_combatant game_combatant_session_pers_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_combatant
+    ADD CONSTRAINT game_combatant_session_pers_key UNIQUE (game_session_id, pers_id);
+
+
+--
 -- Name: game_map_creature game_map_creature_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -5178,6 +5386,30 @@ ALTER TABLE ONLY public.game_roll_event
 
 ALTER TABLE ONLY public.game_roll_event
     ADD CONSTRAINT game_roll_event_pkey PRIMARY KEY (game_roll_event_id);
+
+
+--
+-- Name: game_scene_area game_scene_area_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_area
+    ADD CONSTRAINT game_scene_area_pkey PRIMARY KEY (game_scene_area_id);
+
+
+--
+-- Name: game_scene game_scene_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene
+    ADD CONSTRAINT game_scene_pkey PRIMARY KEY (game_scene_id);
+
+
+--
+-- Name: game_scene_token game_scene_token_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_token
+    ADD CONSTRAINT game_scene_token_pkey PRIMARY KEY (game_scene_id, user_id);
 
 
 --
@@ -5925,10 +6157,45 @@ CREATE UNIQUE INDEX fighting_style_eng_name_key ON public.fighting_style USING b
 
 
 --
+-- Name: game_combatant_session_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_combatant_session_idx ON public.game_combatant USING btree (game_session_id);
+
+
+--
+-- Name: game_map_creature_scene_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_map_creature_scene_idx ON public.game_map_creature USING btree (game_scene_id);
+
+
+--
 -- Name: game_map_creature_session_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX game_map_creature_session_idx ON public.game_map_creature USING btree (game_session_id);
+
+
+--
+-- Name: game_roll_event_target_creature_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_roll_event_target_creature_idx ON public.game_roll_event USING btree (target_creature_id) WHERE (target_creature_id IS NOT NULL);
+
+
+--
+-- Name: game_scene_area_scene_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_scene_area_scene_idx ON public.game_scene_area USING btree (game_scene_id);
+
+
+--
+-- Name: game_scene_session_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_scene_session_idx ON public.game_scene USING btree (game_session_id);
 
 
 --
@@ -6713,6 +6980,38 @@ ALTER TABLE ONLY public.spell_classes
 
 
 --
+-- Name: game_combatant game_combatant_game_map_creature_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_combatant
+    ADD CONSTRAINT game_combatant_game_map_creature_id_fkey FOREIGN KEY (game_map_creature_id) REFERENCES public.game_map_creature(game_map_creature_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_combatant game_combatant_game_session_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_combatant
+    ADD CONSTRAINT game_combatant_game_session_id_fkey FOREIGN KEY (game_session_id) REFERENCES public.game_session(game_session_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_combatant game_combatant_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_combatant
+    ADD CONSTRAINT game_combatant_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_map_creature game_map_creature_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_map_creature
+    ADD CONSTRAINT game_map_creature_game_scene_id_fkey FOREIGN KEY (game_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE CASCADE;
+
+
+--
 -- Name: game_map_creature game_map_creature_game_session_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6745,11 +7044,83 @@ ALTER TABLE ONLY public.game_roll_event
 
 
 --
+-- Name: game_roll_event game_roll_event_target_creature_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_roll_event
+    ADD CONSTRAINT game_roll_event_target_creature_id_fkey FOREIGN KEY (target_creature_id) REFERENCES public.game_map_creature(game_map_creature_id) ON DELETE SET NULL;
+
+
+--
+-- Name: game_scene_area game_scene_area_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_area
+    ADD CONSTRAINT game_scene_area_game_scene_id_fkey FOREIGN KEY (game_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_scene_area game_scene_area_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_area
+    ADD CONSTRAINT game_scene_area_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_scene game_scene_game_session_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene
+    ADD CONSTRAINT game_scene_game_session_id_fkey FOREIGN KEY (game_session_id) REFERENCES public.game_session(game_session_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_scene_token game_scene_token_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_token
+    ADD CONSTRAINT game_scene_token_game_scene_id_fkey FOREIGN KEY (game_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_scene_token game_scene_token_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_token
+    ADD CONSTRAINT game_scene_token_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_session game_session_active_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session
+    ADD CONSTRAINT game_session_active_scene_id_fkey FOREIGN KEY (active_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE SET NULL;
+
+
+--
+-- Name: game_session game_session_combat_current_combatant_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session
+    ADD CONSTRAINT game_session_combat_current_combatant_id_fkey FOREIGN KEY (combat_current_combatant_id) REFERENCES public.game_combatant(game_combatant_id) ON DELETE SET NULL;
+
+
+--
 -- Name: game_session_member game_session_member_game_session_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.game_session_member
     ADD CONSTRAINT game_session_member_game_session_id_fkey FOREIGN KEY (game_session_id) REFERENCES public.game_session(game_session_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_session_member game_session_member_open_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session_member
+    ADD CONSTRAINT game_session_member_open_scene_id_fkey FOREIGN KEY (open_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE SET NULL;
 
 
 --

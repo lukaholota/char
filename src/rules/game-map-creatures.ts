@@ -1,6 +1,8 @@
+import { findCreatureHitPoints, isCreatureDown, type CreatureHitPoints } from "@/rules/creature-hit-points";
 import type { TokenPosition } from "@/rules/game-map";
+import { normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
 
-export const MAP_CREATURE_LIMITS = { perSession: 40, perAdd: 10, keyLength: 120, customNameLength: 40 } as const;
+export const MAP_CREATURE_LIMITS = { perScene: 40, perAdd: 10, keyLength: 120, customNameLength: 40 } as const;
 export const MAP_CREATURE_RULESETS = ["RULES_2014", "RULES_2024"] as const;
 export type MapCreatureRuleset = (typeof MAP_CREATURE_RULESETS)[number];
 
@@ -12,6 +14,8 @@ export type CreatureTokenSize = (typeof CREATURE_TOKEN_SIZES)[number];
 
 /// Множник до розміру токена героя: дракон на мапі більший за пацюка ще до того, як майстер щось змінить.
 export const CREATURE_TOKEN_SIZE_SCALES: Record<CreatureTokenSize, number> = { tiny: 0.6, small: 0.8, medium: 1, large: 1.5, huge: 2, gargantuan: 2.6 };
+/// Скільки клітинок сітки займає істота: крихітна — пів клітинки, велика — 2×2, гігантська — 4×4.
+export const CREATURE_SIZE_CELLS: Record<CreatureTokenSize, number> = { tiny: 0.5, small: 1, medium: 1, large: 2, huge: 3, gargantuan: 4 };
 export const CREATURE_TOKEN_SIZE_LABELS: Record<CreatureTokenSize, string> = {
   tiny: "Крихітний",
   small: "Малий",
@@ -31,22 +35,32 @@ export type MapCreatureRow = {
   tokenSize: string | null;
   tokenX: number | null;
   tokenY: number | null;
+  hpMax: number | null;
+  hpCurrent: number | null;
+  conditions: string[];
+  exhaustionLevel: number;
 };
-export type MapCreatureCatalogEntry = { name: string; size: string; imageUrl?: string; imageShape?: "round" };
+export type MapCreatureCatalogEntry = { name: string; size: string; hp?: string; imageUrl?: string; imageShape?: "round" };
 
-/// creatureKey і картинка — null для гравців, коли майстер назвав істоту по-своєму: так статблок не видно.
+/// creatureKey — лише майстру: статблок гравцям не віддається ніколи, картинка й назва лишаються.
+/// customName і statblockName бачить лише майстер.
+/// Числа хітів бачить лише майстер; гравцям іде тільки isDown.
 export type MapCreatureView = {
   id: number;
   creatureKey: string | null;
   ruleset: MapCreatureRuleset;
   label: string;
   statblockName: string | null;
+  customName: string | null;
   badge: number | null;
   isAlly: boolean;
   imageUrl: string | null;
   isRoundImage: boolean;
   tokenSize: CreatureTokenSize;
   token: TokenPosition | null;
+  hitPoints: CreatureHitPoints | null;
+  isDown: boolean;
+  conditions: TokenConditions;
 };
 
 export type NewMapCreatures = { creatureKey: string; ruleset: MapCreatureRuleset; count: number; isAlly: boolean; customName: string | null };
@@ -62,7 +76,8 @@ export function parseNewMapCreatures(raw: unknown): NewMapCreatures | null {
   return { creatureKey, ruleset: ruleset as MapCreatureRuleset, count: count as number, isAlly, customName: name };
 }
 
-function parseCustomName(raw: unknown): string | null | undefined {
+/// undefined — недійсне імʼя; null — імені немає, гравці бачать справжню істоту.
+export function parseCustomName(raw: unknown): string | null | undefined {
   if (raw === undefined || raw === null) return null;
   if (typeof raw !== "string") return undefined;
   const name = raw.replace(/\s+/g, " ").trim();
@@ -112,19 +127,23 @@ export function buildMapCreatureViews(
       const hasCopies = (copiesByGroup.get(findCreatureGroupKey(row)) ?? 0) > 1;
       const statblockName = entry?.name ?? row.creatureKey;
       const name = row.customName ?? statblockName;
-      const isHidden = !isGm && row.customName !== null;
+      const hitPoints = findCreatureHitPoints(row, entry?.hp);
       return {
         id: row.id,
-        creatureKey: isHidden ? null : row.creatureKey,
+        creatureKey: isGm ? row.creatureKey : null,
         ruleset: row.ruleset,
         label: hasCopies ? `${name} ${row.number}` : name,
         statblockName: isGm && row.customName ? statblockName : null,
+        customName: isGm ? row.customName : null,
         badge: hasCopies ? row.number : null,
         isAlly: row.isAlly,
-        imageUrl: isHidden ? null : (entry?.imageUrl ?? null),
-        isRoundImage: !isHidden && entry?.imageShape === "round",
+        imageUrl: entry?.imageUrl ?? null,
+        isRoundImage: entry?.imageShape === "round",
         tokenSize: parseCreatureTokenSize(row.tokenSize) ?? findStatblockTokenSize(entry?.size),
         token: row.tokenX !== null && row.tokenY !== null ? { x: row.tokenX, y: row.tokenY } : null,
+        hitPoints: isGm ? hitPoints : null,
+        isDown: isCreatureDown(hitPoints),
+        conditions: normalizeTokenConditions(row),
       };
     });
 }

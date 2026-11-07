@@ -6,7 +6,7 @@ import { SpellInfoModal } from "@/lib/components/characterSheet/SpellInfoModal";
 import type { SpellData } from "@/lib/spellsData";
 
 vi.mock("next/navigation", () => ({ useParams: () => ({}) }));
-vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useNoAiHref: () => (href: string) => href }));
+vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useNoAiHref: () => (href: string) => href, useRoutePathname: () => "/spells" }));
 vi.mock("@/lib/components/characterSheet/AddSpellToPersButtons", () => ({
   AddToPersDropdown: () => null,
   AddToSinglePersButton: () => null,

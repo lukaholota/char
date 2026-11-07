@@ -29,3 +29,40 @@ describe("час кидка", () => {
     expect(rolledAtOf(parseGameRollDraft(draftBody({ rolledAt: new Date(NOW + 60_000).toISOString() }), NOW))).toBe(NOW);
   });
 });
+
+describe("ряткидки цілей", () => {
+  const damage = { groups: [{ sides: 6, values: [4, 5] }], d20Mode: null, modeSources: [], extra: [], bonus: 0, total: 9, check: null };
+  const saves = { creatureIds: [3, 4], spell: { engName: "Fireball", level: 3, ruleset: "RULES_2014" }, dc: 15 };
+  const sheetBody = (extra: Record<string, unknown>) => ({ ...draftBody({ rolledAt: new Date(NOW).toISOString() }), source: "CHARACTER", persId: 5, label: "Вогняна куля · Шкода", roll: damage, ...extra });
+
+  it("кладе ряткидки зони в кидок шкоди з листа", () => {
+    const result = parseGameRollDraft(sheetBody({ saves }), NOW);
+    expect("draft" in result && result.draft.saves).toMatchObject({ ...saves, persIds: [] });
+  });
+
+  it("відмовляє ряткидкам разом з ціллю, з вільного кидка, з к20 чи з зіпсованим записом", () => {
+    expect(parseGameRollDraft(sheetBody({ saves, target: { creatureId: 3, kind: "damage" } }), NOW)).toEqual({ problem: "a roll has one kind of target" });
+    expect(parseGameRollDraft(sheetBody({ saves, source: "FREE", persId: null }), NOW)).toEqual({ problem: "spell saves come from a sheet, action saves from a statblock" });
+    expect(parseGameRollDraft(sheetBody({ saves: { ...saves, dc: "15" } }), NOW)).toEqual({ problem: "bad saves" });
+    const d20 = { ...damage, groups: [{ sides: 20, values: [12] }], d20Mode: "NORMAL", total: 12 };
+    expect("problem" in parseGameRollDraft(sheetBody({ saves, roll: d20 }), NOW)).toBe(true);
+  });
+});
+
+describe("ціль-герой кидка зі статблоку", () => {
+  const damage = { groups: [{ sides: 6, values: [4, 5] }], d20Mode: null, modeSources: [], extra: [], bonus: 0, total: 9, check: null };
+  const creatureBody = (extra: Record<string, unknown>) => ({ ...draftBody({ rolledAt: new Date(NOW).toISOString() }), source: "FREE", persId: null, label: "Гоблін · Шкода", roll: damage, ...extra });
+
+  it("кладе героя в кидок шкоди зі статблоку", () => {
+    const result = parseGameRollDraft(creatureBody({ heroTarget: { persId: 5, kind: "damage" } }), NOW);
+    expect("draft" in result && result.draft.heroTarget).toEqual({ persId: 5, kind: "damage" });
+  });
+
+  it("приймає героя з листа (вогонь по своїх), відмовляє зіпсованому запису й шкоді на к20", () => {
+    expect("draft" in parseGameRollDraft(creatureBody({ source: "CHARACTER", persId: 4, heroTarget: { persId: 5, kind: "damage" } }), NOW)).toBe(true);
+    expect(parseGameRollDraft(creatureBody({ heroTarget: { persId: "5", kind: "damage" } }), NOW)).toEqual({ problem: "bad hero target" });
+    const d20 = { ...damage, groups: [{ sides: 20, values: [12] }], d20Mode: "NORMAL", total: 12 };
+    expect(parseGameRollDraft(creatureBody({ roll: d20, heroTarget: { persId: 5, kind: "damage" } }), NOW)).toEqual({ problem: "damage cannot be a d20 roll" });
+    expect("draft" in parseGameRollDraft(creatureBody({ roll: d20, heroTarget: { persId: 5, kind: "attack" } }), NOW)).toBe(true);
+  });
+});

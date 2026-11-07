@@ -15,7 +15,7 @@ import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import { cn } from "@/lib/utils";
 import { GameJournal, GameSoundToggle } from "./GameJournal";
-import { VisibilityPicker } from "./GameRollTargetBar";
+import { VisibilityPicker, useRollVisibilityChoice } from "./GameRollTargetBar";
 import { useGamesHref } from "./use-games-href";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 
@@ -68,7 +68,7 @@ function DockButton({ isOpen, onOpen }: { isOpen: boolean; onOpen: () => void })
       aria-label={`Журнал кімнати${unseen ? `, нових кидків: ${unseen}` : ""}`}
       className={cn(
         "fixed right-3 z-[65] flex h-11 items-center gap-2 rounded-xl border border-white/10 bg-slate-950 px-3 text-sm font-semibold text-slate-100 shadow-xl shadow-black/50",
-        "bottom-[calc(72px+env(safe-area-inset-bottom))] [body:has([data-safe-sheet-tabs])_&]:bottom-[calc(136px+env(safe-area-inset-bottom))]",
+        "bottom-[calc(72px+env(safe-area-inset-bottom))] [body:has([data-safe-sheet-tabs])_&]:bottom-[calc(136px+env(safe-area-inset-bottom))] [body:has([data-hides-room-dock])_&]:hidden",
       )}
     >
       <StatusDot status={status} />
@@ -91,7 +91,7 @@ function DesktopDock({ isOpen, onOpenChange }: { isOpen: boolean; onOpenChange: 
           onOpenChange(true);
           captureGameEvent("game_journal_opened", { surface: "desktop" });
         }}
-        className="fixed bottom-6 left-[104px] z-[65] flex h-11 items-center gap-2 rounded-xl border border-white/10 bg-slate-950 px-3 text-sm font-semibold text-slate-100 shadow-xl shadow-black/50 hover:bg-slate-900"
+        className="fixed bottom-6 left-[104px] z-[65] flex h-11 items-center gap-2 [body:has([data-hides-room-dock])_&]:hidden rounded-xl border border-white/10 bg-slate-950 px-3 text-sm font-semibold text-slate-100 shadow-xl shadow-black/50 hover:bg-slate-900"
       >
         <StatusDot status={status} />
         <ScrollText className="h-4 w-4 text-arcane-300" aria-hidden />
@@ -149,13 +149,13 @@ export function PopOutJournalButton({ onPopOut }: { onPopOut?: () => void }) {
 
 function RollVisibilityRow({ surface }: { surface: "dock" | "popout" }) {
   const active = useGameSessionStore((state) => state.active);
-  const visibility = useGameSessionStore((state) => (state.active ? state.visibilityBySession[state.active.id] ?? "PUBLIC" : "PUBLIC"));
+  const choice = useRollVisibilityChoice(active?.id);
   const setVisibility = useGameSessionStore((state) => state.setVisibility);
   if (!active) return null;
   return (
     <div className="flex items-center justify-between gap-2">
       <span className="text-xs text-slate-400">Мої кидки бачать:</span>
-      <VisibilityPicker value={visibility} onChange={(next) => {
+      <VisibilityPicker value={choice.value} options={choice.options} onChange={(next) => {
         setVisibility(active.id, next);
         captureGameEvent("game_roll_visibility_changed", { visibility: next, surface });
       }} />
@@ -197,7 +197,7 @@ function StatusDot({ status }: { status: GameConnectionStatus }) {
 }
 
 /// Лічильник на згорнутій кнопці: скільки чужих кидків прийшло, поки журнал був закритий.
-function useUnseenSinceClosed(isOpen: boolean): number {
+export function useUnseenSinceClosed(isOpen: boolean): number {
   const status = useGameSessionLiveStore((state) => state.status);
   const lastSeq = useGameSessionLiveStore((state) => state.events.at(-1)?.seq ?? 0);
   const [seenSeq, setSeenSeq] = useState<number | null>(null);

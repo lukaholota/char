@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
 import { attributesUkrShort } from "@/lib/refs/translation";
 import type { SpellcastingStatRow } from "@/lib/logic/spellcasting-stats";
-import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { openRoomRoll } from "@/lib/components/game/open-room-roll";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { type RollStateView, buildSpellAttackRollContext, describeExtraDiceAloud } from "@/lib/components/dice/roll-contexts";
 import { ExtraDiceMark } from "@/lib/components/dice/ExtraDiceMark";
@@ -23,7 +23,6 @@ const editableClassName = " cursor-pointer hover:bg-fuchsia-500/30 active:scale-
 const valueClassName = "text-2xl font-bold text-fuchsia-50 drop-shadow-[0_0_8px_rgba(217,70,239,0.4)]";
 
 export default function SpellcastingSourceCards({ rows, isReadOnly, onEdit, attackState }: SpellcastingSourceCardsProps) {
-  const openRoll = useDiceUIStore((state) => state.openRoll);
   return (
     <div className="space-y-2">
       {rows.map((row) => (
@@ -37,7 +36,7 @@ export default function SpellcastingSourceCards({ rows, isReadOnly, onEdit, atta
               extraDice={attackState?.extraDice}
               ariaLabel={`Кинути атаку заклинанням ${formatModifier(row.attackBonus)}${describeExtraDiceAloud(attackState?.extraDice ?? [])}`}
               onClick={() =>
-                openRoll(buildSpellAttackRollContext(row.attackBonus, row.label, isReadOnly ? undefined : () => onEdit("spellAttack", row.ability), attackState))
+                openRoomRoll(buildSpellAttackRollContext(row.attackBonus, row.label, isReadOnly ? undefined : () => onEdit("spellAttack", row.ability), attackState))
               }
             />
             <StatCard

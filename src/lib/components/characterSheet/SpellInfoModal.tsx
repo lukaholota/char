@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { buildSpellDisplayDescription } from "@/lib/spell-display-description";
-import { useParams } from "next/navigation";
+import { useRoutePathname } from "@/components/no-ai/NoAiModeProvider";
 import { AddToPersDropdown, AddToSinglePersButton } from "@/lib/components/characterSheet/AddSpellToPersButtons";
 import { findLoadedSpellForModal, findSpellForModal } from "@/lib/spell-cards";
 import type { SpellData } from "@/lib/spellsData";
@@ -67,11 +67,16 @@ function matchesLoadedSpell(spell: SpellData, link: SpellLink): boolean {
   );
 }
 
+/// Модалка глобальна: id з адреси — персонаж лише на сторінках листа, а не кімнати чи каталогу.
+function findSheetPersId(pathname: string): number | null {
+  const match = /^\/char\/(\d+)(?:\/|$)/.exec(pathname);
+  return match ? Number(match[1]) : null;
+}
+
 export function SpellInfoModal() {
   const focus = useReadingDialogFocus();
-  const params = useParams();
-  const currentPersId = params?.id ? Number(params.id) : null;
-  const isIdValid = currentPersId !== null && !isNaN(currentPersId);
+  const currentPersId = findSheetPersId(useRoutePathname());
+  const isIdValid = currentPersId !== null;
 
   const [spellLink, setSpellLink] = useState<SpellLink | null>(() => findSpellLinkInLocation());
   const isOwnedByCatalog =

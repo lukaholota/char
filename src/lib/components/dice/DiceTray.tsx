@@ -10,6 +10,7 @@ import { FreeDicePanel } from "./FreeDicePanel";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { useDiceRolls } from "./useDiceRolls";
 import { GameRollTargetBar } from "@/components/games/GameRollTargetBar";
+import { canRollTakeTarget } from "@/lib/components/game/build-game-roll";
 import { DICE_TRAY_HEIGHT_VAR, DICE_TRAY_Z_INDEX, holdTrayResize, requestTrayResize, waitForAnimationFrames } from "./dice-tray-layout";
 
 const DISMISS_DRAG_PX = 80;
@@ -22,6 +23,7 @@ export function DiceTray() {
   const [settledLayoutKey, setSettledLayoutKey] = useState<string | null>(null);
   const isLayoutSettled = isOpen && settledLayoutKey === layoutKey;
   const rolls = useDiceRolls(isOpen, rollContext, isLayoutSettled);
+  const isSecret = useDiceUIStore((state) => state.areResultsHidden);
   const onEdit = rollContext?.onEdit;
   const handleEdit = onEdit
     ? () => {
@@ -43,7 +45,7 @@ export function DiceTray() {
           onClose={close}
           onEdit={handleEdit}
         >
-          <GameRollTargetBar isSheetRoll={isRollMode} />
+          <GameRollTargetBar isSheetRoll={isRollMode} isCreatureRoll={isRollMode && Boolean(rollContext?.isCreatureRoll)} canTarget={!isRollMode || canRollTakeTarget(rollContext)} pickedTarget={isRollMode ? rollContext.rollTarget : undefined} />
           {isRollMode ? (
             <DiceRollPanel
               context={rollContext}
@@ -51,12 +53,14 @@ export function DiceTray() {
               isReady={rolls.isReady}
               isRolling={rolls.isRolling}
               outcome={rolls.outcome}
+              isSecret={isSecret}
               onRoll={rolls.rollAction}
             />
           ) : (
             <FreeDicePanel
               isReady={rolls.isReady}
               isRolling={rolls.isRolling}
+              isSecret={isSecret}
               pool={rolls.pool}
               onAdd={rolls.addFreeDie}
               onRemove={rolls.removeFreeDie}

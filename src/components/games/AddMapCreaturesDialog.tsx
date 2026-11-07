@@ -24,7 +24,7 @@ export function AddMapCreaturesDialog({ sessionId }: { sessionId: number }) {
       if (event.origin !== window.location.origin || event.data?.type !== MAP_CREATURES_ADDED_MESSAGE) return;
       const { name, count } = event.data as { name: string; count: number };
       setIsOpen(false);
-      toast.success(`${count > 1 ? `${name} × ${count}` : name} — у ряду під мапою`);
+      toast.success(`${count > 1 ? `${name} × ${count}` : name} — у розділі «Поза мапою»`);
       captureGameEvent("game_creatures_added", { count, edition });
       router.refresh();
     };

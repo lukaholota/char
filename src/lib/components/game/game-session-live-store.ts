@@ -1,5 +1,7 @@
 import { create } from "zustand";
+import { readRollTargetCreatureId, useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
+import { collectAppliedHeroDamage, requestHeroDamage } from "@/lib/components/game/hero-damage";
 import type { GameSessionView } from "@/server/db/game-sessions";
 
 export type GameConnectionStatus = "idle" | "connecting" | "live" | "reconnecting" | "paused" | "offline" | "signed_out" | "lost";
@@ -81,7 +83,17 @@ export function setConnectionStatus(sessionId: number, status: GameConnectionSta
 }
 
 export function setSessionView(view: GameSessionView) {
-  if (useGameSessionLiveStore.getState().sessionId === view.id) useGameSessionLiveStore.setState({ view });
+  if (useGameSessionLiveStore.getState().sessionId !== view.id) return;
+  useGameSessionLiveStore.setState({ view });
+  dropFinishedRollTarget(view);
+}
+
+/// Повалений ворог лишався б ціллю наступних кидків, і гравець бив би вже мертвого.
+function dropFinishedRollTarget(view: GameSessionView) {
+  const targetId = readRollTargetCreatureId(view.id);
+  if (targetId === null) return;
+  const target = view.creatures.find((creature) => creature.id === targetId);
+  if (!target || target.isDown) useGameSessionStore.getState().setRollTarget(view.id, null);
 }
 
 export function setHasOlder(sessionId: number, hasOlder: boolean) {
@@ -93,6 +105,15 @@ export function addGameEvents(sessionId: number, incoming: readonly GameRollEven
   if (state.sessionId !== sessionId || !incoming.length) return;
   useGameSessionLiveStore.setState({ events: mergeBySeq(state.events, incoming), ...matchPendingRolls(state, incoming) });
   stopMembersRolling(incoming.flatMap((event) => event.authorUserId ?? []));
+  syncMyHeroDamage(state, sessionId, incoming);
+}
+
+/// Лише події після підключення: старі удари лист уже отримав з сервера разом зі сторінкою.
+function syncMyHeroDamage(state: LiveState, sessionId: number, incoming: readonly GameRollEventView[]) {
+  const myPersId = state.view?.myPersId;
+  if (!myPersId || state.liveFromSeq === null) return;
+  const liveFromSeq = state.liveFromSeq;
+  collectAppliedHeroDamage(sessionId, myPersId, incoming.filter((event) => event.seq > liveFromSeq)).forEach(requestHeroDamage);
 }
 
 /// Потік може принести свій кидок раніше за відповідь на POST, тож справжній кидок шукаємо за міткою й сумою, а не за ключем.

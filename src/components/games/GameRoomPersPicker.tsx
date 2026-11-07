@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { PersCardBody } from "@/app/char/home/PersCardBody";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { bindGameSessionPersAction } from "@/lib/actions/game-sessions";
 import { translateValue } from "@/lib/components/characterCreator/infoUtils";
@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import type { BindablePers, GameSessionView } from "@/server/db/game-sessions";
 import { GameAvatar } from "./GameAvatar";
 import { ROOM_CARD } from "./GameRoomSidebar";
+import { showRoomTab } from "./room-tabs";
 import { useGamesHref } from "./use-games-href";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 
@@ -41,10 +42,19 @@ export function GameRoomPersPicker({ view, bindablePers }: { view: GameSessionVi
         <p className="text-sm text-slate-400">Без персонажа</p>
       )}
       {view.myPersId ? (
-        <Link href={`/char/${view.myPersId}`} onClick={() => captureGameEvent("game_sheet_opened", { surface: "card" })} className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 w-full gap-2 text-base")}>
+        <Button
+          type="button"
+          variant="outline"
+          size="lg"
+          onClick={() => {
+            captureGameEvent("game_sheet_opened", { surface: "card" });
+            showRoomTab("hero");
+          }}
+          className="h-12 w-full gap-2 text-base"
+        >
           <ScrollText className="h-5 w-5" aria-hidden />
           Відкрити лист персонажа
-        </Link>
+        </Button>
       ) : (
         <p className="text-sm text-slate-400">Кидки з листа підписуються іменем персонажа. Вільні кубики — вашим іменем.</p>
       )}
@@ -98,9 +108,13 @@ function PersPickerDialog({ view, options, isOpen, onOpenChange }: { view: GameS
             ))}
           </ul>
         ) : (
-          <p className="text-sm text-slate-300">
-            У вас ще немає персонажів. <Link href={gamesHref("/char/home")} className="underline">До моїх персонажів</Link>
-          </p>
+          <div className="space-y-3">
+            <p className="text-sm text-slate-300">У вас ще немає персонажів. Готовий герой потрібного рівня займе хвилину; повернутися в кімнату можна плашкою «Журнал» внизу.</p>
+            <div className="grid gap-2 sm:grid-cols-2">
+              <Button asChild className="h-12 text-base"><Link href={gamesHref("/char/presets")}>Взяти готового персонажа</Link></Button>
+              <Button asChild variant="outline" className="h-12 text-base"><Link href={gamesHref("/char/create")}>Створити свого</Link></Button>
+            </div>
+          </div>
         )}
         <Button type="button" variant="outline" onClick={() => choose(null)} disabled={isPending || !view.myPersId} className="h-12 w-full text-base">
           Грати без персонажа

@@ -2,6 +2,14 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, renderHook } from "@testing-library/react";
 
+vi.hoisted(() => {
+  const items = new Map<string, string>();
+  const storage = { getItem: (key: string) => items.get(key) ?? null, setItem: (key: string, value: string) => void items.set(key, value), removeItem: (key: string) => void items.delete(key) };
+  Object.defineProperty(globalThis, "localStorage", { value: storage, configurable: true, writable: true });
+  Object.defineProperty(window, "localStorage", { value: storage, configurable: true, writable: true });
+});
+vi.mock("@/lib/monitoring/game-analytics", () => ({ captureGameEvent: vi.fn() }));
+
 const service = vi.hoisted(() => ({
   initialized: true,
   statusListeners: new Set<() => void>(),
@@ -31,6 +39,10 @@ vi.mock("@/lib/components/dice/diceService", () => ({
 
 import { buildAbilityRollContext, buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
 import { useDiceRolls } from "@/lib/components/dice/useDiceRolls";
+import { resetLiveSession, useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
+import type { GameSessionView } from "@/server/db/game-sessions";
 
 const settle = (values: number[], sides = 20) =>
   act(() => service.onComplete?.({ notation: "", total: values.reduce((a, b) => a + b, 0), rolls: values.map((value) => ({ sides, value })) }));
@@ -111,5 +123,47 @@ describe("кидки панелі", () => {
     expect(result.current.pool).toHaveLength(2);
     act(() => result.current.rerollPool());
     expect(service.rollMany).toHaveBeenLastCalledWith(["1d6", "1d20"]);
+  });
+});
+
+describe("кидок лише майстру", () => {
+  const chooseTarget = (visibility: "PUBLIC" | "SECRET") => useGameSessionStore.setState({ visibilityBySession: { 1: visibility } });
+  const isHidden = () => useDiceUIStore.getState().areResultsHidden;
+
+  beforeEach(() => {
+    vi.stubGlobal("fetch", vi.fn(() => new Promise(() => undefined)));
+    useGameSessionStore.setState({ active: { id: 1, name: "Кімната" }, visibilityBySession: {} });
+    resetLiveSession(1);
+    useGameSessionLiveStore.setState({ view: { id: 1, myUserId: 7, myRole: "PLAYER", members: [], creatures: [] } as unknown as GameSessionView });
+  });
+  afterEach(() => {
+    useGameSessionStore.setState({ active: null, visibilityBySession: {} });
+    useDiceUIStore.getState().close();
+    resetLiveSession(null);
+    vi.unstubAllGlobals();
+  });
+
+  it("лишається прихованим, коли гравець потім перемикає кидки на «Усім»; відкриває стіл лише відкритий перекид", async () => {
+    const { result } = renderHook(() => useDiceRolls(true, null, true));
+    chooseTarget("SECRET");
+    act(() => result.current.addFreeDie(20));
+    await settle([17]);
+    chooseTarget("PUBLIC");
+    expect(isHidden()).toBe(true);
+
+    act(() => result.current.addFreeDie(20));
+    expect(isHidden()).toBe(true);
+
+    act(() => result.current.rerollPool());
+    expect(isHidden()).toBe(false);
+  });
+
+  it("не ховає відкритий кидок, коли гравець потім обирає «Лише майстру»", async () => {
+    const { result } = renderHook(() => useDiceRolls(true, null, true));
+    chooseTarget("PUBLIC");
+    act(() => result.current.addFreeDie(20));
+    await settle([17]);
+    chooseTarget("SECRET");
+    expect(isHidden()).toBe(false);
   });
 });

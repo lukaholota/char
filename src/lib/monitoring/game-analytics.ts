@@ -17,10 +17,26 @@ type GameEventProperties = {
   game_session_left: Record<string, never>;
   game_member_removed: Record<string, never>;
   game_map_changed: { has_map: boolean };
+  game_scene_created: { source: "upload" | "library" | "none" };
+  game_scene_shown: Record<string, never>;
+  game_scene_deleted: Record<string, never>;
   game_token_moved: { is_own: boolean; is_on_map: boolean };
   game_creatures_added: { count: number; edition: "2014" | "2024" };
   game_creature_moved: { is_on_map: boolean };
   game_creature_statblock_opened: { is_gm: boolean };
+  game_combat_started: { combatant_count: number };
+  game_combat_ended: { rounds: number };
+  game_combat_turn_advanced: { step: 1 | -1 };
+  game_combat_initiative_edited: Record<string, never>;
+  game_combatants_added: { added_count: number };
+  game_condition_changed: { token: "creature" | "hero"; kind: "toggle" | "exhaustion" };
+  game_roll_target_set: { surface: "statblock" | "hero_tray" };
+  game_hero_damage_taken: Record<string, never>;
+  game_damage_undone: Record<string, never>;
+  game_fog_changed: { kind: "cover" | "clear" | "undo" | "area" };
+  game_area_shown: { shape: "circle" | "cone" | "line" | "square"; is_gm: boolean };
+  game_grid_changed: { has_grid: boolean };
+  game_map_tool_opened: { tool: "ruler" | "area" | "fog" | "grid" };
 };
 
 /// Без назв кімнат, міток і значень кидків — лише як люди користуються кімнатами.

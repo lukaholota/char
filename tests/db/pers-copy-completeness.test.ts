@@ -33,6 +33,9 @@ const RELATIONS_NOT_COPIED: Record<string, string> = {
   class: "переноситься через classId",
   subclass: "переноситься через subclassId",
   background: "переноситься через backgroundId",
+  gameSessionMembers: "копія не входить в ігрові кімнати оригіналу",
+  gameRollEvents: "журнал кидків належить кімнаті, а не персонажу",
+  gameCombatants: "місце в бою належить кімнаті, а не персонажу",
 };
 
 const PATH_SPECIFIC_PERS_FIELDS = [

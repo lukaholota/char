@@ -25,6 +25,7 @@ import {
 } from "@/lib/logic/pers-effect-rows";
 import { describeRollState, shortenSpellName, type SpellBuffCatalogEntry } from "@/lib/logic/state-labels";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { endRoomBlessing, useRoomBlessedPers } from "@/lib/components/game/room-blessing";
 import { buildD20Action } from "@/lib/components/dice/roll-contexts";
 import { findConcentrationSaveDc } from "@/rules/concentration";
 import { doesFeatureStateEndConcentration } from "@/rules/feature-states";
@@ -52,7 +53,7 @@ export type SheetStatesControl = {
   setConcentration: (spell: EffectSpell | null) => void;
   setBuff: (key: SpellBuffKey, isActive: boolean, source?: { spell: EffectSpell | null; endsWithConcentration: boolean }) => void;
   setExhaustion: (level: number) => void;
-  onSpellCast: (spell: EffectSpell, slotLabel?: string) => void;
+  onSpellCast: (spell: EffectSpell, slotLabel?: string, options?: { isTargetedOnMap?: boolean }) => void;
   promptConcentrationCheck: (damage: number) => void;
 };
 
@@ -76,7 +77,8 @@ export function useSheetStates(input: {
   const persRef = useRef(pers);
   persRef.current = pers;
 
-  const statesPers = useMemo(() => applyActiveStates(pers), [pers]);
+  const roomPers = useRoomBlessedPers(pers);
+  const statesPers = useMemo(() => applyActiveStates(roomPers), [roomPers]);
   const toggleableFeatures = useMemo(() => listToggleableFeatures(pers), [pers]);
 
   /// Лист оновлюється одразу, сервер — через офлайн-чергу; відмова сервера повертає попередній стан.
@@ -100,10 +102,12 @@ export function useSheetStates(input: {
   );
 
   const setConcentrationOn = useCallback(
-    (spell: EffectSpell | null) =>
-      commit((current) => markConcentration(current, spell), { kind: "concentration", spellId: spell?.spellId ?? null }, () =>
+    (spell: EffectSpell | null) => {
+      endRoomBlessing(findConcentration(persRef.current)?.spell, spell);
+      return commit((current) => markConcentration(current, spell), { kind: "concentration", spellId: spell?.spellId ?? null }, () =>
         setConcentration({ persId: pers.persId, spellId: spell?.spellId ?? null }),
-      ),
+      );
+    },
     [commit, pers.persId],
   );
 
@@ -133,11 +137,11 @@ export function useSheetStates(input: {
   );
 
   const onSpellCast = useCallback(
-    (spell: EffectSpell, slotLabel?: string) => {
+    (spell: EffectSpell, slotLabel?: string, options?: { isTargetedOnMap?: boolean }) => {
       const plan = planSpellCast(persRef.current, spell);
       const source = { spell, endsWithConcentration: plan.isConcentration };
       if (plan.isConcentration) void setConcentrationOn(spell);
-      const offered = plan.offeredBuff;
+      const offered = options?.isTargetedOnMap ? null : plan.offeredBuff;
       toast(plan.title, {
         description: [slotLabel, plan.endedName ? `«${plan.endedName}» завершено` : null].filter(Boolean).join(" · ") || undefined,
         action: offered ? { label: offered === "ENLARGE" ? "Збільшити себе" : "На себе", onClick: () => void setBuff(offered, true, source) } : undefined,

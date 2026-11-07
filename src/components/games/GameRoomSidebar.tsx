@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
 import { GameAvatar } from "./GameAvatar";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
+import { askToConfirm } from "@/components/ui/confirm-dialog";
 
 export const ROOM_CARD = "space-y-3 rounded-2xl border border-white/10 bg-slate-900/60 p-4";
 
@@ -30,8 +31,8 @@ function MemberRow({ view, member }: { view: GameSessionView; member: GameSessio
   const router = useModeRouter();
   const [isPending, startTransition] = useTransition();
   const canRemove = view.myRole === "GM" && member.userId !== view.myUserId;
-  const remove = () => {
-    if (!window.confirm(`Вилучити ${member.name} з кімнати?`)) return;
+  const remove = async () => {
+    if (!(await askToConfirm({ title: `Вилучити ${member.name} з кімнати?`, description: "Повернутися можна лише за запрошенням.", confirmLabel: "Вилучити", isDestructive: true }))) return;
     startTransition(async () => {
       const result = await removeGameSessionMemberAction(view.id, member.userId);
       if (!result.ok) return void toast.error(result.error);
@@ -79,8 +80,8 @@ export function GameRoomInvite({ view, isProminent = false }: { view: GameSessio
     toast.success("Посилання скопійовано");
     captureGameEvent("game_invite_copied", { member_count: view.members.length });
   }, () => toast.error("Не вдалося скопіювати — виділіть посилання вручну"));
-  const rotate = () => {
-    if (!window.confirm("Старе посилання перестане працювати. Учасники, що вже в кімнаті, лишаться.")) return;
+  const rotate = async () => {
+    if (!(await askToConfirm({ title: "Створити нове посилання?", description: "Старе посилання перестане працювати. Учасники, що вже в кімнаті, лишаться.", confirmLabel: "Створити" }))) return;
     startTransition(async () => {
       const result = await rotateInviteTokenAction(view.id);
       if (!result.ok) return void toast.error(result.error);

@@ -54,7 +54,7 @@ function readAuthSecret(): string {
 }
 
 async function dragTo(page: Page, token: Locator, map: Locator, fraction: { x: number; y: number }) {
-  await page.getByRole("region", { name: "Мапа" }).evaluate((region) => region.scrollIntoView({ block: "center" }));
+  await page.getByRole("tabpanel", { name: "Мапа" }).evaluate((region) => region.scrollIntoView({ block: "center" }));
   const from = (await token.boundingBox())!;
   const box = (await map.boundingBox())!;
   await page.mouse.move(from.x + from.width / 2, from.y + from.height / 2);
@@ -82,13 +82,21 @@ test("майстер ставить мапу, гравець тягне свій
 
   await gm.goto(`/games/${sessionId}`);
   await player.goto(`/games/${sessionId}`);
-  await expect(gm.getByRole("button", { name: "Додати мапу сцени" })).toBeVisible();
-  await expect(player.getByRole("region", { name: "Мапа" })).toHaveCount(0);
+  await expect(gm.getByText("Відкрийте або додайте сцену, щоб побачити мапу.")).toBeVisible();
+  await expect(player.getByText("Майстер ще не показав мапу")).toBeVisible();
 
+  await gm.getByRole("button", { name: "Сцени" }).click();
+  await gm.getByRole("button", { name: "Додайте першу сцену" }).click();
+  await gm.getByLabel("Назва сцени").fill("Лісова дорога");
   await gm.getByLabel("Картинка мапи").setInputFiles("public/images/home-characters.webp");
+  await gm.getByRole("button", { name: "Створити" }).click();
   await expect(gm.getByText("Не вдалося завантажити мапу — спробуйте іншу картинку")).toBeVisible();
 
-  await db.query(`UPDATE game_session SET map_image_key = 'images/home-characters' WHERE game_session_id = $1`, [sessionId]);
+  await db.query(
+    `WITH scene AS (INSERT INTO game_scene (game_session_id, name, map_image_key) VALUES ($1, 'Лісова дорога', 'images/home-characters') RETURNING game_scene_id)
+     UPDATE game_session SET active_scene_id = (SELECT game_scene_id FROM scene) WHERE game_session_id = $1`,
+    [sessionId],
+  );
   await gm.reload();
   await player.reload();
   const playerMap = player.getByRole("img", { name: "Мапа сцени" }).locator("..");

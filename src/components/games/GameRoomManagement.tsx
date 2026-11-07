@@ -12,6 +12,7 @@ import type { GameSessionView } from "@/server/db/game-sessions";
 import { ROOM_CARD } from "./GameRoomSidebar";
 import { useGamesHref } from "./use-games-href";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
+import { askToConfirm } from "@/components/ui/confirm-dialog";
 
 const MANAGEMENT_BUTTON = "h-12 w-full justify-start gap-3 px-4 text-base";
 
@@ -73,8 +74,8 @@ function ArchiveButton({ view }: { view: GameSessionView }) {
   const router = useModeRouter();
   const deactivate = useGameSessionStore((state) => state.deactivate);
   const [isPending, startTransition] = useTransition();
-  const toggleArchived = () => {
-    if (!view.isArchived && !window.confirm(`Заархівувати «${view.name}»? Нові кидки в кімнату більше не прийматимуться, журнал лишиться.`)) return;
+  const toggleArchived = async () => {
+    if (!view.isArchived && !(await askToConfirm({ title: `Заархівувати «${view.name}»?`, description: "Нові кидки в кімнату більше не прийматимуться, журнал лишиться.", confirmLabel: "Заархівувати" }))) return;
     startTransition(async () => {
       const result = await setGameSessionArchivedAction(view.id, !view.isArchived);
       if (!result.ok) return void toast.error(result.error);
@@ -97,8 +98,8 @@ function LeaveButton({ view }: { view: GameSessionView }) {
   const gamesHref = useGamesHref();
   const deactivate = useGameSessionStore((state) => state.deactivate);
   const [isPending, startTransition] = useTransition();
-  const leave = () => {
-    if (!window.confirm(`Вийти з кімнати «${view.name}»? Повернутися можна лише за новим запрошенням.`)) return;
+  const leave = async () => {
+    if (!(await askToConfirm({ title: `Вийти з кімнати «${view.name}»?`, description: "Повернутися можна лише за новим запрошенням.", confirmLabel: "Вийти", isDestructive: true }))) return;
     startTransition(async () => {
       const result = await leaveGameSessionAction(view.id);
       if (!result.ok) return void toast.error(result.error);

@@ -70,6 +70,7 @@ import { buildAbilityRollContext, buildInitiativeRollContext } from "@/lib/compo
 import { AbilityScoreCard } from "@/lib/components/characterSheet/AbilityScoreCard";
 import { useLongPress } from "@/hooks/useLongPress";
 import { PASSIVE_SKILLS } from "@/lib/components/characterSheet/passive-skills";
+import { useHeroDamageRequests } from "@/lib/components/game/hero-damage";
 
 interface MainStatsSlideProps {
   pers: PersWithRelations;
@@ -464,13 +465,26 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     if (!Number.isFinite(amount) || amount <= 0) return;
 
     setHpAmount("");
-    commitCombatOperation(
-      buildOperation({ kind: "hp", mode: hpMode, amount }),
-      (operationId) => applyHpChange({ persId, mode: hpMode, amount, operationId }),
-      "Не вдалося оновити HP",
-    );
-    if (hpMode === "damage") sheetStates?.promptConcentrationCheck(amount);
+    changeHp(hpMode, amount);
   };
+
+  const changeHp = (mode: typeof hpMode, amount: number, operation = buildOperation({ kind: "hp", mode, amount })) => {
+    commitCombatOperation(operation, (operationId) => applyHpChange({ persId, mode, amount, operationId }), "Не вдалося оновити HP");
+    if (mode === "damage") sheetStates?.promptConcentrationCheck(amount);
+  };
+
+  /// Хіти вже змінила кімната: той самий ідентифікатор сервер визнає повтором і просто віддає свіжий стан листа.
+  const syncRoomHitPoints = (mode: "damage" | "heal", amount: number, operationId: string) => {
+    startHpTransition(async () => {
+      const res = await applyHpChange({ persId, mode, amount, operationId });
+      if (res.success) writeCombatState({ ...readCombatState(), ...res });
+    });
+    if (mode === "damage") sheetStates?.promptConcentrationCheck(amount);
+  };
+
+  useHeroDamageRequests(persId, !isReadOnly, ({ amount, operationId, isAppliedOnServer, isHealing }) =>
+    isAppliedOnServer ? syncRoomHitPoints(isHealing ? "heal" : "damage", amount, operationId) : changeHp("damage", amount, { ...buildOperation({ kind: "hp", mode: "damage", amount }), operationId }),
+  );
 
   const setSaves = (nextSuccess: number, nextFail: number) => {
     const successes = Math.max(0, Math.min(3, Math.trunc(nextSuccess)));

@@ -123,6 +123,17 @@ function useStickToBottom(events: GameRollEventView[], tailKey: string) {
     if (node && isAtBottomRef.current) node.scrollTop = node.scrollHeight;
   }, [tailKey]);
 
+  /// На телефоні журнал — схована вкладка: поки висота нульова, прокрутка вниз не тримається.
+  useEffect(() => {
+    const node = scrollRef.current;
+    if (!node || typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(() => {
+      if (isAtBottomRef.current) node.scrollTop = node.scrollHeight;
+    });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   const onScroll = () => {
     const node = scrollRef.current;
     if (!node) return;
@@ -146,7 +157,7 @@ function LatestRollAnnouncer({ events }: { events: GameRollEventView[] }) {
   const latest = events.at(-1);
   useEffect(() => {
     if (!latest) return;
-    if (announcedSeqRef.current !== null && latest.seq > announcedSeqRef.current) setText(`${latest.persName ?? latest.authorName}: ${latest.label} — ${latest.total}`);
+    if (announcedSeqRef.current !== null && latest.seq > announcedSeqRef.current) setText(`${latest.persName ?? latest.authorName}: ${latest.label} — ${latest.total ?? "результат прихований"}`);
     announcedSeqRef.current = Math.max(announcedSeqRef.current ?? 0, latest.seq);
   }, [latest]);
   return (

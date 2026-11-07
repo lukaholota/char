@@ -21,10 +21,13 @@ export function CreatureStatblockCard({
   creature,
   is2024 = false,
   loreGroupDescription = null,
+  rollName = creature.name,
 }: {
   creature: CreatureData;
   is2024?: boolean;
   loreGroupDescription?: string | null;
+  /// «Гоблін 3» на мапі: журнал має показати, котрий із однакових ворогів кидав.
+  rollName?: string;
 }) {
   const sourceLabel = findSourceLabel(creature.source);
   const actionTone = findAccentVariant(is2024, { prism: "text-prism-400", arcane: "text-arcane-400" });
@@ -43,7 +46,7 @@ export function CreatureStatblockCard({
   const rollAbility = (ability: (typeof abilities)[number], modifier: number) => {
     const save = findSaveBonus(creature.savingThrows, ability.label) ?? modifier;
     const actions = [buildD20Action("check", "Перевірка", modifier), buildD20Action("save", "Ряткидок", save)];
-    useDiceUIStore.getState().openRoll(buildCreatureD20RollContext(creature.name, attributesUkrFull[ability.eng], actions));
+    useDiceUIStore.getState().openRoll(buildCreatureD20RollContext(rollName, attributesUkrFull[ability.eng], actions));
   };
 
   return (
@@ -117,7 +120,7 @@ export function CreatureStatblockCard({
             <div className="min-w-0">
               <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Ініціатива</div>
               <div className="text-xs sm:text-sm font-semibold text-slate-200 break-words">
-                {initiativeBonus === null ? creature.initiative : <CreatureInitiativeChip creatureName={creature.name} bonus={initiativeBonus}>{creature.initiative}</CreatureInitiativeChip>}
+                {initiativeBonus === null ? creature.initiative : <CreatureInitiativeChip creatureName={rollName} bonus={initiativeBonus}>{creature.initiative}</CreatureInitiativeChip>}
               </div>
             </div>
           </div>
@@ -175,12 +178,12 @@ export function CreatureStatblockCard({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
           {creature.savingThrows && (
             <div>
-              <span className="font-semibold text-slate-400">Рятівні кидки:</span> <CreatureBonusChips creatureName={creature.name} text={creature.savingThrows} kind="save" />
+              <span className="font-semibold text-slate-400">Рятівні кидки:</span> <CreatureBonusChips creatureName={rollName} text={creature.savingThrows} kind="save" />
             </div>
           )}
           {creature.skills && (
             <div>
-              <span className="font-semibold text-slate-400">Навички:</span> <CreatureBonusChips creatureName={creature.name} text={creature.skills} kind="skill" />
+              <span className="font-semibold text-slate-400">Навички:</span> <CreatureBonusChips creatureName={rollName} text={creature.skills} kind="skill" />
             </div>
           )}
           {creature.gear && (
@@ -242,21 +245,21 @@ export function CreatureStatblockCard({
         </div>
       </div>
 
-      <ProseSection title="Особливості" content={creature.specialAbilities} rollsForCreature={creature.name} />
-      <ProseSection rollsForCreature={creature.name} title="Дії" content={creature.actions} titleClassName={actionTone} />
-      <ProseSection rollsForCreature={creature.name} title="Бонусні дії" content={creature.bonusActions} titleClassName={actionTone} />
-      <ProseSection rollsForCreature={creature.name} title="Реакції" content={creature.reactions} />
+      <ProseSection title="Особливості" content={creature.specialAbilities} rollsForCreature={rollName} />
+      <ProseSection rollsForCreature={rollName} title="Дії" content={creature.actions} titleClassName={actionTone} />
+      <ProseSection rollsForCreature={rollName} title="Бонусні дії" content={creature.bonusActions} titleClassName={actionTone} />
+      <ProseSection rollsForCreature={rollName} title="Реакції" content={creature.reactions} />
       <ProseSection
         title="Легендарні дії"
         content={creature.legendaryActions}
-        rollsForCreature={creature.name}
+        rollsForCreature={rollName}
         titleClassName="text-purple-300"
       />
       <ProseSection title="Лігво" content={creature.lairInfo} titleClassName="text-purple-300" />
       <ProseSection
         title="Дії Лігва"
         content={creature.lairActions}
-        rollsForCreature={creature.name}
+        rollsForCreature={rollName}
         titleClassName="text-purple-300"
       />
       <ProseSection
@@ -267,7 +270,7 @@ export function CreatureStatblockCard({
       <ProseSection
         title="Міфічні дії"
         content={joinMythicSection(creature)}
-        rollsForCreature={creature.name}
+        rollsForCreature={rollName}
         titleClassName="text-purple-300"
       />
 

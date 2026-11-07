@@ -20,6 +20,8 @@ import type { SpellSource } from "@/rules/spell-sources";
 import { runWhenIdle } from "@/lib/run-when-idle";
 import { ChunkLoadBoundary } from "@/components/errors/ChunkLoadBoundary";
 import { SlideNotSavedNotice } from "./SlideNotSavedNotice";
+import { cn } from "@/lib/utils";
+import { useRoomBlessedPers } from "@/lib/components/game/room-blessing";
 
 export const LAZY_SLIDE_LOADERS = {
   skills: () => import("./slides/SkillsSlide"),
@@ -42,9 +44,11 @@ interface CharacterCarouselProps {
   groupedFeatures: CharacterFeaturesGroupedResult | null;
   isReadOnly?: boolean;
   reloadFeatures?: () => void;
+  /// Лист усередині іншої сторінки: колонки за шириною контейнера, вкладки й стрілки не прикріплені до вікна.
+  isEmbedded?: boolean;
 }
 
-export default function CharacterCarousel({ pers, spellcastingSources, onPersUpdate, groupedFeatures, isReadOnly, reloadFeatures }: CharacterCarouselProps) {
+export default function CharacterCarousel({ pers, spellcastingSources, onPersUpdate, groupedFeatures, isReadOnly, reloadFeatures, isEmbedded = false }: CharacterCarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
   const wildshape = useWildshapeState(pers.persId);
   const [showBeastLayer, setShowBeastLayer] = useState(true);
@@ -85,11 +89,12 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
   }, [wildshape.active, wildshape.standing, wildshape.reload, showBeastLayer, pers]);
 
   /// Стани лягають поверх звіриної форми: варвар-друїд 2014 може лютувати й звіром.
+  const roomPers = useRoomBlessedPers(pers);
   const sheetPers = useMemo(
-    () => applyActiveStates(beastForm ? buildBeastFormPers(pers, beastForm.layer) : pers),
-    [beastForm, pers]
+    () => applyActiveStates(beastForm ? buildBeastFormPers(roomPers, beastForm.layer) : roomPers),
+    [beastForm, roomPers]
   );
-  const ownPersWithStates = useMemo(() => applyActiveStates(pers), [pers]);
+  const ownPersWithStates = useMemo(() => applyActiveStates(roomPers), [roomPers]);
 
   type SlideId = "stats" | "skills" | "equipment" | "magic" | "features";
   type SlideDef = { id: SlideId; label: string };
@@ -128,6 +133,10 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
   useEffect(() => {
     const swiper = swiperRef.current;
     if (!swiper) return;
+    if (isEmbedded) {
+      mountSlidesAround(swiper);
+      return;
+    }
     if (window.matchMedia("(min-width: 1024px)").matches) {
       swiper.slideToLoop(4, 0);
       setCurrentIndex(4);
@@ -136,7 +145,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
       setCurrentIndex(0);
     }
     mountSlidesAround(swiper);
-  }, [mountSlidesAround]);
+  }, [isEmbedded, mountSlidesAround]);
 
   /// Спорядження, магія й риси лишаються персонажевими: обладунок у формі злився з подобою,
   /// заклинальна характеристика ніколи не Сила й не Спритність, а риси форма не міняє. Туди
@@ -164,7 +173,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
 
       {/* Content */}
       <div className="relative flex-1 min-h-0 overflow-hidden">
-        <div className="h-full min-h-0 px-3 pt-3 pb-16 md:px-4 md:pt-4 md:pb-2 md:absolute md:inset-0">
+        <div className={cn("h-full min-h-0", isEmbedded ? "absolute inset-0 px-3 pb-2 pt-3" : "px-3 pt-3 pb-16 md:px-4 md:pt-4 md:pb-2 md:absolute md:inset-0")}>
           <Swiper
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
@@ -182,6 +191,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
             watchSlidesProgress={true}
             slidesPerView={1}
             spaceBetween={12}
+            breakpointsBase={isEmbedded ? "container" : "window"}
             breakpoints={{
               768: {
                 slidesPerView: 2,
@@ -212,6 +222,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
             ))}
           </Swiper>
 
+          {isEmbedded ? null : (<>
           <Button
             className="hidden md:flex fixed md:left-28 top-1/2 -translate-y-1/2 bg-slate-900/50 hover:bg-slate-800/60 border border-white/20 text-white rounded-full md:w-12 md:h-12 p-0 shadow-xl z-10"
             size="icon"
@@ -232,10 +243,11 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
           >
             <ChevronRight className="md:w-6 md:h-6" />
           </Button>
+          </>)}
         </div>
       </div>
 
-      <div data-safe-sheet-tabs className="fixed bottom-[calc(75px+env(safe-area-inset-bottom,0px))] left-0 w-full md:sticky md:bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
+      <div data-safe-sheet-tabs className={cn(isEmbedded ? "shrink-0" : "fixed bottom-[calc(75px+env(safe-area-inset-bottom,0px))] left-0 w-full md:sticky md:bottom-0", "z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30")}>
         <div className="mx-auto max-w-5xl flex items-center justify-center gap-1">
           {allSlides.map((s, idx) => {
             const active = idx === currentIndex;

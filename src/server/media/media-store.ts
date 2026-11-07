@@ -19,6 +19,13 @@ export async function putMediaObject(key: string, body: Uint8Array, contentType:
   if (!response.ok) throw new Error(`R2 PUT ${key}: ${response.status}`);
 }
 
+export async function hasMediaObject(key: string): Promise<boolean> {
+  const response = await sendMediaRequest(key, { method: "HEAD" });
+  if (response.status === 404) return false;
+  if (!response.ok) throw new Error(`R2 HEAD ${key}: ${response.status}`);
+  return true;
+}
+
 export async function deleteMediaObject(key: string): Promise<void> {
   const response = await sendMediaRequest(key, { method: "DELETE" });
   if (!response.ok && response.status !== 404) throw new Error(`R2 DELETE ${key}: ${response.status}`);

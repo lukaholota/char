@@ -18,6 +18,14 @@ export function registerOfflineServiceWorker(): void {
   if (container && !wasControlledAtLoad && initialPageUrl) void savePageForOffline(initialPageUrl);
 }
 
+/// У dev назви чанків Turbopack сталі, а вміст міняється: воркер, що лишився від продакшн-збірки на тому ж порту, віддає вчорашні чанки (і ламає iframe, де hard reload воркер не обходить).
+export function unregisterOfflineServiceWorker(): void {
+  findServiceWorkerContainer()
+    ?.getRegistrations()
+    .then((registrations) => registrations.forEach((registration) => void registration.unregister()))
+    .catch(() => undefined);
+}
+
 export async function forgetOfflinePages(): Promise<void> {
   const container = findServiceWorkerContainer();
   if (!container) return;

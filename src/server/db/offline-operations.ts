@@ -104,17 +104,20 @@ export function isOperationId(value: unknown): value is string {
 /// впирається в первинний ключ і не виконується. Пряма дія з листа з тим самим ідентифікатором
 /// йде цим самим шляхом, тож дія й черга разом застосовують зміну рівно раз.
 export async function applyPersFieldOperation(userId: number, operation: OfflineOperation): Promise<ApplyOfflineOperationResult> {
-  return prisma.$transaction(async (tx) => {
-    const pers = await tx.pers.findUniqueOrThrow({ where: { persId: operation.persId }, select: OFFLINE_PERS_SELECT });
-    const claimed = await claimOperation(tx, userId, operation);
-    if (!claimed) return { ok: true, duplicate: true };
+  return prisma.$transaction((tx) => applyPersFieldOperationIn(tx, userId, operation));
+}
 
-    const maxima = isSlotRestore(operation) ? await findSpellSlotMaxima(operation.persId) : NO_SLOT_MAXIMA;
-    const next = applyOfflineOperation({ ...pers, ...maxima }, operation);
-    await tx.pers.update({ where: { persId: operation.persId }, data: buildPersUpdate(operation, next) });
+/// Те саме всередині чужої транзакції: удар у кімнаті знімає хіти героя разом із записом кидка.
+export async function applyPersFieldOperationIn(tx: Prisma.TransactionClient, userId: number, operation: OfflineOperation): Promise<ApplyOfflineOperationResult> {
+  const pers = await tx.pers.findUniqueOrThrow({ where: { persId: operation.persId }, select: OFFLINE_PERS_SELECT });
+  const claimed = await claimOperation(tx, userId, operation);
+  if (!claimed) return { ok: true, duplicate: true };
 
-    return { ok: true, duplicate: false };
-  });
+  const maxima = isSlotRestore(operation) ? await findSpellSlotMaxima(operation.persId) : NO_SLOT_MAXIMA;
+  const next = applyOfflineOperation({ ...pers, ...maxima }, operation);
+  await tx.pers.update({ where: { persId: operation.persId }, data: buildPersUpdate(operation, next) });
+
+  return { ok: true, duplicate: false };
 }
 
 /// Ресурси рис, заряди, підготовка, хіт-дайси й відпочинок живуть в інших таблицях і мають власні

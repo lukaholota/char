@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canSeeGameRoll, computeGameRollTotal, findGameRollProblem, findNaturalD20, isGameRollVisibility, type GameRoll } from "@/rules/game-roll";
+import { buildSecretRollLabel, canSeeGameRoll, canSeeGameRollValues, computeGameRollTotal, findGameRollProblem, findNaturalD20, isGameRollVisibility, type GameRoll } from "@/rules/game-roll";
 
 const attack: GameRoll = {
   d20Mode: "ADVANTAGE",
@@ -97,5 +97,32 @@ describe("canSeeGameRoll", () => {
   it("recognises only the three visibility modes", () => {
     expect(isGameRollVisibility("GM")).toBe(true);
     expect(isGameRollVisibility("gm")).toBe(false);
+  });
+});
+
+describe("secret rolls", () => {
+  const viewers = { gm: { isAuthor: false, isGm: true }, otherPlayer: { isAuthor: false, isGm: false }, author: { isAuthor: true, isGm: false } };
+
+  it("lets only the room gm and the author see that a secret roll happened", () => {
+    expect(canSeeGameRoll("SECRET", viewers.gm)).toBe(true);
+    expect(canSeeGameRoll("SECRET", viewers.author)).toBe(true);
+    expect(canSeeGameRoll("SECRET", viewers.otherPlayer)).toBe(false);
+  });
+
+  it("keeps the old author-only visibility readable", () => {
+    expect(canSeeGameRoll("SELF", viewers.author)).toBe(true);
+    expect(canSeeGameRoll("SELF", viewers.gm)).toBe(false);
+  });
+
+  it("hides secret values from everyone except a gm", () => {
+    expect(canSeeGameRollValues("SECRET", { isGm: false })).toBe(false);
+    expect(canSeeGameRollValues("SECRET", { isGm: true })).toBe(true);
+    expect(canSeeGameRollValues("GM", { isGm: false })).toBe(true);
+    expect(isGameRollVisibility("SECRET")).toBe(true);
+  });
+
+  it("labels a secret roll by its dice formula only", () => {
+    expect(buildSecretRollLabel({ groups: [{ sides: 20, values: [17] }] })).toBe("Секретний кидок · 1к20");
+    expect(buildSecretRollLabel({ groups: [{ sides: 6, values: [2, 5] }, { sides: 8, values: [8] }] })).toBe("Секретний кидок · 2к6 + 1к8");
   });
 });

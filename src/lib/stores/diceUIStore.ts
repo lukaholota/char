@@ -1,6 +1,10 @@
 import { create } from "zustand";
 
 import type { D20Mode } from "@/rules/dice-roll";
+import type { SpellSaveDamage } from "@/rules/creature-save";
+import type { AreaShape } from "@/rules/game-areas";
+import type { SaveSpellRef } from "@/rules/game-roll-saves";
+import type { RollTargetRef, RollTargets } from "@/rules/map-target-picks";
 
 export type DiceMode = "free" | "roll";
 
@@ -35,26 +39,42 @@ export interface DiceRollContext {
   /// Кидок проти СК (ряткидок концентрації): панель показує вердикт і повідомляє про нього раз.
   check?: { dc: number; successText: string; failureText: string; onResult: (isSuccess: boolean) => void };
   /// Ряткидок, який кидає ціль заклинання: панель і журнал показують його СК поруч зі шкодою.
-  targetSave?: { abilityName: string; dc: number };
+  /// spell — щоб кімната кинула ряткидки цілей сама й зняла половину чи нічого.
+  /// effect — дія статблоку (подих дракона): без заклинання кімната не знає ні ряткидка, ні виду шкоди.
+  targetSave?: { abilityName: string; dc: number; spell?: SaveSpellRef; effect?: SpellSaveDamage };
+  /// Область дії істоти (подих, вибух): кімната з мапою спершу просить її поставити.
+  targetArea?: { label: string; shape: AreaShape; sizeFeet: number };
+  /// Хто в зоні, накладеній на мапі: шкода йде всім їм — і ворогам, і своїм, — а не обраній цілі.
+  areaTargets?: RollTargets;
+  /// Скільки цілей обрати на мапі: промені й дротики можна розвести по різних токенах або вліпити в один.
+  targetPicks?: { count: number; isSummed: boolean };
+  /// Ціль, обрана на мапі саме для цього кидка; null — кидок свідомо без цілі.
+  rollTarget?: RollTargetRef | null;
+  /// Наступний промінь чи дротик: панель пропонує кинути його по своїй цілі.
+  next?: DiceRollContext;
 }
 
 interface DiceUIState {
   isOpen: boolean;
   mode: DiceMode;
   rollContext: DiceRollContext | null;
+  /// Прихованість належить кидку на столі, а не поточному вибору «кому»: інакше перемикач на «Усім» відкрив би давній секретний результат.
+  areResultsHidden: boolean;
+  setResultsHidden: (areResultsHidden: boolean) => void;
   toggle: () => void;
   open: () => void;
   openRoll: (context: DiceRollContext) => void;
   close: () => void;
 }
 
-const CLOSED = { isOpen: false, mode: "free", rollContext: null } as const;
-const FREE = { isOpen: true, mode: "free", rollContext: null } as const;
+const CLOSED = { isOpen: false, mode: "free", rollContext: null, areResultsHidden: false } as const;
+const FREE = { isOpen: true, mode: "free", rollContext: null, areResultsHidden: false } as const;
 
 export const useDiceUIStore = create<DiceUIState>((set) => ({
   ...CLOSED,
   toggle: () => set((state) => (state.isOpen ? CLOSED : FREE)),
   open: () => set(FREE),
-  openRoll: (context) => set({ isOpen: true, mode: "roll", rollContext: context }),
+  openRoll: (context) => set({ isOpen: true, mode: "roll", rollContext: context, areResultsHidden: false }),
+  setResultsHidden: (areResultsHidden) => set({ areResultsHidden }),
   close: () => set(CLOSED),
 }));

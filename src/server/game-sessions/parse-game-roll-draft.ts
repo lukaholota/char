@@ -1,4 +1,7 @@
 import { findGameRollProblem, GAME_ROLL_LIMITS, isGameRollVisibility, type GameRoll } from "@/rules/game-roll";
+import { parseGameRollHeroTarget } from "@/rules/game-roll-hero-target";
+import { parseGameRollSaves } from "@/rules/game-roll-saves";
+import { findGameRollTargetProblem, parseGameRollTarget } from "@/rules/game-roll-target";
 import type { GameRollDraft } from "@/server/db/game-roll-events";
 
 export const MAX_ROLL_BODY_BYTES = 8 * 1024;
@@ -18,6 +21,17 @@ export function parseGameRollDraft(body: unknown, now = Date.now()): { draft: Ga
   if (!rolledAt || Number.isNaN(rolledAt.getTime())) return { problem: "bad roll time" };
   const rollProblem = findGameRollProblem(input.roll);
   if (rollProblem) return { problem: rollProblem };
+  const target = parseGameRollTarget(input.target);
+  if (target === undefined) return { problem: "bad target" };
+  const saves = parseGameRollSaves(input.saves);
+  if (saves === undefined) return { problem: "bad saves" };
+  const heroTarget = parseGameRollHeroTarget(input.heroTarget);
+  if (heroTarget === undefined) return { problem: "bad hero target" };
+  if ([target, saves, heroTarget].filter(Boolean).length > 1) return { problem: "a roll has one kind of target" };
+  if (saves && (saves.spell ? input.source !== "CHARACTER" : input.source !== "FREE")) return { problem: "spell saves come from a sheet, action saves from a statblock" };
+  const kind = target?.kind ?? heroTarget?.kind ?? (saves ? "damage" : null);
+  const targetProblem = kind ? findGameRollTargetProblem(input.roll as GameRoll, kind) : null;
+  if (targetProblem) return { problem: targetProblem };
   return {
     draft: {
       idempotencyKey: input.idempotencyKey.toLowerCase(),
@@ -27,6 +41,9 @@ export function parseGameRollDraft(body: unknown, now = Date.now()): { draft: Ga
       label,
       roll: pickRollFields(input.roll as GameRoll),
       rolledAt: alignRollTime(rolledAt, readClientTime(input.sentAt), now),
+      target,
+      saves,
+      heroTarget,
     },
   };
 }

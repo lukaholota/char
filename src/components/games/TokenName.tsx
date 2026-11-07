@@ -21,7 +21,7 @@ export function TokenName({ name, mode, tokenSize }: { name: string; mode: Token
 
 export function TokenNameModePicker({ label, mode, onChange, isBusy = false, className }: { label: string; mode: TokenNameMode; onChange: (mode: TokenNameMode) => void; isBusy?: boolean; className?: string }) {
   return (
-    <div role="group" aria-label={label} className={cn("flex items-center gap-2 text-sm text-slate-400", className)}>
+    <div role="group" aria-label={label} className={cn("flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-400", className)}>
       <span className="shrink-0">{label}</span>
       <div className="flex rounded-xl border border-white/10 p-0.5">
         {TOKEN_NAME_MODES.map((option) => (

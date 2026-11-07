@@ -3,11 +3,13 @@
 import { useEffect, useRef, useSyncExternalStore } from "react";
 import { diceService } from "./diceService";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { cn } from "@/lib/utils";
 import { DICE_OVERLAY_Z_INDEX, DICE_TRAY_HEIGHT_VAR } from "./dice-tray-layout";
 
 export function DiceOverlay() {
   const initRef = useRef(false);
   const { isOpen, mode } = useDiceUIStore();
+  const isSecretRoll = useDiceUIStore((state) => state.areResultsHidden);
 
   useEffect(() => {
     if (!isOpen || initRef.current) return;
@@ -33,7 +35,7 @@ export function DiceOverlay() {
       className="pointer-events-none fixed inset-x-0 top-safe px-safe"
       style={{ zIndex: DICE_OVERLAY_Z_INDEX, bottom: isOpen ? `var(${DICE_TRAY_HEIGHT_VAR}, 0px)` : 0 }}
     >
-      <div id="dice-box" className="pointer-events-none h-full w-full" />
+      <div id="dice-box" className={cn("pointer-events-none h-full w-full", isSecretRoll && "invisible")} />
       {isOpen && status === "fallback" && (
         <div
           data-dice-fallback
