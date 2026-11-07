@@ -3,7 +3,7 @@
 import { EditorContent, useEditor, useEditorState, type Editor } from "@tiptap/react";
 import { Markdown } from "@tiptap/markdown";
 import { Placeholder } from "@tiptap/extensions";
-import { Bold, Italic, List, ListOrdered, type LucideIcon } from "lucide-react";
+import { Bold, Italic, List, ListOrdered, Plus, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { restoreTypedCharacters, RICH_TEXT_EXTENSIONS } from "./rich-text-markdown";
 
@@ -17,9 +17,12 @@ type Props = {
   placeholder?: string;
   contentClassName?: string;
   isToolbarSticky?: boolean;
+  snippets?: ReadonlyArray<Snippet>;
 };
 
-export function RichTextEditor({ id, value, onChange, ariaLabel, ariaDescribedBy, isInvalid, placeholder, contentClassName, isToolbarSticky }: Props) {
+type Snippet = { label: string; markdown: string };
+
+export function RichTextEditor({ id, value, onChange, ariaLabel, ariaDescribedBy, isInvalid, placeholder, contentClassName, isToolbarSticky, snippets }: Props) {
   const editor = useEditor({
     immediatelyRender: false,
     extensions: [...RICH_TEXT_EXTENSIONS, Markdown, Placeholder.configure({ placeholder: placeholder ?? "" })],
@@ -34,6 +37,7 @@ export function RichTextEditor({ id, value, onChange, ariaLabel, ariaDescribedBy
     <div className={cn("rounded-lg border border-white/10 bg-slate-950/50 focus-within:ring-1 focus-within:ring-amber-400/40", !isToolbarSticky && "overflow-hidden", isInvalid && "border-rose-400/60")}>
       {editor ? <RichTextToolbar editor={editor} isSticky={isToolbarSticky} /> : null}
       <EditorContent editor={editor} />
+      {editor && snippets?.length ? <SnippetBar editor={editor} snippets={snippets} /> : null}
     </div>
   );
 }
@@ -53,6 +57,24 @@ function buildContentAttributes({ id, ariaLabel, ariaDescribedBy, contentClassNa
       contentClassName,
     ),
   };
+}
+
+function SnippetBar({ editor, snippets }: { editor: Editor; snippets: ReadonlyArray<Snippet> }) {
+  const insertSnippet = (markdown: string) => {
+    if (editor.isEmpty) editor.chain().focus().setContent(markdown, { contentType: "markdown", emitUpdate: true }).run();
+    else editor.chain().focus("end").insertContentAt(editor.state.doc.content.size, markdown, { contentType: "markdown" }).run();
+  };
+  return (
+    <div className="flex flex-wrap items-center gap-1.5 border-t border-white/10 bg-white/[0.03] p-1.5">
+      <span className="px-1 text-xs text-slate-400">Вставити шаблон:</span>
+      {snippets.map((snippet) => (
+        <button key={snippet.label} type="button" onClick={() => insertSnippet(snippet.markdown)} className="flex h-11 items-center gap-1 rounded-md border border-white/10 px-2.5 text-sm text-slate-200 transition hover:bg-white/10 sm:h-9">
+          <Plus className="h-3.5 w-3.5" aria-hidden />
+          {snippet.label}
+        </button>
+      ))}
+    </div>
+  );
 }
 
 function RichTextToolbar({ editor, isSticky }: { editor: Editor; isSticky?: boolean }) {

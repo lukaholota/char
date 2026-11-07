@@ -94,6 +94,7 @@ type TraySheetProps = {
 function TraySheet({ title, subtitle, layoutKey, isRolling, hasDiceOnTable, onLayoutSettled, onClose, onEdit, children }: TraySheetProps) {
   const { ref, settleLayout } = useTrayLayout(layoutKey, isRolling, hasDiceOnTable, onLayoutSettled);
   const dragControls = useDragControls();
+  useEscapeToClose(onClose);
 
   const handleDragEnd = (_event: unknown, info: PanInfo) => {
     if (info.offset.y > DISMISS_DRAG_PX || info.velocity.y > DISMISS_VELOCITY) onClose();
@@ -246,4 +247,16 @@ function useTrayLayout(
   );
 
   return { ref, settleLayout };
+}
+
+/// Лоток не модальний, тож Escape закриває його лише тоді, коли поверх немає іншого діалогу.
+function useEscapeToClose(onClose: () => void) {
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || event.defaultPrevented || document.querySelector('[role="dialog"][data-state="open"]')) return;
+      onClose();
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [onClose]);
 }

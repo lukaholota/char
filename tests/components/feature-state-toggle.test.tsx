@@ -51,4 +51,14 @@ describe("O38 — кнопка стану на картці риси", () => {
     render(<FeatureCard feature={rage} />);
     expect(screen.queryByRole("button", { name: /Лють:/ })).toBeNull();
   });
+
+  it("кнопки лічильника названі й кожна робить своє", () => {
+    const onSpend = vi.fn();
+    const onRestore = vi.fn();
+    render(<FeatureCard feature={{ ...rage, usesRemaining: 2 }} onSpend={onSpend} onRestore={onRestore} />);
+    fireEvent.click(screen.getByRole("button", { name: "Лють: витратити використання" }));
+    fireEvent.click(screen.getByRole("button", { name: "Лють: повернути використання" }));
+    expect(onSpend).toHaveBeenCalledTimes(1);
+    expect(onRestore).toHaveBeenCalledTimes(1);
+  });
 });

@@ -75,7 +75,7 @@ function SideButton({ isOn, onClick, tone, children }: { isOn: boolean; onClick:
   );
 }
 
-function useRoomPickerId(): number | null {
+export function useRoomPickerId(): number | null {
   const [roomId, setRoomId] = useState<number | null>(null);
   useEffect(() => {
     const id = Number(new URLSearchParams(window.location.search).get(ROOM_PICKER_PARAM));

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ImagePlus, Loader2, Trash2 } from "lucide-react";
+import { ImagePlus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { saveHomebrewCreature } from "@/lib/actions/homebrew-actions";
 import {
@@ -14,7 +14,8 @@ import type { HomebrewCreatureFormValues } from "@/lib/logic/homebrew-form-value
 import { ACCEPTED_IMAGE_MIME_TYPES, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
 import { CHALLENGE_RATINGS } from "@/rules/challenge-rating";
 import { ImageCropDialog } from "@/lib/components/portrait/ImageCropDialog";
-import { RichTextField, RULESET_OPTIONS, SelectField, TextField } from "./HomebrewFormFields";
+import { CREATURE_ACTION_TEMPLATES, CreatureActionsCheck } from "./CreatureActionsCheck";
+import { RichTextField, RULESET_OPTIONS, SelectField, SubmitBar, TextField } from "./HomebrewFormFields";
 import { useHomebrewSubmit } from "./useHomebrewSubmit";
 
 const ABILITY_LABELS: Record<(typeof ABILITY_FIELDS)[number], string> = { strength: "СИЛ", dexterity: "СПР", constitution: "СТА", intelligence: "ІНТ", wisdom: "МУД", charisma: "ХАР" };
@@ -118,9 +119,16 @@ export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }
         ))}
       </div>
 
-      {CREATURE_PROSE_FIELDS.map((field) => (
-        <RichTextField key={field} name={field} label={PROSE_LABELS[field]} value={values[field]} onChange={set(field)} isTall={field === "actions"} error={errors[field]} placeholder={field === "actions" ? "Укус. Рукопашна атака: +5 на влучання, досяжність 5 фт. Влучання: 8 (1к10 + 3) колючої шкоди." : undefined} />
-      ))}
+      {CREATURE_PROSE_FIELDS.map((field) =>
+        field === "actions" ? (
+          <div key={field} className="space-y-2">
+            <RichTextField name={field} label={PROSE_LABELS[field]} value={values.actions} onChange={set(field)} isTall error={errors[field]} hint="Кубики в статблоці кидаються тапом: «+5 до влучання», шкода «1к10 + 3» (або 1d10+3), а перед шкодою — «ряткидок Мудрості СК 12». Почніть із шаблону." placeholder="Укус. Рукопашна атака: +5 до влучання, досяжність 5 фт. Влучання: 8 (1к10 + 3) колючої шкоди." snippets={CREATURE_ACTION_TEMPLATES} />
+            <CreatureActionsCheck markdown={values.actions} />
+          </div>
+        ) : (
+          <RichTextField key={field} name={field} label={PROSE_LABELS[field]} value={values[field]} onChange={set(field)} error={errors[field]} />
+        ),
+      )}
 
       <section className="space-y-2">
         <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">Картинка</span>
@@ -147,9 +155,7 @@ export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }
         {imageError ? <p className="text-xs text-rose-300">{imageError}</p> : <p className="text-xs text-slate-500">Кадрування й стиснення автоматичні. Лише власні або вільні для використання зображення.</p>}
       </section>
 
-      <Button type="submit" className="h-12 w-full sm:h-10 sm:w-auto" disabled={isSaving}>
-        {isSaving ? <Loader2 className="h-4 w-4 animate-spin" /> : entryId ? "Зберегти зміни" : "Опублікувати"}
-      </Button>
+      <SubmitBar isSaving={isSaving} isEditing={Boolean(entryId)} />
     </form>
   );
 }

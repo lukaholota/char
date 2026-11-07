@@ -7,7 +7,7 @@ import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { cn } from "@/lib/utils";
 import { AREA_SHAPE_LABELS, findAreaTip, isPointInArea, isTokenInArea, type AreaPlacement } from "@/rules/game-areas";
 import { isPointHidden } from "@/rules/game-fog";
-import { measureGridFeet, snapToHalfCell, type MapFrame } from "@/rules/game-grid";
+import { findFreeCellNear, measureGridFeet, snapToHalfCell, type MapFrame } from "@/rules/game-grid";
 import { findMapShareInRect, findTokenPositionInRect, type TokenPosition } from "@/rules/game-map";
 import type { TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionView } from "@/server/db/game-sessions";
@@ -20,17 +20,21 @@ import { MapAreasLayer, MapFogLayer, MapGridLayer, MapHandle, MapLabel, MapMeasu
 import type { TokenLayout } from "./MapTokenSlot";
 import { FoldSection, FullscreenButton, MapToolRow, MapZoomControls, ToolModeBadge } from "./MapToolbar";
 import { describeFitTask, FogPanel, GridPanel, RulerPanel, ViewPanel } from "./MapToolPanels";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { CompactCombatContext } from "./CombatTracker";
+import { useSharedBoard } from "./shared-board";
 import { useAreaTool, useFogTool, useGridTool, useRulerTool, type MapTool } from "./use-map-tools";
 import { useMapViewport } from "./use-map-viewport";
 import { useGridDraft, useSceneTools } from "./use-scene-tools";
 
 type Point = { clientX: number; clientY: number };
 /// Ширину міряє контейнер мапи, а не екран: та сама розкладка працює в кімнаті, на весь екран і в повернутому діалозі.
-/// Вузько: бій, мапа (висота картинки, але не більше пів екрана — інакше панель інструментів зсуває мапу з екрана), інструменти, «Поза мапою» — колонка прокручується. Широко: мапа ліворуч, решта в бічній колонці.
+/// Вузько: бій, мапа (висота картинки, але не більше пів екрана, а поруч із відкритою панеллю — третина: інакше кнопки панелі на малому телефоні не докрутити), інструменти, «Поза мапою» — колонка прокручується. Широко: мапа ліворуч, решта в бічній колонці.
 const WIDE_LAYOUT = {
   root: "flex flex-1 flex-col gap-2 [@container(min-width:36rem)]:grid [@container(min-width:36rem)]:min-h-0 [@container(min-width:36rem)]:grid-cols-[minmax(0,1fr)_17rem] [@container(min-width:36rem)]:grid-rows-[minmax(0,1fr)] [@container(min-width:36rem)]:gap-3",
   map: "order-2 min-h-[min(50dvh,var(--map-fit-height,50dvh))] [@container(min-width:36rem)]:order-none [@container(min-width:36rem)]:min-h-0 [@container(min-width:36rem)]:col-start-1 [@container(min-width:36rem)]:row-start-1 [@container(min-width:36rem)]:h-full",
   side: "contents [@container(min-width:36rem)]:col-start-2 [@container(min-width:36rem)]:row-start-1 [@container(min-width:36rem)]:flex [@container(min-width:36rem)]:min-h-0 [@container(min-width:36rem)]:flex-col [@container(min-width:36rem)]:gap-2 [@container(min-width:36rem)]:overflow-y-auto [@container(min-width:36rem)]:overscroll-contain",
+  mapBesideTools: "min-h-[min(34dvh,var(--map-fit-height,34dvh))]",
   combat: "order-1 shrink-0 [@container(min-width:36rem)]:order-none",
   tools: "order-3 [@container(min-width:36rem)]:order-none [@container(min-width:36rem)]:max-h-none [@container(min-width:36rem)]:overflow-visible [@container(min-width:36rem)]:overscroll-auto",
   tray: "order-4 [@container(min-width:36rem)]:order-last",
@@ -57,9 +61,8 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   const boardRef = useRef<HTMLDivElement>(null);
   const [aspect, setAspect] = useState<number | null>(null);
   const [isBroken, setIsBroken] = useState(false);
-  const [tool, setTool] = useState<MapTool | null>(null);
+  const { tool, setTool, area: areaStore, skippedKeys, setSkippedKeys, replacedAreaId } = useSharedBoard();
   const [isFogPreview, setIsFogPreview] = useState(false);
-  const [skippedKeys, setSkippedKeys] = useState<string[]>([]);
   const targeting = useMapTargetingStore((state) => (state.targeting?.sessionId === view.id ? state.targeting : null));
   const canEditScene = view.myRole === "GM" && !view.isArchived;
   const scene = useSceneTools(view);
@@ -76,7 +79,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   const ruler = useRulerTool(toShare, frame);
   const fogTool = useFogTool(toShare, frame, (change) => void scene.changeFog(change));
   const gridTool = useGridTool(toShare, aspect, grid, gridDraft.changeGrid);
-  const area = useAreaTool(toShare, frame, scene.saveArea);
+  const area = useAreaTool(areaStore, toShare, frame, scene.saveArea);
   const gesture = tool === "ruler" ? ruler.gesture : tool === "fog" ? fogTool.gesture : tool === "grid" ? gridTool.gesture : tool === "area" ? area.gesture : null;
 
   const openTappedArea = (point: Point) => {
@@ -107,6 +110,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     frame,
     isHidden: (position) => hidesForMe && isPointHidden(position, scene.fog),
     isHighlighted: (position, cells) => Boolean(frame && activeArea && isTokenInArea(position, cells, activeArea, frame)),
+    findFreeSpot: () => findFreeCellNear(findViewCentre(), [...heroes.placed, ...creatures.placed].map((token) => token.position), frame),
   };
   const heroes = useHeroTokens({ view, moves, layout, nameMode: heroNames.mode, findDropPosition, isTurned: isQuarterTurned });
   const creatures = useMapCreatureTokens({ view, layout, findDropPosition, isTurned: isQuarterTurned });
@@ -124,11 +128,18 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     const at = rect?.width ? toShare({ clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2 }) : null;
     return at ? clampShare(at) : { x: 0.5, y: 0.5 };
   };
-  const startArea = (start: AreaStart) => {
+  const startArea = (start: AreaStart, earlier?: AreaPlacement) => {
     const myHero = view.members.find((member) => member.userId === view.myUserId);
     const heroAt = myHero ? moves.findPosition(myHero) : null;
-    const origin = start.shape !== "circle" && heroAt ? heroAt : findViewCentre();
-    area.setDraft({ id: null, canEdit: true, placement: { ...start, origin: frame ? snapToHalfCell(origin, frame) : origin, angle: 0 } });
+    const origin = earlier?.origin ?? (start.shape !== "circle" && heroAt ? heroAt : findViewCentre());
+    area.setDraft({ id: null, canEdit: true, placement: { ...start, origin: frame ? snapToHalfCell(origin, frame) : origin, angle: earlier?.angle ?? 0 } });
+  };
+  /// Гравець часто ставить зону інструментом ще до касту: каст бере її місце, а не скидає в центр.
+  const findMyEarlierArea = (start: AreaStart): { id: number | null; placement: AreaPlacement } | null => {
+    const isSameArea = (placement: AreaPlacement) => placement.shape === start.shape && placement.sizeFeet === start.sizeFeet;
+    if (area.draft && isSameArea(area.draft.placement)) return area.draft;
+    const saved = [...scene.areas].reverse().find((candidate) => candidate.userId === view.myUserId && isSameArea(candidate));
+    return saved ? { id: saved.id, placement: saved } : null;
   };
   const removeArea = (areaId: number | null) => {
     void scene.removeAreas(areaId);
@@ -136,6 +147,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   };
 
   const castState = useAreaCastStore((state) => state.cast);
+  const isDiceTrayOpen = useDiceUIStore((state) => state.isOpen);
   const cast = castState?.isPlaced && castState.sessionId === view.id && tool === "area" && area.draft?.id === null ? castState : null;
   const hasFrame = frame !== null;
   const hasImage = aspect !== null;
@@ -145,7 +157,10 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     if (!placed) return;
     setSkippedKeys([]);
     changeTool("area");
-    startArea({ shape: placed.area.shape, sizeFeet: placed.area.sizeFeet, label: placed.area.name });
+    const start = { shape: placed.area.shape, sizeFeet: placed.area.sizeFeet, label: placed.area.name };
+    const earlier = findMyEarlierArea(start);
+    replacedAreaId.current = earlier?.id ?? null;
+    startArea(start, earlier?.placement);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- зону ставить лише новий каст, а не кожен рендер мапи
   }, [castState, hasFrame, view.id]);
   const isTargeting = targeting !== null;
@@ -163,6 +178,8 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   const toggleCastTarget = (key: string) => setSkippedKeys((keys) => (keys.includes(key) ? keys.filter((skipped) => skipped !== key) : [...keys, key]));
   const castSpell = () => {
     if (!cast) return;
+    if (replacedAreaId.current !== null) void scene.removeAreas(replacedAreaId.current);
+    replacedAreaId.current = null;
     void area.share();
     castOnArea(cast, castTargets);
     setTool(null);
@@ -201,6 +218,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     : null;
 
   const hasTray = heroes.waiting.length > 0 || creatures.tray !== null;
+  const isFocused = Boolean(panel || targeting || isDiceTrayOpen);
   const toolsRef = useRef<HTMLDivElement>(null);
   const hasAreaDraft = area.draft !== null;
   useEffect(() => {
@@ -214,7 +232,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
         ) : (
           <div
             ref={viewport.viewportRef}
-            className={cn("relative grid min-h-0 min-w-0 flex-1 touch-none select-none items-start justify-items-center overflow-hidden rounded-xl [container-type:size]", WIDE_LAYOUT.map, viewport.zoom > 1.01 && !isToolGesture && "cursor-grab active:cursor-grabbing")}
+            className={cn("relative grid min-h-0 min-w-0 flex-1 touch-none select-none items-start justify-items-center overflow-hidden rounded-xl [container-type:size]", WIDE_LAYOUT.map, (panel || targeting) && WIDE_LAYOUT.mapBesideTools, viewport.zoom > 1.01 && !isToolGesture && "cursor-grab active:cursor-grabbing")}
             style={aspect ? ({ "--map-fit-height": `calc(100cqw / ${aspect})` } as CSSProperties) : undefined}
             {...viewport.bindViewport}
           >
@@ -259,7 +277,13 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
         )}
         <div className={WIDE_LAYOUT.side}>
           {heading}
-          {combat ? <div className={WIDE_LAYOUT.combat}><OpenCreatureCardContext.Provider value={creatures.openStatblock}>{combat}</OpenCreatureCardContext.Provider></div> : null}
+          {combat ? (
+            <div className={cn(WIDE_LAYOUT.combat, isFocused && "sticky top-0 z-30 rounded-2xl bg-slate-950")}>
+              <CompactCombatContext.Provider value={isFocused}>
+                <OpenCreatureCardContext.Provider value={creatures.openStatblock}>{combat}</OpenCreatureCardContext.Provider>
+              </CompactCombatContext.Provider>
+            </div>
+          ) : null}
           {hasTray ? (
             <FoldSection title="Поза мапою" className={cn(WIDE_LAYOUT.tray, !canEditScene && "order-3")}>
               <div className="space-y-3">

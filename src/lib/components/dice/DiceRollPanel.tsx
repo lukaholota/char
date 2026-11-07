@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { formatModifier } from "@/lib/logic/utils";
 import { buildRollVerdict, clearRollVerdict, useRollVerdictStore } from "@/lib/components/game/roll-verdict";
 import { useDiceUIStore, type DiceRollAction, type DiceRollContext } from "@/lib/stores/diceUIStore";
@@ -8,6 +8,8 @@ import type { D20Mode } from "@/rules/dice-roll";
 import { cn } from "@/lib/utils";
 import { describeActionDice, formatExtraDice, type DiceRollOutcome } from "./roll-contexts";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
+import { findActionRollKind } from "@/lib/components/game/build-game-roll";
+import { AddedDamageDice } from "./AddedDamageDice";
 
 type Props = {
   context: DiceRollContext;
@@ -30,9 +32,13 @@ const ACTION_IDLE = "border-white/10 bg-slate-900/60 text-slate-200 hover:bg-sla
 const ACTION_ACTIVE = "border-amber-400/50 bg-amber-500/20 text-amber-50";
 
 export function DiceRollPanel({ context, activeActionKey, isReady, isRolling, outcome, isSecret, onRoll }: Props) {
-  const activeAction = findActiveAction(context, activeActionKey);
+  const [addedAction, setAddedAction] = useState<DiceRollAction | null>(null);
+  const activeAction = addedAction && addedAction.key === activeActionKey ? addedAction : findActiveAction(context, activeActionKey);
   const canRoll = isReady && !isRolling;
-  useEffect(() => clearRollVerdict(), [context]);
+  useEffect(() => {
+    clearRollVerdict();
+    setAddedAction(null);
+  }, [context]);
   return (
     <div className="space-y-3 px-4">
       {context.actions.length > 1 ? (
@@ -75,6 +81,15 @@ export function DiceRollPanel({ context, activeActionKey, isReady, isRolling, ou
           );
         })}
       </div>
+      {!context.targetSave && findActionRollKind(context, activeAction) === "damage" ? (
+        <AddedDamageDice
+          disabled={!canRoll}
+          onRoll={(action) => {
+            setAddedAction(action);
+            onRoll(action, "NORMAL");
+          }}
+        />
+      ) : null}
     </div>
   );
 }

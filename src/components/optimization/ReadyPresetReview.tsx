@@ -55,7 +55,7 @@ export function PresetRecap({ data, targetLevel }: { data: ReadyPresetPageData; 
 }
 
 export function PresetReviewActions({ formId, status, isSubmitting, onCustomize }: { formId: string; status: ReactNode; isSubmitting: boolean; onCustomize: () => void }) {
-  return <div className="fixed inset-x-0 bottom-[calc(64px+env(safe-area-inset-bottom))] z-[60] px-2 pb-3 md:static md:px-0 md:pb-0">
+  return <div data-hides-room-dock className="fixed inset-x-0 bottom-[calc(64px+env(safe-area-inset-bottom))] z-[60] px-2 pb-3 md:static md:px-0 md:pb-0">
     <div className="glass-panel border-gradient-rpg mx-auto w-full max-w-3xl rounded-xl p-2.5 shadow-xl shadow-black/40 backdrop-blur-2xl md:rounded-2xl md:p-5 md:shadow-none">
       {status}
       <div className="flex gap-2">

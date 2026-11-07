@@ -2,6 +2,8 @@ import { randomUUID } from "node:crypto";
 import sharp from "sharp";
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
+import { getAllCreatures } from "@/lib/bestiaryData";
+import { buildHomebrewCreatureKey } from "@/lib/logic/homebrew-catalog";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
 const stored = vi.hoisted(() => new Map<string, Uint8Array>());
@@ -228,6 +230,26 @@ describe("мапа кімнати", () => {
     await changeMapCreatureHitPoints(sessionId, gm.id, target.id, { kind: "damage", amount: 500 });
     expect((await findGameSessionView(sessionId, player.id))!.creatures[0]).toMatchObject({ hitPoints: null, isDown: true });
     expect((await findGameSessionView(sessionId, gm.id))!.creatures[0].hitPoints).toEqual({ current: 0, max });
+  });
+
+  it("власна хоумбрю-істота стає на стіл зі своєю назвою й хітами", async () => {
+    const { gm, sessionId } = await createTableWithHeroes();
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    const goblin = getAllCreatures("RULES_2014").find((creature) => creature.nameEng === "Goblin")!;
+    const entry = await prisma.homebrewEntry.create({ data: { kind: "CREATURE", authorUserId: gm.id, ruleset: "RULES_2014", name: "Болотний гоблін" } });
+    await prisma.homebrewCreature.create({
+      data: { homebrewEntryId: entry.homebrewEntryId, engName: "Bog goblin", size: goblin.size, type: goblin.type, challenge: goblin.challenge, statBlock: { ...goblin, name: "Болотний гоблін", hp: "20 (3к8 + 7)" } },
+    });
+
+    const creatureKey = buildHomebrewCreatureKey(entry.homebrewEntryId);
+    expect(await addMapCreatures(sessionId, gm.id, { creatureKey, ruleset: "RULES_2014", count: 1, isAlly: false, customName: null })).toEqual({ ok: true, value: { name: "Болотний гоблін" } });
+
+    const [placed] = (await findGameSessionView(sessionId, gm.id))!.creatures;
+    expect(placed).toMatchObject({ label: "Болотний гоблін", creatureKey });
+    expect(placed.hitPoints!.max).toBeGreaterThanOrEqual(10);
+    expect(placed.hitPoints!.max).toBeLessThanOrEqual(31);
+    expect(await changeMapCreatureHitPoints(sessionId, gm.id, placed.id, { kind: "damage", amount: 3 })).toEqual({ ok: true, value: null });
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures[0].hitPoints).toEqual({ current: placed.hitPoints!.max - 3, max: placed.hitPoints!.max });
   });
 
   it("хіти міняє лише майстер: шкода не нижче нуля, лікування не вище максимуму, новий максимум підрізає поточні", async () => {

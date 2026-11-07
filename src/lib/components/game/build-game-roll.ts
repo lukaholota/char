@@ -32,7 +32,10 @@ export function buildActionGameRoll({ context, action, d20Mode }: ActionRequest,
   return { label: clip(labelParts.filter(Boolean).join(" · "), GAME_ROLL_LIMITS.label), roll, isFromSheet: !context.isCreatureRoll, kind, ...(save ? { save } : {}), ...(save && context.areaTargets ? { areaTargets: context.areaTargets } : {}) };
 }
 
+export const ADDED_DAMAGE_KEY = "added-damage";
+
 export function findActionRollKind(context: Pick<DiceRollContext, "isCreatureRoll">, action: DiceRollAction): HeroRollKind | null {
+  if (action.key === ADDED_DAMAGE_KEY) return "damage";
   if (context.isCreatureRoll) return findCreatureRollKind(action);
   return findGameRollKind(action) ?? (isHealingAction(action) ? "heal" : null);
 }

@@ -6,14 +6,14 @@ import { buildCreatureActionRollContext, buildCreatureD20RollContext, buildD20Ac
 import { openRoomRoll } from "@/lib/components/game/open-room-roll";
 import type { DiceRollContext } from "@/lib/stores/diceUIStore";
 import { attributesUkrFull } from "@/lib/refs/translation";
-import { findCreatureAreaAction, type CreatureAreaAction } from "@/rules/creature-area-action";
+import { findCreatureSaveAction, type CreatureSaveAction } from "@/rules/creature-area-action";
 import { findCreatureRolls, splitNamedBonuses, type CreatureRoll } from "@/rules/creature-rolls";
 
 type HastText = { type: "text"; value: string };
 type HastElement = { type: "element"; tagName: string; properties: Record<string, unknown>; children: HastNode[] };
 type HastNode = HastText | HastElement | { type: "comment" | "doctype" | "raw"; value?: string };
 
-export type CreatureRollChipData = { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; area?: CreatureAreaAction };
+export type CreatureRollChipData = { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; save?: CreatureSaveAction };
 
 export const CREATURE_ROLL_TAG = "creature-roll";
 const SKIPPED_TAGS = new Set(["a", "abbr", "code", "pre"]);
@@ -30,9 +30,9 @@ function addRollChips(block: HastElement, creatureName: string) {
   replaceRollText(block, found);
   const actionName = findActionName(block);
   const rolls = found.map(({ roll }) => roll);
-  const area = found.length ? findCreatureAreaAction(readText(block)) : null;
+  const save = found.length ? findCreatureSaveAction(readText(block)) : null;
   found.forEach(({ chip }, index) => {
-    const data: CreatureRollChipData = { creatureName, actionName, rolls, index, ...(area ? { area } : {}) };
+    const data: CreatureRollChipData = { creatureName, actionName, rolls, index, ...(save ? { save } : {}) };
     chip.properties.dataRoll = JSON.stringify(data);
   });
 }

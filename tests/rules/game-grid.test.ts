@@ -5,8 +5,10 @@ import {
   buildLibraryGrid,
   findCell,
   findFeetVector,
+  findFreeCellNear,
   findGridSize,
   findRowsPerColumn,
+  findTokenArrowStep,
   findViewUnitsPerFoot,
   measureGridFeet,
   moveByFeet,
@@ -172,5 +174,45 @@ describe("snapToHalfCell", () => {
     const snapped = snapToHalfCell({ x: 0.24, y: 0.24 }, shifted);
     expect(snapped.x).toBeCloseTo(0.24);
     expect(snapped.y).toBeCloseTo(0.24);
+  });
+});
+
+describe("keyboard placement", () => {
+  const tallCells: MapFrame = { aspect: 1.5, grid: { columns: 30, offsetX: 0, offsetY: 0, isVisible: true, opacity: 0.35 } };
+
+  it("moves exactly one cell per arrow on a grid, so snapping never pulls the token back", () => {
+    const from = snapToGrid({ x: 0.5, y: 0.5 }, tallCells);
+    for (const key of ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]) {
+      const step = findTokenArrowStep(key, tallCells)!;
+      const moved = snapToGrid({ x: from.x + step.x, y: from.y + step.y }, tallCells);
+      const [a, b] = [findCell(from, tallCells), findCell(moved, tallCells)];
+      expect(Math.abs(a.column - b.column) + Math.abs(a.row - b.row)).toBe(1);
+    }
+  });
+
+  it("keeps a small free step without a grid and ignores other keys", () => {
+    expect(findTokenArrowStep("ArrowUp", null)).toEqual({ x: 0, y: -0.02 });
+    expect(findTokenArrowStep("Enter", tallCells)).toBeNull();
+  });
+
+  it("places a new token in the nearest free cell instead of on top of others", () => {
+    const centre = centreOf(10, 5);
+    expect(findFreeCellNear(centre, [], frame)).toEqual(centre);
+    const second = findFreeCellNear(centre, [centre], frame);
+    expect(findCell(second, frame)).not.toEqual(findCell(centre, frame));
+    expect(measureGridFeet(second, centre, frame)).toBe(5);
+    const third = findFreeCellNear(centre, [centre, second], frame);
+    expect(new Set([centre, second, third].map((point) => JSON.stringify(findCell(point, frame)))).size).toBe(3);
+  });
+
+  it("stays on the map from a corner, keeps grid offsets and falls back to the point without a grid", () => {
+    const corner = centreOf(0, 0);
+    const next = findCell(findFreeCellNear(corner, [corner], frame), frame);
+    expect(next.column).toBeGreaterThanOrEqual(0);
+    expect(next.row).toBeGreaterThanOrEqual(0);
+    const point = { x: 0.5, y: 0.5 };
+    const placed = findFreeCellNear(point, [], shiftedFrame);
+    expect(snapToGrid(placed, shiftedFrame)).toEqual(placed);
+    expect(findFreeCellNear(point, [point], null)).toEqual(point);
   });
 });

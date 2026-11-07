@@ -11,6 +11,7 @@ import { ScenesButton } from "./GameScenesCard";
 import { useTokenMoves } from "./HeroTokens";
 import { MapBoard } from "./MapBoard";
 import { MapTaskHint } from "./MapTargeting";
+import { SharedBoardProvider } from "./shared-board";
 import { showRoomTab, useRoomTabStore } from "./room-tabs";
 import { useHeroNameMode, useTokenScale } from "./use-token-scale";
 
@@ -44,29 +45,35 @@ export function GameRoomMap({ view }: { view: GameSessionView }) {
         <div className="ml-auto flex shrink-0 items-center gap-1">{view.combat ? null : <CombatTracker view={view} />}</div>
       </div>
       <PickHeroHint view={view} />
-      {shared ? <MapBoard key={boardKey} {...shared} onFullscreen={() => setIsFullscreen(true)} /> : <>{combat}<EmptyMap view={view} canEditMap={canEditMap} /></>}
       {shared ? (
-        <Dialog open={isFullscreen} onOpenChange={changeFullscreen}>
-          <DialogContent data-safe-dialog={undefined} aria-describedby={undefined} closeLabel="Згорнути мапу" className={cn(FULLSCREEN_MAP, isTurned && TURNED_MAP)}>
-            {isFullscreen ? (
-              <MapBoard
-                key={boardKey}
-                {...shared}
-                heading={
-                  <div className="flex shrink-0 flex-col gap-2">
-                    <div className="flex min-h-11 items-center gap-2 pr-12">
-                      <DialogTitle className="min-w-0 flex-1 truncate normal-case leading-10 tracking-normal">{view.name}</DialogTitle>
-                      {view.combat ? null : <CombatTracker view={view} />}
+        <SharedBoardProvider key={boardKey}>
+          <MapBoard {...shared} onFullscreen={() => setIsFullscreen(true)} />
+          <Dialog open={isFullscreen} onOpenChange={changeFullscreen}>
+            <DialogContent data-safe-dialog={undefined} aria-describedby={undefined} closeLabel="Згорнути мапу" className={cn(FULLSCREEN_MAP, isTurned && TURNED_MAP)}>
+              {isFullscreen ? (
+                <MapBoard
+                  {...shared}
+                  heading={
+                    <div className="flex shrink-0 flex-col gap-2">
+                      <div className="flex min-h-11 items-center gap-2 pr-12">
+                        <DialogTitle className="min-w-0 flex-1 truncate normal-case leading-10 tracking-normal">{view.name}</DialogTitle>
+                        {view.combat ? null : <CombatTracker view={view} />}
+                      </div>
+                      <MapTaskHint view={view} />
                     </div>
-                    <MapTaskHint view={view} />
-                  </div>
-                }
-                turn={{ isTurned, toggle: () => setIsTurned(!isTurned) }}
-              />
-            ) : null}
-          </DialogContent>
-        </Dialog>
-      ) : null}
+                  }
+                  turn={{ isTurned, toggle: () => setIsTurned(!isTurned) }}
+                />
+              ) : null}
+            </DialogContent>
+          </Dialog>
+        </SharedBoardProvider>
+      ) : (
+        <>
+          {combat}
+          <EmptyMap view={view} canEditMap={canEditMap} />
+        </>
+      )}
     </div>
   );
 }

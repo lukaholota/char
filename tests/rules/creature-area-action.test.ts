@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import creatures2014 from "@/lib/generated/creatures.json";
 import creatures2024 from "@/lib/generated/creatures2024.json";
-import { findCreatureAreaAction, type CreatureAreaAction } from "@/rules/creature-area-action";
+import { findCreatureAreaAction, findCreatureSaveAction, type CreatureAreaAction } from "@/rules/creature-area-action";
 
 type CatalogCreature = { nameEng: string; actions?: unknown; legendaryActions?: unknown; lairActions?: unknown };
 
@@ -140,6 +140,33 @@ describe("площа з рятівним кидком: не розпізнаєт
 
   it("площа тільки після кубиків шкоди", () => {
     expect(findCreatureAreaAction("Рятівний кидок Спритності: СК 14. Провал: 27 (5к10) силових ушкоджень. Якщо ціль — предмет, він розпадається в куб 10 футів пилу.")).toBeNull();
+  });
+});
+
+describe("ряткидок однієї цілі", () => {
+  it("без слів про область — ряткидок обраної цілі з половиною при успіху", () => {
+    expect(
+      findCreatureSaveAction("Одна видима істота в межах 30 фт. робить ряткидок Мудрості СК 11. При провалі вона отримує 7 (2к6) психічних ушкоджень. При успіху отримує половину ушкоджень без інших наслідків."),
+    ).toEqual({ ability: "WIS", dc: 11, damage: { count: 2, sides: 6, bonus: 0 }, damageType: "psychic", isHalfOnSave: true });
+  });
+
+  it("хоумбрю пише «СЛ» чи «DC» і латинські кубики", () => {
+    expect(findCreatureSaveAction("Ціль робить ряткидок Спритності СЛ 12. Провал: 10 (3d6) вогняних ушкоджень.")).toMatchObject({ ability: "DEX", dc: 12, damage: { count: 3, sides: 6 } });
+    expect(findCreatureSaveAction("Ціль робить ряткидок Статури DC 13. Провал: 5 (2к4) отруйних ушкоджень.")).toMatchObject({ ability: "CON", dc: 13 });
+  });
+
+  it("область з ряткидком несе свою форму", () => {
+    expect(findCreatureSaveAction("Кожна істота в 15-футовому конусі здійснює ряткидок Статури СК 13. При провалі вона зазнає 10 (3к6) некротичної шкоди. При успіху вона зазнає половини шкоди.")).toMatchObject({ area: { shape: "cone", sizeFeet: 15 }, isHalfOnSave: true });
+  });
+
+  it("«кожна істота в межах N футів» — коло навколо мовця, а «обирає істоту в межах» лишається однією ціллю", () => {
+    expect(findCreatureSaveAction("Рятівний кидок Мудрості: СК 15, кожна істота в межах 100 футів від диявола, яка його чує. Провал: 18 (3к10) психічних ушкоджень. Успіх: лише половина ушкоджень.")).toMatchObject({ area: { shape: "circle", sizeFeet: 100 }, isHalfOnSave: true });
+    expect(findCreatureSaveAction("Лицар обирає одну істоту, яку бачить у межах 15 футів. Ціль здійснює рятівний кидок Спритності СК 12. При провалі вона зазнає 5 (2к4) дроблячих ушкоджень.")).not.toHaveProperty("area");
+  });
+
+  it("дві різні області чи ряткидок після шкоди — нерозпізнано", () => {
+    expect(findCreatureSaveAction("Кожна істота в конусі 30 футів або в кубі 10 футів має пройти рятівний кидок Спритності СК 15. Провал: 10 (3к6) вогняних ушкоджень.")).toBeNull();
+    expect(findCreatureSaveAction("Кидок ближньої атаки: +5. Влучання: 6 (1к8 + 2) колючих ушкоджень, і ціль має пройти ряткидок Сили СК 12, інакше падає навзнак.")).toBeNull();
   });
 });
 

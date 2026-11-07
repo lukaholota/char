@@ -1,6 +1,8 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { RichTextEditor } from "@/components/ui/rich-text/RichTextEditor";
 import { cn } from "@/lib/utils";
 
@@ -36,10 +38,10 @@ export function TextField(props: FieldShell & { value: string; onChange: (value:
   );
 }
 
-export function RichTextField(props: FieldShell & { value: string; onChange: (value: string) => void; isTall?: boolean; placeholder?: string }) {
+export function RichTextField(props: FieldShell & { value: string; onChange: (value: string) => void; isTall?: boolean; placeholder?: string; snippets?: ReadonlyArray<{ label: string; markdown: string }> }) {
   return (
     <FormField {...props}>
-      <RichTextEditor id={`homebrew-${props.name}`} ariaDescribedBy={describedBy(props.name)} isInvalid={Boolean(props.error)} value={props.value} onChange={props.onChange} placeholder={props.placeholder} contentClassName={props.isTall ? "min-h-48" : undefined} />
+      <RichTextEditor id={`homebrew-${props.name}`} ariaDescribedBy={describedBy(props.name)} isInvalid={Boolean(props.error)} value={props.value} onChange={props.onChange} placeholder={props.placeholder} contentClassName={props.isTall ? "min-h-48" : undefined} snippets={props.snippets} />
     </FormField>
   );
 }
@@ -68,6 +70,14 @@ export function ToggleChip({ label, isOn, onToggle }: { label: string; isOn: boo
     >
       {label}
     </button>
+  );
+}
+
+export function SubmitBar({ isSaving, isEditing }: { isSaving: boolean; isEditing: boolean }) {
+  return (
+    <Button type="submit" data-hides-room-dock className="h-12 w-full sm:h-10 sm:w-auto" disabled={isSaving}>
+      {isSaving ? <Loader2 className="h-4 w-4 animate-spin" aria-label="Зберігаємо" /> : isEditing ? "Зберегти зміни" : "Опублікувати"}
+    </Button>
   );
 }
 

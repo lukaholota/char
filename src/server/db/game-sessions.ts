@@ -1,5 +1,4 @@
 import { randomBytes } from "node:crypto";
-import { getCreatureIndex } from "@/lib/bestiaryData";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { prisma } from "@/lib/prisma";
 import { buildCombatView, type CombatHeroView, type CombatView } from "@/rules/game-combat";
@@ -11,7 +10,9 @@ import { parseSceneGrid, type SceneGrid } from "@/rules/game-grid";
 import { buildSceneListItems, findViewedSceneId, type GameSceneListItem } from "@/rules/game-scenes";
 import { buildMapCreatureViews, parseTokenNameMode, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
 import { normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
+import { findHeroLifeState, type HeroLifeState } from "@/rules/hero-life-state";
 import { canEditPers } from "@/server/db/pers-actions";
+import { loadRoomCreatures } from "@/server/db/room-creatures";
 
 export const GAME_SESSION_LIMITS = { members: 12, activeOwnedSessions: 30, name: 80 } as const;
 const ONLINE_WINDOW_MS = 60_000;
@@ -31,6 +32,7 @@ export type GameSessionMemberView = {
   isOnline: boolean;
   token: TokenPosition | null;
   conditions: TokenConditions;
+  lifeState: HeroLifeState;
 };
 
 export type GameSessionView = {
@@ -88,6 +90,12 @@ export async function signalGameSession(sessionId: number, signal: GameSessionSi
   await prisma.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: signal })})`;
 }
 
+/// Лист героя живе поза кімнатою: його хіти й кидки смерті будять кожну кімнату, де героя обрано.
+export async function signalPersRooms(persId: number): Promise<void> {
+  const rooms = await prisma.gameSessionMember.findMany({ where: { persId, gameSession: { archivedAt: null } }, select: { gameSessionId: true } });
+  await Promise.all(rooms.map((room) => signalGameSession(room.gameSessionId, "members")));
+}
+
 export async function findMembership(sessionId: number, userId: number) {
   return prisma.gameSessionMember.findUnique({
     where: { gameSessionId_userId: { gameSessionId: sessionId, userId } },
@@ -127,11 +135,12 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
   const [session, heroTokens, sceneTools] = await Promise.all([findSessionWithMembers(sessionId, viewerUserId), findSceneHeroTokens(sessionId, viewerUserId), findVisibleSceneTools(sessionId, viewerUserId)]);
   const me = session?.members.find((member) => member.userId === viewerUserId);
   if (!session || !me) return null;
+  const findCreature = await loadRoomCreatures(session.mapCreatures);
   const now = Date.now();
   const isGm = me.role === "GM";
   const viewedSceneId = findViewedSceneId({ isGm, activeSceneId: session.activeSceneId, openSceneId: me.openSceneId });
   const buildSceneCreatures = (sceneId: number | null) =>
-    buildMapCreatureViews(session.mapCreatures.filter((creature) => creature.gameSceneId === sceneId), findCatalogCreature, isGm);
+    buildMapCreatureViews(session.mapCreatures.filter((creature) => creature.gameSceneId === sceneId), findCreature, isGm);
   const creatures = buildSceneCreatures(viewedSceneId);
   const combatCreatures = viewedSceneId === session.activeSceneId ? creatures : buildSceneCreatures(session.activeSceneId);
   const viewedMapKey = session.scenes.find((scene) => scene.id === viewedSceneId)?.mapImageKey ?? null;
@@ -159,6 +168,7 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
       isOnline: member.lastSeenAt !== null && now - member.lastSeenAt.getTime() < ONLINE_WINDOW_MS,
       token: member.persId !== null ? (tokenByUserId.get(member.userId) ?? null) : null,
       conditions: normalizeTokenConditions(member),
+      lifeState: findHeroLifeState(member.pers),
     })),
     creatures,
     creatureNameMode: parseTokenNameMode(session.creatureNameMode) ?? "short",
@@ -181,10 +191,6 @@ function buildCombatHeroes(members: NonNullable<Awaited<ReturnType<typeof findSe
     heroes.set(member.persId, { userId: member.userId, name: member.pers?.name ?? buildMemberName(member.user), avatarUrl: buildAvatarUrl(member.pers?.portraitKey, member.user.image) });
   }
   return heroes;
-}
-
-export function findCatalogCreature(key: string, ruleset: MapCreatureView["ruleset"]) {
-  return getCreatureIndex(ruleset).find((entry) => entry.key === key) ?? null;
 }
 
 function findSessionWithMembers(sessionId: number, viewerUserId: number) {
@@ -212,7 +218,7 @@ function findSessionWithMembers(sessionId: number, viewerUserId: number) {
           openSceneId: true,
           conditions: true,
           exhaustionLevel: true,
-          pers: { select: { name: true, portraitKey: true } },
+          pers: { select: { name: true, portraitKey: true, currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true } },
           user: { select: { id: true, displayName: true, name: true, image: true } },
         },
       },

@@ -28,10 +28,12 @@ async function withSerializableRetry<T>(work: (tx: Prisma.TransactionClient) => 
 export async function changeFeatureUses(
   { persId, featureId }: { persId: number; featureId: number },
   direction: FeatureUseDirection,
+  amount?: number,
 ): Promise<FeatureUseResult> {
   const counter = await findFeatureUseCounter({ persId, featureId });
   if ("error" in counter) return { success: false, error: counter.error };
-  const { poolKey, max, cost } = counter;
+  const { poolKey, max } = counter;
+  const cost = amount ?? counter.cost;
 
   if (poolKey) {
     const pool = await withSerializableRetry(async (tx) => {

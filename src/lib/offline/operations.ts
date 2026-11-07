@@ -76,7 +76,7 @@ export type OfflineOperation =
   | (OfflineOperationBase & { kind: "restore-pact-slot" })
   | (OfflineOperationBase & { kind: "heroic-inspiration"; heroicInspirationCount: number })
   | (OfflineOperationBase & { kind: "hit-dice"; remainingByClass: Record<string, number> })
-  | (OfflineOperationBase & { kind: "feature-use"; featureId: number; direction: FeatureUseDirection })
+  | (OfflineOperationBase & { kind: "feature-use"; featureId: number; direction: FeatureUseDirection; amount?: number })
   | (OfflineOperationBase & { kind: "feature-state"; featureId: number; isActive: boolean })
   | (OfflineOperationBase & { kind: "concentration"; spellId: number | null })
   | (OfflineOperationBase & { kind: "spell-buff"; effectKey: string; isActive: boolean; spellId: number | null; endsWithConcentration: boolean })
@@ -252,7 +252,7 @@ export function applyQueuedFeatureUses<T extends OfflineFeatureUseItem>(
 
     const affects = (item: T) =>
       target.usesPoolKey ? item.usesPoolKey === target.usesPoolKey : item.featureId === operation.featureId;
-    const cost = Math.max(1, clampInteger(target.usePrice ?? 1, 1));
+    const cost = operation.amount ?? Math.max(1, clampInteger(target.usePrice ?? 1, 1));
     const max = clampInteger(target.usesPer ?? 0, 0);
     const current = clampInteger(target.usesRemaining ?? target.usesPer ?? 0, 0);
     const remaining = stepFeatureUses(current, max, cost, operation.direction);
@@ -261,6 +261,13 @@ export function applyQueuedFeatureUses<T extends OfflineFeatureUseItem>(
     next = next.map((item) => (affects(item) ? { ...item, usesRemaining: remaining } : item));
   }
   return next;
+}
+
+/// «Цілющі руки» витрачають з резерву скільки завгодно очок однією дією.
+export const MAX_FEATURE_USE_AMOUNT = 200;
+
+export function isFeatureUseAmount(amount: unknown): amount is number {
+  return Number.isInteger(amount) && (amount as number) >= 1 && (amount as number) <= MAX_FEATURE_USE_AMOUNT;
 }
 
 export function stepFeatureUses(current: number, max: number, cost: number, direction: FeatureUseDirection): number {
@@ -323,7 +330,7 @@ export function isOfflineOperation(value: unknown): value is OfflineOperation {
     case "hit-dice":
       return Boolean(operation.remainingByClass) && typeof operation.remainingByClass === "object";
     case "feature-use":
-      return Number.isInteger(operation.featureId) && ["spend", "restore"].includes(String(operation.direction));
+      return Number.isInteger(operation.featureId) && ["spend", "restore"].includes(String(operation.direction)) && (operation.amount === undefined || isFeatureUseAmount(operation.amount));
     case "feature-state":
       return Number.isInteger(operation.featureId) && typeof operation.isActive === "boolean";
     case "concentration":

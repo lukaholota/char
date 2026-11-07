@@ -18,7 +18,10 @@ export function CombatantItem({ combatant, isCurrent, canEdit, onEditInitiative 
   const faceAndName = (
     <>
       <CombatantFace combatant={combatant} name={name} />
-      <span className="max-w-28 truncate text-sm text-slate-100 [@container(max-width:17rem)]:min-w-0 [@container(max-width:17rem)]:max-w-none [@container(max-width:17rem)]:flex-1">{name}</span>
+      <span className={cn("max-w-28 truncate text-sm [@container(max-width:17rem)]:min-w-0 [@container(max-width:17rem)]:max-w-none [@container(max-width:17rem)]:flex-1", combatant.creature?.isDown ? "text-slate-400 line-through" : "text-slate-100")}>
+        {name}
+        {combatant.creature?.isDown ? <span className="sr-only">, повалений</span> : null}
+      </span>
     </>
   );
   return (

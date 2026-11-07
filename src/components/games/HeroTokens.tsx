@@ -5,7 +5,8 @@ import { createPortal } from "react-dom";
 import { moveGameTokenAction } from "@/lib/actions/game-sessions";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
-import { TOKEN_ARROW_STEPS, shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
+import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
+import { findTokenArrowStep } from "@/rules/game-grid";
 import type { TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
 import { GameAvatar } from "./GameAvatar";
@@ -17,6 +18,8 @@ import { TokenName } from "./TokenName";
 import { showOptimistic, sendOptimistic, useOptimisticReader } from "./optimistic-values";
 import { useTokenDrag, type TokenGhost } from "./use-token-drag";
 import { TOKEN_SIZE_PX } from "./use-token-scale";
+import { DownMark } from "./MapCreatureHitPoints";
+import { describeHeroLifeState, type HeroLifeState } from "@/rules/hero-life-state";
 
 type Point = { clientX: number; clientY: number };
 const HERO_CELLS = 1;
@@ -48,9 +51,10 @@ export function useHeroTokens({ view, moves, layout, nameMode, findDropPosition,
   const renderToken = (member: GameSessionMemberView, size: string | number, onBoard: { labelWidth: number; isHighlighted: boolean } | null) => {
     const isPlaced = moves.findPosition(member) !== null;
     const onKeyDown = (event: KeyboardEvent) => {
-      const step = TOKEN_ARROW_STEPS[event.key];
-      if (step && isPlaced) moves.showPosition(member.userId, shiftTokenPosition(moves.findPosition(member), step));
-      else if ((event.key === "Enter" || event.key === " ") && !isPlaced) void moves.sendPosition(member.userId, shiftTokenPosition(null, { x: 0, y: 0 }));
+      const step = findTokenArrowStep(event.key, layout.frame);
+      const position = moves.findPosition(member);
+      if (step && position) moves.showPosition(member.userId, shiftTokenPosition(position, step));
+      else if ((event.key === "Enter" || event.key === " ") && !isPlaced) void moves.sendPosition(member.userId, layout.findFreeSpot());
       else if (event.key === "Enter" || event.key === " ") setConditionsHeroId(member.userId);
       else if ((event.key === "Delete" || event.key === "Backspace") && isPlaced) void moves.sendPosition(member.userId, null);
       else return;
@@ -58,14 +62,14 @@ export function useHeroTokens({ view, moves, layout, nameMode, findDropPosition,
     };
     const onKeyUp = (event: KeyboardEvent) => {
       const position = moves.findPosition(member);
-      if (TOKEN_ARROW_STEPS[event.key] && position) void moves.sendPosition(member.userId, snapTokenPosition(position, layout, HERO_CELLS));
+      if (findTokenArrowStep(event.key, layout.frame) && position) void moves.sendPosition(member.userId, snapTokenPosition(position, layout, HERO_CELLS));
     };
     return (
       <TokenFace member={member} isMine={member.userId === view.myUserId} isDimmed={ghost?.id === member.userId} size={size} nameMode={onBoard && !showsNames ? null : nameMode} onBoard={onBoard}>
         {canMove(member) ? (
           <button
             type="button"
-            aria-label={`Токен «${member.persName ?? member.name}». ${isPlaced ? "Дотик — стани, тягніть або рухайте стрілками; Delete — прибрати з мапи" : "Перетягніть на мапу або натисніть Enter"}`}
+            aria-label={`Токен «${member.persName ?? member.name}»${describeLifeSuffix(member.lifeState)}. ${isPlaced ? "Дотик — стани, тягніть або рухайте стрілками; Delete — прибрати з мапи" : "Перетягніть на мапу або натисніть Enter"}`}
             className="absolute inset-0 cursor-grab touch-none rounded-full active:cursor-grabbing"
             onKeyDown={onKeyDown}
             onKeyUp={onKeyUp}
@@ -123,17 +127,37 @@ type TokenFaceProps = {
 function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = "short", onBoard = null, children }: TokenFaceProps) {
   const name = member.persName ?? member.name;
   const isTurn = useIsHeroTurn(member.userId);
+  const { lifeState } = member;
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={name}>
       <div className={cn("relative rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={{ width: size, height: size }}>
-        <GameAvatar src={member.avatarUrl} name={name} className={cn("h-full w-full border-2 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", isMine ? "border-arcane-300" : "border-white/70", isTurn && TURN_RING_CLASS)} />
+        <GameAvatar src={member.avatarUrl} name={name} className={cn("h-full w-full border-2 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", isMine ? "border-arcane-300" : "border-white/70", lifeState.kind === "dying" && "border-rose-500", lifeState.kind === "dead" && "opacity-50 grayscale", isTurn && TURN_RING_CLASS)} />
+        {lifeState.kind === "dead" ? <DownMark /> : null}
         {children}
       </div>
       <div className="flex flex-col items-center">
+        {lifeState.kind === "dying" ? <DeathSaveMarks successes={lifeState.successes} failures={lifeState.failures} /> : null}
+        {!children && lifeState.kind !== "up" ? <span className="sr-only">{describeHeroLifeState(lifeState)}</span> : null}
         <TokenConditionMarks token={{ kind: "hero", id: member.userId }} conditions={member.conditions} />
         {nameMode ? <TokenName name={name} mode={nameMode} tokenSize={onBoard?.labelWidth ?? (typeof size === "number" ? size : TOKEN_SIZE_PX)} /> : null}
       </div>
     </div>
+  );
+}
+
+function describeLifeSuffix(state: HeroLifeState): string {
+  const text = describeHeroLifeState(state);
+  return text ? `, ${text}` : "";
+}
+
+function DeathSaveMarks({ successes, failures }: { successes: number; failures: number }) {
+  const dots = (filled: number, filledClass: string) => [0, 1, 2].map((index) => <span key={index} className={cn("h-2 w-2 rounded-full ring-1", index < filled ? filledClass : "bg-transparent ring-slate-500")} />);
+  return (
+    <span aria-hidden title={`Кидки смерті: успіхів ${successes}, провалів ${failures}`} className="mt-0.5 flex items-center gap-1 rounded bg-slate-950/90 px-1 py-0.5 ring-1 ring-rose-400/60">
+      {dots(successes, "bg-emerald-400 ring-emerald-300")}
+      <span className="h-2.5 w-px bg-slate-600" />
+      {dots(failures, "bg-rose-500 ring-rose-300")}
+    </span>
   );
 }
 

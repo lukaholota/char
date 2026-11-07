@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useMemo, useRef, useState, useTransition } from "react";
+import { createContext, useContext, useEffect, useId, useMemo, useRef, useState, useTransition } from "react";
 import { ChevronDown, ChevronLeft, ChevronRight, Swords, UserPlus } from "lucide-react";
 import { toast } from "sonner";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
@@ -72,7 +72,11 @@ function StartCombatButton({ sessionId }: { sessionId: number }) {
 type ActiveCombatProps = { sessionId: number; combat: CombatView; canControl: boolean; myUserId: number | null; newcomers: string[] | null };
 
 /// Секція — контейнер: у бічній колонці мапи черга стає стовпчиком, у ширшому місці лишається рядком.
+/// Поки на мапі відкрита панель, вибір цілі чи лоток кубиків, бій стискається в рядок над ними, щоб хід не загубився за краєм екрана.
+export const CompactCombatContext = createContext(false);
+
 function ActiveCombat({ sessionId, combat, canControl, myUserId, newcomers }: ActiveCombatProps) {
+  const isCompact = useContext(CompactCombatContext);
   const { isPending, run } = useCombatCommand();
   const [isQueueShown, setIsQueueShown] = useState(true);
   const queueId = useId();
@@ -86,15 +90,15 @@ function ActiveCombat({ sessionId, combat, canControl, myUserId, newcomers }: Ac
   return (
     <section aria-label="Бій" className="shrink-0 space-y-2 rounded-2xl border border-arcane-400/30 bg-arcane-500/5 p-2 [container-type:inline-size]">
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2 pl-1">
-        <h2 className="font-rpg-display text-lg text-slate-50">Бій · раунд {combat.round}</h2>
-        <p aria-live="polite" className="min-w-0 flex-1 truncate text-sm text-slate-300 [@container(max-width:20rem)]:order-1 [@container(max-width:20rem)]:basis-full">{describeCurrentTurn(combat, canControl ? null : myUserId)}</p>
-        <Button type="button" variant="ghost" aria-expanded={isQueueShown} aria-controls={queueId} onClick={() => setIsQueueShown(!isQueueShown)} aria-label={isQueueShown ? "Згорнути чергу" : "Показати чергу"} title={isQueueShown ? "Згорнути чергу" : "Показати чергу"} className="-my-1 ml-auto h-11 w-11 shrink-0 p-0 text-slate-400">
+        <h2 className="shrink-0 font-rpg-display text-lg text-slate-50">{isCompact ? `Раунд ${combat.round}` : `Бій · раунд ${combat.round}`}</h2>
+        <p aria-live="polite" className={cn("min-w-0 flex-1 truncate text-sm text-slate-300", !isCompact && "[@container(max-width:20rem)]:order-1 [@container(max-width:20rem)]:basis-full")}>{describeCurrentTurn(combat, canControl ? null : myUserId)}</p>
+        {isCompact ? null : <Button type="button" variant="ghost" aria-expanded={isQueueShown} aria-controls={queueId} onClick={() => setIsQueueShown(!isQueueShown)} aria-label={isQueueShown ? "Згорнути чергу" : "Показати чергу"} title={isQueueShown ? "Згорнути чергу" : "Показати чергу"} className="-my-1 ml-auto h-11 w-11 shrink-0 p-0 text-slate-400">
           <ChevronDown className={cn("h-4 w-4", isQueueShown && "rotate-180")} aria-hidden />
-        </Button>
-        {controls ? <TurnButtons {...controls} /> : null}
-        {isMyTurn && current ? <EndOwnTurnButton sessionId={sessionId} combat={combat} combatantId={current.id} /> : null}
+        </Button>}
+        {controls ? <TurnButtons {...controls} isCompact={isCompact} /> : null}
+        {isMyTurn && current ? <EndOwnTurnButton sessionId={sessionId} combat={combat} combatantId={current.id} isCompact={isCompact} /> : null}
       </div>
-      {isQueueShown ? (
+      {isQueueShown && !isCompact ? (
         <div id={queueId} className="space-y-2">
           <ol ref={listRef} aria-label="Черга ходів" className="relative flex gap-2 overflow-x-auto pb-1 [@container(max-width:17rem)]:flex-col [@container(max-width:17rem)]:overflow-visible">
             {combat.combatants.map((combatant) => (
@@ -129,26 +133,28 @@ export function describeCurrentTurn(combat: CombatView, myUserId: number | null)
   return `Зараз ходить: ${name} · ваш хід ${turnsUntilMine === 1 ? "наступний" : `через ${turnsUntilMine}`}`;
 }
 
-function EndOwnTurnButton({ sessionId, combat, combatantId }: { sessionId: number; combat: CombatView; combatantId: number }) {
+const TURN_BUTTON_WIDTH = "w-full [@container(min-width:30rem)]:w-auto";
+
+function EndOwnTurnButton({ sessionId, combat, combatantId, isCompact }: { sessionId: number; combat: CombatView; combatantId: number; isCompact: boolean }) {
   const endTurn = async () => {
     const result = await sendOptimistic(findTurnKey(sessionId), findTurnAfter(combat, 1), () => endOwnCombatTurnAction(sessionId, combatantId));
     if (result.ok) captureGameEvent("game_combat_turn_advanced", { step: 1 });
   };
   return (
-    <Button type="button" onClick={() => void endTurn()} className="order-2 h-11 w-full gap-1 px-4 text-base [@container(min-width:30rem)]:w-auto">
+    <Button type="button" onClick={() => void endTurn()} className={cn("order-2 h-11 gap-1 px-4 text-base", isCompact ? "ml-auto" : TURN_BUTTON_WIDTH)}>
       Завершити хід
       <ChevronRight className="h-4 w-4" aria-hidden />
     </Button>
   );
 }
 
-function TurnButtons({ sessionId, combat }: CombatControlsProps) {
+function TurnButtons({ sessionId, combat, isCompact }: CombatControlsProps & { isCompact: boolean }) {
   const moveTurn = async (step: 1 | -1) => {
     const result = await sendOptimistic(findTurnKey(sessionId), findTurnAfter(combat, step), () => advanceCombatTurnAction(sessionId, step));
     if (result.ok) captureGameEvent("game_combat_turn_advanced", { step });
   };
   return (
-    <div className="order-2 flex w-full gap-2 [@container(min-width:30rem)]:w-auto">
+    <div className={cn("order-2 flex gap-2", isCompact ? "ml-auto" : TURN_BUTTON_WIDTH)}>
       <Button type="button" variant="outline" onClick={() => void moveTurn(-1)} aria-label="Назад" title="Назад" className="h-11 w-11 shrink-0 p-0">
         <ChevronLeft className="h-4 w-4" aria-hidden />
       </Button>

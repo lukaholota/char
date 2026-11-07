@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { saveHomebrewSpell } from "@/lib/actions/homebrew-actions";
 import { SPELL_SCHOOLS, listEditionClasses, type HomebrewEdition } from "@/lib/logic/homebrew-input";
 import type { HomebrewSpellFormValues } from "@/lib/logic/homebrew-form-values";
-import { RichTextField, RULESET_OPTIONS, SelectField, TextField, ToggleChip } from "./HomebrewFormFields";
+import { RichTextField, RULESET_OPTIONS, SelectField, SubmitBar, TextField, ToggleChip } from "./HomebrewFormFields";
 import { useHomebrewSubmit } from "./useHomebrewSubmit";
 
 const LEVEL_OPTIONS = Array.from({ length: 10 }, (_, level) => ({ value: String(level), label: level === 0 ? "Замовляння" : `${level} рівень` }));
@@ -58,9 +56,7 @@ export function HomebrewSpellForm({ entryId, initialValues }: { entryId?: number
 
       <RichTextField name="description" label="Опис" value={values.description} onChange={set("description")} isTall error={errors.description} />
 
-      <Button type="submit" className="h-12 w-full sm:h-10 sm:w-auto" disabled={isSaving}>
-        {isSaving ? <Loader2 className="h-4 w-4 animate-spin" /> : entryId ? "Зберегти зміни" : "Опублікувати"}
-      </Button>
+      <SubmitBar isSaving={isSaving} isEditing={Boolean(entryId)} />
     </form>
   );
 }

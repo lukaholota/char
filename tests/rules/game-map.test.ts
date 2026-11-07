@@ -29,8 +29,8 @@ describe("позиція токена на мапі кімнати", () => {
     expect(findTokenPositionInRect({ clientX: 250, clientY: 451 }, turned, true)).toBeNull();
   });
 
-  it("стрілки зсувають токен від центру, якщо його ще немає на мапі, і не виводять за край", () => {
-    expect(shiftTokenPosition(null, { x: 0.02, y: 0 })).toEqual({ x: 0.52, y: 0.5 });
+  it("стрілки зсувають токен і не виводять за край", () => {
+    expect(shiftTokenPosition({ x: 0.5, y: 0.5 }, { x: 0.02, y: 0 })).toEqual({ x: 0.52, y: 0.5 });
     expect(shiftTokenPosition({ x: 0.99, y: 0.01 }, { x: 0.02, y: -0.02 })).toEqual({ x: 1, y: 0 });
   });
 

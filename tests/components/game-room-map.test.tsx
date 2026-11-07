@@ -36,6 +36,7 @@ vi.mock("@/lib/actions/game-area-spells", () => ({ listAreaSpellsAction: mocks.l
 
 import { CombatTurnProvider } from "@/components/games/combat-turn";
 import { GameRoomMap } from "@/components/games/GameRoomMap";
+import { useAreaCastStore } from "@/lib/components/game/area-cast";
 import { resetOptimisticValues } from "@/components/games/optimistic-values";
 import { useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
@@ -62,7 +63,7 @@ afterEach(() => {
 });
 
 const member = (userId: number, role: "GM" | "PLAYER", persName: string | null, token: GameSessionMemberView["token"] = null): GameSessionMemberView => ({
-  userId, name: `Гравець ${userId}`, role, persId: persName ? userId * 10 : null, persName, avatarUrl: null, isOnline: true, token, conditions: { conditions: [], exhaustionLevel: 0 },
+  userId, name: `Гравець ${userId}`, role, persId: persName ? userId * 10 : null, persName, avatarUrl: null, isOnline: true, token, conditions: { conditions: [], exhaustionLevel: 0 }, lifeState: { kind: "up" },
 });
 
 function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
@@ -515,6 +516,19 @@ describe("стани й ціль на мапі", () => {
     fireEvent.click(within(screen.getByRole("dialog", { name: "Торин: стани" })).getByRole("button", { name: "Наляканий" }));
     expect(mocks.changeHeroConditionsAction).toHaveBeenCalledWith(7, 3, { kind: "toggle", condition: "frightened", isActive: false });
   });
+
+  it("герой без тями показує кидки смерті, загиблий — що загинув, і це бачать усі", () => {
+    const dying = { ...member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 }), lifeState: { kind: "dying", successes: 1, failures: 2 } } as GameSessionMemberView;
+    const dead = { ...member(4, "PLAYER", "Гімлі", { x: 0.2, y: 0.2 }), lifeState: { kind: "dead" } } as GameSessionMemberView;
+    render(<GameRoomMap view={gmView({ members: [member(1, "GM", null), dying, dead] })} />);
+    const map = placeMap();
+    expect(within(map).getByRole("button", { name: /^Токен «Торин», без тями, кидки смерті: успіхів 1 з 3, провалів 2 з 3\./ })).toBeTruthy();
+    expect(within(map).getByRole("button", { name: /^Токен «Гімлі», загинув\./ })).toBeTruthy();
+    cleanup();
+
+    render(<GameRoomMap view={buildView({ members: [member(1, "GM", null), member(2, "PLAYER", "Арвен"), dying] })} />);
+    expect(within(placeMap()).getByText("без тями, кидки смерті: успіхів 1 з 3, провалів 2 з 3")).toBeTruthy();
+  });
 });
 
 describe("інструменти мапи на весь екран", () => {
@@ -622,5 +636,32 @@ describe("інструменти мапи на весь екран", () => {
     fireEvent.click(within(panel).getByRole("button", { name: "Показати всім" }));
     expect(mocks.saveSceneAreaAction).toHaveBeenCalledWith(7, 1, null, { shape: "circle", sizeFeet: 25, label: "Вогняна куля", origin: { x: 0.5, y: 0.5 }, angle: 0 });
     expect(await within(panel).findByRole("button", { name: "Готово" })).toBeTruthy();
+  });
+
+  it("каст при відкритій повноекранній мапі дає «Накласти» в ній, а зона й цілі ті самі, що на дошці кімнати", () => {
+    const view = buildView({ grid });
+    window.matchMedia = ((query: string) => ({ matches: query === "(orientation: landscape)" })) as unknown as typeof window.matchMedia;
+    render(<GameRoomMap view={view} />);
+    const roomImage = screen.getByRole("img", { name: "Мапа сцени" });
+    Object.defineProperties(roomImage, { complete: { value: true }, naturalWidth: { value: 800 }, naturalHeight: { value: 400 } });
+    fireEvent.load(roomImage);
+    placeMap();
+    fireEvent.click(screen.getByRole("button", { name: "Мапа на весь екран" }));
+    const dialog = screen.getByRole("dialog", { name: "Печера" });
+    const image = within(dialog).getByRole("img", { name: "Мапа сцени" });
+    Object.defineProperties(image, { complete: { value: true }, naturalWidth: { value: 800 }, naturalHeight: { value: 400 } });
+    fireEvent.load(image);
+    image.parentElement!.getBoundingClientRect = () => rect;
+    image.parentElement!.parentElement!.getBoundingClientRect = () => rect;
+
+    const roll = { title: "Вогняна куля", actions: [], targetSave: { abilityName: "Спритності", dc: 15, spell: { engName: "Fireball", level: 3, ruleset: "RULES_2014" as const } } };
+    act(() => useAreaCastStore.setState({ cast: { sessionId: 7, roll, area: { name: "Вогняна куля", shape: "circle", sizeFeet: 20 }, isPlaced: false } }));
+
+    expect(within(dialog).getByRole("button", { name: "Накласти (1)" })).toBeTruthy();
+    fireEvent.click(within(dialog).getByRole("button", { name: /Торин/, pressed: true }));
+    expect(within(dialog).getByRole("button", { name: "Накласти" })).toBeTruthy();
+    const roomPanel = screen.getAllByRole("region", { name: "Вогняна куля", hidden: true }).find((region) => !dialog.contains(region))!;
+    expect(within(roomPanel).getByRole("button", { name: /Торин/, pressed: false, hidden: true })).toBeTruthy();
+    act(() => useAreaCastStore.setState({ cast: null }));
   });
 });

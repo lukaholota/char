@@ -18,6 +18,7 @@ export type TokenLayout = {
   frame: MapFrame | null;
   isHidden: (position: TokenPosition) => boolean;
   isHighlighted: (position: TokenPosition, cells: number) => boolean;
+  findFreeSpot: () => TokenPosition;
 };
 
 export type TokenDrag = { from: TokenPosition | null; to: TokenPosition | null; cells: number };

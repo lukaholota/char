@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buildCreatureActionRollContext, buildD20Action, buildRollOutcome, buildSpellRollContext, buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
 import { findGameRollProblem } from "@/rules/game-roll";
-import { buildActionGameRoll, buildFreeGameRoll, canRollTakeTarget, findActionRollKind, takeDiceToPublish } from "./build-game-roll";
+import { ADDED_DAMAGE_KEY, buildActionGameRoll, buildFreeGameRoll, canRollTakeTarget, findActionRollKind, takeDiceToPublish } from "./build-game-roll";
 
 function rollAction(context: ReturnType<typeof buildWeaponRollContext>, actionIndex: number, d20Mode: "NORMAL" | "ADVANTAGE" | "DISADVANTAGE", values: number[]) {
   const action = context.actions[actionIndex];
@@ -39,6 +39,22 @@ describe("buildActionGameRoll", () => {
     const published = buildActionGameRoll({ context: concentration, action: concentration.actions[0], d20Mode: "NORMAL" }, outcome);
     expect(published.roll.check).toEqual({ dc: 10, isSuccess: true });
     expect(findGameRollProblem(published.roll)).toBeNull();
+  });
+});
+
+describe("докинуті кубики шкоди", () => {
+  const context = buildWeaponRollContext({ weaponName: "Довгий меч", attackBonus: 6, damageBonus: 3, damageDice: "1d8" });
+  const smite = { key: ADDED_DAMAGE_KEY, label: "Докинута шкода", count: 3, sides: 8, bonus: 0, isD20: false };
+
+  it("ідуть шкодою в ціль окремим кидком без бонусу зброї, і сервер його приймає", () => {
+    const outcome = buildRollOutcome({ actionKey: smite.key, label: smite.label, bonus: 0, d20Mode: null, mainDiceCount: 3, extraDice: [] }, [6, 4, 5]);
+    const published = buildActionGameRoll({ context, action: smite, d20Mode: "NORMAL" }, outcome);
+    expect(published).toMatchObject({ label: "Довгий меч · Докинута шкода", kind: "damage", isFromSheet: true, roll: { groups: [{ sides: 8, values: [6, 4, 5] }], bonus: 0, total: 15 } });
+    expect(findGameRollProblem(published.roll)).toBeNull();
+  });
+
+  it("б'ють ціль і з кидка істоти", () => {
+    expect(findActionRollKind({ isCreatureRoll: true }, smite)).toBe("damage");
   });
 });
 

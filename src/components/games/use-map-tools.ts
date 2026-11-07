@@ -126,15 +126,12 @@ const wrap = (value: number) => ((value % 1) + 1) % 1;
 export type AreaDraft = { id: number | null; placement: AreaPlacement; canEdit: boolean };
 
 /// Чернетку області видно лише автору, доки він не натисне «Показати всім»; збережену область автор чи майстер правлять одразу.
-export function useAreaTool(toShare: ToShare, frame: MapFrame | null, saveArea: (id: number | null, placement: AreaPlacement) => Promise<number | null>) {
-  const [draft, setDraftState] = useState<AreaDraft | null>(null);
-  const latestDraft = useRef<AreaDraft | null>(null);
+export type AreaDraftStore = { draft: AreaDraft | null; latestDraft: { current: AreaDraft | null }; setDraft: (next: AreaDraft | null) => void };
+
+export function useAreaTool(store: AreaDraftStore, toShare: ToShare, frame: MapFrame | null, saveArea: (id: number | null, placement: AreaPlacement) => Promise<number | null>) {
+  const { draft, latestDraft, setDraft } = store;
   const moveStart = useRef<TokenPosition | null>(null);
   const snapOrigin = (at: TokenPosition) => (frame ? snapToHalfCell(clampShare(at), frame) : clampShare(at));
-  const setDraft = (next: AreaDraft | null) => {
-    latestDraft.current = next;
-    setDraftState(next);
-  };
 
   /// Рух пальця приходить швидше за рендер, тож зміна читає останню чернетку з ref, а не зі стану.
   const change = (placement: Partial<AreaPlacement>, shouldSave = false) => {

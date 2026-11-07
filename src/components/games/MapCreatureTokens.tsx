@@ -13,7 +13,8 @@ import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
 import { NO_TOKEN_CONDITIONS } from "@/rules/token-conditions";
 import { applyHitPointChange, isCreatureDown, type HitPointChange } from "@/rules/creature-hit-points";
-import { TOKEN_ARROW_STEPS, shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
+import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
+import { findTokenArrowStep } from "@/rules/game-grid";
 import { CREATURE_SIZE_CELLS, CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { AddMapCreaturesDialog } from "./AddMapCreaturesDialog";
@@ -98,16 +99,16 @@ export function useMapCreatureTokens({ view, layout, findDropPosition, isTurned 
   const renderToken = (creature: MapCreatureView, size: string | number, shownName: TokenNameMode | null, onBoard: OnBoard | null) => {
     const position = moves.findPosition(creature);
     const onKeyDown = (event: KeyboardEvent) => {
-      const step = TOKEN_ARROW_STEPS[event.key];
+      const step = findTokenArrowStep(event.key, layout.frame);
       if (step && position) moves.show(creature.id, shiftTokenPosition(position, step));
       else if ((event.key === "Enter" || event.key === " ") && position) openStatblock(creature.id);
-      else if (event.key === "Enter" || event.key === " ") void moves.send(creature.id, shiftTokenPosition(null, { x: 0, y: 0 }));
+      else if (event.key === "Enter" || event.key === " ") void moves.send(creature.id, layout.findFreeSpot());
       else if (event.key === "Delete" || event.key === "Backspace") void moves.send(creature.id, null);
       else return;
       event.preventDefault();
     };
     const onKeyUp = (event: KeyboardEvent) => {
-      if (TOKEN_ARROW_STEPS[event.key] && position) void moves.send(creature.id, snapTokenPosition(position, layout, findCells(creature)));
+      if (findTokenArrowStep(event.key, layout.frame) && position) void moves.send(creature.id, snapTokenPosition(position, layout, findCells(creature)));
     };
     const status = `${creature.hitPoints ? `, хіти ${creature.hitPoints.current} з ${creature.hitPoints.max}` : ""}${creature.isDown ? ", повалений" : ""}${creature.id === targetId ? ", ціль" : ""}`;
     const hint = canEdit ? (position ? "Дотик — статблок, тягніть або рухайте стрілками; Delete — прибрати" : "Перетягніть на мапу або натисніть Enter") : "Відкрити картку істоти";

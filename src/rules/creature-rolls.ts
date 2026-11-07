@@ -8,8 +8,8 @@ export type CreatureRollSpot = { start: number; end: number; roll: CreatureRoll 
 export type NamedBonus = { name: string; bonus: number };
 
 const SIGNED_NUMBER = String.raw`[+−–-]\s?\d+`;
-const ATTACK_BONUS = new RegExp(String.raw`(?<=атак[аи][^:<.]{0,30}:\s*)${SIGNED_NUMBER}`, "giu");
-const DAMAGE_DICE = /(\d+)[кК](\d+)(?:\s*([+−–-])\s*(\d+)(?![\dкК]))?/gu;
+const ATTACK_BONUS = new RegExp(String.raw`(?<=атак[аи][^:<.]{0,30}:\s*)${SIGNED_NUMBER}|${SIGNED_NUMBER}(?=\s*(?:до|на)\s+влучання)`, "giu");
+const DAMAGE_DICE = /(\d+)[кКdD](\d+)(?:\s*([+−–-])\s*(\d+)(?![\dкКdD]))?/gu;
 const RECHARGE = /[Пп]ерезарядка\s+(\d)(?:\s*[–-]\s*6)?/gu;
 
 export function findCreatureRolls(text: string): CreatureRollSpot[] {

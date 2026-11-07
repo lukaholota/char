@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterAll, beforeEach, describe, expect, it, onTestFinished, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
@@ -21,6 +21,8 @@ import {
 } from "@/server/db/game-sessions";
 import { insertGameRollEvent, listEventsAfter, listEventsBefore, type GameRollDraft } from "@/server/db/game-roll-events";
 import { openGameSessionStream } from "@/server/game-sessions/game-session-stream";
+import { saveCombatState } from "@/server/db/combat-state";
+import { subscribeToGameSession, type GameSessionWake } from "@/server/db/game-session-signals";
 
 vi.setConfig({ testTimeout: 60_000 });
 
@@ -254,6 +256,29 @@ describe("потік подій", () => {
     expect(await reader.next("roll")).toMatchObject({ seq: 3 });
     expect(await reader.next("ready")).toEqual({ hasOlder: null, isFresh: false });
     abort.abort();
+  });
+});
+
+describe("лист героя в кімнаті", () => {
+  it("хіти й кидки смерті з листа будять кімнату, а склад показує героя без тями", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const persId = await createPers(player.id, "Арвен");
+    await bindMemberPers(sessionId, player.id, persId);
+    const wakes: GameSessionWake[] = [];
+    const isListening = new Promise<void>((resolve) => {
+      const unsubscribe = subscribeToGameSession(sessionId, (wake) => {
+        wakes.push(wake);
+        if (wake === "resync") resolve();
+      });
+      onTestFinished(unsubscribe);
+    });
+    await Promise.race([isListening, new Promise((resolve) => setTimeout(resolve, 2000))]);
+    wakes.length = 0;
+
+    await saveCombatState(persId, { currentHp: 0, deathSaveFailures: 1 });
+    await vi.waitFor(() => expect(wakes).toContain("members"), { timeout: 3000 });
+    const view = await findGameSessionView(sessionId, gm.id);
+    expect(view!.members.find((member) => member.persId === persId)?.lifeState).toEqual({ kind: "dying", successes: 0, failures: 1 });
   });
 });
 

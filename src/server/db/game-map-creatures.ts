@@ -11,14 +11,15 @@ import {
   type TokenNameMode,
 } from "@/rules/game-map-creatures";
 import { findViewedSceneId } from "@/rules/game-scenes";
-import { findActiveGmSession, findCatalogCreature, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
+import { findRoomCreature } from "@/server/db/room-creatures";
+import { findActiveGmSession, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 
 export async function addMapCreatures(sessionId: number, userId: number, input: NewMapCreatures): Promise<GameSessionResult<{ name: string }>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
-  const entry = findCatalogCreature(input.creatureKey, input.ruleset);
+  const entry = await findRoomCreature(input.creatureKey, input.ruleset);
   if (!entry) return fail("bad_creature");
   const sceneId = findGmSceneId(gm.value);
   if (sceneId === null) return fail("no_map");
@@ -99,13 +100,15 @@ export async function setMapCreatureSize(sessionId: number, userId: number, crea
 export async function changeMapCreatureHitPoints(sessionId: number, userId: number, creatureId: number, change: HitPointChange): Promise<GameSessionResult<null>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
+  const placed = await prisma.gameMapCreature.findFirst({ where: { id: creatureId, gameSessionId: sessionId }, select: { creatureKey: true, ruleset: true } });
+  const statblockHp = placed ? (await findRoomCreature(placed.creatureKey, placed.ruleset))?.hp : undefined;
   const changed = await prisma.$transaction(async (tx) => {
     const [creature] = await tx.$queryRaw<{ creature_key: string; ruleset: MapCreatureRuleset; hp_max: number | null; hp_current: number | null }[]>`
       SELECT creature_key, ruleset, hp_max, hp_current FROM game_map_creature
       WHERE game_map_creature_id = ${creatureId} AND game_session_id = ${sessionId} FOR UPDATE`;
     if (!creature) return fail("creature_gone");
     const stored = { hpMax: creature.hp_max, hpCurrent: creature.hp_current };
-    const next = applyHitPointChange(findCreatureHitPoints(stored, findCatalogCreature(creature.creature_key, creature.ruleset)?.hp), change);
+    const next = applyHitPointChange(findCreatureHitPoints(stored, statblockHp), change);
     if (!next) return fail("no_hit_points");
     await tx.gameMapCreature.update({ where: { id: creatureId }, data: { hpMax: next.max, hpCurrent: next.current } });
     return { ok: true as const, value: null };

@@ -22,6 +22,7 @@ import { findMagicItemPersId, findPersMagicItemCharges, savePersMagicItemCharges
 import { updateSheetSpellRow } from "@/server/db/sheet-spell-rows";
 import { findRestPers, takeLongRest, takeShortRest } from "@/server/db/rest";
 import { findSpellcastingSlotState } from "@/server/db/spell-slots";
+import { signalPersRooms } from "@/server/db/game-sessions";
 
 export type ApplyOfflineOperationResult =
   | { ok: true; duplicate: boolean }
@@ -104,7 +105,9 @@ export function isOperationId(value: unknown): value is string {
 /// впирається в первинний ключ і не виконується. Пряма дія з листа з тим самим ідентифікатором
 /// йде цим самим шляхом, тож дія й черга разом застосовують зміну рівно раз.
 export async function applyPersFieldOperation(userId: number, operation: OfflineOperation): Promise<ApplyOfflineOperationResult> {
-  return prisma.$transaction((tx) => applyPersFieldOperationIn(tx, userId, operation));
+  const result = await prisma.$transaction((tx) => applyPersFieldOperationIn(tx, userId, operation));
+  if (result.ok && !result.duplicate && (operation.kind === "hp" || operation.kind === "death-saves")) await signalPersRooms(operation.persId).catch(() => undefined);
+  return result;
 }
 
 /// Те саме всередині чужої транзакції: удар у кімнаті знімає хіти героя разом із записом кидка.
@@ -163,7 +166,7 @@ async function tryRelationChange(operation: OfflineOperation): Promise<ApplyOffl
 async function applyRelationChange(operation: OfflineOperation): Promise<string | null> {
   switch (operation.kind) {
     case "feature-use": {
-      const result = await changeFeatureUses({ persId: operation.persId, featureId: operation.featureId }, operation.direction);
+      const result = await changeFeatureUses({ persId: operation.persId, featureId: operation.featureId }, operation.direction, operation.amount);
       return result.success ? null : result.error;
     }
     case "feature-state": {

@@ -27,7 +27,7 @@ vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ 
 vi.mock("sonner", () => ({ toast: { error: mocks.toastError, info: vi.fn() } }));
 vi.mock("@/lib/monitoring/game-analytics", () => ({ captureGameEvent: mocks.captureGameEvent }));
 
-import { CombatTracker } from "@/components/games/CombatTracker";
+import { CombatTracker, CompactCombatContext } from "@/components/games/CombatTracker";
 import { ConfirmDialogHost } from "@/components/ui/confirm-dialog";
 import { CombatTurnProvider } from "@/components/games/combat-turn";
 import { resetOptimisticValues } from "@/components/games/optimistic-values";
@@ -94,6 +94,16 @@ describe("трекер бою", () => {
     expect(screen.getAllByRole("button").map((button) => button.getAttribute("aria-label"))).toEqual(["Згорнути чергу"]);
   });
 
+  it("повалена істота лишається в черзі, але закреслена й озвучена як повалена", () => {
+    const shade = combat.combatants[1];
+    const downed = { ...shade, creature: { ...shade.creature!, hitPoints: { current: 0, max: 12 }, isDown: true } };
+    render(<CombatTracker view={buildView({ combat: { ...combat, combatants: [combat.combatants[0], downed, combat.combatants[2]] } })} />);
+    const name = within(listItems()[1]).getByText("Тінь", { exact: false });
+    expect(name.textContent).toBe("Тінь, повалений");
+    expect(name.className).toContain("line-through");
+    expect(within(listItems()[0]).getByText("Арвен").className).not.toContain("line-through");
+  });
+
   it("згорнута черга ховає учасників, але лишає раунд і поточний хід", () => {
     render(<CombatTracker view={buildView({ combat })} />);
     fireEvent.click(screen.getByRole("button", { name: "Згорнути чергу" }));
@@ -103,7 +113,7 @@ describe("трекер бою", () => {
   });
 
   it("майстер переходить уперед і назад, додає нових і завершує бій лише після підтвердження", async () => {
-    const borin = { userId: 4, name: "Оля", role: "PLAYER" as const, persId: 40, persName: "Борін", avatarUrl: null, isOnline: true, token: null, conditions: { conditions: [], exhaustionLevel: 0 } };
+    const borin = { userId: 4, name: "Оля", role: "PLAYER" as const, persId: 40, persName: "Борін", avatarUrl: null, isOnline: true, token: null, conditions: { conditions: [], exhaustionLevel: 0 }, lifeState: { kind: "up" as const } };
     render(<><CombatTracker view={gmView({ combat, members: [borin] })} /><ConfirmDialogHost /></>);
     fireEvent.click(screen.getByRole("button", { name: /Наступний хід/ }));
     await waitFor(() => expect(mocks.advanceCombatTurnAction).toHaveBeenCalledWith(7, 1));
@@ -171,6 +181,14 @@ describe("трекер бою", () => {
     await waitFor(() => expect(mocks.endOwnCombatTurnAction).toHaveBeenCalledWith(7, 11));
     expect(screen.getByText("Зараз ходить: Тінь · ваш хід через 2")).toBeTruthy();
     expect(screen.queryByRole("button", { name: "Завершити хід" })).toBeNull();
+  });
+
+  it("поки на мапі відкрита панель чи лоток, бій стиснутий у рядок: раунд, хто ходить і «Завершити хід», без черги", () => {
+    render(<CompactCombatContext.Provider value><CombatTracker view={buildView({ combat: { ...combat, currentId: 11 } })} /></CompactCombatContext.Provider>);
+    expect(screen.getByRole("heading", { name: "Раунд 2" })).toBeTruthy();
+    expect(screen.getByText("Ваш хід")).toBeTruthy();
+    expect(screen.queryByRole("list", { name: "Черга ходів" })).toBeNull();
+    expect(screen.getAllByRole("button").map((button) => button.textContent)).toEqual(["Завершити хід"]);
   });
 
   it("чужий хід, хід наступного героя й архівна кімната — без кнопки завершення", () => {

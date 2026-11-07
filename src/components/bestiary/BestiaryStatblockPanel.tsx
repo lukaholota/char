@@ -49,7 +49,7 @@ export function StatblockPanel({
 
   return (
     <div className="space-y-3">
-      {homebrewEntry ? null : <RoomCreatureAddPanel creature={creature} ruleset={is2024 ? "RULES_2024" : "RULES_2014"} />}
+      <RoomCreatureAddPanel creature={creature} ruleset={is2024 ? "RULES_2024" : "RULES_2014"} />
       {eligibility && (
         <WildshapeAddFormButton
           eligibility={eligibility}

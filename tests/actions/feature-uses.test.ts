@@ -81,6 +81,17 @@ describe.each([
     }
   });
 
+  it("«Цілющі руки» знімають N очок одним запитом; більше за залишок і неціле N не знімають", async () => {
+    const persId = await createPers("feature-uses-lay-on-hands@golden.test", Classes.PALADIN_2014);
+    await prisma.pers.update({ where: { persId }, data: { level: 3 } });
+    const featureId = await findClassFeatureId("Lay on Hands", Classes.PALADIN_2014);
+
+    await expect(spendFeatureUse({ persId, featureId, amount: 7, operationId: nextOperationId() })).resolves.toEqual({ success: true, usesRemaining: 8 });
+    await expect(spendFeatureUse({ persId, featureId, amount: 9, operationId: nextOperationId() })).resolves.toEqual({ success: true, usesRemaining: 8 });
+    await expect(spendFeatureUse({ persId, featureId, amount: 2.5, operationId: nextOperationId() })).resolves.toEqual({ success: false, error: "Неправильна кількість" });
+    await expect(spendFeatureUse({ persId, featureId, operationId: nextOperationId() })).resolves.toEqual({ success: true, usesRemaining: 7 });
+  });
+
   it("риса без лічильника, невідома риса й чужий гравець нічого не змінюють", async () => {
     const persId = await createPers("feature-uses-denied@golden.test", Classes.BARBARIAN_2014);
     const unarmoredDefense = await findClassFeatureId("Unarmored Defense", Classes.BARBARIAN_2014);

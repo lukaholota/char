@@ -1,5 +1,5 @@
 import type { Prisma } from "@prisma/client";
-import { findCreatureByKey } from "@/lib/bestiaryData";
+import { loadRoomCreatures } from "@/server/db/room-creatures";
 import { calculateFinalInitiative } from "@/lib/logic/bonus-calculator";
 import { prisma } from "@/lib/prisma";
 import {
@@ -165,11 +165,11 @@ async function rollNewCombatants(sessionId: number, known: CombatPresence): Prom
     prisma.gameMapCreature.findMany({ where: findPlacedActiveSceneCreatures(sessionId), select: { id: true, creatureKey: true, ruleset: true } }),
   ]);
   const newPersIds = members.flatMap((member) => (member.persId === null || known.persIds.has(member.persId) ? [] : [member.persId]));
-  const heroes = await rollHeroes(newPersIds);
+  const [heroes, findCreature] = await Promise.all([rollHeroes(newPersIds), loadRoomCreatures(creatures)]);
   const monsters = creatures
     .filter((creature) => !known.creatureIds.has(creature.id))
     .map((creature) => {
-      const initiativeBonus = findCreatureInitiativeBonus(findCreatureByKey(creature.creatureKey, creature.ruleset)?.dexterity);
+      const initiativeBonus = findCreatureInitiativeBonus(findCreature(creature.creatureKey, creature.ruleset)?.dexterity);
       return { persId: null, gameMapCreatureId: creature.id, initiative: rollInitiative(initiativeBonus), initiativeBonus };
     });
   return [...heroes, ...monsters];

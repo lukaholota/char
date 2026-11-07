@@ -30,6 +30,14 @@ describe("кубики в тексті статблока", () => {
     ]);
   });
 
+  it("хоумбрю: «+5 до влучання» без «атака:» і латинські кубики теж кидаються", () => {
+    expect(rollsOf("Укус: +5 до влучання, досяжність 5 фт. Влучання: 8 (1d10+3) колючої шкоди, 2D6 вогню.")).toEqual([
+      { text: "+5", roll: { kind: "attack", bonus: 5 } },
+      { text: "1d10+3", roll: { kind: "damage", count: 1, sides: 10, bonus: 3 } },
+      { text: "2D6", roll: { kind: "damage", count: 2, sides: 6, bonus: 0 } },
+    ]);
+  });
+
   it("кожна атака з бонусом у бестіарії обох редакцій стає кидком", () => {
     const missed: string[] = [];
     for (const creature of [...creatures2014, ...creatures2024] as Array<{ name: string; actions?: string | null }>) {

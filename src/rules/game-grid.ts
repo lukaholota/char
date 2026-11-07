@@ -45,6 +45,43 @@ export function findCell(point: TokenPosition, frame: MapFrame): GridCell {
   };
 }
 
+const ARROW_DIRECTIONS: Record<string, TokenPosition> = { ArrowLeft: { x: -1, y: 0 }, ArrowRight: { x: 1, y: 0 }, ArrowUp: { x: 0, y: -1 }, ArrowDown: { x: 0, y: 1 } };
+const FREE_ARROW_STEP = 0.02;
+
+/// На сітці стрілка зсуває рівно на клітинку: менший крок знап повертав би токен назад.
+export function findTokenArrowStep(key: string, frame: MapFrame | null): TokenPosition | null {
+  const direction = ARROW_DIRECTIONS[key];
+  if (!direction) return null;
+  const cell = frame ? { x: 1 / frame.grid.columns, y: 1 / findRowsPerColumn(frame) } : { x: FREE_ARROW_STEP, y: FREE_ARROW_STEP };
+  return { x: direction.x * cell.x, y: direction.y * cell.y };
+}
+
+/// Найближча до точки клітинка, де ще не стоїть жоден токен: поставлені з клавіатури не лягають купою.
+export function findFreeCellNear(point: TokenPosition, occupied: readonly TokenPosition[], frame: MapFrame | null): TokenPosition {
+  if (!frame) return point;
+  const taken = new Set(occupied.map((position) => keyOfCell(findCell(position, frame))));
+  const start = findCell(point, frame);
+  const columns = Math.floor(frame.grid.columns);
+  const rows = Math.floor(findRowsPerColumn(frame));
+  for (let ring = 0; ring <= Math.max(columns, rows); ring++) {
+    for (let dy = -ring; dy <= ring; dy++) {
+      for (let dx = -ring; dx <= ring; dx++) {
+        const cell = { column: start.column + dx, row: start.row + dy };
+        const isOnRing = Math.max(Math.abs(dx), Math.abs(dy)) === ring;
+        const isOnMap = cell.column >= 0 && cell.row >= 0 && cell.column < columns && cell.row < rows;
+        if (isOnRing && isOnMap && !taken.has(keyOfCell(cell))) return findCellCentre(cell, frame);
+      }
+    }
+  }
+  return point;
+}
+
+const keyOfCell = (cell: GridCell) => `${cell.column}:${cell.row}`;
+
+function findCellCentre(cell: GridCell, frame: MapFrame): TokenPosition {
+  return { x: (cell.column + frame.grid.offsetX + 0.5) / frame.grid.columns, y: (cell.row + frame.grid.offsetY + 0.5) / findRowsPerColumn(frame) };
+}
+
 /// Токен непарного розміру стає в центр клітинки, парного (2×2, 4×4) — на перетин ліній: так він закриває цілі клітинки.
 export function snapToGrid(point: TokenPosition, frame: MapFrame, sizeCells = 1): TokenPosition {
   const shift = sizeCells % 2 === 1 ? 0.5 : 0;

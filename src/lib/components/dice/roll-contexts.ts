@@ -1,7 +1,7 @@
 import type { DiceRollAction, DiceRollContext, ExtraDie, RollStateView } from "@/lib/stores/diceUIStore";
 import type { SaveSpellRef } from "@/rules/game-roll-saves";
 import { parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
-import type { CreatureAreaAction } from "@/rules/creature-area-action";
+import type { CreatureSaveAction } from "@/rules/creature-area-action";
 import type { CreatureRoll } from "@/rules/creature-rolls";
 import { AREA_SHAPE_LABELS } from "@/rules/game-areas";
 import type { SpellRollPlan } from "@/rules/spell-dice";
@@ -110,19 +110,19 @@ export function describeTargetSave(save: NonNullable<DiceRollContext["targetSave
 const MAX_CREATURE_ACTIONS = 4;
 
 /// Абзац з купою кубиків (опис чаротворення) не влазить у ряд кнопок — тоді в панелі лише натиснутий.
-/// Дія з областю й ряткидком (подих) несе їх у кидок: шкода по зоні кидає ряткидки всіх, хто в ній.
-export function buildCreatureActionRollContext(input: { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; area?: CreatureAreaAction }): DiceRollContext {
+/// Дія з ряткидком несе його в кидок: шкода кидає ряткидки обраної цілі, а з областю (подих) — усіх, хто в зоні.
+export function buildCreatureActionRollContext(input: { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; save?: CreatureSaveAction }): DiceRollContext {
   const indexes = input.rolls.length <= MAX_CREATURE_ACTIONS ? input.rolls.map((_, index) => index) : [input.index];
-  const { area } = input;
-  const isAreaDamage = area !== undefined && input.rolls[input.index]?.kind === "damage";
+  const { save } = input;
+  const area = input.rolls[input.index]?.kind === "damage" ? save?.area : undefined;
   return {
     title: input.creatureName,
     subtitle: input.actionName || undefined,
     actions: indexes.map((index) => buildCreatureAction(`roll-${index}`, input.rolls[index])),
     autoRollKey: `roll-${input.index}`,
     isCreatureRoll: true,
-    ...(area ? { targetSave: { abilityName: ABILITY_GENITIVE[area.ability], dc: area.dc, effect: { ability: area.ability, damageType: area.damageType, isHalfOnSave: area.isHalfOnSave } } } : {}),
-    ...(isAreaDamage ? { targetArea: { label: input.actionName || AREA_SHAPE_LABELS[area.shape], shape: area.shape, sizeFeet: area.sizeFeet } } : {}),
+    ...(save ? { targetSave: { abilityName: ABILITY_GENITIVE[save.ability], dc: save.dc, effect: { ability: save.ability, damageType: save.damageType, isHalfOnSave: save.isHalfOnSave } } } : {}),
+    ...(area ? { targetArea: { label: input.actionName || AREA_SHAPE_LABELS[area.shape], shape: area.shape, sizeFeet: area.sizeFeet } } : {}),
   };
 }
 

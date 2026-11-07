@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { hasTokenNames, type TokenLayout } from "@/components/games/MapTokenSlot";
 
-const gridLayout = (cellPx: number, zoom = 1): TokenLayout => ({ cellPx, zoom, scale: 1, frame: null, isHidden: () => false, isHighlighted: () => false });
+const gridLayout = (cellPx: number, zoom = 1): TokenLayout => ({ cellPx, zoom, scale: 1, frame: null, isHidden: () => false, isHighlighted: () => false, findFreeSpot: () => ({ x: 0.5, y: 0.5 }) });
 
 describe("імена під токенами на сітці", () => {
   it("на дрібних клітинках підписано велику істоту, а середню — лише коли її видно", () => {

@@ -82,7 +82,8 @@ export function ResourceCard({
           {onInfo && (
             <button 
               type="button"
-              onClick={(e) => { e.stopPropagation(); onInfo(); }} 
+              aria-label={`${displayName}: деталі`}
+              onClick={(e) => { e.stopPropagation(); onInfo(); }}
               className="p-1.5 rounded-full hover:bg-white/10 text-purple-400 transition"
             >
               <Info className="w-4 h-4" />
@@ -99,6 +100,7 @@ export function ResourceCard({
                   variant="ghost" 
                   size="icon" 
                   className="h-6 w-6 rounded-md hover:bg-white/10 text-purple-300" 
+                  aria-label={`${displayName}: повернути використання`}
                   onClick={(e) => { e.preventDefault(); e.stopPropagation(); onRestore(); }}
                   disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) >= (feature.usesCount ?? 0)}
                 >
@@ -118,6 +120,7 @@ export function ResourceCard({
                   variant="ghost" 
                   size="icon" 
                   className="h-6 w-6 rounded-md hover:bg-white/10 text-purple-300" 
+                  aria-label={`${displayName}: витратити використання`}
                   onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSpend(); }}
                   disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) < cost}
                 >
@@ -216,6 +219,7 @@ export function FeatureCard({
                 variant="ghost" 
                 size="icon" 
                 className="h-7 w-7 rounded-lg hover:bg-white/10 text-white" 
+                aria-label={`${displayName}: повернути використання`}
                 onClick={(e) => { e.preventDefault(); e.stopPropagation(); onRestore(); }}
                 disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) >= (feature.usesCount ?? 0)}
               >
@@ -235,6 +239,7 @@ export function FeatureCard({
                 variant="ghost" 
                 size="icon" 
                 className="h-7 w-7 rounded-lg hover:bg-white/10 text-white" 
+                aria-label={`${displayName}: витратити використання`}
                 onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSpend(); }}
                 disabled={isPending || (feature.usesRemaining ?? feature.usesCount ?? 0) < cost}
               >

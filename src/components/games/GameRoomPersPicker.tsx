@@ -107,18 +107,21 @@ function PersPickerDialog({ view, options, isOpen, onOpenChange }: { view: GameS
               </li>
             ))}
           </ul>
-        ) : (
-          <div className="space-y-3">
-            <p className="text-sm text-slate-300">У вас ще немає персонажів. Готовий герой потрібного рівня займе хвилину; повернутися в кімнату можна плашкою «Журнал» внизу.</p>
-            <div className="grid gap-2 sm:grid-cols-2">
-              <Button asChild className="h-12 text-base"><Link href={gamesHref("/char/presets")}>Взяти готового персонажа</Link></Button>
-              <Button asChild variant="outline" className="h-12 text-base"><Link href={gamesHref("/char/create")}>Створити свого</Link></Button>
-            </div>
+        ) : null}
+        <div className="space-y-3">
+          <p className="text-sm text-slate-300">
+            {options.length ? "Потрібен новий герой?" : "У вас ще немає персонажів."} Готовий герой потрібного рівня займе хвилину; назад у кімнату поверне плашка «Журнал» унизу екрана.
+          </p>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <Button asChild variant={options.length ? "outline" : "default"} className="h-12 text-base"><Link href={gamesHref("/char/presets")}>Взяти готового персонажа</Link></Button>
+            <Button asChild variant="outline" className="h-12 text-base"><Link href={gamesHref("/char/create")}>Створити свого</Link></Button>
           </div>
-        )}
-        <Button type="button" variant="outline" onClick={() => choose(null)} disabled={isPending || !view.myPersId} className="h-12 w-full text-base">
-          Грати без персонажа
-        </Button>
+        </div>
+        {view.myPersId ? (
+          <Button type="button" variant="outline" onClick={() => choose(null)} disabled={isPending} className="h-12 w-full text-base">
+            Грати без персонажа
+          </Button>
+        ) : null}
       </DialogContent>
     </Dialog>
   );

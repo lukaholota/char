@@ -14,6 +14,8 @@ vi.mock("@/lib/actions/feature-uses", () => ({ spendFeatureUse: vi.fn(), restore
 vi.mock("@/lib/actions/feature-descriptions", () => ({ saveFeatureDescription: vi.fn() }));
 vi.mock("@/lib/actions/subclass-option-rechoice", () => ({ loadSubclassOptionRechoice: vi.fn(), saveSubclassOptionRechoice: vi.fn() }));
 vi.mock("@/lib/actions/bastion-actions", () => ({ loadBastion: vi.fn() }));
+vi.mock("@/lib/actions/spell-slots", () => ({ spendSpellSlot: vi.fn(), spendPactSlot: vi.fn() }));
+vi.mock("@/lib/actions/combat-actions", () => ({ applyHpChange: vi.fn() }));
 vi.mock("@/lib/components/characterSheet/FeatsSheetManagerModal", () => ({ FeatsSheetManagerModal: () => null }));
 vi.mock("@/lib/components/levelUp/MagicItemInfoModal", () => ({ MagicItemInfoModal: () => null }));
 vi.mock("@/lib/components/characterSheet/slides/FeaturesHeaderCards", () => ({ FeaturesHeaderCards: () => null }));

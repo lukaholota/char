@@ -29,6 +29,8 @@ import { useBastionEntry } from "@/lib/components/characterSheet/slides/useBasti
 import { ClassInfoModal } from "@/lib/components/characterCreator/modals/ClassInfoModal";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
 import { toast } from "sonner";
+import { isDivineSmite2014, isLayOnHands } from "@/rules/paladin-actions";
+import { DivineSmiteActions, LayOnHandsAction } from "@/lib/components/characterSheet/shared/PaladinFeatureActions";
 
 import {
   ControlledInfoDialog,
@@ -90,7 +92,7 @@ type EntityDialogKind = "race" | "raceVariant" | "subrace" | "background";
 
 // Redundant local FeatureCard removed - using shared/FeatureCards.tsx
 
-const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isReadOnly, onResourcesChanged, onFeaturesChanged }: FeaturesSlideProps) {
+const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isReadOnly, onPersUpdate, onResourcesChanged, onFeaturesChanged }: FeaturesSlideProps) {
   const featureStates = useSheetStatesContext();
   const router = useRouter();
   const { commitOperation } = useOfflineQueue();
@@ -344,17 +346,18 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     setUsesOverrideByKey((prev) => ({ ...prev, [item.key]: usesRemaining }));
   };
 
-  const spendOneUse = (item: CharacterFeatureItem) => {
+  const spendUses = (item: CharacterFeatureItem, amount?: number) => {
     if (isReadOnly || !item.featureId) return;
     const cur = getUsesRemaining(item);
-    const cost = Math.max(1, Number(item.usePrice ?? 1));
+    const cost = amount ?? Math.max(1, Number(item.usePrice ?? 1));
     if (typeof cur !== "number" || cur < cost) return;
 
     applyOptimisticRemaining(item, (current) => current - cost);
     const { mutationKey, version } = bumpMutationVersion(item);
 
     void commitFeatureUse(item, "spend", mutationKey, version, (operationId) =>
-      spendFeatureUse({ persId: pers.persId, featureId: item.featureId!, operationId }),
+      spendFeatureUse({ persId: pers.persId, featureId: item.featureId!, operationId, amount }),
+      amount,
     );
   };
 
@@ -371,6 +374,12 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     void commitFeatureUse(item, "restore", mutationKey, version, (operationId) =>
       restoreFeatureUse({ persId: pers.persId, featureId: item.featureId!, operationId }),
     );
+  };
+
+  const renderPaladinAction = (item: CharacterFeatureItem, remaining: number) => {
+    if (isDivineSmite2014(item.engName)) return <DivineSmiteActions pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />;
+    if (!isLayOnHands(item.engName) || !item.featureId) return undefined;
+    return <LayOnHandsAction pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} remaining={remaining} onSpendPoints={(amount) => spendUses(item, amount)} />;
   };
 
   /// Увімкнення Люті чи Великої форми списує одне використання — так само, як на сервері.
@@ -399,9 +408,10 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
     mutationKey: string,
     version: number,
     sendToServer: (operationId: string) => Promise<{ success: true; usesRemaining: number | null } | { success: false; error: string }>,
+    amount?: number,
   ) => {
     const outcome = await commitOperation(
-      { kind: "feature-use", featureId: item.featureId!, direction, operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },
+      { kind: "feature-use", featureId: item.featureId!, direction, amount, operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },
       sendToServer,
     );
     const isLatest = finishMutation(mutationKey, version);
@@ -772,9 +782,10 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
                                   else setSelected(item);
                               }}
                               isReadOnly={isReadOnly}
-                              onSpend={() => spendOneUse(item)}
+                              onSpend={() => spendUses(item)}
                               onRestore={() => restoreOneUse(item)}
                               stateToggle={findStateToggle(item, remaining)}
+                              footer={renderPaladinAction(item, remaining)}
                           />
                         );
                       })}

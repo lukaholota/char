@@ -251,6 +251,15 @@ describe("Офлайн-аудит 2026-09-18 — ресурси рис, заря
     expect(tooExpensive[0].usesRemaining).toBe(1);
   });
 
+  it("«Цілющі руки» знімають з резерву N очок однією операцією, а більше за залишок — не знімають", () => {
+    const pool = [{ key: "loh", featureId: 50, usesRemaining: 15, usesPer: 15, usePrice: 1 }];
+    expect(applyQueuedFeatureUses(pool, 42, [operation({ kind: "feature-use", featureId: 50, direction: "spend", amount: 7 })])[0].usesRemaining).toBe(8);
+    expect(applyQueuedFeatureUses(pool, 42, [operation({ kind: "feature-use", featureId: 50, direction: "spend", amount: 16 })])[0].usesRemaining).toBe(15);
+    expect(isOfflineOperation(operation({ kind: "feature-use", featureId: 50, direction: "spend", amount: 7 }))).toBe(true);
+    expect(isOfflineOperation(operation({ kind: "feature-use", featureId: 50, direction: "spend", amount: 0 }))).toBe(false);
+    expect(isOfflineOperation(operation({ kind: "feature-use", featureId: 50, direction: "spend", amount: 2.5 }))).toBe(false);
+  });
+
   it("заряди предмета крокують у межах стелі, чужий персонаж не чіпається", () => {
     const wands = [{ persMagicItemId: 7, chargesMax: 7, chargesCurrent: 1 }];
     const stepped = applyQueuedItemCharges(wands, 42, [

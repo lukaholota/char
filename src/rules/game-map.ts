@@ -1,13 +1,6 @@
 export type TokenPosition = { x: number; y: number };
 type Rect = { left: number; top: number; width: number; height: number };
 
-export const TOKEN_ARROW_STEPS: Record<string, TokenPosition> = {
-  ArrowLeft: { x: -0.02, y: 0 },
-  ArrowRight: { x: 0.02, y: 0 },
-  ArrowUp: { x: 0, y: -0.02 },
-  ArrowDown: { x: 0, y: 0.02 },
-};
-
 const clampToMap = (value: number) => Math.round(Math.min(1, Math.max(0, value)) * 10_000) / 10_000;
 
 /// Позиція токена — частка ширини й висоти мапи, тож не залежить від розміру екрана.
@@ -33,7 +26,6 @@ export function findTokenPositionInRect(point: { clientX: number; clientY: numbe
   return !share || share.x < 0 || share.x > 1 || share.y < 0 || share.y > 1 ? null : parseTokenPosition(share);
 }
 
-export function shiftTokenPosition(position: TokenPosition | null, step: TokenPosition): TokenPosition {
-  const from = position ?? { x: 0.5, y: 0.5 };
+export function shiftTokenPosition(from: TokenPosition, step: TokenPosition): TokenPosition {
   return parseTokenPosition({ x: from.x + step.x, y: from.y + step.y })!;
 }
