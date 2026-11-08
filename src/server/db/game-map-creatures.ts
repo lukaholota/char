@@ -32,10 +32,11 @@ export async function addMapCreatures(sessionId: number, userId: number, input: 
     if (existing.length + input.count > MAP_CREATURE_LIMITS.perScene) return fail("creature_limit");
     const group = findCreatureGroupKey(input);
     const taken = existing.filter((row) => findCreatureGroupKey(row) === group).map((row) => row.number);
+    const look = await tx.gameMapCreature.findFirst({ where: { gameSessionId: sessionId, creatureKey: input.creatureKey, ruleset: input.ruleset }, select: { isCutout: true, customImageKey: true } });
     await tx.gameMapCreature.createMany({
       data: findFreeCreatureNumbers(taken, input.count).map((number) => {
         const hpMax = rollCreatureMaxHitPoints(entry.hp);
-        return { gameSessionId: sessionId, gameSceneId: sceneId, creatureKey: input.creatureKey, ruleset: input.ruleset, number, isAlly: input.isAlly, customName: input.customName, hpMax, hpCurrent: hpMax };
+        return { gameSessionId: sessionId, gameSceneId: sceneId, creatureKey: input.creatureKey, ruleset: input.ruleset, number, isAlly: input.isAlly, customName: input.customName, hpMax, hpCurrent: hpMax, isCutout: look?.isCutout ?? false, customImageKey: look?.customImageKey ?? null };
       }),
     });
     return { ok: true as const, value: { name: input.customName ?? entry.name } };
@@ -93,6 +94,17 @@ export async function setMapCreatureSize(sessionId: number, userId: number, crea
   if (!gm.ok) return gm;
   const resized = await prisma.gameMapCreature.updateMany({ where: { id: creatureId, gameSessionId: sessionId }, data: { tokenSize: size } });
   if (!resized.count) return fail("creature_gone");
+  await signalGameSession(sessionId, "session");
+  return { ok: true, value: null };
+}
+
+/// Вибір стосується картинки, тож змінює всіх таких істот кімнати, а не одну.
+export async function setMapCreatureCutout(sessionId: number, userId: number, creatureId: number, isCutout: boolean): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const creature = await prisma.gameMapCreature.findFirst({ where: { id: creatureId, gameSessionId: sessionId }, select: { creatureKey: true, ruleset: true } });
+  if (!creature) return fail("creature_gone");
+  await prisma.gameMapCreature.updateMany({ where: { gameSessionId: sessionId, creatureKey: creature.creatureKey, ruleset: creature.ruleset }, data: { isCutout } });
   await signalGameSession(sessionId, "session");
   return { ok: true, value: null };
 }

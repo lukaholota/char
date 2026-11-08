@@ -30,6 +30,8 @@ const CREATURE_ROW_SELECT = {
   isAlly: true,
   customName: true,
   tokenSize: true,
+  isCutout: true,
+  customImageKey: true,
   tokenX: true,
   tokenY: true,
   hpMax: true,

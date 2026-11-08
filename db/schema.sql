@@ -2340,6 +2340,8 @@ CREATE TABLE public.game_map_creature (
     conditions text[] DEFAULT '{}'::text[] NOT NULL,
     exhaustion_level smallint DEFAULT 0 NOT NULL,
     game_scene_id integer,
+    is_cutout boolean DEFAULT false NOT NULL,
+    custom_image_key character varying(200),
     CONSTRAINT game_map_creature_custom_name_check CHECK (((custom_name IS NULL) OR ((length(btrim((custom_name)::text)) >= 1) AND (length(btrim((custom_name)::text)) <= 40)))),
     CONSTRAINT game_map_creature_exhaustion_check CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
     CONSTRAINT game_map_creature_hp_check CHECK ((((hp_max IS NULL) AND (hp_current IS NULL)) OR ((hp_max IS NOT NULL) AND (hp_current IS NOT NULL) AND (hp_max >= 1) AND (hp_current >= 0) AND (hp_current <= hp_max)))),
@@ -4471,6 +4473,38 @@ CREATE TABLE public."user" (
 
 
 --
+-- Name: user_token_image; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.user_token_image (
+    user_token_image_id integer NOT NULL,
+    user_id integer NOT NULL,
+    image_key character varying(200) NOT NULL,
+    created_at timestamp(6) with time zone DEFAULT now() NOT NULL
+);
+
+
+--
+-- Name: user_token_image_user_token_image_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.user_token_image_user_token_image_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: user_token_image_user_token_image_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.user_token_image_user_token_image_id_seq OWNED BY public.user_token_image.user_token_image_id;
+
+
+--
 -- Name: user_user_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -5027,6 +5061,13 @@ ALTER TABLE ONLY public.subrace_trait ALTER COLUMN subrace_trait_id SET DEFAULT 
 --
 
 ALTER TABLE ONLY public."user" ALTER COLUMN user_id SET DEFAULT nextval('public.user_user_id_seq'::regclass);
+
+
+--
+-- Name: user_token_image user_token_image_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_token_image ALTER COLUMN user_token_image_id SET DEFAULT nextval('public.user_token_image_user_token_image_id_seq'::regclass);
 
 
 --
@@ -5917,6 +5958,22 @@ ALTER TABLE ONLY public."user"
 
 
 --
+-- Name: user_token_image user_token_image_image_key_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_token_image
+    ADD CONSTRAINT user_token_image_image_key_key UNIQUE (image_key);
+
+
+--
+-- Name: user_token_image user_token_image_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_token_image
+    ADD CONSTRAINT user_token_image_pkey PRIMARY KEY (user_token_image_id);
+
+
+--
 -- Name: weapon weapon_name_ruleset_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6556,6 +6613,13 @@ CREATE UNIQUE INDEX user_email_key ON public."user" USING btree (email);
 
 
 --
+-- Name: user_token_image_user_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX user_token_image_user_idx ON public.user_token_image USING btree (user_id, created_at DESC);
+
+
+--
 -- Name: _BackgroundToFeat _BackgroundToFeat_A_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7001,6 +7065,14 @@ ALTER TABLE ONLY public.game_combatant
 
 ALTER TABLE ONLY public.game_combatant
     ADD CONSTRAINT game_combatant_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_map_creature game_map_creature_custom_image_key_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_map_creature
+    ADD CONSTRAINT game_map_creature_custom_image_key_fkey FOREIGN KEY (custom_image_key) REFERENCES public.user_token_image(image_key) ON DELETE SET NULL;
 
 
 --
@@ -7809,6 +7881,14 @@ ALTER TABLE ONLY public.subrace_trait
 
 ALTER TABLE ONLY public.subrace_trait
     ADD CONSTRAINT subrace_trait_subrace_id_fkey FOREIGN KEY (subrace_id) REFERENCES public.subrace(subrace_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: user_token_image user_token_image_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_token_image
+    ADD CONSTRAINT user_token_image_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
 
 
 --

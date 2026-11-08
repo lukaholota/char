@@ -16,7 +16,7 @@ import { parseRollTargets } from "@/rules/map-target-picks";
 import { undoRollDamage } from "@/server/db/game-roll-events";
 import { MAX_SAVE_TARGETS } from "@/rules/game-roll-saves";
 import { addMissingCombatants, advanceCombatTurn, endCombat, endOwnCombatTurn, setCombatantInitiative, startCombat } from "@/server/db/game-combat";
-import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureSize } from "@/server/db/game-map-creatures";
+import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize } from "@/server/db/game-map-creatures";
 import {
   bindMemberPers,
   GAME_SESSION_LIMITS,
@@ -134,6 +134,13 @@ export async function setMapCreatureSizeAction(sessionId: number, creatureId: nu
   return runAsUser(async (userId) => {
     if (!isId(sessionId) || !isId(creatureId) || !size) return rejectBadInput;
     return setMapCreatureSize(sessionId, userId, creatureId, size);
+  });
+}
+
+export async function setMapCreatureCutoutAction(sessionId: number, creatureId: number, isCutout: unknown) {
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(creatureId) || typeof isCutout !== "boolean") return rejectBadInput;
+    return setMapCreatureCutout(sessionId, userId, creatureId, isCutout);
   });
 }
 

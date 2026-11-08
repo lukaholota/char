@@ -4,9 +4,10 @@ import { createContext, useEffect, useState, type KeyboardEvent, type ReactNode 
 import { createPortal } from "react-dom";
 import { toast } from "sonner";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
+import { useCutoutImage } from "./token-cutout";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { Button } from "@/components/ui/button";
-import { changeMapCreatureHitPointsAction, moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setCreatureNameModeAction, setMapCreatureSizeAction } from "@/lib/actions/game-sessions";
+import { changeMapCreatureHitPointsAction, moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setCreatureNameModeAction, setMapCreatureCutoutAction, setMapCreatureSizeAction } from "@/lib/actions/game-sessions";
 import { useAreaCastStore } from "@/lib/components/game/area-cast";
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
@@ -82,7 +83,7 @@ export function useMapCreatureTokens({ view, layout, findDropPosition, isTurned 
     setOpenId(null);
     void moves.send(id, null);
   };
-  const shown = view.creatures.filter((creature) => !moves.isRemoved(creature)).map(looks.applyPendingHitPoints);
+  const shown = view.creatures.filter((creature) => !moves.isRemoved(creature)).map(looks.applyPendingHitPoints).map(looks.applyPendingCutout);
   const waiting = shown.filter((creature) => !moves.findPosition(creature));
   const dragged = ghost ? shown.find((creature) => creature.id === ghost.id) : undefined;
   const openCreature = shown.find((creature) => creature.id === openId) ?? null;
@@ -154,8 +155,10 @@ export function useMapCreatureTokens({ view, layout, findDropPosition, isTurned 
         <MapCreatureStatblockDialog
           creature={openCreature}
           onClose={() => setOpenId(null)}
+          sessionId={view.id}
           onRemove={canEdit && openCreature ? () => removeFromStatblock(openCreature.id) : null}
           size={canEdit && openCreature ? { value: looks.findSize(openCreature), onChange: (size) => void looks.sendSize(openCreature.id, size) } : null}
+          cutout={canEdit && openCreature ? { value: looks.findIsCutout(openCreature), onChange: (isCutout) => void looks.sendCutout(openCreature, isCutout) } : null}
           hitPoints={canEdit && openCreature ? { value: openCreature.hitPoints, onChange: (change) => void looks.sendHitPointChange(openCreature, change) } : null}
           conditions={openCreature ? { value: openConditions, onChange: canEdit ? (change) => void changeConditions({ kind: "creature", id: openCreature.id }, openCreature.conditions, change) : null } : null}
           target={openCreature && myHeroName && moves.findPosition(openCreature) ? buildCreatureTargetControl(view.id, openCreature.id, targetId, myHeroName) : null}
@@ -197,17 +200,22 @@ function CreatureTray({ sessionId, hasCreatures, hasWaiting, children }: TrayPro
 
 type FaceProps = { creature: MapCreatureView; size?: string | number; nameMode: TokenNameMode | null; isDimmed?: boolean; isTarget?: boolean; onBoard?: OnBoard | null; children?: ReactNode };
 
+const CUTOUT_ALLY_OUTLINE = "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.emerald.400))_drop-shadow(0_0_2px_theme(colors.emerald.400))]";
+const CUTOUT_ENEMY_OUTLINE = "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.rose.500))_drop-shadow(0_0_2px_theme(colors.rose.500))]";
+
 export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, isDimmed, isTarget, onBoard = null, children }: FaceProps) {
   const isArtHidden = useIsArtHidden(creature.imageUrl, "manual");
   const src = isArtHidden ? null : creature.imageUrl;
   const isTurn = useIsCreatureTurn(creature.id);
+  const { isCutout: isCutoutImage, inspectImage } = useCutoutImage(src);
+  const isCutout = creature.isCutout && isCutoutImage && Boolean(onBoard) && !creature.isRoundImage;
   const labelWidth = onBoard?.labelWidth ?? (typeof size === "number" ? size : TOKEN_SIZE_PX);
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={creature.label}>
       <div className={cn("relative rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={{ width: size, height: size }}>
-        <div className={cn("relative h-full w-full overflow-hidden rounded-full border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isDown && "opacity-50 grayscale", creature.isAlly ? "border-emerald-400" : "border-rose-500", isTurn && TURN_RING_CLASS)}>
+        <div className={cn("relative h-full w-full rounded-full", isCutout ? (creature.isAlly ? CUTOUT_ALLY_OUTLINE : CUTOUT_ENEMY_OUTLINE) : cn("overflow-hidden border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isAlly ? "border-emerald-400" : "border-rose-500"), creature.isDown && "opacity-50 grayscale", isTurn && TURN_RING_CLASS)}>
           {src ? (
-            <ContentImage src={src} alt="" provenance="manual" fill sizes="128px" draggable={false} className={creature.isRoundImage ? "object-contain" : "object-cover object-top"} />
+            <ContentImage src={src} alt="" provenance="manual" fill sizes="128px" draggable={false} onLoad={(event) => inspectImage(event.currentTarget)} className={creature.isRoundImage || isCutout ? "object-contain" : "object-cover object-top"} />
           ) : (
             <span aria-hidden className="grid h-full w-full place-items-center font-rpg-display text-slate-100" style={{ fontSize: typeof size === "number" ? Math.max(12, Math.round(size * 0.34)) : `calc(${size} * 0.34)` }}>
               {buildCreatureInitials(creature.label)}
@@ -272,6 +280,10 @@ function useCreatureLooks(view: GameSessionView) {
   const finish = (result: { ok: boolean }) => result.ok && router.refresh();
 
   const sendSize = async (id: number, size: CreatureTokenSize) => finish(await sendOptimistic(`creature-size:${id}`, size, () => setMapCreatureSizeAction(view.id, id, size)));
+  const findCutoutKey = (creature: MapCreatureView) => `creature-cutout:${creature.ruleset}:${creature.creatureKey}`;
+  const findIsCutout = (creature: MapCreatureView) => read(findCutoutKey(creature), creature.isCutout);
+  const sendCutout = async (creature: MapCreatureView, isCutout: boolean) => finish(await sendOptimistic(findCutoutKey(creature), isCutout, () => setMapCreatureCutoutAction(view.id, creature.id, isCutout)));
+  const applyPendingCutout = (creature: MapCreatureView): MapCreatureView => (findIsCutout(creature) === creature.isCutout ? creature : { ...creature, isCutout: !creature.isCutout });
   const sendNameMode = async (mode: TokenNameMode) => finish(await sendOptimistic(nameModeKey, mode, () => setCreatureNameModeAction(view.id, mode)));
   const sendHitPointChange = async (creature: MapCreatureView, change: HitPointChange) => {
     const next = applyHitPointChange(readOptimistic(findHitPointsKey(creature), creature.hitPoints), change);
@@ -286,6 +298,9 @@ function useCreatureLooks(view: GameSessionView) {
     nameMode: read(nameModeKey, view.creatureNameMode),
     findSize: (creature: MapCreatureView) => read(`creature-size:${creature.id}`, creature.tokenSize),
     sendSize,
+    findIsCutout,
+    sendCutout,
+    applyPendingCutout,
     sendNameMode,
     sendHitPointChange,
     applyPendingHitPoints,

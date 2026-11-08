@@ -15,6 +15,7 @@ const mocks = vi.hoisted(() => ({
   toastError: vi.fn(),
   captureGameEvent: vi.fn(),
 }));
+vi.mock("@/lib/actions/game-token-images", () => ({}));
 vi.mock("@/lib/actions/game-sessions", () => ({
   startCombatAction: mocks.startCombatAction,
   endCombatAction: mocks.endCombatAction,

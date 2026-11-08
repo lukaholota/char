@@ -8,23 +8,24 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useCreatureStatblock } from "@/hooks/useCreatureStatblock";
 import { cn } from "@/lib/utils";
 import { CREATURE_TOKEN_SIZES, CREATURE_TOKEN_SIZE_LABELS, type CreatureTokenSize, type MapCreatureView } from "@/rules/game-map-creatures";
+import { CreatureImageSection, type CutoutControl } from "./CreatureImageSection";
 import { DownBadge, MapCreatureHitPoints, type HitPointsControl } from "./MapCreatureHitPoints";
 import { CreaturePlayerNameEditor, type NameControl } from "./CreaturePlayerNameEditor";
 import { RollTargetButton, type TargetControl } from "./RollTargetControls";
 import { TokenConditionToggles, type ConditionsControl } from "./TokenConditionToggles";
 
 type SizeControl = { value: CreatureTokenSize; onChange: (size: CreatureTokenSize) => void };
-type Props = { creature: MapCreatureView | null; onClose: () => void; onRemove: (() => void) | null; size: SizeControl | null; hitPoints: HitPointsControl | null; conditions: ConditionsControl | null; target: TargetControl | null; naming: NameControl | null };
+type Props = { creature: MapCreatureView | null; onClose: () => void; onRemove: (() => void) | null; sessionId: number; size: SizeControl | null; cutout: CutoutControl | null; hitPoints: HitPointsControl | null; conditions: ConditionsControl | null; target: TargetControl | null; naming: NameControl | null };
 
 /// Майстер править істоту в правій колонці поруч зі статблоком. Гравець статблока не отримує: бачить картинку, стани й ціль унизу.
-export function MapCreatureStatblockDialog({ creature, onClose, onRemove, size, hitPoints, conditions, target, naming }: Props) {
+export function MapCreatureStatblockDialog({ creature, onClose, onRemove, sessionId, size, cutout, hitPoints, conditions, target, naming }: Props) {
   const { creature: statblock, loreGroup } = useCreatureStatblock(creature?.creatureKey ?? null, creature?.ruleset ?? "RULES_2014", null);
   const isSplit = size !== null;
   const isPlayerView = creature !== null && creature.creatureKey === null;
   const realName = creature?.statblockName ?? statblock?.name ?? creature?.label ?? "";
   return (
     <Dialog open={creature !== null} onOpenChange={(isOpen) => (isOpen ? undefined : onClose())}>
-      <DialogContent aria-describedby={undefined} className={cn("max-w-2xl overflow-y-auto", isSplit && SPLIT_DIALOG, isPlayerView && "max-w-md", target && !isSplit && "pb-0")}>
+      <DialogContent aria-describedby={undefined} className={cn("max-w-2xl grid-cols-1 overflow-y-auto", isSplit && SPLIT_DIALOG, isPlayerView && "max-w-md", target && !isSplit && "pb-0")}>
         <div className="grid gap-2 lg:col-span-2">
           <div className="flex flex-wrap items-center gap-2 pr-10">
             <DialogTitle className="normal-case leading-8 tracking-normal">{creature?.label}</DialogTitle>
@@ -37,9 +38,10 @@ export function MapCreatureStatblockDialog({ creature, onClose, onRemove, size, 
           </div>
         </div>
         {isPlayerView ? <CreaturePortrait creature={creature} /> : null}
-        <div className={cn("grid content-start gap-4", isSplit && SPLIT_COLUMN)}>
+        <div className={cn("grid grid-cols-1 content-start gap-4", isSplit && SPLIT_COLUMN)}>
           {isSplit && target ? <RollTargetButton control={target} /> : null}
           {naming && creature ? <CreaturePlayerNameEditor key={`${creature.id}-${naming.value}`} control={naming} realName={realName} /> : null}
+          {cutout && creature ? <CreatureImageSection key={creature.id} sessionId={sessionId} creature={creature} cutout={cutout} /> : null}
           {hitPoints ? <MapCreatureHitPoints control={hitPoints} /> : null}
           {conditions ? <TokenConditionToggles control={conditions} /> : null}
           {size ? <TokenSizePicker size={size} /> : null}
@@ -85,6 +87,7 @@ function CreaturePortrait({ creature }: { creature: MapCreatureView }) {
   );
 }
 
+const findChoiceClass = (isChosen: boolean) => cn("h-11 rounded-xl border text-sm", isChosen ? "border-white/30 bg-white/10 text-slate-100" : "border-white/10 text-slate-400 hover:text-slate-200");
 function TokenSizePicker({ size }: { size: SizeControl }) {
   return (
     <div role="group" aria-label="Розмір на мапі" className="grid gap-2">
@@ -96,7 +99,7 @@ function TokenSizePicker({ size }: { size: SizeControl }) {
             type="button"
             aria-pressed={size.value === option}
             onClick={() => size.onChange(option)}
-            className={cn("h-11 rounded-xl border text-sm", size.value === option ? "border-white/30 bg-white/10 text-slate-100" : "border-white/10 text-slate-400 hover:text-slate-200")}
+            className={findChoiceClass(size.value === option)}
           >
             {CREATURE_TOKEN_SIZE_LABELS[option]}
           </button>

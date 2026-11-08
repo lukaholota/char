@@ -41,6 +41,7 @@ export const FAILURE_MESSAGES: Record<GameSessionFailure | "signed_out" | "too_f
   bad_area: "Не вдалося показати область",
   area_limit: `На сцені вже ${AREA_LIMITS.perScene} областей — приберіть зайві`,
   area_gone: "Цю область уже прибрали",
+  token_image_gone: "Цього зображення вже немає в бібліотеці",
 };
 
 export type UserActionResult<T> = GameSessionResult<T> | { ok: false; error: "too_fast" };

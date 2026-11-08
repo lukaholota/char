@@ -22,6 +22,8 @@ const row = (overrides: Partial<MapCreatureRow>): MapCreatureRow => ({
   isAlly: false,
   customName: null,
   tokenSize: null,
+  isCutout: false,
+  customImageKey: null,
   tokenX: null,
   tokenY: null,
   hpMax: null,
@@ -32,6 +34,20 @@ const row = (overrides: Partial<MapCreatureRow>): MapCreatureRow => ({
 });
 
 describe("істоти на мапі кімнати", () => {
+  it("власне зображення замінює картинку бестіарію для всіх, а ключ бачить лише майстер", () => {
+    const rows = [row({ creatureKey: "wolf", customImageKey: "token-images/1/dragon", tokenX: 0.5, tokenY: 0.5 })];
+    const [gmView] = buildMapCreatureViews(rows, findEntry, true);
+    const [playerView] = buildMapCreatureViews(rows, findEntry, false);
+    expect(gmView.imageUrl).toContain("token-images/1/dragon");
+    expect(gmView).toMatchObject({ isRoundImage: false, customImageKey: "token-images/1/dragon", creatureKey: "wolf", label: "Вовк" });
+    expect(playerView.imageUrl).toBe(gmView.imageUrl);
+    expect(playerView.customImageKey).toBeNull();
+  });
+
+  it("без заміни лишається картинка бестіарію та її кругла форма", () => {
+    expect(buildMapCreatureViews([row({ creatureKey: "wolf" })], findEntry, true)[0]).toMatchObject({ imageUrl: "/images/wolf.webp", isRoundImage: true, customImageKey: null });
+  });
+
   it("приймає лише відому редакцію, рядковий ключ і від 1 до 10 копій", () => {
     const valid = { creatureKey: "goblin", ruleset: "RULES_2014", count: 3, isAlly: false };
     expect(parseNewMapCreatures(valid)).toEqual({ ...valid, customName: null });

@@ -20,6 +20,16 @@ describe("картинки користувачів", () => {
     expect(images.full.byteLength).toBeLessThan(60_000);
   });
 
+  it("прозорий фон лишається прозорим і в зображенні, і в мініатюрі", async () => {
+    const transparent = new Uint8Array(await sharp({ create: { width: 700, height: 500, channels: 4, background: { r: 10, g: 10, b: 10, alpha: 0 } } }).png().toBuffer());
+    const images = await buildSquareWebpImages(transparent);
+    for (const image of [images.full, images.thumbnail]) {
+      const { data, info } = await sharp(image).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+      expect(info.channels).toBe(4);
+      expect(data[3]).toBe(0);
+    }
+  });
+
   it("зіпсований файл із правильним заголовком — помилка, а не порожня картинка", async () => {
     const broken = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     await expect(buildSquareWebpImages(broken)).rejects.toThrow();

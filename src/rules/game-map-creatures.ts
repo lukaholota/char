@@ -1,8 +1,9 @@
+import { buildMediaImageUrl } from "@/lib/media-url";
 import { findCreatureHitPoints, isCreatureDown, type CreatureHitPoints } from "@/rules/creature-hit-points";
 import type { TokenPosition } from "@/rules/game-map";
 import { normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
 
-export const MAP_CREATURE_LIMITS = { perScene: 40, perAdd: 10, keyLength: 120, customNameLength: 40 } as const;
+export const MAP_CREATURE_LIMITS = { perScene: 40, perAdd: 10, keyLength: 120, customNameLength: 40, imagesPerUser: 60 } as const;
 export const MAP_CREATURE_RULESETS = ["RULES_2014", "RULES_2024"] as const;
 export type MapCreatureRuleset = (typeof MAP_CREATURE_RULESETS)[number];
 
@@ -33,6 +34,8 @@ export type MapCreatureRow = {
   isAlly: boolean;
   customName: string | null;
   tokenSize: string | null;
+  isCutout: boolean;
+  customImageKey: string | null;
   tokenX: number | null;
   tokenY: number | null;
   hpMax: number | null;
@@ -56,7 +59,9 @@ export type MapCreatureView = {
   isAlly: boolean;
   imageUrl: string | null;
   isRoundImage: boolean;
+  customImageKey: string | null;
   tokenSize: CreatureTokenSize;
+  isCutout: boolean;
   token: TokenPosition | null;
   hitPoints: CreatureHitPoints | null;
   isDown: boolean;
@@ -137,9 +142,11 @@ export function buildMapCreatureViews(
         customName: isGm ? row.customName : null,
         badge: hasCopies ? row.number : null,
         isAlly: row.isAlly,
-        imageUrl: entry?.imageUrl ?? null,
-        isRoundImage: entry?.imageShape === "round",
+        imageUrl: row.customImageKey ? buildMediaImageUrl(row.customImageKey, "full") : entry?.imageUrl ?? null,
+        isRoundImage: !row.customImageKey && entry?.imageShape === "round",
+        customImageKey: isGm ? row.customImageKey : null,
         tokenSize: parseCreatureTokenSize(row.tokenSize) ?? findStatblockTokenSize(entry?.size),
+        isCutout: row.isCutout,
         token: row.tokenX !== null && row.tokenY !== null ? { x: row.tokenX, y: row.tokenY } : null,
         hitPoints: isGm ? hitPoints : null,
         isDown: isCreatureDown(hitPoints),

@@ -51,6 +51,7 @@ model User {
   folderMemberships      PersFolderMember[]
   pers_offline_operation pers_offline_operation[]
   problem_report         problem_report[]
+  tokenImages            UserTokenImage[]
 
   @@map("user")
 }
@@ -1621,7 +1622,10 @@ model GameMapCreature {
   conditions      String[]        @default([])
   exhaustionLevel Int             @default(0) @map("exhaustion_level") @db.SmallInt
   gameSceneId     Int?            @map("game_scene_id")
+  isCutout        Boolean         @default(false) @map("is_cutout")
+  customImageKey  String?         @map("custom_image_key") @db.VarChar(200)
   combatant       GameCombatant?
+  customImage     UserTokenImage? @relation(fields: [customImageKey], references: [imageKey], onUpdate: NoAction)
   scene           GameScene?      @relation(fields: [gameSceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   gameSession     GameSession     @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   rollEvents      GameRollEvent[]
@@ -1682,6 +1686,18 @@ model GameSceneToken {
 
   @@id([sceneId, userId])
   @@map("game_scene_token")
+}
+
+model UserTokenImage {
+  id        Int               @id @default(autoincrement()) @map("user_token_image_id")
+  userId    Int               @map("user_id")
+  imageKey  String            @unique @map("image_key") @db.VarChar(200)
+  createdAt DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+  creatures GameMapCreature[]
+  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([userId, createdAt(sort: Desc)], map: "user_token_image_user_idx")
+  @@map("user_token_image")
 }
 
 enum AOEShapes {

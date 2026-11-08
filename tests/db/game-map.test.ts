@@ -25,7 +25,7 @@ import {
 } from "@/server/db/game-sessions";
 import { moveGameToken } from "@/server/db/game-scenes";
 import { setActiveSceneMap } from "./game-scene-setup";
-import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureSize } from "@/server/db/game-map-creatures";
+import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize } from "@/server/db/game-map-creatures";
 import { openGameSessionStream } from "@/server/game-sessions/game-session-stream";
 
 vi.setConfig({ testTimeout: 60_000 });
@@ -287,5 +287,28 @@ describe("мапа кімнати", () => {
     const unknown = await prisma.gameMapCreature.create({ data: { gameSessionId: sessionId, creatureKey: "no-such-beast", ruleset: "RULES_2014", number: 1 } });
     expect(await changeMapCreatureHitPoints(sessionId, gm.id, unknown.id, { kind: "damage", amount: 1 })).toEqual({ ok: false, error: "no_hit_points" });
     expect(await changeMapCreatureHitPoints(sessionId, gm.id, unknown.id, { kind: "set_max", amount: 9 })).toEqual({ ok: true, value: null });
+  });
+
+  it("вибір вигляду: усі такі істоти кімнати, лише майстер, нові успадковують", async () => {
+    const { gm, player, sessionId } = await createTableWithHeroes();
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    expect(await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 2, isAlly: false, customName: null })).toMatchObject({ ok: true });
+    expect(await addMapCreatures(sessionId, gm.id, { creatureKey: "wolf", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null })).toMatchObject({ ok: true });
+    const findRows = () => prisma.gameMapCreature.findMany({ where: { gameSessionId: sessionId }, orderBy: { id: "asc" }, select: { id: true, creatureKey: true, isCutout: true } });
+    const [goblin] = await findRows();
+    expect((await findRows()).map((row) => row.isCutout)).toEqual([false, false, false]);
+
+    expect(await setMapCreatureCutout(sessionId, player.id, goblin.id, true)).toEqual({ ok: false, error: "forbidden" });
+    expect((await findRows()).some((row) => row.isCutout)).toBe(false);
+
+    expect(await setMapCreatureCutout(sessionId, gm.id, goblin.id, true)).toEqual({ ok: true, value: null });
+    expect((await findRows()).map((row) => [row.creatureKey, row.isCutout])).toEqual([["goblin", true], ["goblin", true], ["wolf", false]]);
+
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    expect((await findRows()).at(-1)).toMatchObject({ creatureKey: "goblin", isCutout: true });
+
+    expect(await setMapCreatureCutout(sessionId, gm.id, goblin.id, false)).toEqual({ ok: true, value: null });
+    expect((await findRows()).some((row) => row.isCutout)).toBe(false);
+    expect(await setMapCreatureCutout(sessionId, gm.id, 999999, true)).toEqual({ ok: false, error: "creature_gone" });
   });
 });

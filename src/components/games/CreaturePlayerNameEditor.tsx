@@ -23,7 +23,7 @@ export function CreaturePlayerNameEditor({ control, realName }: { control: NameC
     if (isChanged) void save(shownName);
   };
   return (
-    <form onSubmit={submit} className="grid gap-2 rounded-xl border border-white/10 p-3">
+    <form onSubmit={submit} className="grid grid-cols-1 gap-2 rounded-xl border border-white/10 p-3">
       <label htmlFor="creature-player-name" className="text-sm text-slate-300">
         Що бачать гравці
       </label>
