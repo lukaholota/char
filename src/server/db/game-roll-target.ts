@@ -1,12 +1,12 @@
 import { randomInt } from "node:crypto";
 import { Prisma } from "@prisma/client";
-import { resolveCreatureSave, type SpellSaveDamage } from "@/rules/creature-save";
+import { resolveCreatureSave, type SaveEffect } from "@/rules/creature-save";
 import { resolveHeroSave } from "@/rules/hero-save";
 import type { GameRollSavesDraft, StoredSaveRow, StoredSaves } from "@/rules/game-roll-saves";
 import { buildMapCreatureViews } from "@/rules/game-map-creatures";
 import { findAttackHit, parseArmorClass, type GameRollTargetDraft } from "@/rules/game-roll-target";
 import type { GameRoll } from "@/rules/game-roll";
-import { BLESSED_DIE, BLESSED_MARK } from "@/rules/token-conditions";
+import { BLESSED_DIE, BLESSED_MARK, type RuleConditionKey } from "@/rules/token-conditions";
 import { parseCreatureHitPoints } from "@/rules/wildshape";
 import type { RoomHero } from "@/server/db/game-room-heroes";
 import type { GameSessionResult } from "@/server/db/game-sessions";
@@ -73,25 +73,40 @@ export async function applySaveTargets(tx: Prisma.TransactionClient, sessionId: 
   }
   for (const persId of draft.persIds) {
     const hero = heroes.get(persId);
-    if (hero) saveRows.push(rollHeroSave(hero, effect, draft.dc, rolledDamage));
+    if (hero) saveRows.push(await rollHeroSave(tx, sessionId, hero, effect, draft.dc, rolledDamage));
   }
-  return saveRows.length ? { ability: effect.ability, dc: draft.dc, damageType: effect.damageType, isHalfOnSave: effect.isHalfOnSave, rows: saveRows } : null;
+  const condition = effect.condition ? { condition: effect.condition } : {};
+  return saveRows.length ? { ability: effect.ability, dc: draft.dc, damageType: effect.damageType, isHalfOnSave: effect.isHalfOnSave, ...condition, rows: saveRows } : null;
 }
 
 type SaveTarget = { row: Prisma.GameMapCreatureGetPayload<{ select: typeof CREATURE_ROW_SELECT }>; name: string; statblock: ReturnType<RoomCreatureLookup> };
 
-async function applyCreatureSave(tx: Prisma.TransactionClient, sessionId: number, { row, name, statblock }: SaveTarget, effect: SpellSaveDamage, dc: number, rolledDamage: number): Promise<StoredSaveRow> {
+async function applyCreatureSave(tx: Prisma.TransactionClient, sessionId: number, { row, name, statblock }: SaveTarget, effect: SaveEffect, dc: number, rolledDamage: number): Promise<StoredSaveRow> {
   const dice = rollSaveDice(row.conditions.includes(BLESSED_MARK) ? [BLESSED_DIE] : []);
   const save = resolveCreatureSave({ creature: statblock, conditions: row.conditions, effect, dc, rolledDamage, d20Pair: [randomInt(1, 21), randomInt(1, 21)], dice });
   const change = save.damage > 0 ? await removeHitPoints(tx, sessionId, row.id, save.damage, parseCreatureHitPoints(statblock?.hp ?? "")) : { hpBefore: null, hpChange: null };
-  return { ...save, creatureId: row.id, name, ...change, isUndone: false };
+  const isConditionAdded = save.condition ? await addSaveCondition(tx, Prisma.sql`game_map_creature_id = ${row.id}`, save.condition, "creature") : null;
+  return { ...save, creatureId: row.id, name, ...change, isUndone: false, ...(isConditionAdded === null ? {} : { isConditionAdded }) };
 }
 
-function rollHeroSave(hero: RoomHero, effect: SpellSaveDamage, dc: number, rolledDamage: number): StoredSaveRow {
+async function rollHeroSave(tx: Prisma.TransactionClient, sessionId: number, hero: RoomHero, effect: SaveEffect, dc: number, rolledDamage: number): Promise<StoredSaveRow> {
   const { bonus, mode } = hero.saves[effect.ability];
   const dice = rollSaveDice(hero.saveDice);
   const save = resolveHeroSave({ bonus, mode, conditions: hero.conditions, resistances: hero.resistances, effect, dc, rolledDamage, d20Pair: [randomInt(1, 21), randomInt(1, 21)], dice });
-  return { ...save, persId: hero.persId, name: hero.name, hpBefore: null, hpChange: null, isUndone: false };
+  const isConditionAdded = save.condition ? await addSaveCondition(tx, Prisma.sql`game_session_id = ${sessionId} AND pers_id = ${hero.persId}`, save.condition, "hero") : null;
+  return { ...save, persId: hero.persId, name: hero.name, hpBefore: null, hpChange: null, isUndone: false, ...(isConditionAdded === null ? {} : { isConditionAdded }) };
+}
+
+/// false — стан уже був: скасування його тоді не зніме.
+async function addSaveCondition(tx: Prisma.TransactionClient, where: Prisma.Sql, condition: RuleConditionKey, target: "creature" | "hero"): Promise<boolean> {
+  const table = target === "creature" ? Prisma.sql`game_map_creature` : Prisma.sql`game_session_member`;
+  const added = await tx.$executeRaw`UPDATE ${table} SET conditions = array_append(conditions, ${condition}) WHERE ${where} AND NOT (${condition} = ANY(conditions))`;
+  return added > 0;
+}
+
+async function removeSaveCondition(tx: Prisma.TransactionClient, sessionId: number, claimed: { creature_id: number | null; pers_id: number | null }, condition: string): Promise<void> {
+  if (claimed.creature_id !== null) await tx.$executeRaw`UPDATE game_map_creature SET conditions = array_remove(conditions, ${condition}) WHERE game_map_creature_id = ${claimed.creature_id} AND game_session_id = ${sessionId}`;
+  else if (claimed.pers_id !== null) await tx.$executeRaw`UPDATE game_session_member SET conditions = array_remove(conditions, ${condition}) WHERE game_session_id = ${sessionId} AND pers_id = ${claimed.pers_id}`;
 }
 
 function rollSaveDice(dice: ReadonlyArray<{ sides: number; sign: number }>) {
@@ -129,15 +144,19 @@ export async function revertRollDamage(tx: Prisma.TransactionClient, sessionId: 
 }
 
 /// Як revertRollDamage, але для одного рядка ряткидків зони: позначка в JSON події ставиться тим самим UPDATE, що й перевірка.
+/// Стан, накладений провалом, знімається разом зі шкодою.
 export async function revertSaveDamage(tx: Prisma.TransactionClient, sessionId: number, seq: number, rowIndex: number): Promise<GameSessionResult<null>> {
   const row = Prisma.sql`roll->'saves'->'rows'->${rowIndex}::int`;
-  const [claimed] = await tx.$queryRaw<{ creature_id: number; hp_change: number }[]>`
+  const [claimed] = await tx.$queryRaw<{ creature_id: number | null; pers_id: number | null; hp_change: number | null; added_condition: string | null }[]>`
     UPDATE game_roll_event SET roll = jsonb_set(roll, ARRAY['saves', 'rows', ${String(rowIndex)}, 'isUndone'], 'true'::jsonb)
     WHERE game_session_id = ${sessionId} AND seq = ${seq}::bigint AND roll ? 'saves'
-      AND COALESCE((${row}->>'hpChange')::int, 0) > 0 AND NOT COALESCE((${row}->>'isUndone')::boolean, false)
-    RETURNING (roll->'saves'->'rows'->${rowIndex}::int->>'creatureId')::int AS creature_id, (roll->'saves'->'rows'->${rowIndex}::int->>'hpChange')::int AS hp_change`;
+      AND (COALESCE((${row}->>'hpChange')::int, 0) > 0 OR COALESCE((${row}->>'isConditionAdded')::boolean, false))
+      AND NOT COALESCE((${row}->>'isUndone')::boolean, false)
+    RETURNING (${row}->>'creatureId')::int AS creature_id, (${row}->>'persId')::int AS pers_id, (${row}->>'hpChange')::int AS hp_change,
+      CASE WHEN COALESCE((${row}->>'isConditionAdded')::boolean, false) THEN ${row}->>'condition' END AS added_condition`;
   if (!claimed) return { ok: false, error: await findSaveRevertFailure(tx, sessionId, seq, rowIndex) };
-  return restoreHitPoints(tx, sessionId, claimed.creature_id, claimed.hp_change);
+  if (claimed.added_condition) await removeSaveCondition(tx, sessionId, claimed, claimed.added_condition);
+  return claimed.creature_id !== null && (claimed.hp_change ?? 0) > 0 ? restoreHitPoints(tx, sessionId, claimed.creature_id, claimed.hp_change ?? 0) : { ok: true, value: null };
 }
 
 async function findSaveRevertFailure(tx: Prisma.TransactionClient, sessionId: number, seq: number, rowIndex: number): Promise<"not_found" | "already_undone"> {

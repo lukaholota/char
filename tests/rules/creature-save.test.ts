@@ -111,3 +111,27 @@ describe("ряткидок істоти", () => {
     expect(resolveCreatureSave({ creature: null, conditions: [], effect: shatter, dc: 10, rolledDamage: 9, d20Pair: [10, 1] })).toMatchObject({ bonus: 0, isSaved: true, damage: 4 });
   });
 });
+
+describe("ряткидок без шкоди накладає стан при провалі", () => {
+  const honey = { ability: "DEX", damageType: null, isHalfOnSave: false, condition: "restrained" } as const;
+
+  it("провал — стан, успіх — нічого, шкоди немає", () => {
+    expect(resolveCreatureSave({ creature: creature(), conditions: [], effect: honey, dc: 17, rolledDamage: 0, d20Pair: [9, 1] })).toEqual({
+      d20: [9], mode: "NORMAL", bonus: 2, total: 11, isSaved: false, isAutoFail: false, defense: null, damage: 0, condition: "restrained",
+    });
+    expect(resolveCreatureSave({ creature: creature(), conditions: [], effect: honey, dc: 17, rolledDamage: 0, d20Pair: [15, 1] })).not.toHaveProperty("condition");
+  });
+
+  it("несприйнятливість до стану — імунітет без стану; до шкоди — стан однаково", () => {
+    const ooze = creature({ conditionImmunity: "засліплений, оглухлий, скований" });
+    expect(resolveCreatureSave({ creature: ooze, conditions: [], effect: honey, dc: 17, rolledDamage: 0, d20Pair: [1, 1] })).toMatchObject({ isSaved: false, defense: "immune", damage: 0 });
+    expect(resolveCreatureSave({ creature: ooze, conditions: [], effect: honey, dc: 17, rolledDamage: 0, d20Pair: [1, 1] })).not.toHaveProperty("condition");
+    const wing = { ability: "DEX", damageType: "bludgeoning", isHalfOnSave: false, condition: "prone" } as const;
+    expect(resolveCreatureSave({ creature: creature({ damageImmunity: "дроблячі" }), conditions: [], effect: wing, dc: 19, rolledDamage: 13, d20Pair: [1, 1] })).toMatchObject({ defense: "immune", damage: 0, condition: "prone" });
+    expect(resolveCreatureSave({ creature: creature({ conditionImmunity: "Окамʼянілий" }), conditions: [], effect: { ...honey, condition: "petrified" }, dc: 17, rolledDamage: 0, d20Pair: [1, 1] })).not.toHaveProperty("condition");
+  });
+
+  it("автоматичний провал паралізованого теж накладає стан", () => {
+    expect(resolveCreatureSave({ creature: null, conditions: ["paralyzed"], effect: honey, dc: 5, rolledDamage: 0, d20Pair: [20, 20] })).toMatchObject({ isAutoFail: true, condition: "restrained" });
+  });
+});

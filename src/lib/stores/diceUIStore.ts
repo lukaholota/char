@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 import type { D20Mode } from "@/rules/dice-roll";
-import type { SpellSaveDamage } from "@/rules/creature-save";
+import type { SaveEffect } from "@/rules/creature-save";
 import type { AreaShape } from "@/rules/game-areas";
 import type { SaveSpellRef } from "@/rules/game-roll-saves";
 import type { RollTargetRef, RollTargets } from "@/rules/map-target-picks";
@@ -14,6 +14,9 @@ export type ExtraDie = { sides: number; sign: 1 | -1; label: string };
 /// Що стан персонажа робить із кидком: режим к20, його джерела й додаткові кубики.
 export type RollStateView = { mode: D20Mode; sources: string[]; extraDice: ExtraDie[] };
 
+/// Ряткидок без шкоди, який кидає кімната: на столі кубиків немає, результат приходить із сервера.
+export type TargetSaveRequest = { abilityName: string; dc: number; effect: SaveEffect };
+
 export interface DiceRollAction {
   key: string;
   label: string;
@@ -25,6 +28,7 @@ export interface DiceRollAction {
   mode?: D20Mode;
   modeSources?: string[];
   extraDice?: ExtraDie[];
+  targetSave?: TargetSaveRequest;
 }
 
 export interface DiceRollContext {
@@ -41,7 +45,7 @@ export interface DiceRollContext {
   /// Ряткидок, який кидає ціль заклинання: панель і журнал показують його СК поруч зі шкодою.
   /// spell — щоб кімната кинула ряткидки цілей сама й зняла половину чи нічого.
   /// effect — дія статблоку (подих дракона): без заклинання кімната не знає ні ряткидка, ні виду шкоди.
-  targetSave?: { abilityName: string; dc: number; spell?: SaveSpellRef; effect?: SpellSaveDamage };
+  targetSave?: { abilityName: string; dc: number; spell?: SaveSpellRef; effect?: SaveEffect };
   /// Область дії істоти (подих, вибух): кімната з мапою спершу просить її поставити.
   targetArea?: { label: string; shape: AreaShape; sizeFeet: number };
   /// Хто в зоні, накладеній на мапі: шкода йде всім їм — і ворогам, і своїм, — а не обраній цілі.

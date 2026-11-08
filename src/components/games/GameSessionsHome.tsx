@@ -15,6 +15,7 @@ import type { GameSessionListItem } from "@/server/db/game-sessions";
 import { useGamesHref } from "./use-games-href";
 
 const MEMBER_FORMS = { one: "учасник", few: "учасники", many: "учасників" };
+const NEW_ROOM_INPUT_ID = "new-game-session";
 
 export function GameSessionsHome({ sessions }: { sessions: GameSessionListItem[] }) {
   const activeSessions = sessions.filter((session) => !session.isArchived);
@@ -22,7 +23,7 @@ export function GameSessionsHome({ sessions }: { sessions: GameSessionListItem[]
   if (!activeSessions.length) {
     return (
       <div className="space-y-8">
-        <CreateGameSessionCard />
+        <CreateGameSessionCard title={archivedSessions.length ? undefined : "Створіть першу кімнату"} />
         {archivedSessions.length ? <ArchivedSessions sessions={archivedSessions} /> : null}
       </div>
     );
@@ -41,6 +42,20 @@ export function GameSessionsHome({ sessions }: { sessions: GameSessionListItem[]
   );
 }
 
+export function FocusNewRoomFormButton({ label, className }: { label: string; className?: string }) {
+  const focusNewRoomForm = () => {
+    const input = document.getElementById(NEW_ROOM_INPUT_ID);
+    input?.scrollIntoView({ block: "center" });
+    input?.focus({ preventScroll: true });
+  };
+  return (
+    <Button type="button" size="lg" onClick={focusNewRoomForm} className={cn("gap-2", className)}>
+      <Plus className="h-5 w-5" aria-hidden />
+      {label}
+    </Button>
+  );
+}
+
 function NewSessionToggle() {
   const [isOpen, setIsOpen] = useState(false);
   if (isOpen) return <CreateGameSessionCard onCancel={() => setIsOpen(false)} className="w-full" />;
@@ -53,7 +68,7 @@ function NewSessionToggle() {
 }
 
 /// Створення — один крок: назва й кнопка. Запрошення й вибір персонажа чекають уже в кімнаті.
-function CreateGameSessionCard({ onCancel, className }: { onCancel?: () => void; className?: string }) {
+function CreateGameSessionCard({ title = "Нова кімната для партії", onCancel, className }: { title?: string; onCancel?: () => void; className?: string }) {
   const router = useModeRouter();
   const activate = useGameSessionStore((state) => state.activate);
   const gamesHref = useGamesHref();
@@ -73,15 +88,15 @@ function CreateGameSessionCard({ onCancel, className }: { onCancel?: () => void;
   return (
     <form onSubmit={submit} className={cn("space-y-5 rounded-2xl border border-arcane-400/25 bg-slate-900/70 p-5 sm:p-6", className)}>
       <div className="space-y-2">
-        <h2 className="font-rpg-display text-2xl text-slate-50">Нова кімната для партії</h2>
+        <h2 className="font-rpg-display text-2xl text-slate-50">{title}</h2>
         <p className="max-w-prose text-sm text-slate-300">
-          Кімната збирає кидки всіх гравців в один журнал: з листа персонажа й вільних кубиків. Після створення ви отримаєте посилання для гравців.
+          Дайте їй назву. Посилання для гравців отримаєте одразу після створення.
         </p>
       </div>
       <div className="space-y-2">
-        <label htmlFor="new-game-session" className="text-sm font-semibold text-slate-200">Назва нової кімнати</label>
+        <label htmlFor={NEW_ROOM_INPUT_ID} className="text-sm font-semibold text-slate-200">Назва нової кімнати</label>
         <Input
-          id="new-game-session"
+          id={NEW_ROOM_INPUT_ID}
           value={name}
           onChange={(event) => setName(event.target.value)}
           maxLength={80}

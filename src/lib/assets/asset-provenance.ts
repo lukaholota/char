@@ -32,6 +32,8 @@ const PROVENANCE_BY_PREFIX: ReadonlyArray<readonly [string, ImageProvenance]> = 
   ["/images/backgrounds/", "ai"],
   ["/images/rules/", "ai"],
   ["/images/errors/", "ai"],
+  /// Кадри кімнат на лендингу /games: на мапі згенерований арт.
+  ["/images/games/", "ai"],
   ["/images/creatures/", "manual"],
   ["/images/manual/", "manual"],
   ["/images/home-", "drawn"],

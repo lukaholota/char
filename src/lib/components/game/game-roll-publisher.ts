@@ -1,9 +1,10 @@
 import { toast } from "sonner";
 import { readHeroTargetPersId, readRollTargetCreatureId, readRollVisibility, useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import { useSheetPersStore } from "@/lib/stores/sheetPersStore";
+import type { DiceRollContext, TargetSaveRequest } from "@/lib/stores/diceUIStore";
 import { buildSecretRollLabel, canSeeGameRollValues, type GameRollVisibility } from "@/rules/game-roll";
-import type { RollTargetRef } from "@/rules/map-target-picks";
-import type { GameRollPublication } from "./build-game-roll";
+import type { RollTargetRef, RollTargets } from "@/rules/map-target-picks";
+import { buildTargetSaveGameRoll, type GameRollPublication } from "./build-game-roll";
 import { addGameEvents, addPendingRoll, dropPendingRoll, markMeRolling, stopMeRolling, useGameSessionLiveStore } from "./game-session-live-store";
 import { playRollChime } from "./play-roll-chime";
 import { clearRollVerdict, settleRollVerdict, watchRollVerdict } from "./roll-verdict";
@@ -69,6 +70,14 @@ export function settleGameRollStart(target: GameRollTarget) {
   stopMeRolling(target.sessionId);
 }
 
+/// Без цілі ряткидка немає: сервер такий запис не прийме, тож кидок навіть не стає в чергу.
+export function publishTargetSave(context: DiceRollContext, targetSave: TargetSaveRequest) {
+  const target = captureGameRollTarget("free", context.rollTarget);
+  const targets = target && (context.areaTargets ?? listSingleTarget(target));
+  if (!target || !targets || targets.creatureIds.length + targets.persIds.length === 0) return void toast.info("Оберіть ціль ряткидка на мапі або в лотку");
+  publishGameRoll(target, buildTargetSaveGameRoll(context, targetSave));
+}
+
 export function publishGameRoll(target: GameRollTarget, publication: GameRollPublication) {
   const storage = findStorage();
   if (!storage) return settleGameRollStart(target);
@@ -88,7 +97,7 @@ export function publishGameRoll(target: GameRollTarget, publication: GameRollPub
   };
   enqueueGameRoll(storage, item);
   showPendingRoll(item);
-  if (item.draft.target || item.draft.heroTarget) watchRollVerdict(item.draft.idempotencyKey);
+  if (item.draft.target || item.draft.heroTarget || item.draft.saves) watchRollVerdict(item.draft.idempotencyKey);
   else clearRollVerdict();
   void flushGameRollOutbox();
 }
@@ -97,14 +106,18 @@ export function publishGameRoll(target: GameRollTarget, publication: GameRollPub
 /// Шкода з ряткидком не знімається повністю: цілі (зона або обрана ціль) кидають ряткидок на сервері.
 function buildRollTargets(target: GameRollTarget, publication: GameRollPublication): Pick<QueuedGameRoll["draft"], "target" | "saves" | "heroTarget"> {
   const { kind, save, areaTargets } = publication;
-  if (!kind) return { target: null };
   if (save) {
-    const targets = areaTargets ?? { creatureIds: target.creatureId !== null ? [target.creatureId] : [], persIds: target.heroPersId ? [target.heroPersId] : [] };
+    const targets = areaTargets ?? listSingleTarget(target);
     return targets.creatureIds.length + targets.persIds.length ? { target: null, saves: { ...targets, ...save } } : { target: null };
   }
+  if (!kind) return { target: null };
   if (target.heroPersId) return { target: null, heroTarget: { persId: target.heroPersId, kind } };
   if (kind === "heal") return { target: null };
   return { target: target.creatureId !== null ? { creatureId: target.creatureId, kind } : null };
+}
+
+function listSingleTarget(target: GameRollTarget): RollTargets {
+  return { creatureIds: target.creatureId !== null ? [target.creatureId] : [], persIds: target.heroPersId ? [target.heroPersId] : [] };
 }
 
 function showPendingRoll(item: QueuedGameRoll) {

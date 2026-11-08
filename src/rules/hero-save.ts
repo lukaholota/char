@@ -1,5 +1,5 @@
 import { pickD20Value, type D20Mode } from "./dice-roll";
-import { findSaveDamage, isCreatureSaveAutoFail, sumSaveDice, type CreatureSaveResult, type DamageDefense, type SaveDieRoll, type SpellSaveDamage } from "./creature-save";
+import { findFailedCondition, findSaveDamage, isCreatureSaveAutoFail, sumSaveDice, type CreatureSaveResult, type DamageDefense, type SaveDieRoll, type SaveEffect } from "./creature-save";
 
 /// bonus і mode — з листа героя разом зі станами (Лють, Небезпечне чуття); стани кімнати додаються тут.
 export type HeroSaveInput = {
@@ -7,7 +7,7 @@ export type HeroSaveInput = {
   mode: D20Mode;
   conditions: readonly string[];
   resistances: readonly string[];
-  effect: SpellSaveDamage;
+  effect: SaveEffect;
   dc: number;
   rolledDamage: number;
   d20Pair: readonly [number, number];
@@ -21,7 +21,7 @@ export function resolveHeroSave({ bonus, mode, conditions, resistances, effect, 
   const isAutoFail = isCreatureSaveAutoFail(conditions, effect.ability);
   const isSaved = !isAutoFail && total >= dc;
   const defense = findHeroDefense(resistances, effect);
-  return { d20, mode: finalMode, bonus, total, isSaved, isAutoFail, defense, damage: findSaveDamage(rolledDamage, isSaved, effect, defense), ...(dice.length ? { dice: [...dice] } : {}) };
+  return { d20, mode: finalMode, bonus, total, isSaved, isAutoFail, defense, damage: findSaveDamage(rolledDamage, isSaved, effect, defense), ...findFailedCondition(effect, isSaved, false), ...(dice.length ? { dice: [...dice] } : {}) };
 }
 
 function mergeModes(first: D20Mode, second: D20Mode): D20Mode {
@@ -29,6 +29,6 @@ function mergeModes(first: D20Mode, second: D20Mode): D20Mode {
   return modes.size === 1 ? [...modes][0] : "NORMAL";
 }
 
-function findHeroDefense(resistances: readonly string[], effect: SpellSaveDamage): DamageDefense | null {
-  return resistances.includes(effect.damageType.toUpperCase()) ? "resistant" : null;
+function findHeroDefense(resistances: readonly string[], effect: SaveEffect): DamageDefense | null {
+  return effect.damageType && resistances.includes(effect.damageType.toUpperCase()) ? "resistant" : null;
 }

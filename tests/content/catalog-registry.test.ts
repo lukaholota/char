@@ -152,11 +152,11 @@ describe("KR36.1 — один реєстр каталогів", () => {
     }
   });
 
-  /// Власник, 2026-09-25: хоумбрю спільноти — одразу після бестіарію, маг. предмети — за ним.
-  it("хоумбрю — перша плитка після бестіарію, маг. предмети — друга, в обох редакціях", () => {
+  /// Власник, 2026-11-08: ігрові кімнати — одразу після бестіарію, перед хоумбрю й маг. предметами.
+  it("ігрові кімнати стоять після бестіарію й перед хоумбрю, в обох редакціях", () => {
     for (const edition of EDITIONS) {
       const { tiles } = collectHomeCardRows(edition);
-      expect(tiles.slice(0, 3).map((tile) => tile.category.slug)).toEqual(["bestiary", "homebrew", "magic-items"]);
+      expect(tiles.slice(0, 4).map((tile) => tile.category.slug)).toEqual(["bestiary", "games", "homebrew", "magic-items"]);
     }
   });
 

@@ -359,6 +359,54 @@ describe("ряткидки зони", () => {
   });
 });
 
+describe("ряткидок без шкоди: стан при провалі", () => {
+  const frightening = { ability: "WIS" as const, damageType: null, isHalfOnSave: false, condition: "frightened" as const };
+  const saveOnlyRoll = buildRoll({ groups: [], total: 0 });
+
+  async function gazeAt(table: Awaited<ReturnType<typeof createTable>>, targets: { creatureIds: number[]; persIds: number[] }, dc: number) {
+    const draft = buildDraft({ label: "Погляд · Ряткидок", roll: saveOnlyRoll, saves: { ...targets, spell: null, effect: frightening, dc } });
+    const created = await insertGameRollEvent(table.sessionId, table.gm.id, draft);
+    if (!created.ok) throw new Error(created.error);
+    const [forGm] = await listEventsAfter(table.sessionId, { userId: table.gm.id, isGm: true }, created.value.seq - 1, 1);
+    return { seq: created.value.seq, forGm };
+  }
+
+  const readCreatureConditions = async (id: number) => (await prisma.gameMapCreature.findUniqueOrThrow({ where: { id }, select: { conditions: true } })).conditions;
+  const readHeroConditions = async (sessionId: number, persId: number) => (await prisma.gameSessionMember.findFirstOrThrow({ where: { gameSessionId: sessionId, persId }, select: { conditions: true } })).conditions;
+
+  it("провал накладає стан на істоту й героя, хіти не чіпає; майстер знімає стан скасуванням рядка рівно раз", async () => {
+    const table = await createTable();
+    const goblin = await placeGoblin(table.sessionId, table.gm.id);
+    const allyPersId = await findPlayerPersId(table.sessionId, table.other.id);
+    const { seq, forGm } = await gazeAt(table, { creatureIds: [goblin], persIds: [allyPersId] }, 30);
+    expect(forGm.saves).toMatchObject({ ability: "WIS", dc: 30, damageType: null });
+    expect(forGm.saves!.rows.map((row) => [row.isSaved, row.damage, row.condition, row.gm!.canUndo])).toEqual([[false, 0, "frightened", true], [false, 0, "frightened", true]]);
+    expect(await readCreatureConditions(goblin)).toEqual(["frightened"]);
+    expect(await readHeroConditions(table.sessionId, allyPersId)).toEqual(["frightened"]);
+    expect(await readStoredHitPoints(goblin)).toEqual({ hpMax: 10, hpCurrent: 10 });
+    expect((await prisma.pers.findUniqueOrThrow({ where: { persId: allyPersId }, select: { currentHp: true } })).currentHp).toBe(10);
+    const clicks = await Promise.all([undoRollDamage(table.sessionId, table.gm.id, seq, 0), undoRollDamage(table.sessionId, table.gm.id, seq, 0)]);
+    expect(clicks.filter((click) => click.ok)).toHaveLength(1);
+    expect(await readCreatureConditions(goblin)).toEqual([]);
+    expect(await undoRollDamage(table.sessionId, table.gm.id, seq, 1)).toMatchObject({ ok: true });
+    expect(await readHeroConditions(table.sessionId, allyPersId)).toEqual([]);
+  });
+
+  it("стан, що вже був, скасування не знімає; успіх стану не накладає", async () => {
+    const table = await createTable();
+    const scared = await placeGoblin(table.sessionId, table.gm.id);
+    const brave = await placeGoblin(table.sessionId, table.gm.id);
+    await prisma.gameMapCreature.update({ where: { id: scared }, data: { conditions: ["frightened"] } });
+    const failed = await gazeAt(table, { creatureIds: [scared], persIds: [] }, 30);
+    expect(failed.forGm.saves!.rows[0]).toMatchObject({ condition: "frightened", gm: { canUndo: false } });
+    expect(await undoRollDamage(table.sessionId, table.gm.id, failed.seq, 0)).toMatchObject({ ok: false });
+    expect(await readCreatureConditions(scared)).toEqual(["frightened"]);
+    const saved = await gazeAt(table, { creatureIds: [brave], persIds: [] }, 1);
+    expect(saved.forGm.saves!.rows[0]).toMatchObject({ isSaved: true, condition: null, gm: { canUndo: false } });
+    expect(await readCreatureConditions(brave)).toEqual([]);
+  });
+});
+
 describe("«Благословення» на мапі", () => {
   const burningHands = { engName: "Burning Hands", level: 1, ruleset: "RULES_2014" as const };
   const fire = { ability: "DEX" as const, damageType: "fire" as const, isHalfOnSave: true };

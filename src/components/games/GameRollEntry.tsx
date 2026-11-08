@@ -23,13 +23,13 @@ export function GameRollEntry({ event, isMine, isNew }: { event: GameRollEventVi
         <div className="min-w-0 flex-1">
           <EntryAuthor event={event} isMine={isMine} />
           <div className="break-words text-sm font-semibold text-slate-100">{event.label}</div>
-          {event.roll ? <RollDetails roll={event.roll} /> : null}
+          {event.roll?.groups.length ? <RollDetails roll={event.roll} /> : null}
           {event.target ? <GameRollTargetLine target={event.target} seq={event.seq} /> : null}
           {event.saves ? <GameRollSavesList saves={event.saves} seq={event.seq} /> : null}
           {event.heroTarget ? <GameRollHeroTargetLine target={event.heroTarget} roll={event.roll} total={event.total} seq={event.seq} /> : null}
         </div>
         <div className="shrink-0 text-right">
-          <div className="text-2xl font-bold tabular-nums text-slate-50" aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>
+          {event.roll?.groups.length === 0 ? null : <div className="text-2xl font-bold tabular-nums text-slate-50" aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>}
           {natural ? <div className={cn("text-xs font-semibold", natural === "NAT_20" ? "text-emerald-200" : "text-rose-200")}>{natural === "NAT_20" ? "Природна 20" : "Природна 1"}</div> : null}
           {event.roll?.check ? <CheckMark check={event.roll.check} /> : null}
         </div>

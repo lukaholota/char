@@ -31,6 +31,15 @@ describe("computeGameRollTotal", () => {
 });
 
 describe("findGameRollProblem", () => {
+  it("кидок без кубиків приймається лише як ряткидок цілі без шкоди, і тоді кубиків у ньому бути не може", () => {
+    const diceless: GameRoll = { d20Mode: null, modeSources: [], groups: [], extra: [], bonus: 0, total: 0, check: null };
+    expect(findGameRollProblem(diceless, { isDiceless: true })).toBeNull();
+    expect(findGameRollProblem(diceless)).toBe("bad dice groups");
+    expect(findGameRollProblem(attack, { isDiceless: true })).toBe("bad dice groups");
+    expect(findGameRollProblem({ ...diceless, bonus: 4, total: 4 }, { isDiceless: true })).toMatch(/no dice/);
+    expect(findGameRollProblem({ ...diceless, extra: attack.extra, total: 3 }, { isDiceless: true })).toMatch(/no dice/);
+  });
+
   it("accepts a consistent roll", () => {
     expect(findGameRollProblem(attack)).toBeNull();
   });
@@ -124,5 +133,6 @@ describe("secret rolls", () => {
   it("labels a secret roll by its dice formula only", () => {
     expect(buildSecretRollLabel({ groups: [{ sides: 20, values: [17] }] })).toBe("Секретний кидок · 1к20");
     expect(buildSecretRollLabel({ groups: [{ sides: 6, values: [2, 5] }, { sides: 8, values: [8] }] })).toBe("Секретний кидок · 2к6 + 1к8");
+    expect(buildSecretRollLabel({ groups: [] })).toBe("Секретний кидок");
   });
 });

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import creatures2014 from "@/lib/generated/creatures.json";
 import creatures2024 from "@/lib/generated/creatures2024.json";
-import { findCreatureAreaAction, findCreatureSaveAction, type CreatureAreaAction } from "@/rules/creature-area-action";
+import { findCreatureAreaAction, findCreatureSaveAction, findCreatureSaveEffect, findCreatureSaveSpots, type CreatureAreaAction } from "@/rules/creature-area-action";
 
 type CatalogCreature = { nameEng: string; actions?: unknown; legendaryActions?: unknown; lairActions?: unknown };
 
@@ -64,7 +64,7 @@ describe("площа з рятівним кидком у статблоці", ()
   it("2024: Випромінювання", () => {
     expect(
       findCreatureAreaAction("Рятівний кидок Мудрості: СК 15, кожна істота у Випромінюванні 15 футів, що походить від нальфешні. Провал: 28 (8к6) психічних ушкоджень, і ціль стає Наляканою."),
-    ).toEqual({ shape: "circle", sizeFeet: 15, ability: "WIS", dc: 15, damage: { count: 8, sides: 6, bonus: 0 }, damageType: "psychic", isHalfOnSave: false });
+    ).toEqual({ shape: "circle", sizeFeet: 15, ability: "WIS", dc: 15, damage: { count: 8, sides: 6, bonus: 0 }, damageType: "psychic", isHalfOnSave: false, condition: "frightened" });
   });
 
   it("2024: Лінія завдовжки й завширшки, «фт.» і шкода з бонусом", () => {
@@ -170,6 +170,57 @@ describe("ряткидок однієї цілі", () => {
   });
 });
 
+describe("ряткидок без шкоди від провалу: стан цілі", () => {
+  it("Бджехолдер: кожен промінь — свій ряткидок і свій стан", () => {
+    expect(findCreatureSaveEffect("Медовий струмінь. Ціль повинна пройти рятівний кидок Спритності СК 17, інакше отримує стан Скований до кінця свого наступного ходу.")).toEqual({ ability: "DEX", dc: 17, condition: "restrained" });
+    expect(findCreatureSaveEffect("Бджоламутнення. Ціль повинна пройти рятівний кидок Мудрості СК 17, інакше в неї так гуде у вухах, що вона отримує стан Недієздатний до кінця свого наступного ходу.")).toMatchObject({ ability: "WIS", condition: "incapacitated" });
+    expect(findCreatureSaveEffect("Бджоляк. Ціль повинна пройти рятівний кидок Мудрості СК 17, інакше отримує стан Наляканий від бджехолдера на 1 хвилину. Вона може повторювати рятівний кидок наприкінці кожного свого ходу, знімаючи ефект із себе за успіху.")).toEqual({ ability: "WIS", dc: 17, condition: "frightened" });
+    expect(findCreatureSaveEffect("Солодка згуба. Ціль повинна пройти рятівний кидок Харизми СК 17, інакше отримує стан Причарований від бджехолдера на 1 хвилину.")).toMatchObject({ ability: "CHA", condition: "charmed" });
+  });
+
+  it("шкода до ряткидка — окремий кидок, ряткидок лишається з ефектом", () => {
+    const stinger = "Жало. Кидок ближньої атаки зброєю: +8, досяжність 10 фт., одна ціль. Влучання: 13 (2к8 + 4) колючих ушкоджень плюс 10 (3к6) отруйних ушкоджень, і ціль повинна пройти рятівний кидок Статури СК 17, інакше отримує стан Отруєний на 1 хвилину.";
+    expect(findCreatureSaveEffect(stinger)).toEqual({ ability: "CON", dc: 17, condition: "poisoned" });
+    expect(findCreatureSaveEffect("Промінь-банка. Ціль отримує 14 (4к6) ушкоджень силовим полем і повинна пройти рятівний кидок Сили СК 17, інакше її відкидає на 20 футів від бджехолдера й вона отримує стан Повалений.")).toEqual({ ability: "STR", dc: 17, condition: "prone" });
+    expect(findCreatureSaveEffect("Хвіст. Влучання: 10 (1к12 + 4) дроблячої шкоди. Якщо ціль є істотою, вона мусить успішно пройти ряткидок Сили СК 15 або бути збитою з ніг.")).toMatchObject({ condition: "prone" });
+  });
+
+  it("2024: стан у реченні «Провал:» після СК, область перед ним", () => {
+    expect(findCreatureSaveEffect("Смердюча хмара (1/день). Рятівний кидок Статури: СК 11, кожна істота у Випромінюванні 10 фт. від дретча. Провал: ціль отримує стан Отруєний до кінця свого наступного ходу.")).toEqual({ ability: "CON", dc: 11, condition: "poisoned" });
+    expect(findCreatureSaveEffect("Паралітичний подих. Дракон видихає газ конусом 15 футів. Кожна істота в цій області повинна пройти рятівний кидок Статури СК 13, інакше отримує стан Паралізований на 1 хвилину.")).toEqual({ ability: "CON", dc: 13, condition: "paralyzed", area: { shape: "cone", sizeFeet: 15 } });
+  });
+
+  it("стан неочевидний — ряткидок без стану", () => {
+    expect(findCreatureSaveEffect("Відштовхувальний подих. Кожна істота в конусі 30 футів повинна пройти рятівний кидок Сили СК 19. За провалу істоту відштовхує на 60 футів.")).toMatchObject({ condition: null });
+    expect(findCreatureSaveEffect("Виття. Кожна істота в межах 30 футів має пройти рятівний кидок Статури СК 15, інакше падає до 0 хітів. За успіху істота отримує стан Наляканий до кінця свого наступного ходу.")).toMatchObject({ condition: null });
+    expect(findCreatureSaveEffect("Подих. Ціль має пройти ряткидок Статури СК 13, інакше стає отруєною й паралізованою.")).toMatchObject({ condition: null });
+    expect(findCreatureSaveEffect("Зникнення. Ціль мусить пройти ряткидок Мудрості СК 16, інакше балханнот стає Невидимим для цієї істоти.")).toMatchObject({ condition: null });
+    expect(findCreatureSaveEffect("Відмашка. Ціль мусить зробити ряткидок Сили СК 24, інакше її відкидає. Якщо ряткидок провалено на 5 чи більше, ціль також дістає стан Повалений.")).toMatchObject({ condition: null });
+  });
+
+  it("не ряткидок цілі: шкода після ряткидка, ряткидок самої істоти, СК з доданком, різні СК", () => {
+    expect(findCreatureSaveEffect("Промінь Вельзевула. Ціль повинна пройти рятівний кидок Статури СК 17, інакше отримує 27 (6к8) некротичних ушкоджень, а за успіху — половину.")).toBeNull();
+    expect(findCreatureSaveEffect("Крик. Ціль має пройти ряткидок Мудрості СК 12, інакше отримує 2к6 психічної і 1к6 громової шкоди.")).toBeNull();
+    expect(findCreatureSaveEffect("Вигнання вогнем. Якщо барґест починає свій хід у полумʼї, він повинен пройти рятівний кидок Харизми СК 15, інакше вигнаний до Ґеєни.")).toBeNull();
+    expect(findCreatureSaveEffect("Нежива витривалість. Якщо ушкодження зводять зомбі до 0 хітів, ціль має пройти рятівний кидок Статури зі СК 5 + отримані ушкодження.")).toBeNull();
+    expect(findCreatureSaveEffect("Погляд. Ціль робить ряткидок Мудрості СК 12 або ряткидок Мудрості СК 14.")).toBeNull();
+    expect(findCreatureSaveEffect("Погляд. Ціль робить ряткидок зі СК 12.")).toBeNull();
+    expect(findCreatureSaveEffect("Подих. Кожна істота в конусі 30 футів або в кубі 10 футів має пройти рятівний кидок Спритності СК 15, інакше отримує стан Повалений.")).toBeNull();
+  });
+
+  it("ряткидок зі шкодою теж несе стан провалу, якщо він очевидний", () => {
+    expect(findCreatureSaveAction("Удар крилами. Кожна істота в межах 10 футів повинна пройти рятівний кидок Спритності СК 19, інакше отримує 13 (2к6 + 6) дроблячих ушкоджень і отримує стан Повалений.")).toMatchObject({ dc: 19, condition: "prone" });
+    expect(findCreatureSaveAction("Подих. Кожна істота в 15-футовому конусі здійснює ряткидок Спритності СК 13. При провалі вона зазнає 10 (3к6) вогняної шкоди.")).not.toHaveProperty("condition");
+  });
+
+  it("фраза ряткидка — місце для кнопки", () => {
+    const text = "Ціль повинна пройти рятівний кидок Спритності СК 17, інакше отримує стан Скований.";
+    const [spot] = findCreatureSaveSpots(text);
+    expect(text.slice(spot.start, spot.end)).toBe("рятівний кидок Спритності СК 17");
+    expect(spot.roll).toEqual({ kind: "save", ability: "DEX", dc: 17 });
+  });
+});
+
 describe("площі в статблоках каталогу", () => {
   const allowedMisses: Record<string, string> = {
     "Brass Greatwyrm": "кілька подихів в одному абзаці",
@@ -220,6 +271,19 @@ describe("площі в статблоках каталогу", () => {
       expect(action.dc).toBeLessThanOrEqual(30);
       expect([4, 6, 8, 10, 12, 20]).toContain(action.damage.sides);
       expect(action.damage.count).toBeGreaterThanOrEqual(1);
+    }
+  });
+
+  it.each([
+    ["2014", creatures2014, 300],
+    ["2024", creatures2024, 60],
+  ])("%s: ряткидки без шкоди здебільшого несуть стан, СК у межах", (_edition, catalog, minimumFound) => {
+    const effects = (catalog as CatalogCreature[]).flatMap((creature) => readParagraphs(creature).map(findCreatureSaveEffect)).filter((effect) => effect !== null);
+    expect(effects.length).toBeGreaterThanOrEqual(minimumFound);
+    expect(effects.filter((effect) => effect.condition).length / effects.length).toBeGreaterThan(0.6);
+    for (const effect of effects) {
+      expect(effect.dc).toBeGreaterThanOrEqual(5);
+      expect(effect.dc).toBeLessThanOrEqual(30);
     }
   });
 });

@@ -23,6 +23,7 @@ export const TOKEN_SPELL_MARK_LABELS = { blessed: "Благословенний"
 export const BLESSED_MARK = "blessed";
 export const BLESSED_DIE = { sides: 4, sign: 1 } as const;
 
+export type RuleConditionKey = keyof typeof TOKEN_CONDITION_LABELS;
 export type TokenConditionKey = keyof typeof TOKEN_CONDITION_LABELS | keyof typeof TOKEN_SPELL_MARK_LABELS;
 const TOKEN_MARK_LABELS: Record<TokenConditionKey, string> = { ...TOKEN_CONDITION_LABELS, ...TOKEN_SPELL_MARK_LABELS };
 export const TOKEN_CONDITION_KEYS = Object.keys(TOKEN_MARK_LABELS) as TokenConditionKey[];
@@ -52,8 +53,21 @@ export type TokenConditionMark = { key: string; label: string; shortLabel: strin
 
 export const NO_TOKEN_CONDITIONS: TokenConditions = { conditions: [], exhaustionLevel: 0 };
 
+export function isRuleConditionKey(value: unknown): value is RuleConditionKey {
+  return typeof value === "string" && Object.hasOwn(TOKEN_CONDITION_LABELS, value);
+}
+
 export function isTokenConditionKey(value: unknown): value is TokenConditionKey {
   return typeof value === "string" && Object.hasOwn(TOKEN_MARK_LABELS, value);
+}
+
+/// «Отруєний» → «отруєн»: ловить «отруєною», «отруєних»; апостроф зведено до «ʼ».
+export function findConditionStem(label: string): string {
+  return normalizeApostrophes(label.toLocaleLowerCase("uk")).slice(0, -2);
+}
+
+export function normalizeApostrophes(text: string): string {
+  return text.replace(/['’]/gu, "ʼ");
 }
 
 export function findTokenConditionLabel(key: TokenConditionKey): string {

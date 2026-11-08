@@ -19,17 +19,18 @@ export function parseGameRollDraft(body: unknown, now = Date.now()): { draft: Ga
   if (!label || label.length > GAME_ROLL_LIMITS.label) return { problem: "bad label" };
   const rolledAt = typeof input.rolledAt === "string" ? new Date(input.rolledAt) : null;
   if (!rolledAt || Number.isNaN(rolledAt.getTime())) return { problem: "bad roll time" };
-  const rollProblem = findGameRollProblem(input.roll);
+  const saves = parseGameRollSaves(input.saves);
+  if (saves === undefined) return { problem: "bad saves" };
+  const isSaveOnly = saves?.effect.damageType === null;
+  const rollProblem = findGameRollProblem(input.roll, { isDiceless: isSaveOnly });
   if (rollProblem) return { problem: rollProblem };
   const target = parseGameRollTarget(input.target);
   if (target === undefined) return { problem: "bad target" };
-  const saves = parseGameRollSaves(input.saves);
-  if (saves === undefined) return { problem: "bad saves" };
   const heroTarget = parseGameRollHeroTarget(input.heroTarget);
   if (heroTarget === undefined) return { problem: "bad hero target" };
   if ([target, saves, heroTarget].filter(Boolean).length > 1) return { problem: "a roll has one kind of target" };
   if (saves && (saves.spell ? input.source !== "CHARACTER" : input.source !== "FREE")) return { problem: "spell saves come from a sheet, action saves from a statblock" };
-  const kind = target?.kind ?? heroTarget?.kind ?? (saves ? "damage" : null);
+  const kind = target?.kind ?? heroTarget?.kind ?? (saves && !isSaveOnly ? "damage" : null);
   const targetProblem = kind ? findGameRollTargetProblem(input.roll as GameRoll, kind) : null;
   if (targetProblem) return { problem: targetProblem };
   return {

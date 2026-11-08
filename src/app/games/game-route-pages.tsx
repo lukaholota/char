@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { GameJoinCard } from "@/components/games/GameJoinCard";
 import { GameRoomPage } from "@/components/games/GameRoomPage";
-import { GameSessionsHome } from "@/components/games/GameSessionsHome";
+import { GameRoomsContent } from "@/components/games/GameRoomsLanding";
 import { GameSignInPrompt } from "@/components/games/GameSignInPrompt";
 import { HomebrewPageShell } from "@/components/homebrew/HomebrewPageShell";
 import { redirectKeepingNoAiMode } from "@/lib/no-ai/no-ai-server";
@@ -18,9 +18,10 @@ export const GAME_JOIN_METADATA: Metadata = { title: "Запрошення в к
 
 export async function buildGameSessionsPage(edition: Edition) {
   const userId = await findCurrentUserId();
+  const sessions = userId === null ? null : await listGameSessionsForUser(userId);
   return (
-    <HomebrewPageShell title="Ігрові кімнати" backHref={getTargetEditionPath("/", edition)} backLabel="Головна">
-      {userId === null ? <GameSignInPrompt text="Увійдіть, щоб створити кімнату для своєї партії або приєднатися за запрошенням." /> : <GameSessionsHome sessions={await listGameSessionsForUser(userId)} />}
+    <HomebrewPageShell title="Ігрові кімнати" backHref={getTargetEditionPath("/", edition)} backLabel="Головна" isWide>
+      <GameRoomsContent sessions={sessions} edition={edition} />
     </HomebrewPageShell>
   );
 }

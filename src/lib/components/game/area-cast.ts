@@ -2,6 +2,7 @@
 
 import { create } from "zustand";
 import type { AreaSpellList } from "@/lib/actions/game-area-spells";
+import { findPressedAction } from "@/lib/components/dice/roll-contexts";
 import { useDiceUIStore, type DiceRollContext } from "@/lib/stores/diceUIStore";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import { findSpellSaveDamage } from "@/rules/creature-save";
@@ -73,7 +74,7 @@ export const canCastOnArea = (roll: DiceRollContext) => findCastSessionId(roll) 
 
 function findCastSessionId(roll: DiceRollContext): number | null {
   const save = roll.targetSave;
-  const hasSaveEffect = Boolean(save?.effect || (save?.spell && findSpellSaveDamage(save.spell)));
+  const hasSaveEffect = Boolean(findPressedAction(roll)?.targetSave || save?.effect || (save?.spell && findSpellSaveDamage(save.spell)));
   return hasSaveEffect ? findMapRoomId({ needsGrid: true }) : null;
 }
 
@@ -95,9 +96,9 @@ export function dropAreaCast() {
   useAreaCastStore.setState({ cast: null });
 }
 
-/// Кидок шкоди йде одразу: зону вже обрано, тож панель лише показує кубики й результат.
+/// Кидок шкоди чи ряткидка йде одразу: зону вже обрано, тож панель лише показує результат.
 export function castOnArea(cast: AreaCast, targets: RollTargets) {
   dropAreaCast();
-  const damage = cast.roll.actions.find((action) => findGameRollKind(action) === "damage");
+  const damage = findPressedAction(cast.roll)?.targetSave ? undefined : cast.roll.actions.find((action) => findGameRollKind(action) === "damage");
   useDiceUIStore.getState().openRoll({ ...cast.roll, areaTargets: targets, ...(damage ? { autoRollKey: damage.key } : {}) });
 }

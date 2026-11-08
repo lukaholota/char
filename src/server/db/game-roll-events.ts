@@ -168,7 +168,7 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
       select: EVENT_SELECT,
     });
     await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "roll" })})`;
-    if (effect.value?.hpChange || saves?.rows.some((row) => row.hpChange)) await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "session" })})`;
+    if (effect.value?.hpChange || saves?.rows.some((row) => row.hpChange || row.isConditionAdded)) await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "session" })})`;
     return { ok: true as const, value: toEventView(created, authorViewer) };
   });
 }

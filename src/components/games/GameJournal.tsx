@@ -8,6 +8,7 @@ import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import { GameRollEntry, GameRollingEntry } from "./GameRollEntry";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
+import { buildRollVerdict } from "@/lib/components/game/roll-verdict";
 
 const BOTTOM_SLACK_PX = 48;
 
@@ -157,7 +158,7 @@ function LatestRollAnnouncer({ events }: { events: GameRollEventView[] }) {
   const latest = events.at(-1);
   useEffect(() => {
     if (!latest) return;
-    if (announcedSeqRef.current !== null && latest.seq > announcedSeqRef.current) setText(`${latest.persName ?? latest.authorName}: ${latest.label} — ${latest.total ?? "результат прихований"}`);
+    if (announcedSeqRef.current !== null && latest.seq > announcedSeqRef.current) setText(`${latest.persName ?? latest.authorName}: ${latest.label} — ${describeRollResult(latest) ?? "результат прихований"}`);
     announcedSeqRef.current = Math.max(announcedSeqRef.current ?? 0, latest.seq);
   }, [latest]);
   return (
@@ -165,4 +166,8 @@ function LatestRollAnnouncer({ events }: { events: GameRollEventView[] }) {
       {text}
     </p>
   );
+}
+
+function describeRollResult(event: GameRollEventView) {
+  return event.roll?.groups.length === 0 ? buildRollVerdict(event)?.text : event.total;
 }

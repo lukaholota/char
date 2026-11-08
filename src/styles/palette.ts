@@ -60,6 +60,13 @@ export const PRISM = {
   950: "#240a2b",
 } as const;
 
+/// Фірмові кольори клубу «Дід Лихозор» — лише для його оголошень, не акцент платформи.
+export const LYKHOZOR = {
+  parchment: "#e7d9b8",
+  rust: "#993f14",
+  moss: "#2c3312",
+} as const;
+
 /// Black base, violet glow overhead, a far weaker ember glow underfoot. Lifted out of the home
 /// screen so every route shares it.
 export const PLATFORM_BACKDROP = {

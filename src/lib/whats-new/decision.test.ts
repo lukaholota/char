@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { decideWhatsNew } from "./decision";
 import { type FlagStorage, markFlagSeen } from "./seen-flags";
-import { CURRENT_RELEASE_FLAG } from "./release-notes";
+import { CURRENT_ANNOUNCEMENT_FLAG } from "./release-notes";
 
 function buildStorage(entries: Record<string, string> = {}): FlagStorage {
   const map = new Map(Object.entries(entries));
@@ -36,7 +36,7 @@ describe("рішення, чи показувати «що нового»", () =
 
   it("уже бачив — не показуємо", () => {
     const storage = buildStorage(RETURNING);
-    markFlagSeen(storage, CURRENT_RELEASE_FLAG);
+    markFlagSeen(storage, CURRENT_ANNOUNCEMENT_FLAG);
     expect(decideWhatsNew({ pathname: "/", isAuthenticated: true, storage }).shouldShow).toBe(false);
   });
 

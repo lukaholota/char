@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import {
   buildAbilityRollContext,
+  buildCreatureActionRollContext,
   buildInitiativeRollContext,
   buildRollOutcome,
   buildSkillRollContext,
@@ -90,6 +91,26 @@ describe("контексти кидків листа", () => {
     const onEdit = () => {};
     expect(buildAbilityRollContext("Сила", 2, 5, "check", onEdit).onEdit).toBe(onEdit);
     expect(buildAbilityRollContext("Сила", 2, 5).onEdit).toBeUndefined();
+  });
+});
+
+describe("дія істоти з ряткидком цілі", () => {
+  const ray = { creatureName: "Банка", actionName: "Промінь", rolls: [{ kind: "attack" as const, bonus: 8 }, { kind: "damage" as const, count: 2, sides: 8, bonus: 0 }, { kind: "save" as const, ability: "CON" as const, dc: 14 }], saveEffect: { ability: "CON" as const, dc: 14, condition: "poisoned" as const, area: { shape: "circle" as const, sizeFeet: 10 } } };
+
+  it("ряткидок несе власний ефект, а шкода променя лишається звичайною", () => {
+    const context = buildCreatureActionRollContext({ ...ray, index: 1, canRollTargetSave: true });
+    expect(context.targetSave).toBeUndefined();
+    expect(context.actions.map((action) => action.label)).toEqual(["Атака", "Шкода", "Ряткидок"]);
+    expect(context.actions[2].targetSave).toEqual({ abilityName: "Статури", dc: 14, effect: { ability: "CON", damageType: null, isHalfOnSave: false, condition: "poisoned" } });
+  });
+
+  it("без права кидати ряткидок цілі кнопки немає, решта дії лишається", () => {
+    expect(buildCreatureActionRollContext({ ...ray, index: 1 }).actions.map((action) => action.key)).toEqual(["roll-0", "roll-1"]);
+  });
+
+  it("зона ефекту — лише коли натиснуто сам ряткидок", () => {
+    expect(buildCreatureActionRollContext({ ...ray, index: 2, canRollTargetSave: true }).targetArea).toMatchObject({ shape: "circle", sizeFeet: 10 });
+    expect(buildCreatureActionRollContext({ ...ray, index: 1, canRollTargetSave: true }).targetArea).toBeUndefined();
   });
 });
 

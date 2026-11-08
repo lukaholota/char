@@ -1,15 +1,15 @@
-import type { DiceRollAction, DiceRollContext } from "@/lib/stores/diceUIStore";
+import type { DiceRollAction, DiceRollContext, TargetSaveRequest } from "@/lib/stores/diceUIStore";
 import { GAME_ROLL_LIMITS, type GameRoll } from "@/rules/game-roll";
 import { findGameRollKind, type GameRollKind } from "@/rules/game-roll-target";
 import { findCreatureRollKind, isHealingAction, type HeroRollKind } from "@/rules/game-roll-hero-target";
-import { findSpellSaveDamage, type SpellSaveDamage } from "@/rules/creature-save";
+import { findSpellSaveDamage, type SaveEffect } from "@/rules/creature-save";
 import type { RollTargets } from "@/rules/map-target-picks";
 import type { SaveSpellRef } from "@/rules/game-roll-saves";
 import type { D20Mode } from "@/rules/dice-roll";
 import { describeTargetSave, type DiceRollOutcome } from "@/lib/components/dice/roll-contexts";
 
 /// save — шкода з ряткидком (заклинання з листа чи дія статблоку): кімната кидає ряткидки цілей (зони або обраної) замість повної шкоди.
-export type PublishedSave = { spell: SaveSpellRef; dc: number } | { spell: null; effect: SpellSaveDamage; dc: number };
+export type PublishedSave = { spell: SaveSpellRef; dc: number } | { spell: null; effect: SaveEffect; dc: number };
 export type GameRollPublication = { label: string; roll: GameRoll; isFromSheet: boolean; kind: HeroRollKind | null; save?: PublishedSave; areaTargets?: RollTargets };
 
 type ActionRequest = { context: DiceRollContext; action: DiceRollAction; d20Mode: D20Mode };
@@ -32,6 +32,13 @@ export function buildActionGameRoll({ context, action, d20Mode }: ActionRequest,
   return { label: clip(labelParts.filter(Boolean).join(" · "), GAME_ROLL_LIMITS.label), roll, isFromSheet: !context.isCreatureRoll, kind, ...(save ? { save } : {}), ...(save && context.areaTargets ? { areaTargets: context.areaTargets } : {}) };
 }
 
+/// Кубики ряткидка кидає сервер за статами цілі, тож у самому кидку їх немає.
+export function buildTargetSaveGameRoll(context: DiceRollContext, targetSave: TargetSaveRequest): GameRollPublication {
+  const label = [context.title, context.subtitle, describeTargetSave(targetSave)].filter(Boolean).join(" · ");
+  const roll: GameRoll = { d20Mode: null, modeSources: [], groups: [], extra: [], bonus: 0, total: 0, check: null };
+  return { label: clip(label, GAME_ROLL_LIMITS.label), roll, isFromSheet: false, kind: null, save: { spell: null, effect: targetSave.effect, dc: targetSave.dc }, ...(context.areaTargets ? { areaTargets: context.areaTargets } : {}) };
+}
+
 export const ADDED_DAMAGE_KEY = "added-damage";
 
 export function findActionRollKind(context: Pick<DiceRollContext, "isCreatureRoll">, action: DiceRollAction): HeroRollKind | null {
@@ -42,7 +49,7 @@ export function findActionRollKind(context: Pick<DiceRollContext, "isCreatureRol
 
 /// Лікування й ряткидки ворога ціллю не беруть: лоток не має показувати ворога, у якого вони нібито підуть.
 export function canRollTakeTarget(context: Pick<DiceRollContext, "isCreatureRoll" | "actions">): boolean {
-  return context.actions.some((action) => isEnemyRollKind(findActionRollKind(context, action)));
+  return context.actions.some((action) => action.targetSave !== undefined || isEnemyRollKind(findActionRollKind(context, action)));
 }
 
 function isEnemyRollKind(kind: HeroRollKind | null): kind is GameRollKind {

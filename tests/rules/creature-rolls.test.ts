@@ -38,6 +38,15 @@ describe("кубики в тексті статблока", () => {
     ]);
   });
 
+  it("кубик без числа попереду — окремий кидок, а не шкода; кількість словом теж читається", () => {
+    expect(rollsOf("Для кожного променя киньте к8, потім Два к4 і d20; 1к6 та рік10 не чіпаємо.")).toEqual([
+      { text: "к8", roll: { kind: "dice", count: 1, sides: 8 } },
+      { text: "Два к4", roll: { kind: "dice", count: 2, sides: 4 } },
+      { text: "d20", roll: { kind: "dice", count: 1, sides: 20 } },
+      { text: "1к6", roll: { kind: "damage", count: 1, sides: 6, bonus: 0 } },
+    ]);
+  });
+
   it("кожна атака з бонусом у бестіарії обох редакцій стає кидком", () => {
     const missed: string[] = [];
     for (const creature of [...creatures2014, ...creatures2024] as Array<{ name: string; actions?: string | null }>) {

@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { describeActionDice, formatExtraDice, type DiceRollOutcome } from "./roll-contexts";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { findActionRollKind } from "@/lib/components/game/build-game-roll";
+import { TOKEN_CONDITION_LABELS } from "@/rules/token-conditions";
 import { AddedDamageDice } from "./AddedDamageDice";
 
 type Props = {
@@ -35,6 +36,7 @@ export function DiceRollPanel({ context, activeActionKey, isReady, isRolling, ou
   const [addedAction, setAddedAction] = useState<DiceRollAction | null>(null);
   const activeAction = addedAction && addedAction.key === activeActionKey ? addedAction : findActiveAction(context, activeActionKey);
   const canRoll = isReady && !isRolling;
+  const targetSave = activeAction.targetSave ?? context.targetSave;
   useEffect(() => {
     clearRollVerdict();
     setAddedAction(null);
@@ -58,38 +60,44 @@ export function DiceRollPanel({ context, activeActionKey, isReady, isRolling, ou
         </div>
       ) : null}
 
-      {context.targetSave ? <TargetSaveLine save={context.targetSave} /> : null}
-      <OutcomeCard action={activeAction} outcome={isSecret ? null : outcome} isRolling={isRolling} isSecret={isSecret && outcome !== null} />
-      {context.check && outcome && !isRolling && !isSecret ? <CheckVerdict total={outcome.total} check={context.check} /> : null}
-      {outcome && !isRolling && !isSecret ? <RollVerdictLine /> : null}
-      {context.next && outcome && !isRolling ? <NextTargetButton next={context.next} /> : null}
+      {targetSave ? <TargetSaveLine save={targetSave} /> : null}
+      {activeAction.targetSave ? (
+        <TargetSaveRoll disabled={!canRoll} onRoll={() => onRoll(activeAction, "NORMAL")} />
+      ) : (
+        <>
+          <OutcomeCard action={activeAction} outcome={isSecret ? null : outcome} isRolling={isRolling} isSecret={isSecret && outcome !== null} />
+          {context.check && outcome && !isRolling && !isSecret ? <CheckVerdict total={outcome.total} check={context.check} /> : null}
+          {outcome && !isRolling && !isSecret ? <RollVerdictLine /> : null}
+          {context.next && outcome && !isRolling ? <NextTargetButton next={context.next} /> : null}
 
-      <div className={cn("grid gap-2", activeAction.isD20 ? "grid-cols-3" : "grid-cols-1")}>
-        {(activeAction.isD20 ? REROLL_MODES : REROLL_MODES.slice(0, 1)).map(({ mode, label }) => {
-          const isDefault = mode === (activeAction.isD20 ? activeAction.mode ?? "NORMAL" : "NORMAL");
-          return (
-            <button
-              key={mode}
-              type="button"
+          <div className={cn("grid gap-2", activeAction.isD20 ? "grid-cols-3" : "grid-cols-1")}>
+            {(activeAction.isD20 ? REROLL_MODES : REROLL_MODES.slice(0, 1)).map(({ mode, label }) => {
+              const isDefault = mode === (activeAction.isD20 ? activeAction.mode ?? "NORMAL" : "NORMAL");
+              return (
+                <button
+                  key={mode}
+                  type="button"
+                  disabled={!canRoll}
+                  onClick={() => onRoll(activeAction, mode)}
+                  className={cn(ACTION_BUTTON, "flex items-center justify-center gap-1.5 px-1", isDefault ? ACTION_ACTIVE : ACTION_IDLE)}
+                >
+                  {isDefault ? <D20Icon className="h-4 w-4" /> : null}
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+          {!context.targetSave && findActionRollKind(context, activeAction) === "damage" ? (
+            <AddedDamageDice
               disabled={!canRoll}
-              onClick={() => onRoll(activeAction, mode)}
-              className={cn(ACTION_BUTTON, "flex items-center justify-center gap-1.5 px-1", isDefault ? ACTION_ACTIVE : ACTION_IDLE)}
-            >
-              {isDefault ? <D20Icon className="h-4 w-4" /> : null}
-              {label}
-            </button>
-          );
-        })}
-      </div>
-      {!context.targetSave && findActionRollKind(context, activeAction) === "damage" ? (
-        <AddedDamageDice
-          disabled={!canRoll}
-          onRoll={(action) => {
-            setAddedAction(action);
-            onRoll(action, "NORMAL");
-          }}
-        />
-      ) : null}
+              onRoll={(action) => {
+                setAddedAction(action);
+                onRoll(action, "NORMAL");
+              }}
+            />
+          ) : null}
+        </>
+      )}
     </div>
   );
 }
@@ -111,6 +119,7 @@ function findActiveAction(context: DiceRollContext, activeActionKey: string | nu
 }
 
 function describeActionBonus(action: DiceRollAction): string {
+  if (action.targetSave) return `СК ${action.targetSave.dc}`;
   return action.isD20 ? formatModifier(action.bonus) : `${describeActionDice(action)}${action.bonus ? formatModifier(action.bonus) : ""}`;
 }
 
@@ -143,10 +152,25 @@ function OutcomeCard({ action, outcome, isRolling, isSecret }: { action: DiceRol
 
 function TargetSaveLine({ save }: { save: NonNullable<DiceRollContext["targetSave"]> }) {
   return (
-    <div className="flex items-baseline justify-center gap-2 rounded-xl border border-sky-400/25 bg-sky-500/10 px-3 py-2 text-sm text-sky-100">
+    <div className="flex flex-wrap items-baseline justify-center gap-x-2 rounded-xl border border-sky-400/25 bg-sky-500/10 px-3 py-2 text-center text-sm text-sky-100">
       Ціль кидає ряткидок {save.abilityName}
       <span className="text-base font-black text-sky-50">СК {save.dc}</span>
+      {save.effect?.condition ? <span className="basis-full text-xs">При провалі — {TOKEN_CONDITION_LABELS[save.effect.condition]}</span> : null}
     </div>
+  );
+}
+
+/// Кубики цілі кидає кімната, тож тут лише результат і повтор; поки кімната відповідає, другий кидок не піде.
+function TargetSaveRoll({ disabled, onRoll }: { disabled: boolean; onRoll: () => void }) {
+  const isWaiting = useRollVerdictStore((state) => state.key !== null && state.event === null);
+  return (
+    <>
+      <RollVerdictLine />
+      <button type="button" disabled={disabled || isWaiting} onClick={onRoll} className={cn(ACTION_BUTTON, ACTION_ACTIVE, "flex w-full items-center justify-center gap-1.5 px-3")}>
+        <D20Icon className="h-4 w-4 shrink-0" />
+        Кинути ряткидок
+      </button>
+    </>
   );
 }
 

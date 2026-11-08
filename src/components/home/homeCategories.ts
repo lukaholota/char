@@ -60,8 +60,8 @@ export function collectHomeCardRows(edition: Edition): HomeCardRows {
     ],
     tiles: [
       ...desktopHeroes.map((category) => buildHomeCard(category, "tile", "phone")),
-      ...tiles.map((category) => buildHomeCard(category, "tile", "all")),
       buildHomeCard(buildGamesHomeCategory(edition), "tile", "all"),
+      ...tiles.map((category) => buildHomeCard(category, "tile", "all")),
     ],
   };
 }

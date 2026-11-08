@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
-import { ARCANE, OBSIDIAN, PRISM } from "./src/styles/palette.ts";
+import { ARCANE, LYKHOZOR, OBSIDIAN, PRISM } from "./src/styles/palette.ts";
 
 const config: Config = {
   // iOS Safari treats a tap that reveals hover-only content as hover and swallows the click.
@@ -55,6 +55,7 @@ const config: Config = {
         slate: OBSIDIAN,
         arcane: ARCANE,
         prism: PRISM,
+        lykhozor: LYKHOZOR,
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

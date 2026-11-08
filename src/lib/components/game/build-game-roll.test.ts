@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buildCreatureActionRollContext, buildD20Action, buildRollOutcome, buildSpellRollContext, buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
 import { findGameRollProblem } from "@/rules/game-roll";
-import { ADDED_DAMAGE_KEY, buildActionGameRoll, buildFreeGameRoll, canRollTakeTarget, findActionRollKind, takeDiceToPublish } from "./build-game-roll";
+import { ADDED_DAMAGE_KEY, buildActionGameRoll, buildFreeGameRoll, buildTargetSaveGameRoll, canRollTakeTarget, findActionRollKind, takeDiceToPublish } from "./build-game-roll";
 
 function rollAction(context: ReturnType<typeof buildWeaponRollContext>, actionIndex: number, d20Mode: "NORMAL" | "ADVANTAGE" | "DISADVANTAGE", values: number[]) {
   const action = context.actions[actionIndex];
@@ -11,6 +11,24 @@ function rollAction(context: ReturnType<typeof buildWeaponRollContext>, actionIn
   );
   return buildActionGameRoll({ context, action, d20Mode }, outcome);
 }
+
+describe("buildTargetSaveGameRoll", () => {
+  const rolls = [{ kind: "save" as const, ability: "WIS" as const, dc: 12 }];
+  const context = buildCreatureActionRollContext({ creatureName: "Банка", actionName: "Погляд", rolls, index: 0, canRollTargetSave: true, saveEffect: { ability: "WIS", dc: 12, condition: "frightened" } });
+  const targetSave = context.actions[0].targetSave!;
+
+  it("кидок без кубиків, який сервер приймає, з ефектом від дії статблоку", () => {
+    const published = buildTargetSaveGameRoll(context, targetSave);
+    expect(published).toMatchObject({ label: "Банка · Погляд · ряткидок Мудрості СК 12", isFromSheet: false, kind: null, save: { spell: null, dc: 12, effect: { ability: "WIS", damageType: null, condition: "frightened" } } });
+    expect(findGameRollProblem(published.roll, { isDiceless: true })).toBeNull();
+  });
+
+  it("зона переходить у публікацію, а лоток показує вибір цілі", () => {
+    const areaTargets = { creatureIds: [3], persIds: [5] };
+    expect(buildTargetSaveGameRoll({ ...context, areaTargets }, targetSave).areaTargets).toEqual(areaTargets);
+    expect(canRollTakeTarget(context)).toBe(true);
+  });
+});
 
 describe("buildActionGameRoll", () => {
   const blessed = { mode: "ADVANTAGE" as const, sources: ["Безрозсудна атака"], extraDice: [{ sides: 4, sign: 1 as const, label: "Благословення" }] };

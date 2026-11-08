@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
 import { castOnArea, dropAreaCast, placeAreaCast, registerReadyMapBoard, useAreaCastStore } from "@/lib/components/game/area-cast";
-import { describeTargetSave } from "@/lib/components/dice/roll-contexts";
+import { describeTargetSave, findPressedTargetSave } from "@/lib/components/dice/roll-contexts";
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { cn } from "@/lib/utils";
 import { AREA_SHAPE_LABELS, findAreaTip, isPointInArea, isTokenInArea, type AreaPlacement } from "@/rules/game-areas";
@@ -173,6 +173,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   const drag = heroes.drag ?? creatures.drag;
   const move = frame && drag?.from && drag.to ? { from: drag.from, to: drag.to, sizeCells: drag.cells } : null;
   const tokensInArea = [...heroes.placed, ...creatures.placed].filter((token) => layout.isHighlighted(token.position, token.cells));
+  const castSave = cast ? findPressedTargetSave(cast.roll) : undefined;
   const castTokens = tokensInArea.filter((token) => !skippedKeys.includes(token.key));
   const castTargets = { creatureIds: castTokens.flatMap((token) => (token.creatureId === undefined ? [] : [token.creatureId])), persIds: castTokens.flatMap((token) => (token.persId === undefined ? [] : [token.persId])) };
   const toggleCastTarget = (key: string) => setSkippedKeys((keys) => (keys.includes(key) ? keys.filter((skipped) => skipped !== key) : [...keys, key]));
@@ -209,7 +210,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
         onRemove={removeArea}
         onDone={() => changeTool(null)}
         onClose={() => changeTool(null)}
-        cast={cast?.roll.targetSave ? { save: describeTargetSave(cast.roll.targetSave), skippedKeys, onToggle: toggleCastTarget, onCast: castSpell } : undefined}
+        cast={castSave ? { save: describeTargetSave(castSave), skippedKeys, onToggle: toggleCastTarget, onCast: castSpell } : undefined}
       />
     )
     : tool === "fog" ? <FogPanel fog={scene.fog} brush={fogTool.brush} onBrushChange={fogTool.setBrush} onChange={(change) => void scene.changeFog(change)} isPreview={isFogPreviewOn} onPreviewChange={setIsFogPreview} onClose={() => changeTool(null)} />

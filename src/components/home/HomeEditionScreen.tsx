@@ -12,6 +12,7 @@ import { type AccentSchemeName, findEditionAccent } from "@/styles/edition-accen
 import { ModeLink } from "@/components/no-ai/ModeLink";
 import { HomeCategoryCard } from "./HomeCategoryCard";
 import { HomeFooter } from "./HomeFooter";
+import { LykhozorMastersStrip } from "./LykhozorMastersStrip";
 import { InstallAppEntry } from "@/components/pwa/InstallAppEntry";
 import { StarDivider } from "@/components/ui/StarDivider";
 import {
@@ -68,6 +69,7 @@ export function HomeEditionScreen({ edition }: { edition: Edition }) {
         <InstallAppEntry placement="banner" />
         <HeroRow heroes={heroes} />
         <TileGrid tiles={tiles} />
+        <LykhozorMastersStrip />
       </div>
 
       <HomeFooter edition={edition} />

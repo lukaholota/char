@@ -1,6 +1,7 @@
 import type { D20Mode } from "./dice-roll";
-import { findSpellSaveDamage, type CreatureSaveResult, type DamageDefense, type DamageType, type SaveDieRoll, type SpellSaveDamage } from "./creature-save";
+import { findSpellSaveDamage, type CreatureSaveResult, type DamageDefense, type DamageType, type SaveDieRoll, type SaveEffect } from "./creature-save";
 import { ABILITY_KEYS } from "./feat-grants";
+import { isRuleConditionKey, type RuleConditionKey } from "./token-conditions";
 import type { AbilityKey } from "./types";
 
 export const MAX_SAVE_TARGETS = 40;
@@ -9,23 +10,25 @@ const DAMAGE_TYPES = ["acid", "bludgeoning", "cold", "fire", "force", "lightning
 
 export type SaveSpellRef = { engName: string; level: number; ruleset: "RULES_2014" | "RULES_2024" };
 /// spell — заклинання з листа; без нього ефект прийшов із дії статблоку, і такий кидок приймається лише від майстра.
-export type GameRollSavesDraft = { creatureIds: number[]; persIds: number[]; spell: SaveSpellRef | null; effect: SpellSaveDamage; dc: number };
+export type GameRollSavesDraft = { creatureIds: number[]; persIds: number[]; spell: SaveSpellRef | null; effect: SaveEffect; dc: number };
 /// Що надсилає клієнт: ефект заклинання сервер бере з довідника сам, тож effect потрібен лише дії статблоку.
-export type GameRollSavesRequest = { creatureIds: number[]; persIds: number[]; spell: SaveSpellRef | null; effect?: SpellSaveDamage; dc: number };
+export type GameRollSavesRequest = { creatureIds: number[]; persIds: number[]; spell: SaveSpellRef | null; effect?: SaveEffect; dc: number };
 
 /// Рядок героя хітів не знімає: їх знімає гравець на своєму листі, тож hpChange там завжди null.
-export type StoredSaveRow = CreatureSaveResult & { creatureId?: number; persId?: number; name: string; hpBefore: number | null; hpChange: number | null; isUndone: boolean; isAppliedToSheet?: boolean };
-export type StoredSaves = { ability: AbilityKey; dc: number; damageType: DamageType; isHalfOnSave: boolean; rows: StoredSaveRow[] };
+/// isConditionAdded — провал справді додав стан (його не було), тож скасування його зніме.
+export type StoredSaveRow = CreatureSaveResult & { creatureId?: number; persId?: number; name: string; hpBefore: number | null; hpChange: number | null; isUndone: boolean; isAppliedToSheet?: boolean; isConditionAdded?: boolean };
+export type StoredSaves = { ability: AbilityKey; dc: number; damageType: DamageType | null; isHalfOnSave: boolean; condition?: RuleConditionKey; rows: StoredSaveRow[] };
 
 export type GameRollSaveRowView = {
   name: string;
   persId: number | null;
   isSaved: boolean;
   damage: number;
+  condition: RuleConditionKey | null;
   isAppliedToSheet: boolean;
   gm: { d20: number[]; mode: D20Mode; bonus: number; dice: SaveDieRoll[]; total: number; isAutoFail: boolean; defense: DamageDefense | null; hitPointsBefore: number | null; hitPointsAfter: number | null; canUndo: boolean; isUndone: boolean } | null;
 };
-export type GameRollSavesView = { ability: AbilityKey; dc: number; damageType: DamageType; rows: GameRollSaveRowView[] };
+export type GameRollSavesView = { ability: AbilityKey; dc: number; damageType: DamageType | null; rows: GameRollSaveRowView[] };
 
 /// undefined — запис зіпсований, null — ряткидків немає.
 export function parseGameRollSaves(raw: unknown): GameRollSavesDraft | null | undefined {
@@ -43,11 +46,13 @@ export function parseGameRollSaves(raw: unknown): GameRollSavesDraft | null | un
   return { creatureIds: [...new Set(creatureIds)], persIds: [...new Set(persIds)], spell: spellRef, effect: saveEffect, dc: dc as number };
 }
 
-function parseSaveEffect(raw: unknown): SpellSaveDamage | null {
+/// damageType null — ряткидок без шкоди; тоді ефект без стану мало що значить, але кидок лишається в журналі.
+function parseSaveEffect(raw: unknown): SaveEffect | null {
   if (typeof raw !== "object" || raw === null) return null;
-  const { ability, damageType, isHalfOnSave } = raw as Record<string, unknown>;
-  if (!ABILITY_KEYS.includes(ability as AbilityKey) || !DAMAGE_TYPES.includes(damageType as DamageType) || typeof isHalfOnSave !== "boolean") return null;
-  return { ability: ability as AbilityKey, damageType: damageType as DamageType, isHalfOnSave };
+  const { ability, damageType, isHalfOnSave, condition } = raw as Record<string, unknown>;
+  if (!ABILITY_KEYS.includes(ability as AbilityKey) || (damageType !== null && !DAMAGE_TYPES.includes(damageType as DamageType)) || typeof isHalfOnSave !== "boolean") return null;
+  if (condition !== undefined && !isRuleConditionKey(condition)) return null;
+  return { ability: ability as AbilityKey, damageType: damageType as DamageType | null, isHalfOnSave, ...(condition ? { condition } : {}) };
 }
 
 function parseSpellRef(raw: unknown): SaveSpellRef | null {
@@ -72,6 +77,7 @@ export function buildGameRollSavesView(saves: StoredSaves | undefined, viewer: {
       persId: row.persId ?? null,
       isSaved: row.isSaved,
       damage: row.damage,
+      condition: viewer.isGm || !row.isUndone ? row.condition ?? null : null,
       isAppliedToSheet: row.isAppliedToSheet ?? false,
       gm: viewer.isGm
         ? {
@@ -84,7 +90,7 @@ export function buildGameRollSavesView(saves: StoredSaves | undefined, viewer: {
             defense: row.defense,
             hitPointsBefore: row.hpBefore,
             hitPointsAfter: row.hpBefore !== null && row.hpChange !== null ? row.hpBefore - row.hpChange : null,
-            canUndo: (row.hpChange ?? 0) > 0 && !row.isUndone,
+            canUndo: ((row.hpChange ?? 0) > 0 || Boolean(row.isConditionAdded)) && !row.isUndone,
             isUndone: row.isUndone,
           }
         : null,

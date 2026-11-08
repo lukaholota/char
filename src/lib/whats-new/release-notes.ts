@@ -6,6 +6,11 @@ export type ReleaseSlide = {
 };
 
 export const CURRENT_RELEASE_FLAG = "whats-new:2026-09";
+export const CURRENT_ANNOUNCEMENT_FLAG = "whats-new:2026-11-lykhozor-masters";
+
+export const LYKHOZOR_CAREERS_URL = "https://didlykhozor.club/careers";
+export const LYKHOZOR_LOGO_SRC = "/images/partners/did-lykhozor-logo.svg";
+export const LYKHOZOR_MARK_SRC = "/images/partners/did-lykhozor-mark.svg";
 
 export const CURRENT_RELEASE_SLIDES: readonly ReleaseSlide[] = [
   {

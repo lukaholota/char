@@ -10,6 +10,7 @@ import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
 import type { DamageDefense, SaveDieRoll } from "@/rules/creature-save";
 import type { GameRollSaveRowView, GameRollSavesView } from "@/rules/game-roll-saves";
+import { TOKEN_CONDITION_LABELS } from "@/rules/token-conditions";
 import { MyHeroDamage } from "./GameRollHeroTargetLine";
 
 const DEFENSE_LABELS: Record<DamageDefense, string> = { immune: "імунітет", resistant: "опір", vulnerable: "вразливість" };
@@ -25,10 +26,11 @@ export function GameRollSavesList({ saves, seq }: { saves: GameRollSavesView; se
           <div className="flex flex-wrap items-center gap-x-2">
             <span className="min-w-0 break-words">→ {row.name}</span>
             <span className={cn("font-semibold", row.isSaved ? "text-emerald-200" : "text-rose-200")}>{row.isSaved ? "успіх" : "провал"}</span>
-            <span className="font-semibold tabular-nums">−{row.damage}</span>
+            {saves.damageType ? <span className="font-semibold tabular-nums">−{row.damage}</span> : null}
+            {row.condition ? <span className="text-amber-200">{TOKEN_CONDITION_LABELS[row.condition]}</span> : null}
             {row.gm?.isUndone ? <span className="rounded-md border border-white/10 px-1.5 text-xs text-slate-300">скасовано</span> : null}
           </div>
-          {row.gm ? <GmSaveDetails gm={row.gm} name={row.name} seq={seq} rowIndex={index} /> : null}
+          {row.gm ? <GmSaveDetails gm={row.gm} undoLabel={`Скасувати ${saves.damageType ? "шкоду" : "ефект"}: ${row.name}`} seq={seq} rowIndex={index} /> : null}
           {sessionId !== null && row.persId !== null && row.persId === myPersId && row.damage > 0 ? (
             <MyHeroDamage sessionId={sessionId} seq={seq} persId={row.persId} amount={row.damage} saveRowIndex={index} isApplied={row.isAppliedToSheet} />
           ) : null}
@@ -38,7 +40,7 @@ export function GameRollSavesList({ saves, seq }: { saves: GameRollSavesView; se
   );
 }
 
-function GmSaveDetails({ gm, name, seq, rowIndex }: { gm: NonNullable<GameRollSaveRowView["gm"]>; name: string; seq: number; rowIndex: number }) {
+function GmSaveDetails({ gm, undoLabel, seq, rowIndex }: { gm: NonNullable<GameRollSaveRowView["gm"]>; undoLabel: string; seq: number; rowIndex: number }) {
   const sessionId = useGameSessionLiveStore((state) => state.sessionId);
   const [isUndoing, setIsUndoing] = useState(false);
   const undo = async () => {
@@ -61,7 +63,7 @@ function GmSaveDetails({ gm, name, seq, rowIndex }: { gm: NonNullable<GameRollSa
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
       <span className="text-xs text-slate-400 tabular-nums">{details.join(" · ")}</span>
       {gm.canUndo ? (
-        <Button type="button" variant="outline" disabled={isUndoing} onClick={undo} aria-label={`Скасувати шкоду: ${name}`} className="h-11 px-3 text-sm">
+        <Button type="button" variant="outline" disabled={isUndoing} onClick={undo} aria-label={undoLabel} className="h-11 px-3 text-sm">
           Скасувати
         </Button>
       ) : null}

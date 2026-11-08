@@ -1,7 +1,14 @@
 import { existsSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
-import { CURRENT_RELEASE_SLIDES, isWhatsNewSurface } from "./release-notes";
+import { CURRENT_RELEASE_SLIDES, LYKHOZOR_LOGO_SRC, LYKHOZOR_MARK_SRC, isWhatsNewSurface } from "./release-notes";
+
+describe("оголошення клубу", () => {
+  it("логотипи лежать у public", () => {
+    expect(existsSync("public" + LYKHOZOR_LOGO_SRC)).toBe(true);
+    expect(existsSync("public" + LYKHOZOR_MARK_SRC)).toBe(true);
+  });
+});
 
 describe("де показується «що нового»", () => {
   it("головна обох редакцій — так", () => {

@@ -7,11 +7,11 @@ import { useSession } from "next-auth/react";
 import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 import { decideWhatsNew } from "@/lib/whats-new/decision";
-import { CURRENT_RELEASE_FLAG, CURRENT_RELEASE_SLIDES } from "@/lib/whats-new/release-notes";
+import { CURRENT_ANNOUNCEMENT_FLAG } from "@/lib/whats-new/release-notes";
 import { findFlagStorage, markFlagSeen } from "@/lib/whats-new/seen-flags";
 
-// Модалка зі Swiper показується раз на реліз, а цей компонент живе в providers кожної сторінки.
-const WhatsNewDialog = dynamic(() => import("./WhatsNewDialog").then((module) => module.WhatsNewDialog), {
+// Модалка показується раз на оголошення, а цей компонент живе в providers кожної сторінки.
+const LykhozorMastersDialog = dynamic(() => import("./LykhozorMastersDialog").then((module) => module.LykhozorMastersDialog), {
   ssr: false,
 });
 
@@ -41,18 +41,18 @@ export function WhatsNewAnnouncement({ onResolved }: { onResolved?: (isOpen: boo
 
     /// Позначаємо показаним одразу, а не на закритті: перезавантажена сторінка не має
     /// відкривати модалку вдруге.
-    markFlagSeen(storage, CURRENT_RELEASE_FLAG);
+    markFlagSeen(storage, CURRENT_ANNOUNCEMENT_FLAG);
     setIsOpen(true);
-    capturePostHogEvent("whats_new_shown", { release: CURRENT_RELEASE_FLAG });
+    capturePostHogEvent("whats_new_shown", { release: CURRENT_ANNOUNCEMENT_FLAG });
   }, [pathname, status, onResolved]);
 
   const handleClose = useCallback(() => {
     setIsOpen(false);
     onResolved?.(false);
-    capturePostHogEvent("whats_new_closed", { release: CURRENT_RELEASE_FLAG });
+    capturePostHogEvent("whats_new_closed", { release: CURRENT_ANNOUNCEMENT_FLAG });
   }, [onResolved]);
 
   if (!isOpen) return null;
 
-  return <WhatsNewDialog slides={CURRENT_RELEASE_SLIDES} isOpen={isOpen} onClose={handleClose} />;
+  return <LykhozorMastersDialog isOpen={isOpen} onClose={handleClose} />;
 }

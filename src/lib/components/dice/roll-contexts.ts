@@ -1,7 +1,7 @@
 import type { DiceRollAction, DiceRollContext, ExtraDie, RollStateView } from "@/lib/stores/diceUIStore";
 import type { SaveSpellRef } from "@/rules/game-roll-saves";
 import { parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
-import type { CreatureSaveAction } from "@/rules/creature-area-action";
+import type { CreatureSaveAction, CreatureSaveEffect } from "@/rules/creature-area-action";
 import type { CreatureRoll } from "@/rules/creature-rolls";
 import { AREA_SHAPE_LABELS } from "@/rules/game-areas";
 import type { SpellRollPlan } from "@/rules/spell-dice";
@@ -107,28 +107,44 @@ export function describeTargetSave(save: NonNullable<DiceRollContext["targetSave
   return `ряткидок ${save.abilityName} СК ${save.dc}`;
 }
 
+export function findPressedAction(roll: Pick<DiceRollContext, "actions" | "autoRollKey">): DiceRollAction | undefined {
+  return roll.actions.find((action) => action.key === roll.autoRollKey);
+}
+
+export function findPressedTargetSave(roll: DiceRollContext) {
+  return findPressedAction(roll)?.targetSave ?? roll.targetSave;
+}
+
 const MAX_CREATURE_ACTIONS = 4;
 
 /// Абзац з купою кубиків (опис чаротворення) не влазить у ряд кнопок — тоді в панелі лише натиснутий.
 /// Дія з ряткидком несе його в кидок: шкода кидає ряткидки обраної цілі, а з областю (подих) — усіх, хто в зоні.
-export function buildCreatureActionRollContext(input: { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; save?: CreatureSaveAction }): DiceRollContext {
-  const indexes = input.rolls.length <= MAX_CREATURE_ACTIONS ? input.rolls.map((_, index) => index) : [input.index];
-  const { save } = input;
-  const area = input.rolls[input.index]?.kind === "damage" ? save?.area : undefined;
+/// Ряткидок без шкоди — окрема кнопка: шкода перед ним (промінь) лишається звичайною шкодою.
+export function buildCreatureActionRollContext(input: { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; save?: CreatureSaveAction; saveEffect?: CreatureSaveEffect; canRollTargetSave?: boolean }): DiceRollContext {
+  const allIndexes = input.rolls.length <= MAX_CREATURE_ACTIONS ? input.rolls.map((_, index) => index) : [input.index];
+  const indexes = allIndexes.filter((index) => input.canRollTargetSave || input.rolls[index].kind !== "save");
+  const { save, saveEffect } = input;
+  const pressedKind = input.rolls[input.index]?.kind;
+  const area = pressedKind === "damage" ? save?.area : pressedKind === "save" ? saveEffect?.area : undefined;
   return {
     title: input.creatureName,
     subtitle: input.actionName || undefined,
-    actions: indexes.map((index) => buildCreatureAction(`roll-${index}`, input.rolls[index])),
+    actions: indexes.map((index) => buildCreatureAction(`roll-${index}`, input.rolls[index], saveEffect)),
     autoRollKey: `roll-${input.index}`,
     isCreatureRoll: true,
-    ...(save ? { targetSave: { abilityName: ABILITY_GENITIVE[save.ability], dc: save.dc, effect: { ability: save.ability, damageType: save.damageType, isHalfOnSave: save.isHalfOnSave } } } : {}),
+    ...(save ? { targetSave: { abilityName: ABILITY_GENITIVE[save.ability], dc: save.dc, effect: { ability: save.ability, damageType: save.damageType, isHalfOnSave: save.isHalfOnSave, ...(save.condition ? { condition: save.condition } : {}) } } } : {}),
     ...(area ? { targetArea: { label: input.actionName || AREA_SHAPE_LABELS[area.shape], shape: area.shape, sizeFeet: area.sizeFeet } } : {}),
   };
 }
 
-function buildCreatureAction(key: string, roll: CreatureRoll): DiceRollAction {
+function buildCreatureAction(key: string, roll: CreatureRoll, saveEffect: CreatureSaveEffect | undefined): DiceRollAction {
   if (roll.kind === "attack") return buildD20Action(key, "Атака", roll.bonus);
+  if (roll.kind === "save") {
+    const condition = saveEffect?.condition;
+    return { ...buildD20Action(key, "Ряткидок", 0), targetSave: { abilityName: ABILITY_GENITIVE[roll.ability], dc: roll.dc, effect: { ability: roll.ability, damageType: null, isHalfOnSave: false, ...(condition ? { condition } : {}) } } };
+  }
   if (roll.kind === "recharge") return { key, label: roll.from < 6 ? `Перезарядка ${roll.from}–6` : "Перезарядка 6", count: 1, sides: 6, bonus: 0, isD20: false };
+  if (roll.kind === "dice") return { key, label: `Кидок ${roll.count > 1 ? roll.count : ""}к${roll.sides}`, count: roll.count, sides: roll.sides, bonus: 0, isD20: false };
   return { key, label: "Шкода", count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false };
 }
 

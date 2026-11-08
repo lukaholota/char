@@ -27,3 +27,12 @@ describe("ряткидок героя в зоні", () => {
     expect(resolveHeroSave(base)).not.toHaveProperty("dice");
   });
 });
+
+describe("ряткидок героя без шкоди", () => {
+  const charm = { ability: "CHA" as const, damageType: null, isHalfOnSave: false, condition: "charmed" as const };
+
+  it("провал — стан без шкоди й без опору, успіх — без стану", () => {
+    expect(resolveHeroSave({ ...base, effect: charm, rolledDamage: 0, resistances: ["FIRE"], d20Pair: [2, 2] })).toMatchObject({ isSaved: false, defense: null, damage: 0, condition: "charmed" });
+    expect(resolveHeroSave({ ...base, effect: charm, rolledDamage: 0, d20Pair: [19, 2] })).not.toHaveProperty("condition");
+  });
+});

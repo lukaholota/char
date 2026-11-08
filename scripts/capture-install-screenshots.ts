@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { encode } from "@auth/core/jwt";
 import { chromium, type Browser, type BrowserContext, type Page } from "@playwright/test";
-import { CURRENT_RELEASE_FLAG } from "../src/lib/whats-new/release-notes";
+import { CURRENT_ANNOUNCEMENT_FLAG } from "../src/lib/whats-new/release-notes";
 
 const outputDirectory = fileURLToPath(new URL("../public/icons/screenshots/", import.meta.url));
 
@@ -67,7 +67,7 @@ async function capturePhoneScreens(page: Page, origin: string, persId: number) {
 
 async function prepareCaptureContext(context: BrowserContext, origin: string, session: string) {
   await context.addCookies([{ name: "authjs.session-token", value: session, url: origin }]);
-  await context.addInitScript((flag) => localStorage.setItem(`char:seen:${flag}`, "seen"), CURRENT_RELEASE_FLAG);
+  await context.addInitScript((flag) => localStorage.setItem(`char:seen:${flag}`, "seen"), CURRENT_ANNOUNCEMENT_FLAG);
 }
 
 async function captureWideScreen(browser: Browser, origin: string, session: string) {

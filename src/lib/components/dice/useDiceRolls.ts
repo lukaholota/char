@@ -7,7 +7,7 @@ import { diceService } from "./diceService";
 import { rollAfterHeldTrayResize } from "./dice-tray-layout";
 import { buildRollOutcome, listRollNotations, type DiceRollOutcome, type PendingRollMeta } from "./roll-contexts";
 import { buildActionGameRoll, buildFreeGameRoll, takeDiceToPublish } from "@/lib/components/game/build-game-roll";
-import { announceGameRollStart, captureGameRollTarget, publishGameRoll, settleGameRollStart, type GameRollTarget } from "@/lib/components/game/game-roll-publisher";
+import { announceGameRollStart, captureGameRollTarget, publishGameRoll, publishTargetSave, settleGameRollStart, type GameRollTarget } from "@/lib/components/game/game-roll-publisher";
 
 export type PoolDie = { sides: number; value: number; rollId?: number | string };
 
@@ -84,6 +84,12 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
   const rollAction = useCallback(
     (action: DiceRollAction, d20Mode: D20Mode) => {
       if (!isReady) return;
+      if (action.targetSave && rollContextRef.current) {
+        setActiveActionKey(action.key);
+        setOutcome(null);
+        publishTargetSave(rollContextRef.current, action.targetSave);
+        return;
+      }
       pendingMetaRef.current = {
         actionKey: action.key,
         label: action.label,

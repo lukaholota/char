@@ -7,6 +7,8 @@ import { useDiceUIStore, type DiceRollAction, type DiceRollContext } from "@/lib
 import { findGameRollKind } from "@/rules/game-roll-target";
 import { addTargetPick, groupTargetPicks, removeTargetPick, splitRollTargets, toggleUniqueTargetPick, type RollTargetRef, type TargetPickGroup } from "@/rules/map-target-picks";
 import type { GameSessionView } from "@/server/db/game-sessions";
+import { findPressedAction } from "@/lib/components/dice/roll-contexts";
+import type { HeroRollKind } from "@/rules/game-roll-hero-target";
 import { findMapRoomId, showMapForPicking } from "./area-cast";
 import { findActionRollKind } from "./build-game-roll";
 import { useGameSessionLiveStore } from "./game-session-live-store";
@@ -36,10 +38,11 @@ export function startMapTargeting(roll: DiceRollContext): boolean {
   return true;
 }
 
-function findTargetedRollKind(roll: DiceRollContext, view: GameSessionView) {
+function findTargetedRollKind(roll: DiceRollContext, view: GameSessionView): HeroRollKind | "save" | null {
   if (roll.areaTargets || roll.rollTarget !== undefined || roll.check) return null;
   if (roll.isCreatureRoll && view.myRole !== "GM") return null;
-  const action = roll.actions.find((candidate) => candidate.key === roll.autoRollKey);
+  const action = findPressedAction(roll);
+  if (action?.targetSave) return "save";
   return action ? findActionRollKind(roll, action) : null;
 }
 

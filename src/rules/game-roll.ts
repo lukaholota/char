@@ -47,6 +47,7 @@ export function canSeeGameRollValues(visibility: GameRollVisibility, viewer: { i
 }
 
 export function buildSecretRollLabel(roll: Pick<GameRoll, "groups">): string {
+  if (!roll.groups.length) return "Секретний кидок";
   return `Секретний кидок · ${roll.groups.map((group) => `${group.values.length}к${group.sides}`).join(" + ")}`;
 }
 
@@ -55,9 +56,10 @@ export function isGameRollVisibility(value: unknown): value is GameRollVisibilit
 }
 
 /// Кубики кидає клієнт (dice-box не вміє наперед задані грані), тож сервер перевіряє форму й суму, а не чесність.
-export function findGameRollProblem(roll: unknown): string | null {
+/// isDiceless — ряткидок цілі без шкоди: кидає кімната, у самого кидка кубиків немає.
+export function findGameRollProblem(roll: unknown, { isDiceless = false } = {}): string | null {
   if (!isRecord(roll)) return "roll is not an object";
-  const shapeProblem = findShapeProblem(roll);
+  const shapeProblem = findShapeProblem(roll, isDiceless);
   if (shapeProblem) return shapeProblem;
   const typed = roll as GameRoll;
   if (typed.d20Mode && !isD20Group(typed)) return "d20 mode needs one d20 group with 1–2 dice";
@@ -66,10 +68,11 @@ export function findGameRollProblem(roll: unknown): string | null {
   return null;
 }
 
-function findShapeProblem(roll: Record<string, unknown>): string | null {
+function findShapeProblem(roll: Record<string, unknown>, isDiceless: boolean): string | null {
   if (roll.d20Mode !== null && !["NORMAL", "ADVANTAGE", "DISADVANTAGE"].includes(roll.d20Mode as string)) return "bad d20 mode";
   if (!isTextList(roll.modeSources, GAME_ROLL_LIMITS.modeSources)) return "bad mode sources";
-  if (!Array.isArray(roll.groups) || !roll.groups.length || !roll.groups.every(isDiceGroup)) return "bad dice groups";
+  if (!Array.isArray(roll.groups) || roll.groups.length === 0 !== isDiceless || !roll.groups.every(isDiceGroup)) return "bad dice groups";
+  if (isDiceless && (roll.d20Mode !== null || roll.bonus !== 0 || !Array.isArray(roll.extra) || roll.extra.length > 0)) return "a save without damage has no dice";
   if (!Array.isArray(roll.extra) || roll.extra.length > GAME_ROLL_LIMITS.extraDice || !roll.extra.every(isExtraDie)) return "bad extra dice";
   const diceCount = (roll.groups as GameRollDiceGroup[]).reduce((sum, group) => sum + group.values.length, 0) + roll.extra.length;
   if (diceCount > GAME_ROLL_LIMITS.dice) return "too many dice";

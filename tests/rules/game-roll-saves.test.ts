@@ -20,6 +20,15 @@ describe("parseGameRollSaves", () => {
     expect(parseGameRollSaves({ creatureIds: [3], spell: { ...fireball, ruleset: "RULES_2030" }, dc: 15 })).toBeUndefined();
   });
 
+  it("дія статблоку без шкоди передає стан, а невідомий стан чи тип шкоди — зіпсований запис", () => {
+    const gaze = { ability: "WIS", damageType: null, isHalfOnSave: false, condition: "frightened" };
+    expect(parseGameRollSaves({ creatureIds: [3], effect: gaze, dc: 12 })).toEqual({ creatureIds: [3], persIds: [], spell: null, effect: gaze, dc: 12 });
+    expect(parseGameRollSaves({ creatureIds: [3], effect: { ...gaze, condition: undefined }, dc: 12 })?.effect).toEqual({ ability: "WIS", damageType: null, isHalfOnSave: false });
+    expect(parseGameRollSaves({ creatureIds: [3], effect: { ...gaze, condition: "cursed" }, dc: 12 })).toBeUndefined();
+    expect(parseGameRollSaves({ creatureIds: [3], effect: { ...gaze, condition: "toString" }, dc: 12 })).toBeUndefined();
+    expect(parseGameRollSaves({ creatureIds: [3], effect: { ...gaze, damageType: "sonic" }, dc: 12 })).toBeUndefined();
+  });
+
   it("відмовляє заклинанню без шкоди з ряткидком: його не можна прикрити ряткидками", () => {
     expect(parseGameRollSaves({ creatureIds: [3], spell: { engName: "Hold Person", level: 2, ruleset: "RULES_2014" }, dc: 15 })).toBeUndefined();
   });
@@ -52,6 +61,30 @@ describe("buildGameRollSavesView", () => {
     expect(rows[0]).toMatchObject({ d20: [12], bonus: 2, total: 14, hitPointsBefore: 7, hitPointsAfter: 0, canUndo: true, isUndone: false });
     expect(rows[1]).toMatchObject({ canUndo: false, isUndone: true });
     expect(rows[2]).toMatchObject({ defense: "immune", hitPointsBefore: null, hitPointsAfter: null, canUndo: false });
+  });
+
+  it("скасований стан гравець більше не бачить, а майстер бачить його поруч зі «скасовано»", () => {
+    const row = { persId: 5, name: "Варлок", d20: [7], mode: "NORMAL" as const, bonus: 2, total: 9, isSaved: false, isAutoFail: false, defense: null, damage: 0, condition: "frightened" as const, hpBefore: null, hpChange: null, isConditionAdded: true, isUndone: true };
+    const gaze: StoredSaves = { ability: "WIS", dc: 12, damageType: null, isHalfOnSave: false, condition: "frightened", rows: [row] };
+    expect(buildGameRollSavesView(gaze, { isGm: false })?.rows[0].condition).toBeNull();
+    expect(buildGameRollSavesView(gaze, { isGm: true })?.rows[0]).toMatchObject({ condition: "frightened", gm: { isUndone: true } });
+  });
+
+  it("стан від провалу бачать усі, а скасувати його можна, лише якщо провал його справді додав", () => {
+    const gaze: StoredSaves = {
+      ability: "WIS",
+      dc: 12,
+      damageType: null,
+      isHalfOnSave: false,
+      condition: "frightened",
+      rows: [
+        { ...stored.rows[0], damage: 0, hpBefore: 7, hpChange: 0, condition: "frightened", isConditionAdded: true },
+        { ...stored.rows[0], damage: 0, hpBefore: 7, hpChange: 0, condition: "frightened", isConditionAdded: false },
+        { ...stored.rows[1], damage: 0, hpBefore: 7, hpChange: 0, isUndone: false },
+      ],
+    };
+    expect(buildGameRollSavesView(gaze, { isGm: false })!.rows.map((row) => row.condition)).toEqual(["frightened", "frightened", null]);
+    expect(buildGameRollSavesView(gaze, { isGm: true })!.rows.map((row) => row.gm!.canUndo)).toEqual([true, false, false]);
   });
 
   it("порожні ряткидки не показуються", () => {

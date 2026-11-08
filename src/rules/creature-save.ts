@@ -1,11 +1,14 @@
 import { pickD20Value, type D20Mode } from "./dice-roll";
 import { readAbilityModifier, readSignedNumber } from "./creature-rolls";
 import { findSpellDice } from "./spell-dice";
+import { findConditionStem, normalizeApostrophes, TOKEN_CONDITION_LABELS, type RuleConditionKey } from "./token-conditions";
 import type { AbilityKey } from "./types";
 
 export type DamageType = "acid" | "bludgeoning" | "cold" | "fire" | "force" | "lightning" | "necrotic" | "piercing" | "poison" | "psychic" | "radiant" | "slashing" | "thunder";
 export type DamageDefense = "immune" | "resistant" | "vulnerable";
 export type SpellSaveDamage = { ability: AbilityKey; damageType: DamageType; isHalfOnSave: boolean };
+/// Ряткидок без шкоди має damageType null; стан накладається лише при провалі.
+export type SaveEffect = { ability: AbilityKey; damageType: DamageType | null; isHalfOnSave: boolean; condition?: RuleConditionKey };
 
 export type CreatureSaveStats = {
   savingThrows: string;
@@ -19,6 +22,7 @@ export type CreatureSaveStats = {
   damageImmunity: string;
   damageResistance: string;
   damageVulnerability?: string;
+  conditionImmunity?: string;
 };
 
 export type CreatureSaveResult = {
@@ -30,6 +34,7 @@ export type CreatureSaveResult = {
   isAutoFail: boolean;
   defense: DamageDefense | null;
   damage: number;
+  condition?: RuleConditionKey;
   /// к4 «Благословення» тощо: value вже зі знаком.
   dice?: SaveDieRoll[];
 };
@@ -39,7 +44,7 @@ export type SaveDieRoll = { sides: number; value: number };
 export type CreatureSaveInput = {
   creature: CreatureSaveStats | null;
   conditions: readonly string[];
-  effect: SpellSaveDamage;
+  effect: SaveEffect;
   dc: number;
   rolledDamage: number;
   d20Pair: readonly [number, number];
@@ -171,7 +176,7 @@ export function isCreatureSaveAutoFail(conditions: readonly string[], ability: A
 }
 
 /// Половина й опори округлюються вниз, опір рахується після половини — як у правилах.
-export function findSaveDamage(rolledDamage: number, isSaved: boolean, effect: SpellSaveDamage, defense: DamageDefense | null): number {
+export function findSaveDamage(rolledDamage: number, isSaved: boolean, effect: SaveEffect, defense: DamageDefense | null): number {
   const afterSave = !isSaved ? rolledDamage : effect.isHalfOnSave ? Math.floor(rolledDamage / 2) : 0;
   if (defense === "immune") return 0;
   if (defense === "resistant") return Math.floor(afterSave / 2);
@@ -185,8 +190,19 @@ export function resolveCreatureSave({ creature, conditions, effect, dc, rolledDa
   const total = pickD20Value(d20, mode) + bonus + sumSaveDice(dice);
   const isAutoFail = isCreatureSaveAutoFail(conditions, effect.ability);
   const isSaved = !isAutoFail && total >= dc;
-  const defense = creature ? findDamageDefense(creature, effect.damageType) : null;
-  return { d20, mode, bonus, total, isSaved, isAutoFail, defense, damage: findSaveDamage(rolledDamage, isSaved, effect, defense), ...(dice.length ? { dice: [...dice] } : {}) };
+  const isConditionImmune = Boolean(effect.condition && hasConditionImmunity(creature?.conditionImmunity ?? "", effect.condition));
+  const damageDefense = creature && effect.damageType ? findDamageDefense(creature, effect.damageType) : null;
+  const defense = effect.damageType ? damageDefense : isConditionImmune ? "immune" : null;
+  const damage = findSaveDamage(rolledDamage, isSaved, effect, defense);
+  return { d20, mode, bonus, total, isSaved, isAutoFail, defense, damage, ...findFailedCondition(effect, isSaved, isConditionImmune), ...(dice.length ? { dice: [...dice] } : {}) };
+}
+
+export function findFailedCondition(effect: SaveEffect, isSaved: boolean, isImmune: boolean): { condition?: RuleConditionKey } {
+  return !isSaved && effect.condition && !isImmune ? { condition: effect.condition } : {};
+}
+
+function hasConditionImmunity(conditionImmunity: string, condition: RuleConditionKey): boolean {
+  return normalizeApostrophes(conditionImmunity.toLocaleLowerCase("uk")).includes(findConditionStem(TOKEN_CONDITION_LABELS[condition]));
 }
 
 export function sumSaveDice(dice: readonly SaveDieRoll[]): number {

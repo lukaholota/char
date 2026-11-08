@@ -3,56 +3,64 @@
 import { Dice6 } from "lucide-react";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { buildCreatureActionRollContext, buildCreatureD20RollContext, buildD20Action } from "@/lib/components/dice/roll-contexts";
-import { openRoomRoll } from "@/lib/components/game/open-room-roll";
+import { openRoomRoll, useCanRollTargetSave } from "@/lib/components/game/open-room-roll";
 import type { DiceRollContext } from "@/lib/stores/diceUIStore";
 import { attributesUkrFull } from "@/lib/refs/translation";
-import { findCreatureSaveAction, type CreatureSaveAction } from "@/rules/creature-area-action";
+import { findCreatureSaveAction, findCreatureSaveEffect, findCreatureSaveSpots, type CreatureSaveAction, type CreatureSaveEffect } from "@/rules/creature-area-action";
 import { findCreatureRolls, splitNamedBonuses, type CreatureRoll } from "@/rules/creature-rolls";
 
 type HastText = { type: "text"; value: string };
 type HastElement = { type: "element"; tagName: string; properties: Record<string, unknown>; children: HastNode[] };
 type HastNode = HastText | HastElement | { type: "comment" | "doctype" | "raw"; value?: string };
 
-export type CreatureRollChipData = { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; save?: CreatureSaveAction };
+export type CreatureRollChipData = { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; save?: CreatureSaveAction; saveEffect?: CreatureSaveEffect };
 
 export const CREATURE_ROLL_TAG = "creature-roll";
 const SKIPPED_TAGS = new Set(["a", "abbr", "code", "pre"]);
 
-/// Кубики шукаються в кожному абзаці окремо: кнопка шкоди відкриває панель разом з атакою того самого удару.
+/// Кубики шукаються в кожному абзаці й пункті списку окремо: кнопка шкоди відкриває панель разом з атакою того самого удару.
 export function rehypeCreatureRolls({ creatureName }: { creatureName: string }) {
   return (tree: { children: HastNode[] }) => {
-    for (const block of tree.children) if (block.type === "element") addRollChips(block, creatureName);
+    for (const block of tree.children) if (block.type === "element") for (const action of splitListItems(block)) addRollChips(action, creatureName);
   };
+}
+
+function splitListItems(block: HastElement): HastElement[] {
+  if (block.tagName !== "ol" && block.tagName !== "ul") return [block];
+  return block.children.filter((child): child is HastElement => child.type === "element" && child.tagName === "li");
 }
 
 function addRollChips(block: HastElement, creatureName: string) {
   const found: Array<{ chip: HastElement; roll: CreatureRoll }> = [];
-  replaceRollText(block, found);
+  const text = readText(block);
+  const saveEffect = findCreatureSaveEffect(text);
+  replaceRollText(block, found, saveEffect !== null);
   const actionName = findActionName(block);
   const rolls = found.map(({ roll }) => roll);
-  const save = found.length ? findCreatureSaveAction(readText(block)) : null;
+  const save = found.length ? findCreatureSaveAction(text) : null;
   found.forEach(({ chip }, index) => {
-    const data: CreatureRollChipData = { creatureName, actionName, rolls, index, ...(save ? { save } : {}) };
+    const data: CreatureRollChipData = { creatureName, actionName, rolls, index, ...(save ? { save } : {}), ...(saveEffect ? { saveEffect } : {}) };
     chip.properties.dataRoll = JSON.stringify(data);
   });
 }
 
-function replaceRollText(element: HastElement, found: Array<{ chip: HastElement; roll: CreatureRoll }>) {
+function replaceRollText(element: HastElement, found: Array<{ chip: HastElement; roll: CreatureRoll }>, hasSaveEffect: boolean) {
   element.children = element.children.flatMap((child) => {
     if (child.type === "element") {
-      if (!SKIPPED_TAGS.has(child.tagName)) replaceRollText(child, found);
+      if (!SKIPPED_TAGS.has(child.tagName)) replaceRollText(child, found, hasSaveEffect);
       return [child];
     }
-    return child.type === "text" ? splitTextIntoChips(child.value, found) : [child];
+    return child.type === "text" ? splitTextIntoChips(child.value, found, hasSaveEffect) : [child];
   });
 }
 
-function splitTextIntoChips(text: string, found: Array<{ chip: HastElement; roll: CreatureRoll }>): HastNode[] {
-  const spots = findCreatureRolls(text);
+function splitTextIntoChips(text: string, found: Array<{ chip: HastElement; roll: CreatureRoll }>, hasSaveEffect: boolean): HastNode[] {
+  const spots = [...findCreatureRolls(text), ...(hasSaveEffect ? findCreatureSaveSpots(text) : [])].sort((a, b) => a.start - b.start);
   if (!spots.length) return [{ type: "text", value: text }];
   const nodes: HastNode[] = [];
   let cursor = 0;
   for (const spot of spots) {
+    if (spot.start < cursor) continue;
     if (spot.start > cursor) nodes.push({ type: "text", value: text.slice(cursor, spot.start) });
     const chip: HastElement = { type: "element", tagName: CREATURE_ROLL_TAG, properties: {}, children: [{ type: "text", value: text.slice(spot.start, spot.end) }] };
     found.push({ chip, roll: spot.roll });
@@ -85,13 +93,14 @@ function readText(node: HastNode): string {
 }
 
 export function CreatureRollChip({ data, children }: { data: CreatureRollChipData | null; children: React.ReactNode }) {
-  if (!data) return <>{children}</>;
+  const canRollTargetSave = useCanRollTargetSave();
+  if (!data || (data.rolls[data.index].kind === "save" && !canRollTargetSave)) return <>{children}</>;
   const roll = data.rolls[data.index];
   return (
     <RollChip
-      isD20={roll.kind === "attack"}
+      isD20={roll.kind === "attack" || roll.kind === "save"}
       label={`Кинути: ${describeRollAloud(roll)}${data.actionName ? `, ${data.actionName}` : ""}`}
-      onRoll={() => buildCreatureActionRollContext(data)}
+      onRoll={() => buildCreatureActionRollContext({ ...data, canRollTargetSave })}
     >
       {children}
     </RollChip>
@@ -163,6 +172,8 @@ export function readRollChipData(value: unknown): CreatureRollChipData | null {
 
 function describeRollAloud(roll: CreatureRoll): string {
   if (roll.kind === "attack") return "атака";
+  if (roll.kind === "save") return "ряткидок цілі";
   if (roll.kind === "recharge") return "перезарядка";
+  if (roll.kind === "dice") return "кубик";
   return "шкода";
 }
