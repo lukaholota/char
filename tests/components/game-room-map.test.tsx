@@ -520,12 +520,14 @@ describe("стани й ціль на мапі", () => {
     expect(mocks.changeHeroConditionsAction).toHaveBeenCalledWith(7, 3, { kind: "toggle", condition: "frightened", isActive: false });
   });
 
-  it("майстер відкриває лист чужого героя з токена в новій вкладці", () => {
+  it("майстер відкриває лист героя гравця з токена в бічній панелі, не покидаючи стіл", () => {
     render(<GameRoomMap view={gmView({ members: [member(1, "GM", null), member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 })] })} />);
     tap(within(placeMap()).getByRole("button", { name: /Токен «Торин»/ }));
-    const sheetLink = within(screen.getByRole("dialog", { name: "Торин: стани" })).getByRole("link", { name: "Відкрити лист персонажа" });
-    expect(sheetLink.getAttribute("href")).toBe("/char/30");
-    expect(sheetLink.getAttribute("target")).toBe("_blank");
+    const dialog = screen.getByRole("dialog", { name: "Торин: стани" });
+    expect(within(dialog).queryByRole("link", { name: "Відкрити лист персонажа" })).toBeNull();
+    fireEvent.click(within(dialog).getByRole("button", { name: "Відкрити лист персонажа" }));
+    expect(screen.queryByRole("dialog", { name: "Торин: стани" })).toBeNull();
+    expect(useRoomTabStore.getState().tab).toBe("hero");
   });
 
   it("власний герой відкриває лист у вкладці кімнати, без переходу зі столу", () => {
