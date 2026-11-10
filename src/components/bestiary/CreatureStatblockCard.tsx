@@ -11,6 +11,7 @@ import { Shield, Heart, Zap, Swords } from "lucide-react";
 import { findAccentVariant } from "@/styles/edition-accent";
 import { EditionAccentChip } from "@/components/ui/EditionAccent";
 import { CreatureBonusChips, CreatureInitiativeChip } from "@/components/bestiary/creature-roll-chips";
+import { CreatureSpellsSection } from "@/components/bestiary/CreatureSpellsSection";
 import { buildCreatureD20RollContext, buildD20Action } from "@/lib/components/dice/roll-contexts";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { attributesUkrFull } from "@/lib/refs/translation";
@@ -255,6 +256,7 @@ export function CreatureStatblockCard({
         rollsForCreature={rollName}
         titleClassName="text-purple-300"
       />
+      {creature.spellcasting ? <CreatureSpellsSection spellcasting={creature.spellcasting} creatureName={rollName} titleClassName={actionTone} /> : null}
       <ProseSection title="Лігво" content={creature.lairInfo} titleClassName="text-purple-300" />
       <ProseSection
         title="Дії Лігва"

@@ -41,7 +41,7 @@ export function CombatTracker({ view }: { view: GameSessionView }) {
 }
 
 function findViewNewcomers(view: GameSessionView, combat: CombatView) {
-  const heroes = view.members.flatMap((member) => (member.persId === null ? [] : [{ userId: member.userId, name: member.persName ?? member.name }]));
+  const heroes = view.members.flatMap((member) => (member.persId === null ? [] : [{ persId: member.persId, name: member.persName ?? member.name }]));
   return findCombatNewcomers(combat, { heroes, creatures: view.viewedSceneId === view.activeSceneId ? view.creatures : null });
 }
 
@@ -179,7 +179,7 @@ function CombatSetupButtons({ sessionId, rounds, isPending, run, newcomers }: Co
   return (
     <div className="flex flex-wrap gap-2">
       {newcomers?.length === 0 ? null : (
-        <Button type="button" variant="ghost" onClick={addNewcomers} disabled={isPending} className="h-auto min-h-11 min-w-0 justify-start gap-2 px-3 text-left text-slate-300">
+        <Button type="button" variant="ghost" onClick={addNewcomers} disabled={isPending} className="h-auto min-h-11 min-w-0 justify-start gap-2 whitespace-normal px-3 text-left text-slate-300">
           <UserPlus className="h-4 w-4 shrink-0" aria-hidden />
           <span className="min-w-0">{describeNewcomers(newcomers)}</span>
         </Button>

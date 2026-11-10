@@ -95,7 +95,7 @@ function buildSections(
       content: (
         <ClassTableView
           table={table}
-          className="max-h-[70vh]"
+          className="max-h-[70vh] lg:max-h-[calc(100dvh-22rem)]"
           onOpenFeature={(feature) =>
             feature.kind === "class" ? actions.onOpenFeature?.(findFeatureKey(feature)) : actions.onSectionChange("subclasses")
           }

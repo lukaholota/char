@@ -10,6 +10,9 @@ import {
   readCreatureInputFromStatBlock,
   toHomebrewEdition,
   toStoredRuleset,
+  type CatalogCreatureSpell,
+  type HomebrewCreatureInput,
+  type HomebrewEdition,
   type HomebrewFieldErrors,
   type HomebrewKind,
   type HomebrewRuleset,
@@ -21,6 +24,9 @@ import { deleteStoredImage, storeSquareImage } from "@/server/media/image-upload
 import { findContentViewer, NOT_SIGNED_IN, type ContentViewer as Viewer } from "@/server/db/content-viewer";
 import { deleteHomebrewEntryAsModerator, readImageKey } from "@/server/db/homebrew-removal";
 import { excludeAiAuthorIds } from "@/lib/no-ai/ai-authors";
+import { shortenSpellName } from "@/lib/logic/spell-name";
+import { getAllSpells, getSpellById } from "@/lib/spellsData";
+import type { CreatureSpellOption } from "@/rules/creature-spellcasting";
 
 type SaveResult = { success: true; entryId: number } | { success: false; error?: string; fieldErrors?: HomebrewFieldErrors };
 type ActionResult = { success: true } | { success: false; error: string };
@@ -118,6 +124,9 @@ export async function saveHomebrewCreature(formData: FormData): Promise<SaveResu
   const parsed = parseHomebrewCreatureInput(readJsonField(formData.get("values")));
   if ("errors" in parsed) return { success: false, fieldErrors: parsed.errors };
 
+  const catalogSpells = findCreatureCatalogSpells(parsed.data);
+  if (!catalogSpells) return { success: false, fieldErrors: { spells: "Деяких заклинань немає в цій редакції. Приберіть їх зі списку." } };
+
   const entryId = Number(formData.get("entryId")) || null;
   const previous = entryId ? await prisma.homebrewCreature.findUnique({ where: { homebrewEntryId: entryId }, select: { statBlock: true } }) : null;
   const accessError = entryId ? await findEditError(entryId, viewer, "CREATURE") : await findEntryLimitError(viewer.userId);
@@ -126,7 +135,7 @@ export async function saveHomebrewCreature(formData: FormData): Promise<SaveResu
   const image = await resolveCreatureImage(formData, readImageKey(previous?.statBlock));
   if ("error" in image) return { success: false, error: image.error };
 
-  const statBlock = { ...buildCreatureStatBlock(parsed.data), imageKey: image.key } satisfies Prisma.InputJsonObject;
+  const statBlock = { ...buildCreatureStatBlock(parsed.data, catalogSpells), imageKey: image.key } as Prisma.InputJsonObject;
   const creatureData = { engName: parsed.data.engName || null, size: parsed.data.size, type: parsed.data.type, challenge: parsed.data.challenge, statBlock };
   const saved = entryId
     ? await prisma.homebrewEntry.update({
@@ -224,4 +233,21 @@ function readJsonField(value: FormDataEntryValue | null): unknown {
     if (error instanceof SyntaxError) return null;
     throw error;
   }
+}
+
+function findCreatureCatalogSpells(input: HomebrewCreatureInput): CatalogCreatureSpell[] | null {
+  const ruleset = findCreatureSpellRuleset(input.ruleset);
+  const spells = input.spells.map(({ spellId }) => getSpellById(spellId, ruleset));
+  if (spells.some((spell) => !spell)) return null;
+  return spells.filter((spell) => spell !== undefined).map((spell) => ({ ...spell, name: shortenSpellName(spell.name) }));
+}
+
+function findCreatureSpellRuleset(edition: HomebrewEdition) {
+  return edition === "RULES_2024" ? "RULES_2024" : "RULES_2014";
+}
+
+export async function listCreatureSpellChoices(edition: HomebrewEdition): Promise<CreatureSpellOption[]> {
+  return getAllSpells(findCreatureSpellRuleset(edition))
+    .map((spell) => ({ spellId: spell.spellId, name: shortenSpellName(spell.name), level: spell.level, searchName: spell.name.toLocaleLowerCase("uk") }))
+    .sort((a, b) => a.level - b.level || a.name.localeCompare(b.name, "uk"));
 }

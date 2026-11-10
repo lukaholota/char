@@ -28,11 +28,11 @@ import { readRollVisibility, useGameSessionStore } from "@/lib/stores/gameSessio
 const roll: GameRoll = { d20Mode: null, modeSources: [], groups: [{ sides: 20, values: [17] }], extra: [], bonus: 0, total: 17, check: null };
 
 function buildMember(role: "GM" | "PLAYER"): GameSessionMemberView {
-  return { userId: 7, name: "Оксана", role, persId: null, persName: null, avatarUrl: null, isOnline: true, token: null };
+  return { heroId: 7, heroSlot: 0, isCutout: false, userId: 7, name: "Оксана", role, persId: null, persName: null, avatarUrl: null, isOnline: true, token: null };
 }
 
 function buildView(role: "GM" | "PLAYER"): GameSessionView {
-  return { id: 1, name: "Кімната", isArchived: false, myUserId: 7, myRole: role, myPersId: null, inviteToken: null, mapImageUrl: null, members: [buildMember(role)], creatures: [], creatureNameMode: "ALL" } as GameSessionView;
+  return { id: 1, name: "Кімната", isArchived: false, myUserId: 7, myRole: role, myPersId: null, myPersIds: [], inviteToken: null, mapImageUrl: null, members: [buildMember(role)], creatures: [], creatureNameMode: "ALL" } as GameSessionView;
 }
 
 function enterRoom(role: "GM" | "PLAYER") {

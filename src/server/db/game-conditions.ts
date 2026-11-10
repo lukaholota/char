@@ -2,7 +2,7 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import type { RollTargets } from "@/rules/map-target-picks";
 import { BLESSED_MARK, canChangeTokenConditions, type TokenConditionChange } from "@/rules/token-conditions";
-import { findActiveGmSession, findMembership, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
+import { findActiveGmSession, findMembership, findRoomHero, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 
@@ -24,14 +24,15 @@ export async function changeCreatureConditions(sessionId: number, userId: number
   return { ok: true, value: null };
 }
 
-export async function changeHeroConditions(sessionId: number, userId: number, heroUserId: number, change: TokenConditionChange): Promise<GameSessionResult<null>> {
-  const membership = await findMembership(sessionId, userId);
+export async function changeHeroConditions(sessionId: number, userId: number, heroId: number, change: TokenConditionChange): Promise<GameSessionResult<null>> {
+  const [membership, hero] = await Promise.all([findMembership(sessionId, userId), findRoomHero(sessionId, heroId)]);
   if (!membership) return fail("not_found");
   if (membership.gameSession.archivedAt) return fail("archived");
-  if (!canChangeTokenConditions({ userId, isGm: membership.role === "GM" }, { userId: heroUserId })) return fail("forbidden");
+  if (!hero) return fail("no_map");
+  if (!canChangeTokenConditions({ userId, isGm: membership.role === "GM" }, { userId: hero.userId })) return fail("forbidden");
   const changed = await prisma.$executeRaw`
     UPDATE game_session_member SET ${buildConditionAssignment(change)}
-    WHERE game_session_id = ${sessionId} AND user_id = ${heroUserId} AND pers_id IS NOT NULL`;
+    WHERE game_session_member_id = ${heroId} AND game_session_id = ${sessionId} AND pers_id IS NOT NULL`;
   if (!changed) return fail("no_map");
   await signalGameSession(sessionId, "session");
   return { ok: true, value: null };

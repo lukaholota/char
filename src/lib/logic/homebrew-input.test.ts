@@ -64,6 +64,43 @@ describe("введення хоумбрю", () => {
     expect(parseHomebrewCreatureInput(readCreatureInputFromStatBlock(buildCreatureStatBlock(parsed.data)))).toEqual(parsed);
   });
 
+  describe("заклинання істоти", () => {
+    const fireball = { spellId: 7, name: "Вогняна куля", engName: "Fireball", level: 3 };
+    const coneOfCold = { spellId: 9, name: "Конус холоду", engName: "Cone of Cold", level: 5, description: "<p>Кожна істота робить ряткидок Статури. Ціль отримує 8к8 шкоди холодом.</p>" };
+
+    it("без заклинань статблок не отримує секції", () => {
+      const parsed = parseHomebrewCreatureInput(creature);
+      if (!("data" in parsed)) throw new Error("невалідна істота");
+      expect(buildCreatureStatBlock(parsed.data)).not.toHaveProperty("spellcasting");
+    });
+
+    it("порожні числа рахуються з характеристик, а редакція йде з істоти", () => {
+      const parsed = parseHomebrewCreatureInput({ ...creature, challenge: "5", charisma: 18, spells: [{ spellId: 7 }] });
+      if (!("data" in parsed)) throw new Error(JSON.stringify(parsed));
+      expect(buildCreatureStatBlock(parsed.data, [fireball]).spellcasting).toMatchObject({ attackBonus: 7, saveDc: 15, ruleset: "RULES_2024" });
+    });
+
+    it("свої числа мають перевагу, а заклинання 5-го рівня кидається з опису", () => {
+      const parsed = parseHomebrewCreatureInput({ ...creature, ruleset: "RULES_2014", spellAttackBonus: "+9", spellSaveDc: "17", spellCasterLevel: "11", spells: [{ spellId: 9 }] });
+      if (!("data" in parsed)) throw new Error(JSON.stringify(parsed));
+      expect(buildCreatureStatBlock(parsed.data, [coneOfCold]).spellcasting).toMatchObject({
+        attackBonus: 9,
+        saveDc: 17,
+        spells: [{ name: "Конус холоду", plan: { save: "CON", rolls: [{ label: "Шкода", count: 8, sides: 8 }] } }],
+      });
+    });
+
+    it("список заклинань вертається у форму редагування", () => {
+      const parsed = parseHomebrewCreatureInput({ ...creature, spells: [{ spellId: 7 }] });
+      if (!("data" in parsed)) throw new Error(JSON.stringify(parsed));
+      expect(readCreatureInputFromStatBlock(buildCreatureStatBlock(parsed.data, [fireball])).spells).toMatchObject([{ spellId: 7, name: "Вогняна куля", level: 3 }]);
+    });
+
+    it("нечислові поля заклинача — помилка по полю", () => {
+      expect(parseHomebrewCreatureInput({ ...creature, spellSaveDc: "багато" })).toMatchObject({ errors: { spellSaveDc: expect.any(String) } });
+    });
+  });
+
   it("показник небезпеки поза таблицею й нечислова характеристика — помилка", () => {
     expect(parseHomebrewCreatureInput({ ...creature, challenge: "31", strength: "сильний" })).toEqual({
       errors: { strength: "Ціле число", challenge: "Оберіть показник небезпеки" },

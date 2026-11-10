@@ -7,6 +7,7 @@ import { normalizeSlots, type OfflineHitDiceSpend } from "@/lib/offline/operatio
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { findHeroicInspirationCountAfterLongRest } from "@/rules/heroic-inspiration";
 import { findPoolsAfterLongRest, findPoolsAfterSpending, serializeHitDicePools } from "@/rules/hit-dice";
+import { restoreCustomFeatures } from "@/rules/pers-custom-content";
 import { findRegainedUsesAfterShortRest } from "@/rules/resource-pools";
 import { getPactMagicSlots, getStandardSpellSlots } from "@/rules/spellcasting";
 
@@ -43,6 +44,7 @@ export function applyLongRestToSheet({ pers, groupedFeatures }: OfflineSheet): O
       currentHitDice: serializeHitDicePools(restoredHitDice),
       currentSpellSlots: normalizeSlots(maxSpellSlots),
       currentPactSlots: maxPactSlots,
+      persCustomFeatures: restoreCustomFeatures(pers.persCustomFeatures ?? [], "LONG_REST"),
       heroicInspirationCount: findHeroicInspirationCountAfterLongRest({
         heroicInspirationCount: pers.heroicInspirationCount,
         canStackHeroicInspiration: pers.canStackHeroicInspiration,
@@ -72,6 +74,7 @@ export function applyShortRestToSheet(
       currentHp: Math.min(pers.maxHp, pers.currentHp + restored),
       currentHitDice: serializeHitDicePools(spent.pools),
       currentPactSlots: maxPactSlots > 0 ? maxPactSlots : pers.currentPactSlots,
+      persCustomFeatures: restoreCustomFeatures(pers.persCustomFeatures ?? [], "SHORT_REST"),
     },
     groupedFeatures: restoreFeatureUses(groupedFeatures, SHORT_REST_TYPES, (item) =>
       findRegainedUsesAfterShortRest({

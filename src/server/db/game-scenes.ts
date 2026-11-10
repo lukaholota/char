@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { buildLibraryGrid, GRID_OPACITY_RANGE, type SceneGrid } from "@/rules/game-grid";
 import type { TokenPosition } from "@/rules/game-map";
 import { GAME_SCENE_LIMITS, findLibraryMap, findViewedSceneId, isRoomUploadedMapKey, parseSceneName, type SceneMapSource } from "@/rules/game-scenes";
-import { findActiveGmSession, findMembership, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
+import { findActiveGmSession, findMembership, findRoomHero, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 import { deleteStoredImage, storeScreenshotImage } from "@/server/media/image-upload";
 
 type Transaction = Prisma.TransactionClient;
@@ -24,7 +24,7 @@ export async function createGameScene(sessionId: number, userId: number, rawName
     const sceneCount = await tx.gameScene.count({ where: { sessionId } });
     if (sceneCount >= GAME_SCENE_LIMITS.perRoom) return fail("scene_limit");
     const scene = await tx.gameScene.create({ data: { sessionId, name, ...buildSceneMapData(resolvedMap.value) }, select: { id: true } });
-    await tx.gameSessionMember.update({ where: { gameSessionId_userId: { gameSessionId: sessionId, userId } }, data: { openSceneId: scene.id } });
+    await tx.gameSessionMember.update({ where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } }, data: { openSceneId: scene.id } });
     if (sceneCount === 0) await tx.gameSession.update({ where: { id: sessionId }, data: { activeSceneId: scene.id } });
     return succeed({ id: scene.id });
   });
@@ -59,7 +59,7 @@ export async function replaceGameSceneMap(sessionId: number, userId: number, sce
     await tx.gameScene.update({ where: { id: sceneId }, data: buildSceneMapData(resolvedMap.value) });
     await tx.gameSceneArea.deleteMany({ where: { sceneId } });
     await tx.gameMapCreature.updateMany({ where: { gameSceneId: sceneId }, data: { tokenX: null, tokenY: null } });
-    await tx.gameSceneToken.deleteMany({ where: { sceneId } });
+    await tx.gameSceneHeroToken.deleteMany({ where: { sceneId } });
     return succeed({ previousKey: scene.mapImageKey });
   });
   if (!replaced.ok) {
@@ -75,7 +75,7 @@ export async function openGameScene(sessionId: number, userId: number, sceneId: 
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
   if (!(await isSceneInRoom(sessionId, sceneId))) return fail("bad_scene");
-  await prisma.gameSessionMember.update({ where: { gameSessionId_userId: { gameSessionId: sessionId, userId } }, data: { openSceneId: sceneId } });
+  await prisma.gameSessionMember.update({ where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } }, data: { openSceneId: sceneId } });
   await signalGameSession(sessionId, "session");
   return succeed(null);
 }
@@ -88,7 +88,7 @@ export async function activateGameScene(sessionId: number, userId: number, scene
     if (!(await isSceneInRoom(sessionId, sceneId, tx))) return fail("bad_scene");
     if (locked.activeSceneId !== sceneId && locked.isInCombat) return fail("scene_in_combat");
     await tx.gameSession.update({ where: { id: sessionId }, data: { activeSceneId: sceneId } });
-    await tx.gameSessionMember.update({ where: { gameSessionId_userId: { gameSessionId: sessionId, userId } }, data: { openSceneId: sceneId } });
+    await tx.gameSessionMember.update({ where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } }, data: { openSceneId: sceneId } });
     return succeed(null);
   });
   if (activated.ok) await signalGameSession(sessionId, "session");
@@ -112,26 +112,23 @@ export async function deleteGameScene(sessionId: number, userId: number, sceneId
   return succeed(null);
 }
 
-/// Свій токен рухає гравець, будь-який — майстер; position null повертає токен у ряд під мапою.
+/// Своїх героїв рухає гравець, будь-якого — майстер; position null повертає токен у ряд під мапою.
 /// sceneId — сцена, на якій тягнули: рух, що запізнився після перемикання сцени, не ляже на нову.
-export async function moveGameToken(sessionId: number, userId: number, sceneId: number | null, tokenUserId: number, position: TokenPosition | null): Promise<GameSessionResult<null>> {
-  const membership = await findMembership(sessionId, userId);
+export async function moveGameToken(sessionId: number, userId: number, sceneId: number | null, heroId: number, position: TokenPosition | null): Promise<GameSessionResult<null>> {
+  const [membership, hero] = await Promise.all([findMembership(sessionId, userId), findRoomHero(sessionId, heroId)]);
   if (!membership) return fail("not_found");
   if (membership.gameSession.archivedAt) return fail("archived");
-  if (tokenUserId !== userId && membership.role !== "GM") return fail("forbidden");
+  if (hero && hero.userId !== userId && membership.role !== "GM") return fail("forbidden");
   const viewedSceneId = findViewedSceneId({ isGm: membership.role === "GM", activeSceneId: membership.gameSession.activeSceneId, openSceneId: membership.openSceneId });
   if (viewedSceneId === null) return fail("no_map");
   if (sceneId !== viewedSceneId) return fail("scene_changed");
-  const [scene, hero] = await Promise.all([
-    prisma.gameScene.findFirst({ where: { id: sceneId, sessionId, mapImageKey: { not: null } }, select: { id: true } }),
-    prisma.gameSessionMember.findFirst({ where: { gameSessionId: sessionId, userId: tokenUserId, persId: { not: null } }, select: { userId: true } }),
-  ]);
-  if (!scene || !hero) return fail("no_map");
+  const scene = await prisma.gameScene.findFirst({ where: { id: sceneId, sessionId, mapImageKey: { not: null } }, select: { id: true } });
+  if (!scene || !hero || hero.persId === null) return fail("no_map");
   if (position === null) {
-    await prisma.gameSceneToken.deleteMany({ where: { sceneId, userId: tokenUserId } });
+    await prisma.gameSceneHeroToken.deleteMany({ where: { sceneId, memberId: heroId } });
   } else {
     const data = { tokenX: position.x, tokenY: position.y };
-    await prisma.gameSceneToken.upsert({ where: { sceneId_userId: { sceneId, userId: tokenUserId } }, create: { sceneId, userId: tokenUserId, ...data }, update: data });
+    await prisma.gameSceneHeroToken.upsert({ where: { sceneId_memberId: { sceneId, memberId: heroId } }, create: { sceneId, memberId: heroId, ...data }, update: data });
   }
   await signalGameSession(sessionId, "session");
   return succeed(null);

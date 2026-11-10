@@ -1,3 +1,4 @@
+import type { CreatureSpellcasting } from "@/rules/creature-spellcasting";
 /**
  * Static bestiary / creature data helpers for SSG pages and client catalogs.
  *
@@ -75,6 +76,7 @@ export type CreatureData = {
   /// Міфічні дії (KR16.3, партія 16) — окрема секція статблока, не різновид легендарних.
   mythicInfo?: string;
   mythicActions?: string;
+  spellcasting?: CreatureSpellcasting;
 } & CreatureSpeeds;
 
 // 2014 creatures

@@ -70,13 +70,12 @@ export async function endOwnCombatTurn(sessionId: number, userId: number, combat
   const member = await findMembership(sessionId, userId);
   if (!member) return fail("not_found");
   if (member.gameSession.archivedAt) return fail("archived");
-  if (member.persId === null) return fail("forbidden");
   const ended = await prisma.$transaction(async (tx) => {
     const state = await lockCombatState(tx, sessionId);
     if (state.round === null) return fail("no_combat");
     if (state.currentCombatantId !== combatantId) return fail("turn_moved");
     const current = await tx.gameCombatant.findFirst({ where: { id: combatantId, gameSessionId: sessionId }, select: { persId: true } });
-    if (current?.persId !== member.persId) return fail("forbidden");
+    if (!current?.persId || !(await tx.gameSessionMember.count({ where: { gameSessionId: sessionId, userId, persId: current.persId } }))) return fail("forbidden");
     return moveCombatTurn(tx, sessionId, { ...state, round: state.round }, 1);
   });
   if (ended.ok) await signalGameSession(sessionId, "session");

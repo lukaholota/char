@@ -13,6 +13,7 @@ import {
 import type { Feature } from "@prisma/client";
 import { PersWithRelations, PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { getAbilityMod, getProficiencyBonus, skillAbilityMap } from "./utils";
+import type { CustomRollStats } from "@/rules/custom-roll-formula";
 import { calculateArmorClass, explainArmorClass, type ArmorClassPartKey } from "@/rules/armor";
 import {
   calculateSavingThrowProficiencyBonus,
@@ -409,6 +410,16 @@ function findD20PenaltyPart(pers: PersWithRelations): NumberPart {
 
 function findSkillProficiency(pers: PersWithRelations, skill: Skills): SkillProficiencyType | "NONE" {
   return pers.skills.find((entry) => entry.name === skill)?.proficiencyType ?? "NONE";
+}
+
+export function calculateCustomSkillTotal(pers: PersWithRelations, skill: { ability: Ability; proficiencyType: SkillProficiencyType; bonus: number }): number {
+  const proficiencyValue = calculateSkillProficiencyBonus(skill.proficiencyType, calculateFinalProficiency(pers), skill.proficiencyType === "NONE" && hasJackOfAllTrades(pers));
+  return findSkillAbilityModifier(pers, skill.ability) + proficiencyValue + skill.bonus + findD20PenaltyPart(pers).value;
+}
+
+export function findCustomRollStats(pers: PersWithRelations): CustomRollStats {
+  const abilityModifiers = Object.fromEntries((Object.values(Ability) as Ability[]).map((ability) => [ability, findSkillAbilityModifier(pers, ability)])) as Record<Ability, number>;
+  return { abilityModifiers, proficiencyBonus: calculateFinalProficiency(pers), level: pers.level };
 }
 
 /** Calculate final proficiency bonus */

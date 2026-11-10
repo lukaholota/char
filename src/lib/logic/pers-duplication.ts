@@ -17,6 +17,8 @@ export const PERS_DUPLICATION_INCLUDE = {
   magicItems: { include: { magicItem: true } },
   persInfusions: true,
   resourcePools: true,
+  persCustomSkills: true,
+  persCustomFeatures: true,
   wildshapes: true,
   effects: true,
   bastion: { include: { facilities: true, turns: true } },
@@ -336,6 +338,14 @@ async function copyFeatureDescriptions(tx: TransactionClient, pers: PersCloneSou
 async function copyResourcePoolsAndWildshapes(tx: TransactionClient, pers: PersCloneSource, persId: number) {
   await tx.persResourcePool.createMany({
     data: pers.resourcePools.map((pool) => ({ persId, poolKey: pool.poolKey, usesRemaining: pool.usesRemaining })),
+  });
+
+  await tx.persCustomSkill.createMany({
+    data: (pers.persCustomSkills ?? []).map(({ name, ability, proficiencyType, bonus }) => ({ persId, name, ability, proficiencyType, bonus })),
+  });
+
+  await tx.persCustomFeature.createMany({
+    data: (pers.persCustomFeatures ?? []).map(({ name, description, rollFormula, usesMax, usesRemaining, restoredOn }) => ({ persId, name, description, rollFormula, usesMax, usesRemaining, restoredOn })),
   });
 
   await tx.persWildshape.createMany({

@@ -1263,6 +1263,33 @@ CREATE TYPE public."WeaponType" AS ENUM (
 );
 
 
+--
+-- Name: mirror_scene_token_to_hero_token(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.mirror_scene_token_to_hero_token() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+  IF TG_OP = 'DELETE' THEN
+    DELETE FROM public.game_scene_hero_token hero
+    USING public.game_session_member member
+    WHERE hero.game_scene_id = OLD.game_scene_id
+      AND member.game_session_member_id = hero.game_session_member_id
+      AND member.user_id = OLD.user_id
+      AND member.hero_slot = 0;
+    RETURN OLD;
+  END IF;
+  INSERT INTO public.game_scene_hero_token (game_scene_id, game_session_member_id, token_x, token_y)
+  SELECT NEW.game_scene_id, member.game_session_member_id, NEW.token_x, NEW.token_y
+  FROM public.game_scene scene
+  JOIN public.game_session_member member ON member.game_session_id = scene.game_session_id AND member.user_id = NEW.user_id AND member.hero_slot = 0
+  WHERE scene.game_scene_id = NEW.game_scene_id
+  ON CONFLICT (game_scene_id, game_session_member_id) DO UPDATE SET token_x = EXCLUDED.token_x, token_y = EXCLUDED.token_y;
+  RETURN NEW;
+END $$;
+
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
@@ -2513,6 +2540,20 @@ ALTER SEQUENCE public.game_scene_game_scene_id_seq OWNED BY public.game_scene.ga
 
 
 --
+-- Name: game_scene_hero_token; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_scene_hero_token (
+    game_scene_id integer NOT NULL,
+    game_session_member_id integer NOT NULL,
+    token_x real NOT NULL,
+    token_y real NOT NULL,
+    CONSTRAINT game_scene_hero_token_token_x_check CHECK (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision))),
+    CONSTRAINT game_scene_hero_token_token_y_check CHECK (((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))
+);
+
+
+--
 -- Name: game_scene_token; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2587,7 +2628,10 @@ CREATE TABLE public.game_session_member (
     conditions text[] DEFAULT '{}'::text[] NOT NULL,
     exhaustion_level smallint DEFAULT 0 NOT NULL,
     open_scene_id integer,
+    hero_slot smallint DEFAULT 0 NOT NULL,
+    is_cutout boolean DEFAULT false NOT NULL,
     CONSTRAINT game_session_member_exhaustion_check CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
+    CONSTRAINT game_session_member_hero_slot_check CHECK (((hero_slot >= 0) AND (hero_slot <= 5))),
     CONSTRAINT game_session_member_role_check CHECK (((role)::text = ANY ((ARRAY['GM'::character varying, 'PLAYER'::character varying])::text[]))),
     CONSTRAINT game_session_member_token_check CHECK ((((token_x IS NULL) = (token_y IS NULL)) AND ((token_x IS NULL) OR (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision)) AND ((token_y >= (0)::double precision) AND (token_y <= (1)::double precision))))))
 );
@@ -3046,6 +3090,87 @@ CREATE SEQUENCE public.pers_bastion_turn_pers_bastion_turn_id_seq
 --
 
 ALTER SEQUENCE public.pers_bastion_turn_pers_bastion_turn_id_seq OWNED BY public.pers_bastion_turn.pers_bastion_turn_id;
+
+
+--
+-- Name: pers_custom_feature; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_custom_feature (
+    pers_custom_feature_id integer NOT NULL,
+    pers_id integer NOT NULL,
+    name character varying(100) NOT NULL,
+    description text DEFAULT ''::text NOT NULL,
+    roll_formula character varying(200),
+    uses_max smallint,
+    uses_remaining smallint,
+    restored_on public."RestType",
+    created_at timestamp(6) with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT pers_custom_feature_check CHECK (((uses_max IS NULL) = (uses_remaining IS NULL))),
+    CONSTRAINT pers_custom_feature_check1 CHECK ((uses_remaining <= uses_max)),
+    CONSTRAINT pers_custom_feature_check2 CHECK (((restored_on IS NULL) OR (uses_max IS NOT NULL))),
+    CONSTRAINT pers_custom_feature_description_check CHECK ((char_length(description) <= 4000)),
+    CONSTRAINT pers_custom_feature_name_check CHECK ((btrim((name)::text) <> ''::text)),
+    CONSTRAINT pers_custom_feature_uses_max_check CHECK (((uses_max >= 1) AND (uses_max <= 999))),
+    CONSTRAINT pers_custom_feature_uses_remaining_check CHECK (((uses_remaining >= 0) AND (uses_remaining <= 999)))
+);
+
+
+--
+-- Name: pers_custom_feature_pers_custom_feature_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_custom_feature_pers_custom_feature_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_custom_feature_pers_custom_feature_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_custom_feature_pers_custom_feature_id_seq OWNED BY public.pers_custom_feature.pers_custom_feature_id;
+
+
+--
+-- Name: pers_custom_skill; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pers_custom_skill (
+    pers_custom_skill_id integer NOT NULL,
+    pers_id integer NOT NULL,
+    name character varying(60) NOT NULL,
+    ability public."Ability" NOT NULL,
+    proficiency_type public."SkillProficiencyType" DEFAULT 'NONE'::public."SkillProficiencyType" NOT NULL,
+    bonus smallint DEFAULT 0 NOT NULL,
+    created_at timestamp(6) with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT pers_custom_skill_bonus_check CHECK (((bonus >= '-30'::integer) AND (bonus <= 30))),
+    CONSTRAINT pers_custom_skill_name_check CHECK ((btrim((name)::text) <> ''::text))
+);
+
+
+--
+-- Name: pers_custom_skill_pers_custom_skill_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pers_custom_skill_pers_custom_skill_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pers_custom_skill_pers_custom_skill_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pers_custom_skill_pers_custom_skill_id_seq OWNED BY public.pers_custom_skill.pers_custom_skill_id;
 
 
 --
@@ -4805,6 +4930,20 @@ ALTER TABLE ONLY public.pers_bastion_turn ALTER COLUMN pers_bastion_turn_id SET 
 
 
 --
+-- Name: pers_custom_feature pers_custom_feature_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_custom_feature ALTER COLUMN pers_custom_feature_id SET DEFAULT nextval('public.pers_custom_feature_pers_custom_feature_id_seq'::regclass);
+
+
+--
+-- Name: pers_custom_skill pers_custom_skill_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_custom_skill ALTER COLUMN pers_custom_skill_id SET DEFAULT nextval('public.pers_custom_skill_pers_custom_skill_id_seq'::regclass);
+
+
+--
 -- Name: pers_effect pers_effect_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -5438,6 +5577,14 @@ ALTER TABLE ONLY public.game_scene_area
 
 
 --
+-- Name: game_scene_hero_token game_scene_hero_token_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_hero_token
+    ADD CONSTRAINT game_scene_hero_token_pkey PRIMARY KEY (game_scene_id, game_session_member_id);
+
+
+--
 -- Name: game_scene game_scene_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -5462,19 +5609,19 @@ ALTER TABLE ONLY public.game_session
 
 
 --
--- Name: game_session_member game_session_member_game_session_id_user_id_key; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.game_session_member
-    ADD CONSTRAINT game_session_member_game_session_id_user_id_key UNIQUE (game_session_id, user_id);
-
-
---
 -- Name: game_session_member game_session_member_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.game_session_member
     ADD CONSTRAINT game_session_member_pkey PRIMARY KEY (game_session_member_id);
+
+
+--
+-- Name: game_session_member game_session_member_session_user_slot_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_session_member
+    ADD CONSTRAINT game_session_member_session_user_slot_key UNIQUE (game_session_id, user_id, hero_slot);
 
 
 --
@@ -5563,6 +5710,30 @@ ALTER TABLE ONLY public.pers_bastion
 
 ALTER TABLE ONLY public.pers_bastion_turn
     ADD CONSTRAINT pers_bastion_turn_pkey PRIMARY KEY (pers_bastion_turn_id);
+
+
+--
+-- Name: pers_custom_feature pers_custom_feature_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_custom_feature
+    ADD CONSTRAINT pers_custom_feature_pkey PRIMARY KEY (pers_custom_feature_id);
+
+
+--
+-- Name: pers_custom_skill pers_custom_skill_pers_id_name_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_custom_skill
+    ADD CONSTRAINT pers_custom_skill_pers_id_name_key UNIQUE (pers_id, name);
+
+
+--
+-- Name: pers_custom_skill pers_custom_skill_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_custom_skill
+    ADD CONSTRAINT pers_custom_skill_pkey PRIMARY KEY (pers_custom_skill_id);
 
 
 --
@@ -6340,6 +6511,13 @@ CREATE INDEX pers_bastion_turn_pers_bastion_id_idx ON public.pers_bastion_turn U
 
 
 --
+-- Name: pers_custom_feature_pers_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX pers_custom_feature_pers_idx ON public.pers_custom_feature USING btree (pers_id, pers_custom_feature_id);
+
+
+--
 -- Name: pers_feat_choice_pers_feat_id_choice_option_id_key; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -6617,6 +6795,13 @@ CREATE UNIQUE INDEX user_email_key ON public."user" USING btree (email);
 --
 
 CREATE INDEX user_token_image_user_idx ON public.user_token_image USING btree (user_id, created_at DESC);
+
+
+--
+-- Name: game_scene_token game_scene_token_mirror; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER game_scene_token_mirror AFTER INSERT OR DELETE OR UPDATE ON public.game_scene_token FOR EACH ROW EXECUTE FUNCTION public.mirror_scene_token_to_hero_token();
 
 
 --
@@ -7148,6 +7333,22 @@ ALTER TABLE ONLY public.game_scene
 
 
 --
+-- Name: game_scene_hero_token game_scene_hero_token_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_hero_token
+    ADD CONSTRAINT game_scene_hero_token_game_scene_id_fkey FOREIGN KEY (game_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_scene_hero_token game_scene_hero_token_game_session_member_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_hero_token
+    ADD CONSTRAINT game_scene_hero_token_game_session_member_id_fkey FOREIGN KEY (game_session_member_id) REFERENCES public.game_session_member(game_session_member_id) ON DELETE CASCADE;
+
+
+--
 -- Name: game_scene_token game_scene_token_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7329,6 +7530,22 @@ ALTER TABLE ONLY public.pers_bastion_turn
 
 ALTER TABLE ONLY public.pers
     ADD CONSTRAINT pers_class_id_fkey FOREIGN KEY (class_id) REFERENCES public.class(class_id) ON UPDATE CASCADE ON DELETE RESTRICT;
+
+
+--
+-- Name: pers_custom_feature pers_custom_feature_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_custom_feature
+    ADD CONSTRAINT pers_custom_feature_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE CASCADE;
+
+
+--
+-- Name: pers_custom_skill pers_custom_skill_pers_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_custom_skill
+    ADD CONSTRAINT pers_custom_skill_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE CASCADE;
 
 
 --

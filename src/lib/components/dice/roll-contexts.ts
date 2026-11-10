@@ -6,6 +6,7 @@ import type { CreatureRoll } from "@/rules/creature-rolls";
 import { AREA_SHAPE_LABELS } from "@/rules/game-areas";
 import type { SpellRollPlan } from "@/rules/spell-dice";
 import type { AbilityKey } from "@/rules/types";
+import type { CustomRollFormula } from "@/rules/custom-roll-formula";
 
 export type AbilityRollKind = "check" | "save";
 
@@ -38,6 +39,14 @@ export function buildAbilityRollContext(
 
 export function buildSkillRollContext(skillName: string, abilityName: string, bonus: number, onEdit?: () => void, state?: RollStateView): DiceRollContext {
   return { title: skillName, subtitle: abilityName, actions: [buildD20Action("check", "Перевірка", bonus, state)], autoRollKey: "check", onEdit };
+}
+
+export function buildCustomFormulaRollContext(title: string, rolls: ReadonlyArray<{ formula: CustomRollFormula; bonus: number }>, pressedIndex: number): DiceRollContext {
+  const actions = rolls.map(({ formula, bonus }, index): DiceRollAction => {
+    const key = `formula-${index}`;
+    return formula.count === 1 && formula.sides === 20 ? buildD20Action(key, formula.label, bonus) : { key, label: formula.label, count: formula.count, sides: formula.sides, bonus, isD20: false };
+  });
+  return { title, actions, autoRollKey: actions[pressedIndex].key };
 }
 
 export function buildInitiativeRollContext(bonus: number, onEdit?: () => void, state?: RollStateView): DiceRollContext {
@@ -74,7 +83,7 @@ export function buildWeaponRollContext(input: {
   };
 }
 
-const ABILITY_GENITIVE: Record<AbilityKey, string> = { STR: "Сили", DEX: "Спритності", CON: "Статури", INT: "Інтелекту", WIS: "Мудрості", CHA: "Харизми" };
+export const ABILITY_GENITIVE: Record<AbilityKey, string> = { STR: "Сили", DEX: "Спритності", CON: "Статури", INT: "Інтелекту", WIS: "Мудрості", CHA: "Харизми" };
 
 /// Шкода, що приходить пізніше (Мітка мисливця, зони), не кидається сама: панель чекає натискання.
 export function buildSpellRollContext(input: {
@@ -101,6 +110,13 @@ export function buildSpellRollContext(input: {
     targetSave: plan.save ? { abilityName: ABILITY_GENITIVE[plan.save], dc: input.saveDC, ...(input.spell ? { spell: input.spell } : {}) } : undefined,
     ...(targetPicks && targetPicks.count > 1 ? { targetPicks } : {}),
   };
+}
+
+/// Заклинання монстра в журналі підписане монстром, а панель одразу кидає те, що натиснули.
+export function buildCreatureSpellRollContext(input: { creatureName: string; spellName: string; plan: SpellRollPlan; attackBonus: number; saveDC: number; spell: SaveSpellRef; pressedKey: string }): DiceRollContext {
+  const { creatureName, spellName, pressedKey, ...spellRoll } = input;
+  const context = buildSpellRollContext({ ...spellRoll, spellName: creatureName });
+  return { ...context, subtitle: [spellName, context.subtitle].filter(Boolean).join(" · "), autoRollKey: pressedKey, isCreatureRoll: true };
 }
 
 export function describeTargetSave(save: NonNullable<DiceRollContext["targetSave"]>): string {

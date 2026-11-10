@@ -27,6 +27,8 @@ import {
   renameGameSession,
   rotateInviteToken,
   setGameSessionArchived,
+  setRoomHeroCutout,
+  toggleRoomHero,
 } from "@/server/db/game-sessions";
 
 export async function createGameSessionAction(name: string) {
@@ -65,6 +67,14 @@ export async function bindGameSessionPersAction(sessionId: number, persId: numbe
   return runAsUser(async (userId) => (isId(sessionId) && (persId === null || isId(persId)) ? bindMemberPers(sessionId, userId, persId) : rejectBadInput));
 }
 
+export async function toggleRoomHeroAction(sessionId: number, persId: number) {
+  return runAsUser(async (userId) => (isId(sessionId) && isId(persId) ? toggleRoomHero(sessionId, userId, persId) : rejectBadInput));
+}
+
+export async function setRoomHeroCutoutAction(sessionId: number, heroId: number, isCutout: unknown) {
+  return runAsUser(async (userId) => (isId(sessionId) && isId(heroId) && typeof isCutout === "boolean" ? setRoomHeroCutout(sessionId, userId, heroId, isCutout) : rejectBadInput));
+}
+
 export async function createGameSceneAction(sessionId: number, name: string, formData: FormData) {
   return runAsUser(async (userId) => (isId(sessionId) && formData instanceof FormData ? createGameScene(sessionId, userId, name, parseSceneMapSource(formData)) : rejectBadInput));
 }
@@ -95,12 +105,12 @@ export async function deleteGameSceneAction(sessionId: number, sceneId: number) 
   return runAsUser(async (userId) => (isId(sessionId) && isId(sceneId) ? deleteGameScene(sessionId, userId, sceneId) : rejectBadInput));
 }
 
-export async function moveGameTokenAction(sessionId: number, sceneId: number, tokenUserId: number, rawPosition: unknown) {
+export async function moveGameTokenAction(sessionId: number, sceneId: number, heroId: number, rawPosition: unknown) {
   const position = rawPosition === null ? null : parseTokenPosition(rawPosition);
   return runAsUser(async (userId) => {
-    if (!isId(sessionId) || !isId(sceneId) || !isId(tokenUserId) || (rawPosition !== null && !position)) return rejectBadInput;
+    if (!isId(sessionId) || !isId(sceneId) || !isId(heroId) || (rawPosition !== null && !position)) return rejectBadInput;
     if (!tryTakeTokenMoveSlot(userId)) return { ok: false as const, error: "too_fast" as const };
-    return moveGameToken(sessionId, userId, sceneId, tokenUserId, position);
+    return moveGameToken(sessionId, userId, sceneId, heroId, position);
   });
 }
 
@@ -199,13 +209,13 @@ export async function changeMapCreatureConditionsAction(sessionId: number, creat
   return runAsUser(async (userId) => (isId(sessionId) && isId(creatureId) && change ? changeCreatureConditions(sessionId, userId, creatureId, change) : rejectBadInput));
 }
 
-export async function changeHeroConditionsAction(sessionId: number, heroUserId: number, rawChange: unknown) {
+export async function changeHeroConditionsAction(sessionId: number, heroId: number, rawChange: unknown) {
   const change = parseTokenConditionChange(rawChange);
-  return runAsUser(async (userId) => (isId(sessionId) && isId(heroUserId) && change ? changeHeroConditions(sessionId, userId, heroUserId, change) : rejectBadInput));
+  return runAsUser(async (userId) => (isId(sessionId) && isId(heroId) && change ? changeHeroConditions(sessionId, userId, heroId, change) : rejectBadInput));
 }
 
 export async function blessRoomTargetsAction(sessionId: number, rawTargets: unknown) {
-  const targets = parseRollTargets(rawTargets, GAME_SESSION_LIMITS.members + MAX_SAVE_TARGETS);
+  const targets = parseRollTargets(rawTargets, GAME_SESSION_LIMITS.members * GAME_SESSION_LIMITS.heroesPerMember + MAX_SAVE_TARGETS);
   return runAsUser(async (userId) => (isId(sessionId) && targets ? markBlessedTargets(sessionId, userId, targets) : rejectBadInput));
 }
 

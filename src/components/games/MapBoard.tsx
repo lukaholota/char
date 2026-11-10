@@ -129,7 +129,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     return at ? clampShare(at) : { x: 0.5, y: 0.5 };
   };
   const startArea = (start: AreaStart, earlier?: AreaPlacement) => {
-    const myHero = view.members.find((member) => member.userId === view.myUserId);
+    const myHero = view.members.find((member) => member.userId === view.myUserId && member.persId !== null);
     const heroAt = myHero ? moves.findPosition(myHero) : null;
     const origin = earlier?.origin ?? (start.shape !== "circle" && heroAt ? heroAt : findViewCentre());
     area.setDraft({ id: null, canEdit: true, placement: { ...start, origin: frame ? snapToHalfCell(origin, frame) : origin, angle: earlier?.angle ?? 0 } });

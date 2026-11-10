@@ -14,6 +14,7 @@ vi.mock("next/navigation", () => ({ useRouter: () => ({ refresh: vi.fn(), push: 
 vi.mock("sonner", () => ({ toast: { info: vi.fn(), error: vi.fn() } }));
 vi.mock("@/lib/actions/feature-uses", () => ({ spendFeatureUse, restoreFeatureUse: vi.fn() }));
 vi.mock("@/lib/actions/spell-slots", () => ({ spendSpellSlot, spendPactSlot: vi.fn() }));
+vi.mock("@/lib/actions/pers-custom-content-actions", () => ({}));
 vi.mock("@/lib/actions/combat-actions", () => ({ applyHpChange }));
 vi.mock("@/lib/components/game/open-room-roll", () => ({ openRoomRoll }));
 vi.mock("@/hooks/useOfflineQueue", () => ({

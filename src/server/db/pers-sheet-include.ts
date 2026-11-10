@@ -118,6 +118,8 @@ export const PERS_SHEET_INCLUDE = {
   pers_weapon_mastery: { include: { weapon: true } },
   armors: { include: { armor: true } },
   resourcePools: true,
+  persCustomSkills: { orderBy: { name: "asc" } },
+  persCustomFeatures: { orderBy: { id: "asc" } },
 } satisfies Prisma.PersInclude;
 
 /** Для друку: PDF виписує описи заклинань. */

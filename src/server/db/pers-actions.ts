@@ -24,6 +24,18 @@ async function getCurrentUserId() {
 }
 
 export async function canEditPers(persId: number, userId: number) {
+    return (await isPersCollaborator(persId, userId)) || isGmOfPersRoom(persId, userId);
+}
+
+async function isGmOfPersRoom(persId: number, userId: number): Promise<boolean> {
+    const room = await prisma.gameSessionMember.findFirst({
+        where: { persId, gameSession: { archivedAt: null, members: { some: { userId, role: "GM" } } } },
+        select: { gameSessionId: true },
+    });
+    return room !== null;
+}
+
+async function isPersCollaborator(persId: number, userId: number) {
     const pers = await prisma.pers.findUnique({
         where: { persId },
         select: {
@@ -252,7 +264,7 @@ export async function deletePers(persId: number) {
         return { success: true as const, unlinked: true as const };
     }
 
-    const canEdit = await canEditPers(persId, userId);
+    const canEdit = await isPersCollaborator(persId, userId);
     if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
 
     return { success: false as const, error: "Видалити персонажа може лише власник" };
@@ -271,7 +283,7 @@ export async function duplicatePers(persId: number) {
         if (!pers) {
             return { success: false as const, error: "Немає доступу до персонажа" };
         }
-        const canEdit = await canEditPers(persId, userId);
+        const canEdit = await isPersCollaborator(persId, userId);
         if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
 
         const duplicate = await prisma.$transaction(async (tx) => clonePersWithRelations(tx, pers, buildCopyTarget(pers)));
@@ -498,7 +510,7 @@ export async function movePersToFolder(persId: number, folderId: number | null) 
     const userId = await getCurrentUserId();
     if (!userId) return { success: false as const, error: "Не авторизовано" };
 
-    const canEdit = await canEditPers(persId, userId);
+    const canEdit = await isPersCollaborator(persId, userId);
     if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
 
     let nextFolderId: number | null = null;
@@ -572,7 +584,7 @@ export async function setPersPinned(persId: number, isPinned: boolean) {
     const userId = await getCurrentUserId();
     if (!userId) return { success: false as const, error: "Не авторизовано" };
 
-    const canEdit = await canEditPers(persId, userId);
+    const canEdit = await isPersCollaborator(persId, userId);
     if (!canEdit) return { success: false as const, error: "Немає доступу до персонажа" };
 
     await prisma.pers.update({
@@ -650,7 +662,7 @@ async function findVisiblePers<TInclude extends Prisma.PersInclude>(id: number, 
 async function canViewPers(pers: { persId: number; userId: number; folderId: number | null }, userId: number): Promise<boolean> {
     if (pers.userId === userId) return true;
 
-    const [additional, folderMember] = await Promise.all([
+    const [additional, folderMember, isRoomGm] = await Promise.all([
         prisma.persAdditionalUser.findUnique({
             where: { persId_userId: { persId: pers.persId, userId } },
             select: { persId: true },
@@ -661,9 +673,10 @@ async function canViewPers(pers: { persId: number; userId: number; folderId: num
                 select: { canEdit: true },
             })
             : null,
+        isGmOfPersRoom(pers.persId, userId),
     ]);
 
-    return Boolean(additional || folderMember?.canEdit);
+    return Boolean(additional || folderMember?.canEdit || isRoomGm);
 }
 
 export type PersWithRelations = NonNullable<Awaited<ReturnType<typeof getPersForSheet>>>;

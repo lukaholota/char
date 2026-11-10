@@ -43,7 +43,7 @@ afterEach(cleanup);
 
 function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
   return {
-    id: 7, name: "Печера", isArchived: false, myUserId: 1, myRole: "GM", myPersId: null, inviteToken: null, mapImageUrl: null,
+    id: 7, name: "Печера", isArchived: false, myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [], inviteToken: null, mapImageUrl: null,
     members: [], creatures: [], creatureNameMode: "short", combat: null, grid: null, fog: null, areas: [],
     viewedSceneId: 1, activeSceneId: 1,
     scenes: [

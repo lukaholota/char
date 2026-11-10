@@ -304,6 +304,9 @@ describe("Офлайн-аудит 2026-09-18 — ресурси рис, заря
 describe("Відпочинок у офлайн-черзі — розпізнавання", () => {
   it("приймає довгий і короткий відпочинок з кинутими хітами", () => {
     expect(isOfflineOperation(operation({ kind: "long-rest" }))).toBe(true);
+    expect(isOfflineOperation(operation({ kind: "custom-feature-use", customFeatureId: 1, direction: "spend" }))).toBe(true);
+    expect(isOfflineOperation(operation({ kind: "custom-feature-use", customFeatureId: 1.5, direction: "spend" }))).toBe(false);
+    expect(isOfflineOperation({ ...operation({ kind: "custom-feature-use", customFeatureId: 1, direction: "spend" }), direction: "steal" })).toBe(false);
     expect(
       isOfflineOperation(operation({ kind: "short-rest", hitDiceSpent: [{ classId: 3, count: 2 }], restoredHitPoints: 11 })),
     ).toBe(true);

@@ -8,7 +8,7 @@
  * керується catalog-visuals.ts, тож обидва місця викликають ту саму функцію з тим самим входом.
  */
 
-import { BookOpen, FlaskConical, Shield, User, Users } from "lucide-react";
+import { Backpack, BookOpen, FlaskConical, Shield, User, Users } from "lucide-react";
 import type { OmniSearchCategory, OmniSearchItem } from "@/lib/omniSearchData";
 import {
   getSpellSchoolVisual,
@@ -25,6 +25,13 @@ import {
   getRuleCategoryVisual,
   ItemVisual,
 } from "@/components/catalogs/catalog-visuals";
+
+const GEAR_VISUAL: ItemVisual = {
+  icon: Backpack,
+  iconWrap: "bg-amber-950/60 border-amber-800/60",
+  iconColor: "text-amber-300",
+  badgeClass: "border-amber-800/50 bg-amber-950/40 text-amber-300",
+};
 
 const CLASS_VISUAL: ItemVisual = {
   icon: Shield,
@@ -79,6 +86,8 @@ function dispatchVisual(
       return getWeaponVisual(visualKey, typeof visualKeySecondary === "boolean" ? visualKeySecondary : undefined);
     case "armor":
       return getArmorVisual(visualKey);
+    case "gear":
+      return GEAR_VISUAL;
     case "bestiary":
       return getCreatureVisual(visualKey);
     case "feats":

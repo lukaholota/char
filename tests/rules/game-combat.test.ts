@@ -92,7 +92,7 @@ describe("порядок ходів", () => {
 });
 
 describe("вигляд бою для глядача", () => {
-  const heroes = new Map([[10, { userId: 2, name: "Арвен", avatarUrl: "/arven.webp" }]]);
+  const heroes = new Map([[10, { persId: 10, userId: 2, name: "Арвен", avatarUrl: "/arven.webp" }]]);
   const rows = [
     row({ id: 1, persId: 10, initiative: 9, initiativeBonus: 2 }),
     row({ id: 2, persId: null, gameMapCreatureId: 7, initiative: 18, initiativeBonus: 4 }),
@@ -109,7 +109,7 @@ describe("вигляд бою для глядача", () => {
     expect(view.currentId).toBe(1);
     expect(view.combatants.map((combatant) => combatant.id)).toEqual([2, 1]);
     expect(view.combatants[0]).toEqual({ id: 2, initiative: 18, hero: null, creature: expect.objectContaining({ label: "Тінь", creatureKey: null, imageUrl: null }) });
-    expect(view.combatants[1].hero).toEqual({ userId: 2, name: "Арвен", avatarUrl: "/arven.webp" });
+    expect(view.combatants[1].hero).toEqual({ persId: 10, userId: 2, name: "Арвен", avatarUrl: "/arven.webp" });
     expect(JSON.stringify(view)).not.toContain("initiativeBonus");
     expect(JSON.stringify(view)).not.toContain("sortTiebreak");
   });
@@ -130,12 +130,12 @@ describe("вигляд бою для глядача", () => {
 
 describe("нові учасники бою", () => {
   const combat = { round: 1, currentId: 1, combatants: [
-    { id: 1, initiative: 12, hero: { userId: 5, name: "Арвен", avatarUrl: null }, creature: null },
+    { id: 1, initiative: 12, hero: { persId: 5, userId: 5, name: "Арвен", avatarUrl: null }, creature: null },
     { id: 2, initiative: 8, hero: null, creature: goblin(7) },
   ] };
 
   it("називає героїв і поставлених істот поза чергою, а неставлених пропускає", () => {
-    const heroes = [{ userId: 5, name: "Арвен" }, { userId: 6, name: "Борін" }];
+    const heroes = [{ persId: 5, name: "Арвен" }, { persId: 6, name: "Борін" }];
     const creatures = [goblin(7), goblin(8), goblin(9, { token: null })];
     expect(findCombatNewcomers(combat, { heroes, creatures })).toEqual(["Борін", "Гоблін 8"]);
   });

@@ -34,7 +34,7 @@ export function ClassTableView({
   onOpenFeature?: (feature: ClassTableFeatureRef) => void;
 }) {
   return (
-    <div className={cn("w-full min-w-0 max-w-full overflow-auto overscroll-x-contain rounded-xl border border-white/10 bg-slate-900", className)}>
+    <div className={cn("custom-scrollbar [scrollbar-color:auto] [scrollbar-width:auto] w-full min-w-0 max-w-full overflow-auto overscroll-x-contain rounded-xl border border-white/10 bg-slate-900", className)}>
       <table className="w-full table-auto border-separate border-spacing-0 text-left text-xs sm:text-sm" style={{ minWidth: `${table.minWidth}px` }}>
         <thead className="sticky top-0 z-30 text-slate-100">
           <tr>

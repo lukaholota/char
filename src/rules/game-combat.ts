@@ -16,7 +16,7 @@ export type CombatantRow = {
 
 export type CombatPresence = { persIds: ReadonlySet<number>; creatureIds: ReadonlySet<number> };
 
-export type CombatHeroView = { userId: number; name: string; avatarUrl: string | null };
+export type CombatHeroView = { persId: number; userId: number; name: string; avatarUrl: string | null };
 
 /// Бонус ініціативи гравцям не віддається: за ним можна вирахувати Спритність прихованої істоти.
 export type CombatantView = { id: number; initiative: number; hero: CombatHeroView | null; creature: MapCreatureView | null };
@@ -97,16 +97,16 @@ export function buildCombatView({ state, rows, heroesByPersId, creatures }: Comb
   return { round: state.round, currentId: order[currentIndex]?.id ?? null, combatants };
 }
 
-type CombatCandidates = { heroes: readonly { userId: number; name: string }[]; creatures: readonly MapCreatureView[] | null };
+type CombatCandidates = { heroes: readonly { persId: number; name: string }[]; creatures: readonly MapCreatureView[] | null };
 
 /// Кого додасть «Додати в бій»: героїв із листом і поставлених на мапу істот, яких ще немає в черзі.
 /// Без істот активної сцени (майстер дивиться іншу) відповідь невідома — null.
 export function findCombatNewcomers(combat: CombatView, { heroes, creatures }: CombatCandidates): string[] | null {
   if (creatures === null) return null;
-  const heroIds = new Set(combat.combatants.flatMap((combatant) => (combatant.hero ? [combatant.hero.userId] : [])));
+  const heroIds = new Set(combat.combatants.flatMap((combatant) => (combatant.hero ? [combatant.hero.persId] : [])));
   const creatureIds = new Set(combat.combatants.flatMap((combatant) => (combatant.creature ? [combatant.creature.id] : [])));
   return [
-    ...heroes.filter((hero) => !heroIds.has(hero.userId)).map((hero) => hero.name),
+    ...heroes.filter((hero) => !heroIds.has(hero.persId)).map((hero) => hero.name),
     ...creatures.filter((creature) => creature.token !== null && !creatureIds.has(creature.id)).map((creature) => creature.label),
   ];
 }

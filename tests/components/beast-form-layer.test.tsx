@@ -30,6 +30,7 @@ vi.mock("@/server/db/wildshape-actions", () => ({
   loadWildshapeForms: vi.fn(),
 }));
 vi.mock("@/hooks/useOfflineQueue", () => ({ useOfflineQueue: () => ({ commitOperation: vi.fn() }) }));
+vi.mock("@/lib/actions/pers-custom-content-actions", () => ({}));
 vi.mock("@/lib/actions/combat-actions", () => ({
   applyHpChange: vi.fn(),
   reviveCharacter: vi.fn(),
@@ -135,7 +136,7 @@ describe("навички у звіриній формі", () => {
 
     render(<SkillsSlide pers={buildBeastFormPers(own, view.layer)} beastForm={view} />);
 
-    const perception = screen.getByText("Уважність").closest("div")?.parentElement;
+    const perception = screen.getByText("Уважність").closest("div");
     expect(perception?.textContent).toBe("Уважність+4");
   });
 

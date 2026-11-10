@@ -18,7 +18,7 @@ const MODE_LABELS = { ADVANTAGE: "перевага", DISADVANTAGE: "перешк
 
 export function GameRollSavesList({ saves, seq }: { saves: GameRollSavesView; seq: number }) {
   const sessionId = useGameSessionLiveStore((state) => state.sessionId);
-  const myPersId = useGameSessionLiveStore((state) => state.view?.myPersId ?? null);
+  const myPersIds = useGameSessionLiveStore((state) => state.view?.myPersIds);
   return (
     <ul aria-label="Ряткидки цілей" className="mt-1 space-y-1 text-sm text-slate-200">
       {saves.rows.map((row, index) => (
@@ -31,7 +31,7 @@ export function GameRollSavesList({ saves, seq }: { saves: GameRollSavesView; se
             {row.gm?.isUndone ? <span className="rounded-md border border-white/10 px-1.5 text-xs text-slate-300">скасовано</span> : null}
           </div>
           {row.gm ? <GmSaveDetails gm={row.gm} undoLabel={`Скасувати ${saves.damageType ? "шкоду" : "ефект"}: ${row.name}`} seq={seq} rowIndex={index} /> : null}
-          {sessionId !== null && row.persId !== null && row.persId === myPersId && row.damage > 0 ? (
+          {sessionId !== null && row.persId !== null && myPersIds?.includes(row.persId) && row.damage > 0 ? (
             <MyHeroDamage sessionId={sessionId} seq={seq} persId={row.persId} amount={row.damage} saveRowIndex={index} isApplied={row.isAppliedToSheet} />
           ) : null}
         </li>

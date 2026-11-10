@@ -12,7 +12,7 @@ import { showRoomTab } from "./room-tabs";
 
 export function GameRollHeroTargetLine({ target, roll, total, seq }: { target: GameRollHeroTargetView; roll: GameRoll | null; total: number | null; seq: number }) {
   const sessionId = useGameSessionLiveStore((state) => state.sessionId);
-  const isMyHero = useGameSessionLiveStore((state) => state.view?.myPersId === target.persId);
+  const isMyHero = useGameSessionLiveStore((state) => state.view?.myPersIds.includes(target.persId) ?? false);
   return (
     <div className="mt-1 space-y-1 text-sm text-slate-200">
       <div className="flex flex-wrap items-center gap-x-2">

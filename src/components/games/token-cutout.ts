@@ -8,6 +8,8 @@ const MIN_TRANSPARENT_EDGE_SHARE = 0.8;
 
 const cutoutBySrc = new Map<string, boolean>();
 
+export const findHeroCutoutKey = (heroId: number) => `hero-cutout:${heroId}`;
+
 export function hasTransparentEdges(rgba: ArrayLike<number>, size: number): boolean {
   const edgeAlphas: number[] = [];
   for (let step = 0; step < size; step++) {

@@ -11,7 +11,7 @@ vi.hoisted(() => {
   Object.defineProperty(window, "localStorage", { value: storage, configurable: true, writable: true });
   globalThis.ResizeObserver ??= class { observe() {} unobserve() {} disconnect() {} } as unknown as typeof ResizeObserver;
 });
-const mocks = vi.hoisted(() => ({ moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), changeMapCreatureHitPointsAction: vi.fn(), changeMapCreatureConditionsAction: vi.fn(), changeHeroConditionsAction: vi.fn(), refresh: vi.fn(), changeSceneFogAction: vi.fn(), changeSceneGridAction: vi.fn(), saveSceneAreaAction: vi.fn(), removeSceneAreasAction: vi.fn(), listAreaSpellsAction: vi.fn() }));
+const mocks = vi.hoisted(() => ({ replace: vi.fn(), moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), changeMapCreatureHitPointsAction: vi.fn(), changeMapCreatureConditionsAction: vi.fn(), changeHeroConditionsAction: vi.fn(), refresh: vi.fn(), changeSceneFogAction: vi.fn(), changeSceneGridAction: vi.fn(), saveSceneAreaAction: vi.fn(), removeSceneAreasAction: vi.fn(), listAreaSpellsAction: vi.fn() }));
 vi.mock("@/lib/actions/game-token-images", () => ({}));
 vi.mock("@/lib/actions/game-sessions", () => ({
   moveGameTokenAction: mocks.moveGameTokenAction,
@@ -24,7 +24,7 @@ vi.mock("@/lib/actions/game-sessions", () => ({
   changeHeroConditionsAction: mocks.changeHeroConditionsAction,
   addMapCreaturesAction: vi.fn(),
 }));
-vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ refresh: mocks.refresh }), useNoAiMode: () => ({ enabled: false }) }));
+vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useNoAiHref: () => (href: string) => href, useModeRouter: () => ({ refresh: mocks.refresh, replace: mocks.replace }), useNoAiMode: () => ({ enabled: false }) }));
 vi.mock("@/hooks/useCreatureStatblock", () => ({ useCreatureStatblock: () => ({ creature: null, loreGroup: null }) }));
 vi.mock("@/lib/monitoring/game-analytics", () => ({ captureGameEvent: vi.fn() }));
 vi.mock("@/lib/actions/game-scene-tools", () => ({
@@ -36,6 +36,7 @@ vi.mock("@/lib/actions/game-scene-tools", () => ({
 vi.mock("@/lib/actions/game-area-spells", () => ({ listAreaSpellsAction: mocks.listAreaSpellsAction }));
 
 import { CombatTurnProvider } from "@/components/games/combat-turn";
+import { useRoomTabStore } from "@/components/games/room-tabs";
 import { GameRoomMap } from "@/components/games/GameRoomMap";
 import { useAreaCastStore } from "@/lib/components/game/area-cast";
 import { resetOptimisticValues } from "@/components/games/optimistic-values";
@@ -64,12 +65,13 @@ afterEach(() => {
 });
 
 const member = (userId: number, role: "GM" | "PLAYER", persName: string | null, token: GameSessionMemberView["token"] = null): GameSessionMemberView => ({
+  heroId: userId, heroSlot: 0, isCutout: false,
   userId, name: `Гравець ${userId}`, role, persId: persName ? userId * 10 : null, persName, avatarUrl: null, isOnline: true, token, conditions: { conditions: [], exhaustionLevel: 0 }, lifeState: { kind: "up" },
 });
 
 function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
   return {
-    id: 7, name: "Печера", isArchived: false, myUserId: 2, myRole: "PLAYER", myPersId: 20, inviteToken: null, mapImageUrl: "https://media.test/games/7/map/a.webp",
+    id: 7, name: "Печера", isArchived: false, myUserId: 2, myRole: "PLAYER", myPersId: 20, myPersIds: [20], inviteToken: null, mapImageUrl: "https://media.test/games/7/map/a.webp",
     members: [member(1, "GM", null), member(2, "PLAYER", "Арвен"), member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 })],
     creatures: [],
     creatureNameMode: "short",
@@ -87,7 +89,7 @@ function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
 const goblin = (id: number, badge: number, token: MapCreatureView["token"] = null): MapCreatureView => ({
   id, creatureKey: "goblin", ruleset: "RULES_2014", label: `Гоблін ${badge}`, statblockName: null, customName: null, badge, isAlly: false, imageUrl: null, isRoundImage: false, tokenSize: "medium", token, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 },
 });
-const gmView = (overrides: Partial<GameSessionView> = {}) => buildView({ myUserId: 1, myRole: "GM", myPersId: null, ...overrides });
+const gmView = (overrides: Partial<GameSessionView> = {}) => buildView({ myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [], ...overrides });
 
 function drag(token: HTMLElement, from: { clientX: number; clientY: number }, to: { clientX: number; clientY: number }) {
   fireEvent.pointerDown(token, { button: 0, ...from, pointerId: 1 });
@@ -129,7 +131,7 @@ describe("мапа кімнати", () => {
   });
 
   it("дотик без руху нічого не надсилає, а витягнутий за межі токен повертається в ряд", () => {
-    render(<GameRoomMap view={buildView({ myUserId: 3, myPersId: 30 })} />);
+    render(<GameRoomMap view={buildView({ myUserId: 3, myPersId: 30, myPersIds: [30] })} />);
     const map = placeMap();
     const token = within(map).getByRole("button", { name: /Токен «Торин»/ });
     fireEvent.pointerDown(token, { button: 0, clientX: 200, clientY: 100, pointerId: 1 });
@@ -144,7 +146,7 @@ describe("мапа кімнати", () => {
   });
 
   it("під час перетягування підказує, що токен зійде з мапи, а на весь екран мапа відкривається з тими самими токенами", () => {
-    render(<GameRoomMap view={buildView({ myUserId: 3, myPersId: 30 })} />);
+    render(<GameRoomMap view={buildView({ myUserId: 3, myPersId: 30, myPersIds: [30] })} />);
     const token = within(placeMap()).getByRole("button", { name: /Токен «Торин»/ });
     fireEvent.pointerDown(token, { button: 0, clientX: 200, clientY: 100, pointerId: 1 });
     fireEvent.pointerMove(token, { clientX: 200, clientY: 150, pointerId: 1 });
@@ -195,26 +197,26 @@ describe("мапа кімнати", () => {
   });
 
   it("майстер рухає будь-який токен; без мапи гравець бачить порожній стан, а майстер підказку", () => {
-    const { rerender } = render(<GameRoomMap view={buildView({ myUserId: 1, myRole: "GM", myPersId: null })} />);
+    const { rerender } = render(<GameRoomMap view={buildView({ myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [] })} />);
     expect(screen.getAllByRole("button", { name: /^Токен/ })).toHaveLength(2);
 
     rerender(<GameRoomMap view={buildView({ mapImageUrl: null, viewedSceneId: null })} />);
     expect(screen.queryByRole("button")).toBeNull();
     expect(screen.getByText("Майстер ще не показав мапу")).toBeTruthy();
-    rerender(<GameRoomMap view={buildView({ mapImageUrl: null, myUserId: 1, myRole: "GM", myPersId: null })} />);
+    rerender(<GameRoomMap view={buildView({ mapImageUrl: null, myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [] })} />);
     expect(screen.getByText(/У цій сцені ще немає мапи/)).toBeTruthy();
-    rerender(<GameRoomMap view={buildView({ mapImageUrl: null, viewedSceneId: null, myUserId: 1, myRole: "GM", myPersId: null })} />);
+    rerender(<GameRoomMap view={buildView({ mapImageUrl: null, viewedSceneId: null, myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [] })} />);
     expect(screen.getByText(/Відкрийте або додайте сцену/)).toBeTruthy();
   });
 
   it("майстер бачить, що відкрита сцена ще не показана гравцям", () => {
-    render(<GameRoomMap view={buildView({ myUserId: 1, myRole: "GM", myPersId: null, viewedSceneId: 2, activeSceneId: 1 })} />);
+    render(<GameRoomMap view={buildView({ myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [], viewedSceneId: 2, activeSceneId: 1 })} />);
     expect(screen.getByText("Лише для вас")).toBeTruthy();
   });
 
   it("на телефоні широку мапу можна повернути горизонтально, і токен падає туди, куди його тягнуть", () => {
     window.matchMedia = ((query: string) => ({ matches: query === "(orientation: portrait)" })) as unknown as typeof window.matchMedia;
-    render(<GameRoomMap view={buildView({ myUserId: 3, myPersId: 30 })} />);
+    render(<GameRoomMap view={buildView({ myUserId: 3, myPersId: 30, myPersIds: [30] })} />);
     fireEvent.click(screen.getByRole("button", { name: "Мапа на весь екран" }));
     const dialog = screen.getByRole("dialog", { name: "Печера" });
     const image = within(dialog).getByRole("img", { name: "Мапа сцени" });
@@ -350,7 +352,7 @@ describe("мапа кімнати", () => {
   });
 
   it("токен героя, чий зараз хід, підсвічено для всіх, а токен того, хто чекає, — ні", () => {
-    const combat = { round: 1, currentId: 1, combatants: [{ id: 1, initiative: 15, hero: { userId: 3, name: "Торин", avatarUrl: null }, creature: null }] };
+    const combat = { round: 1, currentId: 1, combatants: [{ id: 1, initiative: 15, hero: { persId: 30, userId: 3, name: "Торин", avatarUrl: null }, creature: null }] };
     render(
       <CombatTurnProvider combat={combat}>
         <GameRoomMap view={buildView({ combat, members: [member(1, "GM", null), member(2, "PLAYER", "Арвен", { x: 0.2, y: 0.2 }), member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 })] })} />
@@ -516,6 +518,24 @@ describe("стани й ціль на мапі", () => {
     tap(within(map).getByRole("button", { name: /Токен «Торин»/ }));
     fireEvent.click(within(screen.getByRole("dialog", { name: "Торин: стани" })).getByRole("button", { name: "Наляканий" }));
     expect(mocks.changeHeroConditionsAction).toHaveBeenCalledWith(7, 3, { kind: "toggle", condition: "frightened", isActive: false });
+  });
+
+  it("майстер відкриває лист чужого героя з токена в новій вкладці", () => {
+    render(<GameRoomMap view={gmView({ members: [member(1, "GM", null), member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 })] })} />);
+    tap(within(placeMap()).getByRole("button", { name: /Токен «Торин»/ }));
+    const sheetLink = within(screen.getByRole("dialog", { name: "Торин: стани" })).getByRole("link", { name: "Відкрити лист персонажа" });
+    expect(sheetLink.getAttribute("href")).toBe("/char/30");
+    expect(sheetLink.getAttribute("target")).toBe("_blank");
+  });
+
+  it("власний герой відкриває лист у вкладці кімнати, без переходу зі столу", () => {
+    render(<GameRoomMap view={buildView({ members: [member(1, "GM", null), member(2, "PLAYER", "Арвен", { x: 0.2, y: 0.2 })] })} />);
+    tap(within(placeMap()).getByRole("button", { name: /Токен «Арвен»/ }));
+    const dialog = screen.getByRole("dialog", { name: "Арвен: стани" });
+    expect(within(dialog).queryByRole("link", { name: "Відкрити лист персонажа" })).toBeNull();
+    fireEvent.click(within(dialog).getByRole("button", { name: "Відкрити лист персонажа" }));
+    expect(screen.queryByRole("dialog", { name: "Арвен: стани" })).toBeNull();
+    expect(useRoomTabStore.getState().tab).toBe("hero");
   });
 
   it("герой без тями показує кидки смерті, загиблий — що загинув, і це бачать усі", () => {

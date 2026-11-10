@@ -1,5 +1,7 @@
 "use client";
 
+import { findRoomPeople } from "@/rules/game-room-heroes";
+import { HeroSheetSwitcher } from "./HeroSheetSwitcher";
 import { Suspense, useState, type ReactNode } from "react";
 import { Map as MapIcon, PanelRightClose, PanelRightOpen, ScrollText, Users, UserRound } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -89,7 +91,7 @@ export function RoomPanel({ tab, className, children }: { tab: RoomTab; classNam
 }
 
 /// Лист монтується, коли його вперше показали: на телефоні з мапою він не важить нічого, а далі тримає прокрутку й вкладку.
-export function HeroPanelContent({ view, heroSheet, bindablePers, isShown }: { view: GameSessionView; heroSheet: ReactNode; bindablePers: Promise<BindablePers[]>; isShown: boolean }) {
+export function HeroPanelContent({ view, heroSheet, shownHeroPersId, bindablePers, isShown }: { view: GameSessionView; heroSheet: ReactNode; shownHeroPersId: number | null; bindablePers: Promise<BindablePers[]>; isShown: boolean }) {
   const [wasShown, setWasShown] = useState(isShown);
   if (isShown && !wasShown) setWasShown(true);
   if (!heroSheet) {
@@ -104,6 +106,7 @@ export function HeroPanelContent({ view, heroSheet, bindablePers, isShown }: { v
   return (
     <>
       <div className="shrink-0 pt-2 empty:hidden [&>*]:mx-2 [&>*]:mb-2">
+        <HeroSheetSwitcher view={view} shownPersId={shownHeroPersId} />
         <RollTargetChip />
       </div>
       <div className="relative min-h-0 flex-1">{wasShown ? heroSheet : null}</div>
@@ -125,17 +128,15 @@ export function JournalPanelContent({ view }: { view: GameSessionView }) {
   );
 }
 
-export function RoomPanelContent({ view, bindablePers, hasHeroTab }: { view: GameSessionView; bindablePers: Promise<BindablePers[]>; hasHeroTab: boolean }) {
+export function RoomPanelContent({ view, bindablePers }: { view: GameSessionView; bindablePers: Promise<BindablePers[]> }) {
   const canInvite = view.myRole === "GM" && !view.isArchived;
-  const isGmAlone = canInvite && view.members.length === 1;
+  const isGmAlone = canInvite && findRoomPeople(view.members).length === 1;
   return (
     <div className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3">
       {isGmAlone ? <GameRoomInvite view={view} isProminent /> : null}
-      {hasHeroTab ? (
-        <Suspense fallback={<div className="h-24 rounded-2xl border border-white/10 bg-slate-900/40" aria-hidden />}>
-          <GameRoomPersPicker view={view} bindablePers={bindablePers} />
-        </Suspense>
-      ) : null}
+      <Suspense fallback={<div className="h-24 rounded-2xl border border-white/10 bg-slate-900/40" aria-hidden />}>
+        <GameRoomPersPicker view={view} bindablePers={bindablePers} />
+      </Suspense>
       <GameRoomMembers view={view} />
       {canInvite && !isGmAlone ? <GameRoomInvite view={view} /> : null}
       <GameRoomManagement view={view} />

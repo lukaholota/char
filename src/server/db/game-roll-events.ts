@@ -189,7 +189,7 @@ export async function undoRollDamage(sessionId: number, userId: number, seq: num
 
 async function findRollAuthor(sessionId: number, userId: number, draft: GameRollDraft): Promise<GameSessionResult<{ authorName: string; isGm: boolean; persId: number | null; persName: string | null }>> {
   const member = await prisma.gameSessionMember.findUnique({
-    where: { gameSessionId_userId: { gameSessionId: sessionId, userId } },
+    where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } },
     select: { role: true, persId: true, pers: { select: { name: true } }, user: { select: { id: true, displayName: true, name: true } } },
   });
   if (!member) return { ok: false, error: "forbidden" };

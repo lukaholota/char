@@ -7,6 +7,10 @@ export function buildMediaImageUrl(key: string, size: MediaImageSize): string {
   return `${readMediaBaseUrl()}/${buildMediaObjectKey(key, size)}`;
 }
 
+export function isMediaImageUrl(url: string | null): url is string {
+  return url?.startsWith(`${readMediaBaseUrl()}/`) ?? false;
+}
+
 export function readMediaBaseUrl(): string {
   return process.env.NEXT_PUBLIC_MEDIA_URL ?? DEFAULT_MEDIA_URL;
 }

@@ -55,6 +55,8 @@ const GRAPH_INCLUDE = {
   magicItems: true,
   persInfusions: { include: { weapon: true, armor: true, magicItem: true } },
   resourcePools: true,
+  persCustomSkills: true,
+  persCustomFeatures: true,
   wildshapes: true,
   effects: true,
   bastion: { include: { facilities: true, turns: true } },
@@ -226,6 +228,8 @@ async function createRichPers2024() {
   await prisma.persInfusion.create({
     data: { persId: pers.persId, infusionId: infusion.infusionId, persWeaponId: pers.weapons[0].persWeaponId, expiresAt: new Date("2030-01-01") },
   });
+  await prisma.persCustomSkill.create({ data: { persId: pers.persId, name: "Екстрасенсорика", ability: "WIS", proficiencyType: "PROFICIENT", bonus: 1 } });
+  await prisma.persCustomFeature.create({ data: { persId: pers.persId, name: "Подих", rollFormula: "2к6+СТА", usesMax: 3, usesRemaining: 1, restoredOn: "SHORT_REST" } });
 
   return { owner, copier, folder, pers };
 }

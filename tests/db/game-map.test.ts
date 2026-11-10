@@ -75,6 +75,10 @@ async function createTableWithHeroes() {
 const findToken = async (sessionId: number, viewerId: number, tokenUserId: number) =>
   (await findGameSessionView(sessionId, viewerId))!.members.find((member) => member.userId === tokenUserId)!.token;
 
+async function findHeroId(sessionId: number, userId: number): Promise<number> {
+  return (await prisma.gameSessionMember.findFirstOrThrow({ where: { gameSessionId: sessionId, userId, heroSlot: 0 }, select: { id: true } })).id;
+}
+
 describe("мапа кімнати", () => {
   it("мапу ставить лише майстер; нова мапа прибирає стару картинку й повертає токени в ряд", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
@@ -85,7 +89,7 @@ describe("мапа кімнати", () => {
     const firstUrl = (await findGameSessionView(sessionId, player.id))!.mapImageUrl!;
     expect(firstUrl).toMatch(new RegExp(`/games/${sessionId}/map/[0-9a-f-]+\\.webp$`));
     expect([...stored.keys()]).toHaveLength(1);
-    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.4, y: 0.6 });
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), { x: 0.4, y: 0.6 });
 
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
     expect((await findGameSessionView(sessionId, player.id))!.mapImageUrl).not.toBe(firstUrl);
@@ -98,26 +102,26 @@ describe("мапа кімнати", () => {
 
   it("гравець рухає лише свій токен, майстер — будь-який, а без мапи, персонажа чи в архіві токен стоїть", async () => {
     const { gm, player, other, sessionId } = await createTableWithHeroes();
-    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "no_map" });
+    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "no_map" });
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
 
-    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.25, y: 0.75 })).toEqual({ ok: true, value: null });
+    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), { x: 0.25, y: 0.75 })).toEqual({ ok: true, value: null });
     expect(await findToken(sessionId, other.id, player.id)).toEqual({ x: 0.25, y: 0.75 });
-    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), other.id, { x: 0.1, y: 0.1 })).toEqual({ ok: false, error: "forbidden" });
-    expect(await moveGameToken(sessionId, gm.id, await findViewedScene(sessionId, gm.id), other.id, { x: 0.9, y: 0.1 })).toEqual({ ok: true, value: null });
+    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, other.id), { x: 0.1, y: 0.1 })).toEqual({ ok: false, error: "forbidden" });
+    expect(await moveGameToken(sessionId, gm.id, await findViewedScene(sessionId, gm.id), await findHeroId(sessionId, other.id), { x: 0.9, y: 0.1 })).toEqual({ ok: true, value: null });
     expect(await findToken(sessionId, other.id, other.id)).toEqual({ x: 0.9, y: 0.1 });
-    expect(await moveGameToken(sessionId, gm.id, await findViewedScene(sessionId, gm.id), gm.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "no_map" });
+    expect(await moveGameToken(sessionId, gm.id, await findViewedScene(sessionId, gm.id), await findHeroId(sessionId, gm.id), { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "no_map" });
 
-    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, null);
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), null);
     expect(await findToken(sessionId, gm.id, player.id)).toBeNull();
 
     await bindMemberPers(sessionId, other.id, null);
     expect(await findToken(sessionId, gm.id, other.id)).toBeNull();
 
     const outsider = await createUser("outsider");
-    expect(await moveGameToken(sessionId, outsider.id, await findViewedScene(sessionId, outsider.id), player.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "not_found" });
+    expect(await moveGameToken(sessionId, outsider.id, await findViewedScene(sessionId, outsider.id), await findHeroId(sessionId, player.id), { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "not_found" });
     await setGameSessionArchived(sessionId, gm.id, true);
-    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "archived" });
+    expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "archived" });
     expect(await setActiveSceneMap(sessionId, gm.id, await createMapImage())).toEqual({ ok: false, error: "archived" });
   });
 
@@ -133,7 +137,7 @@ describe("мапа кімнати", () => {
     };
     await readUntil("event: ready");
 
-    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.3, y: 0.7 });
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), { x: 0.3, y: 0.7 });
     await readUntil('"token":{"x":0.3,"y":0.7}');
     abort.abort();
   });

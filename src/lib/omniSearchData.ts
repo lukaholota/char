@@ -11,6 +11,7 @@ import { getAllSpells } from "@/lib/spellsData";
 import { getAllMagicItems } from "@/lib/magicItemsData";
 import { getAllWeapons } from "@/lib/weaponsData";
 import { getAllArmors } from "@/lib/armorData";
+import { getAllGear } from "@/lib/gearData";
 import { getAllCreatures, findEditionLabel } from "@/lib/bestiaryData";
 import { getAllFeats } from "@/lib/featsData";
 import { getAllInvocations } from "@/lib/invocationsData";
@@ -161,6 +162,7 @@ export function buildOmniSearchIndex(ruleset: Ruleset = "RULES_2014"): OmniSearc
     ...collectMagicItemItems(ruleset),
     ...collectWeaponItems(ruleset),
     ...collectArmorItems(ruleset),
+    ...collectGearItems(ruleset),
     ...collectCreatureItems(ruleset),
     ...collectFeatItems(ruleset),
     ...collectInvocationItems(ruleset),
@@ -702,6 +704,22 @@ function collectCatalogShortcuts(ruleset: Ruleset): OmniSearchItem[] {
       },
     ];
   });
+}
+
+function collectGearItems(ruleset: Ruleset): OmniSearchItem[] {
+  const prefix = findRoutePrefix(ruleset);
+  const categoryLabel = findCatalogSearchTitle("gear");
+
+  return getAllGear(ruleset).map((item) => ({
+    id: `gear-${item.name}`,
+    title: item.name,
+    subtitle: item.group ?? undefined,
+    category: "gear" as const,
+    categoryLabel,
+    href: `${prefix}/gear?q=${encodeURIComponent(item.name)}`,
+    badge: item.price ?? undefined,
+    aliases: [...item.searchWords],
+  }));
 }
 
 function collectClassItems(ruleset: Ruleset): OmniSearchItem[] {

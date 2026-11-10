@@ -1,6 +1,6 @@
 import type { Ruleset } from "@prisma/client";
 import type { LucideIcon } from "lucide-react";
-import { Award, BookOpen, Castle, Eye, FlaskConical, ScanSearch, ScrollText, Shield, Sparkles, Sword, Swords, Users, Wand2, Wrench } from "lucide-react";
+import { Award, Backpack, BookOpen, Castle, Eye, FlaskConical, ScanSearch, ScrollText, Shield, Sparkles, Sword, Swords, Users, Wand2, Wrench } from "lucide-react";
 import { getTargetEditionPath, type Edition } from "@/rules/route-helpers";
 import type { HomeAccentName } from "@/components/home/homeTokens";
 
@@ -17,6 +17,7 @@ export type CatalogSlug =
   | "bestiary"
   | "weapons"
   | "armor"
+  | "gear"
   | "feats"
   | "backgrounds"
   | "invocations"
@@ -184,6 +185,17 @@ export const CATALOG_REGISTRY: readonly CatalogEntry[] = [
     menuIcon: Shield,
     search: "index",
     searchOrder: 8,
+    isPublic: true,
+  },
+  {
+    slug: "gear",
+    title: "Звичайні речі",
+    path: "/gear",
+    editions: BOTH_EDITIONS,
+    home: { placement: "tile", accent: "ashenSteel" },
+    menuIcon: Backpack,
+    search: "index",
+    searchOrder: 17,
     isPublic: true,
   },
   {

@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { calculateAbilityModifier } from "@/rules/abilities";
-import { CHALLENGE_RATINGS, findChallengeProficiencyBonus, findChallengeXp, isChallengeRating } from "@/rules/challenge-rating";
+import { CHALLENGE_RATINGS, findChallengeProficiencyBonus, findChallengeXp, isChallengeRating, type ChallengeRating } from "@/rules/challenge-rating";
+import { buildCreatureSpellcasting, type CreatureSpellcasting } from "@/rules/creature-spellcasting";
 import { parseCreatureSpeeds } from "@/rules/creature-speed";
 import { classTranslations } from "@/lib/refs/translation";
 import { formatModifier } from "@/lib/logic/utils";
@@ -19,9 +20,11 @@ export type HomebrewRuleset = (typeof HOMEBREW_RULESETS)[number];
 export type HomebrewEdition = (typeof HOMEBREW_EDITIONS)[number];
 
 const MAX_PROSE = 10_000;
+const MAX_CREATURE_SPELLS = 80;
 
 const requiredText = (max: number) => z.string().trim().min(1, "Заповніть поле").max(max, `До ${max} символів`);
 const optionalText = (max: number) => z.string().trim().max(max, `До ${max} символів`).default("");
+const optionalWholeNumber = z.string().trim().regex(/^[+-]?\d{0,2}$/u, "Ціле число").default("");
 const abilityScore = z.coerce.number("Ціле число").int("Ціле число");
 
 export const homebrewSpellSchema = z.object({
@@ -71,11 +74,16 @@ export const homebrewCreatureSchema = z.object({
   reactions: optionalText(MAX_PROSE),
   legendaryActions: optionalText(MAX_PROSE),
   description: optionalText(MAX_PROSE),
+  spellAttackBonus: optionalWholeNumber,
+  spellSaveDc: optionalWholeNumber,
+  spellCasterLevel: optionalWholeNumber,
+  spells: z.array(z.object({ spellId: z.coerce.number().int() })).max(MAX_CREATURE_SPELLS, `До ${MAX_CREATURE_SPELLS} заклинань`).default([]),
 });
 
 export type HomebrewSpellInput = z.infer<typeof homebrewSpellSchema>;
 export type HomebrewCreatureInput = z.infer<typeof homebrewCreatureSchema>;
 
+export type CatalogCreatureSpell = Parameters<typeof buildCreatureSpellcasting>[0][number];
 export type HomebrewFieldErrors = Record<string, string>;
 export type ParsedHomebrewInput<T> = { data: T } | { errors: HomebrewFieldErrors };
 
@@ -104,7 +112,7 @@ export function listEditionClasses(edition: HomebrewEdition): Array<{ value: str
     .map(([value, label]) => ({ value, label }));
 }
 
-export function buildCreatureStatBlock(input: HomebrewCreatureInput) {
+export function buildCreatureStatBlock(input: HomebrewCreatureInput, catalogSpells: readonly CatalogCreatureSpell[] = []) {
   const challenge = isChallengeRating(input.challenge) ? input.challenge : CHALLENGE_RATINGS[0];
   return {
     name: input.name,
@@ -134,13 +142,32 @@ export function buildCreatureStatBlock(input: HomebrewCreatureInput) {
     lairInfo: "",
     regionEffects: "",
     ...parseCreatureSpeeds(input.speed),
+    spellAttackBonus: input.spellAttackBonus,
+    spellSaveDc: input.spellSaveDc,
+    spellCasterLevel: input.spellCasterLevel,
+    ...(catalogSpells.length ? { spellcasting: buildCreatureSpellcasting(catalogSpells, input.ruleset === "RULES_2024" ? "RULES_2024" : "RULES_2014", readCasterInput(input, challenge)) } : {}),
   };
+}
+
+function readCasterInput(input: HomebrewCreatureInput, challenge: ChallengeRating) {
+  return {
+    mentalScores: [input.intelligence, input.wisdom, input.charisma],
+    proficiencyBonus: findChallengeProficiencyBonus(challenge),
+    attackBonus: readOptionalNumber(input.spellAttackBonus),
+    saveDc: readOptionalNumber(input.spellSaveDc),
+    casterLevel: readOptionalNumber(input.spellCasterLevel),
+  };
+}
+
+function readOptionalNumber(text: string): number | null {
+  return /\d/u.test(text) ? Number(text) : null;
 }
 
 export function readCreatureInputFromStatBlock(statBlock: Record<string, unknown>): Record<string, unknown> {
   return {
     ...statBlock,
     engName: statBlock.nameEng,
+    spells: (statBlock.spellcasting as CreatureSpellcasting | undefined)?.spells ?? [],
     ...Object.fromEntries(ABILITY_FIELDS.map((field) => [field, Number.parseInt(String(statBlock[field] ?? "10"), 10)])),
   };
 }

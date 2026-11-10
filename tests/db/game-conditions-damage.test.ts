@@ -76,8 +76,12 @@ async function placeGoblin(sessionId: number, gmId: number, hp: { max: number; c
   return creature.id;
 }
 
+async function findHeroId(sessionId: number, userId: number) {
+  return (await prisma.gameSessionMember.findUniqueOrThrow({ where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } }, select: { id: true } })).id;
+}
+
 async function findPlayerPersId(sessionId: number, userId: number) {
-  return (await prisma.gameSessionMember.findUniqueOrThrow({ where: { gameSessionId_userId: { gameSessionId: sessionId, userId } }, select: { persId: true } })).persId!;
+  return (await prisma.gameSessionMember.findUniqueOrThrow({ where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } }, select: { persId: true } })).persId!;
 }
 
 const readStoredHitPoints = (creatureId: number) => prisma.gameMapCreature.findUniqueOrThrow({ where: { id: creatureId }, select: { hpMax: true, hpCurrent: true } });
@@ -90,10 +94,10 @@ describe("стани на токенах", () => {
 
     expect(await changeCreatureConditions(sessionId, gm.id, creatureId, poisoned)).toEqual({ ok: true, value: null });
     expect(await changeCreatureConditions(sessionId, player.id, creatureId, poisoned)).toEqual({ ok: false, error: "forbidden" });
-    expect(await changeHeroConditions(sessionId, player.id, player.id, poisoned)).toEqual({ ok: true, value: null });
-    expect(await changeHeroConditions(sessionId, player.id, other.id, poisoned)).toEqual({ ok: false, error: "forbidden" });
-    expect(await changeHeroConditions(sessionId, gm.id, other.id, { kind: "exhaustion", level: 3 })).toEqual({ ok: true, value: null });
-    expect(await changeHeroConditions(sessionId, gm.id, gm.id, poisoned)).toEqual({ ok: false, error: "no_map" });
+    expect(await changeHeroConditions(sessionId, player.id, await findHeroId(sessionId, player.id), poisoned)).toEqual({ ok: true, value: null });
+    expect(await changeHeroConditions(sessionId, player.id, await findHeroId(sessionId, other.id), poisoned)).toEqual({ ok: false, error: "forbidden" });
+    expect(await changeHeroConditions(sessionId, gm.id, await findHeroId(sessionId, other.id), { kind: "exhaustion", level: 3 })).toEqual({ ok: true, value: null });
+    expect(await changeHeroConditions(sessionId, gm.id, await findHeroId(sessionId, gm.id), poisoned)).toEqual({ ok: false, error: "no_map" });
     expect(await changeCreatureConditions(sessionId, gm.id, creatureId + 999, poisoned)).toEqual({ ok: false, error: "creature_gone" });
 
     const view = (await findGameSessionView(sessionId, player.id))!;

@@ -147,7 +147,7 @@ describe("ряткидки цілей у журналі", () => {
 
   it("гравець, чий герой у зоні, знімає свою шкоду з листа один раз", () => {
     enterRoom();
-    useGameSessionLiveStore.setState({ view: { id: 1, myRole: "PLAYER", myPersId: 7, members: [], creatures: [] } as unknown as GameSessionView });
+    useGameSessionLiveStore.setState({ view: { id: 1, myRole: "PLAYER", myPersId: 7, myPersIds: [7], members: [], creatures: [] } as unknown as GameSessionView });
     const withHero = { ...event, saves: { ...event.saves!, rows: [...event.saves!.rows, { name: "Тарн", persId: 7, isSaved: false, damage: 18, gm: null }, { name: "Віра", persId: 8, isSaved: false, damage: 18, gm: null }] } };
     render(<ol><GameRollEntry event={withHero} isMine={false} isNew={false} /></ol>);
     const buttons = screen.getAllByRole("button", { name: "Зняти 18 хітів з листа" });

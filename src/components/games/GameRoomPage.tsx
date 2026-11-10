@@ -1,5 +1,6 @@
 "use client";
 
+import { findRoomPeople } from "@/rules/game-room-heroes";
 import { useEffect, type ReactNode } from "react";
 import { ChevronLeft, Crown } from "lucide-react";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
@@ -18,12 +19,12 @@ import { RollTargetSwitch } from "./RoomRollTarget";
 import { findSideTab, findWideSideTab, resetRoomTabs, showRoomTab, useRoomTabStore, type RoomSideTab, type RoomTab } from "./room-tabs";
 import { useGamesHref } from "./use-games-href";
 
-type GameRoomPageProps = { initialView: GameSessionView; bindablePers: Promise<BindablePers[]>; heroSheet: ReactNode };
+type GameRoomPageProps = { initialView: GameSessionView; bindablePers: Promise<BindablePers[]>; heroSheet: ReactNode; shownHeroPersId: number | null };
 
-export function GameRoomPage({ initialView, bindablePers, heroSheet }: GameRoomPageProps) {
+export function GameRoomPage({ initialView, bindablePers, heroSheet, shownHeroPersId }: GameRoomPageProps) {
   const view = useRoomView(initialView);
   const combat = useShownCombat(view);
-  const hasHeroTab = view.myRole === "PLAYER" || view.myPersId !== null;
+  const hasHeroTab = view.myRole === "PLAYER" || view.myPersId !== null || shownHeroPersId !== null;
   const shown = useShownTabs(hasHeroTab);
   const unseen = useUnseenSinceClosed(shown.isJournalShown);
   useViewedRoom(view.id);
@@ -56,11 +57,11 @@ export function GameRoomPage({ initialView, bindablePers, heroSheet }: GameRoomP
         </RoomPanel>
         {hasHeroTab ? (
           <RoomPanel tab="hero" className={cn(SIDE_PANEL, findSideClasses("hero", shown), "min-[1700px]:col-start-3")}>
-            <HeroPanelContent view={view} heroSheet={heroSheet} bindablePers={bindablePers} isShown={shown.isHeroShown} />
+            <HeroPanelContent view={view} heroSheet={heroSheet} shownHeroPersId={shownHeroPersId} bindablePers={bindablePers} isShown={shown.isHeroShown} />
           </RoomPanel>
         ) : null}
         <RoomPanel tab="room" className={cn(SIDE_PANEL, findSideClasses("room", shown), "min-[1700px]:col-start-3")}>
-          <RoomPanelContent view={view} bindablePers={bindablePers} hasHeroTab={hasHeroTab} />
+          <RoomPanelContent view={view} bindablePers={bindablePers} />
         </RoomPanel>
       </div>
     </div>
@@ -96,7 +97,7 @@ function useRoomView(initialView: GameSessionView): GameSessionView {
 
 /// Майстер сам у кімнаті насамперед кличе гравців, тож бачить запрошення одразу.
 function useRoomTabsReset(view: GameSessionView) {
-  const isGmAlone = view.myRole === "GM" && !view.isArchived && view.members.length === 1;
+  const isGmAlone = view.myRole === "GM" && !view.isArchived && findRoomPeople(view.members).length === 1;
   useEffect(() => {
     if (isGmAlone) showRoomTab("room");
     return resetRoomTabs;
@@ -116,7 +117,7 @@ function useViewedRoom(sessionId: number) {
 function useRoomViewedEvent(view: GameSessionView) {
   const { id, myRole, members, isArchived, myPersId } = view;
   useEffect(() => {
-    captureGameEvent("game_room_viewed", { role: myRole, member_count: members.length, is_archived: isArchived, has_pers: myPersId !== null });
+    captureGameEvent("game_room_viewed", { role: myRole, member_count: findRoomPeople(members).length, is_archived: isArchived, has_pers: myPersId !== null });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- одна подія на відкриття кімнати, а не на кожне оновлення складу
   }, [id]);
 }

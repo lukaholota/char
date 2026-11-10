@@ -309,3 +309,34 @@ describe("O39 — концентрація, бафи й виснаження в 
     expect(pers.exhaustionLevel).toBe(6);
   });
 });
+
+describe("власні ресурси в офлайн-черзі", () => {
+  const withResources = {
+    ...wizard,
+    features: [],
+    persCustomFeatures: [
+      { id: 1, usesMax: 2, usesRemaining: 1, restoredOn: "SHORT_REST" },
+      { id: 2, usesMax: 2, usesRemaining: 1, restoredOn: "LONG_REST" },
+    ],
+  } as unknown as PersWithRelations;
+  const usesOf = (pers: PersWithRelations) => pers.persCustomFeatures.map((feature) => feature.usesRemaining);
+
+  it("витрата й повернення не виходять за межі", () => {
+    const { pers } = applyQueuedOperationsToSheet(withResources, null, [
+      operation({ kind: "custom-feature-use", customFeatureId: 1, direction: "spend" }, 1),
+      operation({ kind: "custom-feature-use", customFeatureId: 1, direction: "spend" }, 2),
+      operation({ kind: "custom-feature-use", customFeatureId: 2, direction: "restore" }, 3),
+      operation({ kind: "custom-feature-use", customFeatureId: 2, direction: "restore" }, 4),
+    ]);
+    expect(usesOf(pers)).toEqual([0, 2]);
+  });
+
+  it("короткий відпочинок у черзі відновлює лише короткі, довгий усі", () => {
+    expect(usesOf(applyQueuedOperationsToSheet(withResources, null, [operation({ kind: "short-rest", hitDiceSpent: [], restoredHitPoints: 0 })]).pers)).toEqual([2, 1]);
+    expect(usesOf(applyQueuedOperationsToSheet(withResources, null, [operation({ kind: "long-rest" })]).pers)).toEqual([2, 2]);
+  });
+
+  it("лист із кешу без нових полів не ламається", () => {
+    expect(usesOf(applyQueuedOperationsToSheet(wizard, null, [operation({ kind: "custom-feature-use", customFeatureId: 1, direction: "spend" })]).pers)).toEqual([]);
+  });
+});

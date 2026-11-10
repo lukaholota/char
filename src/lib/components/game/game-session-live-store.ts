@@ -110,10 +110,11 @@ export function addGameEvents(sessionId: number, incoming: readonly GameRollEven
 
 /// Лише події після підключення: старі удари лист уже отримав з сервера разом зі сторінкою.
 function syncMyHeroDamage(state: LiveState, sessionId: number, incoming: readonly GameRollEventView[]) {
-  const myPersId = state.view?.myPersId;
-  if (!myPersId || state.liveFromSeq === null) return;
+  const myPersIds = state.view?.myPersIds ?? [];
+  if (state.liveFromSeq === null) return;
   const liveFromSeq = state.liveFromSeq;
-  collectAppliedHeroDamage(sessionId, myPersId, incoming.filter((event) => event.seq > liveFromSeq)).forEach(requestHeroDamage);
+  const liveEvents = incoming.filter((event) => event.seq > liveFromSeq);
+  myPersIds.flatMap((persId) => collectAppliedHeroDamage(sessionId, persId, liveEvents)).forEach(requestHeroDamage);
 }
 
 /// Потік може принести свій кидок раніше за відповідь на POST, тож справжній кидок шукаємо за міткою й сумою, а не за ключем.

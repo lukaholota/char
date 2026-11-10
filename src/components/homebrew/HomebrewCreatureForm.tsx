@@ -14,7 +14,9 @@ import type { HomebrewCreatureFormValues } from "@/lib/logic/homebrew-form-value
 import { ACCEPTED_IMAGE_MIME_TYPES, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
 import { CHALLENGE_RATINGS } from "@/rules/challenge-rating";
 import { ImageCropDialog } from "@/lib/components/portrait/ImageCropDialog";
+import type { CreatureSpellChoice } from "@/rules/creature-spellcasting";
 import { CREATURE_ACTION_TEMPLATES, CreatureActionsCheck } from "./CreatureActionsCheck";
+import { CreatureSpellcastingFields } from "./CreatureSpellcastingFields";
 import { RichTextField, RULESET_OPTIONS, SelectField, SubmitBar, TextField } from "./HomebrewFormFields";
 import { useHomebrewSubmit } from "./useHomebrewSubmit";
 
@@ -46,9 +48,14 @@ export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }
   const [imageError, setImageError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { errors, isSaving, submit, markEdited } = useHomebrewSubmit({ kind: "CREATURE", ruleset: values.ruleset, entryId });
-  const set = (key: keyof HomebrewCreatureFormValues) => (value: string) => {
+  const set = (key: Exclude<keyof HomebrewCreatureFormValues, "spells">) => (value: string) => {
     markEdited();
     setValues((current) => ({ ...current, [key]: value }));
+  };
+
+  const setSpells = (spells: CreatureSpellChoice[]) => {
+    markEdited();
+    setValues((current) => ({ ...current, spells }));
   };
 
   const [croppingFile, setCroppingFile] = useState<File | null>(null);
@@ -129,6 +136,8 @@ export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }
           <RichTextField key={field} name={field} label={PROSE_LABELS[field]} value={values[field]} onChange={set(field)} error={errors[field]} />
         ),
       )}
+
+      <CreatureSpellcastingFields values={values} errors={errors} onTextChange={set} onSpellsChange={setSpells} />
 
       <section className="space-y-2">
         <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">Картинка</span>

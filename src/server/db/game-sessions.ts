@@ -1,4 +1,5 @@
 import { randomBytes } from "node:crypto";
+import type { Prisma } from "@prisma/client";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { prisma } from "@/lib/prisma";
 import { buildCombatView, type CombatHeroView, type CombatView } from "@/rules/game-combat";
@@ -14,15 +15,17 @@ import { findHeroLifeState, type HeroLifeState } from "@/rules/hero-life-state";
 import { canEditPers } from "@/server/db/pers-actions";
 import { loadRoomCreatures } from "@/server/db/room-creatures";
 
-export const GAME_SESSION_LIMITS = { members: 12, activeOwnedSessions: 30, name: 80 } as const;
+export const GAME_SESSION_LIMITS = { members: 12, heroesPerMember: 6, activeOwnedSessions: 30, name: 80 } as const;
 const ONLINE_WINDOW_MS = 60_000;
 export const GAME_SESSION_SIGNAL_CHANNEL = "game_session";
 
 export type GameSessionRole = "GM" | "PLAYER";
-export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "token_image_gone";
+export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "token_image_gone" | "hero_limit";
 export type GameSessionResult<T> = { ok: true; value: T } | { ok: false; error: GameSessionFailure };
 
 export type GameSessionMemberView = {
+  heroId: number;
+  heroSlot: number;
   userId: number;
   name: string;
   role: GameSessionRole;
@@ -31,6 +34,7 @@ export type GameSessionMemberView = {
   avatarUrl: string | null;
   isOnline: boolean;
   token: TokenPosition | null;
+  isCutout: boolean;
   conditions: TokenConditions;
   lifeState: HeroLifeState;
 };
@@ -42,6 +46,7 @@ export type GameSessionView = {
   myUserId: number;
   myRole: GameSessionRole;
   myPersId: number | null;
+  myPersIds: number[];
   inviteToken: string | null;
   mapImageUrl: string | null;
   viewedSceneId: number | null;
@@ -98,7 +103,7 @@ export async function signalPersRooms(persId: number): Promise<void> {
 
 export async function findMembership(sessionId: number, userId: number) {
   return prisma.gameSessionMember.findUnique({
-    where: { gameSessionId_userId: { gameSessionId: sessionId, userId } },
+    where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } },
     select: { role: true, persId: true, openSceneId: true, gameSession: { select: { archivedAt: true, name: true, activeSceneId: true } } },
   });
 }
@@ -117,8 +122,8 @@ export async function createGameSession(ownerUserId: number, rawName: unknown): 
 
 export async function listGameSessionsForUser(userId: number): Promise<GameSessionListItem[]> {
   const memberships = await prisma.gameSessionMember.findMany({
-    where: { userId },
-    select: { role: true, gameSession: { select: { id: true, name: true, archivedAt: true, updatedAt: true, _count: { select: { members: true } } } } },
+    where: { userId, heroSlot: 0 },
+    select: { role: true, gameSession: { select: { id: true, name: true, archivedAt: true, updatedAt: true, _count: { select: { members: { where: { heroSlot: 0 } } } } } } },
     orderBy: { gameSession: { updatedAt: "desc" } },
   });
   return memberships.map(({ role, gameSession }) => ({
@@ -133,8 +138,9 @@ export async function listGameSessionsForUser(userId: number): Promise<GameSessi
 
 export async function findGameSessionView(sessionId: number, viewerUserId: number): Promise<GameSessionView | null> {
   const [session, heroTokens, sceneTools] = await Promise.all([findSessionWithMembers(sessionId, viewerUserId), findSceneHeroTokens(sessionId, viewerUserId), findVisibleSceneTools(sessionId, viewerUserId)]);
-  const me = session?.members.find((member) => member.userId === viewerUserId);
+  const me = session?.members.find((member) => member.userId === viewerUserId && member.heroSlot === 0);
   if (!session || !me) return null;
+  const myPersIds = session.members.flatMap((member) => (member.userId === viewerUserId && member.persId !== null ? [member.persId] : []));
   const findCreature = await loadRoomCreatures(session.mapCreatures);
   const now = Date.now();
   const isGm = me.role === "GM";
@@ -145,20 +151,23 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
   const combatCreatures = viewedSceneId === session.activeSceneId ? creatures : buildSceneCreatures(session.activeSceneId);
   const viewedMapKey = session.scenes.find((scene) => scene.id === viewedSceneId)?.mapImageKey ?? null;
   const viewedTools = sceneTools.find((scene) => scene.id === viewedSceneId);
-  const tokenByUserId = new Map(heroTokens.filter((token) => token.sceneId === viewedSceneId).map((token) => [token.userId, { x: token.tokenX, y: token.tokenY }]));
+  const tokenByHeroId = new Map(heroTokens.filter((token) => token.sceneId === viewedSceneId).map((token) => [token.memberId, { x: token.tokenX, y: token.tokenY }]));
   return {
     id: session.id,
     name: session.name,
     isArchived: session.archivedAt !== null,
     myUserId: viewerUserId,
     myRole: me.role as GameSessionRole,
-    myPersId: me.persId,
+    myPersId: myPersIds[0] ?? null,
+    myPersIds,
     inviteToken: isGm ? session.inviteToken : null,
     mapImageUrl: viewedMapKey ? buildMediaImageUrl(viewedMapKey, "full") : null,
     viewedSceneId,
     activeSceneId: isGm ? session.activeSceneId : null,
     scenes: isGm ? buildSceneListItems(session.scenes, session.activeSceneId) : [],
     members: session.members.map((member) => ({
+      heroId: member.id,
+      heroSlot: member.heroSlot,
       userId: member.userId,
       name: buildMemberName(member.user),
       role: member.role as GameSessionRole,
@@ -166,7 +175,8 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
       persName: member.pers?.name ?? null,
       avatarUrl: buildAvatarUrl(member.pers?.portraitKey, member.user.image),
       isOnline: member.lastSeenAt !== null && now - member.lastSeenAt.getTime() < ONLINE_WINDOW_MS,
-      token: member.persId !== null ? (tokenByUserId.get(member.userId) ?? null) : null,
+      token: member.persId !== null ? (tokenByHeroId.get(member.id) ?? null) : null,
+      isCutout: member.isCutout,
       conditions: normalizeTokenConditions(member),
       lifeState: findHeroLifeState(member.pers),
     })),
@@ -188,7 +198,7 @@ function buildCombatHeroes(members: NonNullable<Awaited<ReturnType<typeof findSe
   const heroes = new Map<number, CombatHeroView>();
   for (const member of members) {
     if (member.persId === null) continue;
-    heroes.set(member.persId, { userId: member.userId, name: member.pers?.name ?? buildMemberName(member.user), avatarUrl: buildAvatarUrl(member.pers?.portraitKey, member.user.image) });
+    heroes.set(member.persId, { persId: member.persId, userId: member.userId, name: member.pers?.name ?? buildMemberName(member.user), avatarUrl: buildAvatarUrl(member.pers?.portraitKey, member.user.image) });
   }
   return heroes;
 }
@@ -209,8 +219,11 @@ function findSessionWithMembers(sessionId: number, viewerUserId: number) {
       scenes: { orderBy: [{ createdAt: "asc" }, { id: "asc" }], select: { id: true, name: true, mapImageKey: true } },
       combatants: { select: { id: true, persId: true, gameMapCreatureId: true, initiative: true, initiativeBonus: true, sortTiebreak: true } },
       members: {
-        orderBy: { joinedAt: "asc" },
+        orderBy: [{ joinedAt: "asc" }, { userId: "asc" }, { heroSlot: "asc" }],
         select: {
+          id: true,
+          heroSlot: true,
+          isCutout: true,
           userId: true,
           role: true,
           persId: true,
@@ -257,9 +270,9 @@ function findVisibleSceneTools(sessionId: number, viewerUserId: number) {
 }
 
 function findSceneHeroTokens(sessionId: number, viewerUserId: number) {
-  return prisma.gameSceneToken.findMany({
+  return prisma.gameSceneHeroToken.findMany({
     where: { scene: { sessionId, ...sceneVisibleTo(sessionId, viewerUserId) } },
-    select: { sceneId: true, userId: true, tokenX: true, tokenY: true },
+    select: { sceneId: true, memberId: true, tokenX: true, tokenY: true },
   });
 }
 
@@ -311,7 +324,7 @@ export async function findInvite(token: string, viewerUserId: number | null) {
   if (!isPlausibleToken(token)) return null;
   const session = await prisma.gameSession.findUnique({
     where: { inviteToken: token },
-    select: { id: true, name: true, archivedAt: true, _count: { select: { members: true } } },
+    select: { id: true, name: true, archivedAt: true, _count: { select: { members: { where: { heroSlot: 0 } } } } },
   });
   if (!session) return null;
   const isMember = viewerUserId !== null && (await findMembership(session.id, viewerUserId)) !== null;
@@ -329,10 +342,10 @@ export async function joinGameSessionByToken(token: string, userId: number): Pro
       SELECT game_session_id, archived_at FROM game_session WHERE invite_token = ${token} FOR UPDATE`;
     if (!session) return fail("not_found");
     const sessionId = session.game_session_id;
-    const existing = await tx.gameSessionMember.findUnique({ where: { gameSessionId_userId: { gameSessionId: sessionId, userId } }, select: { id: true } });
+    const existing = await tx.gameSessionMember.findUnique({ where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } }, select: { id: true } });
     if (existing) return succeed({ sessionId, isNew: false });
     if (session.archived_at) return fail("archived");
-    const memberCount = await tx.gameSessionMember.count({ where: { gameSessionId: sessionId } });
+    const memberCount = await tx.gameSessionMember.count({ where: { gameSessionId: sessionId, heroSlot: 0 } });
     if (memberCount >= GAME_SESSION_LIMITS.members) return fail("full");
     await tx.gameSessionMember.create({ data: { gameSessionId: sessionId, userId, role: "PLAYER" } });
     return succeed({ sessionId, isNew: true });
@@ -346,7 +359,7 @@ export async function leaveGameSession(sessionId: number, userId: number): Promi
   const membership = await findMembership(sessionId, userId);
   if (!membership) return fail("not_found");
   if (membership.role === "GM") return fail("forbidden");
-  await prisma.gameSessionMember.delete({ where: { gameSessionId_userId: { gameSessionId: sessionId, userId } } });
+  await prisma.gameSessionMember.deleteMany({ where: { gameSessionId: sessionId, userId } });
   await signalGameSession(sessionId, "members");
   return succeed(null);
 }
@@ -365,7 +378,69 @@ export async function bindMemberPers(sessionId: number, userId: number, persId: 
   const membership = await findMembership(sessionId, userId);
   if (!membership) return fail("not_found");
   if (persId !== null && !(await isBindablePers(persId, userId))) return fail("bad_pers");
-  await prisma.gameSessionMember.update({ where: { gameSessionId_userId: { gameSessionId: sessionId, userId } }, data: { persId } });
+  await prisma.$transaction([
+    ...(persId === null ? [prisma.gameSessionMember.deleteMany({ where: { gameSessionId: sessionId, userId, heroSlot: { gt: 0 } } })] : []),
+    prisma.gameSessionMember.update({ where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } }, data: { persId } }),
+  ]);
+  await signalGameSession(sessionId, "members");
+  return succeed(null);
+}
+
+type HeroRow = { id: number; userId: number; heroSlot: number; persId: number | null };
+
+/// Обраний герой знімається, новий займає вільний слот; той самий лист двічі в одній кімнаті бути не може.
+export async function toggleRoomHero(sessionId: number, userId: number, persId: number): Promise<GameSessionResult<null>> {
+  const [membership, isBindable] = await Promise.all([findMembership(sessionId, userId), isBindablePers(persId, userId)]);
+  if (!membership) return fail("not_found");
+  if (membership.gameSession.archivedAt) return fail("archived");
+  const toggled = await prisma.$transaction(async (tx) => {
+    await tx.$queryRaw`SELECT 1 FROM game_session WHERE game_session_id = ${sessionId} FOR UPDATE`;
+    const rows = await tx.gameSessionMember.findMany({ where: { gameSessionId: sessionId, OR: [{ userId }, { persId }] }, select: { id: true, userId: true, heroSlot: true, persId: true } });
+    const mine = rows.filter((row) => row.userId === userId);
+    const chosen = mine.find((row) => row.persId === persId);
+    if (chosen) return removeRoomHero(tx, chosen);
+    if (!isBindable || rows.some((row) => row.persId === persId)) return fail("bad_pers");
+    return addRoomHero(tx, mine, persId, membership.role);
+  });
+  if (toggled.ok) await signalGameSession(sessionId, "members");
+  return toggled;
+}
+
+async function removeRoomHero(tx: Prisma.TransactionClient, hero: HeroRow) {
+  if (hero.heroSlot > 0) {
+    await tx.gameSessionMember.delete({ where: { id: hero.id } });
+    return succeed(null);
+  }
+  await tx.gameSceneHeroToken.deleteMany({ where: { memberId: hero.id } });
+  await tx.gameSessionMember.update({ where: { id: hero.id }, data: { persId: null, isCutout: false, conditions: [], exhaustionLevel: 0 } });
+  return succeed(null);
+}
+
+async function addRoomHero(tx: Prisma.TransactionClient, mine: HeroRow[], persId: number, role: string) {
+  const firstRow = mine.find((row) => row.heroSlot === 0 && row.persId === null);
+  if (firstRow) {
+    await tx.gameSessionMember.update({ where: { id: firstRow.id }, data: { persId } });
+    return succeed(null);
+  }
+  const usedSlots = new Set(mine.map((row) => row.heroSlot));
+  const heroSlot = Array.from({ length: GAME_SESSION_LIMITS.heroesPerMember }, (_, slot) => slot).find((slot) => !usedSlots.has(slot));
+  if (heroSlot === undefined) return fail("hero_limit");
+  const owner = await tx.gameSessionMember.findFirstOrThrow({ where: { id: mine[0].id }, select: { gameSessionId: true, userId: true, joinedAt: true } });
+  await tx.gameSessionMember.create({ data: { ...owner, role, persId, heroSlot, lastSeenAt: new Date() } });
+  return succeed(null);
+}
+
+export function findRoomHero(sessionId: number, heroId: number) {
+  return prisma.gameSessionMember.findFirst({ where: { id: heroId, gameSessionId: sessionId }, select: { userId: true, persId: true } });
+}
+
+export async function setRoomHeroCutout(sessionId: number, userId: number, heroId: number, isCutout: boolean): Promise<GameSessionResult<null>> {
+  const [membership, hero] = await Promise.all([findMembership(sessionId, userId), findRoomHero(sessionId, heroId)]);
+  if (!membership) return fail("not_found");
+  if (membership.gameSession.archivedAt) return fail("archived");
+  if (!hero || hero.persId === null) return fail("no_map");
+  if (hero.userId !== userId && membership.role !== "GM") return fail("forbidden");
+  await prisma.gameSessionMember.update({ where: { id: heroId }, data: { isCutout } });
   await signalGameSession(sessionId, "members");
   return succeed(null);
 }

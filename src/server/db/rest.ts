@@ -1,4 +1,5 @@
 import { RestType } from "@prisma/client";
+import { restoreCustomFeatureUses } from "@/server/db/pers-custom-content";
 
 import { prisma } from "@/lib/prisma";
 import { getAbilityMod } from "@/lib/logic/utils";
@@ -147,7 +148,7 @@ export async function takeShortRest(
   const maxPactSlots = await findMaxPactSlots(pers.persId);
   const newCurrentPactSlots = maxPactSlots > 0 ? maxPactSlots : (Number.isFinite(pers.currentPactSlots) ? Math.max(0, Math.trunc(pers.currentPactSlots)) : 0);
 
-  const featuresRestored = await restoreFeaturesAfterShortRest(pers);
+  const featuresRestored = (await restoreFeaturesAfterShortRest(pers)) + (await restoreCustomFeatureUses(pers.persId, "SHORT_REST"));
   await endFeatureStates(pers.persId);
   await endPersEffectsAfterRest(pers.persId, "SHORT");
 
@@ -268,7 +269,7 @@ export async function takeLongRest(pers: RestPers): Promise<LongRestResult> {
     findPoolsAfterLongRest(collectHitDicePools(pers), pers.ruleset),
   );
 
-  const featuresRestored = await restoreFeaturesAfterLongRest(pers);
+  const featuresRestored = (await restoreFeaturesAfterLongRest(pers)) + (await restoreCustomFeatureUses(pers.persId, "LONG_REST"));
   await endFeatureStates(persId);
   await endPersEffectsAfterRest(persId, "LONG");
 

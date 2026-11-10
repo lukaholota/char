@@ -78,6 +78,10 @@ async function createScene(sessionId: number, gmId: number, name: string) {
 
 const seeScenes = async (sessionId: number, userId: number) => (await findGameSessionView(sessionId, userId))!;
 
+async function findHeroId(sessionId: number, userId: number): Promise<number> {
+  return (await prisma.gameSessionMember.findFirstOrThrow({ where: { gameSessionId: sessionId, userId, heroSlot: 0 }, select: { id: true } })).id;
+}
+
 describe("сцени кімнати", () => {
   it("гравець отримує лише активну сцену: ні списку, ні назв, ні чужих мап та істот", async () => {
     const { gm, player, sessionId } = await createTable();
@@ -127,7 +131,7 @@ describe("сцени кімнати", () => {
     await addMapCreatures(sessionId, gm.id, goblins);
     const creatureId = (await seeScenes(sessionId, gm.id)).creatures[0].id;
     await moveMapCreature(sessionId, gm.id, creatureId, { x: 0.3, y: 0.3 });
-    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.2, y: 0.2 });
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), { x: 0.2, y: 0.2 });
     const second = await createScene(sessionId, gm.id, "Підземелля");
 
     expect((await seeScenes(sessionId, player.id)).creatures).toHaveLength(1);
@@ -181,7 +185,7 @@ describe("сцени кімнати", () => {
     const { gm, player, sessionId } = await createTable();
     const first = await createScene(sessionId, gm.id, "Ліс");
     await addMapCreatures(sessionId, gm.id, goblins);
-    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), player.id, { x: 0.2, y: 0.2 });
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), { x: 0.2, y: 0.2 });
     const second = await createScene(sessionId, gm.id, "Підземелля");
     await addMapCreatures(sessionId, gm.id, goblins);
     await openGameScene(sessionId, gm.id, first);
@@ -191,10 +195,10 @@ describe("сцени кімнати", () => {
     expect(stored.size).toBe(before);
     expect(await prisma.gameMapCreature.count({ where: { gameSceneId: first } })).toBe(1);
     expect(await prisma.gameMapCreature.findMany({ where: { gameSceneId: second }, select: { tokenX: true, tokenY: true, hpMax: true } })).toEqual([{ tokenX: null, tokenY: null, hpMax: expect.any(Number) }]);
-    expect(await prisma.gameSceneToken.count({ where: { sceneId: first } })).toBe(1);
+    expect(await prisma.gameSceneHeroToken.count({ where: { sceneId: first } })).toBe(1);
 
     expect(await replaceGameSceneMap(sessionId, gm.id, first, await createMapImage())).toEqual({ ok: true, value: null });
-    expect(await prisma.gameSceneToken.count({ where: { sceneId: first } })).toBe(0);
+    expect(await prisma.gameSceneHeroToken.count({ where: { sceneId: first } })).toBe(0);
     expect(await replaceGameSceneMap(sessionId, gm.id, first, new Blob(["не картинка"]) as never)).toEqual({ ok: false, error: "bad_image" });
   });
 
@@ -202,13 +206,13 @@ describe("сцени кімнати", () => {
     const { gm, player, sessionId } = await createTable();
     const tavern = await createScene(sessionId, gm.id, "Таверна");
     const cave = await createScene(sessionId, gm.id, "Печера");
-    expect(await moveGameToken(sessionId, player.id, tavern, player.id, { x: 0.2, y: 0.2 })).toEqual({ ok: true, value: null });
+    expect(await moveGameToken(sessionId, player.id, tavern, await findHeroId(sessionId, player.id), { x: 0.2, y: 0.2 })).toEqual({ ok: true, value: null });
     await activateGameScene(sessionId, gm.id, cave);
 
-    expect(await moveGameToken(sessionId, player.id, tavern, player.id, { x: 0.8, y: 0.8 })).toEqual({ ok: false, error: "scene_changed" });
-    expect(await moveGameToken(sessionId, gm.id, tavern, player.id, { x: 0.8, y: 0.8 })).toEqual({ ok: false, error: "scene_changed" });
-    expect(await prisma.gameSceneToken.findMany({ select: { sceneId: true, tokenX: true } })).toEqual([{ sceneId: tavern, tokenX: 0.2 }]);
-    expect(await moveGameToken(sessionId, player.id, cave, player.id, { x: 0.8, y: 0.8 })).toEqual({ ok: true, value: null });
+    expect(await moveGameToken(sessionId, player.id, tavern, await findHeroId(sessionId, player.id), { x: 0.8, y: 0.8 })).toEqual({ ok: false, error: "scene_changed" });
+    expect(await moveGameToken(sessionId, gm.id, tavern, await findHeroId(sessionId, player.id), { x: 0.8, y: 0.8 })).toEqual({ ok: false, error: "scene_changed" });
+    expect(await prisma.gameSceneHeroToken.findMany({ select: { sceneId: true, tokenX: true } })).toEqual([{ sceneId: tavern, tokenX: 0.2 }]);
+    expect(await moveGameToken(sessionId, player.id, cave, await findHeroId(sessionId, player.id), { x: 0.8, y: 0.8 })).toEqual({ ok: true, value: null });
   });
 
   it("картинки бібліотеки не видаляються ні з мапою сцени, ні після заміни; власні завантаження видаляються", async () => {
@@ -252,7 +256,7 @@ describe("перенесення старої кімнати в сцену", () 
     expect(scenes[0]).toMatchObject({ name: "Сцена 1", mapImageKey: `games/${sessionId}/map/old` });
     expect((await prisma.gameSession.findUniqueOrThrow({ where: { id: sessionId } })).activeSceneId).toBe(scenes[0].id);
     expect((await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: oldCreature.id } })).gameSceneId).toBe(scenes[0].id);
-    expect(await prisma.gameSceneToken.findMany({ where: { sceneId: scenes[0].id } })).toMatchObject([{ userId: player.id, tokenX: 0.4, tokenY: 0.6 }]);
+    expect(await prisma.gameSceneHeroToken.findMany({ where: { sceneId: scenes[0].id } })).toMatchObject([{ memberId: await findHeroId(sessionId, player.id), tokenX: 0.4, tokenY: 0.6 }]);
     expect(await prisma.gameScene.count({ where: { sessionId: emptyRoom.value.id } })).toBe(0);
 
     const playerView = await seeScenes(sessionId, player.id);

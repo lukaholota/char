@@ -11,7 +11,7 @@ export function HeroTargetPicker({ sessionId }: { sessionId: number }) {
   const view = useGameSessionLiveStore((state) => (state.view?.id === sessionId ? state.view : null));
   const targetPersId = useGameSessionStore((state) => state.targetHeroBySession[sessionId] ?? null);
   if (view?.myRole !== "GM") return null;
-  const heroes = view.members.flatMap((member) => (member.persId !== null && member.userId !== view.myUserId ? [{ persId: member.persId, name: member.persName ?? member.name }] : []));
+  const heroes = view.members.flatMap((member) => (member.persId !== null ? [{ persId: member.persId, name: member.persName ?? member.name }] : []));
   if (!heroes.length) return null;
   const target = heroes.find((hero) => hero.persId === targetPersId) ?? null;
   const pick = (persId: number) => {

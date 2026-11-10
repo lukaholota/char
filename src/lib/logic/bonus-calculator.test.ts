@@ -6,7 +6,9 @@ import {
   calculateDamageResistances,
   calculateDarkvisionRange,
   calculateFinalModifier,
+  calculateCustomSkillTotal,
   calculateFinalProficiency,
+  findCustomRollStats,
   calculateFinalSave,
   calculateFinalSkill,
   calculateFinalStat,
@@ -588,5 +590,29 @@ describe("O45 — Дуель не додається до удару без зб
   it("довгий меч отримує +2, удар без зброї — ні", () => {
     expect(calculateWeaponDamageBonus(withDueling, longsword as never)).toBe(0 + 2);
     expect(calculateWeaponDamageBonus(withDueling, unarmedStrike as never)).toBe(0);
+  });
+});
+
+describe("власні навички", () => {
+  const skill = { ability: "WIS", bonus: 0 } as const;
+  const wise = (draft: Record<string, unknown> = {}) => buildPers({ level: 5, wis: 16, ...draft });
+
+  it("без майстерності — лише модифікатор характеристики й ручний бонус", () => {
+    expect(calculateCustomSkillTotal(wise(), { ...skill, proficiencyType: "NONE" })).toBe(3);
+    expect(calculateCustomSkillTotal(wise(), { ...skill, proficiencyType: "NONE", bonus: -1 })).toBe(2);
+  });
+
+  it("майстерність, половина й експертиза рахуються від бонусу майстерності", () => {
+    expect(calculateCustomSkillTotal(wise(), { ...skill, proficiencyType: "PROFICIENT" })).toBe(3 + 3);
+    expect(calculateCustomSkillTotal(wise(), { ...skill, proficiencyType: "HALF" })).toBe(3 + 1);
+    expect(calculateCustomSkillTotal(wise(), { ...skill, proficiencyType: "EXPERTISE" })).toBe(3 + 6);
+  });
+
+  it("формули здібностей бачать поточні модифікатори, майстерність і рівень", () => {
+    expect(findCustomRollStats(wise({ str: 8 }))).toEqual({
+      abilityModifiers: { STR: -1, DEX: 0, CON: 0, INT: 0, WIS: 3, CHA: 0 },
+      proficiencyBonus: 3,
+      level: 5,
+    });
   });
 });

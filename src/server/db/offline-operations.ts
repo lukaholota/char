@@ -1,3 +1,4 @@
+import { canEditPers } from "@/lib/actions/pers";
 import { Prisma } from "@prisma/client";
 
 import { prisma } from "@/lib/prisma";
@@ -14,6 +15,7 @@ import {
 import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { buildHitDicePools, findMainClassLevel, findPoolsAfterSetting, serializeHitDicePools, type StoredHitDice } from "@/rules/hit-dice";
 import { applyChargesStep } from "@/rules/magic-item-charges";
+import { stepCustomFeatureUses } from "@/server/db/pers-custom-content";
 import { getPactMagicSlots, getStandardSpellSlots } from "@/rules/spellcasting";
 import { changeFeatureUses } from "@/server/db/feature-use-change";
 import { changeFeatureState } from "@/server/db/feature-state-change";
@@ -67,6 +69,7 @@ function isPersFieldOperation(operation: OfflineOperation): boolean {
   switch (operation.kind) {
     case "feature-use":
     case "feature-state":
+    case "custom-feature-use":
     case "concentration":
     case "spell-buff":
     case "exhaustion":
@@ -87,11 +90,8 @@ export async function applyOwnedOfflineOperation(
 ): Promise<ApplyOfflineOperationResult> {
   const operation = normalizeOperation(input);
 
-  const pers = await prisma.pers.findFirst({
-    where: { persId: operation.persId, userId, isSnapshot: false },
-    select: OFFLINE_PERS_SELECT,
-  });
-  if (!pers) return { ok: false, error: "Офлайн-зміни дозволені лише власнику персонажа", retry: false };
+  const pers = await prisma.pers.findFirst({ where: { persId: operation.persId, isSnapshot: false }, select: { persId: true } });
+  if (!pers || !(await canEditPers(operation.persId, userId))) return { ok: false, error: "Немає доступу до персонажа", retry: false };
 
   if (isPersFieldOperation(operation)) return applyPersFieldOperation(userId, operation);
   return applyRelationOperation(userId, operation);
@@ -173,6 +173,9 @@ async function applyRelationChange(operation: OfflineOperation): Promise<string 
       const result = await changeFeatureState({ persId: operation.persId, featureId: operation.featureId }, operation.isActive);
       return result.success ? null : result.error;
     }
+    case "custom-feature-use":
+      await stepCustomFeatureUses(operation.persId, operation.customFeatureId, operation.direction);
+      return null;
     case "concentration":
       return describeFailure(await changeConcentration(operation.persId, operation.spellId));
     case "spell-buff":

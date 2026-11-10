@@ -30,10 +30,10 @@ export function describedBy(name: string): string {
   return `homebrew-${name}-note`;
 }
 
-export function TextField(props: FieldShell & { value: string; onChange: (value: string) => void; maxLength: number; placeholder?: string; list?: string }) {
+export function TextField(props: FieldShell & { value: string; onChange: (value: string) => void; maxLength: number; placeholder?: string; list?: string; inputMode?: "numeric" }) {
   return (
     <FormField {...props}>
-      <input id={`homebrew-${props.name}`} aria-describedby={describedBy(props.name)} aria-invalid={Boolean(props.error)} value={props.value} maxLength={props.maxLength} placeholder={props.placeholder} list={props.list} onChange={(event) => props.onChange(event.target.value)} className={cn(CONTROL, "h-11 sm:h-10", props.error && "border-rose-400/60")} />
+      <input id={`homebrew-${props.name}`} inputMode={props.inputMode} aria-describedby={describedBy(props.name)} aria-invalid={Boolean(props.error)} value={props.value} maxLength={props.maxLength} placeholder={props.placeholder} list={props.list} onChange={(event) => props.onChange(event.target.value)} className={cn(CONTROL, "h-11 sm:h-10", props.error && "border-rose-400/60")} />
     </FormField>
   );
 }

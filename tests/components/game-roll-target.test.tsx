@@ -29,7 +29,7 @@ const noConditions = { conditions: [], exhaustionLevel: 0 };
 
 const buildCreature = (id: number) => ({ id, creatureKey: "goblin", ruleset: "RULES_2014", label: `Гоблін ${id}`, statblockName: null, customName: null, badge: id, isAlly: false, imageUrl: null, isRoundImage: false, tokenSize: "medium", token: { x: 0.5, y: 0.5 }, hitPoints: null, isDown: false, conditions: noConditions });
 const buildView = (creatureIds: number[]) =>
-  ({ id: 1, name: "Кімната", isArchived: false, myUserId: 7, myRole: "PLAYER", myPersId: 5, inviteToken: null, mapImageUrl: null, members: [], creatures: creatureIds.map(buildCreature), creatureNameMode: "short", combat: null }) as unknown as GameSessionView;
+  ({ id: 1, name: "Кімната", isArchived: false, myUserId: 7, myRole: "PLAYER", myPersId: 5, myPersIds: [5], inviteToken: null, mapImageUrl: null, members: [], creatures: creatureIds.map(buildCreature), creatureNameMode: "short", combat: null }) as unknown as GameSessionView;
 
 function enterRoom(creatureIds: number[]) {
   useGameSessionStore.setState({ active: { id: 1, name: "Кімната" }, visibilityBySession: {}, targetCreatureBySession: {} });

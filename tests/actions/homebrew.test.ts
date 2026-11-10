@@ -18,7 +18,7 @@ vi.mock("@/server/media/media-store", () => ({
   deleteMediaObject: async (key: string) => void stored.delete(key),
 }));
 
-import { deleteHomebrewEntry, listHomebrewEntries, loadHomebrewEditValues, loadHomebrewEntry, saveHomebrewCreature, saveHomebrewSpell } from "@/lib/actions/homebrew-actions";
+import { deleteHomebrewEntry, listCreatureSpellChoices, listHomebrewEntries, loadHomebrewEditValues, loadHomebrewEntry, saveHomebrewCreature, saveHomebrewSpell } from "@/lib/actions/homebrew-actions";
 
 vi.setConfig({ testTimeout: 60_000 });
 
@@ -84,6 +84,20 @@ describe("хоумбрю спільноти", () => {
     expect(stored.size).toBe(2);
     await deleteHomebrewEntry(saved.entryId);
     expect(stored.size).toBe(0);
+  });
+
+  it("заклинання істоти беруться лише з каталогу її редакції: шкода рахується на сервері, чужий номер — помилка", async () => {
+    await signInAs("author");
+    const fireball = (await listCreatureSpellChoices("RULES_2014")).find((spell) => spell.searchName.includes("fireball"))!;
+
+    const saved = await saveHomebrewCreature(buildCreatureForm({ ...CREATURE, charisma: 16, spells: [{ spellId: fireball.spellId, plan: { rolls: [] } }] }));
+    if (!saved.success) throw new Error(JSON.stringify(saved));
+    expect(await loadHomebrewEntry(saved.entryId)).toMatchObject({
+      creature: { spellcasting: { attackBonus: 5, saveDc: 13, spells: [{ engName: "Fireball", level: 3, plan: { save: "DEX", rolls: [{ count: 8, sides: 6 }] } }] } },
+    });
+    expect(await loadHomebrewEditValues(saved.entryId)).toMatchObject({ values: { spells: [{ spellId: fireball.spellId, level: 3 }] } });
+
+    expect(await saveHomebrewCreature(buildCreatureForm({ ...CREATURE, spells: [{ spellId: 999_999 }] }))).toMatchObject({ success: false, fieldErrors: { spells: expect.any(String) } });
   });
 });
 

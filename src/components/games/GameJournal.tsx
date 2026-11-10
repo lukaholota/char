@@ -1,5 +1,6 @@
 "use client";
 
+import { findRoomPeople } from "@/rules/game-room-heroes";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowDown, Loader2, Volume2, VolumeX } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -23,7 +24,7 @@ const STATUS_TEXT: Partial<Record<GameConnectionStatus, string>> = {
 
 export function GameJournal({ myUserId, className }: { myUserId: number | null; className?: string }) {
   const { events, status, hasOlder, isLoadingOlder, sessionId, view, rollingUserIds, pendingRolls, rollKeys } = useGameSessionLiveStore();
-  const rollingMembers = view ? view.members.filter((member) => rollingUserIds.includes(member.userId)) : [];
+  const rollingMembers = view ? findRoomPeople(view.members).filter((member) => rollingUserIds.includes(member.userId)) : [];
   const { scrollRef, unseenCount, onScroll, scrollToBottom } = useStickToBottom(events, `${pendingRolls.length}-${rollingMembers.length}`);
   const liveSinceSeq = useLiveSinceSeq();
   const entries = [

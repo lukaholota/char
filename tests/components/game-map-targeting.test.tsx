@@ -22,7 +22,7 @@ import { useDiceUIStore, type DiceRollContext } from "@/lib/stores/diceUIStore";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 
 const view = {
-  id: 1, myRole: "GM", myPersId: null,
+  id: 1, myRole: "GM", myPersId: null, myPersIds: [],
   members: [{ persId: 5, persName: "Пивослав", name: "Оксана" }],
   creatures: [{ id: 3, label: "Гоблін 1" }, { id: 4, label: "Огр" }],
 } as unknown as GameSessionView;

@@ -49,16 +49,16 @@ const combat: CombatView = {
   round: 2,
   currentId: 12,
   combatants: [
-    { id: 11, initiative: 18, hero: { userId: 2, name: "Арвен", avatarUrl: null }, creature: null },
+    { id: 11, initiative: 18, hero: { persId: 20, userId: 2, name: "Арвен", avatarUrl: null }, creature: null },
     { id: 12, initiative: 14, hero: null, creature: { id: 5, creatureKey: null, ruleset: "RULES_2014", label: "Тінь", statblockName: null, customName: null, badge: null, isAlly: false, imageUrl: null, isRoundImage: false, tokenSize: "medium", token: { x: 0.5, y: 0.5 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 } } },
-    { id: 13, initiative: 7, hero: { userId: 3, name: "Торин", avatarUrl: null }, creature: null },
+    { id: 13, initiative: 7, hero: { persId: 30, userId: 3, name: "Торин", avatarUrl: null }, creature: null },
   ],
 };
 
 const buildView = (overrides: Partial<GameSessionView> = {}): GameSessionView => ({
-  id: 7, name: "Печера", isArchived: false, myUserId: 2, myRole: "PLAYER", myPersId: 20, inviteToken: null, mapImageUrl: null, members: [], creatures: [], creatureNameMode: "short", combat: null, grid: null, fog: null, areas: [], viewedSceneId: null, activeSceneId: null, scenes: [], ...overrides,
+  id: 7, name: "Печера", isArchived: false, myUserId: 2, myRole: "PLAYER", myPersId: 20, myPersIds: [20], inviteToken: null, mapImageUrl: null, members: [], creatures: [], creatureNameMode: "short", combat: null, grid: null, fog: null, areas: [], viewedSceneId: null, activeSceneId: null, scenes: [], ...overrides,
 });
-const gmView = (overrides: Partial<GameSessionView> = {}) => buildView({ myUserId: 1, myRole: "GM", myPersId: null, ...overrides });
+const gmView = (overrides: Partial<GameSessionView> = {}) => buildView({ myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [], ...overrides });
 const listItems = () => within(screen.getByRole("list", { name: "Черга ходів" })).getAllByRole("listitem");
 
 describe("трекер бою", () => {
@@ -114,7 +114,7 @@ describe("трекер бою", () => {
   });
 
   it("майстер переходить уперед і назад, додає нових і завершує бій лише після підтвердження", async () => {
-    const borin = { userId: 4, name: "Оля", role: "PLAYER" as const, persId: 40, persName: "Борін", avatarUrl: null, isOnline: true, token: null, conditions: { conditions: [], exhaustionLevel: 0 }, lifeState: { kind: "up" as const } };
+    const borin = { heroId: 4, heroSlot: 0, isCutout: false, userId: 4, name: "Оля", role: "PLAYER" as const, persId: 40, persName: "Борін", avatarUrl: null, isOnline: true, token: null, conditions: { conditions: [], exhaustionLevel: 0 }, lifeState: { kind: "up" as const } };
     render(<><CombatTracker view={gmView({ combat, members: [borin] })} /><ConfirmDialogHost /></>);
     fireEvent.click(screen.getByRole("button", { name: /Наступний хід/ }));
     await waitFor(() => expect(mocks.advanceCombatTurnAction).toHaveBeenCalledWith(7, 1));
@@ -193,7 +193,7 @@ describe("трекер бою", () => {
   });
 
   it("чужий хід, хід наступного героя й архівна кімната — без кнопки завершення", () => {
-    const { rerender } = render(<CombatTracker view={buildView({ combat, myUserId: 3, myPersId: 30 })} />);
+    const { rerender } = render(<CombatTracker view={buildView({ combat, myUserId: 3, myPersId: 30, myPersIds: [30] })} />);
     expect(screen.getByText("Зараз ходить: Тінь · ваш хід наступний")).toBeTruthy();
     expect(screen.queryByRole("button", { name: "Завершити хід" })).toBeNull();
     rerender(<CombatTracker view={buildView({ combat: { ...combat, currentId: 11 }, isArchived: true })} />);

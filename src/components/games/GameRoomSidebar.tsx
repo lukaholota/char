@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { removeGameSessionMemberAction, rotateInviteTokenAction } from "@/lib/actions/game-sessions";
 import { cn } from "@/lib/utils";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
+import { findRoomPeople } from "@/rules/game-room-heroes";
 import { GameAvatar } from "./GameAvatar";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
@@ -17,9 +18,9 @@ export const ROOM_CARD = "space-y-3 rounded-2xl border border-white/10 bg-slate-
 export function GameRoomMembers({ view }: { view: GameSessionView }) {
   return (
     <section aria-labelledby="game-room-members" className={ROOM_CARD}>
-      <h2 id="game-room-members" className="font-rpg-display text-lg text-slate-100">Учасники · {view.members.length}</h2>
+      <h2 id="game-room-members" className="font-rpg-display text-lg text-slate-100">Учасники · {findRoomPeople(view.members).length}</h2>
       <ul className="space-y-1">
-        {view.members.map((member) => (
+        {findRoomPeople(view.members).map((member) => (
           <MemberRow key={member.userId} view={view} member={member} />
         ))}
       </ul>
@@ -31,6 +32,7 @@ function MemberRow({ view, member }: { view: GameSessionView; member: GameSessio
   const router = useModeRouter();
   const [isPending, startTransition] = useTransition();
   const canRemove = view.myRole === "GM" && member.userId !== view.myUserId;
+  const heroNames = view.members.flatMap((hero) => (hero.userId === member.userId && hero.persName ? [hero.persName] : []));
   const remove = async () => {
     if (!(await askToConfirm({ title: `Вилучити ${member.name} з кімнати?`, description: "Повернутися можна лише за запрошенням.", confirmLabel: "Вилучити", isDestructive: true }))) return;
     startTransition(async () => {
@@ -54,7 +56,7 @@ function MemberRow({ view, member }: { view: GameSessionView; member: GameSessio
           {member.userId === view.myUserId ? <span className="text-slate-400"> (ви)</span> : null}
         </div>
         <div className="truncate text-xs text-slate-400">
-          {member.persName ?? (member.role === "GM" ? "Майстер" : "Без персонажа")}
+          {heroNames.join(", ") || (member.role === "GM" ? "Майстер" : "Без персонажа")}
           <span className="sr-only">{member.isOnline ? ", у мережі" : ", не в мережі"}</span>
         </div>
       </div>
@@ -78,7 +80,7 @@ export function GameRoomInvite({ view, isProminent = false }: { view: GameSessio
   const link = `${origin}/games/join/${token}`;
   const copy = () => void navigator.clipboard.writeText(link).then(() => {
     toast.success("Посилання скопійовано");
-    captureGameEvent("game_invite_copied", { member_count: view.members.length });
+    captureGameEvent("game_invite_copied", { member_count: findRoomPeople(view.members).length });
   }, () => toast.error("Не вдалося скопіювати — виділіть посилання вручну"));
   const rotate = async () => {
     if (!(await askToConfirm({ title: "Створити нове посилання?", description: "Старе посилання перестане працювати. Учасники, що вже в кімнаті, лишаться.", confirmLabel: "Створити" }))) return;

@@ -2,7 +2,7 @@ import { AREA_LIMITS } from "@/rules/game-areas";
 import { MAP_CREATURE_LIMITS } from "@/rules/game-map-creatures";
 import { GAME_SCENE_LIMITS } from "@/rules/game-scenes";
 import { findCurrentUserId } from "@/server/db/current-user";
-import type { GameSessionFailure, GameSessionResult } from "@/server/db/game-sessions";
+import { GAME_SESSION_LIMITS, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
 export type ActionResult<T = null> = { ok: true; value: T } | { ok: false; error: string };
 
@@ -16,6 +16,7 @@ export const FAILURE_MESSAGES: Record<GameSessionFailure | "signed_out" | "too_f
   too_many: "Забагато активних кімнат — заархівуйте стару",
   bad_name: "Назва має містити від 1 до 80 символів",
   bad_pers: "Цього персонажа не можна привʼязати",
+  hero_limit: `Не більше ${GAME_SESSION_LIMITS.heroesPerMember} героїв на гравця`,
   bad_image: "Не вдалося завантажити мапу — спробуйте іншу картинку",
   no_map: "Мапи вже немає або токен без персонажа",
   bad_scene: "Цієї сцени вже немає",

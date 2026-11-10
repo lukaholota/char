@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { CharacterFeatureItem, CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { FeatureDisplayType } from "@/lib/prisma-enums";
 import { ChevronRight, Search } from "lucide-react";
+import { CustomFeaturesSection } from "@/lib/components/characterSheet/custom/CustomFeaturesSection";
 import { useRouter } from "next/navigation";
 import { spendFeatureUse, restoreFeatureUse } from "@/lib/actions/feature-uses";
 import { useLatestMutation } from "@/hooks/useLatestMutation";
@@ -714,7 +715,7 @@ const FeaturesSlide = memo(function FeaturesSlide({ pers, groupedFeatures, isRea
           }}
         />
 
-
+      <CustomFeaturesSection pers={pers} onPersUpdate={onPersUpdate} isReadOnly={isReadOnly} />
 
       {groupedFeatures ? (
         <label className="relative block">

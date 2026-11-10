@@ -26,14 +26,14 @@ import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 
 const damageRoll: GameRoll = { d20Mode: null, modeSources: [], groups: [{ sides: 8, values: [6] }], extra: [], bonus: 0, total: 6, check: null };
 const attackRoll: GameRoll = { d20Mode: "NORMAL", modeSources: [], groups: [{ sides: 20, values: [11] }], extra: [], bonus: 4, total: 15, check: null };
-const member = (userId: number, role: "GM" | "PLAYER", persId: number | null, persName: string | null) => ({ userId, name: `Гравець ${userId}`, role, persId, persName, avatarUrl: null });
+const member = (userId: number, role: "GM" | "PLAYER", persId: number | null, persName: string | null) => ({ heroId: userId, heroSlot: 0, userId, name: `Гравець ${userId}`, role, persId, persName, avatarUrl: null });
 
 function enterRoom({ myRole, myPersId }: { myRole: "GM" | "PLAYER"; myPersId: number | null }) {
   useGameSessionStore.setState({ active: { id: 1, name: "Кімната" }, visibilityBySession: {}, targetCreatureBySession: {}, targetHeroBySession: {} });
   resetLiveSession(1);
   const myUserId = myRole === "GM" ? 1 : 7;
   const members = [member(1, "GM", null, null), member(7, "PLAYER", 5, "Пивослав"), member(8, "PLAYER", 6, "Ельза")];
-  useGameSessionLiveStore.setState({ view: { id: 1, name: "Кімната", myUserId, myRole, myPersId, members, creatures: [], combat: null } as unknown as GameSessionView });
+  useGameSessionLiveStore.setState({ view: { id: 1, name: "Кімната", myUserId, myRole, myPersId, myPersIds: myPersId === null ? [] : [myPersId], members, creatures: [], combat: null } as unknown as GameSessionView });
 }
 
 const heroEvent = (roll: GameRoll, heroTarget: GameRollEventView["heroTarget"]): GameRollEventView => ({

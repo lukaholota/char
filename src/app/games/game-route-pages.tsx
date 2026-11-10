@@ -7,6 +7,7 @@ import { GameRoomsContent } from "@/components/games/GameRoomsLanding";
 import { GameSignInPrompt } from "@/components/games/GameSignInPrompt";
 import { HomebrewPageShell } from "@/components/homebrew/HomebrewPageShell";
 import { redirectKeepingNoAiMode } from "@/lib/no-ai/no-ai-server";
+import { findShownHeroPersId, listSheetPersIds } from "@/rules/game-room-heroes";
 import { getTargetEditionPath, type Edition } from "@/rules/route-helpers";
 import { findCurrentUserId } from "@/server/db/current-user";
 import { findGameSessionView, findInvite, listBindablePers, listGameSessionsForUser } from "@/server/db/game-sessions";
@@ -26,8 +27,8 @@ export async function buildGameSessionsPage(edition: Edition) {
   );
 }
 
-export async function buildGameRoomPage(params: Promise<{ id: string }>, edition: Edition) {
-  const [{ id }, userId] = await Promise.all([params, findCurrentUserId()]);
+export async function buildGameRoomPage(params: Promise<{ id: string }>, searchParams: Promise<{ hero?: string | string[] }>, edition: Edition) {
+  const [{ id }, { hero }, userId] = await Promise.all([params, searchParams, findCurrentUserId()]);
   if (userId === null) {
     return (
       <HomebrewPageShell title="Ігрова кімната" backHref={getTargetEditionPath("/games", edition)} backLabel="Кімнати">
@@ -43,12 +44,13 @@ export async function buildGameRoomPage(params: Promise<{ id: string }>, edition
   });
   const view = await findGameSessionView(sessionId, userId);
   if (!view) notFound();
-  const heroSheet = view.myPersId === null ? null : (
-    <Suspense fallback={<RoomHeroSheetSkeleton />}>
-      <RoomHeroSheet persId={view.myPersId} />
+  const shownHeroPersId = findShownHeroPersId(typeof hero === "string" ? hero : null, listSheetPersIds(view));
+  const heroSheet = shownHeroPersId === null ? null : (
+    <Suspense key={shownHeroPersId} fallback={<RoomHeroSheetSkeleton />}>
+      <RoomHeroSheet persId={shownHeroPersId} />
     </Suspense>
   );
-  return <GameRoomPage initialView={view} bindablePers={bindablePers} heroSheet={heroSheet} />;
+  return <GameRoomPage initialView={view} bindablePers={bindablePers} heroSheet={heroSheet} shownHeroPersId={shownHeroPersId} />;
 }
 
 export async function buildGameJoinPage(params: Promise<{ token: string }>, edition: Edition) {

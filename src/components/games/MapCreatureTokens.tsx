@@ -47,7 +47,7 @@ export function useMapCreatureTokens({ view, layout, findDropPosition, isTurned 
   const looks = useCreatureLooks(view);
   const changeConditions = useTokenConditionChanges(view.id);
   const targetId = useRollTargetCreatureId(view.id);
-  const myHeroName = view.members.find((member) => member.userId === view.myUserId)?.persName ?? null;
+  const myHeroName = view.members.find((member) => member.userId === view.myUserId && member.persId !== null)?.persName ?? null;
   const findCells = (creature: MapCreatureView) => CREATURE_SIZE_CELLS[looks.findSize(creature)];
   const findSnappedDrop = (creature: MapCreatureView | undefined, point: Point) => {
     const position = findDropPosition(point);

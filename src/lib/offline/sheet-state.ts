@@ -2,6 +2,7 @@ import type { CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/ac
 import {
   applyQueuedFeatureUses,
   applyQueuedItemCharges,
+  applyQueuedCustomFeatureUses,
   applyQueuedOperations,
   applyQueuedSpellPreparation,
   type OfflineOperation,
@@ -94,6 +95,7 @@ function applyToPers(pers: PersWithRelations, operations: OfflineOperation[]): P
   return {
     ...fields,
     magicItems: applyQueuedItemCharges(pers.magicItems, pers.persId, operations),
+    persCustomFeatures: applyQueuedCustomFeatureUses(pers.persCustomFeatures ?? [], pers.persId, operations),
     persSpells: applyQueuedSpellPreparation(pers.persSpells, pers.persId, operations),
     homebrewSpells: applyQueuedSpellPreparation(
       pers.homebrewSpells,

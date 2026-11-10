@@ -78,6 +78,7 @@ export type OfflineOperation =
   | (OfflineOperationBase & { kind: "hit-dice"; remainingByClass: Record<string, number> })
   | (OfflineOperationBase & { kind: "feature-use"; featureId: number; direction: FeatureUseDirection; amount?: number })
   | (OfflineOperationBase & { kind: "feature-state"; featureId: number; isActive: boolean })
+  | (OfflineOperationBase & { kind: "custom-feature-use"; customFeatureId: number; direction: FeatureUseDirection })
   | (OfflineOperationBase & { kind: "concentration"; spellId: number | null })
   | (OfflineOperationBase & { kind: "spell-buff"; effectKey: string; isActive: boolean; spellId: number | null; endsWithConcentration: boolean })
   | (OfflineOperationBase & { kind: "exhaustion"; level: number })
@@ -155,6 +156,7 @@ export function applyOfflineOperation<T extends OfflinePersState>(pers: T, opera
       return { ...pers, currentHitDice: normalizeHitDice(operation.remainingByClass) };
     case "feature-use":
     case "feature-state":
+    case "custom-feature-use":
     case "concentration":
     case "spell-buff":
     case "exhaustion":
@@ -275,6 +277,21 @@ export function stepFeatureUses(current: number, max: number, cost: number, dire
   return Math.min(max, current + cost);
 }
 
+export function applyQueuedCustomFeatureUses<T extends { id: number; usesMax: number | null; usesRemaining: number | null }>(
+  features: T[],
+  persId: number,
+  operations: OfflineOperation[],
+): T[] {
+  return operations.reduce<T[]>((current, operation) => {
+    if (operation.kind !== "custom-feature-use" || operation.persId !== persId) return current;
+    return current.map((feature) =>
+      feature.id === operation.customFeatureId && feature.usesMax !== null && feature.usesRemaining !== null
+        ? { ...feature, usesRemaining: stepFeatureUses(feature.usesRemaining, feature.usesMax, 1, operation.direction) }
+        : feature,
+    );
+  }, features);
+}
+
 export function applyQueuedItemCharges<T extends MagicItemCharges & { persMagicItemId: number }>(
   items: T[],
   persId: number,
@@ -333,6 +350,8 @@ export function isOfflineOperation(value: unknown): value is OfflineOperation {
       return Number.isInteger(operation.featureId) && ["spend", "restore"].includes(String(operation.direction)) && (operation.amount === undefined || isFeatureUseAmount(operation.amount));
     case "feature-state":
       return Number.isInteger(operation.featureId) && typeof operation.isActive === "boolean";
+    case "custom-feature-use":
+      return Number.isInteger(operation.customFeatureId) && ["spend", "restore"].includes(String(operation.direction));
     case "concentration":
       return operation.spellId === null || Number.isInteger(operation.spellId);
     case "spell-buff":
