@@ -38,7 +38,7 @@ export async function shrinkScreenshotForUpload(file: Blob): Promise<Blob> {
   try {
     let smallest: Blob | null = null;
     for (const pass of SCREENSHOT_PASSES) {
-      const encoded = await encodeCanvas(drawFitted(bitmap, pass.edge), pass.quality);
+      const encoded = await encodeOpaqueCanvas(drawFitted(bitmap, pass.edge), pass.quality);
       if (encoded.size <= MAX_IMAGE_UPLOAD_BYTES) return encoded;
       smallest = encoded;
     }
@@ -57,8 +57,14 @@ function drawFitted(bitmap: ImageBitmap, maxEdge: number): HTMLCanvasElement {
   return canvas;
 }
 
-function encodeCanvas(canvas: HTMLCanvasElement, quality: number): Promise<Blob> {
+function encodeCanvas(canvas: HTMLCanvasElement, quality: number, type = OUTPUT_TYPE): Promise<Blob> {
   return new Promise((resolve, reject) => {
-    canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("Браузер не зміг стиснути картинку"))), OUTPUT_TYPE, quality);
+    canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("Браузер не зміг стиснути картинку"))), type, quality);
   });
+}
+
+/// Safari не кодує webp і мовчки віддає PNG — для мапи це мегабайти; без прозорості JPEG стискає не гірше.
+async function encodeOpaqueCanvas(canvas: HTMLCanvasElement, quality: number): Promise<Blob> {
+  const encoded = await encodeCanvas(canvas, quality);
+  return encoded.type === OUTPUT_TYPE ? encoded : encodeCanvas(canvas, quality, "image/jpeg");
 }

@@ -49,6 +49,14 @@ export function applyHitPointChange(hitPoints: CreatureHitPoints | null, change:
   return { current: Math.min(hitPoints.max, Math.max(0, hitPoints.current + delta)), max: hitPoints.max };
 }
 
+/// Скасування хітів: спершу старий максимум, потім різниця поточних — обидві зміни точні в межах 0…максимум.
+export function findHitPointChangesTo(from: CreatureHitPoints, to: CreatureHitPoints): HitPointChange[] {
+  const maxChange: HitPointChange[] = from.max === to.max ? [] : [{ kind: "set_max", amount: to.max }];
+  const delta = to.current - Math.min(from.current, to.max);
+  const currentChange: HitPointChange[] = delta === 0 ? [] : [{ kind: delta > 0 ? "heal" : "damage", amount: Math.abs(delta) }];
+  return [...maxChange, ...currentChange];
+}
+
 export type HitPointBarTone = "healthy" | "hurt" | "critical";
 
 export function findHitPointBarTone({ current, max }: CreatureHitPoints): HitPointBarTone {

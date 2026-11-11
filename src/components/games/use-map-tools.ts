@@ -10,12 +10,12 @@ import type { MapRect, MapSegment } from "./MapOverlay";
 import type { MapGesture } from "./use-map-viewport";
 
 type Point = { clientX: number; clientY: number };
-export type MapTool = "ruler" | "area" | "draw" | "fog" | "grid" | "view";
+export type MapTool = "ruler" | "area" | "draw" | "objects" | "walls" | "light" | "fog" | "grid" | "view";
 type ToShare = (point: Point) => TokenPosition | null;
 
 const TAP_SLOP_SHARE = 0.004;
 const clampShare = (point: TokenPosition) => ({ x: Math.min(1, Math.max(0, point.x)), y: Math.min(1, Math.max(0, point.y)) });
-const toRect = (from: TokenPosition, to: TokenPosition): MapRect => ({ x: Math.min(from.x, to.x), y: Math.min(from.y, to.y), width: Math.abs(to.x - from.x), height: Math.abs(to.y - from.y) });
+export const toRect = (from: TokenPosition, to: TokenPosition): MapRect => ({ x: Math.min(from.x, to.x), y: Math.min(from.y, to.y), width: Math.abs(to.x - from.x), height: Math.abs(to.y - from.y) });
 
 /// Перетягування пальцем від точки до точки в частках мапи; спільна основа лінійки, рамок і зсуву.
 export function buildDragGesture(toShare: ToShare, handlers: { start: (at: TokenPosition) => void; move: (from: TokenPosition, at: TokenPosition) => void; end: (from: TokenPosition, at: TokenPosition) => void; cancel: () => void }): MapGesture {

@@ -13,11 +13,22 @@ import { ACCEPTED_IMAGE_MIME_TYPES, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-u
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import type { LibraryMap } from "@/lib/refs/map-library";
+import { LIGHT_LIMITS } from "@/rules/game-lighting";
 import { GAME_SCENE_LIMITS, findAutoSceneName, type GameSceneListItem } from "@/rules/game-scenes";
+import { countWallSegments, WALL_LIMITS } from "@/rules/game-walls";
+import { parseUvttScene, UVTT_FILE_EXTENSIONS, UVTT_FILE_PATTERN, type SceneLayout, type UvttFailure } from "@/rules/uvtt-import";
 import { MapLibraryPicker, MapQuickPicks, useMapLibrary, type LibraryState } from "./MapLibraryPicker";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
 
-type MapChoice = { kind: "upload"; file: Blob; label: string; previewUrl: string } | { kind: "library"; map: LibraryMap };
+type MapChoice = { kind: "upload"; file: Blob; label: string; previewUrl: string; layout: SceneLayout | null } | { kind: "library"; map: LibraryMap };
+
+const UVTT_ERRORS: Record<UvttFailure | "edit_scene", string> = {
+  bad_file: "Файл не схожий на експорт Universal VTT",
+  no_image: "У файлі немає картинки мапи",
+  too_many_walls: `Забагато стін: понад ${WALL_LIMITS.segmentsPerScene} відрізків навіть після спрощення`,
+  too_many_lights: `Забагато світла: понад ${LIGHT_LIMITS.perScene} джерел`,
+  edit_scene: "Мапу зі стінами відкрийте як нову сцену",
+};
 
 type SceneFormDialogProps = { sessionId: number; scene: GameSceneListItem | null; open: boolean; onOpenChange: (open: boolean) => void };
 
@@ -47,9 +58,11 @@ function SceneForm({ sessionId, scene, library, onDone }: SceneFormProps) {
 
   const chooseFile = async (file: File) => {
     try {
-      const shrunk = await shrinkScreenshotForUpload(file);
+      const imported = UVTT_FILE_PATTERN.test(file.name) ? (scene ? ({ ok: false, error: "edit_scene" } as const) : await readUvttFile(file)) : null;
+      if (imported && !imported.ok) return void toast.error(UVTT_ERRORS[imported.error]);
+      const shrunk = await shrinkScreenshotForUpload(imported ? decodeBase64(imported.value.imageBase64) : file);
       if (shrunk.size > MAX_IMAGE_UPLOAD_BYTES) return void toast.error("Картинка завелика навіть після стискання");
-      setChoice({ kind: "upload", file: shrunk, label: file.name, previewUrl: URL.createObjectURL(shrunk) });
+      setChoice({ kind: "upload", file: shrunk, label: file.name, previewUrl: URL.createObjectURL(shrunk), layout: imported ? toLayout(imported.value) : null });
     } catch {
       toast.error("Не вдалося прочитати картинку");
     }
@@ -79,6 +92,7 @@ function SceneForm({ sessionId, scene, library, onDone }: SceneFormProps) {
       if (!scene) {
         const result = await createGameSceneAction(sessionId, name, buildMapForm(choice));
         if (result.ok) captureGameEvent("game_scene_created", { source: choice?.kind ?? "none" });
+        if (result.ok && choice?.kind === "upload" && choice.layout) captureGameEvent("game_uvtt_imported", countLayout(choice.layout));
         return result;
       }
       if (name.trim() !== scene.name) {
@@ -125,7 +139,7 @@ function SceneForm({ sessionId, scene, library, onDone }: SceneFormProps) {
             Усі мапи
           </Button>
         </div>
-        <input ref={fileInputRef} type="file" accept={ACCEPTED_IMAGE_MIME_TYPES} className="hidden" aria-label="Картинка мапи" onChange={(event) => { const file = event.target.files?.[0]; event.target.value = ""; if (file) void chooseFile(file); }} />
+        <input ref={fileInputRef} type="file" accept={scene ? ACCEPTED_IMAGE_MIME_TYPES : `${ACCEPTED_IMAGE_MIME_TYPES},${UVTT_FILE_EXTENSIONS}`} className="hidden" aria-label="Картинка мапи" onChange={(event) => { const file = event.target.files?.[0]; event.target.value = ""; if (file) void chooseFile(file); }} />
         {choice ? (
           <ChosenMap choice={choice} onClear={() => setChoice(null)} />
         ) : (
@@ -157,6 +171,7 @@ function ChosenMap({ choice, onClear }: { choice: MapChoice; onClear: () => void
       <p className="min-w-0 flex-1 text-sm text-slate-100">
         <span className="block text-slate-300">{isLibrary ? "Базова мапа" : "Свій файл"}</span>
         <span className="line-clamp-2 break-words">{isLibrary ? choice.map.name : choice.label}</span>
+        {!isLibrary && choice.layout ? <span className="block text-slate-300">{describeLayout(choice.layout)}</span> : null}
       </p>
       <Button type="button" variant="ghost" onClick={onClear} aria-label="Прибрати обрану мапу" title="Прибрати обрану мапу" className="h-11 w-11 shrink-0 p-0 text-slate-300">
         <X className="h-4 w-4" aria-hidden />
@@ -174,5 +189,27 @@ function buildMapForm(choice: MapChoice | null): FormData {
   const formData = new FormData();
   if (choice?.kind === "library") formData.append("library", choice.map.slug);
   if (choice?.kind === "upload") formData.append("file", choice.file, "map.webp");
+  if (choice?.kind === "upload" && choice.layout) formData.append("layout", JSON.stringify(choice.layout));
   return formData;
+}
+
+async function readUvttFile(file: File) {
+  try {
+    return parseUvttScene(JSON.parse(await file.text()));
+  } catch {
+    return { ok: false as const, error: "bad_file" as const };
+  }
+}
+
+const decodeBase64 = (base64: string) => new Blob([Uint8Array.from(atob(base64), (char) => char.charCodeAt(0))]);
+const toLayout = ({ grid, lighting, walls, lights }: SceneLayout): SceneLayout => ({ grid, lighting, walls, lights });
+
+function countLayout(layout: SceneLayout) {
+  const doors = layout.walls.filter((wall) => wall.kind === "door");
+  return { walls: countWallSegments(layout.walls) - doors.length, doors: doors.length, lights: layout.lights.length };
+}
+
+function describeLayout(layout: SceneLayout) {
+  const { walls, doors, lights } = countLayout(layout);
+  return `Стін: ${walls}, дверей: ${doors}, світла: ${lights}${layout.lighting === "dark" ? " · сцена буде темною" : ""}`;
 }

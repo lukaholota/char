@@ -434,3 +434,34 @@ nav[data-safe-navigation], [data-safe-sheet-tabs].fixed {
     animation: none;
   }
 }
+
+/* Темрява мапи: лише прозорість — інакше анімація перебила б transform слота токена. Зʼява з 0.01: iOS ковтає дотики по елементу з нуля. */
+@keyframes map-sight-reveal {
+  from {
+    opacity: 0.01;
+  }
+}
+
+@keyframes map-sight-fade {
+  to {
+    opacity: 0;
+  }
+}
+
+.map-sight-reveal {
+  animation: map-sight-reveal 180ms ease-out;
+}
+
+.map-sight-fade {
+  animation: map-sight-fade 180ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-sight-reveal {
+    animation: none;
+  }
+
+  .map-sight-fade {
+    display: none;
+  }
+}

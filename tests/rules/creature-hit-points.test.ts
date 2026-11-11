@@ -3,6 +3,7 @@ import {
   applyHitPointChange,
   findCreatureHitPoints,
   findHitPointBarTone,
+  findHitPointChangesTo,
   isCreatureDown,
   parseHitPointChange,
   rollCreatureMaxHitPoints,
@@ -71,5 +72,19 @@ describe("хіти істот на мапі", () => {
     expect(findHitPointBarTone({ current: 5, max: 10 })).toBe("hurt");
     expect(findHitPointBarTone({ current: 3, max: 10 })).toBe("hurt");
     expect(findHitPointBarTone({ current: 2, max: 10 })).toBe("critical");
+  });
+});
+
+describe("findHitPointChangesTo", () => {
+  const replay = (from: { current: number; max: number }, to: { current: number; max: number }) => findHitPointChangesTo(from, to).reduce<typeof from | null>((hitPoints, change) => applyHitPointChange(hitPoints, change), from);
+
+  it("повертає хіти до попереднього стану після шкоди, лікування й нового максимуму", () => {
+    expect(findHitPointChangesTo({ current: 3, max: 10 }, { current: 10, max: 10 })).toEqual([{ kind: "heal", amount: 7 }]);
+    expect(findHitPointChangesTo({ current: 10, max: 10 }, { current: 4, max: 10 })).toEqual([{ kind: "damage", amount: 6 }]);
+    expect(findHitPointChangesTo({ current: 5, max: 5 }, { current: 8, max: 12 })).toEqual([{ kind: "set_max", amount: 12 }, { kind: "heal", amount: 3 }]);
+    expect(replay({ current: 5, max: 5 }, { current: 8, max: 12 })).toEqual({ current: 8, max: 12 });
+    expect(replay({ current: 20, max: 30 }, { current: 2, max: 6 })).toEqual({ current: 2, max: 6 });
+    expect(replay({ current: 0, max: 6 }, { current: 6, max: 6 })).toEqual({ current: 6, max: 6 });
+    expect(findHitPointChangesTo({ current: 4, max: 9 }, { current: 4, max: 9 })).toEqual([]);
   });
 });

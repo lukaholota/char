@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, CloudFog, Flame, Grid3x3, Maximize2, Minus, PencilLine, Plus, Redo2, Ruler, RotateCw, Scan, SlidersHorizontal, Undo2, X, type LucideIcon } from "lucide-react";
+import { BrickWall, ChevronDown, CloudFog, Flame, Grid3x3, Lightbulb, Maximize2, Minus, Package, PencilLine, Plus, Redo2, Ruler, RotateCw, Scan, SlidersHorizontal, Undo2, X, type LucideIcon } from "lucide-react";
 import { useId, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -11,15 +11,22 @@ const TOOLS: Array<{ tool: MapTool; label: string; icon: LucideIcon; isGmOnly?: 
   { tool: "ruler", label: "Лінійка", icon: Ruler },
   { tool: "area", label: "Область", icon: Flame },
   { tool: "draw", label: "Олівець", icon: PencilLine },
+  { tool: "objects", label: "Обʼєкти", icon: Package, isGmOnly: true },
+  { tool: "walls", label: "Стіни", icon: BrickWall, isGmOnly: true },
+  { tool: "light", label: "Світло", icon: Lightbulb, isGmOnly: true },
   { tool: "fog", label: "Туман", icon: CloudFog, isGmOnly: true },
   { tool: "grid", label: "Сітка", icon: Grid3x3, isGmOnly: true },
   { tool: "view", label: "Вигляд", icon: SlidersHorizontal },
 ];
 
+/// Більше пʼяти кнопок у рядку на телефоні не читаються: інструменти майстра стають у рівні ряди.
+const TOOLS_PER_ROW = 5;
+
 export function MapToolRow({ tool, onToolChange, canEditScene, canDraw, className }: { tool: MapTool | null; onToolChange: (tool: MapTool | null) => void; canEditScene: boolean; canDraw: boolean; className?: string }) {
   const tools = TOOLS.filter((entry) => (canEditScene || !entry.isGmOnly) && (canDraw || entry.tool !== "draw"));
+  const columns = Math.ceil(tools.length / Math.ceil(tools.length / TOOLS_PER_ROW));
   return (
-    <div role="toolbar" aria-label="Інструменти мапи" className={cn("grid w-full gap-1 rounded-2xl bg-slate-900/80 p-1 ring-1 ring-white/10", className)} style={{ gridTemplateColumns: `repeat(${tools.length}, minmax(0, 1fr))` }}>
+    <div role="toolbar" aria-label="Інструменти мапи" className={cn("grid w-full gap-1 rounded-2xl bg-slate-900/80 p-1 ring-1 ring-white/10", className)} style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}>
       {tools.map(({ tool: entry, label, icon: Icon }) => (
         <button
           key={entry}
@@ -122,9 +129,11 @@ export function ToolPanel({ title, onClose, children, aside }: { title: string; 
   );
 }
 
-export function Segmented<Value extends string>({ label, value, options, onChange }: { label: string; value: Value; options: Array<{ value: Value; label: string }>; onChange: (value: Value) => void }) {
+type SegmentedProps<Value extends string> = { label: string; value: Value; options: Array<{ value: Value; label: string }>; onChange: (value: Value) => void; isTwoRows?: boolean };
+
+export function Segmented<Value extends string>({ label, value, options, onChange, isTwoRows }: SegmentedProps<Value>) {
   return (
-    <div role="radiogroup" aria-label={label} className="flex rounded-xl border border-white/10 p-0.5">
+    <div role="radiogroup" aria-label={label} className={cn("rounded-xl border border-white/10 p-0.5", isTwoRows ? "grid grid-cols-2" : "flex")}>
       {options.map((option) => (
         <button
           key={option.value}
@@ -132,7 +141,7 @@ export function Segmented<Value extends string>({ label, value, options, onChang
           role="radio"
           aria-checked={value === option.value}
           onClick={() => onChange(option.value)}
-          className={cn("h-10 min-w-0 flex-1 truncate rounded-lg px-2 text-sm", value === option.value ? "bg-white/10 text-slate-100" : "text-slate-400 hover:text-slate-200")}
+          className={cn("h-10 min-w-0 flex-auto truncate rounded-lg px-1.5 text-sm", value === option.value ? "bg-white/10 text-slate-100" : "text-slate-400 hover:text-slate-200")}
         >
           {option.label}
         </button>
@@ -161,8 +170,8 @@ export function Stepper({ label, value, onStep, canDecrease = true, canIncrease 
 export function HistoryButtons({ history }: { history: MapHistory }) {
   return (
     <>
-      <Button type="button" variant="outline" onClick={history.undo ?? undefined} disabled={!history.undo} className="h-11 px-2">Скасувати</Button>
-      <Button type="button" variant="outline" onClick={history.redo ?? undefined} disabled={!history.redo} className="h-11 px-2">Повторити</Button>
+      <Button type="button" variant="outline" onClick={history.undo ?? undefined} disabled={!history.undo} aria-label="Скасувати" title="Скасувати" className="h-11 w-11 shrink-0 p-0"><Undo2 className="h-4 w-4" aria-hidden /></Button>
+      <Button type="button" variant="outline" onClick={history.redo ?? undefined} disabled={!history.redo} aria-label="Повторити" title="Повторити" className="h-11 w-11 shrink-0 p-0"><Redo2 className="h-4 w-4" aria-hidden /></Button>
     </>
   );
 }

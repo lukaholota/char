@@ -32,6 +32,8 @@ const row = (overrides: Partial<MapCreatureRow>): MapCreatureRow => ({
   hpCurrent: null,
   conditions: [],
   exhaustionLevel: 0,
+  lightBrightFeet: 0,
+  lightDimFeet: 0,
   ...overrides,
 });
 

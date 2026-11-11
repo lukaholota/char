@@ -2,8 +2,11 @@ import { Prisma } from "@prisma/client";
 import { MAP_LIBRARY } from "@/lib/refs/map-library-catalog";
 import { prisma } from "@/lib/prisma";
 import { buildLibraryGrid, GRID_OPACITY_RANGE, type SceneGrid } from "@/rules/game-grid";
+import type { TokenLight } from "@/rules/game-lighting";
 import type { TokenPosition } from "@/rules/game-map";
 import type { TokenTransform } from "@/rules/token-transform";
+import type { SceneLayout } from "@/rules/uvtt-import";
+import { toStoredPoints } from "@/rules/map-strokes";
 import { GAME_SCENE_LIMITS, findLibraryMap, findViewedSceneId, isRoomUploadedMapKey, parseSceneName, type SceneMapSource } from "@/rules/game-scenes";
 import { findActiveGmSession, findMembership, findRoomHero, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 import { deleteStoredImage, storeScreenshotImage } from "@/server/media/image-upload";
@@ -13,18 +16,22 @@ type Transaction = Prisma.TransactionClient;
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 const succeed = <T,>(value: T) => ({ ok: true as const, value });
 
-export async function createGameScene(sessionId: number, userId: number, rawName: unknown, source: SceneMapSource): Promise<GameSessionResult<{ id: number }>> {
+/// layout — стіни, двері, світло й сітка з файлу Universal VTT; без картинки їх нема до чого прикласти.
+export async function createGameScene(sessionId: number, userId: number, rawName: unknown, source: SceneMapSource, layout: SceneLayout | null = null): Promise<GameSessionResult<{ id: number }>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
   const name = parseSceneName(rawName);
   if (!name) return fail("bad_scene_name");
+  if (layout && source.kind !== "upload") return fail("bad_image");
   const resolvedMap = await resolveSceneMap(sessionId, source);
   if (!resolvedMap.ok) return resolvedMap;
   const created = await prisma.$transaction(async (tx) => {
     await lockSessionScenes(tx, sessionId);
     const sceneCount = await tx.gameScene.count({ where: { sessionId } });
     if (sceneCount >= GAME_SCENE_LIMITS.perRoom) return fail("scene_limit");
-    const scene = await tx.gameScene.create({ data: { sessionId, name, ...buildSceneMapData(resolvedMap.value) }, select: { id: true } });
+    const mapData = buildSceneMapData({ ...resolvedMap.value, grid: layout?.grid ?? resolvedMap.value.grid });
+    const scene = await tx.gameScene.create({ data: { sessionId, name, ...mapData, lighting: layout?.lighting }, select: { id: true } });
+    if (layout) await createSceneLayout(tx, scene.id, layout);
     await tx.gameSessionMember.update({ where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } }, data: { openSceneId: scene.id } });
     if (sceneCount === 0) await tx.gameSession.update({ where: { id: sessionId }, data: { activeSceneId: scene.id } });
     return succeed({ id: scene.id });
@@ -57,8 +64,11 @@ export async function replaceGameSceneMap(sessionId: number, userId: number, sce
     const scene = await tx.gameScene.findFirst({ where: { id: sceneId, sessionId }, select: { mapImageKey: true } });
     if (!scene) return fail("bad_scene");
     if (locked.isInCombat && locked.activeSceneId === sceneId) return fail("scene_in_combat");
-    await tx.gameScene.update({ where: { id: sceneId }, data: buildSceneMapData(resolvedMap.value) });
+    await tx.gameScene.update({ where: { id: sceneId }, data: { ...buildSceneMapData(resolvedMap.value), lighting: "off" } });
     await tx.gameSceneArea.deleteMany({ where: { sceneId } });
+    await tx.gameSceneObject.deleteMany({ where: { sceneId } });
+    await tx.gameSceneWall.deleteMany({ where: { sceneId } });
+    await tx.gameSceneLight.deleteMany({ where: { sceneId } });
     await tx.gameMapCreature.updateMany({ where: { gameSceneId: sceneId }, data: { tokenX: null, tokenY: null } });
     await tx.gameSceneHeroToken.deleteMany({ where: { sceneId } });
     return succeed({ previousKey: scene.mapImageKey });
@@ -109,6 +119,26 @@ export async function deleteGameScene(sessionId: number, userId: number, sceneId
   });
   if (!deleted.ok) return deleted;
   await removeSceneMapImage(sessionId, deleted.value.mapImageKey);
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+/// Смолоскип у руці: світло героя ставить його гравець або майстер.
+export async function setHeroTokenLight(sessionId: number, userId: number, sceneId: number, heroId: number, light: TokenLight): Promise<GameSessionResult<null>> {
+  const access = await checkHeroTokenAccess(sessionId, userId, sceneId, heroId);
+  if (!access.ok) return access;
+  const changed = await prisma.gameSceneHeroToken.updateMany({ where: { sceneId, memberId: heroId }, data: { lightBrightFeet: light.brightFeet, lightDimFeet: light.dimFeet } });
+  if (!changed.count) return fail("no_map");
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+/// null повертає темний зір з листа героя; перебити його може лише майстер.
+export async function setHeroDarkvision(sessionId: number, userId: number, sceneId: number, heroId: number, darkvisionFeet: number | null): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const changed = await prisma.gameSceneHeroToken.updateMany({ where: { sceneId, memberId: heroId, scene: { sessionId } }, data: { darkvisionFeet } });
+  if (!changed.count) return fail("no_map");
   await signalGameSession(sessionId, "session");
   return succeed(null);
 }
@@ -166,6 +196,11 @@ async function isSceneInRoom(sessionId: number, sceneId: number, client: Transac
 type ResolvedSceneMap = { key: string | null; grid: SceneGrid | null };
 
 /// Нова картинка робить стару сітку, туман і області недійсними; бібліотечна мапа приносить свою сітку.
+async function createSceneLayout(tx: Transaction, sceneId: number, layout: SceneLayout) {
+  await tx.gameSceneWall.createMany({ data: layout.walls.map((line) => ({ sceneId, kind: line.kind, isOpen: line.isOpen, points: toStoredPoints(line.points) })) });
+  await tx.gameSceneLight.createMany({ data: layout.lights.map((light) => ({ sceneId, x: light.at.x, y: light.at.y, brightFeet: light.brightFeet, dimFeet: light.dimFeet })) });
+}
+
 function buildSceneMapData(map: ResolvedSceneMap) {
   return {
     mapImageKey: map.key,

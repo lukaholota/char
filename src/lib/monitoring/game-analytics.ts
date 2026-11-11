@@ -18,6 +18,7 @@ type GameEventProperties = {
   game_member_removed: Record<string, never>;
   game_map_changed: { has_map: boolean };
   game_scene_created: { source: "upload" | "library" | "none" };
+  game_uvtt_imported: { walls: number; doors: number; lights: number };
   game_scene_shown: Record<string, never>;
   game_scene_deleted: Record<string, never>;
   game_token_moved: { is_own: boolean; is_on_map: boolean };
@@ -36,6 +37,12 @@ type GameEventProperties = {
   game_fog_changed: { kind: "cover" | "clear" | "undo" | "area" | "brush" };
   game_area_shown: { shape: "circle" | "cone" | "line" | "square"; is_gm: boolean };
   game_grid_changed: { has_grid: boolean };
+  game_object_placed: { is_copy: boolean };
+  game_object_hidden_toggled: { is_hidden: boolean };
+  game_walls_changed: { kind: "wall" | "room" | "door" | "move" | "remove" | "clear"; segment_count: number };
+  game_door_toggled: { is_open: boolean };
+  game_lighting_changed: { lighting: "off" | "bright" | "dim" | "dark" };
+  game_light_placed: { preset: string; target: "scene" | "hero" | "creature" };
   game_map_tool_opened: { tool: "ruler" | "area" | "fog" | "grid" };
 };
 

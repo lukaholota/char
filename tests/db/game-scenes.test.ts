@@ -26,6 +26,7 @@ import { startCombat } from "@/server/db/game-combat";
 import { addMapCreatures, moveMapCreature } from "@/server/db/game-map-creatures";
 import { activateGameScene, createGameScene, deleteGameScene, moveGameToken, openGameScene, renameGameScene, replaceGameSceneMap } from "@/server/db/game-scenes";
 import { bindMemberPers, createGameSession, findGameSessionView, joinGameSessionByToken } from "@/server/db/game-sessions";
+import { parseUvttScene } from "@/rules/uvtt-import";
 
 vi.setConfig({ testTimeout: 60_000 });
 
@@ -82,7 +83,48 @@ async function findHeroId(sessionId: number, userId: number): Promise<number> {
   return (await prisma.gameSessionMember.findFirstOrThrow({ where: { gameSessionId: sessionId, userId, heroSlot: 0 }, select: { id: true } })).id;
 }
 
+const readSceneSetup = (sceneId: number) =>
+  prisma.gameScene.findUniqueOrThrow({ where: { id: sceneId }, select: { lighting: true, gridColumns: true, _count: { select: { walls: true, lights: true } } } });
+
 describe("сцени кімнати", () => {
+  it("нова сцена з картинки чи бібліотеки — без стін і світла, зі звичайним освітленням і сіткою бібліотеки", async () => {
+    const { gm, sessionId } = await createTable();
+    const uploaded = await createScene(sessionId, gm.id, "Ліс");
+    const fromLibrary = await createGameScene(sessionId, gm.id, "Бібліотека", { kind: "library", slug: "forest" });
+    if (!fromLibrary.ok) throw new Error(fromLibrary.error);
+    expect(await readSceneSetup(uploaded)).toEqual({ lighting: "off", gridColumns: null, _count: { walls: 0, lights: 0 } });
+    expect(await readSceneSetup(fromLibrary.value.id)).toEqual({ lighting: "off", gridColumns: null, _count: { walls: 0, lights: 0 } });
+  });
+
+  it("сцена з файлу Universal VTT приходить зі стінами, дверима, світлом, сіткою й темрявою; гравець бачить лише лінії зору", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const parsed = parseUvttScene(JSON.parse(readFileSync(`${__dirname}/../fixtures/uvtt/dungeondraft-room.dd2vtt`, "utf8")));
+    if (!parsed.ok) throw new Error(parsed.error);
+    const { imageBase64: _image, ...layout } = parsed.value;
+    const created = await createGameScene(sessionId, gm.id, "Склеп", await createMapImage(), layout);
+    if (!created.ok) throw new Error(created.error);
+    expect(await readSceneSetup(created.value.id)).toEqual({ lighting: "dark", gridColumns: 8, _count: { walls: 5, lights: 1 } });
+    const gmView = (await findGameSessionView(sessionId, gm.id))!;
+    expect(gmView.walls.filter((wall) => wall.kind === "door").map((door) => door.isOpen)).toEqual([false, true]);
+    expect(gmView.lights).toMatchObject([{ at: layout.lights[0].at, brightFeet: 10, dimFeet: 10, isOn: true }]);
+    const playerView = (await findGameSessionView(sessionId, player.id))!;
+    expect(playerView).toMatchObject({ lighting: "dark", walls: [] });
+    expect(playerView.sightLines).toHaveLength(4);
+  });
+
+  it("файл Universal VTT не ляже без власної картинки, від гравця чи понад ліміт сцен — і не лишить ні стін, ні світла", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const parsed = parseUvttScene(JSON.parse(readFileSync(`${__dirname}/../fixtures/uvtt/dungeondraft-room.dd2vtt`, "utf8")));
+    if (!parsed.ok) throw new Error(parsed.error);
+    const { imageBase64: _image, ...layout } = parsed.value;
+    expect(await createGameScene(sessionId, gm.id, "Ліс", { kind: "library", slug: "forest" }, layout)).toEqual({ ok: false, error: "bad_image" });
+    expect(await createGameScene(sessionId, player.id, "Склеп", await createMapImage(), layout)).toEqual({ ok: false, error: "forbidden" });
+    for (let index = 0; index < 20; index++) await createScene(sessionId, gm.id, `Сцена ${index}`);
+    expect(await createGameScene(sessionId, gm.id, "Зайва", await createMapImage(), layout)).toEqual({ ok: false, error: "scene_limit" });
+    expect(await prisma.gameSceneWall.count()).toBe(0);
+    expect(await prisma.gameSceneLight.count()).toBe(0);
+  });
+
   it("гравець отримує лише активну сцену: ні списку, ні назв, ні чужих мап та істот", async () => {
     const { gm, player, sessionId } = await createTable();
     const first = await createScene(sessionId, gm.id, "Ліс");

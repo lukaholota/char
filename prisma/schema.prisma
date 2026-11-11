@@ -1629,6 +1629,8 @@ model GameMapCreature {
   customImageKey    String?         @map("custom_image_key") @db.VarChar(200)
   tokenRotation     Int             @default(0) @map("token_rotation") @db.SmallInt
   tokenScalePercent Int             @default(100) @map("token_scale_percent") @db.SmallInt
+  lightBrightFeet   Int             @default(0) @map("light_bright_feet") @db.SmallInt
+  lightDimFeet      Int             @default(0) @map("light_dim_feet") @db.SmallInt
   combatant         GameCombatant?
   customImage       UserTokenImage? @relation(fields: [customImageKey], references: [imageKey], onUpdate: NoAction)
   scene             GameScene?      @relation(fields: [gameSceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
@@ -1652,12 +1654,16 @@ model GameScene {
   isGridVisible      Boolean              @default(true) @map("is_grid_visible")
   fog                Json?
   gridOpacity        Float                @default(0.35) @map("grid_opacity") @db.Real
+  lighting           String               @default("off") @db.VarChar(6)
   mapCreatures       GameMapCreature[]
   session            GameSession          @relation("GameSceneSession", fields: [sessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   areas              GameSceneArea[]
   drawings           GameSceneDrawing[]
   heroTokenPositions GameSceneHeroToken[]
+  lights             GameSceneLight[]
+  objects            GameSceneObject[]
   heroTokens         GameSceneToken[]
+  walls              GameSceneWall[]
   activeIn           GameSession[]        @relation("GameSessionActiveScene")
   openedBy           GameSessionMember[]  @relation("GameSceneOpenedBy")
 
@@ -1698,6 +1704,56 @@ model GameSceneDrawing {
   @@map("game_scene_drawing")
 }
 
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model GameSceneLight {
+  id         Int       @id @default(autoincrement()) @map("game_scene_light_id")
+  sceneId    Int       @map("game_scene_id")
+  x          Float     @db.Real
+  y          Float     @db.Real
+  brightFeet Int       @map("bright_feet") @db.SmallInt
+  dimFeet    Int       @map("dim_feet") @db.SmallInt
+  isOn       Boolean   @default(true) @map("is_on")
+  createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  scene      GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([sceneId], map: "game_scene_light_scene_idx")
+  @@map("game_scene_light")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model GameSceneObject {
+  id         Int       @id @default(autoincrement()) @map("game_scene_object_id")
+  sceneId    Int       @map("game_scene_id")
+  imageKey   String    @map("image_key") @db.VarChar(200)
+  name       String?   @db.VarChar(40)
+  x          Float     @db.Real
+  y          Float     @db.Real
+  widthCells Float     @default(1) @map("width_cells") @db.Real
+  rotation   Int       @default(0) @db.SmallInt
+  isHidden   Boolean   @default(false) @map("is_hidden")
+  sortOrder  Int       @default(0) @map("sort_order")
+  createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  scene      GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([imageKey], map: "game_scene_object_image_idx")
+  @@index([sceneId], map: "game_scene_object_scene_idx")
+  @@map("game_scene_object")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model GameSceneWall {
+  id        Int       @id @default(autoincrement()) @map("game_scene_wall_id")
+  sceneId   Int       @map("game_scene_id")
+  kind      String    @db.VarChar(4)
+  isOpen    Boolean   @default(false) @map("is_open")
+  points    Json
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  scene     GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([sceneId], map: "game_scene_wall_scene_idx")
+  @@map("game_scene_wall")
+}
+
 model GameSceneToken {
   sceneId Int       @map("game_scene_id")
   userId  Int       @map("user_id")
@@ -1730,6 +1786,9 @@ model GameSceneHeroToken {
   tokenY            Float             @map("token_y") @db.Real
   tokenRotation     Int               @default(0) @map("token_rotation") @db.SmallInt
   tokenScalePercent Int               @default(100) @map("token_scale_percent") @db.SmallInt
+  lightBrightFeet   Int               @default(0) @map("light_bright_feet") @db.SmallInt
+  lightDimFeet      Int               @default(0) @map("light_dim_feet") @db.SmallInt
+  darkvisionFeet    Int?              @map("darkvision_feet") @db.SmallInt
   scene             GameScene         @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   member            GameSessionMember @relation(fields: [memberId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 

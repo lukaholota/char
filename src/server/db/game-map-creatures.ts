@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { applyHitPointChange, findCreatureHitPoints, rollCreatureMaxHitPoints, type HitPointChange } from "@/rules/creature-hit-points";
+import type { TokenLight } from "@/rules/game-lighting";
 import type { TokenPosition } from "@/rules/game-map";
 import {
   MAP_CREATURE_LIMITS,
@@ -103,6 +104,15 @@ export async function transformMapCreature(sessionId: number, userId: number, cr
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
   const changed = await prisma.gameMapCreature.updateMany({ where: { id: creatureId, gameSessionId: sessionId }, data: { tokenRotation: transform.rotation, tokenScalePercent: transform.scale } });
+  if (!changed.count) return fail("creature_gone");
+  await signalGameSession(sessionId, "session");
+  return { ok: true, value: null };
+}
+
+export async function setMapCreatureLight(sessionId: number, userId: number, creatureId: number, light: TokenLight): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const changed = await prisma.gameMapCreature.updateMany({ where: { id: creatureId, gameSessionId: sessionId }, data: { lightBrightFeet: light.brightFeet, lightDimFeet: light.dimFeet } });
   if (!changed.count) return fail("creature_gone");
   await signalGameSession(sessionId, "session");
   return { ok: true, value: null };

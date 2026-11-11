@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useRef, useState, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
 import { RotateCcw, RotateCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DEFAULT_TOKEN_TRANSFORM, TOKEN_SCALE_RANGE, findDraggedRotation, findDraggedScale, isDefaultTokenTransform, resizeToken, turnToken, type TokenTransform } from "@/rules/token-transform";
 import { Stepper, ToolPanel } from "./MapToolbar";
+import type { TokenLightTarget } from "./use-map-lights";
 
 type ScreenPoint = { clientX: number; clientY: number };
 type HandleKind = "rotate" | "scale";
@@ -20,6 +21,7 @@ export type SelectedToken = {
   onOpen: () => void;
   onPreview: (transform: TokenTransform) => void;
   onChange: (transform: TokenTransform) => void;
+  lightTarget: TokenLightTarget;
 };
 
 /// Перший дотик до токена на мапі вибирає його для повороту й розміру, другий — відкриває картку.
@@ -52,8 +54,10 @@ export function findTokenRotationStyle(rotation: number) {
 const describeScale = (transform: TokenTransform) => `${transform.scale}%`;
 const describeRotation = (transform: TokenTransform) => `${transform.rotation}°`;
 
+type TransformTarget = Pick<SelectedToken, "transform" | "onPreview" | "onChange">;
+
 /// Рамка повертається разом із портретом, тож ручка повороту завжди над «головою» токена.
-export function TokenTransformHandles({ token, onDeselect }: { token: SelectedToken; onDeselect: () => void }) {
+export function TokenTransformHandles({ token, onDeselect }: { token: TransformTarget; onDeselect: () => void }) {
   const [readout, setReadout] = useState<string | null>(null);
   return (
     <>
@@ -77,7 +81,7 @@ const HANDLE_LOOKS: Record<HandleKind, { label: string; style: { left: string; t
   scale: { label: "Розмір токена: тягніть від центру чи до центру або стрілками", style: { left: "calc(100% + 0.375rem)", top: "calc(100% + 0.375rem)" } },
 };
 
-type HandleProps = { kind: HandleKind; token: SelectedToken; onReadout: (text: string | null) => void; onDeselect: () => void };
+type HandleProps = { kind: HandleKind; token: TransformTarget; onReadout: (text: string | null) => void; onDeselect: () => void };
 type HandleDrag = { start: TokenTransform; centre: ScreenPoint; from: ScreenPoint; last: TokenTransform };
 
 function TransformHandle({ kind, token, onReadout, onDeselect }: HandleProps) {
@@ -146,7 +150,7 @@ function TransformHandle({ kind, token, onReadout, onDeselect }: HandleProps) {
   );
 }
 
-export function TokenTransformPanel({ token, onClose }: { token: SelectedToken; onClose: () => void }) {
+export function TokenTransformPanel({ token, onClose, children }: { token: SelectedToken; onClose: () => void; children?: ReactNode }) {
   const { transform, onChange } = token;
   return (
     <ToolPanel title={token.name} onClose={onClose}>
@@ -171,6 +175,7 @@ export function TokenTransformPanel({ token, onClose }: { token: SelectedToken; 
         <Button type="button" variant="outline" onClick={token.onOpen} className="h-11 px-4">{token.openLabel}</Button>
         <Button type="button" variant="ghost" onClick={() => onChange(DEFAULT_TOKEN_TRANSFORM)} disabled={isDefaultTokenTransform(transform)} className="h-11 px-3 text-slate-400">Скинути</Button>
       </div>
+      {children}
       <p className="text-sm leading-snug text-slate-400">На мапі тягніть верхню ручку, щоб повернути, і кутову, щоб змінити розмір. Дотик до порожнього місця знімає вибір.</p>
     </ToolPanel>
   );

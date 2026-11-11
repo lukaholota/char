@@ -37,7 +37,7 @@ export function CreatureImageSection({ sessionId, creature, cutout }: Props) {
         <ImagePlus className="h-4 w-4" aria-hidden />
         {isPickerOpen ? "Згорнути" : "Замінити зображення"}
       </Button>
-      {isPickerOpen ? <TokenImagePicker sessionId={sessionId} creature={creature} onApplied={() => setIsPickerOpen(false)} /> : null}
+      {isPickerOpen ? <CreatureImagePicker sessionId={sessionId} creature={creature} onApplied={() => setIsPickerOpen(false)} /> : null}
       {canChooseLook ? <TokenLookPicker cutout={cutout} /> : null}
     </section>
   );
@@ -72,7 +72,27 @@ function useTokenImageKeys() {
   return { keys, hasFailed, load, setKeys };
 }
 
-function TokenImagePicker({ sessionId, creature, onApplied }: { sessionId: number; creature: MapCreatureView; onApplied: () => void }) {
+function CreatureImagePicker({ sessionId, creature, onApplied }: { sessionId: number; creature: MapCreatureView; onApplied: () => void }) {
+  const router = useModeRouter();
+  const [isBusy, startBusy] = useTransition();
+  const applyImage = async (imageKey: string | null) => {
+    const result = await setMapCreatureImageAction(sessionId, creature.id, imageKey).catch(() => null);
+    if (!result?.ok) return void toast.error(result?.error ?? CONNECTION_ERROR);
+    router.refresh();
+    onApplied();
+  };
+  return (
+    <div className="grid gap-2">
+      <TokenImageLibrary chosenKey={creature.customImageKey} cropTitle="Зображення істоти" onPick={applyImage} />
+      {creature.customImageKey ? <Button type="button" variant="ghost" disabled={isBusy} onClick={() => startBusy(() => applyImage(null))} className="h-11 justify-self-start px-3 text-slate-300">Повернути стандартне</Button> : null}
+    </div>
+  );
+}
+
+type LibraryProps = { chosenKey: string | null; cropTitle: string; onPick: (imageKey: string) => Promise<void> };
+
+/// Бібліотека зображень майстра: спільна для вигляду істот і обʼєктів на мапі.
+export function TokenImageLibrary({ chosenKey, cropTitle, onPick }: LibraryProps) {
   const router = useModeRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const { keys, hasFailed, load, setKeys } = useTokenImageKeys();
@@ -81,13 +101,6 @@ function TokenImagePicker({ sessionId, creature, onApplied }: { sessionId: numbe
   const [isBusy, startBusy] = useTransition();
   const isFull = (keys?.length ?? 0) >= MAP_CREATURE_LIMITS.imagesPerUser;
   const isDeleting = wantsToDelete && Boolean(keys?.length);
-
-  const applyImage = async (imageKey: string | null) => {
-    const result = await setMapCreatureImageAction(sessionId, creature.id, imageKey).catch(() => null);
-    if (!result?.ok) return void toast.error(result?.error ?? CONNECTION_ERROR);
-    router.refresh();
-    onApplied();
-  };
 
   const pickFile = (event: ChangeEvent<HTMLInputElement>) => {
     setCroppingFile(event.target.files?.[0] ?? null);
@@ -103,12 +116,12 @@ function TokenImagePicker({ sessionId, creature, onApplied }: { sessionId: numbe
       const uploaded = await uploadTokenImageAction(formData).catch(() => null);
       if (!uploaded?.ok) return void toast.error(uploaded?.error ?? CONNECTION_ERROR);
       setKeys((current) => [uploaded.value, ...(current ?? [])]);
-      await applyImage(uploaded.value);
+      await onPick(uploaded.value);
     });
   };
 
   const deleteImage = async (imageKey: string) => {
-    const isConfirmed = await askToConfirm({ title: "Видалити зображення з бібліотеки?", description: "Істоти з цим зображенням повернуться до стандартного вигляду.", confirmLabel: "Видалити", isDestructive: true });
+    const isConfirmed = await askToConfirm({ title: "Видалити зображення з бібліотеки?", description: "Істоти з цим зображенням повернуться до стандартного вигляду, а обʼєкти з ним зникнуть з мап.", confirmLabel: "Видалити", isDestructive: true });
     if (!isConfirmed) return;
     startBusy(async () => {
       const result = await deleteTokenImageAction(imageKey).catch(() => null);
@@ -134,15 +147,14 @@ function TokenImagePicker({ sessionId, creature, onApplied }: { sessionId: numbe
           </button>
           {keys === null ? <div className={cn(TILE_CLASS, "border-white/10 bg-white/5")} aria-hidden /> : null}
           {keys?.map((key, index) => (
-            <LibraryTile key={key} imageKey={key} index={index + 1} isChosen={key === creature.customImageKey} isDeleting={isDeleting} disabled={isBusy} onPick={() => (isDeleting ? void deleteImage(key) : startBusy(() => applyImage(key)))} />
+            <LibraryTile key={key} imageKey={key} index={index + 1} isChosen={key === chosenKey} isDeleting={isDeleting} disabled={isBusy} onPick={() => (isDeleting ? void deleteImage(key) : startBusy(() => onPick(key)))} />
           ))}
         </div>
       )}
-      {keys?.length === 0 ? <p className="text-sm text-slate-400">Завантажте зображення один раз — і ставте його будь-якій істоті.</p> : null}
+      {keys?.length === 0 ? <p className="text-sm text-slate-400">Завантажте зображення один раз — і ставте його на мапу істотам чи обʼєктам.</p> : null}
       {isFull ? <p className="text-sm text-slate-400">{`У бібліотеці вже ${MAP_CREATURE_LIMITS.imagesPerUser} зображень — видаліть непотрібне, щоб додати нове.`}</p> : null}
-      {creature.customImageKey ? <Button type="button" variant="ghost" disabled={isBusy} onClick={() => startBusy(() => applyImage(null))} className="h-11 justify-self-start px-3 text-slate-300">Повернути стандартне</Button> : null}
       <input ref={inputRef} type="file" accept={ACCEPTED_IMAGE_MIME_TYPES} aria-label="Завантажити нове зображення" className="sr-only" tabIndex={-1} onChange={pickFile} />
-      <ImageCropDialog file={croppingFile} title="Зображення істоти" onCancel={() => setCroppingFile(null)} onCropped={uploadCropped} onUnreadable={() => { setCroppingFile(null); toast.error("Не вдалося відкрити картинку. Спробуйте JPEG, PNG або WebP."); }} />
+      <ImageCropDialog file={croppingFile} title={cropTitle} onCancel={() => setCroppingFile(null)} onCropped={uploadCropped} onUnreadable={() => { setCroppingFile(null); toast.error("Не вдалося відкрити картинку. Спробуйте JPEG, PNG або WebP."); }} />
     </div>
   );
 }

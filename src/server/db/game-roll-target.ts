@@ -40,6 +40,8 @@ const CREATURE_ROW_SELECT = {
   hpCurrent: true,
   conditions: true,
   exhaustionLevel: true,
+  lightBrightFeet: true,
+  lightDimFeet: true,
 } satisfies Prisma.GameMapCreatureSelect;
 
 /// Ціль — лише істота активної сцени, що стоїть на мапі: підготовка майстра (під мапою чи в іншій сцені) не видає себе в журналі.

@@ -11,6 +11,7 @@ const HISTORY_LIMIT = 40;
 const useHistory = create<History>(() => ({ done: [], undone: [] }));
 const valuesBefore = new Map<string, unknown>();
 let isReplaying = false;
+let undoDraftStep: (() => boolean) | null = null;
 
 const isSameValue = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
 const isOtherScene = (sceneId: number) => (step: SceneStep) => step.sceneId !== sceneId;
@@ -63,7 +64,8 @@ const isTypingTarget = (target: EventTarget | null) => target instanceof HTMLEle
 
 function findShortcutStep(event: KeyboardEvent): "done" | "undone" | null {
   if (!(event.ctrlKey || event.metaKey) || event.altKey || isTypingTarget(event.target)) return null;
-  const key = event.key.toLowerCase();
+  /// На українській розкладці key — «я»; тоді беремо фізичну клавішу.
+  const key = /^[a-z]$/i.test(event.key) ? event.key.toLowerCase() : event.code.replace(/^Key/, "").toLowerCase();
   if (key === "z") return event.shiftKey ? "undone" : "done";
   return key === "y" && !event.shiftKey ? "undone" : null;
 }
@@ -76,11 +78,24 @@ export function useMapUndoShortcut(sceneId: number | null) {
       const from = findShortcutStep(event);
       if (!from) return;
       event.preventDefault();
+      if (from === "done" && undoDraftStep?.()) return;
       replayLastStep(sceneId, from);
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [sceneId]);
+}
+
+/// Незавершена стіна ще не в історії: поки вона малюється, Ctrl+Z знімає її останній кут.
+export function useDraftUndo(undo: (() => void) | null) {
+  useEffect(() => {
+    if (!undo) return;
+    const step = () => (undo(), true);
+    undoDraftStep = step;
+    return () => {
+      if (undoDraftStep === step) undoDraftStep = null;
+    };
+  }, [undo]);
 }
 
 export function resetMapHistory() {

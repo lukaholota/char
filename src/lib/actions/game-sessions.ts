@@ -6,7 +6,9 @@ import { parseTokenTransform } from "@/rules/token-transform";
 import { parseHitPointChange } from "@/rules/creature-hit-points";
 import { parseInitiative, parseTurnStep } from "@/rules/game-combat";
 import { MAP_LIBRARY } from "@/lib/refs/map-library-catalog";
+import { OBJECT_LIBRARY } from "@/lib/refs/object-library-catalog";
 import { parseSceneMapSource } from "@/rules/game-scenes";
+import { readSceneLayoutField } from "@/rules/uvtt-import";
 import { parseCreatureTokenSize, parseCustomName, parseNewMapCreatures, parseTokenNameMode } from "@/rules/game-map-creatures";
 import { parseTokenConditionChange } from "@/rules/token-conditions";
 import { isId, rejectBadInput, runAsUser, tooFast } from "@/server/game-sessions/game-action";
@@ -77,7 +79,11 @@ export async function setRoomHeroCutoutAction(sessionId: number, heroId: number,
 }
 
 export async function createGameSceneAction(sessionId: number, name: string, formData: FormData) {
-  return runAsUser(async (userId) => (isId(sessionId) && formData instanceof FormData ? createGameScene(sessionId, userId, name, parseSceneMapSource(formData)) : rejectBadInput));
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !(formData instanceof FormData)) return rejectBadInput;
+    const layout = readSceneLayoutField(formData.get("layout"));
+    return layout.ok ? createGameScene(sessionId, userId, name, parseSceneMapSource(formData), layout.value) : rejectBadInput;
+  });
 }
 
 export async function renameGameSceneAction(sessionId: number, sceneId: number, name: string) {
@@ -92,6 +98,10 @@ export async function replaceGameSceneMapAction(sessionId: number, sceneId: numb
 
 export async function listMapLibraryAction() {
   return runAsUser(async () => ({ ok: true as const, value: MAP_LIBRARY }));
+}
+
+export async function listObjectLibraryAction() {
+  return runAsUser(async () => ({ ok: true as const, value: OBJECT_LIBRARY }));
 }
 
 export async function openGameSceneAction(sessionId: number, sceneId: number) {

@@ -1,5 +1,7 @@
 import { AwsClient } from "aws4fetch";
 
+const MEDIA_REQUEST_TIMEOUT_MS = 60_000;
+
 type MediaStoreConfig = { accountId: string; accessKeyId: string; secretAccessKey: string; bucket: string };
 
 export function isMediaStoreConfigured(): boolean {
@@ -35,7 +37,7 @@ function sendMediaRequest(key: string, init: RequestInit): Promise<Response> {
   const config = readMediaStoreConfig();
   if (!config) throw new Error("Сховище картинок не налаштоване");
   const client = new AwsClient({ accessKeyId: config.accessKeyId, secretAccessKey: config.secretAccessKey, service: "s3", region: "auto" });
-  return client.fetch(`https://${config.accountId}.r2.cloudflarestorage.com/${config.bucket}/${key}`, init);
+  return client.fetch(`https://${config.accountId}.r2.cloudflarestorage.com/${config.bucket}/${key}`, { ...init, signal: AbortSignal.timeout(MEDIA_REQUEST_TIMEOUT_MS) });
 }
 
 function readMediaStoreConfig(): MediaStoreConfig | null {

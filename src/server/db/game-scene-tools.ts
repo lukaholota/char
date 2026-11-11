@@ -117,7 +117,7 @@ async function findAreaEditor(sessionId: number, userId: number, sceneId: number
   return succeed({ isGm });
 }
 
-async function lockScene(tx: Prisma.TransactionClient, sessionId: number, sceneId: number): Promise<boolean> {
+export async function lockScene(tx: Prisma.TransactionClient, sessionId: number, sceneId: number): Promise<boolean> {
   const rows = await tx.$queryRaw<unknown[]>`SELECT 1 FROM game_scene WHERE game_scene_id = ${sceneId} AND game_session_id = ${sessionId} FOR UPDATE`;
   return rows.length > 0;
 }

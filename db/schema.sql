@@ -2371,9 +2371,13 @@ CREATE TABLE public.game_map_creature (
     custom_image_key character varying(200),
     token_rotation smallint DEFAULT 0 NOT NULL,
     token_scale_percent smallint DEFAULT 100 NOT NULL,
+    light_bright_feet smallint DEFAULT 0 NOT NULL,
+    light_dim_feet smallint DEFAULT 0 NOT NULL,
     CONSTRAINT game_map_creature_custom_name_check CHECK (((custom_name IS NULL) OR ((length(btrim((custom_name)::text)) >= 1) AND (length(btrim((custom_name)::text)) <= 40)))),
     CONSTRAINT game_map_creature_exhaustion_check CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
     CONSTRAINT game_map_creature_hp_check CHECK ((((hp_max IS NULL) AND (hp_current IS NULL)) OR ((hp_max IS NOT NULL) AND (hp_current IS NOT NULL) AND (hp_max >= 1) AND (hp_current >= 0) AND (hp_current <= hp_max)))),
+    CONSTRAINT game_map_creature_light_bright_feet_check CHECK (((light_bright_feet >= 0) AND (light_bright_feet <= 300))),
+    CONSTRAINT game_map_creature_light_dim_feet_check CHECK (((light_dim_feet >= 0) AND (light_dim_feet <= 300))),
     CONSTRAINT game_map_creature_number_check CHECK (((number >= 1) AND (number <= 999))),
     CONSTRAINT game_map_creature_token_check CHECK ((((token_x IS NULL) = (token_y IS NULL)) AND ((token_x IS NULL) OR (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision)) AND ((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))))),
     CONSTRAINT game_map_creature_token_rotation_check CHECK (((token_rotation >= 0) AND (token_rotation <= 359))),
@@ -2472,10 +2476,12 @@ CREATE TABLE public.game_scene (
     is_grid_visible boolean DEFAULT true NOT NULL,
     fog jsonb,
     grid_opacity real DEFAULT 0.35 NOT NULL,
+    lighting character varying(6) DEFAULT 'off'::character varying NOT NULL,
     CONSTRAINT game_scene_grid_columns_check CHECK (((grid_columns >= (2)::double precision) AND (grid_columns <= (300)::double precision))),
     CONSTRAINT game_scene_grid_offset_x_check CHECK (((grid_offset_x >= (0)::double precision) AND (grid_offset_x < (1)::double precision))),
     CONSTRAINT game_scene_grid_offset_y_check CHECK (((grid_offset_y >= (0)::double precision) AND (grid_offset_y < (1)::double precision))),
     CONSTRAINT game_scene_grid_opacity_check CHECK (((grid_opacity >= (0.1)::double precision) AND (grid_opacity <= (1)::double precision))),
+    CONSTRAINT game_scene_lighting_check CHECK (((lighting)::text = ANY ((ARRAY['off'::character varying, 'bright'::character varying, 'dim'::character varying, 'dark'::character varying])::text[]))),
     CONSTRAINT game_scene_name_check CHECK (((length(btrim((name)::text)) >= 1) AND (length(btrim((name)::text)) <= 60)))
 );
 
@@ -2592,11 +2598,100 @@ CREATE TABLE public.game_scene_hero_token (
     token_y real NOT NULL,
     token_rotation smallint DEFAULT 0 NOT NULL,
     token_scale_percent smallint DEFAULT 100 NOT NULL,
+    light_bright_feet smallint DEFAULT 0 NOT NULL,
+    light_dim_feet smallint DEFAULT 0 NOT NULL,
+    darkvision_feet smallint,
+    CONSTRAINT game_scene_hero_token_darkvision_feet_check CHECK (((darkvision_feet >= 0) AND (darkvision_feet <= 300))),
+    CONSTRAINT game_scene_hero_token_light_bright_feet_check CHECK (((light_bright_feet >= 0) AND (light_bright_feet <= 300))),
+    CONSTRAINT game_scene_hero_token_light_dim_feet_check CHECK (((light_dim_feet >= 0) AND (light_dim_feet <= 300))),
     CONSTRAINT game_scene_hero_token_token_rotation_check CHECK (((token_rotation >= 0) AND (token_rotation <= 359))),
     CONSTRAINT game_scene_hero_token_token_scale_percent_check CHECK (((token_scale_percent >= 10) AND (token_scale_percent <= 1000))),
     CONSTRAINT game_scene_hero_token_token_x_check CHECK (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision))),
     CONSTRAINT game_scene_hero_token_token_y_check CHECK (((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))
 );
+
+
+--
+-- Name: game_scene_light; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_scene_light (
+    game_scene_light_id integer NOT NULL,
+    game_scene_id integer NOT NULL,
+    x real NOT NULL,
+    y real NOT NULL,
+    bright_feet smallint NOT NULL,
+    dim_feet smallint NOT NULL,
+    is_on boolean DEFAULT true NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT game_scene_light_bright_feet_check CHECK (((bright_feet >= 0) AND (bright_feet <= 300))),
+    CONSTRAINT game_scene_light_dim_feet_check CHECK (((dim_feet >= 0) AND (dim_feet <= 300))),
+    CONSTRAINT game_scene_light_x_check CHECK (((x >= (0)::double precision) AND (x <= (1)::double precision))),
+    CONSTRAINT game_scene_light_y_check CHECK (((y >= (0)::double precision) AND (y <= (1)::double precision)))
+);
+
+
+--
+-- Name: game_scene_light_game_scene_light_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_scene_light_game_scene_light_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_scene_light_game_scene_light_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_scene_light_game_scene_light_id_seq OWNED BY public.game_scene_light.game_scene_light_id;
+
+
+--
+-- Name: game_scene_object; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_scene_object (
+    game_scene_object_id integer NOT NULL,
+    game_scene_id integer NOT NULL,
+    image_key character varying(200) NOT NULL,
+    name character varying(40),
+    x real NOT NULL,
+    y real NOT NULL,
+    width_cells real DEFAULT 1 NOT NULL,
+    rotation smallint DEFAULT 0 NOT NULL,
+    is_hidden boolean DEFAULT false NOT NULL,
+    sort_order integer DEFAULT 0 NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT game_scene_object_rotation_check CHECK (((rotation >= 0) AND (rotation <= 359))),
+    CONSTRAINT game_scene_object_width_cells_check CHECK (((width_cells >= (0.25)::double precision) AND (width_cells <= (40)::double precision))),
+    CONSTRAINT game_scene_object_x_check CHECK (((x >= (0)::double precision) AND (x <= (1)::double precision))),
+    CONSTRAINT game_scene_object_y_check CHECK (((y >= (0)::double precision) AND (y <= (1)::double precision)))
+);
+
+
+--
+-- Name: game_scene_object_game_scene_object_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_scene_object_game_scene_object_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_scene_object_game_scene_object_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_scene_object_game_scene_object_id_seq OWNED BY public.game_scene_object.game_scene_object_id;
 
 
 --
@@ -2611,6 +2706,42 @@ CREATE TABLE public.game_scene_token (
     CONSTRAINT game_scene_token_token_x_check CHECK (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision))),
     CONSTRAINT game_scene_token_token_y_check CHECK (((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))
 );
+
+
+--
+-- Name: game_scene_wall; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_scene_wall (
+    game_scene_wall_id integer NOT NULL,
+    game_scene_id integer NOT NULL,
+    kind character varying(4) NOT NULL,
+    is_open boolean DEFAULT false NOT NULL,
+    points jsonb NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT game_scene_wall_kind_check CHECK (((kind)::text = ANY ((ARRAY['wall'::character varying, 'door'::character varying])::text[]))),
+    CONSTRAINT game_scene_wall_points_check CHECK ((jsonb_typeof(points) = 'array'::text))
+);
+
+
+--
+-- Name: game_scene_wall_game_scene_wall_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_scene_wall_game_scene_wall_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_scene_wall_game_scene_wall_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_scene_wall_game_scene_wall_id_seq OWNED BY public.game_scene_wall.game_scene_wall_id;
 
 
 --
@@ -4906,6 +5037,27 @@ ALTER TABLE ONLY public.game_scene_drawing ALTER COLUMN game_scene_drawing_id SE
 
 
 --
+-- Name: game_scene_light game_scene_light_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_light ALTER COLUMN game_scene_light_id SET DEFAULT nextval('public.game_scene_light_game_scene_light_id_seq'::regclass);
+
+
+--
+-- Name: game_scene_object game_scene_object_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_object ALTER COLUMN game_scene_object_id SET DEFAULT nextval('public.game_scene_object_game_scene_object_id_seq'::regclass);
+
+
+--
+-- Name: game_scene_wall game_scene_wall_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_wall ALTER COLUMN game_scene_wall_id SET DEFAULT nextval('public.game_scene_wall_game_scene_wall_id_seq'::regclass);
+
+
+--
 -- Name: game_session game_session_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -5646,6 +5798,22 @@ ALTER TABLE ONLY public.game_scene_hero_token
 
 
 --
+-- Name: game_scene_light game_scene_light_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_light
+    ADD CONSTRAINT game_scene_light_pkey PRIMARY KEY (game_scene_light_id);
+
+
+--
+-- Name: game_scene_object game_scene_object_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_object
+    ADD CONSTRAINT game_scene_object_pkey PRIMARY KEY (game_scene_object_id);
+
+
+--
 -- Name: game_scene game_scene_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -5659,6 +5827,14 @@ ALTER TABLE ONLY public.game_scene
 
 ALTER TABLE ONLY public.game_scene_token
     ADD CONSTRAINT game_scene_token_pkey PRIMARY KEY (game_scene_id, user_id);
+
+
+--
+-- Name: game_scene_wall game_scene_wall_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_wall
+    ADD CONSTRAINT game_scene_wall_pkey PRIMARY KEY (game_scene_wall_id);
 
 
 --
@@ -6488,10 +6664,38 @@ CREATE INDEX game_scene_drawing_scene_idx ON public.game_scene_drawing USING btr
 
 
 --
+-- Name: game_scene_light_scene_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_scene_light_scene_idx ON public.game_scene_light USING btree (game_scene_id);
+
+
+--
+-- Name: game_scene_object_image_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_scene_object_image_idx ON public.game_scene_object USING btree (image_key);
+
+
+--
+-- Name: game_scene_object_scene_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_scene_object_scene_idx ON public.game_scene_object USING btree (game_scene_id);
+
+
+--
 -- Name: game_scene_session_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX game_scene_session_idx ON public.game_scene USING btree (game_session_id);
+
+
+--
+-- Name: game_scene_wall_scene_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_scene_wall_scene_idx ON public.game_scene_wall USING btree (game_scene_id);
 
 
 --
@@ -7433,6 +7637,22 @@ ALTER TABLE ONLY public.game_scene_hero_token
 
 
 --
+-- Name: game_scene_light game_scene_light_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_light
+    ADD CONSTRAINT game_scene_light_game_scene_id_fkey FOREIGN KEY (game_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_scene_object game_scene_object_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_object
+    ADD CONSTRAINT game_scene_object_game_scene_id_fkey FOREIGN KEY (game_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE CASCADE;
+
+
+--
 -- Name: game_scene_token game_scene_token_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7446,6 +7666,14 @@ ALTER TABLE ONLY public.game_scene_token
 
 ALTER TABLE ONLY public.game_scene_token
     ADD CONSTRAINT game_scene_token_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_scene_wall game_scene_wall_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_wall
+    ADD CONSTRAINT game_scene_wall_game_scene_id_fkey FOREIGN KEY (game_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE CASCADE;
 
 
 --

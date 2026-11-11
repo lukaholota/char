@@ -4,6 +4,7 @@ import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { changeHeroConditionsAction, changeMapCreatureConditionsAction } from "@/lib/actions/game-sessions";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { applyTokenConditionChange, type TokenConditionChange, type TokenConditions } from "@/rules/token-conditions";
+import { pushUndoStep } from "./map-history";
 import { readOptimistic, sendOptimistic, useOptimistic } from "./optimistic-values";
 
 export type TokenRef = { kind: "hero" | "creature"; id: number };
@@ -16,13 +17,22 @@ function sendChange(sessionId: number, token: TokenRef, change: TokenConditionCh
   return token.kind === "hero" ? changeHeroConditionsAction(sessionId, token.id, change) : changeMapCreatureConditionsAction(sessionId, token.id, change);
 }
 
-export function useTokenConditionChanges(sessionId: number) {
+function findUndoChange(before: TokenConditions, change: TokenConditionChange): TokenConditionChange {
+  return change.kind === "exhaustion" ? { kind: "exhaustion", level: before.exhaustionLevel } : { ...change, isActive: before.conditions.includes(change.condition) };
+}
+
+export function useTokenConditionChanges(sessionId: number, sceneId: number | null) {
   const router = useModeRouter();
-  return async (token: TokenRef, server: TokenConditions, change: TokenConditionChange) => {
+  const changeConditions = async (token: TokenRef, server: TokenConditions, change: TokenConditionChange) => {
     const key = findConditionsKey(token);
-    const next = applyTokenConditionChange(readOptimistic(key, server), change);
+    const before = readOptimistic(key, server);
+    const next = applyTokenConditionChange(before, change);
+    if (sceneId !== null && JSON.stringify(before) !== JSON.stringify(next)) {
+      pushUndoStep(sceneId, { undo: () => changeConditions(token, server, findUndoChange(before, change)), redo: () => changeConditions(token, server, change) });
+    }
     const result = await sendOptimistic(key, next, () => sendChange(sessionId, token, change));
     if (result.ok) captureGameEvent("game_condition_changed", { token: token.kind, kind: change.kind });
     router.refresh();
   };
+  return changeConditions;
 }

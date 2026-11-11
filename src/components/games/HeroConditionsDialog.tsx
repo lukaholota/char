@@ -11,6 +11,7 @@ import { isMediaImageUrl } from "@/lib/media-url";
 import { cn } from "@/lib/utils";
 import { listSheetPersIds } from "@/rules/game-room-heroes";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
+import { rememberUndo } from "./map-history";
 import { sendOptimistic, useOptimistic } from "./optimistic-values";
 import { findHeroCutoutKey, useCutoutImage } from "./token-cutout";
 import { TokenConditionToggles } from "./TokenConditionToggles";
@@ -30,8 +31,8 @@ export function HeroConditionsDialog({ view, hero, onClose }: Props) {
       <DialogContent aria-describedby={undefined} className="max-w-md overflow-y-auto">
         <DialogTitle className="pr-10 normal-case leading-8 tracking-normal">{hero?.persName ?? hero?.name}: стани</DialogTitle>
         {hero ? <OpenHeroSheetAction view={view} hero={hero} onClose={onClose} /> : null}
-        {hero ? <HeroConditionToggles sessionId={sessionId} hero={hero} /> : null}
-        {hero ? <HeroTokenLook key={hero.heroId} sessionId={sessionId} hero={hero} /> : null}
+        {hero ? <HeroConditionToggles sessionId={sessionId} sceneId={view.viewedSceneId} hero={hero} /> : null}
+        {hero ? <HeroTokenLook key={hero.heroId} sessionId={sessionId} sceneId={view.viewedSceneId} hero={hero} /> : null}
       </DialogContent>
     </Dialog>
   );
@@ -67,24 +68,30 @@ function OpenHeroSheetAction({ view, hero, onClose }: { view: GameSessionView; h
   );
 }
 
-function HeroConditionToggles({ sessionId, hero }: { sessionId: number; hero: GameSessionMemberView }) {
-  const changeConditions = useTokenConditionChanges(sessionId);
+type HeroPanelProps = { sessionId: number; sceneId: number | null; hero: GameSessionMemberView };
+
+function HeroConditionToggles({ sessionId, sceneId, hero }: HeroPanelProps) {
+  const changeConditions = useTokenConditionChanges(sessionId, sceneId);
   const token = { kind: "hero" as const, id: hero.heroId };
   const value = useShownConditions(token, hero.conditions);
   return <TokenConditionToggles control={{ value, onChange: (change) => void changeConditions(token, hero.conditions, change) }} />;
 }
 
 /// Прозорим може бути лише портрет із прозорими краями, тож перемикач зʼявляється після перевірки картинки.
-function HeroTokenLook({ sessionId, hero }: { sessionId: number; hero: GameSessionMemberView }) {
+function HeroTokenLook({ sessionId, sceneId, hero }: HeroPanelProps) {
   const router = useModeRouter();
   const portraitSrc = isMediaImageUrl(hero.avatarUrl) ? hero.avatarUrl : null;
   const { isCutout: hasTransparentArt, inspectImage } = useCutoutImage(portraitSrc);
   const cutoutKey = findHeroCutoutKey(hero.heroId);
   const isCutout = useOptimistic(cutoutKey, hero.isCutout);
-  const choose = async (next: boolean) => {
-    if (next === isCutout) return;
+  const sendCutout = async (next: boolean) => {
     const result = await sendOptimistic(cutoutKey, next, () => setRoomHeroCutoutAction(sessionId, hero.heroId, next));
     if (result.ok) router.refresh();
+  };
+  const choose = (next: boolean) => {
+    if (next === isCutout) return;
+    rememberUndo(sceneId, cutoutKey, isCutout, next, sendCutout);
+    void sendCutout(next);
   };
   return (
     <section aria-label="Вигляд токена" className="space-y-2 border-t border-white/10 pt-3">
@@ -96,7 +103,7 @@ function HeroTokenLook({ sessionId, hero }: { sessionId: number; hero: GameSessi
       {hasTransparentArt ? (
         <div role="group" aria-label="Форма токена" className="grid grid-cols-2 gap-1.5">
           {LOOK_CHOICES.map((choice) => (
-            <button key={choice.label} type="button" aria-pressed={isCutout === choice.isCutout} onClick={() => void choose(choice.isCutout)} className={cn("h-11 rounded-xl border text-sm", isCutout === choice.isCutout ? "border-white/30 bg-white/10 text-slate-100" : "border-white/10 text-slate-400 hover:text-slate-200")}>
+            <button key={choice.label} type="button" aria-pressed={isCutout === choice.isCutout} onClick={() => choose(choice.isCutout)} className={cn("h-11 rounded-xl border text-sm", isCutout === choice.isCutout ? "border-white/30 bg-white/10 text-slate-100" : "border-white/10 text-slate-400 hover:text-slate-200")}>
               {choice.label}
             </button>
           ))}

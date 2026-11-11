@@ -1,5 +1,6 @@
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { findCreatureHitPoints, isCreatureDown, type CreatureHitPoints } from "@/rules/creature-hit-points";
+import type { TokenLight } from "@/rules/game-lighting";
 import type { TokenPosition } from "@/rules/game-map";
 import { normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
 import { readTokenTransform, type TokenTransform } from "@/rules/token-transform";
@@ -45,6 +46,8 @@ export type MapCreatureRow = {
   hpCurrent: number | null;
   conditions: string[];
   exhaustionLevel: number;
+  lightBrightFeet: number;
+  lightDimFeet: number;
 };
 export type MapCreatureCatalogEntry = { name: string; size: string; hp?: string; imageUrl?: string; imageShape?: "round" };
 
@@ -70,6 +73,7 @@ export type MapCreatureView = {
   hitPoints: CreatureHitPoints | null;
   isDown: boolean;
   conditions: TokenConditions;
+  light: TokenLight;
 };
 
 export type NewMapCreatures = { creatureKey: string; ruleset: MapCreatureRuleset; count: number; isAlly: boolean; customName: string | null };
@@ -156,6 +160,7 @@ export function buildMapCreatureViews(
         hitPoints: isGm ? hitPoints : null,
         isDown: isCreatureDown(hitPoints),
         conditions: normalizeTokenConditions(row),
+        light: { brightFeet: row.lightBrightFeet, dimFeet: row.lightDimFeet },
       };
     });
 }

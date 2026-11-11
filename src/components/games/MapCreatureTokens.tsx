@@ -13,7 +13,7 @@ import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
 import { NO_TOKEN_CONDITIONS } from "@/rules/token-conditions";
-import { applyHitPointChange, isCreatureDown, type HitPointChange } from "@/rules/creature-hit-points";
+import { applyHitPointChange, findHitPointChangesTo, isCreatureDown, type CreatureHitPoints, type HitPointChange } from "@/rules/creature-hit-points";
 import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import { findTokenArrowStep } from "@/rules/game-grid";
 import { CREATURE_SIZE_CELLS, CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
@@ -25,7 +25,7 @@ import { buildCreatureTargetControl, useRollTargetCreatureId } from "./RollTarge
 import { TokenConditionMarks } from "./TokenConditionMarks";
 import { useShownConditions, useTokenConditionChanges } from "./use-token-conditions";
 import { MapCreatureStatblockDialog } from "./MapCreatureStatblockDialog";
-import { holdValueBefore, rememberUndo } from "./map-history";
+import { holdValueBefore, pushUndoStep, rememberUndo } from "./map-history";
 import { readOptimistic, sendOptimistic, showOptimistic, useOptimisticReader } from "./optimistic-values";
 import { useTokenDrag, type TokenGhost } from "./use-token-drag";
 import { TokenName } from "./TokenName";
@@ -48,7 +48,7 @@ export function useMapCreatureTokens({ view, layout, selection, findDropPosition
   const canEdit = view.myRole === "GM" && !view.isArchived;
   const moves = useCreatureMoves(view);
   const looks = useCreatureLooks(view);
-  const changeConditions = useTokenConditionChanges(view.id);
+  const changeConditions = useTokenConditionChanges(view.id, view.viewedSceneId);
   const targetId = useRollTargetCreatureId(view.id);
   const myHeroName = view.members.find((member) => member.userId === view.myUserId && member.persId !== null)?.persName ?? null;
   const findCells = (creature: MapCreatureView) => CREATURE_SIZE_CELLS[looks.findSize(creature)];
@@ -77,6 +77,8 @@ export function useMapCreatureTokens({ view, layout, selection, findDropPosition
   );
   const router = useModeRouter();
   const renameCreature = async (id: number, name: string) => {
+    const before = view.creatures.find((creature) => creature.id === id)?.customName ?? "";
+    rememberUndo(view.viewedSceneId, `creature-name:${id}`, before, name, (restored) => renameCreature(id, restored));
     const result = await renameMapCreatureAction(view.id, id, name);
     if (!result.ok) toast.error(result.error);
     else router.refresh();
@@ -94,7 +96,7 @@ export function useMapCreatureTokens({ view, layout, selection, findDropPosition
 
   const isShownOnMap = (creature: MapCreatureView) => {
     const position = moves.findPosition(creature);
-    return position !== null && !layout.isHidden(position);
+    return position !== null && !layout.isHidden(position, findCells(creature));
   };
   const findKey = (id: number) => `creature-${id}`;
   const tapCreature = (id: number) => {
@@ -112,6 +114,7 @@ export function useMapCreatureTokens({ view, layout, selection, findDropPosition
         onOpen: () => openStatblock(selectedCreature.id),
         onPreview: (transform) => looks.showTransform(selectedCreature.id, transform),
         onChange: (transform) => void looks.sendTransform(selectedCreature.id, transform),
+        lightTarget: { kind: "creature", creature: selectedCreature },
       }
     : null;
   const placed: PlacedToken[] = shown.filter(isShownOnMap).map((creature) => ({ key: `creature-${creature.id}`, creatureId: creature.id, name: creature.label, position: moves.findPosition(creature)!, cells: findCells(creature) }));
@@ -169,7 +172,7 @@ export function useMapCreatureTokens({ view, layout, selection, findDropPosition
       const isSelected = selected?.key === findKey(creature.id);
       const handles = isSelected && selected ? <TokenTransformHandles token={selected} onDeselect={() => selection.select(null)} /> : null;
       return (
-        <MapTokenSlot key={creature.id} position={position} size={size} className={isSelected ? "z-[33]" : canEdit ? "z-[11]" : "z-10"}>
+        <MapTokenSlot key={creature.id} position={position} size={size} className={cn(isSelected ? "z-[33]" : canEdit ? "z-[11]" : "z-10", layout.revealClassName)}>
           {renderToken(creature, size, hasTokenNames(layout, findCells(creature)) ? looks.nameMode : null, { labelWidth: findLabelWidth(layout, sizeScale), isHighlighted: layout.isHighlighted(position, findCells(creature)), isOutlined: layout.isCutoutOutlined, rotation: transform.rotation }, handles)}
         </MapTokenSlot>
       );
@@ -322,7 +325,10 @@ function useCreatureLooks(view: GameSessionView) {
   };
   const findCutoutKey = (creature: MapCreatureView) => `creature-cutout:${creature.ruleset}:${creature.creatureKey}`;
   const findIsCutout = (creature: MapCreatureView) => read(findCutoutKey(creature), creature.isCutout);
-  const sendCutout = async (creature: MapCreatureView, isCutout: boolean) => finish(await sendOptimistic(findCutoutKey(creature), isCutout, () => setMapCreatureCutoutAction(view.id, creature.id, isCutout)));
+  const sendCutout = async (creature: MapCreatureView, isCutout: boolean) => {
+    rememberUndo(view.viewedSceneId, findCutoutKey(creature), readOptimistic(findCutoutKey(creature), creature.isCutout), isCutout, (restored) => sendCutout(creature, restored));
+    finish(await sendOptimistic(findCutoutKey(creature), isCutout, () => setMapCreatureCutoutAction(view.id, creature.id, isCutout)));
+  };
   const applyPendingCutout = (creature: MapCreatureView): MapCreatureView => (findIsCutout(creature) === creature.isCutout ? creature : { ...creature, isCutout: !creature.isCutout });
   const findTransformKey = (id: number) => `creature-transform:${id}`;
   const findTransform = (creature: MapCreatureView) => read(findTransformKey(creature.id), creature.tokenTransform);
@@ -336,10 +342,24 @@ function useCreatureLooks(view: GameSessionView) {
     if (before) rememberUndo(view.viewedSceneId, findTransformKey(id), before, transform, (restored) => sendTransform(id, restored));
     finish(await sendOptimistic(findTransformKey(id), transform, () => transformMapCreatureAction(view.id, id, transform)));
   };
-  const sendNameMode = async (mode: TokenNameMode) => finish(await sendOptimistic(nameModeKey, mode, () => setCreatureNameModeAction(view.id, mode)));
+  const sendNameMode = async (mode: TokenNameMode) => {
+    rememberUndo(view.viewedSceneId, nameModeKey, readOptimistic(nameModeKey, view.creatureNameMode), mode, sendNameMode);
+    finish(await sendOptimistic(nameModeKey, mode, () => setCreatureNameModeAction(view.id, mode)));
+  };
+  /// Скасування й повтор шлють різницю між двома відомими значеннями: збережене на клієнті могло вже застаріти.
+  const sendHitPointPath = async (creature: MapCreatureView, from: CreatureHitPoints, to: CreatureHitPoints) => {
+    let shown = from;
+    for (const change of findHitPointChangesTo(from, to)) {
+      shown = applyHitPointChange(shown, change) ?? shown;
+      if (!(await sendOptimistic(findHitPointsKey(creature), shown, () => changeMapCreatureHitPointsAction(view.id, creature.id, change))).ok) return;
+    }
+    router.refresh();
+  };
   const sendHitPointChange = async (creature: MapCreatureView, change: HitPointChange) => {
-    const next = applyHitPointChange(readOptimistic(findHitPointsKey(creature), creature.hitPoints), change);
-    finish(await sendOptimistic(findHitPointsKey(creature), next ?? creature.hitPoints, () => changeMapCreatureHitPointsAction(view.id, creature.id, change)));
+    const before = readOptimistic(findHitPointsKey(creature), creature.hitPoints);
+    const after = applyHitPointChange(before, change);
+    if (view.viewedSceneId !== null && before && after) pushUndoStep(view.viewedSceneId, { undo: () => sendHitPointPath(creature, after, before), redo: () => sendHitPointPath(creature, before, after) });
+    finish(await sendOptimistic(findHitPointsKey(creature), after ?? creature.hitPoints, () => changeMapCreatureHitPointsAction(view.id, creature.id, change)));
   };
   const applyPendingHitPoints = (creature: MapCreatureView): MapCreatureView => {
     const hitPoints = read(findHitPointsKey(creature), creature.hitPoints);

@@ -31,13 +31,22 @@ export async function setMapCreatureImage(sessionId: number, userId: number, cre
 
 export async function deleteTokenImage(userId: number, imageKey: string): Promise<GameSessionResult<null>> {
   if (!(await isOwnTokenImage(userId, imageKey))) return { ok: true, value: null };
-  const roomsUsingImage = await prisma.gameMapCreature.findMany({ where: { customImageKey: imageKey }, distinct: ["gameSessionId"], select: { gameSessionId: true } });
-  await prisma.userTokenImage.deleteMany({ where: { userId, imageKey } });
-  await Promise.all(roomsUsingImage.map((room) => signalGameSession(room.gameSessionId, "session")));
+  const roomsUsingImage = await findRoomsUsingImage(imageKey);
+  await prisma.$transaction([prisma.gameSceneObject.deleteMany({ where: { imageKey } }), prisma.userTokenImage.deleteMany({ where: { userId, imageKey } })]);
+  await Promise.all(roomsUsingImage.map((sessionId) => signalGameSession(sessionId, "session")));
   await deleteStoredImage(imageKey);
   return { ok: true, value: null };
 }
 
-async function isOwnTokenImage(userId: number, imageKey: string): Promise<boolean> {
+/// Істота з цим зображенням повертається до стандартного вигляду, а обʼєкт без картинки зникає з мапи.
+async function findRoomsUsingImage(imageKey: string): Promise<number[]> {
+  const [creatures, objects] = await Promise.all([
+    prisma.gameMapCreature.findMany({ where: { customImageKey: imageKey }, distinct: ["gameSessionId"], select: { gameSessionId: true } }),
+    prisma.gameSceneObject.findMany({ where: { imageKey }, select: { scene: { select: { sessionId: true } } } }),
+  ]);
+  return [...new Set([...creatures.map((creature) => creature.gameSessionId), ...objects.map((object) => object.scene.sessionId)])];
+}
+
+export async function isOwnTokenImage(userId: number, imageKey: string): Promise<boolean> {
   return (await prisma.userTokenImage.count({ where: { userId, imageKey } })) > 0;
 }

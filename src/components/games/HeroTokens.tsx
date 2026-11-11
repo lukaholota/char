@@ -30,10 +30,11 @@ import { TokenTransformHandles, findTokenRotationStyle, scaleGhostSize, scaleTok
 type Point = { clientX: number; clientY: number };
 const HERO_CELLS = 1;
 
-type HeroTokensInput = { view: GameSessionView; moves: TokenMoves; layout: TokenLayout; nameMode: TokenNameMode; selection: TokenSelection; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean };
+type HeroTokensInput = { view: GameSessionView; moves: TokenMoves; layout: TokenLayout; nameMode: TokenNameMode; selection: TokenSelection; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean; blocksMove: ((from: TokenPosition, to: TokenPosition) => boolean) | null };
+type Walk = { ghost: TokenGhost<number>; at: TokenPosition | null; isBlocked: boolean };
 
 /// Свого героя рухає гравець, усіх — майстер; дотик без руху вибирає токен на мапі, а наступний відкриває стани героя.
-export function useHeroTokens({ view, moves, layout, nameMode, selection, findDropPosition, isTurned }: HeroTokensInput) {
+export function useHeroTokens({ view, moves, layout, nameMode, selection, findDropPosition, isTurned, blocksMove }: HeroTokensInput) {
   const [conditionsHeroId, setConditionsHeroId] = useState<number | null>(null);
   const transforms = useHeroTransforms(view);
   const canMove = (member: GameSessionMemberView) => !view.isArchived && (view.myRole === "GM" || member.userId === view.myUserId);
@@ -48,11 +49,17 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, findDr
     const position = findDropPosition(point);
     return position ? snapTokenPosition(position, layout, HERO_CELLS) : null;
   };
+  const [walk, setWalk] = useState<Walk | null>(null);
+  /// Гравець не проводить героя крізь стіну: токен лишається в останній точці, куди дійшов.
+  /// shortcut: стрілки на клавіатурі стін не перевіряють, додати, якщо гравці почнуть ними ходити.
+  const findAllowedStep = (from: TokenPosition | null, to: TokenPosition | null) => (from && to && blocksMove?.(from, to) ? { at: from, isBlocked: true } : { at: to, isBlocked: false });
+  const findWalkStart = (heroId: number, member: GameSessionMemberView) => (walk?.ghost.id === heroId && walk.at ? walk.at : moves.findPosition(member));
   const { ghost, bindToken } = useTokenDrag(
     (heroId, point) => {
-      const position = findSnappedDrop(point);
       const member = view.members.find((candidate) => candidate.heroId === heroId);
-      if (member && (position || moves.findPosition(member))) void moves.sendPosition(member, position);
+      if (!member) return;
+      const position = findAllowedStep(findWalkStart(heroId, member), findSnappedDrop(point)).at;
+      if (position || moves.findPosition(member)) void moves.sendPosition(member, position);
     },
     (point) => findDropPosition(point) !== null,
     tapHero,
@@ -60,6 +67,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, findDr
   const heroes = view.members.filter((member) => member.persId !== null);
   const waiting = heroes.filter((member) => !moves.findPosition(member));
   const dragged = ghost ? heroes.find((member) => member.heroId === ghost.id) : undefined;
+  if (ghost !== (walk?.ghost ?? null)) setWalk(ghost && dragged ? { ghost, ...findAllowedStep(findWalkStart(ghost.id, dragged), findSnappedDrop(ghost)) } : null);
   const showsNames = hasTokenNames(layout);
 
   const selectedMember = heroes.find((member) => findKey(member.heroId) === selection.key && canMove(member) && moves.findPosition(member));
@@ -72,6 +80,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, findDr
         onOpen: () => setConditionsHeroId(selectedMember.heroId),
         onPreview: (transform) => transforms.show(selectedMember, transform),
         onChange: (transform) => void transforms.send(selectedMember, transform),
+        lightTarget: { kind: "hero", member: selectedMember },
       }
     : null;
 
@@ -116,7 +125,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, findDr
     return position ? [{ key: `hero-${member.heroId}`, name: member.persName ?? member.name, position, cells: HERO_CELLS, ...(member.persId !== null ? { persId: member.persId } : {}) }] : [];
   });
   const draggedFrom = dragged ? moves.findPosition(dragged) : null;
-  const drag: TokenDrag | null = ghost && dragged ? { from: draggedFrom, to: findSnappedDrop(ghost), cells: HERO_CELLS } : null;
+  const drag: TokenDrag | null = ghost && dragged ? { from: draggedFrom, to: walk?.ghost === ghost ? walk.at : findSnappedDrop(ghost), cells: HERO_CELLS, isBlocked: walk?.ghost === ghost && walk.isBlocked } : null;
   const size = findBoardTokenSize(layout, HERO_CELLS, 1);
 
   return {

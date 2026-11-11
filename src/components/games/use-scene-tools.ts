@@ -8,7 +8,7 @@ import type { AreaPlacement } from "@/rules/game-areas";
 import { applyFogChange, isFogStroke, type FogChange } from "@/rules/game-fog";
 import type { SceneGrid } from "@/rules/game-grid";
 import type { GameSessionView } from "@/server/db/game-sessions";
-import { rememberUndo } from "./map-history";
+import { holdValueBefore, rememberUndo } from "./map-history";
 import { readOptimistic, sendOptimistic, useOptimisticReader } from "./optimistic-values";
 
 const GRID_SAVE_DELAY_MS = 450;
@@ -64,19 +64,33 @@ export function useGridDraft(view: GameSessionView) {
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
 
+  const saveGrid = async (gridSceneId: number, grid: SceneGrid | null) => {
+    const result = await changeSceneGridAction(view.id, gridSceneId, grid);
+    setIsSaving(false);
+    if (!result.ok) {
+      setDraft(null);
+      return void toast.error(result.error);
+    }
+    captureGameEvent("game_grid_changed", { has_grid: grid !== null });
+  };
+  const restoreGrid = (gridSceneId: number, grid: SceneGrid | null) => {
+    window.clearTimeout(timer.current);
+    setDraft({ sceneId: gridSceneId, grid });
+    setIsSaving(true);
+    void saveGrid(gridSceneId, grid);
+  };
+
+  /// Повзунок шле десятки змін: у історію йде одна — від значення до першого руху до збереженого.
   const changeGrid = (grid: SceneGrid | null) => {
     if (sceneId === null) return;
+    const historyKey = `grid:${sceneId}`;
+    holdValueBefore(historyKey, activeDraft ? activeDraft.grid : view.grid);
     setDraft({ sceneId, grid });
     setIsSaving(true);
     window.clearTimeout(timer.current);
-    timer.current = window.setTimeout(async () => {
-      const result = await changeSceneGridAction(view.id, sceneId, grid);
-      setIsSaving(false);
-      if (!result.ok) {
-        setDraft(null);
-        return void toast.error(result.error);
-      }
-      captureGameEvent("game_grid_changed", { has_grid: grid !== null });
+    timer.current = window.setTimeout(() => {
+      rememberUndo(sceneId, historyKey, grid, grid, (restored) => restoreGrid(sceneId, restored));
+      void saveGrid(sceneId, grid);
     }, GRID_SAVE_DELAY_MS);
   };
 
