@@ -1563,7 +1563,6 @@ model GameSession {
   archivedAt               DateTime?           @map("archived_at") @db.Timestamptz(6)
   createdAt                DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt                DateTime            @default(now()) @map("updated_at") @db.Timestamptz(6)
-  map_image_key            String?             @db.VarChar(200)
   creatureNameMode         String              @default("short") @map("creature_name_mode") @db.VarChar(8)
   combatRound              Int?                @map("combat_round") @db.SmallInt
   combatTurn               Int?                @map("combat_turn") @db.SmallInt
@@ -1591,8 +1590,6 @@ model GameSessionMember {
   persId          Int?                 @map("pers_id")
   joinedAt        DateTime             @default(now()) @map("joined_at") @db.Timestamptz(6)
   lastSeenAt      DateTime?            @map("last_seen_at") @db.Timestamptz(6)
-  token_x         Float?               @db.Real
-  token_y         Float?               @db.Real
   conditions      String[]             @default([])
   exhaustionLevel Int                  @default(0) @map("exhaustion_level") @db.SmallInt
   openSceneId     Int?                 @map("open_scene_id")
