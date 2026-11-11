@@ -18,9 +18,11 @@ export type TokenLayout = {
   frame: MapFrame | null;
   isHidden: (position: TokenPosition) => boolean;
   isHighlighted: (position: TokenPosition, cells: number) => boolean;
+  isCutoutOutlined: boolean;
   findFreeSpot: () => TokenPosition;
 };
 
+export type TokenOnBoard = { labelWidth: number; isHighlighted: boolean; isOutlined: boolean; rotation: number };
 export type TokenDrag = { from: TokenPosition | null; to: TokenPosition | null; cells: number };
 export type PlacedToken = { key: string; name: string; position: TokenPosition; cells: number; creatureId?: number; persId?: number };
 

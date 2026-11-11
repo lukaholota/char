@@ -6,7 +6,7 @@ import { describeTargetSave, findPressedTargetSave } from "@/lib/components/dice
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { cn } from "@/lib/utils";
 import { AREA_SHAPE_LABELS, findAreaTip, isPointInArea, isTokenInArea, type AreaPlacement } from "@/rules/game-areas";
-import { isPointHidden } from "@/rules/game-fog";
+import { applyFogChange, isPointHidden, type FogStroke, type SceneFog } from "@/rules/game-fog";
 import { findFreeCellNear, measureGridFeet, snapToHalfCell, type MapFrame } from "@/rules/game-grid";
 import { findMapShareInRect, findTokenPositionInRect, type TokenPosition } from "@/rules/game-map";
 import type { TokenNameMode } from "@/rules/game-map-creatures";
@@ -22,10 +22,14 @@ import { FoldSection, FullscreenButton, MapToolRow, MapZoomControls, ToolModeBad
 import { describeFitTask, FogPanel, GridPanel, RulerPanel, ViewPanel } from "./MapToolPanels";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { CompactCombatContext } from "./CombatTracker";
+import { DrawPanel, MapDrawingsLayer } from "./MapDrawings";
 import { useSharedBoard } from "./shared-board";
+import { useMapHistory } from "./map-history";
+import { useMapDrawings } from "./use-map-drawings";
 import { useAreaTool, useFogTool, useGridTool, useRulerTool, type MapTool } from "./use-map-tools";
 import { useMapViewport } from "./use-map-viewport";
 import { useGridDraft, useSceneTools } from "./use-scene-tools";
+import { TokenTransformPanel, useTokenSelection } from "./TokenTransformControls";
 
 type Point = { clientX: number; clientY: number };
 /// Ширину міряє контейнер мапи, а не екран: та сама розкладка працює в кімнаті, на весь екран і в повернутому діалозі.
@@ -42,6 +46,11 @@ const WIDE_LAYOUT = {
 
 const clampShare = (point: TokenPosition) => ({ x: Math.min(1, Math.max(0, point.x)), y: Math.min(1, Math.max(0, point.y)) });
 const isInsideRect = (point: Point, rect: DOMRect) => point.clientX >= rect.left && point.clientX <= rect.right && point.clientY >= rect.top && point.clientY <= rect.bottom;
+/// Мазок пензля видно під пальцем ще до відповіді сервера, разом з усім туманом.
+function findShownFog(fog: SceneFog | null, stroke: FogStroke | null) {
+  const next = stroke ? applyFogChange(fog, { kind: "area", area: stroke }) : fog;
+  return next === "too_many" ? fog : next;
+}
 
 export type MapBoardProps = {
   view: GameSessionView;
@@ -49,6 +58,7 @@ export type MapBoardProps = {
   tokenScale: number;
   onTokenScaleChange: (scale: number) => void;
   heroNames: { mode: TokenNameMode; onChange: (mode: TokenNameMode) => void };
+  cutoutOutline: { isOn: boolean; onChange: (isOn: boolean) => void };
   mapImageUrl: string;
   heading?: ReactNode;
   combat?: ReactNode;
@@ -57,7 +67,7 @@ export type MapBoardProps = {
 };
 
 /// Мапа заповнює висоту свого контейнера: у кімнаті й на весь екран вона однаково масштабується й має інструменти.
-export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroNames, mapImageUrl, heading, combat, onFullscreen, turn }: MapBoardProps) {
+export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroNames, cutoutOutline, mapImageUrl, heading, combat, onFullscreen, turn }: MapBoardProps) {
   const boardRef = useRef<HTMLDivElement>(null);
   const [aspect, setAspect] = useState<number | null>(null);
   const [isBroken, setIsBroken] = useState(false);
@@ -77,12 +87,17 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     return rect ? findMapShareInRect(point, rect, isQuarterTurned()) : null;
   };
   const ruler = useRulerTool(toShare, frame);
-  const fogTool = useFogTool(toShare, frame, (change) => void scene.changeFog(change));
+  const fogTool = useFogTool(toShare, frame, aspect, (change) => void scene.changeFog(change));
+  const fog = findShownFog(scene.fog, fogTool.stroke);
+  const history = useMapHistory(view.viewedSceneId);
   const gridTool = useGridTool(toShare, aspect, grid, gridDraft.changeGrid);
   const area = useAreaTool(areaStore, toShare, frame, scene.saveArea);
-  const gesture = tool === "ruler" ? ruler.gesture : tool === "fog" ? fogTool.gesture : tool === "grid" ? gridTool.gesture : tool === "area" ? area.gesture : null;
+  const drawings = useMapDrawings(view, toShare, aspect);
+  const gesture = tool === "ruler" ? ruler.gesture : tool === "draw" ? drawings.gesture : tool === "fog" ? fogTool.gesture : tool === "grid" ? gridTool.gesture : tool === "area" ? area.gesture : null;
 
+  const selection = useTokenSelection(tool === null && !targeting);
   const openTappedArea = (point: Point) => {
+    selection.select(null);
     if (targeting) return;
     const at = toShare(point);
     const hit = frame && at ? [...scene.areas].reverse().find((candidate) => isPointInArea(at, candidate, frame)) : undefined;
@@ -101,19 +116,21 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     return findTokenPositionInRect(point, rect, isQuarterTurned());
   };
   const isFogPreviewOn = isFogPreview && tool === "fog";
-  const hidesForMe = scene.fog !== null && (view.myRole !== "GM" || isFogPreviewOn);
+  const hidesForMe = fog !== null && (view.myRole !== "GM" || isFogPreviewOn);
   const activeArea = tool === "area" ? (area.draft?.placement ?? null) : null;
   const layout: TokenLayout = {
     cellPx: grid && boardWidth ? boardWidth / grid.columns : null,
     scale: tokenScale,
     zoom: viewport.zoom,
     frame,
-    isHidden: (position) => hidesForMe && isPointHidden(position, scene.fog),
+    isHidden: (position) => hidesForMe && isPointHidden(position, fog, aspect ?? 1),
     isHighlighted: (position, cells) => Boolean(frame && activeArea && isTokenInArea(position, cells, activeArea, frame)),
+    isCutoutOutlined: cutoutOutline.isOn,
     findFreeSpot: () => findFreeCellNear(findViewCentre(), [...heroes.placed, ...creatures.placed].map((token) => token.position), frame),
   };
-  const heroes = useHeroTokens({ view, moves, layout, nameMode: heroNames.mode, findDropPosition, isTurned: isQuarterTurned });
-  const creatures = useMapCreatureTokens({ view, layout, findDropPosition, isTurned: isQuarterTurned });
+  const heroes = useHeroTokens({ view, moves, layout, nameMode: heroNames.mode, selection, findDropPosition, isTurned: isQuarterTurned });
+  const creatures = useMapCreatureTokens({ view, layout, selection, findDropPosition, isTurned: isQuarterTurned });
+  const selectedToken = heroes.selected ?? creatures.selected;
 
   const changeTool = (next: MapTool | null) => {
     if (next !== "area") area.close();
@@ -121,6 +138,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     if (tool === "ruler") ruler.clear();
     if (tool === "grid") gridDraft.dropDraft();
     setIsFogPreview(false);
+    selection.select(null);
     setTool(next);
   };
   const findViewCentre = () => {
@@ -213,18 +231,21 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
         cast={castSave ? { save: describeTargetSave(castSave), skippedKeys, onToggle: toggleCastTarget, onCast: castSpell } : undefined}
       />
     )
-    : tool === "fog" ? <FogPanel fog={scene.fog} brush={fogTool.brush} onBrushChange={fogTool.setBrush} onChange={(change) => void scene.changeFog(change)} isPreview={isFogPreviewOn} onPreviewChange={setIsFogPreview} onClose={() => changeTool(null)} />
+    : tool === "draw" ? <DrawPanel drawings={drawings} isGm={view.myRole === "GM"} history={history} onClose={() => changeTool(null)} />
+    : tool === "fog" ? <FogPanel fog={scene.fog} tool={fogTool} history={history} onChange={(change) => void scene.changeFog(change)} isPreview={isFogPreviewOn} onPreviewChange={setIsFogPreview} onClose={() => changeTool(null)} />
     : tool === "grid" ? <GridPanel grid={grid} aspect={aspect} isSaving={gridDraft.isSaving} onChange={gridDraft.changeGrid} tool={gridTool} onClose={() => changeTool(null)} />
-    : tool === "view" ? <ViewPanel hasGrid={grid !== null} tokenScale={tokenScale} onTokenScaleChange={onTokenScaleChange} heroNames={heroNames} creatureNames={creatures.names} onClose={() => changeTool(null)} />
+    : tool === "view" ? <ViewPanel hasGrid={grid !== null} tokenScale={tokenScale} onTokenScaleChange={onTokenScaleChange} heroNames={heroNames} creatureNames={creatures.names} cutoutOutline={cutoutOutline} onClose={() => changeTool(null)} />
+    : selectedToken ? <TokenTransformPanel token={selectedToken} onClose={() => selection.select(null)} />
     : null;
 
   const hasTray = heroes.waiting.length > 0 || creatures.tray !== null;
   const isFocused = Boolean(panel || targeting || isDiceTrayOpen);
   const toolsRef = useRef<HTMLDivElement>(null);
   const hasAreaDraft = area.draft !== null;
+  const selectedKey = selectedToken?.key ?? null;
   useEffect(() => {
-    if (tool || isTargeting) toolsRef.current?.scrollIntoView?.({ block: "nearest" });
-  }, [tool, hasAreaDraft, isTargeting]);
+    if (tool || isTargeting || selectedKey) toolsRef.current?.scrollIntoView?.({ block: "nearest" });
+  }, [tool, hasAreaDraft, isTargeting, selectedKey]);
   return (
     <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain [container-type:inline-size]">
       <div className={WIDE_LAYOUT.root}>
@@ -259,11 +280,12 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
                 <>
                   {frame && (frame.grid.isVisible || tool === "grid") ? <MapGridLayer frame={frame} /> : null}
                   {frame && areaLooks.length ? <MapAreasLayer frame={frame} areas={areaLooks} /> : null}
-                  {scene.fog && !hidesForMe ? <MapFogLayer fog={scene.fog} aspect={aspect} isVeil /> : null}
+                  {drawings.shown.length ? <MapDrawingsLayer drawings={drawings.shown} aspect={aspect} /> : null}
+                  {fog && !hidesForMe ? <MapFogLayer fog={fog} aspect={aspect} isVeil /> : null}
                 </>
               ) : null}
               <div onPointerDownCapture={leaveGridOnToken} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{creatures.mapTokens}</div>
-              {aspect && scene.fog && hidesForMe ? <MapFogLayer fog={scene.fog} aspect={aspect} isVeil={false} className="z-20" /> : null}
+              {aspect && fog && hidesForMe ? <MapFogLayer fog={fog} aspect={aspect} isVeil={false} className="z-20" /> : null}
               <div onPointerDownCapture={leaveGridOnToken} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{heroes.mapTokens}</div>
               {targeting ? <MapTargetPicks tokens={[...heroes.placed, ...creatures.placed]} layout={layout} targeting={targeting} /> : null}
               {aspect ? <MapMeasureLayer frame={frame} aspect={aspect} ruler={tool === "ruler" ? ruler.ruler : null} move={move} rect={tool === "fog" ? fogTool.rect : tool === "grid" ? gridTool.rect : null} /> : null}
@@ -273,7 +295,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
             </div>
             {tool && isToolGesture ? <ToolModeBadge tool={tool} task={tool === "grid" && gridTool.mode === "fit" ? describeFitTask(gridTool.cellsAcross) : undefined} areTokensBlocked={areTokensBlocked} onDone={() => changeTool(null)} /> : null}
             {onFullscreen ? <FullscreenButton onOpen={onFullscreen} /> : null}
-            {aspect ? <MapZoomControls zoom={viewport.zoom} maxZoom={maxZoom} onZoomIn={viewport.zoomIn} onZoomOut={viewport.zoomOut} onFit={viewport.fit} turn={canTurn} /> : null}
+            {aspect ? <MapZoomControls zoom={viewport.zoom} maxZoom={maxZoom} onZoomIn={viewport.zoomIn} onZoomOut={viewport.zoomOut} onFit={viewport.fit} turn={canTurn} history={history} /> : null}
           </div>
         )}
         <div className={WIDE_LAYOUT.side}>
@@ -298,7 +320,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
           <div ref={toolsRef} className={cn("shrink-0 space-y-2", (panel || targeting) && "max-h-[42dvh] overflow-y-auto", WIDE_LAYOUT.tools)}>
             {targeting ? <MapTargetingPanel view={view} targeting={targeting} /> : (
               <>
-                {cast ? null : <MapToolRow tool={tool} onToolChange={changeTool} canEditScene={canEditScene} />}
+                {cast ? null : <MapToolRow tool={tool} onToolChange={changeTool} canEditScene={canEditScene} canDraw={!view.isArchived} />}
                 {panel}
               </>
             )}

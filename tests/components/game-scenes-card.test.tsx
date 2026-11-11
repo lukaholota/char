@@ -44,7 +44,7 @@ afterEach(cleanup);
 function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
   return {
     id: 7, name: "Печера", isArchived: false, myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [], inviteToken: null, mapImageUrl: null,
-    members: [], creatures: [], creatureNameMode: "short", combat: null, grid: null, fog: null, areas: [],
+    members: [], creatures: [], creatureNameMode: "short", combat: null, grid: null, fog: null, areas: [], drawings: [],
     viewedSceneId: 1, activeSceneId: 1,
     scenes: [
       { id: 1, name: "Лісова дорога", hasMap: true, isActive: true },

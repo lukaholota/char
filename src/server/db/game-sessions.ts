@@ -5,7 +5,9 @@ import { prisma } from "@/lib/prisma";
 import { buildCombatView, type CombatHeroView, type CombatView } from "@/rules/game-combat";
 import type { GameRollVisibility } from "@/rules/game-roll";
 import type { TokenPosition } from "@/rules/game-map";
+import { DEFAULT_TOKEN_TRANSFORM, readTokenTransform, type TokenTransform } from "@/rules/token-transform";
 import { parseAreaPlacement, type SceneAreaView } from "@/rules/game-areas";
+import { buildDrawingView, type SceneDrawingView } from "@/rules/game-drawings";
 import { parseSceneFog, type SceneFog } from "@/rules/game-fog";
 import { parseSceneGrid, type SceneGrid } from "@/rules/game-grid";
 import { buildSceneListItems, findViewedSceneId, type GameSceneListItem } from "@/rules/game-scenes";
@@ -20,7 +22,7 @@ const ONLINE_WINDOW_MS = 60_000;
 export const GAME_SESSION_SIGNAL_CHANNEL = "game_session";
 
 export type GameSessionRole = "GM" | "PLAYER";
-export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "token_image_gone" | "hero_limit";
+export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "bad_drawing" | "drawing_limit" | "token_image_gone" | "hero_limit";
 export type GameSessionResult<T> = { ok: true; value: T } | { ok: false; error: GameSessionFailure };
 
 export type GameSessionMemberView = {
@@ -34,6 +36,7 @@ export type GameSessionMemberView = {
   avatarUrl: string | null;
   isOnline: boolean;
   token: TokenPosition | null;
+  tokenTransform: TokenTransform;
   isCutout: boolean;
   conditions: TokenConditions;
   lifeState: HeroLifeState;
@@ -59,6 +62,7 @@ export type GameSessionView = {
   grid: SceneGrid | null;
   fog: SceneFog | null;
   areas: SceneAreaView[];
+  drawings: SceneDrawingView[];
 };
 
 export type GameSessionListItem = { id: number; name: string; isArchived: boolean; myRole: GameSessionRole; memberCount: number; updatedAt: string };
@@ -151,7 +155,7 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
   const combatCreatures = viewedSceneId === session.activeSceneId ? creatures : buildSceneCreatures(session.activeSceneId);
   const viewedMapKey = session.scenes.find((scene) => scene.id === viewedSceneId)?.mapImageKey ?? null;
   const viewedTools = sceneTools.find((scene) => scene.id === viewedSceneId);
-  const tokenByHeroId = new Map(heroTokens.filter((token) => token.sceneId === viewedSceneId).map((token) => [token.memberId, { x: token.tokenX, y: token.tokenY }]));
+  const tokenByHeroId = new Map(heroTokens.filter((token) => token.sceneId === viewedSceneId).map((token) => [token.memberId, token]));
   return {
     id: session.id,
     name: session.name,
@@ -175,7 +179,8 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
       persName: member.pers?.name ?? null,
       avatarUrl: buildAvatarUrl(member.pers?.portraitKey, member.user.image),
       isOnline: member.lastSeenAt !== null && now - member.lastSeenAt.getTime() < ONLINE_WINDOW_MS,
-      token: member.persId !== null ? (tokenByHeroId.get(member.id) ?? null) : null,
+      token: member.persId !== null ? findHeroTokenPosition(tokenByHeroId.get(member.id)) : null,
+      tokenTransform: member.persId !== null ? findHeroTokenTransform(tokenByHeroId.get(member.id)) : DEFAULT_TOKEN_TRANSFORM,
       isCutout: member.isCutout,
       conditions: normalizeTokenConditions(member),
       lifeState: findHeroLifeState(member.pers),
@@ -191,6 +196,7 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
     grid: viewedTools ? parseSceneGrid({ columns: viewedTools.gridColumns, offsetX: viewedTools.gridOffsetX, offsetY: viewedTools.gridOffsetY, isVisible: viewedTools.isGridVisible, opacity: viewedTools.gridOpacity }) : null,
     fog: viewedTools ? parseSceneFog(viewedTools.fog) : null,
     areas: viewedTools ? viewedTools.areas.flatMap(buildAreaView) : [],
+    drawings: viewedTools ? viewedTools.drawings.flatMap(buildDrawingView) : [],
   };
 }
 
@@ -238,7 +244,7 @@ function findSessionWithMembers(sessionId: number, viewerUserId: number) {
       mapCreatures: {
         where: { scene: sceneVisibleTo(sessionId, viewerUserId) },
         orderBy: [{ createdAt: "asc" }, { id: "asc" }],
-        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, isAlly: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true },
+        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, isAlly: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true },
       },
     },
   });
@@ -265,6 +271,7 @@ function findVisibleSceneTools(sessionId: number, viewerUserId: number) {
       gridOpacity: true,
       fog: true,
       areas: { orderBy: { id: "asc" }, select: { id: true, userId: true, shape: true, sizeFeet: true, originX: true, originY: true, angle: true, label: true } },
+      drawings: { orderBy: { id: "asc" }, select: { id: true, userId: true, color: true, width: true, points: true } },
     },
   });
 }
@@ -272,8 +279,18 @@ function findVisibleSceneTools(sessionId: number, viewerUserId: number) {
 function findSceneHeroTokens(sessionId: number, viewerUserId: number) {
   return prisma.gameSceneHeroToken.findMany({
     where: { scene: { sessionId, ...sceneVisibleTo(sessionId, viewerUserId) } },
-    select: { sceneId: true, memberId: true, tokenX: true, tokenY: true },
+    select: { sceneId: true, memberId: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true },
   });
+}
+
+type SceneHeroToken = Awaited<ReturnType<typeof findSceneHeroTokens>>[number];
+
+function findHeroTokenPosition(token: SceneHeroToken | undefined): TokenPosition | null {
+  return token ? { x: token.tokenX, y: token.tokenY } : null;
+}
+
+function findHeroTokenTransform(token: SceneHeroToken | undefined): TokenTransform {
+  return token ? readTokenTransform(token) : DEFAULT_TOKEN_TRANSFORM;
 }
 
 async function findGmSession(sessionId: number, userId: number) {

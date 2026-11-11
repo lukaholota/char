@@ -23,9 +23,9 @@ import {
   joinGameSessionByToken,
   setGameSessionArchived,
 } from "@/server/db/game-sessions";
-import { moveGameToken } from "@/server/db/game-scenes";
+import { moveGameToken, transformHeroToken } from "@/server/db/game-scenes";
 import { setActiveSceneMap } from "./game-scene-setup";
-import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize } from "@/server/db/game-map-creatures";
+import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize, transformMapCreature } from "@/server/db/game-map-creatures";
 import { openGameSessionStream } from "@/server/game-sessions/game-session-stream";
 
 vi.setConfig({ testTimeout: 60_000 });
@@ -140,6 +140,36 @@ describe("мапа кімнати", () => {
     await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), { x: 0.3, y: 0.7 });
     await readUntil('"token":{"x":0.3,"y":0.7}');
     abort.abort();
+  });
+
+  it("поворот і розмір: гравець — лише свого поставленого героя, майстер — істот; рух зберігає, зняття з мапи скидає", async () => {
+    const { gm, player, other, sessionId } = await createTableWithHeroes();
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    const heroId = await findHeroId(sessionId, player.id);
+    const turned = { rotation: 90, scale: 150 };
+    const transformOwnHero = async (transform = turned) => transformHeroToken(sessionId, player.id, await findViewedScene(sessionId, player.id), heroId, transform);
+    const findHeroTransform = async () => (await findGameSessionView(sessionId, other.id))!.members.find((member) => member.userId === player.id)!.tokenTransform;
+
+    expect(await transformOwnHero()).toEqual({ ok: false, error: "no_map" });
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), heroId, { x: 0.2, y: 0.2 });
+    expect(await transformOwnHero()).toEqual({ ok: true, value: null });
+    expect(await transformHeroToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, other.id), turned)).toEqual({ ok: false, error: "forbidden" });
+
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), heroId, { x: 0.6, y: 0.4 });
+    expect(await findHeroTransform()).toEqual(turned);
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), heroId, null);
+    await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), heroId, { x: 0.6, y: 0.4 });
+    expect(await findHeroTransform()).toEqual({ rotation: 0, scale: 100 });
+
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    const [goblin] = (await findGameSessionView(sessionId, gm.id))!.creatures;
+    expect(goblin.tokenTransform).toEqual({ rotation: 0, scale: 100 });
+    expect(await transformMapCreature(sessionId, player.id, goblin.id, turned)).toEqual({ ok: false, error: "forbidden" });
+    expect(await transformMapCreature(sessionId, gm.id, goblin.id, { rotation: 45, scale: 50 })).toEqual({ ok: true, value: null });
+    await moveMapCreature(sessionId, gm.id, goblin.id, { x: 0.3, y: 0.3 });
+    expect((await findGameSessionView(sessionId, player.id))!.creatures).toMatchObject([{ id: goblin.id, tokenTransform: { rotation: 45, scale: 50 } }]);
+    await removeMapCreatures(sessionId, gm.id, goblin.id);
+    expect(await transformMapCreature(sessionId, gm.id, goblin.id, turned)).toEqual({ ok: false, error: "creature_gone" });
   });
 
   it("істот кличе лише майстер на мапу; номери беруть найменші вільні, а гравці бачать лише поставлених", async () => {

@@ -14,7 +14,7 @@ import {
   saveCustomSkill,
   stepCustomFeatureUses,
 } from "@/server/db/pers-custom-content";
-import type { FeatureUseDirection } from "@/lib/offline/operations";
+import { isCustomFeatureUseAmount, type FeatureUseDirection } from "@/lib/offline/operations";
 import {
   readCustomFeatureDraft,
   readCustomSkillDraft,
@@ -67,15 +67,15 @@ export async function deleteCustomFeatureAction(persId: number, featureId: numbe
   return { success: true, features: await listCustomFeatures(persId) };
 }
 
-export async function stepCustomFeatureUseAction(persId: number, featureId: number, direction: FeatureUseDirection, operationId?: string): Promise<CustomFeatureUseResult> {
+export async function stepCustomFeatureUseAction(persId: number, featureId: number, direction: FeatureUseDirection, operationId?: string, amount = 1): Promise<CustomFeatureUseResult> {
   const access = await findEditAccess(persId);
   if (!access.ok) return { success: false, error: access.error };
-  if (direction !== "spend" && direction !== "restore") return { success: false, error: "Невідома дія" };
+  if ((direction !== "spend" && direction !== "restore") || !isCustomFeatureUseAmount(amount)) return { success: false, error: "Невідома дія" };
   return applyChangeOnce<CustomFeatureUseResult>(
     access.userId,
     { operationId: isOperationId(operationId) ? operationId : undefined, persId, kind: "custom-feature-use" },
     async () => {
-      await stepCustomFeatureUses(persId, featureId, direction);
+      await stepCustomFeatureUses(persId, featureId, direction, amount);
       return { success: true };
     },
     { isApplied: (result) => result.success, onDuplicate: () => ({ success: true }) },

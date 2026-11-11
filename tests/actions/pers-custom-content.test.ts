@@ -85,6 +85,18 @@ describe("власні ресурси", () => {
     expect(await readUses(id)).toBe(0);
   });
 
+  it("введене з клавіатури число змінює запас на різницю, не виходячи за межі", async () => {
+    const { persId } = await createOwner();
+    const { id } = await addResource(persId, { usesMax: "20" });
+    await stepCustomFeatureUseAction(persId, id, "spend", undefined, 13);
+    expect(await readUses(id)).toBe(7);
+    await stepCustomFeatureUseAction(persId, id, "spend", undefined, 8);
+    expect(await readUses(id)).toBe(7);
+    await stepCustomFeatureUseAction(persId, id, "restore", undefined, 50);
+    expect(await readUses(id)).toBe(20);
+    await expect(stepCustomFeatureUseAction(persId, id, "spend", undefined, 0)).resolves.toEqual({ success: false, error: "Невідома дія" });
+  });
+
   it("повтор тієї самої офлайн-операції витрачає один раз", async () => {
     const { persId } = await createOwner();
     const { id } = await addResource(persId);

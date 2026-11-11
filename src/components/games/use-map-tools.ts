@@ -2,14 +2,15 @@
 
 import { useRef, useState } from "react";
 import { findAngleTowards, snapAreaAngle, type AreaPlacement, type SceneAreaView } from "@/rules/game-areas";
-import { parseFogArea, type FogChange } from "@/rules/game-fog";
+import { parseFogArea, type FogChange, type FogStroke } from "@/rules/game-fog";
 import { buildGridFromCells, snapToGrid, snapToHalfCell, type MapFrame, type SceneGrid } from "@/rules/game-grid";
 import type { TokenPosition } from "@/rules/game-map";
+import { appendStrokePoint } from "@/rules/map-strokes";
 import type { MapRect, MapSegment } from "./MapOverlay";
 import type { MapGesture } from "./use-map-viewport";
 
 type Point = { clientX: number; clientY: number };
-export type MapTool = "ruler" | "area" | "fog" | "grid" | "view";
+export type MapTool = "ruler" | "area" | "draw" | "fog" | "grid" | "view";
 type ToShare = (point: Point) => TokenPosition | null;
 
 const TAP_SLOP_SHARE = 0.004;
@@ -17,7 +18,7 @@ const clampShare = (point: TokenPosition) => ({ x: Math.min(1, Math.max(0, point
 const toRect = (from: TokenPosition, to: TokenPosition): MapRect => ({ x: Math.min(from.x, to.x), y: Math.min(from.y, to.y), width: Math.abs(to.x - from.x), height: Math.abs(to.y - from.y) });
 
 /// Перетягування пальцем від точки до точки в частках мапи; спільна основа лінійки, рамок і зсуву.
-function buildDragGesture(toShare: ToShare, handlers: { start: (at: TokenPosition) => void; move: (from: TokenPosition, at: TokenPosition) => void; end: (from: TokenPosition, at: TokenPosition) => void; cancel: () => void }): MapGesture {
+export function buildDragGesture(toShare: ToShare, handlers: { start: (at: TokenPosition) => void; move: (from: TokenPosition, at: TokenPosition) => void; end: (from: TokenPosition, at: TokenPosition) => void; cancel: () => void }): MapGesture {
   let from: TokenPosition | null = null;
   return {
     start: (point) => {
@@ -55,12 +56,24 @@ export function useRulerTool(toShare: ToShare, frame: MapFrame | null) {
 }
 
 export type FogBrush = "reveal" | "hide";
+export type FogShape = "rect" | "round";
+export const FOG_BRUSH_RADII = { thin: 0.015, medium: 0.035, wide: 0.07 } as const;
+export type FogBrushSize = keyof typeof FOG_BRUSH_RADII;
 
-export function useFogTool(toShare: ToShare, frame: MapFrame | null, changeFog: (change: FogChange) => void) {
+/// Рамка тримається клітинок; круглий пензель вільний — палець обводить ділянку будь-якої форми.
+export function useFogTool(toShare: ToShare, frame: MapFrame | null, aspect: number | null, changeFog: (change: FogChange) => void) {
   const [brush, setBrush] = useState<FogBrush>("reveal");
+  const [shape, setShape] = useState<FogShape>("rect");
+  const [size, setSize] = useState<FogBrushSize>("medium");
   const [rect, setRect] = useState<MapRect | null>(null);
+  const [stroke, setStroke] = useState<FogStroke | null>(null);
+  const strokeRef = useRef<FogStroke | null>(null);
   const snap = (at: TokenPosition) => (frame ? snapToGrid(clampShare(at), frame, 2) : clampShare(at));
-  const gesture = buildDragGesture(toShare, {
+  const showStroke = (next: FogStroke | null) => {
+    strokeRef.current = next;
+    setStroke(next);
+  };
+  const rectGesture = buildDragGesture(toShare, {
     start: () => setRect(null),
     move: (from, at) => setRect(toRect(snap(from), snap(at))),
     end: (from, at) => {
@@ -70,7 +83,23 @@ export function useFogTool(toShare: ToShare, frame: MapFrame | null, changeFog: 
     },
     cancel: () => setRect(null),
   });
-  return { brush, setBrush, rect, gesture };
+  const radius = FOG_BRUSH_RADII[size];
+  const extendStroke = (at: TokenPosition) => {
+    const current = strokeRef.current;
+    if (current && aspect) showStroke({ ...current, points: appendStrokePoint(current.points, clampShare(at), radius / 3, aspect) });
+  };
+  const strokeGesture = buildDragGesture(toShare, {
+    start: (at) => showStroke({ isRevealed: brush === "reveal", points: [clampShare(at)], radius }),
+    move: (_from, at) => extendStroke(at),
+    end: (_from, at) => {
+      extendStroke(at);
+      const area = parseFogArea(strokeRef.current);
+      showStroke(null);
+      if (area) changeFog({ kind: "area", area });
+    },
+    cancel: () => showStroke(null),
+  });
+  return { brush, setBrush, shape, setShape, size, setSize, rect, stroke, gesture: shape === "round" ? strokeGesture : rectGesture };
 }
 
 export type GridMode = "shift" | "fit";

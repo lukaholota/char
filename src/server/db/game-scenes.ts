@@ -3,6 +3,7 @@ import { MAP_LIBRARY } from "@/lib/refs/map-library-catalog";
 import { prisma } from "@/lib/prisma";
 import { buildLibraryGrid, GRID_OPACITY_RANGE, type SceneGrid } from "@/rules/game-grid";
 import type { TokenPosition } from "@/rules/game-map";
+import type { TokenTransform } from "@/rules/token-transform";
 import { GAME_SCENE_LIMITS, findLibraryMap, findViewedSceneId, isRoomUploadedMapKey, parseSceneName, type SceneMapSource } from "@/rules/game-scenes";
 import { findActiveGmSession, findMembership, findRoomHero, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 import { deleteStoredImage, storeScreenshotImage } from "@/server/media/image-upload";
@@ -115,6 +116,31 @@ export async function deleteGameScene(sessionId: number, userId: number, sceneId
 /// Своїх героїв рухає гравець, будь-якого — майстер; position null повертає токен у ряд під мапою.
 /// sceneId — сцена, на якій тягнули: рух, що запізнився після перемикання сцени, не ляже на нову.
 export async function moveGameToken(sessionId: number, userId: number, sceneId: number | null, heroId: number, position: TokenPosition | null): Promise<GameSessionResult<null>> {
+  const access = await checkHeroTokenAccess(sessionId, userId, sceneId, heroId);
+  if (!access.ok) return access;
+  const placedSceneId = access.value.sceneId;
+  if (position === null) {
+    await prisma.gameSceneHeroToken.deleteMany({ where: { sceneId: placedSceneId, memberId: heroId } });
+  } else {
+    const data = { tokenX: position.x, tokenY: position.y };
+    await prisma.gameSceneHeroToken.upsert({ where: { sceneId_memberId: { sceneId: placedSceneId, memberId: heroId } }, create: { sceneId: placedSceneId, memberId: heroId, ...data }, update: data });
+  }
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+/// Поворот і масштаб живуть у рядку токена: героя, якого ще не поставили на мапу, крутити нічого.
+export async function transformHeroToken(sessionId: number, userId: number, sceneId: number, heroId: number, transform: TokenTransform): Promise<GameSessionResult<null>> {
+  const access = await checkHeroTokenAccess(sessionId, userId, sceneId, heroId);
+  if (!access.ok) return access;
+  const changed = await prisma.gameSceneHeroToken.updateMany({ where: { sceneId, memberId: heroId }, data: { tokenRotation: transform.rotation, tokenScalePercent: transform.scale } });
+  if (!changed.count) return fail("no_map");
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+/// Своїх героїв рухає гравець, будь-якого — майстер; лише на сцені, яку він зараз бачить і де є мапа.
+async function checkHeroTokenAccess(sessionId: number, userId: number, sceneId: number | null, heroId: number): Promise<GameSessionResult<{ sceneId: number }>> {
   const [membership, hero] = await Promise.all([findMembership(sessionId, userId), findRoomHero(sessionId, heroId)]);
   if (!membership) return fail("not_found");
   if (membership.gameSession.archivedAt) return fail("archived");
@@ -124,14 +150,7 @@ export async function moveGameToken(sessionId: number, userId: number, sceneId: 
   if (sceneId !== viewedSceneId) return fail("scene_changed");
   const scene = await prisma.gameScene.findFirst({ where: { id: sceneId, sessionId, mapImageKey: { not: null } }, select: { id: true } });
   if (!scene || !hero || hero.persId === null) return fail("no_map");
-  if (position === null) {
-    await prisma.gameSceneHeroToken.deleteMany({ where: { sceneId, memberId: heroId } });
-  } else {
-    const data = { tokenX: position.x, tokenY: position.y };
-    await prisma.gameSceneHeroToken.upsert({ where: { sceneId_memberId: { sceneId, memberId: heroId } }, create: { sceneId, memberId: heroId, ...data }, update: data });
-  }
-  await signalGameSession(sessionId, "session");
-  return succeed(null);
+  return succeed({ sceneId: scene.id });
 }
 
 async function lockSessionScenes(tx: Transaction, sessionId: number): Promise<{ activeSceneId: number | null; isInCombat: boolean }> {

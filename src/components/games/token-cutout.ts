@@ -10,6 +10,22 @@ const cutoutBySrc = new Map<string, boolean>();
 
 export const findHeroCutoutKey = (heroId: number) => `hero-cutout:${heroId}`;
 
+export type CutoutSide = "mine" | "other" | "ally" | "enemy" | "dying";
+
+const CUTOUT_OUTLINES: Record<CutoutSide, string> = {
+  mine: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.arcane.300))_drop-shadow(0_0_2px_theme(colors.arcane.300))]",
+  other: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.white))_drop-shadow(0_0_2px_theme(colors.slate.950))]",
+  ally: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.emerald.400))_drop-shadow(0_0_2px_theme(colors.emerald.400))]",
+  enemy: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.rose.500))_drop-shadow(0_0_2px_theme(colors.rose.500))]",
+  dying: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.rose.500))_drop-shadow(0_0_2px_theme(colors.rose.500))]",
+};
+const CUTOUT_SHADOW = "filter [--tw-drop-shadow:drop-shadow(0_1px_2px_theme(colors.slate.950))]";
+
+/// Кольорова обвідка вмикається у «Вигляді»; героя при смерті вона позначає завжди.
+export function findCutoutOutlineClass(side: CutoutSide, isOutlined: boolean): string {
+  return isOutlined || side === "dying" ? CUTOUT_OUTLINES[side] : CUTOUT_SHADOW;
+}
+
 export function hasTransparentEdges(rgba: ArrayLike<number>, size: number): boolean {
   const edgeAlphas: number[] = [];
   for (let step = 0; step < size; step++) {

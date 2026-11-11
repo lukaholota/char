@@ -2369,11 +2369,15 @@ CREATE TABLE public.game_map_creature (
     game_scene_id integer,
     is_cutout boolean DEFAULT false NOT NULL,
     custom_image_key character varying(200),
+    token_rotation smallint DEFAULT 0 NOT NULL,
+    token_scale_percent smallint DEFAULT 100 NOT NULL,
     CONSTRAINT game_map_creature_custom_name_check CHECK (((custom_name IS NULL) OR ((length(btrim((custom_name)::text)) >= 1) AND (length(btrim((custom_name)::text)) <= 40)))),
     CONSTRAINT game_map_creature_exhaustion_check CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
     CONSTRAINT game_map_creature_hp_check CHECK ((((hp_max IS NULL) AND (hp_current IS NULL)) OR ((hp_max IS NOT NULL) AND (hp_current IS NOT NULL) AND (hp_max >= 1) AND (hp_current >= 0) AND (hp_current <= hp_max)))),
     CONSTRAINT game_map_creature_number_check CHECK (((number >= 1) AND (number <= 999))),
     CONSTRAINT game_map_creature_token_check CHECK ((((token_x IS NULL) = (token_y IS NULL)) AND ((token_x IS NULL) OR (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision)) AND ((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))))),
+    CONSTRAINT game_map_creature_token_rotation_check CHECK (((token_rotation >= 0) AND (token_rotation <= 359))),
+    CONSTRAINT game_map_creature_token_scale_percent_check CHECK (((token_scale_percent >= 10) AND (token_scale_percent <= 1000))),
     CONSTRAINT game_map_creature_token_size_check CHECK (((token_size)::text = ANY ((ARRAY['tiny'::character varying, 'small'::character varying, 'medium'::character varying, 'large'::character varying, 'huge'::character varying, 'gargantuan'::character varying])::text[])))
 );
 
@@ -2520,6 +2524,44 @@ ALTER SEQUENCE public.game_scene_area_game_scene_area_id_seq OWNED BY public.gam
 
 
 --
+-- Name: game_scene_drawing; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.game_scene_drawing (
+    game_scene_drawing_id integer NOT NULL,
+    game_scene_id integer NOT NULL,
+    user_id integer NOT NULL,
+    color character varying(8) NOT NULL,
+    width character varying(6) NOT NULL,
+    points jsonb NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT game_scene_drawing_color_check CHECK (((color)::text = ANY ((ARRAY['red'::character varying, 'amber'::character varying, 'emerald'::character varying, 'sky'::character varying, 'violet'::character varying, 'white'::character varying, 'black'::character varying])::text[]))),
+    CONSTRAINT game_scene_drawing_points_check CHECK ((jsonb_typeof(points) = 'array'::text)),
+    CONSTRAINT game_scene_drawing_width_check CHECK (((width)::text = ANY ((ARRAY['fine'::character varying, 'thin'::character varying, 'medium'::character varying, 'bold'::character varying, 'heavy'::character varying])::text[])))
+);
+
+
+--
+-- Name: game_scene_drawing_game_scene_drawing_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.game_scene_drawing_game_scene_drawing_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: game_scene_drawing_game_scene_drawing_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.game_scene_drawing_game_scene_drawing_id_seq OWNED BY public.game_scene_drawing.game_scene_drawing_id;
+
+
+--
 -- Name: game_scene_game_scene_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -2548,6 +2590,10 @@ CREATE TABLE public.game_scene_hero_token (
     game_session_member_id integer NOT NULL,
     token_x real NOT NULL,
     token_y real NOT NULL,
+    token_rotation smallint DEFAULT 0 NOT NULL,
+    token_scale_percent smallint DEFAULT 100 NOT NULL,
+    CONSTRAINT game_scene_hero_token_token_rotation_check CHECK (((token_rotation >= 0) AND (token_rotation <= 359))),
+    CONSTRAINT game_scene_hero_token_token_scale_percent_check CHECK (((token_scale_percent >= 10) AND (token_scale_percent <= 1000))),
     CONSTRAINT game_scene_hero_token_token_x_check CHECK (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision))),
     CONSTRAINT game_scene_hero_token_token_y_check CHECK (((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))
 );
@@ -4853,6 +4899,13 @@ ALTER TABLE ONLY public.game_scene_area ALTER COLUMN game_scene_area_id SET DEFA
 
 
 --
+-- Name: game_scene_drawing game_scene_drawing_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_drawing ALTER COLUMN game_scene_drawing_id SET DEFAULT nextval('public.game_scene_drawing_game_scene_drawing_id_seq'::regclass);
+
+
+--
 -- Name: game_session game_session_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -5574,6 +5627,14 @@ ALTER TABLE ONLY public.game_roll_event
 
 ALTER TABLE ONLY public.game_scene_area
     ADD CONSTRAINT game_scene_area_pkey PRIMARY KEY (game_scene_area_id);
+
+
+--
+-- Name: game_scene_drawing game_scene_drawing_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_drawing
+    ADD CONSTRAINT game_scene_drawing_pkey PRIMARY KEY (game_scene_drawing_id);
 
 
 --
@@ -6417,6 +6478,13 @@ CREATE INDEX game_roll_event_target_creature_idx ON public.game_roll_event USING
 --
 
 CREATE INDEX game_scene_area_scene_idx ON public.game_scene_area USING btree (game_scene_id);
+
+
+--
+-- Name: game_scene_drawing_scene_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_scene_drawing_scene_idx ON public.game_scene_drawing USING btree (game_scene_id);
 
 
 --
@@ -7322,6 +7390,22 @@ ALTER TABLE ONLY public.game_scene_area
 
 ALTER TABLE ONLY public.game_scene_area
     ADD CONSTRAINT game_scene_area_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_scene_drawing game_scene_drawing_game_scene_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_drawing
+    ADD CONSTRAINT game_scene_drawing_game_scene_id_fkey FOREIGN KEY (game_scene_id) REFERENCES public.game_scene(game_scene_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_scene_drawing game_scene_drawing_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_scene_drawing
+    ADD CONSTRAINT game_scene_drawing_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
 
 
 --

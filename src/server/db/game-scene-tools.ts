@@ -2,8 +2,10 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import type { AreaPlacement } from "@/rules/game-areas";
 import { AREA_LIMITS } from "@/rules/game-areas";
+import { DRAWING_LIMITS, type DrawingStroke } from "@/rules/game-drawings";
 import { applyFogChange, parseSceneFog, serializeSceneFog, type FogChange } from "@/rules/game-fog";
 import { GRID_OPACITY_RANGE, type SceneGrid } from "@/rules/game-grid";
+import { toStoredPoints } from "@/rules/map-strokes";
 import { findViewedSceneId } from "@/rules/game-scenes";
 import { findActiveGmSession, findMembership, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
@@ -74,6 +76,35 @@ export async function removeSceneAreas(sessionId: number, userId: number, sceneI
     if (!removed.count) return fail("area_gone");
   }
   await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+/// Малюють майстер і гравці, на тих самих умовах, що й області.
+/// shortcut: скасоване «Стерти все» повертає чужі лінії від імені майстра; якщо гравцям треба стирати їх знову — передавати автора.
+export async function saveSceneDrawings(sessionId: number, userId: number, sceneId: number, strokes: DrawingStroke[]): Promise<GameSessionResult<{ ids: number[] }>> {
+  const editor = await findAreaEditor(sessionId, userId, sceneId);
+  if (!editor.ok) return editor;
+  const saved = await prisma.$transaction(async (tx) => {
+    if (!(await lockScene(tx, sessionId, sceneId))) return fail("bad_scene");
+    if ((await tx.gameSceneDrawing.count({ where: { sceneId } })) + strokes.length > DRAWING_LIMITS.perScene) return fail("drawing_limit");
+    const created = await tx.gameSceneDrawing.createManyAndReturn({
+      data: strokes.map((stroke) => ({ sceneId, userId, color: stroke.color, width: stroke.width, points: toStoredPoints(stroke.points) })),
+      select: { id: true },
+    });
+    return succeed({ ids: created.map((row) => row.id) });
+  });
+  if (saved.ok) await signalGameSession(sessionId, "session");
+  return saved;
+}
+
+/// «all» — усе, що людина може стерти: майстер — усі лінії сцени, гравець — свої. Чужі id гравця просто пропускаються.
+export async function removeSceneDrawings(sessionId: number, userId: number, sceneId: number, target: number[] | "all"): Promise<GameSessionResult<null>> {
+  const editor = await findAreaEditor(sessionId, userId, sceneId);
+  if (!editor.ok) return editor;
+  const removed = await prisma.gameSceneDrawing.deleteMany({
+    where: { sceneId, scene: { sessionId }, ...(target === "all" ? {} : { id: { in: target } }), ...(editor.value.isGm ? {} : { userId }) },
+  });
+  if (removed.count) await signalGameSession(sessionId, "session");
   return succeed(null);
 }
 

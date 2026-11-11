@@ -22,6 +22,7 @@ import {
   findSpellcastingFocuses,
   toBastionFeatureKey,
 } from "@/rules/bastions";
+import { listProficientSkills } from "@/rules/skill-proficiency";
 
 export type BastionSpaceCode = keyof typeof bastionSpaceTranslations;
 export type { BastionOrderCode };
@@ -221,9 +222,7 @@ export async function findBastionCharacterProfile(
       })),
     ]),
     featureKeys: [...new Set(earnedFeatures.map(toBastionFeatureKey))],
-    skillProficiencies: pers.skills
-      .filter((skill) => skill.proficiencyType !== "NONE")
-      .map((skill) => skill.name),
+    skillProficiencies: listProficientSkills(pers.skills),
     hasAnySkillExpertise: pers.skills.some((skill) => skill.proficiencyType === "EXPERTISE"),
   };
 }

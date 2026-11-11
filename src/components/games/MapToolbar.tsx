@@ -1,20 +1,23 @@
 "use client";
 
-import { ChevronDown, CloudFog, Flame, Grid3x3, Maximize2, Minus, Plus, Ruler, RotateCw, Scan, SlidersHorizontal, X, type LucideIcon } from "lucide-react";
+import { ChevronDown, CloudFog, Flame, Grid3x3, Maximize2, Minus, PencilLine, Plus, Redo2, Ruler, RotateCw, Scan, SlidersHorizontal, Undo2, X, type LucideIcon } from "lucide-react";
 import { useId, useState, type ReactNode } from "react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { MapHistory } from "./map-history";
 import type { MapTool } from "./use-map-tools";
 
 const TOOLS: Array<{ tool: MapTool; label: string; icon: LucideIcon; isGmOnly?: boolean }> = [
   { tool: "ruler", label: "Лінійка", icon: Ruler },
   { tool: "area", label: "Область", icon: Flame },
+  { tool: "draw", label: "Олівець", icon: PencilLine },
   { tool: "fog", label: "Туман", icon: CloudFog, isGmOnly: true },
   { tool: "grid", label: "Сітка", icon: Grid3x3, isGmOnly: true },
   { tool: "view", label: "Вигляд", icon: SlidersHorizontal },
 ];
 
-export function MapToolRow({ tool, onToolChange, canEditScene, className }: { tool: MapTool | null; onToolChange: (tool: MapTool | null) => void; canEditScene: boolean; className?: string }) {
-  const tools = TOOLS.filter((entry) => canEditScene || !entry.isGmOnly);
+export function MapToolRow({ tool, onToolChange, canEditScene, canDraw, className }: { tool: MapTool | null; onToolChange: (tool: MapTool | null) => void; canEditScene: boolean; canDraw: boolean; className?: string }) {
+  const tools = TOOLS.filter((entry) => (canEditScene || !entry.isGmOnly) && (canDraw || entry.tool !== "draw"));
   return (
     <div role="toolbar" aria-label="Інструменти мапи" className={cn("grid w-full gap-1 rounded-2xl bg-slate-900/80 p-1 ring-1 ring-white/10", className)} style={{ gridTemplateColumns: `repeat(${tools.length}, minmax(0, 1fr))` }}>
       {tools.map(({ tool: entry, label, icon: Icon }) => (
@@ -41,10 +44,10 @@ function RailButton({ label, onClick, isPressed, children }: { label: string; on
   );
 }
 
-type ZoomProps = { zoom: number; maxZoom: number; onZoomIn: () => void; onZoomOut: () => void; onFit: () => void; turn: { isTurned: boolean; toggle: () => void } | null };
+type ZoomProps = { zoom: number; maxZoom: number; onZoomIn: () => void; onZoomOut: () => void; onFit: () => void; turn: { isTurned: boolean; toggle: () => void } | null; history: MapHistory };
 
 /// Щипок і подвійний дотик теж масштабують; кнопки — для миші та для тих, хто про жести не знає.
-export function MapZoomControls({ zoom, maxZoom, onZoomIn, onZoomOut, onFit, turn }: ZoomProps) {
+export function MapZoomControls({ zoom, maxZoom, onZoomIn, onZoomOut, onFit, turn, history }: ZoomProps) {
   const isZoomed = zoom > 1.01;
   return (
     <div role="group" aria-label="Масштаб мапи" className="absolute bottom-2 right-2 z-[60] flex flex-col gap-0.5 rounded-2xl bg-slate-950/85 p-0.5 shadow-xl shadow-black/50 ring-1 ring-white/10">
@@ -55,6 +58,8 @@ export function MapZoomControls({ zoom, maxZoom, onZoomIn, onZoomOut, onFit, tur
           </RailButton>
         </span>
       ) : null}
+      {history.undo ? <RailButton label="Скасувати останню дію (Ctrl+Z)" onClick={history.undo}><Undo2 className="h-5 w-5" aria-hidden /></RailButton> : null}
+      {history.redo ? <RailButton label="Повторити скасовану дію (Ctrl+Shift+Z)" onClick={history.redo}><Redo2 className="h-5 w-5" aria-hidden /></RailButton> : null}
       {zoom < maxZoom - 0.01 ? <RailButton label="Наблизити" onClick={onZoomIn}><Plus className="h-5 w-5" aria-hidden /></RailButton> : null}
       {isZoomed ? <RailButton label="Віддалити" onClick={onZoomOut}><Minus className="h-5 w-5" aria-hidden /></RailButton> : null}
       {isZoomed ? <RailButton label="Уся мапа" onClick={onFit}><Scan className="h-5 w-5" aria-hidden /></RailButton> : null}
@@ -150,5 +155,14 @@ export function Stepper({ label, value, onStep, canDecrease = true, canIncrease 
         <Plus className="h-4 w-4" aria-hidden />
       </button>
     </div>
+  );
+}
+
+export function HistoryButtons({ history }: { history: MapHistory }) {
+  return (
+    <>
+      <Button type="button" variant="outline" onClick={history.undo ?? undefined} disabled={!history.undo} className="h-11 px-2">Скасувати</Button>
+      <Button type="button" variant="outline" onClick={history.redo ?? undefined} disabled={!history.redo} className="h-11 px-2">Повторити</Button>
+    </>
   );
 }

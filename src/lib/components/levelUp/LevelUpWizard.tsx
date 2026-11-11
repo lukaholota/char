@@ -118,6 +118,7 @@ import {
 import { translateSubclassName } from "@/lib/refs/subclass-name";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import { findPathStepHint } from "@/lib/components/levelUp/level-up-next-hints";
+import { listProficientSkills } from "@/rules/skill-proficiency";
 
 const stripSyntheticSuffix = (groupName: string) =>
   baseChoiceGroupName(groupName);
@@ -576,7 +577,7 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
   const multiclassSkillFeature = useMemo(() => {
     if (formData.levelUpPath !== "MULTICLASS" || !selectedClass || !pers) return null;
     const choice = findMulticlassSkillChoice(selectedClass.name, selectedClass.skillProficiencies, SkillsEnum);
-    const ownedSkills = pers.skills.filter((skill) => skill.proficiencyType !== "NONE").map((skill) => skill.name);
+    const ownedSkills = listProficientSkills(pers.skills);
     if (!choice || countPickableMulticlassSkills(choice, ownedSkills) === 0) return null;
     return {
       featureId: MULTICLASS_SKILL_SELECTION_KEY,
@@ -1248,7 +1249,7 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
           : [];
 
         const extraExistingSkills = [
-          ...pers!.skills.map((s: any) => s.name),
+          ...listProficientSkills(pers!.skills),
           ...levelUpSelectedSkills.filter((s) => !selectedBySkillForm.includes(s)),
           ...levelUpSelectedExpertises,
         ];
@@ -1273,7 +1274,7 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
             formId="expertise-form"
             onNextDisabledChange={onNextDisabledChange}
             extraSkills={[
-              ...pers!.skills.map((s: any) => s.name),
+              ...listProficientSkills(pers!.skills),
               ...levelUpSelectedSkills,
               ...levelUpSelectedExpertises,
             ]}

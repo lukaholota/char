@@ -1,4 +1,5 @@
 import type { AbilityScores } from "@/rules/types";
+import { listProficientSkills } from "@/rules/skill-proficiency";
 
 export type SheetFeatExistingState = {
   skills: string[];
@@ -15,7 +16,7 @@ type ExistingStateSource = {
 
 export function findSheetFeatExistingState(pers: ExistingStateSource): SheetFeatExistingState {
   return {
-    skills: pers.skills.filter((skill) => skill.proficiencyType !== "NONE").map((skill) => skill.name),
+    skills: listProficientSkills(pers.skills),
     expertises: pers.skills.filter((skill) => skill.proficiencyType === "EXPERTISE").map((skill) => skill.name),
     choiceOptionIds: pers.choiceOptions.map((option) => option.choiceOptionId),
     abilityScores: { STR: pers.str, DEX: pers.dex, CON: pers.con, INT: pers.int, WIS: pers.wis, CHA: pers.cha },

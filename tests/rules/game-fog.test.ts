@@ -8,6 +8,7 @@ import {
   parseSceneFog,
   serializeSceneFog,
   type FogArea,
+  type FogStroke,
   type SceneFog,
 } from "@/rules/game-fog";
 
@@ -21,27 +22,27 @@ const asFog = (result: ReturnType<typeof applyFogChange>): SceneFog => {
 
 describe("isPointHidden", () => {
   it("shows everything when the scene has no fog", () => {
-    expect(isPointHidden({ x: 0.5, y: 0.5 }, null)).toBe(false);
+    expect(isPointHidden({ x: 0.5, y: 0.5 }, null, 1)).toBe(false);
   });
 
   it("hides everything under fog until an area reveals it", () => {
-    expect(isPointHidden({ x: 0.5, y: 0.5 }, { areas: [] })).toBe(true);
-    expect(isPointHidden({ x: 0.5, y: 0.5 }, { areas: [reveal(0.4, 0.4, 0.2, 0.2)] })).toBe(false);
-    expect(isPointHidden({ x: 0.9, y: 0.9 }, { areas: [reveal(0.4, 0.4, 0.2, 0.2)] })).toBe(true);
+    expect(isPointHidden({ x: 0.5, y: 0.5 }, { areas: [] }, 1)).toBe(true);
+    expect(isPointHidden({ x: 0.5, y: 0.5 }, { areas: [reveal(0.4, 0.4, 0.2, 0.2)] }, 1)).toBe(false);
+    expect(isPointHidden({ x: 0.9, y: 0.9 }, { areas: [reveal(0.4, 0.4, 0.2, 0.2)] }, 1)).toBe(true);
   });
 
   it("lets the last matching area win", () => {
     const fog: SceneFog = { areas: [reveal(0, 0, 1, 1), hide(0.2, 0.2, 0.4, 0.4), reveal(0.3, 0.3, 0.1, 0.1)] };
-    expect(isPointHidden({ x: 0.9, y: 0.9 }, fog)).toBe(false);
-    expect(isPointHidden({ x: 0.25, y: 0.25 }, fog)).toBe(true);
-    expect(isPointHidden({ x: 0.35, y: 0.35 }, fog)).toBe(false);
+    expect(isPointHidden({ x: 0.9, y: 0.9 }, fog, 1)).toBe(false);
+    expect(isPointHidden({ x: 0.25, y: 0.25 }, fog, 1)).toBe(true);
+    expect(isPointHidden({ x: 0.35, y: 0.35 }, fog, 1)).toBe(false);
   });
 
   it("treats area edges as inside", () => {
     const fog: SceneFog = { areas: [reveal(0.2, 0.2, 0.2, 0.2)] };
-    expect(isPointHidden({ x: 0.2, y: 0.2 }, fog)).toBe(false);
-    expect(isPointHidden({ x: 0.4, y: 0.4 }, fog)).toBe(false);
-    expect(isPointHidden({ x: 0.401, y: 0.3 }, fog)).toBe(true);
+    expect(isPointHidden({ x: 0.2, y: 0.2 }, fog, 1)).toBe(false);
+    expect(isPointHidden({ x: 0.4, y: 0.4 }, fog, 1)).toBe(false);
+    expect(isPointHidden({ x: 0.401, y: 0.3 }, fog, 1)).toBe(true);
   });
 });
 
@@ -58,15 +59,15 @@ describe("applyFogChange", () => {
   it("reveals on top of the cover", () => {
     const fog = asFog(applyFogChange({ areas: [] }, { kind: "area", area: reveal(0.1, 0.1, 0.2, 0.2) }));
     expect(fog.areas).toEqual([reveal(0.1, 0.1, 0.2, 0.2)]);
-    expect(isPointHidden({ x: 0.15, y: 0.15 }, fog)).toBe(false);
-    expect(isPointHidden({ x: 0.8, y: 0.8 }, fog)).toBe(true);
+    expect(isPointHidden({ x: 0.15, y: 0.15 }, fog, 1)).toBe(false);
+    expect(isPointHidden({ x: 0.8, y: 0.8 }, fog, 1)).toBe(true);
   });
 
   it("hiding a part of a map with no fog keeps the rest visible", () => {
     const fog = asFog(applyFogChange(null, { kind: "area", area: hide(0.4, 0.4, 0.2, 0.2) }));
     expect(fog.areas).toEqual([wholeMap(true), hide(0.4, 0.4, 0.2, 0.2)]);
-    expect(isPointHidden({ x: 0.5, y: 0.5 }, fog)).toBe(true);
-    expect(isPointHidden({ x: 0.1, y: 0.1 }, fog)).toBe(false);
+    expect(isPointHidden({ x: 0.5, y: 0.5 }, fog, 1)).toBe(true);
+    expect(isPointHidden({ x: 0.1, y: 0.1 }, fog, 1)).toBe(false);
   });
 
   it("drops earlier areas when a new area covers the whole map", () => {
@@ -75,11 +76,10 @@ describe("applyFogChange", () => {
     expect(applyFogChange(null, { kind: "area", area: wholeMap(true) })).toEqual({ areas: [wholeMap(true)] });
   });
 
-  it("undoes the last area only", () => {
-    const fog: SceneFog = { areas: [reveal(0, 0, 0.5, 0.5), hide(0.1, 0.1, 0.1, 0.1)] };
-    expect(applyFogChange(fog, { kind: "undo" })).toEqual({ areas: [reveal(0, 0, 0.5, 0.5)] });
-    expect(applyFogChange({ areas: [] }, { kind: "undo" })).toEqual({ areas: [] });
-    expect(applyFogChange(null, { kind: "undo" })).toBeNull();
+  it("sets the fog back to an earlier state for undo", () => {
+    const earlier: SceneFog = { areas: [reveal(0, 0, 0.5, 0.5)] };
+    expect(applyFogChange({ areas: [] }, { kind: "set", fog: earlier })).toEqual(earlier);
+    expect(applyFogChange({ areas: [] }, { kind: "set", fog: null })).toBeNull();
   });
 
   it("refuses an area over the limit but lets a whole-map area through", () => {
@@ -93,7 +93,6 @@ describe("applyFogChange", () => {
   it("does not change the fog it was given", () => {
     const fog: SceneFog = { areas: [reveal(0, 0, 0.5, 0.5)] };
     applyFogChange(fog, { kind: "area", area: hide(0.1, 0.1, 0.1, 0.1) });
-    applyFogChange(fog, { kind: "undo" });
     expect(fog.areas).toHaveLength(1);
   });
 });
@@ -130,6 +129,51 @@ describe("parseFogArea", () => {
   });
 });
 
+describe("fog brush strokes", () => {
+  const stroke = (isRevealed: boolean, points: Array<[number, number]>, radius: number): FogStroke => ({ isRevealed, points: points.map(([x, y]) => ({ x, y })), radius });
+
+  it("hides or reveals everything within the radius of the line", () => {
+    const fog: SceneFog = { areas: [stroke(true, [[0.2, 0.5], [0.8, 0.5]], 0.05)] };
+    expect(isPointHidden({ x: 0.5, y: 0.54 }, fog, 1)).toBe(false);
+    expect(isPointHidden({ x: 0.5, y: 0.56 }, fog, 1)).toBe(true);
+    expect(isPointHidden({ x: 0.16, y: 0.5 }, fog, 1)).toBe(false);
+    expect(isPointHidden({ x: 0.14, y: 0.5 }, fog, 1)).toBe(true);
+  });
+
+  it("keeps the brush round on a wide map: the radius is a share of the width", () => {
+    const fog: SceneFog = { areas: [stroke(true, [[0.5, 0.5]], 0.05)] };
+    expect(isPointHidden({ x: 0.5, y: 0.59 }, fog, 2)).toBe(false);
+    expect(isPointHidden({ x: 0.5, y: 0.61 }, fog, 2)).toBe(true);
+    expect(isPointHidden({ x: 0.54, y: 0.5 }, fog, 2)).toBe(false);
+  });
+
+  it("lets a later stroke cover an earlier reveal", () => {
+    const fog: SceneFog = { areas: [reveal(0, 0, 1, 1), stroke(false, [[0.5, 0.5]], 0.1)] };
+    expect(isPointHidden({ x: 0.5, y: 0.5 }, fog, 1)).toBe(true);
+    expect(isPointHidden({ x: 0.9, y: 0.9 }, fog, 1)).toBe(false);
+  });
+
+  it("parses a stroke and rounds it, rejecting a bad radius or points", () => {
+    expect(parseFogArea({ isRevealed: true, points: [{ x: 0.123456, y: 1.5 }], radius: 0.03 })).toEqual(stroke(true, [[0.1235, 1]], 0.03));
+    expect(parseFogArea({ isRevealed: true, points: [{ x: 0.1, y: 0.1 }], radius: 0.001 })).toBeNull();
+    expect(parseFogArea({ isRevealed: true, points: [{ x: 0.1, y: 0.1 }], radius: 0.5 })).toBeNull();
+    expect(parseFogArea({ isRevealed: true, points: [], radius: 0.03 })).toBeNull();
+    expect(parseFogArea({ isRevealed: "no", points: [{ x: 0.1, y: 0.1 }], radius: 0.03 })).toBeNull();
+  });
+
+  it("stores strokes compactly next to rectangles and reads them back", () => {
+    const fog: SceneFog = { areas: [reveal(0, 0, 1, 1), stroke(false, [[0.1, 0.2], [0.3, 0.4]], 0.03)] };
+    expect(serializeSceneFog(fog).areas[1]).toEqual({ r: false, p: [[0.1, 0.2], [0.3, 0.4]], d: 0.03 });
+    expect(parseSceneFog(serializeSceneFog(fog))).toEqual(fog);
+    expect(parseSceneFog({ areas: [{ r: true, p: [null], d: 0.03 }, { r: true, p: [[0.1, 0.1]], d: 0.03 }] })).toEqual({ areas: [stroke(true, [[0.1, 0.1]], 0.03)] });
+  });
+
+  it("never treats a stroke as a whole-map area", () => {
+    const fog: SceneFog = { areas: [hide(0.1, 0.1, 0.1, 0.1)] };
+    expect(asFog(applyFogChange(fog, { kind: "area", area: stroke(true, [[0, 0], [1, 1]], 0.2) })).areas).toHaveLength(2);
+  });
+});
+
 describe("parseSceneFog and serializeSceneFog", () => {
   it("round-trips the stored form", () => {
     const fog: SceneFog = { areas: [reveal(0, 0, 1, 1), hide(0.2, 0.2, 0.3, 0.3)] };
@@ -158,8 +202,14 @@ describe("parseSceneFog and serializeSceneFog", () => {
 });
 
 describe("parseFogChange", () => {
-  it.each(["cover", "clear", "undo"])("accepts %s", (kind) => {
+  it.each(["cover", "clear"])("accepts %s", (kind) => {
     expect(parseFogChange({ kind })).toEqual({ kind });
+  });
+
+  it("accepts a set back to no fog or to earlier areas, checking each area", () => {
+    expect(parseFogChange({ kind: "set", fog: null })).toEqual({ kind: "set", fog: null });
+    const stroke = { isRevealed: false, points: [{ x: 0.1, y: 0.2 }], radius: 0.03 };
+    expect(parseFogChange({ kind: "set", fog: { areas: [stroke, { isRevealed: true, x: 0.5, y: 0.5, width: -0.1, height: 0.1 }] } })).toEqual({ kind: "set", fog: { areas: [stroke, reveal(0.4, 0.5, 0.1, 0.1)] } });
   });
 
   it("accepts an area change and normalizes the area", () => {
@@ -169,6 +219,10 @@ describe("parseFogChange", () => {
   it.each([
     ["null", null],
     ["an unknown kind", { kind: "reveal" }],
+    ["the old undo", { kind: "undo" }],
+    ["a set without fog", { kind: "set" }],
+    ["a set with a broken area", { kind: "set", fog: { areas: [{ isRevealed: true }] } }],
+    ["a set over the limit", { kind: "set", fog: { areas: Array.from({ length: FOG_LIMITS.areas + 1 }, () => ({ isRevealed: true, x: 0, y: 0, width: 0.5, height: 0.5 })) } }],
     ["an area change without area", { kind: "area" }],
     ["an area change with a broken area", { kind: "area", area: { isRevealed: true } }],
     ["a string", "cover"],

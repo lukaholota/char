@@ -307,6 +307,8 @@ describe("Відпочинок у офлайн-черзі — розпізнав
     expect(isOfflineOperation(operation({ kind: "custom-feature-use", customFeatureId: 1, direction: "spend" }))).toBe(true);
     expect(isOfflineOperation(operation({ kind: "custom-feature-use", customFeatureId: 1.5, direction: "spend" }))).toBe(false);
     expect(isOfflineOperation({ ...operation({ kind: "custom-feature-use", customFeatureId: 1, direction: "spend" }), direction: "steal" })).toBe(false);
+    expect(isOfflineOperation(operation({ kind: "custom-feature-use", customFeatureId: 1, direction: "spend", amount: 999 }))).toBe(true);
+    expect(isOfflineOperation(operation({ kind: "custom-feature-use", customFeatureId: 1, direction: "spend", amount: 0 }))).toBe(false);
     expect(
       isOfflineOperation(operation({ kind: "short-rest", hitDiceSpent: [{ classId: 3, count: 2 }], restoredHitPoints: 11 })),
     ).toBe(true);

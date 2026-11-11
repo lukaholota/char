@@ -36,6 +36,18 @@ export function useHeroNameMode(sessionId: number) {
   return [chosen ?? remembered, changeMode] as const;
 }
 
+/// Кольорова обвідка прозорих токенів — за замовчуванням вимкнена: коли світиться кожен, це заважає.
+export function useCutoutOutline(sessionId: number) {
+  const storageKey = `game-map:cutout-outline:${sessionId}`;
+  const remembered = useSyncExternalStore(subscribeToNothing, () => readStored(storageKey) === "on", () => false);
+  const [chosen, setChosen] = useState<boolean | null>(null);
+  const changeOutline = (isOn: boolean) => {
+    setChosen(isOn);
+    writeStored(storageKey, isOn ? "on" : "off");
+  };
+  return [chosen ?? remembered, changeOutline] as const;
+}
+
 function readStored(key: string): string | null {
   try {
     return window.localStorage.getItem(key);

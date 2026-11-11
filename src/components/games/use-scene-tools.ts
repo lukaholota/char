@@ -5,12 +5,15 @@ import { toast } from "sonner";
 import { changeSceneFogAction, changeSceneGridAction, removeSceneAreasAction, saveSceneAreaAction } from "@/lib/actions/game-scene-tools";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import type { AreaPlacement } from "@/rules/game-areas";
-import { applyFogChange, type FogChange } from "@/rules/game-fog";
+import { applyFogChange, isFogStroke, type FogChange } from "@/rules/game-fog";
 import type { SceneGrid } from "@/rules/game-grid";
 import type { GameSessionView } from "@/server/db/game-sessions";
+import { rememberUndo } from "./map-history";
 import { readOptimistic, sendOptimistic, useOptimisticReader } from "./optimistic-values";
 
 const GRID_SAVE_DELAY_MS = 450;
+
+const findFogEventKind = (change: FogChange) => (change.kind === "set" ? "undo" : change.kind === "area" && isFogStroke(change.area) ? "brush" : change.kind);
 
 /// Зміни туману й областей видно одразу й на повноекранній мапі; правдою їх робить наступний стан кімнати з сервера.
 export function useSceneTools(view: GameSessionView) {
@@ -23,10 +26,12 @@ export function useSceneTools(view: GameSessionView) {
 
   const changeFog = async (change: FogChange) => {
     if (sceneId === null) return;
-    const next = applyFogChange(readOptimistic(fogKey, view.fog), change);
+    const current = readOptimistic(fogKey, view.fog);
+    const next = applyFogChange(current, change);
     if (next === "too_many") return void toast.error("Забагато ділянок туману — сховайте все й відкрийте заново");
+    rememberUndo(sceneId, fogKey, current, next, (fog) => changeFog({ kind: "set", fog }));
     const result = await sendOptimistic(fogKey, next, () => changeSceneFogAction(view.id, sceneId, change));
-    if (result.ok) captureGameEvent("game_fog_changed", { kind: change.kind });
+    if (result.ok) captureGameEvent("game_fog_changed", { kind: findFogEventKind(change) });
   };
 
   const saveArea = async (areaId: number | null, placement: AreaPlacement): Promise<number | null> => {

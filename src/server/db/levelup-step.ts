@@ -75,6 +75,8 @@ import { buildClassOptionPersSpellRows } from "@/server/db/class-option-spell-ch
 import { findLevelUpClassOptionSpellProblem } from "@/server/db/levelup-class-option-spells";
 import { findCatchUpSpellProblem, saveCatchUpSpells, type CatchUpSpellSelections } from "@/server/db/catch-up-spell-choices-2014";
 import { findCustomAsiPackageProblem } from "@/rules/abilities";
+import { isProficientSkillRow, listProficientSkills } from "@/rules/skill-proficiency";
+import { grantSkillProficiencies } from "@/server/db/pers-skill-grants";
 import { findExpertiseSelectionProblem, isExpertiseChosenThroughSubclassOptions, readExpertiseGrant } from "@/rules/expertise-selections";
 
 const ALL_SKILLS = Object.values(Skills) as Skills[];
@@ -953,7 +955,7 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
         classSkillProficiencies: selectedClass.skillProficiencies,
         allSkills: ALL_SKILLS,
         selected: levelUpSkillSelections[MULTICLASS_SKILL_SELECTION_KEY] ?? [],
-        knownSkills: [...pers.skills.filter((skill) => skill.proficiencyType !== SkillProficiencyType.NONE).map((skill) => skill.name), ...skillsToAdd],
+        knownSkills: [...listProficientSkills(pers.skills), ...skillsToAdd],
       });
       if (multiclassSkills.problem) return { error: multiclassSkills.problem };
       multiclassSkills.skills.forEach((skill) => skillsToAdd.add(skill));
@@ -991,12 +993,7 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
         .map((feature) => readExpertiseGrant(feature.skillExpertises))
         .filter((grant) => grant !== null),
       selected: expertiseSelections,
-      proficientSkills: [
-        ...pers.skills
-          .filter((skill) => skill.proficiencyType !== SkillProficiencyType.NONE)
-          .map((skill) => skill.name),
-        ...skillsToAdd,
-      ],
+      proficientSkills: [...listProficientSkills(pers.skills), ...skillsToAdd],
       existingExpertises: [
         ...pers.skills
           .filter((skill) => skill.proficiencyType === SkillProficiencyType.EXPERTISE)
@@ -1041,7 +1038,7 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
       currentPactSlots: pers.currentPactSlots,
       spellcasting: toRulesSpellcastingCharacter(pers),
       featureIds: pers.features.map((feature) => feature.featureId),
-      proficientSkills: pers.skills.filter((skill) => skill.proficiencyType !== SkillProficiencyType.NONE).map((skill) => skill.name),
+      proficientSkills: listProficientSkills(pers.skills),
       expertiseSkills: pers.skills.filter((skill) => skill.proficiencyType === SkillProficiencyType.EXPERTISE).map((skill) => skill.name),
       additionalSaveProficiencies: pers.additionalSaveProficiencies,
     }, {
@@ -1065,7 +1062,7 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
       (featureId) => !pers.features.some((feature) => feature.featureId === featureId),
     );
     const proficientSkillsToCreate = transition.proficientSkills.filter(
-      (skill): skill is Skills => ALL_SKILLS.includes(skill as Skills) && !pers.skills.some((row) => row.name === skill),
+      (skill): skill is Skills => ALL_SKILLS.includes(skill as Skills) && !pers.skills.some((row) => row.name === skill && isProficientSkillRow(row)),
     );
     const expertiseSkillsToUpsert = transition.expertiseSkills.filter(
       (skill): skill is Skills => ALL_SKILLS.includes(skill as Skills)
@@ -1275,21 +1272,7 @@ export async function executeLevelUpStep(executor: LevelUpExecutor, persId: numb
       });
 
       // Apply feat skill proficiencies/expertise
-      if (proficientSkillsToCreate.length > 0) {
-        const rows = proficientSkillsToCreate.map((skillEnum) => {
-          const idx = Object.values(Skills).indexOf(skillEnum);
-          return {
-            persId,
-            name: skillEnum,
-            skillId: idx + 1,
-            proficiencyType: SkillProficiencyType.PROFICIENT,
-          };
-        }).filter((r) => r.skillId > 0);
-
-        if (rows.length) {
-          await tx.persSkill.createMany({ data: rows, skipDuplicates: true });
-        }
-      }
+      await grantSkillProficiencies(tx, persId, proficientSkillsToCreate);
 
       if (expertiseSkillsToUpsert.length > 0) {
         for (const skillEnum of expertiseSkillsToUpsert) {

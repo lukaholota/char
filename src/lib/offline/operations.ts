@@ -1,4 +1,5 @@
 import { limitHeroicInspirationCount } from "@/rules/heroic-inspiration";
+import { MAX_FEATURE_USES as MAX_CUSTOM_FEATURE_USES } from "@/rules/pers-custom-content";
 import { applyChargesStep, type MagicItemCharges } from "@/rules/magic-item-charges";
 
 export const OFFLINE_DETAIL_FIELDS = [
@@ -78,7 +79,7 @@ export type OfflineOperation =
   | (OfflineOperationBase & { kind: "hit-dice"; remainingByClass: Record<string, number> })
   | (OfflineOperationBase & { kind: "feature-use"; featureId: number; direction: FeatureUseDirection; amount?: number })
   | (OfflineOperationBase & { kind: "feature-state"; featureId: number; isActive: boolean })
-  | (OfflineOperationBase & { kind: "custom-feature-use"; customFeatureId: number; direction: FeatureUseDirection })
+  | (OfflineOperationBase & { kind: "custom-feature-use"; customFeatureId: number; direction: FeatureUseDirection; amount?: number })
   | (OfflineOperationBase & { kind: "concentration"; spellId: number | null })
   | (OfflineOperationBase & { kind: "spell-buff"; effectKey: string; isActive: boolean; spellId: number | null; endsWithConcentration: boolean })
   | (OfflineOperationBase & { kind: "exhaustion"; level: number })
@@ -272,6 +273,10 @@ export function isFeatureUseAmount(amount: unknown): amount is number {
   return Number.isInteger(amount) && (amount as number) >= 1 && (amount as number) <= MAX_FEATURE_USE_AMOUNT;
 }
 
+export function isCustomFeatureUseAmount(amount: unknown): amount is number {
+  return Number.isInteger(amount) && (amount as number) >= 1 && (amount as number) <= MAX_CUSTOM_FEATURE_USES;
+}
+
 export function stepFeatureUses(current: number, max: number, cost: number, direction: FeatureUseDirection): number {
   if (direction === "spend") return current < cost ? current : Math.max(0, current - cost);
   return Math.min(max, current + cost);
@@ -286,7 +291,7 @@ export function applyQueuedCustomFeatureUses<T extends { id: number; usesMax: nu
     if (operation.kind !== "custom-feature-use" || operation.persId !== persId) return current;
     return current.map((feature) =>
       feature.id === operation.customFeatureId && feature.usesMax !== null && feature.usesRemaining !== null
-        ? { ...feature, usesRemaining: stepFeatureUses(feature.usesRemaining, feature.usesMax, 1, operation.direction) }
+        ? { ...feature, usesRemaining: stepFeatureUses(feature.usesRemaining, feature.usesMax, operation.amount ?? 1, operation.direction) }
         : feature,
     );
   }, features);
@@ -351,7 +356,7 @@ export function isOfflineOperation(value: unknown): value is OfflineOperation {
     case "feature-state":
       return Number.isInteger(operation.featureId) && typeof operation.isActive === "boolean";
     case "custom-feature-use":
-      return Number.isInteger(operation.customFeatureId) && ["spend", "restore"].includes(String(operation.direction));
+      return Number.isInteger(operation.customFeatureId) && ["spend", "restore"].includes(String(operation.direction)) && (operation.amount === undefined || isCustomFeatureUseAmount(operation.amount));
     case "concentration":
       return operation.spellId === null || Number.isInteger(operation.spellId);
     case "spell-buff":

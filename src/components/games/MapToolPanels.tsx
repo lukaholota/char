@@ -8,10 +8,11 @@ import type { FogChange, SceneFog } from "@/rules/game-fog";
 import { findGridSize, GRID_COLUMN_RANGE, GRID_OPACITY_RANGE, type SceneGrid } from "@/rules/game-grid";
 import { pluralizeUk } from "@/lib/ukrainian-plural";
 import type { TokenNameMode } from "@/rules/game-map-creatures";
-import { Segmented, Stepper, ToolPanel } from "./MapToolbar";
+import type { MapHistory } from "./map-history";
+import { HistoryButtons, Segmented, Stepper, ToolPanel } from "./MapToolbar";
 import { TokenNameModePicker } from "./TokenName";
 import { TokenScaleSlider } from "./TokenScaleSlider";
-import type { FogBrush, useGridTool } from "./use-map-tools";
+import type { FogBrush, FogBrushSize, FogShape, useFogTool, useGridTool } from "./use-map-tools";
 
 const NEW_GRID: SceneGrid = { columns: 20, offsetX: 0, offsetY: 0, isVisible: true, opacity: GRID_OPACITY_RANGE.initial };
 const FIT_CELLS_RANGE = { min: 1, max: 10 } as const;
@@ -173,19 +174,25 @@ function ColumnsInput({ columns, onChange }: { columns: number; onChange: (colum
   );
 }
 
-type FogPanelProps = { fog: SceneFog | null; brush: FogBrush; onBrushChange: (brush: FogBrush) => void; onChange: (change: FogChange) => void; isPreview: boolean; onPreviewChange: (isPreview: boolean) => void; onClose: () => void };
+type FogTool = Pick<ReturnType<typeof useFogTool>, "brush" | "setBrush" | "shape" | "setShape" | "size" | "setSize">;
+type FogPanelProps = { fog: SceneFog | null; tool: FogTool; onChange: (change: FogChange) => void; history: MapHistory; isPreview: boolean; onPreviewChange: (isPreview: boolean) => void; onClose: () => void };
 
-export function FogPanel({ fog, brush, onBrushChange, onChange, isPreview, onPreviewChange, onClose }: FogPanelProps) {
+export function FogPanel({ fog, tool, onChange, history, isPreview, onPreviewChange, onClose }: FogPanelProps) {
+  const target = tool.brush === "reveal" ? "відкрити її гравцям" : "знову сховати";
   return (
     <ToolPanel title="Туман війни" onClose={onClose}>
-      <Segmented<FogBrush> label="Що робить рамка" value={brush} onChange={onBrushChange} options={[{ value: "reveal", label: "Відкрити" }, { value: "hide", label: "Сховати" }]} />
+      <div className="grid grid-cols-2 gap-2">
+        <Segmented<FogBrush> label="Що робить" value={tool.brush} onChange={tool.setBrush} options={[{ value: "reveal", label: "Відкрити" }, { value: "hide", label: "Сховати" }]} />
+        <Segmented<FogShape> label="Чим" value={tool.shape} onChange={tool.setShape} options={[{ value: "rect", label: "Рамка" }, { value: "round", label: "Пензель" }]} />
+      </div>
+      {tool.shape === "round" ? <Segmented<FogBrushSize> label="Товщина пензля" value={tool.size} onChange={tool.setSize} options={[{ value: "thin", label: "Тонкий" }, { value: "medium", label: "Середній" }, { value: "wide", label: "Широкий" }]} /> : null}
       <Hint>
-        {fog ? `Обведіть пальцем ділянку, щоб ${brush === "reveal" ? "відкрити її гравцям" : "знову сховати"}.` : "Туману ще немає — гравці бачать усю мапу. Сховайте все, а тоді відкривайте ділянки рамкою."}
+        {!fog ? "Туману ще немає — гравці бачать усю мапу. Сховайте все, а тоді відкривайте ділянки." : tool.shape === "round" ? `Водіть пальцем по мапі, щоб ${target}.` : `Обведіть пальцем ділянку, щоб ${target}.`}
       </Hint>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-2 gap-2">
         <Button type="button" variant="outline" onClick={() => onChange({ kind: "cover" })} className="h-11 px-2">Сховати все</Button>
-        <Button type="button" variant="outline" onClick={() => onChange({ kind: "undo" })} disabled={!fog?.areas.length} className="h-11 px-2">Скасувати</Button>
         <Button type="button" variant="ghost" onClick={() => onChange({ kind: "clear" })} disabled={!fog} className="h-11 px-2 text-slate-400">Без туману</Button>
+        <HistoryButtons history={history} />
       </div>
       {fog ? <SwitchRow label="Очима гравців" isChecked={isPreview} onChange={onPreviewChange} /> : null}
     </ToolPanel>
@@ -208,14 +215,23 @@ export function RulerPanel({ hasGrid, distanceFeet, isGm, onClose }: { hasGrid: 
 }
 
 type NameModeControl = { mode: TokenNameMode; onChange: (mode: TokenNameMode) => void };
-type ViewPanelProps = { hasGrid: boolean; tokenScale: number; onTokenScaleChange: (scale: number) => void; heroNames: NameModeControl; creatureNames: NameModeControl | null; onClose: () => void };
+type ViewPanelProps = {
+  hasGrid: boolean;
+  tokenScale: number;
+  onTokenScaleChange: (scale: number) => void;
+  heroNames: NameModeControl;
+  creatureNames: NameModeControl | null;
+  cutoutOutline: { isOn: boolean; onChange: (isOn: boolean) => void };
+  onClose: () => void;
+};
 
-export function ViewPanel({ hasGrid, tokenScale, onTokenScaleChange, heroNames, creatureNames, onClose }: ViewPanelProps) {
+export function ViewPanel({ hasGrid, tokenScale, onTokenScaleChange, heroNames, creatureNames, cutoutOutline, onClose }: ViewPanelProps) {
   return (
     <ToolPanel title="Вигляд" onClose={onClose}>
       {hasGrid ? <Hint>Токени займають клітинки сітки й ростуть разом із мапою.</Hint> : <TokenScaleSlider scale={tokenScale} onChange={onTokenScaleChange} />}
       <TokenNameModePicker label="Імена героїв" mode={heroNames.mode} onChange={heroNames.onChange} />
       {creatureNames ? <TokenNameModePicker label="Імена істот" mode={creatureNames.mode} onChange={creatureNames.onChange} /> : null}
+      <SwitchRow label="Кольорова обвідка прозорих токенів" isChecked={cutoutOutline.isOn} onChange={cutoutOutline.onChange} />
     </ToolPanel>
   );
 }

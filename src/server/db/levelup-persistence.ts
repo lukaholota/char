@@ -144,12 +144,16 @@ export async function executeLevelUp(persId: number, data: LevelUpInput) {
 
     await moveToCurrentPresetRevision(persId);
     const outcome = await executeLevelUpStep(createStandaloneLevelUpExecutor(), persId, data);
-    if ("error" in outcome) return outcome;
+    if ("error" in outcome) {
+      captureServerPostHogEvent("character_level_up_failed", { pers_id: persId, reason: "rejected", message: outcome.error });
+      return outcome;
+    }
 
     captureServerPostHogEvent("character_leveled_up", { pers_id: persId, edition: outcome.ruleset === "RULES_2024" ? "2024" : "2014", level: outcome.level });
     return { success: true };
   } catch (e) {
     console.error(e);
+    captureServerPostHogEvent("character_level_up_failed", { pers_id: persId, reason: "server" });
     return { error: "Failed to level up" };
   }
 }

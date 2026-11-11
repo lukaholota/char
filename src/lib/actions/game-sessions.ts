@@ -2,6 +2,7 @@
 
 import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 import { parseTokenPosition } from "@/rules/game-map";
+import { parseTokenTransform } from "@/rules/token-transform";
 import { parseHitPointChange } from "@/rules/creature-hit-points";
 import { parseInitiative, parseTurnStep } from "@/rules/game-combat";
 import { MAP_LIBRARY } from "@/lib/refs/map-library-catalog";
@@ -10,13 +11,13 @@ import { parseCreatureTokenSize, parseCustomName, parseNewMapCreatures, parseTok
 import { parseTokenConditionChange } from "@/rules/token-conditions";
 import { isId, rejectBadInput, runAsUser, tooFast } from "@/server/game-sessions/game-action";
 import { tryTakeTokenMoveSlot } from "@/server/game-sessions/game-session-limits";
-import { activateGameScene, createGameScene, deleteGameScene, moveGameToken, openGameScene, renameGameScene, replaceGameSceneMap } from "@/server/db/game-scenes";
+import { activateGameScene, createGameScene, deleteGameScene, moveGameToken, openGameScene, renameGameScene, replaceGameSceneMap, transformHeroToken } from "@/server/db/game-scenes";
 import { changeCreatureConditions, changeHeroConditions, clearBlessedMarks, markBlessedTargets } from "@/server/db/game-conditions";
 import { parseRollTargets } from "@/rules/map-target-picks";
 import { undoRollDamage } from "@/server/db/game-roll-events";
 import { MAX_SAVE_TARGETS } from "@/rules/game-roll-saves";
 import { addMissingCombatants, advanceCombatTurn, endCombat, endOwnCombatTurn, setCombatantInitiative, startCombat } from "@/server/db/game-combat";
-import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize } from "@/server/db/game-map-creatures";
+import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize, transformMapCreature } from "@/server/db/game-map-creatures";
 import {
   bindMemberPers,
   GAME_SESSION_LIMITS,
@@ -111,6 +112,23 @@ export async function moveGameTokenAction(sessionId: number, sceneId: number, he
     if (!isId(sessionId) || !isId(sceneId) || !isId(heroId) || (rawPosition !== null && !position)) return rejectBadInput;
     if (!tryTakeTokenMoveSlot(userId)) return { ok: false as const, error: "too_fast" as const };
     return moveGameToken(sessionId, userId, sceneId, heroId, position);
+  });
+}
+
+export async function transformHeroTokenAction(sessionId: number, sceneId: number, heroId: number, rawTransform: unknown) {
+  const transform = parseTokenTransform(rawTransform);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(sceneId) || !isId(heroId) || !transform) return rejectBadInput;
+    if (!tryTakeTokenMoveSlot(userId)) return tooFast;
+    return transformHeroToken(sessionId, userId, sceneId, heroId, transform);
+  });
+}
+
+export async function transformMapCreatureAction(sessionId: number, creatureId: number, rawTransform: unknown) {
+  const transform = parseTokenTransform(rawTransform);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(creatureId) || !transform) return rejectBadInput;
+    return transformMapCreature(sessionId, userId, creatureId, transform);
   });
 }
 

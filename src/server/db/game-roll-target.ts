@@ -34,6 +34,8 @@ const CREATURE_ROW_SELECT = {
   customImageKey: true,
   tokenX: true,
   tokenY: true,
+  tokenRotation: true,
+  tokenScalePercent: true,
   hpMax: true,
   hpCurrent: true,
   conditions: true,

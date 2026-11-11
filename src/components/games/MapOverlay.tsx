@@ -3,7 +3,8 @@
 import { useId, type PointerEvent, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { buildAreaPath, type AreaPlacement } from "@/rules/game-areas";
-import type { FogArea, SceneFog } from "@/rules/game-fog";
+import { isFogStroke, type FogStroke, type SceneFog } from "@/rules/game-fog";
+import { buildStrokePath } from "@/rules/map-strokes";
 import { MAP_VIEW_WIDTH, buildGridLinesPath, toViewPoint, type MapFrame } from "@/rules/game-grid";
 import type { TokenPosition } from "@/rules/game-map";
 import { COUNTER_ZOOM } from "./MapTokenSlot";
@@ -13,7 +14,7 @@ export type MapRect = { x: number; y: number; width: number; height: number };
 export type MapSegment = { from: TokenPosition; to: TokenPosition };
 export type AreaLook = "saved" | "selected" | "draft";
 
-function MapSvg({ aspect, className, children }: { aspect: number; className?: string; children: ReactNode }) {
+export function MapSvg({ aspect, className, children }: { aspect: number; className?: string; children: ReactNode }) {
   return (
     <svg aria-hidden viewBox={`0 0 ${MAP_VIEW_WIDTH} ${MAP_VIEW_WIDTH / aspect}`} preserveAspectRatio="none" className={cn("pointer-events-none absolute inset-0 h-full w-full overflow-visible rounded-xl", className)}>
       {children}
@@ -51,7 +52,7 @@ export function MapFogLayer({ fog, aspect, isVeil, className }: { fog: SceneFog;
         <mask id={maskId} maskUnits="userSpaceOnUse" x={0} y={0} width={MAP_VIEW_WIDTH} height={height}>
           <g filter={isVeil ? undefined : `url(#${CSS.escape(edgeId)})`}>
             <rect width={MAP_VIEW_WIDTH} height={height} fill="white" />
-            {fog.areas.map((area, index) => <FogRect key={index} area={area} aspect={aspect} fill={area.isRevealed ? "black" : "white"} />)}
+            {fog.areas.map((area, index) => (isFogStroke(area) ? <FogStrokePath key={index} stroke={area} aspect={aspect} /> : <FogRectShape key={index} area={area} aspect={aspect} fill={area.isRevealed ? "black" : "white"} />))}
           </g>
         </mask>
       </defs>
@@ -60,7 +61,11 @@ export function MapFogLayer({ fog, aspect, isVeil, className }: { fog: SceneFog;
   );
 }
 
-function FogRect({ area, aspect, fill, className }: { area: Pick<FogArea, "x" | "y" | "width" | "height">; aspect: number; fill?: string; className?: string }) {
+function FogStrokePath({ stroke, aspect }: { stroke: FogStroke; aspect: number }) {
+  return <path d={buildStrokePath(stroke.points, aspect)} fill="none" stroke={stroke.isRevealed ? "black" : "white"} strokeWidth={stroke.radius * 2 * MAP_VIEW_WIDTH} strokeLinecap="round" strokeLinejoin="round" />;
+}
+
+function FogRectShape({ area, aspect, fill, className }: { area: MapRect; aspect: number; fill?: string; className?: string }) {
   const scale = MAP_VIEW_WIDTH;
   return <rect x={area.x * scale} y={(area.y * scale) / aspect} width={area.width * scale} height={(area.height * scale) / aspect} fill={fill} className={className} />;
 }
@@ -112,7 +117,7 @@ export function MapMeasureLayer({ frame, aspect, ruler, move, rect }: MeasureLay
           <line x1={toView(ruler.from).x} y1={toView(ruler.from).y} x2={toView(ruler.to).x} y2={toView(ruler.to).y} vectorEffect="non-scaling-stroke" strokeWidth={2} strokeLinecap="round" className="stroke-amber-200" />
         </>
       ) : null}
-      {rect ? <FogRect area={rect} aspect={aspect} className="fill-white/10 stroke-white [stroke-dasharray:6_4] [stroke-width:2px] [vector-effect:non-scaling-stroke]" /> : null}
+      {rect ? <FogRectShape area={rect} aspect={aspect} className="fill-white/10 stroke-white [stroke-dasharray:6_4] [stroke-width:2px] [vector-effect:non-scaling-stroke]" /> : null}
     </MapSvg>
   );
 }

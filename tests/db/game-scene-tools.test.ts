@@ -3,6 +3,7 @@ import sharp from "sharp";
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { AREA_LIMITS, type AreaPlacement } from "@/rules/game-areas";
+import { DRAWING_LIMITS, type DrawingStroke } from "@/rules/game-drawings";
 import { FOG_LIMITS } from "@/rules/game-fog";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
@@ -21,7 +22,7 @@ vi.mock("@/lib/refs/map-library-catalog", () => ({
 }));
 
 import { activateGameScene, createGameScene, openGameScene, replaceGameSceneMap } from "@/server/db/game-scenes";
-import { changeSceneFog, changeSceneGrid, removeSceneAreas, saveSceneArea } from "@/server/db/game-scene-tools";
+import { changeSceneFog, changeSceneGrid, removeSceneAreas, removeSceneDrawings, saveSceneArea, saveSceneDrawings } from "@/server/db/game-scene-tools";
 import { createGameSession, findGameSessionView, joinGameSessionByToken, setGameSessionArchived } from "@/server/db/game-sessions";
 
 vi.setConfig({ testTimeout: 60_000 });
@@ -110,7 +111,7 @@ describe("туман сцени", () => {
     await changeSceneFog(sessionId, gm.id, sceneId, rectangle(true));
     expect((await seeRoom(sessionId, player.id)).fog).toEqual({ areas: [{ isRevealed: true, x: 0.1, y: 0.2, width: 0.3, height: 0.4 }] });
 
-    await changeSceneFog(sessionId, gm.id, sceneId, { kind: "undo" });
+    await changeSceneFog(sessionId, gm.id, sceneId, { kind: "set", fog: { areas: [] } });
     expect((await seeRoom(sessionId, gm.id)).fog).toEqual({ areas: [] });
 
     await changeSceneFog(sessionId, gm.id, sceneId, { kind: "clear" });
@@ -126,7 +127,7 @@ describe("туман сцени", () => {
     await changeSceneFog(sessionId, gm.id, sceneId, { kind: "clear" });
     expect(await readFogColumn(sceneId)).toEqual({ fog: null, is_null: true });
 
-    await changeSceneFog(sessionId, gm.id, sceneId, { kind: "undo" });
+    await changeSceneFog(sessionId, gm.id, sceneId, { kind: "set", fog: null });
     expect((await readFogColumn(sceneId)).is_null).toBe(true);
   });
 
@@ -299,5 +300,63 @@ describe("нова мапа скидає геометрію", () => {
     await replaceGameSceneMap(sessionId, gm.id, sceneId, { kind: "library", slug: "crypt" });
     const library = await seeRoom(sessionId, gm.id);
     expect([library.grid, library.fog, library.areas]).toEqual([{ columns: 32, offsetX: 0, offsetY: 0, isVisible: true, opacity: 0.35 }, null, []]);
+  });
+});
+
+describe("малюнки на мапі", () => {
+  const line: DrawingStroke = { color: "sky", width: "thin", points: [{ x: 0.1, y: 0.2 }, { x: 0.3, y: 0.4 }] };
+  const readOwners = async (sessionId: number, userId: number) => (await seeRoom(sessionId, userId)).drawings.map((drawing) => drawing.userId);
+
+  it("гравець і майстер малюють, лінії видно всім разом з автором і точками", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const sceneId = await createScene(sessionId, gm.id);
+    const saved = await saveSceneDrawings(sessionId, player.id, sceneId, [line, { ...line, color: "red", width: "bold" }]);
+    if (!saved.ok) throw new Error(saved.error);
+    expect(saved.value.ids).toHaveLength(2);
+    await saveSceneDrawings(sessionId, gm.id, sceneId, [line]);
+
+    const seen = (await seeRoom(sessionId, gm.id)).drawings;
+    expect(seen[0]).toEqual({ id: saved.value.ids[0], userId: player.id, ...line });
+    expect(seen.map((drawing) => [drawing.userId, drawing.color, drawing.width])).toEqual([[player.id, "sky", "thin"], [player.id, "red", "bold"], [gm.id, "sky", "thin"]]);
+    expect(await readOwners(sessionId, player.id)).toEqual([player.id, player.id, gm.id]);
+  });
+
+  it("гравець стирає лише свої лінії, навіть передавши чужі id; майстер стирає все", async () => {
+    const { gm, player, other, sessionId } = await createTable();
+    const sceneId = await createScene(sessionId, gm.id);
+    const mine = await saveSceneDrawings(sessionId, player.id, sceneId, [line]);
+    const theirs = await saveSceneDrawings(sessionId, other.id, sceneId, [line]);
+    if (!mine.ok || !theirs.ok) throw new Error("not saved");
+
+    expect(await removeSceneDrawings(sessionId, player.id, sceneId, [...mine.value.ids, ...theirs.value.ids])).toEqual({ ok: true, value: null });
+    expect(await readOwners(sessionId, gm.id)).toEqual([other.id]);
+    await saveSceneDrawings(sessionId, player.id, sceneId, [line]);
+    await removeSceneDrawings(sessionId, player.id, sceneId, "all");
+    expect(await readOwners(sessionId, gm.id)).toEqual([other.id]);
+
+    await removeSceneDrawings(sessionId, gm.id, sceneId, "all");
+    expect(await prisma.gameSceneDrawing.count()).toBe(0);
+  });
+
+  it("гравець не малює на неактивній сцені, чужа кімната не стирається, ліміт і архів зупиняють", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const foreign = await createTable();
+    const sceneId = await createScene(sessionId, gm.id);
+    const hidden = await createScene(sessionId, gm.id);
+    const foreignScene = await createScene(foreign.sessionId, foreign.gm.id);
+    await saveSceneDrawings(foreign.sessionId, foreign.gm.id, foreignScene, [line]);
+
+    expect(await saveSceneDrawings(sessionId, player.id, hidden, [line])).toEqual({ ok: false, error: "scene_changed" });
+    expect(await saveSceneDrawings(sessionId, gm.id, foreignScene, [line])).toEqual({ ok: false, error: "bad_scene" });
+    await removeSceneDrawings(sessionId, gm.id, foreignScene, "all");
+    expect(await prisma.gameSceneDrawing.count()).toBe(1);
+
+    await prisma.gameSceneDrawing.createMany({ data: Array.from({ length: DRAWING_LIMITS.perScene - 1 }, () => ({ sceneId, userId: gm.id, color: "red", width: "thin", points: [[0.1, 0.1], [0.2, 0.2]] })) });
+    expect(await saveSceneDrawings(sessionId, player.id, sceneId, [line, line])).toEqual({ ok: false, error: "drawing_limit" });
+    expect((await saveSceneDrawings(sessionId, player.id, sceneId, [line])).ok).toBe(true);
+
+    await setGameSessionArchived(sessionId, gm.id, true);
+    expect(await saveSceneDrawings(sessionId, player.id, sceneId, [line])).toEqual({ ok: false, error: "archived" });
+    expect(await removeSceneDrawings(sessionId, gm.id, sceneId, "all")).toEqual({ ok: false, error: "archived" });
   });
 });

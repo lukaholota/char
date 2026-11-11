@@ -331,6 +331,15 @@ describe("власні ресурси в офлайн-черзі", () => {
     expect(usesOf(pers)).toEqual([0, 2]);
   });
 
+  it("введене число в черзі змінює запас на всю різницю", () => {
+    const mana = { ...withResources, persCustomFeatures: [{ id: 3, usesMax: 20, usesRemaining: 12, restoredOn: null }] } as unknown as PersWithRelations;
+    const { pers } = applyQueuedOperationsToSheet(mana, null, [
+      operation({ kind: "custom-feature-use", customFeatureId: 3, direction: "spend", amount: 5 }, 1),
+      operation({ kind: "custom-feature-use", customFeatureId: 3, direction: "restore", amount: 3 }, 2),
+    ]);
+    expect(usesOf(pers)).toEqual([10]);
+  });
+
   it("короткий відпочинок у черзі відновлює лише короткі, довгий усі", () => {
     expect(usesOf(applyQueuedOperationsToSheet(withResources, null, [operation({ kind: "short-rest", hitDiceSpent: [], restoredHitPoints: 0 })]).pers)).toEqual([2, 1]);
     expect(usesOf(applyQueuedOperationsToSheet(withResources, null, [operation({ kind: "long-rest" })]).pers)).toEqual([2, 2]);

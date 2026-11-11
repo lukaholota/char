@@ -11,6 +11,7 @@ import {
   type TokenNameMode,
 } from "@/rules/game-map-creatures";
 import { findViewedSceneId } from "@/rules/game-scenes";
+import type { TokenTransform } from "@/rules/token-transform";
 import { findRoomCreature } from "@/server/db/room-creatures";
 import { findActiveGmSession, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
@@ -94,6 +95,15 @@ export async function setMapCreatureSize(sessionId: number, userId: number, crea
   if (!gm.ok) return gm;
   const resized = await prisma.gameMapCreature.updateMany({ where: { id: creatureId, gameSessionId: sessionId }, data: { tokenSize: size } });
   if (!resized.count) return fail("creature_gone");
+  await signalGameSession(sessionId, "session");
+  return { ok: true, value: null };
+}
+
+export async function transformMapCreature(sessionId: number, userId: number, creatureId: number, transform: TokenTransform): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const changed = await prisma.gameMapCreature.updateMany({ where: { id: creatureId, gameSessionId: sessionId }, data: { tokenRotation: transform.rotation, tokenScalePercent: transform.scale } });
+  if (!changed.count) return fail("creature_gone");
   await signalGameSession(sessionId, "session");
   return { ok: true, value: null };
 }

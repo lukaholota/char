@@ -7,10 +7,12 @@ import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
 import { mergeUniqueLines } from "@/rules/levelup";
 import type { RulesetId } from "@/rules/strategies/types";
 import type { AbilityScores } from "@/rules/types";
+import { listProficientSkills } from "@/rules/skill-proficiency";
 import { findFeatPackageProblem, toFeatInstance } from "@/server/db/feat-gates";
 import { buildChosenFeatSpells, findFeatSpellChoiceProblem } from "@/server/db/feat-spell-choices";
 import { buildFeatPersSpellRows, findMissingFeatSpells } from "@/server/db/feat-spell-grants";
 import { buildFeatLanguageLines, buildFeatProficiencyLines } from "@/server/db/feat-text-grants";
+import { grantSkillProficiencies } from "@/server/db/pers-skill-grants";
 
 export type FeatAcquisitionInput = {
   featId: number;
@@ -165,7 +167,7 @@ function buildGrantRecord(
     abilityIncreases: findActualAbilityIncreases(toAbilityScores(pers), granted.scores),
     saveProficiencies: granted.grants.saveProficiencies.filter((ability) => !pers.additionalSaveProficiencies.includes(ability as Ability)),
     proficientSkills: granted.proficientSkills.filter((skill) => !expertiseSkills.includes(skill)),
-    expertiseSkills: expertiseSkills.map((skill) => ({ skill, previous: ownedSkills.has(skill) ? "PROFICIENT" : "NONE" })),
+    expertiseSkills: expertiseSkills.map((skill) => ({ skill, previous: ownedSkills.get(skill) === SkillProficiencyType.PROFICIENT ? "PROFICIENT" : "NONE" })),
     featureIds: granted.featureIds,
     languageLines: findNewLines(pers.customLanguagesKnown, granted.languageLines),
     proficiencyLines: findNewLines(pers.customProficiencies, granted.proficiencyLines),
@@ -194,12 +196,7 @@ function buildPersUpdate(plan: FeatAcquisitionPlan): Prisma.PersUpdateInput {
 }
 
 async function persistSkills(tx: Prisma.TransactionClient, persId: number, plan: FeatAcquisitionPlan): Promise<void> {
-  if (plan.proficientSkills.length) {
-    await tx.persSkill.createMany({
-      data: plan.proficientSkills.map((name) => ({ persId, name, skillId: ALL_SKILLS.indexOf(name) + 1, proficiencyType: SkillProficiencyType.PROFICIENT })),
-      skipDuplicates: true,
-    });
-  }
+  await grantSkillProficiencies(tx, persId, plan.proficientSkills);
   for (const name of plan.expertiseSkills) {
     await tx.persSkill.upsert({
       where: { persId_name: { persId, name } },
@@ -210,7 +207,7 @@ async function persistSkills(tx: Prisma.TransactionClient, persId: number, plan:
 }
 
 function findSkillsToCreate(pers: AcquiringPers, skills: readonly string[]): Skills[] {
-  const owned = new Set(pers.skills.map((skill) => skill.name));
+  const owned = new Set(listProficientSkills(pers.skills));
   return [...new Set(skills)].filter(isSkill).filter((skill) => !owned.has(skill));
 }
 

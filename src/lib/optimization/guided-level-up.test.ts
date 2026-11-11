@@ -268,11 +268,13 @@ describe("a character that drifted from the plan", () => {
     expect(plan.status === "ready" && plan.open.join(" ")).toContain(`Експертизу в «${skillTranslations.DECEPTION}» персонаж уже має`);
   });
 
-  it("counts any skill row other than none as proficient, like the server check", () => {
+  it("counts only proficient and expert skill rows as proficient, like the server check", () => {
+    const proficient = planGuidedLevelUp(thief, catalog, withSkill(buildModelState(thief, 5), "DECEPTION", "PROFICIENT"));
     const half = planGuidedLevelUp(thief, catalog, withSkill(buildModelState(thief, 5), "DECEPTION", "HALF"));
     const none = planGuidedLevelUp(thief, catalog, withSkill(buildModelState(thief, 5), "DECEPTION", "NONE"));
 
-    expect(half).toMatchObject({ status: "ready", skipped: [], open: [], input: { expertiseSchema: { expertises: ["SLEIGHT_OF_HAND", "DECEPTION"] } } });
+    expect(proficient).toMatchObject({ status: "ready", skipped: [], open: [], input: { expertiseSchema: { expertises: ["SLEIGHT_OF_HAND", "DECEPTION"] } } });
+    expect(half.status === "ready" && half.input.expertiseSchema.expertises).not.toContain("DECEPTION");
     expect(none.status === "ready" && none.input.expertiseSchema.expertises).not.toContain("DECEPTION");
   });
 

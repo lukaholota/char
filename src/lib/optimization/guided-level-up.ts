@@ -9,6 +9,7 @@ import { buildSingleAssemblyStep } from "./assembly-plan";
 import { listExecutableSteps } from "./build-executable-levels";
 import type { AssemblyCatalog, AssemblyChoiceOption, AssemblyFeature } from "./assembly-catalog";
 import type { BuildProgressionStep, BuildRecipe } from "./types";
+import { listProficientSkills } from "@/rules/skill-proficiency";
 
 type Ability = "STR" | "DEX" | "CON" | "INT" | "WIS" | "CHA";
 export type GuidedPersClass = { classKey: string; classLevel: number; subclassKey: string | null };
@@ -191,9 +192,8 @@ const isSkill = (value: string) => SKILL_ORDER.includes(value);
 const sortSkills = (skills: Iterable<string>) => [...new Set(skills)].filter(isSkill).sort((first, second) => SKILL_ORDER.indexOf(first) - SKILL_ORDER.indexOf(second));
 const nameSkill = (skill: string) => skillTranslations[skill] ?? skill;
 
-/// Будь-який рядок навички в листі сервер уже не перетворить на володіння, тож гайд його не пропонує.
 function keepNewSkills(input: LevelUpInput, { pers, features, context, step }: FitContext): FittedFields {
-  const owned = new Set(pers.skills.map((skill) => skill.name));
+  const owned = new Set(listProficientSkills(pers.skills));
   const planned = new Set(Object.values(input.levelUpSkillSelections).flat());
   const chosen = new Set<string>();
   const result: FittedFields = { fields: {}, skipped: [], open: [] };
@@ -221,7 +221,7 @@ function keepNewSkills(input: LevelUpInput, { pers, features, context, step }: F
 function keepValidExpertise(input: LevelUpInput, gainedSkills: readonly string[], { pers, features }: FitContext): FittedFields {
   const planned = input.expertiseSchema.expertises;
   const expert = new Set(pers.skills.filter((skill) => skill.proficiencyType === "EXPERTISE").map((skill) => skill.name));
-  const proficient = new Set([...pers.skills.filter((skill) => skill.proficiencyType !== "NONE").map((skill) => skill.name), ...gainedSkills]);
+  const proficient = new Set([...listProficientSkills(pers.skills), ...gainedSkills]);
   const grants = features.flatMap((feature) => (feature.expertiseGrant ? [feature.expertiseGrant] : []));
   const pool = sortSkills(listExpertiseCandidates(grants, proficient)).filter((skill) => !expert.has(skill));
   const result: FittedFields = { fields: {}, skipped: [], open: [] };

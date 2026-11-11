@@ -10,10 +10,11 @@ import { CombatTracker } from "./CombatTracker";
 import { ScenesButton } from "./GameScenesCard";
 import { useTokenMoves } from "./HeroTokens";
 import { MapBoard } from "./MapBoard";
+import { useMapUndoShortcut } from "./map-history";
 import { MapTaskHint } from "./MapTargeting";
 import { SharedBoardProvider } from "./shared-board";
 import { showRoomTab, useRoomTabStore } from "./room-tabs";
-import { useHeroNameMode, useTokenScale } from "./use-token-scale";
+import { useCutoutOutline, useHeroNameMode, useTokenScale } from "./use-token-scale";
 
 const FULLSCREEN_MAP =
   "inset-0 left-0 top-0 flex h-dvh max-h-none w-full max-w-none translate-x-0 translate-y-0 flex-col gap-3 rounded-none border-0 bg-slate-950 bg-none p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-none sm:p-6";
@@ -27,7 +28,9 @@ export function GameRoomMap({ view }: { view: GameSessionView }) {
   const [tokenScale, changeTokenScale] = useTokenScale(view.id);
   const [heroNameMode, changeHeroNameMode] = useHeroNameMode(view.id);
   const heroNames = { mode: heroNameMode, onChange: changeHeroNameMode };
+  const [isCutoutOutlined, changeCutoutOutline] = useCutoutOutline(view.id);
   const [isTurned, setIsTurned] = useState(false);
+  useMapUndoShortcut(view.viewedSceneId);
   const changeFullscreen = (isOpen: boolean) => {
     setIsFullscreen(isOpen);
     if (!isOpen) setIsTurned(false);
@@ -35,7 +38,7 @@ export function GameRoomMap({ view }: { view: GameSessionView }) {
   useEffect(() => useRoomTabStore.subscribe((state, previous) => state.tab !== previous.tab && state.tab !== "map" && changeFullscreen(false)), []);
   const boardKey = `${view.viewedSceneId}:${view.mapImageUrl}`;
   const combat = view.combat ? <CombatTracker view={view} /> : null;
-  const shared = view.mapImageUrl ? { view, moves, tokenScale, onTokenScaleChange: changeTokenScale, heroNames, combat, mapImageUrl: view.mapImageUrl } : null;
+  const shared = view.mapImageUrl ? { view, moves, tokenScale, onTokenScaleChange: changeTokenScale, heroNames, cutoutOutline: { isOn: isCutoutOutlined, onChange: changeCutoutOutline }, combat, mapImageUrl: view.mapImageUrl } : null;
   return (
     <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-2 p-2 sm:p-3">
       <div className="flex shrink-0 flex-wrap items-center gap-2">

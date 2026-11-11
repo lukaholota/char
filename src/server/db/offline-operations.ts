@@ -174,7 +174,7 @@ async function applyRelationChange(operation: OfflineOperation): Promise<string 
       return result.success ? null : result.error;
     }
     case "custom-feature-use":
-      await stepCustomFeatureUses(operation.persId, operation.customFeatureId, operation.direction);
+      await stepCustomFeatureUses(operation.persId, operation.customFeatureId, operation.direction, operation.amount);
       return null;
     case "concentration":
       return describeFailure(await changeConcentration(operation.persId, operation.spellId));

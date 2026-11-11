@@ -58,13 +58,14 @@ export async function deleteCustomFeature(persId: number, featureId: number): Pr
 }
 
 /// Умова на рядку, а не читання перед записом: два швидкі натискання не виходять за межі.
-export async function stepCustomFeatureUses(persId: number, featureId: number, direction: FeatureUseDirection): Promise<void> {
-  const row = { id: featureId, persId };
+export async function stepCustomFeatureUses(persId: number, featureId: number, direction: FeatureUseDirection, amount = 1): Promise<void> {
   if (direction === "spend") {
-    await prisma.persCustomFeature.updateMany({ where: { ...row, usesRemaining: { gt: 0 } }, data: { usesRemaining: { decrement: 1 } } });
+    await prisma.persCustomFeature.updateMany({ where: { id: featureId, persId, usesRemaining: { gte: amount } }, data: { usesRemaining: { decrement: amount } } });
     return;
   }
-  await prisma.persCustomFeature.updateMany({ where: { ...row, usesRemaining: { lt: prisma.persCustomFeature.fields.usesMax } }, data: { usesRemaining: { increment: 1 } } });
+  await prisma.$executeRaw`
+    UPDATE public.pers_custom_feature SET uses_remaining = LEAST(uses_max, uses_remaining + ${amount})
+    WHERE pers_custom_feature_id = ${featureId} AND pers_id = ${persId} AND uses_remaining < uses_max`;
 }
 
 export function restoreCustomFeatureUses(persId: number, rest: CustomFeatureRest): Promise<number> {

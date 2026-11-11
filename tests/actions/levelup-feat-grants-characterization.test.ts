@@ -4,7 +4,7 @@
  */
 
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import type { Classes, Feats, Races, Ruleset, Subclasses } from "@prisma/client";
+import { Skills, type Classes, type Feats, type Races, type Ruleset, type Subclasses } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { minimalLevelUpForm } from "../helpers/levelup-form";
 import { disconnectDatabase, resetUserData } from "../user-data";
@@ -14,6 +14,8 @@ vi.mock("next/cache", () => ({ revalidatePath: vi.fn(), unstable_cache: <T>(fn: 
 
 import { auth } from "@/lib/auth";
 import { levelUpCharacter } from "@/lib/actions/levelup";
+import { acquirePersFeat } from "@/server/db/feat-acquisition";
+import { removePersFeatWithGrants } from "@/server/db/feat-removal";
 
 vi.setConfig({ testTimeout: 120_000 });
 
@@ -72,6 +74,38 @@ describe("KR31.13 — набуття риси на підвищенні рівн
     expect({ result, character: await readFeatOutcome(persId) }).toMatchSnapshot();
   });
 });
+
+// Лист лишає рядок NONE, коли гравець вимикає володіння; надання риси мусить його перекрити.
+describe("рядок навички NONE не блокує надане володіння", () => {
+  it("SKILLED 2024 на підвищенні рівня робить вимкнену на листі навичку володінням", async () => {
+    const featCase = CASES.find((entry) => entry.ruleset === "RULES_2024" && entry.feat === "SKILLED")!;
+    const { persId, classId } = await createFighterAtLevelThree("RULES_2024");
+    await addSkillRow(persId, "ARCANA", "NONE");
+    const { featId, featChoiceSelections } = await findFeatSelections(featCase);
+
+    const result = await levelUpCharacter(persId, minimalLevelUpForm({ classId, featId, featChoiceSelections }));
+
+    expect(result).toMatchObject({ success: true });
+    expect((await readFeatOutcome(persId)).skills).toContain("ARCANA:PROFICIENT");
+  });
+
+  it("SKILL_EXPERT з листа на вимкненій навичці дає експертизу, а зняття риси не лишає володіння", async () => {
+    const featCase = CASES.find((entry) => entry.ruleset === "RULES_2014" && entry.feat === "SKILL_EXPERT")!;
+    const { persId } = await createFighterAtLevelThree("RULES_2014");
+    await addSkillRow(persId, "STEALTH", "NONE");
+    const { featId, featChoiceSelections } = await findFeatSelections(featCase);
+
+    expect(await acquirePersFeat(persId, { featId, choiceOptionIds: Object.values(featChoiceSelections).flat(), featSpellIds: [] })).toEqual({ success: true });
+    expect((await readFeatOutcome(persId)).skills).toContain("STEALTH:EXPERTISE");
+
+    expect(await removePersFeatWithGrants(persId, featId)).toEqual({ success: true });
+    expect((await readFeatOutcome(persId)).skills.filter((skill) => skill.startsWith("STEALTH:"))).toEqual([]);
+  });
+});
+
+async function addSkillRow(persId: number, name: Skills, proficiencyType: "NONE" | "PROFICIENT") {
+  await prisma.persSkill.create({ data: { persId, name, skillId: Object.values(Skills).indexOf(name) + 1, proficiencyType } });
+}
 
 async function createFighterAtLevelThree(ruleset: Ruleset) {
   const setup = FIGHTER[ruleset];

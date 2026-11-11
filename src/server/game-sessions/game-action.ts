@@ -1,4 +1,5 @@
 import { AREA_LIMITS } from "@/rules/game-areas";
+import { DRAWING_LIMITS } from "@/rules/game-drawings";
 import { MAP_CREATURE_LIMITS } from "@/rules/game-map-creatures";
 import { GAME_SCENE_LIMITS } from "@/rules/game-scenes";
 import { findCurrentUserId } from "@/server/db/current-user";
@@ -42,6 +43,8 @@ export const FAILURE_MESSAGES: Record<GameSessionFailure | "signed_out" | "too_f
   bad_area: "Не вдалося показати область",
   area_limit: `На сцені вже ${AREA_LIMITS.perScene} областей — приберіть зайві`,
   area_gone: "Цю область уже прибрали",
+  bad_drawing: "Не вдалося зберегти малюнок",
+  drawing_limit: `На сцені вже ${DRAWING_LIMITS.perScene} ліній — зітріть зайві`,
   token_image_gone: "Цього зображення вже немає в бібліотеці",
 };
 

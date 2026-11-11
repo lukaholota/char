@@ -26,6 +26,8 @@ const row = (overrides: Partial<MapCreatureRow>): MapCreatureRow => ({
   customImageKey: null,
   tokenX: null,
   tokenY: null,
+  tokenRotation: 0,
+  tokenScalePercent: 100,
   hpMax: null,
   hpCurrent: null,
   conditions: [],

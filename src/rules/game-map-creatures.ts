@@ -2,6 +2,7 @@ import { buildMediaImageUrl } from "@/lib/media-url";
 import { findCreatureHitPoints, isCreatureDown, type CreatureHitPoints } from "@/rules/creature-hit-points";
 import type { TokenPosition } from "@/rules/game-map";
 import { normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
+import { readTokenTransform, type TokenTransform } from "@/rules/token-transform";
 
 export const MAP_CREATURE_LIMITS = { perScene: 40, perAdd: 10, keyLength: 120, customNameLength: 40, imagesPerUser: 60 } as const;
 export const MAP_CREATURE_RULESETS = ["RULES_2014", "RULES_2024"] as const;
@@ -38,6 +39,8 @@ export type MapCreatureRow = {
   customImageKey: string | null;
   tokenX: number | null;
   tokenY: number | null;
+  tokenRotation: number;
+  tokenScalePercent: number;
   hpMax: number | null;
   hpCurrent: number | null;
   conditions: string[];
@@ -63,6 +66,7 @@ export type MapCreatureView = {
   tokenSize: CreatureTokenSize;
   isCutout: boolean;
   token: TokenPosition | null;
+  tokenTransform: TokenTransform;
   hitPoints: CreatureHitPoints | null;
   isDown: boolean;
   conditions: TokenConditions;
@@ -148,6 +152,7 @@ export function buildMapCreatureViews(
         tokenSize: parseCreatureTokenSize(row.tokenSize) ?? findStatblockTokenSize(entry?.size),
         isCutout: row.isCutout,
         token: row.tokenX !== null && row.tokenY !== null ? { x: row.tokenX, y: row.tokenY } : null,
+        tokenTransform: readTokenTransform(row),
         hitPoints: isGm ? hitPoints : null,
         isDown: isCreatureDown(hitPoints),
         conditions: normalizeTokenConditions(row),

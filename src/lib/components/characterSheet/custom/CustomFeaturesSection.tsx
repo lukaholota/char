@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Minus, Pencil, Plus } from "lucide-react";
 import { toast } from "sonner";
 import type { PersCustomFeature } from "@prisma/client";
@@ -104,11 +104,13 @@ function CustomFeatureUses({ pers, feature, usesMax, usesRemaining, isReadOnly, 
   const { commitOperation } = useOfflineQueue();
   const showUses = (next: number) => onPersUpdate?.({ ...pers, persCustomFeatures: (pers.persCustomFeatures ?? []).map((row) => (row.id === feature.id ? { ...row, usesRemaining: next } : row)) });
 
-  const step = async (direction: "spend" | "restore") => {
-    showUses(usesRemaining + (direction === "spend" ? -1 : 1));
+  const changeUses = async (next: number) => {
+    const direction = next < usesRemaining ? "spend" : "restore";
+    const amount = Math.abs(next - usesRemaining);
+    showUses(next);
     const outcome = await commitOperation(
-      { kind: "custom-feature-use", customFeatureId: feature.id, direction, operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },
-      (operationId) => stepCustomFeatureUseAction(pers.persId, feature.id, direction, operationId),
+      { kind: "custom-feature-use", customFeatureId: feature.id, direction, amount, operationId: createOperationId(), persId: pers.persId, createdAt: new Date().toISOString() },
+      (operationId) => stepCustomFeatureUseAction(pers.persId, feature.id, direction, operationId, amount),
     ).catch(() => null);
     if (outcome?.queued || outcome?.result.success) return;
     showUses(usesRemaining);
@@ -118,10 +120,45 @@ function CustomFeatureUses({ pers, feature, usesMax, usesRemaining, isReadOnly, 
   const restLabel = feature.restoredOn ? REST_LABELS[feature.restoredOn] : "вручну";
   return (
     <div className="flex items-center gap-1">
-      {isReadOnly ? null : <Button variant="ghost" size="icon" className="h-11 w-11" aria-label={`Витратити: ${feature.name}`} disabled={usesRemaining === 0} onClick={() => step("spend")}><Minus className="h-4 w-4" aria-hidden /></Button>}
-      <span className="min-w-10 text-center text-sm font-semibold tabular-nums text-violet-200">{usesRemaining}/{usesMax}</span>
-      {isReadOnly ? null : <Button variant="ghost" size="icon" className="h-11 w-11" aria-label={`Повернути: ${feature.name}`} disabled={usesRemaining === usesMax} onClick={() => step("restore")}><Plus className="h-4 w-4" aria-hidden /></Button>}
+      {isReadOnly ? null : <Button variant="ghost" size="icon" className="h-11 w-11" aria-label={`Витратити: ${feature.name}`} disabled={usesRemaining === 0} onClick={() => changeUses(usesRemaining - 1)}><Minus className="h-4 w-4" aria-hidden /></Button>}
+      <span className="flex items-center text-sm font-semibold tabular-nums text-violet-200">
+        {isReadOnly ? usesRemaining : <UsesInput label={`${feature.name}: залишилось з ${usesMax}`} value={usesRemaining} max={usesMax} onCommit={changeUses} />}
+        <span aria-hidden={!isReadOnly}>/{usesMax}</span>
+      </span>
+      {isReadOnly ? null : <Button variant="ghost" size="icon" className="h-11 w-11" aria-label={`Повернути: ${feature.name}`} disabled={usesRemaining === usesMax} onClick={() => changeUses(usesRemaining + 1)}><Plus className="h-4 w-4" aria-hidden /></Button>}
       <span className="text-xs text-slate-400">{restLabel}</span>
     </div>
+  );
+}
+
+/// Дотик виділяє число, тож нове значення можна просто набрати; Escape повертає старе.
+function UsesInput({ label, value, max, onCommit }: { label: string; value: number; max: number; onCommit: (next: number) => void }) {
+  const [draft, setDraft] = useState<string | null>(null);
+  const isCancelled = useRef(false);
+  const commit = () => {
+    const typed = draft === null || draft === "" || isCancelled.current ? null : Math.min(max, Number(draft));
+    isCancelled.current = false;
+    setDraft(null);
+    if (typed !== null && typed !== value) onCommit(typed);
+  };
+  return (
+    <input
+      type="text"
+      inputMode="numeric"
+      enterKeyHint="done"
+      aria-label={label}
+      value={draft ?? String(value)}
+      onFocus={(event) => {
+        setDraft(String(value));
+        event.currentTarget.select();
+      }}
+      onChange={(event) => setDraft(event.target.value.replace(/\D/g, "").slice(0, String(max).length))}
+      onBlur={commit}
+      onKeyDown={(event) => {
+        if (event.key === "Escape") isCancelled.current = true;
+        if (event.key === "Enter" || event.key === "Escape") event.currentTarget.blur();
+      }}
+      className="h-11 w-12 rounded-md border border-white/10 bg-black/20 text-center text-base font-semibold tabular-nums text-violet-200 focus:border-violet-300/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300/60"
+    />
   );
 }
