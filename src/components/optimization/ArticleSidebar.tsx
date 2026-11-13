@@ -118,6 +118,7 @@ function ArticleLink({ href, slug, title, isCurrent, ruleset, onNavigate, surfac
   const accent = findEditionAccent(ruleset === "RULES_2024" ? "2024" : "2014").solid;
   return (
     <Link
+      prefetch={false}
       href={href}
       onClick={onNavigate}
       {...buildRpgbotCtaProps("sidebar_article", surface, slug)}

@@ -37,5 +37,5 @@ export function LinkCard({ card, accentClassName, className, rating }: LinkCardP
   );
   const classes = cn(CARD_CLASSES, className);
   if (card.isExternal) return <a href={card.href} className={classes} target="_blank" rel="noreferrer" data-link-card>{body}</a>;
-  return <ModeLink href={card.href} className={classes} data-link-card>{body}</ModeLink>;
+  return <ModeLink prefetch={false} href={card.href} className={classes} data-link-card>{body}</ModeLink>;
 }

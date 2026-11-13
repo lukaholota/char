@@ -71,6 +71,7 @@ function ArticleCard({ summary }: { summary: DraftSummary }) {
   return (
     <li>
       <Link
+        prefetch={false}
         href={buildDraftArticleHref(summary.ruleset, summary.slug)}
         {...buildRpgbotCtaProps("article_card", "article_index", summary.slug)}
         className="glass-card block h-full rounded-2xl border border-white/10 bg-slate-950/60 p-5 shadow-xl transition-colors hover:border-white/25"

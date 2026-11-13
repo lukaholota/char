@@ -115,6 +115,8 @@ COPY --chown=node:node --from=builder /app/.next/standalone ./
 COPY --chown=node:node --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/prisma ./prisma
+# Без цього Docker створює .next/cache від root під час монтування cache/images, і unstable_cache не пише на диск.
+RUN mkdir -p .next/cache && chown node:node .next/cache
 
 USER node
 EXPOSE 3000
