@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
+  countFeatMasterySlots,
   findWeaponMasteryCapacity,
+  findWeaponMasteryOffer,
   findWeaponMasteryOptions,
   findWeaponMasteryOptionsForClasses,
   hasWeaponMastery,
@@ -164,5 +166,19 @@ describe("KR18.6 — три форми запису володіння збро�
 
   it("порожнє значення не дає володіння нічим", () => {
     expect(readWeaponProficiencyGrant(null, undefined)).toEqual({ weaponTypes: [], specificWeaponNames: [] });
+  });
+});
+
+describe("слот майстерності від риси Weapon Master", () => {
+  it("слот дає лише риса 2024: однойменна риса 2014 дає володіння зброєю, а не майстерність", () => {
+    expect(countFeatMasterySlots([{ name: "WEAPON_MASTER", ruleset: "RULES_2024" }])).toBe(1);
+    expect(countFeatMasterySlots([{ name: "WEAPON_MASTER", ruleset: "RULES_2014" }])).toBe(0);
+    expect(countFeatMasterySlots([{ name: "ALERT", ruleset: "RULES_2024" }])).toBe(0);
+  });
+
+  it("ємність не перевищує пул: комірку без зброї обрати неможливо", () => {
+    const wizardWithFeat = { classes: [], featSlots: 1, proficiency: { weaponTypes: [], specificWeaponNames: [] } };
+    expect(findWeaponMasteryOffer(wizardWithFeat, WEAPONS)).toEqual({ capacity: 0, options: [] });
+    expect(findWeaponMasteryOffer({ ...wizardWithFeat, proficiency: SIMPLE_ONLY }, WEAPONS).capacity).toBe(1);
   });
 });

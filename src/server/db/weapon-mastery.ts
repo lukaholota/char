@@ -14,8 +14,7 @@ import {
   type WeaponProficiencyGrant,
   NO_WEAPON_PROFICIENCY,
   countFeatMasterySlots,
-  findWeaponMasteryCapacity,
-  findWeaponMasteryOptionsForCharacter,
+  findWeaponMasteryOffer,
   limitWeaponMasteryChoice,
   toWeaponProficiencyGrant,
 } from "@/rules/weapon-mastery";
@@ -72,7 +71,7 @@ export async function findPersWeaponMasteryOffer(
     ],
     weapons,
     selectedWeaponIds: pers.pers_weapon_mastery.map((entry) => entry.weapon_id),
-    featSlots: countFeatMasterySlots(pers.feats.map((entry) => entry.feat.name)),
+    featSlots: countFeatMasterySlots(pers.feats.map((entry) => entry.feat)),
     proficiency: toWeaponProficiencyGrant(calculatePersProficiencies(pers)),
   });
 }
@@ -126,10 +125,9 @@ type OfferInput = {
 
 function buildOffer({ classes, weapons, selectedWeaponIds, featSlots = 0, proficiency = NO_WEAPON_PROFICIENCY }: OfferInput): WeaponMasteryOffer {
   const classOffers = toClassOffers(classes);
-  const capacity = findWeaponMasteryCapacity(classOffers, featSlots);
+  const { capacity, options } = findWeaponMasteryOffer({ classes: classOffers, featSlots, proficiency }, weapons);
   if (capacity === 0) return emptyOffer();
 
-  const options = findWeaponMasteryOptionsForCharacter({ classes: classOffers, featSlots, proficiency }, weapons);
   return { capacity, options, selectedWeaponIds };
 }
 

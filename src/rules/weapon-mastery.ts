@@ -62,8 +62,14 @@ export type MasteryCharacter = {
   proficiency: WeaponProficiencyGrant;
 };
 
-export function countFeatMasterySlots(featNames: readonly string[]): number {
-  return featNames.reduce((total, featName) => total + (MASTERY_SLOT_BY_FEAT[featName] ?? 0), 0);
+export type MasteryFeat = { name: string; ruleset: string };
+
+/** Слот дає лише риса 2024: однойменна риса 2014 дає володіння зброєю, а не майстерність. */
+export function countFeatMasterySlots(feats: readonly MasteryFeat[]): number {
+  return feats.reduce(
+    (total, feat) => total + (feat.ruleset === "RULES_2024" ? (MASTERY_SLOT_BY_FEAT[feat.name] ?? 0) : 0),
+    0,
+  );
 }
 
 /**
@@ -140,6 +146,16 @@ export function findWeaponMasteryOptionsForCharacter<Weapon extends MasteryWeapo
   }
 
   return weapons.filter((weapon) => offered.has(weapon.weaponId));
+}
+
+/** Комірка без зброї в пулі не рахується: вибір із порожнього списку пройти неможливо. */
+export function findWeaponMasteryOffer<Weapon extends MasteryWeapon>(
+  character: MasteryCharacter,
+  weapons: readonly Weapon[],
+): { capacity: number; options: Weapon[] } {
+  const options = findWeaponMasteryOptionsForCharacter(character, weapons);
+  const capacity = findWeaponMasteryCapacity(character.classes, character.featSlots);
+  return { capacity: Math.min(capacity, options.length), options };
 }
 
 function findFeatMasteryOptions<Weapon extends MasteryWeapon>(weapons: readonly Weapon[], proficiency: WeaponProficiencyGrant): Weapon[] {

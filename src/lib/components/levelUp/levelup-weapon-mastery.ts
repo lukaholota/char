@@ -7,11 +7,11 @@
 
 import {
   type MasteryClassOffer,
+  type MasteryFeat,
   type MasteryWeapon,
   type WeaponProficiencyGrant,
   countFeatMasterySlots,
-  findWeaponMasteryCapacity,
-  findWeaponMasteryOptionsForCharacter,
+  findWeaponMasteryOffer,
 } from "@/rules/weapon-mastery";
 
 type ClassRow = {
@@ -26,7 +26,7 @@ type MasteryPers = {
   classId: number;
   class: ClassRow;
   multiclasses?: Array<{ classId: number; classLevel: number; class: ClassRow }> | null;
-  feats?: Array<{ feat?: { name?: string | null } | null }> | null;
+  feats?: Array<{ feat?: { name?: string | null; ruleset?: string | null } | null }> | null;
   pers_weapon_mastery?: Array<{ weapon_id: number }> | null;
 };
 
@@ -51,21 +51,21 @@ export function findLevelUpWeaponMastery<Weapon extends MasteryWeapon>(input: {
   if (!pers) return { capacity: 0, options: [], currentWeaponIds: [], needsChoice: false };
 
   const classes = collectClassOffers({ pers, selectedClass, selectedClassId, classLevelAfter, mainClassLevel });
-  const featSlots = countFeatMasterySlots(readFeatNames(pers));
-  const capacity = findWeaponMasteryCapacity(classes, featSlots);
+  const featSlots = countFeatMasterySlots(readFeats(pers));
+  const { capacity, options } = findWeaponMasteryOffer({ classes, featSlots, proficiency }, weapons);
   const currentWeaponIds = (pers.pers_weapon_mastery ?? []).map((entry) => entry.weapon_id);
 
   return {
     capacity,
-    options: findWeaponMasteryOptionsForCharacter({ classes, featSlots, proficiency }, weapons),
+    options,
     currentWeaponIds,
     needsChoice: capacity > currentWeaponIds.length,
   };
 }
 
 /** Риса могла й не долетіти до цього виклику — крок працює й без списку рис. */
-function readFeatNames(pers: MasteryPers): string[] {
-  return (pers.feats ?? []).map((entry) => entry.feat?.name ?? "").filter(Boolean);
+function readFeats(pers: MasteryPers): MasteryFeat[] {
+  return (pers.feats ?? []).flatMap(({ feat }) => (feat?.name && feat.ruleset ? [{ name: feat.name, ruleset: feat.ruleset }] : []));
 }
 
 function collectClassOffers(input: {

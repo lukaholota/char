@@ -22,6 +22,14 @@ const weapons = [
   { weaponId: 11, name: "HANDAXE", mastery: "VEX", weaponType: "SIMPLE_WEAPON", isRanged: false },
 ];
 
+// Ємність обрізається пулом, тож тестам про 3–5 комірок потрібен пул, не менший за них.
+const armoury = [
+  ...weapons,
+  { weaponId: 12, name: "LONGSWORD", mastery: "SAP", weaponType: "MARTIAL_WEAPON", isRanged: false },
+  { weaponId: 13, name: "MAUL", mastery: "TOPPLE", weaponType: "MARTIAL_WEAPON", isRanged: false },
+  { weaponId: 14, name: "RAPIER", mastery: "VEX", weaponType: "MARTIAL_WEAPON", isRanged: false },
+];
+
 describe("майстерність зброї на підвищенні рівня", () => {
   it("рахує ємність за новим рівнем обраного класу, а не за поточним", () => {
     const mastery = findLevelUpWeaponMastery({
@@ -30,7 +38,7 @@ describe("майстерність зброї на підвищенні рівн
       selectedClassId: 1,
       classLevelAfter: 4,
       mainClassLevel: 3,
-      weapons,
+      weapons: armoury,
       proficiency: NO_WEAPON_PROFICIENCY,
     });
 
@@ -51,7 +59,7 @@ describe("майстерність зброї на підвищенні рівн
       selectedClassId: 2,
       classLevelAfter: 2,
       mainClassLevel: 3,
-      weapons,
+      weapons: armoury,
       proficiency: NO_WEAPON_PROFICIENCY,
     });
 
@@ -66,19 +74,19 @@ describe("майстерність зброї на підвищенні рівн
       selectedClassId: 1,
       classLevelAfter: 1,
       mainClassLevel: 3,
-      weapons,
+      weapons: armoury,
       proficiency: NO_WEAPON_PROFICIENCY,
     });
 
     expect(mastery.capacity).toBe(3);
-    expect(mastery.options.map((weapon) => weapon.weaponId)).toEqual([10, 11]);
+    expect(mastery.options.map((weapon) => weapon.weaponId)).toEqual([10, 11, 12, 13, 14]);
     expect(mastery.needsChoice).toBe(true);
   });
 });
 
 // KR31.4 — «Weapon Master» дає окремий слот поверх класової прогресії.
 describe("слот майстерності від риси", () => {
-  const weaponMaster = { feat: { name: "WEAPON_MASTER" } };
+  const weaponMaster = { feat: { name: "WEAPON_MASTER", ruleset: "RULES_2024" } };
 
   it("риса додає слот воїну поверх класової ємності", () => {
     const withoutFeat = findLevelUpWeaponMastery({
@@ -87,7 +95,7 @@ describe("слот майстерності від риси", () => {
       selectedClassId: 1,
       classLevelAfter: 4,
       mainClassLevel: 3,
-      weapons,
+      weapons: armoury,
       proficiency: NO_WEAPON_PROFICIENCY,
     });
     const withFeat = findLevelUpWeaponMastery({
@@ -96,7 +104,7 @@ describe("слот майстерності від риси", () => {
       selectedClassId: 1,
       classLevelAfter: 4,
       mainClassLevel: 3,
-      weapons,
+      weapons: armoury,
       proficiency: NO_WEAPON_PROFICIENCY,
     });
 
@@ -134,6 +142,36 @@ describe("слот майстерності від риси", () => {
     });
 
     expect(mastery.options.map((weapon) => weapon.name)).toEqual(["GREATSWORD", "HANDAXE"]);
+  });
+
+  // Репорт #22 (2026-11-14): Винахідник 2014 з рисою «Майстер зброї» 2014 застряг на кроці з порожнім списком.
+  it("однойменна риса 2014 слота не дає, і кроку майстерності немає", () => {
+    const artificer2014 = { classId: 13, name: "ARTIFICER_2014", weapon_mastery_progression: [], weaponProficiencies: ["SIMPLE_WEAPON"] };
+    const mastery = findLevelUpWeaponMastery({
+      pers: { classId: 13, class: artificer2014, multiclasses: [], feats: [{ feat: { name: "WEAPON_MASTER", ruleset: "RULES_2014" } }], pers_weapon_mastery: [] },
+      selectedClass: artificer2014,
+      selectedClassId: 13,
+      classLevelAfter: 5,
+      mainClassLevel: 4,
+      weapons: [],
+      proficiency: simpleWeaponsOnly,
+    });
+
+    expect(mastery).toMatchObject({ capacity: 0, options: [], needsChoice: false });
+  });
+
+  it("комірка без зброї в пулі вибору не вимагає", () => {
+    const mastery = findLevelUpWeaponMastery({
+      pers: { classId: 2, class: wizard, multiclasses: [], feats: [weaponMaster], pers_weapon_mastery: [] },
+      selectedClass: wizard,
+      selectedClassId: 2,
+      classLevelAfter: 4,
+      mainClassLevel: 3,
+      weapons,
+      proficiency: NO_WEAPON_PROFICIENCY,
+    });
+
+    expect(mastery).toMatchObject({ capacity: 0, options: [], needsChoice: false });
   });
 
   it("без риси володіння чарівника пулу не відкривають", () => {
