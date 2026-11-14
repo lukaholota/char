@@ -6,11 +6,12 @@ import { Button } from "@/components/ui/button";
 import type { AreaSpellList } from "@/lib/actions/game-area-spells";
 import { loadAreaSpells } from "@/lib/components/game/area-cast";
 import { cn } from "@/lib/utils";
-import { AREA_LIMITS, AREA_SHAPES, AREA_SHAPE_LABELS, snapAreaAngle, type AreaPlacement, type AreaShape } from "@/rules/game-areas";
-import { FEET_PER_CELL } from "@/rules/game-grid";
+import { AREA_LIMITS, AREA_SHAPES, AREA_SHAPE_LABELS, findAreaTip, snapAreaAngle, type AreaPlacement, type AreaShape } from "@/rules/game-areas";
+import { FEET_PER_CELL, type MapFrame } from "@/rules/game-grid";
+import { MapHandle, MapLabel } from "./MapOverlay";
 import { Stepper, ToolPanel } from "./MapToolbar";
 import type { PlacedToken } from "./MapTokenSlot";
-import type { AreaDraft } from "./use-map-tools";
+import type { AreaDraft, useAreaTool } from "./use-map-tools";
 
 export type AreaStart = Pick<AreaPlacement, "shape" | "sizeFeet" | "label">;
 
@@ -204,5 +205,24 @@ function SpellPicker({ sessionId, onPick }: { sessionId: number; onPick: (start:
         </ul>
       )}
     </div>
+  );
+}
+
+type AreaTool = ReturnType<typeof useAreaTool>;
+
+export function AreaControls({ draft, frame, area }: { draft: NonNullable<AreaTool["draft"]>; frame: MapFrame; area: AreaTool }) {
+  const { placement } = draft;
+  return (
+    <>
+      <MapLabel at={placement.origin} className={draft.id === null ? "text-arcane-100" : "text-amber-100"}>
+        {placement.label ?? AREA_SHAPE_LABELS[placement.shape]} · {placement.sizeFeet} фт
+      </MapLabel>
+      {draft.canEdit ? (
+        <>
+          <MapHandle at={placement.origin} label="Перемістити область" onMove={area.moveOrigin} onEnd={area.commit} />
+          {placement.shape !== "circle" ? <MapHandle at={findAreaTip(placement, frame)} label="Напрямок області" variant="aim" onMove={area.aim} onEnd={area.commit} /> : null}
+        </>
+      ) : null}
+    </>
   );
 }

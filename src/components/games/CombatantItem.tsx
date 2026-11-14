@@ -1,7 +1,6 @@
 "use client";
 
 import { useContext, useState } from "react";
-import Image from "next/image";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { buildFullSizeMediaUrl, isMediaImageUrl } from "@/lib/media-url";
 import { PRIVATE_ELEMENT_CLASS } from "@/lib/monitoring/session-replay";
@@ -85,7 +84,7 @@ function CreatureArt({ creature }: { creature: MapCreatureView }) {
 /// Картка вища за мініатюру в 96 px, тож для портрета з медіа беремо повний розмір.
 function HeroArt({ avatarUrl, name }: { avatarUrl: string | null; name: string }) {
   if (!isMediaImageUrl(avatarUrl)) return <GameAvatar src={avatarUrl} name={name} className="h-full w-full rounded-none text-xl" />;
-  return <Image src={buildFullSizeMediaUrl(avatarUrl)} alt="" fill sizes="128px" draggable={false} className={cn("object-cover object-top", PRIVATE_ELEMENT_CLASS)} />;
+  return <ContentImage src={buildFullSizeMediaUrl(avatarUrl)} alt="" provenance="manual" fill sizes="128px" draggable={false} className={cn("object-cover object-top", PRIVATE_ELEMENT_CLASS)} />;
 }
 
 type InitiativeEditorProps = { initiative: number; label: string; onCommit: (value: number) => void; onCancel: () => void };

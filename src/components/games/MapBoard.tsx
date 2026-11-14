@@ -1,12 +1,12 @@
 "use client";
 
-import { useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { castOnArea, dropAreaCast, placeAreaCast, registerReadyMapBoard, useAreaCastStore } from "@/lib/components/game/area-cast";
 import { describeTargetSave, findPressedTargetSave } from "@/lib/components/dice/roll-contexts";
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { cn } from "@/lib/utils";
-import { AREA_SHAPE_LABELS, findAreaTip, isPointInArea, isTokenInArea, type AreaPlacement } from "@/rules/game-areas";
+import { isPointInArea, isTokenInArea, type AreaPlacement } from "@/rules/game-areas";
 import { applyFogChange, isPointHidden, type FogStroke, type SceneFog } from "@/rules/game-fog";
 import { findFreeCellNear, measureGridFeet, snapToHalfCell, type MapFrame } from "@/rules/game-grid";
 import { isTokenSeen } from "@/rules/game-lighting";
@@ -14,12 +14,12 @@ import { findMapShareInRect, findTokenPositionInRect, type TokenPosition } from 
 import type { TokenNameMode } from "@/rules/game-map-creatures";
 import { collectClosedLines } from "@/rules/game-walls";
 import type { GameSessionView } from "@/server/db/game-sessions";
-import { AreaPanel, type AreaStart } from "./AreaToolPanel";
+import { AreaControls, AreaPanel, type AreaStart } from "./AreaToolPanel";
 import { useHeroTokens, type TokenMoves } from "./HeroTokens";
 import { HeroTokenTray } from "./HeroTokenTray";
 import { OpenCreatureCardContext, useMapCreatureTokens } from "./MapCreatureTokens";
 import { MapTargetingPanel, MapTargetPicks, MapTaskHint } from "./MapTargeting";
-import { MapAreasLayer, MapFogLayer, MapGridLayer, MapHandle, MapLabel, MapMeasureLayer, type AreaLook } from "./MapOverlay";
+import { MapAreasLayer, MapFogLayer, MapGridLayer, MapLabel, MapMeasureLayer, type AreaLook } from "./MapOverlay";
 import type { TokenLayout } from "./MapTokenSlot";
 import { FoldSection, MapToolRow, MapZoomControls } from "./MapToolbar";
 import { FogPanel, GridPanel, RulerPanel, ViewPanel } from "./MapToolPanels";
@@ -30,7 +30,7 @@ import { LightPanel, MapLightMarkers, MapSight, TokenLightRows } from "./MapLigh
 import { MapObjectsLayer, ObjectsPanel } from "./MapObjects";
 import { MapPings, pingMap } from "./MapPings";
 import { MapDoorButtons, MapWallsLayer, WallsPanel } from "./MapWalls";
-import { ToolPanelSlotContext, useRoomTabStore } from "./room-tabs";
+import { useToolPanelSlot } from "./room-tabs";
 import { useSharedBoard } from "./shared-board";
 import { useMapHistory } from "./map-history";
 import { useElementWidth } from "./use-element-width";
@@ -394,39 +394,5 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
       {heroes.overlay}
       {creatures.overlay}
     </div>
-  );
-}
-
-/// Слот у бічній колонці є лише на компʼютері з розгорнутою колонкою і не на весь екран. Показ будь-якої бічної вкладки прибирає панель, що її закривала.
-function useToolPanelSlot(isFullscreen: boolean | undefined, closeTool: () => void): HTMLElement | null {
-  const slot = useContext(ToolPanelSlotContext);
-  const panelSlot = isFullscreen ? null : slot;
-  const sideShownCount = useRoomTabStore((state) => state.sideShownCount);
-  const seenCount = useRef(sideShownCount);
-  useEffect(() => {
-    if (seenCount.current === sideShownCount) return;
-    seenCount.current = sideShownCount;
-    if (panelSlot) closeTool();
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- закриває лише новий показ вкладки
-  }, [sideShownCount]);
-  return panelSlot;
-}
-
-type AreaTool = ReturnType<typeof useAreaTool>;
-
-function AreaControls({ draft, frame, area }: { draft: NonNullable<AreaTool["draft"]>; frame: MapFrame; area: AreaTool }) {
-  const { placement } = draft;
-  return (
-    <>
-      <MapLabel at={placement.origin} className={draft.id === null ? "text-arcane-100" : "text-amber-100"}>
-        {placement.label ?? AREA_SHAPE_LABELS[placement.shape]} · {placement.sizeFeet} фт
-      </MapLabel>
-      {draft.canEdit ? (
-        <>
-          <MapHandle at={placement.origin} label="Перемістити область" onMove={area.moveOrigin} onEnd={area.commit} />
-          {placement.shape !== "circle" ? <MapHandle at={findAreaTip(placement, frame)} label="Напрямок області" variant="aim" onMove={area.aim} onEnd={area.commit} /> : null}
-        </>
-      ) : null}
-    </>
   );
 }

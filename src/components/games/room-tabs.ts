@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext } from "react";
+import { createContext, useContext, useEffect, useRef } from "react";
 import { create } from "zustand";
 
 export type RoomTab = "map" | "hero" | "journal" | "room";
@@ -38,3 +38,18 @@ export function findWideSideTab(sideTab: RoomSideTab, hasHeroTab: boolean): Excl
 
 /// На компʼютері панель інструмента мапи відкривається в бічній колонці, поверх аркуша героя, а не забирає місце в мапи.
 export const ToolPanelSlotContext = createContext<HTMLElement | null>(null);
+
+/// Слот у бічній колонці є лише на компʼютері з розгорнутою колонкою і не на весь екран. Показ будь-якої бічної вкладки прибирає панель, що її закривала.
+export function useToolPanelSlot(isFullscreen: boolean | undefined, closeTool: () => void): HTMLElement | null {
+  const slot = useContext(ToolPanelSlotContext);
+  const panelSlot = isFullscreen ? null : slot;
+  const sideShownCount = useRoomTabStore((state) => state.sideShownCount);
+  const seenCount = useRef(sideShownCount);
+  useEffect(() => {
+    if (seenCount.current === sideShownCount) return;
+    seenCount.current = sideShownCount;
+    if (panelSlot) closeTool();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- закриває лише новий показ вкладки
+  }, [sideShownCount]);
+  return panelSlot;
+}
