@@ -37,11 +37,10 @@ describe("текст репорту для Telegram", () => {
     expect(text).toContain("iPhone");
   });
 
-  it("анонімний репорт без адреси сторінки показує шлях", () => {
-    const text = buildProblemReportTelegramText(buildRecord({ userId: null, pageUrl: null }));
+  it("репорт без адреси сторінки показує шлях", () => {
+    const text = buildProblemReportTelegramText(buildRecord({ pageUrl: null }));
 
-    expect(text).toContain("/char/7");
-    expect(text).toContain("анонім");
+    expect(text).toContain("Сторінка: /char/7");
   });
 
   it("не перевищує ліміту Telegram у 4096 символів", () => {

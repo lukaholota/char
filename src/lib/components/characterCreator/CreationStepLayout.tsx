@@ -25,11 +25,12 @@ type Props = {
   nextStepHint: string | null;
   isSubmitting: boolean;
   onPrev: () => void;
+  onNextBlocked?: (stepId: string | undefined, hint: string) => void;
   children: ReactNode;
   after?: ReactNode;
 };
 
-export function CreationStepLayout({ header, ruleLink, steps, currentStep, progress, isStepDone, canJumpTo, onJump, onHintChange, activeFormId, isNextBlocked, nextStepHint, isSubmitting, onPrev, children, after }: Props) {
+export function CreationStepLayout({ header, ruleLink, steps, currentStep, progress, isStepDone, canJumpTo, onJump, onHintChange, activeFormId, isNextBlocked, nextStepHint, isSubmitting, onPrev, onNextBlocked, children, after }: Props) {
   return (
     <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-3 py-4 pb-[calc(11rem+env(safe-area-inset-bottom))] sm:px-4 md:gap-6 md:px-0 md:py-6">
       {header}
@@ -123,6 +124,7 @@ export function CreationStepLayout({ header, ruleLink, steps, currentStep, progr
         nextStepHint={nextStepHint}
         isSubmitting={isSubmitting}
         onPrev={onPrev}
+        onNextBlocked={(hint) => onNextBlocked?.(steps[currentStep - 1]?.id, hint)}
       />
 
       {after}

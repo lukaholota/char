@@ -16,10 +16,12 @@ interface Props {
   isSubmitting: boolean;
   onPrev: () => void;
   onNext: () => void;
+  onNextBlocked: (hint: string) => void;
 }
 
-export function LevelUpFooter({ stepIndex, stepCount, stepTitle, isNextBlocked, nextStepHint, isSubmitting, onPrev, onNext }: Props) {
+export function LevelUpFooter({ stepIndex, stepCount, stepTitle, isNextBlocked, nextStepHint, isSubmitting, onPrev, onNext, onNextBlocked }: Props) {
   const isLastStep = stepIndex === stepCount - 1;
+  const blockedHint = nextStepHint ?? buildFallbackNextStepHint(stepTitle);
 
   return (
     <div data-hides-room-dock className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
@@ -47,7 +49,8 @@ export function LevelUpFooter({ stepIndex, stepCount, stepTitle, isNextBlocked, 
             stepKey={stepIndex}
             isBlocked={isNextBlocked}
             isBusy={isSubmitting}
-            blockedHint={nextStepHint ?? buildFallbackNextStepHint(stepTitle)}
+            blockedHint={blockedHint}
+            onBlockedClick={() => onNextBlocked(blockedHint)}
           >
             {isLastStep ? (
               <>

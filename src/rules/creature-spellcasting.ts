@@ -59,7 +59,7 @@ function planCreatureSpell(spell: CatalogSpell, ruleset: "RULES_2014" | "RULES_2
   return planSpellFromDescription(spell.description ?? "", spellcastingModifier);
 }
 
-/// Таблиця кубиків закінчується 3-м рівнем, а монстри чаклують і вище: решту читаємо з опису.
+/// Заклинання, якого немає в таблиці кубиків, читаємо з опису.
 export function planSpellFromDescription(html: string, spellcastingModifier = 0): SpellRollPlan | null {
   const text = html.replace(/<[^>]+>/g, " ");
   const rolls = findSentenceRolls(text, spellcastingModifier);

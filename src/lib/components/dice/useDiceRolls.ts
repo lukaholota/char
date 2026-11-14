@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useDiceUIStore, type DiceRollAction, type DiceRollContext } from "@/lib/stores/diceUIStore";
-import { countD20Dice, type D20Mode } from "@/rules/dice-roll";
+import type { D20Mode } from "@/rules/dice-roll";
 import { diceService } from "./diceService";
 import { rollAfterHeldTrayResize } from "./dice-tray-layout";
-import { buildRollOutcome, listRollNotations, type DiceRollOutcome, type PendingRollMeta } from "./roll-contexts";
+import { buildRollOutcome, countMainDice, isFlatAction, listRollNotations, type DiceRollOutcome, type PendingRollMeta } from "./roll-contexts";
 import { buildActionGameRoll, buildFreeGameRoll, takeDiceToPublish } from "@/lib/components/game/build-game-roll";
 import { announceGameRollStart, captureGameRollTarget, publishGameRoll, publishTargetSave, settleGameRollStart, type GameRollTarget } from "@/lib/components/game/game-roll-publisher";
 
@@ -90,22 +90,33 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
         publishTargetSave(rollContextRef.current, action.targetSave);
         return;
       }
-      pendingMetaRef.current = {
+      const meta: PendingRollMeta = {
         actionKey: action.key,
         label: action.label,
         bonus: action.bonus,
         d20Mode: action.isD20 ? d20Mode : null,
-        mainDiceCount: action.isD20 ? countD20Dice(d20Mode) : action.count,
+        mainDiceCount: countMainDice(action, d20Mode),
         extraDice: action.extraDice ?? [],
       };
       const context = rollContextRef.current;
       holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget(context.isCreatureRoll ? "free" : "sheet", context.rollTarget), context, action, d20Mode } : null);
       setActiveActionKey(action.key);
+      if (isFlatAction(action)) {
+        const flatOutcome = buildRollOutcome({ ...meta, extraDice: [] }, []);
+        pendingMetaRef.current = null;
+        setPool([]);
+        diceService.clear();
+        setOutcome(flatOutcome);
+        publishCompletedRoll(pendingPublicationRef.current, flatOutcome, [], publishedDiceRef.current);
+        pendingPublicationRef.current = null;
+        return;
+      }
+      pendingMetaRef.current = meta;
       startRolling();
       const notations = listRollNotations(action, d20Mode);
       rollAfterHeldTrayResize(() => {
         if (notations.length > 1) void diceService.rollMany(notations);
-        else void diceService.roll(action.isD20 ? countD20Dice(d20Mode) : action.count, action.sides, { append: false });
+        else void diceService.roll(meta.mainDiceCount, action.sides, { append: false });
       });
     },
     [isReady, startRolling],

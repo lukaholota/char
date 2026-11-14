@@ -36,3 +36,14 @@ describe("ряткидок героя без шкоди", () => {
     expect(resolveHeroSave({ ...base, effect: charm, rolledDamage: 0, d20Pair: [19, 2] })).not.toHaveProperty("condition");
   });
 });
+
+describe("шкода двох типів", () => {
+  const iceStorm = { ability: "DEX" as const, damageType: "bludgeoning" as const, isHalfOnSave: true, secondDamageType: "cold" as const };
+  const hit = { ...base, effect: iceStorm, resistances: ["COLD"], rolledDamage: 9, secondRolledDamage: 15 };
+
+  it("опір героя діє лише на свій тип, половина — до опору", () => {
+    expect(resolveHeroSave({ ...hit, d20Pair: [2, 2] })).toMatchObject({ isSaved: false, defense: null, secondDefense: "resistant", damage: 16 });
+    expect(resolveHeroSave(hit)).toMatchObject({ isSaved: true, damage: 7 });
+    expect(resolveHeroSave(base)).not.toHaveProperty("secondDefense");
+  });
+});

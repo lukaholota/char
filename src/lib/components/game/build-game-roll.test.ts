@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildCreatureActionRollContext, buildD20Action, buildRollOutcome, buildSpellRollContext, buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
+import { buildCreatureActionRollContext, buildD20Action, buildRollOutcome, buildSpellRollContext, buildWeaponRollContext, countMainDice } from "@/lib/components/dice/roll-contexts";
 import { findGameRollProblem } from "@/rules/game-roll";
 import { ADDED_DAMAGE_KEY, buildActionGameRoll, buildFreeGameRoll, buildTargetSaveGameRoll, canRollTakeTarget, findActionRollKind, takeDiceToPublish } from "./build-game-roll";
 
@@ -162,6 +162,31 @@ describe("шкода заклинання з ряткидком", () => {
     const targets = { creatureIds: [3], persIds: [] };
     expect(rollFireball({ ...sleep, areaTargets: targets })).not.toHaveProperty("save");
     expect(rollFireball({ ...sleep, areaTargets: targets })).not.toHaveProperty("areaTargets");
+  });
+});
+
+describe("кидки заклинань 4–9 рівня", () => {
+  const rollFirst = (context: ReturnType<typeof buildSpellRollContext>, values: number[]) => {
+    const action = context.actions[0];
+    const outcome = buildRollOutcome({ actionKey: action.key, label: action.label, bonus: action.bonus, d20Mode: null, mainDiceCount: countMainDice(action, "NORMAL"), extraDice: [] }, values);
+    return buildActionGameRoll({ context, action, d20Mode: "NORMAL" }, outcome);
+  };
+
+  it("Крижаний шторм публікує дві групи кубиків — по одній на тип шкоди — і сервер їх приймає", () => {
+    const plan = { attack: false, save: "DEX" as const, rollsLater: false, pieces: null, rolls: [{ key: "spell-0", label: "Шкода", count: 2, sides: 8, bonus: 0, secondDice: { count: 4, sides: 6 } }] };
+    const iceStorm = buildSpellRollContext({ spellName: "Крижаний шторм", plan, attackBonus: 5, saveDC: 15, spell: { engName: "Ice Storm", level: 4, ruleset: "RULES_2014" } });
+    const published = rollFirst(iceStorm, [5, 4, 6, 3, 2, 4]);
+    expect(published).toMatchObject({ kind: "damage", save: { dc: 15 }, roll: { groups: [{ sides: 8, values: [5, 4] }, { sides: 6, values: [6, 3, 2, 4] }], total: 24 } });
+    expect(findGameRollProblem(published.roll)).toBeNull();
+  });
+
+  it("«Зцілення» публікує число без кубиків як лікування", () => {
+    const plan = { attack: false, save: null, rollsLater: false, pieces: null, rolls: [{ key: "spell-0", label: "Лікування", count: 0, sides: 0, bonus: 70 }] };
+    const heal = buildSpellRollContext({ spellName: "Зцілення", plan, attackBonus: 5, saveDC: 15, spell: { engName: "Heal", level: 6, ruleset: "RULES_2014" } });
+    const published = rollFirst(heal, []);
+    expect(published.roll).toMatchObject({ groups: [], bonus: 70, total: 70 });
+    expect(findGameRollProblem(published.roll)).toBeNull();
+    expect(published.kind).toBe("heal");
   });
 });
 

@@ -30,7 +30,7 @@ type GameEventProperties = {
   game_combat_turn_advanced: { step: 1 | -1 };
   game_combat_initiative_edited: Record<string, never>;
   game_combatants_added: { added_count: number };
-  game_condition_changed: { token: "creature" | "hero"; kind: "toggle" | "exhaustion" };
+  game_condition_changed: { token: "creature" | "hero"; kind: "toggle" | "exhaustion" | "spotlight" };
   game_roll_target_set: { surface: "statblock" | "hero_tray" };
   game_hero_damage_taken: Record<string, never>;
   game_damage_undone: Record<string, never>;

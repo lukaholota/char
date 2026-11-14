@@ -10,6 +10,7 @@ import type { GameRollEventView } from "@/server/db/game-roll-events";
 import { GameRollEntry, GameRollingEntry } from "./GameRollEntry";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { buildRollVerdict } from "@/lib/components/game/roll-verdict";
+import { hasRollResult } from "@/rules/game-roll";
 
 const BOTTOM_SLACK_PX = 48;
 
@@ -170,5 +171,5 @@ function LatestRollAnnouncer({ events }: { events: GameRollEventView[] }) {
 }
 
 function describeRollResult(event: GameRollEventView) {
-  return event.roll?.groups.length === 0 ? buildRollVerdict(event)?.text : event.total;
+  return event.roll && !hasRollResult(event.roll) ? buildRollVerdict(event)?.text : event.total;
 }

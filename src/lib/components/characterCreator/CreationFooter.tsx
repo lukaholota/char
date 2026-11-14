@@ -16,10 +16,12 @@ interface Props {
   nextStepHint: string | null;
   isSubmitting: boolean;
   onPrev: () => void;
+  onNextBlocked?: (hint: string) => void;
 }
 
-export function CreationFooter({ stepNumber, stepCount, stepTitle, activeFormId, isNextBlocked, nextStepHint, isSubmitting, onPrev }: Props) {
+export function CreationFooter({ stepNumber, stepCount, stepTitle, activeFormId, isNextBlocked, nextStepHint, isSubmitting, onPrev, onNextBlocked }: Props) {
   const isLastStep = stepNumber === stepCount;
+  const blockedHint = nextStepHint ?? buildFallbackNextStepHint(stepTitle);
 
   return (
     <div data-hides-room-dock className="fixed bottom-[calc(64px+env(safe-area-inset-bottom))] inset-x-0 z-[60] w-full px-2 pb-3 sm:px-3 md:sticky md:bottom-0 md:px-0">
@@ -48,7 +50,8 @@ export function CreationFooter({ stepNumber, stepCount, stepTitle, activeFormId,
             stepKey={stepNumber}
             isBlocked={isNextBlocked}
             isBusy={isSubmitting}
-            blockedHint={nextStepHint ?? buildFallbackNextStepHint(stepTitle)}
+            blockedHint={blockedHint}
+            onBlockedClick={() => onNextBlocked?.(blockedHint)}
             size="sm"
             className="h-11 bg-arcane-600/90 px-5 text-sm text-white shadow-lg shadow-arcane-900/40 hover:bg-arcane-500 sm:text-base md:h-9 md:px-3"
           >

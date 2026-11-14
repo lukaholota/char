@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
 export type ProblemReportRecord = {
-  userId: number | null;
+  userId: number;
   message: string;
   pagePath: string;
   pageUrl: string | null;

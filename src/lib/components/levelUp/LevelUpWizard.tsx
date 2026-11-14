@@ -108,6 +108,7 @@ import type { RulesetId } from "@/rules/strategies/types";
 import { findVisibleOptionalFeatures } from "@/lib/components/levelUp/levelup-optional-features";
 import { LevelUpConfirmStep } from "./LevelUpConfirmStep";
 import { LevelUpFooter } from "@/lib/components/levelUp/LevelUpFooter";
+import { captureStepBlocked } from "@/lib/monitoring/funnel-analytics";
 import { NextStepHintProvider, useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
 
 import {
@@ -1490,6 +1491,7 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
           isSubmitting={isSubmitting}
           onPrev={handlePrev}
           onNext={handleNext}
+          onNextBlocked={(hint) => captureStepBlocked("level_up", pers?.ruleset === "RULES_2024" ? "2024" : "2014", currentStepId, hint)}
         />
     </LevelUpLayout>
   );

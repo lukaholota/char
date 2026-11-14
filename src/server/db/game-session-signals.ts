@@ -1,10 +1,12 @@
 import { Client } from "pg";
+import { parseTokenPosition, type TokenPosition } from "@/rules/game-map";
 import { isGameRollVisibility, type GameRollVisibility } from "@/rules/game-roll";
 import { GAME_SESSION_SIGNAL_CHANNEL, type GameSessionSignal } from "@/server/db/game-sessions";
 
 export type GameRollStart = { rollerUserId: number; visibility: GameRollVisibility };
-export type GameSessionWake = GameSessionSignal | "resync" | GameRollStart;
-type ParsedSignal = { sessionId: number; wake: GameSessionSignal | GameRollStart };
+export type GameMapPing = { pingerUserId: number; sceneId: number; at: TokenPosition };
+export type GameSessionWake = GameSessionSignal | "resync" | GameRollStart | GameMapPing;
+type ParsedSignal = { sessionId: number; wake: GameSessionSignal | GameRollStart | GameMapPing };
 type Listener = (wake: GameSessionWake) => void;
 
 type Hub = {
@@ -82,9 +84,13 @@ function wakeEverySession(wake: GameSessionWake) {
 
 export function parseSignal(payload: string | undefined): ParsedSignal | null {
   try {
-    const parsed = JSON.parse(payload ?? "") as { s?: unknown; k?: unknown; u?: unknown; v?: unknown };
+    const parsed = JSON.parse(payload ?? "") as { s?: unknown; k?: unknown; u?: unknown; v?: unknown; c?: unknown; x?: unknown; y?: unknown };
     if (typeof parsed.s !== "number") return null;
     if (parsed.k === "rolling") return typeof parsed.u === "number" && isGameRollVisibility(parsed.v) ? { sessionId: parsed.s, wake: { rollerUserId: parsed.u, visibility: parsed.v } } : null;
+    if (parsed.k === "ping") {
+      const at = parseTokenPosition(parsed);
+      return typeof parsed.u === "number" && typeof parsed.c === "number" && at ? { sessionId: parsed.s, wake: { pingerUserId: parsed.u, sceneId: parsed.c, at } } : null;
+    }
     if (!["roll", "members", "session"].includes(parsed.k as string)) return null;
     return { sessionId: parsed.s, wake: parsed.k as GameSessionSignal };
   } catch {

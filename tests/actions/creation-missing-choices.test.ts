@@ -1,8 +1,9 @@
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { Races } from "@prisma/client";
+import { BackgroundCategory, Classes, Races } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { minimalForm } from "../helpers/build-form";
-import { raceByName } from "../helpers/seed-lookup";
+import type { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
+import { ALL_SIMPLE_ASI, minimalForm } from "../helpers/build-form";
+import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -30,5 +31,37 @@ describe("чернетка без класу й передісторії (стр
 
     expect(result).toMatchObject({ error: "Оберіть клас і передісторію.", fixAtSteps: ["class", "background"] });
     expect(await prisma.pers.count({ where: { userId: user.id } })).toBe(0);
+  });
+});
+
+describe("залишок очок із вкладки «За очками» після переходу на іншу систему", () => {
+  async function buildDraft(overrides: Partial<PersFormData>) {
+    const user = await prisma.user.create({ data: { email: `leftover-points-${Math.random()}@holota.family`, name: "points" } });
+    vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);
+    const [race, characterClass, background] = await Promise.all([
+      raceByName(Races.HUMAN_2014),
+      classByName(Classes.BARBARIAN_2014),
+      backgroundByName(BackgroundCategory.SOLDIER),
+    ]);
+
+    return minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId, ...overrides });
+  }
+
+  it("«Просто» з відʼємним залишком очок створює персонажа", async () => {
+    const draft = await buildDraft({ asiSystem: "SIMPLE", points: -3, simpleAsi: ALL_SIMPLE_ASI });
+
+    const result = await createCharacter(draft);
+
+    expect(result).toMatchObject({ success: true });
+  });
+
+  it("«За очками» з перевитратою повертає на крок характеристик українською", async () => {
+    const draft = await buildDraft({ asiSystem: "POINT_BUY", points: -1 });
+
+    const result = await createCharacter(draft);
+
+    expect(result.fixAtSteps).toEqual(["asi"]);
+    expect(result.error).toMatch(/[а-яіїє]/i);
+    expect(result.error).not.toContain("Validation failed");
   });
 });

@@ -1,7 +1,7 @@
 "use client";
 
 import { findRoomPeople } from "@/rules/game-room-heroes";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { ChevronLeft, Crown } from "lucide-react";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -10,13 +10,13 @@ import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import { cn } from "@/lib/utils";
 import type { BindablePers, GameSessionView } from "@/server/db/game-sessions";
-import { useShownCombat } from "./CombatTracker";
+import { CombatTracker, useShownCombat } from "./CombatTracker";
 import { CombatTurnProvider } from "./combat-turn";
-import { GameRoomMap } from "./GameRoomMap";
+import { GameRoomMap, SceneSwitch } from "./GameRoomMap";
 import { useUnseenSinceClosed } from "./GameSessionDock";
 import { HeroPanelContent, JournalPanelContent, RoomPanel, RoomPanelContent, RoomTabBar } from "./RoomPanels";
 import { RollTargetSwitch } from "./RoomRollTarget";
-import { findSideTab, findWideSideTab, resetRoomTabs, showRoomTab, useRoomTabStore, type RoomSideTab, type RoomTab } from "./room-tabs";
+import { findSideTab, findWideSideTab, resetRoomTabs, showRoomTab, ToolPanelSlotContext, useRoomTabStore, type RoomSideTab, type RoomTab } from "./room-tabs";
 import { useGamesHref } from "./use-games-href";
 
 type GameRoomPageProps = { initialView: GameSessionView; bindablePers: Promise<BindablePers[]>; heroSheet: ReactNode; shownHeroPersId: number | null };
@@ -27,6 +27,7 @@ export function GameRoomPage({ initialView, bindablePers, heroSheet, shownHeroPe
   const hasHeroTab = view.myRole === "PLAYER" || view.myPersId !== null || shownHeroPersId !== null;
   const shown = useShownTabs(hasHeroTab);
   const unseen = useUnseenSinceClosed(shown.isJournalShown);
+  const [toolPanelSlot, setToolPanelSlot] = useState<HTMLElement | null>(null);
   useViewedRoom(view.id);
   useRoomViewedEvent(view);
   useRoomTabsReset(view);
@@ -39,7 +40,9 @@ export function GameRoomPage({ initialView, bindablePers, heroSheet, shownHeroPe
       <div className={cn("min-h-0 flex-1 lg:grid lg:grid-rows-[auto_minmax(0,1fr)]", shown.isSideFolded ? "lg:grid-cols-[minmax(0,1fr)_3.75rem]" : "lg:grid-cols-[minmax(0,1fr)_26rem] min-[1700px]:grid-cols-[minmax(0,1fr)_24rem_26rem]")}>
         <RoomPanel tab="map" className={cn(shown.tab === "map" ? "flex" : "hidden", "h-full lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:flex")}>
           <CombatTurnProvider combat={combat}>
-            <GameRoomMap view={view} />
+            <ToolPanelSlotContext.Provider value={shown.isLarge && !shown.isSideFolded ? toolPanelSlot : null}>
+              <GameRoomMap view={view} />
+            </ToolPanelSlotContext.Provider>
           </CombatTurnProvider>
         </RoomPanel>
         <RoomTabBar
@@ -63,6 +66,7 @@ export function GameRoomPage({ initialView, bindablePers, heroSheet, shownHeroPe
         <RoomPanel tab="room" className={cn(SIDE_PANEL, findSideClasses("room", shown), "min-[1700px]:col-start-3")}>
           <RoomPanelContent view={view} bindablePers={bindablePers} />
         </RoomPanel>
+        <div ref={setToolPanelSlot} className="relative z-20 hidden h-full min-h-0 overflow-y-auto overscroll-contain border-l border-white/10 bg-slate-950 p-2 lg:col-start-2 lg:row-start-2 lg:[&:not(:empty)]:block min-[1700px]:col-start-3" />
       </div>
     </div>
   );
@@ -70,7 +74,7 @@ export function GameRoomPage({ initialView, bindablePers, heroSheet, shownHeroPe
 
 const SIDE_PANEL = "h-full lg:col-start-2 lg:row-start-2 lg:border-l lg:border-white/10";
 
-type ShownTabs = { tab: RoomTab; sideTab: RoomSideTab; wideSideTab: Exclude<RoomSideTab, "journal">; sideBarTab: RoomSideTab; isSideFolded: boolean; isJournalShown: boolean; isHeroShown: boolean };
+type ShownTabs = { isLarge: boolean; tab: RoomTab; sideTab: RoomSideTab; wideSideTab: Exclude<RoomSideTab, "journal">; sideBarTab: RoomSideTab; isSideFolded: boolean; isJournalShown: boolean; isHeroShown: boolean };
 
 function useShownTabs(hasHeroTab: boolean): ShownTabs {
   const { tab: storedTab, sideTab: storedSideTab, isSideFolded } = useRoomTabStore();
@@ -80,7 +84,7 @@ function useShownTabs(hasHeroTab: boolean): ShownTabs {
   const sideTab = findSideTab(storedSideTab, hasHeroTab);
   const wideSideTab = findWideSideTab(sideTab, hasHeroTab);
   const isShown = (panel: RoomSideTab) => (isLarge && isSideFolded ? false : isWide ? panel === "journal" || wideSideTab === panel : isLarge ? sideTab === panel : tab === panel);
-  return { tab, sideTab, wideSideTab, sideBarTab: isWide && !isSideFolded ? wideSideTab : sideTab, isSideFolded, isJournalShown: isShown("journal"), isHeroShown: isShown("hero") };
+  return { isLarge, tab, sideTab, wideSideTab, sideBarTab: isWide && !isSideFolded ? wideSideTab : sideTab, isSideFolded, isJournalShown: isShown("journal"), isHeroShown: isShown("hero") };
 }
 
 /// Класи пишуться повністю: Tailwind бачить лише цілі рядки в коді.
@@ -148,6 +152,10 @@ function GameRoomHeader({ view }: { view: GameSessionView }) {
           {view.myRole === "GM" ? "Ви майстер" : "Ви гравець"}
           {view.isArchived ? " · в архіві" : ""}
         </div>
+      </div>
+      <div className="hidden min-w-0 items-center gap-2 lg:flex">
+        <SceneSwitch view={view} />
+        {view.combat ? null : <CombatTracker view={view} />}
       </div>
       <RollTargetSwitch view={view} />
     </header>

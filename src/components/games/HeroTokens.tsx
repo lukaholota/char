@@ -15,8 +15,10 @@ import { isMediaImageUrl } from "@/lib/media-url";
 import { findCutoutOutlineClass, findHeroCutoutKey, useCutoutImage } from "./token-cutout";
 import { HeroConditionsDialog } from "./HeroConditionsDialog";
 import { HIGHLIGHT_RING_CLASS, MapTokenSlot, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type PlacedToken, type TokenDrag, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
-import { TURN_RING_CLASS, useIsHeroTurn } from "./combat-turn";
+import { SPOTLIGHT_RING_CLASS, useIsHeroTurn } from "./combat-turn";
 import { TokenConditionMarks } from "./TokenConditionMarks";
+import { useIsSpotlit, useSpotlightControl } from "./use-token-conditions";
+import { NO_TOKEN_CONDITIONS } from "@/rules/token-conditions";
 import { TokenName } from "./TokenName";
 import { holdValueBefore, rememberUndo } from "./map-history";
 import { showOptimistic, sendOptimistic, useOptimistic, useOptimisticReader } from "./optimistic-values";
@@ -71,6 +73,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, findDr
   const showsNames = hasTokenNames(layout);
 
   const selectedMember = heroes.find((member) => findKey(member.heroId) === selection.key && canMove(member) && moves.findPosition(member));
+  const spotlight = useSpotlightControl(view.id, view.viewedSceneId, selectedMember ? { kind: "hero", id: selectedMember.heroId } : null, selectedMember?.conditions ?? NO_TOKEN_CONDITIONS);
   const selected: SelectedToken | null = selectedMember
     ? {
         key: findKey(selectedMember.heroId),
@@ -81,6 +84,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, findDr
         onPreview: (transform) => transforms.show(selectedMember, transform),
         onChange: (transform) => void transforms.send(selectedMember, transform),
         lightTarget: { kind: "hero", member: selectedMember },
+        spotlight,
       }
     : null;
 
@@ -172,12 +176,13 @@ type TokenFaceProps = {
 function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = "short", onBoard = null, children }: TokenFaceProps) {
   const name = member.persName ?? member.name;
   const isTurn = useIsHeroTurn(member.persId);
+  const isSpotlit = useIsSpotlit({ kind: "hero", id: member.heroId }, member.conditions);
   const { lifeState } = member;
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={name}>
       <div className={cn("relative rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={{ width: size, height: size }}>
         <div className="h-full w-full" style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
-          <HeroPortrait member={member} name={name} isOnBoard={onBoard !== null} frameClass={cn(lifeState.kind === "dead" && "opacity-50 grayscale", isTurn && TURN_RING_CLASS)} borderClass={lifeState.kind === "dying" ? "border-rose-500" : isMine ? "border-arcane-300" : "border-white/70"} outlineClass={findCutoutOutlineClass(lifeState.kind === "dying" ? "dying" : isMine ? "mine" : "other", Boolean(onBoard?.isOutlined))} />
+          <HeroPortrait member={member} name={name} isOnBoard={onBoard !== null} frameClass={cn(lifeState.kind === "dead" && "opacity-50 grayscale", (isTurn || isSpotlit) && SPOTLIGHT_RING_CLASS)} borderClass={lifeState.kind === "dying" ? "border-rose-500" : isMine ? "border-arcane-300" : "border-white/70"} outlineClass={findCutoutOutlineClass(lifeState.kind === "dying" ? "dying" : isMine ? "mine" : "other", Boolean(onBoard?.isOutlined))} />
         </div>
         {lifeState.kind === "dead" ? <DownMark /> : null}
         {children}
@@ -185,6 +190,7 @@ function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = 
       <div className="flex flex-col items-center">
         {lifeState.kind === "dying" ? <DeathSaveMarks successes={lifeState.successes} failures={lifeState.failures} /> : null}
         {!children && lifeState.kind !== "up" ? <span className="sr-only">{describeHeroLifeState(lifeState)}</span> : null}
+        {isSpotlit ? <span className="sr-only">Підсвічено</span> : null}
         <TokenConditionMarks token={{ kind: "hero", id: member.heroId }} conditions={member.conditions} />
         {nameMode ? <TokenName name={name} mode={nameMode} tokenSize={onBoard?.labelWidth ?? (typeof size === "number" ? size : TOKEN_SIZE_PX)} /> : null}
       </div>

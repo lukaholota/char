@@ -6,9 +6,10 @@ import type { AbilityKey } from "./types";
 
 export type DamageType = "acid" | "bludgeoning" | "cold" | "fire" | "force" | "lightning" | "necrotic" | "piercing" | "poison" | "psychic" | "radiant" | "slashing" | "thunder";
 export type DamageDefense = "immune" | "resistant" | "vulnerable";
-export type SpellSaveDamage = { ability: AbilityKey; damageType: DamageType; isHalfOnSave: boolean };
+export type SpellSaveDamage = { ability: AbilityKey; damageType: DamageType; isHalfOnSave: boolean; secondDamageType?: DamageType };
 /// Ряткидок без шкоди має damageType null; стан накладається лише при провалі.
-export type SaveEffect = { ability: AbilityKey; damageType: DamageType | null; isHalfOnSave: boolean; condition?: RuleConditionKey };
+/// secondDamageType — друга група кубиків того самого кидка (Крижаний шторм): опори рахуються по кожному типу окремо.
+export type SaveEffect = { ability: AbilityKey; damageType: DamageType | null; isHalfOnSave: boolean; condition?: RuleConditionKey; secondDamageType?: DamageType };
 
 export type CreatureSaveStats = {
   savingThrows: string;
@@ -33,6 +34,7 @@ export type CreatureSaveResult = {
   isSaved: boolean;
   isAutoFail: boolean;
   defense: DamageDefense | null;
+  secondDefense?: DamageDefense | null;
   damage: number;
   condition?: RuleConditionKey;
   /// к4 «Благословення» тощо: value вже зі знаком.
@@ -47,13 +49,17 @@ export type CreatureSaveInput = {
   effect: SaveEffect;
   dc: number;
   rolledDamage: number;
+  secondRolledDamage?: number;
   d20Pair: readonly [number, number];
   dice?: readonly SaveDieRoll[];
 };
 
 /// Замовляння без шкоди при успіху, решта — половина. Не тут: кари й зони «пізніше» (шкода не в мить накладання),
-/// Розжарений метал і Каустичне вариво (ряткидок не від шкоди), Крижаний ніж (вибух — окремий кидок).
-const SAVE_DAMAGE: Readonly<Record<string, readonly [DamageType, "half" | "none"]>> = {
+/// Розжарений метал і Каустичне вариво (ряткидок не від шкоди), Крижаний ніж (вибух — окремий кидок),
+/// Призматичні бризки (тип залежить від променя), Слабоумство й Ментальна вʼязниця (шкода й при успіху).
+/// Третій елемент — тип другої групи кубиків.
+type SaveDamageEntry = readonly [DamageType, "half" | "none", DamageType?];
+const SAVE_DAMAGE: Readonly<Record<string, SaveDamageEntry>> = {
   "Acid Splash": ["acid", "none"],
   "Create Bonfire": ["fire", "none"],
   "Frostbite": ["cold", "none"],
@@ -96,6 +102,57 @@ const SAVE_DAMAGE: Readonly<Record<string, readonly [DamageType, "half" | "none"
   "Thunder Step": ["thunder", "half"],
   "Tidal Wave": ["bludgeoning", "half"],
   "Wind Wall": ["bludgeoning", "half"],
+  "Blight": ["necrotic", "half"],
+  "Evard's Black Tentacles": ["bludgeoning", "none"],
+  "Gravity Sinkhole": ["force", "half"],
+  "Ice Storm": ["bludgeoning", "half", "cold"],
+  "Phantasmal Killer": ["psychic", "half"],
+  "Raulothim's Psychic Lance": ["psychic", "half"],
+  "Vitriolic Sphere": ["acid", "half"],
+  "Wall of Fire": ["fire", "half"],
+  "Cloudkill": ["poison", "half"],
+  "Cone of Cold": ["cold", "half"],
+  "Contagion": ["necrotic", "none"],
+  "Dawn": ["radiant", "half"],
+  "Destructive Wave": ["thunder", "half", "radiant"],
+  "Flame Strike": ["fire", "half", "radiant"],
+  "Immolation": ["fire", "half"],
+  "Insect Plague": ["piercing", "half"],
+  "Jallarzi's Storm of Radiance": ["radiant", "half", "thunder"],
+  "Negative Energy Flood": ["necrotic", "half"],
+  "Synaptic Static": ["psychic", "half"],
+  "Wall of Light": ["radiant", "half"],
+  "Blade Barrier": ["force", "half"],
+  "Chain Lightning": ["lightning", "half"],
+  "Circle of Death": ["necrotic", "half"],
+  "Disintegrate": ["force", "none"],
+  "Gravity Fissure": ["force", "half"],
+  "Harm": ["necrotic", "half"],
+  "Otiluke's Freezing Sphere": ["cold", "half"],
+  "Sunbeam": ["radiant", "half"],
+  "Wall of Ice": ["cold", "half"],
+  "Wall of Thorns": ["piercing", "half"],
+  "Delayed Blast Fireball": ["fire", "half"],
+  "Draconic Transformation": ["force", "half"],
+  "Finger of Death": ["necrotic", "half"],
+  "Fire Storm": ["fire", "half"],
+  "Whirlwind": ["bludgeoning", "half"],
+  "Abi-Dalzim's Horrid Wilting": ["necrotic", "half"],
+  "Befuddlement": ["psychic", "half"],
+  "Incendiary Cloud": ["fire", "half"],
+  "Sunburst": ["radiant", "half"],
+  "Tsunami": ["bludgeoning", "half"],
+  "Meteor Swarm": ["fire", "half", "bludgeoning"],
+  "Psychic Scream": ["psychic", "half"],
+  "Storm of Vengeance": ["thunder", "none"],
+  "Time Ravage": ["necrotic", "half"],
+  "Weird": ["psychic", "half"],
+};
+
+/// У 2014 шкода цих заклинань — типу зброї чи набоїв, тож ряткидок там вирішує майстер.
+const SAVE_DAMAGE_2024: Readonly<Record<string, SaveDamageEntry>> = {
+  "Conjure Barrage": ["force", "half"],
+  "Conjure Volley": ["force", "half"],
 };
 
 const DAMAGE_STEMS: Readonly<Record<DamageType, readonly string[]>> = {
@@ -138,9 +195,9 @@ const MAGIC_RESISTANCE = /Опір магії/u;
 
 export function findSpellSaveDamage(spell: { engName?: string | null; level: number; ruleset?: string | null }): SpellSaveDamage | null {
   const dice = findSpellDice(spell);
-  const effect = spell.engName ? SAVE_DAMAGE[spell.engName] : undefined;
+  const effect = spell.engName ? SAVE_DAMAGE[spell.engName] ?? (spell.ruleset === "RULES_2024" ? SAVE_DAMAGE_2024[spell.engName] : undefined) : undefined;
   if (!dice?.save || dice.attack || dice.rollsLater || !effect) return null;
-  return { ability: dice.save, damageType: effect[0], isHalfOnSave: effect[1] === "half" };
+  return { ability: dice.save, damageType: effect[0], isHalfOnSave: effect[1] === "half", ...(effect[2] ? { secondDamageType: effect[2] } : {}) };
 }
 
 export function findDamageDefense(creature: Pick<CreatureSaveStats, "damageImmunity" | "damageResistance" | "damageVulnerability">, damageType: DamageType): DamageDefense | null {
@@ -183,7 +240,7 @@ export function findSaveDamage(rolledDamage: number, isSaved: boolean, effect: S
   return defense === "vulnerable" ? afterSave * 2 : afterSave;
 }
 
-export function resolveCreatureSave({ creature, conditions, effect, dc, rolledDamage, d20Pair, dice = [] }: CreatureSaveInput): CreatureSaveResult {
+export function resolveCreatureSave({ creature, conditions, effect, dc, rolledDamage, secondRolledDamage = 0, d20Pair, dice = [] }: CreatureSaveInput): CreatureSaveResult {
   const mode = findCreatureSaveMode(creature, conditions, effect.ability);
   const d20 = mode === "NORMAL" ? [d20Pair[0]] : [...d20Pair];
   const bonus = creature ? findCreatureSaveBonus(creature, effect.ability) : 0;
@@ -193,8 +250,9 @@ export function resolveCreatureSave({ creature, conditions, effect, dc, rolledDa
   const isConditionImmune = Boolean(effect.condition && hasConditionImmunity(creature?.conditionImmunity ?? "", effect.condition));
   const damageDefense = creature && effect.damageType ? findDamageDefense(creature, effect.damageType) : null;
   const defense = effect.damageType ? damageDefense : isConditionImmune ? "immune" : null;
-  const damage = findSaveDamage(rolledDamage, isSaved, effect, defense);
-  return { d20, mode, bonus, total, isSaved, isAutoFail, defense, damage, ...findFailedCondition(effect, isSaved, isConditionImmune), ...(dice.length ? { dice: [...dice] } : {}) };
+  const secondDefense = creature && effect.secondDamageType ? findDamageDefense(creature, effect.secondDamageType) : null;
+  const damage = findSaveDamage(rolledDamage, isSaved, effect, defense) + findSaveDamage(secondRolledDamage, isSaved, effect, secondDefense);
+  return { d20, mode, bonus, total, isSaved, isAutoFail, defense, ...(effect.secondDamageType ? { secondDefense } : {}), damage, ...findFailedCondition(effect, isSaved, isConditionImmune), ...(dice.length ? { dice: [...dice] } : {}) };
 }
 
 export function findFailedCondition(effect: SaveEffect, isSaved: boolean, isImmune: boolean): { condition?: RuleConditionKey } {

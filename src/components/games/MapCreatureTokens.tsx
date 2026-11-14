@@ -19,11 +19,11 @@ import { findTokenArrowStep } from "@/rules/game-grid";
 import { CREATURE_SIZE_CELLS, CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { AddMapCreaturesDialog } from "./AddMapCreaturesDialog";
-import { TURN_RING_CLASS, useIsCreatureTurn } from "./combat-turn";
+import { SPOTLIGHT_RING_CLASS, useIsCreatureTurn } from "./combat-turn";
 import { DownMark, HitPointBar } from "./MapCreatureHitPoints";
 import { buildCreatureTargetControl, useRollTargetCreatureId } from "./RollTargetControls";
 import { TokenConditionMarks } from "./TokenConditionMarks";
-import { useShownConditions, useTokenConditionChanges } from "./use-token-conditions";
+import { useIsSpotlit, useShownConditions, useSpotlightControl, useTokenConditionChanges } from "./use-token-conditions";
 import { MapCreatureStatblockDialog } from "./MapCreatureStatblockDialog";
 import { holdValueBefore, pushUndoStep, rememberUndo } from "./map-history";
 import { readOptimistic, sendOptimistic, showOptimistic, useOptimisticReader } from "./optimistic-values";
@@ -105,6 +105,7 @@ export function useMapCreatureTokens({ view, layout, selection, findDropPosition
     else openStatblock(id);
   };
   const selectedCreature = canEdit ? shown.find((creature) => findKey(creature.id) === selection.key && isShownOnMap(creature)) : undefined;
+  const spotlight = useSpotlightControl(view.id, view.viewedSceneId, selectedCreature ? { kind: "creature", id: selectedCreature.id } : null, selectedCreature?.conditions ?? NO_TOKEN_CONDITIONS);
   const selected: SelectedToken | null = selectedCreature
     ? {
         key: findKey(selectedCreature.id),
@@ -115,6 +116,7 @@ export function useMapCreatureTokens({ view, layout, selection, findDropPosition
         onPreview: (transform) => looks.showTransform(selectedCreature.id, transform),
         onChange: (transform) => void looks.sendTransform(selectedCreature.id, transform),
         lightTarget: { kind: "creature", creature: selectedCreature },
+        spotlight,
       }
     : null;
   const placed: PlacedToken[] = shown.filter(isShownOnMap).map((creature) => ({ key: `creature-${creature.id}`, creatureId: creature.id, name: creature.label, position: moves.findPosition(creature)!, cells: findCells(creature) }));
@@ -158,6 +160,7 @@ export function useMapCreatureTokens({ view, layout, selection, findDropPosition
     placed,
     selected,
     hasPlaced: placed.length > 0,
+    waitingCount: canEdit ? waiting.length : 0,
     names: canEdit && placed.length > 0 ? { mode: looks.nameMode, onChange: looks.sendNameMode } : null,
     tray: canEdit ? (
       <CreatureTray sessionId={view.id} hasCreatures={shown.length > 0} hasWaiting={waiting.length > 0}>
@@ -235,13 +238,14 @@ export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, is
   const isArtHidden = useIsArtHidden(creature.imageUrl, "manual");
   const src = isArtHidden ? null : creature.imageUrl;
   const isTurn = useIsCreatureTurn(creature.id);
+  const isSpotlit = useIsSpotlit({ kind: "creature", id: creature.id }, creature.conditions);
   const { isCutout: isCutoutImage, inspectImage } = useCutoutImage(src);
   const isCutout = creature.isCutout && isCutoutImage && Boolean(onBoard) && !creature.isRoundImage;
   const labelWidth = onBoard?.labelWidth ?? (typeof size === "number" ? size : TOKEN_SIZE_PX);
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={creature.label}>
       <div className={cn("relative rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={{ width: size, height: size }}>
-        <div className={cn("relative h-full w-full rounded-full", isCutout ? findCutoutOutlineClass(creature.isAlly ? "ally" : "enemy", Boolean(onBoard?.isOutlined)) : cn("overflow-hidden border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isAlly ? "border-emerald-400" : "border-rose-500"), creature.isDown && "opacity-50 grayscale", isTurn && TURN_RING_CLASS)} style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
+        <div className={cn("relative h-full w-full rounded-full", isCutout ? findCutoutOutlineClass(creature.isAlly ? "ally" : "enemy", Boolean(onBoard?.isOutlined)) : cn("overflow-hidden border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isAlly ? "border-emerald-400" : "border-rose-500"), creature.isDown && "opacity-50 grayscale", (isTurn || isSpotlit) && SPOTLIGHT_RING_CLASS)} style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
           {src ? (
             <ContentImage src={src} alt="" provenance="manual" fill sizes="128px" draggable={false} onLoad={(event) => inspectImage(event.currentTarget)} className={creature.isRoundImage || isCutout ? "object-contain" : "object-cover object-top"} />
           ) : (
@@ -261,6 +265,7 @@ export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, is
       </div>
       <div className="flex flex-col items-center">
         {creature.hitPoints ? <div className="mt-1"><HitPointBar hitPoints={creature.hitPoints} width={labelWidth} /></div> : null}
+        {isSpotlit ? <span className="sr-only">Підсвічено</span> : null}
         <TokenConditionMarks token={{ kind: "creature", id: creature.id }} conditions={creature.conditions} />
         {nameMode ? <TokenName name={creature.label} mode={nameMode} tokenSize={labelWidth} /> : null}
       </div>

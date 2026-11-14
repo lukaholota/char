@@ -551,7 +551,7 @@ export function MagicItemsClient({
                           : "text-slate-100 group-hover:text-white"
                       )}
                     >
-                      {item.name} {item.engName && <span className="font-normal text-slate-400 text-sm ml-1">[{item.engName}]</span>}
+                      {item.name} {item.engName && !item.name.includes("[") && <span className="font-normal text-slate-400 text-sm ml-1">[{item.engName}]</span>}
                     </span>
                   </div>
 

@@ -108,6 +108,11 @@ export async function signalGameRollStart(sessionId: number, userId: number, vis
   await prisma.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "rolling", u: userId, v: visibility })})`;
 }
 
+/// Пінг на мапі теж живе лише в NOTIFY: потік показує його тим, хто дивиться ту саму сцену.
+export async function signalMapPing(sessionId: number, userId: number, sceneId: number, at: TokenPosition): Promise<void> {
+  await prisma.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "ping", u: userId, c: sceneId, x: at.x, y: at.y })})`;
+}
+
 export async function signalGameSession(sessionId: number, signal: GameSessionSignal): Promise<void> {
   await prisma.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: signal })})`;
 }

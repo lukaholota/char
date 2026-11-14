@@ -9,9 +9,10 @@ function plan(engName: string, slotLevel: number, characterLevel = 5, spellcasti
   return planSpellRolls(findSpellDice(spell)!, { spellLevel: spell.level, slotLevel, characterLevel, spellcastingModifier });
 }
 
-const dice = (plan: ReturnType<typeof planSpellRolls>) => plan.rolls.map((roll) => `${roll.label} ${roll.count}к${roll.sides}${roll.bonus ? `+${roll.bonus}` : ""}`);
+const dice = (plan: ReturnType<typeof planSpellRolls>) =>
+  plan.rolls.map((roll) => `${roll.label} ${[roll, ...(roll.secondDice ? [roll.secondDice] : [])].filter((part) => part.sides).map((part) => `${part.count}к${part.sides}`).join(" + ")}${roll.bonus ? `+${roll.bonus}` : ""}`);
 
-describe("кубики заклинань 2014 до 3-го рівня", () => {
+describe("кубики заклинань 2014 до 9-го рівня", () => {
   it("Вогняна куля: 8к6 і ще к6 за кожен рівень слота понад третій, ряткидок Спритності", () => {
     expect(dice(plan("Fireball", 3))).toEqual(["Шкода 8к6"]);
     expect(dice(plan("Fireball", 5))).toEqual(["Шкода 10к6"]);
@@ -50,18 +51,40 @@ describe("кубики заклинань 2014 до 3-го рівня", () => {
     expect(dice(plan("Cure Wounds", 2))).toEqual(["Лікування 2к8+3"]);
   });
 
-  it("заклинання вище 3-го рівня не мають кубиків", () => {
-    expect(findSpellDice({ engName: "Cone of Cold", level: 5, ruleset: "RULES_2014" })).toBeNull();
+  it("заклинання 4–9 рівня кидають свої кубики й ростуть зі слотом", () => {
+    expect(dice(plan("Cone of Cold", 5))).toEqual(["Шкода 8к8"]);
+    expect(dice(plan("Cone of Cold", 7))).toEqual(["Шкода 10к8"]);
+    expect(dice(plan("Disintegrate", 6))).toEqual(["Шкода 10к6+40"]);
+    expect(dice(plan("Disintegrate", 8))).toEqual(["Шкода 16к6+40"]);
+    expect(dice(plan("Finger of Death", 7))).toEqual(["Шкода 7к8+30"]);
+    expect(dice(plan("Mass Cure Wounds", 6))).toEqual(["Лікування кожного 4к8+3"]);
+    expect(plan("Meteor Swarm", 9)).toMatchObject({ save: "DEX" });
+  });
+
+  it("шкода двох типів — дві групи кубиків одного кидка", () => {
+    expect(dice(plan("Ice Storm", 4))).toEqual(["Шкода 2к8 + 4к6"]);
+    expect(dice(plan("Ice Storm", 6))).toEqual(["Шкода 4к8 + 4к6"]);
+    expect(dice(plan("Flame Strike", 5))).toEqual(["Шкода 4к6 + 4к6"]);
+    expect(dice(plan("Meteor Swarm", 9))).toEqual(["Шкода 20к6 + 20к6"]);
+  });
+
+  it("«Зцілення» — число без кубиків, що росте зі слотом", () => {
+    expect(plan("Heal", 6).rolls).toEqual([{ key: "spell-0", label: "Лікування", count: 0, sides: 0, bonus: 70 }]);
+    expect(dice(plan("Heal", 8))).toEqual(["Лікування +90"]);
+    expect(dice(plan("Mass Heal", 9))).toEqual(["Запас лікування +700"]);
   });
 });
 
 const SAVE_STEMS = { STR: "Сил", DEX: "Спритн", CON: "Статур", INT: "Інтелект", WIS: "Мудр", CHA: "Харизм" } as const;
 
 /// Кубики в описі є, але це не шкода й не лікування заклинанням.
-const WITHOUT_ROLLS = ["Bless", "Gift of Alacrity", "Enlarge/Reduce", "Alter Self", "Enhance Ability", "Kinetic Jaunt", "Web", "Meld Into Stone"];
+const WITHOUT_ROLLS = [
+  "Bless", "Gift of Alacrity", "Enlarge/Reduce", "Alter Self", "Enhance Ability", "Kinetic Jaunt", "Web", "Meld Into Stone",
+  "Summon Greater Demon", "Animate Objects", "Infernal Calling", "Control Weather", "Wish",
+];
 
 /// Вищий слот додає цілі, а не кубики.
-const UPCAST_WITHOUT_DICE = ["Cordon of Arrows", "Tasha's Mind Whip"];
+const UPCAST_WITHOUT_DICE = ["Cordon of Arrows", "Tasha's Mind Whip", "Elemental Bane", "Bones of the Earth", "Chain Lightning", "Crown of Stars"];
 
 describe("таблиця кубиків збігається з описами заклинань", () => {
   it("кожне заклинання таблиці є в каталозі 2014, а його кубики, ряткидок і атака — в описі", () => {
@@ -69,19 +92,27 @@ describe("таблиця кубиків збігається з описами �
     expect(mismatches).toEqual([]);
   });
 
-  it("кожне заклинання 0–3 рівня з кубиками в описі або має кидки, або свідомо пропущене", () => {
+  it("кожне заклинання з кубиками в описі або має кидки, або свідомо пропущене", () => {
     const known = new Set([...listSpellDice("RULES_2014").map(([engName]) => engName), ...WITHOUT_ROLLS]);
-    const missing = spells2014.filter((spell) => spell.level <= 3 && /\d+к\d+/u.test(spell.description) && !known.has(spell.engName)).map((spell) => spell.engName);
+    const missing = spells2014.filter((spell) => /\d+к\d+/u.test(spell.description) && !known.has(spell.engName)).map((spell) => spell.engName);
     expect(missing).toEqual([]);
   });
 });
 
+/// Один кубик в описах буває без числа: «киньте к8».
+function hasDice(text: string, count: number, sides: number): boolean {
+  return text.includes(`${count}к${sides}`) || (count === 1 && new RegExp(`(^|\\D)к${sides}(\\D|$)`, "u").test(text));
+}
+
 function findMismatches(engName: string, spellDice: SpellDice): string[] {
   const spell = spells2014.find((candidate) => candidate.engName === engName);
   if (!spell) return [`${engName}: немає в каталозі`];
-  if (spell.level > 3) return [`${engName}: рівень ${spell.level}`];
   const text = spell.description.replace(/<[^>]+>/gu, " ");
-  const problems = spellDice.rolls.filter((roll) => roll.count > 0 && !text.includes(`${roll.count}к${roll.sides}`)).map((roll) => `${engName}: немає ${roll.count}к${roll.sides}`);
+  const problems = spellDice.rolls.filter((roll) => roll.count > 0 && !hasDice(text, roll.count, roll.sides)).map((roll) => `${engName}: немає ${roll.count}к${roll.sides}`);
+  for (const roll of spellDice.rolls) {
+    if (roll.second && !text.includes(`${roll.second.count}к${roll.second.sides}`)) problems.push(`${engName}: немає ${roll.second.count}к${roll.second.sides}`);
+    if (roll.sides === 0 && !text.includes(String(roll.bonus))) problems.push(`${engName}: немає числа ${roll.bonus}`);
+  }
   if (spellDice.save && !new RegExp(`(ряткид|рятівн)[^.]{0,40}${SAVE_STEMS[spellDice.save]}`, "iu").test(text)) problems.push(`${engName}: немає ряткидка ${spellDice.save}`);
   if (spellDice.attack && !/атак/iu.test(text)) problems.push(`${engName}: немає атаки`);
   for (const roll of spellDice.rolls) if (roll.perSlot && !text.includes(`${roll.perSlot}к${roll.sides}`)) problems.push(`${engName}: немає посилення ${roll.perSlot}к${roll.sides}`);

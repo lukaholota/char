@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type PointerEvent, type RefObject } from "react";
+import { useEffect, useRef, useState, type MouseEvent, type PointerEvent, type RefObject } from "react";
 
 type Point = { clientX: number; clientY: number };
 type Vector = { x: number; y: number };
@@ -13,10 +13,12 @@ type ViewportOptions = {
   maxZoom: number;
   gesture: MapGesture | null;
   onTap: (point: Point) => void;
+  onHold: (point: Point) => void;
 };
 
 const TAP_SLOP_PX = 6;
 const DOUBLE_TAP_MS = 320;
+const HOLD_MS = 500;
 const EDGE_SLACK_PX = 56;
 const BUTTON_ZOOM_STEP = 1.6;
 const TRACKPAD_STEP_PX = 50;
@@ -29,18 +31,20 @@ function isTrackpadScroll(event: WheelEvent): boolean {
 
 /// Мапа рухається CSS-трансформацією без перемальовування React; кінцевий масштаб потрапляє в стан лише після жесту.
 /// Один палець на порожньому місці — панорама або активний інструмент, два — масштаб і зсув разом.
-export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, onTap }: ViewportOptions) {
+/// Права або середня кнопка миші завжди тягне мапу: інструмент лишається ввімкненим.
+/// Нерухоме утримання на порожньому місці без інструмента — не дотик і не панорама: ним показують точку.
+export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, onTap, onHold }: ViewportOptions) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const view = useRef({ zoom: 1, x: 0, y: 0 });
   const pointers = useRef(new Map<number, Point>());
-  const mode = useRef<"idle" | "tap" | "pan" | "pinch" | "tool">("idle");
+  const mode = useRef<"idle" | "tap" | "held" | "pan" | "pinch" | "tool">("idle");
   const panStart = useRef({ local: { x: 0, y: 0 }, x: 0, y: 0 });
   const pinchStart = useRef({ distance: 1, zoom: 1, anchor: { x: 0, y: 0 } });
   const tapStart = useRef<Point>({ clientX: 0, clientY: 0 });
   const lastTap = useRef({ at: 0, point: { clientX: 0, clientY: 0 } });
-  const latest = useRef({ isTurned, maxZoom, gesture, onTap });
+  const latest = useRef({ isTurned, maxZoom, gesture, onTap, onHold });
   const toolGesture = useRef<MapGesture | null>(null);
-  latest.current = { isTurned, maxZoom, gesture, onTap };
+  latest.current = { isTurned, maxZoom, gesture, onTap, onHold };
   const [zoom, setZoom] = useState(1);
 
   const toLocal = (point: Point): Vector => {
@@ -149,11 +153,18 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, onTap }: 
     return true;
   };
 
+  const holdPress = (point: Point) => {
+    if (mode.current !== "tap" || tapStart.current !== point) return;
+    mode.current = "held";
+    latest.current.onHold(point);
+  };
+
   const isOnControl = (event: PointerEvent<HTMLElement>) => event.target instanceof Element && event.target.closest("button, a, input, [data-map-control]") !== null;
 
   const bindViewport = {
     onPointerDown: (event: PointerEvent<HTMLDivElement>) => {
-      if (event.button !== 0 || isOnControl(event)) return;
+      const isPanButton = event.button === 1 || event.button === 2;
+      if (!isPanButton && (event.button !== 0 || isOnControl(event))) return;
       event.currentTarget.setPointerCapture?.(event.pointerId);
       const point = { clientX: event.clientX, clientY: event.clientY };
       pointers.current.set(event.pointerId, point);
@@ -164,12 +175,13 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, onTap }: 
       if (pointers.current.size > 2) return;
       tapStart.current = point;
       panStart.current = { local: toLocal(point), x: view.current.x, y: view.current.y };
-      mode.current = "tap";
-      toolGesture.current = latest.current.gesture;
+      mode.current = isPanButton ? "pan" : "tap";
+      toolGesture.current = isPanButton ? null : latest.current.gesture;
       if (toolGesture.current) {
         mode.current = "tool";
         toolGesture.current.start(point);
       }
+      if (mode.current === "tap") window.setTimeout(() => holdPress(point), HOLD_MS);
     },
     onPointerMove: (event: PointerEvent<HTMLDivElement>) => {
       if (!pointers.current.has(event.pointerId)) return;
@@ -199,6 +211,7 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, onTap }: 
         mode.current = "idle";
       }
     },
+    onContextMenu: (event: MouseEvent<HTMLDivElement>) => event.preventDefault(),
     onPointerCancel: (event: PointerEvent<HTMLDivElement>) => {
       pointers.current.delete(event.pointerId);
       if (mode.current === "tool") toolGesture.current?.cancel();

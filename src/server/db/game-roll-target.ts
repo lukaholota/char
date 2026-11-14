@@ -2,7 +2,7 @@ import { randomInt } from "node:crypto";
 import { Prisma } from "@prisma/client";
 import { resolveCreatureSave, type SaveEffect } from "@/rules/creature-save";
 import { resolveHeroSave } from "@/rules/hero-save";
-import type { GameRollSavesDraft, StoredSaveRow, StoredSaves } from "@/rules/game-roll-saves";
+import type { GameRollSavesDraft, SaveDamageParts, StoredSaveRow, StoredSaves } from "@/rules/game-roll-saves";
 import { buildMapCreatureViews } from "@/rules/game-map-creatures";
 import { findAttackHit, parseArmorClass, type GameRollTargetDraft } from "@/rules/game-roll-target";
 import type { GameRoll } from "@/rules/game-roll";
@@ -66,7 +66,7 @@ export async function applyRollTarget(tx: Prisma.TransactionClient, sessionId: n
 /// Кожна істота в зоні кидає свій ряткидок тут, на сервері: гравець не підкрутить чужий к20.
 /// Істоти поза активною сценою чи зняті з мапи пропускаються — зона лишається такою, як її побачили всі.
 /// Герой кидає теж тут, з бонусом свого листа; хіти з листа знімає сам гравець кнопкою в журналі.
-export async function applySaveTargets(tx: Prisma.TransactionClient, sessionId: number, draft: GameRollSavesDraft, rolledDamage: number, heroes: ReadonlyMap<number, RoomHero>): Promise<StoredSaves | null> {
+export async function applySaveTargets(tx: Prisma.TransactionClient, sessionId: number, draft: GameRollSavesDraft, damage: SaveDamageParts, heroes: ReadonlyMap<number, RoomHero>): Promise<StoredSaves | null> {
   const { effect } = draft;
   const rows = await tx.gameMapCreature.findMany({ where: { gameSessionId: sessionId, scene: { activeIn: { some: { id: sessionId } } } }, select: CREATURE_ROW_SELECT });
   const findCreature = await loadRoomCreatures(rows);
@@ -75,30 +75,30 @@ export async function applySaveTargets(tx: Prisma.TransactionClient, sessionId: 
   for (const creatureId of draft.creatureIds) {
     const view = views.find((candidate) => candidate.id === creatureId);
     const row = rows.find((candidate) => candidate.id === creatureId);
-    if (view?.token && row) saveRows.push(await applyCreatureSave(tx, sessionId, { row, name: view.label, statblock: findCreature(row.creatureKey, row.ruleset) }, effect, draft.dc, rolledDamage));
+    if (view?.token && row) saveRows.push(await applyCreatureSave(tx, sessionId, { row, name: view.label, statblock: findCreature(row.creatureKey, row.ruleset) }, effect, draft.dc, damage));
   }
   for (const persId of draft.persIds) {
     const hero = heroes.get(persId);
-    if (hero) saveRows.push(await rollHeroSave(tx, sessionId, hero, effect, draft.dc, rolledDamage));
+    if (hero) saveRows.push(await rollHeroSave(tx, sessionId, hero, effect, draft.dc, damage));
   }
   const condition = effect.condition ? { condition: effect.condition } : {};
-  return saveRows.length ? { ability: effect.ability, dc: draft.dc, damageType: effect.damageType, isHalfOnSave: effect.isHalfOnSave, ...condition, rows: saveRows } : null;
+  return saveRows.length ? { ability: effect.ability, dc: draft.dc, damageType: effect.damageType, ...(effect.secondDamageType ? { secondDamageType: effect.secondDamageType } : {}), isHalfOnSave: effect.isHalfOnSave, ...condition, rows: saveRows } : null;
 }
 
 type SaveTarget = { row: Prisma.GameMapCreatureGetPayload<{ select: typeof CREATURE_ROW_SELECT }>; name: string; statblock: ReturnType<RoomCreatureLookup> };
 
-async function applyCreatureSave(tx: Prisma.TransactionClient, sessionId: number, { row, name, statblock }: SaveTarget, effect: SaveEffect, dc: number, rolledDamage: number): Promise<StoredSaveRow> {
+async function applyCreatureSave(tx: Prisma.TransactionClient, sessionId: number, { row, name, statblock }: SaveTarget, effect: SaveEffect, dc: number, damage: SaveDamageParts): Promise<StoredSaveRow> {
   const dice = rollSaveDice(row.conditions.includes(BLESSED_MARK) ? [BLESSED_DIE] : []);
-  const save = resolveCreatureSave({ creature: statblock, conditions: row.conditions, effect, dc, rolledDamage, d20Pair: [randomInt(1, 21), randomInt(1, 21)], dice });
+  const save = resolveCreatureSave({ creature: statblock, conditions: row.conditions, effect, dc, ...damage, d20Pair: [randomInt(1, 21), randomInt(1, 21)], dice });
   const change = save.damage > 0 ? await removeHitPoints(tx, sessionId, row.id, save.damage, parseCreatureHitPoints(statblock?.hp ?? "")) : { hpBefore: null, hpChange: null };
   const isConditionAdded = save.condition ? await addSaveCondition(tx, Prisma.sql`game_map_creature_id = ${row.id}`, save.condition, "creature") : null;
   return { ...save, creatureId: row.id, name, ...change, isUndone: false, ...(isConditionAdded === null ? {} : { isConditionAdded }) };
 }
 
-async function rollHeroSave(tx: Prisma.TransactionClient, sessionId: number, hero: RoomHero, effect: SaveEffect, dc: number, rolledDamage: number): Promise<StoredSaveRow> {
+async function rollHeroSave(tx: Prisma.TransactionClient, sessionId: number, hero: RoomHero, effect: SaveEffect, dc: number, damage: SaveDamageParts): Promise<StoredSaveRow> {
   const { bonus, mode } = hero.saves[effect.ability];
   const dice = rollSaveDice(hero.saveDice);
-  const save = resolveHeroSave({ bonus, mode, conditions: hero.conditions, resistances: hero.resistances, effect, dc, rolledDamage, d20Pair: [randomInt(1, 21), randomInt(1, 21)], dice });
+  const save = resolveHeroSave({ bonus, mode, conditions: hero.conditions, resistances: hero.resistances, effect, dc, ...damage, d20Pair: [randomInt(1, 21), randomInt(1, 21)], dice });
   const isConditionAdded = save.condition ? await addSaveCondition(tx, Prisma.sql`game_session_id = ${sessionId} AND pers_id = ${hero.persId}`, save.condition, "hero") : null;
   return { ...save, persId: hero.persId, name: hero.name, hpBefore: null, hpChange: null, isUndone: false, ...(isConditionAdded === null ? {} : { isConditionAdded }) };
 }

@@ -87,6 +87,34 @@ jobs:
       - name: Tests
         run: bun run test:no-db
 
+  # Карантин не тримає деплой: джоба лише показує, чи його тести досі червоні на раннері.
+  # Зелений прогін — привід повернути файл у `test:no-db` (vitest.quarantine-files.mts).
+  quarantine:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Prisma Generate
+        run: bunx prisma generate
+        env:
+          DATABASE_URL: "postgresql://none:none@127.0.0.1:1/none_test"
+
+      - name: Runtime versions
+        run: node --version && bun --version
+
+      - name: Quarantined tests
+        run: bun run test:quarantine
+
   image:
     # На PR збирати нема сенсу: образ нікуди не поїде, а збірка найдорожче, що тут є.
     if: github.event_name != 'pull_request'

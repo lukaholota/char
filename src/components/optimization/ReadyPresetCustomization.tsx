@@ -28,6 +28,7 @@ import { ReadyPresetLevelAdvancements } from "./ReadyPresetLevelAdvancements";
 import { ReadyPresetLevelClassOptions } from "./ReadyPresetLevelClassOptions";
 import { ReadyPresetLevelSpells } from "./ReadyPresetLevelSpells";
 import { PresetShieldToggle } from "./PresetDmApprovedShield";
+import { captureStepBlocked } from "@/lib/monitoring/funnel-analytics";
 
 type PresetState = ReturnType<typeof useReadyPreset>;
 type CustomStep = { kind: "choices" | "abilities" | "skills" | "expertise" | "languages" | "equipment" | "spells" | "level" | "preparation" | "name"; title: string; characterLevel?: number };
@@ -117,6 +118,7 @@ export function ReadyPresetCustomization({ data, state, header, nameFields, onCr
     isNextBlocked={blocked || !!hint || !!problem}
     nextStepHint={problem ?? hint}
     isSubmitting={state.submitting}
+    onNextBlocked={(stepId, hint) => captureStepBlocked("ready_preset", "2014", stepId, hint)}
     onPrev={() => leaveStep(state.step === 4 ? 2 : state.step - 1)}
     after={<div className="flex flex-wrap gap-2">
       <Button variant="ghost" disabled={state.submitting} onClick={() => state.goToStep(2)} className="min-h-11 text-slate-400">До вибору способу створення</Button>

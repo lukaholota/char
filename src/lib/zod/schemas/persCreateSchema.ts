@@ -299,7 +299,7 @@ export const fullCharacterSchema = z.object({
   backgroundSearch: z.string().default(''),
   isDefaultASI: z.boolean().default(true),
   asiSystem: z.string().default('POINT_BUY'),
-  points: z.number().min(0).default(0),
+  points: z.number().default(0),
   simpleAsi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
   customAsi: z.array(z.object({ ability: z.string(), value: z.string().transform((val) => (val === '' ? 10 : Number(val)))})).default([]).optional(),
   asi: z.array(z.object({ability: z.string(), value: z.number()})).default([]),
@@ -354,6 +354,14 @@ export const fullCharacterSchema = z.object({
        code: z.ZodIssueCode.custom,
        message: "Оберіть або підрасу, або варіант раси",
        path: ["raceVariantId"],
+     });
+   }
+   // Залишок очок лишається в чернетці й після переходу на «Просто» чи «Вільно» — там він нічого не означає.
+   if (data.asiSystem === "POINT_BUY" && data.points < 0) {
+     ctx.addIssue({
+       code: z.ZodIssueCode.custom,
+       message: "Використано забагато очок",
+       path: ["points"],
      });
    }
  })

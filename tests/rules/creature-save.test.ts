@@ -1,8 +1,12 @@
 import { describe, expect, it } from "vitest";
+import spells2014 from "@/lib/generated/spells.json";
+import spells2024 from "../../data/2024/normalized/spells.json";
+import { listSpellDice } from "@/rules/spell-dice";
 import {
   findCreatureSaveBonus,
   findCreatureSaveMode,
   findDamageDefense,
+  findDamageTypeIn,
   findSaveDamage,
   findSpellSaveDamage,
   isCreatureSaveAutoFail,
@@ -133,5 +137,58 @@ describe("ряткидок без шкоди накладає стан при п
 
   it("автоматичний провал паралізованого теж накладає стан", () => {
     expect(resolveCreatureSave({ creature: null, conditions: ["paralyzed"], effect: honey, dc: 5, rolledDamage: 0, d20Pair: [20, 20] })).toMatchObject({ isAutoFail: true, condition: "restrained" });
+  });
+});
+
+const iceStorm = { ability: "DEX", damageType: "bludgeoning", isHalfOnSave: true, secondDamageType: "cold" } as const;
+
+describe("шкода двох типів під одним ряткидком", () => {
+  it("таблиця знає другий тип, а 2014 не бере ряткидок залпів із 2024", () => {
+    expect(findSpellSaveDamage({ engName: "Ice Storm", level: 4, ruleset: "RULES_2014" })).toEqual(iceStorm);
+    expect(findSpellSaveDamage({ engName: "Meteor Swarm", level: 9, ruleset: "RULES_2024" })).toMatchObject({ damageType: "fire", secondDamageType: "bludgeoning" });
+    expect(findSpellSaveDamage({ engName: "Disintegrate", level: 6 })).toEqual({ ability: "DEX", damageType: "force", isHalfOnSave: false });
+    expect(findSpellSaveDamage({ engName: "Conjure Volley", level: 5, ruleset: "RULES_2014" })).toBeNull();
+    expect(findSpellSaveDamage({ engName: "Conjure Volley", level: 5, ruleset: "RULES_2024" })).toEqual({ ability: "DEX", damageType: "force", isHalfOnSave: true });
+  });
+
+  it("опір рахується по кожному типу окремо, половина — до опору", () => {
+    const save = { conditions: [], effect: iceStorm, dc: 15, rolledDamage: 9, secondRolledDamage: 15 };
+    const yeti = creature({ damageImmunity: "холод" });
+    expect(resolveCreatureSave({ ...save, creature: yeti, d20Pair: [2, 2] })).toMatchObject({ isSaved: false, defense: null, secondDefense: "immune", damage: 9 });
+    const skeleton = creature({ damageVulnerability: "дробляча", damageResistance: "холод" });
+    expect(resolveCreatureSave({ ...save, creature: skeleton, d20Pair: [2, 2] })).toMatchObject({ defense: "vulnerable", secondDefense: "resistant", damage: 25 });
+    expect(resolveCreatureSave({ ...save, creature: skeleton, d20Pair: [19, 2] })).toMatchObject({ isSaved: true, damage: 11 });
+    expect(resolveCreatureSave({ ...save, creature: null, d20Pair: [2, 2] })).toMatchObject({ secondDefense: null, damage: 24 });
+  });
+});
+
+describe("таблиця шкоди з ряткидком збігається з кубиками й описами", () => {
+  type CatalogSpell = { engName: string; description: string; ruleset?: string };
+  const catalogs = {
+    RULES_2014: (spells2014 as CatalogSpell[]).filter((spell) => (spell.ruleset ?? "RULES_2014") === "RULES_2014"),
+    RULES_2024: spells2024 as CatalogSpell[],
+  };
+  const saveSpells = (["RULES_2014", "RULES_2024"] as const).flatMap((ruleset) =>
+    listSpellDice(ruleset).flatMap(([engName, dice]) => {
+      const save = findSpellSaveDamage({ engName, level: 1, ruleset });
+      return save ? [{ ruleset, engName, dice, save }] : [];
+    }),
+  );
+
+  /// Каталог не називає типу або називає інакше, ніж книга («чистою енергією», «силовим полем») — звірено вручну.
+  const REVIEWED_TYPES = ["RULES_2014 Catapult", "RULES_2014 Disintegrate", "RULES_2014 Time Ravage"];
+
+  it("другий тип шкоди є рівно там, де в кидку є друга група кубиків", () => {
+    const mismatches = saveSpells.filter(({ dice, save }) => Boolean(save.secondDamageType) !== Boolean(dice.rolls[0].second)).map(({ ruleset, engName }) => `${ruleset} ${engName}`);
+    expect(mismatches).toEqual([]);
+  });
+
+  it("кожен тип шкоди з таблиці названо в описі заклинання", () => {
+    const unnamed = saveSpells.flatMap(({ ruleset, engName, save }) => {
+      const words = catalogs[ruleset].find((spell) => spell.engName === engName)?.description.split(/[^\p{L}]+/u) ?? [];
+      const types = [save.damageType, ...(save.secondDamageType ? [save.secondDamageType] : [])];
+      return types.every((type) => words.some((word) => findDamageTypeIn(word) === type)) ? [] : [`${ruleset} ${engName}`];
+    });
+    expect(unnamed).toEqual(REVIEWED_TYPES);
   });
 });

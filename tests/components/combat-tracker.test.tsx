@@ -6,6 +6,7 @@ import type { GameSessionView } from "@/server/db/game-sessions";
 
 const mocks = vi.hoisted(() => ({
   startCombatAction: vi.fn(),
+  activateGameSceneAction: vi.fn(),
   endCombatAction: vi.fn(),
   advanceCombatTurnAction: vi.fn(),
   endOwnCombatTurnAction: vi.fn(),
@@ -18,6 +19,7 @@ const mocks = vi.hoisted(() => ({
 vi.mock("@/lib/actions/game-token-images", () => ({}));
 vi.mock("@/lib/actions/game-sessions", () => ({
   startCombatAction: mocks.startCombatAction,
+  activateGameSceneAction: mocks.activateGameSceneAction,
   endCombatAction: mocks.endCombatAction,
   advanceCombatTurnAction: mocks.advanceCombatTurnAction,
   endOwnCombatTurnAction: mocks.endOwnCombatTurnAction,
@@ -30,7 +32,6 @@ vi.mock("@/lib/monitoring/game-analytics", () => ({ captureGameEvent: mocks.capt
 
 import { CombatTracker, CompactCombatContext } from "@/components/games/CombatTracker";
 import { ConfirmDialogHost } from "@/components/ui/confirm-dialog";
-import { CombatTurnProvider } from "@/components/games/combat-turn";
 import { resetOptimisticValues } from "@/components/games/optimistic-values";
 
 beforeEach(() => {
@@ -40,6 +41,7 @@ beforeEach(() => {
   mocks.endOwnCombatTurnAction.mockResolvedValue({ ok: true, value: null });
   mocks.setCombatantInitiativeAction.mockResolvedValue({ ok: true, value: null });
   mocks.startCombatAction.mockResolvedValue({ ok: true, value: { combatantCount: 3 } });
+  mocks.activateGameSceneAction.mockResolvedValue({ ok: true, value: null });
   mocks.endCombatAction.mockResolvedValue({ ok: true, value: { rounds: 2 } });
   mocks.addCombatantsAction.mockResolvedValue({ ok: true, value: { addedCount: 1 } });
 });
@@ -72,6 +74,28 @@ describe("трекер бою", () => {
     await waitFor(() => expect(mocks.startCombatAction).toHaveBeenCalledWith(7));
     await waitFor(() => expect(mocks.refresh).toHaveBeenCalled());
     expect(mocks.captureGameEvent).toHaveBeenCalledWith("game_combat_started", { combatant_count: 3 });
+  });
+
+  it("зі сцени «лише для вас» бій починається після показу її гравцям — інакше істоти з неї не потрапили б у чергу", async () => {
+    const scenes = [{ id: 1, name: "Табір", isActive: true, hasMap: true }, { id: 2, name: "Засідка", isActive: false, hasMap: true }] as GameSessionView["scenes"];
+    render(<><CombatTracker view={gmView({ scenes, activeSceneId: 1, viewedSceneId: 2 })} /><ConfirmDialogHost /></>);
+    fireEvent.click(screen.getByRole("button", { name: "Почати бій" }));
+    expect(await screen.findByText(/«Засідка» відкриється для всіх/)).toBeTruthy();
+    expect(mocks.startCombatAction).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", { name: "Показати й почати" }));
+    await waitFor(() => expect(mocks.startCombatAction).toHaveBeenCalledWith(7));
+    expect(mocks.activateGameSceneAction).toHaveBeenCalledWith(7, 2);
+    expect(mocks.activateGameSceneAction.mock.invocationCallOrder[0]).toBeLessThan(mocks.startCombatAction.mock.invocationCallOrder[0]);
+  });
+
+  it("якщо сцену не вдалося показати, бій не починається", async () => {
+    mocks.activateGameSceneAction.mockResolvedValue({ ok: false, error: "Сцену вже видалено" });
+    const scenes = [{ id: 2, name: "Засідка", isActive: false, hasMap: true }] as GameSessionView["scenes"];
+    render(<><CombatTracker view={gmView({ scenes, activeSceneId: 1, viewedSceneId: 2 })} /><ConfirmDialogHost /></>);
+    fireEvent.click(screen.getByRole("button", { name: "Почати бій" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Показати й почати" }));
+    await waitFor(() => expect(mocks.toastError).toHaveBeenCalledWith("Сцену вже видалено"));
+    expect(mocks.startCombatAction).not.toHaveBeenCalled();
   });
 
   it("в архівній кімнаті майстер не бачить кнопок початку й керування", () => {
@@ -111,6 +135,16 @@ describe("трекер бою", () => {
     expect(screen.queryByRole("list", { name: "Черга ходів" })).toBeNull();
     expect(screen.getByText("Зараз ходить: Тінь · ваш хід через 2")).toBeTruthy();
     expect(screen.getByRole("button", { name: "Показати чергу" }).getAttribute("aria-expanded")).toBe("false");
+  });
+
+  it("стрілка біля заголовка бою перемикає, де стоїть черга: поверх мапи чи рядом над нею", () => {
+    const onChange = vi.fn();
+    const { rerender } = render(<CombatTracker view={buildView({ combat })} placement={{ isOverMap: true, onChange }} />);
+    fireEvent.click(screen.getByRole("button", { name: "Винести портрети в ряд над мапою" }));
+    expect(onChange).toHaveBeenCalledWith(false);
+    rerender(<CombatTracker view={buildView({ combat })} placement={{ isOverMap: false, onChange }} />);
+    fireEvent.click(screen.getByRole("button", { name: "Покласти портрети на мапу" }));
+    expect(onChange).toHaveBeenLastCalledWith(true);
   });
 
   it("майстер переходить уперед і назад, додає нових і завершує бій лише після підтвердження", async () => {
@@ -162,15 +196,15 @@ describe("трекер бою", () => {
     await waitFor(() => expect(mocks.toastError).toHaveBeenCalledWith("Бій уже завершено"));
   });
 
-  it("поточний хід підсвічує токен: істоту, але не героя, що чекає", () => {
-    render(
-      <CombatTurnProvider combat={combat}>
-        <CombatTracker view={buildView({ combat })} />
-      </CombatTurnProvider>,
-    );
+  it("стрічка портретів: той, хто ходить, — більший і в кільці; істота без зображення показує ініціали, герой — першу літеру", () => {
+    render(<CombatTracker view={buildView({ combat })} />);
     const items = listItems();
+    expect(items[1].className).toContain("w-[4.25rem]");
     expect(items[1].querySelector(".ring-arcane-300")).not.toBeNull();
-    expect(items[2].querySelector(".ring-arcane-300")).toBeNull();
+    expect(items[0].className).toContain("w-14");
+    expect(items[0].querySelector(".ring-arcane-300")).toBeNull();
+    expect(items[1].textContent).toContain("ТІ");
+    expect(items[0].textContent).toContain("А");
   });
 
   it("гравець у свій хід бачить «Ваш хід» і сам завершує його: хід одразу переходить до наступного", async () => {

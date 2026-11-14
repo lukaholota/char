@@ -11,6 +11,10 @@ export function isMediaImageUrl(url: string | null): url is string {
   return url?.startsWith(`${readMediaBaseUrl()}/`) ?? false;
 }
 
+export function buildFullSizeMediaUrl(thumbnailUrl: string): string {
+  return thumbnailUrl.replace(new RegExp(`${THUMBNAIL_SUFFIX}\\.webp$`), ".webp");
+}
+
 export function readMediaBaseUrl(): string {
   return process.env.NEXT_PUBLIC_MEDIA_URL ?? DEFAULT_MEDIA_URL;
 }

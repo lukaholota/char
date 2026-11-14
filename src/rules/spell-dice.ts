@@ -13,6 +13,8 @@ type DiceSpec = {
   countFromSlot?: Readonly<Record<number, number>>;
   bonusPerSlot?: number;
   perCantripTier?: number;
+  /// Шкода другого типу під тим самим ряткидком (Крижаний шторм): окрема група кубиків, щоб опори рахувались по типах.
+  second?: { count: number; sides: number; perSlot?: number };
 };
 
 type PiecesSpec = { label: string; count: number; perSlot?: number; perCantripTier?: number; isSummed?: boolean };
@@ -26,7 +28,7 @@ export type SpellDice = {
   rolls: readonly DiceSpec[];
 };
 
-export type SpellRoll = { key: string; label: string; count: number; sides: number; bonus: number };
+export type SpellRoll = { key: string; label: string; count: number; sides: number; bonus: number; secondDice?: { count: number; sides: number } };
 
 export type SpellRollPlan = {
   attack: boolean;
@@ -40,13 +42,15 @@ export type SpellRollPlan = {
 
 export type SpellRollInput = { spellLevel: number; slotLevel: number; characterLevel: number; spellcastingModifier: number };
 
-const MAX_SPELL_LEVEL = 3;
+const MAX_SPELL_LEVEL = 9;
 
 const cantrip = (count: number, sides: number): DiceSpec => ({ label: "Шкода", count, sides });
 const damage = (count: number, sides: number, perSlot = 1): DiceSpec => ({ label: "Шкода", count, sides, perSlot });
 const healing = (count: number, sides: number): DiceSpec => ({ label: "Лікування", count, sides, addsModifier: true, perSlot: 1 });
 /// Один кидок лікує кожного з цілей: окремий підпис, щоб мапа не просила обрати одного героя.
 const groupHealing = (spec: DiceSpec): DiceSpec => ({ ...spec, label: "Лікування кожного" });
+/// Число без кубиків («Зцілення» — 70 хітів): sides 0 лишає кидок у плані, хоча кидати нічого.
+const flat = (label: string, bonus: number, bonusPerSlot = 0): DiceSpec => ({ label, count: 0, sides: 0, bonus, bonusPerSlot });
 
 const SPELL_DICE_2014: Readonly<Record<string, SpellDice>> = {
   "Acid Splash": { save: "DEX", rolls: [cantrip(1, 6)] },
@@ -163,6 +167,113 @@ const SPELL_DICE_2014: Readonly<Record<string, SpellDice>> = {
   "Tidal Wave": { save: "DEX", rolls: [damage(4, 8, 0)] },
   "Vampiric Touch": { attack: true, rolls: [damage(3, 6)] },
   "Wind Wall": { save: "STR", rolls: [damage(3, 8, 0)] },
+
+  "Blight": { save: "CON", rolls: [damage(8, 8)] },
+  "Control Water": { save: "STR", rollsLater: true, rolls: [damage(2, 8, 0)] },
+  "Dimension Door": { rollsLater: true, rolls: [{ label: "Шкода вам", count: 4, sides: 6 }] },
+  "Elemental Bane": { save: "CON", rollsLater: true, rolls: [damage(2, 6, 0)] },
+  "Evard's Black Tentacles": { save: "DEX", rollsLater: true, rolls: [damage(3, 6, 0)] },
+  "Fire Shield": { rollsLater: true, rolls: [damage(2, 8, 0)] },
+  "Gravity Sinkhole": { save: "CON", rolls: [damage(5, 10)] },
+  "Guardian of Nature": { rollsLater: true, rolls: [damage(1, 6, 0)] },
+  "Ice Storm": { save: "DEX", rolls: [{ ...damage(2, 8), second: { count: 4, sides: 6 } }] },
+  "Mordenkainen's Faithful Hound": { attack: true, rollsLater: true, rolls: [damage(4, 8, 0)] },
+  "Phantasmal Killer": { save: "WIS", rollsLater: true, rolls: [damage(4, 10)] },
+  "Raulothim's Psychic Lance": { save: "INT", rolls: [damage(7, 6)] },
+  "Shadow of Moil": { rollsLater: true, rolls: [damage(2, 8, 0)] },
+  "Sickening Radiance": { save: "CON", rollsLater: true, rolls: [damage(4, 10, 0)] },
+  "Staggering Smite": { save: "WIS", rollsLater: true, rolls: [damage(4, 6, 0)] },
+  "Storm Sphere": { attack: true, save: "STR", rollsLater: true, rolls: [{ label: "Сфера", count: 2, sides: 6, perSlot: 1 }, { label: "Блискавка", count: 4, sides: 6, perSlot: 1 }] },
+  "Vitriolic Sphere": { save: "DEX", rolls: [damage(10, 4, 2), { label: "Наступного ходу", count: 5, sides: 4 }] },
+  "Wall of Fire": { save: "DEX", rolls: [damage(5, 8)] },
+
+  "Banishing Smite": { rollsLater: true, rolls: [damage(5, 10, 0)] },
+  "Bigby's Hand": { attack: true, rolls: [damage(4, 8, 2), { label: "Стискання", count: 2, sides: 6, addsModifier: true, perSlot: 2 }] },
+  "Cloudkill": { save: "CON", rollsLater: true, rolls: [damage(5, 8)] },
+  "Cone of Cold": { save: "CON", rolls: [damage(8, 8)] },
+  "Conjure Volley": { save: "DEX", rolls: [damage(8, 8, 0)] },
+  "Contact Other Plane": { rollsLater: true, rolls: [{ label: "Шкода вам", count: 6, sides: 6 }] },
+  "Dawn": { save: "CON", rolls: [damage(4, 10, 0)] },
+  /// shortcut: друга половина «променева або некротична на вибір» рахується як променева, поки на панелі немає вибору типу шкоди.
+  "Destructive Wave": { save: "CON", rolls: [{ ...damage(5, 6, 0), second: { count: 5, sides: 6 } }] },
+  "Dream": { save: "WIS", rollsLater: true, rolls: [damage(3, 6, 0)] },
+  "Enervation": { save: "DEX", rolls: [{ label: "Провал", count: 4, sides: 8, perSlot: 1 }, { label: "Успіх", count: 2, sides: 8 }] },
+  "Flame Strike": { save: "DEX", rolls: [{ ...damage(4, 6), second: { count: 4, sides: 6 } }] },
+  "Geas": { save: "WIS", rollsLater: true, rolls: [damage(5, 10, 0)] },
+  "Holy Weapon": { save: "CON", rollsLater: true, rolls: [damage(2, 8, 0), { label: "Спалах", count: 4, sides: 8 }] },
+  "Immolation": { save: "DEX", rolls: [damage(8, 6, 0), { label: "Наступні ходи", count: 4, sides: 6 }] },
+  "Insect Plague": { save: "CON", rolls: [damage(4, 10)] },
+  "Maelstrom": { save: "STR", rollsLater: true, rolls: [damage(6, 6, 0)] },
+  "Mass Cure Wounds": { rolls: [groupHealing(healing(3, 8))] },
+  "Negative Energy Flood": { save: "CON", rolls: [damage(5, 12, 0)] },
+  "Steel Wind Strike": { attack: true, pieces: { label: "Цілей", count: 5 }, rolls: [damage(6, 10, 0)] },
+  "Synaptic Static": { save: "INT", rolls: [damage(8, 6, 0)] },
+  "Transmute Rock": { save: "DEX", rollsLater: true, rolls: [damage(4, 8, 0)] },
+  "Wall of Light": { save: "CON", rolls: [damage(4, 8), { label: "Промінь", count: 4, sides: 8, perSlot: 1 }] },
+  "Wrath of Nature": { attack: true, save: "DEX", rollsLater: true, rolls: [{ label: "Дерева", count: 4, sides: 6 }, { label: "Каміння", count: 3, sides: 8 }] },
+
+  "Blade Barrier": { save: "DEX", rollsLater: true, rolls: [damage(6, 10, 0)] },
+  "Bones of the Earth": { rollsLater: true, rolls: [damage(6, 6, 0)] },
+  "Chain Lightning": { save: "DEX", rolls: [damage(10, 8, 0)] },
+  "Circle of Death": { save: "CON", rolls: [damage(8, 6, 2)] },
+  "Create Homunculus": { rolls: [{ label: "Шкода вам", count: 2, sides: 4 }] },
+  "Disintegrate": { save: "DEX", rolls: [{ ...damage(10, 6, 3), bonus: 40 }] },
+  "Forbiddance": { rollsLater: true, rolls: [damage(5, 10, 0)] },
+  "Gravity Fissure": { save: "CON", rolls: [damage(8, 8)] },
+  "Harm": { save: "CON", rolls: [damage(14, 6, 0)] },
+  "Heal": { rolls: [flat("Лікування", 70, 10)] },
+  "Heroes' Feast": { rolls: [{ label: "Максимум хітів", count: 2, sides: 10 }] },
+  "Investiture of Flame": { save: "DEX", rollsLater: true, rolls: [{ label: "Поруч", count: 1, sides: 10 }, { label: "Лінія вогню", count: 4, sides: 8 }] },
+  "Investiture of Ice": { save: "CON", rollsLater: true, rolls: [damage(4, 6, 0)] },
+  "Investiture of Wind": { save: "CON", rollsLater: true, rolls: [damage(2, 10, 0)] },
+  "Mental Prison": { save: "INT", rolls: [damage(5, 10, 0), { label: "Втеча", count: 10, sides: 10 }] },
+  "Otiluke's Freezing Sphere": { save: "CON", rolls: [damage(10, 6)] },
+  "Soul Cage": { rollsLater: true, rolls: [{ label: "Лікування", count: 2, sides: 8 }] },
+  "Sunbeam": { save: "CON", rolls: [damage(6, 8, 0)] },
+  "Tenser's Transformation": { rollsLater: true, rolls: [damage(2, 12, 0)] },
+  "Wall of Ice": { save: "DEX", rolls: [damage(10, 6, 2), { label: "Крижане повітря", count: 5, sides: 6, perSlot: 1 }] },
+  "Wall of Thorns": { save: "DEX", rolls: [damage(7, 8), { label: "Крізь стіну", count: 7, sides: 8, perSlot: 1 }] },
+
+  "Crown of Stars": { attack: true, rollsLater: true, rolls: [damage(4, 12, 0)] },
+  "Delayed Blast Fireball": { save: "DEX", rolls: [damage(12, 6)] },
+  "Draconic Transformation": { save: "DEX", rolls: [damage(6, 8, 0)] },
+  "Finger of Death": { save: "CON", rolls: [{ ...damage(7, 8, 0), bonus: 30 }] },
+  "Fire Storm": { save: "DEX", rolls: [damage(7, 10, 0)] },
+  "Mordenkainen's Sword": { attack: true, rolls: [damage(3, 10, 0)] },
+  "Prismatic Spray": { save: "DEX", rollsLater: true, rolls: [{ label: "Колір", count: 1, sides: 8 }, { label: "Шкода променя", count: 10, sides: 6 }] },
+  "Regenerate": { rolls: [{ label: "Лікування", count: 4, sides: 8, bonus: 15 }] },
+  "Symbol": { save: "CON", rollsLater: true, rolls: [damage(10, 10, 0)] },
+  "Teleport": { rollsLater: true, rolls: [{ label: "Шкода від невдачі", count: 3, sides: 10 }] },
+  "Whirlwind": { save: "DEX", rolls: [damage(10, 6, 0)] },
+
+  "Abi-Dalzim's Horrid Wilting": { save: "CON", rolls: [damage(12, 8, 0)] },
+  "Dark Star": { save: "CON", rollsLater: true, rolls: [damage(8, 10, 0)] },
+  "Earthquake": { save: "DEX", rollsLater: true, rolls: [damage(5, 6, 0)] },
+  "Feeblemind": { save: "INT", rolls: [damage(4, 6, 0)] },
+  "Illusory Dragon": { save: "INT", rollsLater: true, rolls: [damage(7, 6, 0)] },
+  "Incendiary Cloud": { save: "DEX", rolls: [damage(10, 8, 0)] },
+  "Maddening Darkness": { save: "WIS", rollsLater: true, rolls: [damage(8, 8, 0)] },
+  "Reality Break": {
+    save: "WIS",
+    rollsLater: true,
+    rolls: [{ label: "Ефект", count: 1, sides: 10 }, { label: "Розрив", count: 6, sides: 12 }, { label: "Вихор", count: 8, sides: 12 }, { label: "Холод безодні", count: 10, sides: 12 }],
+  },
+  "Sunburst": { save: "CON", rolls: [damage(12, 6, 0)] },
+  "Tsunami": { save: "STR", rolls: [damage(6, 10, 0), { label: "Наступні раунди", count: 5, sides: 10 }] },
+
+  "Blade of Disaster": { attack: true, rolls: [damage(4, 12, 0), { label: "Критичне", count: 12, sides: 12 }] },
+  "Mass Heal": { rolls: [flat("Запас лікування", 700)] },
+  "Meteor Swarm": { save: "DEX", rolls: [{ ...damage(20, 6, 0), second: { count: 20, sides: 6 } }] },
+  "Prismatic Wall": { save: "DEX", rollsLater: true, rolls: [{ label: "Шкода шару", count: 10, sides: 6 }] },
+  "Psychic Scream": { save: "INT", rolls: [damage(14, 6, 0)] },
+  "Ravenous Void": { rollsLater: true, rolls: [damage(5, 10, 0)] },
+  "Storm of Vengeance": {
+    save: "CON",
+    rolls: [damage(2, 6, 0), { label: "Кислотний дощ", count: 1, sides: 6 }, { label: "Блискавка", count: 10, sides: 6 }, { label: "Град", count: 2, sides: 6 }, { label: "Холод", count: 1, sides: 6 }],
+  },
+  "Time Ravage": { save: "CON", rolls: [damage(10, 12, 0)] },
+  "Time Stop": { rolls: [{ label: "Ходів", count: 1, sides: 4, bonus: 1 }] },
+  "Weird": { save: "WIS", rollsLater: true, rolls: [damage(4, 10, 0)] },
 };
 
 const SAME_IN_2024 = [
@@ -174,6 +285,12 @@ const SAME_IN_2024 = [
   "Scorching Ray", "Shatter", "Spike Growth",
   "Aura of Vitality", "Bestow Curse", "Call Lightning", "Crusader's Mantle", "Elemental Weapon", "Fireball", "Glyph of Warding",
   "Lightning Arrow", "Lightning Bolt", "Spirit Guardians", "Vampiric Touch",
+  "Blight", "Control Water", "Dimension Door", "Fire Shield", "Vitriolic Sphere", "Wall of Fire",
+  "Cone of Cold", "Contact Other Plane", "Destructive Wave", "Dream", "Geas", "Insect Plague", "Steel Wind Strike", "Synaptic Static",
+  "Chain Lightning", "Disintegrate", "Forbiddance", "Harm", "Heal", "Heroes' Feast", "Otiluke's Freezing Sphere", "Sunbeam",
+  "Wall of Ice", "Wall of Thorns",
+  "Delayed Blast Fireball", "Finger of Death", "Fire Storm", "Regenerate", "Symbol", "Teleport",
+  "Incendiary Cloud", "Sunburst", "Tsunami", "Mass Heal", "Meteor Swarm", "Time Stop",
 ];
 
 /// У 2024 кари накладаються вже після влучання, тож шкода кидається одразу.
@@ -210,6 +327,46 @@ const SPELL_DICE_2024: Readonly<Record<string, SpellDice>> = {
   "Conjure Barrage": { save: "DEX", rolls: [damage(5, 8)] },
   "Mass Healing Word": { rolls: [groupHealing(healing(2, 4))] },
   "Wind Wall": { save: "STR", rolls: [damage(4, 8, 0)] },
+
+  "Conjure Minor Elementals": { rollsLater: true, rolls: [damage(2, 8)] },
+  "Conjure Woodland Beings": { save: "WIS", rollsLater: true, rolls: [damage(5, 8)] },
+  "Evard's Black Tentacles": { save: "STR", rolls: [damage(3, 6, 0)] },
+  "Fount of Moonlight": { save: "CON", rollsLater: true, rolls: [damage(2, 6, 0)] },
+  "Grasping Vine": { attack: true, rolls: [damage(4, 8, 0)] },
+  "Ice Storm": { save: "DEX", rolls: [{ ...damage(2, 10), second: { count: 4, sides: 6 } }] },
+  "Mordenkainen's Faithful Hound": { save: "DEX", rollsLater: true, rolls: [damage(4, 8, 0)] },
+  "Phantasmal Killer": { save: "WIS", rolls: [damage(4, 10), { label: "Наступні ходи", count: 4, sides: 10, perSlot: 1 }] },
+  "Staggering Smite": { save: "WIS", rolls: [damage(4, 6)] },
+
+  "Banishing Smite": { rolls: [damage(5, 10, 0)] },
+  "Bigby's Hand": { attack: true, rolls: [damage(5, 8, 2), { label: "Стискання", count: 4, sides: 6, addsModifier: true, perSlot: 2 }] },
+  "Cloudkill": { save: "CON", rolls: [damage(5, 8)] },
+  "Conjure Elemental": { save: "DEX", rollsLater: true, rolls: [damage(8, 8), { label: "Наступні ходи", count: 4, sides: 8 }] },
+  "Conjure Volley": { save: "DEX", rolls: [damage(8, 8, 0)] },
+  "Contagion": { save: "CON", rolls: [damage(11, 8, 0)] },
+  "Flame Strike": { save: "DEX", rolls: [{ ...damage(5, 6), second: { count: 5, sides: 6, perSlot: 1 } }] },
+  "Jallarzi's Storm of Radiance": { save: "CON", rolls: [{ ...damage(2, 10), second: { count: 2, sides: 10, perSlot: 1 } }] },
+  "Mass Cure Wounds": { rolls: [groupHealing(healing(5, 8))] },
+  "Yolande's Regal Presence": { save: "WIS", rollsLater: true, rolls: [damage(4, 6, 0)] },
+
+  "Blade Barrier": { save: "DEX", rolls: [damage(6, 10, 0)] },
+  "Circle of Death": { save: "CON", rolls: [damage(8, 8, 2)] },
+  "Conjure Fey": { attack: true, rolls: [{ ...damage(3, 12), addsModifier: true }] },
+
+  "Conjure Celestial": { save: "DEX", rollsLater: true, rolls: [healing(4, 12), damage(6, 12)] },
+  "Mordenkainen's Sword": { attack: true, rolls: [{ ...damage(4, 12, 0), addsModifier: true }] },
+  "Prismatic Spray": { save: "DEX", rollsLater: true, rolls: [{ label: "Колір", count: 1, sides: 8 }, { label: "Шкода променя", count: 12, sides: 6 }] },
+
+  "Befuddlement": { save: "INT", rolls: [damage(10, 12, 0)] },
+  "Earthquake": { save: "DEX", rollsLater: true, rolls: [damage(12, 6, 0)] },
+
+  "Power Word Kill": { rollsLater: true, rolls: [damage(12, 12, 0)] },
+  "Prismatic Wall": { save: "DEX", rollsLater: true, rolls: [{ label: "Шкода шару", count: 12, sides: 6 }] },
+  "Storm of Vengeance": {
+    save: "CON",
+    rolls: [damage(2, 6, 0), { label: "Кислотний дощ", count: 4, sides: 6 }, { label: "Блискавка", count: 10, sides: 6 }, { label: "Град", count: 2, sides: 6 }, { label: "Холод", count: 1, sides: 6 }],
+  },
+  "Weird": { save: "WIS", rolls: [damage(10, 10, 0), { label: "Наступні ходи", count: 5, sides: 10 }] },
 };
 
 export function listSpellDice(ruleset: "RULES_2014" | "RULES_2024"): ReadonlyArray<[string, SpellDice]> {
@@ -226,7 +383,7 @@ export function planSpellRolls(dice: SpellDice, input: SpellRollInput): SpellRol
   const pieces = dice.pieces ? countPieces(dice.pieces, steps) : null;
   const rolls = dice.rolls
     .map((spec, index) => buildRoll(spec, index, input, steps, dice.pieces?.isSummed ? pieces ?? 1 : 1))
-    .filter((roll) => roll.count > 0);
+    .filter((roll) => roll.count > 0 || roll.sides === 0);
   return {
     attack: Boolean(dice.attack),
     save: dice.save ?? null,
@@ -241,7 +398,8 @@ type Steps = { slot: number; tier: number };
 
 function buildRoll(spec: DiceSpec, index: number, input: SpellRollInput, steps: Steps, multiplier: number): SpellRoll {
   const bonus = (spec.bonus ?? 0) + (spec.addsModifier ? input.spellcastingModifier : 0) + (spec.bonusPerSlot ?? 0) * steps.slot;
-  return { key: `spell-${index}`, label: spec.label, count: countDice(spec, input.slotLevel, steps) * multiplier, sides: spec.sides, bonus: bonus * multiplier };
+  const secondDice = spec.second ? { secondDice: { count: spec.second.count + steps.slot * (spec.second.perSlot ?? 0), sides: spec.second.sides } } : {};
+  return { key: `spell-${index}`, label: spec.label, count: countDice(spec, input.slotLevel, steps) * multiplier, sides: spec.sides, bonus: bonus * multiplier, ...secondDice };
 }
 
 function countDice(spec: DiceSpec, slotLevel: number, steps: Steps): number {

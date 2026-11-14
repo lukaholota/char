@@ -1,11 +1,13 @@
 "use client";
 
 import { useRef, useState, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
-import { RotateCcw, RotateCw } from "lucide-react";
+import { RotateCcw, RotateCw, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { DEFAULT_TOKEN_TRANSFORM, TOKEN_SCALE_RANGE, findDraggedRotation, findDraggedScale, isDefaultTokenTransform, resizeToken, turnToken, type TokenTransform } from "@/rules/token-transform";
 import { Stepper, ToolPanel } from "./MapToolbar";
 import type { TokenLightTarget } from "./use-map-lights";
+import type { SpotlightControl } from "./use-token-conditions";
 
 type ScreenPoint = { clientX: number; clientY: number };
 type HandleKind = "rotate" | "scale";
@@ -22,6 +24,7 @@ export type SelectedToken = {
   onPreview: (transform: TokenTransform) => void;
   onChange: (transform: TokenTransform) => void;
   lightTarget: TokenLightTarget;
+  spotlight: SpotlightControl | null;
 };
 
 /// Перший дотик до токена на мапі вибирає його для повороту й розміру, другий — відкриває картку.
@@ -54,7 +57,7 @@ export function findTokenRotationStyle(rotation: number) {
 const describeScale = (transform: TokenTransform) => `${transform.scale}%`;
 const describeRotation = (transform: TokenTransform) => `${transform.rotation}°`;
 
-type TransformTarget = Pick<SelectedToken, "transform" | "onPreview" | "onChange">;
+type TransformTarget = Pick<SelectedToken, "transform" | "onPreview" | "onChange"> & Partial<Pick<SelectedToken, "spotlight">>;
 
 /// Рамка повертається разом із портретом, тож ручка повороту завжди над «головою» токена.
 export function TokenTransformHandles({ token, onDeselect }: { token: TransformTarget; onDeselect: () => void }) {
@@ -66,6 +69,7 @@ export function TokenTransformHandles({ token, onDeselect }: { token: TransformT
         <span aria-hidden className="absolute bottom-full left-1/2 mb-1.5 h-4 w-0.5 -translate-x-1/2 bg-arcane-200" />
         <TransformHandle kind="rotate" token={token} onReadout={setReadout} onDeselect={onDeselect} />
         <TransformHandle kind="scale" token={token} onReadout={setReadout} onDeselect={onDeselect} />
+        {token.spotlight ? <SpotlightHandle spotlight={token.spotlight} onDeselect={onDeselect} /> : null}
       </div>
       {readout ? (
         <span aria-hidden className="pointer-events-none absolute right-full top-1/2 z-10 mr-3 -translate-y-1/2 whitespace-nowrap rounded-md bg-slate-950/90 px-1.5 py-0.5 text-xs tabular-nums text-arcane-100 ring-1 ring-arcane-300/60">
@@ -150,6 +154,29 @@ function TransformHandle({ kind, token, onReadout, onDeselect }: HandleProps) {
   );
 }
 
+const SPOTLIGHT_LABEL = "Підсвітка";
+
+function SpotlightHandle({ spotlight, onDeselect }: { spotlight: SpotlightControl; onDeselect: () => void }) {
+  return (
+    <button
+      type="button"
+      data-map-control
+      aria-label={SPOTLIGHT_LABEL}
+      aria-pressed={spotlight.isOn}
+      title={SPOTLIGHT_LABEL}
+      className="pointer-events-auto absolute grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full"
+      style={{ left: "-0.375rem", top: "-0.375rem" }}
+      onPointerDown={(event) => event.stopPropagation()}
+      onClick={spotlight.onToggle}
+      onKeyDown={(event) => event.key === "Escape" && onDeselect()}
+    >
+      <span aria-hidden className={cn("grid h-6 w-6 place-items-center rounded-full border-2 shadow-lg shadow-black/60", spotlight.isOn ? "border-slate-950 bg-arcane-300 text-slate-950" : "border-arcane-200 bg-slate-950 text-arcane-200")}>
+        <Sparkles className="h-3.5 w-3.5" />
+      </span>
+    </button>
+  );
+}
+
 export function TokenTransformPanel({ token, onClose, children }: { token: SelectedToken; onClose: () => void; children?: ReactNode }) {
   const { transform, onChange } = token;
   return (
@@ -173,6 +200,12 @@ export function TokenTransformPanel({ token, onClose, children }: { token: Selec
       </div>
       <div className="flex flex-wrap items-center gap-2 border-t border-white/10 pt-2">
         <Button type="button" variant="outline" onClick={token.onOpen} className="h-11 px-4">{token.openLabel}</Button>
+        {token.spotlight ? (
+          <Button type="button" variant="outline" aria-pressed={token.spotlight.isOn} onClick={token.spotlight.onToggle} className={cn("h-11 gap-2 px-4", token.spotlight.isOn && "border-arcane-300 bg-arcane-300/20 text-arcane-100")}>
+            <Sparkles className="h-4 w-4" aria-hidden />
+            {SPOTLIGHT_LABEL}
+          </Button>
+        ) : null}
         <Button type="button" variant="ghost" onClick={() => onChange(DEFAULT_TOKEN_TRANSFORM)} disabled={isDefaultTokenTransform(transform)} className="h-11 px-3 text-slate-400">Скинути</Button>
       </div>
       {children}

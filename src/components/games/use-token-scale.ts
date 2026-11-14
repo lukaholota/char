@@ -36,17 +36,26 @@ export function useHeroNameMode(sessionId: number) {
   return [chosen ?? remembered, changeMode] as const;
 }
 
-/// Кольорова обвідка прозорих токенів — за замовчуванням вимкнена: коли світиться кожен, це заважає.
-export function useCutoutOutline(sessionId: number) {
-  const storageKey = `game-map:cutout-outline:${sessionId}`;
-  const remembered = useSyncExternalStore(subscribeToNothing, () => readStored(storageKey) === "on", () => false);
+function useStoredSwitch(storageKey: string, isOnAtStart: boolean, isOnBeforeHydration = isOnAtStart) {
+  const remembered = useSyncExternalStore(subscribeToNothing, () => (readStored(storageKey) ?? (isOnAtStart ? "on" : "off")) === "on", () => isOnBeforeHydration);
   const [chosen, setChosen] = useState<boolean | null>(null);
-  const changeOutline = (isOn: boolean) => {
+  const changeSwitch = (isOn: boolean) => {
     setChosen(isOn);
     writeStored(storageKey, isOn ? "on" : "off");
   };
-  return [chosen ?? remembered, changeOutline] as const;
+  return [chosen ?? remembered, changeSwitch] as const;
 }
+
+/// Кольорова обвідка прозорих токенів — за замовчуванням вимкнена: коли світиться кожен, це заважає.
+export const useCutoutOutline = (sessionId: number) => useStoredSwitch(`game-map:cutout-outline:${sessionId}`, false);
+
+/// Портрети героїв поза боєм кожен вмикає для себе; у бою чергу згортає стрілка біля заголовка.
+export const usePartyPortraits = (sessionId: number) => useStoredSwitch(`game-map:party-portraits:${sessionId}`, true);
+
+/// Портрети поверх мапи не забирають у неї висоту; стрілка біля них виносить їх в окремий ряд над мапою.
+/// Типово — там, де висоти бракує (екран ушир). На екрані вгору мапу обмежує ширина: ряд нічого не коштує, а накладка закривала б мапу.
+export const usePortraitsOverMap = (sessionId: number) => useStoredSwitch(`game-map:portraits-over-map:${sessionId}`, isScreenLandscape(), true);
+const isScreenLandscape = () => typeof window === "undefined" || (window.matchMedia?.("(orientation: landscape)").matches ?? true);
 
 function readStored(key: string): string | null {
   try {

@@ -37,7 +37,7 @@ vi.mock("@/lib/components/dice/diceService", () => ({
   },
 }));
 
-import { buildAbilityRollContext, buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
+import { buildAbilityRollContext, buildSpellRollContext, buildWeaponRollContext } from "@/lib/components/dice/roll-contexts";
 import { useDiceRolls } from "@/lib/components/dice/useDiceRolls";
 import { resetLiveSession, useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
@@ -67,6 +67,16 @@ describe("кидки панелі", () => {
 
     rerender({ ctx: context });
     expect(service.roll).toHaveBeenCalledTimes(1);
+  });
+
+  it("«Зцілення» без кубиків: результат одразу, кубики не летять і старі зі столу зникають", () => {
+    const plan = { attack: false, save: null, rollsLater: false, pieces: null, rolls: [{ key: "spell-0", label: "Лікування", count: 0, sides: 0, bonus: 70 }] };
+    const heal = buildSpellRollContext({ spellName: "Зцілення", plan, attackBonus: 5, saveDC: 15 });
+    const { result } = renderHook(() => useDiceRolls(true, heal, true));
+    expect(result.current).toMatchObject({ activeActionKey: "spell-0", isRolling: false, outcome: { total: 70, dieValues: [] } });
+    expect(service.roll).not.toHaveBeenCalled();
+    expect(service.rollMany).not.toHaveBeenCalled();
+    expect(service.clear).toHaveBeenCalled();
   });
 
   it("новий контекст скидає попередній результат і кидає своє", async () => {

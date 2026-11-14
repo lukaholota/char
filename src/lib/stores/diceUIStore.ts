@@ -22,6 +22,8 @@ export interface DiceRollAction {
   label: string;
   count: number;
   sides: number;
+  /// Кубики шкоди другого типу в тому самому кидку (Крижаний шторм — 2к8 + 4к6).
+  secondDice?: { count: number; sides: number };
   bonus: number;
   isD20: boolean;
   /// Режим, у якому кидок іде сам: Лють дає перевагу на Атлетику без жодного натискання.

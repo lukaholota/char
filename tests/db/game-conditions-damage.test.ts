@@ -321,6 +321,22 @@ describe("ряткидки зони", () => {
     expect(forGm.target).toBeNull();
   });
 
+  it("шкода двох типів: половина рахується по кожній групі кубиків, запис несе другий тип", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const goblin = await placeGoblin(sessionId, gm.id, { max: 40, current: 40 });
+    const iceStorm = { ability: "DEX" as const, damageType: "bludgeoning" as const, isHalfOnSave: true, secondDamageType: "cold" as const };
+    const roll = buildRoll({ groups: [{ sides: 8, values: [5, 4] }, { sides: 6, values: [6, 3, 2, 4] }], total: 24 });
+    const draft = buildDraft({ source: "CHARACTER", label: "Крижаний шторм · Шкода", roll, saves: { creatureIds: [goblin], persIds: [], spell: { engName: "Ice Storm", level: 4, ruleset: "RULES_2014" }, effect: iceStorm, dc: 13 } });
+    const created = await insertGameRollEvent(sessionId, player.id, draft);
+    if (!created.ok) throw new Error(created.error);
+    const [forGm] = await listEventsAfter(sessionId, { userId: gm.id, isGm: true }, created.value.seq - 1, 1);
+    const [row] = forGm.saves!.rows;
+    expect(forGm.saves).toMatchObject({ damageType: "bludgeoning", secondDamageType: "cold" });
+    expect(row.damage).toBe(row.isSaved ? 4 + 7 : 24);
+    expect(row.gm).toMatchObject({ defense: null, secondDefense: null });
+    expect(await readStoredHitPoints(goblin)).toEqual({ hpMax: 40, hpCurrent: 40 - row.damage });
+  });
+
   it("майстер скасовує шкоду одного рядка рівно раз, навіть при одночасних кліках; гравцю не можна", async () => {
     const { gm, player, sessionId, first, second, seq } = await castOnGoblins();
     const secondBefore = await readStoredHitPoints(second);

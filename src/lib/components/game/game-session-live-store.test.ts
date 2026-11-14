@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameSessionView } from "@/server/db/game-sessions";
-import { addGameEvents, addPendingRoll, dropPendingRoll, markMeRolling, markMemberRolling, resetLiveSession, setConnectionStatus, setSessionView, useGameSessionLiveStore } from "./game-session-live-store";
+import { addGameEvents, addPendingRoll, dropPendingRoll, markMeRolling, markMemberRolling, resetLiveSession, setConnectionStatus, setSessionView, showMapPing, useGameSessionLiveStore } from "./game-session-live-store";
 
 const event = (seq: number, authorUserId: number) => ({ seq, authorUserId }) as GameRollEventView;
 
@@ -35,6 +35,36 @@ describe("стан «кидає…»", () => {
     setConnectionStatus(1, "reconnecting");
     setConnectionStatus(1, "live");
     expect(useGameSessionLiveStore.getState().liveFromSeq).toBe(4);
+  });
+});
+
+describe("пінг на мапі", () => {
+  afterEach(() => {
+    resetLiveSession(null);
+    vi.useRealTimers();
+  });
+
+  it("новий пінг учасника замінює його попередній, чужий лишається, і кожен згасає сам", () => {
+    vi.useFakeTimers();
+    resetLiveSession(1);
+    showMapPing(1, { userId: 5, at: { x: 0.1, y: 0.1 } });
+    showMapPing(1, { userId: 6, at: { x: 0.5, y: 0.5 } });
+    vi.advanceTimersByTime(2000);
+    showMapPing(1, { userId: 5, at: { x: 0.9, y: 0.9 } });
+    expect(useGameSessionLiveStore.getState().mapPings).toEqual([
+      { userId: 6, at: { x: 0.5, y: 0.5 } },
+      { userId: 5, at: { x: 0.9, y: 0.9 } },
+    ]);
+    vi.advanceTimersByTime(1000);
+    expect(useGameSessionLiveStore.getState().mapPings).toEqual([{ userId: 5, at: { x: 0.9, y: 0.9 } }]);
+    vi.advanceTimersByTime(2000);
+    expect(useGameSessionLiveStore.getState().mapPings).toEqual([]);
+  });
+
+  it("пінг чужої кімнати не показується", () => {
+    resetLiveSession(1);
+    showMapPing(2, { userId: 5, at: { x: 0.1, y: 0.1 } });
+    expect(useGameSessionLiveStore.getState().mapPings).toEqual([]);
   });
 });
 

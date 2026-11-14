@@ -3,7 +3,7 @@
 import { Dice6 } from "lucide-react";
 import { SpellAnchor } from "@/components/ui/SpellAnchor";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
-import { ABILITY_GENITIVE, buildCreatureSpellRollContext, describeTargetSave } from "@/lib/components/dice/roll-contexts";
+import { ABILITY_GENITIVE, buildCreatureSpellRollContext, describeActionDice, describeTargetSave } from "@/lib/components/dice/roll-contexts";
 import { openRoomRoll } from "@/lib/components/game/open-room-roll";
 import { formatModifier } from "@/lib/logic/utils";
 import { buildSpellSlug } from "@/lib/spell-link";
@@ -66,8 +66,8 @@ function CreatureSpellRow({ spell, spellcasting, creatureName }: { spell: Creatu
           </SpellRollChip>
         ) : null}
         {damageRolls.map((roll) => (
-          <SpellRollChip key={roll.key} label={`${roll.label} ${roll.count}к${roll.sides}: ${spell.name}`} onRoll={() => openRoll(roll.key)}>
-            {roll.label} {roll.count}к{roll.sides}
+          <SpellRollChip key={roll.key} label={`${roll.label} ${describeActionDice(roll)}: ${spell.name}`} onRoll={() => openRoll(roll.key)}>
+            {roll.label} {describeActionDice(roll)}
             {roll.bonus ? ` ${roll.bonus > 0 ? "+" : "−"} ${Math.abs(roll.bonus)}` : ""}
           </SpellRollChip>
         ))}

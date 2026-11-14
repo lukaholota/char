@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { readRollTargetCreatureId, useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import { collectAppliedHeroDamage, requestHeroDamage } from "@/lib/components/game/hero-damage";
+import type { TokenPosition } from "@/rules/game-map";
 import type { GameSessionView } from "@/server/db/game-sessions";
 
 export type GameConnectionStatus = "idle" | "connecting" | "live" | "reconnecting" | "paused" | "offline" | "signed_out" | "lost";
@@ -14,22 +15,28 @@ type LiveState = {
   hasOlder: boolean;
   isLoadingOlder: boolean;
   rollingUserIds: number[];
+  mapPings: MapPing[];
   liveFromSeq: number | null;
   pendingRolls: PendingGameRoll[];
   rollKeys: Record<number, string>;
 };
 
+export type MapPing = { userId: number; at: TokenPosition };
 export type PendingGameRoll = { key: string; event: GameRollEventView };
 
 const ROLLING_TIMEOUT_MS = 8000;
-const EMPTY: Omit<LiveState, "sessionId"> = { status: "idle", view: null, events: [], hasOlder: false, isLoadingOlder: false, rollingUserIds: [], liveFromSeq: null, pendingRolls: [], rollKeys: {} };
+const MAP_PING_MS = 3000;
+const EMPTY: Omit<LiveState, "sessionId"> = { status: "idle", view: null, events: [], hasOlder: false, isLoadingOlder: false, rollingUserIds: [], mapPings: [], liveFromSeq: null, pendingRolls: [], rollKeys: {} };
 const rollingTimers = new Map<number, ReturnType<typeof setTimeout>>();
+const mapPingTimers = new Map<number, ReturnType<typeof setTimeout>>();
 
 export const useGameSessionLiveStore = create<LiveState>(() => ({ sessionId: null, ...EMPTY }));
 
 export function resetLiveSession(sessionId: number | null) {
   rollingTimers.forEach(clearTimeout);
   rollingTimers.clear();
+  mapPingTimers.forEach(clearTimeout);
+  mapPingTimers.clear();
   useGameSessionLiveStore.setState({ sessionId, ...EMPTY });
 }
 
@@ -40,6 +47,16 @@ export function markMemberRolling(sessionId: number, userId: number) {
   clearTimeout(rollingTimers.get(userId));
   rollingTimers.set(userId, setTimeout(() => stopMembersRolling([userId]), ROLLING_TIMEOUT_MS));
   if (!state.rollingUserIds.includes(userId)) useGameSessionLiveStore.setState({ rollingUserIds: [...state.rollingUserIds, userId] });
+}
+
+/// Один пінг на учасника: новий замінює попередній, а відлуння власного з потоку лише продовжує його.
+export function showMapPing(sessionId: number, ping: MapPing) {
+  const state = useGameSessionLiveStore.getState();
+  if (state.sessionId !== sessionId) return;
+  const dropPing = (pings: MapPing[]) => pings.filter((shown) => shown.userId !== ping.userId);
+  clearTimeout(mapPingTimers.get(ping.userId));
+  mapPingTimers.set(ping.userId, setTimeout(() => useGameSessionLiveStore.setState((current) => ({ mapPings: dropPing(current.mapPings) })), MAP_PING_MS));
+  useGameSessionLiveStore.setState({ mapPings: [...dropPing(state.mapPings), ping] });
 }
 
 export function markMeRolling(sessionId: number) {

@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {DefaultValues, Path, PathValue, useForm} from "react-hook-form";
 import { useEffect, useMemo, useRef } from "react";
 import { toast } from "sonner";
+import { captureStepRejected } from "@/lib/monitoring/funnel-analytics";
 
 const extractErrorMessage = (err: unknown): string | null => {
     if (!err) return null;
@@ -148,6 +149,7 @@ export function useStepForm<TShape extends ZodRawShape>(
         toast.error(friendly ?? 'Не вдалося зберегти крок', {
             description: friendly ? undefined : firstMessage ?? 'Перевірте введені поля.',
         });
+        captureStepRejected(firstKey ?? 'unknown', firstMessage ?? 'unknown');
         console.error('❌ Validation errors:', errors);
     });
 

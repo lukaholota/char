@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { listObjectLibraryAction } from "@/lib/actions/game-sessions";
 import { buildMediaImageUrl } from "@/lib/media-url";
@@ -19,6 +20,25 @@ type Props = {
 };
 
 const TOUCH_HOLD_MS = 250;
+const PREVIEW_PX = 224;
+const PREVIEW_GAP_PX = 12;
+
+type Preview = { object: LibraryObject; left: number; top: number };
+
+/// Збільшений обʼєкт стає збоку від набору, щоб не закривати сусідні мініатюри; якщо збоку тісно — над мініатюрою.
+function findPreviewPlace(cell: DOMRect, list: DOMRect) {
+  const keepOnScreen = (start: number, room: number) =>
+    Math.min(room - PREVIEW_PX - PREVIEW_GAP_PX, Math.max(PREVIEW_GAP_PX, start));
+  const fitsRight = list.right + PREVIEW_GAP_PX + PREVIEW_PX <= window.innerWidth;
+  const beside = fitsRight ? list.right + PREVIEW_GAP_PX : list.left - PREVIEW_GAP_PX - PREVIEW_PX;
+  if (beside < 0) {
+    return {
+      left: keepOnScreen(cell.left + cell.width / 2 - PREVIEW_PX / 2, window.innerWidth),
+      top: keepOnScreen(cell.top - PREVIEW_GAP_PX - PREVIEW_PX, window.innerHeight),
+    };
+  }
+  return { left: beside, top: keepOnScreen(cell.top + cell.height / 2 - PREVIEW_PX / 2, window.innerHeight) };
+}
 
 let libraryRequest: ReturnType<typeof listObjectLibraryAction> | null = null;
 
@@ -65,6 +85,12 @@ function useObjectLibrary() {
 export function ObjectLibraryPicker({ onPick, canDropAt }: Props) {
   const { objects, retry } = useObjectLibrary();
   const [category, setCategory] = useState(OBJECT_LIBRARY_CATEGORIES[0].id);
+  const [preview, setPreview] = useState<Preview | null>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+  const showPreview = (object: LibraryObject, cell: HTMLElement) => {
+    if (listRef.current) setPreview({ object, ...findPreviewPlace(cell.getBoundingClientRect(), listRef.current.getBoundingClientRect()) });
+  };
+  const hidePreview = () => setPreview(null);
   const pick = (object: LibraryObject, dropPoint?: Point) =>
     onPick(buildLibraryObjectKey(object.slug), object.widthCells, dropPoint);
   const drag = useTokenDrag<LibraryObject>(
@@ -112,7 +138,7 @@ export function ObjectLibraryPicker({ onPick, canDropAt }: Props) {
       {shown.length === 0 ? (
         <p className="text-sm text-slate-400">У цій категорії поки порожньо.</p>
       ) : null}
-      <ul className="grid grid-cols-4 gap-2 sm:grid-cols-6">
+      <ul ref={listRef} className="grid grid-cols-4 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(3.5rem,1fr))]">
         {shown.map((object, index) => {
           const imageKey = buildLibraryObjectKey(object.slug);
           return (
@@ -121,6 +147,10 @@ export function ObjectLibraryPicker({ onPick, canDropAt }: Props) {
                 type="button"
                 aria-label={`Поставити: ${label}, ${index + 1}`}
                 onClick={(event) => event.detail === 0 && pick(object)}
+                onPointerEnter={(event) => event.pointerType === "mouse" && showPreview(object, event.currentTarget)}
+                onPointerLeave={hidePreview}
+                onFocus={(event) => event.currentTarget.matches(":focus-visible") && showPreview(object, event.currentTarget)}
+                onBlur={hidePreview}
                 {...drag.bindToken(object)}
                 className="block aspect-square w-full min-h-11 select-none rounded-xl border border-white/10 bg-stone-400 p-1 [-webkit-touch-callout:none] hover:border-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-arcane-300"
               >
@@ -140,6 +170,28 @@ export function ObjectLibraryPicker({ onPick, canDropAt }: Props) {
           );
         })}
       </ul>
+      {preview && !drag.ghost
+        ? createPortal(
+            // eslint-disable-next-line @next/next/no-img-element -- повне зображення обʼєкта; мініатюра під ним видна, поки воно вантажиться
+            <img
+              src={buildMediaImageUrl(buildLibraryObjectKey(preview.object.slug), "full")}
+              alt=""
+              aria-hidden
+              data-object-preview
+              width={PREVIEW_PX}
+              height={PREVIEW_PX}
+              className="pointer-events-none fixed z-[10000] rounded-2xl border border-white/20 bg-stone-400 bg-contain bg-center bg-no-repeat bg-origin-content object-contain p-3 shadow-2xl shadow-black/60"
+              style={{
+                left: preview.left,
+                top: preview.top,
+                width: PREVIEW_PX,
+                height: PREVIEW_PX,
+                backgroundImage: `url(${buildMediaImageUrl(buildLibraryObjectKey(preview.object.slug), "thumbnail")})`,
+              }}
+            />,
+            document.body,
+          )
+        : null}
       {drag.ghost ? (
         // eslint-disable-next-line @next/next/no-img-element -- та сама мініатюра, що й у списку
         <img

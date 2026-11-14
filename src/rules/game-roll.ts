@@ -46,6 +46,11 @@ export function canSeeGameRollValues(visibility: GameRollVisibility, viewer: { i
   return visibility !== "SECRET" || viewer.isGm;
 }
 
+/// Ряткидок без шкоди не має ні кубиків, ні числа; «Зцілення» має саме число без кубиків.
+export function hasRollResult(roll: Pick<GameRoll, "groups" | "bonus">): boolean {
+  return roll.groups.length > 0 || roll.bonus > 0;
+}
+
 export function buildSecretRollLabel(roll: Pick<GameRoll, "groups">): string {
   if (!roll.groups.length) return "Секретний кидок";
   return `Секретний кидок · ${roll.groups.map((group) => `${group.values.length}к${group.sides}`).join(" + ")}`;
@@ -71,7 +76,7 @@ export function findGameRollProblem(roll: unknown, { isDiceless = false } = {}):
 function findShapeProblem(roll: Record<string, unknown>, isDiceless: boolean): string | null {
   if (roll.d20Mode !== null && !["NORMAL", "ADVANTAGE", "DISADVANTAGE"].includes(roll.d20Mode as string)) return "bad d20 mode";
   if (!isTextList(roll.modeSources, GAME_ROLL_LIMITS.modeSources)) return "bad mode sources";
-  if (!Array.isArray(roll.groups) || roll.groups.length === 0 !== isDiceless || !roll.groups.every(isDiceGroup)) return "bad dice groups";
+  if (!Array.isArray(roll.groups) || (roll.groups.length === 0 ? !isDiceless && !isFlatAmount(roll) : isDiceless) || !roll.groups.every(isDiceGroup)) return "bad dice groups";
   if (isDiceless && (roll.d20Mode !== null || roll.bonus !== 0 || !Array.isArray(roll.extra) || roll.extra.length > 0)) return "a save without damage has no dice";
   if (!Array.isArray(roll.extra) || roll.extra.length > GAME_ROLL_LIMITS.extraDice || !roll.extra.every(isExtraDie)) return "bad extra dice";
   const diceCount = (roll.groups as GameRollDiceGroup[]).reduce((sum, group) => sum + group.values.length, 0) + roll.extra.length;
@@ -80,6 +85,11 @@ function findShapeProblem(roll: Record<string, unknown>, isDiceless: boolean): s
   if (!isWholeNumber(roll.total)) return "bad total";
   if (roll.check !== null && !isCheck(roll.check)) return "bad check";
   return null;
+}
+
+/// Число без кубиків («Зцілення» — 70 хітів): уся сума в bonus.
+function isFlatAmount(roll: Record<string, unknown>): boolean {
+  return roll.d20Mode === null && isWholeNumber(roll.bonus) && roll.bonus > 0 && Array.isArray(roll.extra) && roll.extra.length === 0;
 }
 
 function isD20Group(roll: GameRoll): boolean {

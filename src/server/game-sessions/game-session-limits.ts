@@ -5,6 +5,7 @@ const STREAMS_PER_USER = 8;
 const rollTimesByUser = new Map<number, number[]>();
 const rollStartTimesByUser = new Map<number, number[]>();
 const tokenMoveTimesByUser = new Map<number, number[]>();
+const mapPingTimesByUser = new Map<number, number[]>();
 const openStreamsByUser = new Map<number, number>();
 
 // shortcut: limits live in process memory, so blue/green slots count separately; move to Postgres if abuse shows up.
@@ -18,6 +19,10 @@ export function tryTakeRollStartSlot(userId: number, now = Date.now()): boolean 
 
 export function tryTakeTokenMoveSlot(userId: number, now = Date.now()): boolean {
   return tryTakeSlot(tokenMoveTimesByUser, userId, now);
+}
+
+export function tryTakeMapPingSlot(userId: number, now = Date.now()): boolean {
+  return tryTakeSlot(mapPingTimesByUser, userId, now);
 }
 
 function tryTakeSlot(timesByUser: Map<number, number[]>, userId: number, now: number): boolean {

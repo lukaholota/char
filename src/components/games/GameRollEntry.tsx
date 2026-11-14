@@ -3,7 +3,7 @@ import { Dices, EyeOff, Lock } from "lucide-react";
 import { formatModifier } from "@/lib/logic/utils";
 import { cn } from "@/lib/utils";
 import { pickD20Value } from "@/rules/dice-roll";
-import { findNaturalD20, type GameRoll } from "@/rules/game-roll";
+import { findNaturalD20, hasRollResult, type GameRoll } from "@/rules/game-roll";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameSessionMemberView } from "@/server/db/game-sessions";
 import { GameAvatar } from "./GameAvatar";
@@ -29,7 +29,7 @@ export function GameRollEntry({ event, isMine, isNew }: { event: GameRollEventVi
           {event.heroTarget ? <GameRollHeroTargetLine target={event.heroTarget} roll={event.roll} total={event.total} seq={event.seq} /> : null}
         </div>
         <div className="shrink-0 text-right">
-          {event.roll?.groups.length === 0 ? null : <div className="text-2xl font-bold tabular-nums text-slate-50" aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>}
+          {event.roll && !hasRollResult(event.roll) ? null : <div className="text-2xl font-bold tabular-nums text-slate-50" aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>}
           {natural ? <div className={cn("text-xs font-semibold", natural === "NAT_20" ? "text-emerald-200" : "text-rose-200")}>{natural === "NAT_20" ? "Природна 20" : "Природна 1"}</div> : null}
           {event.roll?.check ? <CheckMark check={event.roll.check} /> : null}
         </div>
@@ -84,8 +84,8 @@ function RollDetails({ roll }: { roll: GameRoll }) {
   const kept = roll.d20Mode ? pickD20Value(roll.groups[0].values, roll.d20Mode) : null;
   return (
     <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2 text-xs text-slate-300 tabular-nums">
-      {roll.groups.map((group) => (
-        <span key={group.sides}>
+      {roll.groups.map((group, index) => (
+        <span key={index}>
           {group.values.length}к{group.sides}: <DiceValues values={group.values} kept={kept} />
         </span>
       ))}

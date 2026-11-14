@@ -70,7 +70,7 @@ export type CreationProblem = { error: string; fixAtSteps?: readonly string[] };
 export type CreateCharacterResult =
   | { error: string; fixAtSteps?: readonly string[]; details?: unknown; success?: undefined; persId?: undefined }
   | { error?: undefined; details?: undefined; success: true; persId: number };
-const FEAT_STEPS = ["feat", "backgroundFeat", "speciesFeatChoices", "featChoices", "backgroundFeatChoices"];
+const FEAT_STEPS = ["feat", "backgroundFeat", "speciesFeatChoices", "featChoices", "backgroundFeatChoices", "raceChoices", "classChoices"];
 type RequiredUser = { value: { id: number; email: string | null } } | CreationProblem;
 type ParsedCreateInput = { value: PersFormData } | { error: string; details: unknown; fixAtSteps?: readonly string[] };
 type LoadedCreationContent = Awaited<ReturnType<typeof loadCreationContent>>;
@@ -207,9 +207,15 @@ function parseCreateInput(input: PersFormData): ParsedCreateInput {
 
   if (!validation.success) {
     const details = validation.error.flatten();
-    const missingSteps = findMissingChoiceSteps(Object.keys(details.fieldErrors));
-    if (!missingSteps.length) return { error: "Validation failed", details };
-    return { error: `Оберіть ${joinWithAnd(missingSteps.map((step) => step.label))}.`, details, fixAtSteps: missingSteps.map((step) => step.id) };
+    const invalidFields = Object.keys(details.fieldErrors);
+    const missingSteps = findMissingChoiceSteps(invalidFields);
+    if (missingSteps.length) {
+      return { error: `Оберіть ${joinWithAnd(missingSteps.map((step) => step.label))}.`, details, fixAtSteps: missingSteps.map((step) => step.id) };
+    }
+
+    const fixAtSteps = findFixStepsForFields(invalidFields);
+    if (!fixAtSteps.length) return { error: "Validation failed", details };
+    return { error: "Сервер не прийняв вибір на цьому кроці. Перегляньте його й натисніть «Далі» ще раз.", details, fixAtSteps };
   }
 
   return { value: validation.data };
@@ -223,6 +229,45 @@ const REQUIRED_CHOICE_STEPS = [
 
 function findMissingChoiceSteps(invalidFields: readonly string[]) {
   return REQUIRED_CHOICE_STEPS.filter((step) => invalidFields.includes(step.field));
+}
+
+const FIX_STEPS_BY_FIELD: Record<string, readonly string[]> = {
+  subraceId: ["raceDetails"],
+  raceVariantId: ["raceDetails"],
+  raceChoiceSelections: ["raceChoices"],
+  speciesFeatChoiceSelections: ["speciesFeatChoices"],
+  subclassId: ["subclass"],
+  subclassChoiceSelections: ["subclassChoices"],
+  classChoiceSelections: ["classChoices"],
+  classOptionalFeatureSelections: ["classOptional"],
+  weaponMasteryWeaponIds: ["weaponMastery"],
+  classSpells: ["spells"],
+  initialPreparedSpellIds: ["spells"],
+  classOptionSpellIds: ["spells"],
+  featId: ["feat"],
+  featChoiceSelections: ["featChoices"],
+  backgroundFeatId: ["backgroundFeat"],
+  backgroundFeatChoiceSelections: ["backgroundFeatChoices"],
+  featSpellSelections: ["featSpells"],
+  raceSpellIds: ["raceSpells"],
+  points: ["asi"],
+  asi: ["asi"],
+  simpleAsi: ["asi"],
+  customAsi: ["asi"],
+  racialBonusChoiceSchema: ["asi"],
+  backgroundAsiChoice: ["asi"],
+  skills: ["skills"],
+  skillsSchema: ["skills"],
+  expertiseSchema: ["expertise"],
+  languagesSchema: ["languages"],
+  equipment: ["equipment"],
+  equipmentSchema: ["equipment"],
+  name: ["name"],
+  nameSchema: ["name"],
+};
+
+function findFixStepsForFields(invalidFields: readonly string[]): string[] {
+  return [...new Set(invalidFields.flatMap((field) => FIX_STEPS_BY_FIELD[field] ?? []))];
 }
 
 function joinWithAnd(words: readonly string[]): string {

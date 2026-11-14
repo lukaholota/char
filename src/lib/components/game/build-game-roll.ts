@@ -19,7 +19,7 @@ export function buildActionGameRoll({ context, action, d20Mode }: ActionRequest,
   const roll: GameRoll = {
     d20Mode: outcome.d20Mode,
     modeSources: isD20 && d20Mode !== "NORMAL" && d20Mode === action.mode ? clipList(action.modeSources ?? []) : [],
-    groups: [{ sides: action.isD20 ? 20 : action.sides, values: outcome.dieValues }],
+    groups: buildDiceGroups(action, outcome.dieValues),
     extra: outcome.extraValues.slice(0, GAME_ROLL_LIMITS.extraDice).map((die) => ({ sides: die.sides, sign: die.sign, label: clip(die.label, GAME_ROLL_LIMITS.textItem), value: die.value })),
     bonus: outcome.bonus,
     total: outcome.total,
@@ -30,6 +30,17 @@ export function buildActionGameRoll({ context, action, d20Mode }: ActionRequest,
   const kind = findActionRollKind(context, action);
   const save = kind === "damage" ? findPublishedSave(context.targetSave) : undefined;
   return { label: clip(labelParts.filter(Boolean).join(" · "), GAME_ROLL_LIMITS.label), roll, isFromSheet: !context.isCreatureRoll, kind, ...(save ? { save } : {}), ...(save && context.areaTargets ? { areaTargets: context.areaTargets } : {}) };
+}
+
+/// Друга група — шкода другого типу (Крижаний шторм); число без кубиків («Зцілення») груп не має.
+function buildDiceGroups(action: DiceRollAction, dieValues: number[]): GameRoll["groups"] {
+  if (action.isD20) return [{ sides: 20, values: dieValues }];
+  if (!dieValues.length) return [];
+  if (!action.secondDice) return [{ sides: action.sides, values: dieValues }];
+  return [
+    { sides: action.sides, values: dieValues.slice(0, action.count) },
+    { sides: action.secondDice.sides, values: dieValues.slice(action.count) },
+  ];
 }
 
 /// Кубики ряткидка кидає сервер за статами цілі, тож у самому кидку їх немає.

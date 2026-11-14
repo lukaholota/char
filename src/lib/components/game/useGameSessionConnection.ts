@@ -6,7 +6,7 @@ import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { createSseParser, type SseMessage } from "./sse-parser";
-import { addGameEvents, markMemberRolling, resetLiveSession, setConnectionStatus, setHasOlder, setSessionView, useGameSessionLiveStore, type GameConnectionStatus } from "./game-session-live-store";
+import { addGameEvents, markMemberRolling, resetLiveSession, setConnectionStatus, setHasOlder, setSessionView, showMapPing, useGameSessionLiveStore, type GameConnectionStatus, type MapPing } from "./game-session-live-store";
 import { flushGameRollOutbox } from "./game-roll-publisher";
 import { isJournalPoppedOut, useJournalPopoutStore } from "./journal-popout";
 import { playRollChime, unlockRollChimeOnFirstTap } from "./play-roll-chime";
@@ -75,6 +75,8 @@ function startConnection(sessionId: number) {
       cursor = Math.max(cursor ?? 0, event.seq);
     } else if (message.event === "rolling") {
       markMemberRolling(sessionId, (data as { userId: number }).userId);
+    } else if (message.event === "ping") {
+      showMapPing(sessionId, data as MapPing);
     } else if (message.event === "session") {
       followSessionView(data as GameSessionView);
     } else if (message.event === "ready") {

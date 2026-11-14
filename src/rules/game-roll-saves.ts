@@ -1,4 +1,5 @@
 import type { D20Mode } from "./dice-roll";
+import type { GameRoll } from "./game-roll";
 import { findSpellSaveDamage, type CreatureSaveResult, type DamageDefense, type DamageType, type SaveDieRoll, type SaveEffect } from "./creature-save";
 import { ABILITY_KEYS } from "./feat-grants";
 import { isRuleConditionKey, type RuleConditionKey } from "./token-conditions";
@@ -17,7 +18,7 @@ export type GameRollSavesRequest = { creatureIds: number[]; persIds: number[]; s
 /// Рядок героя хітів не знімає: їх знімає гравець на своєму листі, тож hpChange там завжди null.
 /// isConditionAdded — провал справді додав стан (його не було), тож скасування його зніме.
 export type StoredSaveRow = CreatureSaveResult & { creatureId?: number; persId?: number; name: string; hpBefore: number | null; hpChange: number | null; isUndone: boolean; isAppliedToSheet?: boolean; isConditionAdded?: boolean };
-export type StoredSaves = { ability: AbilityKey; dc: number; damageType: DamageType | null; isHalfOnSave: boolean; condition?: RuleConditionKey; rows: StoredSaveRow[] };
+export type StoredSaves = { ability: AbilityKey; dc: number; damageType: DamageType | null; secondDamageType?: DamageType; isHalfOnSave: boolean; condition?: RuleConditionKey; rows: StoredSaveRow[] };
 
 export type GameRollSaveRowView = {
   name: string;
@@ -26,9 +27,17 @@ export type GameRollSaveRowView = {
   damage: number;
   condition: RuleConditionKey | null;
   isAppliedToSheet: boolean;
-  gm: { d20: number[]; mode: D20Mode; bonus: number; dice: SaveDieRoll[]; total: number; isAutoFail: boolean; defense: DamageDefense | null; hitPointsBefore: number | null; hitPointsAfter: number | null; canUndo: boolean; isUndone: boolean } | null;
+  gm: { d20: number[]; mode: D20Mode; bonus: number; dice: SaveDieRoll[]; total: number; isAutoFail: boolean; defense: DamageDefense | null; secondDefense?: DamageDefense | null; hitPointsBefore: number | null; hitPointsAfter: number | null; canUndo: boolean; isUndone: boolean } | null;
 };
-export type GameRollSavesView = { ability: AbilityKey; dc: number; damageType: DamageType | null; rows: GameRollSaveRowView[] };
+export type GameRollSavesView = { ability: AbilityKey; dc: number; damageType: DamageType | null; secondDamageType?: DamageType; rows: GameRollSaveRowView[] };
+
+export type SaveDamageParts = { rolledDamage: number; secondRolledDamage: number };
+
+/// Друга група кубиків — шкода другого типу; бонус і додаткові кубики лишаються в першій частині.
+export function splitSaveDamage(roll: Pick<GameRoll, "groups" | "total">, effect: SaveEffect): SaveDamageParts {
+  const secondRolledDamage = effect.secondDamageType ? (roll.groups[1]?.values ?? []).reduce((sum, value) => sum + value, 0) : 0;
+  return { rolledDamage: Math.max(0, roll.total - secondRolledDamage), secondRolledDamage };
+}
 
 /// undefined — запис зіпсований, null — ряткидків немає.
 export function parseGameRollSaves(raw: unknown): GameRollSavesDraft | null | undefined {
@@ -72,6 +81,7 @@ export function buildGameRollSavesView(saves: StoredSaves | undefined, viewer: {
     ability: saves.ability,
     dc: saves.dc,
     damageType: saves.damageType,
+    ...(saves.secondDamageType ? { secondDamageType: saves.secondDamageType } : {}),
     rows: saves.rows.map((row) => ({
       name: row.name,
       persId: row.persId ?? null,
@@ -88,6 +98,7 @@ export function buildGameRollSavesView(saves: StoredSaves | undefined, viewer: {
             total: row.total,
             isAutoFail: row.isAutoFail,
             defense: row.defense,
+            ...(saves.secondDamageType ? { secondDefense: row.secondDefense ?? null } : {}),
             hitPointsBefore: row.hpBefore,
             hitPointsAfter: row.hpBefore !== null && row.hpChange !== null ? row.hpBefore - row.hpChange : null,
             canUndo: ((row.hpChange ?? 0) > 0 || Boolean(row.isConditionAdded)) && !row.isUndone,

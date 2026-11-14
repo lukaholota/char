@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildGameRollSavesView, MAX_SAVE_TARGETS, parseGameRollSaves, type StoredSaves } from "@/rules/game-roll-saves";
+import { buildGameRollSavesView, MAX_SAVE_TARGETS, parseGameRollSaves, splitSaveDamage, type StoredSaves } from "@/rules/game-roll-saves";
 
 const fireball = { engName: "Fireball", level: 3, ruleset: "RULES_2014" as const };
 
@@ -90,5 +90,32 @@ describe("buildGameRollSavesView", () => {
   it("порожні ряткидки не показуються", () => {
     expect(buildGameRollSavesView(undefined, { isGm: true })).toBeNull();
     expect(buildGameRollSavesView({ ...stored, rows: [] }, { isGm: true })).toBeNull();
+  });
+});
+
+describe("шкода двох типів", () => {
+  const iceStorm = { ability: "DEX", damageType: "bludgeoning", isHalfOnSave: true, secondDamageType: "cold" } as const;
+  const roll = { groups: [{ sides: 8, values: [5, 4] }, { sides: 6, values: [6, 3, 2, 4] }], total: 24 };
+
+  it("заклинання несе другий тип в ефекті ряткидка", () => {
+    expect(parseGameRollSaves({ creatureIds: [3], spell: { engName: "Ice Storm", level: 4, ruleset: "RULES_2014" }, dc: 15 })?.effect).toEqual(iceStorm);
+  });
+
+  it("друга група кубиків — шкода другого типу, решта з бонусом — першого", () => {
+    expect(splitSaveDamage(roll, iceStorm)).toEqual({ rolledDamage: 9, secondRolledDamage: 15 });
+    expect(splitSaveDamage({ ...roll, total: 27 }, iceStorm)).toEqual({ rolledDamage: 12, secondRolledDamage: 15 });
+    expect(splitSaveDamage(roll, { ability: "DEX", damageType: "fire", isHalfOnSave: true })).toEqual({ rolledDamage: 24, secondRolledDamage: 0 });
+    expect(splitSaveDamage({ groups: [roll.groups[0]], total: 9 }, iceStorm)).toEqual({ rolledDamage: 9, secondRolledDamage: 0 });
+  });
+
+  it("майстер бачить опір до кожного типу, а одному типу другий не домальовується", () => {
+    const row = { creatureId: 3, name: "Єті", d20: [4], mode: "NORMAL" as const, bonus: 1, total: 5, isSaved: false, isAutoFail: false, defense: null, secondDefense: "immune" as const, damage: 9, hpBefore: 20, hpChange: 9, isUndone: false };
+    const stored: StoredSaves = { ability: "DEX", dc: 15, damageType: "bludgeoning", secondDamageType: "cold", isHalfOnSave: true, rows: [row] };
+    const view = buildGameRollSavesView(stored, { isGm: true })!;
+    expect(view.secondDamageType).toBe("cold");
+    expect(view.rows[0].gm).toMatchObject({ defense: null, secondDefense: "immune" });
+    const single = buildGameRollSavesView({ ...stored, secondDamageType: undefined }, { isGm: true })!;
+    expect(single).not.toHaveProperty("secondDamageType");
+    expect(single.rows[0].gm).not.toHaveProperty("secondDefense");
   });
 });

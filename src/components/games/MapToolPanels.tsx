@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import type { FogChange, SceneFog } from "@/rules/game-fog";
 import { findGridSize, GRID_COLUMN_RANGE, GRID_OPACITY_RANGE, type SceneGrid } from "@/rules/game-grid";
-import { pluralizeUk } from "@/lib/ukrainian-plural";
 import type { TokenNameMode } from "@/rules/game-map-creatures";
 import type { MapHistory } from "./map-history";
 import { HistoryButtons, Segmented, Stepper, ToolPanel } from "./MapToolbar";
@@ -68,11 +67,6 @@ function GridOpacitySlider({ opacity, onChange }: { opacity: number; onChange: (
       <span className="w-10 shrink-0 text-right tabular-nums text-slate-300">{Math.round(opacity * 100)}%</span>
     </label>
   );
-}
-
-export function describeFitTask(cellsAcross: number): string {
-  if (cellsAcross === 1) return "Обведіть одну клітинку";
-  return `Обведіть квадрат ${cellsAcross} × ${cellsAcross} ${pluralizeUk(cellsAcross, { one: "клітинку", few: "клітинки", many: "клітинок" })}`;
 }
 
 function FitButton({ onFit }: { onFit: () => void }) {
@@ -222,16 +216,19 @@ type ViewPanelProps = {
   heroNames: NameModeControl;
   creatureNames: NameModeControl | null;
   cutoutOutline: { isOn: boolean; onChange: (isOn: boolean) => void };
+  partyPortraits: { isOn: boolean; onChange: (isOn: boolean) => void };
   onClose: () => void;
 };
 
-export function ViewPanel({ hasGrid, tokenScale, onTokenScaleChange, heroNames, creatureNames, cutoutOutline, onClose }: ViewPanelProps) {
+export function ViewPanel({ hasGrid, tokenScale, onTokenScaleChange, heroNames, creatureNames, cutoutOutline, partyPortraits, onClose }: ViewPanelProps) {
   return (
     <ToolPanel title="Вигляд" onClose={onClose}>
       {hasGrid ? <Hint>Токени займають клітинки сітки й ростуть разом із мапою.</Hint> : <TokenScaleSlider scale={tokenScale} onChange={onTokenScaleChange} />}
       <TokenNameModePicker label="Імена героїв" mode={heroNames.mode} onChange={heroNames.onChange} />
       {creatureNames ? <TokenNameModePicker label="Імена істот" mode={creatureNames.mode} onChange={creatureNames.onChange} /> : null}
+      <SwitchRow label="Портрети героїв поза боєм" isChecked={partyPortraits.isOn} onChange={partyPortraits.onChange} />
       <SwitchRow label="Кольорова обвідка прозорих токенів" isChecked={cutoutOutline.isOn} onChange={cutoutOutline.onChange} />
+      <Hint>Щоб показати всім точку на мапі, утримуйте на ній палець або кнопку миші.</Hint>
     </ToolPanel>
   );
 }

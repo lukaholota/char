@@ -101,11 +101,15 @@ describe("крок «Навички» конструктора", () => {
   });
 
   it("не пускає далі з частково витраченим вибором", () => {
-    expect(lastDisabledState(renderSkillsStep(["ARCANA"]))).toBe(true);
+    expect(lastDisabledState(renderSkillsStep(["INSIGHT"]))).toBe(true);
   });
 
   it("пускає далі, коли обрано рівно стільки, скільки дає клас", () => {
-    expect(lastDisabledState(renderSkillsStep(["ARCANA", "HISTORY"]))).toBe(false);
+    expect(lastDisabledState(renderSkillsStep(["INSIGHT", "INVESTIGATION"]))).toBe(false);
+  });
+
+  it("не зараховує класові вибори, які вже дала передісторія", () => {
+    expect(lastDisabledState(renderSkillsStep(["ARCANA", "HISTORY"]))).toBe(true);
   });
 });
 

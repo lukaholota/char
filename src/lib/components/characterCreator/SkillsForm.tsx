@@ -16,6 +16,7 @@ import { usePersFormStore } from "@/lib/stores/persFormStore";
 import clsx from "clsx";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import { findSkillsStepHint, type SkillPickGroup } from "./skills-step-hint";
+import { settleSkillPicks } from "./settle-skill-picks";
 import { buildSubclassPickGroup, findSubclassSkillGroup, findSubclassSkillPicks, settleSubclassPicks } from "./subclass-skill-picks";
 
 interface Props {
@@ -31,6 +32,7 @@ interface Props {
 }
 
 type GroupName = 'race' | 'selectedClass' | 'background' | 'subclass';
+const BASIC_GROUPS = ['race', 'background', 'selectedClass'] as const;
 
 function isSkill(value: unknown): value is Skill {
   return typeof value === "string" && (SkillsEnum as readonly string[]).includes(value)
@@ -171,19 +173,19 @@ export const SkillsForm = ({
       }
       
       // Add class choices (user-selected)
-      data.basicChoices.selectedClass.forEach(s => allSkills.add(s));
-      data.basicChoices.race.forEach(s => allSkills.add(s));
-      data.basicChoices.background.forEach(s => allSkills.add(s));
+      basicChoices.selectedClass.forEach(s => allSkills.add(s));
+      basicChoices.race.forEach(s => allSkills.add(s));
+      basicChoices.background.forEach(s => allSkills.add(s));
 
       // Add race option choices
-      Object.values(data.choiceOptions).flat().forEach(s => allSkills.add(s));
+      Object.values(choiceOptions).flat().forEach(s => allSkills.add(s));
     }
     
     // Save both skillsSchema AND flat skills array
     const skillsArray = Array.from(allSkills);
     
     updateFormData({
-      skillsSchema: { ...data, basicChoices: { ...data.basicChoices, subclass } },
+      skillsSchema: { ...data, choiceOptions, basicChoices: { ...basicChoices, subclass } },
       skills: skillsArray
     });
     
@@ -191,7 +193,7 @@ export const SkillsForm = ({
   });
 
   const watchedChoiceOptions = form.watch('choiceOptions');
-  const choiceOptions = useMemo(() => watchedChoiceOptions ?? {}, [watchedChoiceOptions]);
+  const draftChoiceOptions = useMemo(() => watchedChoiceOptions ?? {}, [watchedChoiceOptions]);
 
   // Calculate choices from RaceChoiceOptions (e.g. Custom Lineage "Skill" option)
   const raceOptionChoices = useMemo(() => {
@@ -236,12 +238,12 @@ export const SkillsForm = ({
   // її обрали ще на кроці опцій раси, тож навичка проставляється сама.
   useEffect(() => {
     Object.entries(raceOptionSkills).forEach(([optionId, skills]) => {
-      if (choiceOptions[optionId] !== undefined) return;
+      if (draftChoiceOptions[optionId] !== undefined) return;
       if (skills.length === 0 || skills.length > (raceOptionCounts[optionId] ?? 0)) return;
 
       form.setValue(`choiceOptions.${optionId}`, skills);
     });
-  }, [raceOptionSkills, raceOptionCounts, choiceOptions, form]);
+  }, [raceOptionSkills, raceOptionCounts, draftChoiceOptions, form]);
 
   // Calculate total choice count from race options
   const raceOptionsTotalCount = raceOptionChoices.reduce((acc, curr) => {
@@ -275,12 +277,12 @@ export const SkillsForm = ({
   
   const watchedBasicChoices = form.watch('basicChoices');
   
-  const basicChoices = useMemo(() => watchedBasicChoices ?? {
+  const draftBasicChoices = useMemo(() => watchedBasicChoices ?? {
     race: [],
     selectedClass: [],
     background: [],
   }, [watchedBasicChoices]);
-  const subclassGroup = findSubclassSkillGroup(subclassPicks, basicChoices.subclass, listOwnedOutsideGroups(isTasha));
+  const subclassGroup = findSubclassSkillGroup(subclassPicks, draftBasicChoices.subclass, listOwnedOutsideGroups(isTasha));
 
   // Skills shown as "locked" in UI - only in non-Tasha mode
   const lockedSkillsInUI = useMemo(() => {
@@ -312,6 +314,45 @@ export const SkillsForm = ({
   const backgroundCount = findSkillChoiceCount(backgroundSkillProficiencies)
   const subraceCount = findSkillChoiceCount(normalizeSkillProficiencies(selectedSubrace?.skillProficiencies))
   const variantCount = 0
+
+  /// Тільки читається, нічого не переписує: раніше розгортання писало повний перелік навичок
+  /// просто в обʼєкт раси, а він лежить у кеші контенту на весь процес — і наступний персонаж
+  /// бачив уже зіпсований список.
+  const skillOptionsByGroup = useMemo((): Record<GroupName, Skill[]> => ({
+    race: Array.isArray(raceSkillProficiencies)
+      ? []
+      : expandSkillOptions(raceSkillProficiencies as SkillProficienciesChoice),
+    selectedClass: expandSkillOptions(selectedClass.skillProficiencies as SkillProficienciesChoice),
+    background: expandSkillOptions(backgroundSkillProficiencies),
+    subclass: subclassPicks.options,
+  }), [raceSkillProficiencies, selectedClass.skillProficiencies, backgroundSkillProficiencies, subclassPicks.options]);
+
+  const settledPicks = settleSkillPicks([
+    ...Object.entries(raceOptionSkills).map(([optionId, options]) => ({
+      key: optionId,
+      options,
+      count: raceOptionCounts[optionId] ?? 0,
+      picked: draftChoiceOptions[optionId],
+    })),
+    { key: 'race', options: skillOptionsByGroup.race, count: raceCount, picked: draftBasicChoices.race },
+    { key: 'background', options: skillOptionsByGroup.background, count: backgroundCount, picked: draftBasicChoices.background },
+    { key: 'selectedClass', options: skillOptionsByGroup.selectedClass, count: classCount, picked: draftBasicChoices.selectedClass },
+  ], listOwnedOutsideGroups(isTasha));
+  const basicChoices = { race: settledPicks.race, background: settledPicks.background, selectedClass: settledPicks.selectedClass };
+  const choiceOptions = Object.fromEntries(Object.keys(raceOptionSkills).map((optionId) => [optionId, settledPicks[optionId]]));
+
+  // Схема кроку перевіряє значення форми, а людина бачить відсіяні: без запису назад
+  // «Далі» мовчки не проходила з нулем на лічильнику.
+  useEffect(() => {
+    const hasDroppedPicks = (picked: Skill[] | undefined, settled: Skill[]) => (picked?.length ?? 0) > settled.length;
+
+    if (BASIC_GROUPS.some((group) => hasDroppedPicks(draftBasicChoices[group], basicChoices[group]))) {
+      form.setValue('basicChoices', { ...draftBasicChoices, ...basicChoices });
+    }
+    if (Object.entries(choiceOptions).some(([optionId, settled]) => hasDroppedPicks(draftChoiceOptions[optionId], settled))) {
+      form.setValue('choiceOptions', { ...draftChoiceOptions, ...choiceOptions });
+    }
+  });
 
   // In Tasha mode, race/background/subrace fixed proficiencies become a unified choice pool.
   // The amount of choices should match the effective non‑Tasha total coming from these origins,
@@ -345,18 +386,6 @@ export const SkillsForm = ({
   }
 
   const entries = Object.entries({ ...basicChoices, subclass: subclassGroup.chosen }) as [GroupName, Skill[]][];
-
-  /// Тільки читається, нічого не переписує: раніше розгортання писало повний перелік навичок
-  /// просто в обʼєкт раси, а він лежить у кеші контенту на весь процес — і наступний персонаж
-  /// бачив уже зіпсований список.
-  const skillOptionsByGroup = useMemo((): Record<GroupName, Skill[]> => ({
-    race: Array.isArray(raceSkillProficiencies)
-      ? []
-      : expandSkillOptions(raceSkillProficiencies as SkillProficienciesChoice),
-    selectedClass: expandSkillOptions(selectedClass.skillProficiencies as SkillProficienciesChoice),
-    background: expandSkillOptions(backgroundSkillProficiencies),
-    subclass: subclassPicks.options,
-  }), [raceSkillProficiencies, selectedClass.skillProficiencies, backgroundSkillProficiencies, subclassPicks.options]);
 
   const groupsWithOptions = entries.filter(
     ([groupName]) => skillOptionsByGroup[groupName].length > 0
@@ -670,11 +699,10 @@ export const SkillsForm = ({
                 const prof = rc.proficiencies;
                 if (!prof || Array.isArray(prof)) return null;
 
-                const max = prof.choiceCount || 0;
                 const currentSelections = choiceOptions[optId] ?? [];
-                const remaining = max - currentSelections.length;
-
                 const availableOptions = raceOptionSkills[optId] ?? [];
+                const freeOptionsCount = availableOptions.filter((skill) => !checkIfSelectedByOthers(optId, skill)).length;
+                const remaining = Math.min(prof.choiceCount || 0, freeOptionsCount) - currentSelections.length;
 
                 return (
                   <div key={`race-opt-${optId}`} className="space-y-2 rounded-lg border border-white/10 bg-white/5 p-3">
@@ -726,6 +754,11 @@ export const SkillsForm = ({
                          )
                       })}
                     </div>
+                    {freeOptionsCount === 0 && (
+                      <p className="text-xs text-amber-300/70">
+                        Цю навичку вже дає інше джерело. Щоб не втратити володіння, поверніться до опцій раси й оберіть іншу.
+                      </p>
+                    )}
                   </div>
                 )
               })}

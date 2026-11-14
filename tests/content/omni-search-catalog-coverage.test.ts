@@ -151,3 +151,30 @@ describe("KR36.5 — людські ключові слова зброї й пр
     expect(byLabel.map((item) => item.id).sort()).toEqual(byCode.map((item) => item.id).sort());
   });
 });
+
+describe("issue #28 — результат пошуку відкриває власну картку, а не першу у видачі", () => {
+  const ENTRY_PARAM: Partial<Record<OmniSearchCategory, string>> = {
+    spells: "spell",
+    "magic-items": "item",
+    weapons: "weapon",
+    armor: "armor",
+    feats: "feat",
+    invocations: "invocation",
+    gear: "item",
+  };
+
+  it.each(["RULES_2014", "RULES_2024"] as const)("%s: кожне посилання на картку з детальною панеллю називає запис", (ruleset) => {
+    const unnamed = buildOmniSearchIndex(ruleset)
+      .filter((item) => !isCatalogShortcut(item) && ENTRY_PARAM[item.category])
+      .filter((item) => !new URL(item.href, "https://local.invalid").searchParams.get(ENTRY_PARAM[item.category]!))
+      .map((item) => item.href);
+    expect(unnamed).toEqual([]);
+  });
+
+  it("«Телепорт» 2024 веде на Teleport, а не на «Коло телепортації»", () => {
+    const teleport = searchOmniIndex("Телепорт", "RULES_2024").find((item) => item.subtitle === "Teleport");
+    const circle = searchOmniIndex("Телепорт", "RULES_2024").find((item) => item.subtitle === "Teleportation Circle");
+    expect(teleport?.href).toMatch(/[?&]spell=\d+$/);
+    expect(teleport?.href.split("&spell=")[1]).not.toBe(circle?.href.split("&spell=")[1]);
+  });
+});

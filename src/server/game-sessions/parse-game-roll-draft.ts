@@ -24,6 +24,7 @@ export function parseGameRollDraft(body: unknown, now = Date.now()): { draft: Ga
   const isSaveOnly = saves?.effect.damageType === null;
   const rollProblem = findGameRollProblem(input.roll, { isDiceless: isSaveOnly });
   if (rollProblem) return { problem: rollProblem };
+  if (saves?.effect.secondDamageType && (input.roll as GameRoll).groups.length !== 2) return { problem: "damage of two types needs two dice groups" };
   const target = parseGameRollTarget(input.target);
   if (target === undefined) return { problem: "bad target" };
   const heroTarget = parseGameRollHeroTarget(input.heroTarget);

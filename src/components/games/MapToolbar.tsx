@@ -1,43 +1,41 @@
 "use client";
 
 import { BrickWall, ChevronDown, CloudFog, Flame, Grid3x3, Lightbulb, Maximize2, Minus, Package, PencilLine, Plus, Redo2, Ruler, RotateCw, Scan, SlidersHorizontal, Undo2, X, type LucideIcon } from "lucide-react";
-import { useId, useState, type ReactNode } from "react";
+import { Fragment, useId, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { MapHistory } from "./map-history";
 import type { MapTool } from "./use-map-tools";
 
-const TOOLS: Array<{ tool: MapTool; label: string; icon: LucideIcon; isGmOnly?: boolean }> = [
+const TOOLS: Array<{ tool: MapTool; label: string; icon: LucideIcon; isGmOnly?: boolean; startsGroup?: boolean }> = [
   { tool: "ruler", label: "Лінійка", icon: Ruler },
   { tool: "area", label: "Область", icon: Flame },
   { tool: "draw", label: "Олівець", icon: PencilLine },
-  { tool: "objects", label: "Обʼєкти", icon: Package, isGmOnly: true },
+  { tool: "objects", label: "Обʼєкти", icon: Package, isGmOnly: true, startsGroup: true },
   { tool: "walls", label: "Стіни", icon: BrickWall, isGmOnly: true },
   { tool: "light", label: "Світло", icon: Lightbulb, isGmOnly: true },
   { tool: "fog", label: "Туман", icon: CloudFog, isGmOnly: true },
   { tool: "grid", label: "Сітка", icon: Grid3x3, isGmOnly: true },
-  { tool: "view", label: "Вигляд", icon: SlidersHorizontal },
+  { tool: "view", label: "Вигляд", icon: SlidersHorizontal, startsGroup: true },
 ];
 
-/// Більше пʼяти кнопок у рядку на телефоні не читаються: інструменти майстра стають у рівні ряди.
-const TOOLS_PER_ROW = 5;
+/// Рейка лежить на правому краї мапи й не забирає в неї ні ряду, ні колонки. Вузько — лише іконки, широко — з підписами. Риска відділяє гру, підготовку сцени й вигляд.
+const TOOL_ROW = "flex min-h-0 w-12 shrink flex-col gap-0.5 overflow-y-auto overflow-x-hidden overscroll-contain rounded-2xl bg-slate-950/85 p-0.5 shadow-xl shadow-black/50 ring-1 ring-white/10 [scrollbar-width:none] [@container(min-width:40rem)]:w-[4.5rem]";
+const TOOL_BUTTON = "flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl text-xs text-slate-300 hover:bg-white/10 hover:text-slate-100 [@container(min-width:40rem)]:h-14 [@container(min-width:40rem)]:w-full";
+const TOOL_GROUP_RULE = "mx-2 my-0.5 h-px shrink-0 bg-white/10";
 
 export function MapToolRow({ tool, onToolChange, canEditScene, canDraw, className }: { tool: MapTool | null; onToolChange: (tool: MapTool | null) => void; canEditScene: boolean; canDraw: boolean; className?: string }) {
   const tools = TOOLS.filter((entry) => (canEditScene || !entry.isGmOnly) && (canDraw || entry.tool !== "draw"));
-  const columns = Math.ceil(tools.length / Math.ceil(tools.length / TOOLS_PER_ROW));
   return (
-    <div role="toolbar" aria-label="Інструменти мапи" className={cn("grid w-full gap-1 rounded-2xl bg-slate-900/80 p-1 ring-1 ring-white/10", className)} style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}>
-      {tools.map(({ tool: entry, label, icon: Icon }) => (
-        <button
-          key={entry}
-          type="button"
-          aria-pressed={tool === entry}
-          onClick={() => onToolChange(tool === entry ? null : entry)}
-          className={cn("flex h-14 min-w-0 flex-col items-center justify-center gap-0.5 rounded-xl text-xs text-slate-300 hover:bg-white/10 hover:text-slate-100", tool === entry && "bg-arcane-300/20 text-arcane-100 ring-1 ring-arcane-300/60")}
-        >
-          <Icon className="h-5 w-5" aria-hidden />
-          <span className="max-w-full truncate">{label}</span>
-        </button>
+    <div role="toolbar" aria-label="Інструменти мапи" className={cn(TOOL_ROW, className)}>
+      {tools.map(({ tool: entry, label, icon: Icon, startsGroup }, index) => (
+        <Fragment key={entry}>
+          {startsGroup && index > 0 ? <span aria-hidden className={TOOL_GROUP_RULE} /> : null}
+          <button type="button" title={label} aria-pressed={tool === entry} onClick={() => onToolChange(tool === entry ? null : entry)} className={cn(TOOL_BUTTON, tool === entry && "bg-arcane-300/20 text-arcane-100 ring-1 ring-inset ring-arcane-300/60")}>
+            <Icon className="h-5 w-5" aria-hidden />
+            <span className="sr-only [@container(min-width:40rem)]:not-sr-only [@container(min-width:40rem)]:max-w-full [@container(min-width:40rem)]:truncate">{label}</span>
+          </button>
+        </Fragment>
       ))}
     </div>
   );
@@ -51,13 +49,21 @@ function RailButton({ label, onClick, isPressed, children }: { label: string; on
   );
 }
 
-type ZoomProps = { zoom: number; maxZoom: number; onZoomIn: () => void; onZoomOut: () => void; onFit: () => void; turn: { isTurned: boolean; toggle: () => void } | null; history: MapHistory };
+type ZoomProps = { zoom: number; maxZoom: number; onZoomIn: () => void; onZoomOut: () => void; onFit: () => void; turn: { isTurned: boolean; toggle: () => void } | null; history: MapHistory; onFullscreen?: () => void };
 
 /// Щипок і подвійний дотик теж масштабують; кнопки — для миші та для тих, хто про жести не знає.
-export function MapZoomControls({ zoom, maxZoom, onZoomIn, onZoomOut, onFit, turn, history }: ZoomProps) {
+/// На весь екран мапу розгортає телефон: там це ховає шапку й навігацію; на широкому екрані місце дає згортання бічної панелі.
+export function MapZoomControls({ zoom, maxZoom, onZoomIn, onZoomOut, onFit, turn, history, onFullscreen }: ZoomProps) {
   const isZoomed = zoom > 1.01;
   return (
-    <div role="group" aria-label="Масштаб мапи" className="absolute bottom-2 right-2 z-[60] flex flex-col gap-0.5 rounded-2xl bg-slate-950/85 p-0.5 shadow-xl shadow-black/50 ring-1 ring-white/10">
+    <div role="group" aria-label="Масштаб мапи" className="mt-auto flex shrink-0 flex-col gap-0.5 rounded-2xl bg-slate-950/85 p-0.5 shadow-xl shadow-black/50 ring-1 ring-white/10">
+      {onFullscreen ? (
+        <span className="contents lg:hidden">
+          <RailButton label="Мапа на весь екран" onClick={onFullscreen}>
+            <Maximize2 className="h-5 w-5" aria-hidden />
+          </RailButton>
+        </span>
+      ) : null}
       {turn ? (
         <span className="hidden portrait:contents">
           <RailButton label={turn.isTurned ? "Повернути мапу назад" : "Повернути мапу горизонтально"} isPressed={turn.isTurned} onClick={turn.toggle}>
@@ -74,34 +80,8 @@ export function MapZoomControls({ zoom, maxZoom, onZoomIn, onZoomOut, onFit, tur
   );
 }
 
-/// Вихід з інструмента стоїть просто на мапі, а не лише в панелі під нею, яка буває поза екраном.
-export function ToolModeBadge({ tool, task, areTokensBlocked, onDone }: { tool: MapTool; task?: string; areTokensBlocked: boolean; onDone: () => void }) {
-  const label = TOOLS.find((entry) => entry.tool === tool)?.label ?? "";
-  return (
-    <div data-map-control role="status" className="absolute left-2 top-2 z-[60] flex max-w-[calc(100%-4.5rem)] items-center gap-1 rounded-xl bg-slate-950/85 py-0.5 pl-3 pr-0.5 shadow-xl shadow-black/50 ring-1 ring-arcane-300/40">
-      <span className="min-w-0 truncate text-xs text-slate-200">{task ?? (areTokensBlocked ? `${label}: токени не рухаються` : label)}</span>
-      <button type="button" onClick={onDone} className="h-11 shrink-0 rounded-lg px-3 text-sm font-semibold text-arcane-100 hover:bg-white/10">Готово</button>
-    </div>
-  );
-}
-
-export function FullscreenButton({ onOpen }: { onOpen: () => void }) {
-  return (
-    <button
-      type="button"
-      data-map-control
-      onClick={onOpen}
-      aria-label="Мапа на весь екран"
-      title="Мапа на весь екран"
-      className="absolute right-2 top-2 z-[60] grid h-11 w-11 place-items-center rounded-xl bg-slate-950/85 text-slate-200 shadow-xl shadow-black/50 ring-1 ring-white/10 hover:text-white"
-    >
-      <Maximize2 className="h-5 w-5" aria-hidden />
-    </button>
-  );
-}
-
-export function FoldSection({ title, children, className }: { title: string; children: ReactNode; className?: string }) {
-  const [isOpen, setIsOpen] = useState(true);
+export function FoldSection({ title, children, className, isOpenAtStart = true }: { title: string; children: ReactNode; className?: string; isOpenAtStart?: boolean }) {
+  const [isOpen, setIsOpen] = useState(isOpenAtStart);
   const contentId = useId();
   return (
     <section aria-label={title} className={cn("rounded-2xl border border-white/10 bg-slate-900/60", className)}>

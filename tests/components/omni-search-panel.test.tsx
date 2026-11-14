@@ -99,7 +99,7 @@ describe("KR36.4 — «ще K у каталозі» перемикає філь�
     const input = renderPanel();
     fireEvent.change(input, { target: { value: "Вогнекуля" } });
     fireEvent.keyDown(input, { key: "Enter" });
-    expect(state.push).toHaveBeenCalledWith("/spells?q=%D0%92%D0%BE%D0%B3%D0%BD%D0%B5%D0%BA%D1%83%D0%BB%D1%8F");
+    expect(state.push).toHaveBeenCalledWith(expect.stringMatching(/^\/spells\?q=%D0%92%D0%BE%D0%B3%D0%BD%D0%B5%D0%BA%D1%83%D0%BB%D1%8F&spell=\d+$/));
   });
 });
 

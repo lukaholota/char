@@ -9,9 +9,10 @@ function plan(engName: string, slotLevel: number, characterLevel = 5, spellcasti
   return planSpellRolls(findSpellDice({ ...spell, ruleset: "RULES_2024" })!, { spellLevel: spell.level, slotLevel, characterLevel, spellcastingModifier });
 }
 
-const dice = (plan: ReturnType<typeof planSpellRolls>) => plan.rolls.map((roll) => `${roll.label} ${roll.count}к${roll.sides}${roll.bonus ? `+${roll.bonus}` : ""}`);
+const dice = (plan: ReturnType<typeof planSpellRolls>) =>
+  plan.rolls.map((roll) => `${roll.label} ${[roll, ...(roll.secondDice ? [roll.secondDice] : [])].filter((part) => part.sides).map((part) => `${part.count}к${part.sides}`).join(" + ")}${roll.bonus ? `+${roll.bonus}` : ""}`);
 
-describe("кубики заклинань 2024 до 3-го рівня", () => {
+describe("кубики заклинань 2024 до 9-го рівня", () => {
   it("лікування 2024 кидає вдвічі більше кубиків, ніж 2014", () => {
     expect(dice(plan("Cure Wounds", 2))).toEqual(["Лікування 4к8+3"]);
     expect(dice(plan("Healing Word", 1))).toEqual(["Лікування 2к4+3"]);
@@ -25,6 +26,14 @@ describe("кубики заклинань 2024 до 3-го рівня", () => {
     expect(findSpellDice({ engName: "Booming Blade", level: 0, ruleset: "RULES_2024" })).toBeNull();
     expect(findSpellDice({ engName: "Sleep", level: 1, ruleset: "RULES_2024" })).toBeNull();
     expect(findSpellDice({ engName: "Sorcerous Burst", level: 0, ruleset: "RULES_2014" })).toBeNull();
+  });
+
+  it("заклинання 4–9 рівня: дві групи кубиків на два типи шкоди й «Зцілення» числом", () => {
+    expect(dice(plan("Ice Storm", 4))).toEqual(["Шкода 2к10 + 4к6"]);
+    expect(dice(plan("Flame Strike", 6))).toEqual(["Шкода 6к6 + 6к6"]);
+    expect(dice(plan("Jallarzi's Storm of Radiance", 5))).toEqual(["Шкода 2к10 + 2к10"]);
+    expect(dice(plan("Heal", 7))).toEqual(["Лікування +80"]);
+    expect(dice(plan("Cone of Cold", 6))).toEqual(["Шкода 9к8"]);
   });
 
   it("кари кидаються одразу, а Справжній удар додає промені лише з 5 рівня", () => {
@@ -42,10 +51,11 @@ const SAVE_STEMS = { STR: "Сил", DEX: "Спритн", CON: "Статур", IN
 const WITHOUT_ROLLS = [
   "Blade Ward", "Guidance", "Resistance", "Shillelagh", "Bane", "Bless", "Alter Self", "Enlarge/Reduce",
   "Ray of Enfeeblement", "Web", "Blink", "Meld Into Stone",
+  "Confusion", "Animate Objects", "Reincarnate", "Control Weather", "Wish",
 ];
 
 /// Вищий слот додає цілі, а не кубики.
-const UPCAST_WITHOUT_DICE = ["Cordon of Arrows"];
+const UPCAST_WITHOUT_DICE = ["Cordon of Arrows", "Chain Lightning", "Grasping Vine"];
 
 describe("таблиця кубиків 2024 збігається з описами заклинань", () => {
   it("кожне заклинання таблиці є в каталозі 2024, а його кубики, ряткидок, атака й модифікатор — в описі", () => {
@@ -53,9 +63,9 @@ describe("таблиця кубиків 2024 збігається з описа�
     expect(mismatches).toEqual([]);
   });
 
-  it("кожне заклинання 0–3 рівня з кубиками в описі або має кидки, або свідомо пропущене", () => {
+  it("кожне заклинання з кубиками в описі або має кидки, або свідомо пропущене", () => {
     const known = new Set([...listSpellDice("RULES_2024").map(([engName]) => engName), ...WITHOUT_ROLLS]);
-    const missing = spells2024.filter((spell) => spell.level <= 3 && /\d+к\d+/u.test(spell.description) && !known.has(spell.engName)).map((spell) => spell.engName);
+    const missing = spells2024.filter((spell) => /\d+к\d+/u.test(spell.description) && !known.has(spell.engName)).map((spell) => spell.engName);
     expect(missing).toEqual([]);
   });
 });
@@ -63,9 +73,12 @@ describe("таблиця кубиків 2024 збігається з описа�
 function findMismatches(engName: string, spellDice: SpellDice): string[] {
   const spell = spells2024.find((candidate) => candidate.engName === engName);
   if (!spell) return [`${engName}: немає в каталозі`];
-  if (spell.level > 3) return [`${engName}: рівень ${spell.level}`];
   const [base, upcast = ""] = spell.description.split(/\*\*(?:На вищих рівнях|Покращення замовляння)\.\*\*/u);
   const problems = spellDice.rolls.filter((roll) => roll.count > 0 && !base.includes(`${roll.count}к${roll.sides}`)).map((roll) => `${engName}: немає ${roll.count}к${roll.sides}`);
+  for (const roll of spellDice.rolls) {
+    if (roll.second && !base.includes(`${roll.second.count}к${roll.second.sides}`)) problems.push(`${engName}: немає ${roll.second.count}к${roll.second.sides}`);
+    if (roll.sides === 0 && !base.includes(String(roll.bonus))) problems.push(`${engName}: немає числа ${roll.bonus}`);
+  }
   if (spellDice.save && !new RegExp(`(ряткид|рятівн)[^.]{0,40}${SAVE_STEMS[spellDice.save]}`, "iu").test(base)) problems.push(`${engName}: немає ряткидка ${spellDice.save}`);
   if (spellDice.attack && !/атак/iu.test(base)) problems.push(`${engName}: немає атаки`);
   if (spellDice.rolls.some((roll) => roll.addsModifier) && !/модифікатор/iu.test(base)) problems.push(`${engName}: немає модифікатора`);

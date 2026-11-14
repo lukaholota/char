@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { castOnArea, dropAreaCast, placeAreaCast, registerReadyMapBoard, useAreaCastStore } from "@/lib/components/game/area-cast";
 import { describeTargetSave, findPressedTargetSave } from "@/lib/components/dice/roll-contexts";
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
@@ -17,17 +18,19 @@ import { AreaPanel, type AreaStart } from "./AreaToolPanel";
 import { useHeroTokens, type TokenMoves } from "./HeroTokens";
 import { HeroTokenTray } from "./HeroTokenTray";
 import { OpenCreatureCardContext, useMapCreatureTokens } from "./MapCreatureTokens";
-import { MapTargetingPanel, MapTargetPicks } from "./MapTargeting";
+import { MapTargetingPanel, MapTargetPicks, MapTaskHint } from "./MapTargeting";
 import { MapAreasLayer, MapFogLayer, MapGridLayer, MapHandle, MapLabel, MapMeasureLayer, type AreaLook } from "./MapOverlay";
 import type { TokenLayout } from "./MapTokenSlot";
-import { FoldSection, FullscreenButton, MapToolRow, MapZoomControls, ToolModeBadge } from "./MapToolbar";
-import { describeFitTask, FogPanel, GridPanel, RulerPanel, ViewPanel } from "./MapToolPanels";
+import { FoldSection, MapToolRow, MapZoomControls } from "./MapToolbar";
+import { FogPanel, GridPanel, RulerPanel, ViewPanel } from "./MapToolPanels";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { CompactCombatContext } from "./CombatTracker";
 import { DrawPanel, MapDrawingsLayer } from "./MapDrawings";
 import { LightPanel, MapLightMarkers, MapSight, TokenLightRows } from "./MapLighting";
 import { MapObjectsLayer, ObjectsPanel } from "./MapObjects";
+import { MapPings, pingMap } from "./MapPings";
 import { MapDoorButtons, MapWallsLayer, WallsPanel } from "./MapWalls";
+import { ToolPanelSlotContext, useRoomTabStore } from "./room-tabs";
 import { useSharedBoard } from "./shared-board";
 import { useMapHistory } from "./map-history";
 import { useElementWidth } from "./use-element-width";
@@ -43,15 +46,14 @@ import { TokenTransformPanel, useTokenSelection } from "./TokenTransformControls
 
 type Point = { clientX: number; clientY: number };
 /// Ширину міряє контейнер мапи, а не екран: та сама розкладка працює в кімнаті, на весь екран і в повернутому діалозі.
-/// Вузько: бій, мапа (висота картинки, але не більше пів екрана, а поруч із відкритою панеллю — третина: інакше кнопки панелі на малому телефоні не докрутити), інструменти, «Поза мапою» — колонка прокручується. Широко: мапа ліворуч, решта в бічній колонці.
-const WIDE_LAYOUT = {
-  root: "flex flex-1 flex-col gap-2 [@container(min-width:36rem)]:grid [@container(min-width:36rem)]:min-h-0 [@container(min-width:36rem)]:grid-cols-[minmax(0,1fr)_17rem] [@container(min-width:36rem)]:grid-rows-[minmax(0,1fr)] [@container(min-width:36rem)]:gap-3",
-  map: "order-2 min-h-[min(50dvh,var(--map-fit-height,50dvh))] [@container(min-width:36rem)]:order-none [@container(min-width:36rem)]:min-h-0 [@container(min-width:36rem)]:col-start-1 [@container(min-width:36rem)]:row-start-1 [@container(min-width:36rem)]:h-full",
-  side: "contents [@container(min-width:36rem)]:col-start-2 [@container(min-width:36rem)]:row-start-1 [@container(min-width:36rem)]:flex [@container(min-width:36rem)]:min-h-0 [@container(min-width:36rem)]:flex-col [@container(min-width:36rem)]:gap-2 [@container(min-width:36rem)]:overflow-y-auto [@container(min-width:36rem)]:overscroll-contain",
-  mapBesideTools: "min-h-[min(34dvh,var(--map-fit-height,34dvh))]",
-  combat: "order-1 shrink-0 [@container(min-width:36rem)]:order-none",
-  tools: "order-3 [@container(min-width:36rem)]:order-none [@container(min-width:36rem)]:max-h-none [@container(min-width:36rem)]:overflow-visible [@container(min-width:36rem)]:overscroll-auto",
-  tray: "order-4 [@container(min-width:36rem)]:order-last",
+/// Інструменти й масштаб лежать на правому краї мапи. Панель інструмента на компʼютері відкривається в бічній колонці кімнати;
+/// де її нема — вузько під мапою, широко праворуч від неї. Стрічка бою — над мапою. Порожня доріжка не забирає місця в мапи.
+const LAYOUT = {
+  root: "grid min-h-0 flex-1 grid-cols-1 grid-rows-[auto_minmax(0,1fr)_auto] [@container(min-width:40rem)]:grid-cols-[minmax(0,1fr)_auto] [@container(min-width:40rem)]:grid-rows-[auto_minmax(0,1fr)]",
+  stage: "relative row-start-2 min-h-0 min-w-0 [@container(min-width:40rem)]:col-start-1 [@container(min-width:40rem)]:m-2",
+  side: "contents [@container(min-width:40rem)]:col-start-2 [@container(min-width:40rem)]:row-start-1 [@container(min-width:40rem)]:row-span-2 [@container(min-width:40rem)]:flex [@container(min-width:40rem)]:min-h-0 [@container(min-width:40rem)]:w-[17.5rem] [@container(min-width:40rem)]:flex-col [@container(min-width:40rem)]:gap-2 [@container(min-width:40rem)]:overflow-y-auto [@container(min-width:40rem)]:overscroll-contain [@container(min-width:40rem)]:py-2 [@container(min-width:40rem)]:pr-2",
+  combat: "row-start-1 min-w-0 px-2 pt-2 empty:hidden [@container(min-width:40rem)]:col-start-1",
+  panel: "row-start-3 max-h-[38dvh] overflow-y-auto overscroll-contain p-2 [@container(min-width:40rem)]:max-h-none [@container(min-width:40rem)]:overflow-visible [@container(min-width:40rem)]:p-0",
 };
 
 const clampShare = (point: TokenPosition) => ({ x: Math.min(1, Math.max(0, point.x)), y: Math.min(1, Math.max(0, point.y)) });
@@ -69,16 +71,20 @@ export type MapBoardProps = {
   onTokenScaleChange: (scale: number) => void;
   heroNames: { mode: TokenNameMode; onChange: (mode: TokenNameMode) => void };
   cutoutOutline: { isOn: boolean; onChange: (isOn: boolean) => void };
+  partyPortraits: { isOn: boolean; onChange: (isOn: boolean) => void };
   mapImageUrl: string;
-  heading?: ReactNode;
+  stageTop?: ReactNode;
   combat?: ReactNode;
+  isCombatOverMap: boolean;
   onFullscreen?: () => void;
+  isFullscreen?: boolean;
   turn?: { isTurned: boolean; toggle: () => void };
 };
 
-/// Мапа заповнює висоту свого контейнера: у кімнаті й на весь екран вона однаково масштабується й має інструменти.
-export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroNames, cutoutOutline, mapImageUrl, heading, combat, onFullscreen, turn }: MapBoardProps) {
+/// Мапа забирає все місце свого контейнера; керування сценою, лоток і масштаб лежать поверх неї.
+export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroNames, cutoutOutline, partyPortraits, mapImageUrl, stageTop, combat, isCombatOverMap, onFullscreen, isFullscreen, turn }: MapBoardProps) {
   const boardRef = useRef<HTMLDivElement>(null);
+  const trayRef = useRef<HTMLDivElement>(null);
   const [aspect, setAspect] = useState<number | null>(null);
   const [isBroken, setIsBroken] = useState(false);
   const { tool, setTool, area: areaStore, skippedKeys, setSkippedKeys, replacedAreaId } = useSharedBoard();
@@ -121,13 +127,19 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
       setTool("area");
     } else if (area.draft && !area.draft.canEdit) area.close();
   };
+  const pingHeldPoint = (point: Point) => {
+    const at = toShare(point);
+    if (at && !view.isArchived && at.x >= 0 && at.x <= 1 && at.y >= 0 && at.y <= 1) pingMap(view, at);
+  };
   const maxZoom = grid ? Math.min(12, Math.max(5, grid.columns / 6)) : 5;
-  const viewport = useMapViewport({ boardRef, isTurned: isQuarterTurned, maxZoom, gesture, onTap: openTappedArea });
+  const viewport = useMapViewport({ boardRef, isTurned: isQuarterTurned, maxZoom, gesture, onTap: openTappedArea, onHold: pingHeldPoint });
 
   const findDropPosition = (point: Point) => {
     const viewportRect = viewport.viewportRef.current?.getBoundingClientRect();
     const rect = boardRef.current?.getBoundingClientRect();
     if (!rect || (viewportRect && !isInsideRect(point, viewportRect))) return null;
+    const trayRect = trayRef.current?.getBoundingClientRect();
+    if (trayRect && isInsideRect(point, trayRect)) return null;
     return findTokenPositionInRect(point, rect, isQuarterTurned());
   };
   const isEditingLights = tool === "light" && canEditScene;
@@ -268,113 +280,136 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     : tool === "draw" ? <DrawPanel drawings={drawings} isGm={view.myRole === "GM"} history={history} onClose={() => changeTool(null)} />
     : tool === "fog" ? <FogPanel fog={scene.fog} tool={fogTool} history={history} onChange={(change) => void scene.changeFog(change)} isPreview={isFogPreviewOn} onPreviewChange={setIsFogPreview} onClose={() => changeTool(null)} />
     : tool === "grid" ? <GridPanel grid={grid} aspect={aspect} isSaving={gridDraft.isSaving} onChange={gridDraft.changeGrid} tool={gridTool} onClose={() => changeTool(null)} />
-    : tool === "view" ? <ViewPanel hasGrid={grid !== null} tokenScale={tokenScale} onTokenScaleChange={onTokenScaleChange} heroNames={heroNames} creatureNames={creatures.names} cutoutOutline={cutoutOutline} onClose={() => changeTool(null)} />
+    : tool === "view" ? <ViewPanel hasGrid={grid !== null} tokenScale={tokenScale} onTokenScaleChange={onTokenScaleChange} heroNames={heroNames} creatureNames={creatures.names} cutoutOutline={cutoutOutline} partyPortraits={partyPortraits} onClose={() => changeTool(null)} />
     : selectedToken ? (
       <TokenTransformPanel token={selectedToken} onClose={() => selection.select(null)}>
         {lights.lighting !== "off" ? <TokenLightRows target={selectedToken.lightTarget} tokenLights={tokenLights} canSetDarkvision={canEditScene} /> : null}
       </TokenTransformPanel>
     )
     : null;
+  const panelSlot = useToolPanelSlot(isFullscreen, () => changeTool(null));
+  const localPanel = targeting ? <MapTargetingPanel view={view} targeting={targeting} /> : panelSlot ? null : panel;
 
-  const hasTray = heroes.waiting.length > 0 || creatures.tray !== null;
-  const isFocused = Boolean(panel || targeting || isDiceTrayOpen);
-  const toolsRef = useRef<HTMLDivElement>(null);
-  const hasAreaDraft = area.draft !== null;
-  const selectedKey = selectedToken?.key ?? objects.chosen?.id ?? null;
-  useEffect(() => {
-    if (tool || isTargeting || selectedKey) toolsRef.current?.scrollIntoView?.({ block: "nearest" });
-  }, [tool, hasAreaDraft, isTargeting, selectedKey]);
+  const waitingCount = heroes.waiting.length + creatures.waitingCount;
+  const hasTray = waitingCount > 0 || creatures.tray !== null;
+  const isMyHeroWaiting = heroes.waiting.some((member) => member.userId === view.myUserId);
+  /// Плашка «Поза мапою» закриває кут мапи, тож сама розгортається лише тоді, коли з неї треба щось узяти просто зараз.
+  const isTrayNeededNow = !view.isArchived && (canEditScene ? heroes.placed.length === 0 || creatures.waitingCount > 0 || waitingCount === 0 : isMyHeroWaiting);
+  const isFocused = Boolean((panel && !panelSlot) || targeting || isDiceTrayOpen);
+  const isTaskShown = isTargeting || castState?.sessionId === view.id;
+  /// Без картинки мапи портретам нема на чому лежати; увімкнений інструмент стискає їх, щоб не закривали місце, де малюють.
+  const isPortraitRowOverMap = isCombatOverMap && !isBroken;
+  const portraitRow = (
+    <CompactCombatContext.Provider value={isFocused || (isPortraitRowOverMap && (tool !== null || isTaskShown))}>
+      <OpenCreatureCardContext.Provider value={creatures.openStatblock}>{combat}</OpenCreatureCardContext.Provider>
+    </CompactCombatContext.Provider>
+  );
   return (
-    <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain [container-type:inline-size]">
-      <div className={WIDE_LAYOUT.root}>
+    <div className="flex min-h-0 flex-1 flex-col [container-type:inline-size]">
+      <div className={LAYOUT.root}>
+        {combat && !isPortraitRowOverMap ? <div className={LAYOUT.combat}>{portraitRow}</div> : null}
+        {localPanel ? (
+          <div className={LAYOUT.side}>
+            <div className={cn(LAYOUT.panel, "shrink-0")}>{localPanel}</div>
+          </div>
+        ) : null}
+        {panel && panelSlot && !targeting ? createPortal(panel, panelSlot) : null}
         {isBroken ? (
-          <p role="alert" className={cn(WIDE_LAYOUT.map, "rounded-xl border border-rose-400/30 bg-rose-500/10 p-4 text-sm text-rose-100")}>Не вдалося показати мапу. Оновіть сторінку або попросіть майстра завантажити її ще раз.</p>
+          <p role="alert" className={cn(LAYOUT.stage, "m-2 rounded-xl border border-rose-400/30 bg-rose-500/10 p-4 text-sm text-rose-100")}>Не вдалося показати мапу. Оновіть сторінку або попросіть майстра завантажити її ще раз.</p>
         ) : (
-          <div
-            ref={viewport.viewportRef}
-            className={cn("relative grid min-h-0 min-w-0 flex-1 touch-none select-none items-start justify-items-center overflow-hidden rounded-xl [container-type:size]", WIDE_LAYOUT.map, (panel || targeting) && WIDE_LAYOUT.mapBesideTools, viewport.zoom > 1.01 && !isToolGesture && "cursor-grab active:cursor-grabbing")}
-            style={aspect ? ({ "--map-fit-height": `calc(100cqw / ${aspect})` } as CSSProperties) : undefined}
-            {...viewport.bindViewport}
-          >
+          <div className={LAYOUT.stage}>
             <div
-              ref={boardRef}
-              className={cn("relative mx-auto select-none rounded-xl", !aspect && "bg-white/5", anyGhost && "ring-2", anyGhost && (anyGhost.isOverTarget ? "ring-arcane-300" : "ring-white/20"))}
-              style={{ aspectRatio: aspect ?? 4 / 3, width: `min(100%, calc(100cqh * ${aspect ?? 4 / 3}))`, transformOrigin: "0 0" }}
+              ref={viewport.viewportRef}
+              className={cn("absolute inset-0 grid touch-none select-none [-webkit-touch-callout:none] items-center justify-items-center overflow-hidden bg-slate-950/40 [container-type:size] [@container(min-width:40rem)]:rounded-xl", viewport.zoom > 1.01 && !isToolGesture && "cursor-grab active:cursor-grabbing")}
+              {...viewport.bindViewport}
             >
-              {aspect ? null : <span className="absolute inset-0 grid place-items-center text-sm text-slate-400">Мапа завантажується…</span>}
-              {/* eslint-disable-next-line @next/next/no-img-element -- мапа вже стиснута до webp на сервері, оптимізатор Next її лише повторно перекодував би */}
-              <img
-                ref={(image) => {
-                  if (image?.complete && image.naturalWidth > 0) setAspect(image.naturalWidth / image.naturalHeight);
-                }}
-                src={mapImageUrl}
-                alt="Мапа сцени"
-                draggable={false}
-                onLoad={(event) => setAspect(event.currentTarget.naturalWidth / event.currentTarget.naturalHeight)}
-                onError={() => setIsBroken(true)}
-                className="absolute inset-0 h-full w-full rounded-xl border border-white/10 object-contain"
-              />
-              {aspect ? (
-                <>
-                  {frame && (frame.grid.isVisible || tool === "grid") ? <MapGridLayer frame={frame} /> : null}
-                  {frame && areaLooks.length ? <MapAreasLayer frame={frame} areas={areaLooks} /> : null}
-                  {objects.shown.length ? <MapObjectsLayer objects={objects} isEditing={isEditingObjects} /> : null}
-                  {drawings.shown.length ? <MapDrawingsLayer drawings={drawings.shown} aspect={aspect} /> : null}
-                  {fog && !hidesForMe ? <MapFogLayer fog={fog} aspect={aspect} isVeil /> : null}
-                  {sight && !sightHidesForMe ? <MapSight sight={sight} fading={fadingSight} isVeil /> : null}
-                  {isEditingWalls ? <MapWallsLayer walls={walls} aspect={aspect} /> : canEditScene ? <MapDoorButtons walls={walls} isActive={tool === null} /> : null}
-                </>
-              ) : null}
-              <div onPointerDownCapture={leaveGridOnToken} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{creatures.mapTokens}</div>
-              {aspect && fog && hidesForMe ? <MapFogLayer fog={fog} aspect={aspect} isVeil={false} className="z-20" /> : null}
-              {sight && sightHidesForMe ? <MapSight sight={sight} fading={fadingSight} isVeil={false} /> : null}
-              {sightHidesForMe && !eyes.length ? <p className="pointer-events-none absolute inset-x-4 top-1/2 z-20 -translate-y-1/2 text-center text-sm text-slate-300">{view.myRole === "GM" ? "На сцені немає героїв — гравцям нічого не видно. Перетягніть героя з «Поза мапою»." : "Поставте героя на мапу, щоб бачити"}</p> : null}
-              <div onPointerDownCapture={leaveGridOnToken} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{heroes.mapTokens}</div>
-              {targeting ? <MapTargetPicks tokens={[...heroes.placed, ...creatures.placed]} layout={layout} targeting={targeting} /> : null}
-              {aspect && isEditingLights ? <MapLightMarkers lights={lights} frame={frame} aspect={aspect} /> : null}
-              {aspect ? <MapMeasureLayer frame={frame} aspect={aspect} ruler={tool === "ruler" ? ruler.ruler : null} move={move} rect={tool === "walls" ? walls.rect : tool === "fog" ? fogTool.rect : tool === "grid" ? gridTool.rect : null} /> : null}
-              {frame && tool === "ruler" && ruler.ruler ? <MapLabel at={ruler.ruler.to} className="font-rpg-display text-amber-100">{measureGridFeet(ruler.ruler.from, ruler.ruler.to, frame)} фт</MapLabel> : null}
-              {move && frame ? <MapLabel at={move.to}>{drag?.isBlocked ? "Стіна" : `${measureGridFeet(move.from, move.to, frame)} фт`}</MapLabel> : null}
-              {frame && tool === "area" && area.draft ? <AreaControls draft={area.draft} frame={frame} area={area} /> : null}
+              <div
+                ref={boardRef}
+                className={cn("relative mx-auto select-none rounded-xl", !aspect && "bg-white/5", anyGhost && "ring-2", anyGhost && (anyGhost.isOverTarget ? "ring-arcane-300" : "ring-white/20"))}
+                style={{ aspectRatio: aspect ?? 4 / 3, width: `min(100%, calc(100cqh * ${aspect ?? 4 / 3}))`, transformOrigin: "0 0" }}
+              >
+                {aspect ? null : <span className="absolute inset-0 grid place-items-center text-sm text-slate-400">Мапа завантажується…</span>}
+                {/* eslint-disable-next-line @next/next/no-img-element -- мапа вже стиснута до webp на сервері, оптимізатор Next її лише повторно перекодував би */}
+                <img
+                  ref={(image) => {
+                    if (image?.complete && image.naturalWidth > 0) setAspect(image.naturalWidth / image.naturalHeight);
+                  }}
+                  src={mapImageUrl}
+                  alt="Мапа сцени"
+                  draggable={false}
+                  onLoad={(event) => setAspect(event.currentTarget.naturalWidth / event.currentTarget.naturalHeight)}
+                  onError={() => setIsBroken(true)}
+                  className="absolute inset-0 h-full w-full rounded-xl border border-white/10 object-contain"
+                />
+                {aspect ? (
+                  <>
+                    {frame && (frame.grid.isVisible || tool === "grid") ? <MapGridLayer frame={frame} /> : null}
+                    {frame && areaLooks.length ? <MapAreasLayer frame={frame} areas={areaLooks} /> : null}
+                    {objects.shown.length ? <MapObjectsLayer objects={objects} isEditing={isEditingObjects} /> : null}
+                    {drawings.shown.length ? <MapDrawingsLayer drawings={drawings.shown} aspect={aspect} /> : null}
+                    {fog && !hidesForMe ? <MapFogLayer fog={fog} aspect={aspect} isVeil /> : null}
+                    {sight && !sightHidesForMe ? <MapSight sight={sight} fading={fadingSight} isVeil /> : null}
+                    {isEditingWalls ? <MapWallsLayer walls={walls} aspect={aspect} /> : canEditScene ? <MapDoorButtons walls={walls} isActive={tool === null} /> : null}
+                  </>
+                ) : null}
+                <div onPointerDownCapture={leaveGridOnToken} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{creatures.mapTokens}</div>
+                {aspect && fog && hidesForMe ? <MapFogLayer fog={fog} aspect={aspect} isVeil={false} className="z-20" /> : null}
+                {sight && sightHidesForMe ? <MapSight sight={sight} fading={fadingSight} isVeil={false} /> : null}
+                {sightHidesForMe && !eyes.length ? <p className="pointer-events-none absolute inset-x-4 top-1/2 z-20 -translate-y-1/2 text-center text-sm text-slate-300">{view.myRole === "GM" ? "На сцені немає героїв — гравцям нічого не видно. Перетягніть героя з «Поза мапою»." : "Поставте героя на мапу, щоб бачити"}</p> : null}
+                <div onPointerDownCapture={leaveGridOnToken} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{heroes.mapTokens}</div>
+                {targeting ? <MapTargetPicks tokens={[...heroes.placed, ...creatures.placed]} layout={layout} targeting={targeting} /> : null}
+                {aspect && isEditingLights ? <MapLightMarkers lights={lights} frame={frame} aspect={aspect} /> : null}
+                {aspect ? <MapMeasureLayer frame={frame} aspect={aspect} ruler={tool === "ruler" ? ruler.ruler : null} move={move} rect={tool === "walls" ? walls.rect : tool === "fog" ? fogTool.rect : tool === "grid" ? gridTool.rect : null} /> : null}
+                {frame && tool === "ruler" && ruler.ruler ? <MapLabel at={ruler.ruler.to} className="font-rpg-display text-amber-100">{measureGridFeet(ruler.ruler.from, ruler.ruler.to, frame)} фт</MapLabel> : null}
+                {move && frame ? <MapLabel at={move.to}>{drag?.isBlocked ? "Стіна" : `${measureGridFeet(move.from, move.to, frame)} фт`}</MapLabel> : null}
+                {frame && tool === "area" && area.draft ? <AreaControls draft={area.draft} frame={frame} area={area} /> : null}
+                <MapPings view={view} />
+              </div>
             </div>
-            {tool && isToolGesture ? <ToolModeBadge tool={tool} task={tool === "grid" && gridTool.mode === "fit" ? describeFitTask(gridTool.cellsAcross) : undefined} areTokensBlocked={areTokensBlocked} onDone={() => changeTool(null)} /> : null}
-            {onFullscreen ? <FullscreenButton onOpen={onFullscreen} /> : null}
-            {aspect ? <MapZoomControls zoom={viewport.zoom} maxZoom={maxZoom} onZoomIn={viewport.zoomIn} onZoomOut={viewport.zoomOut} onFit={viewport.fit} turn={canTurn} history={history} /> : null}
+            <div className={cn("pointer-events-none absolute bottom-2 right-2 z-[60] flex flex-col items-end gap-2 [&>*]:pointer-events-auto", isFullscreen ? "top-14" : "top-2")}>
+              {targeting || cast ? null : <MapToolRow tool={tool} onToolChange={changeTool} canEditScene={canEditScene} canDraw={!view.isArchived} />}
+              <MapZoomControls zoom={viewport.zoom} maxZoom={maxZoom} onZoomIn={viewport.zoomIn} onZoomOut={viewport.zoomOut} onFit={viewport.fit} turn={canTurn} history={history} onFullscreen={onFullscreen} />
+            </div>
+            {/* Поверх мапи, але не всередині неї: тут працюють звичайні дотики й прокрутка, а не жести мапи. */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex flex-wrap items-start gap-2 p-2 pr-16 [&>*]:pointer-events-auto [@container(min-width:40rem)]:pr-[5.5rem]">
+              {isTaskShown || tool ? null : stageTop}
+              <MapTaskHint view={view} className="max-w-full bg-slate-950/90 shadow-xl shadow-black/50" />
+              {combat && isPortraitRowOverMap ? <div className="!pointer-events-none min-w-0 basis-full">{portraitRow}</div> : null}
+            </div>
+            {hasTray ? (
+              <div ref={trayRef} className="absolute bottom-2 left-2 z-10 max-h-[calc(100%-4.5rem)] max-w-[min(18rem,calc(100%-4.5rem))] overflow-y-auto overscroll-contain rounded-2xl shadow-xl shadow-black/50">
+                <FoldSection title={waitingCount ? `Поза мапою · ${waitingCount}` : "Поза мапою"} isOpenAtStart={isTrayNeededNow} className="bg-slate-950/90">
+                  <div className="space-y-3">
+                    <HeroTokenTray view={view} waiting={heroes.waiting}>
+                      {heroes.trayTokens}
+                    </HeroTokenTray>
+                    {creatures.tray}
+                  </div>
+                </FoldSection>
+              </div>
+            ) : null}
           </div>
         )}
-        <div className={WIDE_LAYOUT.side}>
-          {heading}
-          {combat ? (
-            <div className={cn(WIDE_LAYOUT.combat, isFocused && "sticky top-0 z-30 rounded-2xl bg-slate-950")}>
-              <CompactCombatContext.Provider value={isFocused}>
-                <OpenCreatureCardContext.Provider value={creatures.openStatblock}>{combat}</OpenCreatureCardContext.Provider>
-              </CompactCombatContext.Provider>
-            </div>
-          ) : null}
-          {hasTray ? (
-            <FoldSection title="Поза мапою" className={cn(WIDE_LAYOUT.tray, !canEditScene && "order-3")}>
-              <div className="space-y-3">
-                <HeroTokenTray view={view} waiting={heroes.waiting}>
-                  {heroes.trayTokens}
-                </HeroTokenTray>
-                {creatures.tray}
-              </div>
-            </FoldSection>
-          ) : null}
-          <div ref={toolsRef} className={cn("shrink-0 space-y-2", (panel || targeting) && "max-h-[42dvh] overflow-y-auto", WIDE_LAYOUT.tools)}>
-            {targeting ? <MapTargetingPanel view={view} targeting={targeting} /> : (
-              <>
-                {cast ? null : <MapToolRow tool={tool} onToolChange={changeTool} canEditScene={canEditScene} canDraw={!view.isArchived} />}
-                {panel}
-              </>
-            )}
-          </div>
-        </div>
       </div>
       {heroes.overlay}
       {creatures.overlay}
     </div>
   );
+}
+
+/// Слот у бічній колонці є лише на компʼютері з розгорнутою колонкою і не на весь екран. Показ будь-якої бічної вкладки прибирає панель, що її закривала.
+function useToolPanelSlot(isFullscreen: boolean | undefined, closeTool: () => void): HTMLElement | null {
+  const slot = useContext(ToolPanelSlotContext);
+  const panelSlot = isFullscreen ? null : slot;
+  const sideShownCount = useRoomTabStore((state) => state.sideShownCount);
+  const seenCount = useRef(sideShownCount);
+  useEffect(() => {
+    if (seenCount.current === sideShownCount) return;
+    seenCount.current = sideShownCount;
+    if (panelSlot) closeTool();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- закриває лише новий показ вкладки
+  }, [sideShownCount]);
+  return panelSlot;
 }
 
 type AreaTool = ReturnType<typeof useAreaTool>;

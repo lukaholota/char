@@ -2,7 +2,7 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { buildSecretRollLabel, canSeeGameRollValues, type GameRoll, type GameRollSource, type GameRollVisibility } from "@/rules/game-roll";
 import { buildGameRollHeroTargetView, type GameRollHeroTargetDraft, type GameRollHeroTargetView, type StoredHeroTarget } from "@/rules/game-roll-hero-target";
-import { buildGameRollSavesView, type GameRollSavesDraft, type GameRollSavesView, type StoredSaves } from "@/rules/game-roll-saves";
+import { buildGameRollSavesView, splitSaveDamage, type GameRollSavesDraft, type GameRollSavesView, type StoredSaves } from "@/rules/game-roll-saves";
 import { buildGameRollTargetView, type GameRollTargetDraft, type GameRollTargetView } from "@/rules/game-roll-target";
 import { findAttackHit } from "@/rules/game-roll-target";
 import { changeHeroTargetHitPoints, damageHeroSaveRows } from "@/server/db/game-hero-damage";
@@ -144,7 +144,7 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
     const effect = draft.target ? await applyRollTarget(tx, sessionId, draft.target, draft.roll) : { ok: true as const, value: null };
     if (!effect.ok) return effect;
     const seq = session.last_event_seq + BigInt(1);
-    const rolledSaves = draft.saves ? await applySaveTargets(tx, sessionId, draft.saves, draft.roll.total, heroes) : null;
+    const rolledSaves = draft.saves ? await applySaveTargets(tx, sessionId, draft.saves, splitSaveDamage(draft.roll, draft.saves.effect), heroes) : null;
     const saves = await damageHeroSaveRows(tx, sessionId, Number(seq), rolledSaves, heroes);
     const heroTarget = await changeHeroTargetHitPoints(tx, sessionId, Number(seq), draft.heroTarget ? buildHeroTarget(draft.heroTarget, heroes.get(draft.heroTarget.persId), draft.roll) : null, draft.roll.total, heroes);
     await tx.gameSession.update({ where: { id: sessionId }, data: { lastEventSeq: seq, updatedAt: new Date() } });

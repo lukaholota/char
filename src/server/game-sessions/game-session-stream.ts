@@ -25,7 +25,7 @@ export function openGameSessionStream(input: StreamInput): ReadableStream<Uint8A
 
 function runStream({ sessionId, userId, afterSeq, abortSignal }: StreamInput, controller: ReadableStreamDefaultController<Uint8Array>): () => void {
   const encoder = new TextEncoder();
-  const state = { cursor: afterSeq ?? 0, viewer: { userId, isGm: false } as GameRollViewer, sessionJson: "", isClosed: false };
+  const state = { cursor: afterSeq ?? 0, viewer: { userId, isGm: false } as GameRollViewer, viewedSceneId: null as number | null, sessionJson: "", isClosed: false };
   let queue = Promise.resolve();
   const pending = new Set<"rolls" | "session" | "presence">();
 
@@ -47,6 +47,7 @@ function runStream({ sessionId, userId, afterSeq, abortSignal }: StreamInput, co
       return false;
     }
     state.viewer = { userId, isGm: view.myRole === "GM" };
+    state.viewedSceneId = view.viewedSceneId;
     const json = JSON.stringify(view);
     if (json !== state.sessionJson) {
       state.sessionJson = json;
@@ -99,6 +100,10 @@ function runStream({ sessionId, userId, afterSeq, abortSignal }: StreamInput, co
   };
 
   const onSignal = (signal: GameSessionWake) => {
+    if (typeof signal === "object" && "pingerUserId" in signal) {
+      if (signal.sceneId === state.viewedSceneId) sendEvent("ping", { userId: signal.pingerUserId, at: signal.at });
+      return;
+    }
     if (typeof signal === "object") {
       if (signal.rollerUserId !== userId && canSeeGameRoll(signal.visibility, { isAuthor: false, isGm: state.viewer.isGm })) sendEvent("rolling", { userId: signal.rollerUserId });
       return;

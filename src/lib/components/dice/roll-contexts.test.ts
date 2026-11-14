@@ -11,6 +11,9 @@ import {
   buildWeaponRollContext,
   formatExtraDice,
   listRollNotations,
+  countMainDice,
+  describeActionDice,
+  isFlatAction,
 } from "./roll-contexts";
 
 describe("підсумок кидка", () => {
@@ -144,6 +147,18 @@ describe("кидок заклинання", () => {
     const context = buildSpellRollContext({ spellName: "Вогняна куля", plan: fireball, slotLabel: "Слот 4 рівня", attackBonus: 7, saveDC: 15 });
     expect(context).toMatchObject({ title: "Вогняна куля", subtitle: "Слот 4 рівня", autoRollKey: "spell-0", targetSave: { abilityName: "Спритності", dc: 15 } });
     expect(context.actions).toEqual([{ key: "spell-0", label: "Шкода", count: 9, sides: 6, bonus: 0, isD20: false }]);
+  });
+
+  it("два типи шкоди — дві нотації поспіль, число без кубиків не кидається", () => {
+    const iceStorm = { key: "spell-0", label: "Шкода", count: 2, sides: 8, bonus: 0, isD20: false, secondDice: { count: 4, sides: 6 }, extraDice: [{ sides: 4, sign: 1 as const, label: "Благословення" }] };
+    expect(listRollNotations(iceStorm, "NORMAL")).toEqual(["2d8", "4d6", "1d4"]);
+    expect(describeActionDice(iceStorm)).toBe("2к8 + 4к6");
+    expect(countMainDice(iceStorm, "ADVANTAGE")).toBe(6);
+    expect(isFlatAction(iceStorm)).toBe(false);
+    const heal = { key: "spell-0", label: "Лікування", count: 0, sides: 0, bonus: 70, isD20: false };
+    expect(isFlatAction(heal)).toBe(true);
+    expect(isFlatAction({ ...heal, isD20: true })).toBe(false);
+    expect(buildRollOutcome({ actionKey: heal.key, label: heal.label, bonus: 70, d20Mode: null, mainDiceCount: 0, extraDice: [] }, [])).toMatchObject({ dieValues: [], total: 70 });
   });
 
   it("атака заклинанням іде першою й кидається одразу, промені — в підписі", () => {

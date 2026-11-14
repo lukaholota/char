@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildSecretRollLabel, canSeeGameRoll, canSeeGameRollValues, computeGameRollTotal, findGameRollProblem, findNaturalD20, isGameRollVisibility, type GameRoll } from "@/rules/game-roll";
+import { buildSecretRollLabel, canSeeGameRoll, canSeeGameRollValues, computeGameRollTotal, findGameRollProblem, findNaturalD20, hasRollResult, isGameRollVisibility, type GameRoll } from "@/rules/game-roll";
 
 const attack: GameRoll = {
   d20Mode: "ADVANTAGE",
@@ -38,6 +38,16 @@ describe("findGameRollProblem", () => {
     expect(findGameRollProblem(attack, { isDiceless: true })).toBe("bad dice groups");
     expect(findGameRollProblem({ ...diceless, bonus: 4, total: 4 }, { isDiceless: true })).toMatch(/no dice/);
     expect(findGameRollProblem({ ...diceless, extra: attack.extra, total: 3 }, { isDiceless: true })).toMatch(/no dice/);
+  });
+
+  it("число без кубиків («Зцілення») — уся сума в бонусі, без к20 і додаткових кубиків", () => {
+    const heal: GameRoll = { d20Mode: null, modeSources: [], groups: [], extra: [], bonus: 70, total: 70, check: null };
+    expect(findGameRollProblem(heal)).toBeNull();
+    expect(findGameRollProblem({ ...heal, total: 71 })).not.toBeNull();
+    expect(findGameRollProblem({ ...heal, bonus: 0, total: 0 })).toBe("bad dice groups");
+    expect(findGameRollProblem({ ...heal, extra: attack.extra, total: 73 })).toBe("bad dice groups");
+    expect(findGameRollProblem({ ...heal, d20Mode: "NORMAL" })).toBe("bad dice groups");
+    expect([heal, attack, { groups: [], bonus: 0 }].map(hasRollResult)).toEqual([true, true, false]);
   });
 
   it("accepts a consistent roll", () => {

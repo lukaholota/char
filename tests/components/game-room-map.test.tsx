@@ -54,12 +54,12 @@ vi.mock("@/lib/actions/game-scene-tools", () => ({
 vi.mock("@/lib/actions/game-area-spells", () => ({ listAreaSpellsAction: mocks.listAreaSpellsAction }));
 
 import { CombatTurnProvider } from "@/components/games/combat-turn";
-import { useRoomTabStore } from "@/components/games/room-tabs";
+import { showRoomTab, ToolPanelSlotContext, useRoomTabStore } from "@/components/games/room-tabs";
 import { GameRoomMap } from "@/components/games/GameRoomMap";
 import { useAreaCastStore } from "@/lib/components/game/area-cast";
 import { resetOptimisticValues } from "@/components/games/optimistic-values";
 import { resetMapHistory } from "@/components/games/map-history";
-import { useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
+import { resetLiveSession, showMapPing, useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 
 beforeEach(() => {
@@ -144,6 +144,9 @@ function tapTwice(token: HTMLElement) {
 }
 
 const onMap = (px: number) => `${px}px`;
+
+/// Коли на сцені вже є герой і нових істот немає, плашка «Поза мапою» згорнута, щоб не закривати мапу.
+const openTray = () => fireEvent.click(screen.getByRole("button", { name: /^Поза мапою/ }));
 
 function placeMap() {
   const map = screen.getByRole("img", { name: "Мапа сцени" }).parentElement!;
@@ -239,6 +242,8 @@ describe("мапа кімнати", () => {
 
   it("майстер рухає будь-який токен; без мапи гравець бачить порожній стан, а майстер підказку", () => {
     const { rerender } = render(<GameRoomMap view={buildView({ myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [] })} />);
+    expect(screen.getAllByRole("button", { name: /^Токен/ })).toHaveLength(1);
+    openTray();
     expect(screen.getAllByRole("button", { name: /^Токен/ })).toHaveLength(2);
 
     rerender(<GameRoomMap view={buildView({ mapImageUrl: null, viewedSceneId: null })} />);
@@ -248,6 +253,24 @@ describe("мапа кімнати", () => {
     expect(screen.getByText(/У цій сцені ще немає мапи/)).toBeTruthy();
     rerender(<GameRoomMap view={buildView({ mapImageUrl: null, viewedSceneId: null, myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [] })} />);
     expect(screen.getByText(/Відкрийте або додайте сцену/)).toBeTruthy();
+  });
+
+  it("на компʼютері панель інструмента відкривається в бічній колонці, а показ вкладки героя її прибирає", () => {
+    const slot = document.createElement("div");
+    document.body.append(slot);
+    render(
+      <ToolPanelSlotContext.Provider value={slot}>
+        <GameRoomMap view={gmView()} />
+      </ToolPanelSlotContext.Provider>,
+    );
+    openViewTool();
+    expect(within(slot).getByRole("region", { name: "Вигляд" })).toBeTruthy();
+    expect(screen.getAllByRole("region", { name: "Вигляд" })).toHaveLength(1);
+
+    act(() => showRoomTab("hero"));
+    expect(slot.childElementCount).toBe(0);
+    expect(screen.getByRole("button", { name: "Вигляд", pressed: false })).toBeTruthy();
+    slot.remove();
   });
 
   it("майстер бачить, що відкрита сцена ще не показана гравцям", () => {
@@ -282,10 +305,53 @@ describe("мапа кімнати", () => {
     expect(screen.getByRole("dialog", { name: "Печера" }).className).not.toContain("portrait:rotate-90");
   });
 
+  it("поза боєм портрети героїв без майстра лежать на мапі; стрілка виносить їх у ряд над мапою, вимикач у «Вигляді» ховає — вибір памʼятається для кімнати", () => {
+    const stored = new Map<string, string>();
+    Object.defineProperty(window, "localStorage", { configurable: true, value: { getItem: (key: string) => stored.get(key) ?? null, setItem: (key: string, value: string) => void stored.set(key, value) } });
+    const findParty = () => screen.getByRole("list", { name: "Герої" });
+    const isInRowAboveMap = () => findParty().closest('[class*="row-start-1"]') !== null;
+    const findHiddenWrap = () => findParty().closest(".hidden")?.className;
+    const turnScreen = (orientation: "landscape" | "portrait") => (window.matchMedia = ((query: string) => ({ matches: query === `(orientation: ${orientation})` })) as unknown as typeof window.matchMedia);
+    turnScreen("landscape");
+    const { unmount } = render(<GameRoomMap view={gmView()} />);
+    expect(within(findParty()).getAllByRole("listitem").map((item) => item.textContent)).toEqual(["ААрвен", "ТТорин"]);
+    expect(isInRowAboveMap()).toBe(false);
+    expect(findHiddenWrap()).toBeUndefined();
+
+    openViewTool();
+    expect(findHiddenWrap()).not.toContain("[@container(min-width:40rem)]:block");
+    fireEvent.click(screen.getByRole("button", { name: "Закрити інструмент" }));
+
+    fireEvent.click(screen.getByRole("button", { name: "Винести портрети в ряд над мапою" }));
+    expect(isInRowAboveMap()).toBe(true);
+    expect(screen.getByRole("button", { name: "Покласти портрети на мапу" })).toBeTruthy();
+    unmount();
+    render(<GameRoomMap view={gmView()} />);
+    expect(isInRowAboveMap()).toBe(true);
+
+    openViewTool();
+    expect(findHiddenWrap()).toContain("[@container(min-width:40rem)]:block");
+    fireEvent.click(screen.getByRole("switch", { name: "Портрети героїв поза боєм" }));
+    expect(screen.queryByRole("list", { name: "Герої" })).toBeNull();
+
+    cleanup();
+    render(<GameRoomMap view={gmView()} />);
+    expect(screen.queryByRole("list", { name: "Герої" })).toBeNull();
+    cleanup();
+    render(<GameRoomMap view={gmView({ id: 8 })} />);
+    expect(isInRowAboveMap()).toBe(false);
+
+    cleanup();
+    turnScreen("portrait");
+    render(<GameRoomMap view={gmView({ id: 9 })} />);
+    expect(isInRowAboveMap()).toBe(true);
+  });
+
   it("повзунок зменшує лише токени на мапі, ховає дрібні імена й памʼятає розмір для кімнати", () => {
     const stored = new Map<string, string>();
     Object.defineProperty(window, "localStorage", { configurable: true, value: { getItem: (key: string) => stored.get(key) ?? null, setItem: (key: string, value: string) => void stored.set(key, value) } });
     const { unmount } = render(<GameRoomMap view={gmView()} />);
+    openTray();
     const map = placeMap();
     const readAvatarSize = (scope: HTMLElement, name: RegExp) => within(scope).getByRole("button", { name }).parentElement!.style.width;
     expect(readAvatarSize(map, /Токен «Торин»/)).toBe(onMap(44));
@@ -295,7 +361,7 @@ describe("мапа кімнати", () => {
     expect(readAvatarSize(map, /Токен «Торин»/)).toBe(onMap(26));
     expect(within(map).queryByText("Торин")).toBeNull();
     expect(readAvatarSize(document.body, /Токен «Арвен»/)).toBe("44px");
-    expect(screen.getByText("Арвен")).toBeTruthy();
+    expect(within(screen.getByRole("button", { name: /Токен «Арвен»/ }).parentElement!.parentElement!).getByText("Арвен")).toBeTruthy();
 
     unmount();
     render(<GameRoomMap view={gmView()} />);
@@ -509,6 +575,21 @@ describe("обʼєкти на мапі", () => {
     expect(mocks.addSceneObjectAction).toHaveBeenCalledWith(7, 1, "token-images/1/chest", expect.objectContaining({ at: { x: 0.25, y: 0.75 }, isHidden: true }));
   });
 
+  it("вибраний обʼєкт видаляє клавіша Delete, але не під час введення назви", async () => {
+    render(<GameRoomMap view={gmView({ objects: [chest({ id: 32 })] })} />);
+    const map = loadMap();
+    fireEvent.click(screen.getByRole("button", { name: "Обʼєкти" }));
+    fireEvent.keyDown(window, { key: "Delete" });
+    expect(mocks.removeSceneObjectsAction).not.toHaveBeenCalled();
+
+    tap(within(map).getByRole("button", { name: "Скриня" }));
+    fireEvent.keyDown(within(screen.getByRole("region", { name: "Скриня" })).getByRole("textbox"), { key: "Backspace" });
+    expect(mocks.removeSceneObjectsAction).not.toHaveBeenCalled();
+    await act(async () => fireEvent.keyDown(window, { key: "Delete" }));
+    expect(mocks.removeSceneObjectsAction).toHaveBeenCalledWith(7, 1, [32]);
+    expect(within(map).queryByRole("button", { name: /Скриня/ })).toBeNull();
+  });
+
   it("майстер ставить картинку з бібліотеки в центр мапи; гравець інструмента не має", async () => {
     render(<GameRoomMap view={gmView()} />);
     loadMap();
@@ -703,6 +784,57 @@ describe("інструменти мапи на весь екран", () => {
     expect(within(within(dialog).getByRole("region", { name: "Лінійка" })).getByText("15 фт")).toBeTruthy();
   });
 
+  it("права кнопка миші тягне наближену мапу, а лінійка лишається ввімкненою й нічого не міряє", () => {
+    const { dialog, viewport, board } = openFullscreen(buildView({ grid }));
+    Object.defineProperties(board, { offsetWidth: { value: 400 }, offsetHeight: { value: 200 } });
+    Object.defineProperties(viewport, { clientWidth: { value: 400 }, clientHeight: { value: 200 } });
+    fireEvent.click(within(dialog).getByRole("button", { name: "Лінійка" }));
+    fireEvent.click(within(dialog).getByRole("button", { name: "Наблизити" }));
+    const before = board.style.transform;
+
+    fireEvent.pointerDown(viewport, { button: 2, clientX: 100, clientY: 100, pointerId: 1 });
+    fireEvent.pointerMove(viewport, { clientX: 60, clientY: 80, pointerId: 1 });
+    fireEvent.pointerUp(viewport, { clientX: 60, clientY: 80, pointerId: 1 });
+
+    expect(board.style.transform).not.toBe(before);
+    expect(within(dialog).getByRole("region", { name: "Лінійка" }).textContent).not.toContain("фт");
+    expect(fireEvent.contextMenu(viewport)).toBe(false);
+  });
+
+  it("утримання на порожньому місці мапи показує всім точку з іменем і саме згасає; рух або інструмент пінга не дають", () => {
+    vi.useFakeTimers();
+    const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
+    vi.stubGlobal("fetch", fetchMock);
+    try {
+      resetLiveSession(7);
+      const { dialog, viewport, board } = openFullscreen(buildView({ grid }));
+      const hold = (move?: { clientX: number; clientY: number }) => {
+        fireEvent.pointerDown(viewport, { button: 0, clientX: 100, clientY: 50, pointerId: 1 });
+        if (move) fireEvent.pointerMove(viewport, { ...move, pointerId: 1 });
+        act(() => void vi.advanceTimersByTime(500));
+        fireEvent.pointerUp(viewport, { clientX: 100, clientY: 50, pointerId: 1 });
+      };
+
+      hold();
+      expect(fetchMock).toHaveBeenCalledWith("/api/game-sessions/7/ping", expect.objectContaining({ method: "POST", body: JSON.stringify({ x: 0.25, y: 0.25 }) }));
+      expect(within(board).getByText("Арвен")).toBeTruthy();
+      act(() => showMapPing(7, { userId: 1, at: { x: 0.5, y: 0.5 } }));
+      expect(within(board).getByText("Майстер")).toBeTruthy();
+      act(() => void vi.advanceTimersByTime(3000));
+      expect(within(board).queryByText("Арвен")).toBeNull();
+      expect(within(board).queryByText("Майстер")).toBeNull();
+
+      hold({ clientX: 140, clientY: 50 });
+      fireEvent.click(within(dialog).getByRole("button", { name: "Лінійка" }));
+      hold();
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+    } finally {
+      resetLiveSession(null);
+      vi.unstubAllGlobals();
+      vi.useRealTimers();
+    }
+  });
+
   it("поки майстер налаштовує сітку, лінії видно на мапі, а розмір написано в клітинках і футах", () => {
     const { dialog, board } = openFullscreen(gmView({ grid: { ...grid, isVisible: false, opacity: 0.35 } }));
     const gridLines = () => board.querySelectorAll("path.stroke-white").length;
@@ -726,7 +858,6 @@ describe("інструменти мапи на весь екран", () => {
     const { dialog, viewport } = openFullscreen(gmView({ grid }));
     fireEvent.click(within(dialog).getByRole("button", { name: "Сітка" }));
     fireEvent.click(within(dialog).getByRole("button", { name: "Підігнати під намальовану сітку" }));
-    expect(within(dialog).getByText("Обведіть квадрат 3 × 3 клітинки")).toBeTruthy();
     expect(within(dialog).getByRole("group", { name: "Клітинок у квадраті" }).textContent).toContain("3 × 3");
 
     fireEvent.pointerDown(viewport, { button: 0, clientX: 10, clientY: 10, pointerId: 1 });
@@ -738,20 +869,19 @@ describe("інструменти мапи на весь екран", () => {
     expect(within(dialog).getByRole("switch").getAttribute("aria-checked")).toBe("false");
   });
 
-  it("натиск на токен виходить із сітки, а під лінійкою токени стоять, доки не натиснеш «Готово»", () => {
+  it("натиск на токен виходить із сітки, а під лінійкою токени стоять, доки її не вимкнеш", () => {
     const { dialog, board } = openFullscreen(gmView({ grid, creatures: [goblin(71, 1, { x: 0.25, y: 0.25 })] }));
     const blockedLayers = () => board.querySelectorAll(String.raw`.\[\&\>\*\]\:\!pointer-events-none`).length;
     const toolButton = (name: string) => within(dialog).getByRole("button", { name });
     fireEvent.click(toolButton("Сітка"));
-    expect(within(dialog).getByRole("status").textContent).toContain("Сітка");
     expect(blockedLayers()).toBe(0);
     fireEvent.pointerDown(within(board).getByRole("button", { name: /«Гоблін 1»/, hidden: true }), { button: 0, pointerId: 1 });
     expect(toolButton("Сітка").getAttribute("aria-pressed")).toBe("false");
 
     fireEvent.click(toolButton("Лінійка"));
-    expect(within(dialog).getByRole("status").textContent).toContain("Лінійка: токени не рухаються");
     expect(blockedLayers()).toBe(2);
-    fireEvent.click(toolButton("Готово"));
+    expect(within(dialog).queryByText(/токени не рухаються/)).toBeNull();
+    fireEvent.click(toolButton("Лінійка"));
     expect(blockedLayers()).toBe(0);
     expect(toolButton("Лінійка").getAttribute("aria-pressed")).toBe("false");
   });
@@ -1246,6 +1376,39 @@ describe("поворот і розмір токена на мапі", () => {
       expect(countTurned(degrees)).toBe(2);
       fireEvent.pointerCancel(token, { pointerId: 1 });
     }
+  });
+
+  it("гравець підсвічує свого героя значком на токені, і це одразу видно на мапі без позначки стану", () => {
+    render(<GameRoomMap view={buildView({ members: [member(1, "GM", null), member(2, "PLAYER", "Арвен", { x: 0.2, y: 0.2 })] })} />);
+    const map = placeMap();
+    tap(within(map).getByRole("button", { name: /Токен «Арвен»/ }));
+    const handle = within(map).getByRole("button", { name: "Підсвітка" });
+    expect(handle.getAttribute("aria-pressed")).toBe("false");
+    expect(within(map).queryByText("Підсвічено")).toBeNull();
+
+    fireEvent.click(handle);
+    expect(mocks.changeHeroConditionsAction).toHaveBeenCalledWith(7, 2, { kind: "toggle", condition: "spotlit", isActive: true });
+    expect(within(map).getByRole("button", { name: "Підсвітка" }).getAttribute("aria-pressed")).toBe("true");
+    expect(within(map).getByText("Підсвічено")).toBeTruthy();
+    expect(within(map).queryByText(/^Стани:/)).toBeNull();
+    expect(screen.queryByRole("dialog")).toBeNull();
+  });
+
+  it("майстер знімає підсвітку з істоти кнопкою в панелі, а гравець істоту не підсвічує", () => {
+    const light = (id: number, badge: number) => ({ ...goblin(id, badge, { x: 0.5, y: 0.5 }), conditions: { conditions: ["spotlit"], exhaustionLevel: 0 } }) as MapCreatureView;
+    const { unmount } = render(<GameRoomMap view={gmView({ id: 9, creatures: [light(63, 3)] })} />);
+    tap(within(placeMap()).getByRole("button", { name: /«Гоблін 3»/ }));
+    const toggle = within(screen.getByRole("region", { name: "Гоблін 3" })).getByRole("button", { name: "Підсвітка" });
+    expect(toggle.getAttribute("aria-pressed")).toBe("true");
+    fireEvent.click(toggle);
+    expect(mocks.changeMapCreatureConditionsAction).toHaveBeenCalledWith(9, 63, { kind: "toggle", condition: "spotlit", isActive: false });
+    unmount();
+
+    render(<GameRoomMap view={buildView({ creatures: [light(65, 5)] })} />);
+    const map = placeMap();
+    expect(within(map).getByText("Підсвічено")).toBeTruthy();
+    fireEvent.click(within(map).getByRole("button", { name: /«Гоблін 5»/ }));
+    expect(screen.queryByRole("button", { name: "Підсвітка" })).toBeNull();
   });
 
   it("гравець змінює розмір свого героя на поточній сцені, а Escape знімає вибір", () => {

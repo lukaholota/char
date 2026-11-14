@@ -14,4 +14,10 @@ describe("parseSignal", () => {
     expect(parseSignal(JSON.stringify({ s: 7, k: "rolling", u: 3, v: "ALL" }))).toBeNull();
     expect(parseSignal("not json")).toBeNull();
   });
+
+  it("читає пінг зі сценою й точкою в межах мапи; без сцени чи координат відкидає", () => {
+    expect(parseSignal(JSON.stringify({ s: 7, k: "ping", u: 3, c: 12, x: 0.25, y: 1.4 }))).toEqual({ sessionId: 7, wake: { pingerUserId: 3, sceneId: 12, at: { x: 0.25, y: 1 } } });
+    expect(parseSignal(JSON.stringify({ s: 7, k: "ping", u: 3, x: 0.25, y: 0.5 }))).toBeNull();
+    expect(parseSignal(JSON.stringify({ s: 7, k: "ping", u: 3, c: 12, x: "0.25", y: 0.5 }))).toBeNull();
+  });
 });

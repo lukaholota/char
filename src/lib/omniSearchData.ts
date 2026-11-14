@@ -400,7 +400,7 @@ function collectSpellItems(ruleset: Ruleset): OmniSearchItem[] {
       subtitle: spell.engName,
       category: "spells" as const,
       categoryLabel: findCatalogSearchTitle("spells"),
-      href: `${prefix}/spells?q=${encodeURIComponent(cleanTitle)}`,
+      href: `${prefix}/spells?q=${encodeURIComponent(cleanTitle)}&spell=${spell.spellId}`,
       badge: levelLabel,
       keywords: [
         spell.school ?? "",
@@ -431,7 +431,7 @@ function collectMagicItemItems(ruleset: Ruleset): OmniSearchItem[] {
       subtitle: magicItem.engName,
       category: "magic-items" as const,
       categoryLabel: findCatalogSearchTitle("magic-items"),
-      href: `${prefix}/magic-items?q=${encodeURIComponent(cleanTitle)}`,
+      href: `${prefix}/magic-items?q=${encodeURIComponent(cleanTitle)}&item=${magicItem.magicItemId}`,
       badge: rarityLabel,
       keywords: [
         magicItem.itemType,
@@ -461,7 +461,7 @@ function collectWeaponItems(ruleset: Ruleset): OmniSearchItem[] {
       subtitle: weapon.engName,
       category: "weapons" as const,
       categoryLabel: findCatalogSearchTitle("weapons"),
-      href: `${prefix}/weapons?q=${encodeURIComponent(nameUa)}`,
+      href: `${prefix}/weapons?q=${encodeURIComponent(nameUa)}&weapon=${weapon.id}`,
       badge: `${weapon.damage} ${findTranslation(damageTypeTranslations, String(weapon.damageType)).toLowerCase() || weapon.damageType}`,
       keywords: [
         weaponType,
@@ -496,7 +496,7 @@ function collectArmorItems(ruleset: Ruleset): OmniSearchItem[] {
       subtitle: armor.engName,
       category: "armor" as const,
       categoryLabel: findCatalogSearchTitle("armor"),
-      href: `${prefix}/armor?q=${encodeURIComponent(title)}`,
+      href: `${prefix}/armor?q=${encodeURIComponent(title)}&armor=${armor.id}`,
       badge: `КБ ${armor.baseAC}`,
       keywords: [
         String(typeLabel),
@@ -550,7 +550,7 @@ function collectFeatItems(ruleset: Ruleset): OmniSearchItem[] {
     subtitle: feat.engName,
     category: "feats" as const,
     categoryLabel: findCatalogSearchTitle("feats"),
-    href: `${prefix}/feats?q=${encodeURIComponent(feat.name)}`,
+    href: `${prefix}/feats?q=${encodeURIComponent(feat.name)}&feat=${feat.featId}`,
     badge: feat.category ? findTranslation(featCategoryTranslations, feat.category) || feat.category : undefined,
     keywords: [
       feat.source,
@@ -576,7 +576,7 @@ function collectInvocationItems(ruleset: Ruleset): OmniSearchItem[] {
       subtitle: invocation.engName,
       category: "invocations" as const,
       categoryLabel: findCatalogSearchTitle("invocations"),
-      href: `${prefix}/invocations?q=${encodeURIComponent(title)}`,
+      href: `${prefix}/invocations?q=${encodeURIComponent(title)}&invocation=${invocation.id}`,
       badge: invocation.minLevel ? `Рівень ${invocation.minLevel}` : undefined,
       keywords: [
         invocation.source,
@@ -716,7 +716,7 @@ function collectGearItems(ruleset: Ruleset): OmniSearchItem[] {
     subtitle: item.group ?? undefined,
     category: "gear" as const,
     categoryLabel,
-    href: `${prefix}/gear?q=${encodeURIComponent(item.name)}`,
+    href: `${prefix}/gear?q=${encodeURIComponent(item.name)}&item=${encodeURIComponent(item.name)}`,
     badge: item.price ?? undefined,
     aliases: [...item.searchWords],
   }));

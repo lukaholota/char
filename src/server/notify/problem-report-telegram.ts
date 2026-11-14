@@ -23,7 +23,7 @@ export async function notifyOwnerAboutProblemReport(record: ProblemReportRecord)
 
 export function buildProblemReportTelegramText(record: ProblemReportRecord): string {
   const details = [
-    `🐞 Репорт від ${record.userId ? `користувач #${record.userId}` : "анонім"}`,
+    `🐞 Репорт від користувач #${record.userId}`,
     `Сторінка: ${record.pageUrl ?? record.pagePath}`,
     describeScreen(record),
     record.userAgent ? `Браузер: ${record.userAgent}` : null,

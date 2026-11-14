@@ -24,12 +24,17 @@ export const BLESSED_MARK = "blessed";
 export const BLESSED_DIE = { sides: 4, sign: 1 } as const;
 
 export type RuleConditionKey = keyof typeof TOKEN_CONDITION_LABELS;
-export type TokenConditionKey = keyof typeof TOKEN_CONDITION_LABELS | keyof typeof TOKEN_SPELL_MARK_LABELS;
-const TOKEN_MARK_LABELS: Record<TokenConditionKey, string> = { ...TOKEN_CONDITION_LABELS, ...TOKEN_SPELL_MARK_LABELS };
-export const TOKEN_CONDITION_KEYS = Object.keys(TOKEN_MARK_LABELS) as TokenConditionKey[];
+/// Не стан: власник героя чи майстер підсвічує токен, поки персонаж говорить або діє поза своїм ходом.
+export const SPOTLIGHT_MARK = "spotlit";
+
+export type ListedConditionKey = keyof typeof TOKEN_CONDITION_LABELS | keyof typeof TOKEN_SPELL_MARK_LABELS;
+export type TokenConditionKey = ListedConditionKey | typeof SPOTLIGHT_MARK;
+const TOKEN_MARK_LABELS: Record<ListedConditionKey, string> = { ...TOKEN_CONDITION_LABELS, ...TOKEN_SPELL_MARK_LABELS };
+export const TOKEN_CONDITION_KEYS = Object.keys(TOKEN_MARK_LABELS) as ListedConditionKey[];
+const STORED_MARK_KEYS: TokenConditionKey[] = [...TOKEN_CONDITION_KEYS, SPOTLIGHT_MARK];
 export const EXHAUSTION_LABEL = "Виснажений";
 
-const TOKEN_CONDITION_SHORT_LABELS: Record<TokenConditionKey, string> = {
+const TOKEN_CONDITION_SHORT_LABELS: Record<ListedConditionKey, string> = {
   blinded: "Зс",
   charmed: "Пч",
   deafened: "Ог",
@@ -58,7 +63,11 @@ export function isRuleConditionKey(value: unknown): value is RuleConditionKey {
 }
 
 export function isTokenConditionKey(value: unknown): value is TokenConditionKey {
-  return typeof value === "string" && Object.hasOwn(TOKEN_MARK_LABELS, value);
+  return STORED_MARK_KEYS.includes(value as TokenConditionKey);
+}
+
+export function isSpotlit({ conditions }: TokenConditions): boolean {
+  return conditions.includes(SPOTLIGHT_MARK);
 }
 
 /// «Отруєний» → «отруєн»: ловить «отруєною», «отруєних»; апостроф зведено до «ʼ».
@@ -70,7 +79,7 @@ export function normalizeApostrophes(text: string): string {
   return text.replace(/['’]/gu, "ʼ");
 }
 
-export function findTokenConditionLabel(key: TokenConditionKey): string {
+export function findTokenConditionLabel(key: ListedConditionKey): string {
   return TOKEN_MARK_LABELS[key];
 }
 
@@ -85,7 +94,7 @@ export function parseTokenConditionChange(raw: unknown): TokenConditionChange | 
 /// Рядки з бази можуть мати застарілі ключі: невідомі відкидаються, порядок завжди однаковий.
 export function normalizeTokenConditions(stored: { conditions: string[]; exhaustionLevel: number }): TokenConditions {
   return {
-    conditions: TOKEN_CONDITION_KEYS.filter((key) => stored.conditions.includes(key)),
+    conditions: STORED_MARK_KEYS.filter((key) => stored.conditions.includes(key)),
     exhaustionLevel: clampExhaustionLevel(stored.exhaustionLevel),
   };
 }
@@ -102,7 +111,8 @@ export function buildExhaustionLabel(level: number): string {
 }
 
 export function buildTokenConditionMarks({ conditions, exhaustionLevel }: TokenConditions): TokenConditionMark[] {
-  const marks: TokenConditionMark[] = conditions.map((key) => ({ key, label: TOKEN_MARK_LABELS[key], shortLabel: TOKEN_CONDITION_SHORT_LABELS[key] }));
+  const listed = conditions.filter((key): key is ListedConditionKey => key !== SPOTLIGHT_MARK);
+  const marks: TokenConditionMark[] = listed.map((key) => ({ key, label: TOKEN_MARK_LABELS[key], shortLabel: TOKEN_CONDITION_SHORT_LABELS[key] }));
   if (exhaustionLevel > 0) marks.push({ key: "exhaustion", label: buildExhaustionLabel(exhaustionLevel), shortLabel: `Ви${exhaustionLevel}` });
   return marks;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowDownToLine, ArrowUpToLine, Copy, Trash2 } from "lucide-react";
-import { useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
@@ -74,6 +74,7 @@ function ChosenObjectPanel({ object, objects, history, onClose }: { object: Scen
   const placement = toObjectPlacement(object);
   const changeSize = (direction: number) => objects.change(object.id, { ...placement, widthCells: Math.min(OBJECT_LIMITS.widthCells.max, Math.max(OBJECT_LIMITS.widthCells.min, object.widthCells + direction * SIZE_STEP)) });
   const turn = (direction: number) => objects.change(object.id, { ...placement, rotation: (object.rotation + direction * ROTATION_STEP + 360) % 360 });
+  useDeleteKey(objects.remove);
   return (
     <ToolPanel title={describeObject(object)} onClose={onClose} aside={<HistoryButtons history={history} />}>
       <ObjectNameField name={object.name} onSave={(name) => objects.change(object.id, { ...placement, name })} />
@@ -92,6 +93,22 @@ function ChosenObjectPanel({ object, objects, history, onClose }: { object: Scen
       <Button type="button" variant="ghost" onClick={() => objects.choose(null)} className="h-11 w-full text-slate-300">Готово — додати ще</Button>
     </ToolPanel>
   );
+}
+
+/// На ноутбуках Mac клавіша «delete» — це Backspace, тож видаляють обидві; у полі введення вони стирають текст, як звично.
+function useDeleteKey(remove: () => void) {
+  const latestRemove = useRef(remove);
+  latestRemove.current = remove;
+  useEffect(() => {
+    const onKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key !== "Delete" && event.key !== "Backspace") return;
+      if (event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable]")) return;
+      event.preventDefault();
+      latestRemove.current();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 }
 
 function ObjectNameField({ name, onSave }: { name: string | null; onSave: (name: string | null) => void }) {

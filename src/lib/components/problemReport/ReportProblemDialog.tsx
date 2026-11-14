@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useContext, useState, useTransition } from "react";
+import { SessionContext } from "next-auth/react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { reportProblem } from "@/lib/actions/problem-report-actions";
+import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
 import { ReportAttachments, useReportAttachments } from "./ReportAttachments";
 
 type Props = {
@@ -25,7 +27,14 @@ function collectClientContext() {
   };
 }
 
-export function ReportProblemDialog({ open, onOpenChange, pathname }: Props) {
+export function ReportProblemDialog(props: Props) {
+  // Екран глобальної помилки живе поза SessionProvider, а useSession там падає.
+  const isSignedOut = useContext(SessionContext)?.status === "unauthenticated";
+  if (isSignedOut) return <GoogleAuthDialog open={props.open} onOpenChange={props.onOpenChange} analyticsTrigger="report" />;
+  return <ReportProblemFormDialog {...props} />;
+}
+
+function ReportProblemFormDialog({ open, onOpenChange, pathname }: Props) {
   const [message, setMessage] = useState("");
   const [isPending, startTransition] = useTransition();
   const attachments = useReportAttachments();

@@ -41,6 +41,20 @@ describe("PostHog dead clicks 2026-09-27 — неактивна «Далі» п�
     expect(onNext).not.toHaveBeenCalled();
   });
 
+  it("кожен тап по неактивній «Далі» повідомляє про заблокований крок, а тап по активній — ні", () => {
+    const onBlockedClick = vi.fn();
+    const { rerender } = render(
+      <NextStepButton stepKey={1} isBlocked blockedHint="Оберіть ще 1 навичку класу." onBlockedClick={onBlockedClick}>Далі</NextStepButton>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Далі" }));
+    fireEvent.click(screen.getByRole("button", { name: "Далі" }));
+    expect(onBlockedClick).toHaveBeenCalledTimes(2);
+
+    rerender(<NextStepButton stepKey={1} isBlocked={false} blockedHint="" onBlockedClick={onBlockedClick}>Далі</NextStepButton>);
+    fireEvent.click(screen.getByRole("button", { name: "Далі" }));
+    expect(onBlockedClick).toHaveBeenCalledTimes(2);
+  });
+
   it("з кількох частин кроку показується перша незавершена", () => {
     render(<Wizard parts={[null, "Оберіть ще 1 замовляння.", "Оберіть рису."]} onNext={() => {}} />);
     fireEvent.click(screen.getByRole("button", { name: "Далі" }));

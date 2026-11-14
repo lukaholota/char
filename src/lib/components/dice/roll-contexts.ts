@@ -1,6 +1,6 @@
 import type { DiceRollAction, DiceRollContext, ExtraDie, RollStateView } from "@/lib/stores/diceUIStore";
 import type { SaveSpellRef } from "@/rules/game-roll-saves";
-import { parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
+import { countD20Dice, parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
 import type { CreatureSaveAction, CreatureSaveEffect } from "@/rules/creature-area-action";
 import type { CreatureRoll } from "@/rules/creature-rolls";
 import { AREA_SHAPE_LABELS } from "@/rules/game-areas";
@@ -98,7 +98,7 @@ export function buildSpellRollContext(input: {
   const { plan } = input;
   const actions = [
     ...(plan.attack ? [buildD20Action("spell-attack", "Атака", input.attackBonus, input.attackState)] : []),
-    ...plan.rolls.map((roll): DiceRollAction => ({ key: roll.key, label: roll.label, count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false })),
+    ...plan.rolls.map((roll): DiceRollAction => ({ key: roll.key, label: roll.label, count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false, ...(roll.secondDice ? { secondDice: roll.secondDice } : {}) })),
   ];
   const pieces = plan.pieces ? `${plan.pieces.label}: ${plan.pieces.count}` : null;
   const targetPicks = plan.pieces ? { count: plan.pieces.count, isSummed: false } : plan.darts ? { count: plan.darts, isSummed: true } : null;
@@ -186,7 +186,7 @@ export type DiceRollOutcome = PendingRollMeta & {
   total: number;
 };
 
-/// Кубики приходять у порядку нотацій: спершу основні, тоді додаткові стану.
+/// Кубики приходять у порядку нотацій: спершу основні (з другим типом шкоди), тоді додаткові стану.
 export function buildRollOutcome(meta: PendingRollMeta, values: number[]): DiceRollOutcome {
   const dieValues = values.slice(0, meta.mainDiceCount);
   const extraValues = meta.extraDice.map((die, index) => ({ ...die, value: values[meta.mainDiceCount + index] ?? 0 }));
@@ -198,12 +198,23 @@ export function buildRollOutcome(meta: PendingRollMeta, values: number[]): DiceR
 }
 
 export function listRollNotations(action: DiceRollAction, d20Mode: D20Mode): string[] {
-  const main = action.isD20 ? `${d20Mode === "NORMAL" ? 1 : 2}d20` : `${action.count}d${action.sides}`;
-  return [main, ...(action.extraDice ?? []).map((die) => `1d${die.sides}`)];
+  const main = action.isD20 ? `${countD20Dice(d20Mode)}d20` : `${action.count}d${action.sides}`;
+  const second = action.secondDice ? [`${action.secondDice.count}d${action.secondDice.sides}`] : [];
+  return [main, ...second, ...(action.extraDice ?? []).map((die) => `1d${die.sides}`)];
 }
 
-export function describeActionDice(action: DiceRollAction): string {
-  return action.isD20 ? "к20" : `${action.count}к${action.sides}`;
+export function describeActionDice(action: Pick<DiceRollAction, "count" | "sides" | "secondDice"> & { isD20?: boolean }): string {
+  if (action.isD20) return "к20";
+  return [action, ...(action.secondDice ? [action.secondDice] : [])].map((dice) => `${dice.count}к${dice.sides}`).join(" + ");
+}
+
+export function countMainDice(action: DiceRollAction, d20Mode: D20Mode): number {
+  return action.isD20 ? countD20Dice(d20Mode) : action.count + (action.secondDice?.count ?? 0);
+}
+
+/// Число без кубиків («Зцілення» — 70 хітів): кидати нічого, результат відомий одразу.
+export function isFlatAction(action: Pick<DiceRollAction, "count" | "isD20">): boolean {
+  return !action.isD20 && action.count === 0;
 }
 
 export function formatExtraDice(dice: readonly ExtraDie[]): string {

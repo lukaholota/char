@@ -8,7 +8,8 @@ type CurrentTurn = { heroPersId: number | null; creatureId: number | null };
 const NO_TURN: CurrentTurn = { heroPersId: null, creatureId: null };
 const CurrentTurnContext = createContext<CurrentTurn>(NO_TURN);
 
-export const TURN_RING_CLASS = "ring-4 ring-arcane-300";
+/// Однаково світиться той, чий зараз хід у бою, і той, кого підсвітили вручну.
+export const SPOTLIGHT_RING_CLASS = "ring-4 ring-arcane-300 shadow-[0_0_1rem_0.3rem] shadow-arcane-300/70";
 
 export function CombatTurnProvider({ combat, children }: { combat: CombatView | null; children: ReactNode }) {
   const current = combat?.combatants.find((combatant) => combatant.id === combat.currentId);

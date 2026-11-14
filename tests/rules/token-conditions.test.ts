@@ -3,9 +3,11 @@ import dictionary from "@/lib/refs/dictionary.json";
 import {
   TOKEN_CONDITION_KEYS,
   TOKEN_CONDITION_LABELS,
+  SPOTLIGHT_MARK,
   applyTokenConditionChange,
   buildTokenConditionMarks,
   canChangeTokenConditions,
+  isSpotlit,
   normalizeTokenConditions,
   parseTokenConditionChange,
   splitTokenConditionMarks,
@@ -57,6 +59,18 @@ describe("стани токена", () => {
     const marks = buildTokenConditionMarks({ conditions: ["blinded", "prone", "stunned"], exhaustionLevel: 1 });
     expect(splitTokenConditionMarks(marks)).toMatchObject({ hiddenCount: 2, shown: [{ key: "blinded" }, { key: "prone" }] });
     expect(splitTokenConditionMarks(marks.slice(0, 1))).toMatchObject({ hiddenCount: 0, shown: [{ key: "blinded" }] });
+  });
+
+  it("підсвітка зберігається разом зі станами, але не є станом: без позначки й поза списком перемикачів", () => {
+    const change = { kind: "toggle", condition: SPOTLIGHT_MARK, isActive: true } as const;
+    expect(parseTokenConditionChange(change)).toEqual(change);
+    const lit = applyTokenConditionChange({ conditions: ["prone"], exhaustionLevel: 0 }, change);
+    expect(lit).toEqual({ conditions: ["prone", "spotlit"], exhaustionLevel: 0 });
+    expect(normalizeTokenConditions({ conditions: ["spotlit", "prone"], exhaustionLevel: 0 })).toEqual(lit);
+    expect(isSpotlit(lit)).toBe(true);
+    expect(isSpotlit(applyTokenConditionChange(lit, { ...change, isActive: false }))).toBe(false);
+    expect(buildTokenConditionMarks(lit).map((mark) => mark.key)).toEqual(["prone"]);
+    expect(TOKEN_CONDITION_KEYS).not.toContain(SPOTLIGHT_MARK);
   });
 
   it("героя міняє майстер або його власник", () => {

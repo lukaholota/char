@@ -15,6 +15,7 @@ import {
 } from "@/lib/problem-report-attachments";
 
 const MESSAGE_MAX_LENGTH = 4000;
+const SIGN_IN_REQUIRED = "Увійдіть, щоб повідомити про проблему";
 
 export type ReportProblemInput = {
   message: string;
@@ -32,6 +33,8 @@ export type ReportProblemInput = {
 export type UploadProblemReportImageResult = { success: true; url: string } | { success: false; error: string };
 
 export async function uploadProblemReportImage(formData: FormData): Promise<UploadProblemReportImageResult> {
+  if (!(await findCurrentUserId())) return { success: false, error: SIGN_IN_REQUIRED };
+
   const stored = await storeScreenshotImage(formData.get("file"), PROBLEM_REPORT_MEDIA_PREFIX);
   if ("error" in stored) return { success: false, error: stored.error };
   return { success: true, url: buildMediaImageUrl(stored.key, "full") };
@@ -46,6 +49,7 @@ export async function reportProblem(input: ReportProblemInput) {
   if (!attachmentUrls.every(isProblemReportAttachmentUrl)) return { error: "Вкладення не з нашого сховища" };
 
   const [userId, requestHeaders] = await Promise.all([findCurrentUserId(), headers()]);
+  if (!userId) return { error: SIGN_IN_REQUIRED };
 
   const record = buildProblemReportRecord(input, appendAttachmentsToMessage(message, attachmentUrls), userId, requestHeaders);
   try {
@@ -61,7 +65,7 @@ export async function reportProblem(input: ReportProblemInput) {
 function buildProblemReportRecord(
   input: ReportProblemInput,
   message: string,
-  userId: number | null,
+  userId: number,
   requestHeaders: Headers
 ): ProblemReportRecord {
   return {

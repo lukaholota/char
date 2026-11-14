@@ -11,11 +11,12 @@ type NextStepButtonProps = Omit<ComponentProps<typeof Button>, "disabled"> & {
   isBlocked: boolean;
   isBusy?: boolean;
   blockedHint: string;
+  onBlockedClick?: () => void;
 };
 
 /// Неактивна «Далі» лишається клікабельною: замість мертвої кнопки людина бачить, чого бракує
 /// (PostHog dead clicks 2026-09-27: ~100 людей тиснули її раз у раз без жодної відповіді).
-export function NextStepButton({ stepKey, isBlocked, isBusy = false, blockedHint, onClick, className, ...buttonProps }: NextStepButtonProps) {
+export function NextStepButton({ stepKey, isBlocked, isBusy = false, blockedHint, onBlockedClick, onClick, className, ...buttonProps }: NextStepButtonProps) {
   const [hintShownForStep, setHintShownForStep] = useState<string | number | null>(null);
   const isHintShown = isBlocked && hintShownForStep === stepKey;
 
@@ -23,6 +24,7 @@ export function NextStepButton({ stepKey, isBlocked, isBusy = false, blockedHint
     if (isBlocked) {
       event.preventDefault();
       setHintShownForStep(stepKey);
+      onBlockedClick?.();
       return;
     }
     onClick?.(event);

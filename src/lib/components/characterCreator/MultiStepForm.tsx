@@ -55,7 +55,7 @@ import { hasWeaponMastery } from "@/rules/weapon-mastery";
 import { findCreationGroupPickCounts } from "@/rules/creation-choice-pools";
 import { PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { useSession } from "next-auth/react";
-import { captureCreationFailed, captureCreationStarted, findCreationAnalytics, finishCreationAttempt } from "@/lib/monitoring/funnel-analytics";
+import { captureCreationFailed, captureCreationStarted, captureStepBlocked, findCreationAnalytics, finishCreationAttempt } from "@/lib/monitoring/funnel-analytics";
 import { useCreationFirstChoice } from "@/lib/monitoring/use-creation-first-choice";
 import { useInAppBrowser } from "@/lib/components/auth/use-in-app-browser";
 import { useBuildCreatorStep } from "@/lib/optimization/use-build-creator-step";
@@ -113,6 +113,7 @@ export const MultiStepForm = (
   const [nextDisabled, setNextDisabled] = useState(false);
   const [nextStepHint, setNextStepHint] = useNextStepHintState(currentStep);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const isCreatingRef = useRef(false);
   const [serverProblem, setServerProblem] = useState<{ stepId: string; message: string } | null>(null);
   const [initialDataForStep, setInitialDataForStep] = useState<string>("");
   const [highestStepCompleted, setHighestStepCompleted] = useState<number>(0);
@@ -169,6 +170,9 @@ export const MultiStepForm = (
       return;
     }
 
+    // Стан кнопки зʼявляється лише після рендера: другий тап чи Enter до нього створював двійника.
+    if (isCreatingRef.current) return;
+    isCreatingRef.current = true;
     setIsSubmitting(true);
     try {
       // We need to ensure formData has the latest name update, which happens in NameForm's onSubmit
@@ -216,6 +220,7 @@ export const MultiStepForm = (
       toast.error("Щось пішло не так...");
       console.error(e);
     } finally {
+      isCreatingRef.current = false;
       setIsSubmitting(false);
     }
   }
@@ -1056,6 +1061,7 @@ export const MultiStepForm = (
       nextStepHint={nextStepHint}
       isSubmitting={isSubmitting}
       onPrev={prevStep}
+      onNextBlocked={(stepId, hint) => captureStepBlocked("creation", analyticsEdition, stepId, hint)}
       after={
         <>
           {showReadyBuilds && initialRuleset === "RULES_2014" && cls && isPresetSuggestionStep(steps[currentStep - 1]?.id) ? (
