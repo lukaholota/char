@@ -49,12 +49,11 @@ function RailButton({ label, onClick, isPressed, children }: { label: string; on
   );
 }
 
-type ZoomProps = { zoom: number; maxZoom: number; onZoomIn: () => void; onZoomOut: () => void; onFit: () => void; turn: { isTurned: boolean; toggle: () => void } | null; history: MapHistory; onFullscreen?: () => void };
+type ZoomProps = { zoom: number; minZoom: number; maxZoom: number; isFitted: boolean; onZoomIn: () => void; onZoomOut: () => void; onFit: () => void; turn: { isTurned: boolean; toggle: () => void } | null; history: MapHistory; onFullscreen?: () => void };
 
 /// Щипок і подвійний дотик теж масштабують; кнопки — для миші та для тих, хто про жести не знає.
 /// На весь екран мапу розгортає телефон: там це ховає шапку й навігацію; на широкому екрані місце дає згортання бічної панелі.
-export function MapZoomControls({ zoom, maxZoom, onZoomIn, onZoomOut, onFit, turn, history, onFullscreen }: ZoomProps) {
-  const isZoomed = zoom > 1.01;
+export function MapZoomControls({ zoom, minZoom, maxZoom, isFitted, onZoomIn, onZoomOut, onFit, turn, history, onFullscreen }: ZoomProps) {
   return (
     <div role="group" aria-label="Масштаб мапи" className="mt-auto flex shrink-0 flex-col gap-0.5 rounded-2xl bg-slate-950/85 p-0.5 shadow-xl shadow-black/50 ring-1 ring-white/10">
       {onFullscreen ? (
@@ -74,8 +73,8 @@ export function MapZoomControls({ zoom, maxZoom, onZoomIn, onZoomOut, onFit, tur
       {history.undo ? <RailButton label="Скасувати останню дію (Ctrl+Z)" onClick={history.undo}><Undo2 className="h-5 w-5" aria-hidden /></RailButton> : null}
       {history.redo ? <RailButton label="Повторити скасовану дію (Ctrl+Shift+Z)" onClick={history.redo}><Redo2 className="h-5 w-5" aria-hidden /></RailButton> : null}
       {zoom < maxZoom - 0.01 ? <RailButton label="Наблизити" onClick={onZoomIn}><Plus className="h-5 w-5" aria-hidden /></RailButton> : null}
-      {isZoomed ? <RailButton label="Віддалити" onClick={onZoomOut}><Minus className="h-5 w-5" aria-hidden /></RailButton> : null}
-      {isZoomed ? <RailButton label="Уся мапа" onClick={onFit}><Scan className="h-5 w-5" aria-hidden /></RailButton> : null}
+      {zoom > minZoom + 0.01 ? <RailButton label="Віддалити" onClick={onZoomOut}><Minus className="h-5 w-5" aria-hidden /></RailButton> : null}
+      {isFitted ? null : <RailButton label="Уся мапа" onClick={onFit}><Scan className="h-5 w-5" aria-hidden /></RailButton>}
     </div>
   );
 }

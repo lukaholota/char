@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { moveMapTokensAction } from "@/lib/actions/game-sessions";
 import type { TokenPosition } from "@/rules/game-map";
 import { collectKeysInRect, shiftGroup, type GroupMove, type PositionMove, type ShareRect } from "@/rules/map-group";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { findHeroPositionKey } from "./HeroTokens";
 import { findCreaturePositionKey } from "./MapCreatureTokens";
+import type { TokenDrag } from "./MapTokenSlot";
 import type { TokenSelection } from "./TokenTransformControls";
 import { pushUndoStep } from "./map-history";
 import { sendOptimisticMany } from "./optimistic-values";
@@ -58,6 +59,12 @@ export function useMapGroup({ toShare, collectItems, onPickOne, onMove }: GroupO
   };
 
   return { rect, boxGesture, findMembers, isGrouped: (key: string) => keys.includes(key), moveWith, clear: () => setKeys([]) };
+}
+
+/// Поки тягнуть учасника групи, решта показує той самий крок ще до відпускання.
+export function buildGroupShiftStyle(group: MapGroup, drag: TokenDrag | null): CSSProperties | undefined {
+  if (!drag?.from || !drag.to || !group.isGrouped(drag.key)) return undefined;
+  return { "--group-dx": drag.to.x - drag.from.x, "--group-dy": drag.to.y - drag.from.y } as CSSProperties;
 }
 
 export const findIdInGroupKey = (key: string) => Number(key.slice(key.lastIndexOf("-") + 1));

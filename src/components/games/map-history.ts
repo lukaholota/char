@@ -11,6 +11,7 @@ const HISTORY_LIMIT = 40;
 const useHistory = create<History>(() => ({ done: [], undone: [] }));
 const valuesBefore = new Map<string, unknown>();
 let isReplaying = false;
+let joinedSteps: HistoryStep[] | null = null;
 let undoDraftStep: (() => boolean) | null = null;
 
 const isSameValue = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
@@ -30,7 +31,20 @@ export function rememberUndo<T>(sceneId: number | null, key: string, current: T,
 /// Саме скасування й повтор теж надсилають зміну — вона не має ставати новим кроком історії.
 export function pushUndoStep(sceneId: number, step: HistoryStep) {
   if (isReplaying) return;
+  if (joinedSteps) return void joinedSteps.push(step);
   useHistory.setState(({ done, undone }) => ({ done: [...done, { ...step, sceneId }].slice(-HISTORY_LIMIT), undone: undone.filter(isOtherScene(sceneId)) }));
+}
+
+/// Дія над групою надсилає кожен токен окремо, але скасовується одним кроком.
+export function joinUndoSteps(sceneId: number | null, act: () => void) {
+  const steps: HistoryStep[] = [];
+  joinedSteps = steps;
+  try {
+    act();
+  } finally {
+    joinedSteps = null;
+  }
+  if (sceneId !== null && steps.length) pushUndoStep(sceneId, { undo: () => steps.forEach((step) => void step.undo()), redo: () => steps.forEach((step) => void step.redo()) });
 }
 
 function replayLastStep(sceneId: number, from: "done" | "undone") {

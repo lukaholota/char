@@ -433,6 +433,44 @@ describe("мапа кімнати", () => {
     expect(screen.queryByRole("region", { name: /Вибрано/ })).toBeNull();
   });
 
+  it("під час перетягування група їде слідом, а панель групи змінює розмір і підсвітку всім одразу й скасовується одним кроком", () => {
+    render(<GameRoomMap view={gmView({ creatures: [goblin(55, 1, { x: 0.25, y: 0.25 }), goblin(56, 2, { x: 0.5, y: 0.5 })] })} />);
+    const map = placeMap();
+    const viewport = map.parentElement!;
+    fireEvent.pointerDown(viewport, { button: 0, clientX: 50, clientY: 25, pointerId: 2, pointerType: "mouse" });
+    fireEvent.pointerMove(viewport, { clientX: 250, clientY: 125, pointerId: 2, pointerType: "mouse" });
+    fireEvent.pointerUp(viewport, { clientX: 250, clientY: 125, pointerId: 2, pointerType: "mouse" });
+    const panel = within(screen.getByRole("region", { name: "Вибрано: 3" }));
+
+    const follower = within(map).getByRole("button", { name: /«Гоблін 2»/ });
+    fireEvent.pointerDown(within(map).getByRole("button", { name: /«Гоблін 1»/ }), { button: 0, clientX: 100, clientY: 50, pointerId: 1 });
+    fireEvent.pointerMove(within(map).getByRole("button", { name: /«Гоблін 1»/ }), { clientX: 140, clientY: 70, pointerId: 1 });
+    const followerSlot = follower.closest<HTMLElement>("[style*='left']")!;
+    expect(followerSlot.style.left).toContain("var(--group-dx, 0)");
+    expect(Number(followerSlot.parentElement!.style.getPropertyValue("--group-dx"))).toBeCloseTo(0.1);
+    fireEvent.pointerUp(within(map).getByRole("button", { name: /«Гоблін 1»/ }), { clientX: 140, clientY: 70, pointerId: 1 });
+    expect(followerSlot.parentElement!.style.getPropertyValue("--group-dx")).toBe("");
+
+    const groupSize = panel.getByRole("slider", { name: "Розмір" });
+    fireEvent.change(groupSize, { target: { value: "300" } });
+    expect(mocks.transformMapCreatureAction).not.toHaveBeenCalled();
+    fireEvent.pointerUp(groupSize);
+    expect(mocks.transformHeroTokenAction).toHaveBeenCalledWith(7, 1, 3, { rotation: 0, scale: 300 });
+    expect(mocks.transformMapCreatureAction).toHaveBeenCalledWith(7, 55, { rotation: 0, scale: 300 });
+    expect(mocks.transformMapCreatureAction).toHaveBeenCalledWith(7, 56, { rotation: 0, scale: 300 });
+    expect(groupSize.getAttribute("aria-valuetext")).toBe("300%");
+    fireEvent.keyDown(window, { key: "z", ctrlKey: true });
+    expect(mocks.transformHeroTokenAction).toHaveBeenLastCalledWith(7, 1, 3, { rotation: 0, scale: 100 });
+    expect(mocks.transformMapCreatureAction).toHaveBeenCalledTimes(4);
+    expect(mocks.transformMapCreatureAction).toHaveBeenLastCalledWith(7, 56, { rotation: 0, scale: 100 });
+
+    fireEvent.click(within(panel.getByRole("group", { name: "Підсвітка" })).getByRole("button", { name: "Полумʼя" }));
+    expect(mocks.changeHeroConditionsAction).toHaveBeenCalledWith(7, 3, { kind: "toggle", condition: "spotlit-fire", isActive: true });
+    expect(mocks.changeMapCreatureConditionsAction).toHaveBeenCalledWith(7, 55, { kind: "toggle", condition: "spotlit-fire", isActive: true });
+    expect(mocks.changeMapCreatureConditionsAction).toHaveBeenCalledWith(7, 56, { kind: "toggle", condition: "spotlit-fire", isActive: true });
+    expect(within(panel.getByRole("group", { name: "Підсвітка" })).getByRole("button", { name: "Полумʼя" }).getAttribute("aria-pressed")).toBe("true");
+  });
+
   it("гравець не рухає істот і не має ряду майстра, але дотиком відкриває статблок без кнопки «прибрати»", () => {
     render(<GameRoomMap view={buildView({ creatures: [goblin(52, 2, { x: 0.5, y: 0.5 })] })} />);
     const map = placeMap();
@@ -507,8 +545,20 @@ describe("мапа кімнати", () => {
       </CombatTurnProvider>,
     );
     const map = placeMap();
-    expect(within(map).getByText("Т").className).toContain("ring-arcane-300");
-    expect(within(map).getByText("А").className).not.toContain("ring-arcane-300");
+    expect(within(map).getByText("Т").className).toContain("token-turn-ring");
+    expect(within(map).getByText("А").className).not.toContain("token-turn-ring");
+  });
+
+  it("обрана аура замінює рамку ходу на токені", () => {
+    const combat = { round: 1, currentId: 1, combatants: [{ id: 1, initiative: 15, hero: { persId: 30, userId: 3, name: "Торин", avatarUrl: null }, creature: null }] };
+    render(
+      <CombatTurnProvider combat={combat}>
+        <GameRoomMap view={buildView({ combat, members: [member(1, "GM", null), { ...member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 }), conditions: { conditions: ["spotlit-arcane"], exhaustionLevel: 0 } }] })} />
+      </CombatTurnProvider>,
+    );
+    const map = placeMap();
+    expect(within(map).getByText("Т").className).not.toContain("token-turn-ring");
+    expect(map.querySelector(".token-aura-arcane")).not.toBeNull();
   });
 
   it("майстер бачить хіти під токеном і б'є істоту в діалозі: шкода одразу видна, на нулі токен повалений", async () => {
@@ -1379,7 +1429,9 @@ describe("поворот і розмір токена на мапі", () => {
     expect(mocks.transformMapCreatureAction).toHaveBeenLastCalledWith(9, 61, { rotation: 90, scale: 200 });
     expect(token.parentElement!.style.width).toBe("calc(88px)");
 
-    fireEvent.click(within(panel).getByRole("button", { name: "Розмір: менше" }));
+    const size = within(panel).getByRole("slider", { name: "Розмір" });
+    fireEvent.change(size, { target: { value: "190" } });
+    fireEvent.pointerUp(size);
     fireEvent.click(within(panel).getByRole("button", { name: /за годинниковою$/ }));
     expect(mocks.transformMapCreatureAction).toHaveBeenLastCalledWith(9, 61, { rotation: 105, scale: 190 });
     fireEvent.click(within(panel).getByRole("button", { name: "Скинути" }));
@@ -1418,8 +1470,10 @@ describe("поворот і розмір токена на мапі", () => {
   });
 
   it("гравець підсвічує свого героя значком на токені, і це одразу видно на мапі без позначки стану", () => {
-    render(<GameRoomMap view={buildView({ members: [member(1, "GM", null), member(2, "PLAYER", "Арвен", { x: 0.2, y: 0.2 })] })} />);
+    render(<GameRoomMap view={buildView({ members: [member(1, "GM", null), { ...member(2, "PLAYER", "Арвен", { x: 0.2, y: 0.2 }), avatarUrl: "https://media.char.holota.family/heroes/arven-96.webp" }] })} />);
     const map = placeMap();
+    const portrait = () => map.parentElement!.querySelector("img[src*='arven']")?.getAttribute("src");
+    expect(portrait()).toBe("https://media.char.holota.family/heroes/arven-96.webp");
     tap(within(map).getByRole("button", { name: /Токен «Арвен»/ }));
     const handle = within(map).getByRole("button", { name: "Підсвітка" });
     expect(handle.getAttribute("aria-pressed")).toBe("false");
@@ -1455,11 +1509,16 @@ describe("поворот і розмір токена на мапі", () => {
   });
 
   it("гравець змінює розмір свого героя на поточній сцені, а Escape знімає вибір", () => {
-    render(<GameRoomMap view={buildView({ members: [member(1, "GM", null), member(2, "PLAYER", "Арвен", { x: 0.2, y: 0.2 })] })} />);
+    render(<GameRoomMap view={buildView({ members: [member(1, "GM", null), { ...member(2, "PLAYER", "Арвен", { x: 0.2, y: 0.2 }), avatarUrl: "https://media.char.holota.family/heroes/arven-96.webp" }] })} />);
     const map = placeMap();
+    const portrait = () => map.parentElement!.querySelector("img[src*='arven']")?.getAttribute("src");
+    expect(portrait()).toBe("https://media.char.holota.family/heroes/arven-96.webp");
     tap(within(map).getByRole("button", { name: /Токен «Арвен»/ }));
-    fireEvent.click(within(screen.getByRole("region", { name: "Арвен" })).getByRole("button", { name: "Розмір: більше" }));
-    expect(mocks.transformHeroTokenAction).toHaveBeenCalledWith(7, 1, 2, { rotation: 0, scale: 110 });
+    const size = within(screen.getByRole("region", { name: "Арвен" })).getByRole("slider", { name: "Розмір" });
+    fireEvent.change(size, { target: { value: "800" } });
+    fireEvent.pointerUp(size);
+    expect(mocks.transformHeroTokenAction).toHaveBeenCalledWith(7, 1, 2, { rotation: 0, scale: 800 });
+    expect(portrait()).toBe("https://media.char.holota.family/heroes/arven.webp");
 
     fireEvent.keyDown(within(map).getByRole("button", { name: /^Розмір токена/ }), { key: "Escape" });
     expect(screen.queryByRole("region", { name: "Арвен" })).toBeNull();

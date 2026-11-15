@@ -19,7 +19,7 @@ import { findTokenArrowStep } from "@/rules/game-grid";
 import { CREATURE_SIZE_CELLS, CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { AddMapCreaturesDialog } from "./AddMapCreaturesDialog";
-import { SPOTLIGHT_RING_CLASS, SpotlightAura, useIsCreatureTurn } from "./combat-turn";
+import { SpotlightAura, findSpotlightRingClass, useIsCreatureTurn } from "./combat-turn";
 import { DownMark, HitPointBar } from "./MapCreatureHitPoints";
 import { buildCreatureTargetControl, useRollTargetCreatureId } from "./RollTargetControls";
 import { TokenConditionMarks } from "./TokenConditionMarks";
@@ -30,7 +30,7 @@ import { readOptimistic, sendOptimistic, showOptimistic, useOptimisticReader } f
 import { useTokenDrag, type TokenGhost } from "./use-token-drag";
 import { TokenName } from "./TokenName";
 import { TOKEN_SIZE_PX } from "./use-token-scale";
-import { HIGHLIGHT_RING_CLASS, MapTokenSlot, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
+import { HIGHLIGHT_RING_CLASS, MapTokenSlot, buildTokenSizeStyle, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
 import type { TokenTransform } from "@/rules/token-transform";
 import { GroupedTokenFrame, TokenTransformHandles, findTokenRotationStyle, scaleGhostSize, scaleTokenSize, type SelectedToken, type TokenSelection } from "./TokenTransformControls";
@@ -122,7 +122,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
     : null;
   const placed: PlacedToken[] = shown.filter(isShownOnMap).map((creature) => ({ key: `creature-${creature.id}`, creatureId: creature.id, name: creature.label, position: moves.findPosition(creature)!, cells: findCells(creature) }));
   const draggedFrom = dragged ? moves.findPosition(dragged) : null;
-  const drag: TokenDrag | null = ghost && dragged ? { from: draggedFrom, to: findSnappedDrop(dragged, ghost), cells: findCells(dragged) } : null;
+  const drag: TokenDrag | null = ghost && dragged ? { key: findKey(dragged.id), from: draggedFrom, to: findSnappedDrop(dragged, ghost), cells: findCells(dragged) } : null;
 
   const renderToken = (creature: MapCreatureView, size: string | number, shownName: TokenNameMode | null, onBoard: TokenOnBoard | null, handles: ReactNode = null) => {
     const position = moves.findPosition(creature);
@@ -162,6 +162,10 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
     placed,
     selected,
     hasPlaced: placed.length > 0,
+    findGroupLook: (key: string): GroupTokenLook | null => {
+      const creature = shown.find((candidate) => findKey(candidate.id) === key);
+      return creature ? { token: { kind: "creature", id: creature.id }, conditions: creature.conditions, transform: looks.findTransform(creature), showTransform: (transform) => looks.showTransform(creature.id, transform), sendTransform: (transform) => void looks.sendTransform(creature.id, transform) } : null;
+    },
     waitingCount: canEdit ? waiting.length : 0,
     names: canEdit && placed.length > 0 ? { mode: looks.nameMode, onChange: looks.sendNameMode } : null,
     tray: canEdit ? (
@@ -175,10 +179,11 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       const transform = looks.findTransform(creature);
       const size = scaleTokenSize(findBoardTokenSize(layout, findCells(creature), sizeScale), transform);
       const isSelected = selected?.key === findKey(creature.id);
-      const handles = isSelected && selected ? <TokenTransformHandles token={selected} onDeselect={() => selection.select(null)} /> : group.isGrouped(findKey(creature.id)) ? <GroupedTokenFrame rotation={transform.rotation} /> : null;
+      const isGrouped = group.isGrouped(findKey(creature.id));
+      const handles = isSelected && selected ? <TokenTransformHandles token={selected} onDeselect={() => selection.select(null)} /> : isGrouped ? <GroupedTokenFrame rotation={transform.rotation} /> : null;
       return (
-        <MapTokenSlot key={creature.id} position={position} size={size} className={cn(isSelected ? "z-[33]" : canEdit ? "z-[11]" : "z-10", layout.revealClassName)}>
-          {renderToken(creature, size, hasTokenNames(layout, findCells(creature)) ? looks.nameMode : null, { labelWidth: findLabelWidth(layout, sizeScale), isHighlighted: layout.isHighlighted(position, findCells(creature)), isOutlined: layout.isCutoutOutlined, rotation: transform.rotation }, handles)}
+        <MapTokenSlot key={creature.id} position={position} size={size} isGroupFollower={isGrouped && ghost?.id !== creature.id} className={cn(isSelected ? "z-[33]" : canEdit ? "z-[11]" : "z-10", layout.revealClassName)}>
+          {renderToken(creature, size, hasTokenNames(layout, findCells(creature)) ? looks.nameMode : null, { screenPx: scaleGhostSize(findGhostTokenSize(layout, findCells(creature), sizeScale), transform), labelWidth: findLabelWidth(layout, sizeScale), isHighlighted: layout.isHighlighted(position, findCells(creature)), isOutlined: layout.isCutoutOutlined, rotation: transform.rotation }, handles)}
         </MapTokenSlot>
       );
     }),
@@ -246,11 +251,11 @@ export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, is
   const labelWidth = onBoard?.labelWidth ?? (typeof size === "number" ? size : TOKEN_SIZE_PX);
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={creature.label}>
-      <div className={cn("relative isolate rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={{ width: size, height: size }}>
+      <div className={cn("relative isolate rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={buildTokenSizeStyle(size)}>
         <SpotlightAura style={spotlight} />
-        <div className={cn("relative h-full w-full rounded-full", isCutout ? findCutoutOutlineClass(creature.isAlly ? "ally" : "enemy", Boolean(onBoard?.isOutlined)) : cn("overflow-hidden border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isAlly ? "border-emerald-400" : "border-rose-500"), creature.isDown && "opacity-50 grayscale", (isTurn || spotlight === "glow") && SPOTLIGHT_RING_CLASS)} style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
+        <div className={cn("relative h-full w-full rounded-full", isCutout ? findCutoutOutlineClass(creature.isAlly ? "ally" : "enemy", Boolean(onBoard?.isOutlined)) : cn("overflow-hidden border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isAlly ? "border-emerald-400" : "border-rose-500"), creature.isDown && "opacity-50 grayscale", findSpotlightRingClass(isTurn, spotlight))} style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
           {src ? (
-            <ContentImage src={src} alt="" provenance="manual" fill sizes="128px" draggable={false} onLoad={(event) => inspectImage(event.currentTarget)} className={creature.isRoundImage || isCutout ? "object-contain" : "object-cover object-top"} />
+            <ContentImage src={src} alt="" provenance="manual" fill sizes={`${Math.max(128, Math.round(onBoard?.screenPx ?? 0))}px`} draggable={false} onLoad={(event) => inspectImage(event.currentTarget)} className={creature.isRoundImage || isCutout ? "object-contain" : "object-cover object-top"} />
           ) : (
             <span aria-hidden className="grid h-full w-full place-items-center font-rpg-display text-slate-100" style={{ fontSize: typeof size === "number" ? Math.max(12, Math.round(size * 0.34)) : `calc(${size} * 0.34)` }}>
               {buildCreatureInitials(creature.label)}
@@ -285,7 +290,7 @@ function CreatureGhost({ ghost, creature, size, labelWidth, rotation, isOutlined
       style={{ left: ghost.clientX, top: ghost.clientY, transform: `translate(-50%, ${-size / 2}px)${isTurned ? " rotate(90deg)" : ""}`, transformOrigin: `50% ${size / 2}px` }}
       aria-hidden
     >
-      <CreatureTokenFace creature={creature} size={size} nameMode={null} onBoard={{ labelWidth, isHighlighted: false, isOutlined, rotation }} />
+      <CreatureTokenFace creature={creature} size={size} nameMode={null} onBoard={{ screenPx: size, labelWidth, isHighlighted: false, isOutlined, rotation }} />
       {isLeavingMap ? <span className="mt-1 whitespace-nowrap rounded-full bg-rose-950/90 px-2 py-0.5 text-xs text-rose-100 shadow-lg shadow-black/50">Прибрати з мапи</span> : null}
     </div>,
     document.body,

@@ -5,7 +5,7 @@ import { changeHeroConditionsAction, changeMapCreatureConditionsAction } from "@
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { NO_TOKEN_CONDITIONS, SPOTLIGHT_MARKS, applyTokenConditionChange, findSpotlightStyle, isSpotlightMark, type SpotlightStyle, type TokenConditionChange, type TokenConditions } from "@/rules/token-conditions";
 import { pushUndoStep } from "./map-history";
-import { readOptimistic, sendOptimistic, useOptimistic } from "./optimistic-values";
+import { readOptimistic, sendOptimistic, useOptimistic, useOptimisticReader } from "./optimistic-values";
 
 export type TokenRef = { kind: "hero" | "creature"; id: number };
 
@@ -62,4 +62,21 @@ export function usePortraitSpotlight(input: PortraitSpotlightInput | null): { st
   const style = useSpotlightStyle(input?.token ?? NO_TOKEN, conditions);
   const control = useSpotlightControl(input?.sessionId ?? 0, input?.sceneId ?? null, input?.canToggle ? input.token : null, conditions);
   return { style: input === null ? null : style, control };
+}
+
+export type ConditionedToken = { token: TokenRef; conditions: TokenConditions };
+
+/// Спільний вигляд групи — лише коли він у всіх однаковий; вибір накладає його кожному, повторний — гасить у всіх.
+export function useGroupSpotlight(sessionId: number, sceneId: number | null, members: ConditionedToken[]): SpotlightControl {
+  const read = useOptimisticReader();
+  const changeConditions = useTokenConditionChanges(sessionId, sceneId);
+  const styles = members.map((member) => findSpotlightStyle(read(findConditionsKey(member.token), member.conditions)));
+  const style = styles.every((current) => current === styles[0]) ? (styles[0] ?? null) : null;
+  const choose = (next: SpotlightStyle | null) =>
+    members.forEach((member, index) => {
+      const current = styles[index];
+      if (next === current) return;
+      void changeConditions(member.token, member.conditions, { kind: "toggle", condition: SPOTLIGHT_MARKS[next ?? current ?? "glow"], isActive: next !== null });
+    });
+  return { isOn: styles.some(Boolean), style, onToggle: () => choose(style ? null : "glow"), onChoose: choose };
 }

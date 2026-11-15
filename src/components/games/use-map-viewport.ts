@@ -20,7 +20,8 @@ type ViewportOptions = {
 const TAP_SLOP_PX = 6;
 const DOUBLE_TAP_MS = 320;
 const HOLD_MS = 500;
-const EDGE_SLACK_PX = 56;
+const OVERSCROLL_SHARE = 0.5;
+const MIN_ZOOM = 0.5;
 const BUTTON_ZOOM_STEP = 1.6;
 const TRACKPAD_STEP_PX = 50;
 
@@ -28,6 +29,17 @@ const TRACKPAD_STEP_PX = 50;
 /// shortcut: миша з плавною прокруткою теж дає дрібні кроки й рухатиме мапу замість масштабу; тоді — кнопки «+»/«−» або Ctrl.
 function isTrackpadScroll(event: WheelEvent): boolean {
   return !event.ctrlKey && event.deltaMode === WheelEvent.DOM_DELTA_PIXEL && (event.deltaX !== 0 || Math.abs(event.deltaY) < TRACKPAD_STEP_PX);
+}
+
+/// Мапу можна відсунути від краю на пів екрана: вільне місце під ініціативу чи панелі.
+export function clampBoardShift(shift: number, { size, room, offset }: { size: number; room: number; offset: number }): number {
+  const slack = room * OVERSCROLL_SHARE;
+  const edge = Math.min(Math.max(0, room - size) + slack, Math.max(Math.min(0, room - size) - slack, offset + shift));
+  return edge - offset;
+}
+
+function isFittedView({ zoom, x, y }: { zoom: number; x: number; y: number }): boolean {
+  return Math.abs(zoom - 1) < 0.01 && Math.abs(x) < 1 && Math.abs(y) < 1;
 }
 
 /// Мапа рухається CSS-трансформацією без перемальовування React; кінцевий масштаб потрапляє в стан лише після жесту.
@@ -48,6 +60,7 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
   const toolGesture = useRef<MapGesture | null>(null);
   latest.current = { isTurned, maxZoom, gesture, boxGesture, onTap, onHold };
   const [zoom, setZoom] = useState(1);
+  const [isFitted, setIsFitted] = useState(true);
 
   const toLocal = (point: Point): Vector => {
     const rect = viewportRef.current!.getBoundingClientRect();
@@ -58,17 +71,13 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
     const board = boardRef.current;
     const viewport = viewportRef.current;
     if (!board || !viewport) return;
-    const zoomValue = Math.min(latest.current.maxZoom, Math.max(1, next.zoom));
-    const clampAxis = (shift: number, size: number, room: number, offset: number) => {
-      if (size <= room) return (room - size) / 2 - offset;
-      return Math.min(-offset + EDGE_SLACK_PX, Math.max(room - size - offset - EDGE_SLACK_PX, shift));
-    };
+    const zoomValue = Math.min(latest.current.maxZoom, Math.max(MIN_ZOOM, next.zoom));
     view.current = {
       zoom: zoomValue,
-      x: clampAxis(next.x, board.offsetWidth * zoomValue, viewport.clientWidth, board.offsetLeft),
-      y: clampAxis(next.y, board.offsetHeight * zoomValue, viewport.clientHeight, board.offsetTop),
+      x: clampBoardShift(next.x, { size: board.offsetWidth * zoomValue, room: viewport.clientWidth, offset: board.offsetLeft }),
+      y: clampBoardShift(next.y, { size: board.offsetHeight * zoomValue, room: viewport.clientHeight, offset: board.offsetTop }),
     };
-    board.style.transform = zoomValue === 1 ? "" : `translate3d(${view.current.x}px, ${view.current.y}px, 0) scale(${zoomValue})`;
+    board.style.transform = isFittedView(view.current) ? "" : `translate3d(${view.current.x}px, ${view.current.y}px, 0) scale(${zoomValue})`;
     board.style.setProperty("--map-zoom", String(zoomValue));
   };
 
@@ -78,11 +87,14 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
     if (!board) return;
     const { zoom: current, x, y } = view.current;
     const anchor = { x: (local.x - board.offsetLeft - x) / current, y: (local.y - board.offsetTop - y) / current };
-    const clamped = Math.min(latest.current.maxZoom, Math.max(1, nextZoom));
+    const clamped = Math.min(latest.current.maxZoom, Math.max(MIN_ZOOM, nextZoom));
     apply({ zoom: clamped, x: local.x - board.offsetLeft - anchor.x * clamped, y: local.y - board.offsetTop - anchor.y * clamped });
   };
 
-  const settle = () => setZoom(view.current.zoom);
+  const settle = () => {
+    setZoom(view.current.zoom);
+    setIsFitted(isFittedView(view.current));
+  };
 
   const zoomByButton = (factor: number) => {
     const viewport = viewportRef.current;
@@ -102,11 +114,8 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
     let settleTimer = 0;
     const onWheel = (event: WheelEvent) => {
       event.preventDefault();
-      if (isTrackpadScroll(event)) {
-        if (view.current.zoom > 1) apply({ zoom: view.current.zoom, x: view.current.x - event.deltaX, y: view.current.y - event.deltaY });
-        return;
-      }
-      zoomAround(toLocal(event), view.current.zoom * Math.exp(-event.deltaY * (event.ctrlKey ? 0.01 : 0.0015)));
+      if (isTrackpadScroll(event)) apply({ zoom: view.current.zoom, x: view.current.x - event.deltaX, y: view.current.y - event.deltaY });
+      else zoomAround(toLocal(event), view.current.zoom * Math.exp(-event.deltaY * (event.ctrlKey ? 0.01 : 0.0015)));
       window.clearTimeout(settleTimer);
       settleTimer = window.setTimeout(settle, 160);
     };
@@ -139,7 +148,7 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
     const board = boardRef.current!;
     const middle = { x: (first.x + second.x) / 2, y: (first.y + second.y) / 2 };
     const { distance, zoom: startZoom, anchor } = pinchStart.current;
-    const nextZoom = Math.min(latest.current.maxZoom, Math.max(1, startZoom * (Math.hypot(first.x - second.x, first.y - second.y) / distance)));
+    const nextZoom = Math.min(latest.current.maxZoom, Math.max(MIN_ZOOM, startZoom * (Math.hypot(first.x - second.x, first.y - second.y) / distance)));
     apply({ zoom: nextZoom, x: middle.x - board.offsetLeft - anchor.x * nextZoom, y: middle.y - board.offsetTop - anchor.y * nextZoom });
   };
 
@@ -147,7 +156,7 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
     const isDouble = Date.now() - lastTap.current.at < DOUBLE_TAP_MS && Math.hypot(point.clientX - lastTap.current.point.clientX, point.clientY - lastTap.current.point.clientY) < 24;
     lastTap.current = isDouble ? { at: 0, point } : { at: Date.now(), point };
     if (!isDouble) return false;
-    if (view.current.zoom > 1.05) fit();
+    if (!isFittedView(view.current)) fit();
     else {
       zoomAround(toLocal(point), 2.5);
       settle();
@@ -201,7 +210,7 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
       if (mode.current === "tap" && Math.hypot(point.clientX - tapStart.current.clientX, point.clientY - tapStart.current.clientY) < TAP_SLOP_PX) return;
       if (mode.current === "tap" && event.pointerType === "mouse" && latest.current.boxGesture) return startBox(point);
       if (mode.current === "tap") mode.current = "pan";
-      if (mode.current !== "pan" || view.current.zoom === 1) return;
+      if (mode.current !== "pan") return;
       const local = toLocal(point);
       apply({ zoom: view.current.zoom, x: panStart.current.x + local.x - panStart.current.local.x, y: panStart.current.y + local.y - panStart.current.local.y });
     },
@@ -232,5 +241,5 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
     },
   };
 
-  return { viewportRef, bindViewport, zoom, zoomIn: () => zoomByButton(BUTTON_ZOOM_STEP), zoomOut: () => zoomByButton(1 / BUTTON_ZOOM_STEP), fit };
+  return { viewportRef, bindViewport, zoom, minZoom: MIN_ZOOM, isFitted, zoomIn: () => zoomByButton(BUTTON_ZOOM_STEP), zoomOut: () => zoomByButton(1 / BUTTON_ZOOM_STEP), fit };
 }

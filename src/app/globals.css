@@ -466,6 +466,135 @@ nav[data-safe-navigation], [data-safe-sheet-tabs].fixed {
   }
 }
 
+/* Рамка ходу росте з токеном: дрібного не закриває, на великому не губиться. --token-size ставить обличчя токена. */
+.token-turn-ring {
+  --turn-ring: clamp(1.5px, calc(var(--token-size, 44px) * 0.05), 8px);
+  box-shadow:
+    0 0 0 var(--turn-ring) theme("colors.arcane.300"),
+    0 0 calc(var(--turn-ring) * 3) var(--turn-ring) color-mix(in srgb, theme("colors.arcane.300") 70%, transparent);
+}
+
+/* Аура портрета: смуга під карткою виступає на 6px, візерунок у ній обертається й пливе вздовж прямокутної рамки. */
+.token-frame-aura {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.token-frame-band {
+  position: absolute;
+  inset: -6px;
+  overflow: hidden;
+  border-radius: calc(0.75rem + 6px);
+  background: var(--frame-band);
+  box-shadow: 0 0 0.6rem 0.15rem var(--frame-glow);
+  animation: token-aura-breathe 2.2s ease-in-out infinite alternate;
+}
+
+.token-frame-band::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: var(--frame-pattern, none);
+  animation: token-aura-turn var(--frame-turn, 20s) linear infinite;
+}
+
+.token-frame-aura-fire {
+  --frame-band: rgb(234 88 12 / 0.6);
+  --frame-glow: rgb(234 88 12 / 0.7);
+}
+
+.token-frame-aura-arcane {
+  --frame-band: rgb(117 71 225 / 0.55);
+  --frame-glow: rgb(139 92 246 / 0.7);
+  --frame-pattern: repeating-conic-gradient(rgb(227 216 253) 0deg 3deg, transparent 3deg 9deg, rgb(200 178 250 / 0.8) 9deg 10deg, transparent 10deg 18deg);
+  --frame-turn: 14s;
+}
+
+.token-frame-aura-frost {
+  --frame-band: rgb(56 189 248 / 0.35);
+  --frame-glow: rgb(125 211 252 / 0.6);
+  --frame-pattern: repeating-conic-gradient(rgb(240 249 255) 0deg 1deg, transparent 1deg 6deg, rgb(125 211 252 / 0.85) 6deg 7deg, transparent 7deg 10deg);
+  --frame-turn: 40s;
+}
+
+.token-frame-aura-rays {
+  --frame-band: rgb(251 191 36 / 0.45);
+  --frame-glow: rgb(253 230 138 / 0.8);
+  --frame-pattern: repeating-conic-gradient(rgb(255 251 235 / 0.85) 0deg 1deg, transparent 2.5deg 9deg);
+  --frame-turn: 30s;
+}
+
+.token-frame-aura-shadow {
+  --frame-band: rgb(76 29 149 / 0.9);
+  --frame-glow: rgb(109 40 217 / 0.65);
+}
+
+.token-frame-aura-storm {
+  --frame-band: rgb(99 102 241 / 0.4);
+  --frame-glow: rgb(56 189 248 / 0.6);
+}
+
+.token-frame-aura-fire .token-frame-band {
+  animation-duration: 1.1s;
+}
+
+.token-frame-aura-storm .token-frame-band {
+  animation: token-storm-flash 2.3s steps(1, end) infinite;
+}
+
+.token-flame-frame {
+  width: 18%;
+}
+
+.token-flame-frame-core {
+  width: 10%;
+}
+
+.token-ember-frame {
+  width: 5%;
+}
+
+.token-smoke-frame {
+  width: 26%;
+}
+
+.token-sparkle-frame {
+  width: 18%;
+}
+
+.token-frame-bolts {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  overflow: visible;
+}
+
+.token-frame-bolts .token-bolt {
+  vector-effect: non-scaling-stroke;
+  animation-name: token-bolt-flicker;
+}
+
+@keyframes token-bolt-flicker {
+  0%,
+  20%,
+  55% {
+    opacity: 1;
+  }
+  12%,
+  32%,
+  70% {
+    opacity: 0.25;
+  }
+}
+
 /* Аура підсвітки токена: анімуються лише rotate/scale/opacity — шар малюється раз, далі його рухає композитор. */
 .token-aura {
   position: absolute;
@@ -765,6 +894,8 @@ nav[data-safe-navigation], [data-safe-sheet-tabs].fixed {
   .token-aura,
   .token-aura::before,
   .token-aura::after,
+  .token-frame-band,
+  .token-frame-band::before,
   .token-flame,
   .token-sparkle {
     animation: none;

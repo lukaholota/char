@@ -207,6 +207,14 @@ describe("трекер бою", () => {
     expect(items[0].textContent).toContain("А");
   });
 
+  it("обрана аура на портреті того, хто ходить, замінює кільце ходу рамкою свого кольору", () => {
+    const fiery = { ...combat, combatants: combat.combatants.map((combatant) => (combatant.creature ? { ...combatant, creature: { ...combatant.creature, conditions: { conditions: ["spotlit-fire"], exhaustionLevel: 0 } } } : combatant)) } as typeof combat;
+    render(<CombatTracker view={buildView({ combat: fiery })} />);
+    const current = listItems()[1];
+    expect(current.querySelector(".ring-arcane-300")).toBeNull();
+    expect(current.querySelector(".token-frame-aura-fire")).not.toBeNull();
+  });
+
   it("гравець у свій хід бачить «Ваш хід» і сам завершує його: хід одразу переходить до наступного", async () => {
     render(<CombatTracker view={buildView({ combat: { ...combat, currentId: 11 } })} />);
     expect(screen.getByText("Ваш хід")).toBeTruthy();

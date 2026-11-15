@@ -120,7 +120,7 @@ export function PartyPortraits({ view, placement }: { view: GameSessionView; pla
   return (
     <div className={cn("min-w-0 [container-type:inline-size]", isCompact && (placement?.isOverMap ? "hidden" : "hidden [@container(min-width:40rem)]:block"))}>
       <div className="pointer-events-auto mx-auto flex w-fit max-w-full items-center gap-1">
-        <ul aria-label="Герої" className="flex min-w-0 gap-2 overflow-x-auto p-1">
+        <ul aria-label="Герої" className="flex min-w-0 gap-3 overflow-x-auto px-2.5 pb-2.5 pt-4">
           {heroes.map((hero) => (
             <li key={hero.heroId} className={cn("shrink-0", CARD_WIDTH)}>
               <PartyHeroPortrait hero={hero} spotlight={findHeroSpotlight(view, hero)} />
@@ -186,7 +186,7 @@ function ActiveCombat({ sessionId, combat, canControl, myUserId, newcomers, plac
             <p aria-live="polite" className={cn("min-w-0 flex-1 text-sm leading-tight text-slate-300", isOpen ? "line-clamp-2 [@container(min-width:48rem)]:line-clamp-none [@container(min-width:48rem)]:basis-full" : "truncate")}>{describeCurrentTurn(combat, canControl ? null : myUserId)}</p>
           </div>
           {isOpen ? (
-            <ol id={queueId} ref={listRef} aria-label="Черга ходів" className="relative flex min-w-0 items-end gap-2 overflow-x-auto p-1.5 [&>li:first-child]:ml-auto [&>li:last-child]:mr-auto">
+            <ol id={queueId} ref={listRef} aria-label="Черга ходів" className="relative flex min-w-0 items-end gap-3 overflow-x-auto px-2.5 pb-2.5 pt-4 [&>li:first-child]:ml-auto [&>li:last-child]:mr-auto">
               {combat.combatants.map((combatant) => (
                 <CombatantItem key={combatant.id} combatant={combatant} isCurrent={combatant.id === combat.currentId} canEdit={canControl} spotlight={findSpotlight(combatant)} onEditInitiative={editInitiative} />
               ))}

@@ -1,5 +1,6 @@
 const DEFAULT_MEDIA_URL = "https://media.char.holota.family";
-const THUMBNAIL_SUFFIX = "-96";
+export const THUMBNAIL_PX = 96;
+const THUMBNAIL_SUFFIX = `-${THUMBNAIL_PX}`;
 
 export type MediaImageSize = "full" | "thumbnail";
 

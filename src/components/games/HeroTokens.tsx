@@ -11,11 +11,11 @@ import type { TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
 import { GameAvatar } from "./GameAvatar";
 import { ContentImage } from "@/components/no-ai/ContentImage";
-import { isMediaImageUrl } from "@/lib/media-url";
+import { buildFullSizeMediaUrl, isMediaImageUrl } from "@/lib/media-url";
 import { findCutoutOutlineClass, findHeroCutoutKey, useCutoutImage } from "./token-cutout";
 import { HeroConditionsDialog } from "./HeroConditionsDialog";
-import { HIGHLIGHT_RING_CLASS, MapTokenSlot, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
-import { SPOTLIGHT_RING_CLASS, SpotlightAura, useIsHeroTurn } from "./combat-turn";
+import { HIGHLIGHT_RING_CLASS, MapTokenSlot, buildTokenSizeStyle, isAboveThumbnail, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
+import { SpotlightAura, findSpotlightRingClass, useIsHeroTurn } from "./combat-turn";
 import { TokenConditionMarks } from "./TokenConditionMarks";
 import { useSpotlightStyle, useSpotlightControl } from "./use-token-conditions";
 import { NO_TOKEN_CONDITIONS } from "@/rules/token-conditions";
@@ -130,7 +130,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
     return position ? [{ key: `hero-${member.heroId}`, name: member.persName ?? member.name, position, cells: HERO_CELLS, ...(member.persId !== null ? { persId: member.persId } : {}) }] : [];
   });
   const draggedFrom = dragged ? moves.findPosition(dragged) : null;
-  const drag: TokenDrag | null = ghost && dragged ? { from: draggedFrom, to: walk?.ghost === ghost ? walk.at : findSnappedDrop(ghost), cells: HERO_CELLS, isBlocked: walk?.ghost === ghost && walk.isBlocked } : null;
+  const drag: TokenDrag | null = ghost && dragged ? { key: findKey(dragged.heroId), from: draggedFrom, to: walk?.ghost === ghost ? walk.at : findSnappedDrop(ghost), cells: HERO_CELLS, isBlocked: walk?.ghost === ghost && walk.isBlocked } : null;
   const size = findBoardTokenSize(layout, HERO_CELLS, 1);
 
   return {
@@ -140,6 +140,10 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
     selected,
     heroes,
     waiting,
+    findGroupLook: (key: string): GroupTokenLook | null => {
+      const member = heroes.find((candidate) => findKey(candidate.heroId) === key);
+      return member ? { token: { kind: "hero", id: member.heroId }, conditions: member.conditions, transform: transforms.find(member), showTransform: (transform) => transforms.show(member, transform), sendTransform: (transform) => void transforms.send(member, transform) } : null;
+    },
     trayTokens: waiting.map((member) => <li key={member.heroId}>{renderToken(member, TOKEN_SIZE_PX, null)}</li>),
     mapTokens: heroes.map((member) => {
       const position = moves.findPosition(member);
@@ -148,10 +152,11 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
       const zClass = isSelected ? "z-[33]" : member.userId === view.myUserId ? "z-[32]" : canMove(member) ? "z-[31]" : "z-30";
       const transform = transforms.find(member);
       const shownSize = scaleTokenSize(size, transform);
-      const handles = isSelected && selected ? <TokenTransformHandles token={selected} onDeselect={() => selection.select(null)} /> : group.isGrouped(findKey(member.heroId)) ? <GroupedTokenFrame rotation={transform.rotation} /> : null;
+      const isGrouped = group.isGrouped(findKey(member.heroId));
+      const handles = isSelected && selected ? <TokenTransformHandles token={selected} onDeselect={() => selection.select(null)} /> : isGrouped ? <GroupedTokenFrame rotation={transform.rotation} /> : null;
       return (
-        <MapTokenSlot key={member.heroId} position={position} size={shownSize} className={zClass}>
-          {renderToken(member, shownSize, { labelWidth: findLabelWidth(layout, 1), isHighlighted: layout.isHighlighted(position, HERO_CELLS), isOutlined: layout.isCutoutOutlined, rotation: transform.rotation }, handles)}
+        <MapTokenSlot key={member.heroId} position={position} size={shownSize} isGroupFollower={isGrouped && ghost?.id !== member.heroId} className={zClass}>
+          {renderToken(member, shownSize, { screenPx: scaleGhostSize(findGhostTokenSize(layout, HERO_CELLS, 1), transform), labelWidth: findLabelWidth(layout, 1), isHighlighted: layout.isHighlighted(position, HERO_CELLS), isOutlined: layout.isCutoutOutlined, rotation: transform.rotation }, handles)}
         </MapTokenSlot>
       );
     }),
@@ -181,10 +186,10 @@ function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = 
   const { lifeState } = member;
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={name}>
-      <div className={cn("relative isolate rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={{ width: size, height: size }}>
+      <div className={cn("relative isolate rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={buildTokenSizeStyle(size)}>
         <SpotlightAura style={spotlight} />
         <div className="h-full w-full" style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
-          <HeroPortrait member={member} name={name} isOnBoard={onBoard !== null} frameClass={cn(lifeState.kind === "dead" && "opacity-50 grayscale", (isTurn || spotlight === "glow") && SPOTLIGHT_RING_CLASS)} borderClass={lifeState.kind === "dying" ? "border-rose-500" : isMine ? "border-arcane-300" : "border-white/70"} outlineClass={findCutoutOutlineClass(lifeState.kind === "dying" ? "dying" : isMine ? "mine" : "other", Boolean(onBoard?.isOutlined))} />
+          <HeroPortrait member={member} name={name} isOnBoard={onBoard !== null} screenPx={onBoard?.screenPx ?? TOKEN_SIZE_PX} frameClass={cn(lifeState.kind === "dead" && "opacity-50 grayscale", findSpotlightRingClass(isTurn, spotlight))} borderClass={lifeState.kind === "dying" ? "border-rose-500" : isMine ? "border-arcane-300" : "border-white/70"} outlineClass={findCutoutOutlineClass(lifeState.kind === "dying" ? "dying" : isMine ? "mine" : "other", Boolean(onBoard?.isOutlined))} />
         </div>
         {lifeState.kind === "dead" ? <DownMark /> : null}
         {children}
@@ -200,19 +205,20 @@ function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = 
   );
 }
 
-type HeroPortraitProps = { member: GameSessionMemberView; name: string; isOnBoard: boolean; frameClass: string; borderClass: string; outlineClass: string };
+type HeroPortraitProps = { member: GameSessionMemberView; name: string; isOnBoard: boolean; screenPx: number; frameClass: string; borderClass: string; outlineClass: string };
 
 const ROUND_FRAME = "border-2 shadow-lg shadow-black/50 ring-2 ring-slate-950/80";
 
 /// У лотку токен завжди круглий; на мапі й під пальцем прозорий герой лишається прозорим.
-function HeroPortrait({ member, name, isOnBoard, frameClass, borderClass, outlineClass }: HeroPortraitProps) {
+function HeroPortrait({ member, name, isOnBoard, screenPx, frameClass, borderClass, outlineClass }: HeroPortraitProps) {
   const isCutoutChosen = useOptimistic(findHeroCutoutKey(member.heroId), member.isCutout);
-  const cutoutSrc = isCutoutChosen && isOnBoard && isMediaImageUrl(member.avatarUrl) ? member.avatarUrl : null;
+  const avatarUrl = isAboveThumbnail(screenPx) && isMediaImageUrl(member.avatarUrl) ? buildFullSizeMediaUrl(member.avatarUrl) : member.avatarUrl;
+  const cutoutSrc = isCutoutChosen && isOnBoard && isMediaImageUrl(avatarUrl) ? avatarUrl : null;
   const { isCutout, inspectImage } = useCutoutImage(cutoutSrc);
-  if (!cutoutSrc) return <GameAvatar src={member.avatarUrl} name={name} className={cn("h-full w-full", ROUND_FRAME, borderClass, frameClass)} />;
+  if (!cutoutSrc) return <GameAvatar src={avatarUrl} name={name} className={cn("h-full w-full", ROUND_FRAME, borderClass, frameClass)} />;
   return (
     <div className={cn("relative h-full w-full rounded-full", isCutout ? outlineClass : cn("overflow-hidden", ROUND_FRAME, borderClass), frameClass)}>
-      <ContentImage src={cutoutSrc} alt="" provenance="manual" fill sizes="128px" draggable={false} onLoad={(event) => inspectImage(event.currentTarget)} className={isCutout ? "object-contain" : "object-cover"} />
+      <ContentImage src={cutoutSrc} alt="" provenance="manual" fill sizes={`${Math.round(screenPx)}px`} draggable={false} onLoad={(event) => inspectImage(event.currentTarget)} className={isCutout ? "object-contain" : "object-cover"} />
     </div>
   );
 }
@@ -238,7 +244,7 @@ type DraggedTokenProps = { ghost: TokenGhost; member: GameSessionMemberView; siz
 function DraggedToken({ ghost, member, size, rotation, isOutlined, isMine, isTurned, isLeavingMap }: DraggedTokenProps) {
   return createPortal(
     <div className="pointer-events-none fixed z-[10000] flex flex-col items-center" style={{ left: ghost.clientX, top: ghost.clientY, transform: `translate(-50%, ${-size / 2}px)${isTurned ? " rotate(90deg)" : ""}`, transformOrigin: `50% ${size / 2}px` }} aria-hidden>
-      <TokenFace member={member} isMine={isMine} size={size} nameMode={null} onBoard={{ labelWidth: size, isHighlighted: false, isOutlined, rotation }} />
+      <TokenFace member={member} isMine={isMine} size={size} nameMode={null} onBoard={{ screenPx: size, labelWidth: size, isHighlighted: false, isOutlined, rotation }} />
       {isLeavingMap ? <span className="mt-1 whitespace-nowrap rounded-full bg-rose-950/90 px-2 py-0.5 text-xs text-rose-100 shadow-lg shadow-black/50">Прибрати з мапи</span> : null}
     </div>,
     document.body,

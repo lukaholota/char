@@ -11,7 +11,7 @@ import { GameAvatar } from "./GameAvatar";
 import { DownMark, HitPointBar } from "./MapCreatureHitPoints";
 import { OpenCreatureCardContext } from "./MapCreatureTokens";
 import type { SpotlightStyle } from "@/rules/token-conditions";
-import { SpotlightAura } from "./combat-turn";
+import { SpotlightFrameAura, hasSpotlightAura } from "./combat-turn";
 import { usePortraitSpotlight, type PortraitSpotlightInput, type SpotlightControl } from "./use-token-conditions";
 
 /// Тонша за кільце токена: ряд портретів прокручується й обрізав би ширше сяйво.
@@ -77,19 +77,21 @@ type CombatantPortraitProps = { creature: MapCreatureView | null; avatarUrl: str
 export function CombatantPortrait({ creature, avatarUrl, name, isCurrent, isDown, spotlight }: CombatantPortraitProps) {
   const sideBorder = creature ? (creature.isAlly ? "border-emerald-400/70" : "border-rose-500/70") : "border-white/15";
   return (
-    <span className={cn("relative block aspect-[4/5] w-full overflow-hidden rounded-xl border bg-slate-900", sideBorder, isCurrent && "ring-2 ring-arcane-300 ring-offset-2 ring-offset-slate-950", spotlight === "glow" && SPOTLIGHT_PORTRAIT_CLASS)}>
-      <span className={cn("relative block h-full w-full", isDown && "opacity-50 grayscale")}>
-        {creature ? <CreatureArt creature={creature} /> : <HeroArt avatarUrl={avatarUrl} name={name} />}
+    <span className="relative isolate block w-full">
+      <SpotlightFrameAura style={spotlight} />
+      <span className={cn("relative block aspect-[4/5] w-full overflow-hidden rounded-xl border bg-slate-900", sideBorder, isCurrent && !hasSpotlightAura(spotlight) && "ring-2 ring-arcane-300 ring-offset-2 ring-offset-slate-950", spotlight === "glow" && SPOTLIGHT_PORTRAIT_CLASS)}>
+        <span className={cn("relative block h-full w-full", isDown && "opacity-50 grayscale")}>
+          {creature ? <CreatureArt creature={creature} /> : <HeroArt avatarUrl={avatarUrl} name={name} />}
+        </span>
+        {isDown ? <DownMark /> : null}
+        {creature && creature.badge !== null ? <span aria-hidden className="absolute right-0.5 top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-slate-950 px-1 text-xs leading-none text-slate-100">{creature.badge}</span> : null}
+        <span className={cn("absolute inset-x-0 bottom-0 line-clamp-2 break-words bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent px-0.5 pb-1.5 pt-3 text-center text-[0.625rem] leading-tight [@container(min-width:48rem)]:text-xs", isDown ? "text-slate-400 line-through" : "text-slate-50")}>
+          {name}
+          {isDown ? <span className="sr-only">, повалений</span> : null}
+          {spotlight ? <span className="sr-only">, підсвічено</span> : null}
+        </span>
+        {creature?.hitPoints ? <span className="absolute inset-x-0 bottom-0 block"><HitPointBar hitPoints={creature.hitPoints} /></span> : null}
       </span>
-      <SpotlightAura style={spotlight} isInside />
-      {isDown ? <DownMark /> : null}
-      {creature && creature.badge !== null ? <span aria-hidden className="absolute right-0.5 top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-slate-950 px-1 text-xs leading-none text-slate-100">{creature.badge}</span> : null}
-      <span className={cn("absolute inset-x-0 bottom-0 line-clamp-2 break-words bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent px-0.5 pb-1.5 pt-3 text-center text-[0.625rem] leading-tight [@container(min-width:48rem)]:text-xs", isDown ? "text-slate-400 line-through" : "text-slate-50")}>
-        {name}
-        {isDown ? <span className="sr-only">, повалений</span> : null}
-        {spotlight ? <span className="sr-only">, підсвічено</span> : null}
-      </span>
-      {creature?.hitPoints ? <span className="absolute inset-x-0 bottom-0 block"><HitPointBar hitPoints={creature.hitPoints} /></span> : null}
     </span>
   );
 }

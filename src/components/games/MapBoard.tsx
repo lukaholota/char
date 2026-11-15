@@ -37,7 +37,7 @@ import { useMapHistory } from "./map-history";
 import { useElementWidth } from "./use-element-width";
 import { useMapDrawings } from "./use-map-drawings";
 import { useMapLights, useTokenLights } from "./use-map-lights";
-import { useBoardGroup } from "./use-map-group";
+import { buildGroupShiftStyle, useBoardGroup } from "./use-map-group";
 import { useMapObjects } from "./use-map-objects";
 import { usePartySight, useWallSight } from "./use-map-sight";
 import { useMapWalls } from "./use-map-walls";
@@ -255,7 +255,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   const areaLooks: Array<{ key: string | number; area: AreaPlacement; look: AreaLook }> = scene.areas.filter((saved) => saved.id !== area.draft?.id || tool !== "area").map((saved) => ({ key: saved.id, area: saved, look: "saved" }));
   if (tool === "area" && area.draft) areaLooks.push({ key: "active", area: area.draft.placement, look: area.draft.id === null ? "draft" : "selected" });
 
-  const groupPanel = group.findMembers().length > 1 ? <MapGroupActions group={group} objects={isEditingObjects ? objects : null} moveTokenGroup={moveTokenGroup} removeCreature={creatures.remove} /> : null;
+  const groupPanel = group.findMembers().length > 1 ? <MapGroupActions view={view} group={group} objects={isEditingObjects ? objects : null} findLook={(key) => heroes.findGroupLook(key) ?? creatures.findGroupLook(key)} moveTokenGroup={moveTokenGroup} removeCreature={creatures.remove} /> : null;
   const panel =
     tool === "ruler" ? <RulerPanel hasGrid={frame !== null} distanceFeet={ruler.ruler && frame ? measureGridFeet(ruler.ruler.from, ruler.ruler.to, frame) : null} isGm={canEditScene} onClose={() => changeTool(null)} />
     : tool === "area" ? (
@@ -322,7 +322,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
           <div className={LAYOUT.stage}>
             <div
               ref={viewport.viewportRef}
-              className={cn("absolute inset-0 grid touch-none select-none [-webkit-touch-callout:none] items-center justify-items-center overflow-hidden bg-slate-950/40 [container-type:size] [@container(min-width:40rem)]:rounded-xl", viewport.zoom > 1.01 && !isToolGesture && "cursor-grab active:cursor-grabbing")}
+              className={cn("absolute inset-0 grid touch-none select-none [-webkit-touch-callout:none] items-center justify-items-center overflow-hidden bg-slate-950/40 [container-type:size] [@container(min-width:40rem)]:rounded-xl", !viewport.isFitted && !isToolGesture && "cursor-grab active:cursor-grabbing")}
               {...viewport.bindViewport}
             >
               <div
@@ -354,11 +354,11 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
                     {isEditingWalls ? <MapWallsLayer walls={walls} aspect={aspect} /> : canEditScene ? <MapDoorButtons walls={walls} isActive={tool === null} /> : null}
                   </>
                 ) : null}
-                <div onPointerDownCapture={leaveGridOnToken} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{creatures.mapTokens}</div>
+                <div onPointerDownCapture={leaveGridOnToken} style={buildGroupShiftStyle(group, drag)} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{creatures.mapTokens}</div>
                 {aspect && fog && hidesForMe ? <MapFogLayer fog={fog} aspect={aspect} isVeil={false} className="z-20" /> : null}
                 {sight && sightHidesForMe ? <MapSight sight={sight} fading={fadingSight} isVeil={false} /> : null}
                 {sightHidesForMe && !eyes.length ? <p className="pointer-events-none absolute inset-x-4 top-1/2 z-20 -translate-y-1/2 text-center text-sm text-slate-300">{view.myRole === "GM" ? "На сцені немає героїв — гравцям нічого не видно. Перетягніть героя з «Поза мапою»." : "Поставте героя на мапу, щоб бачити"}</p> : null}
-                <div onPointerDownCapture={leaveGridOnToken} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{heroes.mapTokens}</div>
+                <div onPointerDownCapture={leaveGridOnToken} style={buildGroupShiftStyle(group, drag)} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{heroes.mapTokens}</div>
                 {targeting ? <MapTargetPicks tokens={[...heroes.placed, ...creatures.placed]} layout={layout} targeting={targeting} /> : null}
                 {aspect && isEditingLights ? <MapLightMarkers lights={lights} frame={frame} aspect={aspect} /> : null}
                 {aspect ? <MapMeasureLayer frame={frame} aspect={aspect} ruler={tool === "ruler" ? ruler.ruler : null} move={move} rect={tool === "walls" ? walls.rect : tool === "fog" ? fogTool.rect : tool === "grid" ? gridTool.rect : group.rect} /> : null}
@@ -370,7 +370,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
             </div>
             <div className={cn("pointer-events-none absolute bottom-2 right-2 z-[60] flex flex-col items-end gap-2 [&>*]:pointer-events-auto", isFullscreen ? "top-14" : "top-2")}>
               {targeting || cast ? null : <MapToolRow tool={tool} onToolChange={changeTool} canEditScene={canEditScene} canDraw={!view.isArchived} />}
-              <MapZoomControls zoom={viewport.zoom} maxZoom={maxZoom} onZoomIn={viewport.zoomIn} onZoomOut={viewport.zoomOut} onFit={viewport.fit} turn={canTurn} history={history} onFullscreen={onFullscreen} />
+              <MapZoomControls zoom={viewport.zoom} minZoom={viewport.minZoom} maxZoom={maxZoom} isFitted={viewport.isFitted} onZoomIn={viewport.zoomIn} onZoomOut={viewport.zoomOut} onFit={viewport.fit} turn={canTurn} history={history} onFullscreen={onFullscreen} />
             </div>
             {/* Поверх мапи, але не всередині неї: тут працюють звичайні дотики й прокрутка, а не жести мапи. */}
             <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex flex-wrap items-start gap-2 p-2 pr-16 [&>*]:pointer-events-auto [@container(min-width:40rem)]:pr-[5.5rem]">

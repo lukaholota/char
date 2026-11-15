@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { DEFAULT_TOKEN_TRANSFORM, TOKEN_SCALE_RANGE, findDraggedRotation, findDraggedScale, isDefaultTokenTransform, resizeToken, turnToken, type TokenTransform } from "@/rules/token-transform";
 import type { SpotlightStyle } from "@/rules/token-conditions";
-import { Stepper, ToolPanel } from "./MapToolbar";
+import { ToolPanel } from "./MapToolbar";
 import { SpotlightAura } from "./combat-turn";
 import type { TokenLightTarget } from "./use-map-lights";
 import type { SpotlightControl } from "./use-token-conditions";
@@ -42,7 +42,8 @@ export function useTokenSelection(canSelect: boolean) {
 }
 
 const SCALE_STEP = 10;
-const ROTATION_STEP = 15;
+const SCALE_SLIDER_STEP = 5;
+export const ROTATION_STEP = 15;
 
 export function scaleTokenSize(size: string, transform: TokenTransform): string {
   return transform.scale === 100 ? size : `calc(${size} * ${transform.scale / 100})`;
@@ -56,8 +57,8 @@ export function findTokenRotationStyle(rotation: number) {
   return rotation ? { transform: `rotate(${rotation}deg)` } : undefined;
 }
 
-const describeScale = (transform: TokenTransform) => `${transform.scale}%`;
-const describeRotation = (transform: TokenTransform) => `${transform.rotation}°`;
+export const describeScale = (transform: TokenTransform) => `${transform.scale}%`;
+export const describeRotation = (transform: TokenTransform) => `${transform.rotation}°`;
 
 type TransformTarget = Pick<SelectedToken, "transform" | "onPreview" | "onChange"> & Partial<Pick<SelectedToken, "spotlight">>;
 
@@ -199,7 +200,7 @@ const SPOTLIGHT_OPTIONS: Array<{ style: SpotlightStyle; label: string }> = [
 ];
 
 /// Повторний дотик до вибраного вигляду гасить підсвітку.
-function SpotlightPicker({ spotlight }: { spotlight: SpotlightControl }) {
+export function SpotlightPicker({ spotlight }: { spotlight: SpotlightControl }) {
   return (
     <div role="group" aria-label={SPOTLIGHT_LABEL} className="grid grid-cols-[repeat(auto-fill,minmax(5.5rem,1fr))] gap-1.5">
       <span className="col-span-full text-sm text-slate-300">{SPOTLIGHT_LABEL}</span>
@@ -220,23 +221,14 @@ export function TokenTransformPanel({ token, onClose, children }: { token: Selec
   const { transform, onChange } = token;
   return (
     <ToolPanel title={token.name} onClose={onClose}>
-      <Stepper
-        label="Розмір"
-        value={describeScale(transform)}
-        onStep={(direction) => onChange(resizeToken(transform, transform.scale + direction * SCALE_STEP))}
-        canDecrease={transform.scale > TOKEN_SCALE_RANGE.min}
-        canIncrease={transform.scale < TOKEN_SCALE_RANGE.max}
+      <TokenLookSteps
+        scale={transform.scale}
+        size={describeScale(transform)}
+        rotation={describeRotation(transform)}
+        onPreviewScale={(scale) => token.onPreview(resizeToken(transform, scale))}
+        onScale={(scale) => onChange(resizeToken(transform, scale))}
+        onTurn={(direction) => onChange(turnToken(transform, direction * ROTATION_STEP))}
       />
-      <div role="group" aria-label="Поворот" className="flex items-center gap-2">
-        <span className="min-w-0 flex-1 text-sm text-slate-300">Поворот</span>
-        <TurnButton label={`Повернути на ${ROTATION_STEP}° проти годинникової`} onClick={() => onChange(turnToken(transform, -ROTATION_STEP))}>
-          <RotateCcw className="h-4 w-4" aria-hidden />
-        </TurnButton>
-        <output aria-live="polite" className="min-w-14 text-center text-base tabular-nums text-slate-100">{describeRotation(transform)}</output>
-        <TurnButton label={`Повернути на ${ROTATION_STEP}° за годинниковою`} onClick={() => onChange(turnToken(transform, ROTATION_STEP))}>
-          <RotateCw className="h-4 w-4" aria-hidden />
-        </TurnButton>
-      </div>
       {token.spotlight ? <SpotlightPicker spotlight={token.spotlight} /> : null}
       <div className="flex flex-wrap items-center gap-2 border-t border-white/10 pt-2">
         <Button type="button" variant="outline" onClick={token.onOpen} className="h-11 px-4">{token.openLabel}</Button>
@@ -245,6 +237,58 @@ export function TokenTransformPanel({ token, onClose, children }: { token: Selec
       {children}
       <p className="text-sm leading-snug text-slate-400">На мапі тягніть верхню ручку, щоб повернути, і кутову, щоб змінити розмір. Дотик до порожнього місця знімає вибір.</p>
     </ToolPanel>
+  );
+}
+
+type LookStepsProps = { scale: number; size: string; rotation: string; onPreviewScale: (scale: number) => void; onScale: (scale: number) => void; onTurn: (direction: 1 | -1) => void };
+
+export function TokenLookSteps({ scale, size, rotation, onPreviewScale, onScale, onTurn }: LookStepsProps) {
+  return (
+    <>
+      <TokenSizeSlider scale={scale} shown={size} onPreview={onPreviewScale} onCommit={onScale} />
+      <div role="group" aria-label="Поворот" className="flex items-center gap-2">
+        <span className="min-w-0 flex-1 text-sm text-slate-300">Поворот</span>
+        <TurnButton label={`Повернути на ${ROTATION_STEP}° проти годинникової`} onClick={() => onTurn(-1)}>
+          <RotateCcw className="h-4 w-4" aria-hidden />
+        </TurnButton>
+        <output aria-live="polite" className="min-w-14 text-center text-base tabular-nums text-slate-100">{rotation}</output>
+        <TurnButton label={`Повернути на ${ROTATION_STEP}° за годинниковою`} onClick={() => onTurn(1)}>
+          <RotateCw className="h-4 w-4" aria-hidden />
+        </TurnButton>
+      </div>
+    </>
+  );
+}
+
+/// Під час руху повзунка розмір лише показується; запит іде, коли його відпустили, — інакше кожен піксель став би запитом.
+function TokenSizeSlider({ scale, shown, onPreview, onCommit }: { scale: number; shown: string; onPreview: (scale: number) => void; onCommit: (scale: number) => void }) {
+  const pending = useRef<number | null>(null);
+  const commit = () => {
+    if (pending.current === null) return;
+    onCommit(pending.current);
+    pending.current = null;
+  };
+  return (
+    <label className="flex items-center gap-3 text-sm text-slate-300">
+      <span className="shrink-0">Розмір</span>
+      <input
+        type="range"
+        min={TOKEN_SCALE_RANGE.min}
+        max={TOKEN_SCALE_RANGE.max}
+        step={SCALE_SLIDER_STEP}
+        value={scale}
+        aria-valuetext={shown}
+        onChange={(event) => {
+          pending.current = Number(event.target.value);
+          onPreview(pending.current);
+        }}
+        onPointerUp={commit}
+        onKeyUp={commit}
+        onBlur={commit}
+        className="h-11 min-w-0 flex-1 accent-arcane-300"
+      />
+      <output aria-hidden className="min-w-14 text-right text-base tabular-nums text-slate-100">{shown}</output>
+    </label>
   );
 }
 

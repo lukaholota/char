@@ -5,7 +5,7 @@ import { addSceneObjectAction, changeSceneObjectAction, moveSceneObjectsAction, 
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { applyObjectTransform, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, toObjectPlacement, type ObjectPlacement, type SceneObjectView } from "@/rules/game-objects";
-import type { TokenPosition } from "@/rules/game-map";
+import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import type { TokenTransform } from "@/rules/token-transform";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { holdValueBefore, pushUndoStep, rememberUndo } from "./map-history";
@@ -14,7 +14,7 @@ import { createIdChain } from "./id-chain";
 import { useTokenDrag } from "./use-token-drag";
 
 type Point = { clientX: number; clientY: number };
-type Options = { view: GameSessionView; isEditing: boolean; gridColumns: number | null; findDropPosition: (point: Point) => TokenPosition | null; findViewCentre: () => TokenPosition; group: { moveWith: (key: string, to: TokenPosition) => boolean; clear: () => void } };
+type Options = { view: GameSessionView; isEditing: boolean; gridColumns: number | null; findDropPosition: (point: Point) => TokenPosition | null; findViewCentre: () => TokenPosition; group: { isGrouped: (key: string) => boolean; moveWith: (key: string, to: TokenPosition) => boolean; clear: () => void } };
 type ObjectMove = { id: number; at: TokenPosition };
 
 const { findCurrentId, takeTempId, link } = createIdChain();
@@ -133,7 +133,14 @@ export function useMapObjects({ view, isEditing, gridColumns, findDropPosition, 
     .map((object) => ({ ...object, id: findCurrentId(object.id) }))
     .toSorted((left, right) => left.sortOrder - right.sortOrder || left.id - right.id);
   const chosen = isEditing && chosenId !== null ? (shown.find((object) => object.id === findCurrentId(chosenId)) ?? null) : null;
-  const findShownAt = (object: SceneObjectView) => (drag.ghost?.id === object.id ? (findDropPosition(drag.ghost) ?? object.at) : object.at);
+  const dragged = drag.ghost ? shown.find((object) => object.id === drag.ghost?.id) : undefined;
+  const draggedTo = drag.ghost && dragged ? findDropPosition(drag.ghost) : null;
+  const isGroupDrag = dragged !== undefined && group.isGrouped(`object-${dragged.id}`);
+  const findShownAt = (object: SceneObjectView) => {
+    if (!dragged || !draggedTo) return object.at;
+    if (object.id === dragged.id) return draggedTo;
+    return isGroupDrag && group.isGrouped(`object-${object.id}`) ? shiftTokenPosition(object.at, { x: draggedTo.x - dragged.at.x, y: draggedTo.y - dragged.at.y }) : object.at;
+  };
   return {
     shown,
     chosen,
