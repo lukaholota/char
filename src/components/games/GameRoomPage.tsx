@@ -1,7 +1,7 @@
 "use client";
 
 import { findRoomPeople } from "@/rules/game-room-heroes";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { ChevronLeft, Crown } from "lucide-react";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -16,7 +16,8 @@ import { GameRoomMap, SceneSwitch } from "./GameRoomMap";
 import { useUnseenSinceClosed } from "./GameSessionDock";
 import { HeroPanelContent, JournalPanelContent, RoomPanel, RoomPanelContent, RoomTabBar } from "./RoomPanels";
 import { RollTargetSwitch } from "./RoomRollTarget";
-import { findSideTab, findWideSideTab, resetRoomTabs, showRoomTab, ToolPanelSlotContext, useRoomTabStore, type RoomSideTab, type RoomTab } from "./room-tabs";
+import { DOCKED_JOURNAL_SIZE, PanelResizeHandle, SIDE_PANEL_SIZE } from "./PanelResizeHandle";
+import { findSideTab, HeroTokenSlotContext, MapHintSlotContext, resetRoomTabs, showRoomTab, ToolPanelSlotContext, useRoomTabStore, type RoomSideTab, type RoomTab } from "./room-tabs";
 import { useGamesHref } from "./use-games-href";
 
 type GameRoomPageProps = { initialView: GameSessionView; bindablePers: Promise<BindablePers[]>; heroSheet: ReactNode; shownHeroPersId: number | null };
@@ -26,47 +27,60 @@ export function GameRoomPage({ initialView, bindablePers, heroSheet, shownHeroPe
   const combat = useShownCombat(view);
   const hasHeroTab = view.myRole === "PLAYER" || view.myPersId !== null || shownHeroPersId !== null;
   const shown = useShownTabs(hasHeroTab);
+  const sideTabs: RoomSideTab[] = [...(hasHeroTab ? ["hero" as const] : []), "journal", "room"];
   const unseen = useUnseenSinceClosed(shown.isJournalShown);
   const [toolPanelSlot, setToolPanelSlot] = useState<HTMLElement | null>(null);
+  const [heroTokenSlot, setHeroTokenSlot] = useState<HTMLElement | null>(null);
+  const [mapHintSlot, setMapHintSlot] = useState<HTMLElement | null>(null);
+  const sidePanelWidth = useGameSessionStore((state) => state.sidePanelWidth);
+  const dockedJournalHeight = useGameSessionStore((state) => state.dockedJournalHeight);
   useViewedRoom(view.id);
   useRoomViewedEvent(view);
   useRoomTabsReset(view);
 
   return (
     <div className="flex min-h-0 w-full flex-1 flex-col overflow-hidden">
-      <GameRoomHeader view={view} />
+      <GameRoomHeader view={view} hintSlotRef={setMapHintSlot} isMapShown={shown.isLarge || shown.tab === "map"} />
       <LostRoomAlert sessionId={view.id} />
       <RoomTabBar tabs={hasHeroTab ? ["map", "hero", "journal", "room"] : ["map", "journal", "room"]} current={shown.tab} unseen={unseen} label="Розділи кімнати" className="lg:hidden" />
-      <div className={cn("min-h-0 flex-1 lg:grid lg:grid-rows-[auto_minmax(0,1fr)]", shown.isSideFolded ? "lg:grid-cols-[minmax(0,1fr)_3.75rem]" : "lg:grid-cols-[minmax(0,1fr)_26rem] min-[1700px]:grid-cols-[minmax(0,1fr)_24rem_26rem]")}>
-        <RoomPanel tab="map" className={cn(shown.tab === "map" ? "flex" : "hidden", "h-full lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:flex")}>
+      <div
+        style={{ [SIDE_PANEL_SIZE.cssVar]: `${sidePanelWidth}px`, [DOCKED_JOURNAL_SIZE.cssVar]: `${dockedJournalHeight}px` } as CSSProperties}
+        className={cn("min-h-0 flex-1 lg:grid lg:grid-rows-[auto_minmax(0,1fr)_auto]", shown.isSideFolded ? "lg:grid-cols-[minmax(0,1fr)_3.75rem]" : "lg:grid-cols-[minmax(0,1fr)_clamp(22rem,var(--side-panel-width),100%_-_30rem)]")}
+      >
+        <RoomPanel tab="map" className={cn(shown.tab === "map" ? "flex" : "hidden", "h-full lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:flex")}>
           <CombatTurnProvider combat={combat}>
             <ToolPanelSlotContext.Provider value={shown.isLarge && !shown.isSideFolded ? toolPanelSlot : null}>
-              <GameRoomMap view={view} />
+              <HeroTokenSlotContext.Provider value={heroTokenSlot}>
+                <MapHintSlotContext.Provider value={mapHintSlot}>
+                  <GameRoomMap view={view} />
+                </MapHintSlotContext.Provider>
+              </HeroTokenSlotContext.Provider>
             </ToolPanelSlotContext.Provider>
           </CombatTurnProvider>
         </RoomPanel>
         <RoomTabBar
-          tabs={hasHeroTab ? ["hero", "journal", "room"] : ["journal", "room"]}
-          current={shown.sideBarTab}
+          tabs={sideTabs}
+          current={shown.sideTab}
           unseen={unseen}
           label="Бічна панель"
-          wideHiddenTab={shown.isSideFolded ? undefined : "journal"}
           isFolded={shown.isSideFolded}
           canFold
-          className={cn("hidden border-l lg:col-start-2 lg:row-start-1 lg:flex", shown.isSideFolded ? "lg:row-span-2" : "min-[1700px]:col-start-3")}
+          className={cn("hidden border-l lg:col-start-2 lg:row-start-1 lg:flex", shown.isSideFolded && "lg:row-span-3")}
         />
-        <RoomPanel tab="journal" className={cn(SIDE_PANEL, findSideClasses("journal", shown), "min-[1700px]:col-start-2 min-[1700px]:row-span-2 min-[1700px]:row-start-1")}>
-          <JournalPanelContent view={view} />
+        <RoomPanel tab="journal" className={shown.isJournalDocked ? findDockedJournalClasses(shown) : cn(SIDE_PANEL, findSideClasses("journal", shown))}>
+          <JournalPanelContent view={view} isDocked={shown.isJournalDocked} />
         </RoomPanel>
         {hasHeroTab ? (
-          <RoomPanel tab="hero" className={cn(SIDE_PANEL, findSideClasses("hero", shown), "min-[1700px]:col-start-3")}>
-            <HeroPanelContent view={view} heroSheet={heroSheet} shownHeroPersId={shownHeroPersId} bindablePers={bindablePers} isShown={shown.isHeroShown} />
+          <RoomPanel tab="hero" className={cn(SIDE_PANEL, findSideClasses("hero", shown))}>
+            <HeroPanelContent view={view} heroSheet={heroSheet} shownHeroPersId={shownHeroPersId} bindablePers={bindablePers} isShown={shown.isHeroShown} tokenSlotRef={setHeroTokenSlot} />
           </RoomPanel>
         ) : null}
-        <RoomPanel tab="room" className={cn(SIDE_PANEL, findSideClasses("room", shown), "min-[1700px]:col-start-3")}>
+        <RoomPanel tab="room" className={cn(SIDE_PANEL, findSideClasses("room", shown))}>
           <RoomPanelContent view={view} bindablePers={bindablePers} />
         </RoomPanel>
-        <div ref={setToolPanelSlot} className="relative z-20 hidden h-full min-h-0 overflow-y-auto overscroll-contain border-l border-white/10 bg-slate-950 p-2 lg:col-start-2 lg:row-start-2 lg:[&:not(:empty)]:block min-[1700px]:col-start-3" />
+        {shown.isSideFolded ? null : <PanelResizeHandle panel={SIDE_PANEL_SIZE} size={sidePanelWidth} onSave={useGameSessionStore.getState().resizeSidePanel} className="hidden lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:block" />}
+        {shown.isJournalDocked && !shown.isSideFolded ? <PanelResizeHandle panel={DOCKED_JOURNAL_SIZE} size={dockedJournalHeight} onSave={useGameSessionStore.getState().resizeDockedJournal} className="hidden lg:col-start-2 lg:row-start-3 lg:block" /> : null}
+        <div ref={setToolPanelSlot} className="relative z-20 hidden h-full min-h-0 overflow-y-auto overscroll-contain border-l border-white/10 bg-slate-950 p-2 lg:col-start-2 lg:row-start-2 lg:[&:not(:empty)]:block" />
       </div>
     </div>
   );
@@ -74,24 +88,26 @@ export function GameRoomPage({ initialView, bindablePers, heroSheet, shownHeroPe
 
 const SIDE_PANEL = "h-full lg:col-start-2 lg:row-start-2 lg:border-l lg:border-white/10";
 
-type ShownTabs = { isLarge: boolean; tab: RoomTab; sideTab: RoomSideTab; wideSideTab: Exclude<RoomSideTab, "journal">; sideBarTab: RoomSideTab; isSideFolded: boolean; isJournalShown: boolean; isHeroShown: boolean };
+type ShownTabs = { isLarge: boolean; tab: RoomTab; sideTab: RoomSideTab; isSideFolded: boolean; isJournalDocked: boolean; isJournalShown: boolean; isHeroShown: boolean };
 
+/// isLarge стає true лише після монтування, тож збережене закріплення журналу не розходиться з серверною розміткою.
 function useShownTabs(hasHeroTab: boolean): ShownTabs {
   const { tab: storedTab, sideTab: storedSideTab, isSideFolded } = useRoomTabStore();
   const isLarge = useMediaQuery("lg");
-  const isWide = useMediaQuery("wide");
+  const isJournalDocked = useGameSessionStore((state) => isLarge && state.isJournalDocked);
   const tab = storedTab === "hero" && !hasHeroTab ? "map" : storedTab;
-  const sideTab = findSideTab(storedSideTab, hasHeroTab);
-  const wideSideTab = findWideSideTab(sideTab, hasHeroTab);
-  const isShown = (panel: RoomSideTab) => (isLarge && isSideFolded ? false : isWide ? panel === "journal" || wideSideTab === panel : isLarge ? sideTab === panel : tab === panel);
-  return { isLarge, tab, sideTab, wideSideTab, sideBarTab: isWide && !isSideFolded ? wideSideTab : sideTab, isSideFolded, isJournalShown: isShown("journal"), isHeroShown: isShown("hero") };
+  const sideTab = findSideTab(storedSideTab, hasHeroTab, isJournalDocked);
+  const isShown = (panel: RoomSideTab) => (isLarge ? !isSideFolded && (sideTab === panel || (panel === "journal" && isJournalDocked)) : tab === panel);
+  return { isLarge, tab, sideTab, isSideFolded, isJournalDocked, isJournalShown: isShown("journal"), isHeroShown: isShown("hero") };
 }
 
-/// Класи пишуться повністю: Tailwind бачить лише цілі рядки в коді.
+/// Закріплений журнал — нижній рядок бічної колонки: панелі інструментів мапи стають над ним і його не ховають.
+function findDockedJournalClasses(shown: ShownTabs): string {
+  return cn(shown.tab === "journal" ? "flex" : "hidden", shown.isSideFolded ? "lg:hidden" : "lg:flex", "h-full lg:col-start-2 lg:row-start-3 lg:h-[min(var(--docked-journal-height),70vh)] lg:border-l lg:border-t lg:border-white/10");
+}
+
 function findSideClasses(panel: RoomSideTab, shown: ShownTabs): string {
-  const isWideShown = panel === "journal" || shown.wideSideTab === panel;
-  if (shown.isSideFolded) return cn(shown.tab === panel ? "flex" : "hidden", "lg:hidden");
-  return cn(shown.tab === panel ? "flex" : "hidden", shown.sideTab === panel ? "lg:flex" : "lg:hidden", isWideShown ? "min-[1700px]:flex" : "min-[1700px]:hidden");
+  return cn(shown.tab === panel ? "flex" : "hidden", !shown.isSideFolded && shown.sideTab === panel ? "lg:flex" : "lg:hidden");
 }
 
 function useRoomView(initialView: GameSessionView): GameSessionView {
@@ -137,7 +153,10 @@ function LostRoomAlert({ sessionId }: { sessionId: number }) {
   );
 }
 
-function GameRoomHeader({ view }: { view: GameSessionView }) {
+type GameRoomHeaderProps = { view: GameSessionView; hintSlotRef: (slot: HTMLElement | null) => void; isMapShown: boolean };
+
+/// Підказки мапи — лише з мишею й клавіатурою: на планшеті жести інші, а на телефоні шапці бракує місця.
+function GameRoomHeader({ view, hintSlotRef, isMapShown }: GameRoomHeaderProps) {
   const gamesHref = useGamesHref();
   return (
     <header className="flex shrink-0 items-center gap-2 border-b border-white/10 bg-slate-950/60 px-2 py-1.5 sm:gap-3 sm:px-3">
@@ -145,7 +164,7 @@ function GameRoomHeader({ view }: { view: GameSessionView }) {
         <ChevronLeft className="h-5 w-5" aria-hidden />
         <span className="hidden sm:inline">Кімнати</span>
       </Link>
-      <div className="min-w-0 flex-1">
+      <div className={cn("min-w-0 flex-1", isMapShown && "md:[@media(pointer:fine)]:max-w-56 md:[@media(pointer:fine)]:flex-none")}>
         <h1 className="truncate font-rpg-display text-lg leading-tight text-slate-50 sm:text-xl">{view.name}</h1>
         <div className="flex items-center gap-1.5 text-xs text-slate-400">
           {view.myRole === "GM" ? <Crown className="h-3.5 w-3.5 text-arcane-300" aria-hidden /> : null}
@@ -153,6 +172,7 @@ function GameRoomHeader({ view }: { view: GameSessionView }) {
           {view.isArchived ? " · в архіві" : ""}
         </div>
       </div>
+      <div ref={hintSlotRef} aria-label="Підказки мапи" className={cn("hidden max-h-[2.625rem] min-w-0 flex-1 flex-wrap items-center gap-x-3 gap-y-0.5 overflow-hidden text-xs text-slate-400", isMapShown && "md:[@media(pointer:fine)]:flex")} />
       <div className="hidden min-w-0 items-center gap-2 lg:flex">
         <SceneSwitch view={view} />
         {view.combat ? null : <CombatTracker view={view} />}

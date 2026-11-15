@@ -27,18 +27,35 @@ export type SelectedToken = {
   onChange: (transform: TokenTransform) => void;
   lightTarget: TokenLightTarget;
   spotlight: SpotlightControl | null;
+  sheetLabel: string;
+  sheet: ReactNode;
+  showRoomSheet: (() => void) | null;
+  remove: (() => void) | null;
+  settings: ReactNode;
 };
 
-/// Перший дотик до токена на мапі вибирає його для повороту й розміру, другий — відкриває картку.
-/// Поки відкритий інструмент мапи, вибору немає: дотик одразу відкриває картку, як раніше.
-export function useTokenSelection(canSelect: boolean) {
-  const [chosenKey, select] = useState<string | null>(null);
-  const key = canSelect ? chosenKey : null;
-  const tap = (tapped: string, open: () => void) => {
-    if (key === tapped || !canSelect) open();
-    else select(tapped);
+export type TokenPanelTab = "sheet" | "token";
+
+/// Перший дотик до токена на мапі вибирає його й закриває відкритий інструмент. Другий на компʼютері перемикає вкладки бічної панелі, на телефоні — відкриває картку.
+/// Під час прицілювання й шаблону зони дотик одразу відкриває картку: панель зайнята завданням.
+export function useTokenSelection(canSelect: boolean, closeTool: (() => void) | null, hasSidePanel: boolean) {
+  const [chosen, setChosen] = useState<{ key: string; tab: TokenPanelTab } | null>(null);
+  const key = canSelect && !closeTool ? (chosen?.key ?? null) : null;
+  const tab = chosen?.tab ?? "sheet";
+  const select = (next: string | null, nextTab: TokenPanelTab = "sheet") => setChosen(next ? { key: next, tab: nextTab } : null);
+  const pick = (tapped: string | null) => {
+    if (!tapped) return false;
+    closeTool?.();
+    select(tapped);
+    return true;
   };
-  return { key, select, tap };
+  const tap = (tapped: string, open: () => void) => {
+    if (!canSelect) return open();
+    if (key !== tapped) return void pick(tapped);
+    if (hasSidePanel) return select(tapped, tab === "sheet" ? "token" : "sheet");
+    open();
+  };
+  return { key, tab, select, pick, tap };
 }
 
 const SCALE_STEP = 10;
@@ -218,9 +235,19 @@ export function SpotlightPicker({ spotlight }: { spotlight: SpotlightControl }) 
 }
 
 export function TokenTransformPanel({ token, onClose, children }: { token: SelectedToken; onClose: () => void; children?: ReactNode }) {
-  const { transform, onChange } = token;
   return (
     <ToolPanel title={token.name} onClose={onClose}>
+      <TokenLookControls token={token} action={<Button type="button" variant="outline" onClick={token.onOpen} className="h-11 px-4">{token.openLabel}</Button>} />
+      {children}
+      <p className="text-sm leading-snug text-slate-400">На мапі тягніть верхню ручку, щоб повернути, і кутову, щоб змінити розмір. Другий дотик по токену відкриває «{token.openLabel}». Дотик до порожнього місця знімає вибір.</p>
+    </ToolPanel>
+  );
+}
+
+export function TokenLookControls({ token, action }: { token: SelectedToken; action?: ReactNode }) {
+  const { transform, onChange } = token;
+  return (
+    <>
       <TokenLookSteps
         scale={transform.scale}
         size={describeScale(transform)}
@@ -231,12 +258,10 @@ export function TokenTransformPanel({ token, onClose, children }: { token: Selec
       />
       {token.spotlight ? <SpotlightPicker spotlight={token.spotlight} /> : null}
       <div className="flex flex-wrap items-center gap-2 border-t border-white/10 pt-2">
-        <Button type="button" variant="outline" onClick={token.onOpen} className="h-11 px-4">{token.openLabel}</Button>
+        {action}
         <Button type="button" variant="ghost" onClick={() => onChange(DEFAULT_TOKEN_TRANSFORM)} disabled={isDefaultTokenTransform(transform)} className="h-11 px-3 text-slate-400">Скинути</Button>
       </div>
-      {children}
-      <p className="text-sm leading-snug text-slate-400">На мапі тягніть верхню ручку, щоб повернути, і кутову, щоб змінити розмір. Дотик до порожнього місця знімає вибір.</p>
-    </ToolPanel>
+    </>
   );
 }
 

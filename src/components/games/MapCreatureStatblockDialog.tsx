@@ -15,10 +15,12 @@ import { RollTargetButton, type TargetControl } from "./RollTargetControls";
 import { TokenConditionToggles, type ConditionsControl } from "./TokenConditionToggles";
 
 type SizeControl = { value: CreatureTokenSize; onChange: (size: CreatureTokenSize) => void };
-type Props = { creature: MapCreatureView | null; onClose: () => void; onRemove: (() => void) | null; sessionId: number; size: SizeControl | null; cutout: CutoutControl | null; hitPoints: HitPointsControl | null; conditions: ConditionsControl | null; target: TargetControl | null; naming: NameControl | null };
+export type CreatureControls = { onRemove: (() => void) | null; size: SizeControl | null; cutout: CutoutControl | null; hitPoints: HitPointsControl | null; conditions: ConditionsControl | null; target: TargetControl | null; naming: NameControl | null };
+type Props = { creature: MapCreatureView | null; onClose: () => void; sessionId: number; controls: CreatureControls };
 
 /// Майстер править істоту в правій колонці поруч зі статблоком. Гравець статблока не отримує: бачить картинку, стани й ціль унизу.
-export function MapCreatureStatblockDialog({ creature, onClose, onRemove, sessionId, size, cutout, hitPoints, conditions, target, naming }: Props) {
+export function MapCreatureStatblockDialog({ creature, onClose, sessionId, controls }: Props) {
+  const { onRemove, size, cutout, hitPoints, conditions, target, naming } = controls;
   const { creature: statblock, loreGroup } = useCreatureStatblock(creature?.creatureKey ?? null, creature?.ruleset ?? "RULES_2014", null);
   const isSplit = size !== null;
   const isPlayerView = creature !== null && creature.creatureKey === null;
@@ -29,12 +31,7 @@ export function MapCreatureStatblockDialog({ creature, onClose, onRemove, sessio
         <div className="grid gap-2 lg:col-span-2">
           <div className="flex flex-wrap items-center gap-2 pr-10">
             <DialogTitle className="normal-case leading-8 tracking-normal">{creature?.label}</DialogTitle>
-            {creature ? (
-              <span className={cn("rounded-full border px-2 py-0.5 text-xs", creature.isAlly ? "border-emerald-400/50 text-emerald-200" : "border-rose-400/50 text-rose-200")}>
-                {creature.isAlly ? "Союзник" : "Ворог"}
-              </span>
-            ) : null}
-            {creature?.isDown ? <DownBadge /> : null}
+            {creature ? <CreatureBadges creature={creature} /> : null}
           </div>
         </div>
         {isPlayerView ? <CreaturePortrait creature={creature} /> : null}
@@ -45,12 +42,7 @@ export function MapCreatureStatblockDialog({ creature, onClose, onRemove, sessio
           {hitPoints ? <MapCreatureHitPoints control={hitPoints} /> : null}
           {conditions ? <TokenConditionToggles control={conditions} /> : null}
           {size ? <TokenSizePicker size={size} /> : null}
-          {onRemove ? (
-            <Button type="button" variant="outline" onClick={onRemove} className="h-11 gap-2 justify-self-start">
-              <Trash2 className="h-4 w-4" aria-hidden />
-              Прибрати з мапи
-            </Button>
-          ) : null}
+          {onRemove ? <RemoveFromMapButton onRemove={onRemove} /> : null}
         </div>
         {isPlayerView ? null : (
           <div className={cn(isSplit && cn(SPLIT_COLUMN, "lg:col-start-1 lg:row-start-2"))}>
@@ -64,6 +56,52 @@ export function MapCreatureStatblockDialog({ creature, onClose, onRemove, sessio
         ) : null}
       </DialogContent>
     </Dialog>
+  );
+}
+
+/// Бічна панель токена на компʼютері: у вкладці статблока те, що майстер міняє в бою, решта — у вкладці «Токен».
+export function CreatureSheet({ creature, controls }: { creature: MapCreatureView; controls: CreatureControls }) {
+  const { creature: statblock, loreGroup } = useCreatureStatblock(creature.creatureKey, creature.ruleset, null);
+  return (
+    <>
+      <div className="flex flex-wrap items-center gap-2"><CreatureBadges creature={creature} /></div>
+      {controls.target ? <RollTargetButton control={controls.target} /> : null}
+      {controls.hitPoints ? <MapCreatureHitPoints control={controls.hitPoints} /> : null}
+      <StatblockBody creature={creature} statblock={statblock} loreDescription={loreGroup?.description ?? null} />
+      {controls.conditions ? <TokenConditionToggles control={controls.conditions} /> : null}
+    </>
+  );
+}
+
+export function CreatureTokenSettings({ creature, sessionId, controls }: { creature: MapCreatureView; sessionId: number; controls: CreatureControls }) {
+  const { naming, cutout, size, onRemove } = controls;
+  return (
+    <>
+      {naming ? <CreaturePlayerNameEditor key={`${creature.id}-${naming.value}`} control={naming} realName={creature.statblockName ?? creature.label} /> : null}
+      {cutout ? <CreatureImageSection key={creature.id} sessionId={sessionId} creature={creature} cutout={cutout} /> : null}
+      {size ? <TokenSizePicker size={size} /> : null}
+      {onRemove ? <RemoveFromMapButton onRemove={onRemove} /> : null}
+    </>
+  );
+}
+
+function CreatureBadges({ creature }: { creature: MapCreatureView }) {
+  return (
+    <>
+      <span className={cn("rounded-full border px-2 py-0.5 text-xs", creature.isAlly ? "border-emerald-400/50 text-emerald-200" : "border-rose-400/50 text-rose-200")}>
+        {creature.isAlly ? "Союзник" : "Ворог"}
+      </span>
+      {creature.isDown ? <DownBadge /> : null}
+    </>
+  );
+}
+
+function RemoveFromMapButton({ onRemove }: { onRemove: () => void }) {
+  return (
+    <Button type="button" variant="outline" onClick={onRemove} className="h-11 gap-2 justify-self-start">
+      <Trash2 className="h-4 w-4" aria-hidden />
+      Прибрати з мапи
+    </Button>
   );
 }
 

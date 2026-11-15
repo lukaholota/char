@@ -70,7 +70,7 @@ function OpenHeroSheetAction({ view, hero, onClose }: { view: GameSessionView; h
 
 type HeroPanelProps = { sessionId: number; sceneId: number | null; hero: GameSessionMemberView };
 
-function HeroConditionToggles({ sessionId, sceneId, hero }: HeroPanelProps) {
+export function HeroConditionToggles({ sessionId, sceneId, hero }: HeroPanelProps) {
   const changeConditions = useTokenConditionChanges(sessionId, sceneId);
   const token = { kind: "hero" as const, id: hero.heroId };
   const value = useShownConditions(token, hero.conditions);
@@ -78,7 +78,7 @@ function HeroConditionToggles({ sessionId, sceneId, hero }: HeroPanelProps) {
 }
 
 /// Прозорим може бути лише портрет із прозорими краями, тож перемикач зʼявляється після перевірки картинки.
-function HeroTokenLook({ sessionId, sceneId, hero }: HeroPanelProps) {
+export function HeroTokenLook({ sessionId, sceneId, hero }: HeroPanelProps) {
   const router = useModeRouter();
   const portraitSrc = isMediaImageUrl(hero.avatarUrl) ? hero.avatarUrl : null;
   const { isCutout: hasTransparentArt, inspectImage } = useCutoutImage(portraitSrc);

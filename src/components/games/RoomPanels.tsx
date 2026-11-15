@@ -3,8 +3,9 @@
 import { findRoomPeople } from "@/rules/game-room-heroes";
 import { HeroSheetSwitcher } from "./HeroSheetSwitcher";
 import { Suspense, useState, type ReactNode } from "react";
-import { Map as MapIcon, PanelRightClose, PanelRightOpen, ScrollText, Users, UserRound } from "lucide-react";
+import { Map as MapIcon, PanelBottom, PanelRightClose, PanelRightOpen, ScrollText, Users, UserRound } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import type { BindablePers, GameSessionView } from "@/server/db/game-sessions";
 import { GameJournal, GameSoundToggle } from "./GameJournal";
 import { GameRoomManagement } from "./GameRoomManagement";
@@ -24,9 +25,9 @@ const TAB_LABELS: Record<RoomTab, { label: string; icon: typeof MapIcon }> = {
 
 export const findPanelId = (tab: RoomTab) => `room-panel-${tab}`;
 
-type RoomTabBarProps = { tabs: RoomTab[]; current: RoomTab; unseen: number; label: string; wideHiddenTab?: RoomTab; isFolded?: boolean; canFold?: boolean; className?: string };
+type RoomTabBarProps = { tabs: RoomTab[]; current: RoomTab; unseen: number; label: string; isFolded?: boolean; canFold?: boolean; className?: string };
 
-export function RoomTabBar({ tabs, current, unseen, label, wideHiddenTab, isFolded = false, canFold = false, className }: RoomTabBarProps) {
+export function RoomTabBar({ tabs, current, unseen, label, isFolded = false, canFold = false, className }: RoomTabBarProps) {
   return (
     <div className={cn("flex shrink-0 gap-1 border-b border-white/10 bg-slate-950/60 p-1", isFolded && "flex-col border-b-0", className)}>
       {canFold ? <FoldSideButton isFolded={isFolded} /> : null}
@@ -42,11 +43,10 @@ export function RoomTabBar({ tabs, current, unseen, label, wideHiddenTab, isFold
               aria-selected={isCurrent}
               aria-controls={findPanelId(tab)}
               title={isFolded ? tabLabel : undefined}
-              onClick={() => showRoomTab(tab)}
+              onClick={() => showTab(tab, canFold)}
               className={cn(
                 "relative flex h-11 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-arcane-300",
                 isCurrent ? "bg-arcane-500/20 text-arcane-50" : "text-slate-300 hover:bg-white/5 hover:text-slate-100",
-                tab === wideHiddenTab && "min-[1700px]:hidden",
               )}
             >
               <Icon className="h-4 w-4 shrink-0" aria-hidden />
@@ -63,6 +63,12 @@ export function RoomTabBar({ tabs, current, unseen, label, wideHiddenTab, isFold
       </div>
     </div>
   );
+}
+
+/// Закріплений журнал показує лише кидки, тож вкладка «Журнал» у бічній колонці розгортає його назад зі звуком і кнопками.
+function showTab(tab: RoomTab, isSide: boolean) {
+  if (isSide && tab === "journal") useGameSessionStore.getState().dockJournal(false);
+  showRoomTab(tab);
 }
 
 function FoldSideButton({ isFolded }: { isFolded: boolean }) {
@@ -91,7 +97,9 @@ export function RoomPanel({ tab, className, children }: { tab: RoomTab; classNam
 }
 
 /// Лист монтується, коли його вперше показали: на телефоні з мапою він не важить нічого, а далі тримає прокрутку й вкладку.
-export function HeroPanelContent({ view, heroSheet, shownHeroPersId, bindablePers, isShown }: { view: GameSessionView; heroSheet: ReactNode; shownHeroPersId: number | null; bindablePers: Promise<BindablePers[]>; isShown: boolean }) {
+type HeroPanelContentProps = { view: GameSessionView; heroSheet: ReactNode; shownHeroPersId: number | null; bindablePers: Promise<BindablePers[]>; isShown: boolean; tokenSlotRef: (slot: HTMLElement | null) => void };
+
+export function HeroPanelContent({ view, heroSheet, shownHeroPersId, bindablePers, isShown, tokenSlotRef }: HeroPanelContentProps) {
   const [wasShown, setWasShown] = useState(isShown);
   if (isShown && !wasShown) setWasShown(true);
   if (!heroSheet) {
@@ -105,8 +113,13 @@ export function HeroPanelContent({ view, heroSheet, shownHeroPersId, bindablePer
   }
   return (
     <>
-      <div className="shrink-0 pt-2 empty:hidden [&>*]:mx-2 [&>*]:mb-2">
-        <HeroSheetSwitcher view={view} shownPersId={shownHeroPersId} />
+      <div className="hidden shrink-0 pt-2 has-[button]:block [&>*]:mx-2 [&>*]:mb-2">
+        <div className="hidden items-start gap-1.5 has-[button]:flex">
+          <div className="min-w-0 flex-1">
+            <HeroSheetSwitcher view={view} shownPersId={shownHeroPersId} />
+          </div>
+          <div ref={tokenSlotRef} className="contents" />
+        </div>
         <RollTargetChip />
       </div>
       <div className="relative min-h-0 flex-1">{wasShown ? heroSheet : null}</div>
@@ -114,17 +127,29 @@ export function HeroPanelContent({ view, heroSheet, shownHeroPersId, bindablePer
   );
 }
 
-export function JournalPanelContent({ view }: { view: GameSessionView }) {
+export function JournalPanelContent({ view, isDocked }: { view: GameSessionView; isDocked: boolean }) {
+  if (isDocked) return <GameJournal myUserId={view.myUserId} className="min-h-0 flex-1" />;
   return (
     <>
       <div className="flex shrink-0 items-center gap-1 border-b border-white/10 py-1 pl-3 pr-1">
         <h2 className="flex-1 font-rpg-display text-lg text-slate-100">Журнал кидків</h2>
         <GameSoundToggle />
+        <DockJournalButton />
         <PopOutJournalButton />
       </div>
       <JournalRollStrip view={view} />
       <GameJournal myUserId={view.myUserId} className="min-h-0 flex-1" />
     </>
+  );
+}
+
+/// Закріплений унизу журнал лишає останні кидки під рукою поруч із листом і мапою; кнопка є лише на компʼютері.
+function DockJournalButton() {
+  const label = "Закріпити журнал унизу панелі";
+  return (
+    <button type="button" onClick={() => useGameSessionStore.getState().dockJournal(true)} aria-label={label} title={label} className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-lg text-slate-300 hover:bg-white/10 hover:text-white lg:flex">
+      <PanelBottom className="h-5 w-5" aria-hidden />
+    </button>
   );
 }
 

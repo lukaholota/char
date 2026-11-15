@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowDownToLine, ArrowUpToLine, Copy, Trash2 } from "lucide-react";
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useState, type KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
@@ -9,6 +9,7 @@ import { OBJECT_LIMITS, toObjectPlacement, toObjectTransform, type SceneObjectVi
 import { TokenImageLibrary } from "./CreatureImageSection";
 import type { MapHistory } from "./map-history";
 import { HistoryButtons, Segmented, Stepper, ToolPanel } from "./MapToolbar";
+import { DELETE_KEYS, useMapKey } from "./use-map-key";
 import { ObjectLibraryPicker } from "./ObjectLibraryPicker";
 import { GroupedTokenFrame, TokenTransformHandles } from "./TokenTransformControls";
 import type { MapObjects } from "./use-map-objects";
@@ -93,24 +94,6 @@ function ChosenObjectPanel({ object, objects, history, onClose }: { object: Scen
       <Button type="button" variant="ghost" onClick={() => objects.choose(null)} className="h-11 w-full text-slate-300">Готово — додати ще</Button>
     </ToolPanel>
   );
-}
-
-/// На ноутбуках Mac клавіша «delete» — це Backspace, тож видаляють обидві; у полі введення вони стирають текст, як звично.
-export const DELETE_KEYS = ["Delete", "Backspace"];
-
-export function useMapKey(keys: readonly string[], act: () => void) {
-  const latestAct = useRef(act);
-  latestAct.current = act;
-  useEffect(() => {
-    const onKeyDown = (event: globalThis.KeyboardEvent) => {
-      if (!keys.includes(event.key)) return;
-      if (event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable]")) return;
-      event.preventDefault();
-      latestAct.current();
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [keys]);
 }
 
 function ObjectNameField({ name, onSave }: { name: string | null; onSave: (name: string | null) => void }) {

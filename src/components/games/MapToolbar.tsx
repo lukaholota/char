@@ -1,10 +1,11 @@
 "use client";
 
 import { BrickWall, ChevronDown, CloudFog, Flame, Grid3x3, Lightbulb, Maximize2, Minus, Package, PencilLine, Plus, Redo2, Ruler, RotateCw, Scan, SlidersHorizontal, Undo2, X, type LucideIcon } from "lucide-react";
-import { Fragment, useId, useState, type ReactNode } from "react";
+import { Fragment, useId, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { MapHistory } from "./map-history";
+import { ESCAPE_KEYS, useMapKey } from "./use-map-key";
 import type { MapTool } from "./use-map-tools";
 
 const TOOLS: Array<{ tool: MapTool; label: string; icon: LucideIcon; isGmOnly?: boolean; startsGroup?: boolean }> = [
@@ -94,8 +95,10 @@ export function FoldSection({ title, children, className, isOpenAtStart = true }
 }
 
 export function ToolPanel({ title, onClose, children, aside }: { title: string; onClose: () => void; children: ReactNode; aside?: ReactNode }) {
+  const panelRef = useRef<HTMLElement>(null);
+  useMapKey(ESCAPE_KEYS, onClose, panelRef);
   return (
-    <section aria-label={title} className="w-full space-y-3 rounded-2xl border border-white/10 bg-slate-900/80 p-3">
+    <section ref={panelRef} aria-label={title} className="w-full space-y-3 rounded-2xl border border-white/10 bg-slate-900/80 p-3">
       <div className="flex min-h-11 items-center gap-2">
         <h3 className="min-w-0 flex-1 truncate font-rpg-display text-base text-slate-100">{title}</h3>
         {aside}

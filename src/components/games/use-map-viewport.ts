@@ -14,6 +14,7 @@ type ViewportOptions = {
   gesture: MapGesture | null;
   boxGesture: MapGesture | null;
   onTap: (point: Point) => void;
+  onToolTap?: ((point: Point) => boolean) | null;
   onHold: (point: Point) => void;
 };
 
@@ -47,7 +48,8 @@ function isFittedView({ zoom, x, y }: { zoom: number; x: number; y: number }): b
 /// Права або середня кнопка миші завжди тягне мапу: інструмент лишається ввімкненим.
 /// Нерухоме утримання на порожньому місці без інструмента — не дотик і не панорама: ним показують точку.
 /// Ліва кнопка миші, потягнута з порожнього місця, малює рамку виділення (boxGesture), а не тягне мапу.
-export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGesture, onTap, onHold }: ViewportOptions) {
+/// Дотик без руху під час інструмента спершу пропонується onToolTap (вибрати токен); якщо його взято, штрих інструмента скасовується.
+export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGesture, onTap, onToolTap, onHold }: ViewportOptions) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const view = useRef({ zoom: 1, x: 0, y: 0 });
   const pointers = useRef(new Map<number, Point>());
@@ -56,9 +58,10 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
   const pinchStart = useRef({ distance: 1, zoom: 1, anchor: { x: 0, y: 0 } });
   const tapStart = useRef<Point>({ clientX: 0, clientY: 0 });
   const lastTap = useRef({ at: 0, point: { clientX: 0, clientY: 0 } });
-  const latest = useRef({ isTurned, maxZoom, gesture, boxGesture, onTap, onHold });
+  const latest = useRef({ isTurned, maxZoom, gesture, boxGesture, onTap, onToolTap, onHold });
   const toolGesture = useRef<MapGesture | null>(null);
-  latest.current = { isTurned, maxZoom, gesture, boxGesture, onTap, onHold };
+  const isToolMoved = useRef(false);
+  latest.current = { isTurned, maxZoom, gesture, boxGesture, onTap, onToolTap, onHold };
   const [zoom, setZoom] = useState(1);
   const [isFitted, setIsFitted] = useState(true);
 
@@ -197,6 +200,7 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
       toolGesture.current = isPanButton ? null : latest.current.gesture;
       if (toolGesture.current) {
         mode.current = "tool";
+        isToolMoved.current = false;
         toolGesture.current.start(point);
       }
       if (mode.current === "tap") window.setTimeout(() => holdPress(point), HOLD_MS);
@@ -206,7 +210,10 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
       const point = { clientX: event.clientX, clientY: event.clientY };
       pointers.current.set(event.pointerId, point);
       if (mode.current === "pinch") return movePinch();
-      if (mode.current === "tool") return toolGesture.current?.move(point);
+      if (mode.current === "tool") {
+        if (Math.hypot(point.clientX - tapStart.current.clientX, point.clientY - tapStart.current.clientY) >= TAP_SLOP_PX) isToolMoved.current = true;
+        return toolGesture.current?.move(point);
+      }
       if (mode.current === "tap" && Math.hypot(point.clientX - tapStart.current.clientX, point.clientY - tapStart.current.clientY) < TAP_SLOP_PX) return;
       if (mode.current === "tap" && event.pointerType === "mouse" && latest.current.boxGesture) return startBox(point);
       if (mode.current === "tap") mode.current = "pan";
@@ -217,7 +224,8 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGestur
     onPointerUp: (event: PointerEvent<HTMLDivElement>) => {
       if (!pointers.current.delete(event.pointerId)) return;
       const point = { clientX: event.clientX, clientY: event.clientY };
-      if (mode.current === "tool") toolGesture.current?.end(point);
+      if (mode.current === "tool" && !isToolMoved.current && latest.current.onToolTap?.(point)) toolGesture.current?.cancel();
+      else if (mode.current === "tool") toolGesture.current?.end(point);
       if (mode.current === "tap" && !handleDoubleTap(point)) latest.current.onTap(point);
       if (mode.current === "pinch" && pointers.current.size === 1) {
         const [rest] = [...pointers.current.values()];

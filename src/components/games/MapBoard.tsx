@@ -20,7 +20,7 @@ import { HeroTokenTray } from "./HeroTokenTray";
 import { OpenCreatureCardContext, useMapCreatureTokens } from "./MapCreatureTokens";
 import { MapTargetingPanel, MapTargetPicks, MapTaskHint } from "./MapTargeting";
 import { MapAreasLayer, MapFogLayer, MapGridLayer, MapLabel, MapMeasureLayer, type AreaLook } from "./MapOverlay";
-import type { TokenLayout } from "./MapTokenSlot";
+import { findTappedTokenKey, type TokenLayout } from "./MapTokenSlot";
 import { FoldSection, MapToolRow, MapZoomControls } from "./MapToolbar";
 import { FogPanel, GridPanel, RulerPanel, ViewPanel } from "./MapToolPanels";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
@@ -44,7 +44,9 @@ import { useMapWalls } from "./use-map-walls";
 import { useAreaTool, useFogTool, useGridTool, useRulerTool, type MapTool } from "./use-map-tools";
 import { useMapViewport } from "./use-map-viewport";
 import { useGridDraft, useSceneTools } from "./use-scene-tools";
-import { TokenTransformPanel, useTokenSelection } from "./TokenTransformControls";
+import { useTokenSelection } from "./TokenTransformControls";
+import { SelectedTokenPanel } from "./SelectedTokenPanel";
+import { MapHints } from "./MapHints";
 
 type Point = { clientX: number; clientY: number };
 /// Ширину міряє контейнер мапи, а не екран: та сама розкладка працює в кімнаті, на весь екран і в повернутому діалозі.
@@ -116,7 +118,8 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   const walls = useMapWalls({ view, toShare, frame, aspect, isEditing: isEditingWalls });
   const gesture = tool === "walls" ? walls.gesture : tool === "ruler" ? ruler.gesture : tool === "draw" ? drawings.gesture : tool === "fog" ? fogTool.gesture : tool === "grid" ? gridTool.gesture : tool === "area" ? area.gesture : null;
 
-  const selection = useTokenSelection(tool === null && !targeting);
+  const panelSlot = useToolPanelSlot(isFullscreen, () => changeTool(null));
+  const selection = useTokenSelection(!targeting && tool !== "area", tool === null ? null : () => changeTool(null), panelSlot !== null);
   const { group, moveTokenGroup, tokenSelection } = useBoardGroup({ view, toShare, selection, isEditingObjects, findObjects: () => objects, findTokens: () => [...heroes.placed, ...creatures.placed] });
   const clearChoices = () => { group.clear(); selection.select(null); objects.choose(null); lights.choose(null); };
   const openTappedArea = (point: Point) => {
@@ -135,7 +138,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     if (at && !view.isArchived && at.x >= 0 && at.x <= 1 && at.y >= 0 && at.y <= 1) pingMap(view, at);
   };
   const maxZoom = grid ? Math.min(12, Math.max(5, grid.columns / 6)) : 5;
-  const viewport = useMapViewport({ boardRef, isTurned: isQuarterTurned, maxZoom, gesture, boxGesture: canEditScene && ((tool === null && !targeting) || isEditingObjects) ? group.boxGesture : null, onTap: openTappedArea, onHold: pingHeldPoint });
+  const viewport = useMapViewport({ boardRef, isTurned: isQuarterTurned, maxZoom, gesture, boxGesture: canEditScene && ((tool === null && !targeting) || isEditingObjects) ? group.boxGesture : null, onTap: openTappedArea, onToolTap: tool === "walls" || tool === "area" ? null : (point) => selection.pick(findTappedTokenKey(boardRef.current, point)), onHold: pingHeldPoint });
 
   const findDropPosition = (point: Point) => {
     const viewportRect = viewport.viewportRef.current?.getBoundingClientRect();
@@ -283,13 +286,8 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     : tool === "grid" ? <GridPanel grid={grid} aspect={aspect} isSaving={gridDraft.isSaving} onChange={gridDraft.changeGrid} tool={gridTool} onClose={() => changeTool(null)} />
     : tool === "view" ? <ViewPanel hasGrid={grid !== null} tokenScale={tokenScale} onTokenScaleChange={onTokenScaleChange} heroNames={heroNames} creatureNames={creatures.names} cutoutOutline={cutoutOutline} partyPortraits={partyPortraits} onClose={() => changeTool(null)} />
     : groupPanel ? groupPanel
-    : selectedToken ? (
-      <TokenTransformPanel token={selectedToken} onClose={() => selection.select(null)}>
-        {lights.lighting !== "off" ? <TokenLightRows target={selectedToken.lightTarget} tokenLights={tokenLights} canSetDarkvision={canEditScene} /> : null}
-      </TokenTransformPanel>
-    )
+    : selectedToken ? <SelectedTokenPanel token={selectedToken} selection={selection} isSide={panelSlot !== null} scope={boardRef} lights={lights.lighting !== "off" ? <TokenLightRows target={selectedToken.lightTarget} tokenLights={tokenLights} canSetDarkvision={canEditScene} /> : null} />
     : null;
-  const panelSlot = useToolPanelSlot(isFullscreen, () => changeTool(null));
   const localPanel = targeting ? <MapTargetingPanel view={view} targeting={targeting} /> : panelSlot ? null : panel;
 
   const waitingCount = heroes.waiting.length + creatures.waitingCount;
@@ -393,6 +391,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
           </div>
         )}
       </div>
+      <MapHints isGm={canEditScene} isArchived={view.isArchived} tool={tool} isGroup={groupPanel !== null} token={selectedToken} tab={selection.tab} isSide={panelSlot !== null} isFullscreen={isFullscreen} />
       {heroes.overlay}
       {creatures.overlay}
     </div>

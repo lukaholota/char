@@ -3,39 +3,40 @@
 import { createContext, useEffect, useState, type KeyboardEvent, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { toast } from "sonner";
+import { askToConfirm } from "@/components/ui/confirm-dialog";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { findCutoutOutlineClass, useCutoutImage } from "./token-cutout";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
-import { Button } from "@/components/ui/button";
 import { changeMapCreatureHitPointsAction, moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setCreatureNameModeAction, setMapCreatureCutoutAction, setMapCreatureSizeAction, transformMapCreatureAction } from "@/lib/actions/game-sessions";
 import { useAreaCastStore } from "@/lib/components/game/area-cast";
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
-import { NO_TOKEN_CONDITIONS } from "@/rules/token-conditions";
+import { NO_TOKEN_CONDITIONS, type TokenConditionChange, type TokenConditions } from "@/rules/token-conditions";
 import { applyHitPointChange, findHitPointChangesTo, isCreatureDown, type CreatureHitPoints, type HitPointChange } from "@/rules/creature-hit-points";
 import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import { findTokenArrowStep } from "@/rules/game-grid";
 import { CREATURE_SIZE_CELLS, CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionView } from "@/server/db/game-sessions";
-import { AddMapCreaturesDialog } from "./AddMapCreaturesDialog";
+import { CreatureTray } from "./CreatureTray";
 import { SpotlightAura, findSpotlightRingClass, useIsCreatureTurn } from "./combat-turn";
 import { DownMark, HitPointBar } from "./MapCreatureHitPoints";
 import { buildCreatureTargetControl, useRollTargetCreatureId } from "./RollTargetControls";
 import { TokenConditionMarks } from "./TokenConditionMarks";
 import { useSpotlightStyle, useShownConditions, useSpotlightControl, useTokenConditionChanges } from "./use-token-conditions";
-import { MapCreatureStatblockDialog } from "./MapCreatureStatblockDialog";
+import { CreatureSheet, CreatureTokenSettings, MapCreatureStatblockDialog, type CreatureControls } from "./MapCreatureStatblockDialog";
 import { holdValueBefore, pushUndoStep, rememberUndo } from "./map-history";
 import { readOptimistic, sendOptimistic, showOptimistic, useOptimisticReader } from "./optimistic-values";
 import { useTokenDrag, type TokenGhost } from "./use-token-drag";
 import { TokenName } from "./TokenName";
 import { TOKEN_SIZE_PX } from "./use-token-scale";
 import { HIGHLIGHT_RING_CLASS, MapTokenSlot, buildTokenSizeStyle, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
-import { askToConfirm } from "@/components/ui/confirm-dialog";
 import type { TokenTransform } from "@/rules/token-transform";
 import { GroupedTokenFrame, TokenTransformHandles, findTokenRotationStyle, scaleGhostSize, scaleTokenSize, type SelectedToken, type TokenSelection } from "./TokenTransformControls";
 
 type Point = { clientX: number; clientY: number };
+
+const NO_CREATURE_CONTROLS: CreatureControls = { onRemove: null, size: null, cutout: null, hitPoints: null, conditions: null, target: null, naming: null };
 
 type CreatureTokensInput = { view: GameSessionView; layout: TokenLayout; selection: TokenSelection; group: TokenGroupBinding; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean };
 
@@ -85,6 +86,10 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
     else router.refresh();
     return result.ok;
   };
+  /// Прибрану істоту не повернути кроком назад, тож клавіша, яку легко натиснути випадково, спершу питає.
+  const removeAfterConfirm = async (creature: MapCreatureView) => {
+    if (await askToConfirm({ title: `Прибрати «${creature.label}»?`, description: "Істота зникне і з мапи, і з ряду під нею.", confirmLabel: "Прибрати", isDestructive: true })) void moves.send(creature.id, null);
+  };
   const removeFromStatblock = (id: number) => {
     setOpenId(null);
     void moves.send(id, null);
@@ -94,6 +99,19 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
   const dragged = ghost ? shown.find((creature) => creature.id === ghost.id) : undefined;
   const openCreature = shown.find((creature) => creature.id === openId) ?? null;
   const openConditions = useShownConditions({ kind: "creature", id: openCreature?.id ?? 0 }, openCreature?.conditions ?? NO_TOKEN_CONDITIONS);
+  const buildControls = (creature: MapCreatureView | null, conditions: TokenConditions): CreatureControls => {
+    if (!creature) return NO_CREATURE_CONTROLS;
+    const editable = <Control,>(control: Control) => (canEdit ? control : null);
+    return {
+      onRemove: editable(() => removeFromStatblock(creature.id)),
+      size: editable({ value: looks.findSize(creature), onChange: (size: CreatureTokenSize) => void looks.sendSize(creature.id, size) }),
+      cutout: editable({ value: looks.findIsCutout(creature), onChange: (isCutout: boolean) => void looks.sendCutout(creature, isCutout) }),
+      hitPoints: editable({ value: creature.hitPoints, onChange: (change: HitPointChange) => void looks.sendHitPointChange(creature, change) }),
+      conditions: { value: conditions, onChange: editable((change: TokenConditionChange) => void changeConditions({ kind: "creature", id: creature.id }, creature.conditions, change)) },
+      target: myHeroName && moves.findPosition(creature) ? buildCreatureTargetControl(view.id, creature.id, targetId, myHeroName) : null,
+      naming: editable({ value: creature.customName, onSave: (name: string) => renameCreature(creature.id, name) }),
+    };
+  };
 
   const isShownOnMap = (creature: MapCreatureView) => {
     const position = moves.findPosition(creature);
@@ -107,17 +125,24 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
   };
   const selectedCreature = canEdit ? shown.find((creature) => findKey(creature.id) === selection.key && isShownOnMap(creature)) : undefined;
   const spotlight = useSpotlightControl(view.id, view.viewedSceneId, selectedCreature ? { kind: "creature", id: selectedCreature.id } : null, selectedCreature?.conditions ?? NO_TOKEN_CONDITIONS);
+  const selectedConditions = useShownConditions({ kind: "creature", id: selectedCreature?.id ?? 0 }, selectedCreature?.conditions ?? NO_TOKEN_CONDITIONS);
+  const selectedControls = buildControls(selectedCreature ?? null, selectedConditions);
   const selected: SelectedToken | null = selectedCreature
     ? {
         key: findKey(selectedCreature.id),
         name: selectedCreature.label,
         transform: looks.findTransform(selectedCreature),
-        openLabel: "Картка",
+        openLabel: "Статблок і стани",
         onOpen: () => openStatblock(selectedCreature.id),
         onPreview: (transform) => looks.showTransform(selectedCreature.id, transform),
         onChange: (transform) => void looks.sendTransform(selectedCreature.id, transform),
         lightTarget: { kind: "creature", creature: selectedCreature },
         spotlight,
+        sheetLabel: "Статблок",
+        sheet: <CreatureSheet creature={selectedCreature} controls={selectedControls} />,
+        showRoomSheet: null,
+        remove: () => void removeAfterConfirm(selectedCreature),
+        settings: <CreatureTokenSettings creature={selectedCreature} sessionId={view.id} controls={selectedControls} />,
       }
     : null;
   const placed: PlacedToken[] = shown.filter(isShownOnMap).map((creature) => ({ key: `creature-${creature.id}`, creatureId: creature.id, name: creature.label, position: moves.findPosition(creature)!, cells: findCells(creature) }));
@@ -132,7 +157,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       else if ((event.key === "Enter" || event.key === " ") && position) tapCreature(creature.id);
       else if (event.key === "Escape" && handles) selection.select(null);
       else if (event.key === "Enter" || event.key === " ") void moves.send(creature.id, layout.findFreeSpot());
-      else if (event.key === "Delete" || event.key === "Backspace") void moves.send(creature.id, null);
+      else if (event.key === "Delete" || event.key === "Backspace") void removeAfterConfirm(creature);
       else return;
       event.preventDefault();
     };
@@ -140,13 +165,14 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       if (findTokenArrowStep(event.key, layout.frame) && position) void moves.send(creature.id, snapTokenPosition(position, layout, findCells(creature)));
     };
     const status = `${creature.hitPoints ? `, хіти ${creature.hitPoints.current} з ${creature.hitPoints.max}` : ""}${creature.isDown ? ", повалений" : ""}${creature.id === targetId ? ", ціль" : ""}`;
-    const hint = canEdit ? (position ? "Дотик — вибрати для повороту й розміру, ще дотик — статблок; тягніть або рухайте стрілками; Delete — прибрати" : "Перетягніть на мапу або натисніть Enter") : "Відкрити картку істоти";
+    const hint = canEdit ? (position ? "Дотик — вибрати для повороту й розміру, ще дотик — статблок і стани; тягніть або рухайте стрілками; Delete — прибрати" : "Перетягніть на мапу або натисніть Enter") : "Відкрити картку істоти";
     return (
       <CreatureTokenFace creature={creature} size={size} nameMode={shownName} isDimmed={ghost?.id === creature.id} isTarget={creature.id === targetId} onBoard={onBoard}>
         <button
           type="button"
           aria-label={`${creature.isAlly ? "Союзник" : "Ворог"} «${creature.label}»${status}. ${hint}`}
           className={cn("absolute inset-0 rounded-full", canEdit && "cursor-grab touch-none active:cursor-grabbing")}
+          data-token-tap={canEdit && onBoard ? findKey(creature.id) : undefined}
           {...(canEdit ? { onKeyDown, onKeyUp, ...bindToken(creature.id) } : { onClick: () => openStatblock(creature.id) })}
         />
         {handles}
@@ -192,50 +218,10 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
         {ghost && dragged ? (
           <CreatureGhost ghost={ghost} creature={dragged} size={scaleGhostSize(findGhostTokenSize(layout, findCells(dragged), CREATURE_TOKEN_SIZE_SCALES[looks.findSize(dragged)]), looks.findTransform(dragged))} labelWidth={findLabelWidth(layout, CREATURE_TOKEN_SIZE_SCALES[looks.findSize(dragged)])} rotation={looks.findTransform(dragged).rotation} isOutlined={layout.isCutoutOutlined} isTurned={isTurned()} isLeavingMap={!ghost.isOverTarget && draggedFrom !== null} />
         ) : null}
-        <MapCreatureStatblockDialog
-          creature={openCreature}
-          onClose={() => setOpenId(null)}
-          sessionId={view.id}
-          onRemove={canEdit && openCreature ? () => removeFromStatblock(openCreature.id) : null}
-          size={canEdit && openCreature ? { value: looks.findSize(openCreature), onChange: (size) => void looks.sendSize(openCreature.id, size) } : null}
-          cutout={canEdit && openCreature ? { value: looks.findIsCutout(openCreature), onChange: (isCutout) => void looks.sendCutout(openCreature, isCutout) } : null}
-          hitPoints={canEdit && openCreature ? { value: openCreature.hitPoints, onChange: (change) => void looks.sendHitPointChange(openCreature, change) } : null}
-          conditions={openCreature ? { value: openConditions, onChange: canEdit ? (change) => void changeConditions({ kind: "creature", id: openCreature.id }, openCreature.conditions, change) : null } : null}
-          target={openCreature && myHeroName && moves.findPosition(openCreature) ? buildCreatureTargetControl(view.id, openCreature.id, targetId, myHeroName) : null}
-          naming={canEdit && openCreature ? { value: openCreature.customName, onSave: (name) => renameCreature(openCreature.id, name) } : null}
-        />
+        <MapCreatureStatblockDialog creature={openCreature} onClose={() => setOpenId(null)} sessionId={view.id} controls={buildControls(openCreature, openConditions)} />
       </>
     ),
   };
-}
-
-type TrayProps = { sessionId: number; hasCreatures: boolean; hasWaiting: boolean; children: ReactNode };
-
-function CreatureTray({ sessionId, hasCreatures, hasWaiting, children }: TrayProps) {
-  const router = useModeRouter();
-  const [isClearing, setIsClearing] = useState(false);
-  const clearAll = async () => {
-    if (!(await askToConfirm({ title: "Прибрати всіх істот?", description: "Зникнуть і з мапи, і з ряду під нею.", confirmLabel: "Прибрати всіх", isDestructive: true }))) return;
-    setIsClearing(true);
-    const result = await removeMapCreaturesAction(sessionId, null);
-    setIsClearing(false);
-    if (!result.ok) return void toast.error(result.error);
-    router.refresh();
-  };
-  return (
-    <div className="space-y-2">
-      <div className="flex flex-wrap items-center gap-3">
-        <AddMapCreaturesDialog sessionId={sessionId} />
-        {hasWaiting ? <ul aria-label="Істоти поза мапою" className="flex flex-wrap gap-3">{children}</ul> : null}
-        {hasCreatures ? (
-          <Button type="button" variant="ghost" onClick={clearAll} disabled={isClearing} className="ml-auto h-11 px-3 text-slate-400">
-            Прибрати всіх
-          </Button>
-        ) : null}
-      </div>
-      {hasWaiting ? <p className="text-sm text-slate-400">Перетягніть істоту на мапу. Дотик відкриває статблок.</p> : null}
-    </div>
-  );
 }
 
 type FaceProps = { creature: MapCreatureView; size?: string | number; nameMode: TokenNameMode | null; isDimmed?: boolean; isTarget?: boolean; onBoard?: TokenOnBoard | null; children?: ReactNode };

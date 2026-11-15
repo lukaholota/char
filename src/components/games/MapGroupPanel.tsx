@@ -7,7 +7,7 @@ import { askToConfirm } from "@/components/ui/confirm-dialog";
 import { resizeToken, turnToken, type TokenTransform } from "@/rules/token-transform";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { ToolPanel } from "./MapToolbar";
-import { DELETE_KEYS, useMapKey } from "./MapObjects";
+import { DELETE_KEYS, useMapKey } from "./use-map-key";
 import { findIdInGroupKey, type GroupShift, type MapGroup } from "./use-map-group";
 import type { GroupTokenLook } from "./MapTokenSlot";
 import { ROTATION_STEP, SpotlightPicker, TokenLookSteps, describeRotation, describeScale } from "./TokenTransformControls";
@@ -15,7 +15,6 @@ import { joinUndoSteps } from "./map-history";
 import type { MapObjects } from "./use-map-objects";
 import { useGroupSpotlight } from "./use-token-conditions";
 
-const ESCAPE_KEYS = ["Escape"];
 
 type MapGroupActionsProps = { view: GameSessionView; group: MapGroup; objects: MapObjects | null; findLook: (key: string) => GroupTokenLook | null; moveTokenGroup: (shifts: GroupShift[]) => void; removeCreature: (id: number) => void };
 
@@ -74,7 +73,6 @@ type MapGroupPanelProps = { count: number; removeLabel: string; onRemove: () => 
 
 function MapGroupPanel({ count, removeLabel, onRemove, onClear, children }: MapGroupPanelProps) {
   useMapKey(DELETE_KEYS, onRemove);
-  useMapKey(ESCAPE_KEYS, onClear);
   return (
     <ToolPanel title={`Вибрано: ${count}`} onClose={onClear}>
       <p className="text-sm text-slate-300">Перетягніть будь-кого з рамкою — решта переїде разом.</p>

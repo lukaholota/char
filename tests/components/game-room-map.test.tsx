@@ -56,7 +56,8 @@ vi.mock("@/lib/actions/game-scene-tools", () => ({
 vi.mock("@/lib/actions/game-area-spells", () => ({ listAreaSpellsAction: mocks.listAreaSpellsAction }));
 
 import { CombatTurnProvider } from "@/components/games/combat-turn";
-import { showRoomTab, ToolPanelSlotContext, useRoomTabStore } from "@/components/games/room-tabs";
+import { HeroTokenSlotContext, MapHintSlotContext, resetRoomTabs, showRoomTab, ToolPanelSlotContext, useRoomTabStore } from "@/components/games/room-tabs";
+import { ConfirmDialogHost } from "@/components/ui/confirm-dialog";
 import { GameRoomMap } from "@/components/games/GameRoomMap";
 import { useAreaCastStore } from "@/lib/components/game/area-cast";
 import { resetOptimisticValues } from "@/components/games/optimistic-values";
@@ -390,7 +391,7 @@ describe("мапа кімнати", () => {
     expect(readAvatarSize(placeMap(), /Токен «Торин»/)).toBe(onMap(44));
   });
 
-  it("майстер ставить істоту з ряду на мапу, дотиком відкриває статблок і прибирає її — з картки або витягнувши за мапу", async () => {
+  it("майстер ставить істоту з ряду на мапу, відкриває статблок з панелі токена і прибирає її — з картки або витягнувши за мапу", async () => {
     render(<GameRoomMap view={gmView({ creatures: [goblin(51, 1), goblin(52, 2, { x: 0.5, y: 0.5 }), goblin(53, 3, { x: 0.25, y: 0.25 })] })} />);
     const map = placeMap();
     const tray = screen.getByRole("list", { name: "Істоти поза мапою" });
@@ -401,7 +402,7 @@ describe("мапа кімнати", () => {
     fireEvent.pointerDown(placed, { button: 0, clientX: 200, clientY: 100, pointerId: 1 });
     fireEvent.pointerUp(placed, { clientX: 201, clientY: 100, pointerId: 1 });
     expect(screen.queryByRole("dialog", { name: "Гоблін 2" })).toBeNull();
-    tap(placed);
+    fireEvent.click(screen.getByRole("button", { name: "Статблок і стани" }));
     const statblock = screen.getByRole("dialog", { name: "Гоблін 2" });
     expect(within(statblock).getByText("Ворог")).toBeTruthy();
     fireEvent.click(within(statblock).getByRole("button", { name: "Прибрати з мапи" }));
@@ -1093,6 +1094,16 @@ describe("інструменти мапи на весь екран", () => {
     expect(change.area.points[0]).toEqual({ x: 0.1, y: 0.2 });
   });
 
+  it("дотик без руху по токену з туманом вибирає токен і закриває туман, нічого не ховаючи", () => {
+    const { dialog, viewport, board } = openFullscreen(gmView({ grid, fog: { areas: [] }, creatures: [goblin(64, 4, { x: 0.5, y: 0.5 })] }));
+    fireEvent.click(within(dialog).getByRole("button", { name: "Туман" }));
+    within(board).getByRole("button", { name: /«Гоблін 4»/ }).getBoundingClientRect = () => ({ ...rect, left: 190, top: 90, right: 210, bottom: 110, width: 20, height: 20 });
+    swipe(viewport, [[200, 100]]);
+    expect(mocks.changeSceneFogAction).not.toHaveBeenCalled();
+    expect(within(dialog).queryByRole("region", { name: "Туман війни" })).toBeNull();
+    expect(within(dialog).getByRole("region", { name: "Гоблін 4" })).toBeTruthy();
+  });
+
   it("гравець малює олівцем лінію для всіх і скасовує її", async () => {
     const { dialog, viewport, board } = openFullscreen(buildView({ grid }));
     fireEvent.click(within(dialog).getByRole("button", { name: "Олівець" }));
@@ -1414,7 +1425,7 @@ describe("поворот і розмір токена на мапі", () => {
     fireEvent.pointerUp(handle, { ...to, pointerId: 2 });
   };
 
-  it("майстер вибирає істоту дотиком, тягне ручки й крутить кнопками, а другий дотик відкриває картку", () => {
+  it("майстер вибирає істоту дотиком, тягне ручки й крутить кнопками, а другий дотик відкриває статблок, як і кнопка в панелі", () => {
     render(<GameRoomMap view={gmView({ id: 9, creatures: [goblin(61, 1, { x: 0.5, y: 0.5 })] })} />);
     const map = placeMap();
     const token = within(map).getByRole("button", { name: /«Гоблін 1»/ });
@@ -1437,6 +1448,7 @@ describe("поворот і розмір токена на мапі", () => {
     fireEvent.click(within(panel).getByRole("button", { name: "Скинути" }));
     expect(mocks.transformMapCreatureAction).toHaveBeenLastCalledWith(9, 61, { rotation: 0, scale: 100 });
 
+    expect(within(panel).getByText(/Другий дотик по токену відкриває «Статблок і стани»/)).toBeTruthy();
     tap(token);
     expect(screen.getByRole("dialog", { name: "Гоблін 1" })).toBeTruthy();
   });
@@ -1525,13 +1537,148 @@ describe("поворот і розмір токена на мапі", () => {
     expect(within(map).queryByRole("button", { name: /^Розмір токена/ })).toBeNull();
   });
 
-  it("відкритий інструмент мапи залишає дотик до токена відкриттям картки", () => {
+  it("дотик до токена з відкритим інструментом закриває інструмент і показує панель токена, а не картку", () => {
     render(<GameRoomMap view={gmView({ creatures: [goblin(63, 3, { x: 0.5, y: 0.5 })] })} />);
     const map = placeMap();
     tap(within(map).getByRole("button", { name: /«Гоблін 3»/ }));
     openViewTool();
     expect(screen.queryByRole("region", { name: "Гоблін 3" })).toBeNull();
     tap(within(map).getByRole("button", { name: /«Гоблін 3»/ }));
-    expect(screen.getByRole("dialog", { name: "Гоблін 3" })).toBeTruthy();
+    expect(screen.queryByRole("dialog", { name: "Гоблін 3" })).toBeNull();
+    expect(screen.getByRole("region", { name: "Гоблін 3" })).toBeTruthy();
+    expect(screen.queryByRole("region", { name: "Вигляд" })).toBeNull();
+  });
+
+  function renderWithSidePanel(view: GameSessionView, heroTokenSlot: HTMLElement | null = null) {
+    const slot = document.createElement("div");
+    document.body.append(slot);
+    render(
+      <ToolPanelSlotContext.Provider value={slot}>
+        <HeroTokenSlotContext.Provider value={heroTokenSlot}>
+          <GameRoomMap view={view} />
+        </HeroTokenSlotContext.Provider>
+      </ToolPanelSlotContext.Provider>,
+    );
+    return slot;
+  }
+
+  it("на компʼютері дотик майстра до істоти показує збоку статблок, а другий дотик — вкладку «Токен» з рідкісними налаштуваннями", () => {
+    const slot = renderWithSidePanel(gmView({ id: 9, creatures: [goblin(65, 5, { x: 0.5, y: 0.5 })] }));
+    const token = within(placeMap()).getByRole("button", { name: /«Гоблін 5»/ });
+    tap(token);
+    const panel = within(slot).getByRole("region", { name: "Гоблін 5" });
+    expect(within(panel).getByRole("tab", { name: "Статблок", selected: true })).toBeTruthy();
+    expect(within(panel).getByRole("region", { name: "Стани" })).toBeTruthy();
+    expect(within(panel).getByText("Завантаження статблоку…")).toBeTruthy();
+    expect(within(panel).queryByRole("slider", { name: "Розмір" })).toBeNull();
+
+    tap(token);
+    expect(screen.queryByRole("dialog", { name: "Гоблін 5" })).toBeNull();
+    expect(within(panel).getByRole("tab", { name: "Токен", selected: true })).toBeTruthy();
+    expect(within(panel).getByRole("slider", { name: "Розмір" })).toBeTruthy();
+    fireEvent.click(within(panel).getByRole("button", { name: "Прибрати з мапи" }));
+    expect(mocks.removeMapCreaturesAction).toHaveBeenCalledWith(9, 65);
+    slot.remove();
+  });
+
+  it("на компʼютері дотик до героя відкриває його лист у вкладці «Герой» і лишає токен вибраним, а другий дотик — стани й налаштування токена", () => {
+    resetRoomTabs();
+    const slot = renderWithSidePanel(gmView({ members: [member(1, "GM", null), member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 })] }));
+    const map = placeMap();
+    const token = within(map).getByRole("button", { name: /Токен «Торин»/ });
+    tap(token);
+    expect(useRoomTabStore.getState().sideTab).toBe("hero");
+    expect(slot.childElementCount).toBe(0);
+    expect(within(map).getByRole("button", { name: /^Повернути токен/ })).toBeTruthy();
+
+    tap(token);
+    const panel = within(slot).getByRole("region", { name: "Торин" });
+    expect(within(panel).getByRole("tab", { name: "Токен", selected: true })).toBeTruthy();
+    expect(within(panel).getByRole("region", { name: "Стани" })).toBeTruthy();
+    expect(screen.queryByRole("dialog", { name: "Торин: стани" })).toBeNull();
+
+    fireEvent.click(within(panel).getByRole("tab", { name: "Лист" }));
+    expect(slot.childElementCount).toBe(0);
+    expect(within(map).getByRole("button", { name: /^Повернути токен/ })).toBeTruthy();
+    slot.remove();
+  });
+
+  it("на компʼютері шапка листа вибраного героя має кнопку «Токен», що відкриває його налаштування без другого дотику", () => {
+    resetRoomTabs();
+    const heroTokenSlot = document.createElement("div");
+    document.body.append(heroTokenSlot);
+    const slot = renderWithSidePanel(gmView({ members: [member(1, "GM", null), member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 })] }), heroTokenSlot);
+    expect(heroTokenSlot.childElementCount).toBe(0);
+    tap(within(placeMap()).getByRole("button", { name: /Токен «Торин»/ }));
+
+    fireEvent.click(within(heroTokenSlot).getByRole("button", { name: "Токен «Торин»: стани й вигляд" }));
+    const panel = within(slot).getByRole("region", { name: "Торин" });
+    expect(within(panel).getByRole("tab", { name: "Токен", selected: true })).toBeTruthy();
+    expect(heroTokenSlot.childElementCount).toBe(0);
+    slot.remove();
+    heroTokenSlot.remove();
+  });
+});
+
+describe("клавіші й підказки мапи", () => {
+  function renderWithHints(view: GameSessionView) {
+    const hints = document.createElement("div");
+    document.body.append(hints);
+    render(
+      <MapHintSlotContext.Provider value={hints}>
+        <GameRoomMap view={view} />
+        <ConfirmDialogHost />
+      </MapHintSlotContext.Provider>,
+    );
+    return hints;
+  }
+
+  it("Delete прибирає вибраного героя з мапи в ряд, а Esc лише знімає вибір", () => {
+    render(<GameRoomMap view={buildView({ members: [member(1, "GM", null), member(2, "PLAYER", "Арвен", { x: 0.2, y: 0.2 })] })} />);
+    const token = within(placeMap()).getByRole("button", { name: /Токен «Арвен»/ });
+    tap(token);
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.queryByRole("region", { name: "Арвен" })).toBeNull();
+    fireEvent.keyDown(window, { key: "Delete" });
+    expect(mocks.moveGameTokenAction).not.toHaveBeenCalled();
+
+    tap(token);
+    fireEvent.keyDown(window, { key: "Backspace" });
+    expect(mocks.moveGameTokenAction).toHaveBeenCalledWith(7, 1, 2, null);
+  });
+
+  it("Delete на вибраній істоті спершу питає, бо прибрану істоту не повернути, і не спрацьовує, поки відкрито статблок", async () => {
+    const hints = renderWithHints(gmView({ creatures: [goblin(65, 5, { x: 0.5, y: 0.5 })] }));
+    tap(within(placeMap()).getByRole("button", { name: /«Гоблін 5»/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Статблок і стани" }));
+    fireEvent.keyDown(screen.getByRole("dialog", { name: "Гоблін 5" }), { key: "Backspace" });
+    expect(screen.queryByRole("dialog", { name: "Прибрати «Гоблін 5»?" })).toBeNull();
+    fireEvent.keyDown(screen.getByRole("dialog", { name: "Гоблін 5" }), { key: "Escape" });
+
+    fireEvent.keyDown(window, { key: "Delete" });
+    const confirm = screen.getByRole("dialog", { name: "Прибрати «Гоблін 5»?" });
+    expect(mocks.removeMapCreaturesAction).not.toHaveBeenCalled();
+    await act(async () => fireEvent.click(within(confirm).getByRole("button", { name: "Прибрати" })));
+    expect(mocks.removeMapCreaturesAction).toHaveBeenCalledWith(7, 65);
+    hints.remove();
+  });
+
+  it("шапка підказує загальні жести, а вибір токена й інструмент міняють підказки; Esc закриває інструмент", () => {
+    const hints = renderWithHints(gmView({ creatures: [goblin(65, 5, { x: 0.5, y: 0.5 })] }));
+    expect(hints.textContent).toContain("Тягни по порожньомурамка для кількох");
+    expect(hints.textContent).toContain("Ctrl+Zскасувати");
+
+    tap(within(placeMap()).getByRole("button", { name: /«Гоблін 5»/ }));
+    expect(hints.textContent).toContain("Клік ще раз«Статблок і стани»");
+    expect(hints.textContent).toContain("Deleteприбрати з мапи");
+    expect(hints.textContent).not.toContain("рамка для кількох");
+
+    fireEvent.click(screen.getByRole("button", { name: "Лінійка" }));
+    expect(hints.textContent).toContain("Тягнивиміряти відстань");
+    expect(hints.textContent).toContain("Escзакрити інструмент");
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.queryByRole("region", { name: "Лінійка" })).toBeNull();
+    expect(hints.textContent).toContain("рамка для кількох");
+    hints.remove();
   });
 });

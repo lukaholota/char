@@ -17,6 +17,10 @@ type GameSessionState = {
   /// Відкрита сторінка кімнати: вкладка слухає її, навіть коли кімната в архіві й кидки туди не йдуть.
   viewedRoomId: number | null;
   isSoundOn: boolean;
+  /// На компʼютері журнал може жити внизу бічної колонки під листом, а не окремою вкладкою.
+  isJournalDocked: boolean;
+  sidePanelWidth: number;
+  dockedJournalHeight: number;
   activate: (session: ActiveGameSession) => void;
   rename: (sessionId: number, name: string) => void;
   deactivate: (sessionId: number) => void;
@@ -25,8 +29,14 @@ type GameSessionState = {
   setHeroTarget: (sessionId: number, persId: number | null) => void;
   viewRoom: (sessionId: number | null) => void;
   toggleSound: () => void;
+  dockJournal: (isDocked: boolean) => void;
+  resizeSidePanel: (width: number) => void;
+  resizeDockedJournal: (height: number) => void;
   markHydrated: () => void;
 };
+
+export const DEFAULT_SIDE_PANEL_WIDTH = 416;
+export const DEFAULT_DOCKED_JOURNAL_HEIGHT = 256;
 
 export const useGameSessionStore = create<GameSessionState>()(
   persist(
@@ -38,6 +48,9 @@ export const useGameSessionStore = create<GameSessionState>()(
       isHydrated: false,
       viewedRoomId: null,
       isSoundOn: true,
+      isJournalDocked: false,
+      sidePanelWidth: DEFAULT_SIDE_PANEL_WIDTH,
+      dockedJournalHeight: DEFAULT_DOCKED_JOURNAL_HEIGHT,
       activate: (session) => set({ active: session }),
       rename: (sessionId, name) => set((state) => (state.active?.id === sessionId && state.active.name !== name ? { active: { id: sessionId, name } } : state)),
       deactivate: (sessionId) => set((state) => (state.active?.id === sessionId ? { active: null } : state)),
@@ -56,12 +69,15 @@ export const useGameSessionStore = create<GameSessionState>()(
         }),
       viewRoom: (sessionId) => set({ viewedRoomId: sessionId }),
       toggleSound: () => set((state) => ({ isSoundOn: !state.isSoundOn })),
+      dockJournal: (isJournalDocked) => set({ isJournalDocked }),
+      resizeSidePanel: (sidePanelWidth) => set({ sidePanelWidth }),
+      resizeDockedJournal: (dockedJournalHeight) => set({ dockedJournalHeight }),
       markHydrated: () => set({ isHydrated: true }),
     }),
     {
       name: GAME_SESSION_STORE_KEY,
       storage: createJSONStorage(() => localStorage),
-      partialize: ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn }) => ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn }),
+      partialize: ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, isJournalDocked, sidePanelWidth, dockedJournalHeight }) => ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, isJournalDocked, sidePanelWidth, dockedJournalHeight }),
       onRehydrateStorage: (initial) => () => initial.markHydrated(),
     },
   ),

@@ -13,7 +13,9 @@ import { GameAvatar } from "./GameAvatar";
 import { ContentImage } from "@/components/no-ai/ContentImage";
 import { buildFullSizeMediaUrl, isMediaImageUrl } from "@/lib/media-url";
 import { findCutoutOutlineClass, findHeroCutoutKey, useCutoutImage } from "./token-cutout";
-import { HeroConditionsDialog } from "./HeroConditionsDialog";
+import { HeroConditionToggles, HeroConditionsDialog, HeroTokenLook } from "./HeroConditionsDialog";
+import { useRoomHeroSheetOpener } from "./use-room-hero-sheet";
+import { listSheetPersIds } from "@/rules/game-room-heroes";
 import { HIGHLIGHT_RING_CLASS, MapTokenSlot, buildTokenSizeStyle, isAboveThumbnail, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
 import { SpotlightAura, findSpotlightRingClass, useIsHeroTurn } from "./combat-turn";
 import { TokenConditionMarks } from "./TokenConditionMarks";
@@ -75,17 +77,29 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
 
   const selectedMember = heroes.find((member) => findKey(member.heroId) === selection.key && canMove(member) && moves.findPosition(member));
   const spotlight = useSpotlightControl(view.id, view.viewedSceneId, selectedMember ? { kind: "hero", id: selectedMember.heroId } : null, selectedMember?.conditions ?? NO_TOKEN_CONDITIONS);
+  const openHeroSheet = useRoomHeroSheetOpener(view);
+  const sheetPersId = selectedMember?.persId ?? null;
   const selected: SelectedToken | null = selectedMember
     ? {
         key: findKey(selectedMember.heroId),
         name: selectedMember.persName ?? selectedMember.name,
         transform: transforms.find(selectedMember),
-        openLabel: "Стани",
+        openLabel: "Стани героя",
         onOpen: () => setConditionsHeroId(selectedMember.heroId),
         onPreview: (transform) => transforms.show(selectedMember, transform),
         onChange: (transform) => void transforms.send(selectedMember, transform),
         lightTarget: { kind: "hero", member: selectedMember },
         spotlight,
+        sheetLabel: "Лист",
+        sheet: null,
+        remove: () => void moves.sendPosition(selectedMember, null),
+        showRoomSheet: sheetPersId !== null && listSheetPersIds(view).includes(sheetPersId) ? () => void openHeroSheet(sheetPersId) : null,
+        settings: (
+          <>
+            <HeroConditionToggles sessionId={view.id} sceneId={view.viewedSceneId} hero={selectedMember} />
+            <HeroTokenLook key={selectedMember.heroId} sessionId={view.id} sceneId={view.viewedSceneId} hero={selectedMember} />
+          </>
+        ),
       }
     : null;
 
@@ -112,8 +126,9 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
           <>
             <button
               type="button"
-              aria-label={`Токен «${member.persName ?? member.name}»${describeLifeSuffix(member.lifeState)}. ${isPlaced ? "Дотик — вибрати для повороту й розміру, ще дотик — стани; тягніть або рухайте стрілками; Delete — прибрати з мапи" : "Перетягніть на мапу або натисніть Enter"}`}
+              aria-label={`Токен «${member.persName ?? member.name}»${describeLifeSuffix(member.lifeState)}. ${isPlaced ? "Дотик — вибрати для повороту й розміру, ще дотик — стани героя; тягніть або рухайте стрілками; Delete — прибрати з мапи" : "Перетягніть на мапу або натисніть Enter"}`}
               className="absolute inset-0 cursor-grab touch-none rounded-full active:cursor-grabbing"
+              data-token-tap={onBoard ? findKey(member.heroId) : undefined}
               onKeyDown={onKeyDown}
               onKeyUp={onKeyUp}
               {...bindToken(member.heroId)}

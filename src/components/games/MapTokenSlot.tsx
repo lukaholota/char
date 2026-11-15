@@ -62,6 +62,13 @@ export function snapTokenPosition(position: TokenPosition, layout: TokenLayout, 
   return layout.frame ? snapToGrid(position, layout.frame, Math.max(1, Math.round(cells))) : position;
 }
 
+/// Поки інструмент мапи забирає дотики собі, токени для них прозорі, тож вибраний дотиком токен шукаємо за рамкою кнопки.
+export function findTappedTokenKey(board: HTMLElement | null, point: { clientX: number; clientY: number }): string | null {
+  const buttons = [...(board?.querySelectorAll<HTMLElement>("[data-token-tap]") ?? [])];
+  const isUnder = (rect: DOMRect) => point.clientX >= rect.left && point.clientX <= rect.right && point.clientY >= rect.top && point.clientY <= rect.bottom;
+  return buttons.findLast((button) => isUnder(button.getBoundingClientRect()))?.dataset.tokenTap ?? null;
+}
+
 /// size — розмір на екрані: слот знімає масштаб мапи навколо центру обличчя, тож рамки, бейджі й підписи не роздуваються.
 /// Центр обличчя стоїть точно в позиції; імʼя і стани висять нижче й не зсувають його.
 /// Учасник групи, поки тягнуть іншого, зсувається на крок із --group-dx/--group-dy, які ставить контейнер токенів.
