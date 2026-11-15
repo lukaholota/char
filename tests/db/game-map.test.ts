@@ -23,7 +23,7 @@ import {
   joinGameSessionByToken,
   setGameSessionArchived,
 } from "@/server/db/game-sessions";
-import { moveGameToken, transformHeroToken } from "@/server/db/game-scenes";
+import { moveGameToken, moveMapTokens, transformHeroToken } from "@/server/db/game-scenes";
 import { setActiveSceneMap } from "./game-scene-setup";
 import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize, transformMapCreature } from "@/server/db/game-map-creatures";
 import { openGameSessionStream } from "@/server/game-sessions/game-session-stream";
@@ -123,6 +123,27 @@ describe("мапа кімнати", () => {
     await setGameSessionArchived(sessionId, gm.id, true);
     expect(await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), await findHeroId(sessionId, player.id), { x: 0.5, y: 0.5 })).toEqual({ ok: false, error: "archived" });
     expect(await setActiveSceneMap(sessionId, gm.id, await createMapImage())).toEqual({ ok: false, error: "archived" });
+  });
+
+  it("групу з рамки рухає лише майстер, одним записом, на своїй сцені й лише з наявними істотами", async () => {
+    const { gm, player, other, sessionId } = await createTableWithHeroes();
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    const sceneId = (await findViewedScene(sessionId, gm.id))!;
+    const [playerHero, otherHero] = [await findHeroId(sessionId, player.id), await findHeroId(sessionId, other.id)];
+    const [goblin] = (await findGameSessionView(sessionId, gm.id))!.creatures;
+    await moveGameToken(sessionId, gm.id, sceneId, otherHero, { x: 0.1, y: 0.1 });
+    const moves = { heroes: [{ id: playerHero, at: { x: 0.2, y: 0.3 } }, { id: otherHero, at: null }], creatures: [{ id: goblin.id, at: { x: 0.6, y: 0.7 } }] };
+
+    expect(await moveMapTokens(sessionId, player.id, sceneId, moves)).toEqual({ ok: false, error: "forbidden" });
+    expect(await moveMapTokens(sessionId, gm.id, sceneId + 999, moves)).toEqual({ ok: false, error: "scene_changed" });
+    expect(await moveMapTokens(sessionId, gm.id, sceneId, { ...moves, creatures: [{ id: goblin.id + 999, at: { x: 0, y: 0 } }] })).toEqual({ ok: false, error: "creature_gone" });
+    expect(await findToken(sessionId, gm.id, player.id)).toBeNull();
+
+    expect(await moveMapTokens(sessionId, gm.id, sceneId, moves)).toEqual({ ok: true, value: null });
+    expect(await findToken(sessionId, gm.id, player.id)).toEqual({ x: 0.2, y: 0.3 });
+    expect(await findToken(sessionId, gm.id, other.id)).toBeNull();
+    expect(await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: goblin.id }, select: { tokenX: true, tokenY: true } })).toEqual({ tokenX: 0.6, tokenY: 0.7 });
   });
 
   it("рух токена приходить іншим учасникам тим самим потоком кімнати", async () => {

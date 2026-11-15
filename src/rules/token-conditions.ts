@@ -25,13 +25,27 @@ export const BLESSED_DIE = { sides: 4, sign: 1 } as const;
 
 export type RuleConditionKey = keyof typeof TOKEN_CONDITION_LABELS;
 /// Не стан: власник героя чи майстер підсвічує токен, поки персонаж говорить або діє поза своїм ходом.
-export const SPOTLIGHT_MARK = "spotlit";
+/// Кожен вигляд підсвітки — окрема позначка, на токені завжди не більше однієї.
+export const SPOTLIGHT_MARKS = {
+  glow: "spotlit",
+  fire: "spotlit-fire",
+  arcane: "spotlit-arcane",
+  frost: "spotlit-frost",
+  rays: "spotlit-rays",
+  shadow: "spotlit-shadow",
+  storm: "spotlit-storm",
+} as const;
+export const SPOTLIGHT_MARK = SPOTLIGHT_MARKS.glow;
+export type SpotlightStyle = keyof typeof SPOTLIGHT_MARKS;
+type SpotlightMark = (typeof SPOTLIGHT_MARKS)[SpotlightStyle];
+const SPOTLIGHT_STYLES = Object.keys(SPOTLIGHT_MARKS) as SpotlightStyle[];
+export const SPOTLIGHT_MARK_KEYS = Object.values(SPOTLIGHT_MARKS);
 
 export type ListedConditionKey = keyof typeof TOKEN_CONDITION_LABELS | keyof typeof TOKEN_SPELL_MARK_LABELS;
-export type TokenConditionKey = ListedConditionKey | typeof SPOTLIGHT_MARK;
+export type TokenConditionKey = ListedConditionKey | SpotlightMark;
 const TOKEN_MARK_LABELS: Record<ListedConditionKey, string> = { ...TOKEN_CONDITION_LABELS, ...TOKEN_SPELL_MARK_LABELS };
 export const TOKEN_CONDITION_KEYS = Object.keys(TOKEN_MARK_LABELS) as ListedConditionKey[];
-const STORED_MARK_KEYS: TokenConditionKey[] = [...TOKEN_CONDITION_KEYS, SPOTLIGHT_MARK];
+const STORED_MARK_KEYS: TokenConditionKey[] = [...TOKEN_CONDITION_KEYS, ...SPOTLIGHT_MARK_KEYS];
 export const EXHAUSTION_LABEL = "Виснажений";
 
 const TOKEN_CONDITION_SHORT_LABELS: Record<ListedConditionKey, string> = {
@@ -66,8 +80,12 @@ export function isTokenConditionKey(value: unknown): value is TokenConditionKey 
   return STORED_MARK_KEYS.includes(value as TokenConditionKey);
 }
 
-export function isSpotlit({ conditions }: TokenConditions): boolean {
-  return conditions.includes(SPOTLIGHT_MARK);
+export function isSpotlightMark(key: string): key is SpotlightMark {
+  return SPOTLIGHT_MARK_KEYS.includes(key as SpotlightMark);
+}
+
+export function findSpotlightStyle({ conditions }: TokenConditions): SpotlightStyle | null {
+  return SPOTLIGHT_STYLES.find((style) => conditions.includes(SPOTLIGHT_MARKS[style])) ?? null;
 }
 
 /// «Отруєний» → «отруєн»: ловить «отруєною», «отруєних»; апостроф зведено до «ʼ».
@@ -102,7 +120,8 @@ export function normalizeTokenConditions(stored: { conditions: string[]; exhaust
 /// Те саме, що робить SQL на сервері, — щоб тап показувався одразу, до відповіді.
 export function applyTokenConditionChange(current: TokenConditions, change: TokenConditionChange): TokenConditions {
   if (change.kind === "exhaustion") return { ...current, exhaustionLevel: change.level };
-  const others = current.conditions.filter((key) => key !== change.condition);
+  const isReplaced = (key: TokenConditionKey) => key === change.condition || (isSpotlightMark(change.condition) && isSpotlightMark(key));
+  const others = current.conditions.filter((key) => !isReplaced(key));
   return normalizeTokenConditions({ conditions: change.isActive ? [...others, change.condition] : others, exhaustionLevel: current.exhaustionLevel });
 }
 
@@ -111,7 +130,7 @@ export function buildExhaustionLabel(level: number): string {
 }
 
 export function buildTokenConditionMarks({ conditions, exhaustionLevel }: TokenConditions): TokenConditionMark[] {
-  const listed = conditions.filter((key): key is ListedConditionKey => key !== SPOTLIGHT_MARK);
+  const listed = conditions.filter((key): key is ListedConditionKey => !isSpotlightMark(key));
   const marks: TokenConditionMark[] = listed.map((key) => ({ key, label: TOKEN_MARK_LABELS[key], shortLabel: TOKEN_CONDITION_SHORT_LABELS[key] }));
   if (exhaustionLevel > 0) marks.push({ key: "exhaustion", label: buildExhaustionLabel(exhaustionLevel), shortLabel: `Ви${exhaustionLevel}` });
   return marks;

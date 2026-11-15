@@ -11,5 +11,6 @@ export const EMPTY_BRANCH_CHOICES: Partial<PersFormData> = {
   levelUpSkillSelections: {},
   expertiseSchema: { expertises: [] },
   languagesSchema: { languages: [] },
+  classSpells: undefined,
   levelUpHpIncrease: undefined,
 };

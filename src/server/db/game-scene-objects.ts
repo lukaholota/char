@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { buildLibraryObjectKey } from "@/lib/refs/object-library";
 import { OBJECT_LIBRARY } from "@/lib/refs/object-library-catalog";
 import { OBJECT_LIMITS, type ObjectPlacement } from "@/rules/game-objects";
+import type { PositionMove } from "@/rules/map-group";
 import { lockScene } from "@/server/db/game-scene-tools";
 import { findActiveGmSession, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 import { isOwnTokenImage } from "@/server/db/token-images";
@@ -33,6 +34,16 @@ export async function changeSceneObject(sessionId: number, userId: number, scene
   if (!gm.ok) return gm;
   const changed = await prisma.gameSceneObject.updateMany({ where: { id: objectId, sceneId, scene: { sessionId } }, data: toObjectColumns(placement) });
   if (!changed.count) return fail("object_gone");
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+export async function moveSceneObjects(sessionId: number, userId: number, sceneId: number, moves: PositionMove[]): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const found = await prisma.gameSceneObject.count({ where: { id: { in: moves.map((move) => move.id) }, sceneId, scene: { sessionId } } });
+  if (found !== moves.length) return fail("object_gone");
+  await prisma.$transaction(moves.map(({ id, at }) => prisma.gameSceneObject.updateMany({ where: { id, sceneId }, data: { x: at.x, y: at.y } })));
   await signalGameSession(sessionId, "session");
   return succeed(null);
 }

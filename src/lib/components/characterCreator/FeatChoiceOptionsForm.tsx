@@ -19,6 +19,7 @@ import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { LinkedPreview } from "@/components/ui/LinkedPreview";
 import { checkPrerequisite } from "@/lib/logic/prerequisiteUtils";
 import { findFeatChoicePickCount } from "@/rules/feat-choice-pick-count";
+import { collectChoicesTakenByOtherCopies } from "@/rules/repeatable-feats";
 import {
   findAbilityScoreCeiling,
   findFeatAbilityScoreSource,
@@ -387,17 +388,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     // From current form selections (class/subclass choices selected earlier in creation flow)
     const addFromRecord = (rec: unknown) => {
       if (!rec || typeof rec !== "object") return;
-      for (const v of Object.values(rec as Record<string, unknown>)) {
-        if (Array.isArray(v)) {
-          for (const x of v) {
-            const id = Number(x);
-            if (Number.isFinite(id)) ids.add(id);
-          }
-        } else {
-          const id = Number(v);
-          if (Number.isFinite(id)) ids.add(id);
-        }
-      }
+      Object.values(rec as Record<string, unknown>).flat().map(Number).filter(Number.isFinite).forEach((id) => ids.add(id));
     };
 
     addFromRecord((formData as any)?.classChoiceSelections);
@@ -409,6 +400,9 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
 
     return ids;
   }, [formData, pers, extraExistingChoiceOptionIds]);
+
+  const takenByOtherCopies = useMemo(() => collectChoicesTakenByOtherCopies(selectedFeat?.name,
+    Object.values(FEAT_CHOICE_STORAGE_KEY_BY_MODE).filter((key) => key !== storageKey).map((key) => formData[key])), [formData, selectedFeat?.name, storageKey]);
 
   const isManeuverOption = useCallback((optNameEng: string, groupName?: string) => {
     if ((groupName || "").toLowerCase().includes("манев")) return true;
@@ -717,7 +711,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       // Check if EVERY group has satisfied its pickCount
       disabled = groupedChoices.some((g) => {
           const selected = getSelectedIdsForGroup(g.groupName);
-          return selected.length < g.pickCount;
+          return selected.length < g.pickCount || selected.some((id) => takenByOtherCopies.has(id));
       });
     }
 
@@ -725,7 +719,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
       prevDisabledRef.current = disabled;
       onNextDisabledChange?.(disabled);
     }
-  }, [selectedFeat, groupedChoices, selections, onNextDisabledChange, getSelectedIdsForGroup]);
+  }, [selectedFeat, groupedChoices, selections, onNextDisabledChange, getSelectedIdsForGroup, takenByOtherCopies]);
 
   const toggleSelection = (groupName: string, optionId: number, pickCount: number) => {
     const currentSelected = getSelectedIdsForGroup(groupName);
@@ -797,6 +791,12 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     
     const currentSelected = getSelectedIdsForGroup(group.groupName);
     const isSelected = currentSelected.includes(opt.choiceOptionId);
+
+    if (takenByOtherCopies.has(opt.choiceOptionId)) {
+      return isSelected
+        ? { disabled: false, prereqUnmet: true, reason: "Уже взято іншою такою рисою — оберіть інше" }
+        : { disabled: true, reason: "Уже взято іншою такою рисою" };
+    }
 
     // Prevent duplicates for maneuver/invocation-like groups.
     if ((group.isManeuver || group.isInvocation || group.isFightingStyle) && !isSelected && existingChoiceOptionIds.has(opt.choiceOptionId)) {
@@ -874,7 +874,7 @@ const FeatChoiceOptionsForm = ({ selectedFeat, formId, onNextDisabledChange, per
     /// Останньою — і лише коли конкретнішої причини не знайшлося: група заповнена, тож
     /// решта варіантів неактивна просто через ліміт. Поки ця перевірка стояла першою, третій
     /// вибір стирав підпис «Вже володієте цією навичкою» з усіх варіантів одразу.
-    if (!isSelected && currentSelected.length >= group.pickCount) {
+    if (!isSelected && group.pickCount > 1 && currentSelected.length >= group.pickCount) {
       return { disabled: true, reason: undefined };
     }
 

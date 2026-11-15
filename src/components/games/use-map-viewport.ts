@@ -12,6 +12,7 @@ type ViewportOptions = {
   isTurned: () => boolean;
   maxZoom: number;
   gesture: MapGesture | null;
+  boxGesture: MapGesture | null;
   onTap: (point: Point) => void;
   onHold: (point: Point) => void;
 };
@@ -33,7 +34,8 @@ function isTrackpadScroll(event: WheelEvent): boolean {
 /// Один палець на порожньому місці — панорама або активний інструмент, два — масштаб і зсув разом.
 /// Права або середня кнопка миші завжди тягне мапу: інструмент лишається ввімкненим.
 /// Нерухоме утримання на порожньому місці без інструмента — не дотик і не панорама: ним показують точку.
-export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, onTap, onHold }: ViewportOptions) {
+/// Ліва кнопка миші, потягнута з порожнього місця, малює рамку виділення (boxGesture), а не тягне мапу.
+export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, boxGesture, onTap, onHold }: ViewportOptions) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const view = useRef({ zoom: 1, x: 0, y: 0 });
   const pointers = useRef(new Map<number, Point>());
@@ -42,9 +44,9 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, onTap, on
   const pinchStart = useRef({ distance: 1, zoom: 1, anchor: { x: 0, y: 0 } });
   const tapStart = useRef<Point>({ clientX: 0, clientY: 0 });
   const lastTap = useRef({ at: 0, point: { clientX: 0, clientY: 0 } });
-  const latest = useRef({ isTurned, maxZoom, gesture, onTap, onHold });
+  const latest = useRef({ isTurned, maxZoom, gesture, boxGesture, onTap, onHold });
   const toolGesture = useRef<MapGesture | null>(null);
-  latest.current = { isTurned, maxZoom, gesture, onTap, onHold };
+  latest.current = { isTurned, maxZoom, gesture, boxGesture, onTap, onHold };
   const [zoom, setZoom] = useState(1);
 
   const toLocal = (point: Point): Vector => {
@@ -159,6 +161,13 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, onTap, on
     latest.current.onHold(point);
   };
 
+  const startBox = (point: Point) => {
+    mode.current = "tool";
+    toolGesture.current = latest.current.boxGesture;
+    toolGesture.current!.start(tapStart.current);
+    toolGesture.current!.move(point);
+  };
+
   const isOnControl = (event: PointerEvent<HTMLElement>) => event.target instanceof Element && event.target.closest("button, a, input, [data-map-control]") !== null;
 
   const bindViewport = {
@@ -190,6 +199,7 @@ export function useMapViewport({ boardRef, isTurned, maxZoom, gesture, onTap, on
       if (mode.current === "pinch") return movePinch();
       if (mode.current === "tool") return toolGesture.current?.move(point);
       if (mode.current === "tap" && Math.hypot(point.clientX - tapStart.current.clientX, point.clientY - tapStart.current.clientY) < TAP_SLOP_PX) return;
+      if (mode.current === "tap" && event.pointerType === "mouse" && latest.current.boxGesture) return startBox(point);
       if (mode.current === "tap") mode.current = "pan";
       if (mode.current !== "pan" || view.current.zoom === 1) return;
       const local = toLocal(point);

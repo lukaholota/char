@@ -59,6 +59,8 @@ import { captureCreationFailed, captureCreationStarted, captureStepBlocked, find
 import { useCreationFirstChoice } from "@/lib/monitoring/use-creation-first-choice";
 import { useInAppBrowser } from "@/lib/components/auth/use-in-app-browser";
 import { useBuildCreatorStep } from "@/lib/optimization/use-build-creator-step";
+import { keepRaceChoiceOptionsOfVariant } from "@/rules/race-variant-choice-groups";
+import type { RaceChoiceOptionLike } from "@/lib/components/characterCreator/RaceChoiceOptionGroups";
 
 interface Props {
   races: RaceI[];
@@ -269,11 +271,13 @@ export const MultiStepForm = (
   );
   const hasSubraces = useMemo(() => (race?.subraces?.length ?? 0) > 0, [race]);
   const hasRaceVariants = useMemo(() => (race?.raceVariants?.length ?? 0) > 0, [race]);
-  const hasRaceChoiceOptions = useMemo(() => (race as any)?.raceChoiceOptions?.length > 0, [race]);
-
   const raceVariant = useMemo(() => 
     race?.raceVariants?.find(v => v.raceVariantId === formData.raceVariantId), 
     [race, formData.raceVariantId]
+  );
+  const hasRaceChoiceOptions = useMemo(
+    () => keepRaceChoiceOptionsOfVariant((race as { raceChoiceOptions?: RaceChoiceOptionLike[] } | undefined)?.raceChoiceOptions ?? [], raceVariant?.name).length > 0,
+    [race, raceVariant?.name],
   );
   const hasFeatChoice = hasRaceFeatChoice(race?.name, raceVariant?.name);
   // Друга риса Людини 2024 приходить з опції виду: опція дає фічу, фіча висить на рисі.

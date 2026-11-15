@@ -25,6 +25,7 @@ export type TokenLayout = {
 
 export type TokenOnBoard = { labelWidth: number; isHighlighted: boolean; isOutlined: boolean; rotation: number };
 export type TokenDrag = { from: TokenPosition | null; to: TokenPosition | null; cells: number; isBlocked?: boolean };
+export type TokenGroupBinding = { isGrouped: (key: string) => boolean; moveWith: (key: string, to: TokenPosition) => boolean };
 export type PlacedToken = { key: string; name: string; position: TokenPosition; cells: number; creatureId?: number; persId?: number };
 
 export function findBoardTokenSize(layout: TokenLayout, cells: number, sizeScale: number): string {

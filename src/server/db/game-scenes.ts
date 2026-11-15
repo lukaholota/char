@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { buildLibraryGrid, GRID_OPACITY_RANGE, type SceneGrid } from "@/rules/game-grid";
 import type { TokenLight } from "@/rules/game-lighting";
 import type { TokenPosition } from "@/rules/game-map";
+import type { MapTokenMoves } from "@/rules/map-group";
 import type { TokenTransform } from "@/rules/token-transform";
 import type { SceneLayout } from "@/rules/uvtt-import";
 import { toStoredPoints } from "@/rules/map-strokes";
@@ -165,6 +166,32 @@ export async function transformHeroToken(sessionId: number, userId: number, scen
   if (!access.ok) return access;
   const changed = await prisma.gameSceneHeroToken.updateMany({ where: { sceneId, memberId: heroId }, data: { tokenRotation: transform.rotation, tokenScalePercent: transform.scale } });
   if (!changed.count) return fail("no_map");
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+/// Групу, виділену рамкою, майстер рухає одним записом і одним сигналом кімнаті.
+export async function moveMapTokens(sessionId: number, userId: number, sceneId: number, moves: MapTokenMoves): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  if (findViewedSceneId({ isGm: true, activeSceneId: gm.value.gameSession.activeSceneId, openSceneId: gm.value.openSceneId }) !== sceneId) return fail("scene_changed");
+  const heroIds = moves.heroes.map((move) => move.id);
+  const creatureIds = moves.creatures.map((move) => move.id);
+  const [scene, heroCount, creatureCount] = await Promise.all([
+    prisma.gameScene.count({ where: { id: sceneId, sessionId, mapImageKey: { not: null } } }),
+    prisma.gameSessionMember.count({ where: { id: { in: heroIds }, gameSessionId: sessionId, persId: { not: null } } }),
+    prisma.gameMapCreature.count({ where: { id: { in: creatureIds }, gameSessionId: sessionId, gameSceneId: sceneId } }),
+  ]);
+  if (!scene || heroCount !== heroIds.length) return fail("no_map");
+  if (creatureCount !== creatureIds.length) return fail("creature_gone");
+  await prisma.$transaction([
+    ...moves.heroes.map(({ id, at }) =>
+      at === null
+        ? prisma.gameSceneHeroToken.deleteMany({ where: { sceneId, memberId: id } })
+        : prisma.gameSceneHeroToken.upsert({ where: { sceneId_memberId: { sceneId, memberId: id } }, create: { sceneId, memberId: id, tokenX: at.x, tokenY: at.y }, update: { tokenX: at.x, tokenY: at.y } }),
+    ),
+    ...moves.creatures.map(({ id, at }) => prisma.gameMapCreature.updateMany({ where: { id, gameSessionId: sessionId }, data: { tokenX: at.x, tokenY: at.y } })),
+  ]);
   await signalGameSession(sessionId, "session");
   return succeed(null);
 }

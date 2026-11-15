@@ -5,7 +5,9 @@ import { RotateCcw, RotateCw, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { DEFAULT_TOKEN_TRANSFORM, TOKEN_SCALE_RANGE, findDraggedRotation, findDraggedScale, isDefaultTokenTransform, resizeToken, turnToken, type TokenTransform } from "@/rules/token-transform";
+import type { SpotlightStyle } from "@/rules/token-conditions";
 import { Stepper, ToolPanel } from "./MapToolbar";
+import { SpotlightAura } from "./combat-turn";
 import type { TokenLightTarget } from "./use-map-lights";
 import type { SpotlightControl } from "./use-token-conditions";
 
@@ -77,6 +79,15 @@ export function TokenTransformHandles({ token, onDeselect }: { token: TransformT
         </span>
       ) : null}
     </>
+  );
+}
+
+/// Річ у групі з рамки: та сама пунктирна рамка, що й у вибраної, але без ручок — група крутиться й росте лише поодинці.
+export function GroupedTokenFrame({ rotation }: { rotation: number }) {
+  return (
+    <span aria-hidden className="pointer-events-none absolute inset-0 z-10" style={findTokenRotationStyle(rotation)}>
+      <span className="absolute -inset-1.5 rounded-md border-2 border-dashed border-arcane-200" />
+    </span>
   );
 }
 
@@ -177,6 +188,34 @@ function SpotlightHandle({ spotlight, onDeselect }: { spotlight: SpotlightContro
   );
 }
 
+const SPOTLIGHT_OPTIONS: Array<{ style: SpotlightStyle; label: string }> = [
+  { style: "glow", label: "Сяйво" },
+  { style: "fire", label: "Полумʼя" },
+  { style: "arcane", label: "Чари" },
+  { style: "frost", label: "Іній" },
+  { style: "rays", label: "Промені" },
+  { style: "shadow", label: "Тінь" },
+  { style: "storm", label: "Блискавка" },
+];
+
+/// Повторний дотик до вибраного вигляду гасить підсвітку.
+function SpotlightPicker({ spotlight }: { spotlight: SpotlightControl }) {
+  return (
+    <div role="group" aria-label={SPOTLIGHT_LABEL} className="grid grid-cols-[repeat(auto-fill,minmax(5.5rem,1fr))] gap-1.5">
+      <span className="col-span-full text-sm text-slate-300">{SPOTLIGHT_LABEL}</span>
+      {SPOTLIGHT_OPTIONS.map(({ style, label }) => {
+        const isChosen = spotlight.style === style;
+        return (
+          <Button key={style} type="button" variant="outline" aria-pressed={isChosen} onClick={() => spotlight.onChoose(isChosen ? null : style)} className={cn("relative isolate h-11 overflow-hidden px-2.5", style === "glow" && "shadow-[inset_0_0_0.6rem] shadow-arcane-300/60", isChosen && "border-arcane-300 bg-arcane-300/20 text-arcane-100")}>
+            <SpotlightAura style={style} isInside />
+            <span className="relative">{label}</span>
+          </Button>
+        );
+      })}
+    </div>
+  );
+}
+
 export function TokenTransformPanel({ token, onClose, children }: { token: SelectedToken; onClose: () => void; children?: ReactNode }) {
   const { transform, onChange } = token;
   return (
@@ -198,14 +237,9 @@ export function TokenTransformPanel({ token, onClose, children }: { token: Selec
           <RotateCw className="h-4 w-4" aria-hidden />
         </TurnButton>
       </div>
+      {token.spotlight ? <SpotlightPicker spotlight={token.spotlight} /> : null}
       <div className="flex flex-wrap items-center gap-2 border-t border-white/10 pt-2">
         <Button type="button" variant="outline" onClick={token.onOpen} className="h-11 px-4">{token.openLabel}</Button>
-        {token.spotlight ? (
-          <Button type="button" variant="outline" aria-pressed={token.spotlight.isOn} onClick={token.spotlight.onToggle} className={cn("h-11 gap-2 px-4", token.spotlight.isOn && "border-arcane-300 bg-arcane-300/20 text-arcane-100")}>
-            <Sparkles className="h-4 w-4" aria-hidden />
-            {SPOTLIGHT_LABEL}
-          </Button>
-        ) : null}
         <Button type="button" variant="ghost" onClick={() => onChange(DEFAULT_TOKEN_TRANSFORM)} disabled={isDefaultTokenTransform(transform)} className="h-11 px-3 text-slate-400">Скинути</Button>
       </div>
       {children}

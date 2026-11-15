@@ -7,7 +7,7 @@ import {
   applyTokenConditionChange,
   buildTokenConditionMarks,
   canChangeTokenConditions,
-  isSpotlit,
+  findSpotlightStyle,
   normalizeTokenConditions,
   parseTokenConditionChange,
   splitTokenConditionMarks,
@@ -67,10 +67,22 @@ describe("стани токена", () => {
     const lit = applyTokenConditionChange({ conditions: ["prone"], exhaustionLevel: 0 }, change);
     expect(lit).toEqual({ conditions: ["prone", "spotlit"], exhaustionLevel: 0 });
     expect(normalizeTokenConditions({ conditions: ["spotlit", "prone"], exhaustionLevel: 0 })).toEqual(lit);
-    expect(isSpotlit(lit)).toBe(true);
-    expect(isSpotlit(applyTokenConditionChange(lit, { ...change, isActive: false }))).toBe(false);
+    expect(findSpotlightStyle(lit)).toBe("glow");
+    expect(findSpotlightStyle(applyTokenConditionChange(lit, { ...change, isActive: false }))).toBeNull();
     expect(buildTokenConditionMarks(lit).map((mark) => mark.key)).toEqual(["prone"]);
     expect(TOKEN_CONDITION_KEYS).not.toContain(SPOTLIGHT_MARK);
+  });
+
+  it("підсвітка має один вигляд: новий замінює старий, вимкнення будь-якою позначкою гасить усе", () => {
+    const fire = applyTokenConditionChange({ conditions: ["prone", "spotlit"], exhaustionLevel: 0 }, { kind: "toggle", condition: "spotlit-fire", isActive: true });
+    expect(fire.conditions).toEqual(["prone", "spotlit-fire"]);
+    expect(findSpotlightStyle(fire)).toBe("fire");
+    expect(buildTokenConditionMarks(fire).map((mark) => mark.key)).toEqual(["prone"]);
+    const off = applyTokenConditionChange(fire, { kind: "toggle", condition: "spotlit", isActive: false });
+    expect(findSpotlightStyle(off)).toBeNull();
+    expect(off.conditions).toEqual(["prone"]);
+    expect(parseTokenConditionChange({ kind: "toggle", condition: "spotlit-arcane", isActive: true })).not.toBeNull();
+    expect(parseTokenConditionChange({ kind: "toggle", condition: "spotlit-ice", isActive: true })).toBeNull();
   });
 
   it("героя міняє майстер або його власник", () => {

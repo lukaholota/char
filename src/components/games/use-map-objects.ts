@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { addSceneObjectAction, changeSceneObjectAction, removeSceneObjectsAction } from "@/lib/actions/game-scene-tools";
+import { addSceneObjectAction, changeSceneObjectAction, moveSceneObjectsAction, removeSceneObjectsAction } from "@/lib/actions/game-scene-tools";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { applyObjectTransform, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, toObjectPlacement, type ObjectPlacement, type SceneObjectView } from "@/rules/game-objects";
@@ -14,14 +14,15 @@ import { createIdChain } from "./id-chain";
 import { useTokenDrag } from "./use-token-drag";
 
 type Point = { clientX: number; clientY: number };
-type Options = { view: GameSessionView; isEditing: boolean; gridColumns: number | null; findDropPosition: (point: Point) => TokenPosition | null; findViewCentre: () => TokenPosition };
+type Options = { view: GameSessionView; isEditing: boolean; gridColumns: number | null; findDropPosition: (point: Point) => TokenPosition | null; findViewCentre: () => TokenPosition; group: { moveWith: (key: string, to: TokenPosition) => boolean; clear: () => void } };
+type ObjectMove = { id: number; at: TokenPosition };
 
 const { findCurrentId, takeTempId, link } = createIdChain();
 const COPY_SHIFT = 0.03;
 
 const shiftShare = (share: number) => (share + COPY_SHIFT > 1 ? share - COPY_SHIFT : share + COPY_SHIFT);
 
-export function useMapObjects({ view, isEditing, gridColumns, findDropPosition, findViewCentre }: Options) {
+export function useMapObjects({ view, isEditing, gridColumns, findDropPosition, findViewCentre, group }: Options) {
   const read = useOptimisticReader();
   const sceneId = view.viewedSceneId;
   const key = `objects:${sceneId}`;
@@ -84,6 +85,30 @@ export function useMapObjects({ view, isEditing, gridColumns, findDropPosition, 
     pushUndoStep(sceneId, { undo: () => add(object.imageKey, placement, object.id), redo: () => removeNow(object.id) });
   };
 
+  const sendMoves = (moves: ObjectMove[]) => {
+    const targets = new Map(moves.map((move) => [move.id, move.at]));
+    const shown = readShown().map((object) => ({ ...object, at: targets.get(object.id) ?? object.at }));
+    if (sceneId !== null) void sendOptimistic(key, shown, () => moveSceneObjectsAction(view.id, sceneId, moves));
+  };
+  const moveMany = (moves: Array<ObjectMove & { from: TokenPosition }>) => {
+    const placed = moves.filter((move) => move.id > 0);
+    if (sceneId === null || !placed.length) return;
+    const toMoves = (pick: "at" | "from") => placed.map((move) => ({ id: move.id, at: move[pick] }));
+    pushUndoStep(sceneId, { undo: () => sendMoves(toMoves("from")), redo: () => sendMoves(toMoves("at")) });
+    sendMoves(toMoves("at"));
+  };
+  /// shortcut: скасування ставить обʼєкти назад поодинці й упирається в ліміт ходів понад ~30 за раз; тоді — пакетне додавання.
+  const eraseMany = (ids: number[]) => {
+    const erased = readShown().filter((object) => ids.includes(object.id) && object.id > 0);
+    if (sceneId === null || !erased.length) return;
+    const removeAll = () => {
+      const realIds = erased.map((object) => findCurrentId(object.id));
+      return sendOptimistic(key, readShown().filter((object) => !realIds.includes(object.id)), () => removeSceneObjectsAction(view.id, sceneId, realIds));
+    };
+    void removeAll();
+    pushUndoStep(sceneId, { undo: () => erased.forEach((object) => void add(object.imageKey, toObjectPlacement(object), findCurrentId(object.id))), redo: removeAll });
+  };
+
   const others = (id: number) => readShown().filter((object) => object.id !== id);
   const actOnChosen = (act: (object: SceneObjectView) => void) => () => {
     const object = chosenId === null ? null : findShown(chosenId);
@@ -94,10 +119,14 @@ export function useMapObjects({ view, isEditing, gridColumns, findDropPosition, 
     (id, point) => {
       const object = findShown(id);
       const at = findDropPosition(point);
+      if (at && group.moveWith(`object-${findCurrentId(id)}`, at)) return;
       if (object && at) change(id, { ...toObjectPlacement(object), at });
     },
     (point) => findDropPosition(point) !== null,
-    (id) => setChosenId(findCurrentId(id) === chosenId ? null : findCurrentId(id)),
+    (id) => {
+      group.clear();
+      setChosenId(findCurrentId(id) === chosenId ? null : findCurrentId(id));
+    },
   );
 
   const shown = read(key, view.objects)
@@ -138,6 +167,8 @@ export function useMapObjects({ view, isEditing, gridColumns, findDropPosition, 
     raise: actOnChosen((object) => change(object.id, { ...toObjectPlacement(object), sortOrder: findFrontSortOrder(others(object.id)) })),
     lower: actOnChosen((object) => change(object.id, { ...toObjectPlacement(object), sortOrder: findBackSortOrder(others(object.id)) })),
     remove: actOnChosen((object) => erase(object.id)),
+    moveMany,
+    eraseMany,
   };
 }
 

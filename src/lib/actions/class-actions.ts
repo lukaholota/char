@@ -7,7 +7,7 @@ import { loadClassOptionSpellOffer, type ClassOptionSpellOffer } from "@/server/
 import { loadRaceAtCreation2014, loadRaceSpellOffer2014, type RaceSpellOffer2014 } from "@/server/db/race-spell-choices-2014";
 import { loadCreationSpeciesSpellIds } from "@/server/db/creation-content";
 
-export type CreationSpecies = { raceId: number; raceChoiceOptionIds: number[] };
+export type CreationSpecies = { raceId: number; raceChoiceOptionIds: number[]; raceSpellIds?: number[] };
 
 export async function getSubclassesByClassId(classId: number) {
   const normalizedClassId = Number(classId);
@@ -46,7 +46,9 @@ export async function getCreationSpellOffer(
 
 export async function findSpeciesSpellIds(species: CreationSpecies | null | undefined): Promise<number[]> {
   const [raceId] = toPositiveIds([species?.raceId]);
-  return raceId ? loadCreationSpeciesSpellIds(raceId, toPositiveIds(species?.raceChoiceOptionIds)) : [];
+  if (!raceId) return [];
+  const grantedIds = await loadCreationSpeciesSpellIds(raceId, toPositiveIds(species?.raceChoiceOptionIds));
+  return [...grantedIds, ...toPositiveIds(species?.raceSpellIds)];
 }
 
 /** Книга тіней і риса підкласу 1-го рівня в конструкторі: заклинання, уже обрані класом і рисою, не пропонуються. */

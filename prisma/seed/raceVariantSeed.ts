@@ -1,5 +1,20 @@
 import { Prisma, PrismaClient, Variants, Source, Races } from "@prisma/client";
 
+const buildMarkASIWithOneOther = (fixedAbility: string) => ({
+    basic: {
+        simple: { [fixedAbility]: 2 },
+        flexible: { groups: [{ groupName: '+1 до Однієї', value: 1, choiceCount: 1, unique: true }] },
+    },
+    tasha: {
+        flexible: {
+            groups: [
+                { groupName: '+2 до Однієї', value: 2, choiceCount: 1, unique: true },
+                { groupName: '+1 до Однієї', value: 1, choiceCount: 1, unique: true },
+            ],
+        },
+    },
+});
+
 export const seedRaceVariants = async (prisma: PrismaClient) => {
     console.log('👨 Додаємо варіанти Людей...');
     console.log('🧙‍♂️ Додаємо варіанти Half-Elf (Драгонмарки)...');
@@ -312,7 +327,7 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
             raceId: halfElf.raceId,
             name: Variants.HALF_ELF_MARK_OF_DETECTION_EBERRON,
             source: Source.EBERRON,
-            overridesRaceASI: { CHA: 2, INT: 1 },
+            overridesRaceASI: buildMarkASIWithOneOther('WIS'),
             traits: {
                 create: [
                     connectFeature('Deductive Intuition'),
@@ -424,7 +439,7 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
             raceId: human.raceId,
             name: Variants.HUMAN_MARK_OF_HANDLING_EBERRON,
             source: Source.EBERRON,
-            overridesRaceASI: { WIS: 2, CHA: 1 }, // Using CHA as "one other" +1 for simplicity, or should I leave it empty? ASI in variants is usually fixed.
+            overridesRaceASI: buildMarkASIWithOneOther('WIS'),
             traits: {
                 create: [
                     connectFeature('Wild Intuition'),
@@ -439,7 +454,7 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
             raceId: human.raceId,
             name: Variants.HUMAN_MARK_OF_MAKING_EBERRON,
             source: Source.EBERRON,
-            overridesRaceASI: { INT: 2, DEX: 1 }, // Using DEX as "one other" +1
+            overridesRaceASI: buildMarkASIWithOneOther('INT'),
             traits: {
                 create: [
                     connectFeature('Artisan\'s Intuition'),
@@ -455,7 +470,7 @@ export const seedRaceVariants = async (prisma: PrismaClient) => {
             name: Variants.HUMAN_MARK_OF_PASSAGE_EBERRON,
             source: Source.EBERRON,
             overridesRaceSpeed: 35,
-            overridesRaceASI: { DEX: 2, INT: 1 }, // Using INT as "one other" +1
+            overridesRaceASI: buildMarkASIWithOneOther('DEX'),
             traits: {
                 create: [
                     connectFeature('Intuition of the Voyager'),

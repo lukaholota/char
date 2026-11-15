@@ -9,6 +9,7 @@ import type { RaceI } from "@/lib/types/model-types";
 import { RaceChoiceOptionGroups, type RaceChoiceOptionLike } from "@/lib/components/characterCreator/RaceChoiceOptionGroups";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import { buildGroupPickHint, findFirstHint } from "@/lib/components/wizard/pick-hint";
+import { keepRaceChoiceOptionsOfVariant } from "@/rules/race-variant-choice-groups";
 
 interface Props {
   race?: RaceI | null;
@@ -21,6 +22,8 @@ type RaceWithChoices = RaceI & { raceChoiceOptions?: RaceChoiceOptionLike[] };
 
 const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
+  const raceVariantId = usePersFormStore((state) => state.formData.raceVariantId);
+  const variantName = race?.raceVariants?.find((variant) => variant.raceVariantId === raceVariantId)?.name;
 
   const { form, onSubmit } = useStepForm(raceChoiceOptionsSchema, (data) => {
     updateFormData({ raceChoiceSelections: data.raceChoiceSelections });
@@ -34,13 +37,13 @@ const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }
   const optionsToUse = useMemo(() => {
     const raw = ((race as RaceWithChoices | null | undefined)?.raceChoiceOptions || []) as RaceChoiceOptionLike[];
 
-    return raw.filter((opt) => {
+    return keepRaceChoiceOptionsOfVariant(raw, variantName).filter((opt) => {
       const optSubraceId = opt.subraceId ?? null;
       if (!optSubraceId) return true;
       if (!subraceId) return false;
       return optSubraceId === subraceId;
     });
-  }, [race, subraceId]);
+  }, [race, subraceId, variantName]);
 
   const groupedOptions = useMemo(() => {
     const groups: Record<string, RaceChoiceOptionLike[]> = {};

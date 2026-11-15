@@ -465,3 +465,317 @@ nav[data-safe-navigation], [data-safe-sheet-tabs].fixed {
     display: none;
   }
 }
+
+/* Аура підсвітки токена: анімуються лише rotate/scale/opacity — шар малюється раз, далі його рухає композитор. */
+.token-aura {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 9999px;
+}
+
+.token-aura::before,
+.token-aura::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+}
+
+.token-aura-fire {
+  inset: -12%;
+  background: radial-gradient(closest-side, rgb(234 88 12 / 0.55) 68%, rgb(153 27 27 / 0.3) 84%, transparent);
+  animation: token-aura-breathe 1.1s ease-in-out infinite alternate;
+}
+
+.token-flame {
+  position: absolute;
+  width: 30%;
+  translate: -50% -100%;
+  transform-origin: 50% 100%;
+  border-radius: 50% 50% 45% 45% / 75% 75% 25% 25%;
+  background: radial-gradient(ellipse 50% 70% at 50% 85%, rgb(253 186 116) 0%, rgb(234 88 12 / 0.9) 45%, rgb(153 27 27 / 0.6) 75%, transparent 100%);
+  mix-blend-mode: screen;
+  filter: blur(0.8px);
+  animation: token-flame-lick 0.5s ease-in-out infinite alternate;
+}
+
+.token-flame-core {
+  width: 16%;
+  background: radial-gradient(ellipse 50% 65% at 50% 85%, rgb(255 255 255) 0%, rgb(254 240 138) 35%, rgb(251 146 60 / 0.7) 70%, transparent 100%);
+}
+
+.token-ember {
+  position: absolute;
+  width: 3.5%;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: rgb(254 240 138);
+  box-shadow: 0 0 3px 1px rgb(249 115 22);
+  opacity: 0;
+  animation: token-ember-rise 1.6s ease-out infinite;
+}
+
+@keyframes token-flame-lick {
+  from {
+    scale: 0.88 0.72;
+    opacity: 0.8;
+  }
+  to {
+    scale: 1.06 1.18;
+    opacity: 1;
+  }
+}
+
+@keyframes token-ember-rise {
+  15% {
+    opacity: 1;
+  }
+  to {
+    translate: 120% -900%;
+    scale: 0.4;
+    opacity: 0;
+  }
+}
+
+.token-aura-arcane {
+  inset: -20%;
+  background: radial-gradient(closest-side, rgb(170 137 245 / 0.6) 62%, rgb(117 71 225 / 0.3) 80%, transparent);
+  animation: token-aura-breathe 2.4s ease-in-out infinite alternate;
+}
+
+.token-aura-arcane::before {
+  inset: 4%;
+  -webkit-mask: radial-gradient(closest-side, transparent 86%, #000 88%, #000 96%, transparent 98%);
+  mask: radial-gradient(closest-side, transparent 86%, #000 88%, #000 96%, transparent 98%);
+  background: repeating-conic-gradient(rgb(227 216 253) 0deg 7deg, transparent 7deg 15deg, rgb(200 178 250 / 0.8) 15deg 17deg, transparent 17deg 30deg);
+  animation: token-aura-turn 14s linear infinite;
+}
+
+.token-aura-arcane::after {
+  inset: 12%;
+  -webkit-mask: radial-gradient(closest-side, transparent 88%, #000 91%, #000 97%, transparent 99%);
+  mask: radial-gradient(closest-side, transparent 88%, #000 91%, #000 97%, transparent 99%);
+  background: repeating-conic-gradient(rgb(200 178 250) 0deg 2deg, transparent 2deg 20deg);
+  animation: token-aura-turn 9s linear infinite reverse;
+}
+
+.token-aura-frost {
+  inset: -16%;
+  background: radial-gradient(closest-side, rgb(186 230 253 / 0.5) 66%, rgb(56 189 248 / 0.25) 82%, transparent);
+  animation: token-aura-breathe 2.6s ease-in-out infinite alternate;
+}
+
+.token-aura-frost::before {
+  -webkit-mask: radial-gradient(closest-side, transparent 64%, #000 69%, #000 76%, transparent 100%);
+  mask: radial-gradient(closest-side, transparent 64%, #000 69%, #000 76%, transparent 100%);
+  background: repeating-conic-gradient(rgb(240 249 255) 0deg 1.2deg, transparent 1.2deg 9deg, rgb(125 211 252 / 0.85) 9deg 10deg, transparent 10deg 15deg);
+  animation: token-aura-turn 40s linear infinite;
+}
+
+.token-aura-frost::after {
+  inset: 8%;
+  -webkit-mask: radial-gradient(closest-side, transparent 70%, #000 76%, transparent 100%);
+  mask: radial-gradient(closest-side, transparent 70%, #000 76%, transparent 100%);
+  background: repeating-conic-gradient(from 6deg, rgb(224 242 254 / 0.8) 0deg 2deg, transparent 2deg 24deg);
+  animation: token-aura-turn 28s linear infinite reverse;
+}
+
+.token-sparkle {
+  position: absolute;
+  width: 14%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background:
+    radial-gradient(circle, rgb(255 255 255) 0 10%, transparent 12%),
+    linear-gradient(transparent 46%, rgb(224 242 254) 46% 54%, transparent 54%),
+    linear-gradient(90deg, transparent 46%, rgb(224 242 254) 46% 54%, transparent 54%);
+  -webkit-mask: radial-gradient(circle, #000 15%, transparent 70%);
+  mask: radial-gradient(circle, #000 15%, transparent 70%);
+  animation: token-sparkle-twinkle 2.2s ease-in-out infinite;
+}
+
+.token-aura-rays {
+  inset: -28%;
+  background: radial-gradient(closest-side, rgb(253 230 138 / 0.55) 45%, rgb(251 191 36 / 0.2) 70%, transparent);
+  animation: token-aura-breathe 2s ease-in-out infinite alternate;
+}
+
+.token-aura-rays::before,
+.token-aura-rays::after {
+  -webkit-mask: radial-gradient(closest-side, transparent 38%, #000 48%, transparent 100%);
+  mask: radial-gradient(closest-side, transparent 38%, #000 48%, transparent 100%);
+}
+
+.token-aura-rays::before {
+  background: repeating-conic-gradient(rgb(254 243 199 / 0.9) 0deg 3deg, transparent 6deg 15deg);
+  animation: token-aura-turn 30s linear infinite;
+}
+
+.token-aura-rays::after {
+  background: repeating-conic-gradient(from 7deg, rgb(253 224 71 / 0.6) 0deg 2deg, transparent 4deg 22deg);
+  animation: token-aura-turn 45s linear infinite reverse;
+}
+
+.token-aura-shadow {
+  inset: -12%;
+  background: radial-gradient(closest-side, rgb(46 16 101 / 0.75) 66%, rgb(15 23 42 / 0.5) 82%, transparent);
+  animation: token-aura-breathe 2.2s ease-in-out infinite alternate;
+}
+
+.token-smoke {
+  width: 34%;
+  mix-blend-mode: normal;
+  filter: blur(2.5px);
+  background: radial-gradient(ellipse 50% 70% at 50% 85%, rgb(30 27 75 / 0.95) 0%, rgb(91 33 182 / 0.75) 45%, rgb(15 23 42 / 0.5) 75%, transparent 100%);
+  animation-name: token-smoke-rise;
+}
+
+.token-aura-storm {
+  inset: -14%;
+  background: radial-gradient(closest-side, rgb(125 211 252 / 0.6) 66%, rgb(99 102 241 / 0.3) 82%, transparent);
+  animation: token-storm-flash 2.3s steps(1, end) infinite;
+}
+
+.token-bolt {
+  fill: none;
+  stroke: rgb(224 242 254);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 2px rgb(56 189 248));
+  opacity: 0.25;
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: token-bolt-crack 1.3s steps(1, end) infinite;
+}
+
+.token-bolt + .token-bolt {
+  stroke: rgb(199 210 254);
+  animation-duration: 1.7s;
+  animation-delay: -0.6s;
+}
+
+/* На портреті ряд обрізає все поза карткою: ефект іде всередину по краях, лице лишається відкритим. */
+.token-aura-inside {
+  z-index: auto;
+  inset: -6%;
+  mix-blend-mode: screen;
+  -webkit-mask: radial-gradient(closest-side, transparent 45%, #000 80%);
+  mask: radial-gradient(closest-side, transparent 45%, #000 80%);
+}
+
+.token-aura-inside.token-aura-shadow {
+  mix-blend-mode: normal;
+}
+
+@keyframes token-sparkle-twinkle {
+  0%,
+  100% {
+    scale: 0.3;
+    rotate: 0deg;
+    opacity: 0;
+  }
+  50% {
+    scale: 1;
+    rotate: 45deg;
+    opacity: 1;
+  }
+}
+
+@keyframes token-smoke-rise {
+  from {
+    scale: 0.85 0.7;
+    opacity: 0.6;
+  }
+  to {
+    scale: 1.1 1.25;
+    opacity: 0.95;
+  }
+}
+
+@keyframes token-storm-flash {
+  0% {
+    opacity: 0.55;
+  }
+  40% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 0.55;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  73% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes token-bolt-crack {
+  0% {
+    opacity: 1;
+    rotate: 0deg;
+  }
+  12% {
+    opacity: 0.25;
+  }
+  20% {
+    opacity: 1;
+    rotate: 40deg;
+  }
+  32% {
+    opacity: 0.25;
+  }
+  55% {
+    opacity: 1;
+    rotate: -70deg;
+  }
+  70% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes token-aura-turn {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes token-aura-flicker {
+  from {
+    scale: 0.97 1;
+    opacity: 0.8;
+  }
+  to {
+    scale: 1.04 1.12;
+    opacity: 1;
+  }
+}
+
+@keyframes token-aura-breathe {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .token-aura,
+  .token-aura::before,
+  .token-aura::after,
+  .token-flame,
+  .token-sparkle {
+    animation: none;
+  }
+
+  .token-bolt {
+    opacity: 1;
+    animation: none;
+  }
+
+  .token-ember {
+    display: none;
+  }
+}

@@ -12,7 +12,7 @@ import { findMetamagicAdeptPickProblem } from "@/rules/feat-choice-pick-count";
 
 type FeatChoiceOptionRow = {
   choiceOptionId: number;
-  choiceOption: { groupName: string; optionNameEng: string; features?: readonly { featureId: number }[] } | null;
+  choiceOption: { groupName: string; optionNameEng: string; optionName?: string; features?: readonly { featureId: number }[] } | null;
 };
 
 export type GateableFeat = {
@@ -84,7 +84,7 @@ function toRepeatCandidate(pick: FeatPick): FeatRepeatCandidate {
 function describeRepeatProblem(problem: FeatRepeatProblem): string {
   const featName = translateValue(problem.featName);
   if (problem.kind === "not-repeatable") return `Рису «${featName}» можна взяти лише раз.`;
-  return `«${featName}» удруге береться лише з іншим вибором «${problem.groupName}»: ${problem.optionNameEng} уже є.`;
+  return `«${featName}» удруге береться лише з іншим вибором «${problem.groupName}»: «${problem.optionName ?? problem.optionNameEng}» уже взято.`;
 }
 
 function describeCategoryProblem(pick: FeatPick): string {

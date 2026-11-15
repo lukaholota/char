@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  collectChoicesTakenByOtherCopies,
   findFeatRepeatProblem,
   findFeatRepeatProblemInBatch,
   isFeatCategoryAllowed,
@@ -79,5 +80,25 @@ describe("KR27.4 — категорію дозволяє джерело вибо
 
   it("риса 2014 без категорії проходить будь-яке джерело", () => {
     expect(isFeatCategoryAllowed("BACKGROUND_ORIGIN", null)).toBe(true);
+  });
+});
+
+describe("BUG-060 — друга копія риси не бере вже взятий список", () => {
+  it("віддає списки, обрані іншими копіями Посвяченого у магію", () => {
+    const taken = collectChoicesTakenByOtherCopies("MAGIC_INITIATE", [{ "Список заклинань": 3381 }, undefined, { "Список заклинань": [3379], Інше: 7 }]);
+    expect([...taken].sort()).toEqual([3379, 3381]);
+  });
+
+  it("для риси без унікальної групи нічого не вимикає", () => {
+    expect(collectChoicesTakenByOtherCopies("SKILLED", [{ "Список заклинань": 3381 }]).size).toBe(0);
+    expect(collectChoicesTakenByOtherCopies(undefined, [{ "Список заклинань": 3381 }]).size).toBe(0);
+  });
+
+  it("відмова називає українську назву взятого списку", () => {
+    const problem = findFeatRepeatProblem(
+      { name: "MAGIC_INITIATE", isRepeatable: true, choices: [{ ...list("Magic Initiate 2024 (Cleric)"), optionName: "Клірик" }] },
+      [MAGIC_INITIATE_CLERIC],
+    );
+    expect(problem).toMatchObject({ kind: "same-choice", optionName: "Клірик" });
   });
 });

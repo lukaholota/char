@@ -134,3 +134,33 @@ describe("Напівельф зі спадком дроу (SCAG): Магія д�
     expect(await findRaceSpellGrants2014(prisma, { persId, race: "HALF_ELF_2014", subrace: null, characterLevel: 5 })).toEqual({ created: [], adopted: [] });
   });
 });
+
+describe("BUG-056 — Напівельф із Міткою Виявлення (ERLW)", () => {
+  async function buildMarkOfDetectionForm(overrides: Partial<PersFormData>) {
+    const halfElf = await raceByName(Races.HALF_ELF_2014);
+    const mark = await prisma.raceVariant.findFirstOrThrow({ where: { raceId: halfElf.raceId, name: "HALF_ELF_MARK_OF_DETECTION_EBERRON" }, select: { raceVariantId: true } });
+    return buildHalfElfForm("Універсальність навичок", { raceVariantId: mark.raceVariantId, skills: [], ...overrides });
+  }
+
+  it("Мудрість +2 і +1 до обраної характеристики, без Універсальності навичок", async () => {
+    await signIn("half-elf-mark-of-detection");
+    const form = await buildMarkOfDetectionForm({
+      raceChoiceSelections: {},
+      racialBonusChoiceSchema: { basicChoices: [{ groupIndex: 0, choiceCount: 1, selectedAbilities: ["CON"] }], tashaChoices: [] },
+    });
+    const created = await createCharacter(form);
+    expect(created).not.toHaveProperty("error");
+    const pers = await prisma.pers.findUniqueOrThrow({ where: { persId: (created as { persId: number }).persId }, select: { wis: true, con: true, cha: true, int: true } });
+    expect(pers).toEqual({ wis: 12, con: 14, cha: 8, int: 12 });
+  });
+
+  it("Універсальність напівельфа з міткою не приймається", async () => {
+    await signIn("half-elf-mark-with-versatility");
+    const form = await buildMarkOfDetectionForm({
+      skills: ["ATHLETICS", "STEALTH"],
+      racialBonusChoiceSchema: { basicChoices: [{ groupIndex: 0, choiceCount: 1, selectedAbilities: ["CON"] }], tashaChoices: [] },
+    });
+    expect(await createCharacter(form)).toMatchObject({ error: "Вибір «Універсальність напівельфа» недоступний з цим варіантом раси." });
+    expect(await prisma.pers.count()).toBe(0);
+  });
+});

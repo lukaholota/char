@@ -14,10 +14,10 @@ import { ContentImage } from "@/components/no-ai/ContentImage";
 import { isMediaImageUrl } from "@/lib/media-url";
 import { findCutoutOutlineClass, findHeroCutoutKey, useCutoutImage } from "./token-cutout";
 import { HeroConditionsDialog } from "./HeroConditionsDialog";
-import { HIGHLIGHT_RING_CLASS, MapTokenSlot, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type PlacedToken, type TokenDrag, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
-import { SPOTLIGHT_RING_CLASS, useIsHeroTurn } from "./combat-turn";
+import { HIGHLIGHT_RING_CLASS, MapTokenSlot, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
+import { SPOTLIGHT_RING_CLASS, SpotlightAura, useIsHeroTurn } from "./combat-turn";
 import { TokenConditionMarks } from "./TokenConditionMarks";
-import { useIsSpotlit, useSpotlightControl } from "./use-token-conditions";
+import { useSpotlightStyle, useSpotlightControl } from "./use-token-conditions";
 import { NO_TOKEN_CONDITIONS } from "@/rules/token-conditions";
 import { TokenName } from "./TokenName";
 import { holdValueBefore, rememberUndo } from "./map-history";
@@ -27,16 +27,16 @@ import { TOKEN_SIZE_PX } from "./use-token-scale";
 import { DownMark } from "./MapCreatureHitPoints";
 import { describeHeroLifeState, type HeroLifeState } from "@/rules/hero-life-state";
 import type { TokenTransform } from "@/rules/token-transform";
-import { TokenTransformHandles, findTokenRotationStyle, scaleGhostSize, scaleTokenSize, type SelectedToken, type TokenSelection } from "./TokenTransformControls";
+import { GroupedTokenFrame, TokenTransformHandles, findTokenRotationStyle, scaleGhostSize, scaleTokenSize, type SelectedToken, type TokenSelection } from "./TokenTransformControls";
 
 type Point = { clientX: number; clientY: number };
 const HERO_CELLS = 1;
 
-type HeroTokensInput = { view: GameSessionView; moves: TokenMoves; layout: TokenLayout; nameMode: TokenNameMode; selection: TokenSelection; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean; blocksMove: ((from: TokenPosition, to: TokenPosition) => boolean) | null };
+type HeroTokensInput = { view: GameSessionView; moves: TokenMoves; layout: TokenLayout; nameMode: TokenNameMode; selection: TokenSelection; group: TokenGroupBinding; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean; blocksMove: ((from: TokenPosition, to: TokenPosition) => boolean) | null };
 type Walk = { ghost: TokenGhost<number>; at: TokenPosition | null; isBlocked: boolean };
 
 /// Свого героя рухає гравець, усіх — майстер; дотик без руху вибирає токен на мапі, а наступний відкриває стани героя.
-export function useHeroTokens({ view, moves, layout, nameMode, selection, findDropPosition, isTurned, blocksMove }: HeroTokensInput) {
+export function useHeroTokens({ view, moves, layout, nameMode, selection, group, findDropPosition, isTurned, blocksMove }: HeroTokensInput) {
   const [conditionsHeroId, setConditionsHeroId] = useState<number | null>(null);
   const transforms = useHeroTransforms(view);
   const canMove = (member: GameSessionMemberView) => !view.isArchived && (view.myRole === "GM" || member.userId === view.myUserId);
@@ -61,6 +61,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, findDr
       const member = view.members.find((candidate) => candidate.heroId === heroId);
       if (!member) return;
       const position = findAllowedStep(findWalkStart(heroId, member), findSnappedDrop(point)).at;
+      if (position && group.moveWith(findKey(heroId), position)) return;
       if (position || moves.findPosition(member)) void moves.sendPosition(member, position);
     },
     (point) => findDropPosition(point) !== null,
@@ -147,7 +148,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, findDr
       const zClass = isSelected ? "z-[33]" : member.userId === view.myUserId ? "z-[32]" : canMove(member) ? "z-[31]" : "z-30";
       const transform = transforms.find(member);
       const shownSize = scaleTokenSize(size, transform);
-      const handles = isSelected && selected ? <TokenTransformHandles token={selected} onDeselect={() => selection.select(null)} /> : null;
+      const handles = isSelected && selected ? <TokenTransformHandles token={selected} onDeselect={() => selection.select(null)} /> : group.isGrouped(findKey(member.heroId)) ? <GroupedTokenFrame rotation={transform.rotation} /> : null;
       return (
         <MapTokenSlot key={member.heroId} position={position} size={shownSize} className={zClass}>
           {renderToken(member, shownSize, { labelWidth: findLabelWidth(layout, 1), isHighlighted: layout.isHighlighted(position, HERO_CELLS), isOutlined: layout.isCutoutOutlined, rotation: transform.rotation }, handles)}
@@ -176,13 +177,14 @@ type TokenFaceProps = {
 function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = "short", onBoard = null, children }: TokenFaceProps) {
   const name = member.persName ?? member.name;
   const isTurn = useIsHeroTurn(member.persId);
-  const isSpotlit = useIsSpotlit({ kind: "hero", id: member.heroId }, member.conditions);
+  const spotlight = useSpotlightStyle({ kind: "hero", id: member.heroId }, member.conditions);
   const { lifeState } = member;
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={name}>
-      <div className={cn("relative rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={{ width: size, height: size }}>
+      <div className={cn("relative isolate rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={{ width: size, height: size }}>
+        <SpotlightAura style={spotlight} />
         <div className="h-full w-full" style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
-          <HeroPortrait member={member} name={name} isOnBoard={onBoard !== null} frameClass={cn(lifeState.kind === "dead" && "opacity-50 grayscale", (isTurn || isSpotlit) && SPOTLIGHT_RING_CLASS)} borderClass={lifeState.kind === "dying" ? "border-rose-500" : isMine ? "border-arcane-300" : "border-white/70"} outlineClass={findCutoutOutlineClass(lifeState.kind === "dying" ? "dying" : isMine ? "mine" : "other", Boolean(onBoard?.isOutlined))} />
+          <HeroPortrait member={member} name={name} isOnBoard={onBoard !== null} frameClass={cn(lifeState.kind === "dead" && "opacity-50 grayscale", (isTurn || spotlight === "glow") && SPOTLIGHT_RING_CLASS)} borderClass={lifeState.kind === "dying" ? "border-rose-500" : isMine ? "border-arcane-300" : "border-white/70"} outlineClass={findCutoutOutlineClass(lifeState.kind === "dying" ? "dying" : isMine ? "mine" : "other", Boolean(onBoard?.isOutlined))} />
         </div>
         {lifeState.kind === "dead" ? <DownMark /> : null}
         {children}
@@ -190,7 +192,7 @@ function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = 
       <div className="flex flex-col items-center">
         {lifeState.kind === "dying" ? <DeathSaveMarks successes={lifeState.successes} failures={lifeState.failures} /> : null}
         {!children && lifeState.kind !== "up" ? <span className="sr-only">{describeHeroLifeState(lifeState)}</span> : null}
-        {isSpotlit ? <span className="sr-only">Підсвічено</span> : null}
+        {spotlight ? <span className="sr-only">Підсвічено</span> : null}
         <TokenConditionMarks token={{ kind: "hero", id: member.heroId }} conditions={member.conditions} />
         {nameMode ? <TokenName name={name} mode={nameMode} tokenSize={onBoard?.labelWidth ?? (typeof size === "number" ? size : TOKEN_SIZE_PX)} /> : null}
       </div>
@@ -245,10 +247,12 @@ function DraggedToken({ ghost, member, size, rotation, isOutlined, isMine, isTur
 
 export type TokenMoves = ReturnType<typeof useTokenMoves>;
 
+export const findHeroPositionKey = (sceneId: number | null, heroId: number) => `hero-position:${sceneId}:${heroId}`;
+
 /// Рух видно одразу й по всій кімнаті; правдою знову стає сервер, щойно прийде вигляд після відповіді.
 export function useTokenMoves(view: GameSessionView) {
   const read = useOptimisticReader();
-  const findKey = (member: GameSessionMemberView) => `hero-position:${view.viewedSceneId}:${member.heroId}`;
+  const findKey = (member: GameSessionMemberView) => findHeroPositionKey(view.viewedSceneId, member.heroId);
   const findPosition = (member: GameSessionMemberView) => read(findKey(member), member.token);
   const showPosition = (member: GameSessionMemberView, position: TokenPosition | null) => {
     holdValueBefore(findKey(member), findPosition(member));

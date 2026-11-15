@@ -119,6 +119,19 @@ describe("стани на токенах", () => {
     await expect(prisma.gameMapCreature.update({ where: { id: creatureId }, data: { exhaustionLevel: 7 } })).rejects.toThrow();
   });
 
+  it("новий вигляд підсвітки замінює попередній, а вимкнення знімає будь-який", async () => {
+    const { gm, sessionId } = await createTable();
+    const creatureId = await placeGoblin(sessionId, gm.id);
+    const toggle = (condition: string, isActive: boolean) => changeCreatureConditions(sessionId, gm.id, creatureId, { kind: "toggle", condition, isActive } as never);
+    const readConditions = async () => (await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: creatureId }, select: { conditions: true } })).conditions;
+    await toggle("prone", true);
+    await toggle("spotlit", true);
+    await toggle("spotlit-fire", true);
+    expect(await readConditions()).toEqual(["prone", "spotlit-fire"]);
+    await toggle("spotlit", false);
+    expect(await readConditions()).toEqual(["prone"]);
+  });
+
   it("одночасні зміни різних станів не затирають одна одну", async () => {
     const { gm, sessionId } = await createTable();
     const creatureId = await placeGoblin(sessionId, gm.id);

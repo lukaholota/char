@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext, useState, type ReactNode } from "react";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { buildFullSizeMediaUrl, isMediaImageUrl } from "@/lib/media-url";
 import { PRIVATE_ELEMENT_CLASS } from "@/lib/monitoring/session-replay";
@@ -10,19 +10,26 @@ import { buildCreatureInitials, type MapCreatureView } from "@/rules/game-map-cr
 import { GameAvatar } from "./GameAvatar";
 import { DownMark, HitPointBar } from "./MapCreatureHitPoints";
 import { OpenCreatureCardContext } from "./MapCreatureTokens";
+import type { SpotlightStyle } from "@/rules/token-conditions";
+import { SpotlightAura } from "./combat-turn";
+import { usePortraitSpotlight, type PortraitSpotlightInput, type SpotlightControl } from "./use-token-conditions";
+
+/// Тонша за кільце токена: ряд портретів прокручується й обрізав би ширше сяйво.
+const SPOTLIGHT_PORTRAIT_CLASS = "ring-2 ring-arcane-300 shadow-[0_0_0.6rem_0.1rem] shadow-arcane-300/80";
 
 export const CARD_WIDTH = "w-14 [@container(min-width:48rem)]:w-[4.5rem]";
 const CURRENT_CARD_WIDTH = "w-[4.25rem] [@container(min-width:48rem)]:w-[5.5rem]";
 
-type CombatantItemProps = { combatant: CombatantView; isCurrent: boolean; canEdit: boolean; onEditInitiative: (combatantId: number, initiative: number) => void };
+type CombatantItemProps = { combatant: CombatantView; isCurrent: boolean; canEdit: boolean; spotlight: PortraitSpotlightInput | null; onEditInitiative: (combatantId: number, initiative: number) => void };
 
 /// Портрет у стрічці ініціативи: хто зараз ходить — більший і в кільці, ініціатива — під портретом.
-export function CombatantItem({ combatant, isCurrent, canEdit, onEditInitiative }: CombatantItemProps) {
+export function CombatantItem({ combatant, isCurrent, canEdit, spotlight: spotlightInput, onEditInitiative }: CombatantItemProps) {
   const [isEditing, setIsEditing] = useState(false);
   const name = combatant.hero?.name ?? combatant.creature?.label ?? "";
   const openCreatureCard = useContext(OpenCreatureCardContext);
   const creatureId = combatant.creature?.id ?? null;
-  const portrait = <CombatantPortrait creature={combatant.creature} avatarUrl={combatant.hero?.avatarUrl ?? null} name={name} isCurrent={isCurrent} isDown={Boolean(combatant.creature?.isDown)} />;
+  const spotlight = usePortraitSpotlight(spotlightInput);
+  const portrait = <CombatantPortrait creature={combatant.creature} avatarUrl={combatant.hero?.avatarUrl ?? null} name={name} isCurrent={isCurrent} isDown={Boolean(combatant.creature?.isDown)} spotlight={spotlight.style} />;
   return (
     <li aria-current={isCurrent ? "true" : undefined} className={cn("flex shrink-0 flex-col items-center gap-1", isCurrent ? CURRENT_CARD_WIDTH : CARD_WIDTH)}>
       {openCreatureCard && creatureId !== null ? (
@@ -30,7 +37,7 @@ export function CombatantItem({ combatant, isCurrent, canEdit, onEditInitiative 
           {portrait}
         </button>
       ) : (
-        portrait
+        <SpotlightPortraitButton control={spotlight.control} name={name}>{portrait}</SpotlightPortraitButton>
       )}
       {isEditing ? (
         <InitiativeEditor
@@ -55,20 +62,32 @@ export function CombatantItem({ combatant, isCurrent, canEdit, onEditInitiative 
 
 const INITIATIVE_CLASS = "grid h-6 w-full place-items-center font-rpg-display text-lg leading-none text-slate-50 tabular-nums";
 
-type CombatantPortraitProps = { creature: MapCreatureView | null; avatarUrl: string | null; name: string; isCurrent: boolean; isDown: boolean };
-
-export function CombatantPortrait({ creature, avatarUrl, name, isCurrent, isDown }: CombatantPortraitProps) {
-  const sideBorder = creature ? (creature.isAlly ? "border-emerald-400" : "border-rose-500") : "border-white/70";
+/// Без права перемикати портрет лише показує підсвітку, яку ввімкнули інші.
+export function SpotlightPortraitButton({ control, name, children }: { control: SpotlightControl | null; name: string; children: ReactNode }) {
+  if (!control) return children;
   return (
-    <span className={cn("relative block aspect-[4/5] w-full overflow-hidden rounded-xl border-2 bg-slate-900", sideBorder, isCurrent && "ring-2 ring-arcane-300 ring-offset-2 ring-offset-slate-950")}>
+    <button type="button" aria-pressed={control.isOn} aria-label={`Підсвітити «${name}»`} title={control.isOn ? "Зняти підсвітку" : "Підсвітити для всіх"} onClick={control.onToggle} className="block w-full rounded-xl text-left">
+      {children}
+    </button>
+  );
+}
+
+type CombatantPortraitProps = { creature: MapCreatureView | null; avatarUrl: string | null; name: string; isCurrent: boolean; isDown: boolean; spotlight: SpotlightStyle | null };
+
+export function CombatantPortrait({ creature, avatarUrl, name, isCurrent, isDown, spotlight }: CombatantPortraitProps) {
+  const sideBorder = creature ? (creature.isAlly ? "border-emerald-400/70" : "border-rose-500/70") : "border-white/15";
+  return (
+    <span className={cn("relative block aspect-[4/5] w-full overflow-hidden rounded-xl border bg-slate-900", sideBorder, isCurrent && "ring-2 ring-arcane-300 ring-offset-2 ring-offset-slate-950", spotlight === "glow" && SPOTLIGHT_PORTRAIT_CLASS)}>
       <span className={cn("relative block h-full w-full", isDown && "opacity-50 grayscale")}>
         {creature ? <CreatureArt creature={creature} /> : <HeroArt avatarUrl={avatarUrl} name={name} />}
       </span>
+      <SpotlightAura style={spotlight} isInside />
       {isDown ? <DownMark /> : null}
       {creature && creature.badge !== null ? <span aria-hidden className="absolute right-0.5 top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-slate-950 px-1 text-xs leading-none text-slate-100">{creature.badge}</span> : null}
-      <span className={cn("absolute inset-x-0 bottom-0 truncate bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent px-1 pb-1.5 pt-3 text-center text-xs leading-tight", isDown ? "text-slate-400 line-through" : "text-slate-50")}>
+      <span className={cn("absolute inset-x-0 bottom-0 line-clamp-2 break-words bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent px-0.5 pb-1.5 pt-3 text-center text-[0.625rem] leading-tight [@container(min-width:48rem)]:text-xs", isDown ? "text-slate-400 line-through" : "text-slate-50")}>
         {name}
         {isDown ? <span className="sr-only">, повалений</span> : null}
+        {spotlight ? <span className="sr-only">, підсвічено</span> : null}
       </span>
       {creature?.hitPoints ? <span className="absolute inset-x-0 bottom-0 block"><HitPointBar hitPoints={creature.hitPoints} /></span> : null}
     </span>

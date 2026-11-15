@@ -27,6 +27,7 @@ import { collectOriginLanguages, countOriginLanguageChoices } from "@/rules/lang
 import { buildInitialCharacterState } from "@/rules/character-creation";
 import { findFeatsGrantedByChoiceOptions } from "@/rules/feat-sources";
 import { collectChoiceOptionIds, findFeatPackageProblem, type FeatPick } from "@/server/db/feat-gates";
+import { isRaceChoiceGroupReplacedByVariant } from "@/rules/race-variant-choice-groups";
 import type { FeatChoiceSource } from "@/rules/repeatable-feats";
 import { findFirstUnmetInvocationPrerequisite, type InvocationPrerequisite } from "@/rules/warlock-invocations";
 import { CHOICE_GROUPS } from "@/lib/logic/choicePoolRules";
@@ -363,6 +364,9 @@ function buildCharacter(
     backgroundAsiChoice,
   );
   if (backgroundAsiProblem) return { error: backgroundAsiProblem, fixAtSteps: ["asi"] };
+
+  const replacedRaceChoice = content.raceChoiceOptions.find((option) => isRaceChoiceGroupReplacedByVariant(variant?.name, option.choiceGroupName));
+  if (replacedRaceChoice) return { error: `Вибір «${replacedRaceChoice.choiceGroupName}» недоступний з цим варіантом раси.`, fixAtSteps: ["raceDetails", "raceChoices"] };
 
   const racialChoiceProblem = findCreationRacialChoiceProblem(ruleset, validData, { race, variant, subrace });
   if (racialChoiceProblem) return { error: racialChoiceProblem, fixAtSteps: ["asi", "raceChoices"] };

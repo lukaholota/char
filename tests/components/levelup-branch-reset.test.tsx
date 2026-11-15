@@ -40,4 +40,14 @@ describe("скидання виборів при зміні гілки підв�
     expect(formData.expertiseSchema?.expertises ?? []).toEqual([]);
     expect(formData.languagesSchema?.languages ?? []).toEqual([]);
   });
+
+  it("прибирає класові заклинання покинутої гілки", () => {
+    const { updateFormData } = usePersFormStore.getState();
+    updateFormData({ levelUpPath: "MULTICLASS", classId: 3, classSpells: { cantripIds: [1056, 1371, 1347], spellbookIds: [], preparedIds: [1045] } });
+
+    updateFormData({ levelUpPath: "EXISTING", classId: 5 });
+    updateFormData(EMPTY_BRANCH_CHOICES);
+
+    expect(usePersFormStore.getState().formData.classSpells).toBeUndefined();
+  });
 });

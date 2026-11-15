@@ -7,7 +7,8 @@ import { parseSceneGrid } from "@/rules/game-grid";
 import { LIGHT_LIMITS, parseLightSource, parseSceneLighting, parseTokenLight } from "@/rules/game-lighting";
 import { OBJECT_LIMITS, parseObjectPlacement } from "@/rules/game-objects";
 import { parseWallEdit } from "@/rules/game-walls";
-import { addSceneObject, changeSceneObject, removeSceneObjects } from "@/server/db/game-scene-objects";
+import { parsePositionMoves } from "@/rules/map-group";
+import { addSceneObject, changeSceneObject, moveSceneObjects, removeSceneObjects } from "@/server/db/game-scene-objects";
 import { removeSceneLights, saveSceneLight, setSceneLighting } from "@/server/db/game-scene-lighting";
 import { editSceneWalls, setSceneDoorOpen } from "@/server/db/game-scene-walls";
 import { setMapCreatureLight } from "@/server/db/game-map-creatures";
@@ -176,5 +177,14 @@ export async function setMapCreatureLightAction(sessionId: number, creatureId: n
     if (!light) return rejectBadLight;
     if (!tryTakeTokenMoveSlot(userId)) return tooFast;
     return setMapCreatureLight(sessionId, userId, creatureId, light);
+  });
+}
+
+export async function moveSceneObjectsAction(sessionId: number, sceneId: number, rawMoves: unknown) {
+  const moves = parsePositionMoves(rawMoves);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(sceneId) || !moves?.length) return rejectBadObject;
+    if (!tryTakeTokenMoveSlot(userId)) return tooFast;
+    return moveSceneObjects(sessionId, userId, sceneId, moves);
   });
 }

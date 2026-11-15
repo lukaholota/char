@@ -14,7 +14,7 @@ vi.mock("@/server/media/media-store", () => ({
 }));
 vi.mock("@/lib/refs/object-library-catalog", () => ({ OBJECT_LIBRARY: [{ slug: "chest", category: "storage", widthCells: 1 }] }));
 
-import { addSceneObject, changeSceneObject, removeSceneObjects } from "@/server/db/game-scene-objects";
+import { addSceneObject, changeSceneObject, moveSceneObjects, removeSceneObjects } from "@/server/db/game-scene-objects";
 import { createGameScene, replaceGameSceneMap } from "@/server/db/game-scenes";
 import { createGameSession, findGameSessionView, joinGameSessionByToken } from "@/server/db/game-sessions";
 import { deleteTokenImage } from "@/server/db/token-images";
@@ -68,6 +68,19 @@ describe("обʼєкти сцени", () => {
     await removeSceneObjects(table.sessionId, table.gm.id, table.sceneId, [id]);
     expect(await seeObjects(table.sessionId, table.gm.id)).toEqual([]);
     expect(await changeSceneObject(table.sessionId, table.gm.id, table.sceneId, id, chest)).toEqual({ ok: false, error: "object_gone" });
+  });
+
+  it("групу обʼєктів майстер переносить разом; зниклий обʼєкт скасовує весь перенос", async () => {
+    const table = await createTable();
+    const [first, second] = [await addChest(table), await addChest(table, { ...chest, at: { x: 0.1, y: 0.1 } })];
+    const moves = [{ id: first, at: { x: 0.5, y: 0.7 } }, { id: second, at: { x: 0.2, y: 0.2 } }];
+
+    expect(await moveSceneObjects(table.sessionId, table.player.id, table.sceneId, moves)).toEqual({ ok: false, error: "forbidden" });
+    expect(await moveSceneObjects(table.sessionId, table.gm.id, table.sceneId, [...moves, { id: second + 999, at: { x: 0, y: 0 } }])).toEqual({ ok: false, error: "object_gone" });
+    expect((await seeObjects(table.sessionId, table.gm.id)).map((object) => object.at)).toEqual([chest.at, { x: 0.1, y: 0.1 }]);
+
+    expect(await moveSceneObjects(table.sessionId, table.gm.id, table.sceneId, moves)).toEqual({ ok: true, value: null });
+    expect((await seeObjects(table.sessionId, table.gm.id)).map((object) => [object.id, object.at])).toEqual([[first, { x: 0.5, y: 0.7 }], [second, { x: 0.2, y: 0.2 }]]);
   });
 
   it("схований обʼєкт гравець не отримує зовсім", async () => {

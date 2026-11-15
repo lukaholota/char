@@ -10,7 +10,7 @@ import { TokenImageLibrary } from "./CreatureImageSection";
 import type { MapHistory } from "./map-history";
 import { HistoryButtons, Segmented, Stepper, ToolPanel } from "./MapToolbar";
 import { ObjectLibraryPicker } from "./ObjectLibraryPicker";
-import { TokenTransformHandles } from "./TokenTransformControls";
+import { GroupedTokenFrame, TokenTransformHandles } from "./TokenTransformControls";
 import type { MapObjects } from "./use-map-objects";
 
 const SIZE_STEP = 0.25;
@@ -21,7 +21,7 @@ const IMAGE_SOURCES = [{ value: "own", label: "Свої" }, { value: "set", labe
 type ImageSource = (typeof IMAGE_SOURCES)[number]["value"];
 
 /// Обʼєкт — частина мапи: росте разом із нею, без протизуму токенів. Поза інструментом він не ловить дотиків.
-export function MapObjectsLayer({ objects, isEditing }: { objects: MapObjects; isEditing: boolean }) {
+export function MapObjectsLayer({ objects, isEditing, isGrouped }: { objects: MapObjects; isEditing: boolean; isGrouped: (id: number) => boolean }) {
   return (
     <div className={cn("absolute inset-0", !isEditing && "pointer-events-none")}>
       {objects.shown.map((object) => {
@@ -39,7 +39,7 @@ export function MapObjectsLayer({ objects, isEditing }: { objects: MapObjects; i
                 {image}
               </button>
             ) : image}
-            {isChosen ? <TokenTransformHandles token={{ transform: toObjectTransform(object), onPreview: (transform) => objects.preview(object.id, transform), onChange: (transform) => objects.changeTransform(object.id, transform) }} onDeselect={() => objects.choose(null)} /> : null}
+            {isChosen ? <TokenTransformHandles token={{ transform: toObjectTransform(object), onPreview: (transform) => objects.preview(object.id, transform), onChange: (transform) => objects.changeTransform(object.id, transform) }} onDeselect={() => objects.choose(null)} /> : isEditing && isGrouped(object.id) ? <GroupedTokenFrame rotation={object.rotation} /> : null}
           </div>
         );
       })}
@@ -74,7 +74,7 @@ function ChosenObjectPanel({ object, objects, history, onClose }: { object: Scen
   const placement = toObjectPlacement(object);
   const changeSize = (direction: number) => objects.change(object.id, { ...placement, widthCells: Math.min(OBJECT_LIMITS.widthCells.max, Math.max(OBJECT_LIMITS.widthCells.min, object.widthCells + direction * SIZE_STEP)) });
   const turn = (direction: number) => objects.change(object.id, { ...placement, rotation: (object.rotation + direction * ROTATION_STEP + 360) % 360 });
-  useDeleteKey(objects.remove);
+  useMapKey(DELETE_KEYS, objects.remove);
   return (
     <ToolPanel title={describeObject(object)} onClose={onClose} aside={<HistoryButtons history={history} />}>
       <ObjectNameField name={object.name} onSave={(name) => objects.change(object.id, { ...placement, name })} />
@@ -96,19 +96,21 @@ function ChosenObjectPanel({ object, objects, history, onClose }: { object: Scen
 }
 
 /// На ноутбуках Mac клавіша «delete» — це Backspace, тож видаляють обидві; у полі введення вони стирають текст, як звично.
-function useDeleteKey(remove: () => void) {
-  const latestRemove = useRef(remove);
-  latestRemove.current = remove;
+export const DELETE_KEYS = ["Delete", "Backspace"];
+
+export function useMapKey(keys: readonly string[], act: () => void) {
+  const latestAct = useRef(act);
+  latestAct.current = act;
   useEffect(() => {
     const onKeyDown = (event: globalThis.KeyboardEvent) => {
-      if (event.key !== "Delete" && event.key !== "Backspace") return;
+      if (!keys.includes(event.key)) return;
       if (event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable]")) return;
       event.preventDefault();
-      latestRemove.current();
+      latestAct.current();
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  }, [keys]);
 }
 
 function ObjectNameField({ name, onSave }: { name: string | null; onSave: (name: string | null) => void }) {

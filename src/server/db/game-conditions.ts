@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import type { RollTargets } from "@/rules/map-target-picks";
-import { BLESSED_MARK, canChangeTokenConditions, type TokenConditionChange } from "@/rules/token-conditions";
+import { BLESSED_MARK, SPOTLIGHT_MARK_KEYS, canChangeTokenConditions, isSpotlightMark, type TokenConditionChange } from "@/rules/token-conditions";
 import { findActiveGmSession, findMembership, findRoomHero, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
@@ -9,6 +9,10 @@ const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 /// Ввімкнення й вимкнення — самі в SQL: дві одночасні зміни різних станів не затруть одна одну.
 function buildConditionAssignment(change: TokenConditionChange): Prisma.Sql {
   if (change.kind === "exhaustion") return Prisma.sql`exhaustion_level = ${change.level}::smallint`;
+  if (isSpotlightMark(change.condition)) {
+    const unlit = SPOTLIGHT_MARK_KEYS.reduce((list, mark) => Prisma.sql`array_remove(${list}, ${mark})`, Prisma.sql`conditions`);
+    return change.isActive ? Prisma.sql`conditions = array_append(${unlit}, ${change.condition})` : Prisma.sql`conditions = ${unlit}`;
+  }
   if (!change.isActive) return Prisma.sql`conditions = array_remove(conditions, ${change.condition})`;
   return Prisma.sql`conditions = CASE WHEN ${change.condition} = ANY(conditions) THEN conditions ELSE array_append(conditions, ${change.condition}) END`;
 }

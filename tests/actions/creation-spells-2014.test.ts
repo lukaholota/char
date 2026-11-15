@@ -75,6 +75,17 @@ describe("заклинання в конструкторі 2014 — уся та�
     expect(spells.filter((spell) => spell.level === 1 && !spell.isPrepared && spell.badgeText === "Чарівник")).toHaveLength(6);
   });
 
+  it("BUG-059: замовляння, обране расою, не пропонується класом і показується як уже наявне", async () => {
+    const { classId } = await buildForm(Classes.WIZARD_2014);
+    const human = await raceByName(Races.HUMAN_2014);
+    const raceCantrip = (await getCreationSpellOffer(classId, []))!.cantrips[0];
+
+    const offer = await getCreationSpellOffer(classId, [], null, { raceId: human.raceId, raceChoiceOptionIds: [], raceSpellIds: [raceCantrip.spellId] });
+
+    expect(offer!.cantrips.map((spell) => spell.spellId)).not.toContain(raceCantrip.spellId);
+    expect(offer!.speciesSpells?.map((spell) => spell.spellId)).toEqual([raceCantrip.spellId]);
+  });
+
   it("чорнокнижник Почвари бере й з розширеного списку покровителя", async () => {
     await signIn("creation-2014-fiend");
     const { form, classId, subclassId } = await buildForm(Classes.WARLOCK_2014, Subclasses.FIEND);

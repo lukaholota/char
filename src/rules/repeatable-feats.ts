@@ -3,7 +3,7 @@
 // («You can take each feat only once, unless the feat's description says otherwise») і в 2024
 // (властивість Repeatable). Рішення власника 2026-09-03, Р37 у docs/DECISIONS.md.
 
-export type FeatChoicePick = { groupName: string; optionNameEng: string };
+export type FeatChoicePick = { groupName: string; optionNameEng: string; optionName?: string };
 
 export type FeatInstance = {
   featName: string;
@@ -18,7 +18,7 @@ export type FeatRepeatCandidate = {
 
 export type FeatRepeatProblem =
   | { kind: "not-repeatable"; featName: string }
-  | { kind: "same-choice"; featName: string; groupName: string; optionNameEng: string };
+  | { kind: "same-choice"; featName: string; groupName: string; optionNameEng: string; optionName?: string };
 
 // Повторна риса з вибором має брати щоразу інший: «you must choose a different damage type each
 // time» (Elemental Adept) і «choose a different class each time» (Magic Initiate).
@@ -63,7 +63,15 @@ function findRepeatedUniqueChoice(candidate: FeatRepeatCandidate, previous: read
   const repeated = previous.some((instance) =>
     instance.choices.some((pick) => pick.groupName === groupName && pick.optionNameEng === chosen.optionNameEng),
   );
-  return repeated ? { kind: "same-choice", featName: candidate.name, groupName, optionNameEng: chosen.optionNameEng } : null;
+  return repeated ? { kind: "same-choice", featName: candidate.name, groupName, optionNameEng: chosen.optionNameEng, optionName: chosen.optionName } : null;
+}
+
+type ChoiceSelections = Record<string, number | number[]> | undefined;
+
+export function collectChoicesTakenByOtherCopies(featName: string | undefined, otherCopiesSelections: readonly ChoiceSelections[]): Set<number> {
+  const groupName = featName ? UNIQUE_CHOICE_GROUP_BY_FEAT[featName] : undefined;
+  if (!groupName) return new Set();
+  return new Set(otherCopiesSelections.flatMap((selections) => [selections?.[groupName] ?? []].flat()).map(Number));
 }
 
 // Право взяти рису задає джерело вибору, а не її категорія (Р41 у docs/DECISIONS.md): класовий

@@ -2,6 +2,7 @@
 
 import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 import { parseTokenPosition } from "@/rules/game-map";
+import { parseMapTokenMoves } from "@/rules/map-group";
 import { parseTokenTransform } from "@/rules/token-transform";
 import { parseHitPointChange } from "@/rules/creature-hit-points";
 import { parseInitiative, parseTurnStep } from "@/rules/game-combat";
@@ -13,7 +14,7 @@ import { parseCreatureTokenSize, parseCustomName, parseNewMapCreatures, parseTok
 import { parseTokenConditionChange } from "@/rules/token-conditions";
 import { isId, rejectBadInput, runAsUser, tooFast } from "@/server/game-sessions/game-action";
 import { tryTakeTokenMoveSlot } from "@/server/game-sessions/game-session-limits";
-import { activateGameScene, createGameScene, deleteGameScene, moveGameToken, openGameScene, renameGameScene, replaceGameSceneMap, transformHeroToken } from "@/server/db/game-scenes";
+import { activateGameScene, createGameScene, deleteGameScene, moveGameToken, moveMapTokens, openGameScene, renameGameScene, replaceGameSceneMap, transformHeroToken } from "@/server/db/game-scenes";
 import { changeCreatureConditions, changeHeroConditions, clearBlessedMarks, markBlessedTargets } from "@/server/db/game-conditions";
 import { parseRollTargets } from "@/rules/map-target-picks";
 import { undoRollDamage } from "@/server/db/game-roll-events";
@@ -122,6 +123,15 @@ export async function moveGameTokenAction(sessionId: number, sceneId: number, he
     if (!isId(sessionId) || !isId(sceneId) || !isId(heroId) || (rawPosition !== null && !position)) return rejectBadInput;
     if (!tryTakeTokenMoveSlot(userId)) return { ok: false as const, error: "too_fast" as const };
     return moveGameToken(sessionId, userId, sceneId, heroId, position);
+  });
+}
+
+export async function moveMapTokensAction(sessionId: number, sceneId: number, rawMoves: unknown) {
+  const moves = parseMapTokenMoves(rawMoves);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(sceneId) || !moves || moves.heroes.length + moves.creatures.length === 0) return rejectBadInput;
+    if (!tryTakeTokenMoveSlot(userId)) return tooFast;
+    return moveMapTokens(sessionId, userId, sceneId, moves);
   });
 }
 

@@ -2,6 +2,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import type { TokenPosition } from "@/rules/game-map";
+import { SPOTLIGHT_MARK as SPOTLIGHT } from "@/rules/token-conditions";
 import type { MapCreatureView } from "@/rules/game-map-creatures";
 import type { SceneObjectView } from "@/rules/game-objects";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
@@ -13,11 +14,12 @@ vi.hoisted(() => {
   Object.defineProperty(window, "localStorage", { value: storage, configurable: true, writable: true });
   globalThis.ResizeObserver ??= class { observe() {} unobserve() {} disconnect() {} } as unknown as typeof ResizeObserver;
 });
-const mocks = vi.hoisted(() => ({ replace: vi.fn(), moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), changeMapCreatureHitPointsAction: vi.fn(), changeMapCreatureConditionsAction: vi.fn(), changeHeroConditionsAction: vi.fn(), transformHeroTokenAction: vi.fn(), transformMapCreatureAction: vi.fn(), refresh: vi.fn(), changeSceneFogAction: vi.fn(), changeSceneGridAction: vi.fn(), saveSceneAreaAction: vi.fn(), removeSceneAreasAction: vi.fn(), saveSceneDrawingsAction: vi.fn(), removeSceneDrawingsAction: vi.fn(), listAreaSpellsAction: vi.fn(), addSceneObjectAction: vi.fn(), changeSceneObjectAction: vi.fn(), removeSceneObjectsAction: vi.fn(), editSceneWallsAction: vi.fn(), setSceneDoorOpenAction: vi.fn(), setSceneLightingAction: vi.fn(), saveSceneLightAction: vi.fn(), removeSceneLightsAction: vi.fn(), setHeroTokenLightAction: vi.fn(), setMapCreatureLightAction: vi.fn(), setHeroDarkvisionAction: vi.fn() }));
+const mocks = vi.hoisted(() => ({ replace: vi.fn(), moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), changeMapCreatureHitPointsAction: vi.fn(), changeMapCreatureConditionsAction: vi.fn(), changeHeroConditionsAction: vi.fn(), transformHeroTokenAction: vi.fn(), transformMapCreatureAction: vi.fn(), refresh: vi.fn(), changeSceneFogAction: vi.fn(), changeSceneGridAction: vi.fn(), saveSceneAreaAction: vi.fn(), removeSceneAreasAction: vi.fn(), saveSceneDrawingsAction: vi.fn(), removeSceneDrawingsAction: vi.fn(), listAreaSpellsAction: vi.fn(), addSceneObjectAction: vi.fn(), changeSceneObjectAction: vi.fn(), removeSceneObjectsAction: vi.fn(), editSceneWallsAction: vi.fn(), setSceneDoorOpenAction: vi.fn(), setSceneLightingAction: vi.fn(), saveSceneLightAction: vi.fn(), removeSceneLightsAction: vi.fn(), setHeroTokenLightAction: vi.fn(), setMapCreatureLightAction: vi.fn(), setHeroDarkvisionAction: vi.fn(), moveMapTokensAction: vi.fn() }));
 vi.mock("@/lib/actions/game-token-images", () => ({ listTokenImagesAction: async () => ({ ok: true, value: ["token-images/1/chest"] }) }));
 vi.mock("@/lib/actions/game-sessions", () => ({
   moveGameTokenAction: mocks.moveGameTokenAction,
   moveMapCreatureAction: mocks.moveMapCreatureAction,
+  moveMapTokensAction: mocks.moveMapTokensAction,
   removeMapCreaturesAction: mocks.removeMapCreaturesAction,
   setMapCreatureSizeAction: mocks.setMapCreatureSizeAction,
   setCreatureNameModeAction: mocks.setCreatureNameModeAction,
@@ -66,6 +68,7 @@ beforeEach(() => {
   vi.clearAllMocks();
   mocks.moveGameTokenAction.mockResolvedValue({ ok: true, value: null });
   mocks.moveMapCreatureAction.mockResolvedValue({ ok: true, value: null });
+  mocks.moveMapTokensAction.mockResolvedValue({ ok: true, value: null });
   mocks.removeMapCreaturesAction.mockResolvedValue({ ok: true, value: null });
   mocks.setMapCreatureSizeAction.mockResolvedValue({ ok: true, value: null });
   mocks.setCreatureNameModeAction.mockResolvedValue({ ok: true, value: null });
@@ -247,7 +250,7 @@ describe("мапа кімнати", () => {
     expect(screen.getAllByRole("button", { name: /^Токен/ })).toHaveLength(2);
 
     rerender(<GameRoomMap view={buildView({ mapImageUrl: null, viewedSceneId: null })} />);
-    expect(screen.queryByRole("button")).toBeNull();
+    expect(screen.queryAllByRole("button").map((button) => button.getAttribute("aria-label"))).toEqual(["Підсвітити «Арвен»"]);
     expect(screen.getByText("Майстер ще не показав мапу")).toBeTruthy();
     rerender(<GameRoomMap view={buildView({ mapImageUrl: null, myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [] })} />);
     expect(screen.getByText(/У цій сцені ще немає мапи/)).toBeTruthy();
@@ -347,6 +350,22 @@ describe("мапа кімнати", () => {
     expect(isInRowAboveMap()).toBe(true);
   });
 
+  it("портрет героя підсвічує той самий знак, що й токен: гравець — лише свого героя, майстер — будь-кого", () => {
+    render(<GameRoomMap view={buildView({ id: 11 })} />);
+    const party = screen.getByRole("list", { name: "Герої" });
+    expect(within(party).queryByRole("button", { name: "Підсвітити «Торин»" })).toBeNull();
+    fireEvent.click(within(party).getByRole("button", { name: "Підсвітити «Арвен»" }));
+    expect(mocks.changeHeroConditionsAction).toHaveBeenCalledWith(11, 2, { kind: "toggle", condition: SPOTLIGHT, isActive: true });
+    expect(within(party).getByRole("button", { name: "Підсвітити «Арвен»" }).getAttribute("aria-pressed")).toBe("true");
+
+    cleanup();
+    render(<GameRoomMap view={gmView({ id: 11 })} />);
+    const map = placeMap();
+    fireEvent.click(within(screen.getByRole("list", { name: "Герої" })).getByRole("button", { name: "Підсвітити «Торин»" }));
+    expect(mocks.changeHeroConditionsAction).toHaveBeenCalledWith(11, 3, { kind: "toggle", condition: SPOTLIGHT, isActive: true });
+    expect(within(map).getByText("Підсвічено")).toBeTruthy();
+  });
+
   it("повзунок зменшує лише токени на мапі, ховає дрібні імена й памʼятає розмір для кімнати", () => {
     const stored = new Map<string, string>();
     Object.defineProperty(window, "localStorage", { configurable: true, value: { getItem: (key: string) => stored.get(key) ?? null, setItem: (key: string, value: string) => void stored.set(key, value) } });
@@ -392,6 +411,26 @@ describe("мапа кімнати", () => {
     drag(within(map).getByRole("button", { name: /«Гоблін 3»/ }), { clientX: 100, clientY: 50 }, { clientX: 100, clientY: 260 });
     expect(mocks.removeMapCreaturesAction).toHaveBeenCalledWith(7, 53);
     expect(mocks.moveMapCreatureAction).toHaveBeenCalledTimes(1);
+  });
+
+  it("майстер обводить мишею героя й істот рамкою, тягне одну — уся група переїжджає одним запитом; дотик по мапі знімає вибір", () => {
+    render(<GameRoomMap view={gmView({ creatures: [goblin(55, 1, { x: 0.25, y: 0.25 }), goblin(56, 2, { x: 0.5, y: 0.5 }), goblin(57, 3, { x: 0.9, y: 0.9 })] })} />);
+    const map = placeMap();
+    const viewport = map.parentElement!;
+    fireEvent.pointerDown(viewport, { button: 0, clientX: 50, clientY: 25, pointerId: 2, pointerType: "mouse" });
+    fireEvent.pointerMove(viewport, { clientX: 150, clientY: 70, pointerId: 2, pointerType: "mouse" });
+    fireEvent.pointerMove(viewport, { clientX: 250, clientY: 125, pointerId: 2, pointerType: "mouse" });
+    fireEvent.pointerUp(viewport, { clientX: 250, clientY: 125, pointerId: 2, pointerType: "mouse" });
+    expect(screen.getByRole("region", { name: "Вибрано: 3" })).toBeTruthy();
+
+    drag(within(map).getByRole("button", { name: /«Гоблін 1»/ }), { clientX: 100, clientY: 50 }, { clientX: 140, clientY: 70 });
+    expect(mocks.moveMapTokensAction).toHaveBeenCalledWith(7, 1, { heroes: [{ id: 3, at: { x: 0.6, y: 0.6 } }], creatures: [{ id: 55, at: { x: 0.35, y: 0.35 } }, { id: 56, at: { x: 0.6, y: 0.6 } }] });
+    expect(mocks.moveMapCreatureAction).not.toHaveBeenCalled();
+    expect(mocks.moveGameTokenAction).not.toHaveBeenCalled();
+
+    fireEvent.pointerDown(viewport, { button: 0, clientX: 380, clientY: 20, pointerId: 3, pointerType: "mouse" });
+    fireEvent.pointerUp(viewport, { clientX: 380, clientY: 20, pointerId: 3, pointerType: "mouse" });
+    expect(screen.queryByRole("region", { name: /Вибрано/ })).toBeNull();
   });
 
   it("гравець не рухає істот і не має ряду майстра, але дотиком відкриває статблок без кнопки «прибрати»", () => {
@@ -1394,14 +1433,18 @@ describe("поворот і розмір токена на мапі", () => {
     expect(screen.queryByRole("dialog")).toBeNull();
   });
 
-  it("майстер знімає підсвітку з істоти кнопкою в панелі, а гравець істоту не підсвічує", () => {
+  it("майстер міняє вигляд підсвітки істоти й гасить її в панелі, а гравець істоту не підсвічує", () => {
     const light = (id: number, badge: number) => ({ ...goblin(id, badge, { x: 0.5, y: 0.5 }), conditions: { conditions: ["spotlit"], exhaustionLevel: 0 } }) as MapCreatureView;
     const { unmount } = render(<GameRoomMap view={gmView({ id: 9, creatures: [light(63, 3)] })} />);
     tap(within(placeMap()).getByRole("button", { name: /«Гоблін 3»/ }));
-    const toggle = within(screen.getByRole("region", { name: "Гоблін 3" })).getByRole("button", { name: "Підсвітка" });
-    expect(toggle.getAttribute("aria-pressed")).toBe("true");
-    fireEvent.click(toggle);
-    expect(mocks.changeMapCreatureConditionsAction).toHaveBeenCalledWith(9, 63, { kind: "toggle", condition: "spotlit", isActive: false });
+    const picker = within(within(screen.getByRole("region", { name: "Гоблін 3" })).getByRole("group", { name: "Підсвітка" }));
+    expect(picker.getByRole("button", { name: "Сяйво" }).getAttribute("aria-pressed")).toBe("true");
+    fireEvent.click(picker.getByRole("button", { name: "Полумʼя" }));
+    expect(mocks.changeMapCreatureConditionsAction).toHaveBeenCalledWith(9, 63, { kind: "toggle", condition: "spotlit-fire", isActive: true });
+    expect(picker.getByRole("button", { name: "Полумʼя" }).getAttribute("aria-pressed")).toBe("true");
+    expect(picker.getByRole("button", { name: "Сяйво" }).getAttribute("aria-pressed")).toBe("false");
+    fireEvent.click(picker.getByRole("button", { name: "Полумʼя" }));
+    expect(mocks.changeMapCreatureConditionsAction).toHaveBeenLastCalledWith(9, 63, { kind: "toggle", condition: "spotlit-fire", isActive: false });
     unmount();
 
     render(<GameRoomMap view={buildView({ creatures: [light(65, 5)] })} />);

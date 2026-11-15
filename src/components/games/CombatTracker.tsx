@@ -16,9 +16,10 @@ import {
   activateGameSceneAction,
 } from "@/lib/actions/game-sessions";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
-import { findCombatNewcomers, moveTurn as moveTurnPosition, type CombatView } from "@/rules/game-combat";
+import { findCombatNewcomers, moveTurn as moveTurnPosition, type CombatantView, type CombatView } from "@/rules/game-combat";
 import type { GameSessionView } from "@/server/db/game-sessions";
-import { CARD_WIDTH, CombatantItem, CombatantPortrait } from "./CombatantItem";
+import { CARD_WIDTH, CombatantItem, CombatantPortrait, SpotlightPortraitButton } from "./CombatantItem";
+import { usePortraitSpotlight, type PortraitSpotlightInput } from "./use-token-conditions";
 import { sendOptimistic, useOptimistic } from "./optimistic-values";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
 
@@ -51,8 +52,22 @@ function PlacementButton({ placement }: { placement: PortraitPlacement }) {
 export function CombatTracker({ view, placement }: { view: GameSessionView; placement?: PortraitPlacement }) {
   const canControl = view.myRole === "GM" && !view.isArchived;
   const combat = useShownCombat(view);
-  if (combat) return <ActiveCombat sessionId={view.id} combat={combat} canControl={canControl} myUserId={view.isArchived ? null : view.myUserId} newcomers={canControl ? findViewNewcomers(view, combat) : null} placement={placement} />;
+  if (combat) return <ActiveCombat sessionId={view.id} combat={combat} canControl={canControl} myUserId={view.isArchived ? null : view.myUserId} newcomers={canControl ? findViewNewcomers(view, combat) : null} placement={placement} findSpotlight={(combatant) => findCombatantSpotlight(view, combatant)} />;
   return canControl ? <StartCombatButton view={view} /> : null;
+}
+
+type HeroMember = GameSessionView["members"][number];
+
+function findHeroSpotlight(view: GameSessionView, hero: HeroMember): PortraitSpotlightInput {
+  const canToggle = !view.isArchived && (view.myRole === "GM" || hero.userId === view.myUserId);
+  return { sessionId: view.id, sceneId: view.viewedSceneId, token: { kind: "hero", id: hero.heroId }, conditions: hero.conditions, canToggle };
+}
+
+/// Портрет істоти дотиком відкриває статблок, тож її підсвітку майстер вмикає на токені, а тут вона лише видна.
+function findCombatantSpotlight(view: GameSessionView, combatant: CombatantView): PortraitSpotlightInput | null {
+  if (combatant.creature) return { sessionId: view.id, sceneId: view.viewedSceneId, token: { kind: "creature", id: combatant.creature.id }, conditions: combatant.creature.conditions, canToggle: false };
+  const hero = view.members.find((member) => member.persId !== null && member.persId === combatant.hero?.persId);
+  return hero ? findHeroSpotlight(view, hero) : null;
 }
 
 function findViewNewcomers(view: GameSessionView, combat: CombatView) {
@@ -92,7 +107,7 @@ function StartCombatButton({ view }: { view: GameSessionView }) {
   );
 }
 
-type ActiveCombatProps = { sessionId: number; combat: CombatView; canControl: boolean; myUserId: number | null; newcomers: string[] | null; placement?: PortraitPlacement };
+type ActiveCombatProps = { sessionId: number; combat: CombatView; canControl: boolean; myUserId: number | null; newcomers: string[] | null; placement?: PortraitPlacement; findSpotlight: (combatant: CombatantView) => PortraitSpotlightInput | null };
 
 /// Поки на мапі відкрита панель, вибір цілі чи лоток кубиків, бій стискається в рядок над ними, щоб хід не загубився за краєм екрана.
 export const CompactCombatContext = createContext(false);
@@ -108,13 +123,23 @@ export function PartyPortraits({ view, placement }: { view: GameSessionView; pla
         <ul aria-label="Герої" className="flex min-w-0 gap-2 overflow-x-auto p-1">
           {heroes.map((hero) => (
             <li key={hero.heroId} className={cn("shrink-0", CARD_WIDTH)}>
-              <CombatantPortrait creature={null} avatarUrl={hero.avatarUrl} name={hero.persName ?? hero.name} isCurrent={false} isDown={hero.lifeState.kind === "dead"} />
+              <PartyHeroPortrait hero={hero} spotlight={findHeroSpotlight(view, hero)} />
             </li>
           ))}
         </ul>
         {placement ? <span className={cn("shrink-0 rounded-md", placement.isOverMap && OVER_MAP)}><PlacementButton placement={placement} /></span> : null}
       </div>
     </div>
+  );
+}
+
+function PartyHeroPortrait({ hero, spotlight: spotlightInput }: { hero: HeroMember; spotlight: PortraitSpotlightInput }) {
+  const spotlight = usePortraitSpotlight(spotlightInput);
+  const name = hero.persName ?? hero.name;
+  return (
+    <SpotlightPortraitButton control={spotlight.control} name={name}>
+      <CombatantPortrait creature={null} avatarUrl={hero.avatarUrl} name={name} isCurrent={false} isDown={hero.lifeState.kind === "dead"} spotlight={spotlight.style} />
+    </SpotlightPortraitButton>
   );
 }
 
@@ -132,7 +157,7 @@ const TURN_PLACE: Record<CombatLook, string> = {
   compact: "ml-auto",
 };
 
-function ActiveCombat({ sessionId, combat, canControl, myUserId, newcomers, placement }: ActiveCombatProps) {
+function ActiveCombat({ sessionId, combat, canControl, myUserId, newcomers, placement, findSpotlight }: ActiveCombatProps) {
   const isCompact = useContext(CompactCombatContext);
   const { isPending, run } = useCombatCommand();
   const [isQueueShown, setIsQueueShown] = useState(true);
@@ -163,7 +188,7 @@ function ActiveCombat({ sessionId, combat, canControl, myUserId, newcomers, plac
           {isOpen ? (
             <ol id={queueId} ref={listRef} aria-label="Черга ходів" className="relative flex min-w-0 items-end gap-2 overflow-x-auto p-1.5 [&>li:first-child]:ml-auto [&>li:last-child]:mr-auto">
               {combat.combatants.map((combatant) => (
-                <CombatantItem key={combatant.id} combatant={combatant} isCurrent={combatant.id === combat.currentId} canEdit={canControl} onEditInitiative={editInitiative} />
+                <CombatantItem key={combatant.id} combatant={combatant} isCurrent={combatant.id === combat.currentId} canEdit={canControl} spotlight={findSpotlight(combatant)} onEditInitiative={editInitiative} />
               ))}
             </ol>
           ) : null}

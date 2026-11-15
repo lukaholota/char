@@ -63,13 +63,18 @@ export function showOptimistic(key: string, value: unknown): number {
 
 /// Кожен тап видно одразу; показане змінює лише відповідь на останній тап цього ключа.
 /// Помилку показуємо завжди, але відкочуємо лише тоді, коли новіших тапів немає.
-export async function sendOptimistic<R extends { ok: true } | Failure>(key: string, value: unknown, send: () => Promise<R>): Promise<R | Failure> {
-  const version = showOptimistic(key, value);
+export function sendOptimistic<R extends { ok: true } | Failure>(key: string, value: unknown, send: () => Promise<R>): Promise<R | Failure> {
+  return sendOptimisticMany({ [key]: value }, send);
+}
+
+/// Група з рамки: усі ключі видно одразу, а відповідь одного запиту підтверджує чи відкочує кожен окремо.
+export async function sendOptimisticMany<R extends { ok: true } | Failure>(values: Record<string, unknown>, send: () => Promise<R>): Promise<R | Failure> {
+  const shown = Object.entries(values).map(([key, value]) => ({ key, value, version: showOptimistic(key, value) }));
   const result: R | Failure = await send().catch((): Failure => ({ ok: false, error: NETWORK_ERROR }));
   if (!result.ok) toast.error((result as Failure).error);
-  if (versions.get(key) !== version) return result;
-  if (result.ok) useOverrides.setState({ [key]: { value, settledAt: Date.now() } });
-  else dropOverride(key);
+  const latest = shown.filter(({ key, version }) => versions.get(key) === version);
+  if (result.ok) useOverrides.setState(Object.fromEntries(latest.map(({ key, value }) => [key, { value, settledAt: Date.now() }])));
+  else latest.forEach(({ key }) => dropOverride(key));
   return result;
 }
 
