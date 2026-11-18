@@ -95,6 +95,31 @@ describe("власні зображення істот на мапі", () => {
     expect((await findImageKeys(sessionId)).at(-1)).toEqual(["goblin", imageKey]);
   });
 
+  it("істота з власним імʼям має свій вигляд: заміна не чіпає безіменних і інакше названих того ж виду", async () => {
+    const { gm, sessionId, goblinId } = await createRoomWithCreatures();
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 2, isAlly: false, customName: "Вартовий" });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: "Ватажок" });
+    const guard = await prisma.gameMapCreature.findFirstOrThrow({ where: { gameSessionId: sessionId, customName: "Вартовий" } });
+    const [guardImage, gruntImage] = [await uploadImage(gm.id), await uploadImage(gm.id)];
+
+    await setMapCreatureImage(sessionId, gm.id, guard.id, guardImage);
+    await setMapCreatureImage(sessionId, gm.id, goblinId, gruntImage);
+
+    expect(await findImageKeys(sessionId)).toEqual([["goblin", gruntImage], ["goblin", gruntImage], ["wolf", null], ["goblin", guardImage], ["goblin", guardImage], ["goblin", null]]);
+  });
+
+  it("власний портрет ставиться одразу при додаванні; чужий — відмова без жодного рядка", async () => {
+    const { gm, sessionId } = await createRoomWithCreatures();
+    const stranger = await createUser("stranger");
+    const [ownImage, strangerImage] = [await uploadImage(gm.id), await uploadImage(stranger.id)];
+    const npc = { creatureKey: "commoner", ruleset: "RULES_2014" as const, count: 1, isAlly: true, customName: "Корчмар" };
+
+    expect(await addMapCreatures(sessionId, gm.id, { ...npc, imageKey: strangerImage })).toEqual({ ok: false, error: "token_image_gone" });
+    expect(await addMapCreatures(sessionId, gm.id, { ...npc, imageKey: ownImage })).toEqual({ ok: true, value: { name: "Корчмар" } });
+
+    expect((await findImageKeys(sessionId)).slice(3)).toEqual([["commoner", ownImage]]);
+  });
+
   it("чужого зображення не поставити, а гравець не може замінювати зовсім", async () => {
     const { gm, sessionId, goblinId } = await createRoomWithCreatures();
     const stranger = await createUser("stranger");

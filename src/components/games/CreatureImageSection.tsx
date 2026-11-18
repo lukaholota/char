@@ -30,7 +30,7 @@ export function CreatureImageSection({ sessionId, creature, cutout }: Props) {
         <TokenPreview creature={creature} isCutout={canChooseLook && cutout.value} onLoad={inspectImage} />
         <div className="min-w-0">
           <p className="text-sm text-slate-200">Вигляд на мапі</p>
-          <p className="text-sm text-slate-400">Для всіх таких істот у кімнаті. Статблок лишається.</p>
+          <p className="text-sm text-slate-400">{creature.customName ? "Для всіх істот з цим імʼям" : "Для всіх таких істот без власного імені"}. Статблок лишається.</p>
         </div>
       </div>
       <Button type="button" variant="outline" aria-expanded={isPickerOpen} onClick={() => setIsPickerOpen(!isPickerOpen)} className="h-11 gap-2">

@@ -15,6 +15,7 @@ import { findViewedSceneId } from "@/rules/game-scenes";
 import type { TokenTransform } from "@/rules/token-transform";
 import { findRoomCreature } from "@/server/db/room-creatures";
 import { findActiveGmSession, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
+import { buildCreatureLookFilter, isOwnTokenImage } from "@/server/db/token-images";
 
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 
@@ -23,6 +24,7 @@ export async function addMapCreatures(sessionId: number, userId: number, input: 
   if (!gm.ok) return gm;
   const entry = await findRoomCreature(input.creatureKey, input.ruleset);
   if (!entry) return fail("bad_creature");
+  if (input.imageKey && !(await isOwnTokenImage(userId, input.imageKey))) return fail("token_image_gone");
   const sceneId = findGmSceneId(gm.value);
   if (sceneId === null) return fail("no_map");
   const added = await prisma.$transaction(async (tx) => {
@@ -34,11 +36,11 @@ export async function addMapCreatures(sessionId: number, userId: number, input: 
     if (existing.length + input.count > MAP_CREATURE_LIMITS.perScene) return fail("creature_limit");
     const group = findCreatureGroupKey(input);
     const taken = existing.filter((row) => findCreatureGroupKey(row) === group).map((row) => row.number);
-    const look = await tx.gameMapCreature.findFirst({ where: { gameSessionId: sessionId, creatureKey: input.creatureKey, ruleset: input.ruleset }, select: { isCutout: true, customImageKey: true } });
+    const look = await tx.gameMapCreature.findFirst({ where: buildCreatureLookFilter(sessionId, input), select: { isCutout: true, customImageKey: true } });
     await tx.gameMapCreature.createMany({
       data: findFreeCreatureNumbers(taken, input.count).map((number) => {
         const hpMax = rollCreatureMaxHitPoints(entry.hp);
-        return { gameSessionId: sessionId, gameSceneId: sceneId, creatureKey: input.creatureKey, ruleset: input.ruleset, number, isAlly: input.isAlly, customName: input.customName, hpMax, hpCurrent: hpMax, isCutout: look?.isCutout ?? false, customImageKey: look?.customImageKey ?? null };
+        return { gameSessionId: sessionId, gameSceneId: sceneId, creatureKey: input.creatureKey, ruleset: input.ruleset, number, isAlly: input.isAlly, customName: input.customName, hpMax, hpCurrent: hpMax, isCutout: look?.isCutout ?? false, customImageKey: input.imageKey ?? look?.customImageKey ?? null };
       }),
     });
     return { ok: true as const, value: { name: input.customName ?? entry.name } };
@@ -118,13 +120,13 @@ export async function setMapCreatureLight(sessionId: number, userId: number, cre
   return { ok: true, value: null };
 }
 
-/// Вибір стосується картинки, тож змінює всіх таких істот кімнати, а не одну.
+/// Вибір стосується картинки, тож змінює всіх, хто ділить цей вигляд, а не одну істоту.
 export async function setMapCreatureCutout(sessionId: number, userId: number, creatureId: number, isCutout: boolean): Promise<GameSessionResult<null>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
-  const creature = await prisma.gameMapCreature.findFirst({ where: { id: creatureId, gameSessionId: sessionId }, select: { creatureKey: true, ruleset: true } });
+  const creature = await prisma.gameMapCreature.findFirst({ where: { id: creatureId, gameSessionId: sessionId }, select: { creatureKey: true, ruleset: true, customName: true } });
   if (!creature) return fail("creature_gone");
-  await prisma.gameMapCreature.updateMany({ where: { gameSessionId: sessionId, creatureKey: creature.creatureKey, ruleset: creature.ruleset }, data: { isCutout } });
+  await prisma.gameMapCreature.updateMany({ where: buildCreatureLookFilter(sessionId, creature), data: { isCutout } });
   await signalGameSession(sessionId, "session");
   return { ok: true, value: null };
 }

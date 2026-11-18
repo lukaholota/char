@@ -59,11 +59,11 @@ export function isRoomUploadedMapKey(sessionId: number, key: string): boolean {
   return key.startsWith(`games/${sessionId}/map/`) && !key.includes("..");
 }
 
-export type SceneMapSource = { kind: "none" } | { kind: "upload"; file: unknown } | { kind: "library"; slug: string };
+export type SceneMapSource = { kind: "none" } | { kind: "upload"; file: unknown; isDetailed?: boolean } | { kind: "library"; slug: string };
 
 export function parseSceneMapSource(form: { get(name: string): unknown }): SceneMapSource {
   const slug = form.get("library");
   if (typeof slug === "string" && slug) return { kind: "library", slug };
   const file = form.get("file");
-  return file instanceof Blob ? { kind: "upload", file } : { kind: "none" };
+  return file instanceof Blob ? { kind: "upload", file, isDetailed: form.get("detailed") === "1" } : { kind: "none" };
 }

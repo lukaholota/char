@@ -3,4 +3,6 @@ export const MAX_IMAGE_UPLOAD_BYTES = 950 * 1024;
 export const CLIENT_PORTRAIT_EDGE = 512;
 /// Скріншот до звіту: текст на ньому має лишатись читабельним, тож довша сторона більша за портретну.
 export const CLIENT_SCREENSHOT_EDGE = 1600;
+/// «Менше стискати» для мапи: більше пікселів на клітинку, доки файл влазить у ліміт дії.
+export const CLIENT_DETAILED_MAP_EDGE = 3200;
 export const ACCEPTED_IMAGE_MIME_TYPES = "image/jpeg,image/png,image/webp";

@@ -23,11 +23,11 @@ export async function storeSquareImage(file: unknown, keyPrefix: string): Promis
   return { key };
 }
 
-export async function storeScreenshotImage(file: unknown, keyPrefix: string): Promise<StoredImageResult> {
+export async function storeScreenshotImage(file: unknown, keyPrefix: string, encode = buildScreenshotWebp): Promise<StoredImageResult> {
   const bytes = await readAcceptedImageBytes(file);
   if ("error" in bytes) return bytes;
 
-  const encoded = await encodeScreenshot(bytes.bytes);
+  const encoded = await encodeScreenshot(bytes.bytes, encode);
   if (!encoded) return { error: "Не вдалося прочитати картинку" };
 
   const key = `${keyPrefix}/${randomUUID()}`;
@@ -54,9 +54,9 @@ async function readAcceptedImageBytes(file: unknown): Promise<{ bytes: Uint8Arra
   return { bytes };
 }
 
-async function encodeScreenshot(bytes: Uint8Array) {
+async function encodeScreenshot(bytes: Uint8Array, encode: (bytes: Uint8Array) => Promise<Uint8Array>) {
   try {
-    return await buildScreenshotWebp(bytes);
+    return await encode(bytes);
   } catch (error) {
     console.warn("sharp не прочитав скріншот", error);
     return null;

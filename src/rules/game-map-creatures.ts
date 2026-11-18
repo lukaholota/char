@@ -76,17 +76,18 @@ export type MapCreatureView = {
   light: TokenLight;
 };
 
-export type NewMapCreatures = { creatureKey: string; ruleset: MapCreatureRuleset; count: number; isAlly: boolean; customName: string | null };
+export type NewMapCreatures = { creatureKey: string; ruleset: MapCreatureRuleset; count: number; isAlly: boolean; customName: string | null; imageKey?: string | null };
 
 export function parseNewMapCreatures(raw: unknown): NewMapCreatures | null {
   if (typeof raw !== "object" || raw === null) return null;
-  const { creatureKey, ruleset, count, isAlly, customName } = raw as Record<string, unknown>;
+  const { creatureKey, ruleset, count, isAlly, customName, imageKey } = raw as Record<string, unknown>;
   if (typeof creatureKey !== "string" || !creatureKey || creatureKey.length > MAP_CREATURE_LIMITS.keyLength) return null;
   if (!MAP_CREATURE_RULESETS.includes(ruleset as MapCreatureRuleset) || typeof isAlly !== "boolean") return null;
   if (!Number.isInteger(count) || (count as number) < 1 || (count as number) > MAP_CREATURE_LIMITS.perAdd) return null;
   const name = parseCustomName(customName);
   if (name === undefined) return null;
-  return { creatureKey, ruleset: ruleset as MapCreatureRuleset, count: count as number, isAlly, customName: name };
+  if (imageKey !== undefined && imageKey !== null && (typeof imageKey !== "string" || !imageKey || imageKey.length > MAP_CREATURE_LIMITS.keyLength)) return null;
+  return { creatureKey, ruleset: ruleset as MapCreatureRuleset, count: count as number, isAlly, customName: name, imageKey: imageKey ?? null };
 }
 
 /// undefined — недійсне імʼя; null — імені немає, гравці бачать справжню істоту.

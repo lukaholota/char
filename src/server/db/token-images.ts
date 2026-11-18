@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { MAP_CREATURE_LIMITS } from "@/rules/game-map-creatures";
+import { MAP_CREATURE_LIMITS, type MapCreatureRuleset } from "@/rules/game-map-creatures";
 import { findActiveGmSession, signalGameSession, type GameSessionResult } from "@/server/db/game-sessions";
 import { deleteStoredImage, storeSquareImage, type StoredImageResult } from "@/server/media/image-upload";
 
@@ -17,14 +17,19 @@ export async function addTokenImage(userId: number, file: unknown): Promise<Stor
   return stored;
 }
 
-/// Вигляд спільний для всіх таких істот кімнати: майстер замінює «дракона», а не одного з трьох.
+/// Вигляд спільний для однакових істот кімнати: майстер замінює «дракона», а не одного з трьох.
+/// Істота з власним імʼям — окремий персонаж: корчмар-простолюдин не перефарбовує стражника-простолюдина.
+export function buildCreatureLookFilter(sessionId: number, creature: { creatureKey: string; ruleset: MapCreatureRuleset; customName: string | null }) {
+  return { gameSessionId: sessionId, creatureKey: creature.creatureKey, ruleset: creature.ruleset, customName: creature.customName };
+}
+
 export async function setMapCreatureImage(sessionId: number, userId: number, creatureId: number, imageKey: string | null): Promise<GameSessionResult<null>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
   if (imageKey !== null && !(await isOwnTokenImage(userId, imageKey))) return { ok: false, error: "token_image_gone" };
-  const creature = await prisma.gameMapCreature.findFirst({ where: { id: creatureId, gameSessionId: sessionId }, select: { creatureKey: true, ruleset: true } });
+  const creature = await prisma.gameMapCreature.findFirst({ where: { id: creatureId, gameSessionId: sessionId }, select: { creatureKey: true, ruleset: true, customName: true } });
   if (!creature) return { ok: false, error: "creature_gone" };
-  await prisma.gameMapCreature.updateMany({ where: { gameSessionId: sessionId, creatureKey: creature.creatureKey, ruleset: creature.ruleset }, data: { customImageKey: imageKey } });
+  await prisma.gameMapCreature.updateMany({ where: buildCreatureLookFilter(sessionId, creature), data: { customImageKey: imageKey } });
   await signalGameSession(sessionId, "session");
   return { ok: true, value: null };
 }

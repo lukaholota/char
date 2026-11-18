@@ -1,6 +1,6 @@
 import sharp from "sharp";
 import { describe, expect, it } from "vitest";
-import { buildSquareWebpImages, detectImageType } from "./image-processing";
+import { buildDetailedMapWebp, buildScreenshotWebp, buildSquareWebpImages, detectImageType } from "./image-processing";
 
 async function makePng(width: number, height: number) {
   return new Uint8Array(await sharp({ create: { width, height, channels: 3, background: "#884422" } }).png().toBuffer());
@@ -28,6 +28,13 @@ describe("картинки користувачів", () => {
       expect(info.channels).toBe(4);
       expect(data[3]).toBe(0);
     }
+  });
+
+  it("звичайна мапа стискається до 1600 по довшій стороні, детальна — до 3200, і жодна не збільшується", async () => {
+    const big = await makePng(4000, 2000);
+    expect(await sharp(await buildScreenshotWebp(big)).metadata()).toMatchObject({ format: "webp", width: 1600, height: 800 });
+    expect(await sharp(await buildDetailedMapWebp(big)).metadata()).toMatchObject({ format: "webp", width: 3200, height: 1600 });
+    expect(await sharp(await buildDetailedMapWebp(await makePng(1000, 700))).metadata()).toMatchObject({ width: 1000, height: 700 });
   });
 
   it("зіпсований файл із правильним заголовком — помилка, а не порожня картинка", async () => {

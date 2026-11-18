@@ -54,7 +54,7 @@ describe("істоти на мапі кімнати", () => {
 
   it("приймає лише відому редакцію, рядковий ключ і від 1 до 10 копій", () => {
     const valid = { creatureKey: "goblin", ruleset: "RULES_2014", count: 3, isAlly: false };
-    expect(parseNewMapCreatures(valid)).toEqual({ ...valid, customName: null });
+    expect(parseNewMapCreatures(valid)).toEqual({ ...valid, customName: null, imageKey: null });
     expect(parseNewMapCreatures({ ...valid, count: 0 })).toBeNull();
     expect(parseNewMapCreatures({ ...valid, count: 11 })).toBeNull();
     expect(parseNewMapCreatures({ ...valid, count: 1.5 })).toBeNull();
@@ -71,6 +71,15 @@ describe("істоти на мапі кімнати", () => {
     expect(parseNewMapCreatures({ ...valid, customName: "   " })?.customName).toBeNull();
     expect(parseNewMapCreatures({ ...valid, customName: "x".repeat(41) })).toBeNull();
     expect(parseNewMapCreatures({ ...valid, customName: 7 })).toBeNull();
+  });
+
+  it("власний портрет — необовʼязковий ключ зображення; порожній, задовгий чи не рядок — відмова", () => {
+    const valid = { creatureKey: "commoner", ruleset: "RULES_2014", count: 1, isAlly: true };
+    expect(parseNewMapCreatures({ ...valid, imageKey: "token-images/7/abc" })?.imageKey).toBe("token-images/7/abc");
+    expect(parseNewMapCreatures({ ...valid, imageKey: null })?.imageKey).toBeNull();
+    expect(parseNewMapCreatures({ ...valid, imageKey: "" })).toBeNull();
+    expect(parseNewMapCreatures({ ...valid, imageKey: "x".repeat(121) })).toBeNull();
+    expect(parseNewMapCreatures({ ...valid, imageKey: 7 })).toBeNull();
   });
 
   it("розмір токена береться зі статблоку, а вибір майстра його перекриває", () => {

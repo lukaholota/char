@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
 import { removeMapCreaturesAction } from "@/lib/actions/game-sessions";
 import { AddMapCreaturesDialog } from "./AddMapCreaturesDialog";
+import { QuickNpcDialog } from "./QuickNpcDialog";
 
 type TrayProps = { sessionId: number; hasCreatures: boolean; hasWaiting: boolean; children: ReactNode };
 
@@ -25,6 +26,7 @@ export function CreatureTray({ sessionId, hasCreatures, hasWaiting, children }: 
     <div className="space-y-2">
       <div className="flex flex-wrap items-center gap-3">
         <AddMapCreaturesDialog sessionId={sessionId} />
+        <QuickNpcDialog sessionId={sessionId} />
         {hasWaiting ? <ul aria-label="Істоти поза мапою" className="flex flex-wrap gap-3">{children}</ul> : null}
         {hasCreatures ? (
           <Button type="button" variant="ghost" onClick={clearAll} disabled={isClearing} className="ml-auto h-11 px-3 text-slate-400">

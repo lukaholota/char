@@ -7,6 +7,9 @@ const WEBP_QUALITY = 80;
 const SCREENSHOT_EDGE = 1600;
 const SCREENSHOT_WEBP_QUALITY = 72;
 const MAP_THUMBNAIL_EDGE = 320;
+/// Детальна мапа — на прохання майстра: дрібні написи й сітка лишаються чіткими, файл важчий.
+const DETAILED_MAP_EDGE = 3200;
+const DETAILED_MAP_WEBP_QUALITY = 86;
 const PRINT_JPEG_QUALITY = 88;
 
 export type ProcessedImage = { full: Uint8Array; thumbnail: Uint8Array };
@@ -26,25 +29,27 @@ export function detectImageType(bytes: Uint8Array): AcceptedImageType | null {
 
 // Одна картинка за раз на весь процес: VPS один, і кілька одночасних завантажень не мають зʼїсти памʼять.
 export function buildSquareWebpImages(bytes: Uint8Array): Promise<ProcessedImage> {
-  const job = processingQueue.then(() => encodeSquareWebpImages(bytes));
-  processingQueue = job.catch(() => undefined);
-  return job;
+  return runQueued(() => encodeSquareWebpImages(bytes));
 }
 
 export function buildScreenshotWebp(bytes: Uint8Array): Promise<Uint8Array> {
-  const job = processingQueue.then(() => encodeScreenshotWebp(bytes));
-  processingQueue = job.catch(() => undefined);
-  return job;
+  return runQueued(() => encodeFittedWebp(bytes, SCREENSHOT_EDGE, SCREENSHOT_WEBP_QUALITY));
+}
+
+export function buildDetailedMapWebp(bytes: Uint8Array): Promise<Uint8Array> {
+  return runQueued(() => encodeFittedWebp(bytes, DETAILED_MAP_EDGE, DETAILED_MAP_WEBP_QUALITY));
 }
 
 export function buildMapThumbnailWebp(bytes: Uint8Array): Promise<Uint8Array> {
-  const job = processingQueue.then(() => encodeMapThumbnailWebp(bytes));
-  processingQueue = job.catch(() => undefined);
-  return job;
+  return runQueued(() => encodeFittedWebp(bytes, MAP_THUMBNAIL_EDGE, SCREENSHOT_WEBP_QUALITY));
 }
 
 export function buildPrintJpeg(bytes: Uint8Array): Promise<Uint8Array> {
-  const job = processingQueue.then(() => encodePrintJpeg(bytes));
+  return runQueued(() => encodePrintJpeg(bytes));
+}
+
+function runQueued<T>(encode: () => Promise<T>): Promise<T> {
+  const job = processingQueue.then(encode);
   processingQueue = job.catch(() => undefined);
   return job;
 }
@@ -57,20 +62,11 @@ async function encodePrintJpeg(bytes: Uint8Array): Promise<Uint8Array> {
   return new Uint8Array(encoded);
 }
 
-async function encodeScreenshotWebp(bytes: Uint8Array): Promise<Uint8Array> {
+async function encodeFittedWebp(bytes: Uint8Array, edge: number, quality: number): Promise<Uint8Array> {
   const encoded = await sharp(bytes, { limitInputPixels: MAX_INPUT_PIXELS, failOn: "error" })
     .rotate()
-    .resize(SCREENSHOT_EDGE, SCREENSHOT_EDGE, { fit: "inside", withoutEnlargement: true })
-    .webp({ quality: SCREENSHOT_WEBP_QUALITY })
-    .toBuffer();
-  return new Uint8Array(encoded);
-}
-
-async function encodeMapThumbnailWebp(bytes: Uint8Array): Promise<Uint8Array> {
-  const encoded = await sharp(bytes, { limitInputPixels: MAX_INPUT_PIXELS, failOn: "error" })
-    .rotate()
-    .resize(MAP_THUMBNAIL_EDGE, MAP_THUMBNAIL_EDGE, { fit: "inside", withoutEnlargement: true })
-    .webp({ quality: SCREENSHOT_WEBP_QUALITY })
+    .resize(edge, edge, { fit: "inside", withoutEnlargement: true })
+    .webp({ quality })
     .toBuffer();
   return new Uint8Array(encoded);
 }

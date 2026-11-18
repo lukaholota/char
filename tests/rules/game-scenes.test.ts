@@ -62,7 +62,8 @@ describe("parseSceneMapSource", () => {
   it("prefers a library slug, then an uploaded file, otherwise none", () => {
     const file = new Blob(["x"]);
     expect(parseSceneMapSource(new Map<string, unknown>([["library", "forest-road"], ["file", file]]))).toEqual({ kind: "library", slug: "forest-road" });
-    expect(parseSceneMapSource(new Map<string, unknown>([["file", file]]))).toEqual({ kind: "upload", file });
+    expect(parseSceneMapSource(new Map<string, unknown>([["file", file]]))).toEqual({ kind: "upload", file, isDetailed: false });
+    expect(parseSceneMapSource(new Map<string, unknown>([["file", file], ["detailed", "1"]]))).toEqual({ kind: "upload", file, isDetailed: true });
     expect(parseSceneMapSource(new Map<string, unknown>([["library", ""], ["file", "text"]]))).toEqual({ kind: "none" });
   });
 });

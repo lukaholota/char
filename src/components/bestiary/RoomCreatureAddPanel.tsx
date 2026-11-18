@@ -67,7 +67,7 @@ export function RoomCreatureAddPanel({ creature, ruleset }: { creature: Creature
   );
 }
 
-function SideButton({ isOn, onClick, tone, children }: { isOn: boolean; onClick: () => void; tone: string; children: string }) {
+export function SideButton({ isOn, onClick, tone, children }: { isOn: boolean; onClick: () => void; tone: string; children: string }) {
   return (
     <button type="button" aria-pressed={isOn} onClick={onClick} className={cn("h-9 rounded-lg border border-transparent px-3 text-sm", isOn ? tone : "text-slate-400 hover:text-slate-200")}>
       {children}

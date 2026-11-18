@@ -10,6 +10,7 @@ import type { SceneLayout } from "@/rules/uvtt-import";
 import { toStoredPoints } from "@/rules/map-strokes";
 import { GAME_SCENE_LIMITS, findLibraryMap, findViewedSceneId, isRoomUploadedMapKey, parseSceneName, type SceneMapSource } from "@/rules/game-scenes";
 import { findActiveGmSession, findMembership, findRoomHero, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
+import { buildDetailedMapWebp, buildScreenshotWebp } from "@/server/media/image-processing";
 import { deleteStoredImage, storeScreenshotImage } from "@/server/media/image-upload";
 
 type Transaction = Prisma.TransactionClient;
@@ -247,7 +248,7 @@ async function resolveSceneMap(sessionId: number, source: SceneMapSource): Promi
     return entry ? succeed({ key: entry.key, grid: buildLibraryGrid(entry.grid) }) : fail("bad_image");
   }
   try {
-    const stored = await storeScreenshotImage(source.file, `games/${sessionId}/map`);
+    const stored = await storeScreenshotImage(source.file, `games/${sessionId}/map`, source.isDetailed ? buildDetailedMapWebp : buildScreenshotWebp);
     if ("error" in stored) {
       console.warn("Мапу сцени не збережено", sessionId, stored.error);
       return fail("bad_image");
