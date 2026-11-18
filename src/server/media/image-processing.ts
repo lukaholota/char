@@ -8,8 +8,8 @@ const SCREENSHOT_EDGE = 1600;
 const SCREENSHOT_WEBP_QUALITY = 72;
 const MAP_THUMBNAIL_EDGE = 320;
 /// Детальна мапа — на прохання майстра: дрібні написи й сітка лишаються чіткими, файл важчий.
-const DETAILED_MAP_EDGE = 3200;
-const DETAILED_MAP_WEBP_QUALITY = 86;
+const DETAILED_MAP_EDGE = 4096;
+const DETAILED_MAP_WEBP_QUALITY = 82;
 const PRINT_JPEG_QUALITY = 88;
 
 export type ProcessedImage = { full: Uint8Array; thumbnail: Uint8Array };

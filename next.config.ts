@@ -9,7 +9,8 @@ const nextConfig: NextConfig = {
   deploymentId: process.env.DEPLOYMENT_VERSION,
   env: { NEXT_PUBLIC_DEPLOYMENT_VERSION: process.env.DEPLOYMENT_VERSION || "" },
   experimental: {
-    webpackMemoryOptimizations: true
+    webpackMemoryOptimizations: true,
+    serverActions: { bodySizeLimit: "10mb" },
   },
   // Образ збирається паралельно з джобою checks, де той самий `tsc --noEmit` уже йде, і деплой
   // без неї не стартує; друга перевірка всередині next build коштувала ~47 с.

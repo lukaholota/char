@@ -96,6 +96,20 @@ describe("сцени кімнати", () => {
     expect(await readSceneSetup(fromLibrary.value.id)).toEqual({ lighting: "off", gridColumns: null, _count: { walls: 0, lights: 0 } });
   });
 
+  it("мапа понад 950 КБ ляже лише з «Менше стискати»; звичайна такого розміру відхиляється", async () => {
+    const { gm, sessionId } = await createTable();
+    const noise = new Uint8Array(800 * 700 * 3).map(() => Math.floor(Math.random() * 256));
+    const heavy = await sharp(noise, { raw: { width: 800, height: 700, channels: 3 } }).png({ compressionLevel: 0 }).toBuffer();
+    expect(heavy.byteLength).toBeGreaterThan(950 * 1024);
+    const file = new Blob([new Uint8Array(heavy)], { type: "image/png" });
+
+    expect(await createGameScene(sessionId, gm.id, "Звичайна", { kind: "upload", file, isDetailed: false })).toMatchObject({ ok: false });
+    const detailed = await createGameScene(sessionId, gm.id, "Детальна", { kind: "upload", file, isDetailed: true });
+    if (!detailed.ok) throw new Error(detailed.error);
+    const mapKey = [...stored.keys()].find((key) => key.startsWith(`games/${sessionId}/map/`))!;
+    expect(await sharp(stored.get(mapKey)!).metadata()).toMatchObject({ format: "webp", width: 800, height: 700 });
+  });
+
   it("сцена з файлу Universal VTT приходить зі стінами, дверима, світлом, сіткою й темрявою; гравець бачить лише лінії зору", async () => {
     const { gm, player, sessionId } = await createTable();
     const parsed = parseUvttScene(JSON.parse(readFileSync(`${__dirname}/../fixtures/uvtt/dungeondraft-room.dd2vtt`, "utf8")));

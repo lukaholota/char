@@ -30,10 +30,11 @@ describe("картинки користувачів", () => {
     }
   });
 
-  it("звичайна мапа стискається до 1600 по довшій стороні, детальна — до 3200, і жодна не збільшується", async () => {
-    const big = await makePng(4000, 2000);
+  it("звичайна мапа стискається до 1600 по довшій стороні, детальна — до 4096, і жодна не збільшується", async () => {
+    const big = await makePng(5000, 2500);
     expect(await sharp(await buildScreenshotWebp(big)).metadata()).toMatchObject({ format: "webp", width: 1600, height: 800 });
-    expect(await sharp(await buildDetailedMapWebp(big)).metadata()).toMatchObject({ format: "webp", width: 3200, height: 1600 });
+    expect(await sharp(await buildDetailedMapWebp(big)).metadata()).toMatchObject({ format: "webp", width: 4096, height: 2048 });
+    expect(await sharp(await buildDetailedMapWebp(await makePng(3600, 3888))).metadata()).toMatchObject({ width: 3600, height: 3888 });
     expect(await sharp(await buildDetailedMapWebp(await makePng(1000, 700))).metadata()).toMatchObject({ width: 1000, height: 700 });
   });
 

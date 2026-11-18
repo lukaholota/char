@@ -23,8 +23,8 @@ export async function storeSquareImage(file: unknown, keyPrefix: string): Promis
   return { key };
 }
 
-export async function storeScreenshotImage(file: unknown, keyPrefix: string, encode = buildScreenshotWebp): Promise<StoredImageResult> {
-  const bytes = await readAcceptedImageBytes(file);
+export async function storeScreenshotImage(file: unknown, keyPrefix: string, encode = buildScreenshotWebp, maxBytes = MAX_IMAGE_UPLOAD_BYTES): Promise<StoredImageResult> {
+  const bytes = await readAcceptedImageBytes(file, maxBytes);
   if ("error" in bytes) return bytes;
 
   const encoded = await encodeScreenshot(bytes.bytes, encode);
@@ -44,10 +44,10 @@ export async function deleteStoredImage(key: string | null | undefined): Promise
   }
 }
 
-async function readAcceptedImageBytes(file: unknown): Promise<{ bytes: Uint8Array } | { error: string }> {
+async function readAcceptedImageBytes(file: unknown, maxBytes: number): Promise<{ bytes: Uint8Array } | { error: string }> {
   if (!isMediaStoreConfigured()) return { error: "Завантаження картинок тимчасово недоступне" };
   if (!(file instanceof Blob) || file.size === 0) return { error: "Оберіть картинку" };
-  if (file.size > MAX_IMAGE_UPLOAD_BYTES) return { error: "Картинка завелика" };
+  if (file.size > maxBytes) return { error: "Картинка завелика" };
 
   const bytes = new Uint8Array(await file.arrayBuffer());
   if (!detectImageType(bytes)) return { error: "Підходять лише JPEG, PNG або WebP" };

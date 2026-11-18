@@ -9,8 +9,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { createGameSceneAction, deleteGameSceneAction, renameGameSceneAction, replaceGameSceneMapAction } from "@/lib/actions/game-sessions";
-import { DETAILED_MAP_PASSES, shrinkScreenshotForUpload } from "@/lib/components/portrait/resize-image";
-import { ACCEPTED_IMAGE_MIME_TYPES, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
+import { shrinkDetailedMapForUpload, shrinkScreenshotForUpload } from "@/lib/components/portrait/resize-image";
+import { ACCEPTED_IMAGE_MIME_TYPES, MAX_IMAGE_UPLOAD_BYTES, MAX_MAP_UPLOAD_BYTES } from "@/lib/media-upload-limits";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import type { LibraryMap } from "@/lib/refs/map-library";
@@ -63,8 +63,8 @@ function SceneForm({ sessionId, scene, library, onDone }: SceneFormProps) {
   const shrinkMap = async (source: Blob, detailed: boolean) => {
     setIsShrinking(true);
     try {
-      const shrunk = await shrinkScreenshotForUpload(source, detailed ? DETAILED_MAP_PASSES : undefined);
-      if (shrunk.size <= MAX_IMAGE_UPLOAD_BYTES) return shrunk;
+      const shrunk = detailed ? await shrinkDetailedMapForUpload(source) : await shrinkScreenshotForUpload(source);
+      if (shrunk.size <= (detailed ? MAX_MAP_UPLOAD_BYTES : MAX_IMAGE_UPLOAD_BYTES)) return shrunk;
       toast.error("Картинка завелика навіть після стискання");
     } catch {
       toast.error("Не вдалося прочитати картинку");
@@ -191,7 +191,7 @@ function ChosenMap({ choice, onClear }: { choice: MapChoice; onClear: () => void
       {/* eslint-disable-next-line @next/next/no-img-element -- мініатюра з бібліотеки або локальний файл до завантаження */}
       <img src={src} alt="" width={96} height={72} className="aspect-[4/3] w-24 shrink-0 rounded-md bg-white/5 object-cover" />
       <p className="min-w-0 flex-1 text-sm text-slate-100">
-        <span className="block text-slate-300">{isLibrary ? "Базова мапа" : `Свій файл · ${Math.round(choice.file.size / 1024)} КБ`}</span>
+        <span className="block text-slate-300">{isLibrary ? "Базова мапа" : `Свій файл · ${formatFileSize(choice.file.size)}`}</span>
         <span className="line-clamp-2 break-words">{isLibrary ? choice.map.name : choice.label}</span>
         {!isLibrary && choice.layout ? <span className="block text-slate-300">{describeLayout(choice.layout)}</span> : null}
       </p>
@@ -208,7 +208,7 @@ function DetailToggle({ isOn, disabled, onChange }: { isOn: boolean; disabled: b
       <Checkbox id="scene-map-detailed" checked={isOn} disabled={disabled} onCheckedChange={(value) => onChange(value === true)} className="mt-0.5 h-5 w-5" aria-describedby="scene-map-detailed-hint" />
       <label htmlFor="scene-map-detailed" className="grid gap-0.5 text-sm text-slate-200">
         {disabled ? "Стискаю…" : "Менше стискати"}
-        <span id="scene-map-detailed-hint" className="text-slate-400">Чіткіші дрібні деталі й сітка, але мапа довше вантажиться у гравців.</span>
+        <span id="scene-map-detailed-hint" className="text-slate-400">До 4096 px — чіткі клітинки навіть на великих мапах. Файл важчий, тож гравцям вантажиться довше.</span>
       </label>
     </div>
   );
@@ -253,4 +253,8 @@ function countLayout(layout: SceneLayout) {
 function describeLayout(layout: SceneLayout) {
   const { walls, doors, lights } = countLayout(layout);
   return `Стін: ${walls}, дверей: ${doors}, світла: ${lights}${layout.lighting === "dark" ? " · сцена буде темною" : ""}`;
+}
+
+function formatFileSize(bytes: number) {
+  return bytes < 1024 * 1024 ? `${Math.round(bytes / 1024)} КБ` : `${(bytes / 1024 / 1024).toFixed(1).replace(".", ",")} МБ`;
 }

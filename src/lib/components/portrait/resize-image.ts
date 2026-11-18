@@ -1,4 +1,4 @@
-import { CLIENT_DETAILED_MAP_EDGE, CLIENT_PORTRAIT_EDGE, CLIENT_SCREENSHOT_EDGE, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
+import { CLIENT_DETAILED_MAP_EDGE, CLIENT_PORTRAIT_EDGE, CLIENT_SCREENSHOT_EDGE, MAX_IMAGE_UPLOAD_BYTES, MAX_MAP_UPLOAD_BYTES } from "@/lib/media-upload-limits";
 import type { SourceSquare } from "./crop-geometry";
 
 const OUTPUT_TYPE = "image/webp";
@@ -33,21 +33,27 @@ const SCREENSHOT_PASSES = [
   { edge: 1200, quality: 0.6 },
 ];
 
-/// Найбільша чітка мапа, що влазить у ліміт; якщо ні — звичайне стискання.
-export const DETAILED_MAP_PASSES = [
-  { edge: CLIENT_DETAILED_MAP_EDGE, quality: 0.85 },
-  { edge: 2560, quality: 0.85 },
-  { edge: 2048, quality: 0.85 },
-  ...SCREENSHOT_PASSES,
+const DETAILED_MAP_PASSES = [
+  { edge: CLIENT_DETAILED_MAP_EDGE, quality: 0.9 },
+  { edge: CLIENT_DETAILED_MAP_EDGE, quality: 0.8 },
+  { edge: 2048, quality: 0.8 },
 ];
 
-export async function shrinkScreenshotForUpload(file: Blob, passes = SCREENSHOT_PASSES): Promise<Blob> {
+/// Мапа, що вже не більша за потрібну, їде як є: сервер усе одно перекодує її один раз.
+export async function shrinkDetailedMapForUpload(file: Blob): Promise<Blob> {
+  const bitmap = await createImageBitmap(file);
+  const fitsAsIs = Math.max(bitmap.width, bitmap.height) <= CLIENT_DETAILED_MAP_EDGE && file.size <= MAX_MAP_UPLOAD_BYTES;
+  bitmap.close();
+  return fitsAsIs ? file : shrinkScreenshotForUpload(file, DETAILED_MAP_PASSES, MAX_MAP_UPLOAD_BYTES);
+}
+
+export async function shrinkScreenshotForUpload(file: Blob, passes = SCREENSHOT_PASSES, maxBytes = MAX_IMAGE_UPLOAD_BYTES): Promise<Blob> {
   const bitmap = await createImageBitmap(file);
   try {
     let smallest: Blob | null = null;
     for (const pass of passes) {
       const encoded = await encodeOpaqueCanvas(drawFitted(bitmap, pass.edge), pass.quality);
-      if (encoded.size <= MAX_IMAGE_UPLOAD_BYTES) return encoded;
+      if (encoded.size <= maxBytes) return encoded;
       smallest = encoded;
     }
     return smallest ?? file;
