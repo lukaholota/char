@@ -162,13 +162,22 @@ describe("характеризація підсумків перед розкл�
 describe("розкладка «звідки число»", () => {
   const [bard, monk] = buildRichPersonas();
 
-  it("КЗ барда: обладунок, щит, ручний бонус, риса й предмет", () => {
+  it("КБ барда: обладунок, щит, ручний бонус, риса й предмет", () => {
     expect(explainFinalAC(bard)).toEqual([
-      { label: "Базовий КЗ: Проклепаний шкіряний обладунок", value: 16 },
+      { label: "Базовий КБ: Проклепаний шкіряний обладунок", value: 16 },
       { label: "Щит", value: 3 },
       { label: "Ручний бонус", value: 1 },
       { label: "Риси", value: 1 },
       { label: "Магічні предмети", value: 1 },
+    ]);
+  });
+
+  it("КБ від предметів — окремим рядком на кожен названий предмет", () => {
+    const item = (name: string) => ({ isEquipped: true, isAttuned: true, magicItem: { name, requiresAttunement: true, bonusToAC: 1 } });
+    const withNamedItems = { ...bard, magicItems: [item("Плащ захисту"), item("Каблучка захисту")] } as typeof bard;
+    expect(explainFinalAC(withNamedItems).slice(-2)).toEqual([
+      { label: "Плащ захисту", value: 1 },
+      { label: "Каблучка захисту", value: 1 },
     ]);
   });
 

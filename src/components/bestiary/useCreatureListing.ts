@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { buildCreatureIndexEntry, type CreatureIndexEntry } from "@/lib/bestiary-index";
 import { useCatalogHomebrew } from "@/hooks/useCommunityHomebrew";
 import { toHomebrewCatalogId, type HomebrewCatalogEntry, type HomebrewCreatureEntry } from "@/lib/logic/homebrew-view";
-import { buildHomebrewCreatureKey, type HomebrewSort } from "@/lib/logic/homebrew-catalog";
+import { buildHomebrewEntryKey, type HomebrewSort } from "@/lib/logic/homebrew-catalog";
 import { Ruleset } from "@/lib/prisma-enums";
 import { fetchCreatureKeysMatchingText } from "@/lib/catalog-reads";
 import { createCreatureShuffleSeed } from "@/lib/bestiary-sort";
@@ -68,5 +68,5 @@ export function isCommunityCreature(creature: CreatureIndexEntry): boolean {
 }
 
 function toHomebrewIndexEntry(entry: HomebrewCatalogEntry): CreatureIndexEntry[] {
-  return entry.kind === "CREATURE" ? [{ ...buildCreatureIndexEntry(entry.creature), key: buildHomebrewCreatureKey(entry.entryId) }] : [];
+  return entry.kind === "CREATURE" ? [{ ...buildCreatureIndexEntry(entry.creature), key: buildHomebrewEntryKey(entry.entryId) }] : [];
 }

@@ -1,7 +1,7 @@
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Ruleset } from "@prisma/client";
 import { getAllCreatures } from "@/lib/bestiaryData";
-import { buildHomebrewCreatureKey } from "@/lib/logic/homebrew-catalog";
+import { buildHomebrewEntryKey } from "@/lib/logic/homebrew-catalog";
 import { prisma } from "@/lib/prisma";
 import { attachWildshapeForm, enterWildshapeForm, loadWildshapeForms } from "@/server/db/wildshape-actions";
 import { saveHomebrewCreature } from "@/lib/actions/homebrew-actions";
@@ -71,13 +71,13 @@ describe("дика форма з хоумбрю-істоти", () => {
     const { user, pers } = await createDruid("hb-wildshape-attach@example.test");
     const beast = await createHomebrewBeast(user.id, { name: "Тіньовий вовк", hp: "33 (6d8 + 6)" });
 
-    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewCreatureKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
+    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewEntryKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
     if (!attached.ok) throw new Error(attached.error);
 
     const sheet = await loadWildshapeForms(pers.persId);
     if (!sheet.ok) throw new Error(sheet.error);
     expect(sheet.forms.map((form) => [form.key, form.creature?.name, form.creature?.source])).toEqual([
-      [buildHomebrewCreatureKey(beast.homebrewEntryId), "Тіньовий вовк", "HOMEBREW"],
+      [buildHomebrewEntryKey(beast.homebrewEntryId), "Тіньовий вовк", "HOMEBREW"],
     ]);
     expect(sheet.forms[0].eligibility?.eligible).toBe(true);
   });
@@ -86,17 +86,17 @@ describe("дика форма з хоумбрю-істоти", () => {
     const { user, pers } = await createDruid("hb-wildshape-collision@example.test");
     const beast = await createHomebrewBeast(user.id, { name: "Тіньовий вовк", hp: "33 (6d8 + 6)" });
 
-    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewCreatureKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
+    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewEntryKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
     if (!attached.ok) throw new Error(attached.error);
 
-    expect(attached.form.key).toBe(buildHomebrewCreatureKey(beast.homebrewEntryId));
+    expect(attached.form.key).toBe(buildHomebrewEntryKey(beast.homebrewEntryId));
     expect(attached.form.creature?.name).toBe("Тіньовий вовк");
   });
 
   it("вхід у форму бере хіти звіра з хоумбрю-статблока", async () => {
     const { user, pers } = await createDruid("hb-wildshape-enter@example.test");
     const beast = await createHomebrewBeast(user.id, { name: "Тіньовий вовк", hp: "33 (6d8 + 6)" });
-    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewCreatureKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
+    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewEntryKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
     if (!attached.ok) throw new Error(attached.error);
 
     const entered = await enterWildshapeForm({ persId: pers.persId, wildshapeId: attached.form.wildshapeId });
@@ -109,7 +109,7 @@ describe("дика форма з хоумбрю-істоти", () => {
     const { user, pers } = await createDruid("hb-wildshape-both@example.test");
     const beast = await createHomebrewBeast(user.id, { name: "Спільний вовк", hp: "11 (2d8 + 2)", ruleset: null });
 
-    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewCreatureKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
+    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewEntryKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
 
     expect(attached.ok && attached.form.creature?.name).toBe("Спільний вовк");
   });
@@ -117,14 +117,14 @@ describe("дика форма з хоумбрю-істоти", () => {
   it("видалене автором хоумбрю лишає рядок форми, але форма недоступна", async () => {
     const { user, pers } = await createDruid("hb-wildshape-deleted@example.test");
     const beast = await createHomebrewBeast(user.id, { name: "Тіньовий вовк", hp: "33 (6d8 + 6)" });
-    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewCreatureKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
+    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewEntryKey(beast.homebrewEntryId), ruleset: "RULES_2014" });
     if (!attached.ok) throw new Error(attached.error);
 
     await prisma.homebrewEntry.update({ where: { homebrewEntryId: beast.homebrewEntryId }, data: { deletedAt: new Date() } });
 
     const sheet = await loadWildshapeForms(pers.persId);
     if (!sheet.ok) throw new Error(sheet.error);
-    expect(sheet.forms.map((form) => [form.key, form.creature])).toEqual([[buildHomebrewCreatureKey(beast.homebrewEntryId), null]]);
+    expect(sheet.forms.map((form) => [form.key, form.creature])).toEqual([[buildHomebrewEntryKey(beast.homebrewEntryId), null]]);
   });
 
   it("хоумбрю, створене формою сайту, стає формою, і друк малює його картку", async () => {
@@ -138,7 +138,7 @@ describe("дика форма з хоумбрю-істоти", () => {
     const saved = await saveHomebrewCreature(form);
     if (!saved.success) throw new Error(saved.error ?? JSON.stringify(saved.fieldErrors));
 
-    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewCreatureKey(saved.entryId), ruleset: "RULES_2014" });
+    const attached = await attachWildshapeForm({ persId: pers.persId, creatureKey: buildHomebrewEntryKey(saved.entryId), ruleset: "RULES_2014" });
     if (!attached.ok) throw new Error(attached.error);
     const entered = await enterWildshapeForm({ persId: pers.persId, wildshapeId: attached.form.wildshapeId });
     if (!entered.ok) throw new Error(entered.error);

@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { reportProblem } from "@/lib/actions/problem-report-actions";
-import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import SignInDialog from "@/lib/components/auth/SignInDialog";
 import { ReportAttachments, useReportAttachments } from "./ReportAttachments";
 
 type Props = {
@@ -30,7 +30,7 @@ function collectClientContext() {
 export function ReportProblemDialog(props: Props) {
   // Екран глобальної помилки живе поза SessionProvider, а useSession там падає.
   const isSignedOut = useContext(SessionContext)?.status === "unauthenticated";
-  if (isSignedOut) return <GoogleAuthDialog open={props.open} onOpenChange={props.onOpenChange} analyticsTrigger="report" />;
+  if (isSignedOut) return <SignInDialog open={props.open} onOpenChange={props.onOpenChange} analyticsTrigger="report" />;
   return <ReportProblemFormDialog {...props} />;
 }
 

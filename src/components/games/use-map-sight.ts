@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { toViewPoint, type MapFrame } from "@/rules/game-grid";
 import { buildSceneSight, type BuildPolygon, type Eye, type LightSource, type SceneLighting, type SceneSight, type TokenLight } from "@/rules/game-lighting";
 import type { TokenPosition } from "@/rules/game-map";
-import { collectSightSegments } from "@/rules/game-walls";
+import { collectMoveLines, collectSightLines, collectSightSegments, type WallLine } from "@/rules/game-walls";
 import { buildVisibilityPolygon, isMoveBlocked, type ViewPoint } from "@/rules/map-visibility";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import type { TokenMoves, useHeroTokens } from "./HeroTokens";
@@ -16,10 +16,14 @@ const SIGHT_MEASURE = "scene-sight";
 const toLightSource = (at: TokenPosition, { brightFeet, dimFeet }: TokenLight): LightSource => ({ at, brightFeet, dimFeet });
 
 /// Стіни міняються рідко, а світло й очі — щокадру під пальцем: многокутник для тієї ж точки й радіуса не рахуємо вдруге.
-export function useWallSight(lines: TokenPosition[][], aspect: number | null) {
-  const linesKey = JSON.stringify(lines);
+/// Зір спиняють стіни, зачинені двері й вікна за шторою; рух — ще й зачинені вікна.
+export function useWallSight(walls: WallLine[], aspect: number | null) {
+  const wallsKey = JSON.stringify(walls.map(({ kind, isOpen, lock, isCurtained, points }): WallLine => ({ kind, isOpen, lock, isCurtained, points })));
   return useMemo(() => {
-    const segments = aspect ? collectSightSegments(JSON.parse(linesKey) as TokenPosition[][], aspect) : [];
+    const lines = JSON.parse(wallsKey) as WallLine[];
+    const [sightLines, moveLines] = [collectSightLines(lines), collectMoveLines(lines)];
+    const segments = aspect ? collectSightSegments(sightLines, aspect) : [];
+    const moveSegments = aspect ? collectSightSegments(moveLines, aspect) : [];
     const polygons = new Map<string, ViewPoint[]>();
     const buildPolygon: BuildPolygon = (origin, walls, radius) => {
       const key = `${origin.x},${origin.y},${radius}`;
@@ -29,9 +33,9 @@ export function useWallSight(lines: TokenPosition[][], aspect: number | null) {
       return polygon;
     };
     const ratio = aspect ?? 1;
-    const blocksMove = (from: TokenPosition, to: TokenPosition) => isMoveBlocked(toViewPoint(from, ratio), toViewPoint(to, ratio), segments);
+    const blocksMove = (from: TokenPosition, to: TokenPosition) => isMoveBlocked(toViewPoint(from, ratio), toViewPoint(to, ratio), moveSegments);
     return { segments, buildPolygon, blocksMove };
-  }, [linesKey, aspect]);
+  }, [wallsKey, aspect]);
 }
 
 export type WallSight = ReturnType<typeof useWallSight>;

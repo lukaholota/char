@@ -125,7 +125,7 @@ export default function ShortRestDialog({ pers, open, onOpenChange, onPersUpdate
         onGroupedFeaturesRefresh?.();
 
         toast.success(restTranslations.shortRestComplete, {
-          description: `${restTranslations.hpRestored}: ${res.hpRestored}, ${restTranslations.featuresRestored}: ${res.featuresRestored}`,
+          description: [`${restTranslations.hpRestored}: ${res.hpRestored}`, ...(res.featuresRestored > 0 ? [`${restTranslations.featuresRestored}: ${res.featuresRestored}`] : [])].join(" · "),
         });
         onOpenChange(false);
         refreshInBackground();

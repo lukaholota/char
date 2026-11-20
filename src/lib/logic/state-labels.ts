@@ -3,6 +3,7 @@ import type { AbilityKey } from "@/rules/types";
 import type { ExtraDie, RollStateView } from "@/lib/stores/diceUIStore";
 import { damageTypeTranslations, featTranslations } from "@/lib/refs/translation";
 import { EXHAUSTION_SOURCE_KEY } from "@/rules/exhaustion";
+import { readItemStateMagicItemId } from "@/rules/magic-item-states";
 import {
   findD20RollState,
   listBonusDice,
@@ -26,6 +27,9 @@ export function findStateSourceLabel(pers: PersWithRelations, sourceKey: string,
   if (sourceKey === EXHAUSTION_SOURCE_KEY) return "Виснаження";
   if (sourceKey === WAR_CASTER_SOURCE_KEY) return featTranslations.WAR_CASTER ?? "War Caster";
 
+  const itemName = findItemStateName(pers, sourceKey);
+  if (itemName) return itemName;
+
   const effectSpell = (pers.effects ?? []).find((row) => row.effectKey === sourceKey)?.spell;
   if (effectSpell) return describeBuffName(sourceKey, effectSpell.name);
 
@@ -33,6 +37,13 @@ export function findStateSourceLabel(pers: PersWithRelations, sourceKey: string,
   if (catalogEntry) return describeBuffName(sourceKey, catalogEntry.name);
 
   return collectActiveFeatures(pers).find((feature) => feature.engName === sourceKey)?.name ?? sourceKey;
+}
+
+function findItemStateName(pers: PersWithRelations, sourceKey: string): string | null {
+  const magicItemId = readItemStateMagicItemId(sourceKey);
+  if (magicItemId === null) return null;
+  const fromEffect = (pers.effects ?? []).find((row) => row.effectKey === sourceKey)?.magicItem?.name;
+  return fromEffect ?? (pers.magicItems ?? []).find((link) => link.magicItemId === magicItemId)?.magicItem?.name ?? "Магічний предмет";
 }
 
 /// Збільшення/Зменшення — одне заклинання з двома ефектами; чип показує ту половину, що діє.
@@ -119,6 +130,9 @@ const ROLL_SCOPE_LABELS: Record<RollScope, string> = {
   ABILITY_CHECK: "перевірки",
   STR_CHECK: "перевірки Сили",
   ACROBATICS_CHECK: "Акробатика",
+  STEALTH_CHECK: "Непомітність",
+  PERCEPTION_CHECK: "Уважність",
+  INITIATIVE: "ініціатива",
   ATTACK: "атаки",
   SAVE: "ряткидки",
   STR_SAVE: "ряткидки Сили",
@@ -163,6 +177,8 @@ function describeMark(mark: StateMark): string {
       return "опір — лише від немагічних атак не срібною зброєю";
     case "BLOODLUST":
       return "Жага крові: менше половини хітів — ряткидок Мудрості СК 8 на початку ходу";
+    case "NOTE":
+      return mark.text;
   }
 }
 

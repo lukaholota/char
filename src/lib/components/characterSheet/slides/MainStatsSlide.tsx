@@ -44,8 +44,10 @@ import {
   calculateFinalAC,
   calculateFinalSpeed,
   calculatePassiveSkill,
+  calculateDamageImmunities,
   calculateDamageResistances,
   calculateDarkvisionRange,
+  calculateItemMovementSpeeds,
   calculateFinalInitiative,
   calculateFinalProficiency,
   calculateFinalStat,
@@ -68,6 +70,7 @@ import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { buildAbilityRollContext, buildInitiativeRollContext } from "@/lib/components/dice/roll-contexts";
 import { AbilityScoreCard } from "@/lib/components/characterSheet/AbilityScoreCard";
+import { SensesAndResistancesCard } from "./SensesAndResistancesCard";
 import { useLongPress } from "@/hooks/useLongPress";
 import { PASSIVE_SKILLS } from "@/lib/components/characterSheet/passive-skills";
 import { useHeroDamageRequests } from "@/lib/components/game/hero-damage";
@@ -613,7 +616,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
               buildInitiativeRollContext(
                 calculateFinalInitiative(pers),
                 editInitiative,
-                describeRollState(pers, { kind: "check", ability: "DEX" }),
+                describeRollState(pers, { kind: "check", ability: "DEX", isInitiative: true }),
               ),
             );
           }}
@@ -742,6 +745,8 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
       <SensesAndResistancesCard
         darkvisionRange={calculateDarkvisionRange(pers)}
         damageResistances={calculateDamageResistances(pers).map((type) => damageTypeTranslations[type] ?? type)}
+        damageImmunities={calculateDamageImmunities(pers).map((type) => damageTypeTranslations[type] ?? type)}
+        movementSpeeds={calculateItemMovementSpeeds(pers)}
       />
 
       <HeroicInspirationRow
@@ -1154,29 +1159,6 @@ function readProficiencyText(pers: PersWithRelations) {
   return appendMissingProficiencies(
     { proficiencies: String(pers.customProficiencies ?? ""), languages: String(pers.customLanguagesKnown ?? "") },
     calculatePersProficiencies(pers),
-  );
-}
-
-function SensesAndResistancesCard({ darkvisionRange, damageResistances }: { darkvisionRange: number | null; damageResistances: string[] }) {
-  if (darkvisionRange === null && damageResistances.length === 0) return null;
-
-  return (
-    <Card className="glass-card bg-slate-900/60 border border-white/10">
-      <CardContent className="p-2 flex flex-col gap-1 text-sm text-slate-100">
-        {darkvisionRange !== null && (
-          <div>
-            <span className="text-[9px] font-bold uppercase tracking-wide text-slate-400">Темнозір</span>{" "}
-            {darkvisionRange} футів
-          </div>
-        )}
-        {damageResistances.length > 0 && (
-          <div>
-            <span className="text-[9px] font-bold uppercase tracking-wide text-slate-400">Опори</span>{" "}
-            {damageResistances.join(", ")}
-          </div>
-        )}
-      </CardContent>
-    </Card>
   );
 }
 

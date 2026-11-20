@@ -1,6 +1,7 @@
 import type { CreatureData } from "@/lib/bestiaryData";
 import type { SpellData } from "@/lib/spellsData";
 import { classTranslations } from "@/lib/refs/translation";
+import type { ItemRarity, MagicItemType } from "@/lib/prisma-enums";
 import type { VoteValue } from "./content-discussion";
 import type { HomebrewEdition, HomebrewKind, HomebrewRuleset } from "./homebrew-input";
 
@@ -19,7 +20,27 @@ export type HomebrewEntrySummary = {
 
 export type HomebrewSpellEntry = HomebrewEntrySummary & { kind: "SPELL"; spell: SpellData };
 export type HomebrewCreatureEntry = HomebrewEntrySummary & { kind: "CREATURE"; creature: CreatureData };
-export type HomebrewCatalogEntry = HomebrewSpellEntry | HomebrewCreatureEntry;
+export type HomebrewItemEntry = HomebrewEntrySummary & { kind: "ITEM"; item: HomebrewMagicItem };
+export type HomebrewCatalogEntry = HomebrewSpellEntry | HomebrewCreatureEntry | HomebrewItemEntry;
+
+export type HomebrewMagicItem = {
+  magicItemId: number;
+  homebrewEntryId: number;
+  name: string;
+  engName: string;
+  itemType: MagicItemType;
+  rarity: ItemRarity;
+  requiresAttunement: boolean;
+  description: string;
+  bonusToAC: number | null;
+  bonusToSavingThrows: unknown;
+  weaponBonus: number | null;
+  imageKey: string | null;
+  ruleset: HomebrewRuleset;
+  source: "HOMEBREW";
+};
+
+export type StoredHomebrewItem = Omit<HomebrewMagicItem, "homebrewEntryId" | "engName" | "ruleset" | "source"> & { bonusToSavingThrows: unknown };
 
 export type StoredHomebrewSpell = {
   engName: string | null;
@@ -93,6 +114,25 @@ export function buildHomebrewCreatureData(entry: { entryId: number; ruleset: Hom
     ruleset: entry.ruleset,
     source: "HOMEBREW",
     ...(imageUrl ? { imageUrl, imageWidth: 512, imageHeight: 512 } : {}),
+  };
+}
+
+export function buildHomebrewItemData(entry: { entryId: number; ruleset: HomebrewRuleset }, item: StoredHomebrewItem): HomebrewMagicItem {
+  return {
+    magicItemId: item.magicItemId,
+    homebrewEntryId: entry.entryId,
+    name: item.name,
+    engName: "",
+    itemType: item.itemType,
+    rarity: item.rarity,
+    requiresAttunement: item.requiresAttunement,
+    description: item.description,
+    bonusToAC: item.bonusToAC,
+    bonusToSavingThrows: item.bonusToSavingThrows,
+    weaponBonus: item.weaponBonus,
+    imageKey: item.imageKey,
+    ruleset: entry.ruleset,
+    source: "HOMEBREW",
   };
 }
 

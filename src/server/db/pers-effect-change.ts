@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { CONCENTRATION_EFFECT_KEY } from "@/rules/concentration";
 import { clampExhaustionLevel } from "@/rules/exhaustion";
+import { buildItemStateKey, findSwitchableItemState } from "@/rules/magic-item-states";
 import { SPELL_BUFF_KEYS, doesSpellBuffSurviveShortRest, isSpellBuffKey } from "@/rules/spell-buffs";
 
 export type PersEffectResult = { success: true } | { success: false; error: string };
@@ -32,6 +33,27 @@ export async function changeSpellBuff(
     where: { persId_effectKey: { persId, effectKey: change.effectKey } },
     create: { persId, effectKey: change.effectKey, ...data },
     update: data,
+  });
+  return { success: true };
+}
+
+export async function changeItemState(persId: number, magicItemId: number, isActive: boolean): Promise<PersEffectResult> {
+  const effectKey = buildItemStateKey(magicItemId);
+  if (!isActive) {
+    await prisma.persEffect.deleteMany({ where: { persId, effectKey } });
+    return { success: true };
+  }
+
+  const link = await prisma.persMagicItem.findFirst({
+    where: { persId, magicItemId },
+    select: { magicItem: { select: { engName: true, ruleset: true, itemType: true } } },
+  });
+  if (!link || !findSwitchableItemState(link.magicItem)) return { success: false, error: "Цей предмет не має ефекту, який вмикають" };
+
+  await prisma.persEffect.upsert({
+    where: { persId_effectKey: { persId, effectKey } },
+    create: { persId, effectKey, magicItemId },
+    update: { magicItemId },
   });
   return { success: true };
 }

@@ -1,11 +1,18 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
-import { Flame, Focus, Minus, Plus, Sparkles, X } from "lucide-react";
+import { useState, useTransition, type ReactNode } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { Flame, Focus, Gem, Minus, Plus, Sparkles, X } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { listActiveStateParts } from "@/lib/logic/active-states";
+import { describeActivationAction, describeMissingSteps } from "@/lib/logic/magic-item-activation";
+import type { OwnedItemState } from "@/lib/logic/magic-item-sheet-status";
+import { updateMagicItem } from "@/lib/actions/magic-item-actions";
+import { Button } from "@/components/ui/button";
 import { describeStatePart, findStateSourceLabel, shortenSpellName } from "@/lib/logic/state-labels";
+import { buildItemStateKey } from "@/rules/magic-item-states";
 import { findExhaustionPart, MAX_EXHAUSTION_LEVEL } from "@/rules/exhaustion";
 import { SPELL_BUFF_KEYS, findSpellBuffPart, type SpellBuffKey } from "@/rules/spell-buffs";
 import type { StateEffects } from "@/rules/state-effects";
@@ -32,6 +39,7 @@ export function StatesSheet() {
         <div className="space-y-4 px-4 pb-5 pt-2">
           <ActiveSection control={control} />
           <FeatureSection control={control} />
+          <ItemSection control={control} />
           <ExhaustionSection control={control} />
           <BuffSection control={control} />
         </div>
@@ -69,6 +77,18 @@ function ActiveSection({ control }: { control: SheetStatesControl }) {
         />
       );
     }),
+    ...control.itemStates
+      .filter((item) => item.isSwitchedOn)
+      .map((item) => (
+        <ActiveRow
+          key={`item:${item.magicItemId}`}
+          icon={<Gem className="h-4 w-4 text-emerald-300" />}
+          title={`${item.name} · ${item.state.activationLabel.toLowerCase()}`}
+          summary={describeStatePart(findPart(buildItemStateKey(item.magicItemId)))}
+          endLabel={`Вимкнути: ${item.name}`}
+          onEnd={control.isReadOnly ? undefined : () => control.setItemState(item.magicItemId, false)}
+        />
+      )),
   ];
 
   if (rows.length === 0) return null;
@@ -145,6 +165,62 @@ function FeatureSection({ control }: { control: SheetStatesControl }) {
   );
 }
 
+/// Лише предмети, які вмикають дією (каптур, підбори, крила); пасивні діють від екіпіровки.
+function ItemSection({ control }: { control: SheetStatesControl }) {
+  const available = control.itemStates.filter((item) => !item.isSwitchedOn);
+  if (available.length === 0 || control.isReadOnly) return null;
+
+  return (
+    <SectionBlock title="Предмети">
+      {available.map((item) =>
+        item.missingSteps.length > 0 ? (
+          <BlockedItemRow key={item.magicItemId} item={item} />
+        ) : (
+          <button
+            key={item.magicItemId}
+            type="button"
+            onClick={() => control.setItemState(item.magicItemId, true)}
+            className="flex w-full items-center gap-3 rounded-xl border border-emerald-400/25 bg-emerald-500/[0.07] px-3 py-2 text-left transition active:scale-[0.98]"
+          >
+            <Gem className="h-4 w-4 shrink-0 text-emerald-300" aria-hidden />
+            <span className="min-w-0 flex-1">
+              <span className="block text-sm font-semibold text-emerald-50">{item.state.activationLabel}</span>
+              <span className="block text-xs text-slate-400">{item.name}</span>
+            </span>
+          </button>
+        )
+      )}
+    </SectionBlock>
+  );
+}
+
+function BlockedItemRow({ item }: { item: OwnedItemState }) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const linkId = item.persMagicItemId;
+  const activate = (persMagicItemId: number) =>
+    startTransition(async () => {
+      const res = await updateMagicItem(persMagicItemId, { isEquipped: true, ...(item.missingSteps.includes("ATTUNE") ? { isAttuned: true } : {}) });
+      if (!res.success) return void toast.error(res.error);
+      router.refresh();
+    });
+
+  return (
+    <div className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
+      <Gem className="h-4 w-4 shrink-0 text-slate-500" aria-hidden />
+      <span className="min-w-0 flex-1">
+        <span className="block text-sm font-semibold text-slate-300">{item.state.activationLabel}</span>
+        <span className="block text-xs text-slate-400">{item.name}: спершу {describeMissingSteps(item.missingSteps)}</span>
+      </span>
+      {linkId !== null ? (
+        <Button size="sm" variant="secondary" className="h-9 shrink-0" disabled={isPending} onClick={() => activate(linkId)}>
+          {describeActivationAction(item.missingSteps)}
+        </Button>
+      ) : null}
+    </div>
+  );
+}
+
 function ExhaustionSection({ control }: { control: SheetStatesControl }) {
   const level = control.exhaustionLevel;
   const part = findExhaustionPart(level, control.pers.ruleset);
@@ -186,7 +262,7 @@ function BuffSection({ control }: { control: SheetStatesControl }) {
   const keys = SPELL_BUFF_KEYS.filter((key) => control.catalog.some((entry) => entry.key === key));
 
   return (
-    <SectionBlock title="Заклинання на мені" hint="Наклав союзник або ти сам поза листом — натисни, щоб увімкнути">
+    <SectionBlock title="Заклинання на мені" hint="Наклав союзник або ви самі поза листом — натисніть, щоб увімкнути">
       <div className="grid grid-cols-3 gap-1.5">
         {keys.map((key) => (
           <BuffTile key={key} buffKey={key} control={control} />

@@ -514,7 +514,7 @@ export default function ModifyStatModal({
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
+          <DialogTitle className="pr-8">{title}</DialogTitle>
         </DialogHeader>
 
         <div className="py-2 overflow-y-auto max-h-[60vh] px-1">
@@ -739,7 +739,7 @@ function findBreakdowns(pers: PersWithRelations, config: ModifyConfig): { title:
   }
   if (config.type === "skill") return [{ title: "Навичка зараз", parts: explainFinalSkill(pers, config.skill) }];
   if (config.type === "passive") return [{ title: "Пасивне значення зараз", parts: explainPassiveSkill(pers, config.skill) }];
-  if (config.field === "ac") return [{ title: "Клас захисту зараз", parts: explainFinalAC(pers) }];
+  if (config.field === "ac") return [{ title: "Клас броні зараз", parts: explainFinalAC(pers) }];
   if (config.field === "speed") return [{ title: "Швидкість зараз", parts: explainFinalSpeed(pers) }];
   if (config.field === "initiative") return [{ title: "Ініціатива зараз", parts: explainFinalInitiative(pers) }];
   return [];

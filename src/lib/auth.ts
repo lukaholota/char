@@ -2,7 +2,8 @@ import NextAuth, { NextAuthConfig } from "next-auth"
 import { OAuth2Client } from "google-auth-library";
 import Google from "@auth/core/providers/google";
 import Credentials from "@auth/core/providers/credentials";
-import { authAdapter, findOrCreateGoogleUser, findQaAccountUser } from "@/server/db/auth";
+import { authAdapter, claimEmailVerifiedByGoogle, findOrCreateGoogleUser, findQaAccountUser } from "@/server/db/auth";
+import { authorizePasswordUser } from "@/lib/auth/password-sign-in";
 import { getQaAccountEmail } from "@/lib/auth/qa-account";
 import { isInternalAnalyticsEmail } from "@/lib/monitoring/posthog-context";
 import { isSiteOwnerEmail } from "@/lib/logic/site-owner";
@@ -19,6 +20,17 @@ export const config = {
     Google({
       clientId: process.env.AUTH_GOOGLE_ID,
       clientSecret: process.env.AUTH_GOOGLE_SECRET,
+      // Google підтверджує пошту, тож акаунт з паролем на ту саму пошту приєднується, а не блокує вхід.
+      allowDangerousEmailAccountLinking: true,
+    }),
+    Credentials({
+      id: "password",
+      name: "Пошта й пароль",
+      credentials: { mode: {}, email: {}, password: {} },
+      async authorize(credentials) {
+        const user = await authorizePasswordUser(credentials);
+        return { id: String(user.id), email: user.email, name: user.name, image: user.image };
+      },
     }),
     Credentials({
       id: "google-onetap",
@@ -97,6 +109,12 @@ export const config = {
         ]
       : []),
   ],
+
+  events: {
+    async linkAccount({ user, account }) {
+      if (account.provider === "google" && user.id) await claimEmailVerifiedByGoogle(Number(user.id));
+    },
+  },
 
   callbacks: {
     async jwt({ token, user }) {

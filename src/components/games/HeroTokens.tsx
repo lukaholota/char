@@ -7,6 +7,7 @@ import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
 import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import { findTokenArrowStep } from "@/rules/game-grid";
+import type { FloorId } from "@/rules/game-floors";
 import type { TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
 import { GameAvatar } from "./GameAvatar";
@@ -16,14 +17,14 @@ import { findCutoutOutlineClass, findHeroCutoutKey, useCutoutImage } from "./tok
 import { HeroConditionToggles, HeroConditionsDialog, HeroTokenLook } from "./HeroConditionsDialog";
 import { useRoomHeroSheetOpener } from "./use-room-hero-sheet";
 import { listSheetPersIds } from "@/rules/game-room-heroes";
-import { HIGHLIGHT_RING_CLASS, MapTokenSlot, buildTokenSizeStyle, isAboveThumbnail, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
+import { HIGHLIGHT_RING_CLASS, MapTokenSlot, OFF_FLOOR_CLASS, buildTokenSizeStyle, isAboveThumbnail, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
 import { SpotlightAura, findSpotlightRingClass, useIsHeroTurn } from "./combat-turn";
 import { TokenConditionMarks } from "./TokenConditionMarks";
 import { useSpotlightStyle, useSpotlightControl } from "./use-token-conditions";
 import { NO_TOKEN_CONDITIONS } from "@/rules/token-conditions";
 import { TokenName } from "./TokenName";
 import { holdValueBefore, rememberUndo } from "./map-history";
-import { showOptimistic, sendOptimistic, useOptimistic, useOptimisticReader } from "./optimistic-values";
+import { showOptimistic, sendOptimistic, sendOptimisticMany, useOptimistic, useOptimisticReader } from "./optimistic-values";
 import { useTokenDrag, type TokenGhost } from "./use-token-drag";
 import { TOKEN_SIZE_PX } from "./use-token-scale";
 import { DownMark } from "./MapCreatureHitPoints";
@@ -64,11 +65,17 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
       if (!member) return;
       const position = findAllowedStep(findWalkStart(heroId, member), findSnappedDrop(point)).at;
       if (position && group.moveWith(findKey(heroId), position)) return;
-      if (position || moves.findPosition(member)) void moves.sendPosition(member, position);
+      if (position || moves.findPosition(member)) void moves.sendPosition(member, position, findLandingFloor(member, position));
     },
     (point) => findDropPosition(point) !== null,
     tapHero,
   );
+  const isOffFloor = (member: GameSessionMemberView) => {
+    const at = moves.findPosition(member);
+    return at !== null && layout.floors.isOffFloor({ at, floor: moves.findFloor(member) });
+  };
+  /// Блідий токен з іншого поверху лишається на своєму поверсі, хоч куди його посунуть.
+  const findLandingFloor = (member: GameSessionMemberView, to: TokenPosition | null) => (to && !isOffFloor(member) ? layout.floors.findLanding(to) : undefined);
   const heroes = view.members.filter((member) => member.persId !== null);
   const waiting = heroes.filter((member) => !moves.findPosition(member));
   const dragged = ghost ? heroes.find((member) => member.heroId === ghost.id) : undefined;
@@ -109,7 +116,10 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
       const step = findTokenArrowStep(event.key, layout.frame);
       const position = moves.findPosition(member);
       if (step && position) moves.showPosition(member, shiftTokenPosition(position, step));
-      else if ((event.key === "Enter" || event.key === " ") && !isPlaced) void moves.sendPosition(member, layout.findFreeSpot());
+      else if ((event.key === "Enter" || event.key === " ") && !isPlaced) {
+        const spot = layout.findFreeSpot();
+        void moves.sendPosition(member, spot, findLandingFloor(member, spot));
+      }
       else if (event.key === "Enter" || event.key === " ") tapHero(member.heroId);
       else if (event.key === "Escape" && handles) selection.select(null);
       else if ((event.key === "Delete" || event.key === "Backspace") && isPlaced) void moves.sendPosition(member, null);
@@ -170,7 +180,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
       const isGrouped = group.isGrouped(findKey(member.heroId));
       const handles = isSelected && selected ? <TokenTransformHandles token={selected} onDeselect={() => selection.select(null)} /> : isGrouped ? <GroupedTokenFrame rotation={transform.rotation} /> : null;
       return (
-        <MapTokenSlot key={member.heroId} position={position} size={shownSize} isGroupFollower={isGrouped && ghost?.id !== member.heroId} className={zClass}>
+        <MapTokenSlot key={member.heroId} position={position} size={shownSize} isGroupFollower={isGrouped && ghost?.id !== member.heroId} className={cn(zClass, isOffFloor(member) && OFF_FLOOR_CLASS)}>
           {renderToken(member, shownSize, { screenPx: scaleGhostSize(findGhostTokenSize(layout, HERO_CELLS, 1), transform), labelWidth: findLabelWidth(layout, 1), isHighlighted: layout.isHighlighted(position, HERO_CELLS), isOutlined: layout.isCutoutOutlined, rotation: transform.rotation }, handles)}
         </MapTokenSlot>
       );
@@ -275,20 +285,24 @@ export function useTokenMoves(view: GameSessionView) {
   const read = useOptimisticReader();
   const findKey = (member: GameSessionMemberView) => findHeroPositionKey(view.viewedSceneId, member.heroId);
   const findPosition = (member: GameSessionMemberView) => read(findKey(member), member.token);
+  const findFloorKey = (member: GameSessionMemberView) => `hero-floor:${view.viewedSceneId}:${member.heroId}`;
+  const findFloor = (member: GameSessionMemberView): FloorId => read(findFloorKey(member), member.floor);
   const showPosition = (member: GameSessionMemberView, position: TokenPosition | null) => {
     holdValueBefore(findKey(member), findPosition(member));
     showOptimistic(findKey(member), position);
   };
 
-  const sendPosition = async (member: GameSessionMemberView, position: TokenPosition | null) => {
+  /// floor undefined — токен лишається на своєму поверсі.
+  const sendPosition = async (member: GameSessionMemberView, position: TokenPosition | null, floor?: FloorId) => {
     const sceneId = view.viewedSceneId;
     if (sceneId === null) return;
     rememberUndo(sceneId, findKey(member), findPosition(member), position, (before) => sendPosition(member, before));
-    const result = await sendOptimistic(findKey(member), position, () => moveGameTokenAction(view.id, sceneId, member.heroId, position));
+    const shown = floor === undefined ? { [findKey(member)]: position } : { [findKey(member)]: position, [findFloorKey(member)]: floor };
+    const result = await sendOptimisticMany(shown, () => moveGameTokenAction(view.id, sceneId, member.heroId, position, floor));
     if (result.ok) captureGameEvent("game_token_moved", { is_own: member.userId === view.myUserId, is_on_map: position !== null });
   };
 
-  return { findPosition, showPosition, sendPosition };
+  return { findPosition, findFloor, showPosition, sendPosition };
 }
 
 /// Поворот і розмір героя належать сцені: на іншій сцені той самий герой стоїть як звичайно.

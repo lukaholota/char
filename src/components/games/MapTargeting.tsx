@@ -180,7 +180,7 @@ const TASK_TONES = {
   area: { box: "border-arcane-300/30 bg-arcane-500/10", icon: "text-arcane-200", Icon: Crosshair },
 } as const;
 
-/// Підказка над мапою: людина бачить, чого від неї чекають, навіть коли панель із кнопками під мапою за краєм екрана.
+/// Лише на вузькому екрані, де панель з кнопками під мапою й може бути за краєм; на широкому вона й так справа.
 export function MapTaskHint({ view, className }: { view: GameSessionView; className?: string }) {
   const targeting = useMapTargetingStore((state) => (state.targeting?.sessionId === view.id ? state.targeting : null));
   const cast = useAreaCastStore((state) => (state.cast?.sessionId === view.id ? state.cast : null));

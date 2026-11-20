@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { editSceneWallsAction, setSceneDoorOpenAction } from "@/lib/actions/game-scene-tools";
+import { changeSceneOpeningAction, editSceneWallsAction } from "@/lib/actions/game-scene-tools";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import type { MapFrame } from "@/rules/game-grid";
 import type { TokenPosition } from "@/rules/game-map";
-import { countWallSegments, cutDoor, findWallIdsNearPoint, snapWallPoint, WALL_LIMITS, type SceneWallView, type WallLine } from "@/rules/game-walls";
+import { buildRectOutline, isSamePoint } from "@/rules/map-strokes";
+import { buildOpening, buildWall, countWallSegments, cutOpening, findWallIdsNearPoint, snapWallPoint, WALL_LIMITS, type DoorLock, type OpeningChange, type SceneWallView, type WallLine } from "@/rules/game-walls";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { pushUndoStep, useDraftUndo } from "./map-history";
 import type { MapRect } from "./MapOverlay";
@@ -15,8 +16,8 @@ import { buildDragGesture, toRect } from "./use-map-tools";
 
 type Point = { clientX: number; clientY: number };
 type Options = { view: GameSessionView; toShare: (point: Point) => TokenPosition | null; frame: MapFrame | null; aspect: number | null; isEditing: boolean };
-export type WallMode = "wall" | "room" | "door" | "edit";
-type WallChange = "wall" | "room" | "door" | "move" | "remove" | "clear";
+export type WallMode = "wall" | "room" | "door" | "window" | "edit";
+type WallChange = "wall" | "room" | "door" | "window" | "move" | "remove" | "clear";
 
 const { findCurrentId, takeTempId, link } = createIdChain();
 
@@ -24,10 +25,10 @@ const { findCurrentId, takeTempId, link } = createIdChain();
 const LINE_DRAG_SHARE = 0.01;
 
 const clampShare = (at: TokenPosition) => ({ x: Math.min(1, Math.max(0, at.x)), y: Math.min(1, Math.max(0, at.y)) });
-const isSamePoint = (left: TokenPosition, right: TokenPosition) => left.x === right.x && left.y === right.y;
 const isLineDrag = (from: TokenPosition, at: TokenPosition) => Math.hypot(at.x - from.x, at.y - from.y) >= LINE_DRAG_SHARE;
-const toLine = ({ kind, isOpen, points }: WallLine): WallLine => ({ kind, isOpen, points });
-const buildRoomLine = (from: TokenPosition, to: TokenPosition): WallLine => ({ kind: "wall", isOpen: false, points: [from, { x: to.x, y: from.y }, to, { x: from.x, y: to.y }, from] });
+const toLine = ({ kind, isOpen, lock, isCurtained, points }: WallLine): WallLine => ({ kind, isOpen, lock, isCurtained, points });
+/// Для скасування — ті самі поля, але зі значеннями до зміни.
+const findChangeBefore = (wall: SceneWallView, change: OpeningChange): OpeningChange => Object.fromEntries(Object.keys(change).map((field) => [field, wall[field as keyof OpeningChange]]));
 
 export function useMapWalls({ view, toShare, frame, aspect, isEditing }: Options) {
   const read = useOptimisticReader();
@@ -41,6 +42,10 @@ export function useMapWalls({ view, toShare, frame, aspect, isEditing }: Options
   const [rect, setRect] = useState<MapRect | null>(null);
   const [chosenId, setChosenId] = useState<number | null>(null);
   const [moved, setMoved] = useState<{ id: number; points: TokenPosition[] } | null>(null);
+  const [doorLock, setDoorLock] = useState<DoorLock>("none");
+  const [isSnapOff, setIsSnapOff] = useState(false);
+  const isGm = view.myRole === "GM";
+  const snapFrame = isSnapOff ? null : frame;
   const readShown = () => readOptimistic(key, view.walls).map((wall) => ({ ...wall, id: findCurrentId(wall.id) }));
 
   const send = async (removedIds: number[], added: WallLine[], replacedIds: number[] = []): Promise<number[] | null> => {
@@ -86,11 +91,11 @@ export function useMapWalls({ view, toShare, frame, aspect, isEditing }: Options
     setRect(null);
     setChosenId(null);
   };
-  const snap = (at: TokenPosition) => (aspect ? snapWallPoint(clampShare(at), [...readShown(), { kind: "wall", isOpen: false, points: draftRef.current }], frame, aspect) : clampShare(at));
+  const snap = (at: TokenPosition) => (aspect ? snapWallPoint(clampShare(at), [...readShown(), buildWall(draftRef.current)], snapFrame, aspect) : clampShare(at));
 
   const finishWall = (points = draftRef.current) => {
     showDraft([]);
-    if (points.length >= 2) change([], [{ kind: "wall", isOpen: false, points }], "wall");
+    if (points.length >= 2) change([], [buildWall(points)], "wall");
   };
   /// Дотик у першу вершину замикає кімнату, повторний дотик в останню завершує стіну.
   const addVertex = (at: TokenPosition) => {
@@ -116,13 +121,14 @@ export function useMapWalls({ view, toShare, frame, aspect, isEditing }: Options
   };
   const drawWallLine = (from: TokenPosition, to: TokenPosition) => {
     finishWall();
-    if (!isSamePoint(from, to)) change([], [{ kind: "wall", isOpen: false, points: [from, to] }], "wall");
+    if (!isSamePoint(from, to)) change([], [buildWall([from, to])], "wall");
   };
-  const placeDoor = (from: TokenPosition, to: TokenPosition) => {
+  const placeOpening = (from: TokenPosition, to: TokenPosition) => {
     showDraft([]);
     const shown = readShown();
-    const edit = aspect ? cutDoor(shown, from, to, aspect) : null;
-    if (edit) change(shown.filter((wall) => edit.removedIds.includes(wall.id)), edit.added, "door");
+    const kind = mode === "window" ? "window" : "door";
+    const edit = aspect ? cutOpening(shown, buildOpening(kind, doorLock), from, to, aspect) : null;
+    if (edit) change(shown.filter((wall) => edit.removedIds.includes(wall.id)), edit.added, kind);
   };
 
   /// Дотик ставить кут чи кінець дверей по одному; протягнутий палець малює лінію від місця натискання до місця, де відпустили.
@@ -143,19 +149,19 @@ export function useMapWalls({ view, toShare, frame, aspect, isEditing }: Options
     end: (from, at) => {
       setRect(null);
       const [start, end] = [snap(from), snap(at)];
-      if (start.x !== end.x && start.y !== end.y) change([], [buildRoomLine(start, end)], "room");
+      if (start.x !== end.x && start.y !== end.y) change([], [buildWall(buildRectOutline(start, end))], "room");
     },
     cancel: () => setRect(null),
   });
 
-  const doorGesture = buildDragGesture(toShare, {
+  const openingGesture = buildDragGesture(toShare, {
     start: (at) => showStroke(null, clampShare(at)),
     move: (from, at) => showStroke(isLineDrag(from, at) ? clampShare(from) : null, clampShare(at)),
     end: (from, at) => {
       showStroke(null, null);
       const first = draftRef.current[0];
-      if (isLineDrag(from, at)) placeDoor(clampShare(from), clampShare(at));
-      else if (first) placeDoor(first, clampShare(at));
+      if (isLineDrag(from, at)) placeOpening(clampShare(from), clampShare(at));
+      else if (first) placeOpening(first, clampShare(at));
       else showDraft([clampShare(at)]);
     },
     cancel: () => showStroke(null, null),
@@ -167,7 +173,7 @@ export function useMapWalls({ view, toShare, frame, aspect, isEditing }: Options
     const at = toShare(point);
     if (!wall || !at || !aspect) return;
     const others = readShown().filter((each) => each.id !== wall.id);
-    const points = (moved?.id === wall.id ? moved.points : wall.points).with(index, snapWallPoint(clampShare(at), others, frame, aspect));
+    const points = (moved?.id === wall.id ? moved.points : wall.points).with(index, snapWallPoint(clampShare(at), others, snapFrame, aspect));
     setMoved({ id: wall.id, points });
   };
   const endVertexMove = () => {
@@ -176,16 +182,17 @@ export function useMapWalls({ view, toShare, frame, aspect, isEditing }: Options
     setMoved(null);
   };
 
-  const setDoorOpen = (wallId: number, isOpen: boolean) => {
-    const doorId = findCurrentId(wallId);
-    if (sceneId === null || doorId < 0) return;
-    const shown = readShown().map((wall) => (wall.id === doorId ? { ...wall, isOpen } : wall));
-    void sendOptimistic(key, shown, () => setSceneDoorOpenAction(view.id, sceneId, doorId, isOpen));
+  const sendOpening = (wallId: number, opening: OpeningChange) => {
+    const id = findCurrentId(wallId);
+    if (sceneId === null || id < 0) return;
+    const shown = readShown().map((wall) => (wall.id === id ? { ...wall, ...opening } : wall));
+    void sendOptimistic(key, shown, () => changeSceneOpeningAction(view.id, sceneId, id, opening));
   };
-  const toggleDoor = (door: SceneWallView) => {
-    if (sceneId !== null) pushUndoStep(sceneId, { undo: () => setDoorOpen(door.id, door.isOpen), redo: () => setDoorOpen(door.id, !door.isOpen) });
-    setDoorOpen(door.id, !door.isOpen);
-    captureGameEvent("game_door_toggled", { is_open: !door.isOpen });
+  const changeOpening = (wall: SceneWallView, opening: OpeningChange) => {
+    const before = findChangeBefore(wall, opening);
+    if (sceneId !== null && isGm) pushUndoStep(sceneId, { undo: () => sendOpening(wall.id, before), redo: () => sendOpening(wall.id, opening) });
+    sendOpening(wall.id, opening);
+    if (opening.isOpen !== undefined) captureGameEvent("game_door_toggled", { is_open: opening.isOpen });
   };
 
   const shown = read(key, view.walls).map((wall) => {
@@ -208,7 +215,8 @@ export function useMapWalls({ view, toShare, frame, aspect, isEditing }: Options
     rect,
     chosen,
     isFull,
-    gesture: canDraw && mode === "wall" ? wallGesture : canDraw && mode === "room" ? roomGesture : canDraw && mode === "door" ? doorGesture : null,
+    hasGrid: frame !== null,
+    gesture: canDraw && mode === "wall" ? wallGesture : canDraw && mode === "room" ? roomGesture : canDraw && (mode === "door" || mode === "window") ? openingGesture : null,
     chooseAt: (point: Point) => {
       const at = toShare(point);
       const ids = at && aspect ? findWallIdsNearPoint(clampShare(at), readShown(), aspect) : [];
@@ -224,7 +232,11 @@ export function useMapWalls({ view, toShare, frame, aspect, isEditing }: Options
       setChosenId(null);
     },
     clearAll: () => change(readShown(), [], "clear"),
-    toggleDoor,
+    changeOpening,
+    doorLock,
+    setDoorLock,
+    isSnapOff,
+    setIsSnapOff,
   };
 }
 

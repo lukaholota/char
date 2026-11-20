@@ -20,6 +20,12 @@ export function buildStaticAssetHeaders() {
       ],
     },
     {
+      source: "/sounds/:path*",
+      headers: [
+        { key: "Cache-Control", value: `public, max-age=${WEEK_IN_SECONDS}, stale-while-revalidate=86400` },
+      ],
+    },
+    {
       source: "/sw.js",
       headers: [{ key: "Cache-Control", value: "no-cache" }],
     },

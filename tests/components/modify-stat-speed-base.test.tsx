@@ -38,7 +38,7 @@ describe("L10-sheet-config-03 — модалка швидкості", () => {
       />,
     );
 
-    const preview = screen.getByText("Базове:").parentElement;
-    expect(preview?.textContent).toBe("Базове: 35→Фінальне: 40");
+    const preview = screen.getByText("Без ручного бонусу:").parentElement;
+    expect(preview?.textContent).toBe("Без ручного бонусу: 35→Разом: 40");
   });
 });

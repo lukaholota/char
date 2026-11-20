@@ -1,6 +1,6 @@
 "use client";
 
-import { BrickWall, ChevronDown, CloudFog, Flame, Grid3x3, Lightbulb, Maximize2, Minus, Package, PencilLine, Plus, Redo2, Ruler, RotateCw, Scan, SlidersHorizontal, Undo2, X, type LucideIcon } from "lucide-react";
+import { BrickWall, ChevronDown, CloudFog, CloudSnow, Flame, Grid3x3, Layers, Lightbulb, Maximize2, Minus, Package, PencilLine, Plus, Redo2, Ruler, RotateCw, Scan, SlidersHorizontal, Undo2, Volume2, X, type LucideIcon } from "lucide-react";
 import { Fragment, useId, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -11,11 +11,14 @@ import type { MapTool } from "./use-map-tools";
 const TOOLS: Array<{ tool: MapTool; label: string; icon: LucideIcon; isGmOnly?: boolean; startsGroup?: boolean }> = [
   { tool: "ruler", label: "Лінійка", icon: Ruler },
   { tool: "area", label: "Область", icon: Flame },
-  { tool: "draw", label: "Олівець", icon: PencilLine },
+  { tool: "draw", label: "Малювання", icon: PencilLine },
+  { tool: "sounds", label: "Звуки", icon: Volume2, isGmOnly: true },
   { tool: "objects", label: "Обʼєкти", icon: Package, isGmOnly: true, startsGroup: true },
   { tool: "walls", label: "Стіни", icon: BrickWall, isGmOnly: true },
   { tool: "light", label: "Світло", icon: Lightbulb, isGmOnly: true },
   { tool: "fog", label: "Туман", icon: CloudFog, isGmOnly: true },
+  { tool: "floors", label: "Поверхи", icon: Layers, isGmOnly: true },
+  { tool: "atmosphere", label: "Погода", icon: CloudSnow, isGmOnly: true },
   { tool: "grid", label: "Сітка", icon: Grid3x3, isGmOnly: true },
   { tool: "view", label: "Вигляд", icon: SlidersHorizontal, startsGroup: true },
 ];

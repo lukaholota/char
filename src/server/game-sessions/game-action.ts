@@ -2,6 +2,7 @@ import { AREA_LIMITS } from "@/rules/game-areas";
 import { DRAWING_LIMITS } from "@/rules/game-drawings";
 import { MAP_CREATURE_LIMITS } from "@/rules/game-map-creatures";
 import { LIGHT_LIMITS } from "@/rules/game-lighting";
+import { FLOOR_LIMITS } from "@/rules/game-floors";
 import { OBJECT_LIMITS } from "@/rules/game-objects";
 import { GAME_SCENE_LIMITS } from "@/rules/game-scenes";
 import { findCurrentUserId } from "@/server/db/current-user";
@@ -54,9 +55,15 @@ export const FAILURE_MESSAGES: Record<GameSessionFailure | "signed_out" | "too_f
   bad_wall: "Не вдалося зберегти стіну",
   wall_limit: "Забагато стін на сцені — приберіть зайві",
   wall_gone: "Цих дверей уже немає на мапі",
+  door_locked: "Двері замкнені — відімкнути може лише майстер",
   bad_light: "Не вдалося зберегти світло",
   light_limit: `На сцені вже ${LIGHT_LIMITS.perScene} джерел світла — приберіть зайві`,
   light_gone: "Цього джерела світла вже немає на мапі",
+  bad_atmosphere: "Не вдалося змінити погоду чи освітлення",
+  bad_ambience: "Не вдалося змінити фонові звуки",
+  sound_gone: "Цього звуку вже немає в бібліотеці",
+  bad_floor: "Цього поверху вже немає",
+  floor_limit: `На сцені вже ${FLOOR_LIMITS.floors} поверхів — приберіть зайвий`,
 };
 
 export type UserActionResult<T> = GameSessionResult<T> | { ok: false; error: "too_fast" };

@@ -13,7 +13,7 @@ import SkillsForm from "@/lib/components/characterCreator/SkillsForm";
 import { BackgroundI, ClassI, RaceI, FeatPrisma } from "@/lib/types/model-types";
 import EquipmentForm from "@/lib/components/characterCreator/EquipmentForm";
 import { Card } from "@/components/ui/card";
-import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import SignInDialog from "@/lib/components/auth/SignInDialog";
 import NameForm from "@/lib/components/characterCreator/NameForm";
 import ClassChoiceOptionsForm from "@/lib/components/characterCreator/ClassChoiceOptionsForm";
 import FeatChoiceOptionsForm from "@/lib/components/characterCreator/FeatChoiceOptionsForm";
@@ -1072,7 +1072,7 @@ export const MultiStepForm = (
             <ReadyPresetSuggestion key={resetNonce} classKey={cls.name} subclassKey={subclass?.name ?? null} raceKey={race?.name ?? null} />
           ) : null}
 
-          <GoogleAuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} analyticsTrigger="creator_submit" isFromCreatorDraft />
+          <SignInDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} analyticsTrigger="creator_submit" isFromCreatorDraft />
         </>
       }
     >

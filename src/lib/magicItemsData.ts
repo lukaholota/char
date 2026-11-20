@@ -67,6 +67,8 @@ const magicItems2024: MagicItemWithSpells[] = (magicItems2024Json as Raw2024Magi
   bonusToRangedDamage: null,
   bonusToSavingThrows: null,
   noArmorOrShieldForACBonus: false,
+  weaponBonus: null,
+  imageKey: null,
   ruleset: "RULES_2024" as Ruleset,
   givesSpells: [],
 }));

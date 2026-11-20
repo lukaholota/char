@@ -21,23 +21,31 @@ interface FeatureSection {
   items: CharacterFeatureItem[];
 }
 
-function groupFeaturesByType(features: CharacterFeaturesGroupedResult): FeatureSection[] {
-  const sections: FeatureSection[] = [];
+const PRIMARY_TYPE_LABELS: Partial<Record<CharacterFeatureItem["primaryType"], string>> = {
+  ACTION: "Дія",
+  BONUSACTION: "Бонусна дія",
+  REACTION: "Реакція",
+};
 
-  if (features.passive.length > 0) {
-    sections.push({ title: "Пасивні здібності", items: features.passive });
-  }
-  if (features.actions.length > 0) {
-    sections.push({ title: "Дії", items: features.actions });
-  }
-  if (features.bonusActions.length > 0) {
-    sections.push({ title: "Бонусні дії", items: features.bonusActions });
-  }
-  if (features.reactions.length > 0) {
-    sections.push({ title: "Реакції", items: features.reactions });
-  }
+/// Вливання друкуються разом, окремим блоком після решти здібностей, а не врозкид за типом дії.
+export function groupFeaturesByType(features: CharacterFeaturesGroupedResult): FeatureSection[] {
+  const isInfusion = (item: CharacterFeatureItem) => normalizeFeatureSource(item.source) === "INFUSION";
+  const withoutInfusions = (items: CharacterFeatureItem[]) => items.filter((item) => !isInfusion(item));
+  const sections: FeatureSection[] = [
+    { title: "Пасивні здібності", items: withoutInfusions(features.passive) },
+    { title: "Дії", items: withoutInfusions(features.actions) },
+    { title: "Бонусні дії", items: withoutInfusions(features.bonusActions) },
+    { title: "Реакції", items: withoutInfusions(features.reactions) },
+    { title: "Вливання", items: [...features.passive, ...features.actions, ...features.bonusActions, ...features.reactions].filter(isInfusion) },
+  ];
+  return sections.filter((section) => section.items.length > 0);
+}
 
-  return sections;
+function findSourceNote(item: CharacterFeatureItem): string {
+  const source = normalizeFeatureSource(item.source);
+  if (source === "INFUSION") return PRIMARY_TYPE_LABELS[item.primaryType] ? `(${PRIMARY_TYPE_LABELS[item.primaryType]})` : "";
+  const sourceLabel = source && source !== "PERS" ? getFeatureSourceLabel(source) : null;
+  return sourceLabel ? `(${sourceLabel})` : "";
 }
 
 function formatUsageInfo(item: CharacterFeatureItem): string {
@@ -108,12 +116,8 @@ export async function generateFeaturesPdfBytes(input: FeaturesPdfInput, logCtx: 
           const descriptionHtml = await (item.hasCustomDescription ? renderPrintableUserText(item.description) : renderPrintableMarkdown(item.description || ""));
           const usageInfo = formatUsageInfo(item);
           
-          const normalizedSource = normalizeFeatureSource(item.source);
           const displayName = getFeatureDisplayName(item.name, item.source);
-          
-          // Use shared source label logic
-          const sourceLabel = normalizedSource && normalizedSource !== 'PERS' ? getFeatureSourceLabel(normalizedSource) : null;
-          const sourceNote = sourceLabel ? `(${sourceLabel})` : "";
+          const sourceNote = findSourceNote(item);
 
           return `
           <article class="feature">

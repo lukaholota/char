@@ -4,7 +4,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { SessionContext } from "next-auth/react";
 
 vi.mock("@/lib/actions/problem-report-actions", () => ({ reportProblem: vi.fn(), uploadProblemReportImage: vi.fn() }));
-vi.mock("@/lib/components/auth/GoogleAuthDialog", () => ({
+vi.mock("@/lib/components/auth/SignInDialog", () => ({
   default: ({ open }: { open: boolean }) => (open ? <div>Діалог входу відкритий</div> : null),
 }));
 

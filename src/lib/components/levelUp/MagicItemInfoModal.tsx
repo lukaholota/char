@@ -1,14 +1,17 @@
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { X } from "lucide-react";
+import type { ReactNode } from "react";
 import { MagicItemDetailPane } from "@/lib/components/magicItems/MagicItemDetailPane";
 
 interface Props {
   item: any;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  sheetStatus?: ReactNode;
+  hasRollChips?: boolean;
 }
 
-export function MagicItemInfoModal({ item, open, onOpenChange }: Props) {
+export function MagicItemInfoModal({ item, open, onOpenChange, sheetStatus, hasRollChips }: Props) {
   if (!item) return null;
 
   return (
@@ -21,7 +24,7 @@ export function MagicItemInfoModal({ item, open, onOpenChange }: Props) {
             <DialogTitle>{item.name}</DialogTitle>
         </div>
         <div className="relative">
-            <MagicItemDetailPane item={item} />
+            <MagicItemDetailPane item={item} sheetStatus={sheetStatus} hasRollChips={hasRollChips} />
             <button
                 type="button"
                 onClick={() => onOpenChange(false)}

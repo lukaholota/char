@@ -16,7 +16,7 @@ import {
 } from "@/lib/logic/bonus-calculator";
 import { formatModifier } from "@/lib/logic/utils";
 import { formatDiceUkr } from "@/lib/logic/equipment-stats";
-import { damageTypeTranslations, weaponTranslations } from "@/lib/refs/translation";
+import { damageTypeTranslations } from "@/lib/refs/translation";
 import { WeaponMasteryInfoButton } from "./WeaponMasteryInfoButton";
 import { findAttacksPerAction } from "@/rules/attacks-per-action";
 import { openRoomRoll } from "@/lib/components/game/open-room-roll";
@@ -25,7 +25,9 @@ import { ExtraDiceMark } from "@/lib/components/dice/ExtraDiceMark";
 import AddWeaponDialog from "./AddWeaponDialog";
 import { CrimsonRiteDialog } from "./CrimsonRiteDialog";
 import { findWeaponCrimsonRite } from "@/lib/logic/crimson-rite-sheet";
-import { readStateEffects } from "@/lib/logic/bonus-calculator";
+import { findPersWeaponName } from "@/lib/logic/weapon-name";
+import { listWeaponItemExtraDice, listWeaponMagicItems } from "@/lib/logic/magic-weapon-links";
+import { describeHitDamage } from "@/lib/logic/magic-item-effect-text";
 
 type Props = {
   pers: PersWithRelations;
@@ -53,11 +55,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
 
   const attackState = describeRollState(pers, { kind: "attack" }, "ATTACK");
 
-  const findWeaponName = (pw: PersWeaponWithWeapon) =>
-    pw.overrideName ||
-    (pw.weapon?.name === "UNARMED_STRIKE" && readStateEffects(pers)?.unarmedStrike ? "Хижі удари" : null) ||
-    (weaponTranslations[pw.weapon?.name as keyof typeof weaponTranslations] || pw.weapon?.name) ||
-    "Зброя";
+  const findWeaponName = (pw: PersWeaponWithWeapon) => findPersWeaponName(pers, pw);
 
   const triggerWeaponRollMode = (pw: PersWeaponWithWeapon) => {
     const weaponName = findWeaponName(pw);
@@ -71,7 +69,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
         damageBonus: getDamageBonus(pw),
         damageDice: String(calculateWeaponDamageDice(pers, pw) || "1d4"),
         attackState,
-        damageExtraDice: [...describeRollState(pers, { kind: "attack" }, "WEAPON_DAMAGE").extraDice, ...riteDie],
+        damageExtraDice: [...describeRollState(pers, { kind: "attack" }, "WEAPON_DAMAGE").extraDice, ...riteDie, ...listWeaponItemExtraDice(pers, pw)],
       }),
     );
   };
@@ -82,6 +80,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
   );
 
   const weaponRows = useMemo(() => {
+    const linkedWeaponIds = new Set((pers.magicItems ?? []).map((link) => link.persWeaponId));
     const isPlain = (pw: PersWeaponWithWeapon) => {
       const hasOverrideName = !!pw.overrideName && pw.overrideName.trim() !== "";
       const hasCustomDice = !!pw.customDamageDice;
@@ -89,7 +88,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
       const hasCustomBonus = typeof pw.customDamageBonus === "number" ? pw.customDamageBonus !== 0 : !!pw.customDamageBonus;
       const hasAttackBonus = typeof (pw as any).attackBonus === "number" ? (pw as any).attackBonus !== 0 : false;
       const hasOverrides = pw.overrideDamageType !== null || pw.overrideNormalRange !== null || pw.overrideLongRange !== null;
-      return !hasOverrideName && !hasCustomDice && !hasCustomAbility && !hasCustomBonus && !hasAttackBonus && !hasOverrides && !pw.isMagical && !pw.crimsonRiteFeatureId;
+      return !hasOverrideName && !hasCustomDice && !hasCustomAbility && !hasCustomBonus && !hasAttackBonus && !hasOverrides && !pw.isMagical && !pw.crimsonRiteFeatureId && !linkedWeaponIds.has(pw.persWeaponId);
     };
 
     const byWeaponId = new Map<number, PersWeaponWithWeapon[]>();
@@ -121,7 +120,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
     }
 
     return out;
-  }, [pers.weapons]);
+  }, [pers.weapons, pers.magicItems]);
 
   return (
     <Card className="bg-slate-900/50 border-white/10 overflow-hidden">
@@ -164,7 +163,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
                       x{qty}
                     </span>
                   )}
-                  {pw.isMagical && <span className="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30 flex-shrink-0">MAG</span>}
+                  {(pw.isMagical || listWeaponMagicItems(pers, pw).length > 0) && <span className="text-xs bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30 flex-shrink-0">Магічна</span>}
                   {pw.weaponId && masteryByWeaponId.has(pw.weaponId) && (
                     <WeaponMasteryInfoButton
                       mastery={masteryByWeaponId.get(pw.weaponId)}
@@ -186,6 +185,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
                   )}
                 </div>
                 <WeaponRiteLine pers={pers} pw={pw} />
+                <WeaponItemLines pers={pers} pw={pw} />
               </div>
 
               <div className="flex items-center gap-3 sm:gap-4 ml-2">
@@ -211,6 +211,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
                     variant="ghost" 
                     size="icon" 
                     className="h-8 w-8 text-slate-500 hover:text-indigo-400 transition-colors"
+                    aria-label={`Налаштувати зброю: ${findWeaponName(pw)}`}
                     disabled={isPending}
                     onClick={(e) => {
                         e.stopPropagation();
@@ -244,6 +245,16 @@ function WeaponRiteLine({ pers, pw }: { pers: PersWithRelations; pw: PersWeaponW
       +{formatDiceUkr(rite.dice)} {damageType} · {rite.rite.name}
     </div>
   );
+}
+
+/// Привʼязаний магічний предмет: його +N уже в числах рядка, тут — назва й кубики при влучанні.
+function WeaponItemLines({ pers, pw }: { pers: PersWithRelations; pw: PersWeaponWithWeapon }) {
+  return listWeaponMagicItems(pers, pw).map((item, index) => (
+    <div key={`${item.name}-${index}`} className={`text-xs mt-0.5 ${item.isActive ? "text-violet-300" : "text-slate-500"}`}>
+      {[item.name, ...(item.bonus > 0 && !item.name.includes(`+${item.bonus}`) ? [`+${item.bonus}`] : []), ...item.hits.map(describeHitDamage)].join(" · ")}
+      {item.isActive ? "" : " — поки не діє"}
+    </div>
+  ));
 }
 
 function formatWeaponDamageType(pw: PersWeaponWithWeapon): string {

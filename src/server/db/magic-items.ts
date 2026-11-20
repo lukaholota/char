@@ -1,10 +1,14 @@
 import { prisma } from "@/lib/prisma";
 import { findAttunementCapacityForPers } from "@/rules/attunement";
 import type { MagicItemCharges } from "@/rules/magic-item-charges";
+import { fillDefaultCharges, findItemChargeRules, rollChargeRecovery } from "@/rules/magic-item-charge-text";
+
+export type RegainedItemCharges = { name: string; regained: number };
 
 export type MagicItemUpdates = {
   isEquipped?: boolean;
   isAttuned?: boolean;
+  persWeaponId?: number | null;
 };
 
 export async function findMagicItemPersId(persMagicItemId: number): Promise<number | null> {
@@ -16,11 +20,16 @@ export async function findMagicItemPersId(persMagicItemId: number): Promise<numb
   return item?.persId ?? null;
 }
 
-export function updatePersMagicItem(persMagicItemId: number, updates: MagicItemUpdates) {
+export function updatePersMagicItem(persMagicItemId: number, { isEquipped, isAttuned, persWeaponId }: MagicItemUpdates) {
   return prisma.persMagicItem.update({
     where: { persMagicItemId },
-    data: updates,
+    data: { isEquipped, isAttuned, persWeaponId },
   });
+}
+
+export async function isWeaponOfPers(persWeaponId: number, persId: number): Promise<boolean> {
+  const weapon = await prisma.persWeapon.findUnique({ where: { persWeaponId }, select: { persId: true } });
+  return weapon?.persId === persId;
 }
 
 /**
@@ -52,17 +61,36 @@ export async function findAttunementLimitError(
   const capacity = findAttunementCapacityForPers(pers);
 
   if (attunedCount >= capacity) {
-    return `Ліміт налаштованих предметів: ${capacity} / ${capacity}`;
+    return `Налаштовано ${attunedCount} з ${capacity} — спершу скасуйте налаштування іншого предмета`;
   }
 
   return null;
 }
 
-export function findPersMagicItemCharges(persMagicItemId: number): Promise<MagicItemCharges | null> {
-  return prisma.persMagicItem.findUnique({
+export async function findPersMagicItemCharges(persMagicItemId: number): Promise<MagicItemCharges | null> {
+  const link = await prisma.persMagicItem.findUnique({
     where: { persMagicItemId },
-    select: { chargesMax: true, chargesCurrent: true },
+    select: { chargesMax: true, chargesCurrent: true, magicItem: { select: { description: true } } },
   });
+  if (!link) return null;
+  return fillDefaultCharges({ chargesMax: link.chargesMax, chargesCurrent: link.chargesCurrent }, findItemChargeRules(link.magicItem.description));
+}
+
+export async function restoreMagicItemChargesAtDawn(persId: number): Promise<RegainedItemCharges[]> {
+  const links = await prisma.persMagicItem.findMany({
+    where: { persId },
+    select: { persMagicItemId: true, chargesMax: true, chargesCurrent: true, magicItem: { select: { name: true, description: true } } },
+  });
+  const recoveries = links.flatMap((link) => {
+    const rules = findItemChargeRules(link.magicItem.description);
+    if (!rules.recovery) return [];
+    const before = fillDefaultCharges({ chargesMax: link.chargesMax, chargesCurrent: link.chargesCurrent }, rules);
+    const after = rollChargeRecovery(before, rules.recovery);
+    const gained = (after.chargesCurrent ?? 0) - (before.chargesCurrent ?? 0);
+    return gained > 0 ? [{ link, after, gained }] : [];
+  });
+  await Promise.all(recoveries.map(({ link, after }) => savePersMagicItemCharges(link.persMagicItemId, after)));
+  return recoveries.map(({ link, gained }) => ({ name: link.magicItem.name, regained: gained }));
 }
 
 export function savePersMagicItemCharges(persMagicItemId: number, charges: MagicItemCharges) {
@@ -85,10 +113,12 @@ export async function hasMagicItemLink(persId: number, magicItemId: number): Pro
 export async function isMagicItemOfPersRuleset(persId: number, magicItemId: number): Promise<boolean> {
   const [pers, magicItem] = await Promise.all([
     prisma.pers.findUnique({ where: { persId }, select: { ruleset: true } }),
-    prisma.magicItem.findUnique({ where: { magicItemId }, select: { ruleset: true } }),
+    prisma.magicItem.findUnique({ where: { magicItemId }, select: { ruleset: true, homebrewEntry: { select: { ruleset: true, deletedAt: true } } } }),
   ]);
-
-  return pers !== null && pers.ruleset === magicItem?.ruleset;
+  if (!pers || !magicItem) return false;
+  const homebrew = magicItem.homebrewEntry;
+  if (!homebrew) return pers.ruleset === magicItem.ruleset;
+  return homebrew.deletedAt === null && (homebrew.ruleset === null || homebrew.ruleset === pers.ruleset);
 }
 
 export function removeMagicItemLinks(persId: number, magicItemId: number) {

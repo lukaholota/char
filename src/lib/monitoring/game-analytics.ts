@@ -38,8 +38,13 @@ type GameEventProperties = {
   game_area_shown: { shape: "circle" | "cone" | "line" | "square"; is_gm: boolean };
   game_grid_changed: { has_grid: boolean };
   game_object_placed: { is_copy: boolean };
+  game_floor_changed: { kind: "add" | "rename" | "remove" | "show" };
+  game_floor_plan_added: { fills_map: boolean };
+  game_atmosphere_changed: { weather: string; tint: string };
+  game_sound_played: { key: string };
+  game_ambience_changed: { layer_count: number };
   game_object_hidden_toggled: { is_hidden: boolean };
-  game_walls_changed: { kind: "wall" | "room" | "door" | "move" | "remove" | "clear"; segment_count: number };
+  game_walls_changed: { kind: "wall" | "room" | "door" | "window" | "move" | "remove" | "clear"; segment_count: number };
   game_door_toggled: { is_open: boolean };
   game_lighting_changed: { lighting: "off" | "bright" | "dim" | "dark" };
   game_light_placed: { preset: string; target: "scene" | "hero" | "creature" };

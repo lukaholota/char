@@ -7,7 +7,7 @@ import type { DiscussionView } from "@/lib/logic/content-discussion";
 const pendingDiscussion = vi.hoisted(() => ({ resolve: (_view: unknown) => {} }));
 
 vi.mock("next-auth/react", () => ({ useSession: () => ({ status: "unauthenticated" }) }));
-vi.mock("@/lib/components/auth/GoogleAuthDialog", () => ({ default: () => null }));
+vi.mock("@/lib/components/auth/SignInDialog", () => ({ default: () => null }));
 vi.mock("@/lib/actions/content-discussion-actions", () => ({ voteContent: vi.fn(), addContentComment: vi.fn() }));
 vi.mock("@/lib/actions/content-report-actions", () => ({ reportContent: vi.fn() }));
 vi.mock("@/lib/catalog-reads", () => ({

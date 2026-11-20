@@ -10,7 +10,7 @@ afterEach(cleanup);
 
 function openCatalogPath(ruleset: "RULES_2014" | "RULES_2024") {
   render(<AddMagicItemDialog persId={7} persName="Мирон" ruleset={ruleset} />);
-  fireEvent.click(screen.getByRole("button", { name: "Додати" }));
+  fireEvent.click(screen.getByRole("button", { name: "Додати магічний предмет" }));
   return new URL(screen.getByTitle("Магічні предмети").getAttribute("src") ?? "", "https://char.test").pathname;
 }
 

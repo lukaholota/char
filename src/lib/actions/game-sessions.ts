@@ -2,6 +2,7 @@
 
 import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
 import { parseTokenPosition } from "@/rules/game-map";
+import { parseFloorId } from "@/rules/game-floors";
 import { parseMapTokenMoves } from "@/rules/map-group";
 import { parseTokenTransform } from "@/rules/token-transform";
 import { parseHitPointChange } from "@/rules/creature-hit-points";
@@ -117,12 +118,13 @@ export async function deleteGameSceneAction(sessionId: number, sceneId: number) 
   return runAsUser(async (userId) => (isId(sessionId) && isId(sceneId) ? deleteGameScene(sessionId, userId, sceneId) : rejectBadInput));
 }
 
-export async function moveGameTokenAction(sessionId: number, sceneId: number, heroId: number, rawPosition: unknown) {
+export async function moveGameTokenAction(sessionId: number, sceneId: number, heroId: number, rawPosition: unknown, rawFloor?: unknown) {
   const position = rawPosition === null ? null : parseTokenPosition(rawPosition);
+  const floor = rawFloor === undefined ? undefined : parseFloorId(rawFloor);
   return runAsUser(async (userId) => {
-    if (!isId(sessionId) || !isId(sceneId) || !isId(heroId) || (rawPosition !== null && !position)) return rejectBadInput;
+    if (!isId(sessionId) || !isId(sceneId) || !isId(heroId) || (rawPosition !== null && !position) || (rawFloor !== undefined && floor === undefined)) return rejectBadInput;
     if (!tryTakeTokenMoveSlot(userId)) return { ok: false as const, error: "too_fast" as const };
-    return moveGameToken(sessionId, userId, sceneId, heroId, position);
+    return moveGameToken(sessionId, userId, sceneId, heroId, position, floor);
   });
 }
 
@@ -161,12 +163,13 @@ export async function addMapCreaturesAction(sessionId: number, rawInput: unknown
   });
 }
 
-export async function moveMapCreatureAction(sessionId: number, creatureId: number, rawPosition: unknown) {
+export async function moveMapCreatureAction(sessionId: number, creatureId: number, rawPosition: unknown, rawFloor?: unknown) {
   const position = parseTokenPosition(rawPosition);
+  const floor = rawFloor === undefined ? undefined : parseFloorId(rawFloor);
   return runAsUser(async (userId) => {
-    if (!isId(sessionId) || !isId(creatureId) || !position) return rejectBadInput;
+    if (!isId(sessionId) || !isId(creatureId) || !position || (rawFloor !== undefined && floor === undefined)) return rejectBadInput;
     if (!tryTakeTokenMoveSlot(userId)) return tooFast;
-    return moveMapCreature(sessionId, userId, creatureId, position);
+    return moveMapCreature(sessionId, userId, creatureId, position, floor);
   });
 }
 

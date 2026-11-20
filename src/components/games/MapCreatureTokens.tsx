@@ -14,6 +14,7 @@ import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
 import { NO_TOKEN_CONDITIONS, type TokenConditionChange, type TokenConditions } from "@/rules/token-conditions";
 import { applyHitPointChange, findHitPointChangesTo, isCreatureDown, type CreatureHitPoints, type HitPointChange } from "@/rules/creature-hit-points";
+import type { FloorId } from "@/rules/game-floors";
 import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import { findTokenArrowStep } from "@/rules/game-grid";
 import { CREATURE_SIZE_CELLS, CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
@@ -26,11 +27,11 @@ import { TokenConditionMarks } from "./TokenConditionMarks";
 import { useSpotlightStyle, useShownConditions, useSpotlightControl, useTokenConditionChanges } from "./use-token-conditions";
 import { CreatureSheet, CreatureTokenSettings, MapCreatureStatblockDialog, type CreatureControls } from "./MapCreatureStatblockDialog";
 import { holdValueBefore, pushUndoStep, rememberUndo } from "./map-history";
-import { readOptimistic, sendOptimistic, showOptimistic, useOptimisticReader } from "./optimistic-values";
+import { readOptimistic, sendOptimistic, sendOptimisticMany, showOptimistic, useOptimisticReader } from "./optimistic-values";
 import { useTokenDrag, type TokenGhost } from "./use-token-drag";
 import { TokenName } from "./TokenName";
 import { TOKEN_SIZE_PX } from "./use-token-scale";
-import { HIGHLIGHT_RING_CLASS, MapTokenSlot, buildTokenSizeStyle, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
+import { HIGHLIGHT_RING_CLASS, MapTokenSlot, OFF_FLOOR_CLASS, buildTokenSizeStyle, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
 import type { TokenTransform } from "@/rules/token-transform";
 import { GroupedTokenFrame, TokenTransformHandles, findTokenRotationStyle, scaleGhostSize, scaleTokenSize, type SelectedToken, type TokenSelection } from "./TokenTransformControls";
 
@@ -72,7 +73,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       const creature = view.creatures.find((candidate) => candidate.id === id);
       const position = findSnappedDrop(creature, point);
       if (position && group.moveWith(findKey(id), position)) return;
-      if (creature && (position || moves.findPosition(creature))) void moves.send(id, position);
+      if (creature && (position || moves.findPosition(creature))) void moves.send(id, position, findLandingFloor(creature, position));
     },
     (point) => findDropPosition(point) !== null,
     (id) => tapCreature(id),
@@ -113,9 +114,14 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
     };
   };
 
+  const isOffFloor = (creature: MapCreatureView) => {
+    const at = moves.findPosition(creature);
+    return at !== null && layout.floors.isOffFloor({ at, floor: moves.findFloor(creature) });
+  };
+  const findLandingFloor = (creature: MapCreatureView | undefined, to: TokenPosition | null) => (creature && to && !isOffFloor(creature) ? layout.floors.findLanding(to) : undefined);
   const isShownOnMap = (creature: MapCreatureView) => {
     const position = moves.findPosition(creature);
-    return position !== null && !layout.isHidden(position, findCells(creature));
+    return position !== null && !layout.isHidden(position, findCells(creature)) && (canEdit || !isOffFloor(creature));
   };
   const findKey = (id: number) => `creature-${id}`;
   const tapCreature = (id: number) => {
@@ -156,7 +162,10 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       if (step && position) moves.show(creature.id, shiftTokenPosition(position, step));
       else if ((event.key === "Enter" || event.key === " ") && position) tapCreature(creature.id);
       else if (event.key === "Escape" && handles) selection.select(null);
-      else if (event.key === "Enter" || event.key === " ") void moves.send(creature.id, layout.findFreeSpot());
+      else if (event.key === "Enter" || event.key === " ") {
+        const spot = layout.findFreeSpot();
+        void moves.send(creature.id, spot, findLandingFloor(creature, spot));
+      }
       else if (event.key === "Delete" || event.key === "Backspace") void removeAfterConfirm(creature);
       else return;
       event.preventDefault();
@@ -208,7 +217,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       const isGrouped = group.isGrouped(findKey(creature.id));
       const handles = isSelected && selected ? <TokenTransformHandles token={selected} onDeselect={() => selection.select(null)} /> : isGrouped ? <GroupedTokenFrame rotation={transform.rotation} /> : null;
       return (
-        <MapTokenSlot key={creature.id} position={position} size={size} isGroupFollower={isGrouped && ghost?.id !== creature.id} className={cn(isSelected ? "z-[33]" : canEdit ? "z-[11]" : "z-10", layout.revealClassName)}>
+        <MapTokenSlot key={creature.id} position={position} size={size} isGroupFollower={isGrouped && ghost?.id !== creature.id} className={cn(isSelected ? "z-[33]" : canEdit ? "z-[11]" : "z-10", layout.revealClassName, isOffFloor(creature) && OFF_FLOOR_CLASS)}>
           {renderToken(creature, size, hasTokenNames(layout, findCells(creature)) ? looks.nameMode : null, { screenPx: scaleGhostSize(findGhostTokenSize(layout, findCells(creature), sizeScale), transform), labelWidth: findLabelWidth(layout, sizeScale), isHighlighted: layout.isHighlighted(position, findCells(creature)), isOutlined: layout.isCutoutOutlined, rotation: transform.rotation }, handles)}
         </MapTokenSlot>
       );
@@ -289,6 +298,7 @@ export const findCreaturePositionKey = (id: number) => `creature-position:${id}`
 function useCreatureMoves(view: GameSessionView) {
   const read = useOptimisticReader();
   const findPosition = (creature: MapCreatureView) => read(findCreaturePositionKey(creature.id), creature.token);
+  const findFloor = (creature: MapCreatureView): FloorId => read(`creature-floor:${creature.id}`, creature.floor);
   const isRemoved = (creature: MapCreatureView) => read(`creature-removed:${creature.id}`, false);
   const findPositionById = (id: number) => readOptimistic(findCreaturePositionKey(id), view.creatures.find((creature) => creature.id === id)?.token ?? null);
   const show = (id: number, position: TokenPosition | null) => {
@@ -297,16 +307,16 @@ function useCreatureMoves(view: GameSessionView) {
   };
 
   /// Скасовуємо лише крок по мапі: прибрану істоту й першу постановку з лотка відміняє окрема дія.
-  const send = async (id: number, position: TokenPosition | null) => {
+  const send = async (id: number, position: TokenPosition | null, floor?: FloorId) => {
     const before = findPositionById(id);
     if (before && position) rememberUndo(view.viewedSceneId, findCreaturePositionKey(id), before, position, (restored) => send(id, restored));
     const result = position
-      ? await sendOptimistic(findCreaturePositionKey(id), position, () => moveMapCreatureAction(view.id, id, position))
+      ? await sendOptimisticMany(floor === undefined ? { [findCreaturePositionKey(id)]: position } : { [findCreaturePositionKey(id)]: position, [`creature-floor:${id}`]: floor }, () => moveMapCreatureAction(view.id, id, position, floor))
       : await sendOptimistic(`creature-removed:${id}`, true, () => removeMapCreaturesAction(view.id, id));
     if (result.ok) captureGameEvent("game_creature_moved", { is_on_map: position !== null });
   };
 
-  return { findPosition, isRemoved, show, send };
+  return { findPosition, findFloor, isRemoved, show, send };
 }
 
 /// Розмір, хіти і показ імен майстер бачить одразу; правдою їх робить наступний стан кімнати з сервера.

@@ -18,7 +18,7 @@ export function GameRollHeroTargetLine({ target, roll, total, seq }: { target: G
       <div className="flex flex-wrap items-center gap-x-2">
         <span className="min-w-0 break-words">→ {target.name}</span>
         {target.isHit !== null ? <span className={cn("font-semibold", target.isHit ? "text-rose-200" : "text-slate-300")}>{target.isHit ? "влучання" : "промах"}</span> : null}
-        {target.armorClass !== null ? <span className="text-xs text-slate-400 tabular-nums">КЗ {target.armorClass}</span> : null}
+        {target.armorClass !== null ? <span className="text-xs text-slate-400 tabular-nums">КБ {target.armorClass}</span> : null}
         {target.damage !== null ? <span className="font-semibold tabular-nums">· −{target.damage}</span> : null}
         {target.healing !== null ? <span className="font-semibold tabular-nums text-emerald-200">· +{target.healing} хітів</span> : null}
       </div>
@@ -29,12 +29,12 @@ export function GameRollHeroTargetLine({ target, roll, total, seq }: { target: G
   );
 }
 
-/// Старі події без КЗ героя: гравець порівнює зі своїм листом.
+/// Старі події без КБ героя: гравець порівнює зі своїм листом.
 function describeAttackOnMe(roll: GameRoll | null, total: number | null): string {
   const natural = roll ? findNaturalD20(roll) : null;
   if (natural === "NAT_20") return "Природна 20 — влучає у вас";
   if (natural === "NAT_1") return "Природна 1 — промах";
-  return `Влучає, якщо ваш КЗ ${total ?? "?"} або менше`;
+  return `Влучає, якщо ваш КБ ${total ?? "?"} або менше`;
 }
 
 type MyHeroDamageProps = { sessionId: number; seq: number; persId: number; amount: number; saveRowIndex?: number; isApplied: boolean };

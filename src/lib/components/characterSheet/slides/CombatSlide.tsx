@@ -13,128 +13,18 @@ import WeaponCustomizeModal from "../WeaponCustomizeModal";
 import ArmorCustomizeModal from "../ArmorCustomizeModal";
 import { Button } from "@/components/ui/button";
 import { updateShieldStatus, updateArmor, deleteArmor, updateRaceStaticAcBonus } from "@/lib/actions/equipment-actions";
-import { Switch } from "@/components/ui/switch";
 import { ToggleRow } from "@/lib/components/characterSheet/shared/ToggleRow";
 import { toast } from "sonner";
-import { Trash2, Sparkles, Zap } from "lucide-react";
+import { Trash2 } from "lucide-react";
+import { MagicItemsCard } from "../MagicItemsCard";
 import { useRouter } from "next/navigation";
-import AddMagicItemDialog from "../AddMagicItemDialog";
 import { WildshapeCard } from "../WildshapeCard";
 import type { WildshapeState } from "../useWildshapeState";
-import { updateMagicItem, deleteMagicItem } from "@/lib/actions/magic-item-actions";
-import { MagicItemChargesControl } from "../MagicItemChargesControl";
-import { MagicItemInfoModal } from "@/lib/components/levelUp/MagicItemInfoModal";
-import { magicItemTypeTranslations, itemRarityTranslations } from "@/lib/refs/translation";
 import { Ability, AbilityBonusType } from "@/lib/prisma-enums";
 import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
-import { findAttunementCapacityForPers } from "@/rules/attunement";
 import WeaponMasteryCard from "../WeaponMasteryCard";
 import WeaponsCard from "../WeaponsCard";
 
-
-function MagicItemRow({ 
-    pmi, 
-    isReadOnly, 
-    onDelete, 
-    onUpdate,
-    onSelect,
-    onChargesChanged,
-    isRemoving
-}: { 
-    pmi: PersWithRelations['magicItems'][number] & { magicItem: NonNullable<PersWithRelations['magicItems'][number]['magicItem']> };
-    isReadOnly?: boolean; 
-    onDelete: () => void;
-    onUpdate: (updates: { isEquipped?: boolean; isAttuned?: boolean }) => void;
-    onSelect: () => void;
-    onChargesChanged: () => void;
-    isRemoving: boolean;
-}) {
-    const [confirmDelete, setConfirmDelete] = useState(false);
-    
-    const typeLabel = (magicItemTypeTranslations as any)[pmi.magicItem?.itemType] || pmi.magicItem?.itemType;
-    const rarityLabel = (itemRarityTranslations as any)[pmi.magicItem?.rarity] || pmi.magicItem?.rarity;
-
-    // Logic for items that don't need "Equipped" toggle
-    const isConsumable = pmi.magicItem?.itemType === "POTION" || pmi.magicItem?.itemType === "SCROLL";
-
-    return (
-        <div className={`w-full overflow-hidden transition-all duration-300 ${isRemoving ? "opacity-0 translate-x-2 max-h-0 py-0" : "opacity-100 translate-x-0 max-h-60 mb-2"}`}>
-            <div 
-                className="flex flex-col gap-2 p-3 rounded-lg border border-white/5 bg-slate-800/40 hover:bg-slate-800/60 transition group cursor-pointer"
-                onClick={onSelect}
-            >
-                <div className="min-w-0">
-                    <div className="font-bold text-slate-50 flex flex-wrap items-center gap-x-2 gap-y-1">
-                        <span className="text-violet-200 break-words">{pmi.magicItem?.name}</span>
-                        {pmi.isEquipped && <span className="text-[10px] bg-violet-500/20 text-violet-300 px-1.5 py-0.5 rounded border border-violet-500/30">ЕКІП</span>}
-                        {pmi.isAttuned && <span className="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">НАЛАШТ</span>}
-                    </div>
-                     <div className="text-xs text-slate-400 mt-0.5">
-                        {typeLabel} • {rarityLabel}
-                     </div>
-                </div>
-
-                <div className="flex items-center justify-between gap-2">
-                    <div onClick={e => e.stopPropagation()}>
-                        <MagicItemChargesControl
-                            persId={pmi.persId}
-                            persMagicItemId={pmi.persMagicItemId}
-                            charges={{ chargesMax: pmi.chargesMax, chargesCurrent: pmi.chargesCurrent }}
-                            isReadOnly={isReadOnly}
-                            onChanged={onChargesChanged}
-                        />
-                    </div>
-                    {!isReadOnly && (
-                        <div className="flex items-center gap-2 ml-auto" onClick={e => e.stopPropagation()}>
-                            {/* Toggle Attunement if required */}
-                            {pmi.magicItem?.requiresAttunement && (
-                                 <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className={`h-8 w-8 p-0 ${pmi.isAttuned ? "text-amber-400 bg-amber-400/10" : "text-slate-600 hover:text-amber-400"}`}
-                                    onClick={() => onUpdate({ isAttuned: !pmi.isAttuned })}
-                                    title={pmi.isAttuned ? "Скасувати налаштування" : "Налаштуватися"}
-                                 >
-                                    <Zap className="w-4 h-4" />
-                                 </Button>
-                            )}
-
-                            {/* Toggle Equipped */}
-                            {!isConsumable && (
-                                <Switch
-                                    checked={pmi.isEquipped}
-                                    onCheckedChange={(val) => onUpdate({ isEquipped: val })}
-                                    className="scale-75"
-                                />
-                            )}
-
-                             <Button 
-                                variant="ghost" 
-                                size="icon"
-                                className={`h-8 w-8 transition-all duration-300 ${
-                                confirmDelete 
-                                    ? "text-red-500 bg-red-500/20 border border-red-500/30" 
-                                    : "text-slate-500 hover:text-red-400"
-                                }`}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    if (confirmDelete) {
-                                        onDelete();
-                                    } else {
-                                        setConfirmDelete(true);
-                                        setTimeout(() => setConfirmDelete(false), 3000);
-                                    }
-                                }}
-                            >
-                                <Trash2 className="w-4 h-4" />
-                            </Button>
-                        </div>
-                    )}
-                </div>
-            </div>
-        </div>
-    )
-}
 
 type CombatSlideProps = {
   pers: PersWithRelations;
@@ -150,16 +40,11 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
 
   const [selectedWeapon, setSelectedWeapon] = useState<PersWeaponWithWeapon | null>(null);
   const [selectedArmor, setSelectedArmor] = useState<PersArmorWithArmor | null>(null);
-  const [selectedMagicItem, setSelectedMagicItem] = useState<any | null>(null);
 
   const [confirmDeleteArmorId, setConfirmDeleteArmorId] = useState<number | null>(null);
   const [removingArmorIds, setRemovingArmorIds] = useState<Set<number>>(() => new Set());
-  const [removingMagicItemIds, setRemovingMagicItemIds] = useState<Set<number>>(() => new Set());
   const [isPending, startTransition] = useTransition();
 
-  const magicItems = pers.magicItems ?? [];
-  const attunedMagicItemsCount = magicItems.filter(pmi => pmi.isAttuned).length;
-  const attunementCapacity = useMemo(() => findAttunementCapacityForPers(pers), [pers]);
 
   const router = useRouter();
 
@@ -489,77 +374,9 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
 
       </Card>
 
-      {/* Magic Items Section */}
-      <Card className="bg-slate-900/50 border-white/10 overflow-hidden">
-        <CardHeader className="p-4 flex flex-row items-center justify-between border-b border-white/5 bg-white/5">
-          <CardTitle className="text-base font-bold flex items-center gap-2 text-violet-300 uppercase tracking-wider">
-            <Sparkles className="w-5 h-5" />
-            Магічні предмети
-            <span
-              className={`text-[10px] px-1.5 py-0.5 rounded border normal-case tracking-normal font-normal ${
-                attunedMagicItemsCount >= attunementCapacity
-                  ? "bg-amber-500/20 text-amber-300 border-amber-500/30"
-                  : "bg-white/5 text-slate-400 border-white/10"
-              }`}
-              title="Налаштовано / Ліміт налаштування"
-            >
-              {attunedMagicItemsCount} / {attunementCapacity}
-            </span>
-          </CardTitle>
-          <div className="flex items-center gap-1">
-            {!isReadOnly && <AddMagicItemDialog persId={pers.persId} persName={pers.name} ruleset={pers.ruleset} />}
-          </div>
-        </CardHeader>
-        <CardContent className="p-2 space-y-0">
-           {magicItems.length > 0 ? (
-             magicItems.map(pmi => (
-               <MagicItemRow 
-                 key={pmi.persMagicItemId} 
-                 pmi={pmi} 
-                 isReadOnly={isReadOnly} 
-                 isRemoving={removingMagicItemIds.has(pmi.persMagicItemId)}
-                 onSelect={() => setSelectedMagicItem(pmi.magicItem)}
-                 onChargesChanged={() => router.refresh()}
-                 onDelete={async () => {
-                   setRemovingMagicItemIds(prev => new Set(prev).add(pmi.persMagicItemId));
-                   setTimeout(async () => {
-                       const res = await deleteMagicItem(pmi.persMagicItemId);
-                       if (res.success) {
-                         toast.success("Предмет видалено");
-                         router.refresh();
-                       } else {
-                         setRemovingMagicItemIds(prev => {
-                             const n = new Set(prev);
-                             n.delete(pmi.persMagicItemId);
-                             return n;
-                         });
-                         toast.error(res.error);
-                       }
-                   }, 300);
-                 }}
-                 onUpdate={async (updates) => {
-                    const res = await updateMagicItem(pmi.persMagicItemId, updates);
-                    if (res.success) {
-                       toast.success(updates.isEquipped !== undefined ? (updates.isEquipped ? "Екіпіровано" : "Знято") : (updates.isAttuned ? "Налаштовано" : "Налаштування скасовано"));
-                       router.refresh();
-                    } else {
-                       toast.error(res.error);
-                    }
-                 }}
-               />
-             ))
-           ) : (
-             <div className="text-center py-6 text-slate-500 text-sm">Магічні предмети не додані</div>
-           )}
-        </CardContent>
-      </Card>
+      <MagicItemsCard pers={pers} isReadOnly={isReadOnly} />
 
       {/* Modals */}
-      <MagicItemInfoModal 
-          item={selectedMagicItem} 
-          open={!!selectedMagicItem} 
-          onOpenChange={(val) => !val && setSelectedMagicItem(null)} 
-      />
       {selectedWeapon && (
         <WeaponCustomizeModal 
           persWeapon={selectedWeapon}

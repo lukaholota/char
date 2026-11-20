@@ -1,14 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import {
-  Printer,
-  UserPlus,
-  Check,
-  Loader2,
-  Trash2,
-  Package,
-} from "lucide-react";
+import { Printer, UserPlus, Check, Trash2, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -19,7 +12,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { itemRarityTranslations, magicItemTypeTranslations } from "@/lib/refs/translation";
-import { useModalBackButton } from "@/hooks/useModalBackButton";
 import { MagicItemType, ItemRarity, Ruleset } from "@/lib/prisma-enums";
 import { MagicItemDetailPane } from "@/lib/components/magicItems/MagicItemDetailPane";
 import { MagicItemsFilterDialog } from "@/lib/components/magicItems/MagicItemsFilterDialog";
@@ -34,7 +26,6 @@ import {
   getSearchParamsFromLocation,
   replaceUrlSearchParams,
 } from "@/lib/catalog-url-helpers";
-import { getUserPersesMagicItemIndex } from "@/lib/actions/pers";
 import {
   clearSourceParams,
   collectCatalogSources,
@@ -47,6 +38,16 @@ import {
 } from "@/lib/catalog-source-filter";
 import { collectMagicItemTraits, hasMagicItemTrait } from "@/lib/magic-item-traits";
 import { toggleMagicItemForPers } from "@/lib/actions/magic-item-actions";
+import { announceMagicItemToggle, InventoryDropdown, type PersIndexItem } from "@/lib/components/magicItems/InventoryDropdown";
+import { useMagicItemsWithHomebrew } from "@/lib/components/magicItems/useMagicItemsWithHomebrew";
+import { HomebrewCatalogBanner } from "@/components/homebrew/HomebrewCatalogBanner";
+import { HomebrewToggleButton } from "@/components/homebrew/HomebrewToggleButton";
+import { HomebrewByline, HomebrewEntryButtons } from "@/components/homebrew/HomebrewEntryDetails";
+import { includeHomebrewSource, type HomebrewOnlyCatalog } from "@/components/homebrew/homebrew-only-catalog";
+import { buildHomebrewEntryKey } from "@/lib/logic/homebrew-catalog";
+import { ContentImage } from "@/components/no-ai/ContentImage";
+import { buildMediaImageUrl } from "@/lib/media-url";
+import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { findAccentVariant } from "@/styles/edition-accent";
 
@@ -69,7 +70,10 @@ export type MagicItemListItem = {
   weaponProficienciesSpecial?: unknown;
   bonusToAC?: number | null;
   bonusToRangedDamage?: number | null;
-  bonusToSavingThrows?: number | null;
+  bonusToSavingThrows?: unknown;
+  weaponBonus?: number | null;
+  imageKey?: string | null;
+  homebrewEntryId?: number;
   noArmorOrShieldForACBonus?: boolean | null;
   givesSpells?: {
     spellId: number;
@@ -130,118 +134,22 @@ function typeLabel(type: string) {
   return magicItemTypeTranslations[type as keyof typeof magicItemTypeTranslations] || type;
 }
 
-type PersIndexItem = {
-  persId: number;
-  name: string;
-  magicItemIds: number[];
-};
-
-function InventoryDropdown({
-  magicItemId,
-  ruleset,
-  persIndex,
-  setPersIndex,
-}: {
-  magicItemId: number;
-  ruleset: Ruleset;
-  persIndex: PersIndexItem[] | null;
-  setPersIndex: (value: PersIndexItem[] | null) => void;
-}) {
-  const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  useModalBackButton(open, () => setOpen(false));
-
-  const load = async () => {
-    if (persIndex) return;
-    setLoading(true);
-    try {
-      const data = await getUserPersesMagicItemIndex(ruleset);
-      setPersIndex(data);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <DropdownMenu
-      open={open}
-      onOpenChange={(next) => {
-        setOpen(next);
-        if (next) void load();
-      }}
-    >
-      <DropdownMenuTrigger asChild>
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-400 transition hover:text-arcane-300 md:h-8 md:w-8"
-          aria-label="Додати до персонажа"
-        >
-          <UserPlus className="h-4 w-4" />
-        </button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-64">
-        <DropdownMenuLabel>Додати до персонажа</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-
-        {loading ? (
-          <div className="px-2 py-2 text-xs text-slate-400 flex items-center gap-2">
-            <Loader2 className="h-4 w-4 animate-spin" /> Завантаження…
-          </div>
-        ) : persIndex && persIndex.length === 0 ? (
-          <div className="px-2 py-2 text-xs text-slate-400">Немає персонажів</div>
-        ) : (
-          persIndex?.map((p) => {
-            const has = p.magicItemIds.includes(magicItemId);
-            const label = p.name || `Персонаж #${p.persId}`;
-            return (
-              <DropdownMenuItem
-                key={p.persId}
-                className="flex items-center justify-between gap-2 cursor-pointer"
-                onSelect={async (e) => {
-                  e.preventDefault();
-                  const res = await toggleMagicItemForPers({ persId: p.persId, magicItemId });
-                  if (!res.success) return;
-
-                  setPersIndex(
-                    (persIndex || []).map((item) =>
-                      item.persId !== p.persId
-                        ? item
-                        : {
-                            ...item,
-                            magicItemIds: res.added
-                              ? [...item.magicItemIds, magicItemId]
-                              : item.magicItemIds.filter((id) => id !== magicItemId),
-                          }
-                    )
-                  );
-                }}
-              >
-                <span className="truncate">{label}</span>
-                {has ? <Check className="h-4 w-4 text-arcane-400" /> : null}
-              </DropdownMenuItem>
-            );
-          })
-        )}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-}
-
 type RowItem =
   | { kind: "header"; rarity: string; count: number }
   | { kind: "item"; rarity: string; item: MagicItemListItem };
 
 export function MagicItemsClient({
-  items,
+  items: catalogItems,
   initialSearchParams = {},
   ruleset = "RULES_2014",
+  homebrewOnly,
 }: {
   items: MagicItemListItem[];
   initialSearchParams?: InitialSearchParams;
   ruleset?: Ruleset | string;
+  homebrewOnly?: HomebrewOnlyCatalog;
 }) {
-  const is2024 = ruleset === "RULES_2024" || items[0]?.ruleset === "RULES_2024";
+  const is2024 = ruleset === "RULES_2024" || catalogItems[0]?.ruleset === "RULES_2024";
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [persIndex, setPersIndex] = useState<PersIndexItem[] | null>(null);
   const [selectedModalItem, setSelectedModalItem] = useState<MagicItemListItem | null>(null);
@@ -262,6 +170,10 @@ export function MagicItemsClient({
     parseSelection,
     initialSearchParams
   );
+
+  const { allItems, communityCount, findHomebrewEntry } = useMagicItemsWithHomebrew(catalogItems, is2024 ? "RULES_2024" : "RULES_2014", selection.source.homebrew, homebrewOnly?.sort ?? null);
+  const items: MagicItemListItem[] = allItems;
+  const sourceSelection = useMemo(() => (homebrewOnly ? includeHomebrewSource(selection).source : selection.source), [homebrewOnly, selection]);
 
   const filtered = useMemo(() => {
     const q = selection.q.trim().toLowerCase();
@@ -288,19 +200,20 @@ export function MagicItemsClient({
         if (!hasAll) return false;
       }
 
-      if (!matchesSourceSelection(item.source, selection.source)) {
+      if (!matchesSourceSelection(item.source, sourceSelection)) {
         return false;
       }
 
       return true;
     });
-  }, [items, selection]);
+  }, [items, selection, sourceSelection]);
 
   const selectedItem = useMemo(() => {
     if (selection.item) {
       const byParam = items.find(
         (i) =>
           String(i.magicItemId) === selection.item ||
+          (i.homebrewEntryId !== undefined && buildHomebrewEntryKey(i.homebrewEntryId) === selection.item) ||
           i.engName.toLowerCase() === selection.item.toLowerCase() ||
           i.name.toLowerCase() === selection.item.toLowerCase()
       );
@@ -345,9 +258,9 @@ export function MagicItemsClient({
       }),
       types: Array.from(types).sort((a, b) => typeLabel(a).localeCompare(typeLabel(b), "uk")),
       traits: collectMagicItemTraits(items),
-      sources: collectCatalogSources(items),
+      sources: { ...collectCatalogSources(items), hasHomebrew: !homebrewOnly },
     };
-  }, [items]);
+  }, [items, homebrewOnly]);
 
   const clearFilters = () => {
     setParams((next) => {
@@ -370,22 +283,40 @@ export function MagicItemsClient({
   const [isPending, setIsPending] = useState(false);
   const [addedItems, setAddedItems] = useState<Set<number>>(new Set());
 
-  const handleAddItem = async (itemId: number) => {
+  const handleAddItem = async (item: MagicItemListItem) => {
     if (!embedParams.persId) return;
     setIsPending(true);
     try {
-      const res = await toggleMagicItemForPers({ persId: embedParams.persId, magicItemId: itemId });
-      if (res.success) {
-        setAddedItems((prev) => new Set(prev).add(itemId));
-        if (isEmbedMode) {
-          window.parent.postMessage({ type: "ITEM_ADDED" }, "*");
-        }
+      const res = await toggleMagicItemForPers({ persId: embedParams.persId, magicItemId: item.magicItemId });
+      if (!res.success) return void toast.error(res.error);
+      setAddedItems((prev) => {
+        const next = new Set(prev);
+        if (res.added) next.add(item.magicItemId);
+        else next.delete(item.magicItemId);
+        return next;
+      });
+      announceMagicItemToggle(item, res.added);
+      if (isEmbedMode) {
+        window.parent.postMessage({ type: "ITEM_ADDED" }, "*");
       }
     } catch (e) {
       console.error(e);
+      toast.error("Не вдалося змінити предмети персонажа");
     } finally {
       setIsPending(false);
     }
+  };
+
+  const renderDetail = (item: MagicItemListItem) => {
+    const homebrewEntry = findHomebrewEntry(item);
+    if (!homebrewEntry) return <MagicItemDetailPane item={item} isEmbedMode={isEmbedMode} />;
+    return (
+      <div className="space-y-3">
+        <HomebrewByline entry={homebrewEntry} />
+        <MagicItemDetailPane item={item} isEmbedMode={isEmbedMode} />
+        <HomebrewEntryButtons entry={homebrewEntry} pageHref={`/homebrew/${homebrewEntry.entryId}${is2024 ? "?edition=2024" : ""}`} />
+      </div>
+    );
   };
 
   const doPrint = () => {
@@ -419,10 +350,11 @@ export function MagicItemsClient({
 
   return (
     <ContentListPage<MagicItemListItem, RowItem>
-      title={is2024 ? "Магічні предмети 2024" : "Магічні предмети"}
+      title={homebrewOnly ? "Хоумбрю: предмети" : is2024 ? "Магічні предмети 2024" : "Магічні предмети"}
       is2024={is2024}
+      topBannerScrollsWithListOnMobile={Boolean(homebrewOnly)}
       topBanner={
-        isEmbedMode && (
+        homebrewOnly ? homebrewOnly.header : !isEmbedMode && selection.source.homebrew ? <HomebrewCatalogBanner kind="ITEM" edition={is2024 ? "2024" : "2014"} count={communityCount} /> : isEmbedMode && (
           <div className="mb-4 rounded-xl border border-arcane-500/30 bg-arcane-500/10 p-2.5 backdrop-blur-xl">
             <div className="flex items-center gap-2 text-sm text-arcane-200">
               <UserPlus className="h-4 w-4" />
@@ -442,6 +374,8 @@ export function MagicItemsClient({
       onClearFilters={clearFilters}
       headerActions={
         !isEmbedMode && (
+          <>
+          {homebrewOnly ? null : <HomebrewToggleButton isOn={selection.source.homebrew} onToggle={() => setParams((next) => toggleHomebrewParam(next))} />}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -472,6 +406,7 @@ export function MagicItemsClient({
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          </>
         )
       }
       data={flatRows}
@@ -535,10 +470,15 @@ export function MagicItemsClient({
               )}
             >
               <div className="flex items-center justify-between gap-3">
-                {/* Left type icon badge */}
-                <div className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border", visual.iconWrap)}>
-                  <Icon className={cn("h-5 w-5", visual.iconColor)} />
-                </div>
+                {item.imageKey ? (
+                  <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900">
+                    <ContentImage src={buildMediaImageUrl(item.imageKey, "thumbnail")} alt="" provenance="manual" fill sizes="44px" className="object-cover" />
+                  </div>
+                ) : (
+                  <div className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border", visual.iconWrap)}>
+                    <Icon className={cn("h-5 w-5", visual.iconColor)} />
+                  </div>
+                )}
 
                 {/* Center item info */}
                 <div className="min-w-0 flex-1">
@@ -590,7 +530,7 @@ export function MagicItemsClient({
                       </button>
 
                       <InventoryDropdown
-                        magicItemId={item.magicItemId}
+                        item={item}
                         ruleset={is2024 ? "RULES_2024" : "RULES_2014"}
                         persIndex={persIndex}
                         setPersIndex={setPersIndex}
@@ -601,8 +541,10 @@ export function MagicItemsClient({
                   {isEmbedMode && embedParams.persId && (
                     <button
                       type="button"
-                      onClick={() => handleAddItem(item.magicItemId)}
+                      onClick={() => handleAddItem(item)}
                       disabled={isPending}
+                      aria-label={addedItems.has(item.magicItemId) ? `Прибрати з персонажа: ${item.name}` : `Додати персонажу: ${item.name}`}
+                      aria-pressed={addedItems.has(item.magicItemId)}
                       className={cn(
                         "inline-flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:text-arcane-300 hover:bg-white/5 md:h-9 md:w-9",
                         isPending && "opacity-50"
@@ -619,7 +561,7 @@ export function MagicItemsClient({
       }}
       desktopDetailView={
         selectedItem ? (
-          <MagicItemDetailPane item={selectedItem} isEmbedMode={isEmbedMode} />
+          renderDetail(selectedItem)
         ) : (
           <div className="flex h-full items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 p-8 text-center backdrop-blur-xl">
             <p className="text-sm text-slate-400">Оберіть предмет для перегляду деталей</p>
@@ -629,7 +571,7 @@ export function MagicItemsClient({
       selectedModalItem={selectedModalItem}
       onCloseModal={() => setSelectedModalItem(null)}
       modalTitle={selectedModalItem?.name || "Деталі предмета"}
-      renderModalContent={(item) => <MagicItemDetailPane item={item} isEmbedMode={isEmbedMode} />}
+      renderModalContent={renderDetail}
       filterDialogOpen={filtersOpen}
       onFilterDialogClose={() => setFiltersOpen(false)}
       filterDialogContent={

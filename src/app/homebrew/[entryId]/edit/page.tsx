@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { HomebrewCreatureForm } from "@/components/homebrew/HomebrewCreatureForm";
+import { HomebrewItemForm } from "@/components/homebrew/HomebrewItemForm";
 import { HomebrewPageShell } from "@/components/homebrew/HomebrewPageShell";
 import { HomebrewSpellForm } from "@/components/homebrew/HomebrewSpellForm";
-import { readCreatureFormValues, readSpellFormValues } from "@/lib/logic/homebrew-form-values";
+import { readCreatureFormValues, readItemFormValues, readSpellFormValues } from "@/lib/logic/homebrew-form-values";
 import { loadHomebrewEditValues } from "@/lib/actions/homebrew-actions";
 import { parseHomebrewEntryId } from "@/lib/logic/homebrew-catalog";
 
@@ -19,6 +20,8 @@ export default async function EditHomebrewPage({ params }: { params: Promise<{ e
     <HomebrewPageShell title={`Редагування: ${String(edit.values.name)}`} backHref={`/homebrew/${edit.entryId}`} backLabel="Назад">
       {edit.kind === "SPELL" ? (
         <HomebrewSpellForm entryId={edit.entryId} initialValues={readSpellFormValues(edit.values)} />
+      ) : edit.kind === "ITEM" ? (
+        <HomebrewItemForm entryId={edit.entryId} initialValues={readItemFormValues(edit.values)} initialImageUrl={edit.imageUrl} />
       ) : (
         <HomebrewCreatureForm entryId={edit.entryId} initialValues={readCreatureFormValues(edit.values)} initialImageUrl={edit.imageUrl} />
       )}

@@ -7,7 +7,7 @@ import type { TokenPosition } from "@/rules/game-map";
 import type { MapTokenMoves } from "@/rules/map-group";
 import type { TokenTransform } from "@/rules/token-transform";
 import type { SceneLayout } from "@/rules/uvtt-import";
-import { toStoredPoints } from "@/rules/map-strokes";
+import { toWallColumns } from "@/server/db/game-scene-walls";
 import { GAME_SCENE_LIMITS, findLibraryMap, findViewedSceneId, isRoomUploadedMapKey, parseSceneName, type SceneMapSource } from "@/rules/game-scenes";
 import { findActiveGmSession, findMembership, findRoomHero, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 import { MAX_MAP_UPLOAD_BYTES } from "@/lib/media-upload-limits";
@@ -148,14 +148,15 @@ export async function setHeroDarkvision(sessionId: number, userId: number, scene
 
 /// Своїх героїв рухає гравець, будь-якого — майстер; position null повертає токен у ряд під мапою.
 /// sceneId — сцена, на якій тягнули: рух, що запізнився після перемикання сцени, не ляже на нову.
-export async function moveGameToken(sessionId: number, userId: number, sceneId: number | null, heroId: number, position: TokenPosition | null): Promise<GameSessionResult<null>> {
+/// floor undefined — токен лишається на своєму поверсі.
+export async function moveGameToken(sessionId: number, userId: number, sceneId: number | null, heroId: number, position: TokenPosition | null, floor?: number | null): Promise<GameSessionResult<null>> {
   const access = await checkHeroTokenAccess(sessionId, userId, sceneId, heroId);
   if (!access.ok) return access;
   const placedSceneId = access.value.sceneId;
   if (position === null) {
     await prisma.gameSceneHeroToken.deleteMany({ where: { sceneId: placedSceneId, memberId: heroId } });
   } else {
-    const data = { tokenX: position.x, tokenY: position.y };
+    const data = { tokenX: position.x, tokenY: position.y, floor };
     await prisma.gameSceneHeroToken.upsert({ where: { sceneId_memberId: { sceneId: placedSceneId, memberId: heroId } }, create: { sceneId: placedSceneId, memberId: heroId, ...data }, update: data });
   }
   await signalGameSession(sessionId, "session");
@@ -226,7 +227,7 @@ type ResolvedSceneMap = { key: string | null; grid: SceneGrid | null };
 
 /// Нова картинка робить стару сітку, туман і області недійсними; бібліотечна мапа приносить свою сітку.
 async function createSceneLayout(tx: Transaction, sceneId: number, layout: SceneLayout) {
-  await tx.gameSceneWall.createMany({ data: layout.walls.map((line) => ({ sceneId, kind: line.kind, isOpen: line.isOpen, points: toStoredPoints(line.points) })) });
+  await tx.gameSceneWall.createMany({ data: layout.walls.map((line) => ({ sceneId, ...toWallColumns(line) })) });
   await tx.gameSceneLight.createMany({ data: layout.lights.map((light) => ({ sceneId, x: light.at.x, y: light.at.y, brightFeet: light.brightFeet, dimFeet: light.dimFeet })) });
 }
 

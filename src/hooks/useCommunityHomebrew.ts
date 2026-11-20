@@ -10,6 +10,8 @@ import type { HomebrewKind, HomebrewRuleset } from "@/lib/logic/homebrew-input";
 import type { HomebrewCatalogEntry } from "@/lib/logic/homebrew-view";
 import type { HomebrewSort } from "@/lib/logic/homebrew-catalog";
 
+const REMEMBER_KEY_PREFIXES: Record<HomebrewKind, string> = { SPELL: "spells", CREATURE: "bestiary", ITEM: "magic-items" };
+
 type HomebrewQuery = { kind: HomebrewKind; ruleset: HomebrewRuleset; sort: HomebrewSort };
 
 export function useCommunityHomebrew({ kind, ruleset, sort }: HomebrewQuery, isEnabled: boolean): HomebrewCatalogEntry[] {
@@ -35,7 +37,7 @@ export function useCommunityHomebrew({ kind, ruleset, sort }: HomebrewQuery, isE
 
 export function useCatalogHomebrew(input: { kind: HomebrewKind; ruleset: HomebrewRuleset; isOn: boolean; onlyHomebrewSort: HomebrewSort | null }): HomebrewCatalogEntry[] {
   const turnOn = useCallback(() => updateUrlSearchParams(enableHomebrewParam), []);
-  const rememberKey = input.onlyHomebrewSort ? null : `${input.kind === "SPELL" ? "spells" : "bestiary"}-${input.ruleset}`;
+  const rememberKey = input.onlyHomebrewSort ? null : `${REMEMBER_KEY_PREFIXES[input.kind]}-${input.ruleset}`;
   useRememberedHomebrewToggle(rememberKey, input.isOn, turnOn);
   return useCommunityHomebrew({ kind: input.kind, ruleset: input.ruleset, sort: input.onlyHomebrewSort ?? "TOP" }, input.isOn || input.onlyHomebrewSort !== null);
 }

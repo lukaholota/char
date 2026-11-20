@@ -76,16 +76,20 @@ export const FormattedDescription = React.memo(function FormattedDescription({
   className,
   headingAnchors,
   rollsForCreature,
+  rollsForItem,
 }: {
   content?: string | null;
   className?: string;
   headingAnchors?: Readonly<Record<string, string>>;
   /// Назва істоти: кубики в тексті її дій стають кнопками кидка.
   rollsForCreature?: string;
+  /// Назва предмета на листі: кубики кидає герой, кнопки оживають під ItemRollUseContext.
+  rollsForItem?: string;
 }) {
+  const rollSource = rollsForItem ?? rollsForCreature;
   const rehypePlugins = React.useMemo<NonNullable<Options["rehypePlugins"]>>(
-    () => [[rehypeRaw], [rehypeSanitize, sanitizeSchema], ...(rollsForCreature ? [[rehypeCreatureRolls, { creatureName: rollsForCreature }] as [typeof rehypeCreatureRolls, { creatureName: string }]] : [])],
-    [rollsForCreature],
+    () => [[rehypeRaw], [rehypeSanitize, sanitizeSchema], ...(rollSource ? [[rehypeCreatureRolls, { creatureName: rollSource, isItem: rollsForItem !== undefined }] as [typeof rehypeCreatureRolls, { creatureName: string; isItem: boolean }]] : [])],
+    [rollSource, rollsForItem],
   );
   return (
     <div className={className}>

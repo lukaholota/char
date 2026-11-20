@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dialog";
 import { Moon, Sun, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
+import { pluralizeCharges } from "@/rules/magic-item-charge-text";
 import { useRouter } from "next/navigation";
 import { longRest } from "@/lib/actions/rest-actions";
 import { findHeroicInspirationCountAfterLongRest } from "@/rules/heroic-inspiration";
@@ -108,9 +109,14 @@ export default function RestButton({
 
       const gainedHeroicInspiration = heroicInspirationCount > pers.heroicInspirationCount;
       toast.success(restTranslations.longRestComplete, {
-        description: `HP: ${res.newCurrentHp}, ${restTranslations.featuresRestored}: ${res.featuresRestored}${
-          gainedHeroicInspiration ? `, ${restTranslations.heroicInspirationGained}` : ""
-        }`,
+        description: (
+          <>
+            <div>{[`ХП: ${res.newCurrentHp}`, ...(res.featuresRestored > 0 ? [`${restTranslations.featuresRestored}: ${res.featuresRestored}`] : []), ...(gainedHeroicInspiration ? [restTranslations.heroicInspirationGained] : [])].join(" · ")}</div>
+            {(res.itemChargesRegained ?? []).map((item) => (
+              <div key={item.name}>{`${item.name}: +${item.regained} ${pluralizeCharges(item.regained)}`}</div>
+            ))}
+          </>
+        ),
       });
       setLongRestOpen(false);
       refreshInBackground();

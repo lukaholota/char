@@ -110,7 +110,7 @@ describe("сцени кімнати", () => {
     expect(await sharp(stored.get(mapKey)!).metadata()).toMatchObject({ format: "webp", width: 800, height: 700 });
   });
 
-  it("сцена з файлу Universal VTT приходить зі стінами, дверима, світлом, сіткою й темрявою; гравець бачить лише лінії зору", async () => {
+  it("сцена з файлу Universal VTT приходить зі стінами, дверима, світлом, сіткою й темрявою; гравець бачить ті самі стіни й двері", async () => {
     const { gm, player, sessionId } = await createTable();
     const parsed = parseUvttScene(JSON.parse(readFileSync(`${__dirname}/../fixtures/uvtt/dungeondraft-room.dd2vtt`, "utf8")));
     if (!parsed.ok) throw new Error(parsed.error);
@@ -122,8 +122,8 @@ describe("сцени кімнати", () => {
     expect(gmView.walls.filter((wall) => wall.kind === "door").map((door) => door.isOpen)).toEqual([false, true]);
     expect(gmView.lights).toMatchObject([{ at: layout.lights[0].at, brightFeet: 10, dimFeet: 10, isOn: true }]);
     const playerView = (await findGameSessionView(sessionId, player.id))!;
-    expect(playerView).toMatchObject({ lighting: "dark", walls: [] });
-    expect(playerView.sightLines).toHaveLength(4);
+    expect(playerView.lighting).toBe("dark");
+    expect(playerView.walls).toEqual(gmView.walls);
   });
 
   it("файл Universal VTT не ляже без власної картинки, від гравця чи понад ліміт сцен — і не лишить ні стін, ні світла", async () => {

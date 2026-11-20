@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
-import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import SignInDialog from "@/lib/components/auth/SignInDialog";
 import { CharacterCreateHeader } from "@/lib/components/characterCreator/CharacterCreateHeader";
 
 const auth = vi.hoisted(() => ({ session: null as null | { user: { email: string } }, signIn: vi.fn() }));
@@ -48,7 +48,7 @@ afterEach(cleanup);
 describe("вхід через Google у звичайному браузері", () => {
   it("показує звичайну кнопку без попередження", () => {
     openPage(IOS_SAFARI);
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
     expect(screen.queryByText("Google може не пустити в цьому браузері")).toBeNull();
     expect((screen.getByRole("button", { name: /Продовжити з Google/ }) as HTMLButtonElement).disabled).toBe(false);
     expect(findEvent("inapp_warning_shown")).toBeUndefined();
@@ -58,7 +58,7 @@ describe("вхід через Google у звичайному браузері", 
 describe("вхід у вбудованому браузері за замовчуванням", () => {
   it("Telegram на iPhone: відкрити в Safari чи Chrome одним дотиком і Google як запасна", () => {
     openPage(IOS_SAFARI, "/2024/char?from=abc", { telegram: "ios" });
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
 
     expect(screen.getByText(/усередині Telegram/)).toBeTruthy();
     expect(screen.getByText(/Відкрийте сторінку у Safari/)).toBeTruthy();
@@ -72,7 +72,7 @@ describe("вхід у вбудованому браузері за замовч�
 
   it("Telegram на Android з очищеним UA: розпізнаний і має кнопку Chrome без експерименту", () => {
     openPage("Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.7204.63 Mobile Safari/537.36", "/char/create", { telegram: "android" });
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
     expect(screen.getByText(/усередині Telegram/)).toBeTruthy();
     expect(screen.getByRole("link", { name: /Відкрити в Chrome/ }).getAttribute("href")).toMatch(/^intent:\/\/localhost:3000\/char\/create\?entry_source=telegram/);
     expect(findEvent("inapp_warning_shown")).toMatchObject({ variant: "contextual" });
@@ -80,7 +80,7 @@ describe("вхід у вбудованому браузері за замовч�
 
   it("запасна кнопка таки запускає вхід через Google на поточну сторінку", async () => {
     openPage(THREADS_IOS, "/char/create?preset=wizard");
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
     fireEvent.click(screen.getByRole("button", { name: "Все одно спробувати Google" }));
     await waitFor(() => expect(auth.signIn).toHaveBeenCalledWith("google", { redirect: false, callbackUrl: "/char/create?preset=wizard" }));
     expect(findEvent("inapp_warning_dismissed")).toMatchObject({ placement: "auth_dialog", action: "continue_here" });
@@ -90,7 +90,7 @@ describe("вхід у вбудованому браузері за замовч�
     const writeText = vi.fn(async () => {});
     setClipboard(writeText);
     openPage(THREADS_IOS, "/2024/char?from=abc");
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
     fireEvent.click(screen.getByRole("button", { name: "Скопіювати посилання" }));
 
     await screen.findByRole("button", { name: "Посилання скопійовано" });
@@ -101,7 +101,7 @@ describe("вхід у вбудованому браузері за замовч�
   it("коли буфер обміну заборонено, показує адресу для ручного копіювання", async () => {
     setClipboard(async () => { throw new DOMException("denied", "NotAllowedError"); });
     openPage(THREADS_IOS, "/char/create");
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
     fireEvent.click(screen.getByRole("button", { name: "Скопіювати посилання" }));
 
     const field = (await screen.findByRole("textbox", { name: "Посилання на цю сторінку" })) as HTMLInputElement;
@@ -113,7 +113,7 @@ describe("вхід у вбудованому браузері за замовч�
   it("закриття діалогу рахується як відмова", () => {
     const onOpenChange = vi.fn();
     openPage(THREADS_IOS);
-    render(<GoogleAuthDialog open onOpenChange={onOpenChange} />);
+    render(<SignInDialog open onOpenChange={onOpenChange} />);
     fireEvent.click(screen.getByRole("button", { name: "Закрити" }));
     expect(onOpenChange).toHaveBeenCalledWith(false);
     expect(findEvent("inapp_warning_dismissed")).toMatchObject({ action: "close" });
@@ -123,7 +123,7 @@ describe("вхід у вбудованому браузері за замовч�
 describe("варіант з переходом у браузер", () => {
   it("на Android дає посилання intent у Chrome і чесний запасний шлях", () => {
     openPage(THREADS_ANDROID, "/char/create?inapp_variant=contextual-handoff&preset=x");
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
 
     const link = screen.getByRole("link", { name: /Відкрити в Chrome/ });
     expect(link.getAttribute("href")).toMatch(/^intent:\/\/localhost:3000\/char\/create\?preset=x&entry_source=threads&entry_medium=inapp_handoff#Intent;scheme=http;package=com\.android\.chrome;S\.browser_fallback_url=/);
@@ -136,7 +136,7 @@ describe("варіант з переходом у браузер", () => {
 
   it("у Threads на iPhone не дає мертвої кнопки Safari, а веде через меню, Chrome чи копіювання", () => {
     openPage(THREADS_IOS, "/char/create");
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
     expect(screen.queryByRole("link", { name: /Відкрити в Safari/ })).toBeNull();
     const chrome = screen.getByRole("link", { name: /Відкрити в Chrome/ });
     chrome.addEventListener("click", (event) => event.preventDefault());
@@ -151,7 +151,7 @@ describe("варіант з переходом у браузер", () => {
 describe("контрольний варіант", () => {
   it("лишає попередню поведінку з вимкненою кнопкою", () => {
     openPage(THREADS_IOS, "/char/create?inapp_variant=control");
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
     expect((screen.getByRole("button", { name: "Відкрийте у Safari/Chrome" }) as HTMLButtonElement).disabled).toBe(true);
     expect(findEvent("inapp_warning_shown")).toMatchObject({ variant: "control" });
   });
@@ -160,23 +160,23 @@ describe("контрольний варіант", () => {
 describe("варіант протягом візиту", () => {
   it("не змінюється, коли параметр зникає з адреси після переходу", () => {
     openPage(THREADS_IOS, "/char/create?inapp_variant=control");
-    const first = render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    const first = render(<SignInDialog open onOpenChange={() => {}} />);
     first.unmount();
 
     openPage(THREADS_IOS, "/char/create");
     analytics.capture.mockReset();
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
     expect((screen.getByRole("button", { name: "Відкрийте у Safari/Chrome" }) as HTMLButtonElement).disabled).toBe(true);
     expect(findEvent("inapp_warning_shown")).toMatchObject({ variant: "control" });
   });
 
   it("невідоме значення в адресі не скидає обраний варіант", () => {
     openPage(THREADS_IOS, "/char/create?inapp_variant=control");
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />).unmount();
+    render(<SignInDialog open onOpenChange={() => {}} />).unmount();
 
     openPage(THREADS_IOS, "/char/create?inapp_variant=bogus");
     analytics.capture.mockReset();
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
     expect(findEvent("inapp_warning_shown")).toMatchObject({ variant: "control" });
   });
 });

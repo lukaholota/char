@@ -48,6 +48,7 @@ export type MapCreatureRow = {
   exhaustionLevel: number;
   lightBrightFeet: number;
   lightDimFeet: number;
+  floor?: number | null;
 };
 export type MapCreatureCatalogEntry = { name: string; size: string; hp?: string; imageUrl?: string; imageShape?: "round" };
 
@@ -74,6 +75,7 @@ export type MapCreatureView = {
   isDown: boolean;
   conditions: TokenConditions;
   light: TokenLight;
+  floor: number | null;
 };
 
 export type NewMapCreatures = { creatureKey: string; ruleset: MapCreatureRuleset; count: number; isAlly: boolean; customName: string | null; imageKey?: string | null };
@@ -162,6 +164,7 @@ export function buildMapCreatureViews(
         isDown: isCreatureDown(hitPoints),
         conditions: normalizeTokenConditions(row),
         light: { brightFeet: row.lightBrightFeet, dimFeet: row.lightDimFeet },
+        floor: row.floor ?? null,
       };
     });
 }

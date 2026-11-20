@@ -12,8 +12,12 @@ import { parseSceneFog, type SceneFog } from "@/rules/game-fog";
 import { parseSceneGrid, type SceneGrid } from "@/rules/game-grid";
 import { buildSceneObjectViews, type SceneObjectView } from "@/rules/game-objects";
 import { buildSceneWallViews, type SceneWallView } from "@/rules/game-walls";
+import { readAmbience, readSceneTint, readSceneWeather, type AmbienceLayer, type OwnSoundKey, type SceneAtmosphere, type SoundEffectKey } from "@/rules/game-atmosphere";
+import { readSceneFloors, readShownFloor, type FloorId, type SceneFloor } from "@/rules/game-floors";
 import { buildSceneLightViews, parseSceneLighting, type SceneLighting, type SceneLightView, type TokenLight } from "@/rules/game-lighting";
 import { findDarkvisionRange } from "@/rules/senses-and-resistances";
+import { findItemDarkvisionRange, findMagicItemEffects } from "@/rules/magic-item-effects";
+import { isMagicItemActive } from "@/lib/logic/magic-item-activation";
 import { buildSceneListItems, findViewedSceneId, type GameSceneListItem } from "@/rules/game-scenes";
 import { buildMapCreatureViews, parseTokenNameMode, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
 import { normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
@@ -26,7 +30,7 @@ const ONLINE_WINDOW_MS = 60_000;
 export const GAME_SESSION_SIGNAL_CHANNEL = "game_session";
 
 export type GameSessionRole = "GM" | "PLAYER";
-export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "bad_drawing" | "drawing_limit" | "token_image_gone" | "hero_limit" | "bad_object" | "object_limit" | "object_gone" | "bad_wall" | "wall_limit" | "wall_gone" | "bad_light" | "light_limit" | "light_gone";
+export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "bad_drawing" | "drawing_limit" | "token_image_gone" | "hero_limit" | "bad_object" | "object_limit" | "object_gone" | "bad_wall" | "wall_limit" | "wall_gone" | "door_locked" | "bad_light" | "light_limit" | "light_gone" | "bad_atmosphere" | "bad_ambience" | "bad_floor" | "floor_limit" | "sound_gone";
 export type GameSessionResult<T> = { ok: true; value: T } | { ok: false; error: GameSessionFailure };
 
 export type GameSessionMemberView = {
@@ -46,6 +50,7 @@ export type GameSessionMemberView = {
   lifeState: HeroLifeState;
   light: TokenLight;
   darkvisionFeet: number;
+  floor: FloorId;
 };
 
 export type GameSessionView = {
@@ -70,12 +75,16 @@ export type GameSessionView = {
   areas: SceneAreaView[];
   drawings: SceneDrawingView[];
   objects: SceneObjectView[];
-  /// Стіни й двері бачить лише майстер; гравцям — зачинені лінії, що закривають огляд.
+  /// Таємні двері гравцям приходять звичайною стіною.
   walls: SceneWallView[];
-  sightLines: TokenPosition[][];
   lighting: SceneLighting;
   /// Гравцям — лише увімкнені джерела.
   lights: SceneLightView[];
+  atmosphere: SceneAtmosphere;
+  ambience: AmbienceLayer[];
+  /// Поверхи згори донизу; показаний поверх перемикає майстер для всієї сцени.
+  floors: SceneFloor[];
+  shownFloor: FloorId;
 };
 
 export type GameSessionListItem = { id: number; name: string; isArchived: boolean; myRole: GameSessionRole; memberCount: number; updatedAt: string };
@@ -111,6 +120,10 @@ export async function signalGameRollStart(sessionId: number, userId: number, vis
 /// Пінг на мапі теж живе лише в NOTIFY: потік показує його тим, хто дивиться ту саму сцену.
 export async function signalMapPing(sessionId: number, userId: number, sceneId: number, at: TokenPosition): Promise<void> {
   await prisma.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "ping", u: userId, c: sceneId, x: at.x, y: at.y })})`;
+}
+
+export async function signalSceneSound(sessionId: number, userId: number, sceneId: number, key: SoundEffectKey | OwnSoundKey): Promise<void> {
+  await prisma.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "sound", u: userId, c: sceneId, n: key })})`;
 }
 
 export async function signalGameSession(sessionId: number, signal: GameSessionSignal): Promise<void> {
@@ -173,6 +186,7 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
   const combatCreatures = viewedSceneId === session.activeSceneId ? creatures : buildSceneCreatures(session.activeSceneId);
   const viewedMapKey = session.scenes.find((scene) => scene.id === viewedSceneId)?.mapImageKey ?? null;
   const viewedTools = sceneTools.find((scene) => scene.id === viewedSceneId);
+  const floors = readSceneFloors(viewedTools?.floors);
   const tokenByHeroId = new Map(heroTokens.filter((token) => token.sceneId === viewedSceneId).map((token) => [token.memberId, token]));
   return {
     id: session.id,
@@ -203,6 +217,7 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
       conditions: normalizeTokenConditions(member),
       lifeState: findHeroLifeState(member.pers),
       ...findHeroSight(tokenByHeroId.get(member.id), member.pers),
+      floor: tokenByHeroId.get(member.id)?.floor ?? null,
     })),
     creatures,
     creatureNameMode: parseTokenNameMode(session.creatureNameMode) ?? "short",
@@ -217,9 +232,13 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
     areas: viewedTools ? viewedTools.areas.flatMap(buildAreaView) : [],
     drawings: viewedTools ? viewedTools.drawings.flatMap(buildDrawingView) : [],
     objects: viewedTools ? buildSceneObjectViews(viewedTools.objects, isGm) : [],
-    ...(viewedTools ? buildSceneWallViews(viewedTools.walls, isGm) : { walls: [], sightLines: [] }),
+    walls: viewedTools ? buildSceneWallViews(viewedTools.walls, isGm) : [],
     lighting: (viewedTools && parseSceneLighting(viewedTools.lighting)) || "off",
     lights: viewedTools ? buildSceneLightViews(viewedTools.lights, isGm) : [],
+    atmosphere: { weather: readSceneWeather(viewedTools?.weather), tint: readSceneTint(viewedTools?.tint) },
+    ambience: readAmbience(viewedTools?.ambience),
+    floors,
+    shownFloor: readShownFloor(viewedTools?.shownFloor, floors),
   };
 }
 
@@ -267,7 +286,7 @@ function findSessionWithMembers(sessionId: number, viewerUserId: number) {
       mapCreatures: {
         where: { scene: sceneVisibleTo(sessionId, viewerUserId) },
         orderBy: [{ createdAt: "asc" }, { id: "asc" }],
-        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, isAlly: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true },
+        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, isAlly: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true, floor: true },
       },
     },
   });
@@ -294,11 +313,16 @@ function findVisibleSceneTools(sessionId: number, viewerUserId: number) {
       gridOpacity: true,
       fog: true,
       areas: { orderBy: { id: "asc" }, select: { id: true, userId: true, shape: true, sizeFeet: true, originX: true, originY: true, angle: true, label: true } },
-      drawings: { orderBy: { id: "asc" }, select: { id: true, userId: true, color: true, width: true, points: true } },
-      objects: { select: { id: true, imageKey: true, name: true, x: true, y: true, widthCells: true, rotation: true, isHidden: true, sortOrder: true } },
-      walls: { orderBy: { id: "asc" }, select: { id: true, kind: true, isOpen: true, points: true } },
+      drawings: { orderBy: { id: "asc" }, select: { id: true, userId: true, color: true, width: true, shape: true, isFilled: true, points: true } },
+      objects: { select: { id: true, imageKey: true, name: true, x: true, y: true, widthCells: true, rotation: true, isHidden: true, sortOrder: true, floor: true, aspect: true } },
+      walls: { orderBy: { id: "asc" }, select: { id: true, kind: true, isOpen: true, doorLock: true, isCurtained: true, points: true } },
       lighting: true,
       lights: { orderBy: { id: "asc" }, select: { id: true, x: true, y: true, brightFeet: true, dimFeet: true, isOn: true } },
+      weather: true,
+      tint: true,
+      ambience: true,
+      floors: true,
+      shownFloor: true,
     },
   });
 }
@@ -306,30 +330,38 @@ function findVisibleSceneTools(sessionId: number, viewerUserId: number) {
 function findSceneHeroTokens(sessionId: number, viewerUserId: number) {
   return prisma.gameSceneHeroToken.findMany({
     where: { scene: { sessionId, ...sceneVisibleTo(sessionId, viewerUserId) } },
-    select: { sceneId: true, memberId: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, lightBrightFeet: true, lightDimFeet: true, darkvisionFeet: true },
+    select: { sceneId: true, memberId: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, lightBrightFeet: true, lightDimFeet: true, darkvisionFeet: true, floor: true },
   });
 }
 
 type SceneHeroToken = Awaited<ReturnType<typeof findSceneHeroTokens>>[number];
 
 const SPECIES_FEATURE_SELECT = { select: { feature: { select: { darkvisionRange: true } } } };
-/// shortcut: темний зір беремо лише з рис виду й власних фіч героя — у сіді він більше ніде не задається; якщо зʼявиться в класах, рахувати через calculateDarkvisionRange.
+/// shortcut: темний зір беремо з рис виду, власних фіч героя й активних предметів — у сіді він більше ніде не задається; якщо зʼявиться в класах, рахувати через calculateDarkvisionRange.
 const DARKVISION_SELECT = {
   race: { select: { traits: SPECIES_FEATURE_SELECT } },
   subrace: { select: { traits: SPECIES_FEATURE_SELECT } },
   raceVariants: { select: { traits: SPECIES_FEATURE_SELECT } },
   raceChoiceOptions: { select: { traits: SPECIES_FEATURE_SELECT } },
   features: SPECIES_FEATURE_SELECT,
+  magicItems: { where: { isEquipped: true }, select: { isEquipped: true, isAttuned: true, magicItem: { select: { name: true, engName: true, ruleset: true, requiresAttunement: true } } } },
 } as const;
 
 type FeatureLinks = { traits: Array<{ feature: { darkvisionRange: number | null } }> };
-type DarkvisionPers = { race: FeatureLinks; subrace: FeatureLinks | null; raceVariants: FeatureLinks[]; raceChoiceOptions: FeatureLinks[]; features: Array<{ feature: { darkvisionRange: number | null } }> };
+type DarkvisionItemLink = { isEquipped: boolean; isAttuned: boolean; magicItem: { name: string; engName: string | null; ruleset: string | null; requiresAttunement: boolean } };
+type DarkvisionPers = { race: FeatureLinks; subrace: FeatureLinks | null; raceVariants: FeatureLinks[]; raceChoiceOptions: FeatureLinks[]; features: Array<{ feature: { darkvisionRange: number | null } }>; magicItems: DarkvisionItemLink[] };
 
 /// Поправка майстра на токені переважає зір з листа.
 function findHeroSight(token: SceneHeroToken | undefined, pers: DarkvisionPers | null): { light: TokenLight; darkvisionFeet: number } {
-  const links = pers ? [pers.race, ...(pers.subrace ? [pers.subrace] : []), ...pers.raceVariants, ...pers.raceChoiceOptions].flatMap((owner) => owner.traits) : [];
-  const fromSheet = pers ? findDarkvisionRange([...links, ...pers.features].map((link) => link.feature)) : null;
+  const fromSheet = pers ? findHeroDarkvisionRange(pers) : null;
   return { light: { brightFeet: token?.lightBrightFeet ?? 0, dimFeet: token?.lightDimFeet ?? 0 }, darkvisionFeet: token?.darkvisionFeet ?? fromSheet ?? 0 };
+}
+
+function findHeroDarkvisionRange(pers: DarkvisionPers): number | null {
+  const links = [pers.race, ...(pers.subrace ? [pers.subrace] : []), ...pers.raceVariants, ...pers.raceChoiceOptions].flatMap((owner) => owner.traits);
+  const ownRange = findDarkvisionRange([...links, ...pers.features].map((link) => link.feature));
+  const items = pers.magicItems.filter(isMagicItemActive).map((link) => ({ name: link.magicItem.name, effects: findMagicItemEffects(link.magicItem) }));
+  return findItemDarkvisionRange(items, ownRange);
 }
 
 function findHeroTokenPosition(token: SceneHeroToken | undefined): TokenPosition | null {

@@ -153,17 +153,17 @@ describe("рядок цілі в журналі", () => {
     expect(screen.queryByRole("button", { name: "Скасувати" })).toBeNull();
   });
 
-  it("гравець бачить влучання чи промах без КЗ, майстер — ще й КЗ", () => {
+  it("гравець бачить влучання чи промах без КБ, майстер — ще й КБ", () => {
     const attack = { ...damaged, label: "Атака", target: { name: "Гоблін 1", kind: "attack" as const, isHit: true, damage: null, isDowned: false, gm: null } };
     const { unmount } = render(<ol><GameRollEntry event={attack} isMine isNew={false} /></ol>);
     expect(screen.getByText("· Влучання")).toBeTruthy();
-    expect(screen.queryByText(/КЗ/)).toBeNull();
+    expect(screen.queryByText(/КБ/)).toBeNull();
     unmount();
 
     const forGm = { ...attack, target: { ...attack.target, isHit: false, gm: { ...gmTarget, armorClass: 15, canUndo: false } } };
     render(<ol><GameRollEntry event={forGm} isMine={false} isNew={false} /></ol>);
     expect(screen.getByText("· Промах")).toBeTruthy();
-    expect(screen.getByText("КЗ 15")).toBeTruthy();
+    expect(screen.getByText("КБ 15")).toBeTruthy();
   });
 
   it("майстер бачить хіти до й після та скасовує шкоду один раз: рядок оновлюється відповіддю сервера", async () => {

@@ -42,7 +42,7 @@ export default function AddMagicItemDialog({ persId, persName, ruleset }: AddMag
       }}
     >
       <DialogTrigger asChild>
-        <Button size="sm" variant="outline" className="gap-1 bg-violet-500/10 hover:bg-violet-500/20 text-violet-300 border-violet-500/30">
+        <Button size="sm" variant="outline" aria-label="Додати магічний предмет" className="gap-1 bg-violet-500/10 hover:bg-violet-500/20 text-violet-300 border-violet-500/30">
           <Plus className="w-3.5 h-3.5" />
           <span className="hidden sm:inline">Додати</span>
         </Button>

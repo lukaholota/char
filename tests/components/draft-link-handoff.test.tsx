@@ -87,8 +87,8 @@ describe("посилання з вбудованого браузера несе
   it("Telegram на iPhone: Safari, Chrome і поле копіювання ведуть на той самий крок", async () => {
     await saveLocalDraft();
     openPage("/char/create", IOS, "ios");
-    const { default: GoogleAuthDialog } = await import("@/lib/components/auth/GoogleAuthDialog");
-    render(<><CreatorProbe /><GoogleAuthDialog open onOpenChange={() => {}} /></>);
+    const { default: SignInDialog } = await import("@/lib/components/auth/SignInDialog");
+    render(<><CreatorProbe /><SignInDialog open onOpenChange={() => {}} /></>);
 
     const safari = screen.getByRole("link", { name: /Відкрити в Safari/ });
     await waitFor(() => expect(safari.getAttribute("href")).toContain("#draft="));
@@ -105,8 +105,8 @@ describe("посилання з вбудованого браузера несе
   it("Telegram на Android: адреса в intent зберігає чернетку перед #Intent", async () => {
     await saveLocalDraft();
     openPage("/char/create", ANDROID, "android");
-    const { default: GoogleAuthDialog } = await import("@/lib/components/auth/GoogleAuthDialog");
-    render(<><CreatorProbe /><GoogleAuthDialog open onOpenChange={() => {}} /></>);
+    const { default: SignInDialog } = await import("@/lib/components/auth/SignInDialog");
+    render(<><CreatorProbe /><SignInDialog open onOpenChange={() => {}} /></>);
 
     const chrome = screen.getByRole("link", { name: /Відкрити в Chrome/ });
     await waitFor(() => expect(chrome.getAttribute("href")).toMatch(/^intent:\/\/localhost:3000\/char\/create\?[^#]*#draft=[A-Za-z0-9_-]+#Intent;/));
@@ -114,8 +114,8 @@ describe("посилання з вбудованого браузера несе
 
   it("без вибраного кроку посилання лишається звичайним", async () => {
     openPage("/char/create", IOS, "ios");
-    const { default: GoogleAuthDialog } = await import("@/lib/components/auth/GoogleAuthDialog");
-    render(<><CreatorProbe /><GoogleAuthDialog open onOpenChange={() => {}} /></>);
+    const { default: SignInDialog } = await import("@/lib/components/auth/SignInDialog");
+    render(<><CreatorProbe /><SignInDialog open onOpenChange={() => {}} /></>);
 
     await screen.findByText("step 1 race undefined");
     expect(screen.getByRole("link", { name: /Відкрити в Safari/ }).getAttribute("href")).not.toContain("#draft=");

@@ -1,5 +1,5 @@
 import type { CreatureSpellChoice } from "@/rules/creature-spellcasting";
-import { ABILITY_FIELDS, HOMEBREW_EDITIONS, SPELL_SCHOOLS, type HomebrewCreatureInput, type HomebrewEdition, type HomebrewSpellInput } from "./homebrew-input";
+import { ABILITY_FIELDS, HOMEBREW_EDITIONS, SPELL_SCHOOLS, type HomebrewCreatureInput, type HomebrewEdition, type HomebrewItemInput, type HomebrewSpellInput } from "./homebrew-input";
 
 export type HomebrewSpellFormValues = Omit<HomebrewSpellInput, "level"> & { level: string };
 
@@ -35,6 +35,18 @@ export function readCreatureFormValues(raw: Record<string, unknown>): HomebrewCr
   const empty = buildEmptyCreatureValues(readEdition(raw.ruleset));
   const filled = Object.keys(empty).map((key) => [key, raw[key] === undefined || raw[key] === null ? empty[key as keyof HomebrewCreatureFormValues] : String(raw[key])]);
   return { ...Object.fromEntries(filled), spells: Array.isArray(raw.spells) ? raw.spells : [] } as HomebrewCreatureFormValues;
+}
+
+export type HomebrewItemFormValues = HomebrewItemInput;
+
+export function buildEmptyItemValues(ruleset: HomebrewEdition): HomebrewItemFormValues {
+  return { ruleset, name: "", itemType: "WONDROUS_ITEM", rarity: "UNCOMMON", requiresAttunement: false, description: "", acBonus: "", saveBonus: "", weaponBonus: "" };
+}
+
+export function readItemFormValues(raw: Record<string, unknown>): HomebrewItemFormValues {
+  const empty = buildEmptyItemValues(readEdition(raw.ruleset));
+  const filled = Object.keys(empty).map((key) => [key, raw[key] ?? empty[key as keyof HomebrewItemFormValues]]);
+  return { ...Object.fromEntries(filled), ruleset: empty.ruleset, requiresAttunement: raw.requiresAttunement === true } as HomebrewItemFormValues;
 }
 
 function readEdition(value: unknown): HomebrewEdition {

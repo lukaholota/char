@@ -1,5 +1,6 @@
 import type { MapCreatureView } from "@/rules/game-map-creatures";
 import { parseAbilityScore } from "@/rules/wildshape";
+import { countD20Dice, type D20Mode } from "@/rules/dice-roll";
 
 export const INITIATIVE_LIMITS = { min: -99, max: 99 } as const;
 
@@ -28,8 +29,9 @@ export function rollD20(random: () => number = Math.random): number {
   return 1 + Math.floor(random() * 20);
 }
 
-export function rollInitiative(bonus: number, random?: () => number): number {
-  return rollD20(random) + bonus;
+export function rollInitiative(bonus: number, random?: () => number, mode: D20Mode = "NORMAL"): number {
+  const rolls = Array.from({ length: countD20Dice(mode) }, () => rollD20(random));
+  return (mode === "DISADVANTAGE" ? Math.min(...rolls) : Math.max(...rolls)) + bonus;
 }
 
 /// Бонус істоти — модифікатор Спритності зі статблока: «16 (+3)» дає +3, відсутня Спритність — 0.

@@ -6,7 +6,7 @@ const row = (id: number, overrides: Partial<{ isHidden: boolean; sortOrder: numb
 
 describe("parseObjectPlacement", () => {
   it("keeps a valid placement with a trimmed name and rounded shares", () => {
-    expect(parseObjectPlacement({ ...placement, at: { x: 0.123456, y: 1 }, name: "  Скриня  ", widthCells: 1.234 })).toEqual({ ...placement, at: { x: 0.1235, y: 1 }, widthCells: 1.23 });
+    expect(parseObjectPlacement({ ...placement, at: { x: 0.123456, y: 1 }, name: "  Скриня  ", widthCells: 1.234 })).toEqual({ ...placement, at: { x: 0.1235, y: 1 }, widthCells: 1.23, floor: null, aspect: 1 });
   });
 
   it("turns an empty name into none", () => {

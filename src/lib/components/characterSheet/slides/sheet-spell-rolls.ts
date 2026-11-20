@@ -4,6 +4,7 @@ import { calculateFinalModifier } from "@/lib/logic/bonus-calculator";
 import { isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
 import type { SpellcastingStatRow } from "@/lib/logic/spellcasting-stats";
 import type { DiceRollContext } from "@/lib/stores/diceUIStore";
+import { describeCharges, findSpellLevelForCharges, type ItemSpellUse } from "@/rules/magic-item-spell-uses";
 import { findSpellDice, planSpellRolls } from "@/rules/spell-dice";
 import { getPersSpellId } from "./sheet-spell-links";
 
@@ -48,6 +49,17 @@ export function buildSheetSpellRoll(input: {
     attackState: input.attackState,
     spell: { engName, level: spellLevel, ruleset },
   });
+}
+
+/// Заклинання з предмета має власний СК і не залежить від характеристик персонажа.
+export function buildItemSpellRoll(input: { pers: Pick<PersWithRelations, "level" | "ruleset">; itemName: string; use: ItemSpellUse; charges: number }): DiceRollContext | null {
+  const { pers, use, charges } = input;
+  const spell = { engName: use.spellEngName, level: use.baseLevel, ruleset: pers.ruleset };
+  const dice = findSpellDice(spell);
+  if (!dice) return null;
+  const slotLevel = findSpellLevelForCharges(use, charges);
+  const plan = planSpellRolls(dice, { spellLevel: use.baseLevel, slotLevel, characterLevel: pers.level, spellcastingModifier: 0 });
+  return buildSpellRollContext({ spellName: input.itemName, plan, slotLabel: `${describeCharges(use, charges)} · ${slotLevel} рівень`, attackBonus: 0, saveDC: use.saveDC ?? 0, spell });
 }
 
 /// Заклинання з бейджем класу бере СК цього класу; інакше — перше джерело.

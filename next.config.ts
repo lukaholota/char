@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs";
 
 import { IMAGE_OPTIMIZER_CACHE_TTL, buildStaticAssetHeaders } from "./src/lib/assets/cache-policy";
+import { readMediaBaseUrl } from "./src/lib/media-url";
 
 const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DEV_DIST_DIR || ".next",
@@ -21,6 +22,9 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return buildStaticAssetHeaders();
+  },
+  async rewrites() {
+    return [{ source: "/scene-sounds/:file", destination: `${readMediaBaseUrl()}/scene-sounds/:file` }];
   },
   async redirects() {
     return [

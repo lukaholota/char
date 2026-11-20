@@ -4,6 +4,7 @@ import { findEditDenial, revalidatePers } from "@/server/db/pers-edit-access";
 import {
   changeConcentration,
   changeExhaustion,
+  changeItemState,
   changeSpellBuff,
   type PersEffectResult,
 } from "@/server/db/pers-effect-change";
@@ -20,6 +21,10 @@ export async function setSpellBuff(input: {
   endsWithConcentration: boolean;
 }): Promise<PersEffectResult> {
   return runAsEditor(input.persId, () => changeSpellBuff(input.persId, input));
+}
+
+export async function setItemState(input: { persId: number; magicItemId: number; isActive: boolean }): Promise<PersEffectResult> {
+  return runAsEditor(input.persId, () => changeItemState(input.persId, input.magicItemId, input.isActive));
 }
 
 export async function setExhaustion(input: { persId: number; level: number }): Promise<PersEffectResult> {

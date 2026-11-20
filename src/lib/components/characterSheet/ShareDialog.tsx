@@ -102,7 +102,7 @@ export function ShareDialog({
             <ShareLinkOption
               icon={<Pencil className="h-4 w-4 text-emerald-300" />}
               title="Може редагувати (наприклад, ДМ)"
-              description="Після входу через Google персонаж зʼявиться в списку цієї людини, і вона зможе змінювати його разом із вами."
+              description="Після входу персонаж зʼявиться в списку цієї людини, і вона зможе змінювати його разом із вами."
               url={linksState.links.editUrl}
               accentClassName="text-emerald-300"
             />

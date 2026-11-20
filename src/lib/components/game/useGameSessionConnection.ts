@@ -10,6 +10,8 @@ import { addGameEvents, markMemberRolling, resetLiveSession, setConnectionStatus
 import { flushGameRollOutbox } from "./game-roll-publisher";
 import { isJournalPoppedOut, useJournalPopoutStore } from "./journal-popout";
 import { playRollChime, unlockRollChimeOnFirstTap } from "./play-roll-chime";
+import { playSoundEffect } from "./scene-sounds";
+import { isSceneSoundKey } from "@/rules/game-atmosphere";
 
 const SILENCE_LIMIT_MS = 45_000;
 const HIDDEN_GRACE_MS = 30_000;
@@ -75,6 +77,9 @@ function startConnection(sessionId: number) {
       cursor = Math.max(cursor ?? 0, event.seq);
     } else if (message.event === "rolling") {
       markMemberRolling(sessionId, (data as { userId: number }).userId);
+    } else if (message.event === "sound") {
+      const { key } = data as { key: unknown };
+      if (isSceneSoundKey(key)) playSoundEffect(key, useGameSessionStore.getState().sceneVolume / 100);
     } else if (message.event === "ping") {
       showMapPing(sessionId, data as MapPing);
     } else if (message.event === "session") {

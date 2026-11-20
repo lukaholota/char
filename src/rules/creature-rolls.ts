@@ -3,6 +3,7 @@ import type { AbilityKey } from "./types";
 export type CreatureRoll =
   | { kind: "attack"; bonus: number }
   | { kind: "damage"; count: number; sides: number; bonus: number }
+  | { kind: "heal"; count: number; sides: number; bonus: number }
   | { kind: "recharge"; from: number }
   | { kind: "dice"; count: number; sides: number }
   | { kind: "save"; ability: AbilityKey; dc: number };

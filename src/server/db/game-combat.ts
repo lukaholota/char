@@ -1,6 +1,7 @@
 import type { Prisma } from "@prisma/client";
 import { loadRoomCreatures } from "@/server/db/room-creatures";
 import { calculateFinalInitiative } from "@/lib/logic/bonus-calculator";
+import { findRollState } from "@/lib/logic/active-states";
 import { prisma } from "@/lib/prisma";
 import {
   findCombatOrder,
@@ -179,6 +180,7 @@ async function rollHeroes(persIds: number[]): Promise<NewCombatant[]> {
   const persons: PersWithRelations[] = await prisma.pers.findMany({ where: { persId: { in: persIds } }, include: PERS_SHEET_INCLUDE });
   return persons.map((pers) => {
     const initiativeBonus = calculateFinalInitiative(pers);
-    return { persId: pers.persId, gameMapCreatureId: null, initiative: rollInitiative(initiativeBonus), initiativeBonus };
+    const { mode } = findRollState(pers, { kind: "check", ability: "DEX", isInitiative: true });
+    return { persId: pers.persId, gameMapCreatureId: null, initiative: rollInitiative(initiativeBonus, undefined, mode), initiativeBonus };
   });
 }

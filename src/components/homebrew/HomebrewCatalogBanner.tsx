@@ -2,8 +2,9 @@ import { Plus, Users } from "lucide-react";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { buildHomebrewCatalogHref } from "@/lib/logic/homebrew-catalog";
 import { useRoomPickerId } from "@/components/bestiary/RoomCreatureAddPanel";
+import type { HomebrewKind } from "@/lib/logic/homebrew-input";
 
-type Props = { kind: "SPELL" | "CREATURE"; edition: "2014" | "2024"; count: number };
+type Props = { kind: HomebrewKind; edition: "2014" | "2024"; count: number };
 
 /// У вибірці кімнати посилання вивели б iframe з режиму «Додати на мапу».
 export function HomebrewCatalogBanner({ kind, edition, count }: Props) {

@@ -69,12 +69,12 @@ export async function renameMapCreature(sessionId: number, userId: number, creat
   return { ok: true, value: null };
 }
 
-export async function moveMapCreature(sessionId: number, userId: number, creatureId: number, position: TokenPosition): Promise<GameSessionResult<null>> {
+export async function moveMapCreature(sessionId: number, userId: number, creatureId: number, position: TokenPosition, floor?: number | null): Promise<GameSessionResult<null>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
   const moved = await prisma.gameMapCreature.updateMany({
     where: { id: creatureId, gameSessionId: sessionId, scene: { mapImageKey: { not: null } } },
-    data: { tokenX: position.x, tokenY: position.y },
+    data: { tokenX: position.x, tokenY: position.y, floor },
   });
   if (!moved.count) return fail("creature_gone");
   await signalGameSession(sessionId, "session");

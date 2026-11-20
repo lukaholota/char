@@ -17,6 +17,8 @@ type GameSessionState = {
   /// Відкрита сторінка кімнати: вкладка слухає її, навіть коли кімната в архіві й кидки туди не йдуть.
   viewedRoomId: number | null;
   isSoundOn: boolean;
+  /// Гучність звуків сцени (ефекти й фон від майстра) на цьому пристрої, 0–100; кидки вимикає isSoundOn окремо.
+  sceneVolume: number;
   /// На компʼютері журнал може жити внизу бічної колонки під листом, а не окремою вкладкою.
   isJournalDocked: boolean;
   sidePanelWidth: number;
@@ -29,6 +31,7 @@ type GameSessionState = {
   setHeroTarget: (sessionId: number, persId: number | null) => void;
   viewRoom: (sessionId: number | null) => void;
   toggleSound: () => void;
+  setSceneVolume: (volume: number) => void;
   dockJournal: (isDocked: boolean) => void;
   resizeSidePanel: (width: number) => void;
   resizeDockedJournal: (height: number) => void;
@@ -48,6 +51,7 @@ export const useGameSessionStore = create<GameSessionState>()(
       isHydrated: false,
       viewedRoomId: null,
       isSoundOn: true,
+      sceneVolume: 70,
       isJournalDocked: false,
       sidePanelWidth: DEFAULT_SIDE_PANEL_WIDTH,
       dockedJournalHeight: DEFAULT_DOCKED_JOURNAL_HEIGHT,
@@ -69,6 +73,7 @@ export const useGameSessionStore = create<GameSessionState>()(
         }),
       viewRoom: (sessionId) => set({ viewedRoomId: sessionId }),
       toggleSound: () => set((state) => ({ isSoundOn: !state.isSoundOn })),
+      setSceneVolume: (sceneVolume) => set({ sceneVolume: Math.min(100, Math.max(0, Math.round(sceneVolume))) }),
       dockJournal: (isJournalDocked) => set({ isJournalDocked }),
       resizeSidePanel: (sidePanelWidth) => set({ sidePanelWidth }),
       resizeDockedJournal: (dockedJournalHeight) => set({ dockedJournalHeight }),
@@ -77,7 +82,7 @@ export const useGameSessionStore = create<GameSessionState>()(
     {
       name: GAME_SESSION_STORE_KEY,
       storage: createJSONStorage(() => localStorage),
-      partialize: ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, isJournalDocked, sidePanelWidth, dockedJournalHeight }) => ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, isJournalDocked, sidePanelWidth, dockedJournalHeight }),
+      partialize: ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }) => ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }),
       onRehydrateStorage: (initial) => () => initial.markHydrated(),
     },
   ),

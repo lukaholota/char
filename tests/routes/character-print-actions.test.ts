@@ -4,13 +4,12 @@ const generateCharacterPdf = vi.hoisted(() => vi.fn());
 const generateCharacterPdfFromData = vi.hoisted(() => vi.fn());
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn(async () => ({ user: { email: "player@test.local" } })) }));
-vi.mock("@/lib/actions/pers", () => ({ getPersById: vi.fn() }));
+vi.mock("@/lib/actions/pers", () => ({ getPersById: vi.fn(), getCharacterFeaturesGroupedByShareToken: vi.fn(async () => ({ passive: [], actions: [], bonusActions: [], reactions: [] })) }));
 vi.mock("@/server/db/wildshape", () => ({ countAttachedForms: vi.fn(), findAttachedForms: vi.fn(async () => []) }));
 vi.mock("@/lib/actions/share-actions", () => ({
   getPersByShareToken: vi.fn(),
   getPrintablePersByShareToken: vi.fn(async () => ({ pers: { persId: 7 } })),
 }));
-vi.mock("@/server/pdf/groupCharacterFeatures", () => ({ groupCharacterFeaturesForPdf: vi.fn(() => []) }));
 vi.mock("@/server/pdf/generateCharacterPdf", () => ({ generateCharacterPdf, generateCharacterPdfFromData }));
 
 import { generateCharacterPdfAction } from "@/app/char/[id]/print/actions";

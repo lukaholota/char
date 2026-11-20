@@ -49,8 +49,8 @@ describe("модалка пасивного значення", () => {
   it("база вже містить +5 «Спостережливого», а ручний бонус іде зверху", () => {
     renderPassivePerception();
 
-    const preview = screen.getByText("Базове:").parentElement;
-    expect(preview?.textContent).toBe("Базове: 15→Фінальне: 17");
+    const preview = screen.getByText("Без ручного бонусу:").parentElement;
+    expect(preview?.textContent).toBe("Без ручного бонусу: 15→Разом: 17");
   });
 
   it("збереження пише ручний бонус саме до пасивного значення", async () => {
@@ -77,8 +77,8 @@ describe("модалка пасивного значення", () => {
       />,
     );
 
-    const preview = screen.getByText("Базове:").parentElement;
-    expect(preview?.textContent).toBe("Базове: 18→Фінальне: 20");
+    const preview = screen.getByText("Без ручного бонусу:").parentElement;
+    expect(preview?.textContent).toBe("Без ручного бонусу: 18→Разом: 20");
 
     fireEvent.click(screen.getByRole("button", { name: "OK" }));
     await waitFor(() => expect(updateBonus).toHaveBeenCalledWith(7, "passive", "PERCEPTION", 2));

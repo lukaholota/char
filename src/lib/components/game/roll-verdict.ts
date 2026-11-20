@@ -22,7 +22,7 @@ export function clearRollVerdict(key?: string) {
   if (key === undefined || useRollVerdictStore.getState().key === key) useRollVerdictStore.setState({ key: null, event: null });
 }
 
-/// Гравець бачить те саме, що й у журналі: влучання чи промах, кинуту шкоду, «повалений» — без КЗ і хітів істоти.
+/// Гравець бачить те саме, що й у журналі: влучання чи промах, кинуту шкоду, «повалений» — без КБ і хітів істоти.
 export function buildRollVerdict(event: Pick<GameRollEventView, "target" | "heroTarget" | "saves">): RollVerdict | null {
   if (event.saves) return buildSavesVerdict(event.saves);
   const target = event.target ?? event.heroTarget;
@@ -44,6 +44,6 @@ function buildSavesVerdict({ rows }: GameRollSavesView): RollVerdict {
 }
 
 function buildAttackVerdict(name: string, isHit: boolean | null): RollVerdict {
-  if (isHit === null) return { tone: "plain", text: `${name}: КЗ невідомий — вирішує майстер` };
+  if (isHit === null) return { tone: "plain", text: `${name}: КБ невідомий — вирішує майстер` };
   return isHit ? { tone: "good", text: `Влучання — ${name}` } : { tone: "bad", text: `Промах — ${name}` };
 }

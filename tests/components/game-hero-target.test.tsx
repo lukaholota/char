@@ -86,7 +86,7 @@ describe("удар по герою в журналі", () => {
     expect((screen.getByRole("button", { name: "Знято 6 з листа" }) as HTMLButtonElement).disabled).toBe(true);
   });
 
-  it("інші бачать удар без кнопки; атака підказує власникові порівняти з КЗ", () => {
+  it("інші бачать удар без кнопки; атака підказує власникові порівняти з КБ", () => {
     enterRoom({ myRole: "PLAYER", myPersId: 6 });
     const { unmount } = render(<ol><GameRollEntry event={heroEvent(damageRoll, { persId: 5, name: "Пивослав", kind: "damage", damage: 6, isHit: null, armorClass: null })} isMine={false} isNew={false} /></ol>);
     expect(screen.getByText("· −6")).toBeTruthy();
@@ -94,19 +94,19 @@ describe("удар по герою в журналі", () => {
     unmount();
     enterRoom({ myRole: "PLAYER", myPersId: 5 });
     render(<ol><GameRollEntry event={heroEvent(attackRoll, { persId: 5, name: "Пивослав", kind: "attack", damage: null, isHit: null, armorClass: null })} isMine={false} isNew={false} /></ol>);
-    expect(screen.getByText("Влучає, якщо ваш КЗ 15 або менше")).toBeTruthy();
+    expect(screen.getByText("Влучає, якщо ваш КБ 15 або менше")).toBeTruthy();
   });
 
-  it("кімната порівнює атаку з КЗ героя: усі бачать влучання чи промах, КЗ — лише майстер", () => {
+  it("кімната порівнює атаку з КБ героя: усі бачать влучання чи промах, КБ — лише майстер", () => {
     enterRoom({ myRole: "PLAYER", myPersId: 5 });
     const { unmount } = render(<ol><GameRollEntry event={heroEvent(attackRoll, { persId: 5, name: "Пивослав", kind: "attack", damage: null, isHit: true, armorClass: null })} isMine={false} isNew={false} /></ol>);
     expect(screen.getByText("влучання")).toBeTruthy();
-    expect(screen.queryByText(/КЗ/)).toBeNull();
+    expect(screen.queryByText(/КБ/)).toBeNull();
     unmount();
     enterRoom({ myRole: "GM", myPersId: null });
     render(<ol><GameRollEntry event={heroEvent(attackRoll, { persId: 5, name: "Пивослав", kind: "attack", damage: null, isHit: false, armorClass: 16 })} isMine isNew={false} /></ol>);
     expect(screen.getByText("промах")).toBeTruthy();
-    expect(screen.getByText("КЗ 16")).toBeTruthy();
+    expect(screen.getByText("КБ 16")).toBeTruthy();
   });
 });
 

@@ -8,6 +8,7 @@ import type { TokenPosition } from "@/rules/game-map";
 import type { TokenConditions } from "@/rules/token-conditions";
 import type { TokenTransform } from "@/rules/token-transform";
 import type { TokenRef } from "./use-token-conditions";
+import type { MapFloors } from "./use-map-floors";
 import { SMALLEST_SCALE_WITH_NAMES, TOKEN_SIZE_PX } from "./use-token-scale";
 
 const SMALLEST_TOKEN_ON_SCREEN_PX = 28;
@@ -25,7 +26,10 @@ export type TokenLayout = {
   isHighlighted: (position: TokenPosition, cells: number) => boolean;
   isCutoutOutlined: boolean;
   findFreeSpot: () => TokenPosition;
+  floors: MapFloors;
 };
+/// Токен з іншого поверху майстер бачить блідим, щоб не загубити; гравцям видно лише блідих героїв.
+export const OFF_FLOOR_CLASS = "opacity-40";
 
 export type TokenOnBoard = { screenPx: number; labelWidth: number; isHighlighted: boolean; isOutlined: boolean; rotation: number };
 export type TokenDrag = { key: string; from: TokenPosition | null; to: TokenPosition | null; cells: number; isBlocked?: boolean };

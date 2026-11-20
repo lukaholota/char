@@ -13,7 +13,7 @@ import { findCurrentUserId } from "@/server/db/current-user";
 import { findGameSessionView, findInvite, listBindablePers, listGameSessionsForUser } from "@/server/db/game-sessions";
 import { RoomHeroSheet, RoomHeroSheetSkeleton } from "./room-hero-sheet";
 
-export const GAME_SESSIONS_METADATA: Metadata = { title: "Ігрові кімнати — ДнД українською", robots: { index: false } };
+export const GAME_SESSIONS_METADATA: Metadata = { title: "Holota VTT — ігрові кімнати ДнД українською", robots: { index: false } };
 export const GAME_ROOM_METADATA: Metadata = { title: "Ігрова кімната — ДнД українською", robots: { index: false } };
 export const GAME_JOIN_METADATA: Metadata = { title: "Запрошення в кімнату — ДнД українською", robots: { index: false, follow: false } };
 
@@ -21,7 +21,7 @@ export async function buildGameSessionsPage(edition: Edition) {
   const userId = await findCurrentUserId();
   const sessions = userId === null ? null : await listGameSessionsForUser(userId);
   return (
-    <HomebrewPageShell title="Ігрові кімнати" backHref={getTargetEditionPath("/", edition)} backLabel="Головна" isWide>
+    <HomebrewPageShell title="Holota VTT" backHref={getTargetEditionPath("/", edition)} backLabel="Головна" isWide>
       <GameRoomsContent sessions={sessions} edition={edition} />
     </HomebrewPageShell>
   );

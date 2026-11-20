@@ -9,6 +9,7 @@ import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 import { decideWhatsNew } from "@/lib/whats-new/decision";
 import { CURRENT_ANNOUNCEMENT_FLAG } from "@/lib/whats-new/release-notes";
 import { findFlagStorage, markFlagSeen } from "@/lib/whats-new/seen-flags";
+import { announceSignedIn, takeSignInAttempt } from "@/lib/auth/sign-in-notice";
 
 // Модалка показується раз на оголошення, а цей компонент живе в providers кожної сторінки.
 const LykhozorMastersDialog = dynamic(() => import("./LykhozorMastersDialog").then((module) => module.LykhozorMastersDialog), {
@@ -19,12 +20,18 @@ const LykhozorMastersDialog = dynamic(() => import("./LykhozorMastersDialog").th
 /// одночасно, а хто з них перший — гонка. Тому підказка чекає, доки тут не вирішиться.
 export function WhatsNewAnnouncement({ onResolved }: { onResolved?: (isOpen: boolean) => void }) {
   const pathname = usePathname();
-  const { status } = useSession();
+  const { data: session, status } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const hasDecided = useRef(false);
 
   useEffect(() => {
     if (hasDecided.current || status === "loading") return;
+
+    if (takeSignInAttempt() && status === "authenticated") {
+      hasDecided.current = true;
+      announceSignedIn(session?.user?.email);
+      return void onResolved?.(false);
+    }
 
     const storage = findFlagStorage();
     const decision = decideWhatsNew({
@@ -44,7 +51,7 @@ export function WhatsNewAnnouncement({ onResolved }: { onResolved?: (isOpen: boo
     markFlagSeen(storage, CURRENT_ANNOUNCEMENT_FLAG);
     setIsOpen(true);
     capturePostHogEvent("whats_new_shown", { release: CURRENT_ANNOUNCEMENT_FLAG });
-  }, [pathname, status, onResolved]);
+  }, [pathname, status, session, onResolved]);
 
   const handleClose = useCallback(() => {
     setIsOpen(false);

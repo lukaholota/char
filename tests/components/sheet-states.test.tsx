@@ -6,6 +6,11 @@ import { SheetStatesProvider } from "@/lib/components/characterSheet/states/Shee
 import { StatusChips } from "@/lib/components/characterSheet/states/StatusChips";
 import { StatesSheet } from "@/lib/components/characterSheet/states/StatesSheet";
 import type { SheetStatesControl } from "@/lib/components/characterSheet/states/useSheetStates";
+import { findMagicItemState } from "@/rules/magic-item-states";
+
+const mocks = vi.hoisted(() => ({ updateMagicItem: vi.fn(async () => ({ success: true })), refresh: vi.fn() }));
+vi.mock("next/navigation", () => ({ useRouter: () => ({ refresh: mocks.refresh }) }));
+vi.mock("@/lib/actions/magic-item-actions", () => ({ updateMagicItem: mocks.updateMagicItem }));
 
 afterEach(cleanup);
 
@@ -42,6 +47,7 @@ function buildControl(overrides: Partial<SheetStatesControl> = {}, effects: unkn
     concentration: concentration as never,
     activeBuffKeys: (effects as Array<{ effectKey: string }>).map((row) => row.effectKey).filter((key) => key !== "CONCENTRATION") as never,
     exhaustionLevel: 0,
+    itemStates: [],
     isPanelOpen: false,
     setPanelOpen: vi.fn(),
     isFeatureActive: () => isRaging,
@@ -51,6 +57,7 @@ function buildControl(overrides: Partial<SheetStatesControl> = {}, effects: unkn
     setConcentration: vi.fn(),
     setBuff: vi.fn(),
     setExhaustion: vi.fn(),
+    setItemState: vi.fn(),
     onSpellCast: vi.fn(),
     promptConcentrationCheck: vi.fn(),
     ...overrides,
@@ -150,5 +157,38 @@ describe("O39 — шторка станів", () => {
   it("без використань риса не вмикається", () => {
     renderWith(buildControl({ isPanelOpen: true, findFeatureUses: () => ({ remaining: 0, max: 3 }) }));
     expect((within(screen.getByRole("dialog")).getByRole("button", { name: /Лють/ }) as HTMLButtonElement).disabled).toBe(true);
+  });
+
+  it("предмет із дією вмикається зі шторки; без екіпіровки рядок підказує, чого бракує, і екіпірує одним дотиком", async () => {
+    const cloak = findMagicItemState({ engName: "Cloak of Elvenkind", ruleset: "RULES_2014" })!;
+    const boots = findMagicItemState({ engName: "Boots of Speed", ruleset: "RULES_2014" })!;
+    const control = buildControl({
+      isPanelOpen: true,
+      itemStates: [
+        { magicItemId: 7, persMagicItemId: 107, name: "Плащ ельфів", state: cloak, isSwitchedOn: false, missingSteps: [] },
+        { magicItemId: 8, persMagicItemId: 108, name: "Чоботи швидкості", state: boots, isSwitchedOn: false, missingSteps: ["EQUIP"] },
+      ],
+    });
+    renderWith(control);
+    const dialog = screen.getByRole("dialog");
+    fireEvent.click(within(dialog).getByRole("button", { name: /Накинути каптур/ }));
+    expect(control.setItemState).toHaveBeenCalledWith(7, true);
+    expect(within(dialog).getByText("Чоботи швидкості: спершу екіпіруйте предмет")).toBeTruthy();
+    fireEvent.click(within(dialog).getByRole("button", { name: "Екіпірувати" }));
+    await vi.waitFor(() => expect(mocks.refresh).toHaveBeenCalled());
+    expect(mocks.updateMagicItem).toHaveBeenCalledWith(108, { isEquipped: true });
+  });
+
+  it("увімкнений предмет — чип у шапці й рядок «Діє зараз» із хрестиком", () => {
+    const cloak = findMagicItemState({ engName: "Cloak of Elvenkind", ruleset: "RULES_2014" })!;
+    const itemStates = [{ magicItemId: 7, persMagicItemId: 107, name: "Плащ ельфів", state: cloak, isSwitchedOn: true, missingSteps: [] }];
+    renderWith(buildControl({ itemStates }));
+    expect(screen.getByRole("button", { name: "Діє: Плащ ельфів — накинути каптур" })).toBeTruthy();
+    cleanup();
+
+    const control = buildControl({ isPanelOpen: true, itemStates });
+    renderWith(control);
+    fireEvent.click(within(screen.getByRole("dialog")).getByRole("button", { name: "Вимкнути: Плащ ельфів" }));
+    expect(control.setItemState).toHaveBeenCalledWith(7, false);
   });
 });

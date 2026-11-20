@@ -230,7 +230,7 @@ export function OmniSearchPanel({ onClose }: Props) {
       </div>
 
       <div className="px-4 py-2 border-t border-white/10 bg-slate-950/80 flex items-center justify-between text-[11px] text-slate-500">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 [@media(pointer:coarse)]:invisible">
           <span>
             <kbd className="font-mono bg-white/5 px-1 py-0.5 rounded border border-white/10">↑↓</kbd> навігація
           </span>

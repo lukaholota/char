@@ -15,9 +15,10 @@ import {
 } from "@/components/ui/dialog";
 import { ExternalLink, Loader2, LogIn, ShieldCheck } from "lucide-react";
 import { buildReturnUrl } from "@/lib/utils/in-app-browser";
-import { cn } from "@/lib/utils";
 import { useInAppBrowser } from "@/lib/components/auth/use-in-app-browser";
 import { InAppBrowserNotice } from "@/lib/components/auth/InAppBrowserNotice";
+import { PasswordSignInForm } from "@/lib/components/auth/PasswordSignInForm";
+import { announceSignedIn, rememberSignInAttempt } from "@/lib/auth/sign-in-notice";
 import {
   captureAuthFailed, captureAuthRequested, captureInAppWarningDismissed, captureInAppWarningShown, prepareGoogleAuthRedirect, type AuthTrigger,
 } from "@/lib/monitoring/funnel-analytics";
@@ -32,7 +33,7 @@ interface Props {
   isFromCreatorDraft?: boolean;
 }
 
-const GoogleAuthDialog = ({
+const SignInDialog = ({
   open,
   onOpenChange,
   triggerLabel = "Увійти",
@@ -50,12 +51,14 @@ const GoogleAuthDialog = ({
   const isHardBlocked = isEmbeddedForGuest && variant === "control";
 
   const [internalOpen, setInternalOpen] = useState(false);
+  const [isRegister, setIsRegister] = useState(false);
   const shouldRenderTrigger = typeof open === "undefined";
   const effectiveOpen = typeof open === "boolean" ? open : internalOpen;
   const setOpen = onOpenChange ?? setInternalOpen;
 
   const handleOpenChange = (nextOpen: boolean) => {
     if (!nextOpen && isEmbeddedForGuest) captureInAppWarningDismissed("auth_dialog", "close", variant);
+    if (!nextOpen) setIsRegister(false);
     setOpen(nextOpen);
   };
 
@@ -109,9 +112,10 @@ const GoogleAuthDialog = ({
       }
 
       if (result?.url) {
+        rememberSignInAttempt();
         window.location.href = result.url;
       } else {
-        toast.success("Готово! Ви авторизовані.");
+        announceSignedIn(undefined);
         setOpen(false);
       }
     } catch {
@@ -123,6 +127,46 @@ const GoogleAuthDialog = ({
       setLoading(false);
     }
   };
+
+  const googleButton = (
+    <Button
+      onClick={handleSignIn}
+      disabled={loading || status === "loading" || isHardBlocked}
+      variant="outline"
+      className="h-11 w-full border-slate-600 bg-slate-900 text-white hover:bg-slate-800 hover:text-white"
+    >
+      {loading ? (
+        <>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          Зʼєднання…
+        </>
+      ) : isHardBlocked ? (
+        "Відкрийте у Safari/Chrome"
+      ) : isEmbeddedForGuest ? (
+        "Все одно спробувати Google"
+      ) : (
+        <>
+          <span aria-hidden="true" className="mr-2 font-semibold text-sky-400">G</span>
+          Продовжити з Google
+        </>
+      )}
+    </Button>
+  );
+
+  const hardBlockedGoogleNotice = (
+    <div className="space-y-3">
+      <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
+        <div className="mb-1 flex items-center gap-2 text-white">
+          <ExternalLink className="h-4 w-4" />
+          Google-логін не працює у вбудованому браузері
+        </div>
+        Відкрийте сайт у Safari чи Chrome: меню (⋯) у застосунку → «Відкрити в браузері».
+      </div>
+      <Button onClick={handleCopyLink} variant="secondary" className="w-full">
+        Скопіювати посилання
+      </Button>
+    </div>
+  );
 
   return (
     <Dialog open={effectiveOpen} onOpenChange={handleOpenChange}>
@@ -142,95 +186,55 @@ const GoogleAuthDialog = ({
           </DialogTrigger>
         )
       )}
-      <DialogContent className="sm:max-w-[420px] border border-slate-800/70 bg-slate-950/90 backdrop-blur">
+      <DialogContent className="max-h-[92dvh] overflow-y-auto border border-slate-800/70 bg-slate-950/90 backdrop-blur [@media(pointer:coarse)]:bg-slate-950 sm:max-w-[420px]">
         <DialogHeader>
-          <DialogTitle className="text-white">Увійти через Google</DialogTitle>
+          <DialogTitle className="text-white">{isRegister ? "Реєстрація" : "Вхід"}</DialogTitle>
           <DialogDescription className="text-slate-400">
-            Швидка аутентифікація без паролів. Ми використовуємо Google лише для підтвердження пошти.
+            Персонажі зберігаються в акаунті й відкриваються з будь-якого пристрою.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-3">
-          {session?.user ? (
-            <div className="flex items-center justify-between rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
-              <span data-ph-mask>Ви вже увійшли як {session.user.email}</span>
-              <ShieldCheck className="h-4 w-4" />
-            </div>
-          ) : isEmbeddedForGuest && inAppBrowser && variant !== "control" ? (
-            <InAppBrowserNotice environment={inAppBrowser.environment} variant={variant} placement="auth_dialog" />
-          ) : isHardBlocked ? (
-            <div className="space-y-3">
-              <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
-                <div className="mb-1 flex items-center gap-2 text-white">
-                  <ExternalLink className="h-4 w-4" />
-                  Google-логін не працює у вбудованому браузері
-                </div>
-                <div className="text-slate-300">
-                  Через політику безпеки Google авторизація блокується всередині Threads/Instagram/Facebook та інших
-                  вбудованих браузерів.
-                  <br />
-                  Відкрийте сайт у системному браузері (Safari/Chrome): натисніть меню (⋯) у додатку → “Open in
-                  Browser” / “Відкрити в браузері”.
-                </div>
-              </div>
-
-              <Button onClick={handleCopyLink} variant="secondary" className="w-full">
-                Скопіювати посилання
-              </Button>
-
-              <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-xs text-slate-400">
-                {shareUrl ? (
-                  <span className="break-all">{shareUrl}</span>
-                ) : (
-                  <span>Посилання буде доступне після завантаження сторінки.</span>
-                )}
-              </div>
-            </div>
-          ) : (
-            <div className="rounded-lg border border-slate-800/80 bg-slate-900/70 px-3 py-2 text-sm text-slate-300">
-              Авторизація потрібна для збереження персонажів та синхронізації між пристроями.
-            </div>
-          )}
-
-          {isFromCreatorDraft && !session?.user && !isEmbeddedForGuest ? (
-            <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
-              Ваші вибори збережені. Після входу ви повернетеся сюди й зможете створити персонажа.
-            </p>
-          ) : null}
-
-          <Button
-            onClick={handleSignIn}
-            disabled={loading || status === "loading" || !!session || isHardBlocked}
-            variant={isEmbeddedForGuest && !isHardBlocked ? "outline" : "default"}
-            className={cn(
-              "w-full",
-              !(isEmbeddedForGuest && !isHardBlocked) && "bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 text-white shadow-lg shadow-indigo-500/20"
-            )}
-          >
-            {loading ? (
+        {session?.user ? (
+          <div className="flex items-center justify-between rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
+            <span data-ph-mask>Ви вже увійшли як {session.user.email}</span>
+            <ShieldCheck className="h-4 w-4" />
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {isFromCreatorDraft ? (
+              <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
+                Ваші вибори збережені. Після входу ви повернетеся сюди й зможете створити персонажа.
+              </p>
+            ) : null}
+            {isEmbeddedForGuest ? (
               <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                З&apos;єднання...
+                <PasswordSignInForm callbackUrl={callbackUrl ?? getCurrentUrl()} onModeChange={setIsRegister} />
+                <OrDivider label="або через Google" />
+                {inAppBrowser && variant !== "control" ? <InAppBrowserNotice environment={inAppBrowser.environment} variant={variant} placement="auth_dialog" /> : hardBlockedGoogleNotice}
+                {googleButton}
               </>
-            ) : session ? (
-              "Ви вже авторизовані"
-            ) : isHardBlocked ? (
-              "Відкрийте у Safari/Chrome"
-            ) : isEmbeddedForGuest ? (
-              "Все одно спробувати Google"
             ) : (
               <>
-                <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[11px] font-semibold text-slate-900">
-                  G
-                </span>
-                Продовжити з Google
+                {googleButton}
+                <OrDivider label="або поштою" />
+                <PasswordSignInForm callbackUrl={callbackUrl ?? getCurrentUrl()} onModeChange={setIsRegister} />
               </>
             )}
-          </Button>
-        </div>
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   );
 };
 
-export default GoogleAuthDialog;
+function OrDivider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-3 text-xs text-slate-500" role="separator" aria-label={label}>
+      <span className="h-px flex-1 bg-slate-800" />
+      {label}
+      <span className="h-px flex-1 bg-slate-800" />
+    </div>
+  );
+}
+
+export default SignInDialog;

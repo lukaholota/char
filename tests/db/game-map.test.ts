@@ -3,7 +3,7 @@ import sharp from "sharp";
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
 import { getAllCreatures } from "@/lib/bestiaryData";
-import { buildHomebrewCreatureKey } from "@/lib/logic/homebrew-catalog";
+import { buildHomebrewEntryKey } from "@/lib/logic/homebrew-catalog";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
 const stored = vi.hoisted(() => new Map<string, Uint8Array>());
@@ -296,7 +296,7 @@ describe("мапа кімнати", () => {
       data: { homebrewEntryId: entry.homebrewEntryId, engName: "Bog goblin", size: goblin.size, type: goblin.type, challenge: goblin.challenge, statBlock: { ...goblin, name: "Болотний гоблін", hp: "20 (3к8 + 7)" } },
     });
 
-    const creatureKey = buildHomebrewCreatureKey(entry.homebrewEntryId);
+    const creatureKey = buildHomebrewEntryKey(entry.homebrewEntryId);
     expect(await addMapCreatures(sessionId, gm.id, { creatureKey, ruleset: "RULES_2014", count: 1, isAlly: false, customName: null })).toEqual({ ok: true, value: { name: "Болотний гоблін" } });
 
     const [placed] = (await findGameSessionView(sessionId, gm.id))!.creatures;

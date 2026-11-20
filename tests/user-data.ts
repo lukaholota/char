@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { HOMEBREW_ITEM_ENG_NAME_PREFIX } from "@/lib/logic/homebrew-catalog";
 
 // Дані користувача — це pers / user / account і все, що на них транзитивно посилається.
 // Список рахується з бази, а не ведеться руками: писаний руками перелік пропускав неявні
@@ -41,6 +42,7 @@ async function findUserDataTables(): Promise<string> {
 export async function resetUserData(): Promise<void> {
   const tables = await findUserDataTables();
   await prisma.$executeRawUnsafe(`TRUNCATE ${tables} RESTART IDENTITY CASCADE`);
+  await prisma.magicItem.deleteMany({ where: { engName: { startsWith: HOMEBREW_ITEM_ENG_NAME_PREFIX } } });
 }
 
 export async function disconnectDatabase(): Promise<void> {

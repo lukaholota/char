@@ -3,11 +3,14 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { MagicItemChargesControl } from "@/lib/components/characterSheet/MagicItemChargesControl";
 import { setMagicItemChargesMax, stepMagicItemCharges } from "@/lib/actions/magic-item-actions";
+import { toast } from "sonner";
 
 vi.mock("@/lib/actions/magic-item-actions", () => ({
   setMagicItemChargesMax: vi.fn(async () => ({ success: true })),
   stepMagicItemCharges: vi.fn(async () => ({ success: true })),
 }));
+
+vi.mock("sonner", () => ({ toast: Object.assign(vi.fn(), { error: vi.fn(), success: vi.fn() }) }));
 
 afterEach(cleanup);
 
@@ -23,7 +26,7 @@ describe("KR31.13 — лічильник зарядів на картці маг
     expect(setMagicItemChargesMax).toHaveBeenCalledWith(11, 7);
     expect(screen.getByText("7/7")).toBeTruthy();
 
-    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Витратити заряд" })));
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: /^Витратити заряд/ })));
 
     expect(stepMagicItemCharges).toHaveBeenCalledWith(11, -1, expect.any(String));
     expect(screen.getByText("6/7")).toBeTruthy();
@@ -37,6 +40,24 @@ describe("KR31.13 — лічильник зарядів на картці маг
 
     render(<MagicItemChargesControl persMagicItemId={11} charges={{ chargesMax: 5, chargesCurrent: 2 }} isReadOnly onChanged={vi.fn()} />);
     expect(screen.getByText("2/5")).toBeTruthy();
-    expect(screen.queryByRole("button", { name: "Витратити заряд" })).toBeNull();
+    expect(screen.queryByRole("button", { name: /^Витратити заряд/ })).toBeNull();
+  });
+
+  it("витрата заряду каже, скільки лишилось і як предмет відновлюється", async () => {
+    render(
+      <MagicItemChargesControl
+        persId={3}
+        persMagicItemId={12}
+        itemName="Паличка"
+        recovery={{ kind: "ROLL", diceCount: 1, diceSides: 6, bonus: 1 }}
+        charges={{ chargesMax: 7, chargesCurrent: 1 }}
+        onChanged={vi.fn()}
+      />,
+    );
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: /^Витратити заряд/ })));
+    expect(toast).toHaveBeenCalledWith("Паличка: заряди скінчилися", {
+      id: "magic-item-charges-12",
+      description: "На світанку відновлює 1к6 + 1 зарядів — лист додасть їх на тривалому відпочинку.",
+    });
   });
 });

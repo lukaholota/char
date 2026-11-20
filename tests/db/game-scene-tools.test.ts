@@ -304,7 +304,7 @@ describe("нова мапа скидає геометрію", () => {
 });
 
 describe("малюнки на мапі", () => {
-  const line: DrawingStroke = { color: "sky", width: "thin", points: [{ x: 0.1, y: 0.2 }, { x: 0.3, y: 0.4 }] };
+  const line: DrawingStroke = { shape: "line", isFilled: false, color: "sky", width: "thin", points: [{ x: 0.1, y: 0.2 }, { x: 0.3, y: 0.4 }] };
   const readOwners = async (sessionId: number, userId: number) => (await seeRoom(sessionId, userId)).drawings.map((drawing) => drawing.userId);
 
   it("гравець і майстер малюють, лінії видно всім разом з автором і точками", async () => {
@@ -319,6 +319,14 @@ describe("малюнки на мапі", () => {
     expect(seen[0]).toEqual({ id: saved.value.ids[0], userId: player.id, ...line });
     expect(seen.map((drawing) => [drawing.userId, drawing.color, drawing.width])).toEqual([[player.id, "sky", "thin"], [player.id, "red", "bold"], [gm.id, "sky", "thin"]]);
     expect(await readOwners(sessionId, player.id)).toEqual([player.id, player.id, gm.id]);
+  });
+
+  it("залитий прямокутник і коло зберігаються з фігурою й заливкою", async () => {
+    const { gm, sessionId } = await createTable();
+    const sceneId = await createScene(sessionId, gm.id);
+    const shapes: DrawingStroke[] = [{ ...line, shape: "rect", isFilled: true }, { ...line, shape: "circle", color: "teal" }];
+    expect((await saveSceneDrawings(sessionId, gm.id, sceneId, shapes)).ok).toBe(true);
+    expect((await seeRoom(sessionId, gm.id)).drawings.map(({ shape, isFilled, color }) => ({ shape, isFilled, color }))).toEqual([{ shape: "rect", isFilled: true, color: "sky" }, { shape: "circle", isFilled: false, color: "teal" }]);
   });
 
   it("гравець стирає лише свої лінії, навіть передавши чужі id; майстер стирає все", async () => {

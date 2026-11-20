@@ -27,8 +27,30 @@ import {
 } from "@/rules/feature-stat-grants";
 import { findAlertInitiativeBonus, findObservantPassiveBonus } from "@/rules/feat-flat-bonuses-2014";
 import { findFastMovementBonus } from "@/rules/fast-movement";
+import { findMagicItemState, readItemStateMagicItemId, type MagicItemState } from "@/rules/magic-item-states";
+import { isDrinkableMagicItem } from "@/rules/potions";
+import { listActiveMagicItemLinks, sumWeaponItemBonus } from "./magic-weapon-links";
 import { calculateWalkingSpeed, explainWalkingSpeed, type WalkingSpeedPartKey } from "@/rules/walking-speed";
 import { collectDamageResistances, findDarkvisionRange } from "@/rules/senses-and-resistances";
+import {
+  collectItemDamageTypes,
+  explainItemAbilityParts,
+  explainItemBonusParts,
+  findItemDarkvisionRange,
+  findItemMovementSpeeds,
+  findMagicItemEffects,
+  pickArmorClassBonus,
+  pickCheckBonus,
+  pickProficiencyBonus,
+  pickRangedDamageBonus,
+  pickSaveBonus,
+  pickSkillBonus,
+  pickSpellAttackBonus,
+  pickSpellDcBonus,
+  type ActiveMagicItem,
+  type MagicItemEffect,
+  type MovementMode,
+} from "@/rules/magic-item-effects";
 import type { StateEffects, UnarmedStrikeEffect } from "@/rules/state-effects";
 import {
   canUseDexterousAttacks,
@@ -39,7 +61,7 @@ import {
 import { findUnarmoredMovementBonus, MONK_CLASS_NAMES } from "@/rules/unarmored-movement";
 import { buildCharacterLevels, findClassLevel } from "@/rules/character-level";
 import { findMainClassLevel } from "@/rules/hit-dice";
-import type { AbilityKey, ArmorAbilityBonusType } from "@/rules/types";
+import { DAMAGE_TYPE_KEYS, type AbilityKey, type ArmorAbilityBonusType } from "@/rules/types";
 import { StatBonuses, SkillBonuses, SimpleBonusValue } from "@/lib/types/model-types";
 import { abilityTranslations, armorTranslations } from "@/lib/refs/translation";
 
@@ -115,53 +137,40 @@ export function getSimpleBonus(pers: PersWithRelations, field: 'hp' | 'ac' | 'sp
 // Magic Item Helpers
 // ============================================================================
 
-function getActiveMagicItems(pers: PersWithRelations) {
-  if (!pers.magicItems) return [];
-  return pers.magicItems.filter(pmi => 
-    pmi.isEquipped && 
-    (!pmi.magicItem?.requiresAttunement || pmi.isAttuned)
-  );
+export function listActiveMagicItemEffects(pers: PersWithRelations): ActiveMagicItem[] {
+  const passive = listActiveMagicItemLinks(pers)
+    .filter((pmi) => pmi.magicItem)
+    .map((pmi) => ({ name: pmi.magicItem.name, effects: findMagicItemEffects(pmi.magicItem) }));
+  const switchedOn = listSwitchedOnItemStates(pers).map(({ name, state }) => ({ name, effects: state.effects }));
+  return [...passive, ...switchedOn];
+}
+
+export type SwitchedOnItemState = { magicItemId: number; name: string; state: MagicItemState };
+
+/// Стан носимого предмета діє, лише поки сам предмет діє: зняли плащ — каптур теж не рахується.
+/// Випите зілля вже не в спорядженні, тож його стан тримається на самому рядку ефекту.
+export function listSwitchedOnItemStates(pers: PersWithRelations): SwitchedOnItemState[] {
+  const activeLinks = listActiveMagicItemLinks(pers);
+  return (pers.effects ?? []).flatMap((row) => {
+    const magicItemId = readItemStateMagicItemId(row.effectKey);
+    if (magicItemId === null) return [];
+    const activeItem = activeLinks.find((pmi) => pmi.magicItemId === magicItemId)?.magicItem;
+    const item = row.magicItem && isDrinkableMagicItem(row.magicItem) ? row.magicItem : activeItem;
+    const state = item ? findMagicItemState(item) : null;
+    return item && state ? [{ magicItemId, name: item.name, state }] : [];
+  });
+}
+
+function sumActiveItemBonus(pers: PersWithRelations, pickBonus: (effect: MagicItemEffect) => number): number {
+  return sumNumberParts(explainItemBonusParts(listActiveMagicItemEffects(pers), pickBonus));
 }
 
 function getMagicItemACBonus(pers: PersWithRelations, hasArmor: boolean, hasShield: boolean): number {
-  const items = getActiveMagicItems(pers);
-  let bonus = 0;
-  for (const item of items) {
-     if (item.magicItem?.bonusToAC) {
-        if (item.magicItem.noArmorOrShieldForACBonus) {
-           if (!hasArmor && !hasShield) {
-              bonus += item.magicItem.bonusToAC;
-           }
-        } else {
-           bonus += item.magicItem.bonusToAC;
-        }
-     }
-  }
-  return bonus;
-}
-
-function getMagicItemSaveBonus(pers: PersWithRelations, ability: Ability): number {
-  const items = getActiveMagicItems(pers);
-  let bonus = 0;
-  for (const item of items) {
-    const saves = item.magicItem?.bonusToSavingThrows as Record<string, number> | null;
-    if (saves) {
-      if (typeof saves.all === 'number') bonus += saves.all;
-      if (typeof saves[ability.toLowerCase()] === 'number') bonus += saves[ability.toLowerCase()];
-    }
-  }
-  return bonus;
+  return sumActiveItemBonus(pers, pickArmorClassBonus(hasArmor || hasShield));
 }
 
 function getMagicItemRangedDamageBonus(pers: PersWithRelations): number {
-    const items = getActiveMagicItems(pers);
-    let bonus = 0;
-    for (const item of items) {
-        if (item.magicItem?.bonusToRangedDamage) {
-            bonus += item.magicItem.bonusToRangedDamage;
-        }
-    }
-    return bonus;
+  return sumActiveItemBonus(pers, pickRangedDamageBonus);
 }
 
 // ============================================================================
@@ -281,9 +290,12 @@ export function calculateFinalStat(pers: PersWithRelations, ability: Ability): n
 }
 
 export function explainFinalStat(pers: PersWithRelations, ability: Ability): NumberPart[] {
+  const base = getBaseStat(pers, ability);
+  const manual = getStatBonus(pers, ability);
   return keepBaseAndNonZero([
-    { label: "Базове значення", value: getBaseStat(pers, ability) },
-    { label: "Ручний бонус", value: getStatBonus(pers, ability) },
+    { label: "Базове значення", value: base },
+    { label: "Ручний бонус", value: manual },
+    ...explainItemAbilityParts(listActiveMagicItemEffects(pers), ability, base + manual),
   ]);
 }
 
@@ -317,7 +329,7 @@ export function calculateFinalAbilityScores(pers: {
 
 /// Перевірка характеристики — кидок к20, тож штраф виснаження 2024 іде в неї, а не в модифікатор.
 export function calculateAbilityCheckBonus(pers: PersWithRelations, ability: Ability): number {
-  return calculateFinalModifier(pers, ability) + findD20PenaltyPart(pers).value;
+  return calculateFinalModifier(pers, ability) + sumActiveItemBonus(pers, pickCheckBonus) + findD20PenaltyPart(pers).value;
 }
 
 /** Calculate final modifier (from modified stat + modifierBonuses) */
@@ -347,7 +359,7 @@ export function explainFinalSave(pers: PersWithRelations, ability: Ability): Num
     },
     { label: "Ручний бонус", value: getSaveBonus(pers, ability) },
     { label: "Інші бонуси", value: miscBonuses[ability] ?? 0 },
-    { label: "Магічні предмети", value: getMagicItemSaveBonus(pers, ability) },
+    ...explainItemBonusParts(listActiveMagicItemEffects(pers), pickSaveBonus(ability)),
     findD20PenaltyPart(pers),
   ]);
 }
@@ -382,6 +394,7 @@ export function explainFinalSkill(pers: PersWithRelations, skill: Skills): Numbe
     },
     { label: SKILL_PROFICIENCY_LABELS[proficiency], value: proficiencyValue },
     { label: "Ручний бонус", value: getSkillBonus(pers, skill) },
+    ...explainItemBonusParts(listActiveMagicItemEffects(pers), pickSkillBonus(skill)),
     findD20PenaltyPart(pers),
   ]);
 }
@@ -396,7 +409,7 @@ export function findSkillAbility(pers: PersWithRelations, skill: Skills): Abilit
 }
 
 function findSkillAbilityModifier(pers: PersWithRelations, ability: Ability): number {
-  return getAbilityMod(getBaseStat(pers, ability) + getStatBonus(pers, ability)) + getModifierBonus(pers, ability);
+  return calculateFinalModifier(pers, ability);
 }
 
 export function readStateEffects(pers: PersWithRelations): StateEffects | null {
@@ -424,7 +437,7 @@ export function findCustomRollStats(pers: PersWithRelations): CustomRollStats {
 
 /** Calculate final proficiency bonus */
 export function calculateFinalProficiency(pers: PersWithRelations): number {
-  return getProficiencyBonus(pers.level) + getSimpleBonus(pers, "proficiency");
+  return getProficiencyBonus(pers.level) + getSimpleBonus(pers, "proficiency") + sumActiveItemBonus(pers, pickProficiencyBonus);
 }
 
 export function calculateFinalAC(pers: PersWithRelations): number {
@@ -434,11 +447,17 @@ export function calculateFinalAC(pers: PersWithRelations): number {
 export function explainFinalAC(pers: PersWithRelations): NumberPart[] {
   const input = buildArmorClassInput(pers);
   const baseLabel = findBaseArmorClassLabel(pers, input.baseArmorClassOverride);
-  const parts = explainArmorClass(input).map((part) => ({
-    label: part.key === "BASE" ? baseLabel : ARMOR_CLASS_PART_LABELS[part.key],
-    value: part.value,
-  }));
+  const parts = explainArmorClass(input).flatMap((part): NumberPart[] =>
+    part.key === "MAGIC_ITEMS" ? explainItemArmorClassParts(pers, part.value) : [{ label: part.key === "BASE" ? baseLabel : ARMOR_CLASS_PART_LABELS[part.key], value: part.value }],
+  );
   return keepBaseAndNonZero([...parts, findArmorClassFloorPart(pers, calculateArmorClass(input))]);
+}
+
+function explainItemArmorClassParts(pers: PersWithRelations, total: number): NumberPart[] {
+  const hasArmorOrShield = pers.armors.some((entry) => entry.equipped) || pers.wearsShield;
+  const items = explainItemBonusParts(listActiveMagicItemEffects(pers), pickArmorClassBonus(hasArmorOrShield));
+  const isNamedSplit = items.every((item) => Boolean(item.label)) && sumNumberParts(items) === total;
+  return isNamedSplit ? items : [{ label: ARMOR_CLASS_PART_LABELS.MAGIC_ITEMS, value: total }];
 }
 
 /// Дубова шкіра не додає, а тримає нижню межу: різниця до межі — окремий рядок розбивки.
@@ -479,11 +498,11 @@ const ARMOR_CLASS_PART_LABELS: Record<Exclude<ArmorClassPartKey, "BASE">, string
 };
 
 function findBaseArmorClassLabel(pers: PersWithRelations, baseOverride: number | null | undefined): string {
-  if (Number.isFinite(pers.overrideBaseAC)) return "Базовий КЗ (вручну)";
+  if (Number.isFinite(pers.overrideBaseAC)) return "Базовий КБ (вручну)";
   if (Number.isFinite(baseOverride)) return "Обладунок мага (13 + Спритність)";
   const equippedArmor = pers.armors.find((entry) => entry.equipped);
   if (!equippedArmor) return "Без обладунку (10 + Спритність)";
-  return `Базовий КЗ: ${armorTranslations[equippedArmor.armor.name as keyof typeof armorTranslations] ?? equippedArmor.armor.name}`;
+  return `Базовий КБ: ${armorTranslations[equippedArmor.armor.name as keyof typeof armorTranslations] ?? equippedArmor.armor.name}`;
 }
 
 function buildArmorClassInput(pers: PersWithRelations) {
@@ -653,11 +672,21 @@ export function calculateDamageResistances(pers: PersWithRelations) {
   return collectDamageResistances([
     ...collectActiveFeatures(pers),
     { damageResistances: readStateEffects(pers)?.damageResistances ?? [] },
+    { damageResistances: collectItemDamageTypes(listActiveMagicItemEffects(pers), "RESISTANCE") },
   ]);
 }
 
+export function calculateDamageImmunities(pers: PersWithRelations) {
+  const granted = new Set(collectItemDamageTypes(listActiveMagicItemEffects(pers), "IMMUNITY"));
+  return DAMAGE_TYPE_KEYS.filter((type) => granted.has(type));
+}
+
 export function calculateDarkvisionRange(pers: PersWithRelations): number | null {
-  return findDarkvisionRange(collectActiveFeatures(pers));
+  return findItemDarkvisionRange(listActiveMagicItemEffects(pers), findDarkvisionRange(collectActiveFeatures(pers)));
+}
+
+export function calculateItemMovementSpeeds(pers: PersWithRelations): Partial<Record<MovementMode, number>> {
+  return findItemMovementSpeeds(listActiveMagicItemEffects(pers), calculateFinalSpeed(pers));
 }
 
 function firstFiniteNumber(values: readonly (number | null | undefined)[] | undefined): number | null {
@@ -681,6 +710,7 @@ export function explainFinalInitiative(pers: PersWithRelations): NumberPart[] {
     { label: "Майстерність (риса)", value: fromFeatures },
     { label: "Майстер на всі руки", value: fromJackOfAllTrades },
     { label: "Пильний (риса)", value: findAlertInitiativeBonus(pers.feats ?? []) },
+    ...explainItemBonusParts(listActiveMagicItemEffects(pers), pickCheckBonus),
     findD20PenaltyPart(pers),
   ]);
 }
@@ -701,14 +731,22 @@ export function calculateFinalMaxHP(pers: PersWithRelations): number {
 export function calculateSpellAttack(pers: PersWithRelations, spellcastingAbility: Ability): number {
   const mod = calculateFinalModifier(pers, spellcastingAbility);
   const pb = calculateFinalProficiency(pers);
-  return mod + pb + getSimpleBonus(pers, "spellAttack") + findD20PenaltyPart(pers).value;
+  return mod + pb + sumSpellAttackBonuses(pers) + findD20PenaltyPart(pers).value;
 }
 
 /** Calculate spell save DC */
 export function calculateSpellDC(pers: PersWithRelations, spellcastingAbility: Ability): number {
   const mod = calculateFinalModifier(pers, spellcastingAbility);
   const pb = calculateFinalProficiency(pers);
-  return 8 + mod + pb + getSimpleBonus(pers, "spellDC");
+  return 8 + mod + pb + sumSpellDcBonuses(pers);
+}
+
+export function sumSpellAttackBonuses(pers: PersWithRelations): number {
+  return getSimpleBonus(pers, "spellAttack") + sumActiveItemBonus(pers, pickSpellAttackBonus);
+}
+
+export function sumSpellDcBonuses(pers: PersWithRelations): number {
+  return getSimpleBonus(pers, "spellDC") + sumActiveItemBonus(pers, pickSpellDcBonus);
 }
 
 // ==========================================================================
@@ -866,13 +904,13 @@ export function calculateWeaponAttackBonus(pers: PersWithRelations, pw: PersWeap
   const mod = calculateFinalModifier(pers, ability);
   const pb = pw.isProficient ? calculateFinalProficiency(pers) : 0;
   const stateBonus = findStateUnarmedStrike(pers, pw)?.attackBonus ?? 0;
-  return mod + pb + toNumber(pw.attackBonus, 0) + getFeatureWeaponAttackBonus(pers, pw.weapon) + stateBonus + findD20PenaltyPart(pers).value;
+  return mod + pb + toNumber(pw.attackBonus, 0) + sumWeaponItemBonus(pers, pw) + getFeatureWeaponAttackBonus(pers, pw.weapon) + stateBonus + findD20PenaltyPart(pers).value;
 }
 
 export function calculateWeaponDamageBonus(pers: PersWithRelations, pw: PersWeaponWithWeapon): number {
   const ability = getWeaponAbility(pers, pw);
   const mod = calculateFinalModifier(pers, ability);
-  let bonus = mod + toNumber(pw.customDamageBonus, 0);
+  let bonus = mod + toNumber(pw.customDamageBonus, 0) + sumWeaponItemBonus(pers, pw);
 
   // Add bonuses granted by active features (e.g., Dueling, Thrown Weapon Fighting)
   bonus += getFeatureWeaponDamageBonus(pers, pw);

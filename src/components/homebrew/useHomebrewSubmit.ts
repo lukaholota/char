@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import type { HomebrewFieldErrors } from "@/lib/logic/homebrew-input";
+import type { HomebrewFieldErrors, HomebrewKind } from "@/lib/logic/homebrew-input";
 import { capturePostHogEvent } from "@/lib/monitoring/posthog-client";
 
 type SaveResult = { success: true; entryId: number } | { success: false; error?: string; fieldErrors?: HomebrewFieldErrors };
 
-export function useHomebrewSubmit(context: { kind: "SPELL" | "CREATURE"; ruleset: string; entryId?: number }) {
+export function useHomebrewSubmit(context: { kind: HomebrewKind; ruleset: string; entryId?: number }) {
   const router = useRouter();
   const [errors, setErrors] = useState<HomebrewFieldErrors>({});
   const [isSaving, startSaving] = useTransition();

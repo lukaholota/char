@@ -20,7 +20,7 @@ export function InAppBrowserHint({ onOpenAuth }: { onOpenAuth: () => void }) {
     <div role="note" className="mt-3 flex flex-col gap-1 border-t border-white/10 pt-3 text-sm text-slate-300 sm:flex-row sm:items-center sm:gap-2">
       <p className="flex items-start gap-2">
         <Info aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
-        <span>Схоже, це вбудований браузер застосунку. Щоб зберегти персонажа, може знадобитися звичайний браузер.</span>
+        <span>Схоже, це вбудований браузер застосунку. Google тут може не спрацювати — увійдіть поштою й паролем.</span>
       </p>
       <Button type="button" variant="link" className="min-h-10 self-start pl-6 pr-2 text-arcane-200 sm:self-auto sm:pl-2" onClick={onOpenAuth}>
         Як увійти

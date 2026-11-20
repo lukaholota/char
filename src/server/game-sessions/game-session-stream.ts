@@ -100,6 +100,10 @@ function runStream({ sessionId, userId, afterSeq, abortSignal }: StreamInput, co
   };
 
   const onSignal = (signal: GameSessionWake) => {
+    if (typeof signal === "object" && "soundUserId" in signal) {
+      if (signal.sceneId === state.viewedSceneId && signal.soundUserId !== userId) sendEvent("sound", { key: signal.key });
+      return;
+    }
     if (typeof signal === "object" && "pingerUserId" in signal) {
       if (signal.sceneId === state.viewedSceneId) sendEvent("ping", { userId: signal.pingerUserId, at: signal.at });
       return;

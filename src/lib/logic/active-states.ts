@@ -12,9 +12,18 @@ import {
   type StateEffects,
   type StatePart,
 } from "@/rules/state-effects";
-import { calculateFinalModifier, collectActiveFeatures, hasEquippedHeavyArmor, readStateEffects } from "./bonus-calculator";
+import { buildItemStateKey } from "@/rules/magic-item-states";
+import { findMagicItemEffects } from "@/rules/magic-item-effects";
+import {
+  calculateFinalModifier,
+  collectActiveFeatures,
+  hasEquippedHeavyArmor,
+  listSwitchedOnItemStates,
+  readStateEffects,
+} from "./bonus-calculator";
 import { listActiveFeatureEngNames } from "./feature-state-rows";
 import { listActiveBuffKeys } from "./pers-effect-rows";
+import { listActiveMagicItemLinks } from "./magic-weapon-links";
 
 /// Той самий малюнок, що й Дика форма (`beast-form.ts`): калькулятори лишаються чистими
 /// функціями від `pers`, а шар кладе на копію ефекти всього, що зараз діє, — рис, бафів,
@@ -32,7 +41,7 @@ export function applyActiveStates(pers: PersWithRelations): PersWithRelations {
 }
 
 export function findActiveStateEffects(pers: PersWithRelations): StateEffects | null {
-  return mergeStateEffects(listActiveStateParts(pers).map(({ part }) => part));
+  return mergeStateEffects([...listActiveStateParts(pers), ...listItemAdvantageParts(pers)].map(({ part }) => part));
 }
 
 export function listActiveStateParts(pers: PersWithRelations): StatePart[] {
@@ -49,7 +58,26 @@ export function listActiveStateParts(pers: PersWithRelations): StatePart[] {
     ...collectSpellBuffParts(listActiveBuffKeys(pers), pers.ruleset),
     ...(exhaustion ? [{ sourceKey: EXHAUSTION_SOURCE_KEY, part: exhaustion }] : []),
     ...(hasWarCaster(pers) ? [WAR_CASTER_PART] : []),
+    ...listItemStateParts(pers),
   ];
+}
+
+function listItemStateParts(pers: PersWithRelations): StatePart[] {
+  return listSwitchedOnItemStates(pers).map(({ magicItemId, state }) => {
+    const sourceKey = buildItemStateKey(magicItemId);
+    return { sourceKey, part: state.findPart(sourceKey) };
+  });
+}
+
+/// Пасивна перевага предмета (Щит вартового) — не стан: її не вимикають, вона діє, поки діє предмет.
+function listItemAdvantageParts(pers: PersWithRelations): StatePart[] {
+  return listActiveMagicItemLinks(pers).flatMap((link) => {
+    const sourceKey = buildItemStateKey(link.magicItemId);
+    const rollModifiers = findMagicItemEffects(link.magicItem).flatMap((effect) =>
+      effect.kind === "ADVANTAGE" ? [{ mode: "ADVANTAGE" as const, scope: effect.scope, sourceKey }] : [],
+    );
+    return rollModifiers.length > 0 ? [{ sourceKey, part: { rollModifiers } }] : [];
+  });
 }
 
 /// Кидок бере стан із того самого `pers`, з якого лист малює число.

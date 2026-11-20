@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
 import { captureAuthCompleted, captureAuthFailed, captureAuthStarted } from "@/lib/monitoring/funnel-analytics";
+import { announceSignedIn } from "@/lib/auth/sign-in-notice";
 
 type GsiInitConfig = {
   client_id: string;
@@ -67,7 +68,7 @@ export default function GoogleOneTap({ suppressed = false }: { suppressed?: bool
         console.error("Sing in error", result.error);
       } else {
         captureAuthCompleted("one_tap");
-        await update();
+        announceSignedIn((await update())?.user?.email);
         router.refresh();
       }
 

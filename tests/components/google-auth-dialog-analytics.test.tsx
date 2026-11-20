@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
-import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import SignInDialog from "@/lib/components/auth/SignInDialog";
 
 const auth = vi.hoisted(() => ({ signIn: vi.fn() }));
 const analytics = vi.hoisted(() => ({
@@ -20,7 +20,7 @@ vi.mock("next/navigation", () => ({ usePathname: () => "/char/create" }));
 vi.mock("@/lib/monitoring/funnel-analytics", () => analytics);
 
 function openDialogAndSignIn() {
-  render(<GoogleAuthDialog open onOpenChange={() => undefined} callbackUrl="/char/create" analyticsTrigger="creator_submit" />);
+  render(<SignInDialog open onOpenChange={() => undefined} callbackUrl="/char/create" analyticsTrigger="creator_submit" />);
   fireEvent.click(screen.getByRole("button", { name: /Продовжити з Google/ }));
 }
 
@@ -30,7 +30,7 @@ beforeEach(() => {
 });
 afterEach(cleanup);
 
-describe("GoogleAuthDialog — події входу", () => {
+describe("SignInDialog — події входу", () => {
   it("рахує запит входу й передає в Google адресу з контекстом аналітики", async () => {
     auth.signIn.mockResolvedValue({ url: null });
     openDialogAndSignIn();

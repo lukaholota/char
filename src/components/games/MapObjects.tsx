@@ -22,19 +22,20 @@ const IMAGE_SOURCES = [{ value: "own", label: "Свої" }, { value: "set", labe
 type ImageSource = (typeof IMAGE_SOURCES)[number]["value"];
 
 /// Обʼєкт — частина мапи: росте разом із нею, без протизуму токенів. Поза інструментом він не ловить дотиків.
-export function MapObjectsLayer({ objects, isEditing, isGrouped }: { objects: MapObjects; isEditing: boolean; isGrouped: (id: number) => boolean }) {
+export function MapObjectsLayer({ objects, isGrouped }: { objects: MapObjects; isGrouped: (id: number) => boolean }) {
   return (
-    <div className={cn("absolute inset-0", !isEditing && "pointer-events-none")}>
+    <div className={cn("absolute inset-0", !objects.isEditing && "pointer-events-none")}>
       {objects.shown.map((object) => {
         const at = objects.findShownAt(object);
         const isChosen = objects.chosen?.id === object.id;
+        const isEditing = objects.isEditable(object);
         const box = { left: `${at.x * 100}%`, top: `${at.y * 100}%`, width: `${objects.findWidthShare(object) * 100}%` };
         const image = (
           // eslint-disable-next-line @next/next/no-img-element -- зображення з бібліотеки вже стиснуте до webp, а розмір залежить від зуму мапи
           <img src={object.imageUrl} alt={isEditing ? "" : (object.name ?? "")} draggable={false} className="block h-auto w-full select-none" style={object.rotation ? { transform: `rotate(${object.rotation}deg)` } : undefined} />
         );
         return (
-          <div key={object.id} className={cn("absolute -translate-x-1/2 -translate-y-1/2", object.isHidden && "opacity-50", objects.ghostId === object.id && "opacity-80")} style={box}>
+          <div key={object.id} className={cn("absolute -translate-x-1/2 -translate-y-1/2", !isEditing && "pointer-events-none", object.isHidden && "opacity-50", objects.ghostId === object.id && "opacity-80")} style={box}>
             {isEditing ? (
               <button type="button" data-map-control aria-label={`${describeObject(object)}${object.isHidden ? ", схований" : ""}`} aria-pressed={isChosen} className="block w-full touch-none rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-arcane-200" {...objects.bindObject(object.id)}>
                 {image}

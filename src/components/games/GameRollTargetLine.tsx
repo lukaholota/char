@@ -23,7 +23,7 @@ export function GameRollTargetLine({ target, seq }: { target: GameRollTargetView
 
 function buildOutcomeText(target: GameRollTargetView): string {
   if (target.kind === "damage") return `−${target.damage ?? 0}${target.isDowned ? " · повалений" : ""}`;
-  if (target.isHit === null) return "КЗ невідомий";
+  if (target.isHit === null) return "КБ невідомий";
   return target.isHit ? "Влучання" : "Промах";
 }
 
@@ -39,7 +39,7 @@ function GmDetails({ gm, kind, seq }: { gm: NonNullable<GameRollTargetView["gm"]
     addGameEvents(sessionId, [result.value]);
     captureGameEvent("game_damage_undone", {});
   };
-  if (kind === "attack") return <p className="text-xs text-slate-400">{gm.armorClass === null ? "КЗ істоти змінний — перевірте вручну" : `КЗ ${gm.armorClass}`}</p>;
+  if (kind === "attack") return <p className="text-xs text-slate-400">{gm.armorClass === null ? "КБ істоти змінний — перевірте вручну" : `КБ ${gm.armorClass}`}</p>;
   if (gm.hitPointsBefore === null || gm.hitPointsAfter === null) return <p className="text-xs text-slate-400">Хіти не змінено: у істоти їх не задано</p>;
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">

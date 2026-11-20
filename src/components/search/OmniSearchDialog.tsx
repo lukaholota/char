@@ -56,7 +56,7 @@ export function OmniSearchDialog() {
         } : undefined}
         onOpenAutoFocus={(event) => event.preventDefault()}
       >
-        <DialogTitle className="sr-only">Глобальний пошук по платформі (Omni-Search)</DialogTitle>
+        <DialogTitle className="sr-only">Пошук</DialogTitle>
         <OmniSearchPanel onClose={close} />
       </DialogContent>
     </Dialog>

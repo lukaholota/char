@@ -12,7 +12,7 @@ vi.mock("@/app/games/room-hero-sheet", () => ({ RoomHeroSheet: () => null, RoomH
 vi.mock("@/components/games/GameRoomPage", () => ({ GameRoomPage: () => null }));
 vi.mock("@/components/games/GameJoinCard", () => ({ GameJoinCard: () => null }));
 vi.mock("@/lib/no-ai/no-ai-server", () => ({ redirectKeepingNoAiMode: vi.fn() }));
-vi.mock("@/lib/components/auth/GoogleAuthDialog", () => ({ default: ({ trigger }: { trigger?: ReactNode }) => trigger ?? <button type="button">Увійти</button> }));
+vi.mock("@/lib/components/auth/SignInDialog", () => ({ default: ({ trigger }: { trigger?: ReactNode }) => trigger ?? <button type="button">Увійти</button> }));
 vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ push: vi.fn() }), useNoAiMode: () => ({ enabled: mocks.noAi.enabled, routePathname: "/games" }) }));
 vi.mock("@/components/no-ai/ModeLink", () => ({ ModeLink: ({ href, children }: { href: string; children: ReactNode }) => <a href={href}>{children}</a> }));
 vi.mock("@/components/games/use-games-href", () => ({ useGamesHref: () => (path: string) => path }));

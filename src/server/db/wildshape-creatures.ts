@@ -2,7 +2,7 @@ import type { Prisma, Ruleset } from "@prisma/client";
 import { type CreatureData, buildCreatureKey, findCreatureByKey } from "@/lib/bestiaryData";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { prisma } from "@/lib/prisma";
-import { buildHomebrewCreatureKey, findHomebrewCreatureEntryId } from "@/lib/logic/homebrew-catalog";
+import { buildHomebrewEntryKey, findHomebrewEntryId } from "@/lib/logic/homebrew-catalog";
 import { buildHomebrewCreatureData, isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
 import { readImageKey } from "@/server/db/homebrew-removal";
 
@@ -11,7 +11,7 @@ export type WildshapeCreatureRef = { key: string; ruleset: Ruleset };
 /// Хоумбрю в бестіарії має ключ `homebrew-<id>`, а не слаг англ. назви: інакше хоумбрю «Wolf»
 /// прикріпився б як каталожний вовк.
 export function buildWildshapeCreatureKey(creature: Pick<CreatureData, "creatureId" | "nameEng">): string {
-  return isHomebrewCatalogId(creature.creatureId) ? buildHomebrewCreatureKey(-creature.creatureId) : buildCreatureKey(creature);
+  return isHomebrewCatalogId(creature.creatureId) ? buildHomebrewEntryKey(-creature.creatureId) : buildCreatureKey(creature);
 }
 
 export async function findWildshapeCreature(ref: WildshapeCreatureRef): Promise<CreatureData | null> {
@@ -24,7 +24,7 @@ export async function findWildshapeCreatures(refs: readonly WildshapeCreatureRef
 
   const found = new Map<string, CreatureData>();
   for (const ref of refs) {
-    const creature = findHomebrewCreatureEntryId(ref.key) === null ? findCreatureByKey(ref.key, ref.ruleset) : homebrew.get(buildRefId(ref));
+    const creature = findHomebrewEntryId(ref.key) === null ? findCreatureByKey(ref.key, ref.ruleset) : homebrew.get(buildRefId(ref));
     if (creature) found.set(buildRefId(ref), creature);
   }
   return found;
@@ -36,7 +36,7 @@ export function buildRefId(ref: WildshapeCreatureRef): string {
 
 async function loadHomebrewCreatures(refs: readonly WildshapeCreatureRef[]): Promise<Map<string, CreatureData>> {
   const wanted = refs.flatMap((ref) => {
-    const entryId = findHomebrewCreatureEntryId(ref.key);
+    const entryId = findHomebrewEntryId(ref.key);
     return entryId === null ? [] : [{ ref, entryId }];
   });
   if (wanted.length === 0) return new Map();

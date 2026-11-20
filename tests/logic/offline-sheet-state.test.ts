@@ -280,6 +280,13 @@ describe("O39 — концентрація, бафи й виснаження в 
     expect(pers.effects.find((row) => row.effectKey === "CONCENTRATION")?.spell?.name).toBe("Благословення [Bless]");
   });
 
+  it("стан предмета вмикається й вимикається з черги, а короткий відпочинок його знімає", () => {
+    const on = operation({ kind: "item-state", magicItemId: 7, isActive: true }, 1);
+    expect(keys(applyQueuedOperationsToSheet(caster, rageFeatures, [on]).pers)).toEqual(["ITEM:7"]);
+    expect(keys(applyQueuedOperationsToSheet(caster, rageFeatures, [on, operation({ kind: "item-state", magicItemId: 7, isActive: false }, 2)]).pers)).toEqual([]);
+    expect(keys(applyQueuedOperationsToSheet(caster, rageFeatures, [on, operation({ kind: "short-rest", hitDiceSpent: [], restoredHitPoints: 0 }, 2)]).pers)).toEqual([]);
+  });
+
   it("короткий відпочинок лишає Обладунок мага, довгий знімає все й один рівень виснаження", () => {
     const buffed = [
       operation({ kind: "concentration", spellId: 501 }, 1),

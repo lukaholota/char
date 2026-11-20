@@ -39,7 +39,7 @@ export function ObjectStatblockCard({ article, className }: Props) {
         </div>
       </div>
 
-      {/* Значки — тип, розмір, КЗ/ХП */}
+      {/* Значки — тип, розмір, КБ/ХП */}
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <span
           className={cn(
@@ -53,7 +53,7 @@ export function ObjectStatblockCard({ article, className }: Props) {
           {findObjectSizeLabel(article.size)}
         </span>
         <span className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-slate-300">
-          КЗ {article.ac}
+          КБ {article.ac}
         </span>
         <span className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-slate-300">
           ХП {article.hp}

@@ -5,7 +5,9 @@ import { prisma } from "@/lib/prisma";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import {
   buildCreatureStatBlock,
+  buildHomebrewItemColumns,
   parseHomebrewCreatureInput,
+  parseHomebrewItemInput,
   parseHomebrewSpellInput,
   readCreatureInputFromStatBlock,
   toHomebrewEdition,
@@ -17,7 +19,8 @@ import {
   type HomebrewKind,
   type HomebrewRuleset,
 } from "@/lib/logic/homebrew-input";
-import { buildHomebrewCreatureData, buildHomebrewSpellData, type HomebrewCatalogEntry } from "@/lib/logic/homebrew-view";
+import { buildHomebrewCreatureData, buildHomebrewItemData, buildHomebrewSpellData, type HomebrewCatalogEntry } from "@/lib/logic/homebrew-view";
+import { buildHomebrewItemEngName } from "@/lib/logic/homebrew-catalog";
 import { buildDiscussionTarget, buildPublicAuthorName, type VoteValue } from "@/lib/logic/content-discussion";
 import { HOMEBREW_ENTRIES_PER_DAY, findEntryLimitStart } from "@/rules/homebrew-limits";
 import { deleteStoredImage, storeSquareImage } from "@/server/media/image-upload";
@@ -32,11 +35,14 @@ type SaveResult = { success: true; entryId: number } | { success: false; error?:
 type ActionResult = { success: true } | { success: false; error: string };
 
 const MAX_LISTED_ENTRIES = 500;
+/// Сід каталогу 2014 вставляє нові предмети з явними id одразу за максимальним — хоумбрю живе окремо, щоб не зайняти їхні id.
+const HOMEBREW_ITEM_ID_BASE = 1_000_000;
 
 const ENTRY_INCLUDE = {
   author: { select: { name: true, displayName: true } },
   spell: true,
   creature: true,
+  magicItem: true,
 } satisfies Prisma.HomebrewEntryInclude;
 
 type LoadedEntry = Prisma.HomebrewEntryGetPayload<{ include: typeof ENTRY_INCLUDE }>;
@@ -67,17 +73,18 @@ export async function loadHomebrewEntry(entryId: number, preferredRuleset: Homeb
 
 export type HomebrewEditValues =
   | { kind: "SPELL"; entryId: number; values: Record<string, unknown> }
-  | { kind: "CREATURE"; entryId: number; values: Record<string, unknown>; imageUrl: string | null };
+  | { kind: "CREATURE" | "ITEM"; entryId: number; values: Record<string, unknown>; imageUrl: string | null };
 
 export async function loadHomebrewEditValues(entryId: number): Promise<HomebrewEditValues | null> {
   const viewer = await findContentViewer();
   if (await findEditError(entryId, viewer, null)) return null;
-  const entry = await prisma.homebrewEntry.findUniqueOrThrow({ where: { homebrewEntryId: entryId }, include: { spell: true, creature: true } });
+  const entry = await prisma.homebrewEntry.findUniqueOrThrow({ where: { homebrewEntryId: entryId }, include: { spell: true, creature: true, magicItem: true } });
 
   if (entry.spell) {
     const { homebrewEntryId, ...spell } = entry.spell;
     return { kind: "SPELL", entryId: homebrewEntryId, values: { ...spell, engName: spell.engName ?? "", level: String(spell.level), name: entry.name, ruleset: toHomebrewEdition(entry.ruleset) } };
   }
+  if (entry.magicItem) return { kind: "ITEM", entryId, values: readItemFormInput(entry.magicItem, entry.ruleset), imageUrl: buildImageUrl(entry.magicItem.imageKey) };
   if (!entry.creature) return null;
   const statBlock = readStatBlock(entry.creature.statBlock);
   const imageKey = readImageKey(entry.creature.statBlock);
@@ -85,7 +92,7 @@ export async function loadHomebrewEditValues(entryId: number): Promise<HomebrewE
     kind: "CREATURE",
     entryId,
     values: { ...readCreatureInputFromStatBlock(statBlock), name: entry.name, ruleset: toHomebrewEdition(entry.ruleset) },
-    imageUrl: imageKey ? buildMediaImageUrl(imageKey, "full") : null,
+    imageUrl: buildImageUrl(imageKey),
   };
 }
 
@@ -132,7 +139,7 @@ export async function saveHomebrewCreature(formData: FormData): Promise<SaveResu
   const accessError = entryId ? await findEditError(entryId, viewer, "CREATURE") : await findEntryLimitError(viewer.userId);
   if (accessError) return { success: false, error: accessError };
 
-  const image = await resolveCreatureImage(formData, readImageKey(previous?.statBlock));
+  const image = await resolveUploadedImage(formData, readImageKey(previous?.statBlock), "homebrew/creatures");
   if ("error" in image) return { success: false, error: image.error };
 
   const statBlock = { ...buildCreatureStatBlock(parsed.data, catalogSpells), imageKey: image.key } as Prisma.InputJsonObject;
@@ -150,6 +157,37 @@ export async function saveHomebrewCreature(formData: FormData): Promise<SaveResu
 
   if (image.replacedKey) await deleteStoredImage(image.replacedKey);
   return { success: true, entryId: saved.homebrewEntryId };
+}
+
+export async function saveHomebrewItem(formData: FormData): Promise<SaveResult> {
+  const viewer = await findContentViewer();
+  if (!viewer.userId) return { success: false, error: NOT_SIGNED_IN };
+  const parsed = parseHomebrewItemInput(readJsonField(formData.get("values")));
+  if ("errors" in parsed) return { success: false, fieldErrors: parsed.errors };
+
+  const entryId = Number(formData.get("entryId")) || null;
+  const accessError = entryId ? await findEditError(entryId, viewer, "ITEM") : await findEntryLimitError(viewer.userId);
+  if (accessError) return { success: false, error: accessError };
+
+  const previous = entryId ? await prisma.homebrewEntry.findUnique({ where: { homebrewEntryId: entryId }, select: { magicItem: { select: { imageKey: true } } } }) : null;
+  const image = await resolveUploadedImage(formData, previous?.magicItem?.imageKey ?? null, "homebrew/items");
+  if ("error" in image) return { success: false, error: image.error };
+
+  const { bonusToSavingThrows, ...columns } = buildHomebrewItemColumns(parsed.data);
+  const item = { ...columns, bonusToSavingThrows: bonusToSavingThrows ?? Prisma.DbNull, imageKey: image.key };
+  const entry = { name: parsed.data.name, ruleset: toStoredRuleset(parsed.data.ruleset) };
+  const authorUserId = viewer.userId;
+  const savedEntryId = entryId
+    ? (await prisma.homebrewEntry.update({ where: { homebrewEntryId: entryId }, data: { ...entry, updatedAt: new Date(), magicItem: { update: item } }, select: { homebrewEntryId: true } })).homebrewEntryId
+    : await prisma.$transaction(async (tx) => {
+        const { homebrewEntryId } = await tx.homebrewEntry.create({ data: { ...entry, kind: "ITEM", authorUserId }, select: { homebrewEntryId: true } });
+        const magicItem = { ...item, magicItemId: HOMEBREW_ITEM_ID_BASE + homebrewEntryId, engName: buildHomebrewItemEngName(homebrewEntryId) };
+        await tx.homebrewEntry.update({ where: { homebrewEntryId }, data: { magicItem: { create: magicItem } } });
+        return homebrewEntryId;
+      });
+
+  if (image.replacedKey) await deleteStoredImage(image.replacedKey);
+  return { success: true, entryId: savedEntryId };
 }
 
 export async function deleteHomebrewEntry(entryId: number): Promise<ActionResult> {
@@ -185,10 +223,10 @@ async function countComments(targets: string[], hideAiAuthors: boolean): Promise
   return new Map(counts.map((count) => [count.target, count._count._all]));
 }
 
-async function resolveCreatureImage(formData: FormData, previousKey: string | null): Promise<{ key: string | null; replacedKey: string | null } | { error: string }> {
+async function resolveUploadedImage(formData: FormData, previousKey: string | null, folder: string): Promise<{ key: string | null; replacedKey: string | null } | { error: string }> {
   const file = formData.get("image");
   if (file instanceof Blob && file.size > 0) {
-    const stored = await storeSquareImage(file, "homebrew/creatures");
+    const stored = await storeSquareImage(file, folder);
     return "error" in stored ? stored : { key: stored.key, replacedKey: previousKey };
   }
   if (formData.get("removeImage") === "1") return { key: null, replacedKey: previousKey };
@@ -212,9 +250,31 @@ function toCatalogEntry(entry: LoadedEntry, viewedRuleset: HomebrewRuleset, acti
   if (entry.kind === "CREATURE" && entry.creature) {
     const statBlock = readStatBlock(entry.creature.statBlock);
     const imageKey = readImageKey(entry.creature.statBlock);
-    return { ...summary, kind: "CREATURE", creature: buildHomebrewCreatureData({ entryId: entry.homebrewEntryId, ruleset }, statBlock, imageKey ? buildMediaImageUrl(imageKey, "full") : null) };
+    return { ...summary, kind: "CREATURE", creature: buildHomebrewCreatureData({ entryId: entry.homebrewEntryId, ruleset }, statBlock, buildImageUrl(imageKey)) };
+  }
+  if (entry.kind === "ITEM" && entry.magicItem) {
+    return { ...summary, kind: "ITEM", item: buildHomebrewItemData({ entryId: entry.homebrewEntryId, ruleset }, entry.magicItem) };
   }
   return null;
+}
+
+function buildImageUrl(imageKey: string | null): string | null {
+  return imageKey ? buildMediaImageUrl(imageKey, "full") : null;
+}
+
+function readItemFormInput(item: { name: string; itemType: string; rarity: string; requiresAttunement: boolean; description: string; bonusToAC: number | null; bonusToSavingThrows: Prisma.JsonValue; weaponBonus: number | null }, ruleset: string | null) {
+  const saveBonus = readStatBlock(item.bonusToSavingThrows).all;
+  return {
+    ruleset: toHomebrewEdition(ruleset),
+    name: item.name,
+    itemType: item.itemType,
+    rarity: item.rarity,
+    requiresAttunement: item.requiresAttunement,
+    description: item.description,
+    acBonus: item.bonusToAC ? String(item.bonusToAC) : "",
+    saveBonus: typeof saveBonus === "number" ? String(saveBonus) : "",
+    weaponBonus: item.weaponBonus ? String(item.weaponBonus) : "",
+  };
 }
 
 function canViewerEdit(viewer: Viewer, entry: LoadedEntry): boolean {

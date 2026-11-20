@@ -9,16 +9,19 @@ import { setMagicItemChargesMax, stepMagicItemCharges } from "@/lib/actions/magi
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import { createOperationId } from "@/lib/offline/queue";
 import { applyChargesMax, applyChargesStep, type MagicItemCharges } from "@/rules/magic-item-charges";
+import { describeChargeRecovery, pluralizeCharges, type ChargeRecovery } from "@/rules/magic-item-charge-text";
 
 type Props = {
   persId: number;
   persMagicItemId: number;
   charges: MagicItemCharges;
+  itemName: string;
+  recovery: ChargeRecovery | null;
   isReadOnly?: boolean;
   onChanged: () => void;
 };
 
-export function MagicItemChargesControl({ persId, persMagicItemId, charges, isReadOnly, onChanged }: Props) {
+export function MagicItemChargesControl({ persId, persMagicItemId, charges, itemName, recovery, isReadOnly, onChanged }: Props) {
   const { commitOperation } = useOfflineQueue();
   const [shown, setShown] = useState(charges);
   const [isEditingMax, setIsEditingMax] = useState(false);
@@ -29,7 +32,7 @@ export function MagicItemChargesControl({ persId, persMagicItemId, charges, isRe
 
   type ChargesSaveResult = { success: boolean; error?: string; queued?: boolean };
 
-  const commit = (next: MagicItemCharges, save: () => Promise<ChargesSaveResult>) => {
+  const commit = (next: MagicItemCharges, save: () => Promise<ChargesSaveResult>, onSaved?: () => void) => {
     const previous = shown;
     setShown(next);
     startTransition(async () => {
@@ -39,18 +42,21 @@ export function MagicItemChargesControl({ persId, persMagicItemId, charges, isRe
         toast.error(result.error ?? "Не вдалося змінити заряди");
         return;
       }
+      onSaved?.();
       if (!result.queued) onChanged();
     });
   };
 
-  const step = (delta: number) =>
-    commit(applyChargesStep(shown, delta), async () => {
+  const step = (delta: number) => {
+    const next = applyChargesStep(shown, delta);
+    return commit(next, async () => {
       const outcome = await commitOperation(
         { kind: "magic-item-charges", persMagicItemId, step: delta, operationId: createOperationId(), persId, createdAt: new Date().toISOString() },
         (operationId) => stepMagicItemCharges(persMagicItemId, delta, operationId),
       );
       return outcome.queued ? { success: true, queued: true } : outcome.result;
-    });
+    }, delta < 0 ? () => announceSpentCharge(persMagicItemId, itemName, next, recovery) : undefined);
+  };
 
   const saveMax = () => {
     setIsEditingMax(false);
@@ -91,8 +97,9 @@ export function MagicItemChargesControl({ persId, persMagicItemId, charges, isRe
 
   return (
     <div className="flex items-center gap-0.5">
+      <span aria-hidden className="mr-1 text-xs text-slate-500">Заряди</span>
       {!isReadOnly && (
-        <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Витратити заряд" disabled={isPending || shown.chargesCurrent === 0} onClick={() => step(-1)}>
+        <Button variant="ghost" size="icon" className="h-9 w-9 md:h-7 md:w-7" aria-label={`Витратити заряд: ${itemName}`} disabled={isPending || shown.chargesCurrent === 0} onClick={() => step(-1)}>
           <Minus className="h-3.5 w-3.5" />
         </Button>
       )}
@@ -100,15 +107,23 @@ export function MagicItemChargesControl({ persId, persMagicItemId, charges, isRe
         type="button"
         className="min-w-[2.75rem] rounded px-1 text-xs font-bold tabular-nums text-violet-200 hover:bg-white/5"
         title={isReadOnly ? "Заряди" : "Змінити максимум зарядів"}
+        aria-label={`Заряди: ${shown.chargesCurrent} з ${shown.chargesMax}`}
         onClick={startEditingMax}
       >
         {shown.chargesCurrent}/{shown.chargesMax}
       </button>
       {!isReadOnly && (
-        <Button variant="ghost" size="icon" className="h-7 w-7" aria-label="Повернути заряд" disabled={isPending || shown.chargesCurrent === shown.chargesMax} onClick={() => step(1)}>
+        <Button variant="ghost" size="icon" className="h-9 w-9 md:h-7 md:w-7" aria-label={`Повернути заряд: ${itemName}`} disabled={isPending || shown.chargesCurrent === shown.chargesMax} onClick={() => step(1)}>
           <Plus className="h-3.5 w-3.5" />
         </Button>
       )}
     </div>
   );
+}
+
+function announceSpentCharge(persMagicItemId: number, itemName: string, charges: MagicItemCharges, recovery: ChargeRecovery | null) {
+  const left = charges.chargesCurrent ?? 0;
+  const title = left === 0 ? `${itemName}: заряди скінчилися` : `${itemName}: лишилось ${left} ${pluralizeCharges(left)} з ${charges.chargesMax}`;
+  const description = recovery ? `На світанку відновлює ${describeChargeRecovery(recovery)} — лист додасть їх на тривалому відпочинку.` : undefined;
+  toast(title, { id: `magic-item-charges-${persMagicItemId}`, description });
 }

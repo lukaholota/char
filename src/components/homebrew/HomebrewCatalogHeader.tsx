@@ -8,6 +8,8 @@ import { buildHomebrewCatalogHref, type HomebrewSort } from "@/lib/logic/homebre
 import type { HomebrewKind } from "@/lib/logic/homebrew-input";
 import { cn } from "@/lib/utils";
 
+const ADD_LABELS: Record<HomebrewKind, string> = { SPELL: "Додати заклинання", CREATURE: "Додати істоту", ITEM: "Додати предмет" };
+
 type Props = { kind: HomebrewKind; is2024: boolean; sort: HomebrewSort; isModerator: boolean };
 
 export function HomebrewCatalogHeader({ kind, is2024, sort, isModerator }: Props) {
@@ -20,6 +22,7 @@ export function HomebrewCatalogHeader({ kind, is2024, sort, isModerator }: Props
         <Segmented items={[
           { href: hrefWith({ kind: "SPELL" }), label: "Заклинання", isActive: kind === "SPELL", onClick: () => kind !== "SPELL" && capturePostHogEvent("homebrew_tab_switched", { from_kind: kind, kind: "SPELL" }) },
           { href: hrefWith({ kind: "CREATURE" }), label: "Істоти", isActive: kind === "CREATURE", onClick: () => kind !== "CREATURE" && capturePostHogEvent("homebrew_tab_switched", { from_kind: kind, kind: "CREATURE" }) },
+          { href: hrefWith({ kind: "ITEM" }), label: "Предмети", isActive: kind === "ITEM", onClick: () => kind !== "ITEM" && capturePostHogEvent("homebrew_tab_switched", { from_kind: kind, kind: "ITEM" }) },
         ]} />
         <Segmented items={[
           { href: hrefWith({ is2024: false }), label: "2014", isActive: !is2024 },
@@ -31,7 +34,7 @@ export function HomebrewCatalogHeader({ kind, is2024, sort, isModerator }: Props
         ]} />
         <Link href={`/homebrew/new?kind=${kind}&edition=${is2024 ? "2024" : "2014"}`} onClick={() => capturePostHogEvent("homebrew_create_clicked", { kind, mode: "create", edition: is2024 ? "2024" : "2014" })} className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-amber-400/40 bg-amber-500/15 px-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-500/25 sm:min-h-10">
           <Plus className="h-4 w-4" />
-          {kind === "CREATURE" ? "Додати істоту" : "Додати заклинання"}
+          {ADD_LABELS[kind]}
         </Link>
         {isModerator ? (
           <Link href="/homebrew/reports" className="inline-flex min-h-11 items-center gap-1.5 rounded-xl px-2 text-sm text-slate-300 underline-offset-2 hover:underline sm:min-h-10">

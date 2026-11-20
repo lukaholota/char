@@ -40,7 +40,7 @@ export const HOME_EDITION_HEADINGS: Record<Edition, { system: string; homePath: 
 
 /// Кімнати не каталог і однакові в обох редакціях, тож у реєстрі їх немає; адреса лише тримає редакцію сайту.
 function buildGamesHomeCategory(edition: Edition): HomeCategory {
-  return { slug: "games", title: "Ігрові кімнати", placement: "tile", accent: "emberGold", href: getTargetEditionPath("/games", edition) };
+  return { slug: "games", title: "Holota VTT", placement: "tile", accent: "emberGold", href: getTargetEditionPath("/games", edition) };
 }
 
 export function collectHomeCategories(edition: Edition): HomeCategory[] {

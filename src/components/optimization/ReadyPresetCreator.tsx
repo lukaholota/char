@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { ArrowLeft, BookOpen, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeLink } from "@/components/no-ai/ModeLink";
-import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import SignInDialog from "@/lib/components/auth/SignInDialog";
 import type { ReadyPresetPageData } from "@/lib/optimization/ready-preset.server";
 import { useReadyPreset } from "@/lib/optimization/use-ready-preset";
 import { ReadyPresetCreationProgress } from "./ReadyPresetCreationProgress";
@@ -77,10 +77,10 @@ export function ReadyPresetCreator({ data, catalogQuery, catalogClass = "", entr
   }
   const nameField = <PresetNameField name={draft.name ?? ""} onChange={updateName} />;
   const creationStatus = <>
-    {isSignedOut && !error ? <p className="mb-3 text-sm leading-relaxed text-slate-300">Щоб зберегти персонажа, увійдіть через Google. Вибори не загубляться.</p> : null}
+    {isSignedOut && !error ? <p className="mb-3 text-sm leading-relaxed text-slate-300">Щоб зберегти персонажа, увійдіть. Вибори не загубляться.</p> : null}
     {submitting ? <ReadyPresetCreationProgress levelCount={assembly.targetLevel} /> : null}
     {error ? <p role="alert" className="mb-3 text-rose-200">{error}</p> : null}
-    {isSignInRequiredMessage(error) ? <div className="mb-3"><GoogleAuthDialog analyticsTrigger="preset_submit" open={isSignInOpen} onOpenChange={openSignIn} trigger={<Button variant="secondary" size="sm" className="min-h-11 border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"><LogIn className="mr-2 h-4 w-4" />Увійти</Button>} /></div> : null}
+    {isSignInRequiredMessage(error) ? <div className="mb-3"><SignInDialog analyticsTrigger="preset_submit" open={isSignInOpen} onOpenChange={openSignIn} trigger={<Button variant="secondary" size="sm" className="min-h-11 border border-slate-700/70 bg-white/5 text-white hover:bg-white/10"><LogIn className="mr-2 h-4 w-4" />Увійти</Button>} /></div> : null}
   </>;
   if (step >= 4) return <ReadyPresetCustomization data={data} state={state} header={header} nameFields={<>{nameField}<PresetRecap data={data} targetLevel={assembly.targetLevel} />{creationStatus}</>} onCreate={() => createUnlessSignedOut(() => void confirmCreation())} ruleExcerpts={ruleExcerpts} />;
   return <div className="mx-auto max-w-6xl px-4 pb-[calc(11rem+env(safe-area-inset-bottom))] pt-6 sm:px-6 md:pb-12">

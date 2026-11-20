@@ -10,6 +10,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
 import * as dotenv from 'dotenv';
 import { failOnShrunkCatalog } from './lib/fail-on-shrunk-catalog';
+import { HOMEBREW_ITEM_ENG_NAME_PREFIX } from '../src/lib/logic/homebrew-catalog';
 
 // Load environment variables
 dotenv.config();
@@ -49,7 +50,7 @@ export function failOnShrunkMagicItems(actual: number, minimum = MINIMUM_EXPECTE
 
 export function buildMagicItemsForGenerationQuery() {
   return {
-    where: { ruleset: ACTIVE_RULESET },
+    where: { ruleset: ACTIVE_RULESET, NOT: { engName: { startsWith: HOMEBREW_ITEM_ENG_NAME_PREFIX } } },
     orderBy: [{ name: 'asc' as const }],
     // Select all fields we need for the UI and search
     select: {

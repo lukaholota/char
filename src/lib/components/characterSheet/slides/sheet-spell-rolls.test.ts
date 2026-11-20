@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import type { PersWithRelations } from "@/lib/actions/pers";
 import type { SpellcastingStatRow } from "@/lib/logic/spellcasting-stats";
-import { buildSheetSpellRoll } from "./sheet-spell-rolls";
+import { findItemSpellUse } from "@/rules/magic-item-spell-uses";
+import { buildItemSpellRoll, buildSheetSpellRoll } from "./sheet-spell-rolls";
 
 const pers = {
   persId: 1, level: 5, ruleset: "RULES_2014", str: 8, dex: 14, con: 14, int: 18, wis: 16, cha: 10,
@@ -40,3 +41,12 @@ describe("кидок заклинання з листа", () => {
     expect(buildSheetSpellRoll({ pers: pers2024, persSpell: cure2024, statRows, slot: null })?.actions).toMatchObject([{ label: "Лікування", count: 2, sides: 8, bonus: 3 }]);
   });
 });
+
+describe("кидок заклинання з магічного предмета", () => {
+  it("три намистини — Вогнекуля 5 рівня: 10к6 і СК 15 намиста, а не персонажа", () => {
+    const roll = buildItemSpellRoll({ pers, itemName: "Намисто вогняних куль", use: findItemSpellUse({ engName: "Necklace of Fireballs" })!, charges: 3 });
+    expect(roll).toMatchObject({ title: "Намисто вогняних куль", subtitle: "3 намистини · 5 рівень", targetSave: { abilityName: "Спритності", dc: 15 } });
+    expect(roll?.actions).toMatchObject([{ count: 10, sides: 6, bonus: 0 }]);
+  });
+});
+

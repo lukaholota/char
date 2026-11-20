@@ -4,7 +4,7 @@
 
 \restrict spellsSchemaBaseline
 
--- Dumped from database version 17.11 (Debian 17.11-0+deb13u1)
+-- Dumped from database version 17.12 (Debian 17.12-0+deb13u1)
 -- Dumped by pg_dump version 17.11 (Homebrew)
 
 SET statement_timeout = 0;
@@ -2373,6 +2373,7 @@ CREATE TABLE public.game_map_creature (
     token_scale_percent smallint DEFAULT 100 NOT NULL,
     light_bright_feet smallint DEFAULT 0 NOT NULL,
     light_dim_feet smallint DEFAULT 0 NOT NULL,
+    floor smallint,
     CONSTRAINT game_map_creature_custom_name_check CHECK (((custom_name IS NULL) OR ((length(btrim((custom_name)::text)) >= 1) AND (length(btrim((custom_name)::text)) <= 40)))),
     CONSTRAINT game_map_creature_exhaustion_check CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
     CONSTRAINT game_map_creature_hp_check CHECK ((((hp_max IS NULL) AND (hp_current IS NULL)) OR ((hp_max IS NOT NULL) AND (hp_current IS NOT NULL) AND (hp_max >= 1) AND (hp_current >= 0) AND (hp_current <= hp_max)))),
@@ -2384,6 +2385,7 @@ CREATE TABLE public.game_map_creature (
     CONSTRAINT game_map_creature_token_scale_percent_check CHECK (((token_scale_percent >= 10) AND (token_scale_percent <= 1000))),
     CONSTRAINT game_map_creature_token_size_check CHECK (((token_size)::text = ANY ((ARRAY['tiny'::character varying, 'small'::character varying, 'medium'::character varying, 'large'::character varying, 'huge'::character varying, 'gargantuan'::character varying])::text[])))
 );
+ALTER TABLE ONLY public.game_map_creature ALTER COLUMN floor SET (pg_attver=9356955208);
 
 
 --
@@ -2477,6 +2479,11 @@ CREATE TABLE public.game_scene (
     fog jsonb,
     grid_opacity real DEFAULT 0.35 NOT NULL,
     lighting character varying(6) DEFAULT 'off'::character varying NOT NULL,
+    weather character varying(12) DEFAULT 'none'::character varying NOT NULL,
+    tint character varying(12) DEFAULT 'none'::character varying NOT NULL,
+    ambience jsonb,
+    floors jsonb,
+    shown_floor smallint,
     CONSTRAINT game_scene_grid_columns_check CHECK (((grid_columns >= (2)::double precision) AND (grid_columns <= (300)::double precision))),
     CONSTRAINT game_scene_grid_offset_x_check CHECK (((grid_offset_x >= (0)::double precision) AND (grid_offset_x < (1)::double precision))),
     CONSTRAINT game_scene_grid_offset_y_check CHECK (((grid_offset_y >= (0)::double precision) AND (grid_offset_y < (1)::double precision))),
@@ -2484,6 +2491,11 @@ CREATE TABLE public.game_scene (
     CONSTRAINT game_scene_lighting_check CHECK (((lighting)::text = ANY ((ARRAY['off'::character varying, 'bright'::character varying, 'dim'::character varying, 'dark'::character varying])::text[]))),
     CONSTRAINT game_scene_name_check CHECK (((length(btrim((name)::text)) >= 1) AND (length(btrim((name)::text)) <= 60)))
 );
+ALTER TABLE ONLY public.game_scene ALTER COLUMN weather SET (pg_attver=9356771800);
+ALTER TABLE ONLY public.game_scene ALTER COLUMN tint SET (pg_attver=9356845944);
+ALTER TABLE ONLY public.game_scene ALTER COLUMN ambience SET (pg_attver=9356847672);
+ALTER TABLE ONLY public.game_scene ALTER COLUMN floors SET (pg_attver=9356848112);
+ALTER TABLE ONLY public.game_scene ALTER COLUMN shown_floor SET (pg_attver=9356848552);
 
 
 --
@@ -2541,8 +2553,11 @@ CREATE TABLE public.game_scene_drawing (
     width character varying(6) NOT NULL,
     points jsonb NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    CONSTRAINT game_scene_drawing_color_check CHECK (((color)::text = ANY ((ARRAY['red'::character varying, 'amber'::character varying, 'emerald'::character varying, 'sky'::character varying, 'violet'::character varying, 'white'::character varying, 'black'::character varying])::text[]))),
+    shape character varying(7) DEFAULT 'line'::character varying NOT NULL,
+    is_filled boolean DEFAULT false NOT NULL,
+    CONSTRAINT game_scene_drawing_color_check CHECK (((color)::text = ANY ((ARRAY['red'::character varying, 'orange'::character varying, 'amber'::character varying, 'emerald'::character varying, 'teal'::character varying, 'sky'::character varying, 'blue'::character varying, 'violet'::character varying, 'pink'::character varying, 'stone'::character varying, 'white'::character varying, 'black'::character varying])::text[]))),
     CONSTRAINT game_scene_drawing_points_check CHECK ((jsonb_typeof(points) = 'array'::text)),
+    CONSTRAINT game_scene_drawing_shape_check CHECK (((shape)::text = ANY ((ARRAY['line'::character varying, 'rect'::character varying, 'circle'::character varying, 'polygon'::character varying])::text[]))),
     CONSTRAINT game_scene_drawing_width_check CHECK (((width)::text = ANY ((ARRAY['fine'::character varying, 'thin'::character varying, 'medium'::character varying, 'bold'::character varying, 'heavy'::character varying])::text[])))
 );
 
@@ -2601,6 +2616,7 @@ CREATE TABLE public.game_scene_hero_token (
     light_bright_feet smallint DEFAULT 0 NOT NULL,
     light_dim_feet smallint DEFAULT 0 NOT NULL,
     darkvision_feet smallint,
+    floor smallint,
     CONSTRAINT game_scene_hero_token_darkvision_feet_check CHECK (((darkvision_feet >= 0) AND (darkvision_feet <= 300))),
     CONSTRAINT game_scene_hero_token_light_bright_feet_check CHECK (((light_bright_feet >= 0) AND (light_bright_feet <= 300))),
     CONSTRAINT game_scene_hero_token_light_dim_feet_check CHECK (((light_dim_feet >= 0) AND (light_dim_feet <= 300))),
@@ -2609,6 +2625,7 @@ CREATE TABLE public.game_scene_hero_token (
     CONSTRAINT game_scene_hero_token_token_x_check CHECK (((token_x >= (0)::double precision) AND (token_x <= (1)::double precision))),
     CONSTRAINT game_scene_hero_token_token_y_check CHECK (((token_y >= (0)::double precision) AND (token_y <= (1)::double precision)))
 );
+ALTER TABLE ONLY public.game_scene_hero_token ALTER COLUMN floor SET (pg_attver=9356947160);
 
 
 --
@@ -2667,11 +2684,16 @@ CREATE TABLE public.game_scene_object (
     is_hidden boolean DEFAULT false NOT NULL,
     sort_order integer DEFAULT 0 NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
+    floor smallint,
+    aspect real DEFAULT 1 NOT NULL,
+    CONSTRAINT game_scene_object_aspect_check CHECK (((aspect >= (0.05)::double precision) AND (aspect <= (20)::double precision))),
     CONSTRAINT game_scene_object_rotation_check CHECK (((rotation >= 0) AND (rotation <= 359))),
-    CONSTRAINT game_scene_object_width_cells_check CHECK (((width_cells >= (0.25)::double precision) AND (width_cells <= (40)::double precision))),
+    CONSTRAINT game_scene_object_width_cells_check CHECK (((width_cells >= (0.25)::double precision) AND (width_cells <= (300)::double precision))),
     CONSTRAINT game_scene_object_x_check CHECK (((x >= (0)::double precision) AND (x <= (1)::double precision))),
     CONSTRAINT game_scene_object_y_check CHECK (((y >= (0)::double precision) AND (y <= (1)::double precision)))
 );
+ALTER TABLE ONLY public.game_scene_object ALTER COLUMN floor SET (pg_attver=9356849112);
+ALTER TABLE ONLY public.game_scene_object ALTER COLUMN aspect SET (pg_attver=9356866312);
 
 
 --
@@ -2715,11 +2737,14 @@ CREATE TABLE public.game_scene_token (
 CREATE TABLE public.game_scene_wall (
     game_scene_wall_id integer NOT NULL,
     game_scene_id integer NOT NULL,
-    kind character varying(4) NOT NULL,
+    kind character varying(6) NOT NULL,
     is_open boolean DEFAULT false NOT NULL,
     points jsonb NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    CONSTRAINT game_scene_wall_kind_check CHECK (((kind)::text = ANY ((ARRAY['wall'::character varying, 'door'::character varying])::text[]))),
+    door_lock character varying(6) DEFAULT 'none'::character varying NOT NULL,
+    is_curtained boolean DEFAULT false NOT NULL,
+    CONSTRAINT game_scene_wall_door_lock_check CHECK (((door_lock)::text = ANY ((ARRAY['none'::character varying, 'locked'::character varying, 'secret'::character varying])::text[]))),
+    CONSTRAINT game_scene_wall_kind_check CHECK (((kind)::text = ANY ((ARRAY['wall'::character varying, 'door'::character varying, 'window'::character varying])::text[]))),
     CONSTRAINT game_scene_wall_points_check CHECK ((jsonb_typeof(points) = 'array'::text))
 );
 
@@ -2862,8 +2887,10 @@ CREATE TABLE public.homebrew_entry (
     created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     deleted_at timestamp(3) without time zone,
-    CONSTRAINT homebrew_entry_kind_check CHECK (((kind)::text = ANY ((ARRAY['SPELL'::character varying, 'CREATURE'::character varying])::text[])))
+    magic_item_id integer,
+    CONSTRAINT homebrew_entry_kind_check CHECK (((kind)::text = ANY ((ARRAY['SPELL'::character varying, 'CREATURE'::character varying, 'ITEM'::character varying])::text[])))
 );
+ALTER TABLE ONLY public.homebrew_entry ALTER COLUMN magic_item_id SET (pg_attver=9349695880);
 
 
 --
@@ -2973,8 +3000,12 @@ CREATE TABLE public.magic_item (
     bonus_to_ranged_damage integer,
     bonus_to_saving_throws jsonb,
     no_armor_or_shield_for_ac_bonus boolean,
-    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL
+    ruleset public."Ruleset" DEFAULT 'RULES_2014'::public."Ruleset" NOT NULL,
+    image_key character varying(255),
+    weapon_bonus smallint
 );
+ALTER TABLE ONLY public.magic_item ALTER COLUMN image_key SET (pg_attver=9349374808);
+ALTER TABLE ONLY public.magic_item ALTER COLUMN weapon_bonus SET (pg_attver=9349375248);
 
 
 --
@@ -3361,8 +3392,10 @@ CREATE TABLE public.pers_effect (
     spell_id integer,
     homebrew_entry_id integer,
     ends_with_concentration boolean DEFAULT false NOT NULL,
-    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    created_at timestamp(3) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    magic_item_id integer
 );
+ALTER TABLE ONLY public.pers_effect ALTER COLUMN magic_item_id SET (pg_attver=9344380008);
 
 
 --
@@ -3704,8 +3737,10 @@ CREATE TABLE public.pers_magic_item (
     is_equipped boolean DEFAULT false NOT NULL,
     charges_max integer,
     charges_current integer,
+    pers_weapon_id integer,
     CONSTRAINT pers_magic_item_charges_within_max CHECK ((((charges_max IS NULL) AND (charges_current IS NULL)) OR ((charges_max > 0) AND ((charges_current >= 0) AND (charges_current <= charges_max)))))
 );
+ALTER TABLE ONLY public.pers_magic_item ALTER COLUMN pers_weapon_id SET (pg_attver=9346393792);
 
 
 --
@@ -4770,8 +4805,49 @@ CREATE TABLE public."user" (
     email text,
     email_verified timestamp(3) without time zone,
     image text,
-    display_name character varying(24)
+    display_name character varying(24),
+    password_hash text
 );
+ALTER TABLE ONLY public."user" ALTER COLUMN password_hash SET (pg_attver=9341339512);
+
+
+--
+-- Name: user_sound; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.user_sound (
+    user_sound_id integer NOT NULL,
+    user_id integer NOT NULL,
+    name character varying(40) NOT NULL,
+    audio_key character varying(200) NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT user_sound_name_check CHECK (((length(btrim((name)::text)) >= 1) AND (length(btrim((name)::text)) <= 40)))
+);
+ALTER TABLE ONLY public.user_sound ALTER COLUMN user_sound_id SET (pg_attver=9357041456);
+ALTER TABLE ONLY public.user_sound ALTER COLUMN user_id SET (pg_attver=9357041456);
+ALTER TABLE ONLY public.user_sound ALTER COLUMN name SET (pg_attver=9357041456);
+ALTER TABLE ONLY public.user_sound ALTER COLUMN audio_key SET (pg_attver=9357041456);
+ALTER TABLE ONLY public.user_sound ALTER COLUMN created_at SET (pg_attver=9357041456);
+
+
+--
+-- Name: user_sound_user_sound_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.user_sound_user_sound_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: user_sound_user_sound_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.user_sound_user_sound_id_seq OWNED BY public.user_sound.user_sound_id;
 
 
 --
@@ -5408,6 +5484,13 @@ ALTER TABLE ONLY public."user" ALTER COLUMN user_id SET DEFAULT nextval('public.
 
 
 --
+-- Name: user_sound user_sound_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_sound ALTER COLUMN user_sound_id SET DEFAULT nextval('public.user_sound_user_sound_id_seq'::regclass);
+
+
+--
 -- Name: user_token_image user_token_image_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -5875,6 +5958,14 @@ ALTER TABLE ONLY public.game_session
 
 ALTER TABLE ONLY public.homebrew_creature
     ADD CONSTRAINT homebrew_creature_pkey PRIMARY KEY (homebrew_entry_id);
+
+
+--
+-- Name: homebrew_entry homebrew_entry_magic_item_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.homebrew_entry
+    ADD CONSTRAINT homebrew_entry_magic_item_id_key UNIQUE (magic_item_id);
 
 
 --
@@ -6363,6 +6454,14 @@ ALTER TABLE ONLY public.subrace_trait
 
 ALTER TABLE ONLY public."user"
     ADD CONSTRAINT user_pkey PRIMARY KEY (user_id);
+
+
+--
+-- Name: user_sound user_sound_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_sound
+    ADD CONSTRAINT user_sound_pkey PRIMARY KEY (user_sound_id);
 
 
 --
@@ -7063,6 +7162,13 @@ CREATE UNIQUE INDEX user_email_key ON public."user" USING btree (email);
 
 
 --
+-- Name: user_sound_user_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX user_sound_user_id_idx ON public.user_sound USING btree (user_id);
+
+
+--
 -- Name: user_token_image_user_idx; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -7749,6 +7855,14 @@ ALTER TABLE ONLY public.homebrew_entry
 
 
 --
+-- Name: homebrew_entry homebrew_entry_magic_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.homebrew_entry
+    ADD CONSTRAINT homebrew_entry_magic_item_id_fkey FOREIGN KEY (magic_item_id) REFERENCES public.magic_item(magic_item_id);
+
+
+--
 -- Name: homebrew_spell homebrew_spell_homebrew_entry_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7866,6 +7980,14 @@ ALTER TABLE ONLY public.pers_custom_skill
 
 ALTER TABLE ONLY public.pers_effect
     ADD CONSTRAINT pers_effect_homebrew_entry_id_fkey FOREIGN KEY (homebrew_entry_id) REFERENCES public.homebrew_entry(homebrew_entry_id) ON DELETE SET NULL;
+
+
+--
+-- Name: pers_effect pers_effect_magic_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_effect
+    ADD CONSTRAINT pers_effect_magic_item_id_fkey FOREIGN KEY (magic_item_id) REFERENCES public.magic_item(magic_item_id) ON DELETE CASCADE;
 
 
 --
@@ -8058,6 +8180,14 @@ ALTER TABLE ONLY public.pers_magic_item
 
 ALTER TABLE ONLY public.pers_magic_item
     ADD CONSTRAINT pers_magic_item_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: pers_magic_item pers_magic_item_pers_weapon_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pers_magic_item
+    ADD CONSTRAINT pers_magic_item_pers_weapon_id_fkey FOREIGN KEY (pers_weapon_id) REFERENCES public.pers_weapon(pers_weapon_id) ON DELETE SET NULL;
 
 
 --
@@ -8410,6 +8540,14 @@ ALTER TABLE ONLY public.subrace_trait
 
 ALTER TABLE ONLY public.subrace_trait
     ADD CONSTRAINT subrace_trait_subrace_id_fkey FOREIGN KEY (subrace_id) REFERENCES public.subrace(subrace_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: user_sound user_sound_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_sound
+    ADD CONSTRAINT user_sound_user_id_fkey FOREIGN KEY (user_id) REFERENCES public."user"(user_id) ON DELETE CASCADE;
 
 
 --

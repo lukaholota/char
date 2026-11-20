@@ -3,9 +3,10 @@
 import { Link2 } from "lucide-react";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { Button } from "@/components/ui/button";
-import type { HomebrewCatalogEntry } from "@/lib/logic/homebrew-view";
+import type { HomebrewCatalogEntry, HomebrewMagicItem } from "@/lib/logic/homebrew-view";
 import { HomebrewAddToPersButton } from "./HomebrewAddToPersButton";
 import { HomebrewEntryActions } from "./HomebrewEntryActions";
+import { HomebrewItemAddButton } from "./HomebrewItemAddButton";
 
 type EntryRef = Pick<HomebrewCatalogEntry, "entryId" | "kind" | "edition" | "authorName" | "canEdit">;
 
@@ -18,10 +19,11 @@ export function HomebrewByline({ entry }: { entry: EntryRef }) {
   );
 }
 
-export function HomebrewEntryButtons({ entry, pageHref }: { entry: EntryRef; pageHref?: string }) {
+export function HomebrewEntryButtons({ entry, pageHref }: { entry: EntryRef & { item?: HomebrewMagicItem }; pageHref?: string }) {
   return (
     <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
       {entry.kind === "SPELL" ? <HomebrewAddToPersButton entryId={entry.entryId} edition={entry.edition} /> : null}
+      {entry.item ? <HomebrewItemAddButton item={entry.item} /> : null}
       {entry.canEdit ? <HomebrewEntryActions entryId={entry.entryId} /> : null}
       {pageHref ? (
         <Button asChild variant="ghost" className="h-11 gap-2 text-slate-300 sm:h-9">

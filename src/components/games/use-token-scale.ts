@@ -49,6 +49,9 @@ function useStoredSwitch(storageKey: string, isOnAtStart: boolean, isOnBeforeHyd
 /// Кольорова обвідка прозорих токенів — за замовчуванням вимкнена: коли світиться кожен, це заважає.
 export const useCutoutOutline = (sessionId: number) => useStoredSwitch(`game-map:cutout-outline:${sessionId}`, false);
 
+/// Анімацію погоди кожен вимикає для себе: на слабкому телефоні вона коштує батареї.
+export const useWeatherShown = (sessionId: number) => useStoredSwitch(`game-map:weather:${sessionId}`, true);
+
 /// Портрети героїв поза боєм кожен вмикає для себе; у бою чергу згортає стрілка біля заголовка.
 export const usePartyPortraits = (sessionId: number) => useStoredSwitch(`game-map:party-portraits:${sessionId}`, true);
 

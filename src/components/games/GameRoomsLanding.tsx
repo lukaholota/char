@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { EditionAccentTitle } from "@/components/ui/EditionAccent";
 import { ContentImage } from "@/components/no-ai/ContentImage";
-import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import SignInDialog from "@/lib/components/auth/SignInDialog";
 import { cn } from "@/lib/utils";
 import type { Edition } from "@/rules/route-helpers";
 import type { GameSessionListItem } from "@/server/db/game-sessions";
@@ -38,7 +38,7 @@ export function GameRoomsContent({ sessions, edition }: { sessions: GameSessionL
 }
 
 function GuestLanding({ edition }: { edition: Edition }) {
-  const signIn = <GoogleAuthDialog analyticsTrigger="game" trigger={<Button type="button" size="lg" className={CTA_SIZE}>Увійти й створити кімнату</Button>} />;
+  const signIn = <SignInDialog analyticsTrigger="game" trigger={<Button type="button" size="lg" className={CTA_SIZE}>Увійти й створити кімнату</Button>} />;
   return (
     <div className={LANDING_RHYTHM}>
       <RoomsHero edition={edition} action={signIn} />

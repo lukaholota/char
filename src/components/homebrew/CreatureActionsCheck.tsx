@@ -3,6 +3,8 @@ import { AREA_SHAPE_LABELS } from "@/rules/game-areas";
 import { findCreatureSaveAction, findCreatureSaveEffect, type CreatureSaveAction, type CreatureSaveEffect } from "@/rules/creature-area-action";
 import { TOKEN_CONDITION_LABELS } from "@/rules/token-conditions";
 import { findCreatureRolls, type CreatureRoll } from "@/rules/creature-rolls";
+import { pluralizeCharges } from "@/rules/magic-item-charge-text";
+import { findItemActionChargeCost, findItemRolls } from "@/rules/magic-item-action-rolls";
 import { attributesUkrShort } from "@/lib/refs/translation";
 
 export const CREATURE_ACTION_TEMPLATES = [
@@ -11,12 +13,20 @@ export const CREATURE_ACTION_TEMPLATES = [
   { label: "Ряткидок цілі", markdown: "**Жахливий погляд.** Одна істота, яку бачить у межах 30 фт., здійснює ряткидок Мудрості СК 12. При провалі вона зазнає 9 (2к8) психічної шкоди, при успіху — половину цієї шкоди." },
 ] as const;
 
+export const ITEM_ACTION_TEMPLATES = [
+  { label: "Заряди", markdown: "Предмет має 7 зарядів. Він відновлює 1к6 + 1 витрачених зарядів щодня на світанку." },
+  { label: "Промінь у ціль", markdown: "**Промінь знищення (витрачає 1 заряд).** Дією ви спрямовуєте предмет на істоту в межах 60 фт. Дистанційна атака заклинанням: +7 до влучання. Влучання: 4к10 некротичної шкоди." },
+  { label: "Вибух по області", markdown: "**Вогняна хвиля (витрачає 2 заряди).** Кожна істота в 20-футовій сфері здійснює ряткидок Спритності СК 15. При провалі вона зазнає 6к6 вогняної шкоди, при успіху — половину цієї шкоди." },
+  { label: "Лікування", markdown: "**Цілющий дотик (витрачає 1 заряд).** Дією ви торкаєтеся істоти, і вона відновлює 2к8 + 2 хітів." },
+] as const;
+
 type ActionCheck = { name: string; found: string[]; warning: string | null };
 
 const SAVE_WORDS = /ряткидок|рятівн\p{L}*\s+кидок/iu;
 
-export function CreatureActionsCheck({ markdown }: { markdown: string }) {
-  const checks = splitActions(markdown).map(checkAction);
+/// isItem — опис предмета: абзаци без кубиків — звичайний опис, тож у перевірку потрапляють лише дії з кидками.
+export function CreatureActionsCheck({ markdown, isItem = false }: { markdown: string; isItem?: boolean }) {
+  const checks = splitActions(markdown).map((text) => (isItem ? checkItemAction(text) : checkAction(text))).filter((check) => !isItem || check.found.length > 0);
   if (checks.length === 0) return null;
   return (
     <section aria-label="Що кидатиметься в кімнаті" className="space-y-2 rounded-lg border border-white/10 bg-white/[0.03] p-3">
@@ -46,8 +56,14 @@ function splitActions(markdown: string): string[] {
     .filter(Boolean);
 }
 
-function checkAction(text: string): ActionCheck {
-  const rolls = findCreatureRolls(text).map((spot) => spot.roll);
+function checkItemAction(text: string): ActionCheck {
+  const check = checkAction(text, findItemRolls);
+  const cost = check.found.length ? findItemActionChargeCost(text) : null;
+  return cost ? { ...check, found: [`витрачає ${cost} ${pluralizeCharges(cost)}`, ...check.found] } : check;
+}
+
+function checkAction(text: string, findRolls = findCreatureRolls): ActionCheck {
+  const rolls = findRolls(text).map((spot) => spot.roll);
   const save = findCreatureSaveAction(text);
   const saveEffect = findCreatureSaveEffect(text);
   const saves = save ? [describeSave(save)] : saveEffect ? [describeSaveEffect(saveEffect)] : [];
@@ -66,7 +82,7 @@ function describeRoll(roll: CreatureRoll): string {
   if (roll.kind === "recharge") return `перезарядка ${roll.from === 6 ? "6" : `${roll.from}–6`}`;
   if (roll.kind === "dice") return `кидок ${roll.count > 1 ? roll.count : ""}к${roll.sides}`;
   const bonus = roll.bonus === 0 ? "" : ` ${roll.bonus > 0 ? "+" : "−"} ${Math.abs(roll.bonus)}`;
-  return `шкода ${roll.count}к${roll.sides}${bonus}`;
+  return `${roll.kind === "heal" ? "лікування" : "шкода"} ${roll.count}к${roll.sides}${bonus}`;
 }
 
 function describeSave(save: CreatureSaveAction): string {

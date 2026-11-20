@@ -2,7 +2,7 @@
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 
-import { CREATURE_ACTION_TEMPLATES, CreatureActionsCheck } from "@/components/homebrew/CreatureActionsCheck";
+import { CREATURE_ACTION_TEMPLATES, CreatureActionsCheck, ITEM_ACTION_TEMPLATES } from "@/components/homebrew/CreatureActionsCheck";
 import { RichTextEditor } from "@/components/ui/rich-text/RichTextEditor";
 
 afterEach(cleanup);
@@ -40,6 +40,17 @@ describe("автор істоти бачить, що кидатиметься", 
   it("порожні дії не показують перевірку", () => {
     const { container } = render(<CreatureActionsCheck markdown="  " />);
     expect(container.innerHTML).toBe("");
+  });
+});
+
+describe("автор предмета бачить, що кидатиметься", () => {
+  it("шаблони предмета: заряди не кидок, ціна дії перед кидками, лікування окремо від шкоди", () => {
+    render(<CreatureActionsCheck isItem markdown={[...ITEM_ACTION_TEMPLATES.map((template) => template.markdown), "Поки ви тримаєте жезл, маєте перевагу на ряткидки проти магії."].join("\n\n")} />);
+    expect(readItems()).toEqual([
+      "Промінь знищення — витрачає 1 заряд · атака +7 · шкода 4к10",
+      "Вогняна хвиля — витрачає 2 заряди · коло 20 фт: ряткидок СПР СК 15, половина при успіху · шкода 6к6",
+      "Цілющий дотик — витрачає 1 заряд · лікування 2к8 + 2",
+    ]);
   });
 });
 

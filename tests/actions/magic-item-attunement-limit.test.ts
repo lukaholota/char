@@ -48,7 +48,7 @@ describe("KR31.9 — ліміт налаштованих магічних пре
 
     const result = await updateMagicItem(fourthId, { isAttuned: true });
 
-    expect(result.success).toBe(false);
+    expect(result).toEqual({ success: false, error: "Налаштовано 3 з 3 — спершу скасуйте налаштування іншого предмета" });
     await expect(
       prisma.persMagicItem.findUniqueOrThrow({ where: { persMagicItemId: fourthId }, select: { isAttuned: true } }),
     ).resolves.toEqual({ isAttuned: false });

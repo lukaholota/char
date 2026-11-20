@@ -1,6 +1,7 @@
 import { limitHeroicInspirationCount } from "@/rules/heroic-inspiration";
 import { MAX_FEATURE_USES as MAX_CUSTOM_FEATURE_USES } from "@/rules/pers-custom-content";
 import { applyChargesStep, type MagicItemCharges } from "@/rules/magic-item-charges";
+import { fillDefaultCharges, findItemChargeRules } from "@/rules/magic-item-charge-text";
 
 export const OFFLINE_DETAIL_FIELDS = [
   "customProficiencies",
@@ -83,6 +84,7 @@ export type OfflineOperation =
   | (OfflineOperationBase & { kind: "concentration"; spellId: number | null })
   | (OfflineOperationBase & { kind: "spell-buff"; effectKey: string; isActive: boolean; spellId: number | null; endsWithConcentration: boolean })
   | (OfflineOperationBase & { kind: "exhaustion"; level: number })
+  | (OfflineOperationBase & { kind: "item-state"; magicItemId: number; isActive: boolean })
   | (OfflineOperationBase & { kind: "magic-item-charges"; persMagicItemId: number; step: number })
   | (OfflineOperationBase & { kind: "spell-prepared"; spellId: number; isPrepared: boolean })
   | (OfflineOperationBase & { kind: "short-rest"; hitDiceSpent: OfflineHitDiceSpend[]; restoredHitPoints: number })
@@ -161,6 +163,7 @@ export function applyOfflineOperation<T extends OfflinePersState>(pers: T, opera
     case "concentration":
     case "spell-buff":
     case "exhaustion":
+    case "item-state":
     case "magic-item-charges":
     case "spell-prepared":
     case "short-rest":
@@ -297,7 +300,7 @@ export function applyQueuedCustomFeatureUses<T extends { id: number; usesMax: nu
   }, features);
 }
 
-export function applyQueuedItemCharges<T extends MagicItemCharges & { persMagicItemId: number }>(
+export function applyQueuedItemCharges<T extends MagicItemCharges & { persMagicItemId: number; magicItem?: { description?: string | null } }>(
   items: T[],
   persId: number,
   operations: OfflineOperation[],
@@ -306,7 +309,7 @@ export function applyQueuedItemCharges<T extends MagicItemCharges & { persMagicI
     if (operation.kind !== "magic-item-charges" || operation.persId !== persId) return current;
     return current.map((item) =>
       item.persMagicItemId === operation.persMagicItemId
-        ? { ...item, ...applyChargesStep(item, clampInteger(operation.step, -999, 999)) }
+        ? { ...item, ...applyChargesStep(fillDefaultCharges(item, findItemChargeRules(item.magicItem?.description)), clampInteger(operation.step, -999, 999)) }
         : item,
     );
   }, items);
@@ -368,6 +371,8 @@ export function isOfflineOperation(value: unknown): value is OfflineOperation {
       );
     case "exhaustion":
       return Number.isInteger(operation.level);
+    case "item-state":
+      return Number.isInteger(operation.magicItemId) && typeof operation.isActive === "boolean";
     case "magic-item-charges":
       return Number.isInteger(operation.persMagicItemId) && Number.isInteger(operation.step);
     case "spell-prepared":

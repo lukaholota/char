@@ -153,6 +153,14 @@ export function buildCreatureActionRollContext(input: { creatureName: string; ac
   };
 }
 
+/// Кидок з опису магічного предмета кидає герой: ціль на мапі — істоти, а атака рахується атакою, як зброя з листа.
+export function buildItemActionRollContext(input: Parameters<typeof buildCreatureActionRollContext>[0]): DiceRollContext {
+  const context = buildCreatureActionRollContext(input);
+  const attackKey = context.actions.find((action) => action.isD20 && action.label === "Атака")?.key;
+  const rekey = (key: string) => (key === attackKey ? "attack" : key);
+  return { ...context, isCreatureRoll: false, actions: context.actions.map((action) => ({ ...action, key: rekey(action.key) })), autoRollKey: context.autoRollKey && rekey(context.autoRollKey) };
+}
+
 function buildCreatureAction(key: string, roll: CreatureRoll, saveEffect: CreatureSaveEffect | undefined): DiceRollAction {
   if (roll.kind === "attack") return buildD20Action(key, "Атака", roll.bonus);
   if (roll.kind === "save") {
@@ -161,7 +169,7 @@ function buildCreatureAction(key: string, roll: CreatureRoll, saveEffect: Creatu
   }
   if (roll.kind === "recharge") return { key, label: roll.from < 6 ? `Перезарядка ${roll.from}–6` : "Перезарядка 6", count: 1, sides: 6, bonus: 0, isD20: false };
   if (roll.kind === "dice") return { key, label: `Кидок ${roll.count > 1 ? roll.count : ""}к${roll.sides}`, count: roll.count, sides: roll.sides, bonus: 0, isD20: false };
-  return { key, label: "Шкода", count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false };
+  return { key, label: roll.kind === "heal" ? "Лікування" : "Шкода", count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false };
 }
 
 export function buildCreatureD20RollContext(creatureName: string, subtitle: string | undefined, actions: DiceRollAction[]): DiceRollContext {

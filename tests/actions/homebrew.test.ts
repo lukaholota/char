@@ -18,7 +18,13 @@ vi.mock("@/server/media/media-store", () => ({
   deleteMediaObject: async (key: string) => void stored.delete(key),
 }));
 
-import { deleteHomebrewEntry, listCreatureSpellChoices, listHomebrewEntries, loadHomebrewEditValues, loadHomebrewEntry, saveHomebrewCreature, saveHomebrewSpell } from "@/lib/actions/homebrew-actions";
+import { deleteHomebrewEntry, listCreatureSpellChoices, listHomebrewEntries, loadHomebrewEditValues, loadHomebrewEntry, saveHomebrewCreature, saveHomebrewItem, saveHomebrewSpell } from "@/lib/actions/homebrew-actions";
+import { toggleMagicItemForPers } from "@/lib/actions/magic-item-actions";
+import { prisma } from "@/lib/prisma";
+import { BackgroundCategory, Classes, Races } from "@prisma/client";
+import { createCharacter } from "@/lib/actions/character";
+import { minimalForm } from "../helpers/build-form";
+import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
 
 vi.setConfig({ testTimeout: 60_000 });
 
@@ -100,6 +106,53 @@ describe("хоумбрю спільноти", () => {
     expect(await saveHomebrewCreature(buildCreatureForm({ ...CREATURE, spells: [{ spellId: 999_999 }] }))).toMatchObject({ success: false, fieldErrors: { spells: expect.any(String) } });
   });
 });
+
+const ITEM = {
+  ruleset: "ANY", name: "Щит болотного пса", itemType: "ARMOR", rarity: "RARE", requiresAttunement: true,
+  description: "Предмет має 3 заряди.", acBonus: "+2", saveBonus: "1", weaponBonus: "3",
+};
+
+describe("хоумбрю-предмети", () => {
+  it("предмет — справжній рядок каталогу: бонуси в колонках, картинка у сховищі, редагування повертає поля", async () => {
+    await signInAs("author");
+    expect(await saveHomebrewItem(buildCreatureForm({ ...ITEM, acBonus: "+9" }))).toMatchObject({ success: false, fieldErrors: { acBonus: "Від 1 до 5" } });
+
+    const saved = await saveHomebrewItem(buildCreatureForm(ITEM, await makePng()));
+    if (!saved.success) throw new Error(JSON.stringify(saved));
+    const row = await prisma.magicItem.findUniqueOrThrow({ where: { magicItemId: 1_000_000 + saved.entryId } });
+    expect(row).toMatchObject({ magicItemId: 1_000_000 + saved.entryId, bonusToAC: 2, bonusToSavingThrows: { all: 1 }, weaponBonus: null, imageKey: expect.stringContaining("homebrew/items/") });
+    expect(await loadHomebrewEntry(saved.entryId, "RULES_2024")).toMatchObject({ kind: "ITEM", item: { name: ITEM.name, engName: "", ruleset: "RULES_2024" } });
+    expect(await loadHomebrewEditValues(saved.entryId)).toMatchObject({ kind: "ITEM", values: { acBonus: "2", saveBonus: "1", weaponBonus: "" }, imageUrl: expect.any(String) });
+
+    await saveHomebrewItem(buildCreatureForm({ ...ITEM, saveBonus: "" }, await makePng(), saved.entryId));
+    expect(await prisma.magicItem.findUniqueOrThrow({ where: { magicItemId: 1_000_000 + saved.entryId } })).toMatchObject({ bonusToSavingThrows: null, magicItemId: row.magicItemId });
+    expect(stored.size).toBe(2);
+  });
+
+  it("персонаж бере предмет своєї редакції або «обидві»; видалений запис нового власника не отримує", async () => {
+    await signInAs("author");
+    const persId = await createPers2014();
+    const both = await saveHomebrewItem(buildCreatureForm(ITEM));
+    const only2024 = await saveHomebrewItem(buildCreatureForm({ ...ITEM, ruleset: "RULES_2024" }));
+    if (!both.success || !only2024.success) throw new Error("не збережено");
+    const [bothId, only2024Id] = [1_000_000 + both.entryId, 1_000_000 + only2024.entryId];
+
+    expect(await toggleMagicItemForPers({ persId, magicItemId: bothId })).toEqual({ success: true, added: true });
+    expect(await toggleMagicItemForPers({ persId, magicItemId: only2024Id })).toMatchObject({ success: false });
+
+    await deleteHomebrewEntry(both.entryId);
+    expect(await prisma.persMagicItem.count({ where: { persId, magicItemId: bothId } })).toBe(1);
+    expect(await toggleMagicItemForPers({ persId, magicItemId: bothId })).toEqual({ success: true, added: false });
+    expect(await toggleMagicItemForPers({ persId, magicItemId: bothId })).toMatchObject({ success: false });
+  });
+});
+
+async function createPers2014(): Promise<number> {
+  const [race, characterClass, background] = await Promise.all([raceByName(Races.HUMAN_2014), classByName(Classes.FIGHTER_2014), backgroundByName(BackgroundCategory.SOLDIER)]);
+  const created = await createCharacter(minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId }));
+  if ("error" in created) throw new Error(created.error);
+  return created.persId;
+}
 
 function buildCreatureForm(values: object, image?: Blob, entryId?: number): FormData {
   const form = new FormData();

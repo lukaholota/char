@@ -1,14 +1,17 @@
 import { buildMediaImageUrl } from "@/lib/media-url";
+import { parseFloorId, type FloorId } from "./game-floors";
 import type { TokenPosition } from "./game-map";
 import { roundShare } from "./map-strokes";
 import type { TokenTransform } from "./token-transform";
 
 /// Обʼєкт — картинка, що лежить на мапі: без хітів, ініціативи й статблоку.
-export type ObjectPlacement = { at: TokenPosition; widthCells: number; rotation: number; name: string | null; isHidden: boolean; sortOrder: number };
+/// floor — поверх, на якому лежить обʼєкт (null — основна мапа); aspect — ширина картинки до висоти, для сліду плану поверху.
+export type ObjectPlacement = { at: TokenPosition; widthCells: number; rotation: number; name: string | null; isHidden: boolean; sortOrder: number; floor: FloorId; aspect: number };
 export type SceneObjectView = ObjectPlacement & { id: number; imageKey: string; imageUrl: string };
-type SceneObjectRow = { id: number; imageKey: string; name: string | null; x: number; y: number; widthCells: number; rotation: number; isHidden: boolean; sortOrder: number };
+type SceneObjectRow = { id: number; imageKey: string; name: string | null; x: number; y: number; widthCells: number; rotation: number; isHidden: boolean; sortOrder: number; floor: number | null; aspect: number };
 
-export const OBJECT_LIMITS = { perScene: 100, nameLength: 40, widthCells: { min: 0.25, max: 10 } } as const;
+/// План поверху буває завширшки з усю мапу, тож межа ширини — як у найширшої сітки.
+export const OBJECT_LIMITS = { perScene: 100, nameLength: 40, widthCells: { min: 0.25, max: 300 }, aspect: { min: 0.05, max: 20 } } as const;
 /// Без сітки обʼєкт міряється умовною клітинкою в двадцяту частину ширини мапи.
 export const CELLS_ACROSS_MAP_WITHOUT_GRID = 20;
 const SORT_ORDER_LIMIT = 1_000_000;
@@ -18,7 +21,7 @@ const isInRange = (value: unknown, min: number, max: number): value is number =>
 
 export function parseObjectPlacement(raw: unknown): ObjectPlacement | null {
   if (typeof raw !== "object" || raw === null) return null;
-  const { at, widthCells, rotation, name, isHidden, sortOrder } = raw as Record<string, unknown>;
+  const { at, widthCells, rotation, name, isHidden, sortOrder, floor = null, aspect = 1 } = raw as Record<string, unknown>;
   const point = typeof at === "object" && at !== null ? (at as Record<string, unknown>) : {};
   if (!isShare(point.x) || !isShare(point.y)) return null;
   if (!isInRange(widthCells, OBJECT_LIMITS.widthCells.min, OBJECT_LIMITS.widthCells.max)) return null;
@@ -26,8 +29,9 @@ export function parseObjectPlacement(raw: unknown): ObjectPlacement | null {
   if (!Number.isInteger(sortOrder) || !isInRange(sortOrder, -SORT_ORDER_LIMIT, SORT_ORDER_LIMIT)) return null;
   if (typeof isHidden !== "boolean") return null;
   const parsedName = parseObjectName(name);
-  if (parsedName === undefined) return null;
-  return { at: { x: roundShare(point.x), y: roundShare(point.y) }, widthCells: Math.round(widthCells * 100) / 100, rotation, name: parsedName, isHidden, sortOrder };
+  const parsedFloor = parseFloorId(floor);
+  if (parsedName === undefined || parsedFloor === undefined || !isInRange(aspect, OBJECT_LIMITS.aspect.min, OBJECT_LIMITS.aspect.max)) return null;
+  return { at: { x: roundShare(point.x), y: roundShare(point.y) }, widthCells: Math.round(widthCells * 100) / 100, rotation, name: parsedName, isHidden, sortOrder, floor: parsedFloor, aspect: Math.round(aspect * 1000) / 1000 };
 }
 
 function parseObjectName(raw: unknown): string | null | undefined {
@@ -53,6 +57,8 @@ export function buildSceneObjectViews(rows: SceneObjectRow[], isGm: boolean): Sc
       name: row.name,
       isHidden: row.isHidden,
       sortOrder: row.sortOrder,
+      floor: row.floor,
+      aspect: row.aspect,
     }));
 }
 
@@ -80,6 +86,6 @@ export function findBackSortOrder(objects: Pick<ObjectPlacement, "sortOrder">[])
 }
 
 export function toObjectPlacement(object: ObjectPlacement): ObjectPlacement {
-  const { at, widthCells, rotation, name, isHidden, sortOrder } = object;
-  return { at, widthCells, rotation, name, isHidden, sortOrder };
+  const { at, widthCells, rotation, name, isHidden, sortOrder, floor, aspect } = object;
+  return { at, widthCells, rotation, name, isHidden, sortOrder, floor, aspect };
 }

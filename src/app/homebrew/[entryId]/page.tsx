@@ -4,6 +4,7 @@ import { ChevronLeft } from "lucide-react";
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
 import { SpellDetailCard } from "@/components/spells/SpellDetailCard";
+import { MagicItemDetailPane } from "@/lib/components/magicItems/MagicItemDetailPane";
 import { ContentDiscussion } from "@/components/discussion/ContentDiscussion";
 import { HomebrewByline, HomebrewEntryButtons } from "@/components/homebrew/HomebrewEntryDetails";
 import { loadHomebrewEntry } from "@/lib/actions/homebrew-actions";
@@ -39,7 +40,7 @@ export default async function HomebrewEntryPage({ params, searchParams }: PagePr
 
       <main className="mx-auto max-w-3xl space-y-6 px-4 py-6">
         <HomebrewByline entry={entry} />
-        {entry.kind === "SPELL" ? <SpellDetailCard spell={entry.spell} is2024={is2024} /> : <CreatureStatblockCard creature={entry.creature} is2024={is2024} />}
+        {entry.kind === "SPELL" ? <SpellDetailCard spell={entry.spell} is2024={is2024} /> : entry.kind === "ITEM" ? <MagicItemDetailPane item={entry.item} /> : <CreatureStatblockCard creature={entry.creature} is2024={is2024} />}
         <HomebrewEntryButtons entry={entry} />
         <ContentDiscussion target={buildDiscussionTarget({ kind: "HOMEBREW", entryId: entry.entryId })} />
       </main>

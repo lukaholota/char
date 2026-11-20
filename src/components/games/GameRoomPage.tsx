@@ -19,6 +19,7 @@ import { RollTargetSwitch } from "./RoomRollTarget";
 import { DOCKED_JOURNAL_SIZE, PanelResizeHandle, SIDE_PANEL_SIZE } from "./PanelResizeHandle";
 import { findSideTab, HeroTokenSlotContext, MapHintSlotContext, resetRoomTabs, showRoomTab, ToolPanelSlotContext, useRoomTabStore, type RoomSideTab, type RoomTab } from "./room-tabs";
 import { useGamesHref } from "./use-games-href";
+import { SceneAmbience } from "./use-scene-ambience";
 
 type GameRoomPageProps = { initialView: GameSessionView; bindablePers: Promise<BindablePers[]>; heroSheet: ReactNode; shownHeroPersId: number | null };
 
@@ -42,6 +43,7 @@ export function GameRoomPage({ initialView, bindablePers, heroSheet, shownHeroPe
     <div className="flex min-h-0 w-full flex-1 flex-col overflow-hidden">
       <GameRoomHeader view={view} hintSlotRef={setMapHintSlot} isMapShown={shown.isLarge || shown.tab === "map"} />
       <LostRoomAlert sessionId={view.id} />
+      <SceneAmbience view={view} />
       <RoomTabBar tabs={hasHeroTab ? ["map", "hero", "journal", "room"] : ["map", "journal", "room"]} current={shown.tab} unseen={unseen} label="Розділи кімнати" className="lg:hidden" />
       <div
         style={{ [SIDE_PANEL_SIZE.cssVar]: `${sidePanelWidth}px`, [DOCKED_JOURNAL_SIZE.cssVar]: `${dockedJournalHeight}px` } as CSSProperties}

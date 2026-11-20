@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
-import { cleanup, fireEvent, render } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { ItemRollUseContext, type ItemRollUse } from "@/lib/components/magicItems/item-roll-use";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 
@@ -35,6 +36,49 @@ describe("кубики в діях істоти", () => {
 
   it("без назви істоти текст лишається простим", () => {
     const { container } = render(<FormattedDescription content={DRAGON_BITE} />);
+    expect(container.querySelectorAll("button")).toHaveLength(0);
+  });
+});
+
+describe("кубики в описі магічного предмета на листі", () => {
+  const ray = "<p><b>Промінь знищення (витрачає 1 заряд).</b> Дистанційна атака заклинанням: +7 до влучання. Влучання: 4к10 некротичної шкоди.</p><p>Предмет має 3 заряди й відновлює 1к3 витрачених заряди на світанку.</p>";
+  const renderItem = (use: ItemRollUse | null) =>
+    render(
+      <ItemRollUseContext.Provider value={use}>
+        <FormattedDescription content={ray} rollsForItem="Жезл Дагона" />
+      </ItemRollUseContext.Provider>,
+    );
+
+  it("атака кидається від героя й знімає заряд лише першою кнопкою дії", async () => {
+    const startRoll = vi.fn(async () => true);
+    const { container } = renderItem({ chargesLeft: 3, isPending: false, startRoll });
+    const chips = [...container.querySelectorAll("button")];
+    expect(chips.map((chip) => chip.textContent)).toEqual(["+7", "4к10"]);
+    expect(chips[0].getAttribute("aria-label")).toBe("Кинути: атака, Промінь знищення — витратить 1 заряд");
+    fireEvent.click(chips[0]);
+    await waitFor(() => expect(useDiceUIStore.getState().rollContext).toMatchObject({ title: "Жезл Дагона", autoRollKey: "attack", isCreatureRoll: false }));
+    expect(startRoll).toHaveBeenCalledWith(1);
+    fireEvent.click(chips[1]);
+    await waitFor(() => expect(startRoll).toHaveBeenLastCalledWith(0));
+  });
+
+  it("без зарядів кнопка вимкнена й каже чому", () => {
+    const { container } = renderItem({ chargesLeft: 0, isPending: false, startRoll: vi.fn(async () => true) });
+    const [attack] = container.querySelectorAll("button");
+    expect((attack as HTMLButtonElement).disabled).toBe(true);
+    expect(attack.getAttribute("aria-label")).toMatch(/не вистачає зарядів$/);
+  });
+
+  it("відмова зняти заряд — кидка немає", async () => {
+    const startRoll = vi.fn(async () => false);
+    const { container } = renderItem({ chargesLeft: 3, isPending: false, startRoll });
+    fireEvent.click(container.querySelector("button")!);
+    await waitFor(() => expect(startRoll).toHaveBeenCalled());
+    expect(useDiceUIStore.getState().rollContext).toBeNull();
+  });
+
+  it("поза листом (каталог) кубики — текст", () => {
+    const { container } = renderItem(null);
     expect(container.querySelectorAll("button")).toHaveLength(0);
   });
 });

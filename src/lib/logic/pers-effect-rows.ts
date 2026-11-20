@@ -1,6 +1,7 @@
 import type { PersWithRelations } from "@/lib/actions/pers";
 import { shortenSpellName } from "./spell-name";
 import { CONCENTRATION_EFFECT_KEY, isConcentrationSpell } from "@/rules/concentration";
+import { buildItemStateKey } from "@/rules/magic-item-states";
 import { clampExhaustionLevel, findExhaustionAfterLongRest } from "@/rules/exhaustion";
 import {
   doesSpellBuffSurviveShortRest,
@@ -39,6 +40,19 @@ export function markSpellBuff(
   return { ...pers, effects: [...kept, buildRow(pers, key, source.spell, source.endsWithConcentration)] };
 }
 
+export function markItemState(pers: PersWithRelations, magicItemId: number, isActive: boolean): PersWithRelations {
+  const key = buildItemStateKey(magicItemId);
+  const kept = (pers.effects ?? []).filter((row) => row.effectKey !== key);
+  if (!isActive) return { ...pers, effects: kept };
+  const magicItem = (pers.effects ?? []).find((row) => row.effectKey === key)?.magicItem ?? findOwnedEffectItem(pers, magicItemId);
+  return { ...pers, effects: [...kept, { ...buildRow(pers, key, null, false), magicItemId, magicItem }] };
+}
+
+function findOwnedEffectItem(pers: PersWithRelations, magicItemId: number): PersEffectRow["magicItem"] {
+  const item = (pers.magicItems ?? []).find((link) => link.magicItemId === magicItemId)?.magicItem;
+  return item ? { magicItemId, name: item.name, engName: item.engName, ruleset: item.ruleset, itemType: item.itemType } : null;
+}
+
 export function markExhaustion(pers: PersWithRelations, level: number): PersWithRelations {
   return { ...pers, exhaustionLevel: clampExhaustionLevel(level) };
 }
@@ -59,10 +73,12 @@ function buildRow(pers: PersWithRelations, effectKey: string, spell: EffectSpell
     effectKey,
     spellId: spell?.spellId ?? null,
     homebrewEntryId: null,
+    magicItemId: null,
     endsWithConcentration,
     createdAt: new Date(),
     spell,
     homebrewEntry: null,
+    magicItem: null,
   };
 }
 

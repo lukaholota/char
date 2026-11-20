@@ -14,7 +14,7 @@ vi.mock("@/lib/actions/character", () => ({ createCharacter: mocks.create, creat
 vi.mock("@/components/no-ai/NoAiModeProvider", async (importOriginal) => ({ ...(await importOriginal<object>()), useModeRouter: () => ({ push: mocks.push }) }));
 vi.mock("@/components/no-ai/ModeLink", () => ({ ModeLink: ({ href, children, ...rest }: { href: string; children: React.ReactNode }) => <a href={href} {...rest}>{children}</a> }));
 vi.mock("@/components/optimization/BuildSource", () => ({ BuildSource: () => null }));
-vi.mock("@/lib/components/auth/GoogleAuthDialog", () => ({ default: () => <button type="button">Увійти</button> }));
+vi.mock("@/lib/components/auth/SignInDialog", () => ({ default: () => <button type="button">Увійти</button> }));
 vi.mock("@/lib/monitoring/rpgbot-analytics", () => ({ captureRpgbotEvent: vi.fn() }));
 vi.mock("@/lib/monitoring/use-rpgbot-surface-view", () => ({ useRpgbotSurfaceView: vi.fn() }));
 

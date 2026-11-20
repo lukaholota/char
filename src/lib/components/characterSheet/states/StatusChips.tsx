@@ -1,12 +1,12 @@
 "use client";
 
-import { BatteryLow, Flame, Focus, Plus, Sparkles, type LucideIcon } from "lucide-react";
+import { BatteryLow, Flame, Focus, Gem, Plus, Sparkles, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { findStateSourceLabel, shortenSpellName } from "@/lib/logic/state-labels";
 import { useSheetStatesContext } from "./SheetStatesContext";
 import type { SheetStatesControl } from "./useSheetStates";
 
-type StatusTone = "feature" | "concentration" | "buff" | "exhaustion";
+type StatusTone = "feature" | "concentration" | "buff" | "item" | "exhaustion";
 /// `badge` не обрізається навіть тоді, коли чип стиснувся до іконки: рівень виснаження видно завжди.
 type StatusItem = { key: string; tone: StatusTone; label: string; ariaLabel: string; badge?: string };
 
@@ -16,6 +16,7 @@ const TONE_CLASSES: Record<StatusTone, string> = {
   feature: "border-amber-400/40 bg-amber-500/15 text-amber-100",
   concentration: "border-violet-400/40 bg-violet-500/15 text-violet-100",
   buff: "border-sky-400/40 bg-sky-500/15 text-sky-100",
+  item: "border-emerald-400/40 bg-emerald-500/15 text-emerald-100",
   exhaustion: "border-rose-400/40 bg-rose-500/15 text-rose-100",
 };
 
@@ -23,6 +24,7 @@ const TONE_ICONS: Record<StatusTone, LucideIcon> = {
   feature: Flame,
   concentration: Focus,
   buff: Sparkles,
+  item: Gem,
   exhaustion: BatteryLow,
 };
 
@@ -87,6 +89,9 @@ export function listStatusItems(control: SheetStatesControl): StatusItem[] {
         const label = findStateSourceLabel(pers, key, control.catalog);
         return { key: `buff:${key}`, tone: "buff" as const, label, ariaLabel: `Діє: ${label}` };
       }),
+    ...control.itemStates
+      .filter((item) => item.isSwitchedOn)
+      .map((item) => ({ key: `item:${item.magicItemId}`, tone: "item" as const, label: item.name, ariaLabel: `Діє: ${item.name} — ${item.state.activationLabel.toLowerCase()}` })),
     ...(control.exhaustionLevel > 0
       ? [{ key: "exhaustion", tone: "exhaustion" as const, label: "Виснаження", badge: String(control.exhaustionLevel), ariaLabel: `Виснаження, рівень ${control.exhaustionLevel}` }]
       : []),

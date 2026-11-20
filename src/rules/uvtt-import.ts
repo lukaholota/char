@@ -1,7 +1,7 @@
 import { FEET_PER_CELL, parseSceneGrid, type SceneGrid } from "./game-grid";
 import { LIGHT_LIMITS, parseLightSource, parseSceneLighting, type LightSource, type SceneLighting } from "./game-lighting";
 import type { TokenPosition } from "./game-map";
-import { countWallSegments, parseWallLine, WALL_LIMITS, type WallLine } from "./game-walls";
+import { buildOpening, buildWall, countWallSegments, parseWallLine, WALL_LIMITS, type WallLine } from "./game-walls";
 import { roundShare } from "./map-strokes";
 
 export const UVTT_FILE_PATTERN = /\.(dd2vtt|uvtt|df2vtt)$/i;
@@ -103,11 +103,11 @@ function collectWalls(lines: CellPoint[][], toShare: (point: CellPoint) => Token
     .map(dropStraightPoints)
     .filter((line) => line.length > 1)
     .flatMap(splitLongLine)
-    .map((points) => ({ kind: "wall" as const, isOpen: false, points: points.map(toShare) }));
+    .map((points) => buildWall(points.map(toShare)));
 }
 
 function collectDoors(portals: UvttFile["portals"], toShare: (point: CellPoint) => TokenPosition): WallLine[] {
-  return portals.map((portal) => ({ kind: "door" as const, isOpen: !portal.isClosed, points: portal.bounds.map(toShare) }));
+  return portals.map((portal) => ({ ...buildOpening("door"), isOpen: !portal.isClosed, points: portal.bounds.map(toShare) }));
 }
 
 /// Радіус файлу — у клітинках; ділимо навпіл на яскраве й тьмяне, колір та силу відкидаємо.

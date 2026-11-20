@@ -1,8 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { ImagePlus, Trash2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { saveHomebrewCreature } from "@/lib/actions/homebrew-actions";
 import {
   ABILITY_FIELDS,
@@ -11,14 +9,13 @@ import {
   CREATURE_TYPES,
 } from "@/lib/logic/homebrew-input";
 import type { HomebrewCreatureFormValues } from "@/lib/logic/homebrew-form-values";
-import { ACCEPTED_IMAGE_MIME_TYPES, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
 import { CHALLENGE_RATINGS } from "@/rules/challenge-rating";
-import { ImageCropDialog } from "@/lib/components/portrait/ImageCropDialog";
 import type { CreatureSpellChoice } from "@/rules/creature-spellcasting";
 import { CREATURE_ACTION_TEMPLATES, CreatureActionsCheck } from "./CreatureActionsCheck";
 import { CreatureSpellcastingFields } from "./CreatureSpellcastingFields";
 import { RichTextField, RULESET_OPTIONS, SelectField, SubmitBar, TextField } from "./HomebrewFormFields";
 import { useHomebrewSubmit } from "./useHomebrewSubmit";
+import { appendHomebrewImage, buildInitialHomebrewImage, HomebrewImageField, type HomebrewImage } from "./HomebrewImageField";
 
 const ABILITY_LABELS: Record<(typeof ABILITY_FIELDS)[number], string> = { strength: "СИЛ", dexterity: "СПР", constitution: "СТА", intelligence: "ІНТ", wisdom: "МУД", charisma: "ХАР" };
 const PROSE_LABELS: Record<(typeof CREATURE_PROSE_FIELDS)[number], string> = {
@@ -44,9 +41,7 @@ type Props = { entryId?: number; initialValues: HomebrewCreatureFormValues; init
 
 export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }: Props) {
   const [values, setValues] = useState(initialValues);
-  const [image, setImage] = useState<{ blob: Blob | null; previewUrl: string | null; isRemoved: boolean }>({ blob: null, previewUrl: initialImageUrl, isRemoved: false });
-  const [imageError, setImageError] = useState<string | null>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [image, setImage] = useState(() => buildInitialHomebrewImage(initialImageUrl));
   const { errors, isSaving, submit, markEdited } = useHomebrewSubmit({ kind: "CREATURE", ruleset: values.ruleset, entryId });
   const set = (key: Exclude<keyof HomebrewCreatureFormValues, "spells">) => (value: string) => {
     markEdited();
@@ -58,27 +53,16 @@ export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }
     setValues((current) => ({ ...current, spells }));
   };
 
-  const [croppingFile, setCroppingFile] = useState<File | null>(null);
-
-  const acceptCroppedImage = (blob: Blob) => {
+  const changeImage = (next: HomebrewImage) => {
     markEdited();
-    setCroppingFile(null);
-    if (blob.size > MAX_IMAGE_UPLOAD_BYTES) return setImageError("Картинка завелика навіть після стискання");
-    setImageError(null);
-    setImage({ blob, previewUrl: URL.createObjectURL(blob), isRemoved: false });
-  };
-
-  const rejectUnreadableImage = () => {
-    setCroppingFile(null);
-    setImageError("Не вдалося відкрити картинку. Спробуйте JPEG, PNG або WebP.");
+    setImage(next);
   };
 
   const save = () => {
     const formData = new FormData();
     formData.set("values", JSON.stringify(values));
     if (entryId) formData.set("entryId", String(entryId));
-    if (image.blob) formData.set("image", image.blob, "creature.webp");
-    if (image.isRemoved) formData.set("removeImage", "1");
+    appendHomebrewImage(formData, image, "creature.webp");
     return saveHomebrewCreature(formData);
   };
 
@@ -139,30 +123,7 @@ export function HomebrewCreatureForm({ entryId, initialValues, initialImageUrl }
 
       <CreatureSpellcastingFields values={values} errors={errors} onTextChange={set} onSpellsChange={setSpells} />
 
-      <section className="space-y-2">
-        <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">Картинка</span>
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          {image.previewUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element -- попередній перегляд локального файлу або вже стиснутого WebP із R2
-            <img src={image.previewUrl} alt="Картинка істоти" className="h-32 w-32 rounded-xl border border-white/10 object-cover" />
-          ) : null}
-          <input ref={inputRef} type="file" accept={ACCEPTED_IMAGE_MIME_TYPES} className="hidden" onChange={(event) => { const file = event.target.files?.[0]; event.target.value = ""; if (file) setCroppingFile(file); }} />
-          <div className="flex flex-col gap-2 sm:flex-row">
-            <Button type="button" variant="secondary" className="h-11 gap-2 sm:h-9" onClick={() => inputRef.current?.click()}>
-              <ImagePlus className="h-4 w-4" />
-              {image.previewUrl ? "Замінити" : "Додати картинку"}
-            </Button>
-            {image.previewUrl ? (
-              <Button type="button" variant="secondary" className="h-11 gap-2 sm:h-9" onClick={() => setImage({ blob: null, previewUrl: null, isRemoved: true })}>
-                <Trash2 className="h-4 w-4" />
-                Прибрати
-              </Button>
-            ) : null}
-          </div>
-        </div>
-        <ImageCropDialog file={croppingFile} title="Кадр картинки істоти" onCancel={() => setCroppingFile(null)} onCropped={acceptCroppedImage} onUnreadable={rejectUnreadableImage} />
-        {imageError ? <p className="text-xs text-rose-300">{imageError}</p> : <p className="text-xs text-slate-500">Кадрування й стиснення автоматичні. Лише власні або вільні для використання зображення.</p>}
-      </section>
+      <HomebrewImageField image={image} onChange={changeImage} alt="Картинка істоти" cropTitle="Кадр картинки істоти" />
 
       <SubmitBar isSaving={isSaving} isEditing={Boolean(entryId)} />
     </form>

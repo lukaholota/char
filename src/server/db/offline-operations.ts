@@ -19,7 +19,7 @@ import { stepCustomFeatureUses } from "@/server/db/pers-custom-content";
 import { getPactMagicSlots, getStandardSpellSlots } from "@/rules/spellcasting";
 import { changeFeatureUses } from "@/server/db/feature-use-change";
 import { changeFeatureState } from "@/server/db/feature-state-change";
-import { changeConcentration, changeExhaustion, changeSpellBuff, type PersEffectResult } from "@/server/db/pers-effect-change";
+import { changeConcentration, changeExhaustion, changeItemState, changeSpellBuff, type PersEffectResult } from "@/server/db/pers-effect-change";
 import { findMagicItemPersId, findPersMagicItemCharges, savePersMagicItemCharges } from "@/server/db/magic-items";
 import { updateSheetSpellRow } from "@/server/db/sheet-spell-rows";
 import { findRestPers, takeLongRest, takeShortRest } from "@/server/db/rest";
@@ -73,6 +73,7 @@ function isPersFieldOperation(operation: OfflineOperation): boolean {
     case "concentration":
     case "spell-buff":
     case "exhaustion":
+    case "item-state":
     case "magic-item-charges":
     case "spell-prepared":
     case "hit-dice":
@@ -182,6 +183,8 @@ async function applyRelationChange(operation: OfflineOperation): Promise<string 
       return describeFailure(await changeSpellBuff(operation.persId, operation));
     case "exhaustion":
       return describeFailure(await changeExhaustion(operation.persId, operation.level));
+    case "item-state":
+      return describeFailure(await changeItemState(operation.persId, operation.magicItemId, operation.isActive));
     case "magic-item-charges": {
       const ownerId = await findMagicItemPersId(operation.persMagicItemId);
       if (ownerId !== operation.persId) return "Предмет не належить цьому персонажу";

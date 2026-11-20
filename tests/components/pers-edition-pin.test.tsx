@@ -10,7 +10,7 @@ vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: navigation.push, replace: vi.fn(), refresh: vi.fn(), prefetch: vi.fn() }),
 }));
 vi.mock("next-auth/react", () => ({ useSession: () => ({ data: null }), signOut: vi.fn() }));
-vi.mock("@/lib/components/auth/GoogleAuthDialog", () => ({ default: () => null }));
+vi.mock("@/lib/components/auth/SignInDialog", () => ({ default: () => null }));
 vi.mock("@/lib/components/problemReport/ReportProblemDialog", () => ({ ReportProblemDialog: () => null }));
 
 import { Navigation } from "@/components/ui/Navigation";

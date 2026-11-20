@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { BestiaryClient } from "@/components/bestiary/BestiaryClient";
 import { SpellsClient } from "@/app/spells/spells-client";
+import { MagicItemsClient } from "@/app/magic-items/magic-items-client";
 import { findContentViewer } from "@/server/db/content-viewer";
 import { parseHomebrewKind, parseHomebrewSort } from "@/lib/logic/homebrew-catalog";
 import { HomebrewCatalogHeader } from "./HomebrewCatalogHeader";
@@ -19,6 +20,8 @@ export async function HomebrewCatalogPage({ searchParams, is2024 }: { searchPara
       <Suspense fallback={null}>
         {kind === "CREATURE" ? (
           <BestiaryClient ruleset={ruleset} index={[]} initialStatblock={null} homebrewOnly={homebrewOnly} />
+        ) : kind === "ITEM" ? (
+          <MagicItemsClient items={[]} initialSearchParams={searchParams} ruleset={ruleset} homebrewOnly={homebrewOnly} />
         ) : (
           <SpellsClient spells={[]} initialSearchParams={searchParams} ruleset={ruleset} homebrewOnly={homebrewOnly} />
         )}

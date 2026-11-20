@@ -14,7 +14,7 @@ vi.mock("@/lib/actions/character", () => ({ createCharacter: mocks.create, creat
 vi.mock("@/components/no-ai/NoAiModeProvider", async (importOriginal) => ({ ...(await importOriginal<object>()), useModeRouter: () => ({ push: mocks.push }) }));
 vi.mock("@/components/no-ai/ModeLink", () => ({ ModeLink: ({ href, children, ...rest }: { href: string; children: React.ReactNode }) => <a href={href} {...rest}>{children}</a> }));
 vi.mock("@/components/optimization/BuildSource", () => ({ BuildSource: () => null }));
-vi.mock("@/lib/components/auth/GoogleAuthDialog", () => ({ default: ({ open }: { open?: boolean }) => (open ? <div role="dialog" aria-label="Увійти через Google" /> : <button type="button">Увійти</button>) }));
+vi.mock("@/lib/components/auth/SignInDialog", () => ({ default: ({ open }: { open?: boolean }) => (open ? <div role="dialog" aria-label="Увійти через Google" /> : <button type="button">Увійти</button>) }));
 vi.mock("@/lib/monitoring/rpgbot-analytics", () => ({ captureRpgbotEvent: mocks.capture }));
 vi.mock("@/lib/monitoring/use-rpgbot-surface-view", () => ({ useRpgbotSurfaceView: vi.fn() }));
 
@@ -122,7 +122,7 @@ describe("signed-out player", () => {
     const view = await renderPreset("fighter-cavalier-2014");
     fireEvent.click(screen.getByRole("radio", { name: "5-й рівень" }));
     fireEvent.change(findNameInput(), { target: { value: "Орест" } });
-    expect(screen.getByText("Щоб зберегти персонажа, увійдіть через Google. Вибори не загубляться.")).toBeTruthy();
+    expect(screen.getByText("Щоб зберегти персонажа, увійдіть. Вибори не загубляться.")).toBeTruthy();
     await tap("Створити за гайдом");
     expect(screen.getByRole("dialog", { name: "Увійти через Google" })).toBeTruthy();
     expect(mocks.create).not.toHaveBeenCalled();
@@ -133,7 +133,7 @@ describe("signed-out player", () => {
     await reloadPreset(view, "fighter-cavalier-2014");
     expect(findNameInput().value).toBe("Орест");
     expect((screen.getByRole("radio", { name: "5-й рівень" }) as HTMLInputElement).checked).toBe(true);
-    expect(screen.queryByText(/увійдіть через Google/)).toBeNull();
+    expect(screen.queryByText(/увійдіть\. Вибори/)).toBeNull();
     await tap("Створити за гайдом");
     expect(mocks.createFromBuild.mock.calls[0][0]).toMatchObject({ targetLevel: 5, start: { name: "Орест" } });
   });
@@ -144,7 +144,7 @@ describe("signed-out player", () => {
     await waitForGeneratedName();
     fireEvent.click(screen.getByRole("button", { name: "Налаштувати" }));
     for (let guard = 0; guard < 30 && !screen.queryByLabelText("Імʼя персонажа"); guard++) await tap("Далі →");
-    expect(screen.getByText("Щоб зберегти персонажа, увійдіть через Google. Вибори не загубляться.")).toBeTruthy();
+    expect(screen.getByText("Щоб зберегти персонажа, увійдіть. Вибори не загубляться.")).toBeTruthy();
     await tap("Створити");
     expect(screen.getByRole("dialog", { name: "Увійти через Google" })).toBeTruthy();
     expect(mocks.create).not.toHaveBeenCalled();

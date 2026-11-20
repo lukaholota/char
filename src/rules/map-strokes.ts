@@ -21,6 +21,8 @@ export function parseStrokePoints(raw: unknown): TokenPosition[] | null {
 }
 
 /// У базі точки лежать парами [x, y]: так мазок займає вдвічі менше місця.
+export const isSamePoint = (left: TokenPosition, right: TokenPosition) => Math.abs(left.x - right.x) < 1e-6 && Math.abs(left.y - right.y) < 1e-6;
+export const buildRectOutline = (from: TokenPosition, to: TokenPosition) => [from, { x: to.x, y: from.y }, to, { x: from.x, y: to.y }, from];
 export const toStoredPoints = (points: TokenPosition[]) => points.map((point): [number, number] => [point.x, point.y]);
 export const fromStoredPoints = (stored: unknown) => (Array.isArray(stored) ? stored.map((pair) => (Array.isArray(pair) ? { x: pair[0], y: pair[1] } : null)) : null);
 

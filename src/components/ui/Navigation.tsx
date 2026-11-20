@@ -5,7 +5,7 @@ import { DragonIcon } from "@/lib/components/icons/DragonIcon";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { ModeLink as Link, useLinkStatus } from "@/components/no-ai/ModeLink";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ArrowLeft, BookOpen, Eye, Home, Loader2, Search, Sparkles, WandSparkles, type LucideIcon } from "lucide-react";
+import { ArrowLeft, Eye, Home, Loader2, ScrollText, Search, Sparkles, WandSparkles, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
@@ -40,7 +40,7 @@ const NAV_ACCENT = {
 
 // Kept in step with the button inside NavExtraMenu — "Меню" sits in the same row and must not
 // drift away from its neighbours.
-const ITEM = "safe-nav-item relative flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 transition-colors";
+const ITEM = "safe-nav-item relative flex min-w-0 flex-1 md:w-16 md:flex-none flex-col items-center justify-center gap-1 rounded-xl py-2 transition-colors";
 const ITEM_IDLE = "text-slate-400 hover:bg-white/5 hover:text-slate-200 active:bg-white/10 active:text-slate-100 disabled:opacity-40";
 const ITEM_LABEL = "safe-nav-label text-xs leading-none";
 
@@ -90,14 +90,6 @@ function buildNavItems(edition: Edition, openSearch: () => void): NavItem[] {
 			matchesPathname: startsWith(`${root}/spells`),
 		},
 		{
-			key: "magic-items",
-			href: `${root}/magic-items`,
-			label: "Предмети",
-			icon: WandSparkles,
-			width: "desktop",
-			matchesPathname: startsWith(`${root}/magic-items`),
-		},
-		{
 			key: "search-mobile",
 			label: "Пошук",
 			icon: Search,
@@ -113,6 +105,14 @@ function buildNavItems(edition: Edition, openSearch: () => void): NavItem[] {
 			matchesPathname: (pathname) => pathname === `${root}/char` || pathname.startsWith(`${root}/char/`),
 		},
 		{
+			key: "games",
+			href: `${root}/games`,
+			label: "VTT",
+			icon: ScrollText,
+			width: "both",
+			matchesPathname: startsWith(`${root}/games`),
+		},
+		{
 			key: "bestiary",
 			href: `${root}/bestiary`,
 			label: "Бестіарій",
@@ -121,12 +121,12 @@ function buildNavItems(edition: Edition, openSearch: () => void): NavItem[] {
 			matchesPathname: startsWith(`${root}/bestiary`),
 		},
 		{
-			key: "rules",
-			href: `${root}/rules`,
-			label: "Правила",
-			icon: BookOpen,
+			key: "magic-items",
+			href: `${root}/magic-items`,
+			label: "Предмети",
+			icon: WandSparkles,
 			width: "desktop",
-			matchesPathname: startsWith(`${root}/rules`),
+			matchesPathname: startsWith(`${root}/magic-items`),
 		},
 	];
 }
@@ -274,7 +274,7 @@ export const Navigation = () => {
 		<nav
 			data-safe-navigation
 			className={cn(
-				"fixed bottom-0 left-0 z-[70] flex w-full flex-row items-center justify-between gap-1 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))]",
+				"fixed bottom-0 left-0 z-[70] flex w-full flex-row items-center justify-between gap-0.5 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))]",
 				"border-t border-white/[0.07] bg-[#0b0b11] bg-[linear-gradient(to_top,#08080c,#0e0e16)]",
 				"md:top-0 md:w-[88px] md:flex-col md:justify-between md:gap-0 md:border-t-0 md:border-r md:border-white/[0.07] md:px-0 md:py-6",
 				"md:bg-[linear-gradient(to_bottom,#0e0e16,#08080c)]"

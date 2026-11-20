@@ -11,16 +11,17 @@ import type { MapHistory } from "./map-history";
 import { HistoryButtons, Segmented, Stepper, ToolPanel } from "./MapToolbar";
 import { TokenNameModePicker } from "./TokenName";
 import { TokenScaleSlider } from "./TokenScaleSlider";
+import { SceneVolumeSlider } from "./MapSounds";
 import type { FogBrush, FogBrushSize, FogShape, useFogTool, useGridTool } from "./use-map-tools";
 
 const NEW_GRID: SceneGrid = { columns: 20, offsetX: 0, offsetY: 0, isVisible: true, opacity: GRID_OPACITY_RANGE.initial };
 const FIT_CELLS_RANGE = { min: 1, max: 10 } as const;
 
-function Hint({ children }: { children: ReactNode }) {
+export function Hint({ children }: { children: ReactNode }) {
   return <p className="text-sm leading-snug text-slate-400">{children}</p>;
 }
 
-function SwitchRow({ label, isChecked, onChange }: { label: string; isChecked: boolean; onChange: (isChecked: boolean) => void }) {
+export function SwitchRow({ label, isChecked, onChange }: { label: string; isChecked: boolean; onChange: (isChecked: boolean) => void }) {
   return (
     <label className="flex min-h-11 cursor-pointer items-center justify-between gap-3 text-sm text-slate-300">
       {label}
@@ -217,10 +218,11 @@ type ViewPanelProps = {
   creatureNames: NameModeControl | null;
   cutoutOutline: { isOn: boolean; onChange: (isOn: boolean) => void };
   partyPortraits: { isOn: boolean; onChange: (isOn: boolean) => void };
+  weather: { isOn: boolean; onChange: (isOn: boolean) => void } | null;
   onClose: () => void;
 };
 
-export function ViewPanel({ hasGrid, tokenScale, onTokenScaleChange, heroNames, creatureNames, cutoutOutline, partyPortraits, onClose }: ViewPanelProps) {
+export function ViewPanel({ hasGrid, tokenScale, onTokenScaleChange, heroNames, creatureNames, cutoutOutline, partyPortraits, weather, onClose }: ViewPanelProps) {
   return (
     <ToolPanel title="Вигляд" onClose={onClose}>
       {hasGrid ? <Hint>Токени займають клітинки сітки й ростуть разом із мапою.</Hint> : <TokenScaleSlider scale={tokenScale} onChange={onTokenScaleChange} />}
@@ -228,6 +230,8 @@ export function ViewPanel({ hasGrid, tokenScale, onTokenScaleChange, heroNames, 
       {creatureNames ? <TokenNameModePicker label="Імена істот" mode={creatureNames.mode} onChange={creatureNames.onChange} /> : null}
       <SwitchRow label="Портрети героїв поза боєм" isChecked={partyPortraits.isOn} onChange={partyPortraits.onChange} />
       <SwitchRow label="Кольорова обвідка прозорих токенів" isChecked={cutoutOutline.isOn} onChange={cutoutOutline.onChange} />
+      <SceneVolumeSlider />
+      {weather ? <SwitchRow label="Показувати погоду в мене" isChecked={weather.isOn} onChange={weather.onChange} /> : null}
       <Hint>Щоб показати всім точку на мапі, утримуйте на ній палець або кнопку миші.</Hint>
     </ToolPanel>
   );

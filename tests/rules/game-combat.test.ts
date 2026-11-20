@@ -30,6 +30,14 @@ describe("кидок ініціативи", () => {
     expect(rollInitiative(0)).toBeGreaterThanOrEqual(1);
   });
 
+  it("перевага бере більший d20, перешкода — менший", () => {
+    const rolls = [0.1, 0.8];
+    const nextRoll = () => () => rolls.shift() ?? 0;
+    expect(rollInitiative(2, nextRoll(), "ADVANTAGE")).toBe(19);
+    rolls.push(0.1, 0.8);
+    expect(rollInitiative(2, nextRoll(), "DISADVANTAGE")).toBe(5);
+  });
+
   it("бонус істоти — модифікатор Спритності зі статблока 2014 і 2024", () => {
     expect(findCreatureInitiativeBonus("16 (+3)")).toBe(3);
     expect(findCreatureInitiativeBonus("8 (-1)")).toBe(-1);

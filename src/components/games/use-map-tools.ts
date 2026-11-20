@@ -10,7 +10,7 @@ import type { MapRect, MapSegment } from "./MapOverlay";
 import type { MapGesture } from "./use-map-viewport";
 
 type Point = { clientX: number; clientY: number };
-export type MapTool = "ruler" | "area" | "draw" | "objects" | "walls" | "light" | "fog" | "grid" | "view";
+export type MapTool = "ruler" | "area" | "draw" | "objects" | "walls" | "light" | "fog" | "floors" | "atmosphere" | "sounds" | "grid" | "view";
 type ToShare = (point: Point) => TokenPosition | null;
 
 const TAP_SLOP_SHARE = 0.004;

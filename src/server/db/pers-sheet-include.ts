@@ -86,16 +86,14 @@ export const PERS_SHEET_INCLUDE = {
       },
     },
   },
-  magicItems: {
-    include: {
-      magicItem: true
-    }
-  },
+  // Без orderBy Postgres віддає щойно оновлений рядок останнім, і картка стрибає під пальцем.
+  magicItems: { include: { magicItem: true }, orderBy: { persMagicItemId: "asc" } },
   features: { include: { feature: true } },
   effects: {
     include: {
       spell: { select: { spellId: true, name: true, engName: true, hasConcentration: true } },
       homebrewEntry: { select: { homebrewEntryId: true, name: true } },
+      magicItem: { select: { magicItemId: true, name: true, engName: true, ruleset: true, itemType: true } },
     },
   },
   classOptionalFeatures: { include: { feature: true } },
@@ -114,9 +112,9 @@ export const PERS_SHEET_INCLUDE = {
     ],
   },
   homebrewSpells: { include: { entry: { select: { name: true, ruleset: true, spell: true } } } },
-  weapons: { include: { weapon: true } },
+  weapons: { include: { weapon: true }, orderBy: { persWeaponId: "asc" } },
   pers_weapon_mastery: { include: { weapon: true } },
-  armors: { include: { armor: true } },
+  armors: { include: { armor: true }, orderBy: { persArmorId: "asc" } },
   resourcePools: true,
   persCustomSkills: { orderBy: { name: "asc" } },
   persCustomFeatures: { orderBy: { id: "asc" } },

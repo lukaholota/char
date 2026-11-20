@@ -1,27 +1,33 @@
 "use client";
 
+import { useContext } from "react";
 import { Dice6 } from "lucide-react";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
-import { buildCreatureActionRollContext, buildCreatureD20RollContext, buildD20Action } from "@/lib/components/dice/roll-contexts";
+import { buildCreatureActionRollContext, buildCreatureD20RollContext, buildD20Action, buildItemActionRollContext } from "@/lib/components/dice/roll-contexts";
 import { openRoomRoll, useCanRollTargetSave } from "@/lib/components/game/open-room-roll";
+import { ItemRollUseContext } from "@/lib/components/magicItems/item-roll-use";
+import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import type { DiceRollContext } from "@/lib/stores/diceUIStore";
 import { attributesUkrFull } from "@/lib/refs/translation";
+import { pluralizeCharges } from "@/rules/magic-item-charge-text";
+import { findItemActionChargeCost, findItemRolls } from "@/rules/magic-item-action-rolls";
 import { findCreatureSaveAction, findCreatureSaveEffect, findCreatureSaveSpots, type CreatureSaveAction, type CreatureSaveEffect } from "@/rules/creature-area-action";
-import { findCreatureRolls, splitNamedBonuses, type CreatureRoll } from "@/rules/creature-rolls";
+import { findCreatureRolls, splitNamedBonuses, type CreatureRoll, type CreatureRollSpot } from "@/rules/creature-rolls";
 
 type HastText = { type: "text"; value: string };
 type HastElement = { type: "element"; tagName: string; properties: Record<string, unknown>; children: HastNode[] };
 type HastNode = HastText | HastElement | { type: "comment" | "doctype" | "raw"; value?: string };
 
-export type CreatureRollChipData = { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; save?: CreatureSaveAction; saveEffect?: CreatureSaveEffect };
+/// isItem — опис магічного предмета: кидає герой, а chargeCost знімає заряди перед кидком.
+export type CreatureRollChipData = { creatureName: string; actionName: string; rolls: CreatureRoll[]; index: number; save?: CreatureSaveAction; saveEffect?: CreatureSaveEffect; isItem?: true; chargeCost?: number };
 
 export const CREATURE_ROLL_TAG = "creature-roll";
 const SKIPPED_TAGS = new Set(["a", "abbr", "code", "pre"]);
 
 /// Кубики шукаються в кожному абзаці й пункті списку окремо: кнопка шкоди відкриває панель разом з атакою того самого удару.
-export function rehypeCreatureRolls({ creatureName }: { creatureName: string }) {
+export function rehypeCreatureRolls({ creatureName, isItem = false }: { creatureName: string; isItem?: boolean }) {
   return (tree: { children: HastNode[] }) => {
-    for (const block of tree.children) if (block.type === "element") for (const action of splitListItems(block)) addRollChips(action, creatureName);
+    for (const block of tree.children) if (block.type === "element") for (const action of splitListItems(block)) addRollChips(action, creatureName, isItem);
   };
 }
 
@@ -30,32 +36,35 @@ function splitListItems(block: HastElement): HastElement[] {
   return block.children.filter((child): child is HastElement => child.type === "element" && child.tagName === "li");
 }
 
-function addRollChips(block: HastElement, creatureName: string) {
+function addRollChips(block: HastElement, creatureName: string, isItem: boolean) {
   const found: Array<{ chip: HastElement; roll: CreatureRoll }> = [];
   const text = readText(block);
   const saveEffect = findCreatureSaveEffect(text);
-  replaceRollText(block, found, saveEffect !== null);
+  replaceRollText(block, found, { hasSaveEffect: saveEffect !== null, findRolls: isItem ? findItemRolls : findCreatureRolls });
   const actionName = findActionName(block);
   const rolls = found.map(({ roll }) => roll);
   const save = found.length ? findCreatureSaveAction(text) : null;
+  const chargeCost = isItem ? findItemActionChargeCost(text) : null;
   found.forEach(({ chip }, index) => {
-    const data: CreatureRollChipData = { creatureName, actionName, rolls, index, ...(save ? { save } : {}), ...(saveEffect ? { saveEffect } : {}) };
+    const data: CreatureRollChipData = { creatureName, actionName, rolls, index, ...(save ? { save } : {}), ...(saveEffect ? { saveEffect } : {}), ...(isItem ? { isItem } : {}), ...(chargeCost ? { chargeCost } : {}) };
     chip.properties.dataRoll = JSON.stringify(data);
   });
 }
 
-function replaceRollText(element: HastElement, found: Array<{ chip: HastElement; roll: CreatureRoll }>, hasSaveEffect: boolean) {
+type RollSearch = { hasSaveEffect: boolean; findRolls: (text: string) => CreatureRollSpot[] };
+
+function replaceRollText(element: HastElement, found: Array<{ chip: HastElement; roll: CreatureRoll }>, search: RollSearch) {
   element.children = element.children.flatMap((child) => {
     if (child.type === "element") {
-      if (!SKIPPED_TAGS.has(child.tagName)) replaceRollText(child, found, hasSaveEffect);
+      if (!SKIPPED_TAGS.has(child.tagName)) replaceRollText(child, found, search);
       return [child];
     }
-    return child.type === "text" ? splitTextIntoChips(child.value, found, hasSaveEffect) : [child];
+    return child.type === "text" ? splitTextIntoChips(child.value, found, search) : [child];
   });
 }
 
-function splitTextIntoChips(text: string, found: Array<{ chip: HastElement; roll: CreatureRoll }>, hasSaveEffect: boolean): HastNode[] {
-  const spots = [...findCreatureRolls(text), ...(hasSaveEffect ? findCreatureSaveSpots(text) : [])].sort((a, b) => a.start - b.start);
+function splitTextIntoChips(text: string, found: Array<{ chip: HastElement; roll: CreatureRoll }>, { hasSaveEffect, findRolls }: RollSearch): HastNode[] {
+  const spots = [...findRolls(text), ...(hasSaveEffect ? findCreatureSaveSpots(text) : [])].sort((a, b) => a.start - b.start);
   if (!spots.length) return [{ type: "text", value: text }];
   const nodes: HastNode[] = [];
   let cursor = 0;
@@ -94,30 +103,53 @@ function readText(node: HastNode): string {
 
 export function CreatureRollChip({ data, children }: { data: CreatureRollChipData | null; children: React.ReactNode }) {
   const canRollTargetSave = useCanRollTargetSave();
+  if (data?.isItem) return <ItemRollChip data={data}>{children}</ItemRollChip>;
   if (!data || (data.rolls[data.index].kind === "save" && !canRollTargetSave)) return <>{children}</>;
   const roll = data.rolls[data.index];
   return (
-    <RollChip
-      isD20={roll.kind === "attack" || roll.kind === "save"}
-      label={`Кинути: ${describeRollAloud(roll)}${data.actionName ? `, ${data.actionName}` : ""}`}
-      onRoll={() => buildCreatureActionRollContext({ ...data, canRollTargetSave })}
-    >
+    <RollChip isD20={isD20Roll(roll)} label={describeChipAloud(data)} onRoll={() => openRoomRoll(buildCreatureActionRollContext({ ...data, canRollTargetSave }))}>
       {children}
     </RollChip>
   );
 }
 
-function RollChip({ isD20, label, onRoll, children }: { isD20: boolean; label: string; onRoll: () => DiceRollContext; children: React.ReactNode }) {
+/// Поза листом (каталог) кубики предмета — просто текст. Заряди знімає лише перший кидок дії: шкода після атаки — та сама дія.
+function ItemRollChip({ data, children }: { data: CreatureRollChipData; children: React.ReactNode }) {
+  const use = useContext(ItemRollUseContext);
+  const isInRoom = useGameSessionStore((state) => state.active !== null);
+  const roll = data.rolls[data.index];
+  if (!use || (roll.kind === "save" && !isInRoom)) return <>{children}</>;
+  const firstShownIndex = data.rolls.findIndex((each) => each.kind !== "save" || isInRoom);
+  const cost = data.index === firstShownIndex && use.chargesLeft !== null ? (data.chargeCost ?? 0) : 0;
+  const isShort = use.chargesLeft !== null && use.chargesLeft < cost;
+  const costText = !cost ? "" : isShort ? "не вистачає зарядів" : `витратить ${cost} ${pluralizeCharges(cost)}`;
+  const rollItem = async () => {
+    if (!(await use.startRoll(cost))) return;
+    openRoomRoll(buildItemActionRollContext({ ...data, canRollTargetSave: isInRoom }));
+  };
+  return (
+    <RollChip isD20={isD20Roll(roll)} label={[describeChipAloud(data), costText].filter(Boolean).join(" — ")} isDisabled={isShort || use.isPending} onRoll={() => void rollItem()}>
+      {children}
+    </RollChip>
+  );
+}
+
+const isD20Roll = (roll: CreatureRoll) => roll.kind === "attack" || roll.kind === "save";
+const describeChipAloud = (data: CreatureRollChipData) => `Кинути: ${describeRollAloud(data.rolls[data.index])}${data.actionName ? `, ${data.actionName}` : ""}`;
+
+function RollChip({ isD20, label, isDisabled = false, onRoll, children }: { isD20: boolean; label: string; isDisabled?: boolean; onRoll: () => void; children: React.ReactNode }) {
   const Icon = isD20 ? D20Icon : Dice6;
   return (
     <button
       type="button"
       aria-label={label}
+      title={isDisabled ? label : undefined}
+      disabled={isDisabled}
       onClick={(event) => {
         event.stopPropagation();
-        openRoomRoll(onRoll());
+        onRoll();
       }}
-      className="mx-px inline-flex items-baseline gap-1 whitespace-nowrap rounded-md border border-amber-400/30 bg-amber-500/10 px-1 font-semibold text-amber-100 transition hover:border-amber-300/60 hover:bg-amber-500/20 active:scale-95"
+      className="mx-px inline-flex items-baseline gap-1 whitespace-nowrap rounded-md border border-amber-400/30 bg-amber-500/10 px-1 font-semibold text-amber-100 transition hover:border-amber-300/60 hover:bg-amber-500/20 active:scale-95 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-transparent disabled:text-slate-400 disabled:active:scale-100"
     >
       <Icon className="h-3 w-3 shrink-0 self-center text-amber-300" aria-hidden />
       {children}
@@ -131,7 +163,7 @@ export function CreatureBonusChips({ creatureName, text, kind }: { creatureName:
     <span key={index}>
       {index > 0 ? ", " : null}
       {typeof part === "string" ? part : (
-        <RollChip isD20 label={`Кинути: ${part.name} ${formatBonus(part.bonus)}`} onRoll={() => buildBonusRollContext(creatureName, part.name, part.bonus, kind)}>
+        <RollChip isD20 label={`Кинути: ${part.name} ${formatBonus(part.bonus)}`} onRoll={() => openRoomRoll(buildBonusRollContext(creatureName, part.name, part.bonus, kind))}>
           {part.name} {formatBonus(part.bonus)}
         </RollChip>
       )}
@@ -146,7 +178,7 @@ function buildBonusRollContext(creatureName: string, name: string, bonus: number
 
 export function CreatureInitiativeChip({ creatureName, bonus, children }: { creatureName: string; bonus: number; children: React.ReactNode }) {
   return (
-    <RollChip isD20 label={`Кинути ініціативу ${formatBonus(bonus)}`} onRoll={() => buildCreatureD20RollContext(creatureName, undefined, [buildD20Action("initiative", "Ініціатива", bonus)])}>
+    <RollChip isD20 label={`Кинути ініціативу ${formatBonus(bonus)}`} onRoll={() => openRoomRoll(buildCreatureD20RollContext(creatureName, undefined, [buildD20Action("initiative", "Ініціатива", bonus)]))}>
       {children}
     </RollChip>
   );
@@ -175,5 +207,6 @@ function describeRollAloud(roll: CreatureRoll): string {
   if (roll.kind === "save") return "ряткидок цілі";
   if (roll.kind === "recharge") return "перезарядка";
   if (roll.kind === "dice") return "кубик";
+  if (roll.kind === "heal") return "лікування";
   return "шкода";
 }

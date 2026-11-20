@@ -58,7 +58,7 @@ const combat: CombatView = {
 };
 
 const buildView = (overrides: Partial<GameSessionView> = {}): GameSessionView => ({
-  id: 7, name: "Печера", isArchived: false, myUserId: 2, myRole: "PLAYER", myPersId: 20, myPersIds: [20], inviteToken: null, mapImageUrl: null, members: [], creatures: [], creatureNameMode: "short", combat: null, grid: null, fog: null, areas: [], drawings: [], objects: [], walls: [], sightLines: [], lighting: "off", lights: [], viewedSceneId: null, activeSceneId: null, scenes: [], ...overrides,
+  id: 7, name: "Печера", isArchived: false, myUserId: 2, myRole: "PLAYER", myPersId: 20, myPersIds: [20], inviteToken: null, mapImageUrl: null, members: [], creatures: [], creatureNameMode: "short", combat: null, grid: null, fog: null, areas: [], drawings: [], objects: [], walls: [], lighting: "off", lights: [], atmosphere: { weather: "none", tint: "none" }, ambience: [], floors: [], shownFloor: null, viewedSceneId: null, activeSceneId: null, scenes: [], ...overrides,
 });
 const gmView = (overrides: Partial<GameSessionView> = {}) => buildView({ myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [], ...overrides });
 const listItems = () => within(screen.getByRole("list", { name: "Черга ходів" })).getAllByRole("listitem");

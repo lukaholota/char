@@ -5,8 +5,9 @@ import { buildCreatureSpellcasting, type CreatureSpellcasting } from "@/rules/cr
 import { parseCreatureSpeeds } from "@/rules/creature-speed";
 import { classTranslations } from "@/lib/refs/translation";
 import { formatModifier } from "@/lib/logic/utils";
+import { ItemRarity, MagicItemType } from "@/lib/prisma-enums";
 
-export const HOMEBREW_KINDS = ["SPELL", "CREATURE"] as const;
+export const HOMEBREW_KINDS = ["SPELL", "CREATURE", "ITEM"] as const;
 export const HOMEBREW_RULESETS = ["RULES_2014", "RULES_2024"] as const;
 export const HOMEBREW_EDITIONS = ["RULES_2014", "RULES_2024", "ANY"] as const;
 export const SPELL_SCHOOLS = ["Виклик", "Ворожіння", "Втілення", "Захист", "Ілюзія", "Некромантія", "Перетворення", "Причарування"] as const;
@@ -26,6 +27,8 @@ const requiredText = (max: number) => z.string().trim().min(1, "Заповніт
 const optionalText = (max: number) => z.string().trim().max(max, `До ${max} символів`).default("");
 const optionalWholeNumber = z.string().trim().regex(/^[+-]?\d{0,2}$/u, "Ціле число").default("");
 const abilityScore = z.coerce.number("Ціле число").int("Ціле число");
+const optionalBonus = (max: number) =>
+  z.string().trim().refine((text) => text === "" || (/^\+?\d$/u.test(text) && Number(text) >= 1 && Number(text) <= max), `Від 1 до ${max}`).default("");
 
 export const homebrewSpellSchema = z.object({
   ruleset: z.enum(HOMEBREW_EDITIONS, "Оберіть редакцію"),
@@ -80,6 +83,19 @@ export const homebrewCreatureSchema = z.object({
   spells: z.array(z.object({ spellId: z.coerce.number().int() })).max(MAX_CREATURE_SPELLS, `До ${MAX_CREATURE_SPELLS} заклинань`).default([]),
 });
 
+export const homebrewItemSchema = z.object({
+  ruleset: z.enum(HOMEBREW_EDITIONS, "Оберіть редакцію"),
+  name: requiredText(100),
+  itemType: z.enum(Object.values(MagicItemType), "Оберіть тип"),
+  rarity: z.enum(Object.values(ItemRarity), "Оберіть рідкісність"),
+  requiresAttunement: z.boolean(),
+  description: requiredText(20_000),
+  acBonus: optionalBonus(5),
+  saveBonus: optionalBonus(5),
+  weaponBonus: optionalBonus(3),
+});
+
+export type HomebrewItemInput = z.infer<typeof homebrewItemSchema>;
 export type HomebrewSpellInput = z.infer<typeof homebrewSpellSchema>;
 export type HomebrewCreatureInput = z.infer<typeof homebrewCreatureSchema>;
 
@@ -95,6 +111,26 @@ export function parseHomebrewSpellInput(raw: unknown): ParsedHomebrewInput<Homeb
 
 export function parseHomebrewCreatureInput(raw: unknown): ParsedHomebrewInput<HomebrewCreatureInput> {
   return readSchema(homebrewCreatureSchema, raw);
+}
+
+export function parseHomebrewItemInput(raw: unknown): ParsedHomebrewInput<HomebrewItemInput> {
+  return readSchema(homebrewItemSchema, raw);
+}
+
+/// Предмет «для обох редакцій» лежить у magic_item як 2014: колонка обовʼязкова, а доступ персонажам вирішує редакція запису.
+export function buildHomebrewItemColumns(input: HomebrewItemInput) {
+  const saveBonus = readOptionalNumber(input.saveBonus);
+  return {
+    name: input.name,
+    itemType: input.itemType,
+    rarity: input.rarity,
+    requiresAttunement: input.requiresAttunement,
+    description: input.description,
+    ruleset: input.ruleset === "RULES_2024" ? ("RULES_2024" as const) : ("RULES_2014" as const),
+    bonusToAC: readOptionalNumber(input.acBonus),
+    bonusToSavingThrows: saveBonus === null ? null : { all: saveBonus },
+    weaponBonus: input.itemType === "WEAPON" ? readOptionalNumber(input.weaponBonus) : null,
+  };
 }
 
 export function toStoredRuleset(edition: HomebrewEdition): HomebrewRuleset | null {

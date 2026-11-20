@@ -71,10 +71,11 @@ export async function clonePersWithRelations(tx: TransactionClient, pers: PersCl
 
   await copySkillsSpellsAndFeatures(tx, pers, persId);
   await copyFeats(tx, pers, persId);
+  const weapons = await copyWeapons(tx, pers, persId);
   const copiedRowIds: CopiedRowIds = {
-    weapons: await copyWeapons(tx, pers, persId),
+    weapons,
     armors: await copyArmors(tx, pers, persId),
-    magicItems: await copyMagicItems(tx, pers, persId),
+    magicItems: await copyMagicItems(tx, pers, persId, weapons),
   };
   await copyWeaponMasteriesAndMulticlasses(tx, pers, persId);
   const copiedInfusionIds = await copyInfusions(tx, pers, persId, copiedRowIds);
@@ -283,11 +284,12 @@ async function copyArmors(tx: TransactionClient, pers: PersCloneSource, persId: 
   return copiedIds;
 }
 
-async function copyMagicItems(tx: TransactionClient, pers: PersCloneSource, persId: number) {
+async function copyMagicItems(tx: TransactionClient, pers: PersCloneSource, persId: number, copiedWeaponIds: Map<number, number>) {
   const copiedIds = new Map<number, number>();
   for (const mi of pers.magicItems) {
+    const persWeaponId = mi.persWeaponId ? (copiedWeaponIds.get(mi.persWeaponId) ?? null) : null;
     const created = await tx.persMagicItem.create({
-      data: { persId, magicItemId: mi.magicItemId, isEquipped: mi.isEquipped, isAttuned: mi.isAttuned, chargesMax: mi.chargesMax, chargesCurrent: mi.chargesCurrent },
+      data: { persId, magicItemId: mi.magicItemId, isEquipped: mi.isEquipped, isAttuned: mi.isAttuned, chargesMax: mi.chargesMax, chargesCurrent: mi.chargesCurrent, persWeaponId },
     });
     copiedIds.set(mi.persMagicItemId, created.persMagicItemId);
   }
@@ -366,6 +368,7 @@ async function copyResourcePoolsAndWildshapes(tx: TransactionClient, pers: PersC
       effectKey: effect.effectKey,
       spellId: effect.spellId,
       homebrewEntryId: effect.homebrewEntryId,
+      magicItemId: effect.magicItemId,
       endsWithConcentration: effect.endsWithConcentration,
     })),
   });

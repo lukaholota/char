@@ -6,7 +6,7 @@ export const ANALYTICS_SCHEMA_VERSION = 1;
 export type BrowserContext = "regular_browser" | "embedded_browser" | "unknown";
 export type InAppBrowserHost = "telegram" | "threads" | "instagram" | "facebook" | "other" | "unknown";
 export type DeviceType = "mobile" | "tablet" | "desktop" | "unknown";
-export type AuthMethod = "google_redirect" | "one_tap";
+export type AuthMethod = "google_redirect" | "one_tap" | "password";
 export type CreationPath = "manual" | "ready_preset" | "build_assembly";
 
 export type EntryAttribution = {

@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import type { ComponentProps } from "react";
 import { MultiStepForm } from "@/lib/components/characterCreator/MultiStepForm";
-import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import SignInDialog from "@/lib/components/auth/SignInDialog";
 import { CreationFooter } from "@/lib/components/characterCreator/CreationFooter";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { findCharacterCreationOptions } from "@/lib/content/creator-content";
@@ -27,7 +27,7 @@ vi.mock("@/lib/stores/persFormStore", async (importOriginal) => ({
 }));
 
 type Props = ComponentProps<typeof MultiStepForm>;
-const SIGN_IN_AT_END = /наприкінці знадобиться вхід через Google/;
+const SIGN_IN_AT_END = /наприкінці знадобиться вхід/;
 const IN_APP_HINT = /Схоже, це вбудований браузер застосунку/;
 const DRAFT_KEPT = /Ваші вибори збережені\. Після входу ви повернетеся сюди/;
 
@@ -82,13 +82,13 @@ describe("creator tells a signed-out player about sign-in up front", () => {
 
 describe("sign-in dialog opened from the builder", () => {
   it("says the choices are saved and the player returns here", () => {
-    render(<GoogleAuthDialog open onOpenChange={() => {}} isFromCreatorDraft />);
+    render(<SignInDialog open onOpenChange={() => {}} isFromCreatorDraft />);
 
     expect(screen.getByText(DRAFT_KEPT)).toBeTruthy();
   });
 
   it("keeps the generic text elsewhere", () => {
-    render(<GoogleAuthDialog open onOpenChange={() => {}} />);
+    render(<SignInDialog open onOpenChange={() => {}} />);
 
     expect(screen.queryByText(DRAFT_KEPT)).toBeNull();
   });

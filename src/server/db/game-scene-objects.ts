@@ -10,15 +10,19 @@ import { isOwnTokenImage } from "@/server/db/token-images";
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 const succeed = <T,>(value: T) => ({ ok: true as const, value });
 
-const LIBRARY_OBJECT_KEYS = new Set(OBJECT_LIBRARY.map((object) => buildLibraryObjectKey(object.slug)));
-const isUsableObjectImage = async (userId: number, imageKey: string) => LIBRARY_OBJECT_KEYS.has(imageKey) || isOwnTokenImage(userId, imageKey);
+export const buildFloorPlanPrefix = (sessionId: number) => `games/${sessionId}/floors`;
 
-const toObjectColumns = (placement: ObjectPlacement) => ({ x: placement.at.x, y: placement.at.y, widthCells: placement.widthCells, rotation: placement.rotation, name: placement.name, isHidden: placement.isHidden, sortOrder: placement.sortOrder });
+const LIBRARY_OBJECT_KEYS = new Set(OBJECT_LIBRARY.map((object) => buildLibraryObjectKey(object.slug)));
+/// План поверху належить кімнаті: його можна скопіювати чи повернути скасуванням у тій самій кімнаті.
+const isUsableObjectImage = async (sessionId: number, userId: number, imageKey: string) =>
+  LIBRARY_OBJECT_KEYS.has(imageKey) || imageKey.startsWith(`${buildFloorPlanPrefix(sessionId)}/`) || isOwnTokenImage(userId, imageKey);
+
+const toObjectColumns = (placement: ObjectPlacement) => ({ x: placement.at.x, y: placement.at.y, widthCells: placement.widthCells, rotation: placement.rotation, name: placement.name, isHidden: placement.isHidden, sortOrder: placement.sortOrder, floor: placement.floor, aspect: placement.aspect });
 
 export async function addSceneObject(sessionId: number, userId: number, sceneId: number, imageKey: string, placement: ObjectPlacement): Promise<GameSessionResult<{ id: number }>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
-  if (!(await isUsableObjectImage(userId, imageKey))) return fail("token_image_gone");
+  if (!(await isUsableObjectImage(sessionId, userId, imageKey))) return fail("token_image_gone");
   const added = await prisma.$transaction(async (tx) => {
     if (!(await lockScene(tx, sessionId, sceneId))) return fail("bad_scene");
     if ((await tx.gameSceneObject.count({ where: { sceneId } })) >= OBJECT_LIMITS.perScene) return fail("object_limit");

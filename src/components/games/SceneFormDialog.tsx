@@ -246,13 +246,14 @@ function decodeImportedImage(base64: string): Blob | null {
 const toLayout = ({ grid, lighting, walls, lights }: SceneLayout): SceneLayout => ({ grid, lighting, walls, lights });
 
 function countLayout(layout: SceneLayout) {
-  const doors = layout.walls.filter((wall) => wall.kind === "door");
-  return { walls: countWallSegments(layout.walls) - doors.length, doors: doors.length, lights: layout.lights.length };
+  const doors = layout.walls.filter((wall) => wall.kind === "door").length;
+  const windows = layout.walls.filter((wall) => wall.kind === "window").length;
+  return { walls: countWallSegments(layout.walls) - doors - windows, doors, windows, lights: layout.lights.length };
 }
 
 function describeLayout(layout: SceneLayout) {
-  const { walls, doors, lights } = countLayout(layout);
-  return `Стін: ${walls}, дверей: ${doors}, світла: ${lights}${layout.lighting === "dark" ? " · сцена буде темною" : ""}`;
+  const { walls, doors, windows, lights } = countLayout(layout);
+  return `Стін: ${walls}, дверей: ${doors}${windows ? `, вікон: ${windows}` : ""}, світла: ${lights}${layout.lighting === "dark" ? " · сцена буде темною" : ""}`;
 }
 
 function formatFileSize(bytes: number) {

@@ -271,6 +271,12 @@ describe("Офлайн-аудит 2026-09-18 — ресурси рис, заря
     expect(applyQueuedItemCharges(wands, 43, [operation({ kind: "magic-item-charges", persMagicItemId: 7, step: -1 })])).toBe(wands);
   });
 
+  it("заряди, яких гравець не задавав, беруться з опису предмета й теж крокують офлайн", () => {
+    const wands = [{ persMagicItemId: 7, chargesMax: null, chargesCurrent: null, magicItem: { description: "Паличка має 7 зарядів." } }];
+    const stepped = applyQueuedItemCharges(wands, 42, [operation({ kind: "magic-item-charges", persMagicItemId: 7, step: -1 })]);
+    expect(stepped[0]).toMatchObject({ chargesMax: 7, chargesCurrent: 6 });
+  });
+
   it("підготовка перемикається по spellId, у тому числі через власний читач ключа", () => {
     const rows = [{ spell: { spellId: 5 }, isPrepared: false }, { spell: { spellId: 6 }, isPrepared: true }];
     const prepared = applyQueuedSpellPreparation(
@@ -294,6 +300,8 @@ describe("Офлайн-аудит 2026-09-18 — ресурси рис, заря
     expect(isOfflineOperation(operation({ kind: "spell-buff", effectKey: "HASTE", isActive: true, spellId: null, endsWithConcentration: "no" as never }))).toBe(false);
     expect(isOfflineOperation(operation({ kind: "exhaustion", level: 2 }))).toBe(true);
     expect(isOfflineOperation(operation({ kind: "exhaustion", level: 1.5 }))).toBe(false);
+    expect(isOfflineOperation(operation({ kind: "item-state", magicItemId: 7, isActive: true }))).toBe(true);
+    expect(isOfflineOperation(operation({ kind: "item-state", magicItemId: "7" as never, isActive: true }))).toBe(false);
     expect(isOfflineOperation(operation({ kind: "magic-item-charges", persMagicItemId: 1, step: 1.5 }))).toBe(false);
     expect(isOfflineOperation(operation({ kind: "spell-prepared", spellId: 1, isPrepared: "так" as never }))).toBe(false);
     expect(isOfflineOperation(operation({ kind: "hit-dice", remainingByClass: null as never }))).toBe(false);

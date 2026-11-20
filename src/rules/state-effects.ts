@@ -13,12 +13,16 @@ export type StateMark =
   | { kind: "HASTE_LETHARGY" }
   | { kind: "EXHAUSTION_DEATH" }
   | { kind: "RESILIENT_HIDE_NONMAGICAL" }
-  | { kind: "BLOODLUST" };
+  | { kind: "BLOODLUST" }
+  | { kind: "NOTE"; text: string };
 
 export type RollScope =
   | "ABILITY_CHECK"
   | "STR_CHECK"
   | "ACROBATICS_CHECK"
+  | "STEALTH_CHECK"
+  | "PERCEPTION_CHECK"
+  | "INITIATIVE"
   | "ATTACK"
   | "SAVE"
   | "STR_SAVE"
@@ -63,7 +67,7 @@ export type StateEffects = {
 export type StatePart = { sourceKey: string; part: Partial<StateEffects> };
 
 export type D20Roll =
-  | { kind: "check"; ability: AbilityKey; skill?: string }
+  | { kind: "check"; ability: AbilityKey; skill?: string; isInitiative?: boolean }
   | { kind: "save"; ability: AbilityKey; isConcentration?: boolean }
   | { kind: "attack" };
 
@@ -91,7 +95,7 @@ export function mergeStateEffects(parts: Partial<StateEffects>[]): StateEffects 
     damageResistances: [...new Set(parts.flatMap((part) => part.damageResistances ?? []))],
     rollModifiers: dedupeBy(parts.flatMap((part) => part.rollModifiers ?? []), (modifier) => `${modifier.mode}:${modifier.scope}:${modifier.sourceKey}`),
     bonusDice: dedupeBy(parts.flatMap((part) => part.bonusDice ?? []), (die) => `${die.scope}:${die.sourceKey}`),
-    marks: dedupeBy(parts.flatMap((part) => part.marks ?? []), (mark) => mark.kind),
+    marks: dedupeBy(parts.flatMap((part) => part.marks ?? []), (mark) => (mark.kind === "NOTE" ? `NOTE:${mark.text}` : mark.kind)),
   };
 }
 
@@ -115,6 +119,12 @@ function matchesRoll(scope: RollScope, roll: D20Roll): boolean {
       return roll.kind === "check" && roll.ability === "STR";
     case "ACROBATICS_CHECK":
       return roll.kind === "check" && roll.skill === "ACROBATICS";
+    case "STEALTH_CHECK":
+      return roll.kind === "check" && roll.skill === "STEALTH";
+    case "PERCEPTION_CHECK":
+      return roll.kind === "check" && roll.skill === "PERCEPTION";
+    case "INITIATIVE":
+      return roll.kind === "check" && Boolean(roll.isInitiative);
     case "ATTACK":
       return roll.kind === "attack";
     case "SAVE":

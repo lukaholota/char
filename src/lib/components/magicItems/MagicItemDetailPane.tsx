@@ -7,6 +7,11 @@ import { cn } from "@/lib/utils";
 import { findAccentVariant } from "@/styles/edition-accent";
 import { EditionAccentChip } from "@/components/ui/EditionAccent";
 import { translateAttunementCondition } from "./attunement-condition";
+import { MagicItemEffectsSection } from "./MagicItemEffectsSection";
+import { ContentImage } from "@/components/no-ai/ContentImage";
+import { buildMediaImageUrl } from "@/lib/media-url";
+import { isHomebrewItemEngName } from "@/lib/logic/homebrew-catalog";
+import type { ReactNode } from "react";
 
 export type MagicItemDetail = {
   magicItemId: number;
@@ -25,6 +30,8 @@ export type MagicItemDetail = {
   bonusToRangedDamage?: number | null;
   bonusToSavingThrows?: unknown;
   noArmorOrShieldForACBonus?: boolean | null;
+  weaponBonus?: number | null;
+  imageKey?: string | null;
   ruleset?: string;
   givesSpells?: {
     spellId: number;
@@ -37,20 +44,16 @@ export type MagicItemDetail = {
 interface Props {
   item: MagicItemDetail;
   isEmbedMode?: boolean;
+  sheetStatus?: ReactNode;
+  /// Лише на листі: кубики в описі стають кнопками кидка від героя.
+  hasRollChips?: boolean;
 }
 
 const rarityLabel = (rarity: string) => itemRarityTranslations[rarity as keyof typeof itemRarityTranslations] || rarity;
 const typeLabel = (type: string) => magicItemTypeTranslations[type as keyof typeof magicItemTypeTranslations] || type;
 
-export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { className?: string }) {
+export function MagicItemDetailPane({ item, isEmbedMode, sheetStatus, hasRollChips, className }: Props & { className?: string }) {
   const is2024 = item.ruleset === "RULES_2024";
-
-  const savingThrowsBonus =
-    typeof item.bonusToSavingThrows === "number"
-      ? item.bonusToSavingThrows
-      : typeof item.bonusToSavingThrows === "string" && item.bonusToSavingThrows.trim() !== "" && !Number.isNaN(Number(item.bonusToSavingThrows))
-        ? Number(item.bonusToSavingThrows)
-        : null;
 
   return (
     <div
@@ -61,6 +64,12 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
         className || ""
       )}
     >
+      <div className="flex items-center gap-3">
+      {item.imageKey && (
+        <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900 sm:h-24 sm:w-24">
+          <ContentImage src={buildMediaImageUrl(item.imageKey, "full")} alt="" provenance="manual" fill sizes="96px" className="object-cover" />
+        </div>
+      )}
       <div className="min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <h2
@@ -75,7 +84,7 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
             <EditionAccentChip edition="2024">2024</EditionAccentChip>
           )}
         </div>
-        {item.engName && item.engName !== item.name && (
+        {item.engName && item.engName !== item.name && !isHomebrewItemEngName(item.engName) && (
           <p className="mt-1 text-xs text-slate-400 font-medium tracking-wide">
             {item.engName}
           </p>
@@ -85,54 +94,27 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
             {item.typeLineEng}
           </p>
         )}
-      </div>
-
-      <div className="mt-4 rounded-2xl bg-white/5 p-3 glass-panel border border-white/10">
-        <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-            <span className="text-slate-300">{typeLabel(item.itemType)}</span>
-            <span className="text-slate-500">•</span>
-            <span className={cn("italic", ["RARE", "VERY_RARE", "LEGENDARY", "ARTIFACT"].includes(item.rarity) ? "text-amber-400 font-medium" : "text-slate-300")}>
-              {rarityLabel(item.rarity)}
-            </span>
-            {item.requiresAttunement && (
-              <>
-                <span className="text-slate-500">•</span>
-                <span className={findAccentVariant(is2024, { prism: "text-prism-300/90", arcane: "text-arcane-300/80" })}>
-                  {item.attunementConditionEng
-                    ? `Налаштування: ${translateAttunementCondition(item.attunementConditionEng) ?? `умова в оригіналі — ${item.attunementConditionEng}`}`
-                    : "Потребує налаштування"}
-                </span>
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Stats Grid if any */}
-      {(item.bonusToAC || item.bonusToRangedDamage || savingThrowsBonus !== null) && (
-        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {item.bonusToAC && (
-            <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
-              <div className="text-xs text-slate-400 uppercase tracking-wider">Бонус до КБ</div>
-              <div className={cn("mt-1 text-lg font-bold", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))}>+{item.bonusToAC}</div>
-              {item.noArmorOrShieldForACBonus && <div className="text-[10px] text-slate-500 leading-tight mt-1">Тільки без броні/щита</div>}
-            </div>
-          )}
-          {item.bonusToRangedDamage && (
-            <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
-              <div className="text-xs text-slate-400 uppercase tracking-wider">Рендж шкода</div>
-              <div className={cn("mt-1 text-lg font-bold", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))}>+{item.bonusToRangedDamage}</div>
-            </div>
-          )}
-          {savingThrowsBonus !== null && (
-            <div className="rounded-2xl bg-slate-900/40 border border-white/5 p-3 glass-panel">
-              <div className="text-xs text-slate-400 uppercase tracking-wider">Рятівні кидки</div>
-              <div className={cn("mt-1 text-lg font-bold", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))}>+{savingThrowsBonus}</div>
-            </div>
+        <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+          <span className="text-slate-300">{typeLabel(item.itemType)}</span>
+          <span className="text-slate-500">•</span>
+          <span className={cn("italic", ["RARE", "VERY_RARE", "LEGENDARY", "ARTIFACT"].includes(item.rarity) ? "text-amber-400 font-medium" : "text-slate-300")}>
+            {rarityLabel(item.rarity)}
+          </span>
+          {item.requiresAttunement && (
+            <>
+              <span className="text-slate-500">•</span>
+              <span className={findAccentVariant(is2024, { prism: "text-prism-300/90", arcane: "text-arcane-300/80" })}>
+                {item.attunementConditionEng
+                  ? `Налаштування: ${translateAttunementCondition(item.attunementConditionEng) ?? `умова в оригіналі — ${item.attunementConditionEng}`}`
+                  : "Потребує налаштування"}
+              </span>
+            </>
           )}
         </div>
-      )}
+      </div>
+      </div>
+
+      <MagicItemEffectsSection item={item} sheetStatus={sheetStatus} />
 
       {/* Spells provided */}
       {item.givesSpells && item.givesSpells.length > 0 && (
@@ -149,7 +131,7 @@ export function MagicItemDetailPane({ item, isEmbedMode, className }: Props & { 
       )}
 
       <div className="mt-5 glass-panel rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-        <FormattedDescription content={item.description} className="text-slate-300 text-xs sm:text-sm leading-relaxed" />
+        <FormattedDescription content={item.description} rollsForItem={hasRollChips ? item.name : undefined} className="text-slate-300 text-xs sm:text-sm leading-relaxed" />
       </div>
 
     </div>

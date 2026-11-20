@@ -2,6 +2,7 @@ import { RestType } from "@prisma/client";
 import { restoreCustomFeatureUses } from "@/server/db/pers-custom-content";
 
 import { prisma } from "@/lib/prisma";
+import { restoreMagicItemChargesAtDawn, type RegainedItemCharges } from "@/server/db/magic-items";
 import { getAbilityMod } from "@/lib/logic/utils";
 import {
   calculateCasterLevel,
@@ -116,6 +117,7 @@ export interface LongRestResult {
   currentPactSlots: number;
   spellSlotsRestored: boolean;
   featuresRestored: number;
+  itemChargesRegained: RegainedItemCharges[];
 }
 
 export interface LongRestError {
@@ -272,6 +274,7 @@ export async function takeLongRest(pers: RestPers): Promise<LongRestResult> {
   const featuresRestored = (await restoreFeaturesAfterLongRest(pers)) + (await restoreCustomFeatureUses(pers.persId, "LONG_REST"));
   await endFeatureStates(persId);
   await endPersEffectsAfterRest(persId, "LONG");
+  const itemChargesRegained = await restoreMagicItemChargesAtDawn(persId);
 
   const persForSlots = await findSpellcastingPers(persId);
   const maxPactSlots = findMaxPactSlotsFor(persForSlots);
@@ -313,6 +316,7 @@ export async function takeLongRest(pers: RestPers): Promise<LongRestResult> {
     currentPactSlots: maxPactSlots,
     spellSlotsRestored: true,
     featuresRestored,
+    itemChargesRegained,
   };
 }
 
@@ -325,6 +329,7 @@ export function buildRepeatedLongRestResult(pers: RestPers): LongRestResult {
     currentPactSlots: pers.currentPactSlots,
     spellSlotsRestored: true,
     featuresRestored: 0,
+    itemChargesRegained: [],
   };
 }
 

@@ -2,10 +2,10 @@
 
 import crypto from "node:crypto";
 
+import { getCharacterFeaturesGroupedByShareToken } from "@/lib/actions/pers";
 import { getPersByShareToken, getPrintablePersByShareToken } from "@/lib/actions/share-actions";
 import { generateCharacterPdfFromData } from "@/server/pdf/generateCharacterPdf";
 import { findPdfJobErrorMessage, runCharacterPdfJob } from "@/server/pdf/pdfJobGate";
-import { groupCharacterFeaturesForPdf } from "@/server/pdf/groupCharacterFeatures";
 import type { CharacterPdfData, PrintConfig } from "@/server/pdf/types";
 import { createLogger } from "@/server/logging/logger";
 import { diffUsage, formatBytes, takeUsageSnapshot } from "@/server/logging/perf";
@@ -22,10 +22,9 @@ export async function generateCharacterPdfByTokenAction(token: string, config: P
   const log = createLogger("pdf.action.share").child({ jobId, tokenHash: token ? token.slice(0, 6) : undefined, sections: config?.sections });
   const start = takeUsageSnapshot();
 
-  const { pers } = await getPrintablePersByShareToken(token);
-  if (!pers) throw new Error("Not found");
+  const [{ pers }, features] = await Promise.all([getPrintablePersByShareToken(token), getCharacterFeaturesGroupedByShareToken(token)]);
+  if (!pers || !features) throw new Error("Not found");
 
-  const features = groupCharacterFeaturesForPdf(pers);
   // The shared query omits relations that the PDF renderer never reads.
   const printablePers = pers as unknown as CharacterPdfData["pers"];
   const wildshapeForms = config.sections.includes("WILDSHAPES")

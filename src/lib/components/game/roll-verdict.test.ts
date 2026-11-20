@@ -8,10 +8,10 @@ const creature = (overrides: Partial<GameRollTargetView>) => ({ target: { name: 
 const hero = (overrides: Partial<GameRollHeroTargetView>) => ({ target: null, heroTarget: { persId: 1, name: "Тарас", kind: "heal" as const, damage: null, healing: null, isHit: null, armorClass: null, isAppliedToSheet: true, ...overrides }, saves: null });
 
 describe("вердикт кидка в лотку", () => {
-  it("атака: влучання, промах або рішення майстра, коли КЗ невідомий", () => {
+  it("атака: влучання, промах або рішення майстра, коли КБ невідомий", () => {
     expect(buildRollVerdict(creature({ isHit: true }))).toEqual({ tone: "good", text: "Влучання — Гоблін" });
     expect(buildRollVerdict(creature({ isHit: false }))).toEqual({ tone: "bad", text: "Промах — Гоблін" });
-    expect(buildRollVerdict(creature({ isHit: null }))).toEqual({ tone: "plain", text: "Гоблін: КЗ невідомий — вирішує майстер" });
+    expect(buildRollVerdict(creature({ isHit: null }))).toEqual({ tone: "plain", text: "Гоблін: КБ невідомий — вирішує майстер" });
   });
 
   it("шкода показує зняті хіти й «повалений», лікування — додані хіти, без цілі — нічого", () => {

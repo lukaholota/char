@@ -41,7 +41,7 @@ export async function changeSceneFog(sessionId: number, userId: number, sceneId:
 
 /// Гравець малює лише на сцені, яку бачить, і лише свої області; майстер — на будь-якій сцені кімнати.
 export async function saveSceneArea(sessionId: number, userId: number, sceneId: number, areaId: number | null, placement: AreaPlacement): Promise<GameSessionResult<{ id: number }>> {
-  const editor = await findAreaEditor(sessionId, userId, sceneId);
+  const editor = await findSceneEditor(sessionId, userId, sceneId);
   if (!editor.ok) return editor;
   const data = { shape: placement.shape, sizeFeet: placement.sizeFeet, originX: placement.origin.x, originY: placement.origin.y, angle: placement.angle, label: placement.label };
   const saved = await prisma.$transaction(async (tx) => {
@@ -63,7 +63,7 @@ export async function saveSceneArea(sessionId: number, userId: number, sceneId: 
 
 /// areaId null прибирає всі області сцени — лише майстер.
 export async function removeSceneAreas(sessionId: number, userId: number, sceneId: number, areaId: number | null): Promise<GameSessionResult<null>> {
-  const editor = await findAreaEditor(sessionId, userId, sceneId);
+  const editor = await findSceneEditor(sessionId, userId, sceneId);
   if (!editor.ok) return editor;
   if (areaId === null) {
     if (!editor.value.isGm) return fail("forbidden");
@@ -82,13 +82,13 @@ export async function removeSceneAreas(sessionId: number, userId: number, sceneI
 /// Малюють майстер і гравці, на тих самих умовах, що й області.
 /// shortcut: скасоване «Стерти все» повертає чужі лінії від імені майстра; якщо гравцям треба стирати їх знову — передавати автора.
 export async function saveSceneDrawings(sessionId: number, userId: number, sceneId: number, strokes: DrawingStroke[]): Promise<GameSessionResult<{ ids: number[] }>> {
-  const editor = await findAreaEditor(sessionId, userId, sceneId);
+  const editor = await findSceneEditor(sessionId, userId, sceneId);
   if (!editor.ok) return editor;
   const saved = await prisma.$transaction(async (tx) => {
     if (!(await lockScene(tx, sessionId, sceneId))) return fail("bad_scene");
     if ((await tx.gameSceneDrawing.count({ where: { sceneId } })) + strokes.length > DRAWING_LIMITS.perScene) return fail("drawing_limit");
     const created = await tx.gameSceneDrawing.createManyAndReturn({
-      data: strokes.map((stroke) => ({ sceneId, userId, color: stroke.color, width: stroke.width, points: toStoredPoints(stroke.points) })),
+      data: strokes.map((stroke) => ({ sceneId, userId, shape: stroke.shape, isFilled: stroke.isFilled, color: stroke.color, width: stroke.width, points: toStoredPoints(stroke.points) })),
       select: { id: true },
     });
     return succeed({ ids: created.map((row) => row.id) });
@@ -99,7 +99,7 @@ export async function saveSceneDrawings(sessionId: number, userId: number, scene
 
 /// «all» — усе, що людина може стерти: майстер — усі лінії сцени, гравець — свої. Чужі id гравця просто пропускаються.
 export async function removeSceneDrawings(sessionId: number, userId: number, sceneId: number, target: number[] | "all"): Promise<GameSessionResult<null>> {
-  const editor = await findAreaEditor(sessionId, userId, sceneId);
+  const editor = await findSceneEditor(sessionId, userId, sceneId);
   if (!editor.ok) return editor;
   const removed = await prisma.gameSceneDrawing.deleteMany({
     where: { sceneId, scene: { sessionId }, ...(target === "all" ? {} : { id: { in: target } }), ...(editor.value.isGm ? {} : { userId }) },
@@ -108,7 +108,7 @@ export async function removeSceneDrawings(sessionId: number, userId: number, sce
   return succeed(null);
 }
 
-async function findAreaEditor(sessionId: number, userId: number, sceneId: number): Promise<GameSessionResult<{ isGm: boolean }>> {
+export async function findSceneEditor(sessionId: number, userId: number, sceneId: number): Promise<GameSessionResult<{ isGm: boolean }>> {
   const membership = await findMembership(sessionId, userId);
   if (!membership) return fail("not_found");
   if (membership.gameSession.archivedAt) return fail("archived");

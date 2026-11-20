@@ -10,13 +10,13 @@ import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useCallback, useMemo, useRef, useState, RefObject } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
-import { Menu, LogIn, LogOut, Home, Heart, Search, Sparkles, MessageSquareWarning, ScrollText } from "lucide-react";
+import { Menu, LogIn, LogOut, Home, Heart, KeyRound, Search, Sparkles, MessageSquareWarning } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { forgetOfflinePages } from "@/lib/offline/service-worker";
 import { flushOfflineQueue } from "@/lib/offline/queue";
 
 import { cn } from "@/lib/utils";
-import GoogleAuthDialog from "@/lib/components/auth/GoogleAuthDialog";
+import SignInDialog from "@/lib/components/auth/SignInDialog";
 import { ReportProblemDialog } from "@/lib/components/problemReport/ReportProblemDialog";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
@@ -29,7 +29,7 @@ import { useActiveEdition } from "@/components/ui/PersEditionPin";
 import { useOmniSearchStore } from "@/lib/stores/omniSearchStore";
 import { MENU_PANEL } from "@/components/ui/menu-panel";
 import { collectMenuCatalogs, findCatalogHref, findCatalogTitle, type CatalogEntry } from "@/lib/catalogs/catalog-registry";
-import { getTargetEditionPath, type Edition } from "@/rules/route-helpers";
+import { type Edition } from "@/rules/route-helpers";
 import { buildRpgbotCtaProps } from "@/lib/monitoring/rpgbot-analytics-model";
 
 const InstallAppInstructions = dynamic(() => import("@/components/pwa/InstallAppInstructions").then((module) => module.InstallAppInstructions), { loading: () => null });
@@ -43,6 +43,7 @@ type MenuItemsProps = {
   is2024: boolean;
   showHome: boolean;
   isAuthed: boolean;
+  accountEmail?: string | null;
   close: () => void;
   onOpenAuth: () => void;
   onOpenReport: () => void;
@@ -83,8 +84,7 @@ function buildCatalogLinks(is2024: boolean, showHome: boolean): CatalogLink[] {
     ? [{ href: spellsHref, icon: Sparkles, label: findCatalogTitle("spells"), iconClass: accent, mobileOnly: true }]
     : [];
 
-  const games: CatalogLink = { href: getTargetEditionPath("/games", edition), icon: ScrollText, label: "Ігрові кімнати", iconClass: accent };
-  return [...home, ...mobileSpells, ...catalogs, games];
+  return [...home, ...mobileSpells, ...catalogs];
 }
 
 /// Каталог, що є в обох редакціях, у 2024 несе рік — «Класи 2024»; каталог однієї редакції
@@ -99,6 +99,7 @@ function NavMenuItems({
   is2024,
   showHome,
   isAuthed,
+  accountEmail,
   close,
   onOpenAuth,
   onOpenReport,
@@ -120,7 +121,7 @@ function NavMenuItems({
       >
         <Search className={cn("h-4 w-4", accent)} />
         <span>Швидкий пошук</span>
-        <kbd className="ml-auto text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/10">⌘K</kbd>
+        <kbd className="ml-auto text-[10px] [@media(pointer:coarse)]:hidden font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/10">⌘K</kbd>
       </button>
 
       <ReloadAppEntry className={`${MENU_ITEM} w-full`} onActivate={close} />
@@ -168,6 +169,13 @@ function NavMenuItems({
       </a>
 
       {isAuthed ? (
+        <Link href="/account/password" onClick={close} className={MENU_ITEM}>
+          <KeyRound className="h-4 w-4 text-slate-300" />
+          Пароль для входу
+        </Link>
+      ) : null}
+
+      {isAuthed ? (
         <button
           ref={logoutConfirm.ref}
           onClick={(e) => {
@@ -184,6 +192,7 @@ function NavMenuItems({
         >
           <LogOut className="h-4 w-4" />
           {logoutConfirm.isConfirming ? "Підтвердити вихід" : "Вийти"}
+          {accountEmail && !logoutConfirm.isConfirming ? <span className="ml-auto min-w-0 truncate text-xs text-slate-500" data-ph-mask>{accountEmail}</span> : null}
         </button>
       ) : (
         <button
@@ -253,10 +262,10 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
   return (
     <>
       {installInstructions ? <InstallAppInstructions path={installInstructions} onClose={() => setInstallInstructions(null)} /> : null}
-      <GoogleAuthDialog open={authOpen} onOpenChange={setAuthOpen} analyticsTrigger="nav" />
+      <SignInDialog open={authOpen} onOpenChange={setAuthOpen} analyticsTrigger="nav" />
       <ReportProblemDialog open={reportOpen} onOpenChange={setReportOpen} pathname={pathname} />
 
-      <div className={cn("relative", open && "z-[9002]", className)}>
+      <div className={cn("relative flex min-w-0 flex-1 md:block md:flex-none", open && "z-[9002]", className)}>
         <button
           ref={buttonRef}
           aria-label="Меню"
@@ -264,7 +273,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
           aria-haspopup="menu"
           onClick={toggle}
           className={cn(
-            "safe-nav-item flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 text-slate-400 transition-all hover:bg-white/5 hover:text-slate-200 md:w-16",
+            "safe-nav-item flex min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-xl py-2 text-slate-400 transition-all hover:bg-white/5 hover:text-slate-200 md:w-16 md:flex-none",
             open && "bg-white/5 text-slate-200"
           )}
         >
@@ -323,6 +332,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                       is2024={is2024}
                       showHome={showHomeLinkInMenu}
                       isAuthed={Boolean(session?.user)}
+                      accountEmail={session?.user?.email}
                       close={close}
                       onOpenAuth={() => setAuthOpen(true)}
                       onOpenReport={() => setReportOpen(true)}
@@ -350,6 +360,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                       is2024={is2024}
                       showHome={showHomeLinkInMenu}
                       isAuthed={Boolean(session?.user)}
+                      accountEmail={session?.user?.email}
                       close={close}
                       onOpenAuth={() => setAuthOpen(true)}
                       onOpenReport={() => setReportOpen(true)}

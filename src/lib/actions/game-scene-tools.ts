@@ -6,11 +6,11 @@ import { parseFogChange } from "@/rules/game-fog";
 import { parseSceneGrid } from "@/rules/game-grid";
 import { LIGHT_LIMITS, parseLightSource, parseSceneLighting, parseTokenLight } from "@/rules/game-lighting";
 import { OBJECT_LIMITS, parseObjectPlacement } from "@/rules/game-objects";
-import { parseWallEdit } from "@/rules/game-walls";
+import { parseOpeningChange, parseWallEdit } from "@/rules/game-walls";
 import { parsePositionMoves } from "@/rules/map-group";
 import { addSceneObject, changeSceneObject, moveSceneObjects, removeSceneObjects } from "@/server/db/game-scene-objects";
 import { removeSceneLights, saveSceneLight, setSceneLighting } from "@/server/db/game-scene-lighting";
-import { editSceneWalls, setSceneDoorOpen } from "@/server/db/game-scene-walls";
+import { changeSceneOpening, editSceneWalls } from "@/server/db/game-scene-walls";
 import { setMapCreatureLight } from "@/server/db/game-map-creatures";
 import { setHeroDarkvision, setHeroTokenLight } from "@/server/db/game-scenes";
 import { changeSceneFog, changeSceneGrid, removeSceneAreas, removeSceneDrawings, saveSceneArea, saveSceneDrawings } from "@/server/db/game-scene-tools";
@@ -119,11 +119,12 @@ export async function editSceneWallsAction(sessionId: number, sceneId: number, r
   });
 }
 
-export async function setSceneDoorOpenAction(sessionId: number, sceneId: number, doorId: number, isOpen: boolean) {
+export async function changeSceneOpeningAction(sessionId: number, sceneId: number, wallId: number, rawChange: unknown) {
+  const change = parseOpeningChange(rawChange);
   return runAsUser(async (userId) => {
-    if (!isId(sessionId) || !isId(sceneId) || !isId(doorId) || typeof isOpen !== "boolean") return rejectBadInput;
+    if (!isId(sessionId) || !isId(sceneId) || !isId(wallId) || !change) return rejectBadInput;
     if (!tryTakeTokenMoveSlot(userId)) return tooFast;
-    return setSceneDoorOpen(sessionId, userId, sceneId, doorId, isOpen);
+    return changeSceneOpening(sessionId, userId, sceneId, wallId, change);
   });
 }
 

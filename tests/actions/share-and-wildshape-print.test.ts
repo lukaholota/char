@@ -1,7 +1,7 @@
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { PDFDocument } from "pdf-lib";
 import { getAllCreatures } from "@/lib/bestiaryData";
-import { buildHomebrewCreatureKey } from "@/lib/logic/homebrew-catalog";
+import { buildHomebrewEntryKey } from "@/lib/logic/homebrew-catalog";
 import { prisma } from "@/lib/prisma";
 import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
 import { signInAs } from "../helpers/signed-in-users";
@@ -175,7 +175,7 @@ describe("друк Диких форм", () => {
     const owner = await signInAs("print-druid-homebrew");
     const druid = await createPers2014(owner.id, "DRUID_2014", "Друїд");
     const beast = await createHomebrewWolf(owner.id, "Тіньовий вовк");
-    const creatureKey = buildHomebrewCreatureKey(beast.homebrewEntryId);
+    const creatureKey = buildHomebrewEntryKey(beast.homebrewEntryId);
     expect(await attachWildshapeForm({ persId: druid.persId, creatureKey, ruleset: "RULES_2014" })).toMatchObject({ ok: true });
     const links = requireLinks(await ensurePersShareLinks(druid.persId));
 

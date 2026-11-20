@@ -6,7 +6,7 @@ import { Ability } from "@/lib/prisma-enums";
 import type { Feature } from "@prisma/client";
 import type { CharacterFeaturesGroupedResult, PersWithRelations } from "@/lib/actions/pers";
 import { setFeatureActive } from "@/lib/actions/feature-uses";
-import { setConcentration, setExhaustion, setSpellBuff } from "@/lib/actions/pers-effects";
+import { setConcentration, setExhaustion, setItemState, setSpellBuff } from "@/lib/actions/pers-effects";
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import { createOperationId } from "@/lib/offline/queue";
 import type { OfflineOperation } from "@/lib/offline/operations";
@@ -18,11 +18,13 @@ import {
   listActiveBuffKeys,
   markConcentration,
   markExhaustion,
+  markItemState,
   markSpellBuff,
   planSpellCast,
   type EffectSpell,
   type PersEffectRow,
 } from "@/lib/logic/pers-effect-rows";
+import { listOwnedItemStates, type OwnedItemState } from "@/lib/logic/magic-item-sheet-status";
 import { describeRollState, shortenSpellName, type SpellBuffCatalogEntry } from "@/lib/logic/state-labels";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { endRoomBlessing, useRoomBlessedPers } from "@/lib/components/game/room-blessing";
@@ -44,6 +46,7 @@ export type SheetStatesControl = {
   concentration: PersEffectRow | null;
   activeBuffKeys: SpellBuffKey[];
   exhaustionLevel: number;
+  itemStates: OwnedItemState[];
   isPanelOpen: boolean;
   setPanelOpen: (isOpen: boolean) => void;
   isFeatureActive: (featureId: number) => boolean;
@@ -53,6 +56,7 @@ export type SheetStatesControl = {
   setConcentration: (spell: EffectSpell | null) => void;
   setBuff: (key: SpellBuffKey, isActive: boolean, source?: { spell: EffectSpell | null; endsWithConcentration: boolean }) => void;
   setExhaustion: (level: number) => void;
+  setItemState: (magicItemId: number, isActive: boolean) => void;
   onSpellCast: (spell: EffectSpell, slotLabel?: string, options?: { isTargetedOnMap?: boolean }) => void;
   promptConcentrationCheck: (damage: number) => void;
 };
@@ -188,6 +192,7 @@ export function useSheetStates(input: {
     concentration: findConcentration(pers),
     activeBuffKeys: listActiveBuffKeys(pers),
     exhaustionLevel: pers.exhaustionLevel ?? 0,
+    itemStates: listOwnedItemStates(pers),
     isPanelOpen,
     setPanelOpen,
     isFeatureActive: (featureId) => isFeatureActive(pers, featureId),
@@ -197,6 +202,10 @@ export function useSheetStates(input: {
     setConcentration: (spell) => void setConcentrationOn(spell),
     setBuff: (key, isActive, source) => void setBuff(key, isActive, source),
     setExhaustion: (level) => void commit((current) => markExhaustion(current, level), { kind: "exhaustion", level }, () => setExhaustion({ persId: pers.persId, level })),
+    setItemState: (magicItemId, isActive) =>
+      void commit((current) => markItemState(current, magicItemId, isActive), { kind: "item-state", magicItemId, isActive }, () =>
+        setItemState({ persId: pers.persId, magicItemId, isActive }),
+      ),
     onSpellCast,
     promptConcentrationCheck,
   };
@@ -219,6 +228,7 @@ function recordStateChange(pers: PersWithRelations, body: OperationBody, queued:
   }
   if (body.kind === "exhaustion") capturePostHogEvent("character_exhaustion_changed", { ...properties, level: body.level });
   if (body.kind === "spell-buff") capturePostHogEvent("character_buff_toggled", { ...properties, buff: body.effectKey, is_active: body.isActive });
+  if (body.kind === "item-state") capturePostHogEvent("character_item_state_toggled", { ...properties, magic_item_id: body.magicItemId, is_active: body.isActive });
   if (body.kind === "concentration") capturePostHogEvent("character_concentration_changed", { ...properties, is_active: body.spellId !== null });
 }
 

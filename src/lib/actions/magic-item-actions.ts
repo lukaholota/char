@@ -12,10 +12,12 @@ import {
   isMagicItemOfPersRuleset,
   removeMagicItemLinks,
   savePersMagicItemCharges,
+  isWeaponOfPers,
   updatePersMagicItem,
   type MagicItemUpdates,
 } from "@/server/db/magic-items";
 import { applyChangeOnce } from "@/server/db/offline-operations";
+import { drinkPersPotion, type PotionDrinkResult } from "@/server/db/potion-drink";
 import { findUserIdByEmail } from "@/server/db/users";
 import { revalidatePath } from "next/cache";
 import { applyChargesMax, applyChargesStep, type MagicItemCharges } from "@/rules/magic-item-charges";
@@ -48,6 +50,10 @@ export async function updateMagicItem(
   if (updates.isAttuned) {
     const limitError = await findAttunementLimitError(persId, persMagicItemId);
     if (limitError) return { success: false, error: limitError };
+  }
+
+  if (updates.persWeaponId != null && !(await isWeaponOfPers(updates.persWeaponId, persId))) {
+    return { success: false, error: "Цієї зброї немає на листі персонажа" };
   }
 
   try {
@@ -119,6 +125,18 @@ export async function deleteMagicItem(persMagicItemId: number) {
     console.error("Error deleting magic item:", error);
     return { success: false, error: "Помилка при видаленні предмета" };
   }
+}
+
+export async function drinkPotion(persMagicItemId: number): Promise<PotionDrinkResult> {
+  const persId = await findMagicItemPersId(persMagicItemId);
+  if (persId === null) return { success: false, error: "Зілля вже випито або прибрано" };
+
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+
+  const result = await drinkPersPotion(owned.userId, persMagicItemId);
+  if (result.success) revalidatePath(`/char/${persId}`);
+  return result;
 }
 
 export async function toggleMagicItemForPers({

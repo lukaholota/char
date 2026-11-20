@@ -9,7 +9,7 @@ import {
 } from "@/lib/offline/operations";
 import { applyLongRestToSheet, applyShortRestToSheet, findSlotMaxima, type OfflineSheet } from "@/lib/offline/sheet-rest";
 import { canActivateFeature, isFeatureActive, markFeatureActive } from "@/lib/logic/feature-state-rows";
-import { findKnownSpell, markConcentration, markExhaustion, markSpellBuff } from "@/lib/logic/pers-effect-rows";
+import { findKnownSpell, markConcentration, markExhaustion, markItemState, markSpellBuff } from "@/lib/logic/pers-effect-rows";
 import { collectActiveFeatures } from "@/lib/logic/bonus-calculator";
 import { doesFeatureStateEndConcentration } from "@/rules/feature-states";
 import { isSpellBuffKey } from "@/rules/spell-buffs";
@@ -37,7 +37,7 @@ function applyOperationToSheet(sheet: OfflineSheet, operation: OfflineOperation)
     return applyShortRestToSheet(sheet, operation.hitDiceSpent, operation.restoredHitPoints);
   }
   if (operation.kind === "feature-state") return applyFeatureStateToSheet(sheet, operation);
-  if (operation.kind === "concentration" || operation.kind === "spell-buff" || operation.kind === "exhaustion") {
+  if (operation.kind === "concentration" || operation.kind === "spell-buff" || operation.kind === "exhaustion" || operation.kind === "item-state") {
     return { ...sheet, pers: applyPersEffectToPers(sheet.pers, operation) };
   }
 
@@ -73,9 +73,10 @@ function endsConcentration(pers: PersWithRelations, featureId: number): boolean 
 /// Дзеркало `pers-effect-change.ts`.
 function applyPersEffectToPers(
   pers: PersWithRelations,
-  operation: Extract<OfflineOperation, { kind: "concentration" | "spell-buff" | "exhaustion" }>,
+  operation: Extract<OfflineOperation, { kind: "concentration" | "spell-buff" | "exhaustion" | "item-state" }>,
 ): PersWithRelations {
   if (operation.kind === "exhaustion") return markExhaustion(pers, operation.level);
+  if (operation.kind === "item-state") return markItemState(pers, operation.magicItemId, operation.isActive);
   if (operation.kind === "concentration") return markConcentration(pers, findKnownSpell(pers, operation.spellId));
   if (!isSpellBuffKey(operation.effectKey)) return pers;
   return markSpellBuff(pers, operation.effectKey, operation.isActive, {

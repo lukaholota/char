@@ -24,8 +24,8 @@ describe("parseUvttScene", () => {
     expect(walls.map((wall) => wall.points.length)).toEqual([5, 2, 2]);
     expect(walls[0].points[0]).toEqual(at(0.125, 0.1667));
     expect(scene.walls.filter((wall) => wall.kind === "door")).toEqual([
-      { kind: "door", isOpen: false, points: [at(0.125, 0.4167), at(0.125, 0.5833)] },
-      { kind: "door", isOpen: true, points: [at(0.5625, 0.8333), at(0.6875, 0.8333)] },
+      { kind: "door", isOpen: false, lock: "none", isCurtained: false, points: [at(0.125, 0.4167), at(0.125, 0.5833)] },
+      { kind: "door", isOpen: true, lock: "none", isCurtained: false, points: [at(0.5625, 0.8333), at(0.6875, 0.8333)] },
     ]);
     expect(scene.lights).toEqual([{ at: at(0.5, 0.5), brightFeet: 10, dimFeet: 10 }]);
   });
@@ -34,7 +34,7 @@ describe("parseUvttScene", () => {
     const scene = parseOk(readFixture("dungeon-alchemist-hall.uvtt"));
     expect(scene.grid.columns).toBe(10);
     expect(scene.lighting).toBe("off");
-    expect(scene.walls).toEqual([{ kind: "wall", isOpen: false, points: [at(0, 0), at(1, 0), at(1, 1), at(0, 1), at(0, 0)] }]);
+    expect(scene.walls).toEqual([{ kind: "wall", isOpen: false, lock: "none", isCurtained: false, points: [at(0, 0), at(1, 0), at(1, 1), at(0, 1), at(0, 0)] }]);
     expect(scene.lights).toEqual([]);
   });
 
@@ -101,7 +101,7 @@ describe("parseSceneLayout", () => {
     expect(parseSceneLayout(null)).toBeNull();
     expect(parseSceneLayout({ ...sent, grid: { columns: 1 } })).toBeNull();
     expect(parseSceneLayout({ ...sent, lighting: "noon" })).toBeNull();
-    expect(parseSceneLayout({ ...sent, walls: [{ kind: "window", isOpen: false, points: [at(0, 0), at(1, 1)] }] })).toBeNull();
+    expect(parseSceneLayout({ ...sent, walls: [{ kind: "gate", isOpen: false, points: [at(0, 0), at(1, 1)] }] })).toBeNull();
     expect(parseSceneLayout({ ...sent, lights: [{ at: at(2, 0), brightFeet: 10, dimFeet: 10 }] })).toBeNull();
     expect(parseSceneLayout({ ...sent, lights: "none" })).toBeNull();
     expect(parseSceneLayout({ ...sent, lights: Array.from({ length: LIGHT_LIMITS.perScene + 1 }, () => layout.lights[0]) })).toBeNull();

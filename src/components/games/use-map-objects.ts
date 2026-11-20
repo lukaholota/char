@@ -6,6 +6,7 @@ import { buildMediaImageUrl } from "@/lib/media-url";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { applyObjectTransform, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, toObjectPlacement, type ObjectPlacement, type SceneObjectView } from "@/rules/game-objects";
 import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
+import type { FloorId } from "@/rules/game-floors";
 import type { TokenTransform } from "@/rules/token-transform";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { holdValueBefore, pushUndoStep, rememberUndo } from "./map-history";
@@ -14,7 +15,7 @@ import { createIdChain } from "./id-chain";
 import { useTokenDrag } from "./use-token-drag";
 
 type Point = { clientX: number; clientY: number };
-type Options = { view: GameSessionView; isEditing: boolean; gridColumns: number | null; findDropPosition: (point: Point) => TokenPosition | null; findViewCentre: () => TokenPosition; group: { isGrouped: (key: string) => boolean; moveWith: (key: string, to: TokenPosition) => boolean; clear: () => void } };
+type Options = { view: GameSessionView; shownFloor: FloorId; editing: ObjectEditing; gridColumns: number | null; findDropPosition: (point: Point) => TokenPosition | null; findViewCentre: () => TokenPosition; group: { isGrouped: (key: string) => boolean; moveWith: (key: string, to: TokenPosition) => boolean; clear: () => void } };
 type ObjectMove = { id: number; at: TokenPosition };
 
 const { findCurrentId, takeTempId, link } = createIdChain();
@@ -22,10 +23,15 @@ const COPY_SHIFT = 0.03;
 
 const shiftShare = (share: number) => (share + COPY_SHIFT > 1 ? share - COPY_SHIFT : share + COPY_SHIFT);
 
-export function useMapObjects({ view, isEditing, gridColumns, findDropPosition, findViewCentre, group }: Options) {
+export const findObjectsKey = (sceneId: number | null) => `objects:${sceneId}`;
+
+/// "shownFloor" — інструмент «Поверхи»: правиться лише план показаного поверху, решта обʼєктів не ловить дотиків.
+export type ObjectEditing = "all" | "shownFloor" | null;
+
+export function useMapObjects({ view, shownFloor, editing, gridColumns, findDropPosition, findViewCentre, group }: Options) {
   const read = useOptimisticReader();
   const sceneId = view.viewedSceneId;
-  const key = `objects:${sceneId}`;
+  const key = findObjectsKey(sceneId);
   const [chosenId, setChosenId] = useState<number | null>(null);
   const readShown = () => readOptimistic(key, view.objects).map((object) => ({ ...object, id: findCurrentId(object.id) }));
   const findShown = (id: number) => readShown().find((object) => object.id === findCurrentId(id)) ?? null;
@@ -129,10 +135,13 @@ export function useMapObjects({ view, isEditing, gridColumns, findDropPosition, 
     },
   );
 
+  /// Обʼєкти інших поверхів не показані й не вибираються: їх видно, коли показати їхній поверх.
   const shown = read(key, view.objects)
+    .filter((object) => object.floor === null || object.floor === shownFloor)
     .map((object) => ({ ...object, id: findCurrentId(object.id) }))
     .toSorted((left, right) => left.sortOrder - right.sortOrder || left.id - right.id);
-  const chosen = isEditing && chosenId !== null ? (shown.find((object) => object.id === findCurrentId(chosenId)) ?? null) : null;
+  const isEditable = (object: SceneObjectView | null) => object !== null && (editing === "all" || (editing === "shownFloor" && object.floor !== null && object.floor === shownFloor));
+  const chosen = chosenId === null ? null : (shown.find((object) => object.id === findCurrentId(chosenId) && isEditable(object)) ?? null);
   const dragged = drag.ghost ? shown.find((object) => object.id === drag.ghost?.id) : undefined;
   const draggedTo = drag.ghost && dragged ? findDropPosition(drag.ghost) : null;
   const isGroupDrag = dragged !== undefined && group.isGrouped(`object-${dragged.id}`);
@@ -148,12 +157,14 @@ export function useMapObjects({ view, isEditing, gridColumns, findDropPosition, 
     isFull: shown.length >= OBJECT_LIMITS.perScene,
     findShownAt,
     findWidthShare: (object: SceneObjectView) => findObjectWidthShare(object.widthCells, gridColumns),
-    bindObject: (id: number) => (isEditing && id > 0 ? drag.bindToken(id) : {}),
+    isEditing: editing !== null,
+    isEditable,
+    bindObject: (id: number) => (id > 0 && isEditable(findShown(id)) ? drag.bindToken(id) : {}),
     choose: setChosenId,
     canDropAt: (point: Point) => findDropPosition(point) !== null,
     placeFromLibrary: async (imageKey: string, widthCells = 1, dropPoint?: Point) => {
       const at = (dropPoint && findDropPosition(dropPoint)) ?? findViewCentre();
-      await place(imageKey, { at, widthCells, rotation: 0, name: null, isHidden: false, sortOrder: findFrontSortOrder(readShown()) });
+      await place(imageKey, { at, widthCells, rotation: 0, name: null, isHidden: false, sortOrder: findFrontSortOrder(readShown()), floor: shownFloor, aspect: 1 });
       captureGameEvent("game_object_placed", { is_copy: false });
     },
     change,

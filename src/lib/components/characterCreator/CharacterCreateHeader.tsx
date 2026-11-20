@@ -79,7 +79,7 @@ export const CharacterCreateHeader = ({
       {!isAuthenticated ? <InAppBrowserHint onOpenAuth={onOpenAuth} /> : null}
       {showSignInAtEndNotice ? (
         <p className="mt-3 text-sm text-slate-300">
-          Щоб зберегти персонажа, наприкінці знадобиться вхід через Google. Ваші вибори не загубляться.
+          Щоб зберегти персонажа, наприкінці знадобиться вхід: через Google або поштою. Ваші вибори не загубляться.
         </p>
       ) : null}
     </div>

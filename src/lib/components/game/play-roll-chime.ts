@@ -9,7 +9,7 @@ const UNLOCK_EVENTS = ["pointerup", "touchend", "keydown"] as const;
 export function unlockRollChimeOnFirstTap(): () => void {
   const stop = () => UNLOCK_EVENTS.forEach((type) => window.removeEventListener(type, unlock, { capture: true }));
   const unlock = () => {
-    const audio = findContext();
+    const audio = findAudioContext();
     if (!audio) return stop();
     void audio.resume().then(() => audio.state === "running" && stop(), () => undefined);
   };
@@ -19,7 +19,7 @@ export function unlockRollChimeOnFirstTap(): () => void {
 
 export function playRollChime(now = Date.now()) {
   if (now - lastPlayedAt < CHIME_GAP_MS) return;
-  const audio = findContext();
+  const audio = findAudioContext();
   if (!audio || audio.state !== "running") return;
   lastPlayedAt = now;
   playBubble(audio, audio.currentTime, 520, 0.14);
@@ -42,7 +42,8 @@ function playBubble(audio: AudioContext, start: number, baseHz: number, peak: nu
   tone.stop(start + 0.12);
 }
 
-function findContext(): AudioContext | null {
+/// Один контекст на вкладку: кидки й звуки сцени розблоковуються тим самим першим дотиком.
+export function findAudioContext(): AudioContext | null {
   if (context) return context;
   const AudioContextClass = typeof window === "undefined" ? undefined : (window.AudioContext ?? (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext);
   context = AudioContextClass ? new AudioContextClass() : null;

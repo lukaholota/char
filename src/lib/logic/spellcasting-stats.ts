@@ -1,6 +1,6 @@
 import type { Ability } from "@prisma/client";
 import type { PersWithRelations } from "@/lib/actions/pers";
-import { calculateSpellAttack, calculateSpellDC, getSimpleBonus } from "@/lib/logic/bonus-calculator";
+import { calculateSpellAttack, calculateSpellDC, sumSpellAttackBonuses, sumSpellDcBonuses } from "@/lib/logic/bonus-calculator";
 import { classTranslations, featTranslations, subclassTranslations } from "@/lib/refs/translation";
 import type { SpellSource } from "@/rules/spell-sources";
 
@@ -42,8 +42,8 @@ function buildRowWithoutAbility(pers: PersWithRelations): SpellcastingStatRow {
     key: NO_SOURCE_ROW_KEY,
     label: "",
     ability: null,
-    attackBonus: getSimpleBonus(pers, "spellAttack"),
-    saveDC: 8 + getSimpleBonus(pers, "spellDC"),
+    attackBonus: sumSpellAttackBonuses(pers),
+    saveDC: 8 + sumSpellDcBonuses(pers),
   };
 }
 

@@ -5,7 +5,7 @@ export type HomebrewSort = "TOP" | "NEW";
 type CatalogAddress = { kind: HomebrewKind; is2024: boolean; sort?: HomebrewSort; entryId?: number };
 
 export function parseHomebrewKind(raw: string | string[] | undefined): HomebrewKind {
-  return raw === "CREATURE" ? "CREATURE" : "SPELL";
+  return raw === "CREATURE" || raw === "ITEM" ? raw : "SPELL";
 }
 
 export function parseHomebrewSort(raw: string | string[] | null | undefined): HomebrewSort {
@@ -21,11 +21,11 @@ export function parseHomebrewEntryId(raw: string): number | null {
   return entryId > 0 && entryId <= MAX_STORED_ID ? entryId : null;
 }
 
-export function buildHomebrewCreatureKey(entryId: number): string {
+export function buildHomebrewEntryKey(entryId: number): string {
   return `homebrew-${entryId}`;
 }
 
-export function findHomebrewCreatureEntryId(key: string): number | null {
+export function findHomebrewEntryId(key: string): number | null {
   const match = /^homebrew-(\d+)$/.exec(key);
   return match ? Number(match[1]) : null;
 }
@@ -38,5 +38,17 @@ export function buildHomebrewCatalogHref({ kind, is2024, sort = "TOP", entryId }
 }
 
 function buildSelectedEntryParam(kind: HomebrewKind, entryId: number): [string, string] {
-  return kind === "CREATURE" ? ["creature", buildHomebrewCreatureKey(entryId)] : ["spell", String(-entryId)];
+  if (kind === "SPELL") return ["spell", String(-entryId)];
+  return [kind === "ITEM" ? "item" : "creature", buildHomebrewEntryKey(entryId)];
+}
+
+/// Хоумбрю-предмет лежить у magic_item поруч із каталогом; службова англійська назва відрізняє його від офіційних.
+export const HOMEBREW_ITEM_ENG_NAME_PREFIX = "homebrew:";
+
+export function buildHomebrewItemEngName(entryId: number): string {
+  return `${HOMEBREW_ITEM_ENG_NAME_PREFIX}${entryId}`;
+}
+
+export function isHomebrewItemEngName(engName: string | null | undefined): boolean {
+  return engName?.startsWith(HOMEBREW_ITEM_ENG_NAME_PREFIX) ?? false;
 }
