@@ -10,6 +10,11 @@ export function collectDamageResistances(features: readonly SenseAndResistanceFe
   return DAMAGE_TYPE_KEYS.filter((type) => granted.has(type));
 }
 
+/// override: null — як дають риси, 0 — темнозору немає, інакше — задана героєм дальність.
+export function findOwnDarkvisionRange(features: readonly SenseAndResistanceFeature[], override: number | null): number | null {
+  return override === null ? findDarkvisionRange(features) : override || null;
+}
+
 // «Superior Darkvision» замінює дальність, а не додає її: ельф 60 і дроу 120 дають 120.
 export function findDarkvisionRange(features: readonly SenseAndResistanceFeature[]): number | null {
   const ranges = features

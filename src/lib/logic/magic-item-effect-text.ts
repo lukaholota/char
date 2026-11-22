@@ -3,6 +3,7 @@ import type { MagicWeaponTraits, WeaponHitDamage } from "@/rules/magic-weapons";
 import type { RollScope } from "@/rules/state-effects";
 import type { DamageTypeKey } from "@/rules/types";
 import { formatModifier } from "@/lib/logic/utils";
+import { formatDiceUkr } from "@/lib/logic/equipment-stats";
 import { abilityTranslations, damageTypeTranslations, skillTranslations } from "@/lib/refs/translation";
 
 const MOVEMENT_LABELS: Record<MovementMode, string> = { FLY: "польоту", CLIMB: "лазіння", SWIM: "плавання" };
@@ -70,7 +71,14 @@ export function hasCountedEffects(effects: readonly MagicItemEffect[]): boolean 
   return effects.some(isCountedBySheet);
 }
 
-const HIT_DAMAGE_WORDS: Partial<Record<DamageTypeKey, string>> = {
+const HIT_DAMAGE_WORDS: Record<DamageTypeKey, string> = {
+  ACID: "шкоди кислотою",
+  BLUDGEONING: "дроблячої шкоди",
+  LIGHTNING: "шкоди блискавкою",
+  NECROTIC: "некротичної шкоди",
+  POISON: "шкоди отрутою",
+  PSYCHIC: "психічної шкоди",
+  THUNDER: "шкоди громом",
   COLD: "шкоди холодом",
   FIRE: "шкоди вогнем",
   FORCE: "шкоди силовим полем",
@@ -80,13 +88,16 @@ const HIT_DAMAGE_WORDS: Partial<Record<DamageTypeKey, string>> = {
 };
 
 export function describeHitDamage(hit: WeaponHitDamage): string {
-  const damage = `+${hit.count}к${hit.sides} ${(hit.damageType && HIT_DAMAGE_WORDS[hit.damageType]) ?? "шкоди"}`;
+  const damage = `+${hit.count}к${hit.sides} ${hit.customType ? `шкоди «${hit.customType}»` : ((hit.damageType && HIT_DAMAGE_WORDS[hit.damageType]) ?? "шкоди")}`;
   if (!hit.condition) return damage;
   return `${damage}${hit.condition.startsWith("поки") ? ", " : " "}${hit.condition}`;
 }
 
 export function describeMagicWeaponTraits(traits: MagicWeaponTraits): string[] {
+  const profile = traits.profile;
   return [
+    ...(profile?.attackAbility ? [`Влучання від характеристики: ${abilityTranslations[profile.attackAbility]}`] : []),
+    ...(profile?.damage || profile?.damageType ? [`Шкода: ${[profile.damage ? formatDiceUkr(profile.damage) : "як у зброї", profile.damageType ? damageTypeTranslations[profile.damageType].toLowerCase() : ""].filter(Boolean).join(" ")}`] : []),
     ...(traits.bonus > 0 ? [`+${traits.bonus} до атаки й шкоди цією зброєю`] : []),
     ...traits.hits.map((hit) => `При влучанні ${describeHitDamage(hit)}`),
   ];

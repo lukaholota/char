@@ -112,7 +112,7 @@ type Statblock = ReturnType<typeof useCreatureStatblock>["creature"];
 
 function StatblockBody({ creature, statblock, loreDescription }: { creature: MapCreatureView | null; statblock: Statblock; loreDescription: string | null }) {
   if (!statblock || !creature) return <p className="py-10 text-center text-sm text-slate-400">Завантаження статблоку…</p>;
-  return <CreatureStatblockCard creature={statblock} is2024={creature.ruleset === "RULES_2024"} loreGroupDescription={loreDescription} rollName={creature.label} />;
+  return <CreatureStatblockCard creature={statblock} is2024={creature.ruleset === "RULES_2024"} loreGroupDescription={loreDescription} rollName={creature.playerLabel} />;
 }
 
 function CreaturePortrait({ creature }: { creature: MapCreatureView }) {

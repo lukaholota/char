@@ -2,14 +2,16 @@
 
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
-import { MAP_CREATURE_LIMITS } from "@/rules/game-map-creatures";
+import { Switch } from "@/components/ui/switch";
+import { HIDDEN_CREATURE_NAME, MAP_CREATURE_LIMITS } from "@/rules/game-map-creatures";
 
-export type NameControl = { value: string | null; onSave: (name: string) => Promise<boolean> };
+export type NameControl = { value: string | null; isHidden: boolean; onSave: (name: string) => Promise<boolean>; onHiddenChange: (isHidden: boolean) => Promise<boolean> };
 
 /// Своє імʼя ховає від гравців справжню назву; порожнє поле повертає назву зі статблоку. Статблок гравцям не показується ніколи.
 export function CreaturePlayerNameEditor({ control, realName }: { control: NameControl; realName: string }) {
   const [draft, setDraft] = useState(control.value ?? "");
   const [isSaving, setIsSaving] = useState(false);
+  const [isHidden, setIsHidden] = useState(control.isHidden);
   const shownName = draft.trim();
   const isChanged = shownName !== (control.value ?? "");
   const save = async (name: string) => {
@@ -17,6 +19,10 @@ export function CreaturePlayerNameEditor({ control, realName }: { control: NameC
     const isSaved = await control.onSave(name);
     setIsSaving(false);
     if (isSaved) setDraft(name);
+  };
+  const toggleHidden = async (isNameShown: boolean) => {
+    setIsHidden(!isNameShown);
+    if (!(await control.onHiddenChange(!isNameShown))) setIsHidden(isNameShown);
   };
   const submit = (event: FormEvent) => {
     event.preventDefault();
@@ -42,8 +48,12 @@ export function CreaturePlayerNameEditor({ control, realName }: { control: NameC
         </Button>
       </div>
       <p id="creature-player-name-hint" className="text-sm text-slate-400">
-        {`Гравці бачать «${shownName || realName}» і картинку, статблок — ніколи.`}
+        {`Гравці бачать «${isHidden ? HIDDEN_CREATURE_NAME : shownName || realName}» і картинку, статблок — ніколи.`}
       </p>
+      <label className="flex min-h-11 cursor-pointer items-center justify-between gap-3 text-sm text-slate-300">
+        Гравці бачать імʼя
+        <Switch checked={!isHidden} onCheckedChange={(isNameShown) => void toggleHidden(isNameShown)} />
+      </label>
       {control.value !== null ? (
         <Button type="button" variant="outline" disabled={isSaving} onClick={() => void save("")} className="h-11 justify-self-start">
           Повернути справжню назву

@@ -23,6 +23,8 @@ export type WeatherParticles = {
   visible: WeatherArea;
   particles: Particle[];
   flash: { at: number; next: number };
+  /// «r g b» замість природного кольору частинок.
+  color: string | null;
 };
 
 /// Густота — частинок на 10 000 px² видимої мапи (віддалену мапу рахуємо як вписану в екран), зі стелею, щоб великий монітор не гальмував.
@@ -44,9 +46,11 @@ const EDGE = 24;
 const pick = ([min, max]: readonly [number, number]) => min + Math.random() * (max - min);
 const isFalling = (weather: ActiveWeather): weather is FallingWeather => weather !== "fog";
 
-export function makeWeatherParticles(weather: ActiveWeather, width: number, height: number, map: WeatherArea): WeatherParticles {
+const toRgb = (hex: string) => [1, 3, 5].map((start) => parseInt(hex.slice(start, start + 2), 16)).join(" ");
+
+export function makeWeatherParticles(weather: ActiveWeather, width: number, height: number, map: WeatherArea, hex: string | null = null): WeatherParticles {
   const visible = findVisibleArea(map, width, height);
-  const state: WeatherParticles = { weather, width, height, map, visible, particles: [], flash: { at: -Infinity, next: performance.now() + pick([3000, 8000]) } };
+  const state: WeatherParticles = { weather, width, height, map, visible, particles: [], flash: { at: -Infinity, next: performance.now() + pick([3000, 8000]) }, color: hex && toRgb(hex) };
   matchParticleCount(state);
   return state;
 }
@@ -133,7 +137,7 @@ function drawFalling(context: CanvasRenderingContext2D, state: WeatherParticles,
   }
   context.lineWidth = state.weather === "storm" ? 1.4 : 1.1;
   layers.forEach((path, step) => {
-    const color = `rgb(${look.color} / ${((look.alpha * (step + 1)) / ALPHA_STEPS).toFixed(3)})`;
+    const color = `rgb(${state.color ?? look.color} / ${((look.alpha * (step + 1)) / ALPHA_STEPS).toFixed(3)})`;
     if (isRain) {
       context.strokeStyle = color;
       context.stroke(path);
@@ -179,13 +183,14 @@ function moveParticle(particle: Particle, look: FallingLook, state: WeatherParti
 function drawFog(context: CanvasRenderingContext2D, state: WeatherParticles, seconds: number) {
   const { visible } = state;
   const reach = Math.min(visible.width, visible.height);
+  const rgb = state.color ?? "215 225 235";
   for (const cloud of state.particles) {
     const radius = cloud.size * reach;
     cloud.x += cloud.speed * seconds;
     if (cloud.x - radius > visible.x + visible.width) cloud.x = visible.x - radius;
     const gradient = context.createRadialGradient(cloud.x, cloud.y, 0, cloud.x, cloud.y, radius);
-    gradient.addColorStop(0, "rgb(215 225 235 / 0.22)");
-    gradient.addColorStop(1, "rgb(215 225 235 / 0)");
+    gradient.addColorStop(0, `rgb(${rgb} / 0.22)`);
+    gradient.addColorStop(1, `rgb(${rgb} / 0)`);
     context.fillStyle = gradient;
     context.fillRect(cloud.x - radius, cloud.y - radius, radius * 2, radius * 2);
   }

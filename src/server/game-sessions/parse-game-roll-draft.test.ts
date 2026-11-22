@@ -80,3 +80,17 @@ describe("ціль-герой кидка зі статблоку", () => {
     expect("draft" in parseGameRollDraft(creatureBody({ roll: d20, heroTarget: { persId: 5, kind: "attack" } }), NOW)).toBe(true);
   });
 });
+
+describe("кидок ініціативи", () => {
+  const initiativeOf = (body: Record<string, unknown>) => {
+    const result = parseGameRollDraft({ ...draftBody({ rolledAt: new Date(NOW).toISOString() }), ...body }, NOW);
+    return "draft" in result ? result.draft.isInitiative : "rejected";
+  };
+
+  it("стає в чергу бою лише з листа персонажа", () => {
+    expect(initiativeOf({ source: "CHARACTER", persId: 7, isInitiative: true })).toBe(true);
+    expect(initiativeOf({ source: "FREE", isInitiative: true })).toBe(false);
+    expect(initiativeOf({ source: "CHARACTER", persId: 7, isInitiative: "yes" })).toBe(false);
+    expect(initiativeOf({ source: "CHARACTER", persId: 7 })).toBe(false);
+  });
+});

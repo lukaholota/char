@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findMapShareInRect, findTokenPositionInRect, parseTokenPosition, shiftTokenPosition } from "@/rules/game-map";
+import { findMapShareInRect, findPastePosition, findTokenPositionInRect, parseTokenPosition, shiftTokenPosition } from "@/rules/game-map";
 
 describe("позиція токена на мапі кімнати", () => {
   it("приймає лише скінченні числа й тримає токен у межах мапи", () => {
@@ -39,5 +39,13 @@ describe("позиція токена на мапі кімнати", () => {
     expect(findMapShareInRect({ clientX: 600, clientY: 0 }, rect)).toEqual({ x: 1.25, y: -0.25 });
     expect(findMapShareInRect({ clientX: 300, clientY: 450 }, { left: 200, top: 50, width: 200, height: 400 }, true)).toEqual({ x: 1, y: 0.5 });
     expect(findMapShareInRect({ clientX: 0, clientY: 0 }, { ...rect, height: 0 })).toBeNull();
+  });
+});
+
+describe("findPastePosition", () => {
+  it("зсуває кожну наступну вставку далі, а біля краю — назад", () => {
+    expect(findPastePosition({ x: 0.5, y: 0.2 }, 1)).toEqual({ x: 0.53, y: 0.23 });
+    expect(findPastePosition({ x: 0.5, y: 0.2 }, 3)).toEqual({ x: 0.59, y: 0.29 });
+    expect(findPastePosition({ x: 0.99, y: 1 }, 2)).toEqual({ x: 0.93, y: 0.94 });
   });
 });

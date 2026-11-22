@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { GROUP_MOVE_LIMIT, collectKeysInRect, isPointInRect, parseGroupMoves, parseMapTokenMoves, parsePositionMoves, shiftGroup } from "@/rules/map-group";
+import { GROUP_MOVE_LIMIT, collectKeysInRect, isPointInRect, parseGroupMoves, parseMapTokenMoves, parsePositionMoves, shiftGroup, findIdInGroupKey } from "@/rules/map-group";
 
 const rect = { x: 0.2, y: 0.2, width: 0.3, height: 0.3 };
 
@@ -51,5 +51,12 @@ describe("parsePositionMoves", () => {
   it("accepts placed moves and rejects removal", () => {
     expect(parsePositionMoves([{ id: 3, at: { x: 0.4, y: 0.6 } }])).toEqual([{ id: 3, at: { x: 0.4, y: 0.6 } }]);
     expect(parsePositionMoves([{ id: 3, at: null }])).toBeNull();
+  });
+});
+
+describe("findIdInGroupKey", () => {
+  it("бере число після останнього дефіса ключа групи", () => {
+    expect(findIdInGroupKey("object-42")).toBe(42);
+    expect(findIdInGroupKey("creature-7")).toBe(7);
   });
 });

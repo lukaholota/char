@@ -2,10 +2,11 @@ import { buildMediaImageUrl } from "@/lib/media-url";
 import { findCreatureHitPoints, isCreatureDown, type CreatureHitPoints } from "@/rules/creature-hit-points";
 import type { TokenLight } from "@/rules/game-lighting";
 import type { TokenPosition } from "@/rules/game-map";
-import { normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
+import { isTokenInvisible, normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
 import { readTokenTransform, type TokenTransform } from "@/rules/token-transform";
 
 export const MAP_CREATURE_LIMITS = { perScene: 40, perAdd: 10, keyLength: 120, customNameLength: 40, imagesPerUser: 60 } as const;
+export const HIDDEN_CREATURE_NAME = "Невідома істота";
 export const MAP_CREATURE_RULESETS = ["RULES_2014", "RULES_2024"] as const;
 export type MapCreatureRuleset = (typeof MAP_CREATURE_RULESETS)[number];
 
@@ -49,17 +50,21 @@ export type MapCreatureRow = {
   lightBrightFeet: number;
   lightDimFeet: number;
   floor?: number | null;
+  isNameHidden?: boolean;
 };
 export type MapCreatureCatalogEntry = { name: string; size: string; hp?: string; imageUrl?: string; imageShape?: "round" };
 
 /// creatureKey — лише майстру: статблок гравцям не віддається ніколи, картинка й назва лишаються.
 /// customName і statblockName бачить лише майстер.
 /// Числа хітів бачить лише майстер; гравцям іде тільки isDown.
+/// playerLabel — що бачать гравці: з нього підписуються кидки істоти й ціль у журналі.
 export type MapCreatureView = {
   id: number;
   creatureKey: string | null;
   ruleset: MapCreatureRuleset;
   label: string;
+  playerLabel: string;
+  isNameHidden: boolean;
   statblockName: string | null;
   customName: string | null;
   badge: number | null;
@@ -128,7 +133,7 @@ export function findFreeCreatureNumbers(takenNumbers: number[], count: number): 
   return free;
 }
 
-/// Гравці бачать лише істот на мапі: ряд під мапою — підготовка майстра до бою.
+/// Гравці бачать лише видимих істот на мапі: ряд під мапою — підготовка майстра до бою.
 export function buildMapCreatureViews(
   rows: MapCreatureRow[],
   findEntry: (key: string, ruleset: MapCreatureRuleset) => MapCreatureCatalogEntry | null,
@@ -137,18 +142,23 @@ export function buildMapCreatureViews(
   const copiesByGroup = new Map<string, number>();
   for (const row of rows) copiesByGroup.set(findCreatureGroupKey(row), (copiesByGroup.get(findCreatureGroupKey(row)) ?? 0) + 1);
   return rows
-    .filter((row) => isGm || row.tokenX !== null)
+    .filter((row) => isGm || (row.tokenX !== null && !isTokenInvisible(row.conditions)))
     .map((row) => {
       const entry = findEntry(row.creatureKey, row.ruleset);
       const hasCopies = (copiesByGroup.get(findCreatureGroupKey(row)) ?? 0) > 1;
       const statblockName = entry?.name ?? row.creatureKey;
       const name = row.customName ?? statblockName;
+      const isNameHidden = row.isNameHidden ?? false;
+      const numbered = (shown: string) => (hasCopies ? `${shown} ${row.number}` : shown);
+      const playerLabel = numbered(isNameHidden ? HIDDEN_CREATURE_NAME : name);
       const hitPoints = findCreatureHitPoints(row, entry?.hp);
       return {
         id: row.id,
         creatureKey: isGm ? row.creatureKey : null,
         ruleset: row.ruleset,
-        label: hasCopies ? `${name} ${row.number}` : name,
+        label: isGm ? numbered(name) : playerLabel,
+        playerLabel,
+        isNameHidden: isGm && isNameHidden,
         statblockName: isGm && row.customName ? statblockName : null,
         customName: isGm ? row.customName : null,
         badge: hasCopies ? row.number : null,

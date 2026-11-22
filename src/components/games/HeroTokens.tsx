@@ -20,8 +20,8 @@ import { listSheetPersIds } from "@/rules/game-room-heroes";
 import { HIGHLIGHT_RING_CLASS, MapTokenSlot, OFF_FLOOR_CLASS, buildTokenSizeStyle, isAboveThumbnail, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
 import { SpotlightAura, findSpotlightRingClass, useIsHeroTurn } from "./combat-turn";
 import { TokenConditionMarks } from "./TokenConditionMarks";
-import { useSpotlightStyle, useSpotlightControl } from "./use-token-conditions";
-import { NO_TOKEN_CONDITIONS } from "@/rules/token-conditions";
+import { useIsTokenInvisible, useSpotlightStyle, useSpotlightControl } from "./use-token-conditions";
+import { NO_TOKEN_CONDITIONS, isTokenHiddenFromViewer } from "@/rules/token-conditions";
 import { TokenName } from "./TokenName";
 import { holdValueBefore, rememberUndo } from "./map-history";
 import { showOptimistic, sendOptimistic, sendOptimisticMany, useOptimistic, useOptimisticReader } from "./optimistic-values";
@@ -76,7 +76,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
   };
   /// Блідий токен з іншого поверху лишається на своєму поверсі, хоч куди його посунуть.
   const findLandingFloor = (member: GameSessionMemberView, to: TokenPosition | null) => (to && !isOffFloor(member) ? layout.floors.findLanding(to) : undefined);
-  const heroes = view.members.filter((member) => member.persId !== null);
+  const heroes = view.members.filter((member) => member.persId !== null && !isTokenHiddenFromViewer({ userId: view.myUserId, isGm: view.myRole === "GM" }, member, member.conditions.conditions));
   const waiting = heroes.filter((member) => !moves.findPosition(member));
   const dragged = ghost ? heroes.find((member) => member.heroId === ghost.id) : undefined;
   if (ghost !== (walk?.ghost ?? null)) setWalk(ghost && dragged ? { ghost, ...findAllowedStep(findWalkStart(ghost.id, dragged), findSnappedDrop(ghost)) } : null);
@@ -155,7 +155,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
     return position ? [{ key: `hero-${member.heroId}`, name: member.persName ?? member.name, position, cells: HERO_CELLS, ...(member.persId !== null ? { persId: member.persId } : {}) }] : [];
   });
   const draggedFrom = dragged ? moves.findPosition(dragged) : null;
-  const drag: TokenDrag | null = ghost && dragged ? { key: findKey(dragged.heroId), from: draggedFrom, to: walk?.ghost === ghost ? walk.at : findSnappedDrop(ghost), cells: HERO_CELLS, isBlocked: walk?.ghost === ghost && walk.isBlocked } : null;
+  const drag: TokenDrag | null = ghost && dragged ? { key: findKey(dragged.heroId), from: draggedFrom, to: walk?.ghost === ghost ? walk.at : findSnappedDrop(ghost), cells: HERO_CELLS, ghostPx: scaleGhostSize(findGhostTokenSize(layout, HERO_CELLS, 1), transforms.find(dragged)), isBlocked: walk?.ghost === ghost && walk.isBlocked } : null;
   const size = findBoardTokenSize(layout, HERO_CELLS, 1);
 
   return {
@@ -187,7 +187,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
     }),
     overlay: (
       <>
-        {ghost && dragged ? <DraggedToken ghost={ghost} member={dragged} size={scaleGhostSize(findGhostTokenSize(layout, HERO_CELLS, 1), transforms.find(dragged))} rotation={transforms.find(dragged).rotation} isOutlined={layout.isCutoutOutlined} isMine={dragged.userId === view.myUserId} isTurned={isTurned()} isLeavingMap={!ghost.isOverTarget && draggedFrom !== null} /> : null}
+        {ghost && dragged ? <DraggedToken ghost={ghost} member={dragged} size={drag?.ghostPx ?? 0} rotation={transforms.find(dragged).rotation} isOutlined={layout.isCutoutOutlined} isMine={dragged.userId === view.myUserId} isTurned={isTurned()} isLeavingMap={!ghost.isOverTarget && draggedFrom !== null} /> : null}
         <HeroConditionsDialog view={view} hero={view.members.find((member) => member.heroId === conditionsHeroId) ?? null} onClose={() => setConditionsHeroId(null)} />
       </>
     ),
@@ -208,9 +208,10 @@ function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = 
   const name = member.persName ?? member.name;
   const isTurn = useIsHeroTurn(member.persId);
   const spotlight = useSpotlightStyle({ kind: "hero", id: member.heroId }, member.conditions);
+  const isInvisible = useIsTokenInvisible({ kind: "hero", id: member.heroId }, member.conditions);
   const { lifeState } = member;
   return (
-    <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={name}>
+    <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isInvisible && "opacity-50", isDimmed && "opacity-40")} title={name}>
       <div className={cn("relative isolate rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={buildTokenSizeStyle(size)}>
         <SpotlightAura style={spotlight} />
         <div className="h-full w-full" style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>

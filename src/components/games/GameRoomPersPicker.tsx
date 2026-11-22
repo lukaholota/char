@@ -47,7 +47,7 @@ function NoHeroCard({ isGm, canChange, onChoose }: { isGm: boolean; canChange: b
       ) : (
         <p className="text-sm text-slate-400">Без персонажа</p>
       )}
-      <p className="text-sm text-slate-400">{isGm ? "Якщо ведете власних героїв, їхні токени й листи будуть у кімнаті поруч із гравцями." : "Кидки з листа підписуються іменем персонажа. Вільні кубики — вашим іменем."}</p>
+      <p className="text-sm text-slate-400">{isGm ? "Якщо ведете власних героїв, їхні токени й листи будуть у кампанії поруч із гравцями." : "Кидки з листа підписуються іменем персонажа. Вільні кубики — вашим іменем."}</p>
     </>
   );
 }
@@ -155,7 +155,7 @@ function PersPickerDialog({ view, options, isOpen, onOpenChange }: { view: GameS
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[88svh] max-w-2xl grid-cols-1 overflow-y-auto">
         <DialogTitle className="pr-8 text-2xl normal-case leading-tight tracking-normal text-slate-50">Ким ви граєте в «{view.name}»?</DialogTitle>
-        <DialogDescription>Можна обрати кількох. Інші учасники бачитимуть персонажа поруч із вашими кидками{view.myRole === "GM" ? "." : ", а майстер кімнати зможе відкрити й редагувати його лист."}</DialogDescription>
+        <DialogDescription>Можна обрати кількох. Інші учасники бачитимуть персонажа поруч із вашими кидками{view.myRole === "GM" ? "." : ", а майстер кампанії зможе відкрити й редагувати його лист."}</DialogDescription>
         {options.length ? (
           <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {options.map((pers) => {
@@ -178,7 +178,7 @@ function PersPickerDialog({ view, options, isOpen, onOpenChange }: { view: GameS
         {hasHero ? <Button type="button" onClick={() => onOpenChange(false)} className="h-12 w-full text-base">Готово</Button> : null}
         <div className="space-y-3">
           <p className="text-sm text-slate-300">
-            {options.length ? "Потрібен новий герой?" : "У вас ще немає персонажів."} Готовий герой потрібного рівня займе хвилину; назад у кімнату поверне плашка «Журнал» унизу екрана.
+            {options.length ? "Потрібен новий герой?" : "У вас ще немає персонажів."} Готовий герой потрібного рівня займе хвилину; назад у кампанію поверне плашка «Журнал» унизу екрана.
           </p>
           <div className="grid gap-2 sm:grid-cols-2">
             <Button asChild variant={options.length ? "outline" : "default"} className="h-12 text-base"><Link href={gamesHref("/char/presets")}>Взяти готового персонажа</Link></Button>

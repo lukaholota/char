@@ -47,7 +47,7 @@ import { toast } from "sonner";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { getRulesStrategy } from "@/rules/strategies";
 import { countOriginLanguageChoices } from "@/rules/languages";
-import { canJumpForwardTo, isCreationStepCompleted } from "./creation-step-completion";
+import { canJumpForwardTo, isCreationStepCompleted, isCreationStepSkippable } from "./creation-step-completion";
 import { findStaleDraftReset } from "./creation-draft-reset";
 import { CreationStepLayout } from "./CreationStepLayout";
 import { useNextStepHintState } from "@/lib/components/wizard/next-step-hint";
@@ -91,6 +91,7 @@ export const MultiStepForm = (
   const inAppBrowser = useInAppBrowser();
   const {
     currentStep,
+    nextStep,
     prevStep,
     resetForm,
     formData,
@@ -1065,6 +1066,7 @@ export const MultiStepForm = (
       nextStepHint={nextStepHint}
       isSubmitting={isSubmitting}
       onPrev={prevStep}
+      onSkip={isCreationStepSkippable(activeStepId) ? () => { toast.info("Крок пропущено — доповните пізніше в листі персонажа."); nextStep(); } : undefined}
       onNextBlocked={(stepId, hint) => captureStepBlocked("creation", analyticsEdition, stepId, hint)}
       after={
         <>

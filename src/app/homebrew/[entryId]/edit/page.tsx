@@ -7,12 +7,15 @@ import { HomebrewSpellForm } from "@/components/homebrew/HomebrewSpellForm";
 import { readCreatureFormValues, readItemFormValues, readSpellFormValues } from "@/lib/logic/homebrew-form-values";
 import { loadHomebrewEditValues } from "@/lib/actions/homebrew-actions";
 import { parseHomebrewEntryId } from "@/lib/logic/homebrew-catalog";
+import { listHomebrewItemBases } from "@/server/db/homebrew-item-bases";
 
 export const metadata: Metadata = { title: "Редагування хоумбрю — ДнД українською", robots: { index: false } };
 
 export default async function EditHomebrewPage({ params }: { params: Promise<{ entryId: string }> }) {
   const entryId = parseHomebrewEntryId((await params).entryId);
   if (!entryId) notFound();
+  const basesPromise = listHomebrewItemBases();
+  basesPromise.catch(() => undefined);
   const edit = await loadHomebrewEditValues(entryId);
   if (!edit) notFound();
 
@@ -21,7 +24,7 @@ export default async function EditHomebrewPage({ params }: { params: Promise<{ e
       {edit.kind === "SPELL" ? (
         <HomebrewSpellForm entryId={edit.entryId} initialValues={readSpellFormValues(edit.values)} />
       ) : edit.kind === "ITEM" ? (
-        <HomebrewItemForm entryId={edit.entryId} initialValues={readItemFormValues(edit.values)} initialImageUrl={edit.imageUrl} />
+        <HomebrewItemForm entryId={edit.entryId} initialValues={readItemFormValues(edit.values)} initialImageUrl={edit.imageUrl} bases={await basesPromise} />
       ) : (
         <HomebrewCreatureForm entryId={edit.entryId} initialValues={readCreatureFormValues(edit.values)} initialImageUrl={edit.imageUrl} />
       )}

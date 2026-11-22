@@ -10,7 +10,7 @@ import { describeTargetSave, type DiceRollOutcome } from "@/lib/components/dice/
 
 /// save — шкода з ряткидком (заклинання з листа чи дія статблоку): кімната кидає ряткидки цілей (зони або обраної) замість повної шкоди.
 export type PublishedSave = { spell: SaveSpellRef; dc: number } | { spell: null; effect: SaveEffect; dc: number };
-export type GameRollPublication = { label: string; roll: GameRoll; isFromSheet: boolean; kind: HeroRollKind | null; save?: PublishedSave; areaTargets?: RollTargets };
+export type GameRollPublication = { label: string; roll: GameRoll; isFromSheet: boolean; kind: HeroRollKind | null; save?: PublishedSave; areaTargets?: RollTargets; isInitiative?: boolean };
 
 type ActionRequest = { context: DiceRollContext; action: DiceRollAction; d20Mode: D20Mode };
 
@@ -29,7 +29,8 @@ export function buildActionGameRoll({ context, action, d20Mode }: ActionRequest,
   const labelParts = context.isCreatureRoll ? [context.title, context.subtitle, action.label, saveText] : [context.title, action.label, saveText];
   const kind = findActionRollKind(context, action);
   const save = kind === "damage" ? findPublishedSave(context.targetSave) : undefined;
-  return { label: clip(labelParts.filter(Boolean).join(" · "), GAME_ROLL_LIMITS.label), roll, isFromSheet: !context.isCreatureRoll, kind, ...(save ? { save } : {}), ...(save && context.areaTargets ? { areaTargets: context.areaTargets } : {}) };
+  const isInitiative = !context.isCreatureRoll && action.key === "initiative";
+  return { label: clip(labelParts.filter(Boolean).join(" · "), GAME_ROLL_LIMITS.label), roll, isFromSheet: !context.isCreatureRoll, kind, ...(isInitiative ? { isInitiative } : {}), ...(save ? { save } : {}), ...(save && context.areaTargets ? { areaTargets: context.areaTargets } : {}) };
 }
 
 /// Друга група — шкода другого типу (Крижаний шторм); число без кубиків («Зцілення») груп не має.

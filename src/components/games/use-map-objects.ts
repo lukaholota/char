@@ -5,13 +5,14 @@ import { addSceneObjectAction, changeSceneObjectAction, moveSceneObjectsAction, 
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { applyObjectTransform, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, toObjectPlacement, type ObjectPlacement, type SceneObjectView } from "@/rules/game-objects";
-import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
+import { findPastePosition, shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import type { FloorId } from "@/rules/game-floors";
 import type { TokenTransform } from "@/rules/token-transform";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { holdValueBefore, pushUndoStep, rememberUndo } from "./map-history";
-import { readOptimistic, sendOptimistic, showOptimistic, useOptimisticReader } from "./optimistic-values";
+import { dropOptimistic, readOptimistic, sendOptimistic, showOptimistic, useOptimisticReader } from "./optimistic-values";
 import { createIdChain } from "./id-chain";
+import { findTappedObjectId } from "./MapTokenSlot";
 import { useTokenDrag } from "./use-token-drag";
 
 type Point = { clientX: number; clientY: number };
@@ -19,10 +20,8 @@ type Options = { view: GameSessionView; shownFloor: FloorId; editing: ObjectEdit
 type ObjectMove = { id: number; at: TokenPosition };
 
 const { findCurrentId, takeTempId, link } = createIdChain();
-const COPY_SHIFT = 0.03;
-
-const shiftShare = (share: number) => (share + COPY_SHIFT > 1 ? share - COPY_SHIFT : share + COPY_SHIFT);
-
+/// Копію можна тягнути й видаляти ще до відповіді сервера: остання дія чекає тут на справжній id.
+const waitingForId = new Map<number, (savedId: number) => void>();
 export const findObjectsKey = (sceneId: number | null) => `objects:${sceneId}`;
 
 /// "shownFloor" — інструмент «Поверхи»: правиться лише план показаного поверху, решта обʼєктів не ловить дотиків.
@@ -36,35 +35,48 @@ export function useMapObjects({ view, shownFloor, editing, gridColumns, findDrop
   const readShown = () => readOptimistic(key, view.objects).map((object) => ({ ...object, id: findCurrentId(object.id) }));
   const findShown = (id: number) => readShown().find((object) => object.id === findCurrentId(id)) ?? null;
 
-  const add = async (imageKey: string, placement: ObjectPlacement, replacedId?: number): Promise<number | null> => {
+  const add = async (imageKey: string, placement: ObjectPlacement, replacedId?: number, tempId = takeTempId()): Promise<number | null> => {
     if (sceneId === null) return null;
-    const tempId = takeTempId();
     if (replacedId !== undefined) link(replacedId, tempId);
     const added: SceneObjectView = { ...placement, id: tempId, imageKey, imageUrl: buildMediaImageUrl(imageKey, "full") };
     const result = await sendOptimistic(key, [...readShown(), added], () => addSceneObjectAction(view.id, sceneId, imageKey, placement));
-    if (!result.ok) return null;
+    const waiting = waitingForId.get(tempId);
+    waitingForId.delete(tempId);
+    if (!result.ok) {
+      if (waiting) dropOptimistic(key);
+      return null;
+    }
     link(tempId, result.value.id);
+    waiting?.(result.value.id);
     return result.value.id;
   };
 
   const save = (id: number, placement: ObjectPlacement) => {
     const realId = findCurrentId(id);
-    if (sceneId === null || realId < 0) return;
+    if (sceneId === null) return;
     const shown = readShown().map((object) => (object.id === realId ? { ...object, ...placement } : object));
+    if (realId < 0) return waitForId(realId, shown, (savedId) => save(savedId, placement));
     void sendOptimistic(key, shown, () => changeSceneObjectAction(view.id, sceneId, realId, placement));
   };
 
   const removeNow = (id: number) => {
     const realId = findCurrentId(id);
-    if (sceneId === null || realId < 0) return;
+    if (sceneId === null) return;
+    if (realId < 0) return waitForId(realId, readShown().filter((object) => object.id !== realId), removeNow);
     void sendOptimistic(key, readShown().filter((object) => object.id !== realId), () => removeSceneObjectsAction(view.id, sceneId, [realId]));
+  };
+
+  const waitForId = (tempId: number, shown: SceneObjectView[], act: (savedId: number) => void) => {
+    showOptimistic(key, shown);
+    waitingForId.set(tempId, act);
   };
 
   const place = async (imageKey: string, placement: ObjectPlacement) => {
     if (sceneId === null) return;
-    const id = await add(imageKey, placement);
+    const tempId = takeTempId();
+    setChosenId(tempId);
+    const id = await add(imageKey, placement, undefined, tempId);
     if (id === null) return;
-    setChosenId(id);
     pushUndoStep(sceneId, { undo: () => removeNow(id), redo: () => add(imageKey, placement, findCurrentId(id)) });
   };
 
@@ -115,6 +127,23 @@ export function useMapObjects({ view, shownFloor, editing, gridColumns, findDrop
     pushUndoStep(sceneId, { undo: () => erased.forEach((object) => void add(object.imageKey, toObjectPlacement(object), findCurrentId(object.id))), redo: removeAll });
   };
 
+  const pasteCopy = (imageKey: string, placement: ObjectPlacement) => {
+    void place(imageKey, { ...placement, sortOrder: findFrontSortOrder(readShown()) });
+    captureGameEvent("game_object_placed", { is_copy: true });
+  };
+
+  /// shortcut: кожна копія — окремий запит, тож понад ~30 обʼєктів за раз упреться в ліміт ходів; тоді — пакетне додавання.
+  const pasteMany = async (copies: Array<{ imageKey: string; placement: ObjectPlacement }>) => {
+    if (sceneId === null) return;
+    const front = findFrontSortOrder(readShown());
+    const placed = copies.toSorted((left, right) => left.placement.sortOrder - right.placement.sortOrder).map((copy, index) => ({ ...copy, placement: { ...copy.placement, sortOrder: front + index } }));
+    const ids = await Promise.all(placed.map((copy) => add(copy.imageKey, copy.placement)));
+    const added = placed.flatMap((copy, index) => { const id = ids[index]; return id === null ? [] : [{ ...copy, id }]; });
+    if (!added.length) return;
+    pushUndoStep(sceneId, { undo: () => added.forEach((copy) => removeNow(copy.id)), redo: () => added.forEach((copy) => void add(copy.imageKey, copy.placement, findCurrentId(copy.id))) });
+    captureGameEvent("game_object_placed", { is_copy: true });
+  };
+
   const others = (id: number) => readShown().filter((object) => object.id !== id);
   const actOnChosen = (act: (object: SceneObjectView) => void) => () => {
     const object = chosenId === null ? null : findShown(chosenId);
@@ -159,8 +188,13 @@ export function useMapObjects({ view, shownFloor, editing, gridColumns, findDrop
     findWidthShare: (object: SceneObjectView) => findObjectWidthShare(object.widthCells, gridColumns),
     isEditing: editing !== null,
     isEditable,
-    bindObject: (id: number) => (id > 0 && isEditable(findShown(id)) ? drag.bindToken(id) : {}),
+    bindObject: (id: number) => (isEditable(findShown(id)) ? drag.bindToken(id) : {}),
     choose: setChosenId,
+    chooseTapped: (board: HTMLElement | null, point: Point) => {
+      const id = findTappedObjectId(board, point);
+      if (id !== null) setChosenId(id);
+      return id !== null;
+    },
     canDropAt: (point: Point) => findDropPosition(point) !== null,
     placeFromLibrary: async (imageKey: string, widthCells = 1, dropPoint?: Point) => {
       const at = (dropPoint && findDropPosition(dropPoint)) ?? findViewCentre();
@@ -173,11 +207,9 @@ export function useMapObjects({ view, shownFloor, editing, gridColumns, findDrop
       if (object) change(id, applyObjectTransform(toObjectPlacement(object), transform));
     },
     preview,
-    copy: actOnChosen((object) => {
-      const placement = { ...toObjectPlacement(object), at: { x: shiftShare(object.at.x), y: shiftShare(object.at.y) }, sortOrder: findFrontSortOrder(readShown()) };
-      void place(object.imageKey, placement);
-      captureGameEvent("game_object_placed", { is_copy: true });
-    }),
+    copy: actOnChosen((object) => pasteCopy(object.imageKey, { ...toObjectPlacement(object), at: findPastePosition(object.at, 1) })),
+    pasteCopy,
+    pasteMany,
     toggleHidden: actOnChosen((object) => {
       change(object.id, { ...toObjectPlacement(object), isHidden: !object.isHidden });
       captureGameEvent("game_object_hidden_toggled", { is_hidden: !object.isHidden });

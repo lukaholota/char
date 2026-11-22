@@ -34,12 +34,12 @@ function MemberRow({ view, member }: { view: GameSessionView; member: GameSessio
   const canRemove = view.myRole === "GM" && member.userId !== view.myUserId;
   const heroNames = view.members.flatMap((hero) => (hero.userId === member.userId && hero.persName ? [hero.persName] : []));
   const remove = async () => {
-    if (!(await askToConfirm({ title: `Вилучити ${member.name} з кімнати?`, description: "Повернутися можна лише за запрошенням.", confirmLabel: "Вилучити", isDestructive: true }))) return;
+    if (!(await askToConfirm({ title: `Вилучити ${member.name} з кампанії?`, description: "Повернутися можна лише за запрошенням.", confirmLabel: "Вилучити", isDestructive: true }))) return;
     startTransition(async () => {
       const result = await removeGameSessionMemberAction(view.id, member.userId);
       if (!result.ok) return void toast.error(result.error);
       captureGameEvent("game_member_removed", {});
-      toast(`${member.name} більше не в кімнаті`, { description: "Якщо в гравця лишилося запрошення, оновіть посилання." });
+      toast(`${member.name} більше не в кампанії`, { description: "Якщо в гравця лишилося запрошення, оновіть посилання." });
       router.refresh();
     });
   };
@@ -83,7 +83,7 @@ export function GameRoomInvite({ view, isProminent = false }: { view: GameSessio
     captureGameEvent("game_invite_copied", { member_count: findRoomPeople(view.members).length });
   }, () => toast.error("Не вдалося скопіювати — виділіть посилання вручну"));
   const rotate = async () => {
-    if (!(await askToConfirm({ title: "Створити нове посилання?", description: "Старе посилання перестане працювати. Учасники, що вже в кімнаті, лишаться.", confirmLabel: "Створити" }))) return;
+    if (!(await askToConfirm({ title: "Створити нове посилання?", description: "Старе посилання перестане працювати. Учасники, що вже в кампанії, лишаться.", confirmLabel: "Створити" }))) return;
     startTransition(async () => {
       const result = await rotateInviteTokenAction(view.id);
       if (!result.ok) return void toast.error(result.error);
@@ -98,7 +98,7 @@ export function GameRoomInvite({ view, isProminent = false }: { view: GameSessio
     <section aria-labelledby="game-room-invite" className={isProminent ? "space-y-4 rounded-2xl border border-white/15 bg-slate-900/70 p-5 sm:p-6" : ROOM_CARD}>
       <div className="space-y-1">
         <h2 id="game-room-invite" className={cn("font-rpg-display text-slate-50", isProminent ? "text-2xl" : "text-lg")}>{isProminent ? "Покличте гравців" : "Запрошення"}</h2>
-        <p className="text-sm text-slate-400">Надішліть посилання в чат партії. Хто відкриє його й увійде, стане гравцем кімнати.</p>
+        <p className="text-sm text-slate-400">Надішліть посилання в чат партії. Хто відкриє його й увійде, стане гравцем кампанії.</p>
       </div>
       <input readOnly value={link} aria-label="Посилання-запрошення" onFocus={(event) => event.currentTarget.select()} className={cn("w-full truncate rounded-lg border border-white/10 bg-slate-950/60 px-3 text-slate-200", isProminent ? "h-12 text-sm" : "h-10 text-xs")} />
       <Button type="button" size="lg" onClick={copy} className={buttonClass}>

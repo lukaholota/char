@@ -14,6 +14,8 @@ type ItemDraft = {
   isAttuned?: boolean;
   description?: string;
   persWeaponId?: number | null;
+  isMundane?: boolean;
+  weaponProfile?: unknown;
 };
 
 export function buildPersWithItems(items: ItemDraft[], overrides: Record<string, unknown> = {}): PersWithRelations {

@@ -13,9 +13,9 @@ import { findCurrentUserId } from "@/server/db/current-user";
 import { findGameSessionView, findInvite, listBindablePers, listGameSessionsForUser } from "@/server/db/game-sessions";
 import { RoomHeroSheet, RoomHeroSheetSkeleton } from "./room-hero-sheet";
 
-export const GAME_SESSIONS_METADATA: Metadata = { title: "Holota VTT — ігрові кімнати ДнД українською", robots: { index: false } };
-export const GAME_ROOM_METADATA: Metadata = { title: "Ігрова кімната — ДнД українською", robots: { index: false } };
-export const GAME_JOIN_METADATA: Metadata = { title: "Запрошення в кімнату — ДнД українською", robots: { index: false, follow: false } };
+export const GAME_SESSIONS_METADATA: Metadata = { title: "Holota VTT — ігрові кампанії ДнД українською", robots: { index: false } };
+export const GAME_ROOM_METADATA: Metadata = { title: "Ігрова кампанія — ДнД українською", robots: { index: false } };
+export const GAME_JOIN_METADATA: Metadata = { title: "Запрошення в кампанію — ДнД українською", robots: { index: false, follow: false } };
 
 export async function buildGameSessionsPage(edition: Edition) {
   const userId = await findCurrentUserId();
@@ -31,8 +31,8 @@ export async function buildGameRoomPage(params: Promise<{ id: string }>, searchP
   const [{ id }, { hero }, userId] = await Promise.all([params, searchParams, findCurrentUserId()]);
   if (userId === null) {
     return (
-      <HomebrewPageShell title="Ігрова кімната" backHref={getTargetEditionPath("/games", edition)} backLabel="Кімнати">
-        <GameSignInPrompt text="Увійдіть, щоб відкрити кімнату." />
+      <HomebrewPageShell title="Ігрова кампанія" backHref={getTargetEditionPath("/games", edition)} backLabel="Кампанії">
+        <GameSignInPrompt text="Увійдіть, щоб відкрити кампанію." />
       </HomebrewPageShell>
     );
   }
@@ -58,13 +58,13 @@ export async function buildGameJoinPage(params: Promise<{ token: string }>, edit
   const invite = await findInvite(token, userId);
   if (invite?.isMember) await redirectKeepingNoAiMode(getTargetEditionPath(`/games/${invite.sessionId}`, edition));
   return (
-    <HomebrewPageShell title="Запрошення в кімнату" backHref={getTargetEditionPath("/games", edition)} backLabel="Кімнати">
+    <HomebrewPageShell title="Запрошення в кампанію" backHref={getTargetEditionPath("/games", edition)} backLabel="Кампанії">
       {!invite ? (
         <p className="rounded-2xl border border-white/10 bg-slate-900/60 p-5 text-sm text-slate-300">
           Посилання не діє: майстер міг його оновити. Попросіть нове запрошення.
         </p>
       ) : userId === null ? (
-        <GameSignInPrompt text={`Вас запрошено в кімнату «${invite.name}». Увійдіть, щоб приєднатися.`} />
+        <GameSignInPrompt text={`Вас запрошено в кампанію «${invite.name}». Увійдіть, щоб приєднатися.`} />
       ) : (
         <GameJoinCard token={token} name={invite.name} isArchived={invite.isArchived} isFull={invite.isFull} />
       )}

@@ -23,7 +23,7 @@ export function GameSessionsHome({ sessions }: { sessions: GameSessionListItem[]
   if (!activeSessions.length) {
     return (
       <div className="space-y-8">
-        <CreateGameSessionCard title={archivedSessions.length ? undefined : "Створіть першу кімнату"} />
+        <CreateGameSessionCard title={archivedSessions.length ? undefined : "Створіть першу кампанію"} />
         {archivedSessions.length ? <ArchivedSessions sessions={archivedSessions} /> : null}
       </div>
     );
@@ -32,7 +32,7 @@ export function GameSessionsHome({ sessions }: { sessions: GameSessionListItem[]
     <div className="space-y-8">
       <section aria-labelledby="game-sessions-active" className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 id="game-sessions-active" className="font-rpg-display text-2xl text-slate-50">Мої кімнати</h2>
+          <h2 id="game-sessions-active" className="font-rpg-display text-2xl text-slate-50">Мої кампанії</h2>
           <NewSessionToggle />
         </div>
         <GameSessionList sessions={activeSessions} />
@@ -62,13 +62,13 @@ function NewSessionToggle() {
   return (
     <Button type="button" size="lg" onClick={() => setIsOpen(true)} className="h-12 w-full gap-2 px-6 sm:w-auto">
       <Plus className="h-5 w-5" aria-hidden />
-      Нова кімната
+      Нова кампанія
     </Button>
   );
 }
 
 /// Створення — один крок: назва й кнопка. Запрошення й вибір персонажа чекають уже в кімнаті.
-function CreateGameSessionCard({ title = "Нова кімната для партії", onCancel, className }: { title?: string; onCancel?: () => void; className?: string }) {
+function CreateGameSessionCard({ title = "Нова кампанія для партії", onCancel, className }: { title?: string; onCancel?: () => void; className?: string }) {
   const router = useModeRouter();
   const activate = useGameSessionStore((state) => state.activate);
   const gamesHref = useGamesHref();
@@ -94,7 +94,7 @@ function CreateGameSessionCard({ title = "Нова кімната для пар�
         </p>
       </div>
       <div className="space-y-2">
-        <label htmlFor={NEW_ROOM_INPUT_ID} className="text-sm font-semibold text-slate-200">Назва нової кімнати</label>
+        <label htmlFor={NEW_ROOM_INPUT_ID} className="text-sm font-semibold text-slate-200">Назва нової кампанії</label>
         <Input
           id={NEW_ROOM_INPUT_ID}
           value={name}
@@ -109,7 +109,7 @@ function CreateGameSessionCard({ title = "Нова кімната для пар�
       <div className="flex flex-col gap-2 sm:flex-row">
         <Button type="submit" size="lg" disabled={isPending} className="h-12 gap-2 px-6 text-base">
           {isPending ? <Loader2 className="h-5 w-5 animate-spin motion-reduce:animate-none" aria-hidden /> : <Plus className="h-5 w-5" aria-hidden />}
-          Створити кімнату
+          Створити кампанію
         </Button>
         {onCancel ? (
           <Button type="button" size="lg" variant="ghost" onClick={onCancel} className="h-12">
@@ -117,7 +117,7 @@ function CreateGameSessionCard({ title = "Нова кімната для пар�
           </Button>
         ) : null}
       </div>
-      {onCancel ? null : <p className="border-t border-white/10 pt-4 text-sm text-slate-400">Ви гравець? Попросіть майстра надіслати посилання-запрошення — відкрийте його, і кімната зʼявиться тут.</p>}
+      {onCancel ? null : <p className="border-t border-white/10 pt-4 text-sm text-slate-400">Ви гравець? Попросіть майстра надіслати посилання-запрошення — відкрийте його, і кампанія зʼявиться тут.</p>}
     </form>
   );
 }

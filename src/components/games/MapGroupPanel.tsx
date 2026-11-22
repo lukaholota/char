@@ -1,25 +1,28 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Trash2 } from "lucide-react";
+import { Copy, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
 import { resizeToken, turnToken, type TokenTransform } from "@/rules/token-transform";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { ToolPanel } from "./MapToolbar";
 import { DELETE_KEYS, useMapKey } from "./use-map-key";
-import { findIdInGroupKey, type GroupShift, type MapGroup } from "./use-map-group";
+import { findIdInGroupKey } from "@/rules/map-group";
+import type { GroupShift, MapGroup } from "./use-map-group";
 import type { GroupTokenLook } from "./MapTokenSlot";
 import { ROTATION_STEP, SpotlightPicker, TokenLookSteps, describeRotation, describeScale } from "./TokenTransformControls";
 import { joinUndoSteps } from "./map-history";
 import type { MapObjects } from "./use-map-objects";
 import { useGroupSpotlight } from "./use-token-conditions";
+import { PickedCombatButton } from "./CombatTracker";
+import { hasCopyableMembers } from "./map-clipboard";
 
 
-type MapGroupActionsProps = { view: GameSessionView; group: MapGroup; objects: MapObjects | null; findLook: (key: string) => GroupTokenLook | null; moveTokenGroup: (shifts: GroupShift[]) => void; removeCreature: (id: number) => void };
+type MapGroupActionsProps = { view: GameSessionView; group: MapGroup; objects: MapObjects | null; findLook: (key: string) => GroupTokenLook | null; moveTokenGroup: (shifts: GroupShift[]) => void; removeCreature: (id: number) => void; onCopy: () => void };
 
 /// shortcut: істоти групи прибираються кожна своїм запитом; для сотень істот за раз — пакетна дія на сервері.
-export function MapGroupActions({ view, group, objects, findLook, moveTokenGroup, removeCreature }: MapGroupActionsProps) {
+export function MapGroupActions({ view, group, objects, findLook, moveTokenGroup, removeCreature, onCopy }: MapGroupActionsProps) {
   const members = group.findMembers();
   const removeTokens = async () => {
     const creatureIds = members.filter((item) => item.key.startsWith("creature-")).map((item) => findIdInGroupKey(item.key));
@@ -34,10 +37,17 @@ export function MapGroupActions({ view, group, objects, findLook, moveTokenGroup
   };
   const looks = objects ? [] : members.flatMap((item) => findLook(item.key) ?? []);
   return (
-    <MapGroupPanel count={members.length} removeLabel={objects ? "Видалити" : "Прибрати з мапи"} onRemove={objects ? () => removeObjects(objects) : () => void removeTokens()} onClear={group.clear}>
+    <MapGroupPanel count={members.length} removeLabel={objects ? "Видалити" : "Прибрати з мапи"} onRemove={objects ? () => removeObjects(objects) : () => void removeTokens()} onCopy={hasCopyableMembers(group) ? onCopy : null} onClear={group.clear}>
       {looks.length ? <GroupLookControls looks={looks} sessionId={view.id} sceneId={view.viewedSceneId} /> : null}
+      {objects || view.myRole !== "GM" ? null : <PickedCombatButton view={view} pick={collectCombatPick(view, members.map((item) => item.key))} />}
     </MapGroupPanel>
   );
+}
+
+function collectCombatPick(view: GameSessionView, keys: string[]) {
+  const persIds = keys.flatMap((key) => (key.startsWith("hero-") ? (view.members.find((member) => member.heroId === findIdInGroupKey(key))?.persId ?? []) : []));
+  const creatureIds = keys.filter((key) => key.startsWith("creature-")).map(findIdInGroupKey);
+  return { persIds, creatureIds };
 }
 
 const describeShared = (values: string[]) => (values.every((value) => value === values[0]) ? values[0] : "різні");
@@ -69,17 +79,18 @@ function GroupLookControls({ looks, sessionId, sceneId }: { looks: GroupTokenLoo
   );
 }
 
-type MapGroupPanelProps = { count: number; removeLabel: string; onRemove: () => void; onClear: () => void; children?: ReactNode };
+type MapGroupPanelProps = { count: number; removeLabel: string; onRemove: () => void; onCopy: (() => void) | null; onClear: () => void; children?: ReactNode };
 
-function MapGroupPanel({ count, removeLabel, onRemove, onClear, children }: MapGroupPanelProps) {
+function MapGroupPanel({ count, removeLabel, onRemove, onCopy, onClear, children }: MapGroupPanelProps) {
   useMapKey(DELETE_KEYS, onRemove);
   return (
     <ToolPanel title={`Вибрано: ${count}`} onClose={onClear}>
-      <p className="text-sm text-slate-300">Перетягніть будь-кого з рамкою — решта переїде разом.</p>
+      <p className="text-sm text-slate-300">{`Перетягніть будь-кого з рамкою — решта переїде разом.${onCopy ? " Ctrl+C і Ctrl+V копіюють усю групу, Ctrl+Shift+V — з розкидом обʼєктів." : ""}`}</p>
       {children}
       <div className="grid grid-cols-2 gap-2">
+        {onCopy ? <Button type="button" variant="outline" onClick={onCopy} className="h-11 gap-2"><Copy className="h-4 w-4" aria-hidden />Копіювати</Button> : null}
         <Button type="button" variant="outline" onClick={onRemove} className="h-11 gap-2 text-rose-200"><Trash2 className="h-4 w-4" aria-hidden />{removeLabel}</Button>
-        <Button type="button" variant="ghost" onClick={onClear} className="h-11 text-slate-300">Зняти вибір</Button>
+        <Button type="button" variant="ghost" onClick={onClear} className={onCopy ? "col-span-2 h-11 text-slate-300" : "h-11 text-slate-300"}>Зняти вибір</Button>
       </div>
     </ToolPanel>
   );

@@ -92,6 +92,7 @@ export function publishGameRoll(target: GameRollTarget, publication: GameRollPub
       label: publication.label,
       roll: publication.roll,
       rolledAt: new Date().toISOString(),
+      ...(publication.isInitiative ? { isInitiative: true } : {}),
       ...buildRollTargets(target, publication),
     },
   };
@@ -170,7 +171,7 @@ function reportDroppedRoll(item: QueuedGameRoll, reason: "rejected" | "expired")
   dropPendingRoll(item.draft.idempotencyKey);
   clearRollVerdict(item.draft.idempotencyKey);
   captureGameEvent("game_roll_dropped", { reason });
-  toast.error(reason === "expired" ? `Кидок «${item.draft.label}» не дійшов до кімнати — звʼязку не було 10 хвилин` : `Кімната не прийняла кидок «${item.draft.label}»`);
+  toast.error(reason === "expired" ? `Кидок «${item.draft.label}» не дійшов до кампанії — звʼязку не було 10 хвилин` : `Кампанія не прийняла кидок «${item.draft.label}»`);
 }
 
 function findStorage(): Storage | null {

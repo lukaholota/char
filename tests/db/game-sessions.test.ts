@@ -19,7 +19,7 @@ import {
   rotateInviteToken,
   setGameSessionArchived,
 } from "@/server/db/game-sessions";
-import { insertGameRollEvent, listEventsAfter, listEventsBefore, type GameRollDraft } from "@/server/db/game-roll-events";
+import { insertGameRollEvent, insertJournalMessage, listEventsAfter, listEventsBefore, type GameRollDraft } from "@/server/db/game-roll-events";
 import { openGameSessionStream } from "@/server/game-sessions/game-session-stream";
 import { saveCombatState } from "@/server/db/combat-state";
 import { subscribeToGameSession, type GameSessionWake } from "@/server/db/game-session-signals";
@@ -214,6 +214,22 @@ describe("журнал кидків", () => {
     const older = await listEventsBefore(sessionId, viewer, 5, 3);
     expect(older.events.map((event) => event.seq)).toEqual([2, 3, 4]);
     expect((await listEventsBefore(sessionId, viewer, 2, 3)).hasOlder).toBe(false);
+  });
+
+  it("повідомлення в журнал: усім — бачать усі, лише майстру — автор і майстер, без числа кидка", async () => {
+    const { gm, player, sessionId, inviteToken } = await createTable();
+    const other = await createUser("other");
+    await joinGameSessionByToken(inviteToken, other.id);
+    const ownPers = await createPers(player.id, "Арвен");
+    await bindMemberPers(sessionId, player.id, ownPers);
+
+    expect(await insertJournalMessage(sessionId, player.id, { idempotencyKey: randomUUID(), text: "Обшукую вівтар", isForGm: false })).toMatchObject({ ok: true, value: { source: "MESSAGE", persName: "Арвен", label: "Обшукую вівтар", visibility: "PUBLIC" } });
+    expect(await insertJournalMessage(sessionId, player.id, { idempotencyKey: randomUUID(), text: "Краду перстень", isForGm: true })).toMatchObject({ ok: true, value: { visibility: "GM" } });
+
+    const labelsFor = async (userId: number, isGm: boolean) => (await listEventsAfter(sessionId, { userId, isGm }, 0, 10)).map((event) => event.label);
+    expect(await labelsFor(other.id, false)).toEqual(["Обшукую вівтар"]);
+    expect(await labelsFor(gm.id, true)).toEqual(["Обшукую вівтар", "Краду перстень"]);
+    expect(await labelsFor(player.id, false)).toEqual(["Обшукую вівтар", "Краду перстень"]);
   });
 
   it("вигнаний гравець і заархівована кімната кидків не приймають", async () => {

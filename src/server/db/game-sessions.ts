@@ -12,25 +12,29 @@ import { parseSceneFog, type SceneFog } from "@/rules/game-fog";
 import { parseSceneGrid, type SceneGrid } from "@/rules/game-grid";
 import { buildSceneObjectViews, type SceneObjectView } from "@/rules/game-objects";
 import { buildSceneWallViews, type SceneWallView } from "@/rules/game-walls";
-import { readAmbience, readSceneTint, readSceneWeather, type AmbienceLayer, type OwnSoundKey, type SceneAtmosphere, type SoundEffectKey } from "@/rules/game-atmosphere";
+import { readAmbience, readSceneAtmosphere, type AmbienceLayer, type OwnSoundKey, type SceneAtmosphere, type SoundEffectKey } from "@/rules/game-atmosphere";
 import { readSceneFloors, readShownFloor, type FloorId, type SceneFloor } from "@/rules/game-floors";
-import { buildSceneLightViews, parseSceneLighting, type SceneLighting, type SceneLightView, type TokenLight } from "@/rules/game-lighting";
-import { findDarkvisionRange } from "@/rules/senses-and-resistances";
+import { buildSceneLightViews, parseDarkvisionLook, parseSceneLighting, type DarkvisionLook, type SceneLighting, type SceneLightView, type TokenLight } from "@/rules/game-lighting";
+import { findOwnDarkvisionRange } from "@/rules/senses-and-resistances";
 import { findItemDarkvisionRange, findMagicItemEffects } from "@/rules/magic-item-effects";
 import { isMagicItemActive } from "@/lib/logic/magic-item-activation";
 import { buildSceneListItems, findViewedSceneId, type GameSceneListItem } from "@/rules/game-scenes";
 import { buildMapCreatureViews, parseTokenNameMode, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
-import { normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
+import { isTokenHiddenFromViewer, normalizeTokenConditions, type TokenConditions } from "@/rules/token-conditions";
 import { findHeroLifeState, type HeroLifeState } from "@/rules/hero-life-state";
 import { canEditPers } from "@/server/db/pers-actions";
+import { parseCampaignHouseRules, parsePersHouseRules, type CampaignHouseRules } from "@/rules/house-rules";
 import { loadRoomCreatures } from "@/server/db/room-creatures";
+import { CAMPAIGN_FEATURE_SELECT, CAMPAIGN_SKILL_SELECT, syncCampaignCopies, type CampaignFeatureView, type CampaignSkillView } from "@/server/db/campaign-custom-content";
+export type { CampaignFeatureView, CampaignSkillView };
 
 export const GAME_SESSION_LIMITS = { members: 12, heroesPerMember: 6, activeOwnedSessions: 30, name: 80 } as const;
 const ONLINE_WINDOW_MS = 60_000;
+export const DRAWING_ROW_SELECT = { id: true, userId: true, color: true, width: true, shape: true, isFilled: true, fillOpacity: true, points: true, text: true, font: true, textEffect: true } as const;
 export const GAME_SESSION_SIGNAL_CHANNEL = "game_session";
 
 export type GameSessionRole = "GM" | "PLAYER";
-export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "bad_drawing" | "drawing_limit" | "token_image_gone" | "hero_limit" | "bad_object" | "object_limit" | "object_gone" | "bad_wall" | "wall_limit" | "wall_gone" | "door_locked" | "bad_light" | "light_limit" | "light_gone" | "bad_atmosphere" | "bad_ambience" | "bad_floor" | "floor_limit" | "sound_gone";
+export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "bad_drawing" | "drawing_limit" | "drawing_gone" | "token_image_gone" | "hero_limit" | "bad_object" | "object_limit" | "object_gone" | "bad_wall" | "wall_limit" | "wall_gone" | "door_locked" | "bad_light" | "light_limit" | "light_gone" | "bad_atmosphere" | "bad_ambience" | "bad_floor" | "floor_limit" | "sound_gone";
 export type GameSessionResult<T> = { ok: true; value: T } | { ok: false; error: GameSessionFailure };
 
 export type GameSessionMemberView = {
@@ -69,6 +73,10 @@ export type GameSessionView = {
   members: GameSessionMemberView[];
   creatures: MapCreatureView[];
   creatureNameMode: TokenNameMode;
+  darkvisionLook: DarkvisionLook;
+  houseRules: CampaignHouseRules;
+  campaignSkills: CampaignSkillView[];
+  campaignFeatures: CampaignFeatureView[];
   combat: CombatView | null;
   grid: SceneGrid | null;
   fog: SceneFog | null;
@@ -211,7 +219,7 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
       persName: member.pers?.name ?? null,
       avatarUrl: buildAvatarUrl(member.pers?.portraitKey, member.user.image),
       isOnline: member.lastSeenAt !== null && now - member.lastSeenAt.getTime() < ONLINE_WINDOW_MS,
-      token: member.persId !== null ? findHeroTokenPosition(tokenByHeroId.get(member.id)) : null,
+      token: member.persId !== null && !isTokenHiddenFromViewer({ userId: viewerUserId, isGm }, member, member.conditions) ? findHeroTokenPosition(tokenByHeroId.get(member.id)) : null,
       tokenTransform: member.persId !== null ? findHeroTokenTransform(tokenByHeroId.get(member.id)) : DEFAULT_TOKEN_TRANSFORM,
       isCutout: member.isCutout,
       conditions: normalizeTokenConditions(member),
@@ -221,6 +229,10 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
     })),
     creatures,
     creatureNameMode: parseTokenNameMode(session.creatureNameMode) ?? "short",
+    darkvisionLook: parseDarkvisionLook(session.darkvisionLook) ?? "grey",
+    houseRules: parseCampaignHouseRules(session.houseRules),
+    campaignSkills: isGm ? session.customSkills : [],
+    campaignFeatures: isGm ? session.customFeatures : [],
     combat: buildCombatView({
       state: { round: session.combatRound, turn: session.combatTurn, currentCombatantId: session.combatCurrentCombatantId },
       rows: session.combatants,
@@ -235,7 +247,7 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
     walls: viewedTools ? buildSceneWallViews(viewedTools.walls, isGm) : [],
     lighting: (viewedTools && parseSceneLighting(viewedTools.lighting)) || "off",
     lights: viewedTools ? buildSceneLightViews(viewedTools.lights, isGm) : [],
-    atmosphere: { weather: readSceneWeather(viewedTools?.weather), tint: readSceneTint(viewedTools?.tint) },
+    atmosphere: readSceneAtmosphere(viewedTools),
     ambience: readAmbience(viewedTools?.ambience),
     floors,
     shownFloor: readShownFloor(viewedTools?.shownFloor, floors),
@@ -261,6 +273,10 @@ function findSessionWithMembers(sessionId: number, viewerUserId: number) {
       inviteToken: true,
       activeSceneId: true,
       creatureNameMode: true,
+      darkvisionLook: true,
+      houseRules: true,
+      customSkills: { orderBy: { name: "asc" }, select: CAMPAIGN_SKILL_SELECT },
+      customFeatures: { orderBy: { id: "asc" }, select: CAMPAIGN_FEATURE_SELECT },
       combatRound: true,
       combatTurn: true,
       combatCurrentCombatantId: true,
@@ -286,7 +302,7 @@ function findSessionWithMembers(sessionId: number, viewerUserId: number) {
       mapCreatures: {
         where: { scene: sceneVisibleTo(sessionId, viewerUserId) },
         orderBy: [{ createdAt: "asc" }, { id: "asc" }],
-        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, isAlly: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true, floor: true },
+        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, isAlly: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true, floor: true, isNameHidden: true },
       },
     },
   });
@@ -313,13 +329,17 @@ function findVisibleSceneTools(sessionId: number, viewerUserId: number) {
       gridOpacity: true,
       fog: true,
       areas: { orderBy: { id: "asc" }, select: { id: true, userId: true, shape: true, sizeFeet: true, originX: true, originY: true, angle: true, label: true } },
-      drawings: { orderBy: { id: "asc" }, select: { id: true, userId: true, color: true, width: true, shape: true, isFilled: true, points: true } },
+      drawings: { orderBy: { id: "asc" }, select: DRAWING_ROW_SELECT },
       objects: { select: { id: true, imageKey: true, name: true, x: true, y: true, widthCells: true, rotation: true, isHidden: true, sortOrder: true, floor: true, aspect: true } },
       walls: { orderBy: { id: "asc" }, select: { id: true, kind: true, isOpen: true, doorLock: true, isCurtained: true, points: true } },
       lighting: true,
-      lights: { orderBy: { id: "asc" }, select: { id: true, x: true, y: true, brightFeet: true, dimFeet: true, isOn: true } },
+      lights: { orderBy: { id: "asc" }, select: { id: true, x: true, y: true, brightFeet: true, dimFeet: true, isOn: true, color: true, coneDegrees: true, directionDegrees: true, effect: true } },
       weather: true,
+      weatherSpeed: true,
+      weatherColor: true,
       tint: true,
+      tintColor: true,
+      tintStrength: true,
       ambience: true,
       floors: true,
       shownFloor: true,
@@ -345,11 +365,12 @@ const DARKVISION_SELECT = {
   raceChoiceOptions: { select: { traits: SPECIES_FEATURE_SELECT } },
   features: SPECIES_FEATURE_SELECT,
   magicItems: { where: { isEquipped: true }, select: { isEquipped: true, isAttuned: true, magicItem: { select: { name: true, engName: true, ruleset: true, requiresAttunement: true } } } },
+  houseRules: true,
 } as const;
 
 type FeatureLinks = { traits: Array<{ feature: { darkvisionRange: number | null } }> };
 type DarkvisionItemLink = { isEquipped: boolean; isAttuned: boolean; magicItem: { name: string; engName: string | null; ruleset: string | null; requiresAttunement: boolean } };
-type DarkvisionPers = { race: FeatureLinks; subrace: FeatureLinks | null; raceVariants: FeatureLinks[]; raceChoiceOptions: FeatureLinks[]; features: Array<{ feature: { darkvisionRange: number | null } }>; magicItems: DarkvisionItemLink[] };
+type DarkvisionPers = { race: FeatureLinks; subrace: FeatureLinks | null; raceVariants: FeatureLinks[]; raceChoiceOptions: FeatureLinks[]; features: Array<{ feature: { darkvisionRange: number | null } }>; magicItems: DarkvisionItemLink[]; houseRules: unknown };
 
 /// Поправка майстра на токені переважає зір з листа.
 function findHeroSight(token: SceneHeroToken | undefined, pers: DarkvisionPers | null): { light: TokenLight; darkvisionFeet: number } {
@@ -359,7 +380,7 @@ function findHeroSight(token: SceneHeroToken | undefined, pers: DarkvisionPers |
 
 function findHeroDarkvisionRange(pers: DarkvisionPers): number | null {
   const links = [pers.race, ...(pers.subrace ? [pers.subrace] : []), ...pers.raceVariants, ...pers.raceChoiceOptions].flatMap((owner) => owner.traits);
-  const ownRange = findDarkvisionRange([...links, ...pers.features].map((link) => link.feature));
+  const ownRange = findOwnDarkvisionRange([...links, ...pers.features].map((link) => link.feature), parsePersHouseRules(pers.houseRules).darkvisionRange);
   const items = pers.magicItems.filter(isMagicItemActive).map((link) => ({ name: link.magicItem.name, effects: findMagicItemEffects(link.magicItem) }));
   return findItemDarkvisionRange(items, ownRange);
 }
@@ -395,6 +416,14 @@ export async function renameGameSession(sessionId: number, userId: number, rawNa
   return succeed(null);
 }
 
+export async function saveGameSessionHouseRules(sessionId: number, userId: number, raw: unknown): Promise<GameSessionResult<null>> {
+  const gm = await findGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  await prisma.gameSession.update({ where: { id: sessionId }, data: { houseRules: parseCampaignHouseRules(raw), updatedAt: new Date() } });
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
 export async function setGameSessionArchived(sessionId: number, userId: number, isArchived: boolean): Promise<GameSessionResult<null>> {
   const gm = await findGmSession(sessionId, userId);
   if (!gm.ok) return gm;
@@ -403,6 +432,7 @@ export async function setGameSessionArchived(sessionId: number, userId: number, 
     if (activeOwned >= GAME_SESSION_LIMITS.activeOwnedSessions) return fail("too_many");
   }
   await prisma.gameSession.update({ where: { id: sessionId }, data: { archivedAt: isArchived ? new Date() : null, updatedAt: new Date() } });
+  await syncCampaignCopies(sessionId);
   await signalGameSession(sessionId, "session");
   return succeed(null);
 }
@@ -456,7 +486,7 @@ export async function leaveGameSession(sessionId: number, userId: number): Promi
   if (!membership) return fail("not_found");
   if (membership.role === "GM") return fail("forbidden");
   await prisma.gameSessionMember.deleteMany({ where: { gameSessionId: sessionId, userId } });
-  await signalGameSession(sessionId, "members");
+  await announceHeroesChanged(sessionId);
   return succeed(null);
 }
 
@@ -466,7 +496,7 @@ export async function removeGameSessionMember(sessionId: number, gmUserId: numbe
   if (memberUserId === gmUserId) return fail("forbidden");
   const removed = await prisma.gameSessionMember.deleteMany({ where: { gameSessionId: sessionId, userId: memberUserId } });
   if (!removed.count) return fail("not_found");
-  await signalGameSession(sessionId, "members");
+  await announceHeroesChanged(sessionId);
   return succeed(null);
 }
 
@@ -478,8 +508,13 @@ export async function bindMemberPers(sessionId: number, userId: number, persId: 
     ...(persId === null ? [prisma.gameSessionMember.deleteMany({ where: { gameSessionId: sessionId, userId, heroSlot: { gt: 0 } } })] : []),
     prisma.gameSessionMember.update({ where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } }, data: { persId } }),
   ]);
-  await signalGameSession(sessionId, "members");
+  await announceHeroesChanged(sessionId);
   return succeed(null);
+}
+
+async function announceHeroesChanged(sessionId: number) {
+  await syncCampaignCopies(sessionId);
+  await signalGameSession(sessionId, "members");
 }
 
 type HeroRow = { id: number; userId: number; heroSlot: number; persId: number | null };
@@ -498,7 +533,7 @@ export async function toggleRoomHero(sessionId: number, userId: number, persId: 
     if (!isBindable || rows.some((row) => row.persId === persId)) return fail("bad_pers");
     return addRoomHero(tx, mine, persId, membership.role);
   });
-  if (toggled.ok) await signalGameSession(sessionId, "members");
+  if (toggled.ok) await announceHeroesChanged(sessionId);
   return toggled;
 }
 

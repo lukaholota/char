@@ -15,6 +15,7 @@ vi.mock("@/server/media/media-store", () => ({
 
 import { parseSignal } from "@/server/db/game-session-signals";
 import { setSceneAmbience, setSceneAtmosphere } from "@/server/db/game-scene-atmosphere";
+import { DEFAULT_ATMOSPHERE } from "@/rules/game-atmosphere";
 import { addFloorPlan, changeSceneFloors } from "@/server/db/game-scene-floors";
 import { addMapCreatures, moveMapCreature } from "@/server/db/game-map-creatures";
 import { moveGameToken } from "@/server/db/game-scenes";
@@ -98,10 +99,10 @@ describe("поверхи сцени", () => {
 describe("погода й звуки сцени", () => {
   it("майстер ставить погоду, відтінок і фон, гравець бачить їх, але змінити не може", async () => {
     const { gm, player, sessionId, sceneId } = await createTable();
-    expect(await setSceneAtmosphere(sessionId, player.id, sceneId, { weather: "snow", tint: "night" })).toEqual({ ok: false, error: "forbidden" });
-    expect(await setSceneAtmosphere(sessionId, gm.id, sceneId, { weather: "snow", tint: "night" })).toEqual({ ok: true, value: null });
+    expect(await setSceneAtmosphere(sessionId, player.id, sceneId, { ...DEFAULT_ATMOSPHERE, weather: "snow", tint: "night" })).toEqual({ ok: false, error: "forbidden" });
+    expect(await setSceneAtmosphere(sessionId, gm.id, sceneId, { ...DEFAULT_ATMOSPHERE, weather: "snow", weatherSpeed: 150, tint: "custom", tintColor: "#22c55e", tintStrength: 60 })).toEqual({ ok: true, value: null });
     expect(await setSceneAmbience(sessionId, gm.id, sceneId, [{ key: "sea", volume: 60 }])).toEqual({ ok: true, value: null });
-    expect(await findGameSessionView(sessionId, player.id)).toMatchObject({ atmosphere: { weather: "snow", tint: "night" }, ambience: [{ key: "sea", volume: 60 }] });
+    expect(await findGameSessionView(sessionId, player.id)).toMatchObject({ atmosphere: { weather: "snow", weatherSpeed: 150, tint: "custom", tintColor: "#22c55e", tintStrength: 60 }, ambience: [{ key: "sea", volume: 60 }] });
     expect(await setSceneAmbience(sessionId, gm.id, sceneId, [])).toEqual({ ok: true, value: null });
     expect((await findGameSessionView(sessionId, player.id))!.ambience).toEqual([]);
   });

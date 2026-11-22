@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Cinzel, Forum, Inter, JetBrains_Mono } from "next/font/google";
+import { Caveat, Cinzel, Forum, Inter, JetBrains_Mono, Ruslan_Display } from "next/font/google";
 import { Metadata, Viewport } from "next";
 import './globals.css'
 import { Navigation } from "@/components/ui/Navigation";
@@ -44,6 +44,10 @@ const rpgDisplay = Forum({
   weight: ["400"],
   variable: "--font-rpg-display",
 });
+
+// Шрифти тексту на мапі: без preload, файл вантажиться лише коли напис зʼявиться.
+const mapHand = Caveat({ subsets: ["latin", "cyrillic"], weight: ["600"], display: "swap", preload: false, variable: "--font-map-hand" });
+const mapOrnate = Ruslan_Display({ subsets: ["latin", "cyrillic"], weight: ["400"], display: "swap", preload: false, variable: "--font-map-ornate" });
 
 
 export const viewport: Viewport = {
@@ -97,7 +101,7 @@ export default function RootLayout(
       <script dangerouslySetInnerHTML={{ __html: RESERVE_FIRST_POPSTATE_LISTENER_SCRIPT }} />
     </head>
     <body
-      className={ `${ jetBrainsMono.variable } ${ inter.variable } ${ cinzel.variable } ${ rpgDisplay.variable } relative bg-slate-950 text-slate-200 h-full w-full overflow-x-hidden antialiased` }>
+      className={ `${ jetBrainsMono.variable } ${ inter.variable } ${ cinzel.variable } ${ rpgDisplay.variable } ${ mapHand.variable } ${ mapOrnate.variable } relative bg-slate-950 text-slate-200 h-full w-full overflow-x-hidden antialiased` }>
     <PlatformBackdrop />
     <OfflineServiceWorker />
     <Providers>

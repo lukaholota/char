@@ -31,6 +31,12 @@ export function isCreationStepCompleted(stepId: string, data: Partial<PersFormDa
   }
 }
 
+const SKIPPABLE_CREATION_STEPS = new Set(["skills", "classChoices", "spells", "languages"]);
+
+export function isCreationStepSkippable(stepId: string | undefined): boolean {
+  return stepId !== undefined && SKIPPABLE_CREATION_STEPS.has(stepId);
+}
+
 /** Вперед — лише туди, де вже були, або коли всі попередні кроки заповнені: інакше «Створити» на кроці імені падає з неповною чернеткою. */
 export function canJumpForwardTo(input: {
   steps: readonly { id: string }[]; stepOrder: number; highestStepCompleted: number; data: Partial<PersFormData> | null | undefined;

@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
+import type { ArmorCategory, Ruleset, WeaponCategory } from "@prisma/client";
 import { findAttunementCapacityForPers } from "@/rules/attunement";
+import { findPersHouseRules } from "@/lib/logic/pers-house-rules";
 import type { MagicItemCharges } from "@/rules/magic-item-charges";
 import { fillDefaultCharges, findItemChargeRules, rollChargeRecovery } from "@/rules/magic-item-charge-text";
 
@@ -48,6 +50,8 @@ export async function findAttunementLimitError(
       class: { select: { name: true } },
       multiclasses: { select: { classLevel: true, class: { select: { name: true } } } },
       magicItems: { select: { persMagicItemId: true, isAttuned: true } },
+      houseRules: true,
+      gameSessionMembers: { where: { gameSession: { archivedAt: null } }, select: { gameSession: { select: { houseRules: true } } } },
     },
   });
   if (!pers) return "Персонажа не знайдено";
@@ -58,7 +62,7 @@ export async function findAttunementLimitError(
   if (alreadyAttuned) return null;
 
   const attunedCount = pers.magicItems.filter((item) => item.isAttuned).length;
-  const capacity = findAttunementCapacityForPers(pers);
+  const capacity = findAttunementCapacityForPers(pers, findPersHouseRules(pers).attunementLimit);
 
   if (attunedCount >= capacity) {
     return `Налаштовано ${attunedCount} з ${capacity} — спершу скасуйте налаштування іншого предмета`;
@@ -125,8 +129,34 @@ export function removeMagicItemLinks(persId: number, magicItemId: number) {
   return prisma.persMagicItem.deleteMany({ where: { persId, magicItemId } });
 }
 
-export function addMagicItemLink(persId: number, magicItemId: number) {
-  return prisma.persMagicItem.create({
-    data: { persId, magicItemId, isEquipped: false, isAttuned: false },
+/// Хомбрю-предмет з основою одразу дає рядок зброї чи обладунку на листі; зброю привʼязує до предмета.
+export async function addMagicItemLink(persId: number, magicItemId: number) {
+  const [pers, item] = await Promise.all([
+    prisma.pers.findUniqueOrThrow({ where: { persId }, select: { ruleset: true } }),
+    prisma.magicItem.findUniqueOrThrow({
+      where: { magicItemId },
+      select: { name: true, isMundane: true, armorBaseAC: true, baseWeapon: { select: { weaponId: true, name: true, ruleset: true } }, baseArmor: { select: { armorId: true, name: true, ruleset: true } } },
+    }),
+  ]);
+  const [weaponId, armorId] = await Promise.all([
+    item.baseWeapon ? findSameWeaponInRuleset(item.baseWeapon, pers.ruleset) : null,
+    item.baseArmor ? findSameArmorInRuleset(item.baseArmor, pers.ruleset) : null,
+  ]);
+  return prisma.$transaction(async (tx) => {
+    const weapon = weaponId ? await tx.persWeapon.create({ data: { persId, weaponId, overrideName: item.name, isMagical: !item.isMundane }, select: { persWeaponId: true } }) : null;
+    if (armorId) await tx.persArmor.create({ data: { persId, armorId, overrideName: item.name, overrideBaseAC: item.armorBaseAC } });
+    return tx.persMagicItem.create({ data: { persId, magicItemId, isEquipped: false, isAttuned: false, persWeaponId: weapon?.persWeaponId ?? null } });
   });
+}
+
+async function findSameWeaponInRuleset(base: { weaponId: number; name: WeaponCategory; ruleset: Ruleset }, ruleset: Ruleset): Promise<number | null> {
+  if (base.ruleset === ruleset) return base.weaponId;
+  const same = await prisma.weapon.findFirst({ where: { name: base.name, ruleset }, select: { weaponId: true } });
+  return same?.weaponId ?? null;
+}
+
+async function findSameArmorInRuleset(base: { armorId: number; name: ArmorCategory; ruleset: Ruleset }, ruleset: Ruleset): Promise<number | null> {
+  if (base.ruleset === ruleset) return base.armorId;
+  const same = await prisma.armor.findFirst({ where: { name: base.name, ruleset }, select: { armorId: true } });
+  return same?.armorId ?? null;
 }

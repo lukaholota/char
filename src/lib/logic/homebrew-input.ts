@@ -6,6 +6,11 @@ import { parseCreatureSpeeds } from "@/rules/creature-speed";
 import { classTranslations } from "@/lib/refs/translation";
 import { formatModifier } from "@/lib/logic/utils";
 import { ItemRarity, MagicItemType } from "@/lib/prisma-enums";
+import { ABILITY_KEYS } from "@/rules/feat-grants";
+import { DAMAGE_TYPE_KEYS } from "@/rules/types";
+import { buildExtraDamage, EXTRA_DAMAGE_LIMIT, parseWeaponProfile } from "@/rules/weapon-profile";
+import { CUSTOM_DAMAGE_TYPE_MAX_LENGTH } from "@/rules/house-rules";
+import { parseWeaponDamageFormula } from "@/rules/weapon-damage-formula";
 
 export const HOMEBREW_KINDS = ["SPELL", "CREATURE", "ITEM"] as const;
 export const HOMEBREW_RULESETS = ["RULES_2014", "RULES_2024"] as const;
@@ -27,6 +32,8 @@ const requiredText = (max: number) => z.string().trim().min(1, "Заповніт
 const optionalText = (max: number) => z.string().trim().max(max, `До ${max} символів`).default("");
 const optionalWholeNumber = z.string().trim().regex(/^[+-]?\d{0,2}$/u, "Ціле число").default("");
 const abilityScore = z.coerce.number("Ціле число").int("Ціле число");
+const optionalCatalogId = z.string().trim().regex(/^\d{0,9}$/u, "Оберіть зі списку").default("");
+const optionalRange = z.string().trim().regex(/^\d{0,4}$/u, "Ціле число футів").default("");
 const optionalBonus = (max: number) =>
   z.string().trim().refine((text) => text === "" || (/^\+?\d$/u.test(text) && Number(text) >= 1 && Number(text) <= max), `Від 1 до ${max}`).default("");
 
@@ -93,6 +100,16 @@ export const homebrewItemSchema = z.object({
   acBonus: optionalBonus(5),
   saveBonus: optionalBonus(5),
   weaponBonus: optionalBonus(3),
+  isMundane: z.boolean().default(false),
+  baseWeaponId: optionalCatalogId,
+  baseArmorId: optionalCatalogId,
+  armorBaseAC: z.string().trim().refine((text) => text === "" || (/^\d{1,2}$/u.test(text) && Number(text) <= 30), "Від 0 до 30").default(""),
+  attackAbility: z.enum(["", ...ABILITY_KEYS]).default(""),
+  damageFormula: z.string().trim().max(60, "До 60 символів").refine((text) => text === "" || parseWeaponDamageFormula(text) !== null, "Напр. 1к8+СПР або 1к6+СИЛ*2").default(""),
+  damageType: z.enum(["", ...DAMAGE_TYPE_KEYS]).default(""),
+  extraDamage: z.array(z.object({ dice: z.string().max(10), damageType: z.enum(DAMAGE_TYPE_KEYS).nullable(), customType: z.string().max(CUSTOM_DAMAGE_TYPE_MAX_LENGTH).optional() })).max(EXTRA_DAMAGE_LIMIT).default([]),
+  normalRange: optionalRange,
+  longRange: optionalRange,
 });
 
 export type HomebrewItemInput = z.infer<typeof homebrewItemSchema>;
@@ -118,19 +135,39 @@ export function parseHomebrewItemInput(raw: unknown): ParsedHomebrewInput<Homebr
 }
 
 /// Предмет «для обох редакцій» лежить у magic_item як 2014: колонка обовʼязкова, а доступ персонажам вирішує редакція запису.
+/// Звичайний предмет не має магічних бонусів і налаштування; основа й профіль зброї зберігаються лише для свого типу.
 export function buildHomebrewItemColumns(input: HomebrewItemInput) {
   const saveBonus = readOptionalNumber(input.saveBonus);
+  const isMagic = !input.isMundane;
+  const isWeapon = input.itemType === "WEAPON";
+  const isArmor = input.itemType === "ARMOR";
   return {
     name: input.name,
     itemType: input.itemType,
-    rarity: input.rarity,
-    requiresAttunement: input.requiresAttunement,
+    rarity: isMagic ? input.rarity : ("COMMON" as const),
+    requiresAttunement: isMagic && input.requiresAttunement,
     description: input.description,
     ruleset: input.ruleset === "RULES_2024" ? ("RULES_2024" as const) : ("RULES_2014" as const),
-    bonusToAC: readOptionalNumber(input.acBonus),
-    bonusToSavingThrows: saveBonus === null ? null : { all: saveBonus },
-    weaponBonus: input.itemType === "WEAPON" ? readOptionalNumber(input.weaponBonus) : null,
+    bonusToAC: isMagic ? readOptionalNumber(input.acBonus) : null,
+    bonusToSavingThrows: isMagic && saveBonus !== null ? { all: saveBonus } : null,
+    weaponBonus: isMagic && isWeapon ? readOptionalNumber(input.weaponBonus) : null,
+    isMundane: input.isMundane,
+    weaponProfile: isWeapon ? buildWeaponProfileColumn(input) : null,
+    baseWeaponId: isWeapon ? readOptionalNumber(input.baseWeaponId) : null,
+    baseArmorId: isArmor ? readOptionalNumber(input.baseArmorId) : null,
+    armorBaseAC: isArmor ? readOptionalNumber(input.armorBaseAC) : null,
   };
+}
+
+function buildWeaponProfileColumn(input: HomebrewItemInput) {
+  return parseWeaponProfile({
+    attackAbility: input.attackAbility,
+    damage: input.damageFormula,
+    damageType: input.damageType,
+    extraDamage: buildExtraDamage(input.extraDamage),
+    normalRange: readOptionalNumber(input.normalRange),
+    longRange: readOptionalNumber(input.longRange),
+  });
 }
 
 export function toStoredRuleset(edition: HomebrewEdition): HomebrewRuleset | null {

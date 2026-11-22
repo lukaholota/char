@@ -262,3 +262,13 @@ describe("KR31.5 — лічильник книги чарівника 2024 (L07-
     expect(tallyWizardSpellbook(1, []).size).toBe(6);
   });
 });
+
+describe("пропущений крок заклинань у конструкторі", () => {
+  it("порожнім вважається лише вибір без жодного заклинання", async () => {
+    const { isClassSpellSelectionEmpty } = await import("@/rules/class-spell-choices-2024");
+    expect(isClassSpellSelectionEmpty(undefined)).toBe(true);
+    expect(isClassSpellSelectionEmpty({ cantripIds: [], preparedIds: [], spellbookIds: [] })).toBe(true);
+    expect(isClassSpellSelectionEmpty({ cantripIds: [1], preparedIds: [], spellbookIds: [] })).toBe(false);
+    expect(isClassSpellSelectionEmpty({ cantripIds: [], preparedIds: [], spellbookIds: [2] })).toBe(false);
+  });
+});

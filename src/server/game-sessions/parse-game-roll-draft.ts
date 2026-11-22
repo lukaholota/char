@@ -46,6 +46,7 @@ export function parseGameRollDraft(body: unknown, now = Date.now()): { draft: Ga
       target,
       saves,
       heroTarget,
+      isInitiative: input.isInitiative === true && input.source === "CHARACTER" && !target && !saves && !heroTarget,
     },
   };
 }

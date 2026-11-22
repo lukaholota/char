@@ -108,7 +108,7 @@ function PickHeroHint({ view }: { view: GameSessionView }) {
 function EmptyMap({ view, canEditMap }: { view: GameSessionView; canEditMap: boolean }) {
   const text = canEditMap
     ? view.viewedSceneId === null ? "Відкрийте або додайте сцену, щоб побачити мапу." : "У цій сцені ще немає мапи. Додайте її в налаштуваннях сцени."
-    : view.myRole === "GM" ? "Мапи в цій кімнаті немає." : "Майстер ще не показав мапу";
+    : view.myRole === "GM" ? "Мапи в цій кампанії немає." : "Майстер ще не показав мапу";
   return (
     <div className="grid min-h-40 flex-1 place-items-center rounded-2xl border border-dashed border-white/20 p-4">
       <p className="max-w-sm text-center text-sm text-slate-300">{text}</p>

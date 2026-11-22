@@ -51,14 +51,14 @@ export function JournalRollStrip({ view }: { view: GameSessionView }) {
     return (
       <p className="flex items-center gap-2 border-b border-white/10 px-3 py-2 text-sm text-slate-300">
         <Archive className="h-4 w-4 shrink-0 text-slate-400" aria-hidden />
-        Кімната в архіві: журнал можна читати, нові кидки сюди не йдуть.
+        Кампанія в архіві: журнал можна читати, нові кидки сюди не йдуть.
       </p>
     );
   }
   if (!isTarget) {
     return (
       <p className="border-b border-white/10 px-3 py-2 text-sm text-slate-300">
-        {otherRoom ? `Ваші кидки зараз ідуть у «${otherRoom}».` : "Ваші кидки зараз бачите лише ви."} Щоб їх бачила кімната, натисніть «Кидати сюди» вгорі.
+        {otherRoom ? `Ваші кидки зараз ідуть у «${otherRoom}».` : "Ваші кидки зараз бачите лише ви."} Щоб їх бачила кампанія, натисніть «Кидати сюди» вгорі.
       </p>
     );
   }

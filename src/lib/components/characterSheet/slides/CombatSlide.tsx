@@ -10,6 +10,7 @@ import { Shield, Settings2, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { useTransition } from "react";
 import AddArmorDialog from "../AddArmorDialog";
 import WeaponCustomizeModal from "../WeaponCustomizeModal";
+import { findPersHouseRules } from "@/lib/logic/pers-house-rules";
 import ArmorCustomizeModal from "../ArmorCustomizeModal";
 import { Button } from "@/components/ui/button";
 import { updateShieldStatus, updateArmor, deleteArmor, updateRaceStaticAcBonus } from "@/lib/actions/equipment-actions";
@@ -376,10 +377,10 @@ const CombatSlide = memo(function CombatSlide({ pers, onPersUpdate: _onPersUpdat
 
       <MagicItemsCard pers={pers} isReadOnly={isReadOnly} />
 
-      {/* Modals */}
       {selectedWeapon && (
         <WeaponCustomizeModal 
           persWeapon={selectedWeapon}
+          customDamageTypes={findPersHouseRules(pers).damageTypes}
           open={!!selectedWeapon} 
           onOpenChange={(open) => !open && setSelectedWeapon(null)} 
         />

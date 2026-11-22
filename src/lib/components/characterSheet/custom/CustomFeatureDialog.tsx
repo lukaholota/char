@@ -15,12 +15,19 @@ import { formatCustomRoll } from "./custom-roll-view";
 import { CustomContentForm, useCustomContentSave } from "./custom-content-form";
 
 export type CustomFeatureTarget = PersCustomFeature | "new" | null;
+type FeatureFields = Pick<PersCustomFeature, "id" | "name" | "description" | "rollFormula" | "usesMax" | "restoredOn">;
+type FeatureSaveResult = { success: true } | { success: false; error?: string; errors?: CustomContentErrors<CustomFeatureDraft> };
+export type CustomFeatureStore<Result extends FeatureSaveResult> = {
+  save: (featureId: number | null, draft: CustomFeatureDraft) => Promise<Result>;
+  remove: (featureId: number) => Promise<Result>;
+};
 
 const REST_OPTIONS = [
   { value: "SHORT_REST", label: "Короткий або довгий відпочинок" },
   { value: "LONG_REST", label: "Лише довгий відпочинок" },
   { value: "", label: "Лише вручну" },
 ] as const;
+const FEATURE_DESCRIPTION = "Обовʼязкова лише назва. Формула додасть на картку кнопку кидка, кількість — лічильник використань.";
 
 export function CustomFeatureDialog({ pers, target, onClose, onSaved }: {
   pers: PersWithRelations;
@@ -28,18 +35,44 @@ export function CustomFeatureDialog({ pers, target, onClose, onSaved }: {
   onClose: () => void;
   onSaved: (features: PersCustomFeature[]) => void;
 }) {
+  const store: CustomFeatureStore<CustomFeatureSaveResult> = {
+    save: (featureId, draft) => saveCustomFeatureAction(pers.persId, featureId, draft),
+    remove: (featureId) => deleteCustomFeatureAction(pers.persId, featureId),
+  };
+  return (
+    <CustomFeatureEditor
+      pers={pers}
+      target={target}
+      title={target === "new" ? "Нова здібність або ресурс" : "Власна здібність"}
+      description={FEATURE_DESCRIPTION}
+      store={store}
+      onClose={onClose}
+      onSaved={(result) => result.success && onSaved(result.features)}
+    />
+  );
+}
+
+export function CustomFeatureEditor<Feature extends FeatureFields, Result extends FeatureSaveResult>({ pers, target, title, description, store, onClose, onSaved }: {
+  pers: PersWithRelations | null;
+  target: Feature | "new" | null;
+  title: string;
+  description: string;
+  store: CustomFeatureStore<Result>;
+  onClose: () => void;
+  onSaved: (result: Result) => void;
+}) {
   return (
     <Dialog open={target !== null} onOpenChange={(isOpen) => !isOpen && onClose()} enableBackButtonClose>
       <DialogContent className="max-h-[90dvh] overflow-y-auto">
-        <DialogTitle>{target === "new" ? "Нова здібність або ресурс" : "Власна здібність"}</DialogTitle>
-        <DialogDescription>Обовʼязкова лише назва. Формула додасть на картку кнопку кидка, кількість — лічильник використань.</DialogDescription>
-        {target !== null ? <CustomFeatureForm key={target === "new" ? "new" : target.id} pers={pers} feature={target === "new" ? null : target} onSaved={onSaved} /> : null}
+        <DialogTitle>{title}</DialogTitle>
+        <DialogDescription>{description}</DialogDescription>
+        {target !== null ? <CustomFeatureForm key={target === "new" ? "new" : target.id} pers={pers} feature={target === "new" ? null : target} store={store} onSaved={onSaved} /> : null}
       </DialogContent>
     </Dialog>
   );
 }
 
-function CustomFeatureForm({ pers, feature, onSaved }: { pers: PersWithRelations; feature: PersCustomFeature | null; onSaved: (features: PersCustomFeature[]) => void }) {
+function CustomFeatureForm<Result extends FeatureSaveResult>({ pers, feature, store, onSaved }: { pers: PersWithRelations | null; feature: FeatureFields | null; store: CustomFeatureStore<Result>; onSaved: (result: Result) => void }) {
   const [draft, setDraft] = useState<CustomFeatureDraft>({
     name: feature?.name ?? "",
     description: feature?.description ?? "",
@@ -54,11 +87,11 @@ function CustomFeatureForm({ pers, feature, onSaved }: { pers: PersWithRelations
     setErrors((current) => ({ ...current, [field]: undefined }));
   };
   const hasUses = draft.usesMax.trim() !== "";
-  const stats = findCustomRollStats(pers);
+  const stats = pers ? findCustomRollStats(pers) : null;
 
-  const finishSave = (result: CustomFeatureSaveResult | null) => {
+  const finishSave = (result: Result | null) => {
     if (!result) return;
-    if (result.success) return onSaved(result.features);
+    if (result.success) return onSaved(result);
     setErrors(result.errors ?? {});
     setFormError(result.error ?? null);
   };
@@ -68,8 +101,8 @@ function CustomFeatureForm({ pers, feature, onSaved }: { pers: PersWithRelations
       formError={formError}
       isSaving={isSaving}
       deleteRequest={feature ? { title: `Видалити «${feature.name}»?`, description: "Її не вийде повернути." } : null}
-      onSubmit={async () => finishSave(await runSave(() => saveCustomFeatureAction(pers.persId, feature?.id ?? null, draft)))}
-      onDelete={async () => finishSave(feature && (await runSave(() => deleteCustomFeatureAction(pers.persId, feature.id))))}
+      onSubmit={async () => finishSave(await runSave(() => store.save(feature?.id ?? null, draft)))}
+      onDelete={async () => finishSave(feature && (await runSave(() => store.remove(feature.id))))}
     >
       <TextField name="custom-feature-name" label="Назва" value={draft.name} onChange={changeField("name")} maxLength={100} placeholder="Подих предків" error={errors.name} />
       <FormField name="custom-feature-description" label="Опис" error={errors.description}>
@@ -77,7 +110,7 @@ function CustomFeatureForm({ pers, feature, onSaved }: { pers: PersWithRelations
       </FormField>
       <div className="space-y-1">
         <TextField name="custom-feature-formula" label="Формула кидка" value={draft.rollFormula} onChange={changeField("rollFormula")} maxLength={200} placeholder="1к20+МУД+БМ, 2к6+МУД" error={errors.rollFormula} hint={describeFormulaWords(stats)} />
-        <FormulaPreview stats={stats} text={draft.rollFormula} />
+        {stats ? <FormulaPreview stats={stats} text={draft.rollFormula} /> : null}
       </div>
       <TextField name="custom-feature-uses" label="Кількість використань" inputMode="numeric" value={draft.usesMax} onChange={changeField("usesMax")} maxLength={3} placeholder="Без ліку" error={errors.usesMax} hint="Порожньо — без ліку. З числом на картці зʼявиться лічильник і кнопка «Витратити»." />
       <fieldset aria-describedby="custom-feature-rest-hint" className="space-y-1">
@@ -97,8 +130,9 @@ function CustomFeatureForm({ pers, feature, onSaved }: { pers: PersWithRelations
   );
 }
 
-function describeFormulaWords(stats: CustomRollStats): string {
-  return `Необовʼязково. БМ — бонус майстерності (зараз ${formatModifier(stats.proficiencyBonus)}), рівень — рівень персонажа (${stats.level}), СИЛ, СПР, СТА, ІНТ, МУД, ХАР — модифікатори характеристик. Кілька кидків, як-от атаку й шкоду, пишіть через кому.`;
+function describeFormulaWords(stats: CustomRollStats | null): string {
+  const current = stats ? { proficiency: ` (зараз ${formatModifier(stats.proficiencyBonus)})`, level: ` (${stats.level})` } : { proficiency: "", level: "" };
+  return `Необовʼязково. БМ — бонус майстерності${current.proficiency}, рівень — рівень персонажа${current.level}, СИЛ, СПР, СТА, ІНТ, МУД, ХАР — модифікатори характеристик. Кілька кидків, як-от атаку й шкоду, пишіть через кому.`;
 }
 
 function FormulaPreview({ stats, text }: { stats: CustomRollStats; text: string }) {

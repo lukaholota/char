@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import sharp from "sharp";
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { prisma } from "@/lib/prisma";
-import { LIGHT_LIMITS } from "@/rules/game-lighting";
+import { DEFAULT_LIGHT_LOOK, LIGHT_LIMITS } from "@/rules/game-lighting";
 import { disconnectDatabase, resetUserData } from "../user-data";
 
 vi.mock("@/lib/auth", () => ({ auth: vi.fn() }));
@@ -14,7 +14,7 @@ vi.mock("@/server/media/media-store", () => ({
 }));
 
 import { addMapCreatures, setMapCreatureLight } from "@/server/db/game-map-creatures";
-import { removeSceneLights, saveSceneLight, setSceneLighting } from "@/server/db/game-scene-lighting";
+import { removeSceneLights, saveSceneLight, setDarkvisionLook, setSceneLighting } from "@/server/db/game-scene-lighting";
 import { moveGameToken, replaceGameSceneMap, setHeroDarkvision, setHeroTokenLight } from "@/server/db/game-scenes";
 import { bindMemberPers, createGameSession, findGameSessionView, joinGameSessionByToken } from "@/server/db/game-sessions";
 import { setActiveSceneMap } from "./game-scene-setup";
@@ -73,14 +73,28 @@ describe("освітлення сцени", () => {
 
     const playerView = (await findGameSessionView(sessionId, player.id))!;
     expect(playerView.lighting).toBe("dark");
-    expect(playerView.lights).toEqual([{ id: lit.value.id, at: torch.at, brightFeet: 20, dimFeet: 20, isOn: true }]);
+    expect(playerView.lights).toEqual([{ id: lit.value.id, at: torch.at, brightFeet: 20, dimFeet: 20, isOn: true, look: DEFAULT_LIGHT_LOOK }]);
     expect((await findGameSessionView(sessionId, gm.id))!.lights.map((light) => light.isOn)).toEqual([true, false]);
+
+    const lantern = { ...torch, look: { color: "#38bdf8", coneDegrees: 60, directionDegrees: 90, effect: "flicker" as const } };
+    const saved = await saveSceneLight(sessionId, gm.id, sceneId, null, lantern);
+    if (!saved.ok) throw new Error("lantern not saved");
+    expect((await findGameSessionView(sessionId, gm.id))!.lights.find((light) => light.id === saved.value.id)?.look).toEqual(lantern.look);
+    await removeSceneLights(sessionId, gm.id, sceneId, [saved.value.id]);
 
     expect(await removeSceneLights(sessionId, gm.id, sceneId, [candle.value.id])).toEqual({ ok: true, value: null });
     expect(await saveSceneLight(sessionId, gm.id, sceneId, candle.value.id, torch)).toEqual({ ok: false, error: "light_gone" });
 
     expect(await replaceGameSceneMap(sessionId, gm.id, sceneId, { kind: "upload", file: await createMapImage() })).toEqual({ ok: true, value: null });
     expect((await findGameSessionView(sessionId, gm.id))!).toMatchObject({ lighting: "off", lights: [] });
+  });
+
+  it("стиль темного зору для всієї кампанії міняє лише майстер", async () => {
+    const { gm, player, sessionId } = await createTable();
+    expect((await findGameSessionView(sessionId, player.id))!.darkvisionLook).toBe("grey");
+    expect(await setDarkvisionLook(sessionId, player.id, "heat")).toEqual({ ok: false, error: "forbidden" });
+    expect(await setDarkvisionLook(sessionId, gm.id, "heat")).toEqual({ ok: true, value: null });
+    expect((await findGameSessionView(sessionId, player.id))!.darkvisionLook).toBe("heat");
   });
 
   it("на сцені не більше джерел світла, ніж ліміт", async () => {
@@ -105,6 +119,9 @@ describe("освітлення сцени", () => {
     expect((await findHero(sessionId, player.id, heroId)).darkvisionFeet).toBe(0);
     await setHeroDarkvision(sessionId, gm.id, sceneId, heroId, null);
     expect((await findHero(sessionId, player.id, heroId)).darkvisionFeet).toBe(60);
+
+    await prisma.pers.updateMany({ where: { userId: player.id }, data: { houseRules: { darkvisionRange: 90 } } });
+    expect((await findHero(sessionId, player.id, heroId)).darkvisionFeet).toBe(90);
   });
 
   it("світло істоті ставить лише майстер", async () => {

@@ -8,9 +8,11 @@
  */
 
 import type { FreeSpellCast } from "./free-feat-spell-casts";
+import { findSpellPointCost, listSpellPointLevels } from "./spell-points";
 
 export type CastingSlotOption =
   | { kind: "SPELL_SLOT" | "PACT_SLOT"; slotLevel: number; remaining: number }
+  | { kind: "SPELL_POINTS"; slotLevel: number; cost: number; remaining: number }
   | { kind: "FREE_USE"; featureId: number; featureName: string; remaining: number };
 
 export type CastingSlotInput = {
@@ -19,11 +21,13 @@ export type CastingSlotInput = {
   maxSpellSlots: readonly number[];
   pact: { current: number; max: number; slotLevel: number } | null;
   freeCasts?: readonly FreeSpellCast[];
+  spellPoints?: number | null;
 };
 
 export function listCastingSlotOptions(input: CastingSlotInput): CastingSlotOption[] {
   if (input.spellLevel <= 0) return [];
-  return [...collectFreeCastOptions(input), ...collectSpellSlotOptions(input), ...collectPactSlotOption(input)];
+  const slotOptions = typeof input.spellPoints === "number" ? collectSpellPointOptions(input, input.spellPoints) : collectSpellSlotOptions(input);
+  return [...collectFreeCastOptions(input), ...slotOptions, ...collectPactSlotOption(input)];
 }
 
 export function buildCastingOptionKey(option: CastingSlotOption): string {
@@ -44,6 +48,14 @@ function collectSpellSlotOptions(input: CastingSlotInput): CastingSlotOption[] {
     const slotLevel = index + 1;
     if (slotLevel < input.spellLevel || max <= 0) return [];
     return [{ kind: "SPELL_SLOT" as const, slotLevel, remaining: Math.max(0, input.currentSpellSlots[index] ?? 0) }];
+  });
+}
+
+function collectSpellPointOptions(input: CastingSlotInput, points: number): CastingSlotOption[] {
+  return listSpellPointLevels(input.maxSpellSlots).flatMap((slotLevel) => {
+    if (slotLevel < input.spellLevel) return [];
+    const cost = findSpellPointCost(slotLevel);
+    return [{ kind: "SPELL_POINTS" as const, slotLevel, cost, remaining: Math.floor(Math.max(0, points) / cost) }];
   });
 }
 

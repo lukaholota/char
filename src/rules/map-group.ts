@@ -49,3 +49,5 @@ export function parsePositionMoves(raw: unknown): PositionMove[] | null {
 }
 
 const keepPlaced = (moves: GroupMove[]): PositionMove[] => moves.flatMap((move) => (move.at ? [{ id: move.id, at: move.at }] : []));
+
+export const findIdInGroupKey = (key: string) => Number(key.slice(key.lastIndexOf("-") + 1));

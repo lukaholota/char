@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import clsx from "clsx";
 import type { PersWithRelations } from "@/lib/actions/pers";
 import { applyHpChange } from "@/lib/actions/combat-actions";
-import { spendPactSlot, spendSpellSlot } from "@/lib/actions/spell-slots";
+import { changeSpellPoints, spendPactSlot, spendSpellSlot } from "@/lib/actions/spell-slots";
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import { createOperationId } from "@/lib/offline/queue";
 import type { OfflineOperation } from "@/lib/offline/operations";
@@ -16,6 +16,8 @@ import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { getPactMagicSlots, getStandardSpellSlots } from "@/rules/spellcasting";
 import { buildCastingOptionKey, listCastingSlotOptions, type CastingSlotOption } from "@/rules/spell-casting-slots";
 import { countDivineSmiteDice, findLayOnHandsDefault } from "@/rules/paladin-actions";
+import { findCastingSpellPoints } from "@/rules/spell-points";
+import { findPersHouseRules } from "@/lib/logic/pers-house-rules";
 import { describeSlot } from "@/lib/components/characterSheet/shared/CastSpellMenu";
 import { openRoomRoll } from "@/lib/components/game/open-room-roll";
 import { Button } from "@/components/ui/button";
@@ -182,16 +184,19 @@ function ActionFooter({ children }: { children: ReactNode }) {
 function listSmiteSlotOptions(pers: PersWithRelations): SlotOption[] {
   const caster = calculateCasterLevel(pers);
   const pact = getPactMagicSlots(caster.pactLevel, SPELL_SLOT_PROGRESSION.PACT);
+  const maxSpellSlots = getStandardSpellSlots(caster.casterLevel, SPELL_SLOT_PROGRESSION.FULL);
   return listCastingSlotOptions({
     spellLevel: 1,
     currentSpellSlots: pers.currentSpellSlots ?? [],
-    maxSpellSlots: getStandardSpellSlots(caster.casterLevel, SPELL_SLOT_PROGRESSION.FULL),
+    maxSpellSlots,
+    spellPoints: findCastingSpellPoints(findPersHouseRules(pers).magicSystem, maxSpellSlots, pers.spellPointsSpent),
     pact: pact && pact.slots > 0 ? { current: pers.currentPactSlots ?? 0, max: pact.slots, slotLevel: pact.level } : null,
   }).filter((option): option is SlotOption => option.kind !== "FREE_USE");
 }
 
 function spendSlotLocally(pers: PersWithRelations, option: SlotOption): PersWithRelations {
   if (option.kind === "PACT_SLOT") return { ...pers, currentPactSlots: Math.max(0, (pers.currentPactSlots ?? 0) - 1) };
+  if (option.kind === "SPELL_POINTS") return { ...pers, spellPointsSpent: (pers.spellPointsSpent ?? 0) + option.cost };
   const slots = Array.from({ length: 9 }, (_, index) => pers.currentSpellSlots?.[index] ?? 0);
   slots[option.slotLevel - 1] = Math.max(0, slots[option.slotLevel - 1] - 1);
   return { ...pers, currentSpellSlots: slots };
@@ -211,12 +216,15 @@ function useSlotSpend(pers: PersWithRelations) {
   const router = useRouter();
   const { commitOperation } = useOfflineQueue();
   return (option: SlotOption) => {
-    const isPact = option.kind === "PACT_SLOT";
-    const operation = buildOperation(pers.persId, isPact ? { kind: "spend-pact-slot" } : { kind: "spend-spell-slot", slotLevel: option.slotLevel });
-    const sendToServer = (operationId: string): Promise<SlotSpendResult> =>
-      isPact ? spendPactSlot(pers.persId, operationId) : spendSpellSlot(pers.persId, option.slotLevel, operationId);
-    void commitOperation(operation, sendToServer).then((outcome) => reportOutcome(outcome, router.refresh));
+    const { body, sendToServer } = buildSlotSpend(pers.persId, option);
+    void commitOperation(buildOperation(pers.persId, body), sendToServer).then((outcome) => reportOutcome(outcome, router.refresh));
   };
+}
+
+function buildSlotSpend(persId: number, option: SlotOption): { body: OperationBody; sendToServer: (operationId: string) => Promise<SlotSpendResult> } {
+  if (option.kind === "PACT_SLOT") return { body: { kind: "spend-pact-slot" }, sendToServer: (operationId) => spendPactSlot(persId, operationId) };
+  if (option.kind === "SPELL_POINTS") return { body: { kind: "spell-points", amount: option.cost }, sendToServer: (operationId) => changeSpellPoints(persId, option.cost, operationId) };
+  return { body: { kind: "spend-spell-slot", slotLevel: option.slotLevel }, sendToServer: (operationId) => spendSpellSlot(persId, option.slotLevel, operationId) };
 }
 
 function useSelfHeal(pers: PersWithRelations) {
@@ -239,6 +247,7 @@ function reportOutcome(outcome: { queued: true } | { queued: false; result: Slot
 type OperationBody =
   | { kind: "spend-spell-slot"; slotLevel: number }
   | { kind: "spend-pact-slot" }
+  | { kind: "spell-points"; amount: number }
   | { kind: "hp"; mode: "heal"; amount: number };
 
 function buildOperation(persId: number, body: OperationBody): OfflineOperation {

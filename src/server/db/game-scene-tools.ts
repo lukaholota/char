@@ -2,12 +2,13 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import type { AreaPlacement } from "@/rules/game-areas";
 import { AREA_LIMITS } from "@/rules/game-areas";
-import { DRAWING_LIMITS, type DrawingStroke } from "@/rules/game-drawings";
+import { buildDrawingView, canEditDrawing, DRAWING_LIMITS, toDrawingColumns, type DrawingStroke } from "@/rules/game-drawings";
 import { applyFogChange, parseSceneFog, serializeSceneFog, type FogChange } from "@/rules/game-fog";
 import { GRID_OPACITY_RANGE, type SceneGrid } from "@/rules/game-grid";
 import { toStoredPoints } from "@/rules/map-strokes";
+import type { TokenPosition } from "@/rules/game-map";
 import { findViewedSceneId } from "@/rules/game-scenes";
-import { findActiveGmSession, findMembership, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
+import { DRAWING_ROW_SELECT, findActiveGmSession, findMembership, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 const succeed = <T,>(value: T) => ({ ok: true as const, value });
@@ -88,7 +89,7 @@ export async function saveSceneDrawings(sessionId: number, userId: number, scene
     if (!(await lockScene(tx, sessionId, sceneId))) return fail("bad_scene");
     if ((await tx.gameSceneDrawing.count({ where: { sceneId } })) + strokes.length > DRAWING_LIMITS.perScene) return fail("drawing_limit");
     const created = await tx.gameSceneDrawing.createManyAndReturn({
-      data: strokes.map((stroke) => ({ sceneId, userId, shape: stroke.shape, isFilled: stroke.isFilled, color: stroke.color, width: stroke.width, points: toStoredPoints(stroke.points) })),
+      data: strokes.map((stroke) => ({ sceneId, userId, ...toDrawingColumns(stroke) })),
       select: { id: true },
     });
     return succeed({ ids: created.map((row) => row.id) });
@@ -105,6 +106,20 @@ export async function removeSceneDrawings(sessionId: number, userId: number, sce
     where: { sceneId, scene: { sessionId }, ...(target === "all" ? {} : { id: { in: target } }), ...(editor.value.isGm ? {} : { userId }) },
   });
   if (removed.count) await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+/// Рухати й міняти розмір можна те, що можна стерти. Нові точки перевіряються разом з рештою фігури.
+export async function moveSceneDrawing(sessionId: number, userId: number, sceneId: number, drawingId: number, points: TokenPosition[]): Promise<GameSessionResult<null>> {
+  const editor = await findSceneEditor(sessionId, userId, sceneId);
+  if (!editor.ok) return editor;
+  const row = await prisma.gameSceneDrawing.findFirst({ where: { id: drawingId, sceneId, scene: { sessionId } }, select: DRAWING_ROW_SELECT });
+  if (!row) return fail("drawing_gone");
+  if (!canEditDrawing(row, userId, editor.value.isGm)) return fail("forbidden");
+  const [moved] = buildDrawingView({ ...row, points: toStoredPoints(points) });
+  if (!moved) return fail("bad_drawing");
+  await prisma.gameSceneDrawing.update({ where: { id: drawingId }, data: { points: toStoredPoints(moved.points) }, select: { id: true } });
+  await signalGameSession(sessionId, "session");
   return succeed(null);
 }
 

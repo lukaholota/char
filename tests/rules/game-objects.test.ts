@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyObjectTransform, buildSceneObjectViews, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, parseObjectPlacement, toObjectPlacement, toObjectTransform } from "@/rules/game-objects";
+import { applyObjectTransform, buildSceneObjectViews, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, parseObjectPlacement, scatterObjectPlacement, toObjectPlacement, toObjectTransform } from "@/rules/game-objects";
 
 const placement = { at: { x: 0.5, y: 0.25 }, widthCells: 2, rotation: 90, name: "Скриня", isHidden: false, sortOrder: 0 };
 const row = (id: number, overrides: Partial<{ isHidden: boolean; sortOrder: number }> = {}) => ({ id, imageKey: `token-images/1/${id}`, name: null, x: 0.1, y: 0.2, widthCells: 1, rotation: 0, isHidden: false, sortOrder: 0, ...overrides });
@@ -72,5 +72,17 @@ describe("object size and layers", () => {
 
   it("drops view-only fields from a placement", () => {
     expect(toObjectPlacement({ ...placement, id: 1, imageKey: "k", imageUrl: "u" } as never)).toEqual(placement);
+  });
+});
+
+describe("scatterObjectPlacement", () => {
+  const full = { ...placement, floor: null, aspect: 1 };
+  it("міняє розмір у межах 0.8–1.25 і повертає випадково, решту лишає", () => {
+    expect(scatterObjectPlacement(full, () => 0)).toEqual({ ...full, widthCells: 1.6, rotation: 0 });
+    expect(scatterObjectPlacement(full, () => 0.999)).toEqual({ ...full, widthCells: 2.5, rotation: 359 });
+  });
+  it("не виходить за межі ширини", () => {
+    expect(scatterObjectPlacement({ ...full, widthCells: OBJECT_LIMITS.widthCells.max }, () => 0.999).widthCells).toBe(OBJECT_LIMITS.widthCells.max);
+    expect(scatterObjectPlacement({ ...full, widthCells: OBJECT_LIMITS.widthCells.min }, () => 0).widthCells).toBe(OBJECT_LIMITS.widthCells.min);
   });
 });

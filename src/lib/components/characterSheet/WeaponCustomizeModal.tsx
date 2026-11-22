@@ -13,14 +13,17 @@ import type { PersWeaponWithWeapon } from "@/lib/actions/pers";
 import { toast } from "sonner";
 import { Trash2 } from "lucide-react";
 import { attributesUkrFull, damageTypeTranslations } from "@/lib/refs/translation";
+import { ExtraDamageFields } from "./ExtraDamageFields";
+import { buildExtraDamage, toExtraDamageDrafts, type ExtraDamageDraft } from "@/rules/weapon-profile";
 
 interface WeaponCustomizeModalProps {
   persWeapon: PersWeaponWithWeapon;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  customDamageTypes: readonly string[];
 }
 
-export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }: WeaponCustomizeModalProps) {
+export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange, customDamageTypes }: WeaponCustomizeModalProps) {
   const [isPending, startTransition] = useTransition();
   const [formData, setFormData] = useState(() => buildWeaponFormState(persWeapon));
 
@@ -36,6 +39,8 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
         customDamageBonus: parseInt(formData.customDamageBonus) || 0,
         overrideName: formData.overrideName || null,
         customDamageAbility: formData.customDamageAbility === AUTO_ABILITY ? null : formData.customDamageAbility,
+        overrideAttackAbility: formData.overrideAttackAbility === AUTO_ABILITY ? null : formData.overrideAttackAbility,
+        extraDamage: buildExtraDamage(formData.extraDamage),
         overrideDamageType: formData.overrideDamageType === BOOK_DAMAGE_TYPE ? null : formData.overrideDamageType,
         overrideNormalRange: parseRangeInput(formData.overrideNormalRange),
         overrideLongRange: parseRangeInput(formData.overrideLongRange),
@@ -134,37 +139,38 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label>Кубик шкоди (напр. 1к8)</Label>
-              <Input
-                autoFocus={false}
-                value={formData.customDamageDice}
-                onChange={(e) => setFormData({ ...formData, customDamageDice: e.target.value })}
-                className="bg-white/5 border-white/10"
-                placeholder="Напр. 1к8"
-              />  
-            </div>
-            <div className="space-y-2">
-              <Label>Характеристика</Label>
-              <Select
-                value={formData.customDamageAbility}
-                onValueChange={(val) => setFormData({ ...formData, customDamageAbility: val as Ability | typeof AUTO_ABILITY })}
-              >
-                <SelectTrigger className="bg-white/5 border-white/10">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value={AUTO_ABILITY}>Автоматично</SelectItem>
-                  {Object.values(Ability).map((a) => (
-                    <SelectItem key={a} value={a}>
-                      {attributesUkrFull[a as keyof typeof attributesUkrFull] || a}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+          <div className="space-y-2">
+            <Label htmlFor="weapon-damage-formula">Шкода</Label>
+            <Input
+              id="weapon-damage-formula"
+              autoFocus={false}
+              value={formData.customDamageDice}
+              onChange={(e) => setFormData({ ...formData, customDamageDice: e.target.value })}
+              className="bg-white/5 border-white/10"
+              placeholder="Як у зброї"
+              aria-describedby="weapon-damage-formula-hint"
+            />
+            <p id="weapon-damage-formula-hint" className="text-xs text-slate-400">
+              Напр. 1к8, 1к6+СИЛ*2 або 1к8+СИЛ+СТА. Характеристики у формулі замінюють «Шкода від».
+            </p>
           </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <AbilityField
+              label="Атака від"
+              autoLabel={formData.customDamageAbility === AUTO_ABILITY ? "Автоматично" : "Як шкода"}
+              value={formData.overrideAttackAbility}
+              onChange={(overrideAttackAbility) => setFormData({ ...formData, overrideAttackAbility })}
+            />
+            <AbilityField
+              label="Шкода від"
+              autoLabel={formData.overrideAttackAbility === AUTO_ABILITY ? "Автоматично" : "Як атака"}
+              value={formData.customDamageAbility}
+              onChange={(customDamageAbility) => setFormData({ ...formData, customDamageAbility })}
+            />
+          </div>
+
+          <ExtraDamageFields value={formData.extraDamage} onChange={(extraDamage) => setFormData({ ...formData, extraDamage })} customTypes={customDamageTypes} />
 
           <div className="space-y-2">
             <Label>Тип шкоди</Label>
@@ -263,13 +269,37 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange }:
 
 const BOOK_DAMAGE_TYPE = "BOOK" as const;
 const AUTO_ABILITY = "AUTO" as const;
+type AbilityChoice = Ability | typeof AUTO_ABILITY;
+
+function AbilityField({ label, autoLabel, value, onChange }: { label: string; autoLabel: string; value: AbilityChoice; onChange: (value: AbilityChoice) => void }) {
+  return (
+    <div className="space-y-2">
+      <Label>{label}</Label>
+      <Select value={value} onValueChange={(next) => onChange(next as AbilityChoice)}>
+        <SelectTrigger className="bg-white/5 border-white/10" aria-label={label}>
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value={AUTO_ABILITY}>{autoLabel}</SelectItem>
+          {Object.values(Ability).map((ability) => (
+            <SelectItem key={ability} value={ability}>
+              {attributesUkrFull[ability as keyof typeof attributesUkrFull] || ability}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
+  );
+}
 
 type WeaponFormState = {
   overrideName: string;
   attackBonus: string;
   customDamageBonus: string;
   customDamageDice: string;
-  customDamageAbility: Ability | typeof AUTO_ABILITY;
+  customDamageAbility: AbilityChoice;
+  overrideAttackAbility: AbilityChoice;
+  extraDamage: ExtraDamageDraft[];
   overrideDamageType: DamageType | typeof BOOK_DAMAGE_TYPE;
   overrideNormalRange: string;
   overrideLongRange: string;
@@ -284,6 +314,8 @@ function buildWeaponFormState(persWeapon: PersWeaponWithWeapon): WeaponFormState
     customDamageBonus: (persWeapon.customDamageBonus ?? 0).toString(),
     customDamageDice: persWeapon.customDamageDice || "",
     customDamageAbility: persWeapon.customDamageAbility ?? AUTO_ABILITY,
+    overrideAttackAbility: persWeapon.overrideAttackAbility ?? AUTO_ABILITY,
+    extraDamage: toExtraDamageDrafts(persWeapon.extraDamage),
     overrideDamageType: persWeapon.overrideDamageType ?? BOOK_DAMAGE_TYPE,
     overrideNormalRange: persWeapon.overrideNormalRange?.toString() ?? "",
     overrideLongRange: persWeapon.overrideLongRange?.toString() ?? "",

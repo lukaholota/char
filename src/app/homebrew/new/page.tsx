@@ -7,6 +7,7 @@ import { HomebrewSignInPrompt } from "@/components/homebrew/HomebrewSignInPrompt
 import { HomebrewSpellForm } from "@/components/homebrew/HomebrewSpellForm";
 import { buildHomebrewCatalogHref, parseHomebrewKind } from "@/lib/logic/homebrew-catalog";
 import { buildEmptyCreatureValues, buildEmptyItemValues, buildEmptySpellValues } from "@/lib/logic/homebrew-form-values";
+import { listHomebrewItemBases } from "@/server/db/homebrew-item-bases";
 
 export const metadata: Metadata = { title: "Новий хоумбрю — ДнД українською", robots: { index: false } };
 
@@ -18,7 +19,7 @@ export default async function NewHomebrewPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const kind = parseHomebrewKind(params.kind);
   const ruleset = params.edition === "2024" ? "RULES_2024" : "RULES_2014";
-  const session = await auth();
+  const [session, bases] = await Promise.all([auth(), kind === "ITEM" ? listHomebrewItemBases() : null]);
 
   return (
     <HomebrewPageShell title={NEW_ENTRY_TITLES[kind]} backHref={buildHomebrewCatalogHref({ kind, is2024: ruleset === "RULES_2024" })} backLabel="Хоумбрю">
@@ -27,7 +28,7 @@ export default async function NewHomebrewPage({ searchParams }: PageProps) {
       ) : kind === "CREATURE" ? (
         <HomebrewCreatureForm initialValues={buildEmptyCreatureValues(ruleset)} initialImageUrl={null} />
       ) : kind === "ITEM" ? (
-        <HomebrewItemForm initialValues={buildEmptyItemValues(ruleset)} initialImageUrl={null} />
+        <HomebrewItemForm initialValues={buildEmptyItemValues(ruleset)} initialImageUrl={null} bases={bases ?? { weapons: [], armors: [] }} />
       ) : (
         <HomebrewSpellForm initialValues={buildEmptySpellValues(ruleset)} />
       )}

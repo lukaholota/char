@@ -42,6 +42,7 @@ const OFFLINE_PERS_SELECT = {
   isDead: true,
   currentSpellSlots: true,
   currentPactSlots: true,
+  spellPointsSpent: true,
   heroicInspirationCount: true,
   canStackHeroicInspiration: true,
 } satisfies Prisma.PersSelect;
@@ -55,8 +56,8 @@ const HIT_DICE_PERS_SELECT = {
 
 const NO_SLOT_MAXIMA: Pick<OfflinePersState, "maxSpellSlots" | "maxPactSlots"> = { maxSpellSlots: [], maxPactSlots: 0 };
 
-function isSlotRestore(operation: OfflineOperation): boolean {
-  return operation.kind === "restore-spell-slot" || operation.kind === "restore-pact-slot";
+function needsSlotMaxima(operation: OfflineOperation): boolean {
+  return operation.kind === "restore-spell-slot" || operation.kind === "restore-pact-slot" || operation.kind === "spell-points";
 }
 
 function normalizeOperation(operation: OfflineOperation): OfflineOperation {
@@ -117,7 +118,7 @@ export async function applyPersFieldOperationIn(tx: Prisma.TransactionClient, us
   const claimed = await claimOperation(tx, userId, operation);
   if (!claimed) return { ok: true, duplicate: true };
 
-  const maxima = isSlotRestore(operation) ? await findSpellSlotMaxima(operation.persId) : NO_SLOT_MAXIMA;
+  const maxima = needsSlotMaxima(operation) ? await findSpellSlotMaxima(operation.persId) : NO_SLOT_MAXIMA;
   const next = applyOfflineOperation({ ...pers, ...maxima }, operation);
   await tx.pers.update({ where: { persId: operation.persId }, data: buildPersUpdate(operation, next) });
 
@@ -304,6 +305,8 @@ function buildPersUpdate(operation: OfflineOperation, next: OfflinePersState): P
     case "spend-pact-slot":
     case "restore-pact-slot":
       return { currentPactSlots: next.currentPactSlots };
+    case "spell-points":
+      return { spellPointsSpent: next.spellPointsSpent };
     case "heroic-inspiration":
       return { heroicInspirationCount: next.heroicInspirationCount };
     default:

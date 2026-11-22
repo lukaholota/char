@@ -3,6 +3,7 @@ type ScreenPoint = { clientX: number; clientY: number };
 
 export const DEFAULT_TOKEN_TRANSFORM: TokenTransform = { rotation: 0, scale: 100 };
 export const TOKEN_SCALE_RANGE = { min: 10, max: 1000 } as const;
+export type ScaleRange = { min: number; max: number };
 /// Крок у 5 дає пальцю влучити рівно в 0° чи 100%, не шукаючи пікселя.
 const DRAG_STEP = 5;
 
@@ -27,8 +28,8 @@ export function turnToken(transform: TokenTransform, degrees: number): TokenTran
   return { ...transform, rotation: normalizeRotation(transform.rotation + degrees) };
 }
 
-export function resizeToken(transform: TokenTransform, scale: number): TokenTransform {
-  return { ...transform, scale: clampScale(Math.round(scale)) };
+export function resizeToken(transform: TokenTransform, scale: number, range: ScaleRange = TOKEN_SCALE_RANGE): TokenTransform {
+  return { ...transform, scale: clampScale(Math.round(scale), range) };
 }
 
 /// Кут між пальцем і центром до й після руху: поворот мапи на чверть цю різницю не змінює.
@@ -38,11 +39,11 @@ export function findDraggedRotation(start: number, centre: ScreenPoint, from: Sc
 }
 
 /// Відстань пальця від центру росте — токен росте в тій самій пропорції.
-export function findDraggedScale(start: number, centre: ScreenPoint, from: ScreenPoint, to: ScreenPoint): number {
+export function findDraggedScale(start: number, centre: ScreenPoint, from: ScreenPoint, to: ScreenPoint, range: ScaleRange = TOKEN_SCALE_RANGE): number {
   const findDistance = (point: ScreenPoint) => Math.hypot(point.clientX - centre.clientX, point.clientY - centre.clientY);
   const fromDistance = findDistance(from);
   if (fromDistance < 1) return start;
-  return clampScale(roundToStep((start * findDistance(to)) / fromDistance));
+  return clampScale(roundToStep((start * findDistance(to)) / fromDistance), range);
 }
 
 function isTokenTransformValid({ rotation, scale }: TokenTransform): boolean {
@@ -53,8 +54,8 @@ function normalizeRotation(degrees: number): number {
   return ((Math.round(degrees) % 360) + 360) % 360;
 }
 
-function clampScale(percent: number): number {
-  return Math.min(TOKEN_SCALE_RANGE.max, Math.max(TOKEN_SCALE_RANGE.min, percent));
+function clampScale(percent: number, range: ScaleRange): number {
+  return Math.min(range.max, Math.max(range.min, percent));
 }
 
 function roundToStep(value: number): number {

@@ -1,10 +1,11 @@
 import { parseDiceNotation } from "./dice-roll";
 import { readRuleset } from "./ruleset";
 import type { DamageTypeKey, Ruleset } from "./types";
+import { parseWeaponProfile, type WeaponProfile } from "./weapon-profile";
 
-export type WeaponHitDamage = { count: number; sides: number; damageType: DamageTypeKey | null; condition: string | null };
-export type MagicWeaponTraits = { bonus: number; hits: WeaponHitDamage[] };
-export type MagicWeaponSource = { engName?: string | null; ruleset?: string | null; description?: string | null; weaponBonus?: number | null };
+export type WeaponHitDamage = { count: number; sides: number; damageType: DamageTypeKey | null; customType?: string; condition: string | null };
+export type MagicWeaponTraits = { bonus: number; hits: WeaponHitDamage[]; profile: WeaponProfile | null };
+export type MagicWeaponSource = { engName?: string | null; ruleset?: string | null; description?: string | null; weaponBonus?: number | null; weaponProfile?: unknown };
 
 type HitEntry = { dice: string; damageType?: DamageTypeKey; condition?: string };
 
@@ -39,11 +40,12 @@ const HIT_DAMAGE: Record<string, HitEntry[] | Partial<Record<Ruleset, HitEntry[]
   ),
 };
 
-/// Зброя, яку гравець привʼязує до рядка зброї листа: бонус +N з опису і кубики при влучанні.
+/// Зброя, яку гравець привʼязує до рядка зброї листа: бонус +N з опису, кубики при влучанні й профіль хомбрю-зброї.
 export function findMagicWeaponTraits(item: MagicWeaponSource): MagicWeaponTraits | null {
   const bonus = findMagicWeaponBonus(item);
-  const hits = findWeaponHitDamage(item);
-  return bonus > 0 || hits.length > 0 ? { bonus, hits } : null;
+  const profile = parseWeaponProfile(item.weaponProfile);
+  const hits = [...findWeaponHitDamage(item), ...(profile?.extraDamage ?? []).map((extra) => ({ ...extra, condition: null }))];
+  return bonus > 0 || hits.length > 0 || profile ? { bonus, hits, profile } : null;
 }
 
 function findMagicWeaponBonus(item: MagicWeaponSource): number {

@@ -1,19 +1,21 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { toast } from "sonner";
 import { toViewPoint, type MapFrame } from "@/rules/game-grid";
-import { buildSceneSight, type BuildPolygon, type Eye, type LightSource, type SceneLighting, type SceneSight, type TokenLight } from "@/rules/game-lighting";
+import { buildSceneSight, DEFAULT_LIGHT_LOOK, type BuildPolygon, type Eye, type LightSource, type SceneLighting, type SceneSight, type TokenLight } from "@/rules/game-lighting";
 import type { TokenPosition } from "@/rules/game-map";
 import { collectMoveLines, collectSightLines, collectSightSegments, type WallLine } from "@/rules/game-walls";
 import { buildVisibilityPolygon, isMoveBlocked, type ViewPoint } from "@/rules/map-visibility";
-import type { GameSessionView } from "@/server/db/game-sessions";
+import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
 import type { TokenMoves, useHeroTokens } from "./HeroTokens";
+import type { SelectedToken } from "./TokenTransformControls";
 import { useOptimisticReader } from "./optimistic-values";
 import type { MapLights, TokenLights } from "./use-map-lights";
 
 const POLYGON_CACHE_LIMIT = 200;
 const SIGHT_MEASURE = "scene-sight";
-const toLightSource = (at: TokenPosition, { brightFeet, dimFeet }: TokenLight): LightSource => ({ at, brightFeet, dimFeet });
+const toLightSource = (at: TokenPosition, { brightFeet, dimFeet }: TokenLight, look = DEFAULT_LIGHT_LOOK): LightSource => ({ at, brightFeet, dimFeet, look });
 
 /// Стіни міняються рідко, а світло й очі — щокадру під пальцем: многокутник для тієї ж точки й радіуса не рахуємо вдруге.
 /// Зір спиняють стіни, зачинені двері й вікна за шторою; рух — ще й зачинені вікна.
@@ -50,20 +52,31 @@ type PartySightOptions = {
   frame: MapFrame | null;
   aspect: number | null;
   walls: WallSight;
+  viewerHeroId: number | null;
 };
+
+type HeroAt = { member: GameSessionMemberView; at: TokenPosition };
+
+/// Кожен гравець дивиться очима лише своїх героїв; глядач без героя — очима партії. Майстер бачить усіх або вибраного героя.
+function findEyeHeroes(view: GameSessionView, heroesAt: HeroAt[], viewerHeroId: number | null) {
+  if (viewerHeroId !== null) return heroesAt.filter(({ member }) => member.heroId === viewerHeroId);
+  const isMine = (member: GameSessionMemberView) => member.userId === view.myUserId && member.persId !== null;
+  if (view.myRole === "GM" || !view.members.some(isMine)) return heroesAt;
+  return heroesAt.filter(({ member }) => isMine(member));
+}
 
 /// Очі — герої партії, світло — сцени, героїв та істот. У майстра герой під пальцем дивиться з місця «примари»;
 /// гравцю зір міняється лише після ходу, інакше він розвідує мапу, тягаючи героя й повертаючи назад.
-export function usePartySight({ view, heroes, moves, lights, tokenLights, frame, aspect, walls }: PartySightOptions) {
+export function usePartySight({ view, heroes, moves, lights, tokenLights, frame, aspect, walls, viewerHeroId }: PartySightOptions) {
   const readOptimistic = useOptimisticReader();
   const previewedHeroId = view.myRole === "GM" ? heroes.ghost?.id : undefined;
   const heroesAt = heroes.heroes.flatMap((member) => {
     const at = (previewedHeroId === member.heroId ? heroes.drag?.to : null) ?? moves.findPosition(member);
     return at ? [{ member, at }] : [];
   });
-  const eyes: Eye[] = heroesAt.map(({ member, at }) => ({ at, darkvisionFeet: tokenLights.findDarkvision(member) }));
+  const eyes: Eye[] = findEyeHeroes(view, heroesAt, viewerHeroId).map(({ member, at }) => ({ at, darkvisionFeet: tokenLights.findDarkvision(member) }));
   const lightSources = [
-    ...lights.shown.filter((light) => light.isOn).map((light) => toLightSource(lights.findShownAt(light), light)),
+    ...lights.shown.filter((light) => light.isOn).map((light) => toLightSource(lights.findShownAt(light), light, light.look)),
     ...heroesAt.map(({ member, at }) => toLightSource(at, tokenLights.findLight({ kind: "hero", member }))),
     ...view.creatures.flatMap((creature) => {
       const at = readOptimistic(`creature-removed:${creature.id}`, false) ? null : readOptimistic(`creature-position:${creature.id}`, creature.token);
@@ -101,3 +114,41 @@ function useFadingSight(sight: SceneSight | null, isLive: boolean) {
 }
 
 export type FadingSight = ReturnType<typeof useFadingSight>;
+
+const isCharacterViewKey = (event: KeyboardEvent) => (event.ctrlKey || event.metaKey) && !event.altKey && !event.shiftKey && event.code === "KeyL";
+
+type CharacterViewOptions = { view: GameSessionView; scope: RefObject<Element | null>; findSelected: () => SelectedToken | null; onStart: () => void };
+
+/// Майстер дивиться очима вибраного героя (око або Ctrl+L). Вибір знімаємо, щоб рамка не потрапила в запис стріму.
+export function useCharacterView({ view, scope, findSelected, onStart }: CharacterViewOptions) {
+  const [heroId, setHeroId] = useState<number | null>(null);
+  const findSelectedHero = () => {
+    const selected = findSelected();
+    return selected?.lightTarget.kind === "hero" ? selected.lightTarget.member : null;
+  };
+  const toggle = () => {
+    if (heroId !== null) return setHeroId(null);
+    const selectedHero = findSelectedHero();
+    if (!selectedHero) return void toast("Виберіть героя на мапі, тоді — око або Ctrl+L");
+    setHeroId(selectedHero.heroId);
+    onStart();
+  };
+  const latestToggle = useRef(toggle);
+  latestToggle.current = toggle;
+  const canUse = view.myRole === "GM";
+  useEffect(() => {
+    if (!canUse) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!isCharacterViewKey(event) || event.defaultPrevented || !scope.current || scope.current.closest('[aria-hidden="true"]')) return;
+      if (event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable]")) return;
+      event.preventDefault();
+      latestToggle.current();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [canUse, scope]);
+  const hero = canUse && heroId !== null ? (view.members.find((member) => member.heroId === heroId) ?? null) : null;
+  return { hero, findSelectedHero, toggle };
+}
+
+export type CharacterView = ReturnType<typeof useCharacterView>;

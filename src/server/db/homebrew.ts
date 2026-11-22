@@ -30,6 +30,7 @@ import { excludeAiAuthorIds } from "@/lib/no-ai/ai-authors";
 import { shortenSpellName } from "@/lib/logic/spell-name";
 import { getAllSpells, getSpellById } from "@/lib/spellsData";
 import type { CreatureSpellOption } from "@/rules/creature-spellcasting";
+import { parseWeaponProfile, toExtraDamageDrafts } from "@/rules/weapon-profile";
 
 type SaveResult = { success: true; entryId: number } | { success: false; error?: string; fieldErrors?: HomebrewFieldErrors };
 type ActionResult = { success: true } | { success: false; error: string };
@@ -173,8 +174,8 @@ export async function saveHomebrewItem(formData: FormData): Promise<SaveResult> 
   const image = await resolveUploadedImage(formData, previous?.magicItem?.imageKey ?? null, "homebrew/items");
   if ("error" in image) return { success: false, error: image.error };
 
-  const { bonusToSavingThrows, ...columns } = buildHomebrewItemColumns(parsed.data);
-  const item = { ...columns, bonusToSavingThrows: bonusToSavingThrows ?? Prisma.DbNull, imageKey: image.key };
+  const { bonusToSavingThrows, weaponProfile, ...columns } = buildHomebrewItemColumns(parsed.data);
+  const item = { ...columns, bonusToSavingThrows: bonusToSavingThrows ?? Prisma.DbNull, weaponProfile: weaponProfile ?? Prisma.DbNull, imageKey: image.key };
   const entry = { name: parsed.data.name, ruleset: toStoredRuleset(parsed.data.ruleset) };
   const authorUserId = viewer.userId;
   const savedEntryId = entryId
@@ -262,8 +263,11 @@ function buildImageUrl(imageKey: string | null): string | null {
   return imageKey ? buildMediaImageUrl(imageKey, "full") : null;
 }
 
-function readItemFormInput(item: { name: string; itemType: string; rarity: string; requiresAttunement: boolean; description: string; bonusToAC: number | null; bonusToSavingThrows: Prisma.JsonValue; weaponBonus: number | null }, ruleset: string | null) {
+type StoredHomebrewItem = Prisma.MagicItemGetPayload<object>;
+
+function readItemFormInput(item: StoredHomebrewItem, ruleset: string | null) {
   const saveBonus = readStatBlock(item.bonusToSavingThrows).all;
+  const profile = parseWeaponProfile(item.weaponProfile);
   return {
     ruleset: toHomebrewEdition(ruleset),
     name: item.name,
@@ -274,6 +278,16 @@ function readItemFormInput(item: { name: string; itemType: string; rarity: strin
     acBonus: item.bonusToAC ? String(item.bonusToAC) : "",
     saveBonus: typeof saveBonus === "number" ? String(saveBonus) : "",
     weaponBonus: item.weaponBonus ? String(item.weaponBonus) : "",
+    isMundane: item.isMundane,
+    baseWeaponId: item.baseWeaponId ? String(item.baseWeaponId) : "",
+    baseArmorId: item.baseArmorId ? String(item.baseArmorId) : "",
+    armorBaseAC: item.armorBaseAC === null ? "" : String(item.armorBaseAC),
+    attackAbility: profile?.attackAbility ?? "",
+    damageFormula: profile?.damage ?? "",
+    damageType: profile?.damageType ?? "",
+    extraDamage: toExtraDamageDrafts(profile?.extraDamage),
+    normalRange: profile?.normalRange ? String(profile.normalRange) : "",
+    longRange: profile?.longRange ? String(profile.longRange) : "",
   };
 }
 

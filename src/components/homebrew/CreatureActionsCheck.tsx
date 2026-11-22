@@ -29,8 +29,8 @@ export function CreatureActionsCheck({ markdown, isItem = false }: { markdown: s
   const checks = splitActions(markdown).map((text) => (isItem ? checkItemAction(text) : checkAction(text))).filter((check) => !isItem || check.found.length > 0);
   if (checks.length === 0) return null;
   return (
-    <section aria-label="Що кидатиметься в кімнаті" className="space-y-2 rounded-lg border border-white/10 bg-white/[0.03] p-3">
-      <h3 className="text-sm font-semibold text-slate-200">Що кидатиметься в кімнаті</h3>
+    <section aria-label="Що кидатиметься в кампанії" className="space-y-2 rounded-lg border border-white/10 bg-white/[0.03] p-3">
+      <h3 className="text-sm font-semibold text-slate-200">Що кидатиметься в кампанії</h3>
       <ul className="space-y-2">
         {checks.map((check, index) => (
           <li key={index} className="text-sm leading-relaxed">

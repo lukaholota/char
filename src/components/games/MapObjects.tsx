@@ -5,7 +5,7 @@ import { useState, type KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
-import { OBJECT_LIMITS, toObjectPlacement, toObjectTransform, type SceneObjectView } from "@/rules/game-objects";
+import { OBJECT_LIMITS, OBJECT_SCALE_RANGE, toObjectPlacement, toObjectTransform, type SceneObjectView } from "@/rules/game-objects";
 import { TokenImageLibrary } from "./CreatureImageSection";
 import type { MapHistory } from "./map-history";
 import { HistoryButtons, Segmented, Stepper, ToolPanel } from "./MapToolbar";
@@ -35,13 +35,13 @@ export function MapObjectsLayer({ objects, isGrouped }: { objects: MapObjects; i
           <img src={object.imageUrl} alt={isEditing ? "" : (object.name ?? "")} draggable={false} className="block h-auto w-full select-none" style={object.rotation ? { transform: `rotate(${object.rotation}deg)` } : undefined} />
         );
         return (
-          <div key={object.id} className={cn("absolute -translate-x-1/2 -translate-y-1/2", !isEditing && "pointer-events-none", object.isHidden && "opacity-50", objects.ghostId === object.id && "opacity-80")} style={box}>
+          <div key={object.id} data-object-tap={object.id} className={cn("absolute -translate-x-1/2 -translate-y-1/2", !isEditing && "pointer-events-none", object.isHidden && "opacity-50", objects.ghostId === object.id && "opacity-80")} style={box}>
             {isEditing ? (
               <button type="button" data-map-control aria-label={`${describeObject(object)}${object.isHidden ? ", схований" : ""}`} aria-pressed={isChosen} className="block w-full touch-none rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-arcane-200" {...objects.bindObject(object.id)}>
                 {image}
               </button>
             ) : image}
-            {isChosen ? <TokenTransformHandles token={{ transform: toObjectTransform(object), onPreview: (transform) => objects.preview(object.id, transform), onChange: (transform) => objects.changeTransform(object.id, transform) }} onDeselect={() => objects.choose(null)} /> : isEditing && isGrouped(object.id) ? <GroupedTokenFrame rotation={object.rotation} /> : null}
+            {isChosen ? <TokenTransformHandles token={{ transform: toObjectTransform(object), onPreview: (transform) => objects.preview(object.id, transform), onChange: (transform) => objects.changeTransform(object.id, transform), scaleRange: OBJECT_SCALE_RANGE, describeSize: (transform) => describeCells(transform.scale / 100), growsWithMap: true }} onDeselect={() => objects.choose(null)} /> : isEditing && isGrouped(object.id) ? <GroupedTokenFrame rotation={object.rotation} /> : null}
           </div>
         );
       })}
@@ -55,14 +55,14 @@ export function ObjectsPanel({ objects, history, onClose }: { objects: MapObject
   if (chosen) return <ChosenObjectPanel key={chosen.id} object={chosen} objects={objects} history={history} onClose={onClose} />;
   return (
     <ToolPanel title="Обʼєкти" onClose={onClose} aside={<HistoryButtons history={history} />}>
-      <p className="text-sm leading-snug text-slate-400">Вибрана картинка стане в центр видимої частини мапи; з набору її можна й перетягнути на місце. Торкніться обʼєкта, щоб вибрати, тягніть — щоб пересунути.</p>
+      <p className="text-sm leading-snug text-slate-400">Торкніться картинки — вона стане в центр видимої частини мапи, або перетягніть її одразу на місце. Торкніться обʼєкта, щоб вибрати, тягніть — щоб пересунути. Кілька — обведіть рамкою мишею або клацайте із Shift.</p>
       {objects.isFull ? (
         <p className="text-sm text-amber-100">{`На сцені вже ${OBJECT_LIMITS.perScene} обʼєктів — видаліть зайві, щоб додати новий.`}</p>
       ) : (
         <>
           <Segmented label="Звідки картинка" value={source} options={[...IMAGE_SOURCES]} onChange={setSource} />
           {source === "own" ? (
-            <TokenImageLibrary chosenKey={null} cropTitle="Зображення обʼєкта" onPick={(imageKey) => objects.placeFromLibrary(imageKey)} />
+            <TokenImageLibrary chosenKey={null} cropTitle="Зображення обʼєкта" onPick={(imageKey) => objects.placeFromLibrary(imageKey)} mapDrop={{ onDrop: (imageKey, point) => objects.placeFromLibrary(imageKey, 1, point), canDropAt: objects.canDropAt }} />
           ) : (
             <ObjectLibraryPicker onPick={(imageKey, widthCells, dropPoint) => void objects.placeFromLibrary(imageKey, widthCells, dropPoint)} canDropAt={objects.canDropAt} />
           )}

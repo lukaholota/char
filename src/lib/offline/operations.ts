@@ -2,6 +2,7 @@ import { limitHeroicInspirationCount } from "@/rules/heroic-inspiration";
 import { MAX_FEATURE_USES as MAX_CUSTOM_FEATURE_USES } from "@/rules/pers-custom-content";
 import { applyChargesStep, type MagicItemCharges } from "@/rules/magic-item-charges";
 import { fillDefaultCharges, findItemChargeRules } from "@/rules/magic-item-charge-text";
+import { findMaxSpellPoints } from "@/rules/spell-points";
 
 export const OFFLINE_DETAIL_FIELDS = [
   "customProficiencies",
@@ -76,6 +77,7 @@ export type OfflineOperation =
   | (OfflineOperationBase & { kind: "restore-spell-slot"; slotLevel: number })
   | (OfflineOperationBase & { kind: "spend-pact-slot" })
   | (OfflineOperationBase & { kind: "restore-pact-slot" })
+  | (OfflineOperationBase & { kind: "spell-points"; amount: number })
   | (OfflineOperationBase & { kind: "heroic-inspiration"; heroicInspirationCount: number })
   | (OfflineOperationBase & { kind: "hit-dice"; remainingByClass: Record<string, number> })
   | (OfflineOperationBase & { kind: "feature-use"; featureId: number; direction: FeatureUseDirection; amount?: number })
@@ -110,6 +112,7 @@ export type OfflinePersState = OfflineDetailsPatch & {
   maxSpellSlots: number[];
   currentPactSlots: number;
   maxPactSlots: number;
+  spellPointsSpent?: number;
   heroicInspirationCount: number;
   canStackHeroicInspiration: boolean;
   currentHitDice?: unknown;
@@ -147,6 +150,8 @@ export function applyOfflineOperation<T extends OfflinePersState>(pers: T, opera
         ...pers,
         currentPactSlots: restoreOne(clampInteger(pers.currentPactSlots, 0), clampInteger(pers.maxPactSlots, 0)),
       };
+    case "spell-points":
+      return { ...pers, spellPointsSpent: clampInteger(clampInteger(pers.spellPointsSpent, 0) + clampInteger(operation.amount, -1000, 1000), 0, findMaxSpellPoints(pers.maxSpellSlots)) };
     case "heroic-inspiration":
       return {
         ...pers,
@@ -350,6 +355,8 @@ export function isOfflineOperation(value: unknown): value is OfflineOperation {
     case "spend-pact-slot":
     case "restore-pact-slot":
       return true;
+    case "spell-points":
+      return Number.isInteger(operation.amount);
     case "heroic-inspiration":
       return Number.isInteger(operation.heroicInspirationCount);
     case "hit-dice":

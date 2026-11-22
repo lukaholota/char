@@ -1,17 +1,31 @@
 import { describe, expect, it } from "vitest";
-import { buildOwnSoundKey, findOwnSoundFile, findOwnSoundKeys, isAmbientSoundKey, isOwnSoundKey, isSceneSoundKey, isSoundEffectKey, parseAmbience, parseSceneAtmosphere, readAmbience, readSceneTint, readOwnSoundName, readSceneWeather, toggleAmbienceLayer } from "@/rules/game-atmosphere";
+import { buildOwnSoundKey, DEFAULT_ATMOSPHERE, findOwnSoundFile, findOwnSoundKeys, isAmbientSoundKey, isOwnSoundKey, isSceneSoundKey, isSoundEffectKey, parseAmbience, parseSceneAtmosphere, readAmbience, readOwnSoundName, readSceneAtmosphere, toggleAmbienceLayer } from "@/rules/game-atmosphere";
 
 const FILE_ID = "0b6f3c1e-8a2d-4c4e-9f00-1234567890ab";
 
 describe("атмосфера сцени", () => {
   it("приймає лише відомі погоду й відтінок", () => {
-    expect(parseSceneAtmosphere({ weather: "snow", tint: "ethereal" })).toEqual({ weather: "snow", tint: "ethereal" });
-    expect(parseSceneAtmosphere({ weather: "hail", tint: "none" })).toBeNull();
-    expect(parseSceneAtmosphere({ weather: "none" })).toBeNull();
+    const snowy = { ...DEFAULT_ATMOSPHERE, weather: "snow", tint: "ethereal" };
+    expect(parseSceneAtmosphere(snowy)).toEqual(snowy);
+    expect(parseSceneAtmosphere({ ...DEFAULT_ATMOSPHERE, weather: "hail" })).toBeNull();
+    expect(parseSceneAtmosphere({ weather: "none", tint: "none" })).toBeNull();
     expect(parseSceneAtmosphere(null)).toBeNull();
-    expect(readSceneWeather("blizzard")).toBe("blizzard");
-    expect(readSceneWeather("hail")).toBe("none");
-    expect(readSceneTint(undefined)).toBe("none");
+  });
+
+  it("швидкість і сила — цілі відсотки в межах, колір — hex", () => {
+    const tinted = { ...DEFAULT_ATMOSPHERE, weather: "rain", weatherSpeed: 300, weatherColor: "#3B82F6", tint: "custom", tintColor: "#ff0000", tintStrength: 20 };
+    expect(parseSceneAtmosphere(tinted)).toEqual({ ...tinted, weatherColor: "#3b82f6" });
+    expect(parseSceneAtmosphere({ ...tinted, weatherSpeed: 325 })).toBeNull();
+    expect(parseSceneAtmosphere({ ...tinted, weatherSpeed: 12.5 })).toBeNull();
+    expect(parseSceneAtmosphere({ ...tinted, tintStrength: 10 })).toBeNull();
+    expect(parseSceneAtmosphere({ ...tinted, weatherColor: "blue" })).toBeNull();
+    expect(parseSceneAtmosphere({ ...tinted, tintColor: null })).toBeNull();
+  });
+
+  it("зіпсований рядок сцени читається як ясна погода без відтінку", () => {
+    expect(readSceneAtmosphere(undefined)).toEqual(DEFAULT_ATMOSPHERE);
+    expect(readSceneAtmosphere({ ...DEFAULT_ATMOSPHERE, tint: "acid" })).toEqual(DEFAULT_ATMOSPHERE);
+    expect(readSceneAtmosphere({ ...DEFAULT_ATMOSPHERE, weather: "blizzard" }).weather).toBe("blizzard");
   });
 
   it("ефект і фон беруться лише з вбудованих переліків", () => {

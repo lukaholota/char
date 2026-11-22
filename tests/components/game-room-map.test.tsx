@@ -23,7 +23,7 @@ vi.hoisted(() => {
   Object.defineProperty(window, "localStorage", { value: storage, configurable: true, writable: true });
   globalThis.ResizeObserver ??= class { observe() {} unobserve() {} disconnect() {} } as unknown as typeof ResizeObserver;
 });
-const mocks = vi.hoisted(() => ({ replace: vi.fn(), moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), changeMapCreatureHitPointsAction: vi.fn(), changeMapCreatureConditionsAction: vi.fn(), changeHeroConditionsAction: vi.fn(), transformHeroTokenAction: vi.fn(), transformMapCreatureAction: vi.fn(), refresh: vi.fn(), changeSceneFogAction: vi.fn(), changeSceneGridAction: vi.fn(), saveSceneAreaAction: vi.fn(), removeSceneAreasAction: vi.fn(), saveSceneDrawingsAction: vi.fn(), removeSceneDrawingsAction: vi.fn(), listAreaSpellsAction: vi.fn(), addSceneObjectAction: vi.fn(), changeSceneObjectAction: vi.fn(), removeSceneObjectsAction: vi.fn(), editSceneWallsAction: vi.fn(), changeSceneOpeningAction: vi.fn(), setSceneLightingAction: vi.fn(), saveSceneLightAction: vi.fn(), removeSceneLightsAction: vi.fn(), setHeroTokenLightAction: vi.fn(), setMapCreatureLightAction: vi.fn(), setHeroDarkvisionAction: vi.fn(), moveMapTokensAction: vi.fn(), setSceneAmbienceAction: vi.fn() }));
+const mocks = vi.hoisted(() => ({ replace: vi.fn(), moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), changeMapCreatureHitPointsAction: vi.fn(), changeMapCreatureConditionsAction: vi.fn(), changeHeroConditionsAction: vi.fn(), transformHeroTokenAction: vi.fn(), transformMapCreatureAction: vi.fn(), refresh: vi.fn(), changeSceneFogAction: vi.fn(), changeSceneGridAction: vi.fn(), saveSceneAreaAction: vi.fn(), removeSceneAreasAction: vi.fn(), saveSceneDrawingsAction: vi.fn(), removeSceneDrawingsAction: vi.fn(), moveSceneDrawingAction: vi.fn(), listAreaSpellsAction: vi.fn(), addSceneObjectAction: vi.fn(), changeSceneObjectAction: vi.fn(), removeSceneObjectsAction: vi.fn(), editSceneWallsAction: vi.fn(), changeSceneOpeningAction: vi.fn(), setSceneLightingAction: vi.fn(), saveSceneLightAction: vi.fn(), removeSceneLightsAction: vi.fn(), setHeroTokenLightAction: vi.fn(), setMapCreatureLightAction: vi.fn(), setHeroDarkvisionAction: vi.fn(), setDarkvisionLookAction: vi.fn(), moveMapTokensAction: vi.fn(), setSceneAmbienceAction: vi.fn() }));
 vi.mock("@/lib/actions/game-token-images", () => ({ listTokenImagesAction: async () => ({ ok: true, value: ["token-images/1/chest"] }) }));
 vi.mock("@/lib/actions/game-user-sounds", () => ({ listOwnSoundsAction: async () => ({ ok: true, value: [{ key: "own:0b6f3c1e-8a2d-4c4e-9f00-1234567890ab", name: "Сміх корчмаря" }] }), uploadOwnSoundAction: vi.fn(), deleteOwnSoundAction: vi.fn() }));
 vi.mock("@/lib/actions/game-sessions", () => ({
@@ -51,6 +51,7 @@ vi.mock("@/lib/actions/game-scene-tools", () => ({
   removeSceneAreasAction: mocks.removeSceneAreasAction,
   saveSceneDrawingsAction: mocks.saveSceneDrawingsAction,
   removeSceneDrawingsAction: mocks.removeSceneDrawingsAction,
+  moveSceneDrawingAction: mocks.moveSceneDrawingAction,
   addSceneObjectAction: mocks.addSceneObjectAction,
   changeSceneObjectAction: mocks.changeSceneObjectAction,
   removeSceneObjectsAction: mocks.removeSceneObjectsAction,
@@ -62,6 +63,7 @@ vi.mock("@/lib/actions/game-scene-tools", () => ({
   setHeroTokenLightAction: mocks.setHeroTokenLightAction,
   setMapCreatureLightAction: mocks.setMapCreatureLightAction,
   setHeroDarkvisionAction: mocks.setHeroDarkvisionAction,
+  setDarkvisionLookAction: mocks.setDarkvisionLookAction,
 }));
 vi.mock("@/lib/actions/game-scene-atmosphere", () => ({ setSceneAtmosphereAction: vi.fn(), setSceneAmbienceAction: mocks.setSceneAmbienceAction, changeSceneFloorsAction: vi.fn(), addFloorPlanAction: vi.fn() }));
 vi.mock("@/lib/actions/game-area-spells", () => ({ listAreaSpellsAction: mocks.listAreaSpellsAction }));
@@ -75,6 +77,8 @@ import { resetOptimisticValues } from "@/components/games/optimistic-values";
 import { resetMapHistory } from "@/components/games/map-history";
 import { resetLiveSession, showMapPing, useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
+import { DEFAULT_ATMOSPHERE } from "@/rules/game-atmosphere";
+import { DEFAULT_LIGHT_LOOK } from "@/rules/game-lighting";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -95,6 +99,7 @@ beforeEach(() => {
   mocks.removeSceneAreasAction.mockResolvedValue({ ok: true, value: null });
   mocks.saveSceneDrawingsAction.mockResolvedValue({ ok: true, value: { ids: [501] } });
   mocks.removeSceneDrawingsAction.mockResolvedValue({ ok: true, value: null });
+  mocks.moveSceneDrawingAction.mockResolvedValue({ ok: true, value: null });
   mocks.addSceneObjectAction.mockResolvedValue({ ok: true, value: { id: 301 } });
   mocks.changeSceneObjectAction.mockResolvedValue({ ok: true, value: null });
   mocks.removeSceneObjectsAction.mockResolvedValue({ ok: true, value: null });
@@ -102,6 +107,7 @@ beforeEach(() => {
   mocks.changeSceneOpeningAction.mockResolvedValue({ ok: true, value: null });
   mocks.setSceneLightingAction.mockResolvedValue({ ok: true, value: null });
   mocks.saveSceneLightAction.mockResolvedValue({ ok: true, value: { id: 701 } });
+  mocks.setDarkvisionLookAction.mockResolvedValue({ ok: true, value: null });
   mocks.listAreaSpellsAction.mockResolvedValue({ ok: true, value: { ruleset: "RULES_2014", spells: [{ name: "Вогняна куля", shape: "circle", sizeFeet: 20, isKnown: true }, { name: "Пекучі долоні", shape: "cone", sizeFeet: 15, isKnown: false }] } });
 });
 afterEach(() => {
@@ -128,7 +134,7 @@ function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
     drawings: [],
     objects: [],
     walls: [],
-    lighting: "off", lights: [], atmosphere: { weather: "none", tint: "none" }, ambience: [], floors: [], shownFloor: null,
+    lighting: "off", darkvisionLook: "grey", houseRules: { attunementLimit: null, magicSystem: null, damageTypes: [] }, lights: [], atmosphere: DEFAULT_ATMOSPHERE, ambience: [], floors: [], shownFloor: null,
     viewedSceneId: 1,
     activeSceneId: null,
     scenes: [],
@@ -1145,14 +1151,43 @@ describe("інструменти мапи на весь екран", () => {
     fireEvent.click(within(dialog).getByRole("radio", { name: "Товста" }));
     swipe(viewport, [[40, 40], [120, 40], [200, 60]]);
 
-    expect(mocks.saveSceneDrawingsAction).toHaveBeenCalledWith(7, 1, [expect.objectContaining({ color: "sky", width: "bold" })]);
-    expect(board.querySelectorAll("path.stroke-sky-400")).toHaveLength(1);
+    expect(mocks.saveSceneDrawingsAction).toHaveBeenCalledWith(7, 1, [expect.objectContaining({ color: "#38bdf8", width: "bold" })]);
+    expect(board.querySelectorAll("path[stroke=\"#38bdf8\"]")).toHaveLength(1);
     await act(async () => {});
 
     fireEvent.click(within(within(dialog).getByRole("region", { name: "Малювання" })).getByRole("button", { name: "Скасувати" }));
     await act(async () => {});
     expect(mocks.removeSceneDrawingsAction).toHaveBeenCalledWith(7, 1, [501]);
-    expect(board.querySelectorAll("path.stroke-sky-400")).toHaveLength(0);
+    expect(board.querySelectorAll("path[stroke=\"#38bdf8\"]")).toHaveLength(0);
+  });
+
+  it("текст пишуть у панелі й ставлять дотиком на мапу", async () => {
+    const { dialog, viewport, board } = openFullscreen(buildView({ grid }));
+    fireEvent.click(within(dialog).getByRole("button", { name: "Малювання" }));
+    fireEvent.click(within(dialog).getByRole("radio", { name: "Текст" }));
+    fireEvent.change(within(dialog).getByRole("textbox", { name: "Текст для мапи" }), { target: { value: "Тут дракон" } });
+    fireEvent.click(within(dialog).getByRole("radio", { name: "Вʼязь" }));
+    swipe(viewport, [[100, 50]]);
+
+    expect(mocks.saveSceneDrawingsAction).toHaveBeenCalledWith(7, 1, [expect.objectContaining({ shape: "text", label: { text: "Тут дракон", font: "ornate", effect: "outline" } })]);
+    expect(board.querySelector("text")?.textContent).toBe("Тут дракон");
+    expect((within(dialog).getByRole("textbox", { name: "Текст для мапи" }) as HTMLTextAreaElement).value).toBe("");
+    await act(async () => {});
+  });
+
+  it("гравець пересуває свою лінію в режимі «Рухати» і стирає виділену", async () => {
+    const drawings = [{ id: 9, userId: 2, shape: "line" as const, isFilled: false, fillOpacity: 1, color: "sky", width: "bold" as const, label: null, points: [{ x: 0.1, y: 0.5 }, { x: 0.9, y: 0.5 }] }];
+    const { dialog, viewport } = openFullscreen(buildView({ grid, drawings }));
+    fireEvent.click(within(dialog).getByRole("button", { name: "Малювання" }));
+    fireEvent.click(within(dialog).getByRole("radio", { name: "Рухати" }));
+    swipe(viewport, [[200, 100], [200, 120], [200, 140]]);
+    await act(async () => {});
+
+    const [, , id, points] = mocks.moveSceneDrawingAction.mock.lastCall!;
+    expect(id).toBe(9);
+    expect(points[0].y).toBeGreaterThan(0.5);
+    fireEvent.click(within(dialog).getByRole("button", { name: "Стерти виділене" }));
+    expect(mocks.removeSceneDrawingsAction).toHaveBeenCalledWith(7, 1, [9]);
   });
 
   it("повторена лінія зберігається наново, і наступне скасування прибирає вже її", async () => {
@@ -1168,7 +1203,7 @@ describe("інструменти мапи на весь екран", () => {
     fireEvent.click(panel.getByRole("button", { name: "Повторити" }));
     await act(async () => {});
     expect(mocks.saveSceneDrawingsAction).toHaveBeenCalledTimes(2);
-    expect(board.querySelectorAll("path.stroke-red-400")).toHaveLength(1);
+    expect(board.querySelectorAll("path[stroke=\"#ef4444\"]")).toHaveLength(1);
 
     fireEvent.click(panel.getByRole("button", { name: "Скасувати" }));
     await act(async () => {});
@@ -1176,7 +1211,7 @@ describe("інструменти мапи на весь екран", () => {
   });
 
   it("повтор стирання знову прибирає повернуті лінії", async () => {
-    const drawings = [{ id: 9, userId: 2, shape: "line" as const, isFilled: false, color: "sky" as const, width: "bold" as const, points: [{ x: 0.1, y: 0.5 }, { x: 0.9, y: 0.5 }] }];
+    const drawings = [{ id: 9, userId: 2, shape: "line" as const, isFilled: false, fillOpacity: 1, color: "sky", width: "bold" as const, label: null, points: [{ x: 0.1, y: 0.5 }, { x: 0.9, y: 0.5 }] }];
     const { dialog } = openFullscreen(buildView({ grid, drawings }));
     fireEvent.click(within(dialog).getByRole("button", { name: "Малювання" }));
     fireEvent.click(within(dialog).getByRole("button", { name: "Стерти мої" }));
@@ -1190,8 +1225,8 @@ describe("інструменти мапи на весь екран", () => {
 
   it("гумка гравця стирає лише його лінії, а майстер стирає все; в архіві олівця немає", () => {
     const drawings = [
-      { id: 9, userId: 2, shape: "line" as const, isFilled: false, color: "sky" as const, width: "bold" as const, points: [{ x: 0.1, y: 0.5 }, { x: 0.9, y: 0.5 }] },
-      { id: 10, userId: 3, shape: "line" as const, isFilled: false, color: "red" as const, width: "thin" as const, points: [{ x: 0.1, y: 0.2 }, { x: 0.9, y: 0.2 }] },
+      { id: 9, userId: 2, shape: "line" as const, isFilled: false, fillOpacity: 1, color: "sky", width: "bold" as const, label: null, points: [{ x: 0.1, y: 0.5 }, { x: 0.9, y: 0.5 }] },
+      { id: 10, userId: 3, shape: "line" as const, isFilled: false, fillOpacity: 1, color: "red", width: "thin" as const, label: null, points: [{ x: 0.1, y: 0.2 }, { x: 0.9, y: 0.2 }] },
     ];
     const { dialog, viewport } = openFullscreen(buildView({ grid, drawings }));
     fireEvent.click(within(dialog).getByRole("button", { name: "Малювання" }));
@@ -1212,7 +1247,7 @@ describe("інструменти мапи на весь екран", () => {
   });
 
   it("скасоване «Стерти все» повертає 120 ліній запитами по 50", async () => {
-    const drawings = Array.from({ length: 120 }, (_, index) => ({ id: index + 1, userId: 2, shape: "line" as const, isFilled: false, color: "red" as const, width: "thin" as const, points: [{ x: 0.1, y: 0.5 }, { x: 0.9, y: 0.5 }] }));
+    const drawings = Array.from({ length: 120 }, (_, index) => ({ id: index + 1, userId: 2, shape: "line" as const, isFilled: false, fillOpacity: 1, color: "red", width: "thin" as const, label: null, points: [{ x: 0.1, y: 0.5 }, { x: 0.9, y: 0.5 }] }));
     const { dialog } = openFullscreen(gmView({ grid, drawings }));
     fireEvent.click(within(dialog).getByRole("button", { name: "Малювання" }));
     fireEvent.click(within(dialog).getByRole("button", { name: "Стерти все" }));
@@ -1394,8 +1429,9 @@ describe("інструменти мапи на весь екран", () => {
 
   it("у темряві гравець бачить гобліна лише в світлі й без стіни між ним і героєм, а майстер бачить завжди", () => {
     const farGoblin = goblin(5, 1, { x: 0.875, y: 0.55 });
-    const torch = { id: 1, at: { x: 0.875, y: 0.55 }, brightFeet: 20, dimFeet: 20, isOn: true };
+    const torch = { id: 1, at: { x: 0.875, y: 0.55 }, brightFeet: 20, dimFeet: 20, isOn: true, look: DEFAULT_LIGHT_LOOK };
     const wall = [{ x: 0.7, y: 0 }, { x: 0.7, y: 1 }];
+    const members = [member(1, "GM", null), member(2, "PLAYER", "Арвен", { x: 0.5, y: 0.5 })];
     const isGoblinShown = (view: GameSessionView) => {
       const { dialog } = openFullscreen(view);
       const isShown = dialog.querySelector('[title="Гоблін 1"]') !== null;
@@ -1403,11 +1439,11 @@ describe("інструменти мапи на весь екран", () => {
       return isShown;
     };
 
-    expect(isGoblinShown(buildView({ grid, lighting: "dark", creatures: [farGoblin] }))).toBe(false);
-    expect(isGoblinShown(buildView({ grid, lighting: "dark", creatures: [farGoblin], lights: [torch] }))).toBe(true);
-    expect(isGoblinShown(buildView({ grid, lighting: "dark", creatures: [farGoblin], lights: [torch], walls: [asWall(wall)] }))).toBe(false);
-    expect(isGoblinShown(buildView({ grid, lighting: "off", creatures: [farGoblin], walls: [asWall(wall)] }))).toBe(true);
-    expect(isGoblinShown(gmView({ grid, lighting: "dark", creatures: [farGoblin] }))).toBe(true);
+    expect(isGoblinShown(buildView({ grid, lighting: "dark", creatures: [farGoblin], members }))).toBe(false);
+    expect(isGoblinShown(buildView({ grid, lighting: "dark", creatures: [farGoblin], members, lights: [torch] }))).toBe(true);
+    expect(isGoblinShown(buildView({ grid, lighting: "dark", creatures: [farGoblin], members, lights: [torch], walls: [asWall(wall)] }))).toBe(false);
+    expect(isGoblinShown(buildView({ grid, lighting: "off", creatures: [farGoblin], members, walls: [asWall(wall)] }))).toBe(true);
+    expect(isGoblinShown(gmView({ grid, lighting: "dark", creatures: [farGoblin], members }))).toBe(true);
   });
 
   it("гравець без героя на мапі в темряві бачить підказку, а не мапу", () => {
@@ -1415,11 +1451,65 @@ describe("інструменти мапи на весь екран", () => {
     expect(within(dialog).getByText("Поставте героя на мапу, щоб бачити")).toBeTruthy();
   });
 
-  it("майстер у перегляді «Як бачать гравці» без героїв на мапі бачить, чому темно", () => {
-    const { dialog } = openFullscreen(gmView({ grid, lighting: "dim", members: [member(1, "GM", null), member(2, "PLAYER", "Арвен")] }));
-    fireEvent.click(within(dialog).getByRole("button", { name: "Світло" }));
-    fireEvent.click(within(dialog).getByRole("switch", { name: "Як бачать гравці" }));
-    expect(within(dialog).getByText("На сцені немає героїв — гравцям нічого не видно. Перетягніть героя з «Поза мапою».")).toBeTruthy();
+  describe("зір кожного героя", () => {
+    const farGoblin = goblin(5, 1, { x: 0.875, y: 0.55 });
+    const seeingHeroes = () => [member(1, "GM", null), member(2, "PLAYER", "Арвен", { x: 0.1, y: 0.55 }), { ...member(3, "PLAYER", "Торин", { x: 0.8, y: 0.55 }), darkvisionFeet: 60 }];
+    const darkScene = { grid, lighting: "dark" as const, creatures: [farGoblin] };
+    const isGoblinShown = (dialog: HTMLElement) => dialog.querySelector('[title="Гоблін 1"]') !== null;
+
+    it("гравець бачить лише очима свого героя, а глядач без героя — очима партії", () => {
+      expect(isGoblinShown(openFullscreen(buildView({ ...darkScene, members: seeingHeroes() })).dialog)).toBe(false);
+      cleanup();
+      expect(isGoblinShown(openFullscreen(buildView({ ...darkScene, myUserId: 4, myPersId: null, myPersIds: [], members: seeingHeroes() })).dialog)).toBe(true);
+    });
+
+    it("майстер дивиться очима вибраного героя через Ctrl+L, рамка вибору зникає, а повторне Ctrl+L повертає повний огляд", () => {
+      const { dialog } = openFullscreen(gmView({ ...darkScene, members: seeingHeroes() }));
+      expect(isGoblinShown(dialog)).toBe(true);
+
+      tap(within(dialog).getByRole("button", { name: /Токен «Арвен»/ }));
+      expect(within(dialog).getByRole("button", { name: /^Повернути токен/ })).toBeTruthy();
+      fireEvent.keyDown(window, { code: "KeyL", ctrlKey: true });
+      expect(isGoblinShown(dialog)).toBe(false);
+      expect(within(dialog).queryByRole("button", { name: /^Повернути токен/ })).toBeNull();
+
+      fireEvent.click(within(dialog).getByRole("button", { name: "Світло" }));
+      expect(within(dialog).getByRole("button", { name: /Вийти з погляду: Арвен/ }).getAttribute("aria-pressed")).toBe("true");
+      fireEvent.keyDown(window, { code: "KeyL", ctrlKey: true });
+      expect(isGoblinShown(dialog)).toBe(true);
+    });
+
+    it("кнопка з оком без вибраного героя вимкнена, а Ctrl+L підказує, що вибрати", () => {
+      const { dialog } = openFullscreen(gmView({ ...darkScene, members: seeingHeroes() }));
+      fireEvent.click(within(dialog).getByRole("button", { name: "Світло" }));
+      expect((within(dialog).getByRole("button", { name: /Очима героя/ }) as HTMLButtonElement).disabled).toBe(true);
+      fireEvent.keyDown(window, { code: "KeyL", ctrlKey: true });
+      expect(toast).toHaveBeenCalledWith("Виберіть героя на мапі, тоді — око або Ctrl+L");
+    });
+
+    it("у панелі «Світло» майстер вибирає героя й натискає око — бачить те, що бачить герой", () => {
+      const { dialog } = openFullscreen(gmView({ ...darkScene, members: seeingHeroes() }));
+      fireEvent.click(within(dialog).getByRole("button", { name: "Світло" }));
+      tap(within(dialog).getByRole("button", { name: /Токен «Арвен»/ }));
+      fireEvent.click(within(dialog).getByRole("button", { name: /Очима: Арвен/ }));
+      expect(isGoblinShown(dialog)).toBe(false);
+      fireEvent.click(within(dialog).getByRole("button", { name: "Очима: Арвен · вийти" }));
+      expect(isGoblinShown(dialog)).toBe(true);
+      expect(within(dialog).queryByRole("button", { name: "Очима: Арвен · вийти" })).toBeNull();
+    });
+
+    it("темний зір фарбує сцену стилем кампанії, а майстер міняє стиль для всіх", async () => {
+      const mine = [member(1, "GM", null), { ...member(2, "PLAYER", "Арвен", { x: 0.8, y: 0.55 }), darkvisionFeet: 60 }];
+      const { dialog } = openFullscreen(buildView({ ...darkScene, darkvisionLook: "dim", members: mine }));
+      expect(dialog.querySelector('[data-darkvision="dim"]')).not.toBeNull();
+      cleanup();
+
+      const gm = openFullscreen(gmView({ ...darkScene, members: mine })).dialog;
+      fireEvent.click(within(gm).getByRole("button", { name: "Світло" }));
+      await act(async () => fireEvent.click(within(within(gm).getByRole("radiogroup", { name: "Темний зір" })).getByRole("radio", { name: "Тепловізор" })));
+      expect(mocks.setDarkvisionLookAction).toHaveBeenCalledWith(7, "heat");
+      expect(within(within(gm).getByRole("radiogroup", { name: "Темний зір" })).getByRole("radio", { name: "Тепловізор" }).getAttribute("aria-checked")).toBe("true");
+    });
   });
 
   it("гравець не проводить героя крізь стіну, але обходить її й проходить відчинені двері; майстра стіни не спиняють", () => {
@@ -1471,7 +1561,7 @@ describe("інструменти мапи на весь екран", () => {
     expect(mocks.setSceneLightingAction).toHaveBeenLastCalledWith(7, 1, "dark");
 
     await act(async () => fireEvent.click(panel.getByRole("button", { name: /Смолоскип/ })));
-    expect(mocks.saveSceneLightAction).toHaveBeenLastCalledWith(7, 1, null, { at: { x: 0.5, y: 0.5 }, brightFeet: 20, dimFeet: 20, isOn: true });
+    expect(mocks.saveSceneLightAction).toHaveBeenLastCalledWith(7, 1, null, { at: { x: 0.5, y: 0.5 }, brightFeet: 20, dimFeet: 20, isOn: true, look: DEFAULT_LIGHT_LOOK });
     expect(within(dialog).getByRole("button", { name: /Джерело світла 20\/20 фт/, pressed: true })).toBeTruthy();
     expect(panel.getByRole("group", { name: "Яскраве" })).toBeTruthy();
   });

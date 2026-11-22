@@ -54,6 +54,13 @@ async function baseForm(className: string, ids: number[]) {
 }
 
 describe("KR31.2 — класові інструменти під час створення", () => {
+  it("пропущені кроки класових виборів, навичок, мов і заклинань не блокують створення", async () => {
+    const user = await prisma.user.create({ data: { email: "bard-skip@holota.family", name: "Bard Skip" } });
+    vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);
+    const created = await createCharacter({ ...await baseForm("BARD_2024", []), skills: [], skillsSchema: undefined, languagesSchema: undefined, classSpells: undefined });
+    expect(created).not.toHaveProperty("error");
+  });
+
   it("Бард мусить обрати три різні інструменти, які зберігаються в профілях", async () => {
     const user = await prisma.user.create({ data: { email: "bard-tools@holota.family", name: "Bard Tools" } });
     vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);

@@ -4,16 +4,17 @@ import { parseAreaPlacement } from "@/rules/game-areas";
 import { DRAWING_LIMITS, parseDrawingStrokes } from "@/rules/game-drawings";
 import { parseFogChange } from "@/rules/game-fog";
 import { parseSceneGrid } from "@/rules/game-grid";
-import { LIGHT_LIMITS, parseLightSource, parseSceneLighting, parseTokenLight } from "@/rules/game-lighting";
+import { LIGHT_LIMITS, parseDarkvisionLook, parseLightSource, parseSceneLighting, parseTokenLight } from "@/rules/game-lighting";
 import { OBJECT_LIMITS, parseObjectPlacement } from "@/rules/game-objects";
 import { parseOpeningChange, parseWallEdit } from "@/rules/game-walls";
+import { parseStrokePoints } from "@/rules/map-strokes";
 import { parsePositionMoves } from "@/rules/map-group";
 import { addSceneObject, changeSceneObject, moveSceneObjects, removeSceneObjects } from "@/server/db/game-scene-objects";
-import { removeSceneLights, saveSceneLight, setSceneLighting } from "@/server/db/game-scene-lighting";
+import { removeSceneLights, saveSceneLight, setDarkvisionLook, setSceneLighting } from "@/server/db/game-scene-lighting";
 import { changeSceneOpening, editSceneWalls } from "@/server/db/game-scene-walls";
 import { setMapCreatureLight } from "@/server/db/game-map-creatures";
 import { setHeroDarkvision, setHeroTokenLight } from "@/server/db/game-scenes";
-import { changeSceneFog, changeSceneGrid, removeSceneAreas, removeSceneDrawings, saveSceneArea, saveSceneDrawings } from "@/server/db/game-scene-tools";
+import { changeSceneFog, changeSceneGrid, removeSceneAreas, moveSceneDrawing, removeSceneDrawings, saveSceneArea, saveSceneDrawings } from "@/server/db/game-scene-tools";
 import { isId, rejectBadInput, runAsUser, tooFast } from "@/server/game-sessions/game-action";
 import { tryTakeTokenMoveSlot } from "@/server/game-sessions/game-session-limits";
 
@@ -81,6 +82,16 @@ export async function removeSceneDrawingsAction(sessionId: number, sceneId: numb
   });
 }
 
+export async function moveSceneDrawingAction(sessionId: number, sceneId: number, drawingId: number, rawPoints: unknown) {
+  const points = parseStrokePoints(rawPoints);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(sceneId) || !isId(drawingId)) return rejectBadInput;
+    if (!points) return rejectBadDrawing;
+    if (!tryTakeTokenMoveSlot(userId)) return tooFast;
+    return moveSceneDrawing(sessionId, userId, sceneId, drawingId, points);
+  });
+}
+
 export async function addSceneObjectAction(sessionId: number, sceneId: number, imageKey: string, rawPlacement: unknown) {
   const placement = parseObjectPlacement(rawPlacement);
   return runAsUser(async (userId) => {
@@ -133,6 +144,14 @@ export async function setSceneLightingAction(sessionId: number, sceneId: number,
   return runAsUser(async (userId) => {
     if (!isId(sessionId) || !isId(sceneId) || !lighting) return rejectBadInput;
     return setSceneLighting(sessionId, userId, sceneId, lighting);
+  });
+}
+
+export async function setDarkvisionLookAction(sessionId: number, rawLook: unknown) {
+  const look = parseDarkvisionLook(rawLook);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !look) return rejectBadInput;
+    return setDarkvisionLook(sessionId, userId, look);
   });
 }
 

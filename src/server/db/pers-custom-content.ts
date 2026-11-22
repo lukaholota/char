@@ -26,8 +26,8 @@ export function listCustomFeatures(persId: number) {
 export async function saveCustomSkill(persId: number, skillId: number | null, input: CustomSkillInput): Promise<CustomSaveFailure | null> {
   const data = { name: input.name, ability: input.ability as Ability, proficiencyType: input.proficiencyType as SkillProficiencyType, bonus: input.bonus };
   try {
-    if (skillId !== null) return (await prisma.persCustomSkill.updateMany({ where: { id: skillId, persId }, data })).count ? null : { success: false, error: "Навичку не знайдено." };
-    if ((await prisma.persCustomSkill.count({ where: { persId } })) >= MAX_CUSTOM_SKILLS) return { success: false, error: `Можна додати до ${MAX_CUSTOM_SKILLS} навичок.` };
+    if (skillId !== null) return (await prisma.persCustomSkill.updateMany({ where: { id: skillId, persId, campaignSkillId: null }, data })).count ? null : { success: false, error: "Навичку не знайдено." };
+    if ((await prisma.persCustomSkill.count({ where: { persId, campaignSkillId: null } })) >= MAX_CUSTOM_SKILLS) return { success: false, error: `Можна додати до ${MAX_CUSTOM_SKILLS} навичок.` };
     await prisma.persCustomSkill.create({ data: { ...data, persId } });
     return null;
   } catch (error) {
@@ -37,24 +37,24 @@ export async function saveCustomSkill(persId: number, skillId: number | null, in
 }
 
 export async function deleteCustomSkill(persId: number, skillId: number): Promise<void> {
-  await prisma.persCustomSkill.deleteMany({ where: { id: skillId, persId } });
+  await prisma.persCustomSkill.deleteMany({ where: { id: skillId, persId, campaignSkillId: null } });
 }
 
 export async function saveCustomFeature(persId: number, featureId: number | null, input: CustomFeatureInput): Promise<CustomSaveFailure | null> {
   const data = { ...input, restoredOn: input.restoredOn as RestType | null };
   if (featureId === null) {
-    if ((await prisma.persCustomFeature.count({ where: { persId } })) >= MAX_CUSTOM_FEATURES) return { success: false, error: `Можна додати до ${MAX_CUSTOM_FEATURES} здібностей.` };
+    if ((await prisma.persCustomFeature.count({ where: { persId, campaignFeatureId: null } })) >= MAX_CUSTOM_FEATURES) return { success: false, error: `Можна додати до ${MAX_CUSTOM_FEATURES} здібностей.` };
     await prisma.persCustomFeature.create({ data: { ...data, persId, usesRemaining: input.usesMax } });
     return null;
   }
-  const previous = await prisma.persCustomFeature.findFirst({ where: { id: featureId, persId }, select: { usesMax: true, usesRemaining: true } });
+  const previous = await prisma.persCustomFeature.findFirst({ where: { id: featureId, persId, campaignFeatureId: null }, select: { usesMax: true, usesRemaining: true } });
   if (!previous) return { success: false, error: "Здібність не знайдено." };
   await prisma.persCustomFeature.update({ where: { id: featureId }, data: { ...data, usesRemaining: findUsesRemainingAfterEdit(previous, input.usesMax) } });
   return null;
 }
 
 export async function deleteCustomFeature(persId: number, featureId: number): Promise<void> {
-  await prisma.persCustomFeature.deleteMany({ where: { id: featureId, persId } });
+  await prisma.persCustomFeature.deleteMany({ where: { id: featureId, persId, campaignFeatureId: null } });
 }
 
 /// Умова на рядку, а не читання перед записом: два швидкі натискання не виходять за межі.

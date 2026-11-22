@@ -37,7 +37,7 @@ async function applySlotOperation(userId: number, operation: OfflineOperation) {
   revalidatePath(`/character/${operation.persId}`);
 
   const pers = await findSpellSlotOwnership(operation.persId);
-  return { currentSpellSlots: normalizeSlots(pers?.currentSpellSlots), currentPactSlots: pers?.currentPactSlots ?? 0 };
+  return { currentSpellSlots: normalizeSlots(pers?.currentSpellSlots), currentPactSlots: pers?.currentPactSlots ?? 0, spellPointsSpent: pers?.spellPointsSpent ?? 0 };
 }
 
 /**
@@ -200,4 +200,17 @@ export async function restorePactSlot(
   revalidatePath(`/character/${persId}`);
 
   return { success: true, currentPactSlots: updated };
+}
+
+export async function changeSpellPoints(
+  persId: number,
+  amount: number,
+  operationId: string
+): Promise<{ success: true; spellPointsSpent: number } | { success: false; error: string }> {
+  if (!Number.isInteger(amount) || !isOperationId(operationId)) return { success: false, error: "Некоректна зміна очок чар" };
+
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+  const { spellPointsSpent } = await applySlotOperation(owned.userId, { kind: "spell-points", amount, operationId, persId, createdAt: new Date().toISOString() });
+  return { success: true, spellPointsSpent };
 }

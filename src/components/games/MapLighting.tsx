@@ -7,14 +7,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { MAP_VIEW_WIDTH, findViewUnitsPerFoot, toViewPoint, type MapFrame } from "@/rules/game-grid";
-import { LIGHT_LIMITS, LIGHT_PRESETS, type SceneLighting, type SceneSight, type TokenLight } from "@/rules/game-lighting";
+import { LIGHT_LIMITS, LIGHT_PRESETS, type DarkvisionLook, type SceneLighting, type SceneSight, type TokenLight } from "@/rules/game-lighting";
 import type { ViewPoint } from "@/rules/map-visibility";
+import type { GameSessionView } from "@/server/db/game-sessions";
 import type { MapHistory } from "./map-history";
+import { MapTintRows } from "./MapAtmosphere";
+import { CharacterViewButton, DarkvisionLookRows, DarkvisionTint } from "./MapDarkvision";
+import { buildConePath, LightGlows, LightLookRows } from "./MapLightLook";
 import { MapSvg } from "./MapOverlay";
 import { HistoryButtons, Segmented, Stepper, ToolPanel } from "./MapToolbar";
 import { COUNTER_ZOOM } from "./MapTokenSlot";
 import type { MapLights, TokenLights, TokenLightTarget } from "./use-map-lights";
-import type { FadingSight } from "./use-map-sight";
+import type { CharacterView, FadingSight } from "./use-map-sight";
 
 const LIGHTINGS: Array<{ value: SceneLighting; label: string; hint: string }> = [
   { value: "off", label: "Вимкнено", hint: "Мапа як завжди: гравці бачать усе, крім туману." },
@@ -80,16 +84,18 @@ export function MapSightLayer({ sight, isVeil, className }: { sight: SceneSight;
           </g>
         </mask>
       </defs>
+      <LightGlows sight={sight} idPrefix={id} />
       <rect width={MAP_VIEW_WIDTH} height={height} mask={findUrl("mask")} className={isVeil ? "fill-slate-950/55" : "fill-slate-950"} />
     </MapSvg>
   );
 }
 
 /// Гравцю темрява лягає між істотами й героями, як туман; стара картина ще гасне зверху.
-export function MapSight({ sight, fading, isVeil }: { sight: SceneSight; fading: FadingSight; isVeil: boolean }) {
+export function MapSight({ sight, fading, isVeil, darkvisionLook }: { sight: SceneSight; fading: FadingSight; isVeil: boolean; darkvisionLook: DarkvisionLook }) {
   const layer = isVeil ? undefined : "z-20";
   return (
     <>
+      {isVeil ? null : <DarkvisionTint sight={sight} look={darkvisionLook} className={layer} />}
       <MapSightLayer sight={sight} isVeil={isVeil} className={layer} />
       {fading.fading ? (
         <div className={cn("map-sight-fade pointer-events-none absolute inset-0", layer)} onAnimationEnd={fading.clearFading}>
@@ -110,10 +116,12 @@ export function MapLightMarkers({ lights, frame, aspect }: { lights: MapLights; 
           {lights.shown.map((light) => {
             const at = toViewPoint(lights.findShownAt(light), aspect);
             const stroke = light.isOn ? "stroke-amber-200" : "stroke-slate-400";
+            const isCone = light.look.coneDegrees < LIGHT_LIMITS.cone.max;
+            const drawReach = (radius: number, look: { strokeWidth: number; strokeDasharray?: string }) => (isCone ? <path d={buildConePath(at, radius, light.look)} vectorEffect="non-scaling-stroke" className={stroke} {...look} /> : <circle cx={at.x} cy={at.y} r={radius} vectorEffect="non-scaling-stroke" className={stroke} {...look} />);
             return (
               <g key={light.id} fill="none" vectorEffect="non-scaling-stroke" strokeDasharray={light.isOn ? undefined : "4 4"}>
-                {light.brightFeet ? <circle cx={at.x} cy={at.y} r={light.brightFeet * perFoot} strokeWidth={1.5} vectorEffect="non-scaling-stroke" className={stroke} /> : null}
-                <circle cx={at.x} cy={at.y} r={(light.brightFeet + light.dimFeet) * perFoot} strokeWidth={1} strokeDasharray="2 4" vectorEffect="non-scaling-stroke" className={stroke} />
+                {light.brightFeet ? drawReach(light.brightFeet * perFoot, { strokeWidth: 1.5 }) : null}
+                {drawReach((light.brightFeet + light.dimFeet) * perFoot, { strokeWidth: 1, strokeDasharray: "2 4" })}
               </g>
             );
           })}
@@ -143,9 +151,9 @@ export function MapLightMarkers({ lights, frame, aspect }: { lights: MapLights; 
   );
 }
 
-type LightPanelProps = { lights: MapLights; hasGrid: boolean; isPreview: boolean; onPreviewChange: (isOn: boolean) => void; history: MapHistory; onClose: () => void };
+type LightPanelProps = { view: GameSessionView; lights: MapLights; hasGrid: boolean; characterView: CharacterView; history: MapHistory; onClose: () => void };
 
-export function LightPanel({ lights, hasGrid, isPreview, onPreviewChange, history, onClose }: LightPanelProps) {
+export function LightPanel({ view, lights, hasGrid, characterView, history, onClose }: LightPanelProps) {
   const chosen = lights.chosen;
   const hint = LIGHTINGS.find((option) => option.value === lights.lighting)?.hint;
   return (
@@ -156,6 +164,7 @@ export function LightPanel({ lights, hasGrid, isPreview, onPreviewChange, histor
         <div className="space-y-2 border-t border-white/10 pt-2">
           <Stepper label="Яскраве" value={`${chosen.brightFeet} фт`} onStep={(direction) => lights.change(chosen.id, { ...chosen, brightFeet: chosen.brightFeet + direction * FEET_STEP })} canDecrease={chosen.brightFeet > 0} canIncrease={chosen.brightFeet < LIGHT_LIMITS.feet} />
           <Stepper label="Тьмяне понад нього" value={`${chosen.dimFeet} фт`} onStep={(direction) => lights.change(chosen.id, { ...chosen, dimFeet: chosen.dimFeet + direction * FEET_STEP })} canDecrease={chosen.dimFeet > 0} canIncrease={chosen.dimFeet < LIGHT_LIMITS.feet} />
+          <LightLookRows look={chosen.look} onChange={(look) => lights.change(chosen.id, { ...chosen, look })} />
           <label className="flex min-h-11 cursor-pointer items-center justify-between gap-3 text-sm text-slate-300">
             Горить
             <Switch checked={chosen.isOn} onCheckedChange={(isOn) => lights.change(chosen.id, { ...chosen, isOn })} />
@@ -178,10 +187,11 @@ export function LightPanel({ lights, hasGrid, isPreview, onPreviewChange, histor
           </div>
         </div>
       )}
-      <label className="flex min-h-11 cursor-pointer items-center justify-between gap-3 border-t border-white/10 pt-2 text-sm text-slate-300">
-        Як бачать гравці
-        <Switch checked={isPreview} onCheckedChange={onPreviewChange} />
-      </label>
+      <MapTintRows view={view} />
+      {lights.lighting === "dark" ? <DarkvisionLookRows look={lights.darkvisionLook} onChange={lights.setDarkvisionLook} /> : null}
+      <div className="border-t border-white/10 pt-2">
+        <CharacterViewButton characterView={characterView} />
+      </div>
     </ToolPanel>
   );
 }
@@ -189,7 +199,7 @@ export function LightPanel({ lights, hasGrid, isPreview, onPreviewChange, histor
 const findPresetKey = (light: TokenLight) => (light.brightFeet + light.dimFeet === 0 ? NO_LIGHT_KEY : (LIGHT_PRESETS.find((preset) => preset.brightFeet === light.brightFeet && preset.dimFeet === light.dimFeet)?.key ?? `custom`));
 
 /// Рядки в панелі вибраного токена, поки на сцені ввімкнено освітлення.
-export function TokenLightRows({ target, tokenLights, canSetDarkvision }: { target: TokenLightTarget; tokenLights: TokenLights; canSetDarkvision: boolean }) {
+export function TokenLightRows({ target, tokenLights, characterView }: { target: TokenLightTarget; tokenLights: TokenLights; characterView: CharacterView | null }) {
   const light = tokenLights.findLight(target);
   const presetKey = findPresetKey(light);
   const choose = (key: string) => {
@@ -213,8 +223,9 @@ export function TokenLightRows({ target, tokenLights, canSetDarkvision }: { targ
           </SelectContent>
         </Select>
       </div>
-      {member && canSetDarkvision ? (
+      {member && characterView ? (
         <>
+          <CharacterViewButton characterView={characterView} />
           <Stepper label="Темний зір" value={`${darkvision} фт`} onStep={(direction) => tokenLights.sendDarkvision(member, Math.max(0, darkvision + direction * DARKVISION_STEP))} canDecrease={darkvision > 0} canIncrease={darkvision + DARKVISION_STEP <= LIGHT_LIMITS.feet} />
           <Button type="button" variant="ghost" onClick={() => tokenLights.sendDarkvision(member, null)} className="h-11 w-full text-slate-300">Темний зір як у листі героя</Button>
         </>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildCreatureActionRollContext, buildD20Action, buildRollOutcome, buildSpellRollContext, buildWeaponRollContext, countMainDice } from "@/lib/components/dice/roll-contexts";
+import { buildCreatureActionRollContext, buildD20Action, buildInitiativeRollContext, buildRollOutcome, buildSpellRollContext, buildWeaponRollContext, countMainDice } from "@/lib/components/dice/roll-contexts";
 import { findGameRollProblem } from "@/rules/game-roll";
 import { ADDED_DAMAGE_KEY, buildActionGameRoll, buildFreeGameRoll, buildTargetSaveGameRoll, canRollTakeTarget, findActionRollKind, takeDiceToPublish } from "./build-game-roll";
 
@@ -203,5 +203,14 @@ describe("canRollTakeTarget", () => {
     expect(findActionRollKind(healingWord, healingWord.actions[0])).toBe("heal");
     expect(findActionRollKind({ isCreatureRoll: true }, { ...healingWord.actions[0] })).toBeNull();
     expect(canRollTakeTarget(buildWeaponRollContext({ weaponName: "Лук", attackBonus: 5, damageBonus: 3, damageDice: "1d8" }))).toBe(true);
+  });
+});
+
+describe("кидок ініціативи з листа", () => {
+  it("позначений для черги бою, кидок зброї — ні", () => {
+    const initiative = buildInitiativeRollContext(2) as ReturnType<typeof buildWeaponRollContext>;
+    expect(rollAction(initiative, 0, "NORMAL", [13])).toMatchObject({ isInitiative: true, roll: { total: 15 } });
+    const weapon = buildWeaponRollContext({ weaponName: "Кинджал", attackBonus: 4, damageBonus: 2, damageDice: "1d4" });
+    expect(rollAction(weapon, 0, "NORMAL", [10]).isInitiative).toBeUndefined();
   });
 });

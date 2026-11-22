@@ -6,7 +6,7 @@ import { parseFloorId } from "@/rules/game-floors";
 import { parseMapTokenMoves } from "@/rules/map-group";
 import { parseTokenTransform } from "@/rules/token-transform";
 import { parseHitPointChange } from "@/rules/creature-hit-points";
-import { parseInitiative, parseTurnStep } from "@/rules/game-combat";
+import { parseCombatPick, parseInitiative, parseTurnStep } from "@/rules/game-combat";
 import { MAP_LIBRARY } from "@/lib/refs/map-library-catalog";
 import { OBJECT_LIBRARY } from "@/lib/refs/object-library-catalog";
 import { parseSceneMapSource } from "@/rules/game-scenes";
@@ -14,14 +14,15 @@ import { readSceneLayoutField } from "@/rules/uvtt-import";
 import { parseCreatureTokenSize, parseCustomName, parseNewMapCreatures, parseTokenNameMode } from "@/rules/game-map-creatures";
 import { parseTokenConditionChange } from "@/rules/token-conditions";
 import { isId, rejectBadInput, runAsUser, tooFast } from "@/server/game-sessions/game-action";
-import { tryTakeTokenMoveSlot } from "@/server/game-sessions/game-session-limits";
 import { activateGameScene, createGameScene, deleteGameScene, moveGameToken, moveMapTokens, openGameScene, renameGameScene, replaceGameSceneMap, transformHeroToken } from "@/server/db/game-scenes";
 import { changeCreatureConditions, changeHeroConditions, clearBlessedMarks, markBlessedTargets } from "@/server/db/game-conditions";
 import { parseRollTargets } from "@/rules/map-target-picks";
-import { undoRollDamage } from "@/server/db/game-roll-events";
+import { insertJournalMessage, undoRollDamage } from "@/server/db/game-roll-events";
+import { parseJournalMessage } from "@/rules/game-roll";
+import { tryTakeRollSlot, tryTakeTokenMoveSlot } from "@/server/game-sessions/game-session-limits";
 import { MAX_SAVE_TARGETS } from "@/rules/game-roll-saves";
 import { addMissingCombatants, advanceCombatTurn, endCombat, endOwnCombatTurn, setCombatantInitiative, startCombat } from "@/server/db/game-combat";
-import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize, transformMapCreature } from "@/server/db/game-map-creatures";
+import { addMapCreatures, changeMapCreatureHitPoints, duplicateMapCreature, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureNameHidden, setMapCreatureSize, transformMapCreature } from "@/server/db/game-map-creatures";
 import {
   bindMemberPers,
   GAME_SESSION_LIMITS,
@@ -30,6 +31,7 @@ import {
   leaveGameSession,
   removeGameSessionMember,
   renameGameSession,
+  saveGameSessionHouseRules,
   rotateInviteToken,
   setGameSessionArchived,
   setRoomHeroCutout,
@@ -40,6 +42,10 @@ export async function createGameSessionAction(name: string) {
   const result = await runAsUser((userId) => createGameSession(userId, name));
   if (result.ok) captureServerPostHogEvent("game_session_created", {});
   return result;
+}
+
+export async function saveGameSessionHouseRulesAction(sessionId: number, rules: unknown) {
+  return runAsUser(async (userId) => (isId(sessionId) ? saveGameSessionHouseRules(sessionId, userId, rules) : rejectBadInput));
 }
 
 export async function renameGameSessionAction(sessionId: number, name: string) {
@@ -163,6 +169,14 @@ export async function addMapCreaturesAction(sessionId: number, rawInput: unknown
   });
 }
 
+export async function duplicateMapCreatureAction(sessionId: number, creatureId: number, step: number) {
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(creatureId) || !Number.isInteger(step) || step < 1 || step > 100) return rejectBadInput;
+    if (!tryTakeTokenMoveSlot(userId)) return tooFast;
+    return duplicateMapCreature(sessionId, userId, creatureId, step);
+  });
+}
+
 export async function moveMapCreatureAction(sessionId: number, creatureId: number, rawPosition: unknown, rawFloor?: unknown) {
   const position = parseTokenPosition(rawPosition);
   const floor = rawFloor === undefined ? undefined : parseFloorId(rawFloor);
@@ -203,6 +217,25 @@ export async function renameMapCreatureAction(sessionId: number, creatureId: num
   });
 }
 
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+export async function postJournalMessageAction(sessionId: number, rawText: unknown, isForGm: unknown, idempotencyKey: unknown) {
+  const text = parseJournalMessage(rawText);
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || text === null || typeof isForGm !== "boolean" || typeof idempotencyKey !== "string" || !UUID.test(idempotencyKey)) return rejectBadInput;
+    if (!tryTakeRollSlot(userId)) return tooFast;
+    const posted = await insertJournalMessage(sessionId, userId, { idempotencyKey, text, isForGm });
+    return posted.ok ? { ok: true as const, value: null } : posted;
+  });
+}
+
+export async function setMapCreatureNameHiddenAction(sessionId: number, creatureId: number, isNameHidden: unknown) {
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(creatureId) || typeof isNameHidden !== "boolean") return rejectBadInput;
+    return setMapCreatureNameHidden(sessionId, userId, creatureId, isNameHidden);
+  });
+}
+
 export async function changeMapCreatureHitPointsAction(sessionId: number, creatureId: number, rawChange: unknown) {
   const change = parseHitPointChange(rawChange);
   return runAsUser(async (userId) => {
@@ -219,8 +252,9 @@ export async function setCreatureNameModeAction(sessionId: number, rawMode: unkn
   });
 }
 
-export async function startCombatAction(sessionId: number) {
-  return runAsUser(async (userId) => (isId(sessionId) ? startCombat(sessionId, userId) : rejectBadInput));
+export async function startCombatAction(sessionId: number, rawPick?: unknown) {
+  const pick = parseCombatPick(rawPick);
+  return runAsUser(async (userId) => (isId(sessionId) && pick !== undefined ? startCombat(sessionId, userId, pick) : rejectBadInput));
 }
 
 export async function endCombatAction(sessionId: number) {
@@ -241,8 +275,9 @@ export async function setCombatantInitiativeAction(sessionId: number, combatantI
   return runAsUser(async (userId) => (isId(sessionId) && isId(combatantId) && initiative !== null ? setCombatantInitiative(sessionId, userId, combatantId, initiative) : rejectBadInput));
 }
 
-export async function addCombatantsAction(sessionId: number) {
-  return runAsUser(async (userId) => (isId(sessionId) ? addMissingCombatants(sessionId, userId) : rejectBadInput));
+export async function addCombatantsAction(sessionId: number, rawPick?: unknown) {
+  const pick = parseCombatPick(rawPick);
+  return runAsUser(async (userId) => (isId(sessionId) && pick !== undefined ? addMissingCombatants(sessionId, userId, pick) : rejectBadInput));
 }
 
 export async function changeMapCreatureConditionsAction(sessionId: number, creatureId: number, rawChange: unknown) {

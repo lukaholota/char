@@ -29,9 +29,11 @@ import { findAlertInitiativeBonus, findObservantPassiveBonus } from "@/rules/fea
 import { findFastMovementBonus } from "@/rules/fast-movement";
 import { findMagicItemState, readItemStateMagicItemId, type MagicItemState } from "@/rules/magic-item-states";
 import { isDrinkableMagicItem } from "@/rules/potions";
-import { listActiveMagicItemLinks, sumWeaponItemBonus } from "./magic-weapon-links";
+import { listActiveMagicItemLinks, listWeaponMagicItems, sumWeaponItemBonus } from "./magic-weapon-links";
+import { formatFormulaDice, parseWeaponDamageFormula, sumAbilityTerms, type WeaponDamageFormula } from "@/rules/weapon-damage-formula";
 import { calculateWalkingSpeed, explainWalkingSpeed, type WalkingSpeedPartKey } from "@/rules/walking-speed";
-import { collectDamageResistances, findDarkvisionRange } from "@/rules/senses-and-resistances";
+import { collectDamageResistances, findOwnDarkvisionRange } from "@/rules/senses-and-resistances";
+import { parsePersHouseRules } from "@/rules/house-rules";
 import {
   collectItemDamageTypes,
   explainItemAbilityParts,
@@ -682,7 +684,7 @@ export function calculateDamageImmunities(pers: PersWithRelations) {
 }
 
 export function calculateDarkvisionRange(pers: PersWithRelations): number | null {
-  return findItemDarkvisionRange(listActiveMagicItemEffects(pers), findDarkvisionRange(collectActiveFeatures(pers)));
+  return findItemDarkvisionRange(listActiveMagicItemEffects(pers), findOwnDarkvisionRange(collectActiveFeatures(pers), parsePersHouseRules(pers.houseRules).darkvisionRange));
 }
 
 export function calculateItemMovementSpeeds(pers: PersWithRelations): Partial<Record<MovementMode, number>> {
@@ -820,18 +822,42 @@ function toNumber(value: unknown, fallback = 0): number {
   return fallback;
 }
 
-export function findWeaponDamageType(pw: PersWeaponWithWeapon): DamageType | undefined {
+export function findWeaponDamageType(pers: PersWithRelations, ownPw: PersWeaponWithWeapon): DamageType | undefined {
+  const pw = applyItemWeaponProfile(pers, ownPw);
   return pw.overrideDamageType ?? pw.weapon?.damageType;
 }
 
-export function findWeaponRange(pw: PersWeaponWithWeapon): { normal: number; long: number | null } | null {
+export function findWeaponRange(pers: PersWithRelations, ownPw: PersWeaponWithWeapon): { normal: number; long: number | null } | null {
+  const pw = applyItemWeaponProfile(pers, ownPw);
   const normal = pw.overrideNormalRange ?? pw.weapon?.normalRange;
   if (!normal) return null;
   return { normal, long: pw.overrideLongRange ?? pw.weapon?.longRange ?? null };
 }
 
-export function getWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeapon): Ability {
-  if (pw.customDamageAbility) return pw.customDamageAbility;
+/// Привʼязана хомбрю-зброя задає формулу, характеристику, тип і дальність; ручні налаштування рядка важать більше.
+function applyItemWeaponProfile(pers: PersWithRelations, pw: PersWeaponWithWeapon): PersWeaponWithWeapon {
+  const profile = listWeaponMagicItems(pers, pw).find((item) => item.isActive && item.profile)?.profile;
+  if (!profile) return pw;
+  return {
+    ...pw,
+    overrideAttackAbility: pw.overrideAttackAbility ?? profile.attackAbility,
+    customDamageDice: findManualDamageDice(pw) ?? profile.damage,
+    overrideDamageType: pw.overrideDamageType ?? profile.damageType,
+    overrideNormalRange: pw.overrideNormalRange ?? profile.normalRange,
+    overrideLongRange: pw.overrideLongRange ?? profile.longRange,
+  };
+}
+
+/// Окремо задана характеристика атаки чи шкоди тягне за собою й другу — так було, поки поле було одне.
+export function findWeaponAttackAbility(pers: PersWithRelations, pw: PersWeaponWithWeapon): Ability {
+  return pw.overrideAttackAbility ?? pw.customDamageAbility ?? findAutoWeaponAbility(pers, pw);
+}
+
+export function findWeaponDamageAbility(pers: PersWithRelations, pw: PersWeaponWithWeapon): Ability {
+  return pw.customDamageAbility ?? pw.overrideAttackAbility ?? findAutoWeaponAbility(pers, pw);
+}
+
+function findAutoWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeapon): Ability {
   const usual = chooseStateWeaponAbility(pers, pw, findUsualWeaponAbility(pers, pw));
   const strike = findStateUnarmedStrike(pers, pw);
   if (!strike) return usual;
@@ -866,8 +892,11 @@ function findUsualWeaponAbility(pers: PersWithRelations, pw: PersWeaponWithWeapo
   return Ability.STR;
 }
 
-export function calculateWeaponDamageDice(pers: PersWithRelations, pw: PersWeaponWithWeapon): string {
-  const manualDamage = findManualDamageDice(pw);
+export function calculateWeaponDamageDice(pers: PersWithRelations, ownPw: PersWeaponWithWeapon): string {
+  const pw = applyItemWeaponProfile(pers, ownPw);
+  const formula = findDamageFormula(pw);
+  if (formula?.dice.length) return formatFormulaDice(formula.dice);
+  const manualDamage = formula ? null : findManualDamageDice(pw);
   if (manualDamage) return manualDamage;
 
   const strike = findStateUnarmedStrike(pers, pw);
@@ -886,6 +915,11 @@ function findManualDamageDice(pw: PersWeaponWithWeapon): string | null {
   return catalog && normalizeDice(manual) === normalizeDice(catalog) ? null : manual;
 }
 
+function findDamageFormula(pw: PersWeaponWithWeapon): WeaponDamageFormula | null {
+  const manual = findManualDamageDice(pw);
+  return manual ? parseWeaponDamageFormula(manual) : null;
+}
+
 function normalizeDice(dice: string): string {
   return dice.toLowerCase().replace(/к/g, "d").replace(/\s+/g, "");
 }
@@ -899,23 +933,25 @@ function hasDexterousAttacksWith(pers: PersWithRelations, weapon: PersWeaponWith
   });
 }
 
-export function calculateWeaponAttackBonus(pers: PersWithRelations, pw: PersWeaponWithWeapon): number {
-  const ability = getWeaponAbility(pers, pw);
-  const mod = calculateFinalModifier(pers, ability);
+export function calculateWeaponAttackBonus(pers: PersWithRelations, ownPw: PersWeaponWithWeapon): number {
+  const pw = applyItemWeaponProfile(pers, ownPw);
+  const mod = calculateFinalModifier(pers, findWeaponAttackAbility(pers, pw));
   const pb = pw.isProficient ? calculateFinalProficiency(pers) : 0;
   const stateBonus = findStateUnarmedStrike(pers, pw)?.attackBonus ?? 0;
   return mod + pb + toNumber(pw.attackBonus, 0) + sumWeaponItemBonus(pers, pw) + getFeatureWeaponAttackBonus(pers, pw.weapon) + stateBonus + findD20PenaltyPart(pers).value;
 }
 
-export function calculateWeaponDamageBonus(pers: PersWithRelations, pw: PersWeaponWithWeapon): number {
-  const ability = getWeaponAbility(pers, pw);
-  const mod = calculateFinalModifier(pers, ability);
-  let bonus = mod + toNumber(pw.customDamageBonus, 0) + sumWeaponItemBonus(pers, pw);
+export function calculateWeaponDamageBonus(pers: PersWithRelations, ownPw: PersWeaponWithWeapon): number {
+  const pw = applyItemWeaponProfile(pers, ownPw);
+  const formula = findDamageFormula(pw);
+  const abilities = formula?.abilities.length ? formula.abilities : [{ ability: findWeaponDamageAbility(pers, pw), multiplier: 1 }];
+  const mod = sumAbilityTerms(abilities, (ability) => calculateFinalModifier(pers, ability as Ability));
+  let bonus = mod + (formula?.flat ?? 0) + toNumber(pw.customDamageBonus, 0) + sumWeaponItemBonus(pers, pw);
 
   // Add bonuses granted by active features (e.g., Dueling, Thrown Weapon Fighting)
   bonus += getFeatureWeaponDamageBonus(pers, pw);
 
-  if (ability === Ability.STR) bonus += readStateEffects(pers)?.strengthAttackDamageBonus ?? 0;
+  if (abilities.some((term) => term.ability === Ability.STR)) bonus += readStateEffects(pers)?.strengthAttackDamageBonus ?? 0;
   if (pw.weapon && !pw.weapon.isRanged) bonus += readStateEffects(pers)?.meleeDamageBonus ?? 0;
 
   // Add magic item ranged damage bonus if applicable

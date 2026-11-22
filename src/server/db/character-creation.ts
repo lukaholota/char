@@ -39,7 +39,7 @@ import { findRaceSpellChoiceProblem2014 } from "@/server/db/race-spell-choices-2
 import { saveRaceSpellGrants2014 } from "@/server/db/race-spell-grants-2014";
 import { findClassSpellProblem, saveClassSpellSelection, type ClassSpellOffer } from "@/server/db/class-spell-choices";
 import { buildClassOptionPersSpellRows, findClassOptionSpellProblem } from "@/server/db/class-option-spell-choices";
-import type { ClassSpellSelection } from "@/rules/class-spell-choices-2024";
+import { isClassSpellSelectionEmpty, type ClassSpellSelection } from "@/rules/class-spell-choices-2024";
 import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
 import { buildChosenFeatSpells, findFeatSpellChoiceProblem } from "@/server/db/feat-spell-choices";
 import { findFeatSpellChoiceProblem2014 } from "@/server/db/feat-spell-choices-2014";
@@ -635,6 +635,7 @@ async function findChosenClassSpells(
   content: LoadedCreationContent,
   speciesSpellIds: readonly number[],
 ): Promise<{ value: ChosenClassSpells } | CreationProblem> {
+  if (isClassSpellSelectionEmpty(validData.classSpells)) return { value: null };
   const { offer, problem } = await findClassSpellProblem(prisma, {
     classId: validData.classId,
     classLevel: 1,

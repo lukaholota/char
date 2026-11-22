@@ -20,6 +20,8 @@ import { countWallSegments, WALL_LIMITS } from "@/rules/game-walls";
 import { parseUvttScene, UVTT_FILE_EXTENSIONS, UVTT_FILE_PATTERN, type SceneLayout, type UvttFailure } from "@/rules/uvtt-import";
 import { MapLibraryPicker, MapQuickPicks, useMapLibrary, type LibraryState } from "./MapLibraryPicker";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
+import { cn } from "@/lib/utils";
+import { useFileDrop } from "./use-file-drop";
 
 type UploadChoice = { kind: "upload"; source: Blob; file: Blob; isDetailed: boolean; label: string; previewUrl: string; layout: SceneLayout | null };
 type MapChoice = UploadChoice | { kind: "library"; map: LibraryMap };
@@ -82,6 +84,8 @@ function SceneForm({ sessionId, scene, library, onDone }: SceneFormProps) {
     const shrunk = await shrinkMap(source, isDetailed);
     if (shrunk) setChoice({ kind: "upload", source, file: shrunk, isDetailed, label: file.name, previewUrl: URL.createObjectURL(shrunk), layout: imported ? toLayout(imported.value) : null });
   };
+
+  const drop = useFileDrop((file) => void chooseFile(file));
 
   const changeDetail = async (upload: UploadChoice, detailed: boolean) => {
     setIsDetailed(detailed);
@@ -151,7 +155,7 @@ function SceneForm({ sessionId, scene, library, onDone }: SceneFormProps) {
         <p className="text-sm font-semibold text-slate-200">{scene ? "Нова мапа" : "Мапа"}</p>
         <MapQuickPicks library={library} chosenSlug={chosenSlug} onPick={pickLibraryMap} />
         <div className="grid grid-cols-2 gap-2">
-          <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()} className="h-12 gap-2 text-base">
+          <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()} {...drop.bindDrop} title="Натисніть або перетягніть файл сюди" className={cn("h-12 gap-2 text-base", drop.isOver && "border-amber-300 bg-amber-300/10")}>
             <ImagePlus className="h-4 w-4" aria-hidden />
             Завантажити
           </Button>

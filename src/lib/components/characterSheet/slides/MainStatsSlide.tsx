@@ -71,6 +71,7 @@ import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { buildAbilityRollContext, buildInitiativeRollContext } from "@/lib/components/dice/roll-contexts";
 import { AbilityScoreCard } from "@/lib/components/characterSheet/AbilityScoreCard";
 import { SensesAndResistancesCard } from "./SensesAndResistancesCard";
+import { PersHouseRulesDialog } from "../PersHouseRulesDialog";
 import { useLongPress } from "@/hooks/useLongPress";
 import { PASSIVE_SKILLS } from "@/lib/components/characterSheet/passive-skills";
 import { useHeroDamageRequests } from "@/lib/components/game/hero-damage";
@@ -747,6 +748,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
         damageResistances={calculateDamageResistances(pers).map((type) => damageTypeTranslations[type] ?? type)}
         damageImmunities={calculateDamageImmunities(pers).map((type) => damageTypeTranslations[type] ?? type)}
         movementSpeeds={calculateItemMovementSpeeds(pers)}
+        darkvisionEditor={isReadOnly ? undefined : <PersHouseRulesDialog pers={pers} trigger={<button type="button" aria-label="Змінити темнозір" className="min-h-8 shrink-0 rounded px-2 text-xs text-slate-300 hover:bg-white/10 hover:text-slate-100">Змінити</button>} />}
       />
 
       <HeroicInspirationRow

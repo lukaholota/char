@@ -31,6 +31,7 @@ vi.mock("@/server/db/wildshape-actions", () => ({
 }));
 vi.mock("@/hooks/useOfflineQueue", () => ({ useOfflineQueue: () => ({ commitOperation: vi.fn() }) }));
 vi.mock("@/lib/actions/pers-custom-content-actions", () => ({}));
+vi.mock("@/lib/actions/pers-house-rules-actions", () => ({ savePersHouseRulesAction: vi.fn() }));
 vi.mock("@/lib/actions/combat-actions", () => ({
   applyHpChange: vi.fn(),
   reviveCharacter: vi.fn(),

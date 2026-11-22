@@ -12,8 +12,8 @@ import { FocusNewRoomFormButton, GameSessionsHome } from "./GameSessionsHome";
 type Shot = { file: string; width: number; height: number; alt: string };
 
 const SHOTS = {
-  room: { file: "hero-room", width: 1600, height: 769, alt: "Кімната майстра: мапа склепу з токенами, трекер бою й журнал кидків" },
-  phone: { file: "hero-phone", width: 540, height: 812, alt: "Та сама кімната на телефоні гравця" },
+  room: { file: "hero-room", width: 1600, height: 769, alt: "Кампанія майстра: мапа склепу з токенами, трекер бою й журнал кидків" },
+  phone: { file: "hero-phone", width: 540, height: 812, alt: "Та сама кампанія на телефоні гравця" },
   fogGm: { file: "fog-gm", width: 1000, height: 611, alt: "Мапа очима майстра: уся зала видна, закриті зони лише притінені" },
   fogPlayer: { file: "fog-player", width: 1000, height: 611, alt: "Мапа очима гравця: видно тільки відкриту частину зали" },
   cast: { file: "cast-area", width: 1100, height: 533, alt: "Вогнекуля наведена на мапі, поруч список цілей у зоні вибуху" },
@@ -22,7 +22,7 @@ const SHOTS = {
   enemyJournal: { file: "enemy-journal", width: 780, height: 742, alt: "Журнал: Вогнекуля з ряткидком і шкодою для кожної цілі окремо" },
   enemyRoll: { file: "enemy-roll", width: 700, height: 796, alt: "Картка кидка атаки ворога з результатом «Промах»" },
   initiative: { file: "initiative", width: 544, height: 791, alt: "Трекер бою: порядок ініціативи зі станами учасників" },
-  homebrew: { file: "homebrew-check", width: 900, height: 458, alt: "Блок «Що кидатиметься в кімнаті» у формі власної істоти" },
+  homebrew: { file: "homebrew-check", width: 900, height: 458, alt: "Блок «Що кидатиметься в кампанії» у формі власної істоти" },
 } satisfies Record<string, Shot>;
 
 const SHOT_FRAME = "h-auto w-full rounded-2xl border border-white/10 shadow-2xl shadow-black/50";
@@ -38,14 +38,14 @@ export function GameRoomsContent({ sessions, edition }: { sessions: GameSessionL
 }
 
 function GuestLanding({ edition }: { edition: Edition }) {
-  const signIn = <SignInDialog analyticsTrigger="game" trigger={<Button type="button" size="lg" className={CTA_SIZE}>Увійти й створити кімнату</Button>} />;
+  const signIn = <SignInDialog analyticsTrigger="game" trigger={<Button type="button" size="lg" className={CTA_SIZE}>Увійти й створити кампанію</Button>} />;
   return (
     <div className={LANDING_RHYTHM}>
       <RoomsHero edition={edition} action={signIn} />
       <RoomsFeatures />
       <section aria-labelledby="game-rooms-sign-in" className="mx-auto max-w-xl space-y-5 text-center">
         <h2 id="game-rooms-sign-in" className={FEATURE_TITLE}>Зберіть партію за одним посиланням</h2>
-        <p className="text-base text-slate-300">Увійдіть, щоб створити кімнату для своєї партії або приєднатися за запрошенням.</p>
+        <p className="text-base text-slate-300">Увійдіть, щоб створити кампанію для своєї партії або приєднатися за запрошенням.</p>
         {signIn}
       </section>
     </div>
@@ -53,7 +53,7 @@ function GuestLanding({ edition }: { edition: Edition }) {
 }
 
 function FirstRoomLanding({ sessions, edition }: { sessions: GameSessionListItem[]; edition: Edition }) {
-  const createLabel = sessions.length ? "Створити кімнату" : "Створити першу кімнату";
+  const createLabel = sessions.length ? "Створити кампанію" : "Створити першу кампанію";
   return (
     <div className={LANDING_RHYTHM}>
       <RoomsHero edition={edition} action={<FocusNewRoomFormButton label={createLabel} className={CTA_SIZE} />} />
@@ -72,7 +72,7 @@ function RoomsAboveFeatures({ sessions }: { sessions: GameSessionListItem[] }) {
         <GameSessionsHome sessions={sessions} />
       </div>
       <section aria-labelledby="game-rooms-features" className="space-y-8 border-t border-white/10 pt-12 lg:space-y-14 lg:pt-16">
-        <h2 id="game-rooms-features" className="font-rpg-display text-3xl text-slate-50">Що вміють кімнати</h2>
+        <h2 id="game-rooms-features" className="font-rpg-display text-3xl text-slate-50">Що вміють кампанії</h2>
         <RoomsFeatures />
       </section>
     </div>
@@ -92,7 +92,7 @@ function RoomsHero({ edition, action }: { edition: Edition; action: ReactNode })
         <div className="flex flex-col gap-4 pt-1 sm:flex-row sm:items-center">
           {action}
           <p className="max-w-md text-sm text-slate-400">
-            Гравцям нічого встановлювати не треба: майстер надсилає посилання, і кімната відкривається на телефоні чи компʼютері.
+            Гравцям нічого встановлювати не треба: майстер надсилає посилання, і кампанія відкривається на телефоні чи компʼютері.
           </p>
         </div>
       </div>
@@ -129,7 +129,7 @@ function RoomsFeatures() {
       />
       <FeatureRow
         title="Свої чудовиська теж воюють"
-        text="Опишіть дії істоти звичайним текстом. Кімната сама знайде атаки, ряткидки, області й шкоду, а знизу покаже, як це зрозуміла, ще до того, як істота вийде на стіл."
+        text="Опишіть дії істоти звичайним текстом. Сайт сам знайде атаки, ряткидки, області й шкоду, а знизу покаже, як це зрозумів, ще до того, як істота вийде на стіл."
         visual={<LandingShot shot={SHOTS.homebrew} sizes="(min-width: 1024px) 544px, 100vw" />}
       />
       <UnfinishedNote />
@@ -162,7 +162,7 @@ function EnemyTurnFeature() {
       <div className="max-w-3xl space-y-3">
         <h3 className={FEATURE_TITLE}>Хід ворога — кілька натисків</h3>
         <p className={FEATURE_TEXT}>
-          Статблок, дія, ціль — і кімната кидає атаку чи ряткидок. Імунітети й опір враховані, хіти знімаються, стани накладаються, а помилку можна скасувати в журналі. Гравці бачать імʼя й картинку ворога, але ніколи не його статблок.
+          Статблок, дія, ціль — і сайт сам кидає атаку чи ряткидок. Імунітети й опір враховані, хіти знімаються, стани накладаються, а помилку можна скасувати в журналі. Гравці бачать імʼя й картинку ворога, але ніколи не його статблок.
         </p>
       </div>
       <GameRoomsArt>
@@ -199,7 +199,7 @@ function UnfinishedNote() {
         <li>Підрахунок переміщення, основних і бонусних дій.</li>
         <li>Реакції: Контрчари й провокована атака.</li>
       </ul>
-      <p className="text-sm text-slate-400">Кімнати нові, тож баги трапляються. Напишіть про них через «Повідомити про проблему» в меню.</p>
+      <p className="text-sm text-slate-400">Кампанії нові, тож баги трапляються. Напишіть про них через «Повідомити про проблему» в меню.</p>
     </section>
   );
 }

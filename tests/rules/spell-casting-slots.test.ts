@@ -32,4 +32,11 @@ describe("L19-parity-competitors-14 — накласти заклинання с
     expect(listCastingSlotOptions({ spellLevel: 1, ...warlock })).toEqual([{ kind: "PACT_SLOT", slotLevel: 2, remaining: 1 }]);
     expect(listCastingSlotOptions({ spellLevel: 3, ...warlock })).toEqual([]);
   });
+
+  it("з очками чар замість комірок пропонує рівні до найвищої комірки за ціною ДМГ", () => {
+    expect(listCastingSlotOptions({ spellLevel: 2, ...wizardFive, spellPoints: 7 })).toEqual([
+      { kind: "SPELL_POINTS", slotLevel: 2, cost: 3, remaining: 2 },
+      { kind: "SPELL_POINTS", slotLevel: 3, cost: 5, remaining: 1 },
+    ]);
+  });
 });

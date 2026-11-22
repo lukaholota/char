@@ -44,7 +44,7 @@ export function GameRoomPage({ initialView, bindablePers, heroSheet, shownHeroPe
       <GameRoomHeader view={view} hintSlotRef={setMapHintSlot} isMapShown={shown.isLarge || shown.tab === "map"} />
       <LostRoomAlert sessionId={view.id} />
       <SceneAmbience view={view} />
-      <RoomTabBar tabs={hasHeroTab ? ["map", "hero", "journal", "room"] : ["map", "journal", "room"]} current={shown.tab} unseen={unseen} label="Розділи кімнати" className="lg:hidden" />
+      <RoomTabBar tabs={hasHeroTab ? ["map", "hero", "journal", "room"] : ["map", "journal", "room"]} current={shown.tab} unseen={unseen} label="Розділи кампанії" className="lg:hidden" />
       <div
         style={{ [SIDE_PANEL_SIZE.cssVar]: `${sidePanelWidth}px`, [DOCKED_JOURNAL_SIZE.cssVar]: `${dockedJournalHeight}px` } as CSSProperties}
         className={cn("min-h-0 flex-1 lg:grid lg:grid-rows-[auto_minmax(0,1fr)_auto]", shown.isSideFolded ? "lg:grid-cols-[minmax(0,1fr)_3.75rem]" : "lg:grid-cols-[minmax(0,1fr)_clamp(22rem,var(--side-panel-width),100%_-_30rem)]")}
@@ -150,7 +150,7 @@ function LostRoomAlert({ sessionId }: { sessionId: number }) {
   if (!isLost) return null;
   return (
     <p role="alert" className="shrink-0 border-b border-rose-400/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-100">
-      Вас більше немає в цій кімнаті. <Link href={gamesHref("/games")} className="underline">До списку кімнат</Link>
+      Вас більше немає в цій кампанії. <Link href={gamesHref("/games")} className="underline">До списку кампаній</Link>
     </p>
   );
 }
@@ -162,9 +162,9 @@ function GameRoomHeader({ view, hintSlotRef, isMapShown }: GameRoomHeaderProps) 
   const gamesHref = useGamesHref();
   return (
     <header className="flex shrink-0 items-center gap-2 border-b border-white/10 bg-slate-950/60 px-2 py-1.5 sm:gap-3 sm:px-3">
-      <Link href={gamesHref("/games")} aria-label="До списку кімнат" className="inline-flex h-11 shrink-0 items-center gap-1.5 rounded-lg px-2 text-sm text-slate-300 hover:bg-white/10">
+      <Link href={gamesHref("/games")} aria-label="До списку кампаній" className="inline-flex h-11 shrink-0 items-center gap-1.5 rounded-lg px-2 text-sm text-slate-300 hover:bg-white/10">
         <ChevronLeft className="h-5 w-5" aria-hidden />
-        <span className="hidden sm:inline">Кімнати</span>
+        <span className="hidden sm:inline">Кампанії</span>
       </Link>
       <div className={cn("min-w-0 flex-1", isMapShown && "md:[@media(pointer:fine)]:max-w-56 md:[@media(pointer:fine)]:flex-none")}>
         <h1 className="truncate font-rpg-display text-lg leading-tight text-slate-50 sm:text-xl">{view.name}</h1>

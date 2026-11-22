@@ -145,6 +145,36 @@ describe("хоумбрю-предмети", () => {
     expect(await toggleMagicItemForPers({ persId, magicItemId: bothId })).toEqual({ success: true, added: false });
     expect(await toggleMagicItemForPers({ persId, magicItemId: bothId })).toMatchObject({ success: false });
   });
+
+  it("звичайна зброя й обладунок з основою: без магічних бонусів, профіль зберігається, у персонажа зʼявляються рядки", async () => {
+    await signInAs("author");
+    const persId = await createPers2014();
+    const [longbow2024, leather2024] = await Promise.all([
+      prisma.weapon.findFirstOrThrow({ where: { name: "LONGBOW", ruleset: "RULES_2024" } }),
+      prisma.armor.findFirstOrThrow({ where: { name: "LEATHER", ruleset: "RULES_2024" } }),
+    ]);
+    const bow = {
+      ...ITEM, name: "Блочний лук", itemType: "WEAPON", isMundane: true, baseWeaponId: String(longbow2024.weaponId),
+      attackAbility: "DEX", damageFormula: "1к10+СПР", damageType: "PIERCING", extraDamage: [{ dice: "1к4", damageType: "FIRE" }], normalRange: "150", longRange: "600",
+    };
+    expect(await saveHomebrewItem(buildCreatureForm({ ...bow, damageFormula: "1к8 вогню" }))).toMatchObject({ success: false, fieldErrors: { damageFormula: expect.any(String) } });
+    const savedBow = await saveHomebrewItem(buildCreatureForm(bow));
+    const savedArmor = await saveHomebrewItem(buildCreatureForm({ ...ITEM, name: "Шкіра василіска", isMundane: true, baseArmorId: String(leather2024.armorId), armorBaseAC: "13" }));
+    if (!savedBow.success || !savedArmor.success) throw new Error("не збережено");
+    const [bowId, armorItemId] = [1_000_000 + savedBow.entryId, 1_000_000 + savedArmor.entryId];
+
+    expect(await prisma.magicItem.findUniqueOrThrow({ where: { magicItemId: bowId } })).toMatchObject({
+      isMundane: true, rarity: "COMMON", requiresAttunement: false, bonusToAC: null, bonusToSavingThrows: null, weaponBonus: null, baseWeaponId: longbow2024.weaponId,
+      weaponProfile: { attackAbility: "DEX", damage: "1к10+СПР", damageType: "PIERCING", extraDamage: [{ count: 1, sides: 4, damageType: "FIRE" }], normalRange: 150, longRange: 600 },
+    });
+    expect(await loadHomebrewEditValues(savedBow.entryId)).toMatchObject({ values: { isMundane: true, damageFormula: "1к10+СПР", extraDamage: [{ dice: "1к4", damageType: "FIRE" }], normalRange: "150" } });
+
+    await toggleMagicItemForPers({ persId, magicItemId: bowId });
+    await toggleMagicItemForPers({ persId, magicItemId: armorItemId });
+    const link = await prisma.persMagicItem.findFirstOrThrow({ where: { persId, magicItemId: bowId }, include: { weapon: { include: { weapon: true } } } });
+    expect(link.weapon).toMatchObject({ overrideName: "Блочний лук", isMagical: false, weapon: { name: "LONGBOW", ruleset: "RULES_2014" } });
+    expect(await prisma.persArmor.findFirstOrThrow({ where: { persId, overrideName: "Шкіра василіска" }, include: { armor: true } })).toMatchObject({ overrideBaseAC: 13, armor: { name: "LEATHER", ruleset: "RULES_2014" } });
+  });
 });
 
 async function createPers2014(): Promise<number> {

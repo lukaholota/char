@@ -25,6 +25,7 @@ export function TokenConditionToggles({ control }: { control: ConditionsControl 
           );
         })}
       </div>
+      <p className="text-sm text-slate-400">«Невидимий» ховає токен від гравців, які ним не керують. Власник і майстер бачать його напівпрозорим.</p>
       <div role="group" aria-label={EXHAUSTION_LABEL} className="grid gap-1.5">
         <span className="text-sm text-slate-400">{EXHAUSTION_LABEL}: рівень</span>
         <div className="grid grid-cols-7 gap-1.5">

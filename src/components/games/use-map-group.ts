@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { moveMapTokensAction } from "@/lib/actions/game-sessions";
 import type { TokenPosition } from "@/rules/game-map";
-import { collectKeysInRect, shiftGroup, type GroupMove, type PositionMove, type ShareRect } from "@/rules/map-group";
+import { collectKeysInRect, findIdInGroupKey, shiftGroup, type GroupMove, type PositionMove, type ShareRect } from "@/rules/map-group";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { findHeroPositionKey } from "./HeroTokens";
 import { findCreaturePositionKey } from "./MapCreatureTokens";
@@ -58,7 +58,15 @@ export function useMapGroup({ toShare, collectItems, onPickOne, onMove }: GroupO
     return true;
   };
 
-  return { rect, boxGesture, findMembers, isGrouped: (key: string) => keys.includes(key), moveWith, clear: () => setKeys([]) };
+  /// Shift чи Ctrl додає токен до вибору або знімає з нього; вже вибраний поодинці токен стає першим у групі.
+  const toggle = (key: string, selectedKey: string | null) => {
+    const base = keys.length ? keys : selectedKey && selectedKey !== key ? [selectedKey] : [];
+    const next = base.includes(key) ? base.filter((item) => item !== key) : [...base, key];
+    setKeys(next.length > 1 ? next : []);
+    onPickOne(next.length === 1 ? next[0] : null);
+  };
+
+  return { rect, boxGesture, findMembers, isGrouped: (key: string) => keys.includes(key), moveWith, toggle, clear: () => setKeys([]) };
 }
 
 /// Поки тягнуть учасника групи, решта показує той самий крок ще до відпускання.
@@ -67,7 +75,6 @@ export function buildGroupShiftStyle(group: MapGroup, drag: TokenDrag | null): C
   return { "--group-dx": drag.to.x - drag.from.x, "--group-dy": drag.to.y - drag.from.y } as CSSProperties;
 }
 
-export const findIdInGroupKey = (key: string) => Number(key.slice(key.lastIndexOf("-") + 1));
 
 type BoardGroupOptions = {
   view: GameSessionView;
@@ -85,8 +92,28 @@ export function useBoardGroup({ view, toShare, selection, isEditingObjects, find
   const onMove = (shifts: GroupShift[]) => (isEditingObjects ? findObjects().moveMany(shifts.flatMap((shift) => (shift.to ? [{ id: findIdInGroupKey(shift.key), from: shift.from, at: shift.to }] : []))) : moveTokenGroup(shifts));
   const onPickOne = (key: string | null) => (isEditingObjects ? findObjects().choose(key ? findIdInGroupKey(key) : null) : selection.select(key));
   const group = useMapGroup({ toShare, collectItems, onPickOne, onMove });
-  const tokenSelection = { ...selection, tap: (key: string, open: () => void) => { group.clear(); selection.tap(key, open); } };
+  const isAddingRef = useAddingModifier();
+  const canGroup = view.myRole === "GM" && !view.isArchived;
+  const tap = (key: string, open: () => void) => {
+    if (canGroup && isAddingRef.current) return group.toggle(key, selection.key);
+    group.clear();
+    selection.tap(key, open);
+  };
+  const tokenSelection = { ...selection, tap };
   return { group, moveTokenGroup, tokenSelection };
+}
+
+/// Дотик до токена не несе клавіш, тож запам'ятовуємо їх на початку натискання.
+function useAddingModifier() {
+  const isAddingRef = useRef(false);
+  useEffect(() => {
+    const remember = (event: PointerEvent) => {
+      isAddingRef.current = event.shiftKey || event.ctrlKey || event.metaKey;
+    };
+    window.addEventListener("pointerdown", remember, true);
+    return () => window.removeEventListener("pointerdown", remember, true);
+  }, []);
+  return isAddingRef;
 }
 
 /// Група токенів іде одним запитом: поодинці вона швидко вичерпала б ліміт ходів, а скасування — один крок.

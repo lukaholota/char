@@ -14,6 +14,12 @@ type SceneObjectRow = { id: number; imageKey: string; name: string | null; x: nu
 export const OBJECT_LIMITS = { perScene: 100, nameLength: 40, widthCells: { min: 0.25, max: 300 }, aspect: { min: 0.05, max: 20 } } as const;
 /// Без сітки обʼєкт міряється умовною клітинкою в двадцяту частину ширини мапи.
 export const CELLS_ACROSS_MAP_WITHOUT_GRID = 20;
+
+/// Вставлена копія каменя чи дерева трохи інша за розміром і поворотом, тож купа однакових предметів не виглядає штампом.
+export function scatterObjectPlacement(placement: ObjectPlacement, random: () => number = Math.random): ObjectPlacement {
+  const width = Math.round(placement.widthCells * (0.8 + random() * 0.45) * 100) / 100;
+  return { ...placement, widthCells: Math.min(OBJECT_LIMITS.widthCells.max, Math.max(OBJECT_LIMITS.widthCells.min, width)), rotation: Math.floor(random() * 360) };
+}
 const SORT_ORDER_LIMIT = 1_000_000;
 
 const isShare = (value: unknown): value is number => typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 1;
@@ -68,6 +74,8 @@ export function findObjectWidthShare(widthCells: number, gridColumns: number | n
 }
 
 /// Ручки повороту й розміру токена працюють із відсотками: 100% — одна клітинка.
+export const OBJECT_SCALE_RANGE = { min: OBJECT_LIMITS.widthCells.min * 100, max: OBJECT_LIMITS.widthCells.max * 100 } as const;
+
 export function toObjectTransform(object: Pick<ObjectPlacement, "rotation" | "widthCells">): TokenTransform {
   return { rotation: object.rotation, scale: Math.round(object.widthCells * 100) };
 }

@@ -14,10 +14,10 @@ vi.mock("@/server/media/media-store", () => ({
 }));
 
 import { changeCreatureConditions, changeHeroConditions, clearBlessedMarks, markBlessedTargets } from "@/server/db/game-conditions";
-import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures } from "@/server/db/game-map-creatures";
+import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, setMapCreatureNameHidden } from "@/server/db/game-map-creatures";
 import { insertGameRollEvent, listEventsAfter, undoRollDamage, type GameRollDraft } from "@/server/db/game-roll-events";
 import { bindMemberPers, createGameSession, findGameSessionView, joinGameSessionByToken } from "@/server/db/game-sessions";
-import { createGameScene, openGameScene } from "@/server/db/game-scenes";
+import { createGameScene, moveGameToken, openGameScene } from "@/server/db/game-scenes";
 import { setActiveSceneMap } from "./game-scene-setup";
 import { applyPersFieldOperation } from "@/server/db/offline-operations";
 import { buildHeroDamageOperationId } from "@/rules/game-roll-hero-target";
@@ -106,6 +106,23 @@ describe("стани на токенах", () => {
     expect(view.members.find((member) => member.userId === other.id)!.conditions).toEqual({ conditions: [], exhaustionLevel: 3 });
   });
 
+  it("«Невидимий» ховає токен від інших гравців, а власник і майстер його бачать; невидиму істоту бачить лише майстер", async () => {
+    const { gm, player, other, sessionId } = await createTable();
+    const creatureId = await placeGoblin(sessionId, gm.id);
+    const heroId = await findHeroId(sessionId, player.id);
+    const invisible = { kind: "toggle", condition: "invisible", isActive: true } as const;
+    expect(await moveGameToken(sessionId, player.id, (await findGameSessionView(sessionId, player.id))!.viewedSceneId, heroId, { x: 0.3, y: 0.3 })).toEqual({ ok: true, value: null });
+    await changeHeroConditions(sessionId, player.id, heroId, invisible);
+    await changeCreatureConditions(sessionId, gm.id, creatureId, invisible);
+
+    const findHeroToken = async (viewerId: number) => (await findGameSessionView(sessionId, viewerId))!.members.find((member) => member.heroId === heroId)!.token;
+    expect(await findHeroToken(player.id)).toEqual({ x: 0.3, y: 0.3 });
+    expect(await findHeroToken(gm.id)).toEqual({ x: 0.3, y: 0.3 });
+    expect(await findHeroToken(other.id)).toBeNull();
+    expect((await findGameSessionView(sessionId, other.id))!.creatures.some((creature) => creature.id === creatureId)).toBe(false);
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures.some((creature) => creature.id === creatureId)).toBe(true);
+  });
+
   it("повторне ввімкнення не дублює стан, вимкнення прибирає, виснаження ставиться рівнем; поганий стан до бази не доходить", async () => {
     const { gm, sessionId } = await createTable();
     const creatureId = await placeGoblin(sessionId, gm.id);
@@ -186,6 +203,18 @@ describe("кидок із ціллю: шкода", () => {
     const [gmView] = await listEventsAfter(sessionId, { userId: gm.id, isGm: true }, 0, 10);
     expect(gmView.target?.gm).toMatchObject({ hitPointsBefore: 4, hitPointsAfter: 1, canUndo: true });
     expect((await findGameSessionView(sessionId, player.id))!.creatures.find((creature) => creature.id === creatureId)).toMatchObject({ hitPoints: null, isDown: true });
+  });
+
+  it("приховане майстром імʼя не просочується в журнал: ціль підписана «Невідома істота», а гравець так і бачить токен", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const creatureId = await placeGoblin(sessionId, gm.id, { max: 10, current: 10 });
+    expect(await setMapCreatureNameHidden(sessionId, player.id, creatureId, true)).toMatchObject({ ok: false });
+    expect(await setMapCreatureNameHidden(sessionId, gm.id, creatureId, true)).toEqual({ ok: true, value: null });
+
+    const hit = await insertGameRollEvent(sessionId, player.id, buildSheetDraft({ roll: buildRoll({ total: 2 }), target: { creatureId, kind: "damage" } }));
+    expect(hit).toMatchObject({ ok: true, value: { target: { name: "Невідома істота" } } });
+    expect((await findGameSessionView(sessionId, player.id))!.creatures.find((creature) => creature.id === creatureId)).toMatchObject({ label: "Невідома істота" });
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures.find((creature) => creature.id === creatureId)).toMatchObject({ label: "Гоблін", isNameHidden: true });
   });
 
   it("істота без збережених хітів стартує з середніх хітів статблока, п'ять одночасних ударів дають рівно п'ять знятих", async () => {

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 
 const DRAG_THRESHOLD_PX = 4;
+export const LIST_TOUCH_HOLD_MS = 250;
 
 type Point = { clientX: number; clientY: number };
 export type TokenGhost<Id = number> = Point & { id: Id; isOverTarget: boolean };

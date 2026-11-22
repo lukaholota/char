@@ -3,6 +3,7 @@ import { BackgroundCategory, Classes, Races } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { createCharacter } from "@/lib/actions/character";
 import { updateMagicItem } from "@/lib/actions/magic-item-actions";
+import { savePersHouseRulesAction } from "@/lib/actions/pers-house-rules-actions";
 import { minimalForm } from "../helpers/build-form";
 import { withCreationSpells } from "../helpers/creation-spells";
 import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
@@ -81,5 +82,27 @@ describe("KR31.9 — ліміт налаштованих магічних пре
     const [fifthId] = await attachMagicItems(persId, 4, 1, false);
     const fifthResult = await updateMagicItem(fifthId, { isAttuned: true });
     expect(fifthResult.success).toBe(false);
+  });
+
+  it("ліміт кампанії замінює книжний, а ліміт героя переважає кампанію", async () => {
+    const user = await prisma.user.create({ data: { email: `attune-${Math.random()}@holota.family`, name: "Attune" } });
+    const stranger = await prisma.user.create({ data: { email: `stranger-${Math.random()}@holota.family`, name: "Stranger" } });
+    const fighter = await classByName(Classes.FIGHTER_2014);
+    const persId = await createOwnedCharacter(user.email, fighter.classId);
+    await prisma.gameSession.create({
+      data: { ownerUserId: user.id, name: "Стіл", inviteToken: `house-${persId}`, houseRules: { attunementLimit: 5 }, members: { create: { userId: user.id, role: "GM", persId } } },
+    });
+    await attachMagicItems(persId, 0, 3, true);
+    const [fourthId, fifthId] = await attachMagicItems(persId, 3, 2, false);
+
+    await expect(updateMagicItem(fourthId, { isAttuned: true })).resolves.toMatchObject({ success: true });
+
+    vi.mocked(auth).mockResolvedValue({ user: { email: stranger.email } } as never);
+    await expect(savePersHouseRulesAction(persId, { attunementLimit: 4 })).resolves.toEqual({ success: false, error: "Немає доступу до персонажа" });
+
+    vi.mocked(auth).mockResolvedValue({ user: { email: user.email } } as never);
+    await expect(savePersHouseRulesAction(persId, { attunementLimit: 4, magicSystem: "MANA" })).resolves.toEqual({ success: true });
+    await expect(prisma.pers.findUniqueOrThrow({ where: { persId }, select: { houseRules: true } })).resolves.toEqual({ houseRules: { attunementLimit: 4, magicSystem: null, darkvisionRange: null } });
+    await expect(updateMagicItem(fifthId, { isAttuned: true })).resolves.toEqual({ success: false, error: "Налаштовано 4 з 4 — спершу скасуйте налаштування іншого предмета" });
   });
 });

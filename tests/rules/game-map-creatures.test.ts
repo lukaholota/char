@@ -48,6 +48,22 @@ describe("істоти на мапі кімнати", () => {
     expect(playerView.customImageKey).toBeNull();
   });
 
+  it("приховане імʼя: гравець бачить «Невідома істота» з номером, майстер — справжнє, а кидки підписуються тим, що бачать гравці", () => {
+    const rows = [row({ id: 1, customName: "Корчмар", isNameHidden: true, tokenX: 0.5, tokenY: 0.5 }), row({ id: 2, number: 2, customName: "Корчмар", tokenX: 0.4, tokenY: 0.4 })];
+    const [gmHidden, gmShown] = buildMapCreatureViews(rows, findEntry, true);
+    const [playerHidden, playerShown] = buildMapCreatureViews(rows, findEntry, false);
+    expect(gmHidden).toMatchObject({ label: "Корчмар 1", playerLabel: "Невідома істота 1", isNameHidden: true });
+    expect(playerHidden).toMatchObject({ label: "Невідома істота 1", playerLabel: "Невідома істота 1", isNameHidden: false, customName: null });
+    expect(gmShown).toMatchObject({ label: "Корчмар 2", playerLabel: "Корчмар 2", isNameHidden: false });
+    expect(playerShown.label).toBe("Корчмар 2");
+  });
+
+  it("невидиму істоту бачить лише майстер", () => {
+    const rows = [row({ id: 1, conditions: ["invisible"], tokenX: 0.5, tokenY: 0.5 }), row({ id: 2, number: 2, tokenX: 0.4, tokenY: 0.4 })];
+    expect(buildMapCreatureViews(rows, findEntry, true).map((view) => view.id)).toEqual([1, 2]);
+    expect(buildMapCreatureViews(rows, findEntry, false).map((view) => view.id)).toEqual([2]);
+  });
+
   it("без заміни лишається картинка бестіарію та її кругла форма", () => {
     expect(buildMapCreatureViews([row({ creatureKey: "wolf" })], findEntry, true)[0]).toMatchObject({ imageUrl: "/images/wolf.webp", isRoundImage: true, customImageKey: null });
   });

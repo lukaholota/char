@@ -14,6 +14,12 @@ import type { CustomContentErrors, CustomSkillDraft } from "@/rules/pers-custom-
 import { CustomContentForm, useCustomContentSave } from "./custom-content-form";
 
 export type CustomSkillTarget = PersCustomSkill | "new" | null;
+type SkillFields = Pick<PersCustomSkill, "id" | "name" | "ability" | "proficiencyType" | "bonus">;
+type SkillSaveResult = { success: true } | { success: false; error?: string; errors?: CustomContentErrors<CustomSkillDraft> };
+export type CustomSkillStore<Result extends SkillSaveResult> = {
+  save: (skillId: number | null, draft: CustomSkillDraft) => Promise<Result>;
+  remove: (skillId: number) => Promise<Result>;
+};
 
 const PROFICIENCY_OPTIONS = [
   { value: "NONE", label: "Немає" },
@@ -23,6 +29,7 @@ const PROFICIENCY_OPTIONS = [
 ] as const;
 
 const ABILITY_OPTIONS = (Object.values(Ability) as Ability[]).map((ability) => ({ value: ability, label: bonusTranslations.statNames[ability] }));
+const SKILL_DESCRIPTION = "Кидається як звичайна навичка: к20, модифікатор характеристики, майстерність і бонус.";
 
 export function CustomSkillDialog({ pers, target, onClose, onSaved }: {
   pers: PersWithRelations;
@@ -30,18 +37,44 @@ export function CustomSkillDialog({ pers, target, onClose, onSaved }: {
   onClose: () => void;
   onSaved: (skills: PersCustomSkill[]) => void;
 }) {
+  const store: CustomSkillStore<CustomSkillSaveResult> = {
+    save: (skillId, draft) => saveCustomSkillAction(pers.persId, skillId, draft),
+    remove: (skillId) => deleteCustomSkillAction(pers.persId, skillId),
+  };
+  return (
+    <CustomSkillEditor
+      pers={pers}
+      target={target}
+      title={target === "new" ? "Нова навичка" : "Власна навичка"}
+      description={SKILL_DESCRIPTION}
+      store={store}
+      onClose={onClose}
+      onSaved={(result) => result.success && onSaved(result.skills)}
+    />
+  );
+}
+
+export function CustomSkillEditor<Skill extends SkillFields, Result extends SkillSaveResult>({ pers, target, title, description, store, onClose, onSaved }: {
+  pers: PersWithRelations | null;
+  target: Skill | "new" | null;
+  title: string;
+  description: string;
+  store: CustomSkillStore<Result>;
+  onClose: () => void;
+  onSaved: (result: Result) => void;
+}) {
   return (
     <Dialog open={target !== null} onOpenChange={(isOpen) => !isOpen && onClose()} enableBackButtonClose>
       <DialogContent className="max-h-[90dvh] overflow-y-auto">
-        <DialogTitle>{target === "new" ? "Нова навичка" : "Власна навичка"}</DialogTitle>
-        <DialogDescription>Кидається як звичайна навичка: к20, модифікатор характеристики, майстерність і бонус.</DialogDescription>
-        {target !== null ? <CustomSkillForm key={target === "new" ? "new" : target.id} pers={pers} skill={target === "new" ? null : target} onSaved={onSaved} /> : null}
+        <DialogTitle>{title}</DialogTitle>
+        <DialogDescription>{description}</DialogDescription>
+        {target !== null ? <CustomSkillForm key={target === "new" ? "new" : target.id} pers={pers} skill={target === "new" ? null : target} store={store} onSaved={onSaved} /> : null}
       </DialogContent>
     </Dialog>
   );
 }
 
-function CustomSkillForm({ pers, skill, onSaved }: { pers: PersWithRelations; skill: PersCustomSkill | null; onSaved: (skills: PersCustomSkill[]) => void }) {
+function CustomSkillForm<Result extends SkillSaveResult>({ pers, skill, store, onSaved }: { pers: PersWithRelations | null; skill: SkillFields | null; store: CustomSkillStore<Result>; onSaved: (result: Result) => void }) {
   const [draft, setDraft] = useState<CustomSkillDraft>({
     name: skill?.name ?? "",
     ability: skill?.ability ?? "WIS",
@@ -55,9 +88,9 @@ function CustomSkillForm({ pers, skill, onSaved }: { pers: PersWithRelations; sk
     setErrors((current) => ({ ...current, [field]: undefined }));
   };
 
-  const finishSave = (result: CustomSkillSaveResult | null) => {
+  const finishSave = (result: Result | null) => {
     if (!result) return;
-    if (result.success) return onSaved(result.skills);
+    if (result.success) return onSaved(result);
     setErrors(result.errors ?? {});
     setFormError(result.error ?? null);
   };
@@ -67,8 +100,8 @@ function CustomSkillForm({ pers, skill, onSaved }: { pers: PersWithRelations; sk
       formError={formError}
       isSaving={isSaving}
       deleteRequest={skill ? { title: `Видалити навичку «${skill.name}»?`, description: "Її не вийде повернути." } : null}
-      onSubmit={async () => finishSave(await runSave(() => saveCustomSkillAction(pers.persId, skill?.id ?? null, draft)))}
-      onDelete={async () => finishSave(skill && (await runSave(() => deleteCustomSkillAction(pers.persId, skill.id))))}
+      onSubmit={async () => finishSave(await runSave(() => store.save(skill?.id ?? null, draft)))}
+      onDelete={async () => finishSave(skill && (await runSave(() => store.remove(skill.id))))}
     >
       <TextField name="custom-skill-name" label="Назва" value={draft.name} onChange={changeField("name")} maxLength={60} placeholder="Екстрасенсорика" error={errors.name} />
       <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2">
@@ -83,7 +116,7 @@ function CustomSkillForm({ pers, skill, onSaved }: { pers: PersWithRelations; sk
           ))}
         </div>
       </fieldset>
-      <p className="text-sm text-slate-300">Разом: <span className="font-semibold text-slate-100">{formatModifier(findPreviewTotal(pers, draft))}</span></p>
+      {pers ? <p className="text-sm text-slate-300">Разом: <span className="font-semibold text-slate-100">{formatModifier(findPreviewTotal(pers, draft))}</span></p> : null}
     </CustomContentForm>
   );
 }

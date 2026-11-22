@@ -16,7 +16,7 @@ import {
   calculateWeaponAttackBonus,
   calculateWeaponDamageBonus,
   explainFinalSkill,
-  getWeaponAbility,
+  findWeaponAttackAbility,
 } from "@/lib/logic/bonus-calculator";
 
 /// O38. Числа — з QA-персонажів №006 (Людина, Берсерк 7, Сила 18) і №004 (Голіаф 5).
@@ -214,7 +214,7 @@ describe("O38 — Пісня клинка", () => {
 
   it("2014 — зброя лишається на Силі чи Спритності", () => {
     const singing = applyActiveStates(withFeatureRow(bladesinger("WIZARD_2014", BLADESONG_2014), BLADESONG_2014, true));
-    expect(getWeaponAbility(singing, rapier)).toBe("DEX");
+    expect(findWeaponAttackAbility(singing, rapier)).toBe("DEX");
   });
 
   it("2024 — Робота клинком бере Інтелект для зброї, якою володієш", () => {
@@ -223,10 +223,10 @@ describe("O38 — Пісня клинка", () => {
     const singing = applyActiveStates(withFeatureRow(wizard, BLADESONG_2024, true));
     const unfamiliar = { ...rapier, isProficient: false } as PersWeaponWithWeapon;
 
-    expect(getWeaponAbility(calm, rapier)).toBe("DEX");
-    expect(getWeaponAbility(singing, rapier)).toBe("INT");
+    expect(findWeaponAttackAbility(calm, rapier)).toBe("DEX");
+    expect(findWeaponAttackAbility(singing, rapier)).toBe("INT");
     expect(calculateWeaponAttackBonus(singing, rapier)).toBe(4 + 3);
-    expect(getWeaponAbility(singing, unfamiliar)).toBe("DEX");
+    expect(findWeaponAttackAbility(singing, unfamiliar)).toBe("DEX");
   });
 
   it("стан, вимкнений після правки листа, не лишає ефектів у копії", () => {

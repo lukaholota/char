@@ -6,6 +6,7 @@ export type SpellSlotOwnership = {
   userId: number;
   currentSpellSlots: number[];
   currentPactSlots: number;
+  spellPointsSpent: number;
 };
 
 type SpellcastingClass = {
@@ -34,7 +35,7 @@ export type SpellcastingSlotState = {
 export async function findSpellSlotOwnership(persId: number): Promise<SpellSlotOwnership | null> {
   return prisma.pers.findUnique({
     where: { persId },
-    select: { persId: true, userId: true, currentSpellSlots: true, currentPactSlots: true },
+    select: { persId: true, userId: true, currentSpellSlots: true, currentPactSlots: true, spellPointsSpent: true },
   });
 }
 

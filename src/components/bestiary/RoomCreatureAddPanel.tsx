@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import { Minus, Plus, Swords } from "lucide-react";
+import { Check, Minus, Plus, Swords } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { addMapCreaturesAction } from "@/lib/actions/game-sessions";
@@ -11,15 +11,27 @@ import { MAP_CREATURE_LIMITS, type MapCreatureRuleset } from "@/rules/game-map-c
 
 export const ROOM_PICKER_PARAM = "room";
 export const MAP_CREATURES_ADDED_MESSAGE = "MAP_CREATURES_ADDED";
+export const STATBLOCK_PICK_PARAM = "pick";
+export const STATBLOCK_PICKED_MESSAGE = "NPC_STATBLOCK_PICKED";
+export type PickedStatblock = { key: string; name: string; ruleset: MapCreatureRuleset; imageUrl: string | null };
+
+export function readPickedStatblock(data: unknown): PickedStatblock | null {
+  if (typeof data !== "object" || data === null) return null;
+  const { type, key, name, ruleset, imageUrl } = data as Record<string, unknown>;
+  if (type !== STATBLOCK_PICKED_MESSAGE || typeof key !== "string" || typeof name !== "string" || (ruleset !== "RULES_2014" && ruleset !== "RULES_2024")) return null;
+  return { key, name, ruleset, imageUrl: typeof imageUrl === "string" ? imageUrl : null };
+}
 
 /// Бестіарій у модалці кімнати (`?room=<id>`) — та сама сторінка каталогу, лише з кнопкою «на мапу».
 export function RoomCreatureAddPanel({ creature, ruleset }: { creature: CreatureIndexEntry; ruleset: MapCreatureRuleset }) {
   const roomId = useRoomPickerId();
+  const isPickingStatblock = useHasSearchParam(STATBLOCK_PICK_PARAM);
   const [count, setCount] = useState(1);
   const [isAlly, setIsAlly] = useState(false);
   const [customName, setCustomName] = useState("");
   const [isAdding, startAdding] = useTransition();
   if (roomId === null) return null;
+  if (isPickingStatblock) return <StatblockPickButton statblock={{ key: creature.key, name: creature.name, ruleset, imageUrl: creature.imageUrl ?? null }} />;
 
   const add = () =>
     startAdding(async () => {
@@ -32,7 +44,7 @@ export function RoomCreatureAddPanel({ creature, ruleset }: { creature: Creature
     <div className="space-y-3 rounded-2xl border border-white/10 bg-slate-900/60 p-3">
       <p className="flex items-center gap-2 text-sm font-semibold text-slate-100">
         <Swords className="h-4 w-4" aria-hidden />
-        На мапу кімнати
+        На мапу кампанії
       </p>
       <div className="flex flex-wrap items-center gap-3">
         <div role="group" aria-label="Бік" className="flex rounded-xl border border-white/10 p-0.5">
@@ -67,12 +79,31 @@ export function RoomCreatureAddPanel({ creature, ruleset }: { creature: Creature
   );
 }
 
+function StatblockPickButton({ statblock }: { statblock: PickedStatblock }) {
+  const pick = () => window.parent?.postMessage({ type: STATBLOCK_PICKED_MESSAGE, ...statblock }, window.location.origin);
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-slate-900/60 p-3">
+      <p className="text-sm text-slate-300">Статблок для НІПа. Гравці його не бачать.</p>
+      <Button type="button" onClick={pick} className="h-11 gap-2">
+        <Check className="h-4 w-4" aria-hidden />
+        Обрати для НІПа
+      </Button>
+    </div>
+  );
+}
+
 export function SideButton({ isOn, onClick, tone, children }: { isOn: boolean; onClick: () => void; tone: string; children: string }) {
   return (
     <button type="button" aria-pressed={isOn} onClick={onClick} className={cn("h-9 rounded-lg border border-transparent px-3 text-sm", isOn ? tone : "text-slate-400 hover:text-slate-200")}>
       {children}
     </button>
   );
+}
+
+function useHasSearchParam(name: string): boolean {
+  const [hasParam, setHasParam] = useState(false);
+  useEffect(() => setHasParam(new URLSearchParams(window.location.search).has(name)), [name]);
+  return hasParam;
 }
 
 export function useRoomPickerId(): number | null {

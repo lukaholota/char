@@ -262,6 +262,8 @@ describe("KR31.6 — опори й Темнозір з фіч виду", () => {
     } as never);
 
     expect(calculateDarkvisionRange(drow)).toBe(120);
+    expect(calculateDarkvisionRange({ ...drow, houseRules: { darkvisionRange: 0 } })).toBeNull();
+    expect(calculateDarkvisionRange({ ...drow, houseRules: { darkvisionRange: 30 } })).toBe(30);
   });
 
   it("тифлінг 2024 бере опір з обраної спадщини", () => {
@@ -496,21 +498,21 @@ describe("KR31.13 — тип шкоди й дальність зброї з на
   const dagger = { weapon: { damageType: "PIERCING", normalRange: 20, longRange: 60 } };
 
   it("без налаштування беруться книжні тип шкоди й дальність", () => {
-    expect(findWeaponDamageType(dagger as never)).toBe("PIERCING");
-    expect(findWeaponRange(dagger as never)).toEqual({ normal: 20, long: 60 });
+    expect(findWeaponDamageType(buildPers(), dagger as never)).toBe("PIERCING");
+    expect(findWeaponRange(buildPers(), dagger as never)).toEqual({ normal: 20, long: 60 });
   });
 
   it("налаштування гравця перемагає книжні значення", () => {
     const frostDagger = { ...dagger, overrideDamageType: "COLD", overrideNormalRange: 30, overrideLongRange: 90 };
 
-    expect(findWeaponDamageType(frostDagger as never)).toBe("COLD");
-    expect(findWeaponRange(frostDagger as never)).toEqual({ normal: 30, long: 90 });
+    expect(findWeaponDamageType(buildPers(), frostDagger as never)).toBe("COLD");
+    expect(findWeaponRange(buildPers(), frostDagger as never)).toEqual({ normal: 30, long: 90 });
   });
 
   it("зброя ближнього бою без дальності не має дальності", () => {
     const longsword = { weapon: { damageType: "SLASHING", normalRange: null, longRange: null } };
 
-    expect(findWeaponRange(longsword as never)).toBeNull();
+    expect(findWeaponRange(buildPers(), longsword as never)).toBeNull();
   });
 });
 
@@ -614,5 +616,44 @@ describe("власні навички", () => {
       proficiencyBonus: 3,
       level: 5,
     });
+  });
+});
+
+describe("ручні налаштування зброї в листі", () => {
+  const dagger = { isProficient: true, weapon: { name: "DAGGER", weaponType: "SIMPLE_WEAPON", properties: ["FINESSE"], isRanged: false, damage: "1d4", damageType: "PIERCING" } };
+  const wizard = buildPers({ level: 1, str: 10, dex: 14, int: 18, ruleset: "RULES_2014", armors: [], wearsShield: false } as never);
+
+  it("характеристика шкоди з листа керує і атакою, і шкодою", () => {
+    const pw = { ...dagger, customDamageAbility: "INT" };
+    expect(calculateWeaponAttackBonus(wizard, pw as never)).toBe(4 + 2);
+    expect(calculateWeaponDamageBonus(wizard, pw as never)).toBe(4);
+  });
+
+  it("без налаштувань фехтувальна зброя бере кращу зі Сили й Спритності", () => {
+    expect(calculateWeaponAttackBonus(wizard, dagger as never)).toBe(2 + 2);
+    expect(calculateWeaponDamageBonus(wizard, dagger as never)).toBe(2);
+  });
+
+  it("ручні кубики без формули показуються як є", () => {
+    expect(calculateWeaponDamageDice(wizard, { ...dagger, customDamageDice: "2d6" } as never)).toBe("2d6");
+  });
+
+  it("формула шкоди з характеристиками замінює модифікатор, а число додається", () => {
+    const fighter = buildPers({ level: 1, str: 16, dex: 10, con: 14, ruleset: "RULES_2014", armors: [], wearsShield: false } as never);
+    const longsword = { ...dagger, weapon: { ...dagger.weapon, name: "LONGSWORD", properties: [], damage: "1d8" } };
+    expect(calculateWeaponDamageBonus(fighter, { ...longsword, customDamageDice: "1к6+СИЛ*2" } as never)).toBe(6);
+    expect(calculateWeaponDamageDice(fighter, { ...longsword, customDamageDice: "1к6+СИЛ*2" } as never)).toBe("1d6");
+    expect(calculateWeaponDamageBonus(fighter, { ...longsword, customDamageDice: "1к6+СИЛ+СТА" } as never)).toBe(5);
+    expect(calculateWeaponDamageBonus(fighter, { ...longsword, customDamageDice: "1к4+3" } as never)).toBe(3 + 3);
+    expect(calculateWeaponDamageDice(fighter, { ...longsword, customDamageDice: "2к8+1к6" } as never)).toBe("2d8+1d6");
+    expect(calculateWeaponDamageDice(fighter, { ...longsword, customDamageDice: "1к8(1к10)" } as never)).toBe("1к8(1к10)");
+  });
+
+  it("окрема характеристика атаки не змінює характеристику шкоди", () => {
+    const pw = { ...dagger, overrideAttackAbility: "INT", customDamageAbility: "DEX" };
+    expect(calculateWeaponAttackBonus(wizard, pw as never)).toBe(4 + 2);
+    expect(calculateWeaponDamageBonus(wizard, pw as never)).toBe(2);
+    const attackOnly = { ...dagger, overrideAttackAbility: "INT" };
+    expect(calculateWeaponDamageBonus(wizard, attackOnly as never)).toBe(4);
   });
 });

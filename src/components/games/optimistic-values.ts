@@ -17,7 +17,7 @@ const versions = new Map<string, number>();
 /// Стан кімнати, який сервер почав читати до збереження, приходить і після відповіді: без запасу токен блимав би на старому місці.
 const SETTLED_GRACE_MS = 3000;
 
-function dropOverride(key: string) {
+export function dropOptimistic(key: string) {
   useOverrides.setState((overrides) => {
     const { [key]: _dropped, ...rest } = overrides;
     return rest;
@@ -74,7 +74,7 @@ export async function sendOptimisticMany<R extends { ok: true } | Failure>(value
   if (!result.ok) toast.error((result as Failure).error);
   const latest = shown.filter(({ key, version }) => versions.get(key) === version);
   if (result.ok) useOverrides.setState(Object.fromEntries(latest.map(({ key, value }) => [key, { value, settledAt: Date.now() }])));
-  else latest.forEach(({ key }) => dropOverride(key));
+  else latest.forEach(({ key }) => dropOptimistic(key));
   return result;
 }
 

@@ -512,6 +512,7 @@ model Armor {
   ruleset                      Ruleset                        @default(RULES_2014)
   classStartingEquipmentOption ClassStartingEquipmentOption[]
   persArmor                    PersArmor[]
+  homebrewItems                MagicItem[]
 
   @@unique([name, ruleset])
   @@map("armor")
@@ -576,6 +577,13 @@ model MagicItem {
   ruleset                    Ruleset         @default(RULES_2014)
   imageKey                   String?         @map("image_key") @db.VarChar(255)
   weaponBonus                Int?            @map("weapon_bonus") @db.SmallInt
+  isMundane                  Boolean         @default(false) @map("is_mundane")
+  weaponProfile              Json?           @map("weapon_profile")
+  baseWeaponId               Int?            @map("base_weapon_id")
+  baseArmorId                Int?            @map("base_armor_id")
+  armorBaseAC                Int?            @map("armor_base_ac") @db.SmallInt
+  baseWeapon                 Weapon?         @relation(fields: [baseWeaponId], references: [weaponId], onDelete: SetNull, onUpdate: NoAction)
+  baseArmor                  Armor?          @relation(fields: [baseArmorId], references: [armorId], onDelete: SetNull, onUpdate: NoAction)
   homebrewEntry              HomebrewEntry?
   replicatedByInfusions      Infusion[]
   persEffects                PersEffect[]
@@ -603,6 +611,7 @@ model Weapon {
   mastery                      WeaponMastery?
   classStartingEquipmentOption ClassStartingEquipmentOption[]
   persWeapons                  PersWeapon[]
+  homebrewItems                MagicItem[]
   pers_weapon_mastery          pers_weapon_mastery[]
 
   @@unique([name, ruleset])
@@ -692,6 +701,8 @@ model Pers {
   passiveBonuses              Json?                    @map("passive_bonuses")
   sourceBuildId               String?                  @map("source_build_id")
   sourceBuildRevisionId       String?                  @map("source_build_revision_id")
+  houseRules                  Json                     @default("{}") @map("house_rules")
+  spellPointsSpent            Int                      @default(0) @map("spell_points_spent")
   gameCombatants              GameCombatant[]
   gameRollEvents              GameRollEvent[]
   gameSessionMembers          GameSessionMember[]
@@ -981,6 +992,7 @@ model PersWeapon {
   customDamageDice      String?         @map("customdamagedice")
   isMagical             Boolean         @default(false) @map("ismagical")
   crimsonRiteFeatureId  Int?            @map("crimson_rite_feature_id")
+  extraDamage           Json?           @map("extra_damage")
   infusions             PersInfusion[]
   magicItems            PersMagicItem[]
   crimsonRiteFeature    Feature?        @relation(fields: [crimsonRiteFeatureId], references: [featureId])
@@ -1519,7 +1531,7 @@ model GameCombatant {
   gameSessionId     Int              @map("game_session_id")
   persId            Int?             @map("pers_id")
   gameMapCreatureId Int?             @unique(map: "game_combatant_creature_key") @map("game_map_creature_id")
-  initiative        Int              @db.SmallInt
+  initiative        Int?             @db.SmallInt
   initiativeBonus   Int              @map("initiative_bonus") @db.SmallInt
   sortTiebreak      Float            @default(dbgenerated("random()")) @map("sort_tiebreak") @db.Real
   gameMapCreature   GameMapCreature? @relation(fields: [gameMapCreatureId], references: [id], onDelete: Cascade, onUpdate: NoAction)
@@ -1544,7 +1556,7 @@ model GameRollEvent {
   source           String           @db.VarChar(16)
   authorName       String           @map("author_name") @db.VarChar(100)
   persName         String?          @map("pers_name") @db.VarChar(100)
-  label            String           @db.VarChar(120)
+  label            String           @db.VarChar(300)
   roll             Json
   total            Int
   rolledAt         DateTime         @map("rolled_at") @db.Timestamptz(6)
@@ -1568,26 +1580,30 @@ model GameRollEvent {
 }
 
 model GameSession {
-  id                       Int                 @id @default(autoincrement()) @map("game_session_id")
-  ownerUserId              Int                 @map("owner_user_id")
-  name                     String              @db.VarChar(80)
-  inviteToken              String?             @unique @map("invite_token") @db.VarChar(64)
-  lastEventSeq             BigInt              @default(0) @map("last_event_seq")
-  archivedAt               DateTime?           @map("archived_at") @db.Timestamptz(6)
-  createdAt                DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt                DateTime            @default(now()) @map("updated_at") @db.Timestamptz(6)
-  creatureNameMode         String              @default("short") @map("creature_name_mode") @db.VarChar(8)
-  combatRound              Int?                @map("combat_round") @db.SmallInt
-  combatTurn               Int?                @map("combat_turn") @db.SmallInt
-  combatCurrentCombatantId Int?                @map("combat_current_combatant_id")
-  activeSceneId            Int?                @map("active_scene_id")
-  combatants               GameCombatant[]     @relation("GameSessionCombatants")
+  id                       Int                        @id @default(autoincrement()) @map("game_session_id")
+  ownerUserId              Int                        @map("owner_user_id")
+  name                     String                     @db.VarChar(80)
+  inviteToken              String?                    @unique @map("invite_token") @db.VarChar(64)
+  lastEventSeq             BigInt                     @default(0) @map("last_event_seq")
+  archivedAt               DateTime?                  @map("archived_at") @db.Timestamptz(6)
+  createdAt                DateTime                   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                DateTime                   @default(now()) @map("updated_at") @db.Timestamptz(6)
+  creatureNameMode         String                     @default("short") @map("creature_name_mode") @db.VarChar(8)
+  combatRound              Int?                       @map("combat_round") @db.SmallInt
+  combatTurn               Int?                       @map("combat_turn") @db.SmallInt
+  combatCurrentCombatantId Int?                       @map("combat_current_combatant_id")
+  activeSceneId            Int?                       @map("active_scene_id")
+  darkvisionLook           String                     @default("grey") @map("darkvision_look") @db.VarChar(5)
+  houseRules               Json                       @default("{}") @map("house_rules")
+  customSkills             GameSessionCustomSkill[]
+  customFeatures           GameSessionCustomFeature[]
+  combatants               GameCombatant[]            @relation("GameSessionCombatants")
   mapCreatures             GameMapCreature[]
   rollEvents               GameRollEvent[]
-  scenes                   GameScene[]         @relation("GameSceneSession")
-  activeScene              GameScene?          @relation("GameSessionActiveScene", fields: [activeSceneId], references: [id], onUpdate: NoAction)
-  combatCurrentCombatant   GameCombatant?      @relation("GameSessionCurrentCombatant", fields: [combatCurrentCombatantId], references: [id], onUpdate: NoAction)
-  owner                    User                @relation(fields: [ownerUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  scenes                   GameScene[]                @relation("GameSceneSession")
+  activeScene              GameScene?                 @relation("GameSessionActiveScene", fields: [activeSceneId], references: [id], onUpdate: NoAction)
+  combatCurrentCombatant   GameCombatant?             @relation("GameSessionCurrentCombatant", fields: [combatCurrentCombatantId], references: [id], onUpdate: NoAction)
+  owner                    User                       @relation(fields: [ownerUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   members                  GameSessionMember[]
 
   @@index([ownerUserId], map: "game_session_owner_idx")
@@ -1645,6 +1661,7 @@ model GameMapCreature {
   lightBrightFeet   Int             @default(0) @map("light_bright_feet") @db.SmallInt
   lightDimFeet      Int             @default(0) @map("light_dim_feet") @db.SmallInt
   floor             Int?            @db.SmallInt
+  isNameHidden      Boolean         @default(false) @map("is_name_hidden")
   combatant         GameCombatant?
   customImage       UserTokenImage? @relation(fields: [customImageKey], references: [imageKey], onUpdate: NoAction)
   scene             GameScene?      @relation(fields: [gameSceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
@@ -1674,6 +1691,10 @@ model GameScene {
   ambience           Json?
   floors             Json?
   shownFloor         Int?                 @map("shown_floor") @db.SmallInt
+  weatherSpeed       Int                  @default(100) @map("weather_speed") @db.SmallInt
+  weatherColor       String?              @map("weather_color") @db.VarChar(7)
+  tintColor          String?              @map("tint_color") @db.VarChar(7)
+  tintStrength       Int                  @default(100) @map("tint_strength") @db.SmallInt
   mapCreatures       GameMapCreature[]
   session            GameSession          @relation("GameSceneSession", fields: [sessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   areas              GameSceneArea[]
@@ -1709,17 +1730,21 @@ model GameSceneArea {
 }
 
 model GameSceneDrawing {
-  id        Int       @id @default(autoincrement()) @map("game_scene_drawing_id")
-  sceneId   Int       @map("game_scene_id")
-  userId    Int       @map("user_id")
-  color     String    @db.VarChar(8)
-  width     String    @db.VarChar(6)
-  points    Json
-  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
-  shape     String    @default("line") @db.VarChar(7)
-  isFilled  Boolean   @default(false) @map("is_filled")
-  scene     GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id          Int       @id @default(autoincrement()) @map("game_scene_drawing_id")
+  sceneId     Int       @map("game_scene_id")
+  userId      Int       @map("user_id")
+  color       String    @db.VarChar(8)
+  width       String    @db.VarChar(6)
+  points      Json
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  shape       String    @default("line") @db.VarChar(7)
+  isFilled    Boolean   @default(false) @map("is_filled")
+  fillOpacity Float     @default(0.35) @map("fill_opacity") @db.Real
+  text        String?   @db.VarChar(200)
+  font        String?   @db.VarChar(8)
+  textEffect  String?   @map("text_effect") @db.VarChar(7)
+  scene       GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([sceneId], map: "game_scene_drawing_scene_idx")
   @@map("game_scene_drawing")
@@ -1727,15 +1752,19 @@ model GameSceneDrawing {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model GameSceneLight {
-  id         Int       @id @default(autoincrement()) @map("game_scene_light_id")
-  sceneId    Int       @map("game_scene_id")
-  x          Float     @db.Real
-  y          Float     @db.Real
-  brightFeet Int       @map("bright_feet") @db.SmallInt
-  dimFeet    Int       @map("dim_feet") @db.SmallInt
-  isOn       Boolean   @default(true) @map("is_on")
-  createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
-  scene      GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id               Int       @id @default(autoincrement()) @map("game_scene_light_id")
+  sceneId          Int       @map("game_scene_id")
+  x                Float     @db.Real
+  y                Float     @db.Real
+  brightFeet       Int       @map("bright_feet") @db.SmallInt
+  dimFeet          Int       @map("dim_feet") @db.SmallInt
+  isOn             Boolean   @default(true) @map("is_on")
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  color            String?   @db.VarChar(7)
+  coneDegrees      Int       @default(360) @map("cone_degrees") @db.SmallInt
+  directionDegrees Int       @default(0) @map("direction_degrees") @db.SmallInt
+  effect           String    @default("steady") @db.VarChar(7)
+  scene            GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([sceneId], map: "game_scene_light_scene_idx")
   @@map("game_scene_light")
@@ -1765,15 +1794,15 @@ model GameSceneObject {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model GameSceneWall {
-  id        Int       @id @default(autoincrement()) @map("game_scene_wall_id")
-  sceneId   Int       @map("game_scene_id")
+  id          Int       @id @default(autoincrement()) @map("game_scene_wall_id")
+  sceneId     Int       @map("game_scene_id")
   kind        String    @db.VarChar(6)
   isOpen      Boolean   @default(false) @map("is_open")
   points      Json
   createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
   doorLock    String    @default("none") @map("door_lock") @db.VarChar(6)
   isCurtained Boolean   @default(false) @map("is_curtained")
-  scene     GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  scene       GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([sceneId], map: "game_scene_wall_scene_idx")
   @@map("game_scene_wall")
@@ -1824,33 +1853,39 @@ model GameSceneHeroToken {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model PersCustomFeature {
-  id            Int       @id @default(autoincrement()) @map("pers_custom_feature_id")
-  persId        Int       @map("pers_id")
-  name          String    @db.VarChar(100)
-  description   String    @default("")
-  rollFormula   String?   @map("roll_formula") @db.VarChar(200)
-  usesMax       Int?      @map("uses_max") @db.SmallInt
-  usesRemaining Int?      @map("uses_remaining") @db.SmallInt
-  restoredOn    RestType? @map("restored_on")
-  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
-  pers          Pers      @relation(fields: [persId], references: [persId], onDelete: Cascade, onUpdate: NoAction)
+  id                Int                       @id @default(autoincrement()) @map("pers_custom_feature_id")
+  persId            Int                       @map("pers_id")
+  name              String                    @db.VarChar(100)
+  description       String                    @default("")
+  rollFormula       String?                   @map("roll_formula") @db.VarChar(200)
+  usesMax           Int?                      @map("uses_max") @db.SmallInt
+  usesRemaining     Int?                      @map("uses_remaining") @db.SmallInt
+  restoredOn        RestType?                 @map("restored_on")
+  createdAt         DateTime                  @default(now()) @map("created_at") @db.Timestamptz(6)
+  campaignFeatureId Int?                      @map("campaign_feature_id")
+  campaignFeature   GameSessionCustomFeature? @relation(fields: [campaignFeatureId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  pers              Pers                      @relation(fields: [persId], references: [persId], onDelete: Cascade, onUpdate: NoAction)
 
+  @@unique([persId, campaignFeatureId], map: "pers_custom_feature_campaign_unique")
   @@index([persId, id], map: "pers_custom_feature_pers_idx")
   @@map("pers_custom_feature")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model PersCustomSkill {
-  id              Int                  @id @default(autoincrement()) @map("pers_custom_skill_id")
-  persId          Int                  @map("pers_id")
-  name            String               @db.VarChar(60)
+  id              Int                     @id @default(autoincrement()) @map("pers_custom_skill_id")
+  persId          Int                     @map("pers_id")
+  name            String                  @db.VarChar(60)
   ability         Ability
-  proficiencyType SkillProficiencyType @default(NONE) @map("proficiency_type")
-  bonus           Int                  @default(0) @db.SmallInt
-  createdAt       DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
-  pers            Pers                 @relation(fields: [persId], references: [persId], onDelete: Cascade, onUpdate: NoAction)
+  proficiencyType SkillProficiencyType    @default(NONE) @map("proficiency_type")
+  bonus           Int                     @default(0) @db.SmallInt
+  createdAt       DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  campaignSkillId Int?                    @map("campaign_skill_id")
+  campaignSkill   GameSessionCustomSkill? @relation(fields: [campaignSkillId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  pers            Pers                    @relation(fields: [persId], references: [persId], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([persId, name])
+  @@unique([persId, campaignSkillId], map: "pers_custom_skill_campaign_unique")
   @@map("pers_custom_skill")
 }
 
@@ -2915,4 +2950,39 @@ enum BastionSpace {
   CRAMPED
   ROOMY
   VAST
+}
+
+/// Навичка кампанії: кожен герой кампанії отримує копію в pers_custom_skill.
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model GameSessionCustomSkill {
+  id              Int                  @id @default(autoincrement()) @map("game_session_custom_skill_id")
+  gameSessionId   Int                  @map("game_session_id")
+  name            String               @db.VarChar(60)
+  ability         Ability
+  proficiencyType SkillProficiencyType @default(NONE) @map("proficiency_type")
+  bonus           Int                  @default(0) @db.SmallInt
+  createdAt       DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+  gameSession     GameSession          @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  persCopies      PersCustomSkill[]
+
+  @@unique([gameSessionId, name])
+  @@map("game_session_custom_skill")
+}
+
+/// Здібність або ресурс кампанії: кожен герой кампанії отримує копію зі своїм лічильником.
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model GameSessionCustomFeature {
+  id            Int                 @id @default(autoincrement()) @map("game_session_custom_feature_id")
+  gameSessionId Int                 @map("game_session_id")
+  name          String              @db.VarChar(100)
+  description   String              @default("")
+  rollFormula   String?             @map("roll_formula") @db.VarChar(200)
+  usesMax       Int?                @map("uses_max") @db.SmallInt
+  restoredOn    RestType?           @map("restored_on")
+  createdAt     DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  gameSession   GameSession         @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  persCopies    PersCustomFeature[]
+
+  @@index([gameSessionId], map: "game_session_custom_feature_session_idx")
+  @@map("game_session_custom_feature")
 }

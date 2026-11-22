@@ -194,7 +194,7 @@ function RollVerdictLine() {
   if (event && !verdict) return null;
   return (
     <div role="status" className={cn("rounded-xl px-3 py-2 text-center text-sm", verdict ? cn("font-bold", VERDICT_TONES[verdict.tone]) : "text-slate-400")}>
-      {verdict ? verdict.text : "Кімната звіряє кидок із ціллю…"}
+      {verdict ? verdict.text : "Звіряємо кидок із ціллю…"}
     </div>
   );
 }

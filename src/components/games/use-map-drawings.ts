@@ -2,18 +2,20 @@
 
 import { useRef, useState } from "react";
 import { removeSceneDrawingsAction, saveSceneDrawingsAction } from "@/lib/actions/game-scene-tools";
-import { canEraseDrawing, DRAWING_LIMITS, findDrawingPointGap, findErasableDrawingIds, parseDrawingStroke, type DrawingColor, type DrawingShape, type DrawingStroke, type DrawingWidth, type SceneDrawingView } from "@/rules/game-drawings";
+import { buildTextPoints, canEditDrawing, DRAWING_LIMITS, findDrawingPointGap, findErasableDrawingIds, parseDrawingStroke, SEE_THROUGH_FILL, SOLID_FILL, type DrawingFont, type DrawingShape, type DrawingStroke, type DrawingTextSize, type DrawingWidth, type SceneDrawingView, type TextEffect } from "@/rules/game-drawings";
 import { snapToHalfCell, type MapFrame } from "@/rules/game-grid";
 import type { TokenPosition } from "@/rules/game-map";
 import { appendStrokePoint, isPointNearStroke } from "@/rules/map-strokes";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { pushUndoStep, useDraftUndo } from "./map-history";
 import { readOptimistic, sendOptimistic, useOptimisticReader } from "./optimistic-values";
+import { useDrawingMove } from "./use-drawing-move";
 import { buildDragGesture } from "./use-map-tools";
 
 type Point = { clientX: number; clientY: number };
 type ToShare = (point: Point) => TokenPosition | null;
-export type DrawMode = "pen" | "eraser";
+export type DrawMode = "pen" | "move" | "eraser";
+export type DrawingFill = "outline" | "solid" | "see-through";
 
 /// Нова лінія живе з тимчасовим від'ємним id, доки сервер не поверне справжній: гумка й скасування шукають її за обома.
 const realIdByTempId = new Map<number, number>();
@@ -21,7 +23,7 @@ let lastTempId = 0;
 const RESTORE_CHUNK = 50;
 const findRealId = (id: number) => (id > 0 ? id : (realIdByTempId.get(id) ?? null));
 const clampShare = (at: TokenPosition) => ({ x: Math.min(1, Math.max(0, at.x)), y: Math.min(1, Math.max(0, at.y)) });
-const toStroke = ({ shape, isFilled, color, width, points }: DrawingStroke): DrawingStroke => ({ shape, isFilled, color, width, points });
+const toStroke = ({ shape, isFilled, fillOpacity, color, width, points, label }: DrawingStroke): DrawingStroke => ({ shape, isFilled, fillOpacity, color, width, points, label });
 
 export function useMapDrawings(view: GameSessionView, toShare: ToShare, aspect: number | null, frame: MapFrame | null) {
   const read = useOptimisticReader();
@@ -29,10 +31,14 @@ export function useMapDrawings(view: GameSessionView, toShare: ToShare, aspect: 
   const key = `drawings:${sceneId}`;
   const isGm = view.myRole === "GM";
   const [mode, setMode] = useState<DrawMode>("pen");
-  const [color, setColor] = useState<DrawingColor>("red");
+  const [color, setColor] = useState("#ef4444");
   const [width, setWidth] = useState<DrawingWidth>("thin");
   const [shape, setShapeState] = useState<DrawingShape>("line");
-  const [isFilled, setIsFilled] = useState(false);
+  const [fill, setFill] = useState<DrawingFill>("outline");
+  const [text, setText] = useState("");
+  const [font, setFont] = useState<DrawingFont>("plain");
+  const [effect, setEffect] = useState<TextEffect>("outline");
+  const [textSize, setTextSize] = useState<DrawingTextSize>("medium");
   const [isSnapOff, setIsSnapOff] = useState(false);
   const [corners, setCorners] = useState<TokenPosition[]>([]);
   const cornersRef = useRef<TokenPosition[]>([]);
@@ -41,6 +47,7 @@ export function useMapDrawings(view: GameSessionView, toShare: ToShare, aspect: 
   const [erasingIds, setErasingIds] = useState<number[]>([]);
   const erasingRef = useRef<number[]>([]);
   const readShown = () => readOptimistic(key, view.drawings);
+  const moving = useDrawingMove({ view, key, toShare, aspect, readShown, findRealId });
 
   const save = async (strokes: DrawingStroke[]): Promise<number[] | null> => {
     if (sceneId === null) return null;
@@ -53,7 +60,7 @@ export function useMapDrawings(view: GameSessionView, toShare: ToShare, aspect: 
 
   const remove = (realIds: number[] | "all") => {
     const shown = readShown();
-    const removed = shown.filter((drawing) => (realIds === "all" ? canEraseDrawing(drawing, view.myUserId, isGm) : realIds.includes(findRealId(drawing.id) ?? 0)));
+    const removed = shown.filter((drawing) => (realIds === "all" ? canEditDrawing(drawing, view.myUserId, isGm) : realIds.includes(findRealId(drawing.id) ?? 0)));
     if (sceneId === null || removed.length === 0) return [];
     void sendOptimistic(key, shown.filter((drawing) => !removed.includes(drawing)), () => removeSceneDrawingsAction(view.id, sceneId, realIds));
     return removed;
@@ -98,7 +105,7 @@ export function useMapDrawings(view: GameSessionView, toShare: ToShare, aspect: 
     });
   };
 
-  const buildStroke = (points: TokenPosition[], strokeShape = shape): DrawingStroke => ({ shape: strokeShape, isFilled, color, width, points });
+  const buildStroke = (points: TokenPosition[], strokeShape = shape): DrawingStroke => ({ shape: strokeShape, isFilled: fill !== "outline", fillOpacity: fill === "see-through" ? SEE_THROUGH_FILL : SOLID_FILL, color, width, points, label: null });
   const snap = (at: TokenPosition) => (frame && !isSnapOff ? snapToHalfCell(clampShare(at), frame) : clampShare(at));
   const isNear = (at: TokenPosition, point: TokenPosition | undefined) => Boolean(point && aspect && isPointNearStroke(at, [point], DRAWING_LIMITS.eraserReach, aspect));
   const drawIfValid = (stroke: DrawingStroke) => {
@@ -154,9 +161,19 @@ export function useMapDrawings(view: GameSessionView, toShare: ToShare, aspect: 
     cancel: () => showLine(null),
   });
   const polygonGesture = buildDragGesture(toShare, { start: () => {}, move: () => {}, end: (_from, at) => addCorner(snap(at)), cancel: () => {} });
+  /// Текст пишуть у панелі, а дотик ставить його на мапу.
+  const placeText = (at: TokenPosition) => {
+    if (!aspect || !text.trim()) return;
+    const stroke = parseDrawingStroke({ ...buildStroke(buildTextPoints(clampShare(at), textSize, aspect), "text"), label: { text, font, effect } });
+    if (!stroke) return;
+    draw(stroke);
+    setText("");
+  };
+  const textGesture = buildDragGesture(toShare, { start: () => {}, move: () => {}, end: (_from, at) => placeText(at), cancel: () => {} });
   const reset = () => {
     finishPolygon();
     showLine(null);
+    moving.deselect();
   };
 
   const showErasing = (ids: number[]) => {
@@ -180,10 +197,12 @@ export function useMapDrawings(view: GameSessionView, toShare: ToShare, aspect: 
     cancel: () => showErasing([]),
   });
 
-  const saved = read(key, view.drawings);
+  const saved = read(key, view.drawings).map((drawing) => (moving.draft && drawing.id === moving.selectedId ? { ...drawing, points: moving.draft } : drawing));
   const preview = line ?? (corners.length ? buildStroke(corners, "line") : null);
   const shown = [...saved.filter((drawing) => !erasingIds.includes(drawing.id)), ...(preview ? [{ ...preview, id: 0, userId: view.myUserId }] : [])];
-  const drawGesture = shape === "line" ? penGesture : shape === "polygon" ? polygonGesture : shapeGesture;
+  const drawGesture = shape === "line" ? penGesture : shape === "polygon" ? polygonGesture : shape === "text" ? textGesture : shapeGesture;
+  const modeGesture = mode === "pen" ? drawGesture : mode === "move" ? moving.gesture : eraserGesture;
+  const selected = mode === "move" ? (saved.find((drawing) => drawing.id === moving.selectedId) ?? null) : null;
   const canDraw = sceneId !== null && aspect !== null && !view.isArchived;
   return {
     shown,
@@ -197,8 +216,22 @@ export function useMapDrawings(view: GameSessionView, toShare: ToShare, aspect: 
       reset();
       setShapeState(next);
     },
-    isFilled,
-    setIsFilled,
+    fill,
+    setFill,
+    text,
+    setText,
+    font,
+    setFont,
+    effect,
+    setEffect,
+    textSize,
+    setTextSize,
+    selected,
+    eraseSelected: () => {
+      const realId = selected && findRealId(selected.id);
+      if (realId) erase([realId]);
+      moving.deselect();
+    },
     isSnapOff,
     setIsSnapOff,
     hasGrid: frame !== null,
@@ -210,9 +243,9 @@ export function useMapDrawings(view: GameSessionView, toShare: ToShare, aspect: 
     setColor,
     width,
     setWidth,
-    hasErasable: saved.some((drawing) => canEraseDrawing(drawing, view.myUserId, isGm)),
+    hasErasable: saved.some((drawing) => canEditDrawing(drawing, view.myUserId, isGm)),
     eraseAll: () => erase("all"),
-    gesture: canDraw ? (mode === "pen" ? drawGesture : eraserGesture) : null,
+    gesture: canDraw ? modeGesture : null,
   };
 }
 

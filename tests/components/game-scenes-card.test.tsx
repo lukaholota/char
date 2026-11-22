@@ -30,6 +30,7 @@ vi.mock("sonner", () => ({ toast: { error: mocks.toastError } }));
 
 import { GameScenesCard } from "@/components/games/GameScenesCard";
 import { ConfirmDialogHost } from "@/components/ui/confirm-dialog";
+import { DEFAULT_ATMOSPHERE } from "@/rules/game-atmosphere";
 
 const forest: LibraryMap = { slug: "forest", name: "Ліс", originalName: "Forest", pack: "dndavid", key: "library/maps/forest", width: 100, height: 80, grid: null };
 const castle: LibraryMap = { slug: "castle", name: "Замок", originalName: "Castle", pack: "theros", key: "library/maps/castle", width: 100, height: 80, grid: null };
@@ -44,7 +45,7 @@ afterEach(cleanup);
 function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
   return {
     id: 7, name: "Печера", isArchived: false, myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [], inviteToken: null, mapImageUrl: null,
-    members: [], creatures: [], creatureNameMode: "short", combat: null, grid: null, fog: null, areas: [], drawings: [], objects: [], walls: [], lighting: "off", lights: [], atmosphere: { weather: "none", tint: "none" }, ambience: [], floors: [], shownFloor: null,
+    members: [], creatures: [], creatureNameMode: "short", combat: null, grid: null, fog: null, areas: [], drawings: [], objects: [], walls: [], lighting: "off", lights: [], atmosphere: DEFAULT_ATMOSPHERE, ambience: [], floors: [], shownFloor: null,
     viewedSceneId: 1, activeSceneId: 1,
     scenes: [
       { id: 1, name: "Лісова дорога", hasMap: true, isActive: true },

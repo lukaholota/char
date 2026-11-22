@@ -13,6 +13,7 @@ import { listManualBonusOverlaps } from "@/lib/logic/magic-item-sheet-status";
 import { describeMissingSteps, findMissingActivationSteps, isMagicItemActive } from "@/lib/logic/magic-item-activation";
 import { hasCountedEffects } from "@/lib/logic/magic-item-effect-text";
 import { findAttunementCapacityForPers } from "@/rules/attunement";
+import { findPersHouseRules } from "@/lib/logic/pers-house-rules";
 import { findMagicItemEffects } from "@/rules/magic-item-effects";
 import { findMagicItemState } from "@/rules/magic-item-states";
 import AddMagicItemDialog from "./AddMagicItemDialog";
@@ -23,6 +24,7 @@ import { isDrinkableMagicItem } from "@/rules/potions";
 import { findMagicWeaponTraits } from "@/rules/magic-weapons";
 import { findPersWeaponName } from "@/lib/logic/weapon-name";
 import { MagicWeaponLinkPanel } from "./MagicWeaponLinkPanel";
+import { PersHouseRulesDialog } from "./PersHouseRulesDialog";
 import { MagicItemSpellUsePanel } from "./MagicItemSpellUsePanel";
 import { buildItemSpellRoll } from "./slides/sheet-spell-rolls";
 import { fillDefaultCharges, findItemChargeRules, pluralizeCharges } from "@/rules/magic-item-charge-text";
@@ -37,7 +39,7 @@ export function MagicItemsCard({ pers, isReadOnly }: { pers: PersWithRelations; 
 
   const magicItems = pers.magicItems ?? [];
   const attunedCount = magicItems.filter((pmi) => pmi.isAttuned).length;
-  const attunementCapacity = useMemo(() => findAttunementCapacityForPers(pers), [pers]);
+  const attunementCapacity = useMemo(() => findAttunementCapacityForPers(pers, findPersHouseRules(pers).attunementLimit), [pers]);
   const selected = magicItems.find((pmi) => pmi.persMagicItemId === selectedLinkId) ?? null;
 
   const updateLink = (pmi: PersMagicItemLink, updates: MagicItemLinkUpdates) =>
@@ -111,14 +113,7 @@ export function MagicItemsCard({ pers, isReadOnly }: { pers: PersWithRelations; 
           <CardTitle className="text-base font-bold flex items-center gap-2 text-violet-300 uppercase tracking-wider">
             <Sparkles className="w-5 h-5" />
             Магічні предмети
-            <span
-              className={`text-xs px-1.5 py-0.5 rounded border normal-case tracking-normal font-normal ${
-                attunedCount >= attunementCapacity ? "bg-amber-500/20 text-amber-300 border-amber-500/30" : "bg-white/5 text-slate-400 border-white/10"
-              }`}
-              title="Налаштовано / Ліміт налаштування"
-            >
-              {attunedCount} / {attunementCapacity}
-            </span>
+            <AttunementBadge pers={pers} attunedCount={attunedCount} capacity={attunementCapacity} isReadOnly={isReadOnly} />
           </CardTitle>
           {!isReadOnly && <AddMagicItemDialog persId={pers.persId} persName={pers.name} ruleset={pers.ruleset} />}
         </CardHeader>
@@ -243,4 +238,11 @@ function announceWeaponLink(pers: PersWithRelations, pmi: PersMagicItemLink, per
   toast.success(`${name} — це «${findPersWeaponName(pers, weapon)}»`, {
     description: missing.length > 0 ? "Налаштуйтеся на предмет — тоді лист додасть його бонуси до атаки й шкоди." : "Бонуси предмета вже в атаці й шкоді цієї зброї та в кидку.",
   });
+}
+
+function AttunementBadge({ pers, attunedCount, capacity, isReadOnly }: { pers: PersWithRelations; attunedCount: number; capacity: number; isReadOnly?: boolean }) {
+  const className = `text-xs px-1.5 py-0.5 rounded border normal-case tracking-normal font-normal ${attunedCount >= capacity ? "bg-amber-500/20 text-amber-300 border-amber-500/30" : "bg-white/5 text-slate-400 border-white/10"}`;
+  const label = `${attunedCount} / ${capacity}`;
+  if (isReadOnly) return <span className={className} title="Налаштовано / Ліміт налаштування">{label}</span>;
+  return <PersHouseRulesDialog pers={pers} trigger={<button type="button" className={`${className} min-h-8 hover:bg-white/10`} aria-label={`Налаштовано ${label}. Змінити ліміт налаштування`}>{label}</button>} />;
 }

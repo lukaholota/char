@@ -22,7 +22,7 @@ vi.mock("@/lib/refs/map-library-catalog", () => ({
 }));
 
 import { activateGameScene, createGameScene, openGameScene, replaceGameSceneMap } from "@/server/db/game-scenes";
-import { changeSceneFog, changeSceneGrid, removeSceneAreas, removeSceneDrawings, saveSceneArea, saveSceneDrawings } from "@/server/db/game-scene-tools";
+import { changeSceneFog, changeSceneGrid, moveSceneDrawing, removeSceneAreas, removeSceneDrawings, saveSceneArea, saveSceneDrawings } from "@/server/db/game-scene-tools";
 import { createGameSession, findGameSessionView, joinGameSessionByToken, setGameSessionArchived } from "@/server/db/game-sessions";
 
 vi.setConfig({ testTimeout: 60_000 });
@@ -304,7 +304,7 @@ describe("нова мапа скидає геометрію", () => {
 });
 
 describe("малюнки на мапі", () => {
-  const line: DrawingStroke = { shape: "line", isFilled: false, color: "sky", width: "thin", points: [{ x: 0.1, y: 0.2 }, { x: 0.3, y: 0.4 }] };
+  const line: DrawingStroke = { shape: "line", isFilled: false, fillOpacity: 1, color: "sky", width: "thin", points: [{ x: 0.1, y: 0.2 }, { x: 0.3, y: 0.4 }], label: null };
   const readOwners = async (sessionId: number, userId: number) => (await seeRoom(sessionId, userId)).drawings.map((drawing) => drawing.userId);
 
   it("гравець і майстер малюють, лінії видно всім разом з автором і точками", async () => {
@@ -327,6 +327,34 @@ describe("малюнки на мапі", () => {
     const shapes: DrawingStroke[] = [{ ...line, shape: "rect", isFilled: true }, { ...line, shape: "circle", color: "teal" }];
     expect((await saveSceneDrawings(sessionId, gm.id, sceneId, shapes)).ok).toBe(true);
     expect((await seeRoom(sessionId, gm.id)).drawings.map(({ shape, isFilled, color }) => ({ shape, isFilled, color }))).toEqual([{ shape: "rect", isFilled: true, color: "sky" }, { shape: "circle", isFilled: false, color: "teal" }]);
+  });
+
+  it("колір зі спектру, непрозора заливка й текст зберігаються і читаються назад", async () => {
+    const { gm, sessionId } = await createTable();
+    const sceneId = await createScene(sessionId, gm.id);
+    const solid: DrawingStroke = { ...line, shape: "rect", isFilled: true, color: "#a1b2c3" };
+    const sign: DrawingStroke = { ...line, shape: "text", color: "#ffffff", points: [{ x: 0.1, y: 0.2 }, { x: 0.1, y: 0.24 }], label: { text: "Тут\nдракон", font: "ornate", effect: "glow" } };
+    expect((await saveSceneDrawings(sessionId, gm.id, sceneId, [solid, sign])).ok).toBe(true);
+    expect((await seeRoom(sessionId, gm.id)).drawings.map(({ id: _id, userId: _userId, ...stroke }) => stroke)).toEqual([solid, sign]);
+  });
+
+  it("гравець рухає лише свій малюнок, а майстер — будь-який; стертий і поза мапою не рухаються", async () => {
+    const { gm, player, other, sessionId } = await createTable();
+    const sceneId = await createScene(sessionId, gm.id);
+    const mine = await saveSceneDrawings(sessionId, player.id, sceneId, [line]);
+    const theirs = await saveSceneDrawings(sessionId, other.id, sceneId, [line]);
+    if (!mine.ok || !theirs.ok) throw new Error("not saved");
+    const [mineId, theirsId] = [mine.value.ids[0], theirs.value.ids[0]];
+    const moved = [{ x: 0.5, y: 0.5 }, { x: 0.7, y: 0.7 }];
+
+    expect(await moveSceneDrawing(sessionId, player.id, sceneId, mineId, moved)).toEqual({ ok: true, value: null });
+    expect(await moveSceneDrawing(sessionId, player.id, sceneId, theirsId, moved)).toEqual({ ok: false, error: "forbidden" });
+    expect(await moveSceneDrawing(sessionId, gm.id, sceneId, theirsId, moved)).toEqual({ ok: true, value: null });
+    expect((await seeRoom(sessionId, gm.id)).drawings.map((drawing) => drawing.points)).toEqual([moved, moved]);
+
+    expect(await moveSceneDrawing(sessionId, gm.id, sceneId, mineId, [])).toEqual({ ok: false, error: "bad_drawing" });
+    await removeSceneDrawings(sessionId, gm.id, sceneId, [mineId]);
+    expect(await moveSceneDrawing(sessionId, gm.id, sceneId, mineId, moved)).toEqual({ ok: false, error: "drawing_gone" });
   });
 
   it("гравець стирає лише свої лінії, навіть передавши чужі id; майстер стирає все", async () => {

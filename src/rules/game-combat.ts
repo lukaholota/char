@@ -10,17 +10,21 @@ export type CombatantRow = {
   id: number;
   persId: number | null;
   gameMapCreatureId: number | null;
-  initiative: number;
+  /// null — герой у бою, але ще не кинув ініціативу сам.
+  initiative: number | null;
   initiativeBonus: number;
   sortTiebreak: number;
 };
+
+/// Кого майстер вибрав на мапі для бою; null — усіх героїв з листами й поставлених істот.
+export type CombatPick = { persIds: readonly number[]; creatureIds: readonly number[] } | null;
 
 export type CombatPresence = { persIds: ReadonlySet<number>; creatureIds: ReadonlySet<number> };
 
 export type CombatHeroView = { persId: number; userId: number; name: string; avatarUrl: string | null };
 
 /// Бонус ініціативи гравцям не віддається: за ним можна вирахувати Спритність прихованої істоти.
-export type CombatantView = { id: number; initiative: number; hero: CombatHeroView | null; creature: MapCreatureView | null };
+export type CombatantView = { id: number; initiative: number | null; hero: CombatHeroView | null; creature: MapCreatureView | null };
 export type CombatView = { round: number; currentId: number | null; combatants: CombatantView[] };
 
 export type TurnPosition = { round: number; index: number };
@@ -46,13 +50,34 @@ export function parseInitiative(raw: unknown): number | null {
   return value >= INITIATIVE_LIMITS.min && value <= INITIATIVE_LIMITS.max ? value : null;
 }
 
+const MAX_PICKED = 500;
+const isIdList = (value: unknown): value is number[] => Array.isArray(value) && value.length <= MAX_PICKED && value.every((id) => Number.isInteger(id) && id > 0);
+
+/// undefined — запит зіпсований; null — вибору немає, в бій ідуть усі.
+export function parseCombatPick(raw: unknown): CombatPick | undefined {
+  if (raw === undefined || raw === null) return null;
+  if (typeof raw !== "object") return undefined;
+  const { persIds, creatureIds } = raw as Record<string, unknown>;
+  if (!isIdList(persIds) || !isIdList(creatureIds) || persIds.length + creatureIds.length === 0) return undefined;
+  return { persIds, creatureIds };
+}
+
 export function parseTurnStep(raw: unknown): 1 | -1 | null {
   return raw === 1 || raw === -1 ? raw : null;
 }
 
-/// Вища ініціатива, за рівності — вищий бонус, далі збережений жереб; id робить порядок стабільним.
+/// Вища ініціатива, за рівності — вищий бонус, далі збережений жереб; id робить порядок стабільним. Хто ще не кинув — у кінці.
 export function sortCombatants<Row extends Pick<CombatantRow, "id" | "initiative" | "initiativeBonus" | "sortTiebreak">>(rows: readonly Row[]): Row[] {
-  return [...rows].sort((a, b) => b.initiative - a.initiative || b.initiativeBonus - a.initiativeBonus || b.sortTiebreak - a.sortTiebreak || a.id - b.id);
+  const rank = (row: Row) => row.initiative ?? Number.NEGATIVE_INFINITY;
+  return [...rows].sort((a, b) => rank(b) - rank(a) || b.initiativeBonus - a.initiativeBonus || b.sortTiebreak - a.sortTiebreak || a.id - b.id);
+}
+
+export function clampInitiative(total: number): number {
+  return Math.min(INITIATIVE_LIMITS.max, Math.max(INITIATIVE_LIMITS.min, total));
+}
+
+export function isPickedForCombat(pick: CombatPick, side: "persIds" | "creatureIds", id: number): boolean {
+  return pick === null || pick[side].includes(id);
 }
 
 /// У бою лишаються герої, чий персонаж ще у кімнаті, і істоти, що ще є на мапі.

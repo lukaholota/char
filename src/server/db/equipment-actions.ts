@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { canEditPers } from "@/lib/actions/pers";
 import { revalidatePath } from "next/cache";
 import { isCrimsonRiteFeature } from "@/rules/crimson-rite";
+import { parseExtraDamage, type ExtraDamage } from "@/rules/weapon-profile";
 import { Ability, AbilityBonusType, ArmorCategory, DamageType, Prisma, Ruleset } from "@prisma/client";
 
 /**
@@ -101,6 +102,11 @@ export async function addWeapon(
   }
 }
 
+function toExtraDamageJson(value: unknown) {
+  const extras = parseExtraDamage(value);
+  return extras.length ? extras : Prisma.DbNull;
+}
+
 export async function updateWeapon(
   persWeaponId: number,
   updates: {
@@ -109,6 +115,8 @@ export async function updateWeapon(
     customDamageBonus?: number | null;
     customDamageDice?: string | null;
     customDamageAbility?: Ability | null;
+    overrideAttackAbility?: Ability | null;
+    extraDamage?: ExtraDamage[] | null;
     overrideDamageType?: DamageType | null;
     overrideNormalRange?: number | null;
     overrideLongRange?: number | null;
@@ -136,6 +144,8 @@ export async function updateWeapon(
           : updates.customDamageBonus,
       customDamageDice: updates.customDamageDice,
       customDamageAbility: updates.customDamageAbility,
+      overrideAttackAbility: updates.overrideAttackAbility,
+      extraDamage: updates.extraDamage === undefined ? undefined : toExtraDamageJson(updates.extraDamage),
       overrideDamageType: updates.overrideDamageType,
       overrideNormalRange: updates.overrideNormalRange,
       overrideLongRange: updates.overrideLongRange,

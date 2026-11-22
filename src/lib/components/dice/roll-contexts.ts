@@ -1,6 +1,7 @@
 import type { DiceRollAction, DiceRollContext, ExtraDie, RollStateView } from "@/lib/stores/diceUIStore";
 import type { SaveSpellRef } from "@/rules/game-roll-saves";
 import { countD20Dice, parseDiceNotation, pickD20Value, type D20Mode } from "@/rules/dice-roll";
+import { parseWeaponDamageFormula } from "@/rules/weapon-damage-formula";
 import type { CreatureSaveAction, CreatureSaveEffect } from "@/rules/creature-area-action";
 import type { CreatureRoll } from "@/rules/creature-rolls";
 import { AREA_SHAPE_LABELS } from "@/rules/game-areas";
@@ -71,13 +72,16 @@ export function buildWeaponRollContext(input: {
   attackState?: RollStateView;
   damageExtraDice?: ExtraDie[];
 }): DiceRollContext {
-  const damage = parseDiceNotation(input.damageDice);
+  const formulaDice = parseWeaponDamageFormula(input.damageDice)?.dice ?? [];
+  const [damage, ...otherGroups] = formulaDice.length ? formulaDice : [parseDiceNotation(input.damageDice)];
+  const groupDice = otherGroups.flatMap((group) => Array.from({ length: group.count }, () => ({ sides: group.sides, sign: 1 as const, label: `${group.count}к${group.sides}` })));
+  const extraDice = [...groupDice, ...(input.damageExtraDice ?? [])];
   return {
     title: input.weaponName,
-    subtitle: `Шкода ${damage.count}к${damage.sides}`,
+    subtitle: `Шкода ${[damage, ...otherGroups].map((group) => `${group.count}к${group.sides}`).join("+")}`,
     actions: [
       buildD20Action("attack", "Атака", input.attackBonus, input.attackState),
-      { key: "damage", label: "Шкода", count: damage.count, sides: damage.sides, bonus: input.damageBonus, isD20: false, extraDice: input.damageExtraDice },
+      { key: "damage", label: "Шкода", count: damage.count, sides: damage.sides, bonus: input.damageBonus, isD20: false, extraDice: extraDice.length ? extraDice : input.damageExtraDice },
     ],
     autoRollKey: "attack",
   };

@@ -32,11 +32,13 @@ export function MapHints({ isFullscreen, ...state }: MapHintsProps) {
 /// Найважливіша підказка — перша: вузька шапка ховає кінець списку.
 export function listMapHints(state: MapHintState, isMac: boolean): MapHint[] {
   const undo = { keys: isMac ? "⌘Z" : "Ctrl+Z", action: "скасувати" };
+  const copy = { keys: isMac ? "⌘C ⌘V" : "Ctrl+C Ctrl+V", action: "копія" };
   if (state.isGroup) return listGroupHints(state.tool === "objects");
-  if (state.tool) return listToolHints(state.tool, undo);
-  if (state.token) return listTokenHints(state.token, state.tab, state.isSide);
+  const scatter = { keys: isMac ? "⇧⌘V" : "Ctrl+Shift+V", action: "копія з розкидом" };
+  if (state.tool) return listToolHints(state.tool, undo, copy, scatter);
+  if (state.token) return listTokenHints(state.token, state.tab, state.isSide, copy);
   if (state.isArchived) return [{ keys: "Тягни", action: "рухати мапу" }, { keys: "Колесо", action: "масштаб" }];
-  if (state.isGm) return [{ keys: "Клік", action: "вибрати токен" }, { keys: "Тягни по порожньому", action: "рамка для кількох" }, { keys: "ПКМ + тягни", action: "рухати мапу" }, { keys: "Колесо", action: "масштаб" }, { keys: "Утримати", action: "позначка для всіх" }, undo];
+  if (state.isGm) return [{ keys: "Клік", action: "вибрати токен" }, { keys: "Shift + клік", action: "додати до вибору" }, { keys: "Тягни по порожньому", action: "рамка для кількох" }, { keys: "ПКМ + тягни", action: "рухати мапу" }, { keys: "Колесо", action: "масштаб" }, { keys: "Утримати", action: "позначка для всіх" }, undo];
   return [{ keys: "Клік по своєму герою", action: "вибрати" }, { keys: "Тягни", action: "рухати мапу" }, { keys: "Колесо", action: "масштаб" }, { keys: "Утримати", action: "позначка для всіх" }];
 }
 
@@ -44,23 +46,26 @@ function listGroupHints(areObjects: boolean): MapHint[] {
   return [{ keys: "Тягни будь-кого", action: "рухаються всі" }, { keys: "Delete", action: areObjects ? "видалити" : "прибрати з мапи" }, { keys: "Esc", action: "зняти вибір" }];
 }
 
-function listToolHints(tool: MapTool, undo: MapHint): MapHint[] {
+function listToolHints(tool: MapTool, undo: MapHint, copy: MapHint, scatter: MapHint): MapHint[] {
   const drag = TOOL_DRAGS[tool];
   return [
     ...(drag ? [{ keys: "Тягни", action: drag }] : []),
     ...(UNDO_TOOLS.includes(tool) ? [undo] : []),
+    ...(tool === "objects" || tool === "light" ? [copy] : []),
+    ...(tool === "objects" ? [scatter] : []),
     { keys: "Esc", action: "закрити інструмент" },
     ...(tool === "walls" || tool === "area" ? [] : [{ keys: "Клік по токену", action: "вибрати його" }]),
   ];
 }
 
-function listTokenHints(token: SelectedToken, tab: TokenPanelTab, isSide: boolean): MapHint[] {
+function listTokenHints(token: SelectedToken, tab: TokenPanelTab, isSide: boolean, copy: MapHint): MapHint[] {
   const hasSheet = token.sheet !== null || token.showRoomSheet !== null;
   const againAction = !isSide ? `«${token.openLabel}»` : !hasSheet ? null : tab === "sheet" ? "налаштування токена" : `«${token.sheetLabel}»`;
   return [
     ...(againAction ? [{ keys: "Клік ще раз", action: againAction }] : []),
     { keys: "Тягни токен", action: "пересунути" },
     ...(token.remove ? [{ keys: "Delete", action: "прибрати з мапи" }] : []),
+    ...(token.lightTarget.kind === "creature" ? [copy] : []),
     { keys: "Esc", action: "зняти вибір" },
   ];
 }

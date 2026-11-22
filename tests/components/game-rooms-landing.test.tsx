@@ -48,35 +48,35 @@ describe("сторінка /games", () => {
     await renderPageFor(null);
     expect(heading(HERO)).not.toBeNull();
     expect(heading(FEATURE)).not.toBeNull();
-    expect(screen.getAllByRole("button", { name: "Увійти й створити кімнату" })).toHaveLength(2);
-    expect(screen.queryByLabelText("Назва нової кімнати")).toBeNull();
+    expect(screen.getAllByRole("button", { name: "Увійти й створити кампанію" })).toHaveLength(2);
+    expect(screen.queryByLabelText("Назва нової кампанії")).toBeNull();
     expect(mocks.listGameSessionsForUser).not.toHaveBeenCalled();
   });
 
   it("без кімнат лендинг закінчується формою, а кнопка вгорі веде до неї", async () => {
     await renderPageFor([]);
-    const finale = heading("Створіть першу кімнату") as HTMLElement;
+    const finale = heading("Створіть першу кампанію") as HTMLElement;
     expect(isBefore(heading(HERO) as HTMLElement, finale)).toBe(true);
     expect(isBefore(heading(FEATURE) as HTMLElement, finale)).toBe(true);
     Element.prototype.scrollIntoView = vi.fn();
-    fireEvent.click(screen.getByRole("button", { name: "Створити першу кімнату" }));
-    expect(document.activeElement).toBe(screen.getByLabelText("Назва нової кімнати"));
+    fireEvent.click(screen.getByRole("button", { name: "Створити першу кампанію" }));
+    expect(document.activeElement).toBe(screen.getByLabelText("Назва нової кампанії"));
   });
 
   it("лише архівні кімнати: це вже не перша кімната, а архів лишається доступним", async () => {
     await renderPageFor([buildRoom({ isArchived: true })]);
     expect(heading(HERO)).not.toBeNull();
-    expect(screen.queryByRole("button", { name: "Створити першу кімнату" })).toBeNull();
-    expect(screen.getAllByRole("button", { name: "Створити кімнату" })).toHaveLength(2);
+    expect(screen.queryByRole("button", { name: "Створити першу кампанію" })).toBeNull();
+    expect(screen.getAllByRole("button", { name: "Створити кампанію" })).toHaveLength(2);
     expect(screen.getByText(/Архів · 1/)).not.toBeNull();
   });
 
   it("зі своїми кімнатами спершу список, а можливості — нижче й без другого героя", async () => {
     await renderPageFor([buildRoom({})]);
-    expect(isBefore(heading("Мої кімнати") as HTMLElement, heading("Що вміють кімнати") as HTMLElement)).toBe(true);
+    expect(isBefore(heading("Мої кампанії") as HTMLElement, heading("Що вміють кампанії") as HTMLElement)).toBe(true);
     expect(heading(FEATURE)).not.toBeNull();
     expect(heading(HERO)).toBeNull();
-    expect(screen.queryByLabelText("Назва нової кімнати")).toBeNull();
+    expect(screen.queryByLabelText("Назва нової кампанії")).toBeNull();
   });
 
   it("у режимі без ШІ кадрів і підписів до них немає, текст лишається", async () => {

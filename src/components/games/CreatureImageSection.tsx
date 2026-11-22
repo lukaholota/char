@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition, type ChangeEvent } from "react";
+import { useEffect, useRef, useState, useTransition, type ButtonHTMLAttributes, type ChangeEvent } from "react";
 import { ImagePlus, Trash2, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
@@ -14,6 +14,8 @@ import { ACCEPTED_IMAGE_MIME_TYPES, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-u
 import { cn } from "@/lib/utils";
 import { MAP_CREATURE_LIMITS, buildCreatureInitials, type MapCreatureView } from "@/rules/game-map-creatures";
 import { useCutoutImage } from "./token-cutout";
+import { useFileDrop } from "./use-file-drop";
+import { LIST_TOUCH_HOLD_MS, useTokenDrag } from "./use-token-drag";
 
 export type CutoutControl = { value: boolean; onChange: (isCutout: boolean) => void };
 type Props = { sessionId: number; creature: MapCreatureView; cutout: CutoutControl };
@@ -89,10 +91,12 @@ function CreatureImagePicker({ sessionId, creature, onApplied }: { sessionId: nu
   );
 }
 
-type LibraryProps = { chosenKey: string | null; cropTitle: string; onPick: (imageKey: string) => Promise<void> };
+type Point = { clientX: number; clientY: number };
+type MapDrop = { onDrop: (imageKey: string, point: Point) => Promise<void>; canDropAt: (point: Point) => boolean };
+type LibraryProps = { chosenKey: string | null; cropTitle: string; onPick: (imageKey: string) => Promise<void>; mapDrop?: MapDrop };
 
 /// Бібліотека зображень майстра: спільна для вигляду істот і обʼєктів на мапі.
-export function TokenImageLibrary({ chosenKey, cropTitle, onPick }: LibraryProps) {
+export function TokenImageLibrary({ chosenKey, cropTitle, onPick, mapDrop }: LibraryProps) {
   const router = useModeRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const { keys, hasFailed, load, setKeys } = useTokenImageKeys();
@@ -101,6 +105,9 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick }: LibraryProps
   const [isBusy, startBusy] = useTransition();
   const isFull = (keys?.length ?? 0) >= MAP_CREATURE_LIMITS.imagesPerUser;
   const isDeleting = wantsToDelete && Boolean(keys?.length);
+  const drop = useFileDrop(setCroppingFile, isBusy || isFull || isDeleting);
+  const canDropAt = (point: Point) => mapDrop?.canDropAt(point) ?? false;
+  const drag = useTokenDrag<string>((key, point) => mapDrop && canDropAt(point) && startBusy(() => mapDrop.onDrop(key, point)), canDropAt, (key) => startBusy(() => onPick(key)), LIST_TOUCH_HOLD_MS);
 
   const pickFile = (event: ChangeEvent<HTMLInputElement>) => {
     setCroppingFile(event.target.files?.[0] ?? null);
@@ -141,18 +148,22 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick }: LibraryProps
         <LibraryLoadError onRetry={load} />
       ) : (
         <div className="grid grid-cols-4 gap-2">
-          <button type="button" disabled={isBusy || isFull || isDeleting} onClick={() => inputRef.current?.click()} className={cn(TILE_CLASS, "grid place-items-center gap-1 border-dashed border-white/30 p-1 text-xs text-slate-200 disabled:opacity-50")}>
+          <button type="button" disabled={isBusy || isFull || isDeleting} onClick={() => inputRef.current?.click()} {...drop.bindDrop} title="Натисніть або перетягніть файл сюди" className={cn(TILE_CLASS, "grid place-items-center gap-1 border-dashed p-1 text-xs text-slate-200 disabled:opacity-50", drop.isOver ? "border-amber-300 bg-amber-300/10" : "border-white/30")}>
             <Upload className="h-5 w-5" aria-hidden />
-            <span>{isBusy ? "Зачекайте" : "Нове"}</span>
+            <span>{isBusy ? "Зачекайте" : drop.isOver ? "Сюди" : "Нове"}</span>
           </button>
           {keys === null ? <div className={cn(TILE_CLASS, "border-white/10 bg-white/5")} aria-hidden /> : null}
           {keys?.map((key, index) => (
-            <LibraryTile key={key} imageKey={key} index={index + 1} isChosen={key === chosenKey} isDeleting={isDeleting} disabled={isBusy} onPick={() => (isDeleting ? void deleteImage(key) : startBusy(() => onPick(key)))} />
+            <LibraryTile key={key} imageKey={key} index={index + 1} isChosen={key === chosenKey} isDeleting={isDeleting} disabled={isBusy} onPick={() => (isDeleting ? void deleteImage(key) : startBusy(() => onPick(key)))} dragBinding={mapDrop && !isDeleting ? drag.bindToken(key) : undefined} />
           ))}
         </div>
       )}
       {keys?.length === 0 ? <p className="text-sm text-slate-400">Завантажте зображення один раз — і ставте його на мапу істотам чи обʼєктам.</p> : null}
       {isFull ? <p className="text-sm text-slate-400">{`У бібліотеці вже ${MAP_CREATURE_LIMITS.imagesPerUser} зображень — видаліть непотрібне, щоб додати нове.`}</p> : null}
+      {drag.ghost ? (
+        // eslint-disable-next-line @next/next/no-img-element -- та сама мініатюра, що й у бібліотеці
+        <img src={buildMediaImageUrl(drag.ghost.id, "thumbnail")} alt="" aria-hidden width={64} height={64} className={cn("pointer-events-none fixed z-[10000] h-16 w-16 -translate-x-1/2 -translate-y-1/2 object-contain", !drag.ghost.isOverTarget && "opacity-60")} style={{ left: drag.ghost.clientX, top: drag.ghost.clientY }} />
+      ) : null}
       <input ref={inputRef} type="file" accept={ACCEPTED_IMAGE_MIME_TYPES} aria-label="Завантажити нове зображення" className="sr-only" tabIndex={-1} onChange={pickFile} />
       <ImageCropDialog file={croppingFile} title={cropTitle} onCancel={() => setCroppingFile(null)} onCropped={uploadCropped} onUnreadable={() => { setCroppingFile(null); toast.error("Не вдалося відкрити картинку. Спробуйте JPEG, PNG або WebP."); }} />
     </div>
@@ -161,11 +172,11 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick }: LibraryProps
 
 const TILE_CLASS = "relative aspect-square min-h-11 overflow-hidden rounded-xl border";
 
-type TileProps = { imageKey: string; index: number; isChosen: boolean; isDeleting: boolean; disabled: boolean; onPick: () => void };
+type TileProps = { imageKey: string; index: number; isChosen: boolean; isDeleting: boolean; disabled: boolean; onPick: () => void; dragBinding?: Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onPointerDown"> };
 
-function LibraryTile({ imageKey, index, isChosen, isDeleting, disabled, onPick }: TileProps) {
+function LibraryTile({ imageKey, index, isChosen, isDeleting, disabled, onPick, dragBinding }: TileProps) {
   return (
-    <button type="button" disabled={disabled} aria-pressed={isDeleting ? undefined : isChosen} aria-label={`${isDeleting ? "Видалити" : "Поставити"} зображення ${index}`} onClick={onPick} className={cn(TILE_CLASS, "bg-slate-900 disabled:opacity-50", isChosen ? "border-amber-300 ring-1 ring-amber-300" : "border-white/10 hover:border-white/30")}>
+    <button type="button" disabled={disabled} aria-pressed={isDeleting ? undefined : isChosen} aria-label={`${isDeleting ? "Видалити" : "Поставити"} зображення ${index}`} onClick={(event) => (!dragBinding || event.detail === 0) && onPick()} {...dragBinding} className={cn(TILE_CLASS, "bg-slate-900 select-none [-webkit-touch-callout:none] disabled:opacity-50", isChosen ? "border-amber-300 ring-1 ring-amber-300" : "border-white/10 hover:border-white/30")}>
       <ContentImage src={buildMediaImageUrl(imageKey, "thumbnail")} alt="" provenance="manual" fill sizes="96px" className="object-contain" />
       {isDeleting ? <span className="absolute inset-0 grid place-items-center bg-slate-950/60 text-rose-200"><Trash2 className="h-5 w-5" aria-hidden /></span> : null}
     </button>

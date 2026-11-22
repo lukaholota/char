@@ -144,3 +144,12 @@ export function splitTokenConditionMarks(marks: TokenConditionMark[], maxShown =
 export function canChangeTokenConditions(actor: { userId: number; isGm: boolean }, hero: { userId: number } | null): boolean {
   return actor.isGm || (hero !== null && hero.userId === actor.userId);
 }
+
+export function isTokenInvisible(conditions: readonly string[]): boolean {
+  return conditions.includes("invisible");
+}
+
+/// Невидимий токен бачать лише ті, хто ним керує: майстер і власник героя, обидва — напівпрозорим.
+export function isTokenHiddenFromViewer(viewer: { userId: number; isGm: boolean }, hero: { userId: number } | null, conditions: readonly string[]): boolean {
+  return isTokenInvisible(conditions) && !canChangeTokenConditions(viewer, hero);
+}

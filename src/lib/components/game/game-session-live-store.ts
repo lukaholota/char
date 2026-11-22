@@ -3,6 +3,7 @@ import { readRollTargetCreatureId, useGameSessionStore } from "@/lib/stores/game
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import { collectAppliedHeroDamage, requestHeroDamage } from "@/lib/components/game/hero-damage";
 import type { TokenPosition } from "@/rules/game-map";
+import { EMPTY_GAME_ROLL } from "@/rules/game-roll";
 import type { GameSessionView } from "@/server/db/game-sessions";
 
 export type GameConnectionStatus = "idle" | "connecting" | "live" | "reconnecting" | "paused" | "offline" | "signed_out" | "lost";
@@ -75,6 +76,16 @@ export function addPendingRoll(sessionId: number, pending: PendingGameRoll) {
   if (state.sessionId !== sessionId) return;
   useGameSessionLiveStore.setState({ pendingRolls: [...state.pendingRolls, pending] });
   stopMeRolling(sessionId);
+}
+
+/// Своє повідомлення видно одразу; справжнє приходить потоком і стає на його місце за тим самим ключем.
+export function addPendingMessage(sessionId: number, pending: { key: string; text: string; isForGm: boolean }) {
+  const { view } = useGameSessionLiveStore.getState();
+  const me = view?.members.find((member) => member.userId === view.myUserId);
+  if (!me) return;
+  const now = new Date().toISOString();
+  const event: GameRollEventView = { seq: 0, authorUserId: me.userId, authorName: me.name, persName: me.persName, avatarUrl: me.avatarUrl, source: "MESSAGE", visibility: pending.isForGm ? "GM" : "PUBLIC", label: pending.text, roll: EMPTY_GAME_ROLL, total: EMPTY_GAME_ROLL.total, rolledAt: now, createdAt: now, target: null, saves: null, heroTarget: null };
+  addPendingRoll(sessionId, { key: pending.key, event });
 }
 
 export function dropPendingRoll(key: string) {

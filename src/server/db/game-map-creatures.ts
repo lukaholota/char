@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { applyHitPointChange, findCreatureHitPoints, rollCreatureMaxHitPoints, type HitPointChange } from "@/rules/creature-hit-points";
 import type { TokenLight } from "@/rules/game-lighting";
-import type { TokenPosition } from "@/rules/game-map";
+import { findPastePosition, type TokenPosition } from "@/rules/game-map";
 import {
   MAP_CREATURE_LIMITS,
   findCreatureGroupKey,
@@ -47,6 +47,30 @@ export async function addMapCreatures(sessionId: number, userId: number, input: 
   });
   if (added.ok) await signalGameSession(sessionId, "session");
   return added;
+}
+
+/// Копія бере вигляд, бік і світло оригіналу, але свої хіти й номер; без станів і ініціативи. step зсуває копію від оригіналу.
+export async function duplicateMapCreature(sessionId: number, userId: number, creatureId: number, step: number): Promise<GameSessionResult<{ id: number }>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const duplicated = await prisma.$transaction(async (tx) => {
+    await tx.$queryRaw`SELECT 1 FROM game_session WHERE game_session_id = ${sessionId} FOR UPDATE`;
+    const original = await tx.gameMapCreature.findFirst({ where: { id: creatureId, gameSessionId: sessionId } });
+    if (!original?.gameSceneId) return fail("creature_gone");
+    const entry = await findRoomCreature(original.creatureKey, original.ruleset);
+    if (!entry) return fail("bad_creature");
+    const siblings = await tx.gameMapCreature.findMany({ where: { gameSceneId: original.gameSceneId }, select: { creatureKey: true, ruleset: true, customName: true, number: true } });
+    if (siblings.length >= MAP_CREATURE_LIMITS.perScene) return fail("creature_limit");
+    const group = findCreatureGroupKey(original);
+    const [number] = findFreeCreatureNumbers(siblings.filter((row) => findCreatureGroupKey(row) === group).map((row) => row.number), 1);
+    const at = original.tokenX === null || original.tokenY === null ? null : findPastePosition({ x: original.tokenX, y: original.tokenY }, step);
+    const hpMax = rollCreatureMaxHitPoints(entry.hp);
+    const { id: _id, createdAt: _createdAt, conditions: _conditions, exhaustionLevel: _exhaustion, ...look } = original;
+    const copy = await tx.gameMapCreature.create({ data: { ...look, number, hpMax, hpCurrent: hpMax, tokenX: at?.x ?? null, tokenY: at?.y ?? null }, select: { id: true } });
+    return { ok: true as const, value: copy };
+  });
+  if (duplicated.ok) await signalGameSession(sessionId, "session");
+  return duplicated;
 }
 
 /// Нове імʼя переносить істоту в іншу групу нумерації, тому номер береться найменший вільний у новій групі.
@@ -161,4 +185,13 @@ export async function setCreatureNameMode(sessionId: number, userId: number, mod
 
 function findGmSceneId(membership: { openSceneId: number | null; gameSession: { activeSceneId: number | null } }): number | null {
   return findViewedSceneId({ isGm: true, activeSceneId: membership.gameSession.activeSceneId, openSceneId: membership.openSceneId });
+}
+
+export async function setMapCreatureNameHidden(sessionId: number, userId: number, creatureId: number, isNameHidden: boolean): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const changed = await prisma.gameMapCreature.updateMany({ where: { id: creatureId, gameSessionId: sessionId }, data: { isNameHidden } });
+  if (!changed.count) return fail("creature_gone");
+  await signalGameSession(sessionId, "session");
+  return { ok: true, value: null };
 }

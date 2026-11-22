@@ -16,7 +16,7 @@ import {
   activateGameSceneAction,
 } from "@/lib/actions/game-sessions";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
-import { findCombatNewcomers, moveTurn as moveTurnPosition, type CombatantView, type CombatView } from "@/rules/game-combat";
+import { findCombatNewcomers, moveTurn as moveTurnPosition, type CombatantView, type CombatPick, type CombatView } from "@/rules/game-combat";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { CARD_WIDTH, CombatantItem, CombatantPortrait, SpotlightPortraitButton } from "./CombatantItem";
 import { usePortraitSpotlight, type PortraitSpotlightInput } from "./use-token-conditions";
@@ -100,9 +100,26 @@ function StartCombatButton({ view }: { view: GameSessionView }) {
     }, ({ combatantCount }) => captureGameEvent("game_combat_started", { combatant_count: combatantCount }));
   };
   return (
-    <Button type="button" variant="outline" onClick={start} disabled={isPending} title="Ініціативу кине сервер: за героїв з листа, за істот на мапі зі Спритності" className="h-11 gap-2 px-3">
+    <Button type="button" variant="outline" onClick={start} disabled={isPending} title="Усі герої й поставлені істоти. Лише декого — виділіть рамкою чи Shift-кліком. Істотам ініціативу кине сервер, гравці кидають самі з листа" className="h-11 gap-2 px-3">
       <Swords className="h-4 w-4" aria-hidden />
       Почати бій
+    </Button>
+  );
+}
+
+/// Виділені на мапі токени: до бою — починають його самі, під час бою — приєднуються.
+export function PickedCombatButton({ view, pick }: { view: GameSessionView; pick: NonNullable<CombatPick> }) {
+  const { isPending, run } = useCombatCommand();
+  const count = pick.persIds.length + pick.creatureIds.length;
+  if (count === 0) return null;
+  const join = () =>
+    view.combat
+      ? run(() => addCombatantsAction(view.id, pick), ({ addedCount }) => (addedCount ? captureGameEvent("game_combatants_added", { added_count: addedCount }) : toast.info("Вибрані вже в бою")))
+      : run(() => startCombatAction(view.id, pick), ({ combatantCount }) => captureGameEvent("game_combat_started", { combatant_count: combatantCount }));
+  return (
+    <Button type="button" variant="outline" onClick={join} disabled={isPending || (!view.combat && view.viewedSceneId !== view.activeSceneId)} className="h-11 w-full gap-2">
+      <Swords className="h-4 w-4" aria-hidden />
+      {view.combat ? `Додати в бій: ${count}` : `Почати бій з вибраними: ${count}`}
     </Button>
   );
 }
@@ -218,6 +235,7 @@ export function describeCurrentTurn(combat: CombatView, myUserId: number | null)
   const currentIndex = combat.combatants.findIndex((combatant) => combatant.id === combat.currentId);
   const current = combat.combatants[currentIndex];
   if (!current) return "У черзі нікого немає";
+  if (myUserId !== null && combat.combatants.some((combatant) => combatant.hero?.userId === myUserId && combatant.initiative === null)) return "Киньте ініціативу з листа — вона стане в чергу сама";
   if (myUserId !== null && current.hero?.userId === myUserId) return "Ваш хід";
   const myIndex = myUserId === null ? -1 : combat.combatants.findIndex((combatant) => combatant.hero?.userId === myUserId);
   const name = current.hero?.name ?? current.creature?.label;

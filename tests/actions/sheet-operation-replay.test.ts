@@ -7,7 +7,7 @@ import { applyHpChange } from "@/lib/actions/combat-actions";
 import { restoreFeatureUse, spendFeatureUse } from "@/lib/actions/feature-uses";
 import { stepMagicItemCharges } from "@/lib/actions/magic-item-actions";
 import { longRest, shortRest } from "@/lib/actions/rest-actions";
-import { restorePactSlot, restoreSpellSlot, spendPactSlot, spendSpellSlot } from "@/lib/actions/spell-slots";
+import { changeSpellPoints, restorePactSlot, restoreSpellSlot, spendPactSlot, spendSpellSlot } from "@/lib/actions/spell-slots";
 import type { OfflineOperation } from "@/lib/offline/operations";
 import { applyOwnedOfflineOperation } from "@/server/db/offline-operations";
 import { minimalForm } from "../helpers/build-form";
@@ -79,7 +79,7 @@ function stamp(sheet: Sheet, operationId: string, body: Omit<OfflineOperation, "
 const readHp = (sheet: Sheet) =>
   prisma.pers.findUniqueOrThrow({ where: { persId: sheet.persId }, select: { currentHp: true, tempHp: true } });
 const readSlots = (sheet: Sheet) =>
-  prisma.pers.findUniqueOrThrow({ where: { persId: sheet.persId }, select: { currentSpellSlots: true, currentPactSlots: true } });
+  prisma.pers.findUniqueOrThrow({ where: { persId: sheet.persId }, select: { currentSpellSlots: true, currentPactSlots: true, spellPointsSpent: true } });
 const readRage = (sheet: Sheet) =>
   prisma.persFeature.findUniqueOrThrow({
     where: { persId_featureId: { persId: sheet.persId, featureId: sheet.featureId } },
@@ -93,7 +93,7 @@ const readRest = (sheet: Sheet) =>
 const readLongRest = (sheet: Sheet) =>
   prisma.pers.findUniqueOrThrow({
     where: { persId: sheet.persId },
-    select: { currentHp: true, currentHitDice: true, exhaustionLevel: true },
+    select: { currentHp: true, currentHitDice: true, exhaustionLevel: true, spellPointsSpent: true },
   });
 
 const firstLevelSlots = (count: number) => [count, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -142,6 +142,13 @@ const SHEET_CHANGES: SheetChange[] = [
     readState: readSlots,
   },
   {
+    kind: "витрата очок чар",
+    prepare: () => createSheet(Classes.WIZARD_2014, () => ({ level: 3, spellPointsSpent: 2 })),
+    sendDirectly: (sheet, operationId) => changeSpellPoints(sheet.persId, 3, operationId),
+    buildOperation: (sheet, operationId) => stamp(sheet, operationId, { kind: "spell-points", amount: 3 }),
+    readState: readSlots,
+  },
+  {
     kind: "витрата ресурсу риси",
     prepare: () => createRager(2),
     sendDirectly: (sheet, operationId) => spendFeatureUse({ persId: sheet.persId, featureId: sheet.featureId, operationId }),
@@ -174,7 +181,7 @@ const SHEET_CHANGES: SheetChange[] = [
   {
     kind: "тривалий відпочинок",
     prepare: () =>
-      createSheet(Classes.FIGHTER_2014, (classId) => ({ level: 4, currentHp: 5, maxHp: 30, currentHitDice: { [classId]: 0 }, exhaustionLevel: 2 })),
+      createSheet(Classes.FIGHTER_2014, (classId) => ({ level: 4, currentHp: 5, maxHp: 30, currentHitDice: { [classId]: 0 }, exhaustionLevel: 2, spellPointsSpent: 4 })),
     sendDirectly: (sheet, operationId) => longRest(sheet.persId, operationId),
     buildOperation: (sheet, operationId) => stamp(sheet, operationId, { kind: "long-rest" }),
     readState: readLongRest,

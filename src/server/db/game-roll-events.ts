@@ -1,10 +1,11 @@
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { buildSecretRollLabel, canSeeGameRollValues, type GameRoll, type GameRollSource, type GameRollVisibility } from "@/rules/game-roll";
+import { buildSecretRollLabel, canSeeGameRollValues, EMPTY_GAME_ROLL, type GameRoll, type GameRollSource, type GameRollVisibility } from "@/rules/game-roll";
 import { buildGameRollHeroTargetView, type GameRollHeroTargetDraft, type GameRollHeroTargetView, type StoredHeroTarget } from "@/rules/game-roll-hero-target";
 import { buildGameRollSavesView, splitSaveDamage, type GameRollSavesDraft, type GameRollSavesView, type StoredSaves } from "@/rules/game-roll-saves";
 import { buildGameRollTargetView, type GameRollTargetDraft, type GameRollTargetView } from "@/rules/game-roll-target";
 import { findAttackHit } from "@/rules/game-roll-target";
+import { takeRolledInitiative } from "@/server/db/game-combat";
 import { changeHeroTargetHitPoints, damageHeroSaveRows } from "@/server/db/game-hero-damage";
 import { findRoomHeroes, type RoomHero } from "@/server/db/game-room-heroes";
 import { applyRollTarget, applySaveTargets, revertRollDamage, revertSaveDamage } from "@/server/db/game-roll-target";
@@ -31,7 +32,7 @@ export type GameRollEventView = {
 export type GameRollDraft = {
   idempotencyKey: string;
   visibility: GameRollVisibility;
-  source: "CHARACTER" | "FREE";
+  source: "CHARACTER" | "FREE" | "MESSAGE";
   persId: number | null;
   label: string;
   roll: GameRoll;
@@ -39,6 +40,7 @@ export type GameRollDraft = {
   target: GameRollTargetDraft | null;
   saves?: GameRollSavesDraft | null;
   heroTarget?: GameRollHeroTargetDraft | null;
+  isInitiative?: boolean;
 };
 
 export type GameRollViewer = { userId: number; isGm: boolean };
@@ -168,8 +170,24 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
       select: EVENT_SELECT,
     });
     await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "roll" })})`;
-    if (effect.value?.hpChange || saves?.rows.some((row) => row.hpChange || row.isConditionAdded)) await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "session" })})`;
+    const isInitiativeTaken = draft.isInitiative && author.value.persId !== null ? await takeRolledInitiative(tx, sessionId, author.value.persId, draft.roll.total) : false;
+    if (isInitiativeTaken || effect.value?.hpChange || saves?.rows.some((row) => row.hpChange || row.isConditionAdded)) await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "session" })})`;
     return { ok: true as const, value: toEventView(created, authorViewer) };
+  });
+}
+
+export type JournalMessageDraft = { idempotencyKey: string; text: string; isForGm: boolean };
+
+export function insertJournalMessage(sessionId: number, authorUserId: number, message: JournalMessageDraft) {
+  return insertGameRollEvent(sessionId, authorUserId, {
+    idempotencyKey: message.idempotencyKey,
+    visibility: message.isForGm ? "GM" : "PUBLIC",
+    source: "MESSAGE",
+    persId: null,
+    label: message.text,
+    roll: EMPTY_GAME_ROLL,
+    rolledAt: new Date(),
+    target: null,
   });
 }
 

@@ -74,6 +74,12 @@ describe("контексти кидків листа", () => {
     expect(context.autoRollKey).toBe("attack");
   });
 
+  it("зброя з двома групами кубиків кидає другу групу як додаткові кубики шкоди", () => {
+    const context = buildWeaponRollContext({ weaponName: "Палаючий меч", attackBonus: 5, damageBonus: 3, damageDice: "1d8+2d6", damageExtraDice: [{ sides: 4, sign: 1, label: "Лють" }] });
+    expect(context.subtitle).toBe("Шкода 1к8+2к6");
+    expect(context.actions[1]).toMatchObject({ count: 1, sides: 8, extraDice: [{ sides: 6, sign: 1, label: "2к6" }, { sides: 6, sign: 1, label: "2к6" }, { sides: 4, sign: 1, label: "Лють" }] });
+  });
+
   it("характеристика — перевірка й ряткидок зі своїми бонусами, летить те, чого торкнулися", () => {
     const check = buildAbilityRollContext("Сила", 2, 5);
     expect(check.actions.map((action) => [action.label, action.bonus])).toEqual([

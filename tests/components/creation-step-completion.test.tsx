@@ -1,6 +1,9 @@
-import { describe, expect, it } from "vitest";
+// @vitest-environment jsdom
+import { describe, expect, it, vi } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
 
-import { canJumpForwardTo, isCreationStepCompleted } from "@/lib/components/characterCreator/creation-step-completion";
+import { CreationFooter } from "@/lib/components/characterCreator/CreationFooter";
+import { canJumpForwardTo, isCreationStepCompleted, isCreationStepSkippable } from "@/lib/components/characterCreator/creation-step-completion";
 import { resolveCreationSteps } from "@/lib/components/characterCreator/creation-step-resolver";
 
 const everyStepId = resolveCreationSteps({
@@ -89,5 +92,21 @@ describe("canJumpForwardTo", () => {
 
   it("пускає вперед за відновленою чернеткою, коли всі попередні кроки заповнені", () => {
     expect(canJumpForwardTo({ steps, stepOrder: nameStep, highestStepCompleted: 0, data: filledFormData })).toBe(true);
+  });
+});
+
+describe("пропуск кроку", () => {
+  it("дозволений лише для навичок, класових виборів, заклинань класу й мов", () => {
+    expect(everyStepId.filter(isCreationStepSkippable).sort()).toEqual(["classChoices", "languages", "skills", "spells"]);
+  });
+
+  it("кнопка «Пропустити» зʼявляється, лише коли «Далі» заблоковано", () => {
+    const onSkip = vi.fn();
+    const footer = (isNextBlocked: boolean) => <CreationFooter stepNumber={3} stepCount={9} stepTitle="Навички" activeFormId="f" isNextBlocked={isNextBlocked} nextStepHint={null} isSubmitting={false} onPrev={() => {}} onSkip={onSkip} />;
+    const { rerender } = render(footer(false));
+    expect(screen.queryByRole("button", { name: "Пропустити" })).toBeNull();
+    rerender(footer(true));
+    fireEvent.click(screen.getByRole("button", { name: "Пропустити" }));
+    expect(onSkip).toHaveBeenCalledOnce();
   });
 });

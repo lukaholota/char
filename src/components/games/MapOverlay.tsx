@@ -123,11 +123,12 @@ export function MapMeasureLayer({ frame, aspect, ruler, move, rect }: MeasureLay
 }
 
 /// Підпис тримає сталий розмір на екрані за будь-якого масштабу мапи.
-export function MapLabel({ at, children, className }: { at: TokenPosition; children: ReactNode; className?: string }) {
+/// liftPx — на скільки екранних пікселів підняти підпис: над великим токеном, а не під ним.
+export function MapLabel({ at, children, className, liftPx = 0 }: { at: TokenPosition; children: ReactNode; className?: string; liftPx?: number }) {
   return (
     <span
       className={cn("pointer-events-none absolute z-50 whitespace-nowrap rounded-lg bg-slate-950/90 px-2 py-0.5 text-sm text-slate-100 shadow-lg shadow-black/50 ring-1 ring-white/15", className)}
-      style={{ left: `${at.x * 100}%`, top: `${at.y * 100}%`, transform: `translate(-50%, calc(-100% - 14px)) ${COUNTER_ZOOM}`, transformOrigin: "50% calc(100% + 14px)" }}
+      style={{ left: `${at.x * 100}%`, top: `${at.y * 100}%`, transform: `translate(-50%, calc(-100% - ${14 + liftPx}px)) ${COUNTER_ZOOM}`, transformOrigin: `50% calc(100% + ${14 + liftPx}px)` }}
     >
       {children}
     </span>

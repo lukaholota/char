@@ -65,7 +65,7 @@ function DockButton({ isOpen, onOpen }: { isOpen: boolean; onOpen: () => void })
     <button
       type="button"
       onClick={onOpen}
-      aria-label={`Журнал кімнати${unseen ? `, нових кидків: ${unseen}` : ""}`}
+      aria-label={`Журнал кампанії${unseen ? `, нових кидків: ${unseen}` : ""}`}
       className={cn(
         "fixed right-3 z-[65] flex h-11 items-center gap-2 rounded-xl border border-white/10 bg-slate-950 px-3 text-sm font-semibold text-slate-100 shadow-xl shadow-black/50",
         "bottom-[calc(72px+env(safe-area-inset-bottom))] [body:has([data-safe-sheet-tabs])_&]:bottom-[calc(136px+env(safe-area-inset-bottom))] [body:has([data-hides-room-dock])_&]:hidden",
@@ -95,13 +95,13 @@ function DesktopDock({ isOpen, onOpenChange }: { isOpen: boolean; onOpenChange: 
       >
         <StatusDot status={status} />
         <ScrollText className="h-4 w-4 text-arcane-300" aria-hidden />
-        Журнал кімнати
+        Журнал кампанії
         {unseen ? <span className="rounded-md bg-arcane-500/25 px-1.5 text-xs tabular-nums text-arcane-100">{unseen}</span> : null}
       </button>
     );
   }
   return (
-    <aside aria-label="Журнал кімнати" className="fixed bottom-6 left-[104px] z-[65] flex h-[min(36rem,70dvh)] w-[24rem] flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-2xl shadow-black/50">
+    <aside aria-label="Журнал кампанії" className="fixed bottom-6 left-[104px] z-[65] flex h-[min(36rem,70dvh)] w-[24rem] flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-950 shadow-2xl shadow-black/50">
       <DockHeader onClose={() => onOpenChange(false)} isCollapse />
       <GameJournal myUserId={myUserId} className="flex-1" />
     </aside>
@@ -176,11 +176,11 @@ function DockHeader({ onClose, isCollapse = false }: { onClose: () => void; isCo
         ) : (
           <DialogTitle className="min-w-0 flex-1 truncate font-rpg-display text-lg text-slate-50">{active.name}</DialogTitle>
         )}
-        {isCollapse ? null : <DialogDescription className="sr-only">Спільний журнал кидків кімнати</DialogDescription>}
+        {isCollapse ? null : <DialogDescription className="sr-only">Спільний журнал кидків кампанії</DialogDescription>}
         <GameSoundToggle />
         <PopOutJournalButton onPopOut={onClose} />
         <Link href={gamesHref(`/games/${active.id}`)} onClick={onClose} className="flex min-h-10 items-center rounded-lg px-2 text-sm text-slate-300 hover:bg-white/5 hover:text-white">
-          Кімната
+          Кампанія
         </Link>
         <button type="button" onClick={onClose} aria-label={isCollapse ? "Згорнути журнал" : "Закрити журнал"} className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-300 hover:bg-white/10 hover:text-white">
           <Icon className="h-5 w-5" />
@@ -193,7 +193,7 @@ function DockHeader({ onClose, isCollapse = false }: { onClose: () => void; isCo
 
 function StatusDot({ status }: { status: GameConnectionStatus }) {
   const isLive = status === "live";
-  return <span className={cn("h-2 w-2 shrink-0 rounded-full", isLive ? "bg-emerald-400" : "bg-slate-500")} title={isLive ? "Наживо" : "Немає звʼязку з кімнатою"} aria-hidden />;
+  return <span className={cn("h-2 w-2 shrink-0 rounded-full", isLive ? "bg-emerald-400" : "bg-slate-500")} title={isLive ? "Наживо" : "Немає звʼязку з кампанією"} aria-hidden />;
 }
 
 /// Лічильник на згорнутій кнопці: скільки чужих кидків прийшло, поки журнал був закритий.

@@ -1,5 +1,5 @@
 import { FEET_PER_CELL, parseSceneGrid, type SceneGrid } from "./game-grid";
-import { LIGHT_LIMITS, parseLightSource, parseSceneLighting, type LightSource, type SceneLighting } from "./game-lighting";
+import { DEFAULT_LIGHT_LOOK, LIGHT_LIMITS, parseLightSource, parseSceneLighting, type LightSource, type SceneLighting } from "./game-lighting";
 import type { TokenPosition } from "./game-map";
 import { buildOpening, buildWall, countWallSegments, parseWallLine, WALL_LIMITS, type WallLine } from "./game-walls";
 import { roundShare } from "./map-strokes";
@@ -117,7 +117,7 @@ function collectLights(lamps: UvttFile["lights"], toShare: (point: CellPoint) =>
     .filter(({ cells }) => cells > 0)
     .map(({ at, cells }) => {
       const brightFeet = Math.round(cells / 2) * FEET_PER_CELL;
-      return { at: toShare(at), brightFeet, dimFeet: cells * FEET_PER_CELL - brightFeet };
+      return { at: toShare(at), brightFeet, dimFeet: cells * FEET_PER_CELL - brightFeet, look: DEFAULT_LIGHT_LOOK };
     });
 }
 

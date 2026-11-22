@@ -104,7 +104,7 @@ describe("ряткидок цілі зі статблоку", () => {
     const [draft] = readDrafts();
     expect(draft).toMatchObject({ source: "FREE", persId: null, label: "Банка · Погляд · ряткидок Мудрості СК 12", roll: { groups: [], total: 0 }, target: null, saves: { creatureIds: [], persIds: [5], spell: null, dc: 12, effect: { ability: "WIS", damageType: null, isHalfOnSave: false, condition: "frightened" } } });
     expect(screen.getByText(/Ціль кидає ряткидок Мудрості/).textContent).toContain("При провалі — Наляканий");
-    expect(screen.getByRole("status").textContent).toContain("Кімната звіряє");
+    expect(screen.getByRole("status").textContent).toContain("Звіряємо кидок");
     expect((screen.getByRole("button", { name: "Кинути ряткидок" }) as HTMLButtonElement).disabled).toBe(true);
 
     const event = { target: null, heroTarget: null, saves: { ability: "WIS", dc: 12, damageType: null, rows: [{ name: "Варлок", persId: 5, isSaved: false, damage: 0, condition: "frightened", isAppliedToSheet: false, gm: null }] } } as unknown as GameRollEventView;

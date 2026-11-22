@@ -29,3 +29,12 @@ export function findTokenPositionInRect(point: { clientX: number; clientY: numbe
 export function shiftTokenPosition(from: TokenPosition, step: TokenPosition): TokenPosition {
   return parseTokenPosition({ x: from.x + step.x, y: from.y + step.y })!;
 }
+
+const PASTE_SHIFT = 0.03;
+
+/// Кожна наступна вставка лягає далі за попередню, а біля краю мапи — у протилежний бік.
+export function findPastePosition(from: TokenPosition, step: number): TokenPosition {
+  const offset = PASTE_SHIFT * step;
+  const shift = (share: number) => (share + offset <= 1 ? share + offset : share - offset);
+  return parseTokenPosition({ x: shift(from.x), y: shift(from.y) })!;
+}

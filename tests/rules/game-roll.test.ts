@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildSecretRollLabel, canSeeGameRoll, canSeeGameRollValues, computeGameRollTotal, findGameRollProblem, findNaturalD20, hasRollResult, isGameRollVisibility, type GameRoll } from "@/rules/game-roll";
+import { buildSecretRollLabel, canSeeGameRoll, canSeeGameRollValues, computeGameRollTotal, findGameRollProblem, findNaturalD20, hasRollResult, isGameRollVisibility, JOURNAL_MESSAGE_LENGTH, parseJournalMessage, type GameRoll } from "@/rules/game-roll";
 
 const attack: GameRoll = {
   d20Mode: "ADVANTAGE",
@@ -144,5 +144,15 @@ describe("secret rolls", () => {
     expect(buildSecretRollLabel({ groups: [{ sides: 20, values: [17] }] })).toBe("Секретний кидок · 1к20");
     expect(buildSecretRollLabel({ groups: [{ sides: 6, values: [2, 5] }, { sides: 8, values: [8] }] })).toBe("Секретний кидок · 2к6 + 1к8");
     expect(buildSecretRollLabel({ groups: [] })).toBe("Секретний кидок");
+  });
+});
+
+describe("parseJournalMessage", () => {
+  it("trims the text, squeezes blank lines and rejects empty or too long messages", () => {
+    expect(parseJournalMessage("  Обшукую вівтар \n\n\n\nобережно ")).toBe("Обшукую вівтар \n\nобережно");
+    expect(parseJournalMessage("   ")).toBeNull();
+    expect(parseJournalMessage(42)).toBeNull();
+    expect(parseJournalMessage("а".repeat(JOURNAL_MESSAGE_LENGTH))).toHaveLength(JOURNAL_MESSAGE_LENGTH);
+    expect(parseJournalMessage("а".repeat(JOURNAL_MESSAGE_LENGTH + 1))).toBeNull();
   });
 });

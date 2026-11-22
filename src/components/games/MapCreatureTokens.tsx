@@ -7,7 +7,7 @@ import { askToConfirm } from "@/components/ui/confirm-dialog";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { findCutoutOutlineClass, useCutoutImage } from "./token-cutout";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
-import { changeMapCreatureHitPointsAction, moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setCreatureNameModeAction, setMapCreatureCutoutAction, setMapCreatureSizeAction, transformMapCreatureAction } from "@/lib/actions/game-sessions";
+import { changeMapCreatureHitPointsAction, moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setCreatureNameModeAction, setMapCreatureCutoutAction, setMapCreatureNameHiddenAction, setMapCreatureSizeAction, transformMapCreatureAction } from "@/lib/actions/game-sessions";
 import { useAreaCastStore } from "@/lib/components/game/area-cast";
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
@@ -24,7 +24,7 @@ import { SpotlightAura, findSpotlightRingClass, useIsCreatureTurn } from "./comb
 import { DownMark, HitPointBar } from "./MapCreatureHitPoints";
 import { buildCreatureTargetControl, useRollTargetCreatureId } from "./RollTargetControls";
 import { TokenConditionMarks } from "./TokenConditionMarks";
-import { useSpotlightStyle, useShownConditions, useSpotlightControl, useTokenConditionChanges } from "./use-token-conditions";
+import { useIsTokenInvisible, useSpotlightStyle, useShownConditions, useSpotlightControl, useTokenConditionChanges } from "./use-token-conditions";
 import { CreatureSheet, CreatureTokenSettings, MapCreatureStatblockDialog, type CreatureControls } from "./MapCreatureStatblockDialog";
 import { holdValueBefore, pushUndoStep, rememberUndo } from "./map-history";
 import { readOptimistic, sendOptimistic, sendOptimisticMany, showOptimistic, useOptimisticReader } from "./optimistic-values";
@@ -82,7 +82,10 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
   const renameCreature = async (id: number, name: string) => {
     const before = view.creatures.find((creature) => creature.id === id)?.customName ?? "";
     rememberUndo(view.viewedSceneId, `creature-name:${id}`, before, name, (restored) => renameCreature(id, restored));
-    const result = await renameMapCreatureAction(view.id, id, name);
+    return refreshAfter(renameMapCreatureAction(view.id, id, name));
+  };
+  const refreshAfter = async (pending: Promise<{ ok: true } | { ok: false; error: string }>) => {
+    const result = await pending;
     if (!result.ok) toast.error(result.error);
     else router.refresh();
     return result.ok;
@@ -110,7 +113,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       hitPoints: editable({ value: creature.hitPoints, onChange: (change: HitPointChange) => void looks.sendHitPointChange(creature, change) }),
       conditions: { value: conditions, onChange: editable((change: TokenConditionChange) => void changeConditions({ kind: "creature", id: creature.id }, creature.conditions, change)) },
       target: myHeroName && moves.findPosition(creature) ? buildCreatureTargetControl(view.id, creature.id, targetId, myHeroName) : null,
-      naming: editable({ value: creature.customName, onSave: (name: string) => renameCreature(creature.id, name) }),
+      naming: editable({ value: creature.customName, isHidden: creature.isNameHidden, onSave: (name: string) => renameCreature(creature.id, name), onHiddenChange: (isHidden: boolean) => refreshAfter(setMapCreatureNameHiddenAction(view.id, creature.id, isHidden)) }),
     };
   };
 
@@ -153,7 +156,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
     : null;
   const placed: PlacedToken[] = shown.filter(isShownOnMap).map((creature) => ({ key: `creature-${creature.id}`, creatureId: creature.id, name: creature.label, position: moves.findPosition(creature)!, cells: findCells(creature) }));
   const draggedFrom = dragged ? moves.findPosition(dragged) : null;
-  const drag: TokenDrag | null = ghost && dragged ? { key: findKey(dragged.id), from: draggedFrom, to: findSnappedDrop(dragged, ghost), cells: findCells(dragged) } : null;
+  const drag: TokenDrag | null = ghost && dragged ? { key: findKey(dragged.id), from: draggedFrom, to: findSnappedDrop(dragged, ghost), cells: findCells(dragged), ghostPx: scaleGhostSize(findGhostTokenSize(layout, findCells(dragged), CREATURE_TOKEN_SIZE_SCALES[looks.findSize(dragged)]), looks.findTransform(dragged)) } : null;
 
   const renderToken = (creature: MapCreatureView, size: string | number, shownName: TokenNameMode | null, onBoard: TokenOnBoard | null, handles: ReactNode = null) => {
     const position = moves.findPosition(creature);
@@ -225,7 +228,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
     overlay: (
       <>
         {ghost && dragged ? (
-          <CreatureGhost ghost={ghost} creature={dragged} size={scaleGhostSize(findGhostTokenSize(layout, findCells(dragged), CREATURE_TOKEN_SIZE_SCALES[looks.findSize(dragged)]), looks.findTransform(dragged))} labelWidth={findLabelWidth(layout, CREATURE_TOKEN_SIZE_SCALES[looks.findSize(dragged)])} rotation={looks.findTransform(dragged).rotation} isOutlined={layout.isCutoutOutlined} isTurned={isTurned()} isLeavingMap={!ghost.isOverTarget && draggedFrom !== null} />
+          <CreatureGhost ghost={ghost} creature={dragged} size={drag?.ghostPx ?? 0} labelWidth={findLabelWidth(layout, CREATURE_TOKEN_SIZE_SCALES[looks.findSize(dragged)])} rotation={looks.findTransform(dragged).rotation} isOutlined={layout.isCutoutOutlined} isTurned={isTurned()} isLeavingMap={!ghost.isOverTarget && draggedFrom !== null} />
         ) : null}
         <MapCreatureStatblockDialog creature={openCreature} onClose={() => setOpenId(null)} sessionId={view.id} controls={buildControls(openCreature, openConditions)} />
       </>
@@ -241,11 +244,12 @@ export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, is
   const src = isArtHidden ? null : creature.imageUrl;
   const isTurn = useIsCreatureTurn(creature.id);
   const spotlight = useSpotlightStyle({ kind: "creature", id: creature.id }, creature.conditions);
+  const isInvisible = useIsTokenInvisible({ kind: "creature", id: creature.id }, creature.conditions);
   const { isCutout: isCutoutImage, inspectImage } = useCutoutImage(src);
   const isCutout = creature.isCutout && isCutoutImage && Boolean(onBoard) && !creature.isRoundImage;
   const labelWidth = onBoard?.labelWidth ?? (typeof size === "number" ? size : TOKEN_SIZE_PX);
   return (
-    <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isDimmed && "opacity-40")} title={creature.label}>
+    <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isInvisible && "opacity-50", isDimmed && "opacity-40")} title={creature.label}>
       <div className={cn("relative isolate rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={buildTokenSizeStyle(size)}>
         <SpotlightAura style={spotlight} />
         <div className={cn("relative h-full w-full rounded-full", isCutout ? findCutoutOutlineClass(creature.isAlly ? "ally" : "enemy", Boolean(onBoard?.isOutlined)) : cn("overflow-hidden border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isAlly ? "border-emerald-400" : "border-rose-500"), creature.isDown && "opacity-50 grayscale", findSpotlightRingClass(isTurn, spotlight))} style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>

@@ -34,7 +34,9 @@ export function findAttunementCapacity(classLevels: AttunementClassLevel[]): num
   return tier ? tier.capacity : BASE_ATTUNEMENT_CAPACITY;
 }
 
-export function findAttunementCapacityForPers(pers: AttunementPersShape): number {
+/// Ліміт з хоумбрю-правил кампанії чи героя замінює правило книги.
+export function findAttunementCapacityForPers(pers: AttunementPersShape, houseLimit: number | null = null): number {
+  if (houseLimit !== null) return houseLimit;
   const multiclassSum = pers.multiclasses.reduce((sum, mc) => sum + mc.classLevel, 0);
   const mainClassLevel = Math.max(1, pers.level - multiclassSum);
 

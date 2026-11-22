@@ -118,6 +118,7 @@ export const PERS_SHEET_INCLUDE = {
   resourcePools: true,
   persCustomSkills: { orderBy: { name: "asc" } },
   persCustomFeatures: { orderBy: { id: "asc" } },
+  gameSessionMembers: { where: { gameSession: { archivedAt: null } }, select: { gameSession: { select: { houseRules: true } } } },
 } satisfies Prisma.PersInclude;
 
 /** Для друку: PDF виписує описи заклинань. */

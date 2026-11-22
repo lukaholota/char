@@ -13,13 +13,15 @@ import { ROOM_CARD } from "./GameRoomSidebar";
 import { useGamesHref } from "./use-games-href";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
+import { CampaignHouseRulesEditor, CampaignHouseRulesSummary } from "./CampaignHouseRules";
+import { CampaignCustomContent } from "./CampaignCustomContent";
 
 const MANAGEMENT_BUTTON = "h-12 w-full justify-start gap-3 px-4 text-base";
 
 export function GameRoomManagement({ view }: { view: GameSessionView }) {
   return (
     <section aria-labelledby="game-room-management" className={ROOM_CARD}>
-      <h2 id="game-room-management" className="font-rpg-display text-lg text-slate-100">Керування кімнатою</h2>
+      <h2 id="game-room-management" className="font-rpg-display text-lg text-slate-100">Керування кампанією</h2>
       {view.myRole === "GM" ? <GmManagement view={view} /> : <LeaveButton view={view} />}
     </section>
   );
@@ -37,9 +39,11 @@ function GmManagement({ view }: { view: GameSessionView }) {
           Перейменувати
         </Button>
       )}
+      {view.isArchived ? null : <CampaignHouseRulesEditor view={view} />}
+      {view.isArchived ? null : <CampaignCustomContent view={view} />}
       <ArchiveButton view={view} />
       <p className="text-sm text-slate-400">
-        {view.isArchived ? "Відновлена кімната знову приймає кидки. Гравцям треба буде знову обрати її для кидків." : "В архіві журнал лишається, але нові кидки сюди більше не надходять."}
+        {view.isArchived ? "Відновлена кампанія знову приймає кидки. Гравцям треба буде знову обрати її для кидків." : "В архіві журнал лишається, але нові кидки сюди більше не надходять."}
       </p>
     </div>
   );
@@ -60,7 +64,7 @@ function RenameForm({ view, onDone }: { view: GameSessionView; onDone: () => voi
   };
   return (
     <form onSubmit={submit} className="space-y-2">
-      <label htmlFor="rename-game-session" className="text-sm font-semibold text-slate-200">Назва кімнати</label>
+      <label htmlFor="rename-game-session" className="text-sm font-semibold text-slate-200">Назва кампанії</label>
       <Input id="rename-game-session" value={name} onChange={(event) => setName(event.target.value)} maxLength={80} autoFocus className="h-12 text-base" />
       <div className="grid grid-cols-2 gap-2">
         <Button type="submit" disabled={isPending || !name.trim()} className="h-12 text-base">Зберегти</Button>
@@ -75,7 +79,7 @@ function ArchiveButton({ view }: { view: GameSessionView }) {
   const deactivate = useGameSessionStore((state) => state.deactivate);
   const [isPending, startTransition] = useTransition();
   const toggleArchived = async () => {
-    if (!view.isArchived && !(await askToConfirm({ title: `Заархівувати «${view.name}»?`, description: "Нові кидки в кімнату більше не прийматимуться, журнал лишиться.", confirmLabel: "Заархівувати" }))) return;
+    if (!view.isArchived && !(await askToConfirm({ title: `Заархівувати «${view.name}»?`, description: "Нові кидки в кампанію більше не прийматимуться, журнал лишиться.", confirmLabel: "Заархівувати" }))) return;
     startTransition(async () => {
       const result = await setGameSessionArchivedAction(view.id, !view.isArchived);
       if (!result.ok) return void toast.error(result.error);
@@ -88,7 +92,7 @@ function ArchiveButton({ view }: { view: GameSessionView }) {
   return (
     <Button type="button" variant="outline" onClick={toggleArchived} disabled={isPending} className={MANAGEMENT_BUTTON}>
       <Icon className="h-4 w-4" aria-hidden />
-      {view.isArchived ? "Відновити кімнату" : "Заархівувати кімнату"}
+      {view.isArchived ? "Відновити кампанію" : "Заархівувати кампанію"}
     </Button>
   );
 }
@@ -99,7 +103,7 @@ function LeaveButton({ view }: { view: GameSessionView }) {
   const deactivate = useGameSessionStore((state) => state.deactivate);
   const [isPending, startTransition] = useTransition();
   const leave = async () => {
-    if (!(await askToConfirm({ title: `Вийти з кімнати «${view.name}»?`, description: "Повернутися можна лише за новим запрошенням.", confirmLabel: "Вийти", isDestructive: true }))) return;
+    if (!(await askToConfirm({ title: `Вийти з кампанії «${view.name}»?`, description: "Повернутися можна лише за новим запрошенням.", confirmLabel: "Вийти", isDestructive: true }))) return;
     startTransition(async () => {
       const result = await leaveGameSessionAction(view.id);
       if (!result.ok) return void toast.error(result.error);
@@ -110,9 +114,10 @@ function LeaveButton({ view }: { view: GameSessionView }) {
   };
   return (
     <div className="space-y-2">
+      <CampaignHouseRulesSummary rules={view.houseRules} />
       <Button type="button" variant="outline" onClick={leave} disabled={isPending} className={`${MANAGEMENT_BUTTON} border-rose-400/30 text-rose-200 hover:bg-rose-500/10 hover:text-rose-100`}>
         <LogOut className="h-4 w-4" aria-hidden />
-        Вийти з кімнати
+        Вийти з кампанії
       </Button>
       <p className="text-sm text-slate-400">Повернутися можна лише за новим запрошенням від майстра.</p>
     </div>

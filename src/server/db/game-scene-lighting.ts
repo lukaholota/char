@@ -1,17 +1,25 @@
 import { prisma } from "@/lib/prisma";
-import { LIGHT_LIMITS, type LightSource, type SceneLighting } from "@/rules/game-lighting";
+import { LIGHT_LIMITS, type DarkvisionLook, type LightSource, type SceneLighting } from "@/rules/game-lighting";
 import { lockScene } from "@/server/db/game-scene-tools";
 import { findActiveGmSession, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 const succeed = <T,>(value: T) => ({ ok: true as const, value });
-const toLightRow = (light: LightSource & { isOn: boolean }) => ({ x: light.at.x, y: light.at.y, brightFeet: light.brightFeet, dimFeet: light.dimFeet, isOn: light.isOn });
+const toLightRow = ({ at, brightFeet, dimFeet, isOn, look }: LightSource & { isOn: boolean }) => ({ x: at.x, y: at.y, brightFeet, dimFeet, isOn, ...look });
 
 export async function setSceneLighting(sessionId: number, userId: number, sceneId: number, lighting: SceneLighting): Promise<GameSessionResult<null>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
   const changed = await prisma.gameScene.updateMany({ where: { id: sceneId, sessionId }, data: { lighting } });
   if (!changed.count) return fail("bad_scene");
+  await signalGameSession(sessionId, "session");
+  return succeed(null);
+}
+
+export async function setDarkvisionLook(sessionId: number, userId: number, look: DarkvisionLook): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  await prisma.gameSession.update({ where: { id: sessionId }, data: { darkvisionLook: look } });
   await signalGameSession(sessionId, "session");
   return succeed(null);
 }

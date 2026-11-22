@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { LIGHT_LIMITS } from "@/rules/game-lighting";
+import { DEFAULT_LIGHT_LOOK, LIGHT_LIMITS } from "@/rules/game-lighting";
 import { WALL_LIMITS } from "@/rules/game-walls";
 import { dropStraightPoints, parseSceneLayout, parseUvttScene, readSceneLayoutField, UVTT_FILE_PATTERN } from "@/rules/uvtt-import";
 
@@ -27,7 +27,7 @@ describe("parseUvttScene", () => {
       { kind: "door", isOpen: false, lock: "none", isCurtained: false, points: [at(0.125, 0.4167), at(0.125, 0.5833)] },
       { kind: "door", isOpen: true, lock: "none", isCurtained: false, points: [at(0.5625, 0.8333), at(0.6875, 0.8333)] },
     ]);
-    expect(scene.lights).toEqual([{ at: at(0.5, 0.5), brightFeet: 10, dimFeet: 10 }]);
+    expect(scene.lights).toEqual([{ at: at(0.5, 0.5), brightFeet: 10, dimFeet: 10, look: DEFAULT_LIGHT_LOOK }]);
   });
 
   it("reads a Dungeon Alchemist export without map_origin and without lights as a lit scene", () => {

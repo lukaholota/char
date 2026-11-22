@@ -6,6 +6,7 @@ import {
   findCreatureInitiativeBonus,
   findTurnIndex,
   moveTurn,
+  parseCombatPick,
   parseInitiative,
   parseTurnStep,
   rollD20,
@@ -96,6 +97,23 @@ describe("порядок ходів", () => {
     expect(moveTurn({ round: 2, index: 0 }, 3, -1)).toEqual({ round: 1, index: 2 });
     expect(moveTurn({ round: 1, index: 0 }, 3, -1)).toEqual({ round: 1, index: 0 });
     expect(moveTurn({ round: 4, index: 0 }, 0, 1)).toEqual({ round: 4, index: 0 });
+  });
+});
+
+describe("герої, що ще не кинули ініціативу", () => {
+  const row = (id: number, initiative: number | null, initiativeBonus = 0) => ({ id, persId: id, gameMapCreatureId: null, initiative, initiativeBonus, sortTiebreak: 0 });
+
+  it("стоять у кінці черги, навіть з більшим бонусом", () => {
+    const order = findCombatOrder([row(1, null, 5), row(2, 3), row(3, -2), row(4, null, 1)], { persIds: new Set([1, 2, 3, 4]), creatureIds: new Set() });
+    expect(order.map((combatant) => combatant.id)).toEqual([2, 3, 1, 4]);
+  });
+
+  it("вибір для бою: без вибору — усі, порожній чи зіпсований вибір відхиляється", () => {
+    expect(parseCombatPick(undefined)).toBeNull();
+    expect(parseCombatPick({ persIds: [3], creatureIds: [] })).toEqual({ persIds: [3], creatureIds: [] });
+    expect(parseCombatPick({ persIds: [], creatureIds: [] })).toBeUndefined();
+    expect(parseCombatPick({ persIds: [1.5], creatureIds: [] })).toBeUndefined();
+    expect(parseCombatPick("all")).toBeUndefined();
   });
 });
 

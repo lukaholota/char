@@ -456,6 +456,29 @@ nav[data-safe-navigation], [data-safe-sheet-tabs].fixed {
   animation: map-sight-fade 180ms ease-out forwards;
 }
 
+/* Мерехтіння й пульс світла на мапі просив майстер; без руху — рівне сяйво. */
+@keyframes map-light-flicker {
+  0%, 100% { opacity: 1; }
+  12% { opacity: 0.72; }
+  24% { opacity: 0.95; }
+  38% { opacity: 0.66; }
+  52% { opacity: 1; }
+  68% { opacity: 0.8; }
+  84% { opacity: 0.93; }
+}
+
+@keyframes map-light-pulse {
+  to { opacity: 0.4; }
+}
+
+.map-light-flicker {
+  animation: map-light-flicker 1.7s steps(1, end) infinite;
+}
+
+.map-light-pulse {
+  animation: map-light-pulse 2.4s ease-in-out infinite alternate;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .map-sight-reveal {
     animation: none;
@@ -463,6 +486,11 @@ nav[data-safe-navigation], [data-safe-sheet-tabs].fixed {
 
   .map-sight-fade {
     display: none;
+  }
+
+  .map-light-flicker,
+  .map-light-pulse {
+    animation: none;
   }
 }
 

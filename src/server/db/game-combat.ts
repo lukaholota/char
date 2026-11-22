@@ -1,15 +1,17 @@
 import type { Prisma } from "@prisma/client";
 import { loadRoomCreatures } from "@/server/db/room-creatures";
 import { calculateFinalInitiative } from "@/lib/logic/bonus-calculator";
-import { findRollState } from "@/lib/logic/active-states";
 import { prisma } from "@/lib/prisma";
 import {
+  clampInitiative,
   findCombatOrder,
   findCreatureInitiativeBonus,
   findTurnIndex,
+  isPickedForCombat,
   moveTurn,
   rollInitiative,
   type CombatantRow,
+  type CombatPick,
   type CombatPresence,
   type CombatState,
 } from "@/rules/game-combat";
@@ -23,10 +25,10 @@ type NewCombatant = Pick<CombatantRow, "persId" | "gameMapCreatureId" | "initiat
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 const succeed = <T,>(value: T) => ({ ok: true as const, value });
 
-export async function startCombat(sessionId: number, userId: number): Promise<GameSessionResult<{ combatantCount: number }>> {
+export async function startCombat(sessionId: number, userId: number, pick: CombatPick = null): Promise<GameSessionResult<{ combatantCount: number }>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
-  const newcomers = await rollNewCombatants(sessionId, { persIds: new Set(), creatureIds: new Set() });
+  const newcomers = await rollNewCombatants(sessionId, { persIds: new Set(), creatureIds: new Set() }, pick);
   if (newcomers.length === 0) return fail("no_combatants");
   const started = await prisma.$transaction(async (tx) => {
     const state = await lockCombatState(tx, sessionId);
@@ -107,11 +109,11 @@ export async function setCombatantInitiative(sessionId: number, userId: number, 
   return edited;
 }
 
-export async function addMissingCombatants(sessionId: number, userId: number): Promise<GameSessionResult<{ addedCount: number }>> {
+export async function addMissingCombatants(sessionId: number, userId: number, pick: CombatPick = null): Promise<GameSessionResult<{ addedCount: number }>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
   const known = await prisma.gameCombatant.findMany({ where: { gameSessionId: sessionId }, select: { persId: true, gameMapCreatureId: true } });
-  const newcomers = await rollNewCombatants(sessionId, collectKnownPresence(known));
+  const newcomers = await rollNewCombatants(sessionId, collectKnownPresence(known), pick);
   const added = await prisma.$transaction(async (tx) => {
     const state = await lockCombatState(tx, sessionId);
     if (state.round === null) return fail("no_combat");
@@ -121,6 +123,16 @@ export async function addMissingCombatants(sessionId: number, userId: number): P
   });
   if (added.ok && added.value.addedCount > 0) await signalGameSession(sessionId, "session");
   return added;
+}
+
+/// Кидок ініціативи з листа під час бою стає в чергу сам; повторний кидок її замінює. Герой поза боєм нічого не змінює.
+export async function takeRolledInitiative(tx: Transaction, sessionId: number, persId: number, total: number): Promise<boolean> {
+  const state = await lockCombatState(tx, sessionId);
+  if (state.round === null) return false;
+  const updated = await tx.gameCombatant.updateMany({ where: { gameSessionId: sessionId, persId }, data: { initiative: clampInitiative(total) } });
+  if (!updated.count) return false;
+  await keepTurnOnCurrentCombatant(tx, sessionId, state);
+  return true;
 }
 
 async function lockCombatState(tx: Transaction, sessionId: number): Promise<CombatState> {
@@ -159,15 +171,15 @@ function collectKnownPresence(known: { persId: number | null; gameMapCreatureId:
   };
 }
 
-async function rollNewCombatants(sessionId: number, known: CombatPresence): Promise<NewCombatant[]> {
+async function rollNewCombatants(sessionId: number, known: CombatPresence, pick: CombatPick): Promise<NewCombatant[]> {
   const [members, creatures] = await Promise.all([
     prisma.gameSessionMember.findMany({ where: { gameSessionId: sessionId, persId: { not: null } }, select: { persId: true } }),
     prisma.gameMapCreature.findMany({ where: findPlacedActiveSceneCreatures(sessionId), select: { id: true, creatureKey: true, ruleset: true } }),
   ]);
-  const newPersIds = members.flatMap((member) => (member.persId === null || known.persIds.has(member.persId) ? [] : [member.persId]));
-  const [heroes, findCreature] = await Promise.all([rollHeroes(newPersIds), loadRoomCreatures(creatures)]);
-  const monsters = creatures
-    .filter((creature) => !known.creatureIds.has(creature.id))
+  const newPersIds = members.flatMap((member) => (member.persId === null || known.persIds.has(member.persId) || !isPickedForCombat(pick, "persIds", member.persId) ? [] : [member.persId]));
+  const pickedCreatures = creatures.filter((creature) => !known.creatureIds.has(creature.id) && isPickedForCombat(pick, "creatureIds", creature.id));
+  const [heroes, findCreature] = await Promise.all([listHeroesAwaitingRoll(newPersIds), loadRoomCreatures(pickedCreatures)]);
+  const monsters = pickedCreatures
     .map((creature) => {
       const initiativeBonus = findCreatureInitiativeBonus(findCreature(creature.creatureKey, creature.ruleset)?.dexterity);
       return { persId: null, gameMapCreatureId: creature.id, initiative: rollInitiative(initiativeBonus), initiativeBonus };
@@ -175,12 +187,9 @@ async function rollNewCombatants(sessionId: number, known: CombatPresence): Prom
   return [...heroes, ...monsters];
 }
 
-async function rollHeroes(persIds: number[]): Promise<NewCombatant[]> {
+/// Гравці кидають ініціативу самі; бонус зберігаємо лише для рівності кидків.
+async function listHeroesAwaitingRoll(persIds: number[]): Promise<NewCombatant[]> {
   if (persIds.length === 0) return [];
   const persons: PersWithRelations[] = await prisma.pers.findMany({ where: { persId: { in: persIds } }, include: PERS_SHEET_INCLUDE });
-  return persons.map((pers) => {
-    const initiativeBonus = calculateFinalInitiative(pers);
-    const { mode } = findRollState(pers, { kind: "check", ability: "DEX", isInitiative: true });
-    return { persId: pers.persId, gameMapCreatureId: null, initiative: rollInitiative(initiativeBonus, undefined, mode), initiativeBonus };
-  });
+  return persons.map((pers) => ({ persId: pers.persId, gameMapCreatureId: null, initiative: null, initiativeBonus: calculateFinalInitiative(pers) }));
 }

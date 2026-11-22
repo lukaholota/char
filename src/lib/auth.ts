@@ -10,6 +10,7 @@ import { isSiteOwnerEmail } from "@/lib/logic/site-owner";
 
 const googleClient = new OAuth2Client();
 const qaAccountEmail = getQaAccountEmail();
+const GOOGLE_PROVIDERS = new Set(["google", "google-onetap"]);
 
 export const config = {
   secret: process.env.AUTH_SECRET,
@@ -111,8 +112,9 @@ export const config = {
   ],
 
   events: {
-    async linkAccount({ user, account }) {
-      if (account.provider === "google" && user.id) await claimEmailVerifiedByGoogle(Number(user.id));
+    // Старі Google-акаунти не проходять linkAccount повторно, тож пошту підтверджує кожен вхід через Google.
+    async signIn({ user, account }) {
+      if (account && GOOGLE_PROVIDERS.has(account.provider) && user.id) await claimEmailVerifiedByGoogle(Number(user.id));
     },
   },
 

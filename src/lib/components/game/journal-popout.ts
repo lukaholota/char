@@ -41,5 +41,5 @@ function copyPageLook(target: Document) {
   }
   for (const { name, value } of document.documentElement.attributes) target.documentElement.setAttribute(name, value);
   target.body.className = document.body.className;
-  target.title = "Журнал кімнати";
+  target.title = "Журнал кампанії";
 }

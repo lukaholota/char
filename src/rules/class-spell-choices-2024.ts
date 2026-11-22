@@ -89,6 +89,9 @@ const PREPARED_LIST_CHANGES_ON_LONG_REST = new Set(["CLERIC_2024", "DRUID_2024",
 
 export const EMPTY_CLASS_SPELL_SELECTION: ClassSpellSelection = { cantripIds: [], preparedIds: [], spellbookIds: [] };
 
+export const isClassSpellSelectionEmpty = (selection: ClassSpellSelection | undefined) =>
+  !selection || (!selection.cantripIds.length && !selection.preparedIds.length && !selection.spellbookIds.length);
+
 export const NO_SPELLS: ClassSpellCounts = { cantrips: 0, prepared: 0, spellbook: 0 };
 
 export function findCreationSpellQuota(className: string, chosenClassOptionNames: readonly string[]): ClassSpellQuota | null {

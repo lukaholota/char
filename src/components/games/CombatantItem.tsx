@@ -5,7 +5,7 @@ import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { buildFullSizeMediaUrl, isMediaImageUrl } from "@/lib/media-url";
 import { PRIVATE_ELEMENT_CLASS } from "@/lib/monitoring/session-replay";
 import { cn } from "@/lib/utils";
-import { INITIATIVE_LIMITS, type CombatantView } from "@/rules/game-combat";
+import { clampInitiative, type CombatantView, INITIATIVE_LIMITS } from "@/rules/game-combat";
 import { buildCreatureInitials, type MapCreatureView } from "@/rules/game-map-creatures";
 import { GameAvatar } from "./GameAvatar";
 import { DownMark, HitPointBar } from "./MapCreatureHitPoints";
@@ -29,6 +29,8 @@ export function CombatantItem({ combatant, isCurrent, canEdit, spotlight: spotli
   const openCreatureCard = useContext(OpenCreatureCardContext);
   const creatureId = combatant.creature?.id ?? null;
   const spotlight = usePortraitSpotlight(spotlightInput);
+  const shown = combatant.initiative ?? "?";
+  const spoken = combatant.initiative === null ? "ще не кинули" : String(combatant.initiative);
   const portrait = <CombatantPortrait creature={combatant.creature} avatarUrl={combatant.hero?.avatarUrl ?? null} name={name} isCurrent={isCurrent} isDown={Boolean(combatant.creature?.isDown)} spotlight={spotlight.style} />;
   return (
     <li aria-current={isCurrent ? "true" : undefined} className={cn("flex shrink-0 flex-col items-center gap-1", isCurrent ? CURRENT_CARD_WIDTH : CARD_WIDTH)}>
@@ -50,11 +52,11 @@ export function CombatantItem({ combatant, isCurrent, canEdit, spotlight: spotli
           onCancel={() => setIsEditing(false)}
         />
       ) : canEdit ? (
-        <button type="button" aria-label={`Ініціатива ${name}: ${combatant.initiative}. Змінити`} onClick={() => setIsEditing(true)} className={cn(INITIATIVE_CLASS, "relative rounded-lg before:absolute before:-inset-y-2 before:inset-x-0 before:content-[''] hover:bg-white/10")}>
-          {combatant.initiative}
+        <button type="button" aria-label={`Ініціатива ${name}: ${spoken}. Змінити`} title={combatant.initiative === null ? "Гравець ще не кинув ініціативу — можна вписати самому" : undefined} onClick={() => setIsEditing(true)} className={cn(INITIATIVE_CLASS, combatant.initiative === null && "text-slate-400", "relative rounded-lg before:absolute before:-inset-y-2 before:inset-x-0 before:content-[''] hover:bg-white/10")}>
+          {shown}
         </button>
       ) : (
-        <span aria-label={`Ініціатива ${combatant.initiative}`} className={INITIATIVE_CLASS}>{combatant.initiative}</span>
+        <span aria-label={`Ініціатива ${spoken}`} className={cn(INITIATIVE_CLASS, combatant.initiative === null && "text-slate-400")}>{shown}</span>
       )}
     </li>
   );
@@ -108,14 +110,14 @@ function HeroArt({ avatarUrl, name }: { avatarUrl: string | null; name: string }
   return <ContentImage src={buildFullSizeMediaUrl(avatarUrl)} alt="" provenance="manual" fill sizes="128px" draggable={false} className={cn("object-cover object-top", PRIVATE_ELEMENT_CLASS)} />;
 }
 
-type InitiativeEditorProps = { initiative: number; label: string; onCommit: (value: number) => void; onCancel: () => void };
+type InitiativeEditorProps = { initiative: number | null; label: string; onCommit: (value: number) => void; onCancel: () => void };
 
 function InitiativeEditor({ initiative, label, onCommit, onCancel }: InitiativeEditorProps) {
-  const [draft, setDraft] = useState(String(initiative));
+  const [draft, setDraft] = useState(initiative === null ? "" : String(initiative));
   const commit = () => {
     const value = Math.round(Number(draft));
     if (draft.trim() === "" || Number.isNaN(value)) return onCancel();
-    const clamped = Math.min(INITIATIVE_LIMITS.max, Math.max(INITIATIVE_LIMITS.min, value));
+    const clamped = clampInitiative(value);
     if (clamped === initiative) return onCancel();
     onCommit(clamped);
   };

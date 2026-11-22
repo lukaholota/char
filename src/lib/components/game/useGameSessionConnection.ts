@@ -93,7 +93,7 @@ function startConnection(sessionId: number) {
       setStatus("live");
       void flushGameRollOutbox();
     } else if (message.event === "removed") {
-      leaveRoom(sessionId, "Вас більше немає в цій кімнаті");
+      leaveRoom(sessionId, "Вас більше немає в цій кампанії");
       finish("lost");
     }
   };
@@ -137,7 +137,7 @@ function startConnection(sessionId: number) {
   const handleRefusal = (status: number) => {
     if (status === 401) return finish("signed_out");
     if (status === 403 || status === 404 || status === 400) {
-      leaveRoom(sessionId, "Кімната недоступна: вас вилучили або її видалено");
+      leaveRoom(sessionId, "Кампанія недоступна: вас вилучили або її видалено");
       return finish("lost");
     }
     scheduleRetry();
@@ -200,7 +200,7 @@ function followSessionView(view: GameSessionView) {
   if (store.active?.id !== view.id) return;
   if (view.isArchived) {
     store.deactivate(view.id);
-    toast("Кімнату заархівовано — кидки знову лише у вас");
+    toast("Кампанію заархівовано — кидки знову лише у вас");
   } else store.rename(view.id, view.name);
 }
 

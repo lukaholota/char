@@ -43,7 +43,7 @@ describe("бічна панель кімнати", () => {
     expect(screen.getAllByRole("tab").map((tab) => tab.getAttribute("aria-selected"))).toEqual(["false", "false"]);
     expect(screen.getByRole("tab", { name: /^Журнал\s*3\s*нових$/ })).toBeTruthy();
 
-    fireEvent.click(screen.getByRole("tab", { name: "Кімната" }));
+    fireEvent.click(screen.getByRole("tab", { name: "Кампанія" }));
     expect(useRoomTabStore.getState()).toMatchObject({ isSideFolded: false, sideTab: "room" });
   });
 
@@ -66,7 +66,7 @@ describe("бічна панель кімнати", () => {
 
   it("вкладка «Журнал» на телефоні не знімає закріплення, вибране на компʼютері", () => {
     useGameSessionStore.setState({ isJournalDocked: true });
-    render(<RoomTabBar tabs={["map", "journal"]} current="map" unseen={0} label="Розділи кімнати" />);
+    render(<RoomTabBar tabs={["map", "journal"]} current="map" unseen={0} label="Розділи кампанії" />);
     fireEvent.click(screen.getByRole("tab", { name: "Журнал" }));
     expect(useGameSessionStore.getState().isJournalDocked).toBe(true);
     expect(useRoomTabStore.getState().tab).toBe("journal");

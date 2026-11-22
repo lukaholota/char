@@ -25,7 +25,7 @@ import {
 } from "@/server/db/game-sessions";
 import { moveGameToken, moveMapTokens, transformHeroToken } from "@/server/db/game-scenes";
 import { setActiveSceneMap } from "./game-scene-setup";
-import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize, transformMapCreature } from "@/server/db/game-map-creatures";
+import { addMapCreatures, changeMapCreatureHitPoints, duplicateMapCreature, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize, transformMapCreature } from "@/server/db/game-map-creatures";
 import { openGameSessionStream } from "@/server/game-sessions/game-session-stream";
 
 vi.setConfig({ testTimeout: 60_000 });
@@ -215,6 +215,24 @@ describe("мапа кімнати", () => {
     expect((await findGameSessionView(sessionId, player.id))!.creatures).toMatchObject([{ id: first.id, label: "Гоблін 1", token: { x: 0.3, y: 0.4 } }]);
     expect(await removeMapCreatures(sessionId, player.id, first.id)).toEqual({ ok: false, error: "forbidden" });
     expect(await moveMapCreature(sessionId, gm.id, second.id, { x: 0.1, y: 0.1 })).toEqual({ ok: false, error: "creature_gone" });
+  });
+
+  it("копія істоти (Ctrl+V): лише майстер, вигляд і бік оригіналу, свій номер і хіти, зсунута від оригіналу, без станів", async () => {
+    const { gm, player, sessionId } = await createTableWithHeroes();
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: true, customName: "Варта" });
+    const [original] = (await findGameSessionView(sessionId, gm.id))!.creatures;
+    await moveMapCreature(sessionId, gm.id, original.id, { x: 0.5, y: 0.2 });
+    await transformMapCreature(sessionId, gm.id, original.id, { rotation: 90, scale: 150 });
+    await prisma.gameMapCreature.update({ where: { id: original.id }, data: { conditions: ["prone"], hpCurrent: 1, isNameHidden: true } });
+
+    expect(await duplicateMapCreature(sessionId, player.id, original.id, 1)).toEqual({ ok: false, error: "forbidden" });
+    const copied = await duplicateMapCreature(sessionId, gm.id, original.id, 2);
+    if (!copied.ok) throw new Error(copied.error);
+    const copy = await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: copied.value.id } });
+    expect(copy).toMatchObject({ customName: "Варта", isAlly: true, number: 2, tokenRotation: 90, tokenScalePercent: 150, isNameHidden: true, conditions: [], tokenX: 0.56, tokenY: 0.26 });
+    expect(copy.hpCurrent).toBe(copy.hpMax);
+    expect(await duplicateMapCreature(sessionId, gm.id, 999_999, 1)).toEqual({ ok: false, error: "creature_gone" });
   });
 
   it("на мапі не більше 40 істот; «прибрати всіх» очищує сцену, а нова мапа знімає істот з мапи", async () => {

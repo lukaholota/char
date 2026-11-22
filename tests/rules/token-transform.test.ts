@@ -55,4 +55,12 @@ describe("token transform", () => {
     expect(findDraggedScale(800, centre, corner, { clientX: 400, clientY: 400 })).toBe(1000);
     expect(findDraggedScale(120, centre, centre, corner)).toBe(120);
   });
+
+  it("план поверху в 30 клітинок не стрибає до 1000% — ручка бере межі обʼєкта", () => {
+    const corner = { clientX: 130, clientY: 130 };
+    const planRange = { min: 25, max: 30000 };
+    expect(findDraggedScale(3000, centre, corner, { clientX: 131, clientY: 131 }, planRange)).toBe(3100);
+    expect(findDraggedScale(3000, centre, corner, { clientX: 400, clientY: 400 }, planRange)).toBe(30000);
+    expect(resizeToken({ rotation: 0, scale: 3000 }, 3010, planRange)).toEqual({ rotation: 0, scale: 3010 });
+  });
 });

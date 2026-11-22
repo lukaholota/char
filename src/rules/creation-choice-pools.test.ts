@@ -25,6 +25,13 @@ describe("KR31.2 — перевірка class choices під час створе
     expect(findCreationChoicePoolProblem({
       ruleset: "RULES_2024",
       className: "BARD_2024",
+      selections: {},
+      available,
+    })).toBeNull();
+
+    expect(findCreationChoicePoolProblem({
+      ruleset: "RULES_2024",
+      className: "BARD_2024",
       selections: { "Класові інструменти": [1, 1, 2] },
       available,
     })).toBe("Опції в групі мають бути різними");

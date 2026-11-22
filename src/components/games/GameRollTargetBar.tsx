@@ -16,13 +16,13 @@ import { RollTargetChip } from "./RollTargetControls";
 type VisibilityOption<Value extends GameRollVisibility> = { value: Value; label: string; hint: string };
 
 const PLAYER_OPTIONS: Array<VisibilityOption<PickableRollVisibility>> = [
-  { value: "PUBLIC", label: "Усім", hint: "Кидок побачать усі в кімнаті" },
+  { value: "PUBLIC", label: "Усім", hint: "Кидок побачать усі в кампанії" },
   { value: "GM", label: "Мені й майстру", hint: "Кидок побачите ви й майстер" },
   { value: "SECRET", label: "Лише майстру", hint: "Результат побачить лише майстер, ви — тільки що кидали" },
 ];
 
 const GM_OPTIONS: Array<VisibilityOption<PickableRollVisibility>> = [
-  { value: "PUBLIC", label: "Усім", hint: "Кидок побачать усі в кімнаті" },
+  { value: "PUBLIC", label: "Усім", hint: "Кидок побачать усі в кампанії" },
   { value: "GM", label: "Лише мені", hint: "Кидок бачите тільки ви" },
 ];
 
@@ -45,7 +45,7 @@ export function GameRollTargetBar({ isSheetRoll, isCreatureRoll = false, canTarg
     <>
       <div className="mx-4 mb-3 flex items-center gap-2 rounded-xl border border-white/10 bg-slate-900/60 p-1.5 pl-3">
         <div className="min-w-0 flex-1 truncate text-xs text-slate-300" title={active.name}>
-          У кімнату <span className="font-semibold text-slate-100">{active.name}</span>
+          У кампанію <span className="font-semibold text-slate-100">{active.name}</span>
         </div>
         <VisibilityPicker
           value={choice.value}

@@ -4,7 +4,7 @@ export const GAME_ROLL_VISIBILITIES = ["PUBLIC", "GM", "SELF", "SECRET"] as cons
 export type GameRollVisibility = (typeof GAME_ROLL_VISIBILITIES)[number];
 
 export const GAME_ROLL_SOURCES = ["CHARACTER", "FREE"] as const;
-export type GameRollSource = (typeof GAME_ROLL_SOURCES)[number] | "CREATURE";
+export type GameRollSource = (typeof GAME_ROLL_SOURCES)[number] | "CREATURE" | "MESSAGE";
 
 export type GameRollDiceGroup = { sides: number; values: number[] };
 export type GameRollExtraDie = { sides: number; sign: 1 | -1; label: string; value: number };
@@ -20,6 +20,15 @@ export type GameRoll = {
 };
 
 export const GAME_ROLL_LIMITS = { dice: 50, extraDice: 6, label: 120, textItem: 60, modeSources: 6, sides: [2, 3, 4, 6, 8, 10, 12, 20, 100], bonus: 1000 } as const;
+
+export const JOURNAL_MESSAGE_LENGTH = 300;
+export const EMPTY_GAME_ROLL: GameRoll = { d20Mode: null, modeSources: [], groups: [], extra: [], bonus: 0, total: 0, check: null };
+
+export function parseJournalMessage(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const text = raw.trim().replace(/\n{3,}/g, "\n\n");
+  return text.length > 0 && text.length <= JOURNAL_MESSAGE_LENGTH ? text : null;
+}
 
 export function computeGameRollTotal(roll: Pick<GameRoll, "d20Mode" | "groups" | "extra" | "bonus">): number {
   const mainValues = roll.groups.flatMap((group) => group.values);

@@ -42,6 +42,7 @@ const CREATURE_ROW_SELECT = {
   exhaustionLevel: true,
   lightBrightFeet: true,
   lightDimFeet: true,
+  isNameHidden: true,
 } satisfies Prisma.GameMapCreatureSelect;
 
 /// Ціль — лише істота активної сцени, що стоїть на мапі: підготовка майстра (під мапою чи в іншій сцені) не видає себе в журналі.
@@ -54,7 +55,7 @@ export async function applyRollTarget(tx: Prisma.TransactionClient, sessionId: n
   if (!row && (await tx.gameMapCreature.count({ where: { id: target.creatureId } }))) return { ok: false, error: "bad_target" };
   if (!creature?.token || !row) return { ok: true, value: null };
   const statblock = findCreature(row.creatureKey, row.ruleset);
-  const base = { targetCreatureId: creature.id, targetName: creature.label, rollKind: target.kind };
+  const base = { targetCreatureId: creature.id, targetName: creature.playerLabel, rollKind: target.kind };
   if (target.kind === "attack") {
     const targetAc = parseArmorClass(statblock?.ac);
     return { ok: true, value: { ...base, targetAc, isHit: findAttackHit(roll, roll.total, targetAc), hpBefore: null, hpChange: null } };
@@ -75,7 +76,7 @@ export async function applySaveTargets(tx: Prisma.TransactionClient, sessionId: 
   for (const creatureId of draft.creatureIds) {
     const view = views.find((candidate) => candidate.id === creatureId);
     const row = rows.find((candidate) => candidate.id === creatureId);
-    if (view?.token && row) saveRows.push(await applyCreatureSave(tx, sessionId, { row, name: view.label, statblock: findCreature(row.creatureKey, row.ruleset) }, effect, draft.dc, damage));
+    if (view?.token && row) saveRows.push(await applyCreatureSave(tx, sessionId, { row, name: view.playerLabel, statblock: findCreature(row.creatureKey, row.ruleset) }, effect, draft.dc, damage));
   }
   for (const persId of draft.persIds) {
     const hero = heroes.get(persId);

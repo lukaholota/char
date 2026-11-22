@@ -20,7 +20,7 @@ const TAB_LABELS: Record<RoomTab, { label: string; icon: typeof MapIcon }> = {
   map: { label: "Мапа", icon: MapIcon },
   hero: { label: "Герой", icon: UserRound },
   journal: { label: "Журнал", icon: ScrollText },
-  room: { label: "Кімната", icon: Users },
+  room: { label: "Кампанія", icon: Users },
 };
 
 export const findPanelId = (tab: RoomTab) => `room-panel-${tab}`;

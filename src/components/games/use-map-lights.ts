@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { removeSceneLightsAction, saveSceneLightAction, setHeroDarkvisionAction, setHeroTokenLightAction, setMapCreatureLightAction, setSceneLightingAction } from "@/lib/actions/game-scene-tools";
+import { removeSceneLightsAction, saveSceneLightAction, setDarkvisionLookAction, setHeroDarkvisionAction, setHeroTokenLightAction, setMapCreatureLightAction, setSceneLightingAction } from "@/lib/actions/game-scene-tools";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
-import { LIGHT_LIMITS, LIGHT_PRESETS, type LightSource, type SceneLighting, type SceneLightView, type TokenLight } from "@/rules/game-lighting";
+import { DEFAULT_LIGHT_LOOK, LIGHT_LIMITS, LIGHT_PRESETS, type DarkvisionLook, type LightSource, type SceneLighting, type SceneLightView, type TokenLight } from "@/rules/game-lighting";
 import type { TokenPosition } from "@/rules/game-map";
 import type { MapCreatureView } from "@/rules/game-map-creatures";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
@@ -13,13 +13,13 @@ import { readOptimistic, sendOptimistic, useOptimisticReader } from "./optimisti
 import { useTokenDrag } from "./use-token-drag";
 
 type Point = { clientX: number; clientY: number };
-type LightDraft = LightSource & { isOn: boolean };
+export type LightDraft = LightSource & { isOn: boolean };
 type Options = { view: GameSessionView; isEditing: boolean; findDropPosition: (point: Point) => TokenPosition | null; findViewCentre: () => TokenPosition };
 export type LightPreset = (typeof LIGHT_PRESETS)[number];
 export type TokenLightTarget = { kind: "hero"; member: GameSessionMemberView } | { kind: "creature"; creature: MapCreatureView };
 
 const { findCurrentId, takeTempId, link } = createIdChain();
-const toDraft = ({ at, brightFeet, dimFeet, isOn }: LightDraft): LightDraft => ({ at, brightFeet, dimFeet, isOn });
+export const toDraft = ({ at, brightFeet, dimFeet, isOn, look }: LightDraft): LightDraft => ({ at, brightFeet, dimFeet, isOn, look });
 
 /// Джерела світла сцени й освітлення — лише майстрові; гравцеві вигляд уже несе лише запалені.
 export function useMapLights({ view, isEditing, findDropPosition, findViewCentre }: Options) {
@@ -57,11 +57,21 @@ export function useMapLights({ view, isEditing, findDropPosition, findViewCentre
     sendLighting(next);
     captureGameEvent("game_lighting_changed", { lighting: next });
   };
+  const darkvisionKey = `darkvision-look:${view.id}`;
+  const sendDarkvisionLook = (look: DarkvisionLook) => void sendOptimistic(darkvisionKey, look, () => setDarkvisionLookAction(view.id, look));
+  const setDarkvisionLook = (next: DarkvisionLook) => {
+    rememberUndo(sceneId, darkvisionKey, readOptimistic(darkvisionKey, view.darkvisionLook), next, sendDarkvisionLook);
+    sendDarkvisionLook(next);
+  };
 
   const placePreset = async (preset: LightPreset) => {
     if (sceneId === null) return;
-    const light: LightDraft = { at: findViewCentre(), brightFeet: preset.brightFeet, dimFeet: preset.dimFeet, isOn: true };
+    const light: LightDraft = { at: findViewCentre(), brightFeet: preset.brightFeet, dimFeet: preset.dimFeet, isOn: true, look: { ...DEFAULT_LIGHT_LOOK, coneDegrees: preset.coneDegrees ?? DEFAULT_LIGHT_LOOK.coneDegrees } };
     captureGameEvent("game_light_placed", { preset: preset.key, target: "scene" });
+    await place(light);
+  };
+  const place = async (light: LightDraft) => {
+    if (sceneId === null) return;
     const id = await add(light);
     if (id === null) return;
     setChosenId(id);
@@ -96,6 +106,8 @@ export function useMapLights({ view, isEditing, findDropPosition, findViewCentre
   return {
     lighting: read(lightingKey, view.lighting),
     setLighting,
+    darkvisionLook: read(darkvisionKey, view.darkvisionLook),
+    setDarkvisionLook,
     shown,
     chosen,
     ghostId: drag.ghost?.id ?? null,
@@ -104,6 +116,7 @@ export function useMapLights({ view, isEditing, findDropPosition, findViewCentre
     bindLight: (id: number) => (isEditing && id > 0 ? drag.bindToken(id) : {}),
     choose: setChosenId,
     placePreset,
+    place,
     change,
     remove,
   };

@@ -27,6 +27,7 @@ import { openHomebrewSpell, openSpellLink } from "@/lib/spell-link";
 import { buildPersSpellLink, getPersSpellId, listCatalogSpellLinks } from "./sheet-spell-links";
 import { buildSheetSpellRoll, type CastSlot } from "./sheet-spell-rolls";
 import { SpellRollButton } from "./SpellRollButton";
+import { SpellPointsCounter, useSpellPoints } from "./SpellPointsCounter";
 import { describeTargetSave } from "@/lib/components/dice/roll-contexts";
 import { openRoomRoll } from "@/lib/components/game/open-room-roll";
 import { startBlessTargeting } from "@/lib/components/game/map-targeting";
@@ -335,6 +336,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
       slotLevel: Math.max(1, Math.min(9, Math.trunc(pact.level))),
     };
   }, [caster.pactLevel]);
+  const spellPoints = useSpellPoints(localPers, maxSlots);
 
   const spellsByLevel = useMemo(() => {
     const query = spellQuery.trim().toLowerCase();
@@ -583,6 +585,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
   const castSpell = (ps: any, option: CastingSlotOption) => {
     if (option.kind === "FREE_USE") spendFreeCastUse(option.featureId, option.remaining);
     else if (option.kind === "PACT_SLOT") spendPactSlotOnce();
+    else if (option.kind === "SPELL_POINTS") spellPoints.change(option.cost);
     else spendSpellSlotOfLevel(option.slotLevel);
     const slot = { slotLevel: option.kind === "FREE_USE" ? Number(ps?.spell?.level ?? 0) : option.slotLevel, slotLabel: describeSlot(option) };
     const roll = buildSpellRoll(ps, slot);
@@ -614,6 +617,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
       maxSpellSlots: maxSlots,
       pact: pactInfo ? { current: localPactSlots, max: pactInfo.max, slotLevel: pactInfo.slotLevel } : null,
       freeCasts: findFreeSpellCastsForSpell(freeSpellCasts, spellId),
+      spellPoints: spellPoints.isActive ? spellPoints.current : null,
     });
     const lastCastSlot = lastCastSlotBySpellId[spellId] ?? null;
     const spellRoll = isReadOnly ? null : buildSpellRoll(ps, lastCastSlot);
@@ -786,11 +790,11 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
       <Card className="glass-card bg-white/5 border-purple-300/20">
         <CardHeader className="pb-3">
           <CardTitle className="text-lg flex items-center gap-2 text-purple-50">
-            <span className="uppercase tracking-wide text-indigo-300">Слоти заклинань</span>
+            <span className="uppercase tracking-wide text-indigo-300">{spellPoints.isActive ? "Очки чар" : "Слоти заклинань"}</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-3 gap-2">
+          {spellPoints.isActive ? <SpellPointsCounter points={spellPoints} isReadOnly={isReadOnly} /> : <div className="grid grid-cols-3 gap-2">
             {Array.from({ length: 9 }, (_, idx) => {
               const level = idx + 1;
               const cur = localCurrentSlots[idx] ?? 0;
@@ -860,7 +864,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
                 </div>
               );
             })}
-          </div>
+          </div>}
 
           {pactInfo ? (
             <div className="mt-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2 flex items-center justify-between relative">

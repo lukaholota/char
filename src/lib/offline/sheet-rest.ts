@@ -44,6 +44,7 @@ export function applyLongRestToSheet({ pers, groupedFeatures }: OfflineSheet): O
       currentHitDice: serializeHitDicePools(restoredHitDice),
       currentSpellSlots: normalizeSlots(maxSpellSlots),
       currentPactSlots: maxPactSlots,
+      spellPointsSpent: 0,
       persCustomFeatures: restoreCustomFeatures(pers.persCustomFeatures ?? [], "LONG_REST"),
       heroicInspirationCount: findHeroicInspirationCountAfterLongRest({
         heroicInspirationCount: pers.heroicInspirationCount,

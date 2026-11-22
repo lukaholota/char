@@ -26,8 +26,9 @@ import AddWeaponDialog from "./AddWeaponDialog";
 import { CrimsonRiteDialog } from "./CrimsonRiteDialog";
 import { findWeaponCrimsonRite } from "@/lib/logic/crimson-rite-sheet";
 import { findPersWeaponName } from "@/lib/logic/weapon-name";
-import { listWeaponItemExtraDice, listWeaponMagicItems } from "@/lib/logic/magic-weapon-links";
+import { listWeaponExtraDice, listWeaponMagicItems } from "@/lib/logic/magic-weapon-links";
 import { describeHitDamage } from "@/lib/logic/magic-item-effect-text";
+import { parseExtraDamage } from "@/rules/weapon-profile";
 
 type Props = {
   pers: PersWithRelations;
@@ -69,7 +70,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
         damageBonus: getDamageBonus(pw),
         damageDice: String(calculateWeaponDamageDice(pers, pw) || "1d4"),
         attackState,
-        damageExtraDice: [...describeRollState(pers, { kind: "attack" }, "WEAPON_DAMAGE").extraDice, ...riteDie, ...listWeaponItemExtraDice(pers, pw)],
+        damageExtraDice: [...describeRollState(pers, { kind: "attack" }, "WEAPON_DAMAGE").extraDice, ...riteDie, ...listWeaponExtraDice(pers, pw)],
       }),
     );
   };
@@ -86,8 +87,8 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
       const hasCustomDice = !!pw.customDamageDice;
       const hasCustomAbility = !!pw.customDamageAbility;
       const hasCustomBonus = typeof pw.customDamageBonus === "number" ? pw.customDamageBonus !== 0 : !!pw.customDamageBonus;
-      const hasAttackBonus = typeof (pw as any).attackBonus === "number" ? (pw as any).attackBonus !== 0 : false;
-      const hasOverrides = pw.overrideDamageType !== null || pw.overrideNormalRange !== null || pw.overrideLongRange !== null;
+      const hasAttackBonus = typeof pw.attackBonus === "number" ? pw.attackBonus !== 0 : false;
+      const hasOverrides = pw.overrideDamageType !== null || pw.overrideNormalRange !== null || pw.overrideLongRange !== null || !!pw.overrideAttackAbility || parseExtraDamage(pw.extraDamage).length > 0;
       return !hasOverrideName && !hasCustomDice && !hasCustomAbility && !hasCustomBonus && !hasAttackBonus && !hasOverrides && !pw.isMagical && !pw.crimsonRiteFeatureId && !linkedWeaponIds.has(pw.persWeaponId);
     };
 
@@ -176,14 +177,15 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
                     {formatDiceUkr(calculateWeaponDamageDice(pers, pw))}{formatModifier(getDamageBonus(pw))}
                   </span>
                   <span className="text-slate-600">•</span>
-                  <span className="truncate">{formatWeaponDamageType(pw)}</span>
-                  {findWeaponRange(pw) && (
+                  <span className="truncate">{formatWeaponDamageType(pers, pw)}</span>
+                  {findWeaponRange(pers, pw) && (
                     <>
                       <span className="text-slate-600">•</span>
-                      <span className="whitespace-nowrap">{formatWeaponRange(pw)}</span>
+                      <span className="whitespace-nowrap">{formatWeaponRange(pers, pw)}</span>
                     </>
                   )}
                 </div>
+                <WeaponExtraDamageLine pw={pw} />
                 <WeaponRiteLine pers={pers} pw={pw} />
                 <WeaponItemLines pers={pers} pw={pw} />
               </div>
@@ -235,6 +237,12 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
 
 export default WeaponsCard;
 
+function WeaponExtraDamageLine({ pw }: { pw: PersWeaponWithWeapon }) {
+  const extras = parseExtraDamage(pw.extraDamage);
+  if (extras.length === 0) return null;
+  return <div className="text-xs text-amber-300/90 mt-0.5">{extras.map((extra) => describeHitDamage({ ...extra, condition: null })).join(" · ")}</div>;
+}
+
 /// Активний Багряний обряд: зброя магічна й бʼє ще кубиком гемокрафту обраного типу.
 function WeaponRiteLine({ pers, pw }: { pers: PersWithRelations; pw: PersWeaponWithWeapon }) {
   const rite = findWeaponCrimsonRite(pers, pw);
@@ -257,13 +265,13 @@ function WeaponItemLines({ pers, pw }: { pers: PersWithRelations; pw: PersWeapon
   ));
 }
 
-function formatWeaponDamageType(pw: PersWeaponWithWeapon): string {
-  const damageType = findWeaponDamageType(pw);
+function formatWeaponDamageType(pers: PersWithRelations, pw: PersWeaponWithWeapon): string {
+  const damageType = findWeaponDamageType(pers, pw);
   return damageType ? damageTypeTranslations[damageType] ?? damageType : "";
 }
 
-function formatWeaponRange(pw: PersWeaponWithWeapon): string {
-  const range = findWeaponRange(pw);
+function formatWeaponRange(pers: PersWithRelations, pw: PersWeaponWithWeapon): string {
+  const range = findWeaponRange(pers, pw);
   if (!range) return "";
   return range.long ? `${range.normal}/${range.long} фт` : `${range.normal} фт`;
 }

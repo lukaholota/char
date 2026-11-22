@@ -8,6 +8,7 @@ import {
   buildTokenConditionMarks,
   canChangeTokenConditions,
   findSpotlightStyle,
+  isTokenHiddenFromViewer,
   normalizeTokenConditions,
   parseTokenConditionChange,
   splitTokenConditionMarks,
@@ -98,5 +99,14 @@ describe("стани токена", () => {
     expect(applyTokenConditionChange(start, { kind: "toggle", condition: "prone", isActive: true })).toEqual(start);
     expect(applyTokenConditionChange(start, { kind: "toggle", condition: "prone", isActive: false })).toEqual({ conditions: [], exhaustionLevel: 1 });
     expect(applyTokenConditionChange(start, { kind: "exhaustion", level: 3 })).toEqual({ conditions: ["prone"], exhaustionLevel: 3 });
+  });
+
+  it("невидимий токен ховається лише від тих, хто ним не керує", () => {
+    const owner = { userId: 7 };
+    expect(isTokenHiddenFromViewer({ userId: 8, isGm: false }, owner, ["invisible"])).toBe(true);
+    expect(isTokenHiddenFromViewer({ userId: 7, isGm: false }, owner, ["invisible"])).toBe(false);
+    expect(isTokenHiddenFromViewer({ userId: 1, isGm: true }, owner, ["invisible"])).toBe(false);
+    expect(isTokenHiddenFromViewer({ userId: 8, isGm: false }, owner, ["prone"])).toBe(false);
+    expect(isTokenHiddenFromViewer({ userId: 8, isGm: false }, null, ["invisible"])).toBe(true);
   });
 });

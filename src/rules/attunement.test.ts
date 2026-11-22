@@ -47,4 +47,8 @@ describe("стеля налаштування на магічні предмет
       }),
     ).toBe(3);
   });
+
+  it("домашній ліміт замінює книжний", () => {
+    expect(findAttunementCapacityForPers({ level: 20, class: { name: "ARTIFICER_2014" }, multiclasses: [] }, 2)).toBe(2);
+  });
 });

@@ -40,13 +40,16 @@ export function readCreatureFormValues(raw: Record<string, unknown>): HomebrewCr
 export type HomebrewItemFormValues = HomebrewItemInput;
 
 export function buildEmptyItemValues(ruleset: HomebrewEdition): HomebrewItemFormValues {
-  return { ruleset, name: "", itemType: "WONDROUS_ITEM", rarity: "UNCOMMON", requiresAttunement: false, description: "", acBonus: "", saveBonus: "", weaponBonus: "" };
+  return {
+    ruleset, name: "", itemType: "WONDROUS_ITEM", rarity: "UNCOMMON", requiresAttunement: false, description: "", acBonus: "", saveBonus: "", weaponBonus: "",
+    isMundane: false, baseWeaponId: "", baseArmorId: "", armorBaseAC: "", attackAbility: "", damageFormula: "", damageType: "", extraDamage: [], normalRange: "", longRange: "",
+  };
 }
 
 export function readItemFormValues(raw: Record<string, unknown>): HomebrewItemFormValues {
   const empty = buildEmptyItemValues(readEdition(raw.ruleset));
   const filled = Object.keys(empty).map((key) => [key, raw[key] ?? empty[key as keyof HomebrewItemFormValues]]);
-  return { ...Object.fromEntries(filled), ruleset: empty.ruleset, requiresAttunement: raw.requiresAttunement === true } as HomebrewItemFormValues;
+  return { ...Object.fromEntries(filled), ruleset: empty.ruleset, requiresAttunement: raw.requiresAttunement === true, isMundane: raw.isMundane === true } as HomebrewItemFormValues;
 }
 
 function readEdition(value: unknown): HomebrewEdition {

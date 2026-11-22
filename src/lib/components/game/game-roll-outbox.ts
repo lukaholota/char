@@ -11,7 +11,7 @@ export const MAX_QUEUED_AGE_MS = 10 * 60_000;
 export type QueuedGameRoll = {
   sessionId: number;
   queuedAt: number;
-  draft: { idempotencyKey: string; visibility: GameRollVisibility; source: "CHARACTER" | "FREE"; persId: number | null; label: string; roll: GameRoll; rolledAt: string; target?: GameRollTargetDraft | null; saves?: GameRollSavesRequest | null; heroTarget?: GameRollHeroTargetDraft | null };
+  draft: { idempotencyKey: string; visibility: GameRollVisibility; source: "CHARACTER" | "FREE"; persId: number | null; label: string; roll: GameRoll; rolledAt: string; target?: GameRollTargetDraft | null; saves?: GameRollSavesRequest | null; heroTarget?: GameRollHeroTargetDraft | null; isInitiative?: boolean };
 };
 
 export type SendOutcome = { kind: "sent"; event: GameRollEventView } | { kind: "rejected"; status: number } | { kind: "retry" };

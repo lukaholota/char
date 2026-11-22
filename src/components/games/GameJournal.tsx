@@ -11,16 +11,17 @@ import { GameRollEntry, GameRollingEntry } from "./GameRollEntry";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { buildRollVerdict } from "@/lib/components/game/roll-verdict";
 import { hasRollResult } from "@/rules/game-roll";
+import { JournalComposer } from "./JournalComposer";
 
 const BOTTOM_SLACK_PX = 48;
 
 const STATUS_TEXT: Partial<Record<GameConnectionStatus, string>> = {
-  connecting: "Підключаємося до кімнати…",
+  connecting: "Підключаємося до кампанії…",
   reconnecting: "Звʼязок перервався — підключаємося знову",
   offline: "Немає мережі — кидки надійдуть, щойно вона зʼявиться",
   paused: "Журнал оновиться, щойно ви повернетеся",
   signed_out: "Сесія завершилася — увійдіть знову",
-  lost: "Ви більше не в цій кімнаті",
+  lost: "Ви більше не в цій кампанії",
 };
 
 export function GameJournal({ myUserId, className }: { myUserId: number | null; className?: string }) {
@@ -58,7 +59,7 @@ export function GameJournal({ myUserId, className }: { myUserId: number | null; 
             ))}
           </ol>
         ) : status === "live" ? (
-          <p className="px-2 py-6 text-center text-sm text-slate-400">Кидків ще немає. Кидайте з листа персонажа або вільними кубиками — їх побачать усі в кімнаті.</p>
+          <p className="px-2 py-6 text-center text-sm text-slate-400">Кидків ще немає. Кидайте з листа персонажа або вільними кубиками чи напишіть повідомлення — їх побачать усі в кампанії.</p>
         ) : null}
       </div>
       {unseenCount ? (
@@ -71,6 +72,7 @@ export function GameJournal({ myUserId, className }: { myUserId: number | null; 
           Нові кидки: {unseenCount}
         </button>
       ) : null}
+      {view && sessionId !== null && !view.isArchived ? <JournalComposer sessionId={sessionId} isGm={view.myRole === "GM"} /> : null}
       <LatestRollAnnouncer events={events} />
     </section>
   );
@@ -160,7 +162,7 @@ function LatestRollAnnouncer({ events }: { events: GameRollEventView[] }) {
   const latest = events.at(-1);
   useEffect(() => {
     if (!latest) return;
-    if (announcedSeqRef.current !== null && latest.seq > announcedSeqRef.current) setText(`${latest.persName ?? latest.authorName}: ${latest.label} — ${describeRollResult(latest) ?? "результат прихований"}`);
+    if (announcedSeqRef.current !== null && latest.seq > announcedSeqRef.current) setText(latest.source === "MESSAGE" ? `${latest.persName ?? latest.authorName}: ${latest.label}` : `${latest.persName ?? latest.authorName}: ${latest.label} — ${describeRollResult(latest) ?? "результат прихований"}`);
     announcedSeqRef.current = Math.max(announcedSeqRef.current ?? 0, latest.seq);
   }, [latest]);
   return (

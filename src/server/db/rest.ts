@@ -301,6 +301,7 @@ export async function takeLongRest(pers: RestPers): Promise<LongRestResult> {
       currentHitDice: restoredHitDice as object,
       currentSpellSlots: maxSpellSlots,
       currentPactSlots: maxPactSlots,
+      spellPointsSpent: 0,
       deathSaveSuccesses: 0,
       deathSaveFailures: 0,
       isDead: false,

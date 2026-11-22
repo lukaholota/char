@@ -51,7 +51,7 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly, 
   }, [onPersUpdate]);
 
   const customSkills = editablePers.persCustomSkills ?? [];
-  const canAddCustomSkill = !isReadOnly && customSkills.length < MAX_CUSTOM_SKILLS;
+  const canAddCustomSkill = !isReadOnly && customSkills.filter((skill) => skill.campaignSkillId === null).length < MAX_CUSTOM_SKILLS;
 
   const renderSkillGroup = ({ ability, skills }: SkillGroup) => {
     const groupCustomSkills = customSkills.filter((skill) => skill.ability === ability);
@@ -63,7 +63,7 @@ const SkillsSlide = memo(function SkillsSlide({ pers, onPersUpdate, isReadOnly, 
         </div>
         {skills.map((skill) => renderSkillRow(ability, skill))}
         {groupCustomSkills.map((skill) => (
-          <CustomSkillRow key={`custom-${skill.id}`} pers={pers} skill={skill} beastForm={beastForm} onEdit={isReadOnly ? undefined : () => setCustomSkillTarget(skill)} />
+          <CustomSkillRow key={`custom-${skill.id}`} pers={pers} skill={skill} beastForm={beastForm} onEdit={isReadOnly || skill.campaignSkillId !== null ? undefined : () => setCustomSkillTarget(skill)} />
         ))}
       </div>
     );

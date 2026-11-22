@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useState, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
+import { useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
 import { RotateCcw, RotateCw, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { DEFAULT_TOKEN_TRANSFORM, TOKEN_SCALE_RANGE, findDraggedRotation, findDraggedScale, isDefaultTokenTransform, resizeToken, turnToken, type TokenTransform } from "@/rules/token-transform";
+import { DEFAULT_TOKEN_TRANSFORM, TOKEN_SCALE_RANGE, findDraggedRotation, findDraggedScale, isDefaultTokenTransform, resizeToken, turnToken, type ScaleRange, type TokenTransform } from "@/rules/token-transform";
 import type { SpotlightStyle } from "@/rules/token-conditions";
+import { COUNTER_ZOOM } from "./MapTokenSlot";
 import { ToolPanel } from "./MapToolbar";
 import { SpotlightAura } from "./combat-turn";
 import type { TokenLightTarget } from "./use-map-lights";
@@ -77,22 +78,29 @@ export function findTokenRotationStyle(rotation: number) {
 export const describeScale = (transform: TokenTransform) => `${transform.scale}%`;
 export const describeRotation = (transform: TokenTransform) => `${transform.rotation}°`;
 
-type TransformTarget = Pick<SelectedToken, "transform" | "onPreview" | "onChange"> & Partial<Pick<SelectedToken, "spotlight">>;
+/// Обʼєкт мапи (план поверху) може бути в сотні разів більшим за токен, тож має власні межі й підпис розміру.
+/// growsWithMap — обʼєкт мапи масштабується разом із нею, тож ручки протизумлені й лишаються сталими на екрані.
+type TransformTarget = Pick<SelectedToken, "transform" | "onPreview" | "onChange"> & Partial<Pick<SelectedToken, "spotlight">> & { scaleRange?: ScaleRange; describeSize?: (transform: TokenTransform) => string; growsWithMap?: boolean };
 
-/// Рамка повертається разом із портретом, тож ручка повороту завжди над «головою» токена.
+type ScreenUnits = { px: (value: number) => string; counterZoom: string };
+const buildScreenUnits = (growsWithMap = false): ScreenUnits =>
+  growsWithMap ? { px: (value) => `calc(${value}px / var(--map-zoom, 1))`, counterZoom: COUNTER_ZOOM } : { px: (value) => `${value}px`, counterZoom: "" };
+
+/// Рамка повертається разом із портретом, тож ручка повороту завжди над «головою» токена. Ручки стоять поза рамкою, щоб дрібний обʼєкт лишався під пальцем для перетягування.
 export function TokenTransformHandles({ token, onDeselect }: { token: TransformTarget; onDeselect: () => void }) {
   const [readout, setReadout] = useState<string | null>(null);
+  const units = buildScreenUnits(token.growsWithMap);
   return (
     <>
       <div className="pointer-events-none absolute inset-0 z-10" style={findTokenRotationStyle(token.transform.rotation)}>
-        <span aria-hidden className="absolute -inset-1.5 rounded-md border-2 border-dashed border-arcane-200" />
-        <span aria-hidden className="absolute bottom-full left-1/2 mb-1.5 h-4 w-0.5 -translate-x-1/2 bg-arcane-200" />
-        <TransformHandle kind="rotate" token={token} onReadout={setReadout} onDeselect={onDeselect} />
-        <TransformHandle kind="scale" token={token} onReadout={setReadout} onDeselect={onDeselect} />
-        {token.spotlight ? <SpotlightHandle spotlight={token.spotlight} onDeselect={onDeselect} /> : null}
+        <span aria-hidden className="absolute rounded-md border-dashed border-arcane-200" style={{ inset: units.px(-6), borderWidth: units.px(2) }} />
+        <span aria-hidden className="absolute left-1/2 -translate-x-1/2 bg-arcane-200" style={{ bottom: `calc(100% + ${units.px(6)})`, height: units.px(16), width: units.px(2) }} />
+        <TransformHandle kind="rotate" token={token} units={units} onReadout={setReadout} onDeselect={onDeselect} />
+        <TransformHandle kind="scale" token={token} units={units} onReadout={setReadout} onDeselect={onDeselect} />
+        {token.spotlight ? <SpotlightHandle spotlight={token.spotlight} units={units} onDeselect={onDeselect} /> : null}
       </div>
       {readout ? (
-        <span aria-hidden className="pointer-events-none absolute right-full top-1/2 z-10 mr-3 -translate-y-1/2 whitespace-nowrap rounded-md bg-slate-950/90 px-1.5 py-0.5 text-xs tabular-nums text-arcane-100 ring-1 ring-arcane-300/60">
+        <span aria-hidden className="pointer-events-none absolute right-full top-1/2 z-10 whitespace-nowrap rounded-md bg-slate-950/90 px-1.5 py-0.5 text-xs tabular-nums text-arcane-100 ring-1 ring-arcane-300/60" style={{ marginRight: units.px(12), transform: `translateY(-50%) ${units.counterZoom}`, transformOrigin: "100% 50%" }}>
           {readout}
         </span>
       ) : null}
@@ -109,21 +117,28 @@ export function GroupedTokenFrame({ rotation }: { rotation: number }) {
   );
 }
 
-const HANDLE_LOOKS: Record<HandleKind, { label: string; style: { left: string; top: string } }> = {
-  rotate: { label: "Повернути токен: тягніть по колу або стрілками", style: { left: "50%", top: "-2.25rem" } },
-  scale: { label: "Розмір токена: тягніть від центру чи до центру або стрілками", style: { left: "calc(100% + 0.375rem)", top: "calc(100% + 0.375rem)" } },
+const HANDLE_PX = 44;
+const HANDLE_LABELS: Record<HandleKind, string> = {
+  rotate: "Повернути токен: тягніть по колу або стрілками",
+  scale: "Розмір токена: тягніть від центру чи до центру або стрілками",
 };
 
-type HandleProps = { kind: HandleKind; token: TransformTarget; onReadout: (text: string | null) => void; onDeselect: () => void };
+/// Кутова ручка простягається лише назовні від кута, тож не перекриває сам токен.
+const findHandlePlace = (kind: HandleKind, units: ScreenUnits): CSSProperties =>
+  kind === "rotate"
+    ? { left: "50%", top: units.px(-36), transform: `translate(-50%, -50%) ${units.counterZoom}` }
+    : { left: `calc(100% - ${units.px(2)})`, top: `calc(100% - ${units.px(2)})`, transform: units.counterZoom, transformOrigin: "0 0" };
+
+type HandleProps = { kind: HandleKind; token: TransformTarget; units: ScreenUnits; onReadout: (text: string | null) => void; onDeselect: () => void };
 type HandleDrag = { start: TokenTransform; centre: ScreenPoint; from: ScreenPoint; last: TokenTransform };
 
-function TransformHandle({ kind, token, onReadout, onDeselect }: HandleProps) {
+function TransformHandle({ kind, token, units, onReadout, onDeselect }: HandleProps) {
   const drag = useRef<HandleDrag | null>(null);
   const findNext = (current: HandleDrag, point: ScreenPoint): TokenTransform =>
     kind === "rotate"
       ? { ...current.start, rotation: findDraggedRotation(current.start.rotation, current.centre, current.from, point) }
-      : { ...current.start, scale: findDraggedScale(current.start.scale, current.centre, current.from, point) };
-  const describe = kind === "rotate" ? describeRotation : describeScale;
+      : { ...current.start, scale: findDraggedScale(current.start.scale, current.centre, current.from, point, token.scaleRange) };
+  const describe = kind === "rotate" ? describeRotation : (token.describeSize ?? describeScale);
 
   const onPointerDown = (event: PointerEvent<HTMLButtonElement>) => {
     if (event.button !== 0) return;
@@ -152,20 +167,19 @@ function TransformHandle({ kind, token, onReadout, onDeselect }: HandleProps) {
     const direction = event.key === "ArrowUp" || event.key === "ArrowRight" ? 1 : event.key === "ArrowDown" || event.key === "ArrowLeft" ? -1 : 0;
     if (event.key === "Escape") onDeselect();
     else if (direction && kind === "rotate") token.onChange(turnToken(token.transform, direction * ROTATION_STEP));
-    else if (direction) token.onChange(resizeToken(token.transform, token.transform.scale + direction * SCALE_STEP));
+    else if (direction) token.onChange(resizeToken(token.transform, token.transform.scale + direction * SCALE_STEP, token.scaleRange));
     else return;
     event.preventDefault();
     event.stopPropagation();
   };
 
-  const look = HANDLE_LOOKS[kind];
   return (
     <button
       type="button"
       data-map-control
-      aria-label={`${look.label}. Зараз ${describe(token.transform)}`}
-      className="pointer-events-auto absolute grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 touch-none place-items-center rounded-full"
-      style={look.style}
+      aria-label={`${HANDLE_LABELS[kind]}. Зараз ${describe(token.transform)}`}
+      className={cn("pointer-events-auto absolute grid h-11 w-11 touch-none rounded-full", kind === "rotate" ? "place-items-center" : "place-items-start")}
+      style={findHandlePlace(kind, units)}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={finishDrag}
@@ -185,7 +199,7 @@ function TransformHandle({ kind, token, onReadout, onDeselect }: HandleProps) {
 
 const SPOTLIGHT_LABEL = "Підсвітка";
 
-function SpotlightHandle({ spotlight, onDeselect }: { spotlight: SpotlightControl; onDeselect: () => void }) {
+function SpotlightHandle({ spotlight, units, onDeselect }: { spotlight: SpotlightControl; units: ScreenUnits; onDeselect: () => void }) {
   return (
     <button
       type="button"
@@ -193,8 +207,8 @@ function SpotlightHandle({ spotlight, onDeselect }: { spotlight: SpotlightContro
       aria-label={SPOTLIGHT_LABEL}
       aria-pressed={spotlight.isOn}
       title={SPOTLIGHT_LABEL}
-      className="pointer-events-auto absolute grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full"
-      style={{ left: "-0.375rem", top: "-0.375rem" }}
+      className="pointer-events-auto absolute grid h-11 w-11 place-items-end rounded-full"
+      style={{ left: `calc(${units.px(4)} - ${HANDLE_PX}px)`, top: `calc(${units.px(4)} - ${HANDLE_PX}px)`, transform: units.counterZoom, transformOrigin: "100% 100%" }}
       onPointerDown={(event) => event.stopPropagation()}
       onClick={spotlight.onToggle}
       onKeyDown={(event) => event.key === "Escape" && onDeselect()}

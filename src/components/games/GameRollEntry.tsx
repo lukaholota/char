@@ -22,14 +22,14 @@ export function GameRollEntry({ event, isMine, isNew }: { event: GameRollEventVi
         <GameAvatar src={event.avatarUrl} name={event.persName ?? event.authorName} className="mt-0.5 h-9 w-9 text-base" />
         <div className="min-w-0 flex-1">
           <EntryAuthor event={event} isMine={isMine} />
-          <div className="break-words text-sm font-semibold text-slate-100">{event.label}</div>
+          <div className={cn("break-words text-sm text-slate-100", event.source === "MESSAGE" ? "whitespace-pre-line" : "font-semibold")}>{event.label}</div>
           {event.roll?.groups.length ? <RollDetails roll={event.roll} /> : null}
           {event.target ? <GameRollTargetLine target={event.target} seq={event.seq} /> : null}
           {event.saves ? <GameRollSavesList saves={event.saves} seq={event.seq} /> : null}
           {event.heroTarget ? <GameRollHeroTargetLine target={event.heroTarget} roll={event.roll} total={event.total} seq={event.seq} /> : null}
         </div>
         <div className="shrink-0 text-right">
-          {event.roll && !hasRollResult(event.roll) ? null : <div className="text-2xl font-bold tabular-nums text-slate-50" aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>}
+          {event.source === "MESSAGE" || (event.roll && !hasRollResult(event.roll)) ? null : <div className="text-2xl font-bold tabular-nums text-slate-50" aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>}
           {natural ? <div className={cn("text-xs font-semibold", natural === "NAT_20" ? "text-emerald-200" : "text-rose-200")}>{natural === "NAT_20" ? "Природна 20" : "Природна 1"}</div> : null}
           {event.roll?.check ? <CheckMark check={event.roll.check} /> : null}
         </div>

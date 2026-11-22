@@ -32,7 +32,7 @@ export type TokenLayout = {
 export const OFF_FLOOR_CLASS = "opacity-40";
 
 export type TokenOnBoard = { screenPx: number; labelWidth: number; isHighlighted: boolean; isOutlined: boolean; rotation: number };
-export type TokenDrag = { key: string; from: TokenPosition | null; to: TokenPosition | null; cells: number; isBlocked?: boolean };
+export type TokenDrag = { key: string; from: TokenPosition | null; to: TokenPosition | null; cells: number; ghostPx: number; isBlocked?: boolean };
 export type TokenGroupBinding = { isGrouped: (key: string) => boolean; moveWith: (key: string, to: TokenPosition) => boolean };
 export type GroupTokenLook = { token: TokenRef; conditions: TokenConditions; transform: TokenTransform; showTransform: (transform: TokenTransform) => void; sendTransform: (transform: TokenTransform) => void };
 export type PlacedToken = { key: string; name: string; position: TokenPosition; cells: number; creatureId?: number; persId?: number };
@@ -67,10 +67,20 @@ export function snapTokenPosition(position: TokenPosition, layout: TokenLayout, 
 }
 
 /// Поки інструмент мапи забирає дотики собі, токени для них прозорі, тож вибраний дотиком токен шукаємо за рамкою кнопки.
-export function findTappedTokenKey(board: HTMLElement | null, point: { clientX: number; clientY: number }): string | null {
+type ScreenPoint = { clientX: number; clientY: number };
+const isPointInRect = (point: ScreenPoint, rect: DOMRect) => point.clientX >= rect.left && point.clientX <= rect.right && point.clientY >= rect.top && point.clientY <= rect.bottom;
+
+export function findTappedTokenKey(board: HTMLElement | null, point: ScreenPoint): string | null {
   const buttons = [...(board?.querySelectorAll<HTMLElement>("[data-token-tap]") ?? [])];
-  const isUnder = (rect: DOMRect) => point.clientX >= rect.left && point.clientX <= rect.right && point.clientY >= rect.top && point.clientY <= rect.bottom;
-  return buttons.findLast((button) => isUnder(button.getBoundingClientRect()))?.dataset.tokenTap ?? null;
+  return buttons.findLast((button) => isPointInRect(point, button.getBoundingClientRect()))?.dataset.tokenTap ?? null;
+}
+
+/// Обʼєкт ширший за пів мапи (план поверху, підлога) не ловить дотик — інакше будь-який дотик до мапи відкривав би обʼєкти.
+export function findTappedObjectId(board: HTMLElement | null, point: ScreenPoint): number | null {
+  if (!board) return null;
+  const boardWidth = board.getBoundingClientRect().width;
+  const objects = [...board.querySelectorAll<HTMLElement>("[data-object-tap]")].map((element) => ({ id: Number(element.dataset.objectTap), rect: element.getBoundingClientRect() }));
+  return objects.findLast(({ rect }) => rect.width <= boardWidth / 2 && isPointInRect(point, rect))?.id ?? null;
 }
 
 /// size — розмір на екрані: слот знімає масштаб мапи навколо центру обличчя, тож рамки, бейджі й підписи не роздуваються.

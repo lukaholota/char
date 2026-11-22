@@ -11,6 +11,9 @@ import { HistoryButtons, ToolPanel } from "./MapToolbar";
 import { Hint } from "./MapToolPanels";
 import type { MapFloors } from "./use-map-floors";
 import type { MapHistory } from "./map-history";
+import type { MapObjects } from "./use-map-objects";
+import { DELETE_KEYS, useMapKey } from "./use-map-key";
+import { useFileDrop } from "./use-file-drop";
 
 /// Згори донизу, як кнопки ліфта: поверхи над мапою, сама мапа, підвали.
 function listLevels(floors: SceneFloor[]): Array<{ id: FloorId; name: string }> {
@@ -48,7 +51,7 @@ export function MapFloorSwitch({ floors, canEdit }: { floors: MapFloors; canEdit
   );
 }
 
-export function FloorsPanel({ floors, history, onClose }: { floors: MapFloors; history: MapHistory; onClose: () => void }) {
+export function FloorsPanel({ floors, objects, history, onClose }: { floors: MapFloors; objects: MapObjects; history: MapHistory; onClose: () => void }) {
   const shownFloor = floors.floors.find((floor) => floor.id === floors.shown) ?? null;
   const isFull = floors.floors.length >= FLOOR_LIMITS.floors;
   return (
@@ -74,7 +77,7 @@ export function FloorsPanel({ floors, history, onClose }: { floors: MapFloors; h
           поверху.
         </Hint>
       )}
-      {shownFloor ? <ShownFloor key={shownFloor.id} floor={shownFloor} floors={floors} /> : floors.floors.length ? <Hint>Оберіть поверх, щоб показати його всім і змінити.</Hint> : null}
+      {shownFloor ? <ShownFloor key={shownFloor.id} floor={shownFloor} floors={floors} objects={objects} /> : floors.floors.length ? <Hint>Оберіть поверх, щоб показати його всім і змінити.</Hint> : null}
       <div className="grid grid-cols-2 gap-2 border-t border-white/10 pt-3">
         <Button type="button" variant="outline" disabled={isFull} onClick={() => void floors.change({ kind: "add", direction: "up" })} className="h-11 gap-2 px-2">
           <ArrowUpToLine className="h-4 w-4" aria-hidden />
@@ -90,7 +93,8 @@ export function FloorsPanel({ floors, history, onClose }: { floors: MapFloors; h
   );
 }
 
-function ShownFloor({ floor, floors }: { floor: SceneFloor; floors: MapFloors }) {
+function ShownFloor({ floor, floors, objects }: { floor: SceneFloor; floors: MapFloors; objects: MapObjects }) {
+  const chosenPlan = objects.chosen?.floor === floor.id ? objects.chosen : null;
   const fileRef = useRef<HTMLInputElement>(null);
   const [isUploading, setIsUploading] = useState(false);
   const rename = (raw: string) => {
@@ -103,6 +107,7 @@ function ShownFloor({ floor, floors }: { floor: SceneFloor; floors: MapFloors })
     await floors.uploadPlan(floor.id, file);
     setIsUploading(false);
   };
+  const drop = useFileDrop((file) => void upload(file), isUploading);
   const remove = async () => {
     const isConfirmed = await askToConfirm({
       title: `Прибрати «${floor.name}»?`,
@@ -124,8 +129,10 @@ function ShownFloor({ floor, floors }: { floor: SceneFloor; floors: MapFloors })
           className="h-11 w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 text-base text-slate-100"
         />
       </label>
-      {floors.hasPlan(floor.id) ? (
-        <Hint>Торкніться плану на мапі — його можна посунути, повернути й змінити розмір.</Hint>
+      {chosenPlan ? (
+        <ChosenPlan onRemove={objects.remove} />
+      ) : floors.hasPlan(floor.id) ? (
+        <Hint>Торкніться плану на мапі — його можна посунути, повернути, змінити розмір чи прибрати.</Hint>
       ) : (
         <Hint>Плану ще немає — гравці бачать основну мапу. Завантажте план, щоб токени знали, де стіни поверху.</Hint>
       )}
@@ -139,7 +146,7 @@ function ShownFloor({ floor, floors }: { floor: SceneFloor; floors: MapFloors })
           aria-hidden
           onChange={(event) => void upload(event.currentTarget.files?.[0]).finally(() => (event.target.value = ""))}
         />
-        <Button type="button" variant="outline" disabled={isUploading} onClick={() => fileRef.current?.click()} className="h-11 flex-1 gap-2 px-3">
+        <Button type="button" variant="outline" disabled={isUploading} onClick={() => fileRef.current?.click()} {...drop.bindDrop} title="Натисніть або перетягніть файл сюди" className={cn("h-11 flex-1 gap-2 px-3", drop.isOver && "border-amber-300 bg-amber-300/10")}>
           <ImagePlus className="h-4 w-4" aria-hidden />
           {isUploading ? "Завантажую…" : floors.hasPlan(floor.id) ? "Ще один план" : "Завантажити план"}
         </Button>
@@ -147,6 +154,19 @@ function ShownFloor({ floor, floors }: { floor: SceneFloor; floors: MapFloors })
           <Trash2 className="h-4 w-4" aria-hidden />
         </Button>
       </div>
+    </div>
+  );
+}
+
+function ChosenPlan({ onRemove }: { onRemove: () => void }) {
+  useMapKey(DELETE_KEYS, onRemove);
+  return (
+    <div className="flex items-center gap-2 rounded-xl border border-arcane-300/30 bg-arcane-300/10 p-2 pl-3 text-sm text-slate-200">
+      <span className="flex-1">Вибрано план. Тягніть його на мапі або приберіть — інші плани поверху лишаться.</span>
+      <Button type="button" variant="outline" onClick={onRemove} title="Delete" className="h-11 shrink-0 gap-2 px-3">
+        <Trash2 className="h-4 w-4" aria-hidden />
+        Прибрати план
+      </Button>
     </div>
   );
 }

@@ -11,7 +11,7 @@ import {
   type LibraryObject,
 } from "@/lib/refs/object-library";
 import { cn } from "@/lib/utils";
-import { useTokenDrag } from "./use-token-drag";
+import { LIST_TOUCH_HOLD_MS, useTokenDrag } from "./use-token-drag";
 
 type Point = { clientX: number; clientY: number };
 type Props = {
@@ -19,7 +19,6 @@ type Props = {
   canDropAt: (point: Point) => boolean;
 };
 
-const TOUCH_HOLD_MS = 250;
 const PREVIEW_PX = 224;
 const PREVIEW_GAP_PX = 12;
 
@@ -97,7 +96,7 @@ export function ObjectLibraryPicker({ onPick, canDropAt }: Props) {
     (object, point) => canDropAt(point) && pick(object, point),
     canDropAt,
     (object) => pick(object),
-    TOUCH_HOLD_MS,
+    LIST_TOUCH_HOLD_MS,
   );
   if (objects === undefined)
     return <p className="text-sm text-slate-400">Завантажуємо набір…</p>;

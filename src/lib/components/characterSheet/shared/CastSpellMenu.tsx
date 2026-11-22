@@ -64,5 +64,6 @@ function isKeyboardClick(event: MouseEvent<HTMLButtonElement>): boolean {
 
 export function describeSlot(option: CastingSlotOption): string {
   if (option.kind === "FREE_USE") return `Без слоту — ${option.featureName}`;
+  if (option.kind === "SPELL_POINTS") return `Очки чар: ${option.slotLevel}-й рівень, ${option.cost} оч.`;
   return option.kind === "PACT_SLOT" ? `Слот пакту ${option.slotLevel}-го рівня` : `Слот ${option.slotLevel}-го рівня`;
 }

@@ -79,7 +79,7 @@ export function findCreationChoicePoolProblem(input: CreationChoicePoolInput): s
     }
 
     const expected = findCreationGroupPickCount(input.className, groupName);
-    if (selected.length !== expected) return `«${groupName}»: оберіть ${expected} опц.`;
+    if (selected.length > 0 && selected.length !== expected) return `«${groupName}»: оберіть ${expected} опц.`;
   }
 
   return null;

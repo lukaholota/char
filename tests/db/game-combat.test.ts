@@ -14,6 +14,7 @@ vi.mock("@/server/media/media-store", () => ({
 
 import { addMissingCombatants, advanceCombatTurn, endCombat, endOwnCombatTurn, setCombatantInitiative, startCombat } from "@/server/db/game-combat";
 import { addMapCreatures, moveMapCreature, removeMapCreatures } from "@/server/db/game-map-creatures";
+import { insertGameRollEvent, type GameRollDraft } from "@/server/db/game-roll-events";
 import { bindMemberPers, createGameSession, findGameSessionView, joinGameSessionByToken, setGameSessionArchived } from "@/server/db/game-sessions";
 import { setActiveSceneMap } from "./game-scene-setup";
 
@@ -57,6 +58,13 @@ async function createTable() {
   return { gm, player, sessionId };
 }
 
+function buildInitiativeRoll(persId: number, total: number): GameRollDraft {
+  const roll = { d20Mode: "NORMAL" as const, modeSources: [], groups: [{ sides: 20, values: [total] }], extra: [], bonus: 0, total, check: null };
+  return { idempotencyKey: randomUUID(), visibility: "PUBLIC", source: "CHARACTER", persId, label: "Ініціатива · Ініціатива", roll, rolledAt: new Date(), target: null, isInitiative: true };
+}
+
+const findMemberPersId = async (sessionId: number, userId: number) => (await prisma.gameSessionMember.findFirstOrThrow({ where: { gameSessionId: sessionId, userId } })).persId!;
+
 async function placeCreatures(sessionId: number, gmId: number, count: number, customName: string | null = null) {
   const before = new Set((await findGameSessionView(sessionId, gmId))!.creatures.map((creature) => creature.id));
   await addMapCreatures(sessionId, gmId, { creatureKey: "goblin", ruleset: "RULES_2014", count, isAlly: false, customName });
@@ -74,7 +82,7 @@ async function fixOrder(sessionId: number, gmId: number, initiatives: number[]) 
 }
 
 describe("початок і кінець бою", () => {
-  it("починає лише майстер: герої й поставлені на мапу істоти кидають ініціативу, невиставлені не беруть участі", async () => {
+  it("починає лише майстер: істотам на мапі ініціативу кидає сервер, герої кидають самі, невиставлені не беруть участі", async () => {
     const { gm, player, sessionId } = await createTable();
     expect(await startCombat(sessionId, player.id)).toEqual({ ok: false, error: "forbidden" });
     expect(await readCombat(sessionId, gm.id)).toBeNull();
@@ -88,12 +96,12 @@ describe("початок і кінець бою", () => {
     expect(combat.round).toBe(1);
     expect(combat.combatants).toHaveLength(4);
     expect(combat.currentId).toBe(combat.combatants[0].id);
-    const initiatives = combat.combatants.map((combatant) => combatant.initiative);
-    expect(initiatives).toEqual([...initiatives].sort((a, b) => b - a));
-    for (const combatant of combat.combatants) {
-      const bonus = combatant.hero ? 0 : GOBLIN_DEXTERITY_BONUS;
-      expect(combatant.initiative).toBeGreaterThanOrEqual(1 + bonus);
-      expect(combatant.initiative).toBeLessThanOrEqual(20 + bonus);
+    expect(combat.combatants.slice(2).map((combatant) => [Boolean(combatant.hero), combatant.initiative])).toEqual([[true, null], [true, null]]);
+    const creatureInitiatives = combat.combatants.slice(0, 2).map((combatant) => combatant.initiative!);
+    expect(creatureInitiatives).toEqual([...creatureInitiatives].sort((a, b) => b - a));
+    for (const initiative of creatureInitiatives) {
+      expect(initiative).toBeGreaterThanOrEqual(1 + GOBLIN_DEXTERITY_BONUS);
+      expect(initiative).toBeLessThanOrEqual(20 + GOBLIN_DEXTERITY_BONUS);
     }
     expect((await readCombat(sessionId, player.id))!.combatants).toHaveLength(4);
   });
@@ -118,6 +126,48 @@ describe("початок і кінець бою", () => {
     expect(await prisma.gameCombatant.count({ where: { gameSessionId: sessionId } })).toBe(0);
     expect(await endCombat(sessionId, gm.id)).toEqual({ ok: false, error: "no_combat" });
     expect(await startCombat(sessionId, gm.id)).toEqual({ ok: true, value: { combatantCount: 2 } });
+  });
+});
+
+describe("вибрані на мапі й кидок гравця", () => {
+  it("вибрані токени: в бій іде лише вибране, решта приєднується пізніше", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const [goblinA, goblinB] = await placeCreatures(sessionId, gm.id, 2);
+    const arvenId = await findMemberPersId(sessionId, player.id);
+    expect(await startCombat(sessionId, gm.id, { persIds: [arvenId], creatureIds: [goblinA] })).toEqual({ ok: true, value: { combatantCount: 2 } });
+    const combat = (await readCombat(sessionId, gm.id))!;
+    expect(combat.combatants.map((combatant) => combatant.hero?.persId ?? combatant.creature?.id).sort()).toEqual([arvenId, goblinA].sort());
+
+    expect(await addMissingCombatants(sessionId, gm.id, { persIds: [], creatureIds: [goblinB] })).toEqual({ ok: true, value: { addedCount: 1 } });
+    expect(await addMissingCombatants(sessionId, gm.id)).toEqual({ ok: true, value: { addedCount: 1 } });
+    expect((await readCombat(sessionId, gm.id))!.combatants).toHaveLength(4);
+  });
+
+  it("кидок ініціативи з листа в бою стає в чергу, повторний — замінює; хід лишається за тим, хто ходив", async () => {
+    const { gm, player, sessionId } = await createTable();
+    await placeCreatures(sessionId, gm.id, 1);
+    await startCombat(sessionId, gm.id);
+    const arvenId = await findMemberPersId(sessionId, player.id);
+    const currentBefore = (await readCombat(sessionId, gm.id))!.currentId;
+
+    expect((await insertGameRollEvent(sessionId, player.id, buildInitiativeRoll(arvenId, 30))).ok).toBe(true);
+    let combat = (await readCombat(sessionId, gm.id))!;
+    expect(combat.combatants[0]).toMatchObject({ initiative: 30, hero: { persId: arvenId } });
+    expect(combat.currentId).toBe(currentBefore);
+
+    await insertGameRollEvent(sessionId, player.id, buildInitiativeRoll(arvenId, 4));
+    combat = (await readCombat(sessionId, gm.id))!;
+    expect(combat.combatants.find((combatant) => combatant.hero?.persId === arvenId)?.initiative).toBe(4);
+
+    await insertGameRollEvent(sessionId, player.id, { ...buildInitiativeRoll(arvenId, 25), isInitiative: false });
+    expect((await readCombat(sessionId, gm.id))!.combatants.find((combatant) => combatant.hero?.persId === arvenId)?.initiative).toBe(4);
+  });
+
+  it("поза боєм кидок ініціативи лише йде в журнал", async () => {
+    const { player, sessionId } = await createTable();
+    const arvenId = await findMemberPersId(sessionId, player.id);
+    expect((await insertGameRollEvent(sessionId, player.id, buildInitiativeRoll(arvenId, 18))).ok).toBe(true);
+    expect(await prisma.gameCombatant.count({ where: { gameSessionId: sessionId } })).toBe(0);
   });
 });
 

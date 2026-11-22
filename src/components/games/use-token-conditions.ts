@@ -3,7 +3,7 @@
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { changeHeroConditionsAction, changeMapCreatureConditionsAction } from "@/lib/actions/game-sessions";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
-import { NO_TOKEN_CONDITIONS, SPOTLIGHT_MARKS, applyTokenConditionChange, findSpotlightStyle, isSpotlightMark, type SpotlightStyle, type TokenConditionChange, type TokenConditions } from "@/rules/token-conditions";
+import { NO_TOKEN_CONDITIONS, SPOTLIGHT_MARKS, applyTokenConditionChange, findSpotlightStyle, isSpotlightMark, isTokenInvisible, type SpotlightStyle, type TokenConditionChange, type TokenConditions } from "@/rules/token-conditions";
 import { pushUndoStep } from "./map-history";
 import { readOptimistic, sendOptimistic, useOptimistic, useOptimisticReader } from "./optimistic-values";
 
@@ -14,6 +14,8 @@ const findConditionsKey = (token: TokenRef) => `conditions:${token.kind}:${token
 export const useShownConditions = (token: TokenRef, server: TokenConditions) => useOptimistic(findConditionsKey(token), server);
 
 export const useSpotlightStyle = (token: TokenRef, server: TokenConditions) => findSpotlightStyle(useShownConditions(token, server));
+
+export const useIsTokenInvisible = (token: TokenRef, server: TokenConditions) => isTokenInvisible(useShownConditions(token, server).conditions);
 
 const isSpotlightChange = (change: TokenConditionChange) => change.kind === "toggle" && isSpotlightMark(change.condition);
 

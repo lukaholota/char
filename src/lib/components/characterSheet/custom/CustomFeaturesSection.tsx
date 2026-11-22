@@ -41,7 +41,7 @@ export function CustomFeaturesSection({ pers, onPersUpdate, isReadOnly }: { pers
           ))}
         </ul>
       ) : null}
-      {!isReadOnly && features.length < MAX_CUSTOM_FEATURES ? (
+      {!isReadOnly && features.filter((feature) => feature.campaignFeatureId === null).length < MAX_CUSTOM_FEATURES ? (
         <button type="button" onClick={() => setTarget("new")} className="flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-dashed border-white/15 text-sm text-slate-300 hover:bg-white/5">
           <Plus className="h-4 w-4" aria-hidden />
           Додати власну здібність або ресурс
@@ -57,7 +57,7 @@ function CustomFeatureCard({ pers, feature, isReadOnly, onPersUpdate, onEdit }: 
     <li className="rounded-lg border border-white/10 bg-slate-900/40 p-2">
       <div className="flex items-start gap-1">
         <h4 className="min-w-0 flex-1 break-words py-2 pl-1 text-sm font-semibold text-slate-100">{feature.name}</h4>
-        {isReadOnly ? null : (
+        {feature.campaignFeatureId !== null ? <CampaignMark /> : isReadOnly ? null : (
           <button type="button" aria-label={`Редагувати: ${feature.name}`} onClick={onEdit} className="flex h-11 w-11 shrink-0 items-center justify-center rounded text-slate-400 hover:bg-white/5 hover:text-slate-100">
             <Pencil className="h-4 w-4" aria-hidden />
           </button>
@@ -70,6 +70,10 @@ function CustomFeatureCard({ pers, feature, isReadOnly, onPersUpdate, onEdit }: 
       </div>
     </li>
   );
+}
+
+function CampaignMark() {
+  return <span title="Задав майстер для всіх героїв кампанії" className="shrink-0 py-2 pr-1 text-xs text-slate-400">від кампанії</span>;
 }
 
 function CustomFeatureDescription({ text }: { text: string }) {

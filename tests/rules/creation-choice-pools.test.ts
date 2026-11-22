@@ -30,6 +30,14 @@ describe("конструктор 2024 вимагає стільки класов
     })).toBeNull();
   });
 
+  it("пропущену групу сервер приймає, а неповну — ні", () => {
+    const bard = classes2024.find((cls) => cls.name === "BARD_2024")!;
+    const available = (bard.classChoiceOptions ?? []).map((opt) => ({ choiceOptionId: opt.choiceOptionId, groupName: opt.choiceOption.groupName }));
+    const toolId = available.find((opt) => opt.groupName === "Класові інструменти")!.choiceOptionId;
+    expect(findCreationChoicePoolProblem({ ruleset: "RULES_2024", className: "BARD_2024", selections: {}, available })).toBeNull();
+    expect(findCreationChoicePoolProblem({ ruleset: "RULES_2024", className: "BARD_2024", selections: { "Класові інструменти": [toolId] }, available })).toBe("«Класові інструменти»: оберіть 3 опц.");
+  });
+
   it("Бард обирає три музичні інструменти", () => {
     const bard = classes2024.find((cls) => cls.name === "BARD_2024")!;
     expect(selectAsCreatorRequires(bard)["Класові інструменти"]).toHaveLength(3);

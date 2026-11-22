@@ -207,6 +207,14 @@ describe("Офлайн-аудит 2026-09-18 — відновлення комі
     expect(applyOfflineOperation(restored, operation({ kind: "restore-pact-slot" })).currentPactSlots).toBe(2);
   });
 
+  it("очки чар витрачаються й повертаються в межах запасу з комірок", () => {
+    const spent = applyOfflineOperation(BASE, operation({ kind: "spell-points", amount: 5 }));
+    expect(spent.spellPointsSpent).toBe(5);
+    expect(applyOfflineOperation(spent, operation({ kind: "spell-points", amount: 99 })).spellPointsSpent).toBe(17);
+    expect(applyOfflineOperation(spent, operation({ kind: "spell-points", amount: -9 })).spellPointsSpent).toBe(0);
+    expect(isOfflineOperation(operation({ kind: "spell-points", amount: 1.5 }))).toBe(false);
+  });
+
   it("хіт-дайси записуються як залишок по класах, сміття відкидається", () => {
     const next = applyOfflineOperation(BASE, operation({ kind: "hit-dice", remainingByClass: { 3: 2, abc: 9, 7: -1 } }));
     expect(next.currentHitDice).toEqual({ 3: 2, 7: 0 });
