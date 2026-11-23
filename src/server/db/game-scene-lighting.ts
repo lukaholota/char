@@ -1,11 +1,11 @@
 import { prisma } from "@/lib/prisma";
-import { LIGHT_LIMITS, type DarkvisionLook, type LightSource, type SceneLighting } from "@/rules/game-lighting";
+import { FLICKER_SPEED, LIGHT_LIMITS, type DarkvisionLook, type LightSource, type SceneLighting } from "@/rules/game-lighting";
 import { lockScene } from "@/server/db/game-scene-tools";
 import { findActiveGmSession, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
 const succeed = <T,>(value: T) => ({ ok: true as const, value });
-const toLightRow = ({ at, brightFeet, dimFeet, isOn, look }: LightSource & { isOn: boolean }) => ({ x: at.x, y: at.y, brightFeet, dimFeet, isOn, ...look });
+const toLightRow = ({ at, brightFeet, dimFeet, isOn, look }: LightSource & { isOn: boolean }) => ({ x: at.x, y: at.y, brightFeet, dimFeet, isOn, ...look, flickerSpeed: look.flickerSpeed ?? FLICKER_SPEED.default });
 
 export async function setSceneLighting(sessionId: number, userId: number, sceneId: number, lighting: SceneLighting): Promise<GameSessionResult<null>> {
   const gm = await findActiveGmSession(sessionId, userId);

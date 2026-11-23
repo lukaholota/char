@@ -38,26 +38,35 @@ const FOG_EDGE = 0.7;
 /// розходиться назовні: край розширено перед розмиттям, тож усередині туману нічого не просвічує.
 export function MapFogLayer({ fog, aspect, isVeil, className }: { fog: SceneFog; aspect: number; isVeil: boolean; className?: string }) {
   const maskId = useId();
-  const edgeId = useId();
-  const height = MAP_VIEW_WIDTH / aspect;
   return (
     <MapSvg aspect={aspect} className={className}>
       <defs>
-        {isVeil ? null : (
-          <filter id={edgeId} filterUnits="userSpaceOnUse" x={0} y={0} width={MAP_VIEW_WIDTH} height={height}>
-            <feMorphology operator="dilate" radius={FOG_EDGE} />
-            <feGaussianBlur stdDeviation={FOG_EDGE / 2} />
-          </filter>
-        )}
-        <mask id={maskId} maskUnits="userSpaceOnUse" x={0} y={0} width={MAP_VIEW_WIDTH} height={height}>
-          <g filter={isVeil ? undefined : `url(#${CSS.escape(edgeId)})`}>
-            <rect width={MAP_VIEW_WIDTH} height={height} fill="white" />
-            {fog.areas.map((area, index) => (isFogStroke(area) ? <FogStrokePath key={index} stroke={area} aspect={aspect} /> : <FogRectShape key={index} area={area} aspect={aspect} fill={area.isRevealed ? "black" : "white"} />))}
-          </g>
-        </mask>
+        <FogMask id={maskId} fog={fog} aspect={aspect} isVeil={isVeil} />
       </defs>
-      <rect width={MAP_VIEW_WIDTH} height={height} mask={`url(#${CSS.escape(maskId)})`} className={isVeil ? "fill-slate-950/55" : "fill-slate-900"} />
+      <rect width={MAP_VIEW_WIDTH} height={MAP_VIEW_WIDTH / aspect} mask={`url(#${CSS.escape(maskId)})`} className={isVeil ? "fill-slate-950/55" : "fill-slate-900"} />
     </MapSvg>
+  );
+}
+
+/// Біле — туман, чорне — відкрите.
+export function FogMask({ id, fog, aspect, isVeil }: { id: string; fog: SceneFog; aspect: number; isVeil: boolean }) {
+  const edgeId = useId();
+  const height = MAP_VIEW_WIDTH / aspect;
+  return (
+    <>
+      {isVeil ? null : (
+        <filter id={edgeId} filterUnits="userSpaceOnUse" x={0} y={0} width={MAP_VIEW_WIDTH} height={height}>
+          <feMorphology operator="dilate" radius={FOG_EDGE} />
+          <feGaussianBlur stdDeviation={FOG_EDGE / 2} />
+        </filter>
+      )}
+      <mask id={id} maskUnits="userSpaceOnUse" x={0} y={0} width={MAP_VIEW_WIDTH} height={height}>
+        <g filter={isVeil ? undefined : `url(#${CSS.escape(edgeId)})`}>
+          <rect width={MAP_VIEW_WIDTH} height={height} fill="white" />
+          {fog.areas.map((area, index) => (isFogStroke(area) ? <FogStrokePath key={index} stroke={area} aspect={aspect} /> : <FogRectShape key={index} area={area} aspect={aspect} fill={area.isRevealed ? "black" : "white"} />))}
+        </g>
+      </mask>
+    </>
   );
 }
 

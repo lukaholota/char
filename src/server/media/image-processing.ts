@@ -32,6 +32,13 @@ export function buildSquareWebpImages(bytes: Uint8Array): Promise<ProcessedImage
   return runQueued(() => encodeSquareWebpImages(bytes));
 }
 
+export function buildObjectWebpImages(bytes: Uint8Array): Promise<ProcessedImage> {
+  return runQueued(async () => {
+    const [full, thumbnail] = await Promise.all([encodeFittedWebp(bytes, FULL_SIZE, WEBP_QUALITY), encodeFittedWebp(bytes, THUMBNAIL_SIZE, WEBP_QUALITY)]);
+    return { full, thumbnail };
+  });
+}
+
 export function buildScreenshotWebp(bytes: Uint8Array): Promise<Uint8Array> {
   return runQueued(() => encodeFittedWebp(bytes, SCREENSHOT_EDGE, SCREENSHOT_WEBP_QUALITY));
 }

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import type { PersWeaponWithWeapon, PersWithRelations } from "@/lib/actions/pers";
 import {
   calculateWeaponAttackBonus,
+  calculateFinalModifier,
   calculateWeaponDamageBonus,
   calculateWeaponDamageDice,
   findWeaponDamageType,
@@ -26,7 +27,7 @@ import AddWeaponDialog from "./AddWeaponDialog";
 import { CrimsonRiteDialog } from "./CrimsonRiteDialog";
 import { findWeaponCrimsonRite } from "@/lib/logic/crimson-rite-sheet";
 import { findPersWeaponName } from "@/lib/logic/weapon-name";
-import { listWeaponExtraDice, listWeaponMagicItems } from "@/lib/logic/magic-weapon-links";
+import { listWeaponExtraDice, listWeaponMagicItems, sumWeaponExtraDamageBonus } from "@/lib/logic/magic-weapon-links";
 import { describeHitDamage } from "@/lib/logic/magic-item-effect-text";
 import { parseExtraDamage } from "@/rules/weapon-profile";
 
@@ -67,7 +68,7 @@ export function WeaponsCard({ pers, isReadOnly, isPending, onCustomize }: Props)
       buildWeaponRollContext({
         weaponName,
         attackBonus: getAttackBonus(pw),
-        damageBonus: getDamageBonus(pw),
+        damageBonus: getDamageBonus(pw) + sumWeaponExtraDamageBonus(pers, pw, (ability) => calculateFinalModifier(pers, ability)),
         damageDice: String(calculateWeaponDamageDice(pers, pw) || "1d4"),
         attackState,
         damageExtraDice: [...describeRollState(pers, { kind: "attack" }, "WEAPON_DAMAGE").extraDice, ...riteDie, ...listWeaponExtraDice(pers, pw)],

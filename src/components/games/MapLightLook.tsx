@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { DEFAULT_LIGHT_LOOK, LIGHT_LIMITS, type LightEffect, type LightLook, type SceneSight } from "@/rules/game-lighting";
+import { DEFAULT_LIGHT_LOOK, FLICKER_SPEED, LIGHT_LIMITS, type LightEffect, type LightLook, type SceneSight } from "@/rules/game-lighting";
 import type { ViewPoint } from "@/rules/map-visibility";
 import { ColorSpectrumPicker } from "./ColorSpectrumPicker";
 import { Segmented, Stepper } from "./MapToolbar";
@@ -38,7 +38,7 @@ export function LightGlows({ sight, idPrefix }: { sight: SceneSight; idPrefix: s
           </radialGradient>
         ))}
       </defs>
-      {glowing.map(({ light, id }) => <polygon key={id} points={toPoints(light.polygon)} fill={`url(#${CSS.escape(id)})`} className={EFFECT_CLASSES[light.look.effect]} />)}
+      {glowing.map(({ light, id }) => <polygon key={id} points={toPoints(light.polygon)} fill={`url(#${CSS.escape(id)})`} className={EFFECT_CLASSES[light.look.effect]} style={light.look.effect === "flicker" ? { animationDuration: `${1.7 * FLICKER_SPEED.default / (light.look.flickerSpeed ?? FLICKER_SPEED.default)}s` } : undefined} />)}
     </g>
   );
 }
@@ -46,10 +46,12 @@ export function LightGlows({ sight, idPrefix }: { sight: SceneSight; idPrefix: s
 export function LightLookRows({ look, onChange }: { look: LightLook; onChange: (look: LightLook) => void }) {
   const change = (patch: Partial<LightLook>) => onChange({ ...look, ...patch });
   const { coneDegrees, directionDegrees } = look;
+  const speed = look.flickerSpeed ?? FLICKER_SPEED.default;
   return (
     <>
       <ColorSpectrumPicker label="Колір світла" value={look.color} onChange={(color) => change({ color })} natural={{ label: "Тепле", onChoose: () => change({ color: DEFAULT_LIGHT_LOOK.color }) }} />
       <Segmented label="Як світить" value={look.effect} options={EFFECT_OPTIONS} onChange={(effect) => change({ effect })} />
+      {look.effect === "flicker" ? <Stepper label="Швидкість мерехтіння" value={`${speed}%`} onStep={(direction) => change({ flickerSpeed: Math.min(FLICKER_SPEED.max, Math.max(FLICKER_SPEED.min, speed + direction * FLICKER_SPEED.step)) })} canDecrease={speed > FLICKER_SPEED.min} canIncrease={speed < FLICKER_SPEED.max} /> : null}
       <Stepper label="Конус" value={coneDegrees >= CONE.max ? "Коло" : `${coneDegrees}°`} onStep={(direction) => change({ coneDegrees: coneDegrees + direction * CONE.step })} canDecrease={coneDegrees > CONE.min} canIncrease={coneDegrees < CONE.max} />
       {coneDegrees < CONE.max ? (
         <Stepper label="Напрямок" value={`${directionDegrees}°`} onStep={(direction) => change({ directionDegrees: (directionDegrees + direction * DIRECTION_STEP + 360) % 360 })}>

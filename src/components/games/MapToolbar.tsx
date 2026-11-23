@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import type { MapHistory } from "./map-history";
 import { ESCAPE_KEYS, useMapKey } from "./use-map-key";
 import type { MapTool } from "./use-map-tools";
+import type { CharacterView } from "./use-map-sight";
+import { CharacterViewRailButton } from "./CharacterViewRailButton";
 
 const TOOLS: Array<{ tool: MapTool; label: string; icon: LucideIcon; isGmOnly?: boolean; startsGroup?: boolean }> = [
   { tool: "ruler", label: "Лінійка", icon: Ruler },
@@ -28,10 +30,11 @@ const TOOL_ROW = "flex min-h-0 w-12 shrink flex-col gap-0.5 overflow-y-auto over
 const TOOL_BUTTON = "flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl text-xs text-slate-300 hover:bg-white/10 hover:text-slate-100 [@container(min-width:40rem)]:h-14 [@container(min-width:40rem)]:w-full";
 const TOOL_GROUP_RULE = "mx-2 my-0.5 h-px shrink-0 bg-white/10";
 
-export function MapToolRow({ tool, onToolChange, canEditScene, canDraw, className }: { tool: MapTool | null; onToolChange: (tool: MapTool | null) => void; canEditScene: boolean; canDraw: boolean; className?: string }) {
+export function MapToolRow({ tool, onToolChange, canEditScene, canDraw, className, characterView }: { tool: MapTool | null; onToolChange: (tool: MapTool | null) => void; canEditScene: boolean; canDraw: boolean; className?: string; characterView?: CharacterView | null }) {
   const tools = TOOLS.filter((entry) => (canEditScene || !entry.isGmOnly) && (canDraw || entry.tool !== "draw"));
   return (
     <div role="toolbar" aria-label="Інструменти мапи" className={cn(TOOL_ROW, className)}>
+      {characterView ? <CharacterViewRailButton view={characterView} className={cn(TOOL_BUTTON, characterView.hero && "bg-arcane-300/20 text-arcane-100 ring-1 ring-inset ring-arcane-300/60")} /> : null}
       {tools.map(({ tool: entry, label, icon: Icon, startsGroup }, index) => (
         <Fragment key={entry}>
           {startsGroup && index > 0 ? <span aria-hidden className={TOOL_GROUP_RULE} /> : null}

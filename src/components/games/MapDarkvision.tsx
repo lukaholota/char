@@ -43,9 +43,12 @@ export function DarkvisionTint({ sight, look, className }: { sight: SceneSight; 
 
 export function DarkvisionLookRows({ look, onChange }: { look: DarkvisionLook; onChange: (look: DarkvisionLook) => void }) {
   return (
-    <div className="space-y-1">
-      <Segmented label="Темний зір" value={look} options={DARKVISION_OPTIONS} onChange={onChange} />
-      <p className="text-sm leading-snug text-slate-400">Для всієї кампанії. У темряві герой бачить без кольору, а світло лишається справжнім — факел має сенс.</p>
+    <div className="space-y-2 border-t border-white/10 pt-2">
+      <div className="space-y-1">
+        <h4 className="text-sm font-medium text-slate-200">Вигляд темного зору</h4>
+        <p className="text-sm leading-snug text-slate-400">Для всієї кампанії. У режимі «Очима героя» ефект видно на неосвітлених ділянках у межах темного зору.</p>
+      </div>
+      <Segmented label="Вигляд темного зору" value={look} options={DARKVISION_OPTIONS} onChange={onChange} />
     </div>
   );
 }

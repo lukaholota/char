@@ -13,7 +13,8 @@ vi.mock("@/server/media/media-store", () => ({
   deleteMediaObject: async () => undefined,
 }));
 
-import { addMapCreatures, setMapCreatureLight } from "@/server/db/game-map-creatures";
+import { addMapCreatures, moveMapCreature, setMapCreatureLight, setMapCreatureBorderColor } from "@/server/db/game-map-creatures";
+import { startCombat } from "@/server/db/game-combat";
 import { removeSceneLights, saveSceneLight, setDarkvisionLook, setSceneLighting } from "@/server/db/game-scene-lighting";
 import { moveGameToken, replaceGameSceneMap, setHeroDarkvision, setHeroTokenLight } from "@/server/db/game-scenes";
 import { bindMemberPers, createGameSession, findGameSessionView, joinGameSessionByToken } from "@/server/db/game-sessions";
@@ -24,7 +25,7 @@ vi.setConfig({ testTimeout: 60_000 });
 beforeEach(resetUserData);
 afterAll(disconnectDatabase);
 
-const torch = { at: { x: 0.3, y: 0.4 }, brightFeet: 20, dimFeet: 20, isOn: true };
+const torch = { at: { x: 0.3, y: 0.4 }, brightFeet: 20, dimFeet: 20, isOn: true, look: DEFAULT_LIGHT_LOOK };
 
 async function createMapImage() {
   const bytes = await sharp({ create: { width: 800, height: 600, channels: 3, background: "#223344" } }).png().toBuffer();
@@ -76,10 +77,14 @@ describe("освітлення сцени", () => {
     expect(playerView.lights).toEqual([{ id: lit.value.id, at: torch.at, brightFeet: 20, dimFeet: 20, isOn: true, look: DEFAULT_LIGHT_LOOK }]);
     expect((await findGameSessionView(sessionId, gm.id))!.lights.map((light) => light.isOn)).toEqual([true, false]);
 
-    const lantern = { ...torch, look: { color: "#38bdf8", coneDegrees: 60, directionDegrees: 90, effect: "flicker" as const } };
+    const lantern = { ...torch, look: { color: "#38bdf8", coneDegrees: 60, directionDegrees: 90, effect: "flicker" as const, flickerSpeed: 50 } };
     const saved = await saveSceneLight(sessionId, gm.id, sceneId, null, lantern);
     if (!saved.ok) throw new Error("lantern not saved");
     expect((await findGameSessionView(sessionId, gm.id))!.lights.find((light) => light.id === saved.value.id)?.look).toEqual(lantern.look);
+    expect((await findGameSessionView(sessionId, player.id))!.lights.find((light) => light.id === saved.value.id)?.look).toEqual(lantern.look);
+    const { flickerSpeed: _speed, ...defaultSpeed } = lantern.look;
+    expect(await saveSceneLight(sessionId, gm.id, sceneId, saved.value.id, { ...lantern, look: defaultSpeed })).toMatchObject({ ok: true });
+    expect((await findGameSessionView(sessionId, player.id))!.lights.find((light) => light.id === saved.value.id)?.look).toEqual(defaultSpeed);
     await removeSceneLights(sessionId, gm.id, sceneId, [saved.value.id]);
 
     expect(await removeSceneLights(sessionId, gm.id, sceneId, [candle.value.id])).toEqual({ ok: true, value: null });
@@ -126,11 +131,28 @@ describe("освітлення сцени", () => {
 
   it("світло істоті ставить лише майстер", async () => {
     const { gm, player, sessionId } = await createTable();
-    const added = await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    const added = await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
     if (!added.ok) throw new Error(added.error);
     const creatureId = (await findGameSessionView(sessionId, gm.id))!.creatures[0].id;
     expect(await setMapCreatureLight(sessionId, player.id, creatureId, { brightFeet: 20, dimFeet: 20 })).toEqual({ ok: false, error: "forbidden" });
     expect(await setMapCreatureLight(sessionId, gm.id, creatureId, { brightFeet: 0, dimFeet: 10 })).toEqual({ ok: true, value: null });
     expect((await findGameSessionView(sessionId, gm.id))!.creatures[0].light).toEqual({ brightFeet: 0, dimFeet: 10 });
+  });
+
+  it("майстер змінює колір обводки уже розміщеної істоти під час бою", async () => {
+    const { gm, player, sessionId } = await createTable();
+    expect(await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null })).toMatchObject({ ok: true });
+    const creatureId = (await findGameSessionView(sessionId, gm.id))!.creatures[0].id;
+    await moveMapCreature(sessionId, gm.id, creatureId, { x: 0.4, y: 0.5 });
+    expect(await startCombat(sessionId, gm.id)).toMatchObject({ ok: true });
+    const combatants = await prisma.gameCombatant.findMany({ where: { gameSessionId: sessionId } });
+    expect(combatants.some((entry) => entry.gameMapCreatureId === creatureId)).toBe(true);
+    expect(await setMapCreatureBorderColor(sessionId, player.id, creatureId, "green")).toEqual({ ok: false, error: "forbidden" });
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures[0].borderColor).toBeNull();
+    for (const borderColor of ["green", "red", null] as const) {
+      expect(await setMapCreatureBorderColor(sessionId, gm.id, creatureId, borderColor)).toMatchObject({ ok: true });
+      expect((await findGameSessionView(sessionId, player.id))!.creatures).toContainEqual(expect.objectContaining({ id: creatureId, borderColor }));
+    }
+    expect(await prisma.gameCombatant.findMany({ where: { gameSessionId: sessionId } })).toEqual(combatants);
   });
 });

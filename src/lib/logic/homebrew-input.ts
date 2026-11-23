@@ -8,7 +8,7 @@ import { formatModifier } from "@/lib/logic/utils";
 import { ItemRarity, MagicItemType } from "@/lib/prisma-enums";
 import { ABILITY_KEYS } from "@/rules/feat-grants";
 import { DAMAGE_TYPE_KEYS } from "@/rules/types";
-import { buildExtraDamage, EXTRA_DAMAGE_LIMIT, parseWeaponProfile } from "@/rules/weapon-profile";
+import { buildExtraDamage, EXTRA_DAMAGE_FORMULA_HINT, EXTRA_DAMAGE_FORMULA_LENGTH, EXTRA_DAMAGE_LIMIT, parseExtraDamageFormula, parseWeaponProfile } from "@/rules/weapon-profile";
 import { CUSTOM_DAMAGE_TYPE_MAX_LENGTH } from "@/rules/house-rules";
 import { parseWeaponDamageFormula } from "@/rules/weapon-damage-formula";
 
@@ -107,10 +107,10 @@ export const homebrewItemSchema = z.object({
   attackAbility: z.enum(["", ...ABILITY_KEYS]).default(""),
   damageFormula: z.string().trim().max(60, "До 60 символів").refine((text) => text === "" || parseWeaponDamageFormula(text) !== null, "Напр. 1к8+СПР або 1к6+СИЛ*2").default(""),
   damageType: z.enum(["", ...DAMAGE_TYPE_KEYS]).default(""),
-  extraDamage: z.array(z.object({ dice: z.string().max(10), damageType: z.enum(DAMAGE_TYPE_KEYS).nullable(), customType: z.string().max(CUSTOM_DAMAGE_TYPE_MAX_LENGTH).optional() })).max(EXTRA_DAMAGE_LIMIT).default([]),
+  extraDamage: z.array(z.object({ dice: z.string().trim().max(EXTRA_DAMAGE_FORMULA_LENGTH), damageType: z.enum(DAMAGE_TYPE_KEYS).nullable(), customType: z.string().max(CUSTOM_DAMAGE_TYPE_MAX_LENGTH).optional() })).max(EXTRA_DAMAGE_LIMIT).default([]),
   normalRange: optionalRange,
   longRange: optionalRange,
-});
+}).refine((item) => item.itemType !== "WEAPON" || item.extraDamage.every((row) => parseExtraDamageFormula(row.dice) !== null), { path: ["extraDamage"], message: EXTRA_DAMAGE_FORMULA_HINT });
 
 export type HomebrewItemInput = z.infer<typeof homebrewItemSchema>;
 export type HomebrewSpellInput = z.infer<typeof homebrewSpellSchema>;

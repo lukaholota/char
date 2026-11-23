@@ -6,6 +6,7 @@ import {
   MAP_CREATURE_LIMITS,
   findCreatureGroupKey,
   findFreeCreatureNumbers,
+  type CreatureBorderColor,
   type CreatureTokenSize,
   type MapCreatureRuleset,
   type NewMapCreatures,
@@ -40,7 +41,7 @@ export async function addMapCreatures(sessionId: number, userId: number, input: 
     await tx.gameMapCreature.createMany({
       data: findFreeCreatureNumbers(taken, input.count).map((number) => {
         const hpMax = rollCreatureMaxHitPoints(entry.hp);
-        return { gameSessionId: sessionId, gameSceneId: sceneId, creatureKey: input.creatureKey, ruleset: input.ruleset, number, isAlly: input.isAlly, customName: input.customName, hpMax, hpCurrent: hpMax, isCutout: look?.isCutout ?? false, customImageKey: input.imageKey ?? look?.customImageKey ?? null };
+        return { gameSessionId: sessionId, gameSceneId: sceneId, creatureKey: input.creatureKey, ruleset: input.ruleset, number, customName: input.customName, hpMax, hpCurrent: hpMax, isCutout: look?.isCutout ?? false, customImageKey: input.imageKey ?? look?.customImageKey ?? null };
       }),
     });
     return { ok: true as const, value: { name: input.customName ?? entry.name } };
@@ -49,7 +50,7 @@ export async function addMapCreatures(sessionId: number, userId: number, input: 
   return added;
 }
 
-/// Копія бере вигляд, бік і світло оригіналу, але свої хіти й номер; без станів і ініціативи. step зсуває копію від оригіналу.
+/// Копія бере вигляд і світло оригіналу, але свої хіти й номер; без станів і ініціативи. step зсуває копію від оригіналу.
 export async function duplicateMapCreature(sessionId: number, userId: number, creatureId: number, step: number): Promise<GameSessionResult<{ id: number }>> {
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
@@ -191,6 +192,15 @@ export async function setMapCreatureNameHidden(sessionId: number, userId: number
   const gm = await findActiveGmSession(sessionId, userId);
   if (!gm.ok) return gm;
   const changed = await prisma.gameMapCreature.updateMany({ where: { id: creatureId, gameSessionId: sessionId }, data: { isNameHidden } });
+  if (!changed.count) return fail("creature_gone");
+  await signalGameSession(sessionId, "session");
+  return { ok: true, value: null };
+}
+
+export async function setMapCreatureBorderColor(sessionId: number, userId: number, creatureId: number, borderColor: CreatureBorderColor): Promise<GameSessionResult<null>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const changed = await prisma.gameMapCreature.updateMany({ where: { id: creatureId, gameSessionId: sessionId }, data: { borderColor } });
   if (!changed.count) return fail("creature_gone");
   await signalGameSession(sessionId, "session");
   return { ok: true, value: null };

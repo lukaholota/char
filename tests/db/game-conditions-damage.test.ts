@@ -69,7 +69,7 @@ async function createTable() {
 }
 
 async function placeGoblin(sessionId: number, gmId: number, hp: { max: number; current: number } | null = { max: 10, current: 10 }) {
-  await addMapCreatures(sessionId, gmId, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+  await addMapCreatures(sessionId, gmId, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
   const [creature] = (await findGameSessionView(sessionId, gmId))!.creatures.slice(-1);
   await moveMapCreature(sessionId, gmId, creature.id, { x: 0.4, y: 0.4 });
   await prisma.gameMapCreature.update({ where: { id: creature.id }, data: { hpMax: hp?.max ?? null, hpCurrent: hp?.current ?? null } });
@@ -248,7 +248,7 @@ describe("ціль на межі довіри", () => {
     await removeMapCreatures(sessionId, gm.id, removedId);
     expect(await insertGameRollEvent(sessionId, player.id, buildSheetDraft({ target: { creatureId: removedId, kind: "damage" } }))).toMatchObject({ ok: true, value: { target: null } });
 
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
     const unplaced = await prisma.gameMapCreature.findFirstOrThrow({ where: { gameSessionId: sessionId, tokenX: null } });
     expect(await insertGameRollEvent(sessionId, player.id, buildSheetDraft({ target: { creatureId: unplaced.id, kind: "damage" } }))).toMatchObject({ ok: true, value: { target: null } });
     expect((await readStoredHitPoints(unplaced.id)).hpCurrent).toBe(unplaced.hpCurrent);

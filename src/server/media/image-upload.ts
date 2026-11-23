@@ -1,25 +1,33 @@
 import { randomUUID } from "node:crypto";
 import { MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
 import { buildMediaObjectKey } from "@/lib/media-url";
-import { buildScreenshotWebp, buildSquareWebpImages, detectImageType } from "./image-processing";
+import { buildObjectWebpImages, buildScreenshotWebp, buildSquareWebpImages, detectImageType } from "./image-processing";
 import { deleteMediaObject, isMediaStoreConfigured, putMediaObject } from "./media-store";
 
 export type StoredImageResult = { key: string } | { error: string };
 
 export async function storeSquareImage(file: unknown, keyPrefix: string): Promise<StoredImageResult> {
-  if (!isMediaStoreConfigured()) return { error: "Завантаження картинок тимчасово недоступне" };
-  if (!(file instanceof Blob) || file.size === 0) return { error: "Оберіть картинку" };
-  if (file.size > MAX_IMAGE_UPLOAD_BYTES) return { error: "Картинка завелика" };
+  return storeImageWithThumbnail(file, keyPrefix, buildSquareWebpImages);
+}
 
-  const bytes = new Uint8Array(await file.arrayBuffer());
-  if (!detectImageType(bytes)) return { error: "Підходять лише JPEG, PNG або WebP" };
+export async function storeObjectImage(file: unknown, keyPrefix: string): Promise<StoredImageResult> {
+  return storeImageWithThumbnail(file, keyPrefix, buildObjectWebpImages);
+}
 
-  const images = await encodeImages(bytes);
+async function storeImageWithThumbnail(file: unknown, keyPrefix: string, encode: typeof buildSquareWebpImages): Promise<StoredImageResult> {
+  const input = await readAcceptedImageBytes(file, MAX_IMAGE_UPLOAD_BYTES);
+  if ("error" in input) return input;
+  const images = await encodeImages(input.bytes, encode);
   if (!images) return { error: "Не вдалося прочитати картинку" };
 
   const key = `${keyPrefix}/${randomUUID()}`;
-  await putMediaObject(buildMediaObjectKey(key, "full"), images.full, "image/webp");
-  await putMediaObject(buildMediaObjectKey(key, "thumbnail"), images.thumbnail, "image/webp");
+  try {
+    await putMediaObject(buildMediaObjectKey(key, "full"), images.full, "image/webp");
+    await putMediaObject(buildMediaObjectKey(key, "thumbnail"), images.thumbnail, "image/webp");
+  } catch (error) {
+    await deleteStoredImage(key);
+    throw error;
+  }
   return { key };
 }
 
@@ -63,9 +71,9 @@ async function encodeScreenshot(bytes: Uint8Array, encode: (bytes: Uint8Array) =
   }
 }
 
-async function encodeImages(bytes: Uint8Array) {
+async function encodeImages(bytes: Uint8Array, encode: typeof buildSquareWebpImages) {
   try {
-    return await buildSquareWebpImages(bytes);
+    return await encode(bytes);
   } catch (error) {
     console.warn("sharp не прочитав картинку", error);
     return null;

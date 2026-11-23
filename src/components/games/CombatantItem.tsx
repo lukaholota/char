@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { clampInitiative, type CombatantView, INITIATIVE_LIMITS } from "@/rules/game-combat";
 import { buildCreatureInitials, type MapCreatureView } from "@/rules/game-map-creatures";
 import { GameAvatar } from "./GameAvatar";
+import { CREATURE_BORDER_CLASSES } from "./token-cutout";
 import { DownMark, HitPointBar } from "./MapCreatureHitPoints";
 import { OpenCreatureCardContext } from "./MapCreatureTokens";
 import type { SpotlightStyle } from "@/rules/token-conditions";
@@ -77,11 +78,11 @@ export function SpotlightPortraitButton({ control, name, children }: { control: 
 type CombatantPortraitProps = { creature: MapCreatureView | null; avatarUrl: string | null; name: string; isCurrent: boolean; isDown: boolean; spotlight: SpotlightStyle | null };
 
 export function CombatantPortrait({ creature, avatarUrl, name, isCurrent, isDown, spotlight }: CombatantPortraitProps) {
-  const sideBorder = creature ? (creature.isAlly ? "border-emerald-400/70" : "border-rose-500/70") : "border-white/15";
+  const border = creature ? CREATURE_BORDER_CLASSES[creature.borderColor ?? "default"].border : "border-white/15";
   return (
     <span className="relative isolate block w-full">
       <SpotlightFrameAura style={spotlight} />
-      <span className={cn("relative block aspect-[4/5] w-full overflow-hidden rounded-xl border bg-slate-900", sideBorder, isCurrent && !hasSpotlightAura(spotlight) && "ring-2 ring-arcane-300 ring-offset-2 ring-offset-slate-950", spotlight === "glow" && SPOTLIGHT_PORTRAIT_CLASS)}>
+      <span className={cn("relative block aspect-[4/5] w-full overflow-hidden rounded-xl border bg-slate-900", border, isCurrent && !hasSpotlightAura(spotlight) && "ring-2 ring-arcane-300 ring-offset-2 ring-offset-slate-950", spotlight === "glow" && SPOTLIGHT_PORTRAIT_CLASS)}>
         <span className={cn("relative block h-full w-full", isDown && "opacity-50 grayscale")}>
           {creature ? <CreatureArt creature={creature} /> : <HeroArt avatarUrl={avatarUrl} name={name} />}
         </span>

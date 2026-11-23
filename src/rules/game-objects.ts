@@ -6,9 +6,18 @@ import type { TokenTransform } from "./token-transform";
 
 /// Обʼєкт — картинка, що лежить на мапі: без хітів, ініціативи й статблоку.
 /// floor — поверх, на якому лежить обʼєкт (null — основна мапа); aspect — ширина картинки до висоти, для сліду плану поверху.
-export type ObjectPlacement = { at: TokenPosition; widthCells: number; rotation: number; name: string | null; isHidden: boolean; sortOrder: number; floor: FloorId; aspect: number };
+export type ObjectPlacement = { at: TokenPosition; widthCells: number; rotation: number; name: string | null; isHidden: boolean; sortOrder: number; floor: FloorId; aspect: number; appearance?: ObjectAppearance };
 export type SceneObjectView = ObjectPlacement & { id: number; imageKey: string; imageUrl: string };
-type SceneObjectRow = { id: number; imageKey: string; name: string | null; x: number; y: number; widthCells: number; rotation: number; isHidden: boolean; sortOrder: number; floor: number | null; aspect: number };
+type SceneObjectRow = { id: number; imageKey: string; name: string | null; x: number; y: number; widthCells: number; rotation: number; isHidden: boolean; sortOrder: number; floor: number | null; aspect: number; appearance?: unknown };
+
+export type ObjectAppearance = { brightness: number; contrast: number; hue: number; opacity: number };
+export const DEFAULT_OBJECT_APPEARANCE: ObjectAppearance = { brightness: 100, contrast: 100, hue: 0, opacity: 100 };
+export const OBJECT_APPEARANCE_LIMITS = {
+  brightness: { min: 0, max: 200, step: 5 },
+  contrast: { min: 0, max: 200, step: 5 },
+  hue: { min: -180, max: 180, step: 5 },
+  opacity: { min: 0, max: 100, step: 5 },
+} as const;
 
 /// План поверху буває завширшки з усю мапу, тож межа ширини — як у найширшої сітки.
 export const OBJECT_LIMITS = { perScene: 100, nameLength: 40, widthCells: { min: 0.25, max: 300 }, aspect: { min: 0.05, max: 20 } } as const;
@@ -27,7 +36,7 @@ const isInRange = (value: unknown, min: number, max: number): value is number =>
 
 export function parseObjectPlacement(raw: unknown): ObjectPlacement | null {
   if (typeof raw !== "object" || raw === null) return null;
-  const { at, widthCells, rotation, name, isHidden, sortOrder, floor = null, aspect = 1 } = raw as Record<string, unknown>;
+  const { at, widthCells, rotation, name, isHidden, sortOrder, floor = null, aspect = 1, appearance } = raw as Record<string, unknown>;
   const point = typeof at === "object" && at !== null ? (at as Record<string, unknown>) : {};
   if (!isShare(point.x) || !isShare(point.y)) return null;
   if (!isInRange(widthCells, OBJECT_LIMITS.widthCells.min, OBJECT_LIMITS.widthCells.max)) return null;
@@ -37,7 +46,18 @@ export function parseObjectPlacement(raw: unknown): ObjectPlacement | null {
   const parsedName = parseObjectName(name);
   const parsedFloor = parseFloorId(floor);
   if (parsedName === undefined || parsedFloor === undefined || !isInRange(aspect, OBJECT_LIMITS.aspect.min, OBJECT_LIMITS.aspect.max)) return null;
-  return { at: { x: roundShare(point.x), y: roundShare(point.y) }, widthCells: Math.round(widthCells * 100) / 100, rotation, name: parsedName, isHidden, sortOrder, floor: parsedFloor, aspect: Math.round(aspect * 1000) / 1000 };
+  const parsedAppearance = parseObjectAppearance(appearance);
+  if (parsedAppearance === null) return null;
+  return { at: { x: roundShare(point.x), y: roundShare(point.y) }, widthCells: Math.round(widthCells * 100) / 100, rotation, name: parsedName, isHidden, sortOrder, floor: parsedFloor, aspect: Math.round(aspect * 1000) / 1000, ...(parsedAppearance ? { appearance: parsedAppearance } : {}) };
+}
+
+function parseObjectAppearance(raw: unknown): ObjectAppearance | null | undefined {
+  if (raw == null) return undefined;
+  if (typeof raw !== "object") return null;
+  const { brightness, contrast, hue, opacity } = raw as Record<string, unknown>;
+  const limits = OBJECT_APPEARANCE_LIMITS;
+  if (!isInRange(brightness, limits.brightness.min, limits.brightness.max) || !isInRange(contrast, limits.contrast.min, limits.contrast.max) || !isInRange(hue, limits.hue.min, limits.hue.max) || !isInRange(opacity, limits.opacity.min, limits.opacity.max)) return null;
+  return { brightness, contrast, hue, opacity };
 }
 
 function parseObjectName(raw: unknown): string | null | undefined {
@@ -65,6 +85,7 @@ export function buildSceneObjectViews(rows: SceneObjectRow[], isGm: boolean): Sc
       sortOrder: row.sortOrder,
       floor: row.floor,
       aspect: row.aspect,
+      appearance: parseObjectAppearance(row.appearance) ?? undefined,
     }));
 }
 
@@ -94,6 +115,6 @@ export function findBackSortOrder(objects: Pick<ObjectPlacement, "sortOrder">[])
 }
 
 export function toObjectPlacement(object: ObjectPlacement): ObjectPlacement {
-  const { at, widthCells, rotation, name, isHidden, sortOrder, floor, aspect } = object;
-  return { at, widthCells, rotation, name, isHidden, sortOrder, floor, aspect };
+  const { at, widthCells, rotation, name, isHidden, sortOrder, floor, aspect, appearance } = object;
+  return { at, widthCells, rotation, name, isHidden, sortOrder, floor, aspect, ...(appearance ? { appearance } : {}) };
 }

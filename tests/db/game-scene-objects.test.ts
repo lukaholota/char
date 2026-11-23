@@ -17,14 +17,14 @@ vi.mock("@/lib/refs/object-library-catalog", () => ({ OBJECT_LIBRARY: [{ slug: "
 import { addSceneObject, changeSceneObject, moveSceneObjects, removeSceneObjects } from "@/server/db/game-scene-objects";
 import { createGameScene, replaceGameSceneMap } from "@/server/db/game-scenes";
 import { createGameSession, findGameSessionView, joinGameSessionByToken } from "@/server/db/game-sessions";
-import { deleteTokenImage } from "@/server/db/token-images";
+import { addImageToLibrary, createImageFolder, deleteTokenImage, listImageLibrary, moveLibraryImage } from "@/server/db/token-images";
 
 vi.setConfig({ testTimeout: 60_000 });
 
 beforeEach(resetUserData);
 afterAll(disconnectDatabase);
 
-const chest: ObjectPlacement = { at: { x: 0.4, y: 0.6 }, widthCells: 2, rotation: 90, name: "Скриня", isHidden: false, sortOrder: 0 };
+const chest: ObjectPlacement = { at: { x: 0.4, y: 0.6 }, widthCells: 2, rotation: 90, name: "Скриня", isHidden: false, sortOrder: 0, floor: null, aspect: 1 };
 
 async function createMapImage() {
   const bytes = await sharp({ create: { width: 800, height: 600, channels: 3, background: "#335522" } }).png().toBuffer();
@@ -53,6 +53,31 @@ async function addChest(table: Awaited<ReturnType<typeof createTable>>, placemen
 }
 
 describe("обʼєкти сцени", () => {
+  it("зберігає вигляд окремо для кожного розміщення й передає його гравцю", async () => {
+    const table = await createTable();
+    const [first, second] = [await addChest(table), await addChest(table, { ...chest, sortOrder: 1 })];
+    const appearance = { brightness: 75, contrast: 120, hue: -30, opacity: 60 };
+    const { sessionId, sceneId, gm, player } = table;
+    expect(await changeSceneObject(sessionId, gm.id, sceneId, first, { ...chest, appearance })).toMatchObject({ ok: true });
+    expect((await seeObjects(sessionId, player.id)).map((object) => [object.id, object.appearance])).toEqual([[first, appearance], [second, undefined]]);
+    expect(await changeSceneObject(sessionId, gm.id, sceneId, first, { ...chest, appearance, isHidden: true })).toMatchObject({ ok: true });
+    expect((await seeObjects(sessionId, player.id)).map((object) => object.id)).toEqual([second]);
+  });
+
+  it("папки належать власнику й можуть містити вже завантажені та нові зображення", async () => {
+    const { gm, player, imageKey } = await createTable();
+    const folder = await createImageFolder(gm.id, "Дерева");
+    expect(await createImageFolder(gm.id, "Дерева")).toEqual(folder);
+    expect(await listImageLibrary(player.id)).toEqual({ folders: [], images: [] });
+    expect(await moveLibraryImage(player.id, imageKey, folder.id)).toMatchObject({ ok: false });
+    expect(await moveLibraryImage(gm.id, imageKey, folder.id)).toMatchObject({ ok: true });
+    const { file } = await createMapImage();
+    expect(await addImageToLibrary(player.id, file, folder.id, false)).toEqual({ error: "Папку не знайдено" });
+    const uploaded = await addImageToLibrary(gm.id, file, folder.id, false);
+    if ("error" in uploaded) throw new Error(uploaded.error);
+    expect(await listImageLibrary(gm.id)).toEqual({ folders: [folder], images: [{ imageKey: uploaded.key, folderId: folder.id }, { imageKey, folderId: folder.id }] });
+  });
+
   it("майстер ставить, змінює й прибирає обʼєкт; гравець не може", async () => {
     const table = await createTable();
     expect(await addSceneObject(table.sessionId, table.player.id, table.sceneId, table.imageKey, chest)).toEqual({ ok: false, error: "forbidden" });

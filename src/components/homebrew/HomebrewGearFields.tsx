@@ -27,7 +27,7 @@ export function HomebrewWeaponFields({ values, set, errors, bases }: Props) {
         <TextField name="damageFormula" label="Шкода" value={values.damageFormula} onChange={set("damageFormula")} maxLength={60} placeholder="1к8+СПР" error={errors.damageFormula} hint="Напр. 1к8+СПР або 1к6+СИЛ*2" />
         <SelectField name="damageType" label="Тип шкоди" value={values.damageType} onChange={(value) => set("damageType")(value as HomebrewItemFormValues["damageType"])} options={DAMAGE_TYPE_OPTIONS} error={errors.damageType} />
       </div>
-      <ExtraDamageFields value={values.extraDamage} onChange={set("extraDamage")} />
+      <ExtraDamageFields value={values.extraDamage} onChange={set("extraDamage")} error={errors.extraDamage} />
       <div className="grid grid-cols-2 gap-3">
         <TextField name="normalRange" label="Дальність, фт" value={values.normalRange} onChange={set("normalRange")} maxLength={4} inputMode="numeric" placeholder="150" error={errors.normalRange} />
         <TextField name="longRange" label="Макс. дальність, фт" value={values.longRange} onChange={set("longRange")} maxLength={4} inputMode="numeric" placeholder="600" error={errors.longRange} />

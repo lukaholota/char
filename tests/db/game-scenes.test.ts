@@ -39,7 +39,7 @@ beforeEach(async () => {
 });
 afterAll(disconnectDatabase);
 
-const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 1, isAlly: false, customName: null };
+const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 1, customName: null };
 
 async function createUser(label: string) {
   return prisma.user.create({ data: { email: `${label}-${randomUUID()}@scene.test`, name: `${label} Тестовий` } });

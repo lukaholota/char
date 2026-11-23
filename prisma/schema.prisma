@@ -53,6 +53,7 @@ model User {
   folderMemberships      PersFolderMember[]
   pers_offline_operation pers_offline_operation[]
   problem_report         problem_report[]
+  imageFolders           UserImageFolder[]
   sounds                 UserSound[]
   tokenImages            UserTokenImage[]
 
@@ -1664,6 +1665,7 @@ model GameMapCreature {
   isNameHidden      Boolean         @default(false) @map("is_name_hidden")
   combatant         GameCombatant?
   customImage       UserTokenImage? @relation(fields: [customImageKey], references: [imageKey], onUpdate: NoAction)
+  borderColor       String?         @map("border_color") @db.VarChar(5)
   scene             GameScene?      @relation(fields: [gameSceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   gameSession       GameSession     @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   rollEvents        GameRollEvent[]
@@ -1764,6 +1766,7 @@ model GameSceneLight {
   coneDegrees      Int       @default(360) @map("cone_degrees") @db.SmallInt
   directionDegrees Int       @default(0) @map("direction_degrees") @db.SmallInt
   effect           String    @default("steady") @db.VarChar(7)
+  flickerSpeed     Int       @default(100) @map("flicker_speed") @db.SmallInt
   scene            GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([sceneId], map: "game_scene_light_scene_idx")
@@ -1785,6 +1788,7 @@ model GameSceneObject {
   createdAt  DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
   floor      Int?      @db.SmallInt
   aspect     Float     @default(1) @db.Real
+  appearance Json?
   scene      GameScene @relation(fields: [sceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([imageKey], map: "game_scene_object_image_idx")
@@ -1825,11 +1829,25 @@ model UserTokenImage {
   userId    Int               @map("user_id")
   imageKey  String            @unique @map("image_key") @db.VarChar(200)
   createdAt DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+  folderId  Int?              @map("folder_id")
   creatures GameMapCreature[]
+  folder    UserImageFolder?  @relation(fields: [folderId], references: [id], onUpdate: NoAction)
   user      User              @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
+  @@index([folderId], map: "user_token_image_folder_idx")
   @@index([userId, createdAt(sort: Desc)], map: "user_token_image_user_idx")
   @@map("user_token_image")
+}
+
+model UserImageFolder {
+  id     Int              @id @default(autoincrement()) @map("user_image_folder_id")
+  userId Int              @map("user_id")
+  name   String           @db.VarChar(60)
+  user   User             @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  images UserTokenImage[]
+
+  @@unique([userId, name])
+  @@map("user_image_folder")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.

@@ -32,6 +32,8 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange, c
   }, [open, persWeapon]);
 
   const handleSave = () => {
+    const extraDamage = buildExtraDamage(formData.extraDamage);
+    if (extraDamage.length !== formData.extraDamage.length) return void toast.error("Перевірте формули додаткової шкоди");
     startTransition(async () => {
       const res = await updateWeapon(persWeapon.persWeaponId, {
         ...formData,
@@ -40,7 +42,7 @@ export default function WeaponCustomizeModal({ persWeapon, open, onOpenChange, c
         overrideName: formData.overrideName || null,
         customDamageAbility: formData.customDamageAbility === AUTO_ABILITY ? null : formData.customDamageAbility,
         overrideAttackAbility: formData.overrideAttackAbility === AUTO_ABILITY ? null : formData.overrideAttackAbility,
-        extraDamage: buildExtraDamage(formData.extraDamage),
+        extraDamage,
         overrideDamageType: formData.overrideDamageType === BOOK_DAMAGE_TYPE ? null : formData.overrideDamageType,
         overrideNormalRange: parseRangeInput(formData.overrideNormalRange),
         overrideLongRange: parseRangeInput(formData.overrideLongRange),

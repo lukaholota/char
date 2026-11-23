@@ -128,7 +128,7 @@ describe("мапа кімнати", () => {
   it("групу з рамки рухає лише майстер, одним записом, на своїй сцені й лише з наявними істотами", async () => {
     const { gm, player, other, sessionId } = await createTableWithHeroes();
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
     const sceneId = (await findViewedScene(sessionId, gm.id))!;
     const [playerHero, otherHero] = [await findHeroId(sessionId, player.id), await findHeroId(sessionId, other.id)];
     const [goblin] = (await findGameSessionView(sessionId, gm.id))!.creatures;
@@ -182,7 +182,7 @@ describe("мапа кімнати", () => {
     await moveGameToken(sessionId, player.id, await findViewedScene(sessionId, player.id), heroId, { x: 0.6, y: 0.4 });
     expect(await findHeroTransform()).toEqual({ rotation: 0, scale: 100 });
 
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
     const [goblin] = (await findGameSessionView(sessionId, gm.id))!.creatures;
     expect(goblin.tokenTransform).toEqual({ rotation: 0, scale: 100 });
     expect(await transformMapCreature(sessionId, player.id, goblin.id, turned)).toEqual({ ok: false, error: "forbidden" });
@@ -195,14 +195,14 @@ describe("мапа кімнати", () => {
 
   it("істот кличе лише майстер на мапу; номери беруть найменші вільні, а гравці бачать лише поставлених", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
-    const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 2, isAlly: false, customName: null };
+    const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 2, customName: null };
     expect(await addMapCreatures(sessionId, gm.id, goblins)).toEqual({ ok: false, error: "no_map" });
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
     expect(await addMapCreatures(sessionId, player.id, goblins)).toEqual({ ok: false, error: "forbidden" });
     expect(await addMapCreatures(sessionId, gm.id, { ...goblins, creatureKey: "no-such-beast" })).toEqual({ ok: false, error: "bad_creature" });
 
     expect(await addMapCreatures(sessionId, gm.id, { ...goblins, count: 3 })).toEqual({ ok: true, value: { name: "Гоблін" } });
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin-boss", ruleset: "RULES_2014", count: 1, isAlly: true, customName: null });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin-boss", ruleset: "RULES_2014", count: 1, customName: null });
     const [first, second] = (await findGameSessionView(sessionId, gm.id))!.creatures;
     expect((await findGameSessionView(sessionId, gm.id))!.creatures.map((creature) => creature.label)).toEqual(["Гоблін 1", "Гоблін 2", "Гоблін 3", "Гоблін-ватажок"]);
     await removeMapCreatures(sessionId, gm.id, second.id);
@@ -217,20 +217,20 @@ describe("мапа кімнати", () => {
     expect(await moveMapCreature(sessionId, gm.id, second.id, { x: 0.1, y: 0.1 })).toEqual({ ok: false, error: "creature_gone" });
   });
 
-  it("копія істоти (Ctrl+V): лише майстер, вигляд і бік оригіналу, свій номер і хіти, зсунута від оригіналу, без станів", async () => {
+  it("копія істоти (Ctrl+V): лише майстер, вигляд оригіналу, свій номер і хіти, зсунута від оригіналу, без станів", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: true, customName: "Варта" });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: "Варта" });
     const [original] = (await findGameSessionView(sessionId, gm.id))!.creatures;
     await moveMapCreature(sessionId, gm.id, original.id, { x: 0.5, y: 0.2 });
     await transformMapCreature(sessionId, gm.id, original.id, { rotation: 90, scale: 150 });
-    await prisma.gameMapCreature.update({ where: { id: original.id }, data: { conditions: ["prone"], hpCurrent: 1, isNameHidden: true } });
+    await prisma.gameMapCreature.update({ where: { id: original.id }, data: { conditions: ["prone"], hpCurrent: 1, isNameHidden: true, borderColor: "green" } });
 
     expect(await duplicateMapCreature(sessionId, player.id, original.id, 1)).toEqual({ ok: false, error: "forbidden" });
     const copied = await duplicateMapCreature(sessionId, gm.id, original.id, 2);
     if (!copied.ok) throw new Error(copied.error);
     const copy = await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: copied.value.id } });
-    expect(copy).toMatchObject({ customName: "Варта", isAlly: true, number: 2, tokenRotation: 90, tokenScalePercent: 150, isNameHidden: true, conditions: [], tokenX: 0.56, tokenY: 0.26 });
+    expect(copy).toMatchObject({ customName: "Варта", borderColor: "green", number: 2, tokenRotation: 90, tokenScalePercent: 150, isNameHidden: true, conditions: [], tokenX: 0.56, tokenY: 0.26 });
     expect(copy.hpCurrent).toBe(copy.hpMax);
     expect(await duplicateMapCreature(sessionId, gm.id, 999_999, 1)).toEqual({ ok: false, error: "creature_gone" });
   });
@@ -238,7 +238,7 @@ describe("мапа кімнати", () => {
   it("на мапі не більше 40 істот; «прибрати всіх» очищує сцену, а нова мапа знімає істот з мапи", async () => {
     const { gm, sessionId } = await createTableWithHeroes();
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
-    const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 10, isAlly: false, customName: null };
+    const goblins = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 10, customName: null };
     for (let batch = 0; batch < 4; batch++) await addMapCreatures(sessionId, gm.id, goblins);
     expect(await addMapCreatures(sessionId, gm.id, { ...goblins, count: 1 })).toEqual({ ok: false, error: "creature_limit" });
     expect(await removeMapCreatures(sessionId, gm.id, null)).toEqual({ ok: true, value: null });
@@ -253,7 +253,7 @@ describe("мапа кімнати", () => {
   it("гравці не отримують статблок жодної істоти, лише назву; розмір і показ імен змінює лише майстер", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
-    const shadows = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 2, isAlly: false, customName: "Тінь" };
+    const shadows = { creatureKey: "goblin", ruleset: "RULES_2014" as const, count: 2, customName: "Тінь" };
     expect(await addMapCreatures(sessionId, gm.id, shadows)).toEqual({ ok: true, value: { name: "Тінь" } });
     await addMapCreatures(sessionId, gm.id, { ...shadows, count: 1, customName: null });
     const gmCreatures = (await findGameSessionView(sessionId, gm.id))!.creatures;
@@ -282,7 +282,7 @@ describe("мапа кімнати", () => {
   it("кожна копія кидає свої хіти; майстер бачить числа, гравці — лише чи повалена істота", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 10, isAlly: false, customName: null });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 10, customName: null });
     const stored = await prisma.gameMapCreature.findMany({ where: { gameSessionId: sessionId }, select: { hpMax: true, hpCurrent: true } });
     expect(stored).toHaveLength(10);
     for (const { hpMax, hpCurrent } of stored) {
@@ -315,7 +315,7 @@ describe("мапа кімнати", () => {
     });
 
     const creatureKey = buildHomebrewEntryKey(entry.homebrewEntryId);
-    expect(await addMapCreatures(sessionId, gm.id, { creatureKey, ruleset: "RULES_2014", count: 1, isAlly: false, customName: null })).toEqual({ ok: true, value: { name: "Болотний гоблін" } });
+    expect(await addMapCreatures(sessionId, gm.id, { creatureKey, ruleset: "RULES_2014", count: 1, customName: null })).toEqual({ ok: true, value: { name: "Болотний гоблін" } });
 
     const [placed] = (await findGameSessionView(sessionId, gm.id))!.creatures;
     expect(placed).toMatchObject({ label: "Болотний гоблін", creatureKey });
@@ -328,7 +328,7 @@ describe("мапа кімнати", () => {
   it("хіти міняє лише майстер: шкода не нижче нуля, лікування не вище максимуму, новий максимум підрізає поточні", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
     const [creature] = (await findGameSessionView(sessionId, gm.id))!.creatures;
     const readHitPoints = async () => (await findGameSessionView(sessionId, gm.id))!.creatures[0].hitPoints;
 
@@ -350,7 +350,7 @@ describe("мапа кімнати", () => {
   it("стара істота без збережених хітів бере середнє зі статблоку; без числа в статблоці хіти спершу задають", async () => {
     const { gm, sessionId } = await createTableWithHeroes();
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
     await prisma.gameMapCreature.updateMany({ where: { gameSessionId: sessionId }, data: { hpMax: null, hpCurrent: null } });
     const [legacy] = (await findGameSessionView(sessionId, gm.id))!.creatures;
     expect(legacy).toMatchObject({ hitPoints: { current: 7, max: 7 }, isDown: false });
@@ -365,8 +365,8 @@ describe("мапа кімнати", () => {
   it("вибір вигляду: усі такі істоти кімнати, лише майстер, нові успадковують", async () => {
     const { gm, player, sessionId } = await createTableWithHeroes();
     await setActiveSceneMap(sessionId, gm.id, await createMapImage());
-    expect(await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 2, isAlly: false, customName: null })).toMatchObject({ ok: true });
-    expect(await addMapCreatures(sessionId, gm.id, { creatureKey: "wolf", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null })).toMatchObject({ ok: true });
+    expect(await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 2, customName: null })).toMatchObject({ ok: true });
+    expect(await addMapCreatures(sessionId, gm.id, { creatureKey: "wolf", ruleset: "RULES_2014", count: 1, customName: null })).toMatchObject({ ok: true });
     const findRows = () => prisma.gameMapCreature.findMany({ where: { gameSessionId: sessionId }, orderBy: { id: "asc" }, select: { id: true, creatureKey: true, isCutout: true } });
     const [goblin] = await findRows();
     expect((await findRows()).map((row) => row.isCutout)).toEqual([false, false, false]);
@@ -377,7 +377,7 @@ describe("мапа кімнати", () => {
     expect(await setMapCreatureCutout(sessionId, gm.id, goblin.id, true)).toEqual({ ok: true, value: null });
     expect((await findRows()).map((row) => [row.creatureKey, row.isCutout])).toEqual([["goblin", true], ["goblin", true], ["wolf", false]]);
 
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
     expect((await findRows()).at(-1)).toMatchObject({ creatureKey: "goblin", isCutout: true });
 
     expect(await setMapCreatureCutout(sessionId, gm.id, goblin.id, false)).toEqual({ ok: true, value: null });

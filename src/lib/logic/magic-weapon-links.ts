@@ -1,6 +1,8 @@
 import type { PersWeaponWithWeapon, PersWithRelations } from "@/lib/actions/pers";
 import { findMagicWeaponTraits, type WeaponHitDamage } from "@/rules/magic-weapons";
-import { parseExtraDamage, type WeaponProfile } from "@/rules/weapon-profile";
+import { parseExtraDamage, parseExtraDamageFormula, type ExtraDamage, type WeaponProfile } from "@/rules/weapon-profile";
+import { sumAbilityTerms } from "@/rules/weapon-damage-formula";
+import type { AbilityKey } from "@/rules/types";
 import { damageTypeTranslations } from "@/lib/refs/translation";
 import { isMagicItemActive } from "./magic-item-activation";
 
@@ -20,13 +22,32 @@ export function listWeaponMagicItems(pers: PersWithRelations, pw: Pick<PersWeapo
   });
 }
 
-/// Кубики, що кидаються разом зі шкодою: додаткова шкода з листа й безумовні кубики привʼязаних предметів.
-export function listWeaponExtraDice(pers: PersWithRelations, pw: Pick<PersWeaponWithWeapon, "persWeaponId"> & { extraDamage?: unknown }) {
-  const ownDice = parseExtraDamage(pw.extraDamage).map((extra) => ({ count: extra.count, sides: extra.sides, label: extra.customType ?? (extra.damageType ? damageTypeTranslations[extra.damageType] : "") }));
-  const itemDice = listWeaponMagicItems(pers, pw)
+type WeaponWithExtras = Pick<PersWeaponWithWeapon, "persWeaponId"> & { extraDamage?: unknown };
+
+function listWeaponExtraDamage(pers: PersWithRelations, pw: WeaponWithExtras) {
+  const ownDamage = parseExtraDamage(pw.extraDamage).map((extra) => ({ extra, label: describeExtraType(extra) }));
+  const itemDamage = listWeaponMagicItems(pers, pw)
     .filter((item) => item.isActive)
-    .flatMap((item) => item.hits.filter((hit) => !hit.condition).map((hit) => ({ count: hit.count, sides: hit.sides, label: item.name })));
-  return [...ownDice, ...itemDice].flatMap((group) => Array.from({ length: group.count }, () => ({ sides: group.sides, sign: 1 as const, label: group.label })));
+    .flatMap((item) => item.hits.filter((hit) => !hit.condition).map((extra) => ({ extra, label: extra.formula && describeExtraType(extra) ? `${item.name} · ${describeExtraType(extra)}` : item.name })));
+  return [...ownDamage, ...itemDamage];
+}
+
+function describeExtraType(extra: ExtraDamage): string {
+  return extra.customType ?? (extra.damageType ? damageTypeTranslations[extra.damageType] : "");
+}
+
+export function listWeaponExtraDice(pers: PersWithRelations, pw: WeaponWithExtras) {
+  return listWeaponExtraDamage(pers, pw).flatMap(({ extra, label }) => {
+    const groups = extra.formula === undefined ? [extra] : (parseExtraDamageFormula(extra.formula)?.dice ?? []);
+    return groups.flatMap(({ count, sides }) => Array.from({ length: count }, () => ({ sides, sign: 1 as const, label })));
+  });
+}
+
+export function sumWeaponExtraDamageBonus(pers: PersWithRelations, pw: WeaponWithExtras, findModifier: (ability: AbilityKey) => number): number {
+  return listWeaponExtraDamage(pers, pw).reduce((total, { extra }) => {
+    const formula = extra.formula ? parseExtraDamageFormula(extra.formula) : null;
+    return formula ? total + formula.flat + sumAbilityTerms(formula.abilities, findModifier) : total;
+  }, 0);
 }
 
 export function sumWeaponItemBonus(pers: PersWithRelations, pw: Pick<PersWeaponWithWeapon, "persWeaponId">): number {

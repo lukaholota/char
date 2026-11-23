@@ -19,6 +19,7 @@ vi.mock("@/lib/actions/game-token-images", () => ({
   setMapCreatureImageAction: mocks.setImage,
   deleteTokenImageAction: mocks.deleteImage,
 }));
+vi.mock("@/lib/actions/game-image-library", () => ({ listImageLibraryAction: vi.fn(), createImageFolderAction: vi.fn(), moveLibraryImageAction: vi.fn(), uploadImageToLibraryAction: vi.fn() }));
 vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ refresh: mocks.refresh }), useNoAiMode: () => ({ enabled: false }) }));
 vi.mock("@/components/ui/confirm-dialog", () => ({ askToConfirm: mocks.confirm }));
 vi.mock("sonner", () => ({ toast: { error: mocks.toastError } }));
@@ -32,7 +33,7 @@ let imageIndex = 0;
 
 function buildCreature(overrides: Partial<MapCreatureView> = {}): MapCreatureView {
   imageIndex += 1;
-  return { id: 7, creatureKey: "dragon", ruleset: "RULES_2014", label: "Дракон", statblockName: null, customName: null, badge: null, isAlly: false, imageUrl: `/images/creatures/2014/section-${imageIndex}.webp`, isRoundImage: false, customImageKey: null, tokenSize: "medium", isCutout: false, token: null, tokenTransform: { rotation: 0, scale: 100 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 }, ...overrides };
+  return { id: 7, creatureKey: "dragon", ruleset: "RULES_2014", label: "Дракон", statblockName: null, customName: null, badge: null, borderColor: null, imageUrl: `/images/creatures/2014/section-${imageIndex}.webp`, isRoundImage: false, customImageKey: null, tokenSize: "medium", isCutout: false, token: null, tokenTransform: { rotation: 0, scale: 100 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 }, ...overrides };
 }
 
 const renderSection = (creature = buildCreature()) => render(<CreatureImageSection sessionId={3} creature={creature} cutout={{ value: false, onChange: vi.fn() }} />);

@@ -68,7 +68,7 @@ describe("поверхи сцени", () => {
 
     const plan = await addFloorPlan(sessionId, gm.id, sceneId, await createImage(400, 200), { at: { x: 0.5, y: 0.5 }, widthCells: 6, aspect: 2, rotation: 0, name: null, isHidden: false, sortOrder: 0, floor: 1 });
     expect(plan.ok).toBe(true);
-    expect((await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null })).ok).toBe(true);
+    expect((await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null })).ok).toBe(true);
     const creature = await prisma.gameMapCreature.findFirstOrThrow({ where: { gameSceneId: sceneId }, select: { id: true } });
     expect(await moveGameToken(sessionId, player.id, sceneId, heroId, { x: 0.5, y: 0.5 }, 1)).toEqual({ ok: true, value: null });
     expect(await moveMapCreature(sessionId, gm.id, creature.id, { x: 0.5, y: 0.5 }, 1)).toEqual({ ok: true, value: null });

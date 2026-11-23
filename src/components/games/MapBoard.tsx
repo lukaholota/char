@@ -25,7 +25,7 @@ import { FogPanel, GridPanel, RulerPanel, ViewPanel } from "./MapToolPanels";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { CompactCombatContext } from "./CombatTracker";
 import { DrawPanel, MapDrawingsLayer } from "./MapDrawings";
-import { LightPanel, MapLightMarkers, MapSight, TokenLightRows } from "./MapLighting";
+import { LightPanel, MapLightMarkers, MapSeenImage, MapSight, TokenLightRows } from "./MapLighting";
 import { CharacterViewChip } from "./MapDarkvision";
 import { MapGroupActions } from "./MapGroupPanel";
 import { MapObjectsLayer, ObjectsPanel } from "./MapObjects";
@@ -46,7 +46,7 @@ import { useMapDrawings } from "./use-map-drawings";
 import { useMapLights, useTokenLights } from "./use-map-lights";
 import { buildGroupShiftStyle, useBoardGroup } from "./use-map-group";
 import { useMapObjects } from "./use-map-objects";
-import { useCharacterView, usePartySight, useWallSight } from "./use-map-sight";
+import { findHiddenPreviewHeroes, useCharacterView, usePartySight, useWallSight } from "./use-map-sight";
 import { useMapWalls } from "./use-map-walls";
 import { useAreaTool, useFogTool, useGridTool, useRulerTool, type MapTool } from "./use-map-tools";
 import { useMapViewport } from "./use-map-viewport";
@@ -126,7 +126,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
 
   const panelSlot = useToolPanelSlot(isFullscreen, () => changeTool(null));
   const selection = useTokenSelection(!targeting && tool !== "area", tool === null ? null : () => changeTool(null), panelSlot !== null);
-  const { group, moveTokenGroup, tokenSelection } = useBoardGroup({ view, toShare, selection, isEditingObjects, findObjects: () => objects, findTokens: () => [...heroes.placed, ...creatures.placed] });
+  const { group, moveTokenGroup, tokenSelection } = useBoardGroup({ view, toShare, selection, isEditingObjects, findObjects: () => objects, findTokens: () => [...visibleHeroes, ...creatures.placed] });
   const clearChoices = () => { group.clear(); selection.select(null); objects.choose(null); lights.choose(null); };
   const openTappedArea = (point: Point) => {
     if (isEditingWalls && walls.mode === "edit") return walls.chooseAt(point);
@@ -162,7 +162,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   const lights = useMapLights({ view, isEditing: isEditingLights, findDropPosition, findViewCentre: () => findViewCentre() });
   const tokenLights = useTokenLights(view);
   const wallSight = useWallSight(walls.shown, aspect);
-  const characterView = useCharacterView({ view, scope: boardRef, findSelected: () => heroes.selected, onStart: () => selection.select(null) });
+  const characterView = useCharacterView({ view, scope: boardRef, findSelected: () => heroes.selected, findPosition: moves.findPosition, onStart: () => selection.select(null) });
   const seesAsPlayer = view.myRole !== "GM" || (isFogPreview && tool === "fog") || characterView.hero !== null;
   const hidesForMe = fog !== null && seesAsPlayer;
   const activeArea = tool === "area" ? (area.draft?.placement ?? null) : null;
@@ -183,10 +183,11 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     revealClassName: sightHidesForMe ? "map-sight-reveal" : undefined,
   };
   const creatures = useMapCreatureTokens({ view, layout: creatureLayout, selection: tokenSelection, group, findDropPosition, isTurned: isQuarterTurned });
+  const hiddenHeroKeys = findHiddenPreviewHeroes({ viewer: characterView.hero, members: heroes.heroes, moves, layout: creatureLayout });
+  const visibleHeroes = hiddenHeroKeys.size ? heroes.placed.filter((hero) => !hiddenHeroKeys.has(hero.key)) : heroes.placed;
   const objects = useMapObjects({ view, shownFloor: floors.shown, editing: isEditingObjects ? "all" : tool === "floors" && canEditScene ? "shownFloor" : null, gridColumns: grid?.columns ?? null, findDropPosition, findViewCentre: () => findViewCentre(), group });
   const selectedToken = heroes.selected ?? creatures.selected;
   const clipboard = useMapClipboard({ view, canEdit: canEditScene, scope: boardRef, objects, lights, token: selectedToken, group });
-
   const changeTool = (next: MapTool | null) => {
     if (next !== "area") area.close();
     if (cast) dropAreaCast();
@@ -246,7 +247,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   const anyGhost = heroes.ghost ?? creatures.ghost;
   const drag = heroes.drag ?? creatures.drag;
   const move = frame && drag?.from && drag.to ? { from: drag.from, to: drag.to, sizeCells: drag.cells } : null;
-  const tokensInArea = [...heroes.placed, ...creatures.placed].filter((token) => layout.isHighlighted(token.position, token.cells));
+  const tokensInArea = [...visibleHeroes, ...creatures.placed].filter((token) => layout.isHighlighted(token.position, token.cells));
   const castSave = cast ? findPressedTargetSave(cast.roll) : undefined;
   const castTokens = tokensInArea.filter((token) => !skippedKeys.includes(token.key));
   const castTargets = { creatureIds: castTokens.flatMap((token) => (token.creatureId === undefined ? [] : [token.creatureId])), persIds: castTokens.flatMap((token) => (token.persId === undefined ? [] : [token.persId])) };
@@ -343,14 +344,14 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
                     if (image?.complete && image.naturalWidth > 0) setAspect(image.naturalWidth / image.naturalHeight);
                   }}
                   src={mapImageUrl}
-                  alt="Мапа сцени"
-                  draggable={false}
+                  alt="Мапа сцени" draggable={false}
                   onLoad={(event) => setAspect(event.currentTarget.naturalWidth / event.currentTarget.naturalHeight)}
                   onError={() => setIsBroken(true)}
-                  className="absolute inset-0 h-full w-full rounded-xl border border-white/10 object-contain"
+                  className={cn("absolute inset-0 h-full w-full rounded-xl border border-white/10 object-contain", (hidesForMe || sightHidesForMe) && "invisible")}
                 />
                 {aspect ? (
                   <>
+                    {hidesForMe || sightHidesForMe ? <MapSeenImage src={mapImageUrl} aspect={aspect} fog={hidesForMe ? fog : null} sight={sightHidesForMe ? sight : null} /> : null}
                     {frame && (frame.grid.isVisible || tool === "grid") ? <MapGridLayer frame={frame} /> : null}
                     {frame && areaLooks.length ? <MapAreasLayer frame={frame} areas={areaLooks} /> : null}
                     {objects.shown.length ? <MapObjectsLayer objects={objects} isGrouped={(id) => group.isGrouped(`object-${id}`)} /> : null}
@@ -366,8 +367,8 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
                 {sight && sightHidesForMe ? <MapSight sight={sight} fading={fadingSight} isVeil={false} darkvisionLook={lights.darkvisionLook} /> : null}
                 {aspect && !isEditingWalls && !view.isArchived ? <MapOpeningButtons walls={walls} isGm={canEditScene} isActive={tool === null} isSeen={(at) => !layout.isHidden(at, 1) && !(sightHidesForMe && findPointSight(at, sight) === "hidden")} aspect={aspect} /> : null}
                 {sightHidesForMe && !eyes.length ? <p className="pointer-events-none absolute inset-x-4 top-1/2 z-20 -translate-y-1/2 text-center text-sm text-slate-300">{characterView.hero ? `${characterView.hero.persName ?? characterView.hero.name} не на мапі` : view.myRole === "GM" ? "На сцені немає героїв — гравцям нічого не видно. Перетягніть героя з «Поза мапою»." : "Поставте героя на мапу, щоб бачити"}</p> : null}
-                <div onPointerDownCapture={leaveGridOnToken} style={buildGroupShiftStyle(group, drag)} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{heroes.mapTokens}</div>
-                {targeting ? <MapTargetPicks tokens={[...heroes.placed, ...creatures.placed]} layout={layout} targeting={targeting} /> : null}
+                <div onPointerDownCapture={leaveGridOnToken} style={buildGroupShiftStyle(group, drag)} className={cn("pointer-events-none absolute inset-0", areTokensBlocked && "[&>*]:!pointer-events-none")}>{heroes.renderMapTokens((member) => hiddenHeroKeys.has(`hero-${member.heroId}`))}</div>
+                {targeting ? <MapTargetPicks tokens={[...visibleHeroes, ...creatures.placed]} layout={layout} targeting={targeting} /> : null}
                 {aspect && isEditingLights ? <MapLightMarkers lights={lights} frame={frame} aspect={aspect} /> : null}
                 {aspect ? <MapMeasureLayer frame={frame} aspect={aspect} ruler={tool === "ruler" ? ruler.ruler : null} move={move} rect={tool === "walls" ? walls.rect : tool === "fog" ? fogTool.rect : tool === "grid" ? gridTool.rect : group.rect} /> : null}
                 {frame && tool === "ruler" && ruler.ruler ? <MapLabel at={ruler.ruler.to} className="font-rpg-display text-amber-100">{measureGridFeet(ruler.ruler.from, ruler.ruler.to, frame)} фт</MapLabel> : null}
@@ -378,7 +379,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
             </div>
             {isWeatherShown ? <MapWeather atmosphere={atmosphere} mapRef={boardRef} /> : null}
             <div className={cn("pointer-events-none absolute bottom-2 right-2 z-[60] flex flex-col items-end gap-2 [&>*]:pointer-events-auto", isFullscreen ? "top-14" : "top-2")}>
-              {targeting || cast ? null : <MapToolRow tool={tool} onToolChange={changeTool} canEditScene={canEditScene} canDraw={!view.isArchived} />}
+              {targeting || cast ? null : <MapToolRow tool={tool} onToolChange={changeTool} canEditScene={canEditScene} canDraw={!view.isArchived} characterView={view.myRole === "GM" ? characterView : null} />}
               <MapZoomControls zoom={viewport.zoom} minZoom={viewport.minZoom} maxZoom={maxZoom} isFitted={viewport.isFitted} onZoomIn={viewport.zoomIn} onZoomOut={viewport.zoomOut} onFit={viewport.fit} turn={canTurn} history={history} onFullscreen={onFullscreen} />
             </div>
             {/* Поверх мапи, але не всередині неї: тут працюють звичайні дотики й прокрутка, а не жести мапи. */}

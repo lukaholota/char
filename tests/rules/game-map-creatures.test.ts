@@ -19,7 +19,7 @@ const row = (overrides: Partial<MapCreatureRow>): MapCreatureRow => ({
   creatureKey: "goblin",
   ruleset: "RULES_2014",
   number: 1,
-  isAlly: false,
+  borderColor: null,
   customName: null,
   tokenSize: null,
   isCutout: false,
@@ -69,7 +69,7 @@ describe("істоти на мапі кімнати", () => {
   });
 
   it("приймає лише відому редакцію, рядковий ключ і від 1 до 10 копій", () => {
-    const valid = { creatureKey: "goblin", ruleset: "RULES_2014", count: 3, isAlly: false };
+    const valid = { creatureKey: "goblin", ruleset: "RULES_2014", count: 3 };
     expect(parseNewMapCreatures(valid)).toEqual({ ...valid, customName: null, imageKey: null });
     expect(parseNewMapCreatures({ ...valid, count: 0 })).toBeNull();
     expect(parseNewMapCreatures({ ...valid, count: 11 })).toBeNull();
@@ -77,12 +77,12 @@ describe("істоти на мапі кімнати", () => {
     expect(parseNewMapCreatures({ ...valid, ruleset: "RULES_2030" })).toBeNull();
     expect(parseNewMapCreatures({ ...valid, creatureKey: "" })).toBeNull();
     expect(parseNewMapCreatures({ ...valid, creatureKey: "x".repeat(121) })).toBeNull();
-    expect(parseNewMapCreatures({ ...valid, isAlly: "yes" })).toBeNull();
+    expect(parseNewMapCreatures({ ...valid, isAlly: true })).toEqual({ ...valid, customName: null, imageKey: null });
     expect(parseNewMapCreatures(null)).toBeNull();
   });
 
   it("чистить власне імʼя: пробіли стискає, порожнє — як без імені, задовге чи не рядок — відмова", () => {
-    const valid = { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false };
+    const valid = { creatureKey: "goblin", ruleset: "RULES_2014", count: 1 };
     expect(parseNewMapCreatures({ ...valid, customName: "  Тінь   з  лісу " })?.customName).toBe("Тінь з лісу");
     expect(parseNewMapCreatures({ ...valid, customName: "   " })?.customName).toBeNull();
     expect(parseNewMapCreatures({ ...valid, customName: "x".repeat(41) })).toBeNull();
@@ -90,7 +90,7 @@ describe("істоти на мапі кімнати", () => {
   });
 
   it("власний портрет — необовʼязковий ключ зображення; порожній, задовгий чи не рядок — відмова", () => {
-    const valid = { creatureKey: "commoner", ruleset: "RULES_2014", count: 1, isAlly: true };
+    const valid = { creatureKey: "commoner", ruleset: "RULES_2014", count: 1 };
     expect(parseNewMapCreatures({ ...valid, imageKey: "token-images/7/abc" })?.imageKey).toBe("token-images/7/abc");
     expect(parseNewMapCreatures({ ...valid, imageKey: null })?.imageKey).toBeNull();
     expect(parseNewMapCreatures({ ...valid, imageKey: "" })).toBeNull();
@@ -139,13 +139,13 @@ describe("істоти на мапі кімнати", () => {
     const rows = [
       row({ id: 1, number: 1, tokenX: 0.2, tokenY: 0.3 }),
       row({ id: 2, number: 2 }),
-      row({ id: 3, creatureKey: "wolf", isAlly: true, tokenX: 0.5, tokenY: 0.5 }),
+      row({ id: 3, creatureKey: "wolf", borderColor: "green", tokenX: 0.5, tokenY: 0.5 }),
       row({ id: 4, creatureKey: "goblin", ruleset: "RULES_2024", tokenX: 0.1, tokenY: 0.1 }),
     ];
     const gmViews = buildMapCreatureViews(rows, findEntry, true);
     expect(gmViews.map((view) => [view.label, view.badge])).toEqual([["Гоблін 1", 1], ["Гоблін 2", 2], ["Вовк", null], ["Гоблін", null]]);
     expect(gmViews[0].token).toEqual({ x: 0.2, y: 0.3 });
-    expect(gmViews[2]).toMatchObject({ isAlly: true, isRoundImage: true, imageUrl: "/images/wolf.webp" });
+    expect(gmViews[2]).toMatchObject({ borderColor: "green", isRoundImage: true, imageUrl: "/images/wolf.webp" });
 
     const playerViews = buildMapCreatureViews(rows, findEntry, false);
     expect(playerViews.map((view) => view.id)).toEqual([1, 3, 4]);

@@ -34,6 +34,10 @@ import { ContentListPage } from "@/components/catalogs/ContentListPage";
 import { getWeaponVisual } from "@/components/catalogs/catalog-visuals";
 import { cn } from "@/lib/utils";
 import { findAccentVariant } from "@/styles/edition-accent";
+import { ModeLink } from "@/components/no-ai/ModeLink";
+import { useCommunityHomebrew } from "@/hooks/useCommunityHomebrew";
+import type { HomebrewItemEntry } from "@/lib/logic/homebrew-view";
+import { findHomebrewWeaponRows, HomebrewWeaponRow } from "./HomebrewWeaponRow";
 
 type SelectionState = {
   types: Set<string>;
@@ -80,6 +84,8 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014" }: Props) {
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
     parseSelection
   );
+  const community = useCommunityHomebrew({ kind: "ITEM", ruleset, sort: "TOP" }, selection.source.homebrew);
+  const homebrewWeapons = useMemo(() => selection.types.size || selection.properties.size || selection.masteries.size || selection.reaches.size ? [] : findHomebrewWeaponRows(community, selection.source, selection.q, selection.damageTypes), [community, selection]);
 
   const filtered = useMemo(() => {
     const q = selection.q.trim().toLowerCase();
@@ -206,7 +212,7 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014" }: Props) {
     });
   };
 
-  const availableSources = useMemo(() => collectCatalogSources(weapons), [weapons]);
+  const availableSources = useMemo(() => ({ ...collectCatalogSources(weapons), hasHomebrew: true }), [weapons]);
 
   const activeTab = useMemo(() => {
     if (selection.types.size === 1) {
@@ -225,7 +231,7 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014" }: Props) {
     countSourceFilters(selection.source);
 
   return (
-    <ContentListPage<WeaponData>
+    <ContentListPage<WeaponData | HomebrewItemEntry>
       title="Зброя"
       is2024={is2024}
       searchQuery={qInput}
@@ -255,9 +261,11 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014" }: Props) {
               </button>
             );
           })}
+          <button type="button" aria-pressed={selection.source.homebrew} onClick={() => setParams((next) => toggleHomebrewParam(next))} className={cn("min-h-10 shrink-0 rounded-xl border px-3 text-xs", selection.source.homebrew ? "border-amber-400/50 bg-amber-500/15 text-amber-100" : "border-white/10 bg-slate-900/40 text-slate-300")}>Хоумбрю</button>
+          {selection.source.homebrew ? <ModeLink href={`/homebrew/new?kind=ITEM&gear=weapon${is2024 ? "&edition=2024" : ""}`} className="inline-flex min-h-10 shrink-0 items-center rounded-xl px-3 text-xs text-amber-200 hover:bg-white/10">Створити зброю</ModeLink> : null}
         </div>
       }
-      data={filtered}
+      data={[...homebrewWeapons, ...filtered]}
       emptyState={
         <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
           <Sword className="h-10 w-10 text-slate-600 mb-2" />
@@ -271,6 +279,7 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014" }: Props) {
         </div>
       }
       renderItem={(_index, weapon) => {
+        if ("item" in weapon) return <HomebrewWeaponRow weapon={weapon} is2024={is2024} />;
         const isSelected = selectedWeapon?.id === weapon.id;
         const visual = getWeaponVisual(weapon.weaponType, weapon.isRanged);
         const Icon = visual.icon;
@@ -355,7 +364,7 @@ export function WeaponsClient({ weapons, ruleset = "RULES_2014" }: Props) {
       selectedModalItem={selectedModalWeapon}
       onCloseModal={() => setSelectedModalWeapon(null)}
       modalTitle={selectedModalWeapon?.nameUa || "Характеристики зброї"}
-      renderModalContent={(weapon) => <WeaponDetailCard weapon={weapon} is2024={is2024} />}
+      renderModalContent={(weapon) => "item" in weapon ? null : <WeaponDetailCard weapon={weapon} is2024={is2024} />}
       filterDialogOpen={filtersOpen}
       onFilterDialogClose={() => setFiltersOpen(false)}
       filterDialogContent={

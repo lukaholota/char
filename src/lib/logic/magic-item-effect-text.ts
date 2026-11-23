@@ -88,7 +88,7 @@ const HIT_DAMAGE_WORDS: Record<DamageTypeKey, string> = {
 };
 
 export function describeHitDamage(hit: WeaponHitDamage): string {
-  const damage = `+${hit.count}к${hit.sides} ${hit.customType ? `шкоди «${hit.customType}»` : ((hit.damageType && HIT_DAMAGE_WORDS[hit.damageType]) ?? "шкоди")}`;
+  const damage = `+${hit.formula ? `(${hit.formula})` : `${hit.count}к${hit.sides}`} ${hit.customType ? `шкоди «${hit.customType}»` : ((hit.damageType && HIT_DAMAGE_WORDS[hit.damageType]) ?? "шкоди")}`;
   if (!hit.condition) return damage;
   return `${damage}${hit.condition.startsWith("поки") ? ", " : " "}${hit.condition}`;
 }

@@ -71,6 +71,17 @@ function drawFitted(bitmap: ImageBitmap, maxEdge: number): HTMLCanvasElement {
   return canvas;
 }
 
+export async function shrinkObjectImageForUpload(file: File): Promise<Blob> {
+  if (file.size <= MAX_IMAGE_UPLOAD_BYTES) return file;
+  const bitmap = await createImageBitmap(file);
+  try {
+    const full = await encodeCanvas(drawFitted(bitmap, CLIENT_PORTRAIT_EDGE), 0.85);
+    return full.size <= MAX_IMAGE_UPLOAD_BYTES ? full : encodeCanvas(drawFitted(bitmap, 384), 0.75);
+  } finally {
+    bitmap.close();
+  }
+}
+
 function encodeCanvas(canvas: HTMLCanvasElement, quality: number, type = OUTPUT_TYPE): Promise<Blob> {
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("Браузер не зміг стиснути картинку"))), type, quality);

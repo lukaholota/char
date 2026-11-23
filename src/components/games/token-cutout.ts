@@ -10,21 +10,27 @@ const cutoutBySrc = new Map<string, boolean>();
 
 export const findHeroCutoutKey = (heroId: number) => `hero-cutout:${heroId}`;
 
-export type CutoutSide = "mine" | "other" | "ally" | "enemy" | "dying";
+export type CutoutTone = "mine" | "other" | "green" | "red" | "dying";
 
-const CUTOUT_OUTLINES: Record<CutoutSide, string> = {
+const CUTOUT_OUTLINES: Record<CutoutTone, string> = {
   mine: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.arcane.300))_drop-shadow(0_0_2px_theme(colors.arcane.300))]",
   other: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.white))_drop-shadow(0_0_2px_theme(colors.slate.950))]",
-  ally: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.emerald.400))_drop-shadow(0_0_2px_theme(colors.emerald.400))]",
-  enemy: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.rose.500))_drop-shadow(0_0_2px_theme(colors.rose.500))]",
+  green: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.emerald.400))_drop-shadow(0_0_2px_theme(colors.emerald.400))]",
+  red: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.rose.500))_drop-shadow(0_0_2px_theme(colors.rose.500))]",
   dying: "filter [--tw-drop-shadow:drop-shadow(0_0_1px_theme(colors.rose.500))_drop-shadow(0_0_2px_theme(colors.rose.500))]",
 };
 const CUTOUT_SHADOW = "filter [--tw-drop-shadow:drop-shadow(0_1px_2px_theme(colors.slate.950))]";
 
 /// Кольорова обвідка вмикається у «Вигляді»; героя при смерті вона позначає завжди.
-export function findCutoutOutlineClass(side: CutoutSide, isOutlined: boolean): string {
-  return isOutlined || side === "dying" ? CUTOUT_OUTLINES[side] : CUTOUT_SHADOW;
+export function findCutoutOutlineClass(tone: CutoutTone, isOutlined: boolean): string {
+  return isOutlined || tone === "dying" ? CUTOUT_OUTLINES[tone] : CUTOUT_SHADOW;
 }
+
+export const CREATURE_BORDER_CLASSES = {
+  default: { border: "border-slate-500", badge: "ring-slate-500" },
+  green: { border: "border-emerald-400", badge: "ring-emerald-400" },
+  red: { border: "border-rose-500", badge: "ring-rose-500" },
+} as const;
 
 export function hasTransparentEdges(rgba: ArrayLike<number>, size: number): boolean {
   const edgeAlphas: number[] = [];

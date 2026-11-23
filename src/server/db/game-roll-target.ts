@@ -27,7 +27,7 @@ const CREATURE_ROW_SELECT = {
   creatureKey: true,
   ruleset: true,
   number: true,
-  isAlly: true,
+  borderColor: true,
   customName: true,
   tokenSize: true,
   isCutout: true,

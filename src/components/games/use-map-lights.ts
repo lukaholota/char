@@ -64,9 +64,10 @@ export function useMapLights({ view, isEditing, findDropPosition, findViewCentre
     sendDarkvisionLook(next);
   };
 
-  const placePreset = async (preset: LightPreset) => {
-    if (sceneId === null) return;
-    const light: LightDraft = { at: findViewCentre(), brightFeet: preset.brightFeet, dimFeet: preset.dimFeet, isOn: true, look: { ...DEFAULT_LIGHT_LOOK, coneDegrees: preset.coneDegrees ?? DEFAULT_LIGHT_LOOK.coneDegrees } };
+  const placePreset = async (preset: LightPreset, point?: Point) => {
+    const at = point ? findDropPosition(point) : findViewCentre();
+    if (sceneId === null || !at || readShown().length >= LIGHT_LIMITS.perScene) return;
+    const light: LightDraft = { at, brightFeet: preset.brightFeet, dimFeet: preset.dimFeet, isOn: true, look: { ...DEFAULT_LIGHT_LOOK, coneDegrees: preset.coneDegrees ?? DEFAULT_LIGHT_LOOK.coneDegrees } };
     captureGameEvent("game_light_placed", { preset: preset.key, target: "scene" });
     await place(light);
   };
@@ -114,6 +115,7 @@ export function useMapLights({ view, isEditing, findDropPosition, findViewCentre
     isFull: shown.length >= LIGHT_LIMITS.perScene,
     findShownAt: (light: SceneLightView) => (drag.ghost?.id === light.id ? (findDropPosition(drag.ghost) ?? light.at) : light.at),
     bindLight: (id: number) => (isEditing && id > 0 ? drag.bindToken(id) : {}),
+    canDropPreset: (point: Point) => findDropPosition(point) !== null,
     choose: setChosenId,
     placePreset,
     place,

@@ -48,8 +48,8 @@ async function createRoomWithCreatures() {
   if (!created.ok) throw new Error(created.error);
   const sessionId = created.value.id;
   await setActiveSceneMap(sessionId, gm.id, await createImageBlob());
-  await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 2, isAlly: false, customName: null });
-  await addMapCreatures(sessionId, gm.id, { creatureKey: "wolf", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+  await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 2, customName: null });
+  await addMapCreatures(sessionId, gm.id, { creatureKey: "wolf", ruleset: "RULES_2014", count: 1, customName: null });
   const creatures = await prisma.gameMapCreature.findMany({ where: { gameSessionId: sessionId }, orderBy: { id: "asc" } });
   return { gm, sessionId, goblinId: creatures[0].id };
 }
@@ -90,15 +90,15 @@ describe("власні зображення істот на мапі", () => {
     if (!scene.ok) throw new Error(scene.error);
     await openGameScene(sessionId, gm.id, scene.value.id);
 
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: null });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
 
     expect((await findImageKeys(sessionId)).at(-1)).toEqual(["goblin", imageKey]);
   });
 
   it("істота з власним імʼям має свій вигляд: заміна не чіпає безіменних і інакше названих того ж виду", async () => {
     const { gm, sessionId, goblinId } = await createRoomWithCreatures();
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 2, isAlly: false, customName: "Вартовий" });
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: "Ватажок" });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 2, customName: "Вартовий" });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: "Ватажок" });
     const guard = await prisma.gameMapCreature.findFirstOrThrow({ where: { gameSessionId: sessionId, customName: "Вартовий" } });
     const [guardImage, gruntImage] = [await uploadImage(gm.id), await uploadImage(gm.id)];
 
@@ -112,7 +112,7 @@ describe("власні зображення істот на мапі", () => {
     const { gm, sessionId } = await createRoomWithCreatures();
     const stranger = await createUser("stranger");
     const [ownImage, strangerImage] = [await uploadImage(gm.id), await uploadImage(stranger.id)];
-    const npc = { creatureKey: "commoner", ruleset: "RULES_2014" as const, count: 1, isAlly: true, customName: "Корчмар" };
+    const npc = { creatureKey: "commoner", ruleset: "RULES_2014" as const, count: 1, customName: "Корчмар" };
 
     expect(await addMapCreatures(sessionId, gm.id, { ...npc, imageKey: strangerImage })).toEqual({ ok: false, error: "token_image_gone" });
     expect(await addMapCreatures(sessionId, gm.id, { ...npc, imageKey: ownImage })).toEqual({ ok: true, value: { name: "Корчмар" } });

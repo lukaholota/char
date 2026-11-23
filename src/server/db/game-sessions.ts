@@ -302,7 +302,7 @@ function findSessionWithMembers(sessionId: number, viewerUserId: number) {
       mapCreatures: {
         where: { scene: sceneVisibleTo(sessionId, viewerUserId) },
         orderBy: [{ createdAt: "asc" }, { id: "asc" }],
-        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, isAlly: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true, floor: true, isNameHidden: true },
+        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, borderColor: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true, floor: true, isNameHidden: true },
       },
     },
   });
@@ -330,10 +330,10 @@ function findVisibleSceneTools(sessionId: number, viewerUserId: number) {
       fog: true,
       areas: { orderBy: { id: "asc" }, select: { id: true, userId: true, shape: true, sizeFeet: true, originX: true, originY: true, angle: true, label: true } },
       drawings: { orderBy: { id: "asc" }, select: DRAWING_ROW_SELECT },
-      objects: { select: { id: true, imageKey: true, name: true, x: true, y: true, widthCells: true, rotation: true, isHidden: true, sortOrder: true, floor: true, aspect: true } },
+      objects: { select: { id: true, imageKey: true, name: true, x: true, y: true, widthCells: true, rotation: true, isHidden: true, sortOrder: true, floor: true, aspect: true, appearance: true } },
       walls: { orderBy: { id: "asc" }, select: { id: true, kind: true, isOpen: true, doorLock: true, isCurtained: true, points: true } },
       lighting: true,
-      lights: { orderBy: { id: "asc" }, select: { id: true, x: true, y: true, brightFeet: true, dimFeet: true, isOn: true, color: true, coneDegrees: true, directionDegrees: true, effect: true } },
+      lights: { orderBy: { id: "asc" }, select: { id: true, x: true, y: true, brightFeet: true, dimFeet: true, isOn: true, color: true, coneDegrees: true, directionDegrees: true, effect: true, flickerSpeed: true } },
       weather: true,
       weatherSpeed: true,
       weatherColor: true,

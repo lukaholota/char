@@ -19,7 +19,7 @@ import type { MapCreatureView } from "@/rules/game-map-creatures";
 const row = (overrides: Partial<CombatantRow>): CombatantRow => ({ id: 1, persId: 10, gameMapCreatureId: null, initiative: 10, initiativeBonus: 0, sortTiebreak: 0.5, ...overrides });
 
 const goblin = (id: number, overrides: Partial<MapCreatureView> = {}): MapCreatureView => ({
-  id, creatureKey: "goblin", ruleset: "RULES_2014", label: `Гоблін ${id}`, statblockName: null, customName: null, badge: id, isAlly: false, imageUrl: "/goblin.webp", isRoundImage: false, tokenSize: "small", token: { x: 0.5, y: 0.5 }, ...overrides,
+  id, creatureKey: "goblin", ruleset: "RULES_2014", label: `Гоблін ${id}`, statblockName: null, customName: null, badge: id, borderColor: null, imageUrl: "/goblin.webp", isRoundImage: false, tokenSize: "small", token: { x: 0.5, y: 0.5 }, ...overrides,
 });
 
 describe("кидок ініціативи", () => {

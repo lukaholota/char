@@ -67,7 +67,7 @@ const findMemberPersId = async (sessionId: number, userId: number) => (await pri
 
 async function placeCreatures(sessionId: number, gmId: number, count: number, customName: string | null = null) {
   const before = new Set((await findGameSessionView(sessionId, gmId))!.creatures.map((creature) => creature.id));
-  await addMapCreatures(sessionId, gmId, { creatureKey: "goblin", ruleset: "RULES_2014", count, isAlly: false, customName });
+  await addMapCreatures(sessionId, gmId, { creatureKey: "goblin", ruleset: "RULES_2014", count, customName });
   const added = (await findGameSessionView(sessionId, gmId))!.creatures.filter((creature) => !before.has(creature.id));
   for (const creature of added) await moveMapCreature(sessionId, gmId, creature.id, { x: 0.3, y: 0.4 });
   return added.map((creature) => creature.id);
@@ -88,7 +88,7 @@ describe("початок і кінець бою", () => {
     expect(await readCombat(sessionId, gm.id)).toBeNull();
 
     await placeCreatures(sessionId, gm.id, 2);
-    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, isAlly: false, customName: "Запасний" });
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: "Запасний" });
     expect(await startCombat(sessionId, gm.id)).toEqual({ ok: true, value: { combatantCount: 4 } });
     expect(await startCombat(sessionId, gm.id)).toEqual({ ok: false, error: "combat_active" });
 

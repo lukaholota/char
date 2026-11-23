@@ -5,19 +5,19 @@ import { createPortal } from "react-dom";
 import { toast } from "sonner";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
-import { findCutoutOutlineClass, useCutoutImage } from "./token-cutout";
+import { CREATURE_BORDER_CLASSES, findCutoutOutlineClass, useCutoutImage } from "./token-cutout";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
-import { changeMapCreatureHitPointsAction, moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setCreatureNameModeAction, setMapCreatureCutoutAction, setMapCreatureNameHiddenAction, setMapCreatureSizeAction, transformMapCreatureAction } from "@/lib/actions/game-sessions";
+import { moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setMapCreatureNameHiddenAction } from "@/lib/actions/game-sessions";
 import { useAreaCastStore } from "@/lib/components/game/area-cast";
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
 import { NO_TOKEN_CONDITIONS, type TokenConditionChange, type TokenConditions } from "@/rules/token-conditions";
-import { applyHitPointChange, findHitPointChangesTo, isCreatureDown, type CreatureHitPoints, type HitPointChange } from "@/rules/creature-hit-points";
+import type { HitPointChange } from "@/rules/creature-hit-points";
 import type { FloorId } from "@/rules/game-floors";
 import { shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import { findTokenArrowStep } from "@/rules/game-grid";
-import { CREATURE_SIZE_CELLS, CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
+import { CREATURE_SIZE_CELLS, CREATURE_TOKEN_SIZE_SCALES, buildCreatureInitials, type CreatureBorderColor, type CreatureTokenSize, type MapCreatureView, type TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { CreatureTray } from "./CreatureTray";
 import { SpotlightAura, findSpotlightRingClass, useIsCreatureTurn } from "./combat-turn";
@@ -26,18 +26,18 @@ import { buildCreatureTargetControl, useRollTargetCreatureId } from "./RollTarge
 import { TokenConditionMarks } from "./TokenConditionMarks";
 import { useIsTokenInvisible, useSpotlightStyle, useShownConditions, useSpotlightControl, useTokenConditionChanges } from "./use-token-conditions";
 import { CreatureSheet, CreatureTokenSettings, MapCreatureStatblockDialog, type CreatureControls } from "./MapCreatureStatblockDialog";
-import { holdValueBefore, pushUndoStep, rememberUndo } from "./map-history";
+import { holdValueBefore, rememberUndo } from "./map-history";
 import { readOptimistic, sendOptimistic, sendOptimisticMany, showOptimistic, useOptimisticReader } from "./optimistic-values";
+import { useCreatureLooks } from "./use-creature-looks";
 import { useTokenDrag, type TokenGhost } from "./use-token-drag";
 import { TokenName } from "./TokenName";
 import { TOKEN_SIZE_PX } from "./use-token-scale";
 import { HIGHLIGHT_RING_CLASS, MapTokenSlot, OFF_FLOOR_CLASS, buildTokenSizeStyle, findBoardTokenSize, findGhostTokenSize, findLabelWidth, hasTokenNames, snapTokenPosition, type GroupTokenLook, type PlacedToken, type TokenDrag, type TokenGroupBinding, type TokenLayout, type TokenOnBoard } from "./MapTokenSlot";
-import type { TokenTransform } from "@/rules/token-transform";
 import { GroupedTokenFrame, TokenTransformHandles, findTokenRotationStyle, scaleGhostSize, scaleTokenSize, type SelectedToken, type TokenSelection } from "./TokenTransformControls";
 
 type Point = { clientX: number; clientY: number };
 
-const NO_CREATURE_CONTROLS: CreatureControls = { onRemove: null, size: null, cutout: null, hitPoints: null, conditions: null, target: null, naming: null };
+const NO_CREATURE_CONTROLS: CreatureControls = { onRemove: null, size: null, cutout: null, hitPoints: null, conditions: null, target: null, naming: null, borderColor: null };
 
 type CreatureTokensInput = { view: GameSessionView; layout: TokenLayout; selection: TokenSelection; group: TokenGroupBinding; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean };
 
@@ -98,7 +98,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
     setOpenId(null);
     void moves.send(id, null);
   };
-  const shown = view.creatures.filter((creature) => !moves.isRemoved(creature)).map(looks.applyPendingHitPoints).map(looks.applyPendingCutout);
+  const shown = view.creatures.filter((creature) => !moves.isRemoved(creature)).map(looks.applyPendingHitPoints).map(looks.applyPendingLook);
   const waiting = shown.filter((creature) => !moves.findPosition(creature));
   const dragged = ghost ? shown.find((creature) => creature.id === ghost.id) : undefined;
   const openCreature = shown.find((creature) => creature.id === openId) ?? null;
@@ -114,6 +114,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       conditions: { value: conditions, onChange: editable((change: TokenConditionChange) => void changeConditions({ kind: "creature", id: creature.id }, creature.conditions, change)) },
       target: myHeroName && moves.findPosition(creature) ? buildCreatureTargetControl(view.id, creature.id, targetId, myHeroName) : null,
       naming: editable({ value: creature.customName, isHidden: creature.isNameHidden, onSave: (name: string) => renameCreature(creature.id, name), onHiddenChange: (isHidden: boolean) => refreshAfter(setMapCreatureNameHiddenAction(view.id, creature.id, isHidden)) }),
+      borderColor: editable({ value: creature.borderColor, onChange: (color: CreatureBorderColor) => void looks.sendBorderColor(creature, color) }),
     };
   };
 
@@ -182,7 +183,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       <CreatureTokenFace creature={creature} size={size} nameMode={shownName} isDimmed={ghost?.id === creature.id} isTarget={creature.id === targetId} onBoard={onBoard}>
         <button
           type="button"
-          aria-label={`${creature.isAlly ? "Союзник" : "Ворог"} «${creature.label}»${status}. ${hint}`}
+          aria-label={`Токен «${creature.label}»${status}. ${hint}`}
           className={cn("absolute inset-0 rounded-full", canEdit && "cursor-grab touch-none active:cursor-grabbing")}
           data-token-tap={canEdit && onBoard ? findKey(creature.id) : undefined}
           {...(canEdit ? { onKeyDown, onKeyUp, ...bindToken(creature.id) } : { onClick: () => openStatblock(creature.id) })}
@@ -247,12 +248,13 @@ export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, is
   const isInvisible = useIsTokenInvisible({ kind: "creature", id: creature.id }, creature.conditions);
   const { isCutout: isCutoutImage, inspectImage } = useCutoutImage(src);
   const isCutout = creature.isCutout && isCutoutImage && Boolean(onBoard) && !creature.isRoundImage;
+  const border = CREATURE_BORDER_CLASSES[creature.borderColor ?? "default"];
   const labelWidth = onBoard?.labelWidth ?? (typeof size === "number" ? size : TOKEN_SIZE_PX);
   return (
     <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isInvisible && "opacity-50", isDimmed && "opacity-40")} title={creature.label}>
       <div className={cn("relative isolate rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={buildTokenSizeStyle(size)}>
         <SpotlightAura style={spotlight} />
-        <div className={cn("relative h-full w-full rounded-full", isCutout ? findCutoutOutlineClass(creature.isAlly ? "ally" : "enemy", Boolean(onBoard?.isOutlined)) : cn("overflow-hidden border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", creature.isAlly ? "border-emerald-400" : "border-rose-500"), creature.isDown && "opacity-50 grayscale", findSpotlightRingClass(isTurn, spotlight))} style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
+        <div className={cn("relative h-full w-full rounded-full", isCutout ? findCutoutOutlineClass(creature.borderColor ?? "other", Boolean(onBoard?.isOutlined)) : cn("overflow-hidden border-2 bg-slate-900 shadow-lg shadow-black/50 ring-2 ring-slate-950/80", border.border), creature.isDown && "opacity-50 grayscale", findSpotlightRingClass(isTurn, spotlight))} style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
           {src ? (
             <ContentImage src={src} alt="" provenance="manual" fill sizes={`${Math.max(128, Math.round(onBoard?.screenPx ?? 0))}px`} draggable={false} onLoad={(event) => inspectImage(event.currentTarget)} className={creature.isRoundImage || isCutout ? "object-contain" : "object-cover object-top"} />
           ) : (
@@ -264,7 +266,7 @@ export function CreatureTokenFace({ creature, size = TOKEN_SIZE_PX, nameMode, is
         {creature.isDown ? <DownMark /> : null}
         {isTarget ? <span aria-hidden className="pointer-events-none absolute -inset-1.5 rounded-full border-2 border-dashed border-amber-300" /> : null}
         {creature.badge !== null ? (
-          <span aria-hidden className={cn("absolute -bottom-1 -right-1 grid h-5 min-w-5 place-items-center rounded-full bg-slate-950 px-1 text-xs leading-none text-slate-100 ring-1", creature.isAlly ? "ring-emerald-400" : "ring-rose-500")}>
+          <span aria-hidden className={cn("absolute -bottom-1 -right-1 grid h-5 min-w-5 place-items-center rounded-full bg-slate-950 px-1 text-xs leading-none text-slate-100 ring-1", border.badge)}>
             {creature.badge}
           </span>
         ) : null}
@@ -324,75 +326,3 @@ function useCreatureMoves(view: GameSessionView) {
 }
 
 /// Розмір, хіти і показ імен майстер бачить одразу; правдою їх робить наступний стан кімнати з сервера.
-function useCreatureLooks(view: GameSessionView) {
-  const router = useModeRouter();
-  const read = useOptimisticReader();
-  const nameModeKey = `creature-name-mode:${view.id}`;
-  const findHitPointsKey = (creature: MapCreatureView) => `creature-hp:${creature.id}`;
-  const finish = (result: { ok: boolean }) => result.ok && router.refresh();
-  const findCreature = (id: number) => view.creatures.find((creature) => creature.id === id);
-  const findSizeById = (id: number) => readOptimistic(`creature-size:${id}`, findCreature(id)?.tokenSize ?? null);
-
-  const sendSize = async (id: number, size: CreatureTokenSize) => {
-    const before = findSizeById(id);
-    if (before) rememberUndo(view.viewedSceneId, `creature-size:${id}`, before, size, (restored) => sendSize(id, restored));
-    finish(await sendOptimistic(`creature-size:${id}`, size, () => setMapCreatureSizeAction(view.id, id, size)));
-  };
-  const findCutoutKey = (creature: MapCreatureView) => `creature-cutout:${creature.ruleset}:${creature.creatureKey}`;
-  const findIsCutout = (creature: MapCreatureView) => read(findCutoutKey(creature), creature.isCutout);
-  const sendCutout = async (creature: MapCreatureView, isCutout: boolean) => {
-    rememberUndo(view.viewedSceneId, findCutoutKey(creature), readOptimistic(findCutoutKey(creature), creature.isCutout), isCutout, (restored) => sendCutout(creature, restored));
-    finish(await sendOptimistic(findCutoutKey(creature), isCutout, () => setMapCreatureCutoutAction(view.id, creature.id, isCutout)));
-  };
-  const applyPendingCutout = (creature: MapCreatureView): MapCreatureView => (findIsCutout(creature) === creature.isCutout ? creature : { ...creature, isCutout: !creature.isCutout });
-  const findTransformKey = (id: number) => `creature-transform:${id}`;
-  const findTransform = (creature: MapCreatureView) => read(findTransformKey(creature.id), creature.tokenTransform);
-  const findTransformById = (id: number) => readOptimistic(findTransformKey(id), findCreature(id)?.tokenTransform ?? null);
-  const showTransform = (id: number, transform: TokenTransform) => {
-    holdValueBefore(findTransformKey(id), findTransformById(id));
-    showOptimistic(findTransformKey(id), transform);
-  };
-  const sendTransform = async (id: number, transform: TokenTransform) => {
-    const before = findTransformById(id);
-    if (before) rememberUndo(view.viewedSceneId, findTransformKey(id), before, transform, (restored) => sendTransform(id, restored));
-    finish(await sendOptimistic(findTransformKey(id), transform, () => transformMapCreatureAction(view.id, id, transform)));
-  };
-  const sendNameMode = async (mode: TokenNameMode) => {
-    rememberUndo(view.viewedSceneId, nameModeKey, readOptimistic(nameModeKey, view.creatureNameMode), mode, sendNameMode);
-    finish(await sendOptimistic(nameModeKey, mode, () => setCreatureNameModeAction(view.id, mode)));
-  };
-  /// Скасування й повтор шлють різницю між двома відомими значеннями: збережене на клієнті могло вже застаріти.
-  const sendHitPointPath = async (creature: MapCreatureView, from: CreatureHitPoints, to: CreatureHitPoints) => {
-    let shown = from;
-    for (const change of findHitPointChangesTo(from, to)) {
-      shown = applyHitPointChange(shown, change) ?? shown;
-      if (!(await sendOptimistic(findHitPointsKey(creature), shown, () => changeMapCreatureHitPointsAction(view.id, creature.id, change))).ok) return;
-    }
-    router.refresh();
-  };
-  const sendHitPointChange = async (creature: MapCreatureView, change: HitPointChange) => {
-    const before = readOptimistic(findHitPointsKey(creature), creature.hitPoints);
-    const after = applyHitPointChange(before, change);
-    if (view.viewedSceneId !== null && before && after) pushUndoStep(view.viewedSceneId, { undo: () => sendHitPointPath(creature, after, before), redo: () => sendHitPointPath(creature, before, after) });
-    finish(await sendOptimistic(findHitPointsKey(creature), after ?? creature.hitPoints, () => changeMapCreatureHitPointsAction(view.id, creature.id, change)));
-  };
-  const applyPendingHitPoints = (creature: MapCreatureView): MapCreatureView => {
-    const hitPoints = read(findHitPointsKey(creature), creature.hitPoints);
-    return hitPoints === creature.hitPoints || !hitPoints ? creature : { ...creature, hitPoints, isDown: isCreatureDown(hitPoints) };
-  };
-
-  return {
-    nameMode: read(nameModeKey, view.creatureNameMode),
-    findSize: (creature: MapCreatureView) => read(`creature-size:${creature.id}`, creature.tokenSize),
-    sendSize,
-    findIsCutout,
-    sendCutout,
-    applyPendingCutout,
-    findTransform,
-    showTransform,
-    sendTransform,
-    sendNameMode,
-    sendHitPointChange,
-    applyPendingHitPoints,
-  };
-}

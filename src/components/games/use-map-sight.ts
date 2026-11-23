@@ -7,11 +7,13 @@ import { buildSceneSight, DEFAULT_LIGHT_LOOK, type BuildPolygon, type Eye, type 
 import type { TokenPosition } from "@/rules/game-map";
 import { collectMoveLines, collectSightLines, collectSightSegments, type WallLine } from "@/rules/game-walls";
 import { buildVisibilityPolygon, isMoveBlocked, type ViewPoint } from "@/rules/map-visibility";
+import { isTokenHiddenFromViewer } from "@/rules/token-conditions";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
 import type { TokenMoves, useHeroTokens } from "./HeroTokens";
 import type { SelectedToken } from "./TokenTransformControls";
 import { useOptimisticReader } from "./optimistic-values";
 import type { MapLights, TokenLights } from "./use-map-lights";
+import type { TokenLayout } from "./MapTokenSlot";
 
 const POLYGON_CACHE_LIMIT = 200;
 const SIGHT_MEASURE = "scene-sight";
@@ -56,6 +58,19 @@ type PartySightOptions = {
 };
 
 type HeroAt = { member: GameSessionMemberView; at: TokenPosition };
+
+export function findHiddenPreviewHeroes({ viewer, members, moves, layout }: { viewer: GameSessionMemberView | null; members: GameSessionMemberView[]; moves: TokenMoves; layout: TokenLayout }) {
+  const hidden = new Set<string>();
+  if (!viewer) return hidden;
+  for (const member of members) {
+    if (member.heroId === viewer.heroId) continue;
+    const at = moves.findPosition(member);
+    if (!at) continue;
+    const isInvisible = isTokenHiddenFromViewer({ userId: viewer.userId, isGm: false }, member, member.conditions.conditions);
+    if (isInvisible || layout.isHidden(at, 1) || layout.floors.isOffFloor({ at, floor: moves.findFloor(member) })) hidden.add(`hero-${member.heroId}`);
+  }
+  return hidden;
+}
 
 /// Кожен гравець дивиться очима лише своїх героїв; глядач без героя — очима партії. Майстер бачить усіх або вибраного героя.
 function findEyeHeroes(view: GameSessionView, heroesAt: HeroAt[], viewerHeroId: number | null) {
@@ -117,21 +132,24 @@ export type FadingSight = ReturnType<typeof useFadingSight>;
 
 const isCharacterViewKey = (event: KeyboardEvent) => (event.ctrlKey || event.metaKey) && !event.altKey && !event.shiftKey && event.code === "KeyL";
 
-type CharacterViewOptions = { view: GameSessionView; scope: RefObject<Element | null>; findSelected: () => SelectedToken | null; onStart: () => void };
+type CharacterViewOptions = { view: GameSessionView; scope: RefObject<Element | null>; findSelected: () => SelectedToken | null; findPosition: TokenMoves["findPosition"]; onStart: () => void };
 
 /// Майстер дивиться очима вибраного героя (око або Ctrl+L). Вибір знімаємо, щоб рамка не потрапила в запис стріму.
-export function useCharacterView({ view, scope, findSelected, onStart }: CharacterViewOptions) {
+export function useCharacterView({ view, scope, findSelected, findPosition, onStart }: CharacterViewOptions) {
   const [heroId, setHeroId] = useState<number | null>(null);
   const findSelectedHero = () => {
     const selected = findSelected();
     return selected?.lightTarget.kind === "hero" ? selected.lightTarget.member : null;
   };
+  const start = (member: GameSessionMemberView) => {
+    setHeroId(member.heroId);
+    onStart();
+  };
   const toggle = () => {
     if (heroId !== null) return setHeroId(null);
     const selectedHero = findSelectedHero();
     if (!selectedHero) return void toast("Виберіть героя на мапі, тоді — око або Ctrl+L");
-    setHeroId(selectedHero.heroId);
-    onStart();
+    start(selectedHero);
   };
   const latestToggle = useRef(toggle);
   latestToggle.current = toggle;
@@ -148,7 +166,8 @@ export function useCharacterView({ view, scope, findSelected, onStart }: Charact
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [canUse, scope]);
   const hero = canUse && heroId !== null ? (view.members.find((member) => member.heroId === heroId) ?? null) : null;
-  return { hero, findSelectedHero, toggle };
+  const heroesOnMap = canUse ? view.members.filter((member) => member.persId !== null && findPosition(member) !== null) : [];
+  return { hero, heroesOnMap, findSelectedHero, start, toggle };
 }
 
 export type CharacterView = ReturnType<typeof useCharacterView>;

@@ -12,7 +12,7 @@ export const DARKVISION_LOOKS = ["grey", "dim", "heat"] as const;
 export type DarkvisionLook = (typeof DARKVISION_LOOKS)[number];
 export type TokenLight = { brightFeet: number; dimFeet: number };
 /// Напрямок — градуси за годинниковою стрілкою від «праворуч»; 360° конуса — звичайне коло. Колір null — тепле світло без барви.
-export type LightLook = { color: string | null; coneDegrees: number; directionDegrees: number; effect: LightEffect };
+export type LightLook = { color: string | null; coneDegrees: number; directionDegrees: number; effect: LightEffect; flickerSpeed?: number };
 export type LightSource = TokenLight & { at: TokenPosition; look: LightLook };
 export type SceneLightView = LightSource & { id: number; isOn: boolean };
 export type Eye = { at: TokenPosition; darkvisionFeet: number };
@@ -24,6 +24,7 @@ export type SeeingEye = { at: ViewPoint; polygon: ViewPoint[]; darkvision: numbe
 export type SceneSight = { lighting: Exclude<SceneLighting, "off">; aspect: number; eyes: SeeingEye[]; lights: LitArea[] };
 
 export const LIGHT_LIMITS = { perScene: 40, feet: 300, cone: { min: 15, max: 360, step: 15 }, directionStep: 15 } as const;
+export const FLICKER_SPEED = { min: 25, max: 200, step: 25, default: 100 } as const;
 export const DEFAULT_LIGHT_LOOK: LightLook = { color: null, coneDegrees: 360, directionDegrees: 0, effect: "steady" };
 /// Око завжди бачить свою клітинку, щоб у темряві гравець не загубив токен.
 export const OWN_CELL_FEET = FEET_PER_CELL;
@@ -62,10 +63,11 @@ export function parseTokenLight(raw: unknown): TokenLight | null {
 export function parseLightLook(raw: unknown): LightLook | null {
   if (raw === undefined) return DEFAULT_LIGHT_LOOK;
   if (!raw || typeof raw !== "object") return null;
-  const { color, coneDegrees, directionDegrees, effect } = raw as Record<string, unknown>;
+  const { color, coneDegrees, directionDegrees, effect, flickerSpeed } = raw as Record<string, unknown>;
   const hex = parseHexColor(color);
   if ((color !== null && hex === null) || !isWhole(coneDegrees, LIGHT_LIMITS.cone.min, LIGHT_LIMITS.cone.max) || !isWhole(directionDegrees, 0, 359) || !isLightEffect(effect)) return null;
-  return { color: hex, coneDegrees, directionDegrees, effect };
+  if (flickerSpeed !== undefined && !isWhole(flickerSpeed, FLICKER_SPEED.min, FLICKER_SPEED.max)) return null;
+  return { color: hex, coneDegrees, directionDegrees, effect, ...(flickerSpeed !== undefined && flickerSpeed !== FLICKER_SPEED.default ? { flickerSpeed } : {}) };
 }
 
 export function parseLightSource(raw: unknown): LightSource | null {
@@ -75,12 +77,12 @@ export function parseLightSource(raw: unknown): LightSource | null {
   return light && look && isShare(at?.x) && isShare(at?.y) ? { ...light, at: { x: at.x, y: at.y }, look } : null;
 }
 
-type SceneLightRow = { id: number; x: number; y: number; brightFeet: number; dimFeet: number; isOn: boolean; color: string | null; coneDegrees: number; directionDegrees: number; effect: string };
+type SceneLightRow = { id: number; x: number; y: number; brightFeet: number; dimFeet: number; isOn: boolean; color: string | null; coneDegrees: number; directionDegrees: number; effect: string; flickerSpeed?: number };
 
 export function buildSceneLightViews(rows: SceneLightRow[], isGm: boolean): SceneLightView[] {
   return rows
     .filter((row) => isGm || row.isOn)
-    .map(({ id, x, y, brightFeet, dimFeet, isOn, color, coneDegrees, directionDegrees, effect }) => ({ id, at: { x, y }, brightFeet, dimFeet, isOn, look: parseLightLook({ color, coneDegrees, directionDegrees, effect }) ?? DEFAULT_LIGHT_LOOK }));
+    .map(({ id, x, y, brightFeet, dimFeet, isOn, ...look }) => ({ id, at: { x, y }, brightFeet, dimFeet, isOn, look: parseLightLook(look) ?? DEFAULT_LIGHT_LOOK }));
 }
 
 export const hasLight = (light: TokenLight | null): light is TokenLight => Boolean(light && light.brightFeet + light.dimFeet > 0);

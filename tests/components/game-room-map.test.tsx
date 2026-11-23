@@ -6,6 +6,7 @@ import { SPOTLIGHT_MARK as SPOTLIGHT } from "@/rules/token-conditions";
 import type { MapCreatureView } from "@/rules/game-map-creatures";
 import type { SceneObjectView } from "@/rules/game-objects";
 import type { GameSessionMemberView, GameSessionView } from "@/server/db/game-sessions";
+import { setMapCreatureBorderColorAction } from "@/lib/actions/game-creature-border-color";
 
 vi.mock("sonner", () => ({ toast: Object.assign(vi.fn(), { error: vi.fn(), success: vi.fn(), info: vi.fn() }) }));
 import { toast } from "sonner";
@@ -25,6 +26,8 @@ vi.hoisted(() => {
 });
 const mocks = vi.hoisted(() => ({ replace: vi.fn(), moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), changeMapCreatureHitPointsAction: vi.fn(), changeMapCreatureConditionsAction: vi.fn(), changeHeroConditionsAction: vi.fn(), transformHeroTokenAction: vi.fn(), transformMapCreatureAction: vi.fn(), refresh: vi.fn(), changeSceneFogAction: vi.fn(), changeSceneGridAction: vi.fn(), saveSceneAreaAction: vi.fn(), removeSceneAreasAction: vi.fn(), saveSceneDrawingsAction: vi.fn(), removeSceneDrawingsAction: vi.fn(), moveSceneDrawingAction: vi.fn(), listAreaSpellsAction: vi.fn(), addSceneObjectAction: vi.fn(), changeSceneObjectAction: vi.fn(), removeSceneObjectsAction: vi.fn(), editSceneWallsAction: vi.fn(), changeSceneOpeningAction: vi.fn(), setSceneLightingAction: vi.fn(), saveSceneLightAction: vi.fn(), removeSceneLightsAction: vi.fn(), setHeroTokenLightAction: vi.fn(), setMapCreatureLightAction: vi.fn(), setHeroDarkvisionAction: vi.fn(), setDarkvisionLookAction: vi.fn(), moveMapTokensAction: vi.fn(), setSceneAmbienceAction: vi.fn() }));
 vi.mock("@/lib/actions/game-token-images", () => ({ listTokenImagesAction: async () => ({ ok: true, value: ["token-images/1/chest"] }) }));
+vi.mock("@/lib/actions/game-image-library", () => ({ listImageLibraryAction: async () => ({ ok: true, value: { folders: [], images: [{ imageKey: "token-images/1/chest", folderId: null }] } }), createImageFolderAction: vi.fn(), moveLibraryImageAction: vi.fn(), uploadImageToLibraryAction: vi.fn() }));
+vi.mock("@/lib/actions/game-creature-border-color", () => ({ setMapCreatureBorderColorAction: vi.fn(async () => ({ ok: true, value: null })) }));
 vi.mock("@/lib/actions/game-user-sounds", () => ({ listOwnSoundsAction: async () => ({ ok: true, value: [{ key: "own:0b6f3c1e-8a2d-4c4e-9f00-1234567890ab", name: "Сміх корчмаря" }] }), uploadOwnSoundAction: vi.fn(), deleteOwnSoundAction: vi.fn() }));
 vi.mock("@/lib/actions/game-sessions", () => ({
   moveGameTokenAction: mocks.moveGameTokenAction,
@@ -143,7 +146,7 @@ function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
 }
 
 const goblin = (id: number, badge: number, token: MapCreatureView["token"] = null): MapCreatureView => ({
-  id, creatureKey: "goblin", ruleset: "RULES_2014", label: `Гоблін ${badge}`, statblockName: null, customName: null, badge, isAlly: false, imageUrl: null, isRoundImage: false, tokenSize: "medium", token, tokenTransform: { rotation: 0, scale: 100 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 }, light: { brightFeet: 0, dimFeet: 0 },
+  id, creatureKey: "goblin", ruleset: "RULES_2014", label: `Гоблін ${badge}`, statblockName: null, customName: null, badge, borderColor: null, imageUrl: null, isRoundImage: false, tokenSize: "medium", token, tokenTransform: { rotation: 0, scale: 100 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 }, light: { brightFeet: 0, dimFeet: 0 },
 });
 const gmView = (overrides: Partial<GameSessionView> = {}) => buildView({ myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [], ...overrides });
 
@@ -228,7 +231,7 @@ describe("мапа кімнати", () => {
 
   it("якщо новий стан кімнати перемонтував токен посеред руху, відпускання поза ним усе одно кладе істоту, а копія не зависає", () => {
     const { rerender } = render(<GameRoomMap view={gmView({ creatures: [goblin(5, 1, { x: 0.25, y: 0.25 })] })} />);
-    const token = within(placeMap()).getByRole("button", { name: /Ворог «Гоблін 1»/ });
+    const token = within(placeMap()).getByRole("button", { name: /Токен «Гоблін 1»/ });
     fireEvent.pointerDown(token, { button: 0, clientX: 100, clientY: 50, pointerId: 1 });
     fireEvent.pointerMove(token, { clientX: 150, clientY: 80, pointerId: 1 });
 
@@ -241,14 +244,14 @@ describe("мапа кімнати", () => {
   });
 
   it("стан кімнати, прочитаний до збереження ходу, не повертає істоту на старе місце, а пізніший стан — правда", async () => {
-    const findLeft = () => within(placeMap()).getByRole("button", { name: /Ворог «Гоблін 1»/ }).closest<HTMLElement>("[style*='left']")!.style.left;
+    const findLeft = () => within(placeMap()).getByRole("button", { name: /Токен «Гоблін 1»/ }).closest<HTMLElement>("[style*='left']")!.style.left;
     const showServerView = (token: MapCreatureView["token"]) => {
       const view = gmView({ creatures: [goblin(5, 1, token)] });
       act(() => useGameSessionLiveStore.setState({ view }));
       rerender(<GameRoomMap view={view} />);
     };
     const { rerender } = render(<GameRoomMap view={gmView({ creatures: [goblin(5, 1, { x: 0.25, y: 0.25 })] })} />);
-    drag(within(placeMap()).getByRole("button", { name: /Ворог «Гоблін 1»/ }), { clientX: 100, clientY: 50 }, { clientX: 200, clientY: 100 });
+    drag(within(placeMap()).getByRole("button", { name: /Токен «Гоблін 1»/ }), { clientX: 100, clientY: 50 }, { clientX: 200, clientY: 100 });
     await act(async () => undefined);
 
     showServerView({ x: 0.25, y: 0.25 });
@@ -415,13 +418,13 @@ describe("мапа кімнати", () => {
     drag(within(tray).getByRole("button", { name: /«Гоблін 1»/ }), { clientX: 10, clientY: 300 }, { clientX: 100, clientY: 150 });
     expect(mocks.moveMapCreatureAction).toHaveBeenCalledWith(7, 51, { x: 0.25, y: 0.75 }, null);
 
-    const placed = within(map).getByRole("button", { name: /Ворог «Гоблін 2»/ });
+    const placed = within(map).getByRole("button", { name: /Токен «Гоблін 2»/ });
     fireEvent.pointerDown(placed, { button: 0, clientX: 200, clientY: 100, pointerId: 1 });
     fireEvent.pointerUp(placed, { clientX: 201, clientY: 100, pointerId: 1 });
     expect(screen.queryByRole("dialog", { name: "Гоблін 2" })).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: "Статблок і стани" }));
     const statblock = screen.getByRole("dialog", { name: "Гоблін 2" });
-    expect(within(statblock).getByText("Ворог")).toBeTruthy();
+    expect(within(statblock).getByRole("radiogroup", { name: "Колір обводки" })).toBeTruthy();
     fireEvent.click(within(statblock).getByRole("button", { name: "Прибрати з мапи" }));
     expect(mocks.removeMapCreaturesAction).toHaveBeenCalledWith(7, 52);
     expect(within(map).queryByRole("button", { name: /«Гоблін 2»/ })).toBeNull();
@@ -493,7 +496,7 @@ describe("мапа кімнати", () => {
     render(<GameRoomMap view={buildView({ creatures: [goblin(52, 2, { x: 0.5, y: 0.5 })] })} />);
     const map = placeMap();
     expect(screen.queryByRole("button", { name: "Додати істот" })).toBeNull();
-    const placed = within(map).getByRole("button", { name: /Ворог «Гоблін 2»/ });
+    const placed = within(map).getByRole("button", { name: /Токен «Гоблін 2»/ });
     drag(placed, { clientX: 200, clientY: 100 }, { clientX: 100, clientY: 260 });
     expect(mocks.moveMapCreatureAction).not.toHaveBeenCalled();
     expect(mocks.removeMapCreaturesAction).not.toHaveBeenCalled();
@@ -633,7 +636,7 @@ describe("мапа кімнати", () => {
   it("гравець не бачить ні хітів, ні блоку хітів, але бачить повалену істоту", () => {
     const down = { ...goblin(84, 1, { x: 0.5, y: 0.5 }), isDown: true };
     render(<GameRoomMap view={buildView({ creatures: [down] })} />);
-    const token = within(placeMap()).getByRole("button", { name: /Ворог «Гоблін 1», повалений/ });
+    const token = within(placeMap()).getByRole("button", { name: /Токен «Гоблін 1», повалений/ });
     expect(token.getAttribute("aria-label")).not.toMatch(/хіти/);
     fireEvent.click(token);
     const statblock = screen.getByRole("dialog", { name: "Гоблін 1" });
@@ -1446,6 +1449,26 @@ describe("інструменти мапи на весь екран", () => {
     expect(isGoblinShown(gmView({ grid, lighting: "dark", creatures: [farGoblin], members }))).toBe(true);
   });
 
+  it("у темряві чи тумані гравець отримує мапу лише крізь маску видимого, а майстер — звичайну картинку", () => {
+    const members = [member(1, "GM", null), member(2, "PLAYER", "Арвен", { x: 0.5, y: 0.5 })];
+    const findMaskedMap = (dialog: HTMLElement) => dialog.querySelector("svg image");
+    const isPlainMapShown = (dialog: HTMLElement) => !within(dialog).getByRole("img", { name: "Мапа сцени" }).classList.contains("invisible");
+
+    const dark = openFullscreen(buildView({ grid, lighting: "dark", members })).dialog;
+    expect(isPlainMapShown(dark)).toBe(false);
+    expect(findMaskedMap(dark)?.getAttribute("mask")).toMatch(/^url\(#/);
+    cleanup();
+
+    const fogged = openFullscreen(buildView({ grid, fog: { areas: [] }, members })).dialog;
+    expect(isPlainMapShown(fogged)).toBe(false);
+    expect(findMaskedMap(fogged)?.parentElement?.getAttribute("mask")).toMatch(/^url\(#/);
+    cleanup();
+
+    const gm = openFullscreen(gmView({ grid, lighting: "dark", fog: { areas: [] }, members })).dialog;
+    expect(isPlainMapShown(gm)).toBe(true);
+    expect(findMaskedMap(gm)).toBeNull();
+  });
+
   it("гравець без героя на мапі в темряві бачить підказку, а не мапу", () => {
     const { dialog } = openFullscreen(buildView({ grid, lighting: "dark", members: [member(1, "GM", null), member(2, "PLAYER", "Арвен")] }));
     expect(within(dialog).getByText("Поставте героя на мапу, щоб бачити")).toBeTruthy();
@@ -1482,7 +1505,7 @@ describe("інструменти мапи на весь екран", () => {
     it("кнопка з оком без вибраного героя вимкнена, а Ctrl+L підказує, що вибрати", () => {
       const { dialog } = openFullscreen(gmView({ ...darkScene, members: seeingHeroes() }));
       fireEvent.click(within(dialog).getByRole("button", { name: "Світло" }));
-      expect((within(dialog).getByRole("button", { name: /Очима героя/ }) as HTMLButtonElement).disabled).toBe(true);
+      expect((within(within(dialog).getByRole("region", { name: "Світло" })).getByRole("button", { name: /^Очима героя/ }) as HTMLButtonElement).disabled).toBe(true);
       fireEvent.keyDown(window, { code: "KeyL", ctrlKey: true });
       expect(toast).toHaveBeenCalledWith("Виберіть героя на мапі, тоді — око або Ctrl+L");
     });
@@ -1498,6 +1521,29 @@ describe("інструменти мапи на весь екран", () => {
       expect(within(dialog).queryByRole("button", { name: "Очима: Арвен · вийти" })).toBeNull();
     });
 
+    it("рейка вмикає огляд вибраного героя і приховує інших героїв за стіною та поза світлом", () => {
+      const heroAt = { x: 0.1, y: 0.55 };
+      const farAt = { x: 0.8, y: 0.55 };
+      const members = [...seeingHeroes(), member(4, "PLAYER", "Ліра", { x: 0.3, y: 0.55 }), member(5, "PLAYER", "Нія", { x: 0.4, y: 0.8 })];
+      const lights = [heroAt, farAt, { x: 0.3, y: 0.55 }].map((at, index) => ({ id: index + 1, at, brightFeet: 5, dimFeet: 0, isOn: true, look: DEFAULT_LIGHT_LOOK }));
+      const wall = asWall([{ x: 0.7, y: 0 }, { x: 0.7, y: 1 }]);
+      const { dialog } = openFullscreen(gmView({ ...darkScene, members, lights, walls: [wall] }));
+      const findHero = (name: string) => within(dialog).queryByRole("button", { name: new RegExp(`Токен «${name}»`) });
+      const eye = within(within(dialog).getByRole("toolbar", { name: "Інструменти мапи" })).getByRole("button", { name: "Очима героя" });
+      expect(findHero("Торин")).toBeTruthy();
+      fireEvent.click(eye);
+      fireEvent.click(within(screen.getByRole("dialog", { name: "Очима якого героя?" })).getByRole("button", { name: "Арвен" }));
+      const activeEye = within(within(dialog).getByRole("toolbar", { name: "Інструменти мапи" })).getByRole("button", { name: "Очима героя" });
+      expect(activeEye.getAttribute("aria-pressed")).toBe("true");
+      expect(findHero("Арвен")).toBeTruthy();
+      expect(findHero("Ліра")).toBeTruthy();
+      expect(findHero("Торин")).toBeNull();
+      expect(findHero("Нія")).toBeNull();
+      fireEvent.click(activeEye);
+      expect(findHero("Торин")).toBeTruthy();
+      expect(findHero("Нія")).toBeTruthy();
+    });
+
     it("темний зір фарбує сцену стилем кампанії, а майстер міняє стиль для всіх", async () => {
       const mine = [member(1, "GM", null), { ...member(2, "PLAYER", "Арвен", { x: 0.8, y: 0.55 }), darkvisionFeet: 60 }];
       const { dialog } = openFullscreen(buildView({ ...darkScene, darkvisionLook: "dim", members: mine }));
@@ -1506,9 +1552,12 @@ describe("інструменти мапи на весь екран", () => {
 
       const gm = openFullscreen(gmView({ ...darkScene, members: mine })).dialog;
       fireEvent.click(within(gm).getByRole("button", { name: "Світло" }));
-      await act(async () => fireEvent.click(within(within(gm).getByRole("radiogroup", { name: "Темний зір" })).getByRole("radio", { name: "Тепловізор" })));
+      expect(within(gm).getByRole("heading", { name: "Відтінок мапи" })).toBeTruthy();
+      expect(within(gm).getByRole("heading", { name: "Вигляд темного зору" })).toBeTruthy();
+      const darkvision = within(within(gm).getByRole("radiogroup", { name: "Вигляд темного зору" }));
+      await act(async () => fireEvent.click(darkvision.getByRole("radio", { name: "Тепловізор" })));
       expect(mocks.setDarkvisionLookAction).toHaveBeenCalledWith(7, "heat");
-      expect(within(within(gm).getByRole("radiogroup", { name: "Темний зір" })).getByRole("radio", { name: "Тепловізор" }).getAttribute("aria-checked")).toBe("true");
+      expect(darkvision.getByRole("radio", { name: "Тепловізор" }).getAttribute("aria-checked")).toBe("true");
     });
   });
 
@@ -1564,6 +1613,19 @@ describe("інструменти мапи на весь екран", () => {
     expect(mocks.saveSceneLightAction).toHaveBeenLastCalledWith(7, 1, null, { at: { x: 0.5, y: 0.5 }, brightFeet: 20, dimFeet: 20, isOn: true, look: DEFAULT_LIGHT_LOOK });
     expect(within(dialog).getByRole("button", { name: /Джерело світла 20\/20 фт/, pressed: true })).toBeTruthy();
     expect(panel.getByRole("group", { name: "Яскраве" })).toBeTruthy();
+  });
+
+  it("перетягування свічки ставить її у точку на мапі й ігнорує падіння за її межами", async () => {
+    const { dialog } = openFullscreen(gmView({ grid }));
+    fireEvent.click(within(dialog).getByRole("button", { name: "Світло" }));
+    const candle = within(dialog).getByRole("button", { name: /^Свічка/ });
+
+    drag(candle, { clientX: 10, clientY: 300 }, { clientX: 10, clientY: 250 });
+    expect(mocks.saveSceneLightAction).not.toHaveBeenCalled();
+
+    await act(async () => drag(candle, { clientX: 10, clientY: 300 }, { clientX: 100, clientY: 150 }));
+    expect(mocks.saveSceneLightAction).toHaveBeenCalledTimes(1);
+    expect(mocks.saveSceneLightAction).toHaveBeenCalledWith(7, 1, null, { at: { x: 0.25, y: 0.75 }, brightFeet: 5, dimFeet: 5, isOn: true, look: DEFAULT_LIGHT_LOOK });
   });
 });
 
@@ -1711,19 +1773,29 @@ describe("поворот і розмір токена на мапі", () => {
     return slot;
   }
 
-  it("на компʼютері дотик майстра до істоти показує збоку статблок, а другий дотик — вкладку «Токен» з рідкісними налаштуваннями", () => {
+  it("другий дотик відкриває вкладку «Токен», де майстер змінює колір обводки", async () => {
     const slot = renderWithSidePanel(gmView({ id: 9, creatures: [goblin(65, 5, { x: 0.5, y: 0.5 })] }));
-    const token = within(placeMap()).getByRole("button", { name: /«Гоблін 5»/ });
+    const map = placeMap();
+    const token = within(map).getByRole("button", { name: /«Гоблін 5»/ });
     tap(token);
     const panel = within(slot).getByRole("region", { name: "Гоблін 5" });
     expect(within(panel).getByRole("tab", { name: "Статблок", selected: true })).toBeTruthy();
     expect(within(panel).getByRole("region", { name: "Стани" })).toBeTruthy();
     expect(within(panel).getByText("Завантаження статблоку…")).toBeTruthy();
     expect(within(panel).queryByRole("slider", { name: "Розмір" })).toBeNull();
+    expect(within(panel).queryByRole("radiogroup")).toBeNull();
 
     tap(token);
     expect(screen.queryByRole("dialog", { name: "Гоблін 5" })).toBeNull();
     expect(within(panel).getByRole("tab", { name: "Токен", selected: true })).toBeTruthy();
+    const colors = within(within(panel).getByRole("radiogroup", { name: "Колір обводки" }));
+    expect(colors.getByRole("radio", { name: "Звичайна", checked: true })).toBeTruthy();
+    await act(async () => fireEvent.click(colors.getByRole("radio", { name: "Зелена" })));
+    expect(setMapCreatureBorderColorAction).toHaveBeenLastCalledWith(9, 65, "green");
+    expect(map.querySelector('[title="Гоблін 5"] .border-emerald-400')).toBeTruthy();
+    await act(async () => fireEvent.click(colors.getByRole("radio", { name: "Звичайна" })));
+    expect(setMapCreatureBorderColorAction).toHaveBeenLastCalledWith(9, 65, null);
+    expect(map.querySelector('[title="Гоблін 5"] .border-slate-500')).toBeTruthy();
     expect(within(panel).getByRole("slider", { name: "Розмір" })).toBeTruthy();
     fireEvent.click(within(panel).getByRole("button", { name: "Прибрати з мапи" }));
     expect(mocks.removeMapCreaturesAction).toHaveBeenCalledWith(9, 65);

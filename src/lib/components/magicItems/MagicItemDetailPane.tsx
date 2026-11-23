@@ -31,6 +31,8 @@ export type MagicItemDetail = {
   bonusToSavingThrows?: unknown;
   noArmorOrShieldForACBonus?: boolean | null;
   weaponBonus?: number | null;
+  isMundane?: boolean;
+  weaponProfile?: unknown;
   imageKey?: string | null;
   ruleset?: string;
   givesSpells?: {
@@ -98,7 +100,7 @@ export function MagicItemDetailPane({ item, isEmbedMode, sheetStatus, hasRollChi
           <span className="text-slate-300">{typeLabel(item.itemType)}</span>
           <span className="text-slate-500">•</span>
           <span className={cn("italic", ["RARE", "VERY_RARE", "LEGENDARY", "ARTIFACT"].includes(item.rarity) ? "text-amber-400 font-medium" : "text-slate-300")}>
-            {rarityLabel(item.rarity)}
+            {item.isMundane ? "Звичайний предмет" : rarityLabel(item.rarity)}
           </span>
           {item.requiresAttunement && (
             <>

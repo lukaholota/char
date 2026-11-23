@@ -1,9 +1,9 @@
 import { parseDiceNotation } from "./dice-roll";
 import { readRuleset } from "./ruleset";
 import type { DamageTypeKey, Ruleset } from "./types";
-import { parseWeaponProfile, type WeaponProfile } from "./weapon-profile";
+import { parseWeaponProfile, type ExtraDamage, type WeaponProfile } from "./weapon-profile";
 
-export type WeaponHitDamage = { count: number; sides: number; damageType: DamageTypeKey | null; customType?: string; condition: string | null };
+export type WeaponHitDamage = ExtraDamage & { condition: string | null };
 export type MagicWeaponTraits = { bonus: number; hits: WeaponHitDamage[]; profile: WeaponProfile | null };
 export type MagicWeaponSource = { engName?: string | null; ruleset?: string | null; description?: string | null; weaponBonus?: number | null; weaponProfile?: unknown };
 

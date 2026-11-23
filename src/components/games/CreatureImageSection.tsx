@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition, type ButtonHTMLAttributes, type ChangeEvent } from "react";
+import { useRef, useState, useTransition, type ButtonHTMLAttributes, type ChangeEvent } from "react";
 import { ImagePlus, Trash2, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { Button } from "@/components/ui/button";
 import { askToConfirm } from "@/components/ui/confirm-dialog";
-import { deleteTokenImageAction, listTokenImagesAction, setMapCreatureImageAction, uploadTokenImageAction } from "@/lib/actions/game-token-images";
+import { deleteTokenImageAction, setMapCreatureImageAction, uploadTokenImageAction } from "@/lib/actions/game-token-images";
+import { createImageFolderAction, moveLibraryImageAction } from "@/lib/actions/game-image-library";
 import { ImageCropDialog } from "@/lib/components/portrait/ImageCropDialog";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { ACCEPTED_IMAGE_MIME_TYPES, MAX_IMAGE_UPLOAD_BYTES } from "@/lib/media-upload-limits";
@@ -16,6 +17,9 @@ import { MAP_CREATURE_LIMITS, buildCreatureInitials, type MapCreatureView } from
 import { useCutoutImage } from "./token-cutout";
 import { useFileDrop } from "./use-file-drop";
 import { LIST_TOUCH_HOLD_MS, useTokenDrag } from "./use-token-drag";
+import { useImageLibrary } from "./use-image-library";
+import { ObjectLibraryFolders } from "./ObjectLibraryFolders";
+import { isLibraryImage, uploadLibraryImage, uploadLibraryImages } from "./upload-library-images";
 
 export type CutoutControl = { value: boolean; onChange: (isCutout: boolean) => void };
 type Props = { sessionId: number; creature: MapCreatureView; cutout: CutoutControl };
@@ -59,21 +63,6 @@ function TokenPreview({ creature, isCutout, onLoad }: { creature: MapCreatureVie
   );
 }
 
-function useTokenImageKeys() {
-  const [keys, setKeys] = useState<string[] | null>(null);
-  const [hasFailed, setHasFailed] = useState(false);
-  const load = async () => {
-    setHasFailed(false);
-    const result = await listTokenImagesAction().catch(() => null);
-    if (result?.ok) setKeys(result.value);
-    else setHasFailed(true);
-  };
-  useEffect(() => {
-    void load();
-  }, []);
-  return { keys, hasFailed, load, setKeys };
-}
-
 function CreatureImagePicker({ sessionId, creature, onApplied }: { sessionId: number; creature: MapCreatureView; onApplied: () => void }) {
   const router = useModeRouter();
   const [isBusy, startBusy] = useTransition();
@@ -92,20 +81,63 @@ function CreatureImagePicker({ sessionId, creature, onApplied }: { sessionId: nu
 }
 
 type Point = { clientX: number; clientY: number };
-type MapDrop = { onDrop: (imageKey: string, point: Point) => Promise<void>; canDropAt: (point: Point) => boolean };
+type MapDrop = { onDrop: (imageKey: string, point: Point) => Promise<void>; canDropAt: (point: Point) => boolean; folderId: number | null; onFolderChange: (id: number | null) => void };
 type LibraryProps = { chosenKey: string | null; cropTitle: string; onPick: (imageKey: string) => Promise<void>; mapDrop?: MapDrop };
 
 /// Бібліотека зображень майстра: спільна для вигляду істот і обʼєктів на мапі.
 export function TokenImageLibrary({ chosenKey, cropTitle, onPick, mapDrop }: LibraryProps) {
   const router = useModeRouter();
   const inputRef = useRef<HTMLInputElement>(null);
-  const { keys, hasFailed, load, setKeys } = useTokenImageKeys();
+  const { library, hasFailed, load, setLibrary } = useImageLibrary(Boolean(mapDrop));
+  const folderId = mapDrop?.folderId ?? null;
+  const [moveTo, setMoveTo] = useState<number | null | undefined>(undefined);
+  const [progress, setProgress] = useState<string | null>(null);
+  const [importResult, setImportResult] = useState<Awaited<ReturnType<typeof uploadLibraryImages>> | null>(null);
   const [croppingFile, setCroppingFile] = useState<File | null>(null);
   const [wantsToDelete, setWantsToDelete] = useState(false);
   const [isBusy, startBusy] = useTransition();
-  const isFull = (keys?.length ?? 0) >= MAP_CREATURE_LIMITS.imagesPerUser;
+  const keys = library?.images.filter((image) => image.folderId === folderId).map((image) => image.imageKey) ?? null;
+  const capacity = MAP_CREATURE_LIMITS.imagesPerUser - (library?.images.length ?? 0);
+  const isFull = capacity <= 0;
   const isDeleting = wantsToDelete && Boolean(keys?.length);
-  const drop = useFileDrop(setCroppingFile, isBusy || isFull || isDeleting);
+  const changeFolder = (id: number | null) => {
+    mapDrop?.onFolderChange(id);
+    setMoveTo(undefined);
+    setWantsToDelete(false);
+  };
+  const createFolder = async (name: string) => {
+    const result = await createImageFolderAction(name).catch(() => null);
+    if (!result?.ok) {
+      toast.error(result?.error ?? CONNECTION_ERROR);
+      return undefined;
+    }
+    setLibrary((current) => current && ({ ...current, folders: [...current.folders.filter(({ id }) => id !== result.value.id), result.value].toSorted((a, b) => a.name.localeCompare(b.name, "uk")) }));
+    changeFolder(result.value.id);
+    return result.value.id;
+  };
+  const appendImages = (added: string[], destination: number | null) => {
+    setLibrary((current) => ({ folders: current?.folders ?? [], images: [...added.toReversed().map((imageKey) => ({ imageKey, folderId: destination })), ...(current?.images ?? [])] }));
+  };
+  const importFiles = (files: File[], directory?: string) => startBusy(async () => {
+    if (!files.some(isLibraryImage)) return void toast.error("У виборі немає зображень JPEG, PNG або WebP");
+    const destination = directory ? await createFolder(directory) : folderId;
+    if (destination === undefined) return;
+    setImportResult(null);
+    setProgress(`0 / ${files.length}`);
+    const result = await uploadLibraryImages(files, destination, capacity, (done) => setProgress(`${done} / ${files.length}`));
+    setProgress(null);
+    setImportResult(result);
+    appendImages(result.keys, destination);
+  });
+  const moveImage = (imageKey: string, destination: number | null) => startBusy(async () => {
+    const result = await moveLibraryImageAction(imageKey, destination).catch(() => null);
+    if (!result?.ok) return void toast.error(result?.error ?? CONNECTION_ERROR);
+    setLibrary((current) => current && ({ ...current, images: current.images.map((image) => image.imageKey === imageKey ? { ...image, folderId: destination } : image) }));
+    toast.success("Зображення переміщено");
+  });
+  const isMoving = moveTo !== undefined;
+  const cannotUpload = isBusy || isFull || isDeleting || isMoving || library === null;
+  const drop = useFileDrop(setCroppingFile, cannotUpload, mapDrop ? importFiles : undefined);
   const canDropAt = (point: Point) => mapDrop?.canDropAt(point) ?? false;
   const drag = useTokenDrag<string>((key, point) => mapDrop && canDropAt(point) && startBusy(() => mapDrop.onDrop(key, point)), canDropAt, (key) => startBusy(() => onPick(key)), LIST_TOUCH_HOLD_MS);
 
@@ -120,9 +152,9 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick, mapDrop }: Lib
     startBusy(async () => {
       const formData = new FormData();
       formData.set("file", blob, "token.webp");
-      const uploaded = await uploadTokenImageAction(formData).catch(() => null);
+      const uploaded = await (mapDrop ? uploadLibraryImage(blob, folderId, true) : uploadTokenImageAction(formData)).catch(() => null);
       if (!uploaded?.ok) return void toast.error(uploaded?.error ?? CONNECTION_ERROR);
-      setKeys((current) => [uploaded.value, ...(current ?? [])]);
+      appendImages([uploaded.value], folderId);
       await onPick(uploaded.value);
     });
   };
@@ -133,7 +165,7 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick, mapDrop }: Lib
     startBusy(async () => {
       const result = await deleteTokenImageAction(imageKey).catch(() => null);
       if (!result?.ok) return void toast.error(result?.error ?? CONNECTION_ERROR);
-      setKeys((current) => (current ?? []).filter((key) => key !== imageKey));
+      setLibrary((current) => current && ({ ...current, images: current.images.filter((image) => image.imageKey !== imageKey) }));
       router.refresh();
     });
   };
@@ -141,24 +173,28 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick, mapDrop }: Lib
   return (
     <div className="grid gap-2" aria-busy={isBusy || keys === null}>
       <div className="flex min-h-11 items-center justify-between gap-2">
-        <span className="text-sm text-slate-400">{isDeleting ? "Торкніться зображення, щоб видалити" : "Ваші зображення"}</span>
-        {keys?.length ? <Button type="button" variant="ghost" onClick={() => setWantsToDelete(!isDeleting)} className="h-11 shrink-0 px-3 text-slate-300">{isDeleting ? "Готово" : "Видалити зайві"}</Button> : null}
+        <span className="text-sm text-slate-400">{isDeleting ? "Торкніться зображення, щоб видалити" : isMoving ? "Виберіть зображення для переміщення" : "Ваші зображення"}</span>
+        {keys?.length && !isMoving ? <Button type="button" variant="ghost" onClick={() => setWantsToDelete(!isDeleting)} className="h-11 shrink-0 px-3 text-slate-300">{isDeleting ? "Готово" : "Видалити зайві"}</Button> : null}
       </div>
+      {mapDrop && library && !isDeleting ? <ObjectLibraryFolders folders={library.folders} folderId={folderId} isBusy={isBusy} canUpload={!cannotUpload} moveTo={moveTo} onSelect={changeFolder} onCreate={async (name) => (await createFolder(name)) !== undefined} onUpload={importFiles} onMoveTo={setMoveTo} /> : null}
+      {progress ? <p role="status" className="text-sm tabular-nums text-slate-300">Завантаження {progress}</p> : null}
+      {importResult ? <p role="status" className="text-sm text-slate-300">Завантажено {importResult.keys.length} із {importResult.keys.length + importResult.failures.length}.</p> : null}
+      {importResult?.failures.length ? <details className="break-words text-sm text-rose-200"><summary className="cursor-pointer">Пропущено файлів: {importResult.failures.length}</summary><ul className="mt-1 space-y-1">{importResult.failures.map(({ name, error }, index) => <li key={`${name}-${index}`}>{name} · {error}</li>)}</ul></details> : null}
       {hasFailed ? (
         <LibraryLoadError onRetry={load} />
       ) : (
         <div className="grid grid-cols-4 gap-2">
-          <button type="button" disabled={isBusy || isFull || isDeleting} onClick={() => inputRef.current?.click()} {...drop.bindDrop} title="Натисніть або перетягніть файл сюди" className={cn(TILE_CLASS, "grid place-items-center gap-1 border-dashed p-1 text-xs text-slate-200 disabled:opacity-50", drop.isOver ? "border-amber-300 bg-amber-300/10" : "border-white/30")}>
+          <button type="button" disabled={cannotUpload} onClick={() => inputRef.current?.click()} {...drop.bindDrop} title="Натисніть або перетягніть файл сюди" className={cn(TILE_CLASS, "grid place-items-center gap-1 border-dashed p-1 text-xs text-slate-200 disabled:opacity-50", drop.isOver ? "border-amber-300 bg-amber-300/10" : "border-white/30")}>
             <Upload className="h-5 w-5" aria-hidden />
             <span>{isBusy ? "Зачекайте" : drop.isOver ? "Сюди" : "Нове"}</span>
           </button>
           {keys === null ? <div className={cn(TILE_CLASS, "border-white/10 bg-white/5")} aria-hidden /> : null}
           {keys?.map((key, index) => (
-            <LibraryTile key={key} imageKey={key} index={index + 1} isChosen={key === chosenKey} isDeleting={isDeleting} disabled={isBusy} onPick={() => (isDeleting ? void deleteImage(key) : startBusy(() => onPick(key)))} dragBinding={mapDrop && !isDeleting ? drag.bindToken(key) : undefined} />
+            <LibraryTile key={key} imageKey={key} index={index + 1} isChosen={key === chosenKey} isDeleting={isDeleting} isMoving={isMoving} disabled={isBusy} onPick={() => isDeleting ? void deleteImage(key) : moveTo !== undefined ? moveImage(key, moveTo) : startBusy(() => onPick(key))} dragBinding={mapDrop && !isDeleting && !isMoving ? drag.bindToken(key) : undefined} />
           ))}
         </div>
       )}
-      {keys?.length === 0 ? <p className="text-sm text-slate-400">Завантажте зображення один раз — і ставте його на мапу істотам чи обʼєктам.</p> : null}
+      {keys?.length === 0 ? <p className="text-sm text-slate-400">{folderId === null ? "Завантажте зображення один раз — і ставте його на мапу істотам чи обʼєктам." : "У папці ще немає зображень."}</p> : null}
       {isFull ? <p className="text-sm text-slate-400">{`У бібліотеці вже ${MAP_CREATURE_LIMITS.imagesPerUser} зображень — видаліть непотрібне, щоб додати нове.`}</p> : null}
       {drag.ghost ? (
         // eslint-disable-next-line @next/next/no-img-element -- та сама мініатюра, що й у бібліотеці
@@ -172,11 +208,11 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick, mapDrop }: Lib
 
 const TILE_CLASS = "relative aspect-square min-h-11 overflow-hidden rounded-xl border";
 
-type TileProps = { imageKey: string; index: number; isChosen: boolean; isDeleting: boolean; disabled: boolean; onPick: () => void; dragBinding?: Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onPointerDown"> };
+type TileProps = { imageKey: string; index: number; isChosen: boolean; isDeleting: boolean; isMoving: boolean; disabled: boolean; onPick: () => void; dragBinding?: Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onPointerDown"> };
 
-function LibraryTile({ imageKey, index, isChosen, isDeleting, disabled, onPick, dragBinding }: TileProps) {
+function LibraryTile({ imageKey, index, isChosen, isDeleting, isMoving, disabled, onPick, dragBinding }: TileProps) {
   return (
-    <button type="button" disabled={disabled} aria-pressed={isDeleting ? undefined : isChosen} aria-label={`${isDeleting ? "Видалити" : "Поставити"} зображення ${index}`} onClick={(event) => (!dragBinding || event.detail === 0) && onPick()} {...dragBinding} className={cn(TILE_CLASS, "bg-slate-900 select-none [-webkit-touch-callout:none] disabled:opacity-50", isChosen ? "border-amber-300 ring-1 ring-amber-300" : "border-white/10 hover:border-white/30")}>
+    <button type="button" disabled={disabled} aria-pressed={isDeleting || isMoving ? undefined : isChosen} aria-label={`${isDeleting ? "Видалити" : isMoving ? "Перемістити" : "Поставити"} зображення ${index}`} onClick={(event) => (!dragBinding || event.detail === 0) && onPick()} {...dragBinding} className={cn(TILE_CLASS, "bg-slate-900 select-none [-webkit-touch-callout:none] disabled:opacity-50", isChosen ? "border-amber-300 ring-1 ring-amber-300" : "border-white/10 hover:border-white/30")}>
       <ContentImage src={buildMediaImageUrl(imageKey, "thumbnail")} alt="" provenance="manual" fill sizes="96px" className="object-contain" />
       {isDeleting ? <span className="absolute inset-0 grid place-items-center bg-slate-950/60 text-rose-200"><Trash2 className="h-5 w-5" aria-hidden /></span> : null}
     </button>

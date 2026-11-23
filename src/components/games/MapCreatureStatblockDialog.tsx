@@ -7,20 +7,23 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useCreatureStatblock } from "@/hooks/useCreatureStatblock";
 import { cn } from "@/lib/utils";
-import { CREATURE_TOKEN_SIZES, CREATURE_TOKEN_SIZE_LABELS, type CreatureTokenSize, type MapCreatureView } from "@/rules/game-map-creatures";
+import { CREATURE_TOKEN_SIZES, CREATURE_TOKEN_SIZE_LABELS, type CreatureBorderColor, type CreatureTokenSize, type MapCreatureView } from "@/rules/game-map-creatures";
 import { CreatureImageSection, type CutoutControl } from "./CreatureImageSection";
 import { DownBadge, MapCreatureHitPoints, type HitPointsControl } from "./MapCreatureHitPoints";
 import { CreaturePlayerNameEditor, type NameControl } from "./CreaturePlayerNameEditor";
 import { RollTargetButton, type TargetControl } from "./RollTargetControls";
 import { TokenConditionToggles, type ConditionsControl } from "./TokenConditionToggles";
+import { Segmented } from "./MapToolbar";
 
 type SizeControl = { value: CreatureTokenSize; onChange: (size: CreatureTokenSize) => void };
-export type CreatureControls = { onRemove: (() => void) | null; size: SizeControl | null; cutout: CutoutControl | null; hitPoints: HitPointsControl | null; conditions: ConditionsControl | null; target: TargetControl | null; naming: NameControl | null };
+type BorderColorControl = { value: CreatureBorderColor; onChange: (color: CreatureBorderColor) => void };
+export type CreatureControls = { onRemove: (() => void) | null; size: SizeControl | null; cutout: CutoutControl | null; hitPoints: HitPointsControl | null; conditions: ConditionsControl | null; target: TargetControl | null; naming: NameControl | null; borderColor: BorderColorControl | null };
 type Props = { creature: MapCreatureView | null; onClose: () => void; sessionId: number; controls: CreatureControls };
+const BORDER_COLORS = [{ value: "default", label: "Звичайна" }, { value: "green", label: "Зелена" }, { value: "red", label: "Червона" }] as const;
 
 /// Майстер править істоту в правій колонці поруч зі статблоком. Гравець статблока не отримує: бачить картинку, стани й ціль унизу.
 export function MapCreatureStatblockDialog({ creature, onClose, sessionId, controls }: Props) {
-  const { onRemove, size, cutout, hitPoints, conditions, target, naming } = controls;
+  const { onRemove, size, cutout, hitPoints, conditions, target, naming, borderColor } = controls;
   const { creature: statblock, loreGroup } = useCreatureStatblock(creature?.creatureKey ?? null, creature?.ruleset ?? "RULES_2014", null);
   const isSplit = size !== null;
   const isPlayerView = creature !== null && creature.creatureKey === null;
@@ -31,7 +34,7 @@ export function MapCreatureStatblockDialog({ creature, onClose, sessionId, contr
         <div className="grid gap-2 lg:col-span-2">
           <div className="flex flex-wrap items-center gap-2 pr-10">
             <DialogTitle className="normal-case leading-8 tracking-normal">{creature?.label}</DialogTitle>
-            {creature ? <CreatureBadges creature={creature} /> : null}
+            {creature?.isDown ? <DownBadge /> : null}
           </div>
         </div>
         {isPlayerView ? <CreaturePortrait creature={creature} /> : null}
@@ -39,6 +42,7 @@ export function MapCreatureStatblockDialog({ creature, onClose, sessionId, contr
           {isSplit && target ? <RollTargetButton control={target} /> : null}
           {naming && creature ? <CreaturePlayerNameEditor key={`${creature.id}-${naming.value}`} control={naming} realName={realName} /> : null}
           {cutout && creature ? <CreatureImageSection key={creature.id} sessionId={sessionId} creature={creature} cutout={cutout} /> : null}
+          {borderColor ? <TokenBorderColorPicker control={borderColor} /> : null}
           {hitPoints ? <MapCreatureHitPoints control={hitPoints} /> : null}
           {conditions ? <TokenConditionToggles control={conditions} /> : null}
           {size ? <TokenSizePicker size={size} /> : null}
@@ -64,7 +68,7 @@ export function CreatureSheet({ creature, controls }: { creature: MapCreatureVie
   const { creature: statblock, loreGroup } = useCreatureStatblock(creature.creatureKey, creature.ruleset, null);
   return (
     <>
-      <div className="flex flex-wrap items-center gap-2"><CreatureBadges creature={creature} /></div>
+      {creature.isDown ? <div className="flex"><DownBadge /></div> : null}
       {controls.target ? <RollTargetButton control={controls.target} /> : null}
       {controls.hitPoints ? <MapCreatureHitPoints control={controls.hitPoints} /> : null}
       <StatblockBody creature={creature} statblock={statblock} loreDescription={loreGroup?.description ?? null} />
@@ -74,25 +78,25 @@ export function CreatureSheet({ creature, controls }: { creature: MapCreatureVie
 }
 
 export function CreatureTokenSettings({ creature, sessionId, controls }: { creature: MapCreatureView; sessionId: number; controls: CreatureControls }) {
-  const { naming, cutout, size, onRemove } = controls;
+  const { naming, cutout, size, borderColor, onRemove } = controls;
   return (
     <>
       {naming ? <CreaturePlayerNameEditor key={`${creature.id}-${naming.value}`} control={naming} realName={creature.statblockName ?? creature.label} /> : null}
       {cutout ? <CreatureImageSection key={creature.id} sessionId={sessionId} creature={creature} cutout={cutout} /> : null}
+      {borderColor ? <TokenBorderColorPicker control={borderColor} /> : null}
       {size ? <TokenSizePicker size={size} /> : null}
       {onRemove ? <RemoveFromMapButton onRemove={onRemove} /> : null}
     </>
   );
 }
 
-function CreatureBadges({ creature }: { creature: MapCreatureView }) {
+function TokenBorderColorPicker({ control }: { control: BorderColorControl }) {
+  const value = control.value ?? "default";
   return (
-    <>
-      <span className={cn("rounded-full border px-2 py-0.5 text-xs", creature.isAlly ? "border-emerald-400/50 text-emerald-200" : "border-rose-400/50 text-rose-200")}>
-        {creature.isAlly ? "Союзник" : "Ворог"}
-      </span>
-      {creature.isDown ? <DownBadge /> : null}
-    </>
+    <div className="grid gap-2">
+      <span className="text-sm text-slate-400">Колір обводки</span>
+      <Segmented label="Колір обводки" value={value} options={[...BORDER_COLORS]} onChange={(next) => { if (next !== value) control.onChange(next === "default" ? null : next); }} />
+    </div>
   );
 }
 

@@ -2,10 +2,12 @@
 
 import { Lightbulb, LightbulbOff, Trash2 } from "lucide-react";
 import { useId } from "react";
+import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
+import type { SceneFog } from "@/rules/game-fog";
 import { MAP_VIEW_WIDTH, findViewUnitsPerFoot, toViewPoint, type MapFrame } from "@/rules/game-grid";
 import { LIGHT_LIMITS, LIGHT_PRESETS, type DarkvisionLook, type SceneLighting, type SceneSight, type TokenLight } from "@/rules/game-lighting";
 import type { ViewPoint } from "@/rules/map-visibility";
@@ -14,11 +16,12 @@ import type { MapHistory } from "./map-history";
 import { MapTintRows } from "./MapAtmosphere";
 import { CharacterViewButton, DarkvisionLookRows, DarkvisionTint } from "./MapDarkvision";
 import { buildConePath, LightGlows, LightLookRows } from "./MapLightLook";
-import { MapSvg } from "./MapOverlay";
+import { FogMask, MapSvg } from "./MapOverlay";
 import { HistoryButtons, Segmented, Stepper, ToolPanel } from "./MapToolbar";
 import { COUNTER_ZOOM } from "./MapTokenSlot";
-import type { MapLights, TokenLights, TokenLightTarget } from "./use-map-lights";
+import type { LightPreset, MapLights, TokenLights, TokenLightTarget } from "./use-map-lights";
 import type { CharacterView, FadingSight } from "./use-map-sight";
+import { LIST_TOUCH_HOLD_MS, useTokenDrag } from "./use-token-drag";
 
 const LIGHTINGS: Array<{ value: SceneLighting; label: string; hint: string }> = [
   { value: "off", label: "Вимкнено", hint: "Мапа як завжди: гравці бачать усе, крім туману." },
@@ -38,11 +41,11 @@ const describeFeet = (light: TokenLight) => `${light.brightFeet}/${light.dimFeet
 const toPercent = (at: { x: number; y: number }) => ({ left: `${at.x * 100}%`, top: `${at.y * 100}%` });
 
 /// Пляма світла: суцільна майже до краю, далі мʼяко гасне; поза радіусом — нічого.
-function SoftDisc({ id, at, radius, shade }: { id: string; at: ViewPoint; radius: number; shade: string }) {
+function SoftDisc({ id, at, radius, shade, solidUntil = 0.85 }: { id: string; at: ViewPoint; radius: number; shade: string; solidUntil?: number }) {
   return (
     <radialGradient id={id} gradientUnits="userSpaceOnUse" cx={at.x} cy={at.y} r={radius}>
       <stop offset={0} stopColor={shade} />
-      <stop offset={0.85} stopColor={shade} />
+      <stop offset={solidUntil} stopColor={shade} />
       <stop offset={1} stopColor={shade} stopOpacity={0} />
     </radialGradient>
   );
@@ -87,6 +90,52 @@ export function MapSightLayer({ sight, isVeil, className }: { sight: SceneSight;
       <LightGlows sight={sight} idPrefix={id} />
       <rect width={MAP_VIEW_WIDTH} height={height} mask={findUrl("mask")} className={isVeil ? "fill-slate-950/55" : "fill-slate-950"} />
     </MapSvg>
+  );
+}
+
+/// Мапа гравця, вже обрізана туманом і темрявою в тому самому малюнку. Окремий шар темряви браузер може не встигнути
+/// домалювати при швидкому зумі великої мапи — тоді під ним відкрилася б уся мапа; тут без маски немає й мапи.
+export function MapSeenImage({ src, aspect, fog, sight }: { src: string; aspect: number; fog: SceneFog | null; sight: SceneSight | null }) {
+  const id = useId();
+  const findUrl = (name: string) => `url(#${CSS.escape(`${id}${name}`)})`;
+  const height = MAP_VIEW_WIDTH / aspect;
+  const image = <image href={src} width={MAP_VIEW_WIDTH} height={height} preserveAspectRatio="none" mask={sight ? findUrl("sight") : undefined} />;
+  return (
+    <MapSvg aspect={aspect}>
+      <defs>
+        {sight ? <SeenMask id={`${id}sight`} sight={sight} /> : null}
+        {fog ? (
+          <>
+            <FogMask id={`${id}fog`} fog={fog} aspect={aspect} isVeil={false} />
+            <mask id={`${id}clear`} maskUnits="userSpaceOnUse" x={0} y={0} width={MAP_VIEW_WIDTH} height={height}>
+              <rect width={MAP_VIEW_WIDTH} height={height} fill="white" />
+              <rect width={MAP_VIEW_WIDTH} height={height} fill="black" mask={findUrl("fog")} />
+            </mask>
+          </>
+        ) : null}
+      </defs>
+      {fog ? <g mask={findUrl("clear")}>{image}</g> : image}
+    </MapSvg>
+  );
+}
+
+/// Біле — те, що герої бачать хоч трохи: лише там мапа взагалі є.
+function SeenMask({ id, sight }: { id: string; sight: SceneSight }) {
+  const height = MAP_VIEW_WIDTH / sight.aspect;
+  const patches = sight.lighting === "dark" ? collectPatches(sight) : [];
+  const findUrl = (name: string) => `url(#${CSS.escape(`${id}${name}`)})`;
+  return (
+    <>
+      <clipPath id={`${id}eyes`}>
+        {sight.eyes.map((eye, index) => <polygon key={index} points={toPoints(eye.polygon)} />)}
+      </clipPath>
+      {patches.map((patch) => <SoftDisc key={patch.key} id={`${id}${patch.key}`} at={patch.at} radius={patch.radius} shade="white" solidUntil={0.999} />)}
+      <mask id={id} maskUnits="userSpaceOnUse" x={0} y={0} width={MAP_VIEW_WIDTH} height={height}>
+        <g clipPath={findUrl("eyes")}>
+          {sight.lighting === "dark" ? patches.map((patch) => <polygon key={patch.key} points={toPoints(patch.polygon)} fill={findUrl(patch.key)} />) : <rect width={MAP_VIEW_WIDTH} height={height} fill="white" />}
+        </g>
+      </mask>
+    </>
   );
 }
 
@@ -176,15 +225,8 @@ export function LightPanel({ view, lights, hasGrid, characterView, history, onCl
         </div>
       ) : (
         <div className="space-y-2 border-t border-white/10 pt-2">
-          <p className="text-sm leading-snug text-slate-400">{hasGrid ? (lights.isFull ? `На сцені вже ${LIGHT_LIMITS.perScene} джерел — приберіть зайві.` : "Джерело стане в центр видимої частини мапи. Дотик до нього — змінити, тягніть — пересунути.") : "Спершу підженіть сітку — світло міряється футами."}</p>
-          <div className="grid grid-cols-2 gap-2">
-            {LIGHT_PRESETS.map((preset) => (
-              <Button key={preset.key} type="button" variant="outline" disabled={!hasGrid || lights.isFull} onClick={() => void lights.placePreset(preset)} className="h-auto min-h-11 flex-col items-start gap-0 px-3 py-1.5 text-left">
-                <span className="w-full truncate">{preset.name}</span>
-                <span className="text-xs tabular-nums text-slate-400">{describeFeet(preset)}</span>
-              </Button>
-            ))}
-          </div>
+          <p className="text-sm leading-snug text-slate-400">{hasGrid ? (lights.isFull ? `На сцені вже ${LIGHT_LIMITS.perScene} джерел — приберіть зайві.` : "Перетягніть джерело на мапу або натисніть, щоб поставити його в центр. На сенсорному екрані спершу затисніть джерело.") : "Спершу підженіть сітку — світло міряється футами."}</p>
+          <LightPresetPicker lights={lights} disabled={!hasGrid || lights.isFull} />
         </div>
       )}
       <MapTintRows view={view} />
@@ -193,6 +235,31 @@ export function LightPanel({ view, lights, hasGrid, characterView, history, onCl
         <CharacterViewButton characterView={characterView} />
       </div>
     </ToolPanel>
+  );
+}
+
+function LightPresetPicker({ lights, disabled }: { lights: MapLights; disabled: boolean }) {
+  const { bindToken, ghost } = useTokenDrag<LightPreset>(
+    (preset, point) => { if (!disabled) void lights.placePreset(preset, point); },
+    lights.canDropPreset,
+    (preset) => { if (!disabled) void lights.placePreset(preset); },
+    LIST_TOUCH_HOLD_MS,
+  );
+  return (
+    <div className="grid grid-cols-2 gap-2">
+      {LIGHT_PRESETS.map((preset) => (
+        <Button key={preset.key} type="button" variant="outline" disabled={disabled} onClick={(event) => { if (event.detail === 0) void lights.placePreset(preset); }} {...bindToken(preset)} className="h-auto min-h-11 cursor-grab select-none flex-col items-start gap-0 px-3 py-1.5 text-left [-webkit-touch-callout:none] active:cursor-grabbing">
+          <span className="w-full truncate">{preset.name}</span>
+          <span className="text-xs tabular-nums text-slate-400">{describeFeet(preset)}</span>
+        </Button>
+      ))}
+      {ghost ? createPortal(
+        <span aria-hidden className={cn("pointer-events-none fixed z-[10000] grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-amber-200 bg-amber-950 text-amber-100 shadow-lg shadow-black/60", !ghost.isOverTarget && "opacity-50")} style={{ left: ghost.clientX, top: ghost.clientY }}>
+          <Lightbulb className="h-5 w-5" />
+        </span>,
+        document.body,
+      ) : null}
+    </div>
   );
 }
 

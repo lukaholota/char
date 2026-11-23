@@ -11,6 +11,7 @@ import type { MapHistory } from "./map-history";
 import { HistoryButtons, Segmented, Stepper, ToolPanel } from "./MapToolbar";
 import { DELETE_KEYS, useMapKey } from "./use-map-key";
 import { ObjectLibraryPicker } from "./ObjectLibraryPicker";
+import { MapObjectAppearance } from "./MapObjectAppearance";
 import { GroupedTokenFrame, TokenTransformHandles } from "./TokenTransformControls";
 import type { MapObjects } from "./use-map-objects";
 
@@ -30,9 +31,10 @@ export function MapObjectsLayer({ objects, isGrouped }: { objects: MapObjects; i
         const isChosen = objects.chosen?.id === object.id;
         const isEditing = objects.isEditable(object);
         const box = { left: `${at.x * 100}%`, top: `${at.y * 100}%`, width: `${objects.findWidthShare(object) * 100}%` };
+        const appearance = object.appearance;
         const image = (
           // eslint-disable-next-line @next/next/no-img-element -- зображення з бібліотеки вже стиснуте до webp, а розмір залежить від зуму мапи
-          <img src={object.imageUrl} alt={isEditing ? "" : (object.name ?? "")} draggable={false} className="block h-auto w-full select-none" style={object.rotation ? { transform: `rotate(${object.rotation}deg)` } : undefined} />
+          <img src={object.imageUrl} alt={isEditing ? "" : (object.name ?? "")} width={512} height={Math.round(512 / object.aspect)} draggable={false} className="block h-auto w-full select-none" style={{ transform: object.rotation ? `rotate(${object.rotation}deg)` : undefined, filter: appearance ? `brightness(${appearance.brightness}%) contrast(${appearance.contrast}%) hue-rotate(${appearance.hue}deg)` : undefined, opacity: appearance ? appearance.opacity / 100 : undefined }} />
         );
         return (
           <div key={object.id} data-object-tap={object.id} className={cn("absolute -translate-x-1/2 -translate-y-1/2", !isEditing && "pointer-events-none", object.isHidden && "opacity-50", objects.ghostId === object.id && "opacity-80")} style={box}>
@@ -51,6 +53,7 @@ export function MapObjectsLayer({ objects, isGrouped }: { objects: MapObjects; i
 
 export function ObjectsPanel({ objects, history, onClose }: { objects: MapObjects; history: MapHistory; onClose: () => void }) {
   const [source, setSource] = useState<ImageSource>("own");
+  const [folderId, setFolderId] = useState<number | null>(null);
   const chosen = objects.chosen;
   if (chosen) return <ChosenObjectPanel key={chosen.id} object={chosen} objects={objects} history={history} onClose={onClose} />;
   return (
@@ -62,7 +65,7 @@ export function ObjectsPanel({ objects, history, onClose }: { objects: MapObject
         <>
           <Segmented label="Звідки картинка" value={source} options={[...IMAGE_SOURCES]} onChange={setSource} />
           {source === "own" ? (
-            <TokenImageLibrary chosenKey={null} cropTitle="Зображення обʼєкта" onPick={(imageKey) => objects.placeFromLibrary(imageKey)} mapDrop={{ onDrop: (imageKey, point) => objects.placeFromLibrary(imageKey, 1, point), canDropAt: objects.canDropAt }} />
+            <TokenImageLibrary chosenKey={null} cropTitle="Зображення обʼєкта" onPick={(imageKey) => objects.placeFromLibrary(imageKey)} mapDrop={{ onDrop: (imageKey, point) => objects.placeFromLibrary(imageKey, 1, point), canDropAt: objects.canDropAt, folderId, onFolderChange: setFolderId }} />
           ) : (
             <ObjectLibraryPicker onPick={(imageKey, widthCells, dropPoint) => void objects.placeFromLibrary(imageKey, widthCells, dropPoint)} canDropAt={objects.canDropAt} />
           )}
@@ -86,6 +89,7 @@ function ChosenObjectPanel({ object, objects, history, onClose }: { object: Scen
       </label>
       <Stepper label="Розмір" value={describeCells(object.widthCells)} onStep={changeSize} canDecrease={object.widthCells > OBJECT_LIMITS.widthCells.min} canIncrease={object.widthCells < OBJECT_LIMITS.widthCells.max} />
       <Stepper label="Поворот" value={`${object.rotation}°`} onStep={turn} />
+      <MapObjectAppearance value={object.appearance} onPreview={(appearance) => objects.previewAppearance(object.id, appearance)} onCommit={(appearance) => objects.change(object.id, { ...placement, appearance })} />
       <div className="grid grid-cols-2 gap-2 border-t border-white/10 pt-2">
         <Button type="button" variant="outline" onClick={objects.raise} className="h-11 gap-2"><ArrowUpToLine className="h-4 w-4" aria-hidden />Наперед</Button>
         <Button type="button" variant="outline" onClick={objects.lower} className="h-11 gap-2"><ArrowDownToLine className="h-4 w-4" aria-hidden />Назад</Button>

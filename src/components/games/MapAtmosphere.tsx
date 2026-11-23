@@ -151,7 +151,10 @@ export function MapTintRows({ view }: { view: GameSessionView }) {
   const { tint, tintColor, tintStrength } = atmosphere;
   return (
     <div className="space-y-2 border-t border-white/10 pt-2">
-      <p className="text-sm text-slate-300">Відтінок мапи</p>
+      <div className="space-y-1">
+        <h4 className="text-sm font-medium text-slate-200">Відтінок мапи</h4>
+        <p className="text-sm leading-snug text-slate-400">Змінює кольори мапи в цій сцені.</p>
+      </div>
       <Segmented label="Відтінок мапи" value={tint} options={TINT_OPTIONS} onChange={(next) => change({ tint: next, tintColor: next === "custom" ? (tintColor ?? FIRST_CUSTOM_TINT) : tintColor })} isTwoRows />
       {tint === "custom" ? <ColorSpectrumPicker label="Колір відтінку" value={tintColor} onChange={(hex) => change({ tintColor: hex })} /> : null}
       {tint === "none" ? null : <Stepper label="Інтенсивність" value={`${tintStrength}%`} onStep={(direction) => change({ tintStrength: tintStrength + direction * STRENGTH.step })} canDecrease={tintStrength > STRENGTH.min} canIncrease={tintStrength < STRENGTH.max} />}

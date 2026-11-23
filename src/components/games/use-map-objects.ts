@@ -4,7 +4,7 @@ import { useState } from "react";
 import { addSceneObjectAction, changeSceneObjectAction, moveSceneObjectsAction, removeSceneObjectsAction } from "@/lib/actions/game-scene-tools";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
-import { applyObjectTransform, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, toObjectPlacement, type ObjectPlacement, type SceneObjectView } from "@/rules/game-objects";
+import { applyObjectTransform, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, toObjectPlacement, type ObjectAppearance, type ObjectPlacement, type SceneObjectView } from "@/rules/game-objects";
 import { findPastePosition, shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import type { FloorId } from "@/rules/game-floors";
 import type { TokenTransform } from "@/rules/token-transform";
@@ -92,6 +92,13 @@ export function useMapObjects({ view, shownFloor, editing, gridColumns, findDrop
     if (!current) return;
     holdValueBefore(`object:${current.id}`, toObjectPlacement(current));
     showOptimistic(key, readShown().map((object) => (object.id === current.id ? applyObjectTransform(object, transform) : object)));
+  };
+
+  const previewAppearance = (id: number, appearance: ObjectAppearance) => {
+    const current = findShown(id);
+    if (!current) return;
+    holdValueBefore(`object:${current.id}`, toObjectPlacement(current));
+    showOptimistic(key, readShown().map((object) => (object.id === current.id ? { ...object, appearance } : object)));
   };
 
   const erase = (id: number) => {
@@ -207,6 +214,7 @@ export function useMapObjects({ view, shownFloor, editing, gridColumns, findDrop
       if (object) change(id, applyObjectTransform(toObjectPlacement(object), transform));
     },
     preview,
+    previewAppearance,
     copy: actOnChosen((object) => pasteCopy(object.imageKey, { ...toObjectPlacement(object), at: findPastePosition(object.at, 1) })),
     pasteCopy,
     pasteMany,

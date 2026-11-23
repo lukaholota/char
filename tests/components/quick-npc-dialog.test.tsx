@@ -13,6 +13,7 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock("@/lib/actions/game-sessions", () => ({ addMapCreaturesAction: mocks.addCreatures }));
 vi.mock("@/lib/actions/game-token-images", () => ({ listTokenImagesAction: mocks.listImages, uploadTokenImageAction: vi.fn(), setMapCreatureImageAction: vi.fn(), deleteTokenImageAction: vi.fn() }));
+vi.mock("@/lib/actions/game-image-library", () => ({}));
 vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ refresh: mocks.refresh }), useNoAiMode: () => ({ enabled: false }) }));
 vi.mock("@/lib/monitoring/game-analytics", () => ({ captureGameEvent: mocks.capture }));
 vi.mock("sonner", () => ({ toast: { error: mocks.toastError, success: mocks.toastSuccess } }));
@@ -35,10 +36,10 @@ const openDialog = () => {
 };
 
 describe("швидкий НІП", () => {
-  it("додає простолюдина-союзника з іменем і портретом без бестіарію й закривається", async () => {
+  it("додає простолюдина з іменем і портретом без бестіарію й закривається", async () => {
     mocks.addCreatures.mockResolvedValue({ ok: true, value: { name: "Корчмар" } });
     openDialog();
-    expect(screen.getByRole("button", { name: "Союзник" }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.queryByRole("group", { name: "Бік" })).toBeNull();
     expect(screen.getByTestId("npc-preview").getAttribute("src")).toBe("/images/creatures/2014/xmm-commoner-c196b7bf41.webp");
 
     fireEvent.change(screen.getByLabelText("Імʼя для гравців"), { target: { value: "Корчмар" } });
@@ -48,16 +49,15 @@ describe("швидкий НІП", () => {
     fireEvent.click(screen.getByRole("button", { name: "Додати НІПа" }));
 
     await waitFor(() => expect(mocks.toastSuccess).toHaveBeenCalledWith("Корчмар — у розділі «Поза мапою»"));
-    expect(mocks.addCreatures).toHaveBeenCalledWith(5, { creatureKey: "commoner", ruleset: "RULES_2014", count: 1, isAlly: true, customName: "Корчмар", imageKey: "token-images/1/face" });
+    expect(mocks.addCreatures).toHaveBeenCalledWith(5, { creatureKey: "commoner", ruleset: "RULES_2014", count: 1, customName: "Корчмар", imageKey: "token-images/1/face" });
     expect(mocks.refresh).toHaveBeenCalled();
     expect(screen.queryByRole("dialog")).toBeNull();
   });
 
-  it("статблок обирається в бестіарії, зокрема хоумбрю 2024; імʼя й бік не губляться, чужі повідомлення — ні до чого", async () => {
+  it("статблок обирається в бестіарії, зокрема хоумбрю 2024; імʼя зберігається, чужі повідомлення — ні до чого", async () => {
     mocks.addCreatures.mockResolvedValue({ ok: true, value: { name: "Корчмар" } });
     openDialog();
     fireEvent.change(screen.getByLabelText("Імʼя для гравців"), { target: { value: "Корчмар" } });
-    fireEvent.click(screen.getByRole("button", { name: "Ворог" }));
     fireEvent.click(screen.getByRole("button", { name: /Статблок Простолюдин/ }));
     expect(screen.getByTitle("Бестіарій").getAttribute("src")).toBe("/bestiary?room=5&pick=1");
 
@@ -70,19 +70,17 @@ describe("швидкий НІП", () => {
     expect(screen.getByTestId("npc-preview").getAttribute("src")).toBe("/api/homebrew-image/7");
     fireEvent.click(screen.getByRole("button", { name: "Додати НІПа" }));
 
-    await waitFor(() => expect(mocks.addCreatures).toHaveBeenCalledWith(5, expect.objectContaining({ creatureKey: "hb-innkeeper", ruleset: "RULES_2024", isAlly: false, customName: "Корчмар" })));
+    await waitFor(() => expect(mocks.addCreatures).toHaveBeenCalledWith(5, expect.objectContaining({ creatureKey: "hb-innkeeper", ruleset: "RULES_2024", customName: "Корчмар" })));
     expect(mocks.capture).toHaveBeenCalledWith("game_creatures_added", { count: 1, edition: "2024" });
   });
 
   it("помилка сервера лишає вікно відкритим з тим самим вибором", async () => {
     mocks.addCreatures.mockResolvedValue({ ok: false, error: "Спершу додайте мапу" });
     openDialog();
-    fireEvent.click(screen.getByRole("button", { name: "Ворог" }));
     fireEvent.click(screen.getByRole("button", { name: "Додати НІПа" }));
 
     await waitFor(() => expect(mocks.toastError).toHaveBeenCalledWith("Спершу додайте мапу"));
-    expect(mocks.addCreatures).toHaveBeenCalledWith(5, expect.objectContaining({ isAlly: false, customName: "", imageKey: null }));
+    expect(mocks.addCreatures).toHaveBeenCalledWith(5, expect.objectContaining({ customName: "", imageKey: null }));
     expect(screen.queryByRole("dialog")).not.toBeNull();
-    expect(screen.getByRole("button", { name: "Ворог" }).getAttribute("aria-pressed")).toBe("true");
   });
 });

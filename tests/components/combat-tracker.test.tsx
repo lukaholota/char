@@ -17,6 +17,8 @@ const mocks = vi.hoisted(() => ({
   captureGameEvent: vi.fn(),
 }));
 vi.mock("@/lib/actions/game-token-images", () => ({}));
+vi.mock("@/lib/actions/game-image-library", () => ({}));
+vi.mock("@/lib/actions/game-creature-border-color", () => ({}));
 vi.mock("@/lib/actions/game-sessions", () => ({
   startCombatAction: mocks.startCombatAction,
   activateGameSceneAction: mocks.activateGameSceneAction,
@@ -53,7 +55,7 @@ const combat: CombatView = {
   currentId: 12,
   combatants: [
     { id: 11, initiative: 18, hero: { persId: 20, userId: 2, name: "Арвен", avatarUrl: null }, creature: null },
-    { id: 12, initiative: 14, hero: null, creature: { id: 5, creatureKey: null, ruleset: "RULES_2014", label: "Тінь", statblockName: null, customName: null, badge: null, isAlly: false, imageUrl: null, isRoundImage: false, tokenSize: "medium", token: { x: 0.5, y: 0.5 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 } } },
+    { id: 12, initiative: 14, hero: null, creature: { id: 5, creatureKey: null, ruleset: "RULES_2014", label: "Тінь", statblockName: null, customName: null, badge: null, borderColor: null, imageUrl: null, isRoundImage: false, tokenSize: "medium", token: { x: 0.5, y: 0.5 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 } } },
     { id: 13, initiative: 7, hero: { persId: 30, userId: 3, name: "Торин", avatarUrl: null }, creature: null },
   ],
 };

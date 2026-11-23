@@ -158,6 +158,7 @@ describe("хоумбрю-предмети", () => {
       attackAbility: "DEX", damageFormula: "1к10+СПР", damageType: "PIERCING", extraDamage: [{ dice: "1к4", damageType: "FIRE" }], normalRange: "150", longRange: "600",
     };
     expect(await saveHomebrewItem(buildCreatureForm({ ...bow, damageFormula: "1к8 вогню" }))).toMatchObject({ success: false, fieldErrors: { damageFormula: expect.any(String) } });
+    expect(await saveHomebrewItem(buildCreatureForm({ ...bow, extraDamage: [{ dice: "1к4+вогонь", damageType: "FIRE" }] }))).toMatchObject({ success: false, fieldErrors: { extraDamage: expect.any(String) } });
     const savedBow = await saveHomebrewItem(buildCreatureForm(bow));
     const savedArmor = await saveHomebrewItem(buildCreatureForm({ ...ITEM, name: "Шкіра василіска", isMundane: true, baseArmorId: String(leather2024.armorId), armorBaseAC: "13" }));
     if (!savedBow.success || !savedArmor.success) throw new Error("не збережено");
@@ -168,6 +169,11 @@ describe("хоумбрю-предмети", () => {
       weaponProfile: { attackAbility: "DEX", damage: "1к10+СПР", damageType: "PIERCING", extraDamage: [{ count: 1, sides: 4, damageType: "FIRE" }], normalRange: 150, longRange: 600 },
     });
     expect(await loadHomebrewEditValues(savedBow.entryId)).toMatchObject({ values: { isMundane: true, damageFormula: "1к10+СПР", extraDamage: [{ dice: "1к4", damageType: "FIRE" }], normalRange: "150" } });
+    expect(await saveHomebrewItem(buildCreatureForm({ ...bow, extraDamage: [{ dice: "1к4+СИЛ", damageType: "FIRE" }] }, undefined, savedBow.entryId))).toMatchObject({ success: true });
+    expect(await loadHomebrewEditValues(savedBow.entryId)).toMatchObject({ values: { extraDamage: [{ dice: "1к4+СИЛ", damageType: "FIRE" }] } });
+    for (const ruleset of ["RULES_2014", "RULES_2024"] as const) {
+      expect(await listHomebrewEntries({ kind: "ITEM", ruleset, sort: "NEW" })).toContainEqual(expect.objectContaining({ entryId: savedBow.entryId, item: expect.objectContaining({ isMundane: true, itemType: "WEAPON" }) }));
+    }
 
     await toggleMagicItemForPers({ persId, magicItemId: bowId });
     await toggleMagicItemForPers({ persId, magicItemId: armorItemId });

@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { MAP_CREATURE_LIMITS, type MapCreatureRuleset } from "@/rules/game-map-creatures";
 import { findActiveGmSession, signalGameSession, type GameSessionResult } from "@/server/db/game-sessions";
-import { deleteStoredImage, storeSquareImage, type StoredImageResult } from "@/server/media/image-upload";
+import { deleteStoredImage, storeObjectImage, storeSquareImage, type StoredImageResult } from "@/server/media/image-upload";
 
 export async function findTokenImageKeys(userId: number): Promise<string[]> {
   const images = await prisma.userTokenImage.findMany({ where: { userId }, orderBy: { createdAt: "desc" }, select: { imageKey: true } });
@@ -9,12 +9,52 @@ export async function findTokenImageKeys(userId: number): Promise<string[]> {
 }
 
 export async function addTokenImage(userId: number, file: unknown): Promise<StoredImageResult> {
+  return addImage(userId, file, null, storeSquareImage);
+}
+
+export async function addImageToLibrary(userId: number, file: unknown, folderId: number | null, isCropped: boolean): Promise<StoredImageResult> {
+  if (folderId !== null && !(await prisma.userImageFolder.findFirst({ where: { id: folderId, userId }, select: { id: true } }))) return { error: "Папку не знайдено" };
+  return addImage(userId, file, folderId, isCropped ? storeSquareImage : storeObjectImage);
+}
+
+async function addImage(userId: number, file: unknown, folderId: number | null, store: typeof storeSquareImage): Promise<StoredImageResult> {
   const imageCount = await prisma.userTokenImage.count({ where: { userId } });
-  if (imageCount >= MAP_CREATURE_LIMITS.imagesPerUser) return { error: `У бібліотеці вже ${MAP_CREATURE_LIMITS.imagesPerUser} зображень — видаліть непотрібне` };
-  const stored = await storeSquareImage(file, `token-images/${userId}`);
+  const libraryFull = { error: `У бібліотеці вже ${MAP_CREATURE_LIMITS.imagesPerUser} зображень — видаліть непотрібне` };
+  if (imageCount >= MAP_CREATURE_LIMITS.imagesPerUser) return libraryFull;
+  const stored = await store(file, `token-images/${userId}`);
   if ("error" in stored) return stored;
-  await prisma.userTokenImage.create({ data: { userId, imageKey: stored.key } });
-  return stored;
+  try {
+    const created = await prisma.$transaction(async (tx) => {
+      await tx.$queryRaw`SELECT user_id FROM "user" WHERE user_id = ${userId} FOR UPDATE`;
+      if (await tx.userTokenImage.count({ where: { userId } }) >= MAP_CREATURE_LIMITS.imagesPerUser) return false;
+      await tx.userTokenImage.create({ data: { userId, imageKey: stored.key, folderId } });
+      return true;
+    });
+    if (created) return stored;
+  } catch (error) {
+    await deleteStoredImage(stored.key);
+    throw error;
+  }
+  await deleteStoredImage(stored.key);
+  return libraryFull;
+}
+
+export async function listImageLibrary(userId: number) {
+  const [folders, images] = await Promise.all([
+    prisma.userImageFolder.findMany({ where: { userId }, orderBy: { name: "asc" }, select: { id: true, name: true } }),
+    prisma.userTokenImage.findMany({ where: { userId }, orderBy: [{ createdAt: "desc" }, { id: "desc" }], select: { imageKey: true, folderId: true } }),
+  ]);
+  return { folders, images };
+}
+
+export function createImageFolder(userId: number, name: string) {
+  return prisma.userImageFolder.upsert({ where: { userId_name: { userId, name } }, create: { userId, name }, update: {}, select: { id: true, name: true } });
+}
+
+export async function moveLibraryImage(userId: number, imageKey: string, folderId: number | null): Promise<GameSessionResult<null>> {
+  if (folderId !== null && !(await prisma.userImageFolder.findFirst({ where: { id: folderId, userId }, select: { id: true } }))) return { ok: false, error: "not_found" };
+  const changed = await prisma.userTokenImage.updateMany({ where: { imageKey, userId }, data: { folderId } });
+  return changed.count ? { ok: true, value: null } : { ok: false, error: "token_image_gone" };
 }
 
 /// Вигляд спільний для однакових істот кімнати: майстер замінює «дракона», а не одного з трьох.

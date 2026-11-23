@@ -3,7 +3,7 @@
 import { useEffect, useState, useTransition, type FormEvent } from "react";
 import { ArrowLeft, BookOpen, ImagePlus, UserRoundPlus } from "lucide-react";
 import { toast } from "sonner";
-import { STATBLOCK_PICK_PARAM, SideButton, readPickedStatblock, type PickedStatblock } from "@/components/bestiary/RoomCreatureAddPanel";
+import { STATBLOCK_PICK_PARAM, readPickedStatblock, type PickedStatblock } from "@/components/bestiary/RoomCreatureAddPanel";
 import { ContentImage } from "@/components/no-ai/ContentImage";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,6 @@ import { addMapCreaturesAction } from "@/lib/actions/game-sessions";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { DEFAULT_NPC_STATBLOCK } from "@/lib/refs/npc-statblocks";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
-import { cn } from "@/lib/utils";
 import { MAP_CREATURE_LIMITS, buildCreatureInitials } from "@/rules/game-map-creatures";
 import { BESTIARY_DIALOG_CLASS, BestiaryFrame, buildBestiaryPickerUrl, type BestiaryEdition } from "./AddMapCreaturesDialog";
 import { TokenImageLibrary } from "./CreatureImageSection";
@@ -85,7 +84,6 @@ type FormProps = { sessionId: number; statblock: PickedStatblock; onPickStatbloc
 function NpcForm({ sessionId, statblock, onPickStatblock, onAdded }: FormProps) {
   const router = useModeRouter();
   const [name, setName] = useState("");
-  const [isAlly, setIsAlly] = useState(true);
   const [imageKey, setImageKey] = useState<string | null>(null);
   const [isPickingImage, setIsPickingImage] = useState(false);
   const [isAdding, startAdding] = useTransition();
@@ -93,7 +91,7 @@ function NpcForm({ sessionId, statblock, onPickStatblock, onAdded }: FormProps) 
   const add = (event: FormEvent) => {
     event.preventDefault();
     startAdding(async () => {
-      const result = await addMapCreaturesAction(sessionId, { creatureKey: statblock.key, ruleset: statblock.ruleset, count: 1, isAlly, customName: name, imageKey }).catch(() => null);
+      const result = await addMapCreaturesAction(sessionId, { creatureKey: statblock.key, ruleset: statblock.ruleset, count: 1, customName: name, imageKey }).catch(() => null);
       if (!result?.ok) return void toast.error(result?.error ?? "Не вдалося звʼязатися із сервером — спробуйте ще раз");
       toast.success(`${result.value.name} — у розділі «Поза мапою»`);
       captureGameEvent("game_creatures_added", { count: 1, edition: statblock.ruleset === "RULES_2024" ? "2024" : "2014" });
@@ -110,7 +108,7 @@ function NpcForm({ sessionId, statblock, onPickStatblock, onAdded }: FormProps) 
   return (
     <form onSubmit={add} className="grid gap-4">
       <div className="flex items-end gap-3">
-        <NpcPreview label={name.trim() || statblock.name} imageSrc={imageKey ? buildMediaImageUrl(imageKey, "thumbnail") : statblock.imageUrl} isAlly={isAlly} />
+        <NpcPreview label={name.trim() || statblock.name} imageSrc={imageKey ? buildMediaImageUrl(imageKey, "thumbnail") : statblock.imageUrl} />
         <label className="grid flex-1 gap-1 text-sm text-slate-400">
           Імʼя для гравців
           <Input autoFocus value={name} onChange={(event) => setName(event.target.value)} maxLength={MAP_CREATURE_LIMITS.customNameLength} placeholder="Наприклад, Корчмар" className="h-12 text-base" />
@@ -124,10 +122,6 @@ function NpcForm({ sessionId, statblock, onPickStatblock, onAdded }: FormProps) 
           {statblock.ruleset === "RULES_2024" ? <span className="text-xs text-slate-500">2024</span> : null}
           <span className="text-sm text-slate-400">Змінити</span>
         </button>
-      </div>
-      <div role="group" aria-label="Бік" className="flex w-fit rounded-xl border border-white/10 p-0.5">
-        <SideButton isOn={isAlly} onClick={() => setIsAlly(true)} tone="border-emerald-400/60 bg-emerald-500/15 text-emerald-100">Союзник</SideButton>
-        <SideButton isOn={!isAlly} onClick={() => setIsAlly(false)} tone="border-rose-400/60 bg-rose-500/15 text-rose-100">Ворог</SideButton>
       </div>
       <div className="grid gap-2">
         <div className="flex flex-wrap gap-2">
@@ -146,9 +140,9 @@ function NpcForm({ sessionId, statblock, onPickStatblock, onAdded }: FormProps) 
   );
 }
 
-function NpcPreview({ label, imageSrc, isAlly }: { label: string; imageSrc: string | null; isAlly: boolean }) {
+function NpcPreview({ label, imageSrc }: { label: string; imageSrc: string | null }) {
   return (
-    <div aria-hidden className={cn("relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 bg-slate-900", isAlly ? "border-emerald-400/70" : "border-rose-400/70")}>
+    <div aria-hidden className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-slate-500 bg-slate-900">
       {imageSrc ? (
         <ContentImage src={imageSrc} alt="" provenance="manual" fill sizes="56px" className="object-cover" />
       ) : (

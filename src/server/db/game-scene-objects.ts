@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 import { buildLibraryObjectKey } from "@/lib/refs/object-library";
 import { OBJECT_LIBRARY } from "@/lib/refs/object-library-catalog";
 import { OBJECT_LIMITS, type ObjectPlacement } from "@/rules/game-objects";
@@ -17,7 +18,7 @@ const LIBRARY_OBJECT_KEYS = new Set(OBJECT_LIBRARY.map((object) => buildLibraryO
 const isUsableObjectImage = async (sessionId: number, userId: number, imageKey: string) =>
   LIBRARY_OBJECT_KEYS.has(imageKey) || imageKey.startsWith(`${buildFloorPlanPrefix(sessionId)}/`) || isOwnTokenImage(userId, imageKey);
 
-const toObjectColumns = (placement: ObjectPlacement) => ({ x: placement.at.x, y: placement.at.y, widthCells: placement.widthCells, rotation: placement.rotation, name: placement.name, isHidden: placement.isHidden, sortOrder: placement.sortOrder, floor: placement.floor, aspect: placement.aspect });
+const toObjectColumns = (placement: ObjectPlacement) => ({ x: placement.at.x, y: placement.at.y, widthCells: placement.widthCells, rotation: placement.rotation, name: placement.name, isHidden: placement.isHidden, sortOrder: placement.sortOrder, floor: placement.floor, aspect: placement.aspect, appearance: placement.appearance ?? Prisma.DbNull });
 
 export async function addSceneObject(sessionId: number, userId: number, sceneId: number, imageKey: string, placement: ObjectPlacement): Promise<GameSessionResult<{ id: number }>> {
   const gm = await findActiveGmSession(sessionId, userId);

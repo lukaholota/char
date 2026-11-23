@@ -6,7 +6,6 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { addMapCreaturesAction } from "@/lib/actions/game-sessions";
 import type { CreatureIndexEntry } from "@/lib/bestiary-index";
-import { cn } from "@/lib/utils";
 import { MAP_CREATURE_LIMITS, type MapCreatureRuleset } from "@/rules/game-map-creatures";
 
 export const ROOM_PICKER_PARAM = "room";
@@ -27,7 +26,6 @@ export function RoomCreatureAddPanel({ creature, ruleset }: { creature: Creature
   const roomId = useRoomPickerId();
   const isPickingStatblock = useHasSearchParam(STATBLOCK_PICK_PARAM);
   const [count, setCount] = useState(1);
-  const [isAlly, setIsAlly] = useState(false);
   const [customName, setCustomName] = useState("");
   const [isAdding, startAdding] = useTransition();
   if (roomId === null) return null;
@@ -35,7 +33,7 @@ export function RoomCreatureAddPanel({ creature, ruleset }: { creature: Creature
 
   const add = () =>
     startAdding(async () => {
-      const result = await addMapCreaturesAction(roomId, { creatureKey: creature.key, ruleset, count, isAlly, customName });
+      const result = await addMapCreaturesAction(roomId, { creatureKey: creature.key, ruleset, count, customName });
       if (!result.ok) return void toast.error(result.error);
       window.parent?.postMessage({ type: MAP_CREATURES_ADDED_MESSAGE, name: result.value.name, count }, window.location.origin);
     });
@@ -47,10 +45,6 @@ export function RoomCreatureAddPanel({ creature, ruleset }: { creature: Creature
         На мапу кампанії
       </p>
       <div className="flex flex-wrap items-center gap-3">
-        <div role="group" aria-label="Бік" className="flex rounded-xl border border-white/10 p-0.5">
-          <SideButton isOn={!isAlly} onClick={() => setIsAlly(false)} tone="border-rose-400/60 bg-rose-500/15 text-rose-100">Ворог</SideButton>
-          <SideButton isOn={isAlly} onClick={() => setIsAlly(true)} tone="border-emerald-400/60 bg-emerald-500/15 text-emerald-100">Союзник</SideButton>
-        </div>
         <div role="group" aria-label="Кількість" className="flex items-center gap-1">
           <Button type="button" variant="ghost" size="icon" className="h-10 w-10" aria-label="Менше" disabled={count <= 1} onClick={() => setCount(count - 1)}>
             <Minus className="h-4 w-4" aria-hidden />
@@ -89,14 +83,6 @@ function StatblockPickButton({ statblock }: { statblock: PickedStatblock }) {
         Обрати для НІПа
       </Button>
     </div>
-  );
-}
-
-export function SideButton({ isOn, onClick, tone, children }: { isOn: boolean; onClick: () => void; tone: string; children: string }) {
-  return (
-    <button type="button" aria-pressed={isOn} onClick={onClick} className={cn("h-9 rounded-lg border border-transparent px-3 text-sm", isOn ? tone : "text-slate-400 hover:text-slate-200")}>
-      {children}
-    </button>
   );
 }
 

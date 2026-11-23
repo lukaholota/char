@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { calculateWeaponAttackBonus, calculateWeaponDamageBonus, calculateWeaponDamageDice, findWeaponDamageType, findWeaponRange } from "@/lib/logic/bonus-calculator";
-import { hasManualWeaponBonus, listWeaponExtraDice, listWeaponMagicItems } from "@/lib/logic/magic-weapon-links";
+import { hasManualWeaponBonus, listWeaponExtraDice, listWeaponMagicItems, sumWeaponExtraDamageBonus } from "@/lib/logic/magic-weapon-links";
 import { buildPersWithItems } from "./magic-item-pers-fixture";
+import { buildExtraDamage, toExtraDamageDrafts } from "@/rules/weapon-profile";
 
 const LONGSWORD = { persWeaponId: 7, isProficient: true, weapon: { name: "LONGSWORD", weaponType: "MARTIAL_WEAPON", properties: ["VERSATILE"], isRanged: false, damage: "1d8" } };
 const DAGGER = { ...LONGSWORD, persWeaponId: 8, weapon: { ...LONGSWORD.weapon, name: "DAGGER", properties: ["FINESSE"] } };
@@ -43,6 +44,14 @@ describe("магічна зброя, привʼязана до рядка збр
     ]);
   });
 
+  it("зберігає старий запис додаткової шкоди після редагування", () => {
+    const extraDamage = [{ count: 1, sides: 4, damageType: "FIRE" }];
+    const drafts = toExtraDamageDrafts(extraDamage);
+    expect(drafts).toMatchObject([{ dice: "1к4", damageType: "FIRE" }]);
+    expect(buildExtraDamage(drafts)).toEqual(extraDamage);
+    expect(listWeaponExtraDice(withItems([]), { ...LONGSWORD, extraDamage })).toEqual([{ sides: 4, sign: 1, label: "Вогняна" }]);
+  });
+
   it("бачить ручний бонус на зброї, щоб попередити про подвійний облік", () => {
     expect(hasManualWeaponBonus({ attackBonus: 2, customDamageBonus: null })).toBe(true);
     expect(hasManualWeaponBonus({ attackBonus: 0, customDamageBonus: 1 })).toBe(true);
@@ -52,6 +61,19 @@ describe("магічна зброя, привʼязана до рядка збр
 
 describe("хомбрю-зброя з профілем", () => {
   const COMPOUND_BOW = { engName: "Блочний лук", requiresAttunement: false, isMundane: true, description: "", persWeaponId: 7, weaponProfile: { attackAbility: "DEX", damage: "1к10+СПР", damageType: "PIERCING", extraDamage: [{ count: 1, sides: 4, damageType: "FIRE" }], normalRange: 150, longRange: 600 } };
+
+  it("рахує формули з листа й профілю кожного разу за модифікаторами героя", () => {
+    const own = buildExtraDamage([{ dice: "1к4+СИЛ", damageType: "BLUDGEONING" }]);
+    const attached = buildExtraDamage([{ dice: "1к6+СПР*2-1", damageType: "FIRE" }]);
+    const bow = { ...COMPOUND_BOW, weaponProfile: { ...COMPOUND_BOW.weaponProfile, extraDamage: attached } };
+    const pers = withItems([bow]);
+    const weapon = { ...LONGSWORD, extraDamage: own };
+    expect(toExtraDamageDrafts(own)).toMatchObject([{ dice: "1к4+СИЛ", damageType: "BLUDGEONING" }]);
+    expect(toExtraDamageDrafts(attached)).toMatchObject([{ dice: "1к6+СПР*2-1", damageType: "FIRE" }]);
+    expect(listWeaponExtraDice(pers, weapon).map(({ sides }) => sides)).toEqual([4, 6]);
+    expect(sumWeaponExtraDamageBonus(pers, weapon, (ability) => ability === "STR" ? -1 : 2)).toBe(2);
+    expect(sumWeaponExtraDamageBonus(pers, weapon, (ability) => ability === "STR" ? 3 : 2)).toBe(6);
+  });
 
   it("профіль привʼязаного предмета задає атаку, шкоду, тип і дальність", () => {
     const pers = withItems([COMPOUND_BOW]);

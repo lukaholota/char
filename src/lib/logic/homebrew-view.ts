@@ -35,6 +35,8 @@ export type HomebrewMagicItem = {
   bonusToAC: number | null;
   bonusToSavingThrows: unknown;
   weaponBonus: number | null;
+  isMundane?: boolean;
+  weaponProfile?: unknown;
   imageKey: string | null;
   ruleset: HomebrewRuleset;
   source: "HOMEBREW";
@@ -130,6 +132,8 @@ export function buildHomebrewItemData(entry: { entryId: number; ruleset: Homebre
     bonusToAC: item.bonusToAC,
     bonusToSavingThrows: item.bonusToSavingThrows,
     weaponBonus: item.weaponBonus,
+    isMundane: item.isMundane,
+    weaponProfile: item.weaponProfile,
     imageKey: item.imageKey,
     ruleset: entry.ruleset,
     source: "HOMEBREW",

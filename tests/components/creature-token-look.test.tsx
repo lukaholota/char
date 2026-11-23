@@ -5,6 +5,8 @@ import type { MapCreatureView } from "@/rules/game-map-creatures";
 
 vi.mock("@/lib/actions/game-sessions", () => ({}));
 vi.mock("@/lib/actions/game-token-images", () => ({}));
+vi.mock("@/lib/actions/game-image-library", () => ({}));
+vi.mock("@/lib/actions/game-creature-border-color", () => ({}));
 vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ refresh: vi.fn() }), useNoAiMode: () => ({ enabled: false }) }));
 
 const { CreatureTokenFace } = await import("@/components/games/MapCreatureTokens");
@@ -14,7 +16,7 @@ let imageIndex = 0;
 
 function buildCreature(overrides: Partial<MapCreatureView>): MapCreatureView {
   imageIndex += 1;
-  return { id: 1, creatureKey: "goblin", ruleset: "RULES_2014", label: "Гоблін", statblockName: null, customName: null, badge: null, isAlly: false, imageUrl: `/images/creatures/2014/look-${imageIndex}.webp`, isRoundImage: false, tokenSize: "medium", isCutout: true, token: { x: 0.5, y: 0.5 }, tokenTransform: { rotation: 0, scale: 100 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 }, ...overrides };
+  return { id: 1, creatureKey: "goblin", ruleset: "RULES_2014", label: "Гоблін", statblockName: null, customName: null, badge: null, borderColor: null, imageUrl: `/images/creatures/2014/look-${imageIndex}.webp`, isRoundImage: false, tokenSize: "medium", isCutout: true, token: { x: 0.5, y: 0.5 }, tokenTransform: { rotation: 0, scale: 100 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 }, ...overrides };
 }
 
 function stubCanvasAlpha(alpha: number) {

@@ -34,7 +34,7 @@ export type MapCreatureRow = {
   creatureKey: string;
   ruleset: MapCreatureRuleset;
   number: number;
-  isAlly: boolean;
+  borderColor: string | null;
   customName: string | null;
   tokenSize: string | null;
   isCutout: boolean;
@@ -68,7 +68,7 @@ export type MapCreatureView = {
   statblockName: string | null;
   customName: string | null;
   badge: number | null;
-  isAlly: boolean;
+  borderColor: CreatureBorderColor;
   imageUrl: string | null;
   isRoundImage: boolean;
   customImageKey: string | null;
@@ -83,18 +83,21 @@ export type MapCreatureView = {
   floor: number | null;
 };
 
-export type NewMapCreatures = { creatureKey: string; ruleset: MapCreatureRuleset; count: number; isAlly: boolean; customName: string | null; imageKey?: string | null };
+export type CreatureBorderColor = "green" | "red" | null;
+export const isCreatureBorderColor = (value: unknown): value is CreatureBorderColor => value === null || value === "green" || value === "red";
+
+export type NewMapCreatures = { creatureKey: string; ruleset: MapCreatureRuleset; count: number; customName: string | null; imageKey?: string | null };
 
 export function parseNewMapCreatures(raw: unknown): NewMapCreatures | null {
   if (typeof raw !== "object" || raw === null) return null;
-  const { creatureKey, ruleset, count, isAlly, customName, imageKey } = raw as Record<string, unknown>;
+  const { creatureKey, ruleset, count, customName, imageKey } = raw as Record<string, unknown>;
   if (typeof creatureKey !== "string" || !creatureKey || creatureKey.length > MAP_CREATURE_LIMITS.keyLength) return null;
-  if (!MAP_CREATURE_RULESETS.includes(ruleset as MapCreatureRuleset) || typeof isAlly !== "boolean") return null;
+  if (!MAP_CREATURE_RULESETS.includes(ruleset as MapCreatureRuleset)) return null;
   if (!Number.isInteger(count) || (count as number) < 1 || (count as number) > MAP_CREATURE_LIMITS.perAdd) return null;
   const name = parseCustomName(customName);
   if (name === undefined) return null;
   if (imageKey !== undefined && imageKey !== null && (typeof imageKey !== "string" || !imageKey || imageKey.length > MAP_CREATURE_LIMITS.keyLength)) return null;
-  return { creatureKey, ruleset: ruleset as MapCreatureRuleset, count: count as number, isAlly, customName: name, imageKey: imageKey ?? null };
+  return { creatureKey, ruleset: ruleset as MapCreatureRuleset, count: count as number, customName: name, imageKey: imageKey ?? null };
 }
 
 /// undefined — недійсне імʼя; null — імені немає, гравці бачать справжню істоту.
@@ -162,7 +165,7 @@ export function buildMapCreatureViews(
         statblockName: isGm && row.customName ? statblockName : null,
         customName: isGm ? row.customName : null,
         badge: hasCopies ? row.number : null,
-        isAlly: row.isAlly,
+        borderColor: isCreatureBorderColor(row.borderColor) ? row.borderColor : null,
         imageUrl: row.customImageKey ? buildMediaImageUrl(row.customImageKey, "full") : entry?.imageUrl ?? null,
         isRoundImage: !row.customImageKey && entry?.imageShape === "round",
         customImageKey: isGm ? row.customImageKey : null,

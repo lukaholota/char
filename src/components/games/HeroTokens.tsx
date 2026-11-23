@@ -170,9 +170,9 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
       return member ? { token: { kind: "hero", id: member.heroId }, conditions: member.conditions, transform: transforms.find(member), showTransform: (transform) => transforms.show(member, transform), sendTransform: (transform) => void transforms.send(member, transform) } : null;
     },
     trayTokens: waiting.map((member) => <li key={member.heroId}>{renderToken(member, TOKEN_SIZE_PX, null)}</li>),
-    mapTokens: heroes.map((member) => {
+    renderMapTokens: (isHidden: (member: GameSessionMemberView, position: TokenPosition) => boolean) => heroes.map((member) => {
       const position = moves.findPosition(member);
-      if (!position) return null;
+      if (!position || isHidden(member, position)) return null;
       const isSelected = selected?.key === findKey(member.heroId);
       const zClass = isSelected ? "z-[33]" : member.userId === view.myUserId ? "z-[32]" : canMove(member) ? "z-[31]" : "z-30";
       const transform = transforms.find(member);
