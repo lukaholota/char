@@ -25,7 +25,7 @@ describe("кубики в описі предмета", () => {
     const text = "Посох має 10 зарядів і відновлює 1к6 + 4 витрачених зарядів на світанку. Істота відновлює 2к8 + 2 хітів. Влучання: 4к10 некротичної шкоди.";
     expect(findItemRolls(text).map((spot) => spot.roll)).toEqual([
       { kind: "heal", count: 2, sides: 8, bonus: 2 },
-      { kind: "damage", count: 4, sides: 10, bonus: 0 },
+      { kind: "damage", count: 4, sides: 10, bonus: 0, damageType: "NECROTIC" },
     ]);
   });
 

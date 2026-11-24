@@ -4,6 +4,7 @@ import type { GameRollEventView } from "@/server/db/game-roll-events";
 import { collectAppliedHeroDamage, requestHeroDamage } from "@/lib/components/game/hero-damage";
 import type { TokenPosition } from "@/rules/game-map";
 import { EMPTY_GAME_ROLL } from "@/rules/game-roll";
+import { listSheetPersIds } from "@/rules/game-room-heroes";
 import type { GameSessionView } from "@/server/db/game-sessions";
 
 export type GameConnectionStatus = "idle" | "connecting" | "live" | "reconnecting" | "paused" | "offline" | "signed_out" | "lost";
@@ -131,18 +132,20 @@ export function setHasOlder(sessionId: number, hasOlder: boolean) {
 export function addGameEvents(sessionId: number, incoming: readonly GameRollEventView[]) {
   const state = useGameSessionLiveStore.getState();
   if (state.sessionId !== sessionId || !incoming.length) return;
-  useGameSessionLiveStore.setState({ events: mergeBySeq(state.events, incoming), ...matchPendingRolls(state, incoming) });
+  useGameSessionLiveStore.setState({ events: markCancelledRolls(mergeBySeq(state.events, incoming), incoming), ...matchPendingRolls(state, incoming) });
   stopMembersRolling(incoming.flatMap((event) => event.authorUserId ?? []));
-  syncMyHeroDamage(state, sessionId, incoming);
+  syncSheetHeroDamage(state, sessionId, incoming);
 }
 
 /// Лише події після підключення: старі удари лист уже отримав з сервера разом зі сторінкою.
-function syncMyHeroDamage(state: LiveState, sessionId: number, incoming: readonly GameRollEventView[]) {
-  const myPersIds = state.view?.myPersIds ?? [];
-  if (state.liveFromSeq === null) return;
-  const liveFromSeq = state.liveFromSeq;
+/// Майстер відкриває в кімнаті й листи гравців — їхні хіти теж мають оновлюватися наживо.
+function syncSheetHeroDamage(state: LiveState, sessionId: number, incoming: readonly GameRollEventView[]) {
+  const { view, liveFromSeq } = state;
+  if (!view || liveFromSeq === null) return;
   const liveEvents = incoming.filter((event) => event.seq > liveFromSeq);
-  myPersIds.flatMap((persId) => collectAppliedHeroDamage(sessionId, persId, liveEvents)).forEach(requestHeroDamage);
+  listSheetPersIds(view)
+    .flatMap((persId) => collectAppliedHeroDamage(sessionId, persId, liveEvents).map((request) => (view.myPersIds.includes(persId) ? request : { ...request, isOthersHero: true })))
+    .forEach(requestHeroDamage);
 }
 
 /// Потік може принести свій кидок раніше за відповідь на POST, тож справжній кидок шукаємо за міткою й сумою, а не за ключем.
@@ -157,6 +160,12 @@ function matchPendingRolls(state: LiveState, incoming: readonly GameRollEventVie
     pendingRolls = pendingRolls.filter((pending) => pending !== match);
   }
   return { pendingRolls, rollKeys };
+}
+
+/// Потік приносить лише нову подію скасування — сам скасований кидок позначаємо тут.
+function markCancelledRolls(events: GameRollEventView[], incoming: readonly GameRollEventView[]): GameRollEventView[] {
+  const cancelledSeqs = new Set(incoming.flatMap((event) => event.cancelsSeq ?? []));
+  return cancelledSeqs.size ? events.map((event) => (cancelledSeqs.has(event.seq) && !event.isCancelled ? { ...event, isCancelled: true } : event)) : events;
 }
 
 /// Події приходять і з потоку, і з відповіді на власний кидок, і зі старших сторінок — порядок тримає лише seq.

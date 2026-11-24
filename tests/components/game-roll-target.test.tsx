@@ -141,7 +141,7 @@ describe("рядок цілі в журналі", () => {
   const damaged: GameRollEventView = {
     seq: 4, authorUserId: 7, authorName: "Оксана", persName: "Тарн", avatarUrl: null, source: "CHARACTER", visibility: "PUBLIC", label: "Шкода", roll: damageRoll, total: 6,
     rolledAt: "2026-11-06T10:00:00.000Z", createdAt: "2026-11-06T10:00:00.000Z",
-    target: { name: "Гоблін 1", kind: "damage", isHit: null, damage: 6, isDowned: false, gm: null },
+    target: { name: "Гоблін 1", kind: "damage", isHit: null, damage: 6, isDowned: false, damageDefenses: [], gm: null },
   };
   const gmTarget = { armorClass: null, hitPointsBefore: 10, hitPointsAfter: 4, canUndo: true, isUndone: false };
 
@@ -154,7 +154,7 @@ describe("рядок цілі в журналі", () => {
   });
 
   it("гравець бачить влучання чи промах без КБ, майстер — ще й КБ", () => {
-    const attack = { ...damaged, label: "Атака", target: { name: "Гоблін 1", kind: "attack" as const, isHit: true, damage: null, isDowned: false, gm: null } };
+    const attack = { ...damaged, label: "Атака", target: { name: "Гоблін 1", kind: "attack" as const, isHit: true, damage: null, isDowned: false, damageDefenses: [], gm: null } };
     const { unmount } = render(<ol><GameRollEntry event={attack} isMine isNew={false} /></ol>);
     expect(screen.getByText("· Влучання")).toBeTruthy();
     expect(screen.queryByText(/КБ/)).toBeNull();

@@ -16,6 +16,15 @@ export function collectKeysInRect(items: readonly PlacedItem[], rect: ShareRect)
   return items.filter((item) => isPointInRect(item.position, rect)).map((item) => item.key);
 }
 
+/// Shift додає до вибору, Ctrl чи ⌘ знімає з нього — і кліком, і рамкою; без клавіші вибір замінюється.
+export type GroupPick = "add" | "remove";
+
+export function changeGroupKeys(current: readonly string[], hits: readonly string[], pick: GroupPick | null): string[] {
+  if (pick === "remove") return current.filter((key) => !hits.includes(key));
+  if (pick === "add") return [...current, ...hits.filter((key) => !current.includes(key))];
+  return [...hits];
+}
+
 /// Уся група зсувається на той самий крок; край мапи зупиняє кожен токен окремо.
 export function shiftGroup<T extends PlacedItem>(items: readonly T[], step: TokenPosition): (T & { next: TokenPosition })[] {
   return items.map((item) => ({ ...item, next: shiftTokenPosition(item.position, step) }));

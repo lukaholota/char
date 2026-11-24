@@ -20,10 +20,12 @@ export function buildActionGameRoll({ context, action, d20Mode }: ActionRequest,
     d20Mode: outcome.d20Mode,
     modeSources: isD20 && d20Mode !== "NORMAL" && d20Mode === action.mode ? clipList(action.modeSources ?? []) : [],
     groups: buildDiceGroups(action, outcome.dieValues),
-    extra: outcome.extraValues.slice(0, GAME_ROLL_LIMITS.extraDice).map((die) => ({ sides: die.sides, sign: die.sign, label: clip(die.label, GAME_ROLL_LIMITS.textItem), value: die.value })),
+    extra: outcome.extraValues.slice(0, GAME_ROLL_LIMITS.extraDice).map((die) => ({ sides: die.sides, sign: die.sign, label: clip(die.label, GAME_ROLL_LIMITS.textItem), value: die.value, ...(die.damageType ? { damageType: die.damageType } : {}) })),
     bonus: outcome.bonus,
     total: outcome.total,
     check: isD20 && context.check ? { dc: context.check.dc, isSuccess: outcome.total >= context.check.dc } : null,
+    ...(!isD20 && outcome.damageType ? { damageType: outcome.damageType } : {}),
+    ...(!isD20 && outcome.bonusParts?.length ? { bonusParts: outcome.bonusParts.slice(0, GAME_ROLL_LIMITS.extraDice).map((part) => ({ ...part, label: clip(part.label, GAME_ROLL_LIMITS.textItem) })) } : {}),
   };
   const saveText = isD20 || !context.targetSave ? null : describeTargetSave(context.targetSave);
   const labelParts = context.isCreatureRoll ? [context.title, context.subtitle, action.label, saveText] : [context.title, action.label, saveText];

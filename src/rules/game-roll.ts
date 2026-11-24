@@ -1,4 +1,6 @@
 import { pickD20Value, type D20Mode } from "./dice-roll";
+import { isDamageTypeKey, type DamageBonusPart } from "./damage-parts";
+import type { DamageTypeKey } from "./types";
 
 export const GAME_ROLL_VISIBILITIES = ["PUBLIC", "GM", "SELF", "SECRET"] as const;
 export type GameRollVisibility = (typeof GAME_ROLL_VISIBILITIES)[number];
@@ -7,7 +9,7 @@ export const GAME_ROLL_SOURCES = ["CHARACTER", "FREE"] as const;
 export type GameRollSource = (typeof GAME_ROLL_SOURCES)[number] | "CREATURE" | "MESSAGE";
 
 export type GameRollDiceGroup = { sides: number; values: number[] };
-export type GameRollExtraDie = { sides: number; sign: 1 | -1; label: string; value: number };
+export type GameRollExtraDie = { sides: number; sign: 1 | -1; label: string; value: number; damageType?: DamageTypeKey };
 
 export type GameRoll = {
   d20Mode: D20Mode | null;
@@ -17,6 +19,8 @@ export type GameRoll = {
   bonus: number;
   total: number;
   check: { dc: number; isSuccess: boolean } | null;
+  damageType?: DamageTypeKey;
+  bonusParts?: DamageBonusPart[];
 };
 
 export const GAME_ROLL_LIMITS = { dice: 50, extraDice: 6, label: 120, textItem: 60, modeSources: 6, sides: [2, 3, 4, 6, 8, 10, 12, 20, 100], bonus: 1000 } as const;
@@ -93,6 +97,8 @@ function findShapeProblem(roll: Record<string, unknown>, isDiceless: boolean): s
   if (!isWholeNumber(roll.bonus) || Math.abs(roll.bonus) > GAME_ROLL_LIMITS.bonus) return "bad bonus";
   if (!isWholeNumber(roll.total)) return "bad total";
   if (roll.check !== null && !isCheck(roll.check)) return "bad check";
+  if (roll.damageType !== undefined && !isDamageTypeKey(roll.damageType)) return "bad damage type";
+  if (roll.bonusParts !== undefined && !isBonusPartList(roll.bonusParts)) return "bad bonus parts";
   return null;
 }
 
@@ -116,7 +122,13 @@ function isDiceGroup(value: unknown): value is GameRollDiceGroup {
 function isExtraDie(value: unknown): value is GameRollExtraDie {
   if (!isRecord(value) || !isAllowedSides(value.sides) || (value.sign !== 1 && value.sign !== -1)) return false;
   if (typeof value.label !== "string" || value.label.length > GAME_ROLL_LIMITS.textItem) return false;
+  if (value.damageType !== undefined && !isDamageTypeKey(value.damageType)) return false;
   return isWholeNumber(value.value) && value.value >= 1 && value.value <= value.sides;
+}
+
+function isBonusPartList(value: unknown): value is DamageBonusPart[] {
+  if (!Array.isArray(value) || value.length > GAME_ROLL_LIMITS.extraDice) return false;
+  return value.every((part) => isRecord(part) && typeof part.label === "string" && part.label.length <= GAME_ROLL_LIMITS.textItem && isWholeNumber(part.value) && Math.abs(part.value) <= GAME_ROLL_LIMITS.bonus && (part.damageType === undefined || isDamageTypeKey(part.damageType)));
 }
 
 function isCheck(value: unknown): boolean {

@@ -11,7 +11,8 @@ vi.hoisted(() => {
   Object.defineProperty(globalThis, "localStorage", { value: storage, configurable: true, writable: true });
   Object.defineProperty(window, "localStorage", { value: storage, configurable: true, writable: true });
 });
-vi.mock("@/lib/actions/game-sessions", () => ({ undoRollDamageAction: vi.fn(), undoSaveDamageAction: vi.fn() }));
+const { cancelGameRollAction } = vi.hoisted(() => ({ cancelGameRollAction: vi.fn() }));
+vi.mock("@/lib/actions/game-sessions", () => ({ undoRollDamageAction: vi.fn(), undoSaveDamageAction: vi.fn(), cancelGameRollAction }));
 vi.mock("@/lib/monitoring/game-analytics", () => ({ captureGameEvent: vi.fn() }));
 vi.mock("@/lib/components/game/play-roll-chime", () => ({ playRollChime: vi.fn() }));
 
@@ -25,6 +26,7 @@ import { useHeroDamageRequests, useHeroDamageStore, type HeroDamageRequest } fro
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 
 const damageRoll: GameRoll = { d20Mode: null, modeSources: [], groups: [{ sides: 8, values: [6] }], extra: [], bonus: 0, total: 6, check: null };
+const EMPTY_ROLL: GameRoll = { d20Mode: null, modeSources: [], groups: [], extra: [], bonus: 0, total: 0, check: null };
 const attackRoll: GameRoll = { d20Mode: "NORMAL", modeSources: [], groups: [{ sides: 20, values: [11] }], extra: [], bonus: 4, total: 15, check: null };
 const member = (userId: number, role: "GM" | "PLAYER", persId: number | null, persName: string | null) => ({ heroId: userId, heroSlot: 0, userId, name: `Гравець ${userId}`, role, persId, persName, avatarUrl: null });
 
@@ -38,7 +40,7 @@ function enterRoom({ myRole, myPersId }: { myRole: "GM" | "PLAYER"; myPersId: nu
 
 const heroEvent = (roll: GameRoll, heroTarget: GameRollEventView["heroTarget"]): GameRollEventView => ({
   seq: 4, authorUserId: 1, authorName: "Майстер", persName: null, avatarUrl: null, source: "FREE", visibility: "PUBLIC", label: "Гоблін · Скімітар", roll, total: roll.total,
-  rolledAt: "2026-11-07T10:00:00.000Z", createdAt: "2026-11-07T10:00:00.000Z", target: null, saves: null, heroTarget,
+  rolledAt: "2026-11-07T10:00:00.000Z", createdAt: "2026-11-07T10:00:00.000Z", target: null, saves: null, heroTarget: heroTarget ? { damageDefenses: [], ...heroTarget } : null,
 });
 
 beforeEach(() => {
@@ -129,6 +131,47 @@ describe("кімната сама знімає хіти з листа", () => {
     addGameEvents(1, [appliedHit(42)]);
     addGameEvents(1, [appliedHit(42)]);
     expect(useHeroDamageStore.getState().requests).toEqual([{ persId: 5, amount: 6, operationId: "game-hit-1-42", isAppliedOnServer: true, isHealing: false }]);
+  });
+
+  it("майстер бачить нові хіти на відкритих листах гравців, без ряткидка концентрації за гравця", () => {
+    enterRoom({ myRole: "GM", myPersId: null });
+    useGameSessionLiveStore.setState({ liveFromSeq: 49 });
+    addGameEvents(1, [appliedHit(50), { ...appliedHit(51), heroTarget: { ...appliedHit(51).heroTarget!, persId: 6 } }]);
+    expect(useHeroDamageStore.getState().requests).toEqual([
+      { persId: 5, amount: 6, operationId: "game-hit-1-50", isAppliedOnServer: true, isHealing: false, isOthersHero: true },
+      { persId: 6, amount: 6, operationId: "game-hit-1-51", isAppliedOnServer: true, isHealing: false, isOthersHero: true },
+    ]);
+  });
+});
+
+describe("майстер скасовує кидок", () => {
+  const hit = { ...heroEvent(damageRoll, { persId: 5, name: "Пивослав", kind: "damage", damage: 6, isHit: null, armorClass: null, isAppliedToSheet: true }), seq: 60 };
+  const cancel: GameRollEventView = { ...heroEvent(EMPTY_ROLL, null), seq: 61, label: "Скасовано: Гоблін · Скімітар", total: 0, cancelsSeq: 60, restoredHeroes: [{ persId: 5, name: "Пивослав", kind: "heal", amount: 6 }] };
+
+  it("гравець бачить скасований кидок і повернені хіти, а лист бере їх без ряткидка концентрації", () => {
+    enterRoom({ myRole: "PLAYER", myPersId: 5 });
+    useGameSessionLiveStore.setState({ liveFromSeq: 60 });
+    addGameEvents(1, [hit]);
+    addGameEvents(1, [cancel]);
+    const [original, entry] = useGameSessionLiveStore.getState().events;
+    expect(original.isCancelled).toBe(true);
+    expect(useHeroDamageStore.getState().requests).toEqual([{ persId: 5, amount: 6, operationId: "game-hit-1-61-0", isAppliedOnServer: true, isHealing: true }]);
+    render(<ol><GameRollEntry event={original} isMine={false} isNew={false} /><GameRollEntry event={entry} isMine={false} isNew={false} /></ol>);
+    expect(screen.getByText("скасовано майстром")).toBeTruthy();
+    expect(screen.getByText("Хіти повернуто: Пивослав +6")).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Скасувати кидок" })).toBeNull();
+  });
+
+  it("майстер підтверджує скасування, і журнал одразу показує обидві події", async () => {
+    enterRoom({ myRole: "GM", myPersId: null });
+    cancelGameRollAction.mockResolvedValue({ ok: true, value: [{ ...hit, isCancelled: true }, cancel] });
+    render(<ol><GameRollEntry event={hit} isMine={false} isNew={false} canCancel /></ol>);
+    fireEvent.click(screen.getByRole("button", { name: "Скасувати кидок" }));
+    expect(cancelGameRollAction).not.toHaveBeenCalled();
+    expect(document.activeElement).toBe(screen.getByRole("button", { name: "Так, скасувати" }));
+    fireEvent.click(screen.getByRole("button", { name: "Так, скасувати" }));
+    await vi.waitFor(() => expect(useGameSessionLiveStore.getState().events.map((event) => event.seq)).toEqual([60, 61]));
+    expect(cancelGameRollAction).toHaveBeenCalledWith(1, 60);
   });
 });
 

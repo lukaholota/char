@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { GROUP_MOVE_LIMIT, collectKeysInRect, isPointInRect, parseGroupMoves, parseMapTokenMoves, parsePositionMoves, shiftGroup, findIdInGroupKey } from "@/rules/map-group";
+import { GROUP_MOVE_LIMIT, changeGroupKeys, collectKeysInRect, isPointInRect, parseGroupMoves, parseMapTokenMoves, parsePositionMoves, shiftGroup, findIdInGroupKey } from "@/rules/map-group";
 
 const rect = { x: 0.2, y: 0.2, width: 0.3, height: 0.3 };
 
@@ -17,6 +17,12 @@ describe("map group selection", () => {
       { key: "creature-3", position: { x: 0.45, y: 0.25 } },
     ];
     expect(collectKeysInRect(items, rect)).toEqual(["hero-1", "creature-3"]);
+  });
+
+  it("adds with Shift, removes with Ctrl or ⌘ and replaces without a key", () => {
+    expect(changeGroupKeys(["hero-1"], ["hero-1", "creature-2"], "add")).toEqual(["hero-1", "creature-2"]);
+    expect(changeGroupKeys(["hero-1", "creature-2", "creature-3"], ["creature-2", "creature-9"], "remove")).toEqual(["hero-1", "creature-3"]);
+    expect(changeGroupKeys(["hero-1"], ["creature-2"], null)).toEqual(["creature-2"]);
   });
 
   it("shifts every item by the same step and stops each at the map edge", () => {

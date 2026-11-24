@@ -1,3 +1,5 @@
+import type { DamageBonusPart } from "@/rules/damage-parts";
+import type { DamageTypeKey } from "@/rules/types";
 import { create } from "zustand";
 
 import type { D20Mode } from "@/rules/dice-roll";
@@ -9,7 +11,7 @@ import type { RollTargetRef, RollTargets } from "@/rules/map-target-picks";
 export type DiceMode = "free" | "roll";
 
 /// Кубик, який стан додає до кидка: +к4 Благословення, −к4 Зменшення.
-export type ExtraDie = { sides: number; sign: 1 | -1; label: string };
+export type ExtraDie = { sides: number; sign: 1 | -1; label: string; damageType?: DamageTypeKey };
 
 /// Що стан персонажа робить із кидком: режим к20, його джерела й додаткові кубики.
 export type RollStateView = { mode: D20Mode; sources: string[]; extraDice: ExtraDie[] };
@@ -30,6 +32,9 @@ export interface DiceRollAction {
   mode?: D20Mode;
   modeSources?: string[];
   extraDice?: ExtraDie[];
+  /// Тип основних кубиків шкоди; bonusParts — пласка шкода інших типів, уже врахована в bonus.
+  damageType?: DamageTypeKey;
+  bonusParts?: DamageBonusPart[];
   targetSave?: TargetSaveRequest;
 }
 

@@ -120,27 +120,27 @@ describe("каст заклинання з областю", () => {
 
 describe("ряткидки цілей у журналі", () => {
   const roll = { d20Mode: null, modeSources: [], groups: [{ sides: 6, values: [6, 6, 6] }], extra: [], bonus: 0, total: 18, check: null };
-  const gmRow = { d20: [12], mode: "NORMAL" as const, bonus: 2, dice: [], total: 14, isAutoFail: false, defense: "resistant" as const, hitPointsBefore: 20, hitPointsAfter: 16, canUndo: true, isUndone: false };
+  const gmRow = { d20: [12], mode: "NORMAL" as const, bonus: 2, dice: [], total: 14, isAutoFail: false, hitPointsBefore: 20, hitPointsAfter: 16, canUndo: true, isUndone: false };
   const event: GameRollEventView = {
     seq: 9, authorUserId: 7, authorName: "Оксана", persName: "Тарн", avatarUrl: null, source: "CHARACTER", visibility: "PUBLIC", label: "Вогняна куля · Шкода", roll, total: 18,
     rolledAt: "2026-11-07T10:00:00.000Z", createdAt: "2026-11-07T10:00:00.000Z", target: null,
-    saves: { ability: "DEX", dc: 15, damageType: "fire", rows: [{ name: "Гоблін 1", persId: null, isSaved: false, damage: 18, gm: null }, { name: "Огр", persId: null, isSaved: true, damage: 4, gm: null }] },
+    saves: { ability: "DEX", dc: 15, damageType: "fire", rows: [{ name: "Гоблін 1", persId: null, isSaved: false, damage: 18, defenses: [], gm: null }, { name: "Огр", persId: null, isSaved: true, damage: 4, defenses: [{ damageType: "FIRE", defense: "resistant" }], gm: null }] },
   };
 
-  it("гравець бачить успіх чи провал і шкоду кожної цілі, без кидка й хітів", () => {
+  it("гравець бачить успіх чи провал, шкоду й опір кожної цілі, без кидка й хітів", () => {
     render(<ol><GameRollEntry event={event} isMine isNew={false} /></ol>);
     const rows = screen.getAllByRole("listitem").filter((item) => item.closest("ul"));
-    expect(rows.map((row) => row.textContent)).toEqual(["→ Гоблін 1провал−18", "→ Огруспіх−4"]);
+    expect(rows.map((row) => row.textContent)).toEqual(["→ Гоблін 1провал−18", "→ Огруспіх−4опір (вогняна)"]);
     expect(screen.queryByText(/к20/)).toBeNull();
     expect(screen.queryByRole("button", { name: /Скасувати/ })).toBeNull();
   });
 
-  it("майстер бачить кидок, опір і хіти та скасовує шкоду одного рядка", async () => {
+  it("майстер бачить кидок і хіти та скасовує шкоду одного рядка", async () => {
     enterRoom();
-    const forGm = { ...event, saves: { ...event.saves!, rows: [{ ...event.saves!.rows[0], gm: { ...gmRow, defense: null, hitPointsAfter: 2 } }, { ...event.saves!.rows[1], gm: gmRow }] } };
+    const forGm = { ...event, saves: { ...event.saves!, rows: [{ ...event.saves!.rows[0], gm: { ...gmRow, hitPointsAfter: 2 } }, { ...event.saves!.rows[1], gm: gmRow }] } };
     mocks.undoSaveDamageAction.mockResolvedValue({ ok: true, value: forGm });
     render(<ol><GameRollEntry event={forGm} isMine={false} isNew={false} /></ol>);
-    expect(screen.getByText("к20 12 +2 = 14 · опір · хіти 20 → 16")).toBeTruthy();
+    expect(screen.getByText("к20 12 +2 = 14 · хіти 20 → 16")).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "Скасувати шкоду: Огр" }));
     await waitFor(() => expect(mocks.undoSaveDamageAction).toHaveBeenCalledWith(1, 9, 1));
   });
@@ -148,7 +148,7 @@ describe("ряткидки цілей у журналі", () => {
   it("гравець, чий герой у зоні, знімає свою шкоду з листа один раз", () => {
     enterRoom();
     useGameSessionLiveStore.setState({ view: { id: 1, myRole: "PLAYER", myPersId: 7, myPersIds: [7], members: [], creatures: [] } as unknown as GameSessionView });
-    const withHero = { ...event, saves: { ...event.saves!, rows: [...event.saves!.rows, { name: "Тарн", persId: 7, isSaved: false, damage: 18, gm: null }, { name: "Віра", persId: 8, isSaved: false, damage: 18, gm: null }] } };
+    const withHero = { ...event, saves: { ...event.saves!, rows: [...event.saves!.rows, { name: "Тарн", persId: 7, isSaved: false, damage: 18, defenses: [], gm: null }, { name: "Віра", persId: 8, isSaved: false, damage: 18, defenses: [], gm: null }] } };
     render(<ol><GameRollEntry event={withHero} isMine={false} isNew={false} /></ol>);
     const buttons = screen.getAllByRole("button", { name: "Зняти 18 хітів з листа" });
     expect(buttons).toHaveLength(1);

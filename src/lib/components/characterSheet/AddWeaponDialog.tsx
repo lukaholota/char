@@ -5,11 +5,12 @@ import { Plus, Search, Sword } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { 
-  getBaseEquipment, 
-  addWeapon 
-} from "@/lib/actions/equipment-actions";
+import { getBaseEquipment, addWeapon } from "@/lib/actions/equipment-actions";
+import { addMagicItemToPers } from "@/lib/actions/magic-item-actions";
+import { useCommunityHomebrew } from "@/hooks/useCommunityHomebrew";
 import { weaponTranslations, damageTypeTranslations } from "@/lib/refs/translation";
+import type { HomebrewCatalogEntry, HomebrewItemEntry } from "@/lib/logic/homebrew-view";
+import { parseWeaponProfile } from "@/rules/weapon-profile";
 import type { Ruleset, Weapon } from "@prisma/client";
 import { toast } from "sonner";
 
@@ -19,6 +20,10 @@ interface AddWeaponDialogProps {
   onSuccess?: () => void;
 }
 
+type AddResult = { success: boolean; error?: string };
+
+const FILTER_CLASS = "h-11 px-3 text-xs";
+
 export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeaponDialogProps) {
   const [open, setOpen] = useState(false);
   const [weapons, setWeapons] = useState<Weapon[]>([]);
@@ -27,6 +32,8 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
   const [rangedFilter, setRangedFilter] = useState<boolean | null>(null);
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
+  const isHomebrew = typeFilter === "HOMEBREW";
+  const community = useCommunityHomebrew({ kind: "ITEM", ruleset, sort: "TOP" }, open && isHomebrew);
 
   useEffect(() => {
     if (open) {
@@ -41,8 +48,7 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
   }, [open, ruleset]);
 
   const filteredWeapons = weapons.filter((w) => {
-    const name = weaponTranslations[w.name as keyof typeof weaponTranslations] || w.name;
-    const matchesSearch = name.toLowerCase().includes(search.toLowerCase());
+    const matchesSearch = translateWeapon(w).toLowerCase().includes(search.toLowerCase());
     const matchesType = typeFilter === "ALL" || w.weaponType === typeFilter;
     const matchesRanged = rangedFilter === null || w.isRanged === rangedFilter;
     return matchesSearch && matchesType && matchesRanged;
@@ -51,16 +57,21 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
   const uniqueWeapons = Array.from(
     new Map(filteredWeapons.map((w) => [w.name, w])).values()
   );
+  const homebrewWeapons = findHomebrewWeapons(community, search);
+  const chooseRange = (isRanged: boolean) => {
+    if (isHomebrew) setTypeFilter("ALL");
+    setRangedFilter(rangedFilter === isRanged ? null : isRanged);
+  };
+  const chooseHomebrew = () => {
+    setTypeFilter("HOMEBREW");
+    setRangedFilter(null);
+  };
 
-  const handleAdd = (weapon: Weapon) => {
+  const runAdd = (add: () => Promise<AddResult>, successText: string) => {
     startTransition(async () => {
-      const res = await addWeapon(persId, weapon.weaponId, {
-        overrideName: weaponTranslations[weapon.name as keyof typeof weaponTranslations] || weapon.name,
-        isProficient: true,
-      });
-
+      const res = await add();
       if (res.success) {
-        toast.success("Зброю додано");
+        toast.success(successText);
         setOpen(false);
         onSuccess?.();
       } else {
@@ -69,23 +80,9 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
     });
   };
 
-  const handleAddCustom = () => {
-    startTransition(async () => {
-        const res = await addWeapon(persId, null, {
-          overrideName: "Нова зброя",
-          customDamageDice: "1d6",
-          isProficient: true,
-        });
-  
-        if (res.success) {
-          toast.success("Кастомну зброю створено");
-          setOpen(false);
-          onSuccess?.();
-        } else {
-          toast.error(res.error || "Помилка при створенні зброї");
-        }
-      });
-  };
+  const handleAdd = (weapon: Weapon) => runAdd(() => addWeapon(persId, weapon.weaponId, { overrideName: translateWeapon(weapon), isProficient: true }), "Зброю додано");
+  const handleAddHomebrew = (entry: HomebrewItemEntry) => runAdd(() => addMagicItemToPers({ persId, magicItemId: entry.item.magicItemId }), "Зброю додано");
+  const handleAddCustom = () => runAdd(() => addWeapon(persId, null, { overrideName: "Нова зброя", customDamageDice: "1d6", isProficient: true }), "Кастомну зброю створено");
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -95,7 +92,7 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
           <span>Додати зброю</span>
         </Button>
       </DialogTrigger>
-      <DialogContent 
+      <DialogContent
         className="max-w-md border-white/10 text-slate-50 p-0 overflow-hidden flex flex-col h-[80vh]"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
@@ -113,49 +110,25 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
               <Input
                 autoFocus={false}
                 placeholder="Пошук зброї..."
+                aria-label="Пошук зброї"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="pl-9 bg-white/5 border-white/10 text-slate-50"
               />
             </div>
-            
+
             <div className="flex flex-wrap gap-2">
-              <Button 
-                variant={typeFilter === "ALL" ? "secondary" : "outline"} 
-                size="sm" 
-                className="h-7 text-[10px] px-2"
-                onClick={() => setTypeFilter("ALL")}
-              >Всі</Button>
-              <Button 
-                variant={typeFilter === "SIMPLE_WEAPON" ? "secondary" : "outline"} 
-                size="sm" 
-                className="h-7 text-[10px] px-2"
-                onClick={() => setTypeFilter("SIMPLE_WEAPON")}
-              >Проста</Button>
-              <Button 
-                variant={typeFilter === "MARTIAL_WEAPON" ? "secondary" : "outline"} 
-                size="sm" 
-                className="h-7 text-[10px] px-2"
-                onClick={() => setTypeFilter("MARTIAL_WEAPON")}
-              >Військова</Button>
-              <div className="w-px h-7 bg-white/10 mx-1 hidden sm:block" />
-              <Button 
-                variant={rangedFilter === false ? "secondary" : "outline"} 
-                size="sm" 
-                className="h-7 text-[10px] px-2"
-                onClick={() => setRangedFilter(rangedFilter === false ? null : false)}
-              >Ближня</Button>
-              <Button 
-                variant={rangedFilter === true ? "secondary" : "outline"} 
-                size="sm" 
-                className="h-7 text-[10px] px-2"
-                onClick={() => setRangedFilter(rangedFilter === true ? null : true)}
-              >Дальня</Button>
+              <FilterChip isOn={typeFilter === "ALL"} onClick={() => setTypeFilter("ALL")}>Всі</FilterChip>
+              <FilterChip isOn={typeFilter === "SIMPLE_WEAPON"} onClick={() => setTypeFilter("SIMPLE_WEAPON")}>Проста</FilterChip>
+              <FilterChip isOn={typeFilter === "MARTIAL_WEAPON"} onClick={() => setTypeFilter("MARTIAL_WEAPON")}>Військова</FilterChip>
+              <FilterChip isOn={rangedFilter === false} onClick={() => chooseRange(false)}>Ближня</FilterChip>
+              <FilterChip isOn={rangedFilter === true} onClick={() => chooseRange(true)}>Дальня</FilterChip>
+              <FilterChip isOn={isHomebrew} onClick={chooseHomebrew}>Хоумбрю</FilterChip>
             </div>
           </div>
 
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             className="w-full border-dashed border-white/20 hover:bg-white/5 h-12 gap-2"
             onClick={handleAddCustom}
             disabled={isPending}
@@ -165,32 +138,17 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
           </Button>
 
           <div className="space-y-2">
-            {isLoading ? (
+            {isHomebrew ? (
+              homebrewWeapons.length > 0 ? (
+                homebrewWeapons.map((entry) => <WeaponOption key={entry.entryId} name={entry.name} details={describeHomebrewWeapon(entry)} isDisabled={isPending} onAdd={() => handleAddHomebrew(entry)} />)
+              ) : (
+                <div className="text-center py-8 text-slate-400">Хоумбрю-зброї не знайдено</div>
+              )
+            ) : isLoading ? (
               <div className="text-center py-8 text-slate-400">Завантаження...</div>
             ) : uniqueWeapons.length > 0 ? (
               uniqueWeapons.map((w) => (
-                <div
-                  key={w.weaponId}
-                  className="flex items-center justify-between p-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition group"
-                >
-                  <div>
-                    <div className="font-semibold">
-                      {weaponTranslations[w.name as keyof typeof weaponTranslations] || w.name}
-                    </div>
-                    <div className="text-xs text-slate-400">
-                      {w.damage} {damageTypeTranslations[w.damageType as keyof typeof damageTypeTranslations] || w.damageType}
-                    </div>
-                  </div>
-                  <Button 
-                    size="sm" 
-                    variant="ghost" 
-                    className="[@media(hover:hover)_and_(pointer:fine)]:opacity-0 group-hover:opacity-100 transition h-8 w-8 p-0"
-                    onClick={() => handleAdd(w)}
-                    disabled={isPending}
-                  >
-                    <Plus className="w-4 h-4" />
-                  </Button>
-                </div>
+                <WeaponOption key={w.weaponId} name={translateWeapon(w)} details={`${w.damage} ${damageTypeTranslations[w.damageType as keyof typeof damageTypeTranslations] || w.damageType}`} isDisabled={isPending} onAdd={() => handleAdd(w)} />
               ))
             ) : (
               <div className="text-center py-8 text-slate-400">Нічого не знайдено</div>
@@ -200,4 +158,44 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
       </DialogContent>
     </Dialog>
   );
+}
+
+function FilterChip({ isOn, onClick, children }: { isOn: boolean; onClick: () => void; children: string }) {
+  return (
+    <Button variant={isOn ? "secondary" : "outline"} size="sm" aria-pressed={isOn} className={FILTER_CLASS} onClick={onClick}>
+      {children}
+    </Button>
+  );
+}
+
+function WeaponOption({ name, details, isDisabled, onAdd }: { name: string; details: string; isDisabled: boolean; onAdd: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onAdd}
+      disabled={isDisabled}
+      aria-label={`Додати: ${name}`}
+      className="flex min-h-11 w-full items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/5 p-3 text-left transition hover:bg-white/10 disabled:opacity-60"
+    >
+      <span className="min-w-0">
+        <span className="block break-words font-semibold">{name}</span>
+        <span className="block text-xs text-slate-400">{details}</span>
+      </span>
+      <Plus className="h-4 w-4 shrink-0 text-slate-300" aria-hidden />
+    </button>
+  );
+}
+
+function translateWeapon(weapon: Weapon): string {
+  return weaponTranslations[weapon.name as keyof typeof weaponTranslations] || weapon.name;
+}
+
+function findHomebrewWeapons(entries: HomebrewCatalogEntry[], search: string): HomebrewItemEntry[] {
+  const query = search.trim().toLocaleLowerCase("uk");
+  return entries.filter((entry): entry is HomebrewItemEntry => entry.kind === "ITEM" && entry.item.itemType === "WEAPON" && entry.name.toLocaleLowerCase("uk").includes(query));
+}
+
+function describeHomebrewWeapon(entry: HomebrewItemEntry): string {
+  const profile = parseWeaponProfile(entry.item.weaponProfile);
+  return [profile?.damage, profile?.damageType ? damageTypeTranslations[profile.damageType] : null, entry.item.isMundane ? null : "магічна", entry.authorName].filter(Boolean).join(" · ");
 }

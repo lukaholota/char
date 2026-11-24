@@ -16,7 +16,7 @@ import { findTappedObjectId } from "./MapTokenSlot";
 import { useTokenDrag } from "./use-token-drag";
 
 type Point = { clientX: number; clientY: number };
-type Options = { view: GameSessionView; shownFloor: FloorId; editing: ObjectEditing; gridColumns: number | null; findDropPosition: (point: Point) => TokenPosition | null; findViewCentre: () => TokenPosition; group: { isGrouped: (key: string) => boolean; moveWith: (key: string, to: TokenPosition) => boolean; clear: () => void } };
+type Options = { view: GameSessionView; shownFloor: FloorId; editing: ObjectEditing; gridColumns: number | null; findDropPosition: (point: Point) => TokenPosition | null; findViewCentre: () => TokenPosition; group: { isGrouped: (key: string) => boolean; moveWith: (key: string, to: TokenPosition) => boolean; pickWithKey: (key: string) => boolean; clear: () => void } };
 type ObjectMove = { id: number; at: TokenPosition };
 
 const { findCurrentId, takeTempId, link } = createIdChain();
@@ -166,6 +166,7 @@ export function useMapObjects({ view, shownFloor, editing, gridColumns, findDrop
     },
     (point) => findDropPosition(point) !== null,
     (id) => {
+      if (editing === "all" && group.pickWithKey(`object-${findCurrentId(id)}`)) return;
       group.clear();
       setChosenId(findCurrentId(id) === chosenId ? null : findCurrentId(id));
     },

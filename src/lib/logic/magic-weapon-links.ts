@@ -3,12 +3,13 @@ import { findMagicWeaponTraits, type WeaponHitDamage } from "@/rules/magic-weapo
 import { parseExtraDamage, parseExtraDamageFormula, type ExtraDamage, type WeaponProfile } from "@/rules/weapon-profile";
 import { sumAbilityTerms } from "@/rules/weapon-damage-formula";
 import type { AbilityKey } from "@/rules/types";
+import type { DamageBonusPart } from "@/rules/damage-parts";
 import { damageTypeTranslations } from "@/lib/refs/translation";
 import { isMagicItemActive } from "./magic-item-activation";
 
 type MagicItemLink = NonNullable<PersWithRelations["magicItems"]>[number];
 
-export type WeaponMagicItem = { name: string; bonus: number; hits: WeaponHitDamage[]; profile: WeaponProfile | null; isActive: boolean };
+export type WeaponMagicItem = { name: string; bonus: number; hits: WeaponHitDamage[]; profile: WeaponProfile | null; isActive: boolean; isMagic: boolean };
 
 export function listActiveMagicItemLinks(pers: PersWithRelations): MagicItemLink[] {
   return (pers.magicItems ?? []).filter(isMagicItemActive);
@@ -18,7 +19,7 @@ export function listActiveMagicItemLinks(pers: PersWithRelations): MagicItemLink
 export function listWeaponMagicItems(pers: PersWithRelations, pw: Pick<PersWeaponWithWeapon, "persWeaponId">): WeaponMagicItem[] {
   return (pers.magicItems ?? []).flatMap((link) => {
     const traits = link.persWeaponId === pw.persWeaponId && link.magicItem ? findMagicWeaponTraits(link.magicItem) : null;
-    return traits ? [{ name: link.magicItem.name, ...traits, isActive: link.magicItem.isMundane || isMagicItemActive(link) }] : [];
+    return traits ? [{ name: link.magicItem.name, ...traits, isActive: link.magicItem.isMundane || isMagicItemActive(link), isMagic: !link.magicItem.isMundane }] : [];
   });
 }
 
@@ -39,15 +40,18 @@ function describeExtraType(extra: ExtraDamage): string {
 export function listWeaponExtraDice(pers: PersWithRelations, pw: WeaponWithExtras) {
   return listWeaponExtraDamage(pers, pw).flatMap(({ extra, label }) => {
     const groups = extra.formula === undefined ? [extra] : (parseExtraDamageFormula(extra.formula)?.dice ?? []);
-    return groups.flatMap(({ count, sides }) => Array.from({ length: count }, () => ({ sides, sign: 1 as const, label })));
+    const damageType = extra.damageType ? { damageType: extra.damageType } : {};
+    return groups.flatMap(({ count, sides }) => Array.from({ length: count }, () => ({ sides, sign: 1 as const, label, ...damageType })));
   });
 }
 
-export function sumWeaponExtraDamageBonus(pers: PersWithRelations, pw: WeaponWithExtras, findModifier: (ability: AbilityKey) => number): number {
-  return listWeaponExtraDamage(pers, pw).reduce((total, { extra }) => {
+/// Пласкі «+5» з формул додаткової шкоди окремо від шкоди зброї: у них може бути свій тип і свій опір.
+export function listWeaponExtraBonusParts(pers: PersWithRelations, pw: WeaponWithExtras, findModifier: (ability: AbilityKey) => number): DamageBonusPart[] {
+  return listWeaponExtraDamage(pers, pw).flatMap(({ extra, label }) => {
     const formula = extra.formula ? parseExtraDamageFormula(extra.formula) : null;
-    return formula ? total + formula.flat + sumAbilityTerms(formula.abilities, findModifier) : total;
-  }, 0);
+    const value = formula ? formula.flat + sumAbilityTerms(formula.abilities, findModifier) : 0;
+    return value ? [{ label, value, ...(extra.damageType ? { damageType: extra.damageType } : {}) }] : [];
+  });
 }
 
 export function sumWeaponItemBonus(pers: PersWithRelations, pw: Pick<PersWeaponWithWeapon, "persWeaponId">): number {

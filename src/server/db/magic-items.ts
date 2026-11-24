@@ -130,16 +130,17 @@ export function removeMagicItemLinks(persId: number, magicItemId: number) {
 }
 
 /// Хомбрю-предмет з основою одразу дає рядок зброї чи обладунку на листі; зброю привʼязує до предмета.
+/// Зброя без основи стоїть на кийку, як і кастомний рядок: шкоду й дальність дає профіль предмета.
 export async function addMagicItemLink(persId: number, magicItemId: number) {
   const [pers, item] = await Promise.all([
     prisma.pers.findUniqueOrThrow({ where: { persId }, select: { ruleset: true } }),
     prisma.magicItem.findUniqueOrThrow({
       where: { magicItemId },
-      select: { name: true, isMundane: true, armorBaseAC: true, baseWeapon: { select: { weaponId: true, name: true, ruleset: true } }, baseArmor: { select: { armorId: true, name: true, ruleset: true } } },
+      select: { name: true, itemType: true, isMundane: true, armorBaseAC: true, baseWeapon: { select: { weaponId: true, name: true, ruleset: true } }, baseArmor: { select: { armorId: true, name: true, ruleset: true } } },
     }),
   ]);
   const [weaponId, armorId] = await Promise.all([
-    item.baseWeapon ? findSameWeaponInRuleset(item.baseWeapon, pers.ruleset) : null,
+    item.baseWeapon ? findSameWeaponInRuleset(item.baseWeapon, pers.ruleset) : item.itemType === "WEAPON" ? findWeaponIdByName("CLUB", pers.ruleset) : null,
     item.baseArmor ? findSameArmorInRuleset(item.baseArmor, pers.ruleset) : null,
   ]);
   return prisma.$transaction(async (tx) => {
@@ -150,9 +151,12 @@ export async function addMagicItemLink(persId: number, magicItemId: number) {
 }
 
 async function findSameWeaponInRuleset(base: { weaponId: number; name: WeaponCategory; ruleset: Ruleset }, ruleset: Ruleset): Promise<number | null> {
-  if (base.ruleset === ruleset) return base.weaponId;
-  const same = await prisma.weapon.findFirst({ where: { name: base.name, ruleset }, select: { weaponId: true } });
-  return same?.weaponId ?? null;
+  return base.ruleset === ruleset ? base.weaponId : findWeaponIdByName(base.name, ruleset);
+}
+
+async function findWeaponIdByName(name: WeaponCategory, ruleset: Ruleset): Promise<number | null> {
+  const weapon = await prisma.weapon.findFirst({ where: { name, ruleset }, select: { weaponId: true } });
+  return weapon?.weaponId ?? null;
 }
 
 async function findSameArmorInRuleset(base: { armorId: number; name: ArmorCategory; ruleset: Ruleset }, ruleset: Ruleset): Promise<number | null> {

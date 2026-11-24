@@ -15,7 +15,7 @@ vi.mock("@/server/media/media-store", () => ({
 
 import { changeCreatureConditions, changeHeroConditions, clearBlessedMarks, markBlessedTargets } from "@/server/db/game-conditions";
 import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, setMapCreatureNameHidden } from "@/server/db/game-map-creatures";
-import { insertGameRollEvent, listEventsAfter, undoRollDamage, type GameRollDraft } from "@/server/db/game-roll-events";
+import { cancelGameRoll, insertGameRollEvent, listEventsAfter, undoRollDamage, type GameRollDraft } from "@/server/db/game-roll-events";
 import { bindMemberPers, createGameSession, findGameSessionView, joinGameSessionByToken } from "@/server/db/game-sessions";
 import { createGameScene, moveGameToken, openGameScene } from "@/server/db/game-scenes";
 import { setActiveSceneMap } from "./game-scene-setup";
@@ -68,8 +68,8 @@ async function createTable() {
   return { gm, player, other, sessionId };
 }
 
-async function placeGoblin(sessionId: number, gmId: number, hp: { max: number; current: number } | null = { max: 10, current: 10 }) {
-  await addMapCreatures(sessionId, gmId, { creatureKey: "goblin", ruleset: "RULES_2014", count: 1, customName: null });
+async function placeGoblin(sessionId: number, gmId: number, hp: { max: number; current: number } | null = { max: 10, current: 10 }, creatureKey = "goblin") {
+  await addMapCreatures(sessionId, gmId, { creatureKey, ruleset: "RULES_2014", count: 1, customName: null });
   const [creature] = (await findGameSessionView(sessionId, gmId))!.creatures.slice(-1);
   await moveMapCreature(sessionId, gmId, creature.id, { x: 0.4, y: 0.4 });
   await prisma.gameMapCreature.update({ where: { id: creature.id }, data: { hpMax: hp?.max ?? null, hpCurrent: hp?.current ?? null } });
@@ -167,7 +167,7 @@ describe("кидок із ціллю: атака", () => {
     expect(results.map((result) => (result.ok ? result.value.target?.isHit : "fail"))).toEqual([true, false, true, false]);
 
     const forPlayer = await listEventsAfter(sessionId, { userId: player.id, isGm: false }, 0, 10);
-    expect(forPlayer[0].target).toEqual({ name: "Гоблін", kind: "attack", isHit: true, damage: null, isDowned: false, gm: null });
+    expect(forPlayer[0].target).toEqual({ name: "Гоблін", kind: "attack", isHit: true, damage: null, isDowned: false, damageDefenses: [], gm: null });
     expect(JSON.stringify(forPlayer)).not.toMatch(/armorClass|hitPointsBefore/);
     const forGm = await listEventsAfter(sessionId, { userId: gm.id, isGm: true }, 0, 10);
     expect(forGm[0].target?.gm).toMatchObject({ armorClass: 15 });
@@ -223,6 +223,18 @@ describe("кидок із ціллю: шкода", () => {
     const results = await Promise.all(Array.from({ length: 5 }, () => insertGameRollEvent(sessionId, player.id, buildSheetDraft({ roll: buildRoll({ total: 1 }), target: { creatureId, kind: "damage" } }))));
     expect(results.every((result) => result.ok)).toBe(true);
     expect(await readStoredHitPoints(creatureId)).toEqual({ hpMax: 7, hpCurrent: 2 });
+  });
+
+  it("імунітет істоти знімає свою частину шкоди, і це видно всім у журналі", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const creatureId = await placeGoblin(sessionId, gm.id, { max: 20, current: 20 }, "skeleton");
+    const roll = buildRoll({ groups: [{ sides: 8, values: [5] }], extra: [{ sides: 6, sign: 1, label: "Отрута", value: 4, damageType: "POISON" }], bonus: 3, total: 12, damageType: "SLASHING" });
+    const created = await insertGameRollEvent(sessionId, player.id, buildSheetDraft({ roll, target: { creatureId, kind: "damage" } }));
+    expect(created).toMatchObject({ ok: true, value: { target: { damage: 8, damageDefenses: [{ damageType: "POISON", defense: "immune", before: 4, after: 0 }] } } });
+    expect(await readStoredHitPoints(creatureId)).toEqual({ hpMax: 20, hpCurrent: 12 });
+    const [forPlayer] = await listEventsAfter(sessionId, { userId: player.id, isGm: false }, 0, 1);
+    expect(forPlayer.target).toMatchObject({ damage: 8, damageDefenses: [{ defense: "immune" }] });
+    expect(forPlayer.roll).not.toHaveProperty("targetDamage");
   });
 
   it("шкода нульова лишає хіти на місці, і скасовувати нічого", async () => {
@@ -375,7 +387,7 @@ describe("ряткидки зони", () => {
     const [row] = forGm.saves!.rows;
     expect(forGm.saves).toMatchObject({ damageType: "bludgeoning", secondDamageType: "cold" });
     expect(row.damage).toBe(row.isSaved ? 4 + 7 : 24);
-    expect(row.gm).toMatchObject({ defense: null, secondDefense: null });
+    expect(row.defenses).toEqual([]);
     expect(await readStoredHitPoints(goblin)).toEqual({ hpMax: 40, hpCurrent: 40 - row.damage });
   });
 
@@ -526,12 +538,23 @@ describe("удар майстра по герою", () => {
     const created = await insertGameRollEvent(sessionId, gm.id, buildDraft({ label: "Гоблін · Шкода", roll: buildRoll({ total: 6 }), heroTarget: { persId, kind: "damage" } }));
     if (!created.ok) throw new Error(created.error);
     const [forPlayer] = await listEventsAfter(sessionId, { userId: player.id, isGm: false }, created.value.seq - 1, 1);
-    expect(forPlayer.heroTarget).toEqual({ persId, name: `Герой ${player.id}`, kind: "damage", damage: 6, healing: null, isHit: null, armorClass: null, isAppliedToSheet: true });
+    expect(forPlayer.heroTarget).toEqual({ persId, name: `Герой ${player.id}`, kind: "damage", damage: 6, healing: null, isHit: null, armorClass: null, isAppliedToSheet: true, damageDefenses: [] });
     expect(forPlayer.roll).not.toHaveProperty("heroTarget");
     expect(await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { currentHp: true, tempHp: true } })).toEqual({ currentHp: 6, tempHp: 0 });
     const fromSheet = await applyPersFieldOperation(player.id, { kind: "hp", mode: "damage", amount: 6, operationId: buildHeroDamageOperationId(sessionId, created.value.seq), persId, createdAt: new Date().toISOString() });
     expect(fromSheet).toEqual({ ok: true, duplicate: true });
     expect((await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { currentHp: true } })).currentHp).toBe(6);
+  });
+
+  it("опір героя ділить навпіл свій тип шкоди, а лист втрачає вже зменшене число", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const persId = await findPlayerPersId(sessionId, player.id);
+    const tiefling = await prisma.race.findFirstOrThrow({ where: { name: "TIEFLING_2014" } });
+    await prisma.pers.update({ where: { persId }, data: { raceId: tiefling.raceId } });
+    const roll = buildRoll({ groups: [{ sides: 6, values: [4] }], extra: [{ sides: 6, sign: 1, label: "Вогонь", value: 5, damageType: "FIRE" }], total: 9, damageType: "PIERCING" });
+    const created = await insertGameRollEvent(sessionId, gm.id, buildDraft({ label: "Пекельна гонча · Шкода", roll, heroTarget: { persId, kind: "damage" } }));
+    expect(created).toMatchObject({ ok: true, value: { heroTarget: { damage: 6, damageDefenses: [{ damageType: "FIRE", defense: "resistant", before: 5, after: 2 }], isAppliedToSheet: true } } });
+    expect((await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { currentHp: true } })).currentHp).toBe(4);
   });
 
   it("атака по герою хітів не знімає — лише шкода", async () => {
@@ -589,5 +612,43 @@ describe("удар майстра по герою", () => {
     const outsider = await createUser("outsider");
     const created = await insertGameRollEvent(sessionId, gm.id, buildDraft({ heroTarget: { persId: await createPers(outsider.id), kind: "damage" } }));
     expect(created).toMatchObject({ ok: true, value: { heroTarget: null } });
+  });
+});
+
+describe("майстер скасовує кидок", () => {
+  it("хіти істоти повертаються, у журналі запис для всіх, другий раз — відмова, гравцю заборонено", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const creatureId = await placeGoblin(sessionId, gm.id, { max: 10, current: 10 });
+    const created = await insertGameRollEvent(sessionId, player.id, buildSheetDraft({ label: "Меч · Шкода", roll: buildRoll({ total: 6 }), target: { creatureId, kind: "damage" } }));
+    if (!created.ok) throw new Error(created.error);
+    const seq = created.value.seq;
+    expect(await cancelGameRoll(sessionId, player.id, seq)).toEqual({ ok: false, error: "forbidden" });
+    const cancelled = await cancelGameRoll(sessionId, gm.id, seq);
+    expect(cancelled).toMatchObject({ ok: true, value: [{ seq, isCancelled: true, target: { gm: { isUndone: true } } }, { seq: seq + 1, cancelsSeq: seq, label: "Скасовано: Меч · Шкода" }] });
+    expect(await readStoredHitPoints(creatureId)).toEqual({ hpMax: 10, hpCurrent: 10 });
+    const forPlayer = await listEventsAfter(sessionId, { userId: player.id, isGm: false }, seq - 1, 5);
+    expect(forPlayer.map((event) => [event.seq, event.isCancelled, event.cancelsSeq])).toEqual([[seq, true, undefined], [seq + 1, undefined, seq]]);
+    expect(forPlayer[0].roll).not.toHaveProperty("isCancelled");
+    expect(await cancelGameRoll(sessionId, gm.id, seq)).toEqual({ ok: false, error: "already_cancelled" });
+    expect(await cancelGameRoll(sessionId, gm.id, seq + 1)).toEqual({ ok: false, error: "not_found" });
+    expect((await readStoredHitPoints(creatureId)).hpCurrent).toBe(10);
+  });
+
+  it("удар по герою лікується назад і лист бачить це як повернені хіти", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const persId = await findPlayerPersId(sessionId, player.id);
+    const created = await insertGameRollEvent(sessionId, gm.id, buildDraft({ label: "Гоблін · Шкода", roll: buildRoll({ total: 4 }), heroTarget: { persId, kind: "damage" } }));
+    if (!created.ok) throw new Error(created.error);
+    expect((await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { currentHp: true } })).currentHp).toBe(6);
+    const cancelled = await cancelGameRoll(sessionId, gm.id, created.value.seq);
+    expect(cancelled).toMatchObject({ ok: true, value: [{ isCancelled: true }, { restoredHeroes: [{ persId, name: `Герой ${player.id}`, kind: "heal", amount: 4 }] }] });
+    expect((await prisma.pers.findUniqueOrThrow({ where: { persId }, select: { currentHp: true } })).currentHp).toBe(10);
+  });
+
+  it("повідомлення в журналі не скасовується", async () => {
+    const { gm, sessionId } = await createTable();
+    const message = await insertGameRollEvent(sessionId, gm.id, buildDraft({ source: "MESSAGE", label: "Привіт", roll: { ...buildRoll(), groups: [], total: 0 } }));
+    if (!message.ok) throw new Error(message.error);
+    expect(await cancelGameRoll(sessionId, gm.id, message.value.seq)).toEqual({ ok: false, error: "not_found" });
   });
 });

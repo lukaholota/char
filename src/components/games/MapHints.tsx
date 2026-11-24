@@ -35,10 +35,11 @@ export function listMapHints(state: MapHintState, isMac: boolean): MapHint[] {
   const copy = { keys: isMac ? "⌘C ⌘V" : "Ctrl+C Ctrl+V", action: "копія" };
   if (state.isGroup) return listGroupHints(state.tool === "objects");
   const scatter = { keys: isMac ? "⇧⌘V" : "Ctrl+Shift+V", action: "копія з розкидом" };
-  if (state.tool) return listToolHints(state.tool, undo, copy, scatter);
+  const picks = [{ keys: "Shift + клік", action: "додати до вибору" }, { keys: isMac ? "⌘ + клік" : "Ctrl + клік", action: "прибрати з вибору" }];
+  if (state.tool) return listToolHints(state.tool, undo, copy, scatter, picks);
   if (state.token) return listTokenHints(state.token, state.tab, state.isSide, copy);
   if (state.isArchived) return [{ keys: "Тягни", action: "рухати мапу" }, { keys: "Колесо", action: "масштаб" }];
-  if (state.isGm) return [{ keys: "Клік", action: "вибрати токен" }, { keys: "Shift + клік", action: "додати до вибору" }, { keys: "Тягни по порожньому", action: "рамка для кількох" }, { keys: "ПКМ + тягни", action: "рухати мапу" }, { keys: "Колесо", action: "масштаб" }, { keys: "Утримати", action: "позначка для всіх" }, undo];
+  if (state.isGm) return [{ keys: "Клік", action: "вибрати токен" }, ...picks, { keys: "Тягни по порожньому", action: "рамка для кількох" }, { keys: "ПКМ + тягни", action: "рухати мапу" }, { keys: "Колесо", action: "масштаб" }, { keys: "Утримати", action: "позначка для всіх" }, undo];
   return [{ keys: "Клік по своєму герою", action: "вибрати" }, { keys: "Тягни", action: "рухати мапу" }, { keys: "Колесо", action: "масштаб" }, { keys: "Утримати", action: "позначка для всіх" }];
 }
 
@@ -46,10 +47,11 @@ function listGroupHints(areObjects: boolean): MapHint[] {
   return [{ keys: "Тягни будь-кого", action: "рухаються всі" }, { keys: "Delete", action: areObjects ? "видалити" : "прибрати з мапи" }, { keys: "Esc", action: "зняти вибір" }];
 }
 
-function listToolHints(tool: MapTool, undo: MapHint, copy: MapHint, scatter: MapHint): MapHint[] {
+function listToolHints(tool: MapTool, undo: MapHint, copy: MapHint, scatter: MapHint, picks: MapHint[]): MapHint[] {
   const drag = TOOL_DRAGS[tool];
   return [
     ...(drag ? [{ keys: "Тягни", action: drag }] : []),
+    ...(tool === "objects" ? picks : []),
     ...(UNDO_TOOLS.includes(tool) ? [undo] : []),
     ...(tool === "objects" || tool === "light" ? [copy] : []),
     ...(tool === "objects" ? [scatter] : []),

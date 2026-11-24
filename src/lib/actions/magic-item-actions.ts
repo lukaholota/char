@@ -158,12 +158,22 @@ export async function toggleMagicItemForPers({
     return { success: true, added: false };
   }
 
+  const added = await linkMagicItem(persId, magicItemId);
+  return added.success ? { success: true, added: true } : added;
+}
+
+/// Ще один такий самий предмет: «Додати зброю» дає другий меч, а не прибирає перший.
+export async function addMagicItemToPers({ persId, magicItemId }: { persId: number; magicItemId: number }): Promise<{ success: true } | { success: false; error: string }> {
+  const owned = await assertOwnsPers(persId);
+  if (!owned.ok) return { success: false, error: owned.error };
+  return linkMagicItem(persId, magicItemId);
+}
+
+async function linkMagicItem(persId: number, magicItemId: number): Promise<{ success: true } | { success: false; error: string }> {
   if (!(await isMagicItemOfPersRuleset(persId, magicItemId))) {
     return { success: false, error: "Цей предмет належить іншій редакції правил" };
   }
-
   await addMagicItemLink(persId, magicItemId);
-
   revalidatePath(`/char/${persId}`);
-  return { success: true, added: true };
+  return { success: true };
 }

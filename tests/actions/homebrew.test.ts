@@ -19,7 +19,7 @@ vi.mock("@/server/media/media-store", () => ({
 }));
 
 import { deleteHomebrewEntry, listCreatureSpellChoices, listHomebrewEntries, loadHomebrewEditValues, loadHomebrewEntry, saveHomebrewCreature, saveHomebrewItem, saveHomebrewSpell } from "@/lib/actions/homebrew-actions";
-import { toggleMagicItemForPers } from "@/lib/actions/magic-item-actions";
+import { addMagicItemToPers, toggleMagicItemForPers } from "@/lib/actions/magic-item-actions";
 import { prisma } from "@/lib/prisma";
 import { BackgroundCategory, Classes, Races } from "@prisma/client";
 import { createCharacter } from "@/lib/actions/character";
@@ -180,6 +180,22 @@ describe("хоумбрю-предмети", () => {
     const link = await prisma.persMagicItem.findFirstOrThrow({ where: { persId, magicItemId: bowId }, include: { weapon: { include: { weapon: true } } } });
     expect(link.weapon).toMatchObject({ overrideName: "Блочний лук", isMagical: false, weapon: { name: "LONGBOW", ruleset: "RULES_2014" } });
     expect(await prisma.persArmor.findFirstOrThrow({ where: { persId, overrideName: "Шкіра василіска" }, include: { armor: true } })).toMatchObject({ overrideBaseAC: 13, armor: { name: "LEATHER", ruleset: "RULES_2014" } });
+  });
+
+  it("зброя без основи теж стає рядком зброї; з «Додати зброю» береться ще раз, а не прибирається", async () => {
+    await signInAs("author");
+    const persId = await createPers2014();
+    const saved = await saveHomebrewItem(buildCreatureForm({ ...ITEM, name: "Меч Дана", itemType: "WEAPON", isMundane: true, damageFormula: "1к6+СИЛ", damageType: "SLASHING" }));
+    if (!saved.success) throw new Error(JSON.stringify(saved));
+    const magicItemId = 1_000_000 + saved.entryId;
+
+    expect(await toggleMagicItemForPers({ persId, magicItemId })).toEqual({ success: true, added: true });
+    expect(await addMagicItemToPers({ persId, magicItemId })).toEqual({ success: true });
+    const links = await prisma.persMagicItem.findMany({ where: { persId, magicItemId }, include: { weapon: { include: { weapon: true } } } });
+    expect(links.map((link) => link.weapon)).toEqual([
+      expect.objectContaining({ overrideName: "Меч Дана", isMagical: false, weapon: expect.objectContaining({ ruleset: "RULES_2014" }) }),
+      expect.objectContaining({ overrideName: "Меч Дана", isMagical: false, weapon: expect.objectContaining({ ruleset: "RULES_2014" }) }),
+    ]);
   });
 });
 

@@ -1,4 +1,5 @@
 import { GAME_ROLL_KINDS, type GameRollKind } from "@/rules/game-roll-target";
+import type { DamageDefenseNote } from "@/rules/damage-parts";
 
 /// Лікування бере ціллю лише героя: хіти істот майстер веде сам.
 export const HERO_ROLL_KINDS = [...GAME_ROLL_KINDS, "heal"] as const;
@@ -6,9 +7,10 @@ export type HeroRollKind = (typeof HERO_ROLL_KINDS)[number];
 /// Майстер бʼє героя кидком зі статблоку або союзник лікує його з листа: кімната змінює хіти на листі героя.
 export type GameRollHeroTargetDraft = { persId: number; kind: HeroRollKind };
 /// armorClass і isHit з'явилися пізніше: у старих подіях їх немає, і журнал показує підказку замість результату.
-export type StoredHeroTarget = GameRollHeroTargetDraft & { name: string; armorClass?: number | null; isHit?: boolean | null; isAppliedToSheet?: boolean };
+/// amount — шкода після опорів героя; без нього знято стільки, скільки випало.
+export type StoredHeroTarget = GameRollHeroTargetDraft & { name: string; armorClass?: number | null; isHit?: boolean | null; isAppliedToSheet?: boolean; amount?: number; damageDefenses?: DamageDefenseNote[] };
 /// isAppliedToSheet — сервер уже зняв хіти з листа; старі події без нього чекають кнопки гравця.
-export type GameRollHeroTargetView = GameRollHeroTargetDraft & { name: string; damage: number | null; healing: number | null; isHit: boolean | null; armorClass: number | null; isAppliedToSheet: boolean };
+export type GameRollHeroTargetView = GameRollHeroTargetDraft & { name: string; damage: number | null; healing: number | null; isHit: boolean | null; armorClass: number | null; isAppliedToSheet: boolean; damageDefenses: DamageDefenseNote[] };
 
 /// undefined — запис зіпсований, null — цілі немає.
 export function parseGameRollHeroTarget(raw: unknown): GameRollHeroTargetDraft | null | undefined {
@@ -38,11 +40,12 @@ export function buildGameRollHeroTargetView(stored: StoredHeroTarget | undefined
     persId: stored.persId,
     name: stored.name,
     kind: stored.kind,
-    damage: stored.kind === "damage" ? total : null,
+    damage: stored.kind === "damage" ? (stored.amount ?? total) : null,
     healing: stored.kind === "heal" ? total : null,
     isHit: isAttack ? (stored.isHit ?? null) : null,
     armorClass: isAttack && viewer.isGm ? (stored.armorClass ?? null) : null,
     isAppliedToSheet: stored.isAppliedToSheet ?? false,
+    damageDefenses: stored.damageDefenses ?? [],
   };
 }
 

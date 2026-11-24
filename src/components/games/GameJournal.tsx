@@ -24,6 +24,10 @@ const STATUS_TEXT: Partial<Record<GameConnectionStatus, string>> = {
   lost: "Ви більше не в цій кампанії",
 };
 
+function isCancellable(event: GameRollEventView): boolean {
+  return event.seq > 0 && event.source !== "MESSAGE" && !event.cancelsSeq && !event.isCancelled;
+}
+
 export function GameJournal({ myUserId, className }: { myUserId: number | null; className?: string }) {
   const { events, status, hasOlder, isLoadingOlder, sessionId, view, rollingUserIds, pendingRolls, rollKeys } = useGameSessionLiveStore();
   const rollingMembers = view ? findRoomPeople(view.members).filter((member) => rollingUserIds.includes(member.userId)) : [];
@@ -52,7 +56,7 @@ export function GameJournal({ myUserId, className }: { myUserId: number | null; 
         {entries.length || rollingMembers.length ? (
           <ol className="space-y-2 pt-2">
             {entries.map(({ key, event, isNew }) => (
-              <GameRollEntry key={key} event={event} isMine={event.authorUserId === myUserId} isNew={isNew} />
+              <GameRollEntry key={key} event={event} isMine={event.authorUserId === myUserId} isNew={isNew} canCancel={view?.myRole === "GM" && isCancellable(event)} />
             ))}
             {rollingMembers.map((member) => (
               <GameRollingEntry key={`rolling-${member.userId}`} member={member} />

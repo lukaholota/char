@@ -58,7 +58,7 @@ export function ObjectsPanel({ objects, history, onClose }: { objects: MapObject
   if (chosen) return <ChosenObjectPanel key={chosen.id} object={chosen} objects={objects} history={history} onClose={onClose} />;
   return (
     <ToolPanel title="Обʼєкти" onClose={onClose} aside={<HistoryButtons history={history} />}>
-      <p className="text-sm leading-snug text-slate-400">Торкніться картинки — вона стане в центр видимої частини мапи, або перетягніть її одразу на місце. Торкніться обʼєкта, щоб вибрати, тягніть — щоб пересунути. Кілька — обведіть рамкою мишею або клацайте із Shift.</p>
+      <p className="text-sm leading-snug text-slate-400">Торкніться картинки — вона стане в центр видимої частини мапи, або перетягніть її одразу на місце. Торкніться обʼєкта, щоб вибрати, тягніть — щоб пересунути. Кілька — обведіть рамкою мишею або клацайте із Shift; Ctrl чи ⌘ прибирає з вибору.</p>
       {objects.isFull ? (
         <p className="text-sm text-amber-100">{`На сцені вже ${OBJECT_LIMITS.perScene} обʼєктів — видаліть зайві, щоб додати новий.`}</p>
       ) : (

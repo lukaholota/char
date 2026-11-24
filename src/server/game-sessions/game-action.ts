@@ -40,6 +40,7 @@ export const FAILURE_MESSAGES: Record<GameSessionFailure | "signed_out" | "too_f
   turn_moved: "Хід уже перейшов далі",
   bad_target: "Цілі вже немає на мапі — оберіть іншу",
   already_undone: "Цю шкоду вже скасовано",
+  already_cancelled: "Цей кидок уже скасовано",
   bad_grid: "Не вдалося зберегти сітку",
   bad_fog: "Не вдалося змінити туман",
   fog_limit: "Забагато ділянок туману — сховайте все й відкрийте заново",

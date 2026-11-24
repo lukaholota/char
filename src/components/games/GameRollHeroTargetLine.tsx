@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { findNaturalD20, type GameRoll } from "@/rules/game-roll";
 import { buildHeroDamageOperationId, type GameRollHeroTargetView } from "@/rules/game-roll-hero-target";
 import { showRoomTab } from "./room-tabs";
+import { describeDamageDefense } from "@/lib/components/dice/roll-contexts";
 
 export function GameRollHeroTargetLine({ target, roll, total, seq }: { target: GameRollHeroTargetView; roll: GameRoll | null; total: number | null; seq: number }) {
   const sessionId = useGameSessionLiveStore((state) => state.sessionId);
@@ -22,6 +23,7 @@ export function GameRollHeroTargetLine({ target, roll, total, seq }: { target: G
         {target.damage !== null ? <span className="font-semibold tabular-nums">· −{target.damage}</span> : null}
         {target.healing !== null ? <span className="font-semibold tabular-nums text-emerald-200">· +{target.healing} хітів</span> : null}
       </div>
+      {target.damageDefenses.length ? <p className="text-xs text-amber-100/90">{target.damageDefenses.map(describeDamageDefense).join(" · ")}</p> : null}
       {isMyHero && target.kind === "attack" && target.isHit === null ? <p className="text-xs text-slate-300">{describeAttackOnMe(roll, total)}</p> : null}
       {isMyHero && target.healing && target.isAppliedToSheet ? <p className="text-xs text-slate-300">Додано {target.healing} хітів на ваш лист</p> : null}
       {isMyHero && sessionId !== null && target.damage ? <MyHeroDamage sessionId={sessionId} seq={seq} persId={target.persId} amount={target.damage} isApplied={target.isAppliedToSheet} /> : null}

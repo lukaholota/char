@@ -9,7 +9,7 @@ describe("кубики в тексті статблока", () => {
   it("2014: бонус атаки й шкода з бонусом", () => {
     expect(rollsOf("Кидок ближньої атаки зброєю: +4, досяжність 5 фт. Влучання: 5 (1к6 + 2) рублячих ушкоджень.")).toEqual([
       { text: "+4", roll: { kind: "attack", bonus: 4 } },
-      { text: "1к6 + 2", roll: { kind: "damage", count: 1, sides: 6, bonus: 2 } },
+      { text: "1к6 + 2", roll: { kind: "damage", count: 1, sides: 6, bonus: 2, damageType: "SLASHING" } },
     ]);
   });
 
@@ -17,14 +17,23 @@ describe("кубики в тексті статблока", () => {
     expect(rollsOf("Вогняний подих (Перезарядка 5–6). Рукопашна атака: −1, досяжність 5 фт. Влучання: 1 (1к4 − 1) дроблячих")).toEqual([
       { text: "Перезарядка 5–6", roll: { kind: "recharge", from: 5 } },
       { text: "−1", roll: { kind: "attack", bonus: -1 } },
-      { text: "1к4 − 1", roll: { kind: "damage", count: 1, sides: 4, bonus: -1 } },
+      { text: "1к4 − 1", roll: { kind: "damage", count: 1, sides: 4, bonus: -1, damageType: "BLUDGEONING" } },
+    ]);
+  });
+
+  it("тип шкоди стоїть одразу за кубиками", () => {
+    expect(findCreatureRolls("Влучання: 7 (1к8 + 3) колючих ушкоджень плюс 3 (1к6) вогняних ушкоджень. 9 (2к8) ушкоджень Силовим полем, 4 (1к8) дроблячих").map((spot) => spot.roll)).toEqual([
+      { kind: "damage", count: 1, sides: 8, bonus: 3, damageType: "PIERCING" },
+      { kind: "damage", count: 1, sides: 6, bonus: 0, damageType: "FIRE" },
+      { kind: "damage", count: 2, sides: 8, bonus: 0, damageType: "FORCE" },
+      { kind: "damage", count: 1, sides: 8, bonus: 0, damageType: "BLUDGEONING" },
     ]);
   });
 
   it("два кубики поспіль не склеюються в бонус", () => {
     expect(rollsOf("11 (1к6 + 3 плюс 1к8) колючих, 2к8 + 1к6")).toEqual([
       { text: "1к6 + 3", roll: { kind: "damage", count: 1, sides: 6, bonus: 3 } },
-      { text: "1к8", roll: { kind: "damage", count: 1, sides: 8, bonus: 0 } },
+      { text: "1к8", roll: { kind: "damage", count: 1, sides: 8, bonus: 0, damageType: "PIERCING" } },
       { text: "2к8", roll: { kind: "damage", count: 2, sides: 8, bonus: 0 } },
       { text: "1к6", roll: { kind: "damage", count: 1, sides: 6, bonus: 0 } },
     ]);
@@ -33,8 +42,8 @@ describe("кубики в тексті статблока", () => {
   it("хоумбрю: «+5 до влучання» без «атака:» і латинські кубики теж кидаються", () => {
     expect(rollsOf("Укус: +5 до влучання, досяжність 5 фт. Влучання: 8 (1d10+3) колючої шкоди, 2D6 вогню.")).toEqual([
       { text: "+5", roll: { kind: "attack", bonus: 5 } },
-      { text: "1d10+3", roll: { kind: "damage", count: 1, sides: 10, bonus: 3 } },
-      { text: "2D6", roll: { kind: "damage", count: 2, sides: 6, bonus: 0 } },
+      { text: "1d10+3", roll: { kind: "damage", count: 1, sides: 10, bonus: 3, damageType: "PIERCING" } },
+      { text: "2D6", roll: { kind: "damage", count: 2, sides: 6, bonus: 0, damageType: "FIRE" } },
     ]);
   });
 

@@ -32,7 +32,7 @@ vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ 
 vi.mock("sonner", () => ({ toast: { error: mocks.toastError, info: vi.fn() } }));
 vi.mock("@/lib/monitoring/game-analytics", () => ({ captureGameEvent: mocks.captureGameEvent }));
 
-import { CombatTracker, CompactCombatContext } from "@/components/games/CombatTracker";
+import { CombatTracker, CompactCombatContext, PickedCombatButton } from "@/components/games/CombatTracker";
 import { ConfirmDialogHost } from "@/components/ui/confirm-dialog";
 import { resetOptimisticValues } from "@/components/games/optimistic-values";
 import { DEFAULT_ATMOSPHERE } from "@/rules/game-atmosphere";
@@ -74,9 +74,18 @@ describe("трекер бою", () => {
 
     render(<CombatTracker view={gmView()} />);
     fireEvent.click(screen.getByRole("button", { name: "Почати бій" }));
-    await waitFor(() => expect(mocks.startCombatAction).toHaveBeenCalledWith(7));
+    await waitFor(() => expect(mocks.startCombatAction).toHaveBeenCalledWith(7, null));
     await waitFor(() => expect(mocks.refresh).toHaveBeenCalled());
     expect(mocks.captureGameEvent).toHaveBeenCalledWith("game_combat_started", { combatant_count: 3 });
+  });
+
+  it("токени, виділені рамкою, головна кнопка бере в бій лише їх; без виділення — знову всіх", async () => {
+    const pick = { persIds: [20], creatureIds: [5] };
+    const { rerender } = render(<><CombatTracker view={gmView()} /><PickedCombatButton view={gmView()} pick={pick} /></>);
+    fireEvent.click(screen.getAllByRole("button", { name: "Почати бій з вибраними: 2" })[0]);
+    await waitFor(() => expect(mocks.startCombatAction).toHaveBeenCalledWith(7, pick));
+    rerender(<CombatTracker view={gmView()} />);
+    expect(screen.getByRole("button", { name: "Почати бій" })).toBeTruthy();
   });
 
   it("зі сцени «лише для вас» бій починається після показу її гравцям — інакше істоти з неї не потрапили б у чергу", async () => {
@@ -86,7 +95,7 @@ describe("трекер бою", () => {
     expect(await screen.findByText(/«Засідка» відкриється для всіх/)).toBeTruthy();
     expect(mocks.startCombatAction).not.toHaveBeenCalled();
     fireEvent.click(screen.getByRole("button", { name: "Показати й почати" }));
-    await waitFor(() => expect(mocks.startCombatAction).toHaveBeenCalledWith(7));
+    await waitFor(() => expect(mocks.startCombatAction).toHaveBeenCalledWith(7, null));
     expect(mocks.activateGameSceneAction).toHaveBeenCalledWith(7, 2);
     expect(mocks.activateGameSceneAction.mock.invocationCallOrder[0]).toBeLessThan(mocks.startCombatAction.mock.invocationCallOrder[0]);
   });

@@ -34,6 +34,7 @@ type GameEventProperties = {
   game_roll_target_set: { surface: "statblock" | "hero_tray" };
   game_hero_damage_taken: Record<string, never>;
   game_damage_undone: Record<string, never>;
+  game_roll_cancelled: Record<string, never>;
   game_fog_changed: { kind: "cover" | "clear" | "undo" | "area" | "brush" };
   game_area_shown: { shape: "circle" | "cone" | "line" | "square"; is_gm: boolean };
   game_grid_changed: { has_grid: boolean };

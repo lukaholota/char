@@ -1,4 +1,5 @@
 import { findNaturalD20, type GameRoll } from "@/rules/game-roll";
+import type { DamageDefenseNote } from "@/rules/damage-parts";
 
 export const GAME_ROLL_KINDS = ["attack", "damage"] as const;
 export type GameRollKind = (typeof GAME_ROLL_KINDS)[number];
@@ -16,6 +17,9 @@ export type GameRollTargetRow = {
   hpBefore: number | null;
   hpChange: number | null;
   hpChangeUndone: boolean;
+  /// Шкода після опорів істоти; без опорів — кинуте значення.
+  damage?: number;
+  damageDefenses?: DamageDefenseNote[];
 };
 
 export type GameRollTargetView = {
@@ -25,6 +29,7 @@ export type GameRollTargetView = {
   damage: number | null;
   /// Цей удар звалив істоту — гравці й так бачать «повалений» на токені, залишку хітів це не видає.
   isDowned: boolean;
+  damageDefenses: DamageDefenseNote[];
   gm: { armorClass: number | null; hitPointsBefore: number | null; hitPointsAfter: number | null; canUndo: boolean; isUndone: boolean } | null;
 };
 
@@ -73,7 +78,8 @@ export function buildGameRollTargetView(row: GameRollTargetRow, viewer: { isGm: 
     name: row.targetName,
     kind: row.rollKind,
     isHit: isDamage ? null : row.isHit,
-    damage: isDamage ? row.total : null,
+    damage: isDamage ? (row.damage ?? row.total) : null,
+    damageDefenses: isDamage ? (row.damageDefenses ?? []) : [],
     isDowned: hitPoints !== null && !row.hpChangeUndone && hitPoints.before > 0 && hitPoints.change >= hitPoints.before,
     gm: viewer.isGm
       ? {

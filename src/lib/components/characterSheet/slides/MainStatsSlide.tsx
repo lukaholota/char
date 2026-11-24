@@ -478,16 +478,16 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
   };
 
   /// Хіти вже змінила кімната: той самий ідентифікатор сервер визнає повтором і просто віддає свіжий стан листа.
-  const syncRoomHitPoints = (mode: "damage" | "heal", amount: number, operationId: string) => {
+  const syncRoomHitPoints = (mode: "damage" | "heal", amount: number, operationId: string, isOthersHero?: boolean) => {
     startHpTransition(async () => {
       const res = await applyHpChange({ persId, mode, amount, operationId });
       if (res.success) writeCombatState({ ...readCombatState(), ...res });
     });
-    if (mode === "damage") sheetStates?.promptConcentrationCheck(amount);
+    if (mode === "damage" && !isOthersHero) sheetStates?.promptConcentrationCheck(amount);
   };
 
-  useHeroDamageRequests(persId, !isReadOnly, ({ amount, operationId, isAppliedOnServer, isHealing }) =>
-    isAppliedOnServer ? syncRoomHitPoints(isHealing ? "heal" : "damage", amount, operationId) : changeHp("damage", amount, { ...buildOperation({ kind: "hp", mode: "damage", amount }), operationId }),
+  useHeroDamageRequests(persId, !isReadOnly, ({ amount, operationId, isAppliedOnServer, isHealing, isOthersHero }) =>
+    isAppliedOnServer ? syncRoomHitPoints(isHealing ? "heal" : "damage", amount, operationId, isOthersHero) : changeHp("damage", amount, { ...buildOperation({ kind: "hp", mode: "damage", amount }), operationId }),
   );
 
   const setSaves = (nextSuccess: number, nextFail: number) => {

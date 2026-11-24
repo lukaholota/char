@@ -107,7 +107,7 @@ describe("ряткидок цілі зі статблоку", () => {
     expect(screen.getByRole("status").textContent).toContain("Звіряємо кидок");
     expect((screen.getByRole("button", { name: "Кинути ряткидок" }) as HTMLButtonElement).disabled).toBe(true);
 
-    const event = { target: null, heroTarget: null, saves: { ability: "WIS", dc: 12, damageType: null, rows: [{ name: "Варлок", persId: 5, isSaved: false, damage: 0, condition: "frightened", isAppliedToSheet: false, gm: null }] } } as unknown as GameRollEventView;
+    const event = { target: null, heroTarget: null, saves: { ability: "WIS", dc: 12, damageType: null, rows: [{ name: "Варлок", persId: 5, isSaved: false, damage: 0, condition: "frightened", isAppliedToSheet: false, defenses: [], gm: null }] } } as unknown as GameRollEventView;
     act(() => settleRollVerdict(draft.idempotencyKey, event));
     expect(screen.getByRole("status").textContent).toBe("Варлок — провал · Наляканий");
     expect((screen.getByRole("button", { name: "Кинути ряткидок" }) as HTMLButtonElement).disabled).toBe(false);
@@ -166,7 +166,7 @@ describe("журнал ряткидка без шкоди", () => {
   const event = {
     seq: 4, authorUserId: 7, authorName: "Майстер", persName: null, avatarUrl: null, source: "FREE", visibility: "PUBLIC", label: "Банка · Погляд · ряткидок Мудрості СК 12",
     roll: { d20Mode: null, modeSources: [], groups: [], extra: [], bonus: 0, total: 0, check: null }, total: 0, rolledAt: "2026-11-08T10:00:00Z", createdAt: "2026-11-08T10:00:00Z", target: null, heroTarget: null,
-    saves: { ability: "WIS", dc: 12, damageType: null, rows: [{ name: "Варлок", persId: 5, isSaved: false, damage: 0, condition: "frightened", isAppliedToSheet: false, gm: { d20: [7], mode: "NORMAL", bonus: 2, dice: [], total: 9, isAutoFail: false, defense: null, hitPointsBefore: null, hitPointsAfter: null, canUndo: true, isUndone: false } }] },
+    saves: { ability: "WIS", dc: 12, damageType: null, rows: [{ name: "Варлок", persId: 5, isSaved: false, damage: 0, condition: "frightened", isAppliedToSheet: false, defenses: [], gm: { d20: [7], mode: "NORMAL", bonus: 2, dice: [], total: 9, isAutoFail: false, hitPointsBefore: null, hitPointsAfter: null, canUndo: true, isUndone: false } }] },
   } as unknown as GameRollEventView;
 
   it("озвучує результат ряткидка, а не нульовий підсумок", () => {

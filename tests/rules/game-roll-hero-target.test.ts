@@ -27,7 +27,7 @@ describe("ціль-герой кидка майстра", () => {
 
   it("шкода в журналі — сума кидка, атака — без шкоди", () => {
     const gm = { isGm: true };
-    expect(buildGameRollHeroTargetView({ persId: 7, name: "Пивослав", kind: "damage" }, 9, gm)).toEqual({ persId: 7, name: "Пивослав", kind: "damage", damage: 9, healing: null, isHit: null, armorClass: null, isAppliedToSheet: false });
+    expect(buildGameRollHeroTargetView({ persId: 7, name: "Пивослав", kind: "damage" }, 9, gm)).toEqual({ persId: 7, name: "Пивослав", kind: "damage", damage: 9, healing: null, isHit: null, armorClass: null, isAppliedToSheet: false, damageDefenses: [] });
     expect(buildGameRollHeroTargetView({ persId: 7, name: "Пивослав", kind: "heal" }, 8, gm)).toMatchObject({ damage: null, healing: 8 });
     expect(buildGameRollHeroTargetView({ persId: 7, name: "Пивослав", kind: "damage", isAppliedToSheet: true }, 9, gm)?.isAppliedToSheet).toBe(true);
     expect(buildGameRollHeroTargetView({ persId: 7, name: "Пивослав", kind: "attack" }, 17, gm)?.damage).toBeNull();

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { moveMapTokensAction } from "@/lib/actions/game-sessions";
 import type { TokenPosition } from "@/rules/game-map";
-import { collectKeysInRect, findIdInGroupKey, shiftGroup, type GroupMove, type PositionMove, type ShareRect } from "@/rules/map-group";
+import { changeGroupKeys, collectKeysInRect, findIdInGroupKey, shiftGroup, type GroupMove, type GroupPick, type PositionMove, type ShareRect } from "@/rules/map-group";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { findHeroPositionKey } from "./HeroTokens";
 import { findCreaturePositionKey } from "./MapCreatureTokens";
@@ -21,6 +21,7 @@ export type GroupShift = { key: string; from: TokenPosition; to: TokenPosition |
 type GroupOptions = {
   toShare: (point: Point) => TokenPosition | null;
   collectItems: () => GroupItem[];
+  findPickedKey: () => string | null;
   onPickOne: (key: string | null) => void;
   onMove: (shifts: GroupShift[]) => void;
 };
@@ -28,16 +29,21 @@ type GroupOptions = {
 export type MapGroup = ReturnType<typeof useMapGroup>;
 
 /// Рамка мишею збирає групу; одна влучена річ стає звичайним вибором, порожня рамка знімає вибір.
-export function useMapGroup({ toShare, collectItems, onPickOne, onMove }: GroupOptions) {
+/// З Shift рамка й клік додають до вибору, з Ctrl чи ⌘ — знімають з нього.
+export function useMapGroup({ toShare, collectItems, findPickedKey, onPickOne, onMove }: GroupOptions) {
   const [keys, setKeys] = useState<string[]>([]);
   const [rect, setRect] = useState<ShareRect | null>(null);
+  const pickRef = useGroupPickKey();
   const findMembers = () => collectItems().filter((item) => keys.includes(item.key));
 
-  const pickInRect = (from: TokenPosition, to: TokenPosition) => {
-    const hits = collectKeysInRect(collectItems(), toRect(from, to));
-    setKeys(hits.length > 1 ? hits : []);
-    onPickOne(hits.length === 1 ? hits[0] : null);
+  const pick = (hits: string[]) => {
+    const picked = findPickedKey();
+    const current = keys.length ? keys : picked ? [picked] : [];
+    const next = changeGroupKeys(current, hits, pickRef.current);
+    setKeys(next.length > 1 ? next : []);
+    onPickOne(next.length === 1 ? next[0] : null);
   };
+  const pickInRect = (from: TokenPosition, to: TokenPosition) => pick(collectKeysInRect(collectItems(), toRect(from, to)));
   const boxGesture = buildDragGesture(toShare, {
     start: (at) => setRect(toRect(at, at)),
     move: (from, at) => setRect(toRect(from, at)),
@@ -58,15 +64,14 @@ export function useMapGroup({ toShare, collectItems, onPickOne, onMove }: GroupO
     return true;
   };
 
-  /// Shift чи Ctrl додає токен до вибору або знімає з нього; вже вибраний поодинці токен стає першим у групі.
-  const toggle = (key: string, selectedKey: string | null) => {
-    const base = keys.length ? keys : selectedKey && selectedKey !== key ? [selectedKey] : [];
-    const next = base.includes(key) ? base.filter((item) => item !== key) : [...base, key];
-    setKeys(next.length > 1 ? next : []);
-    onPickOne(next.length === 1 ? next[0] : null);
+  /// Клік із Shift, Ctrl чи ⌘ змінює групу; без клавіші повертає false — тоді це звичайний вибір.
+  const pickWithKey = (key: string): boolean => {
+    if (!pickRef.current) return false;
+    pick([key]);
+    return true;
   };
 
-  return { rect, boxGesture, findMembers, isGrouped: (key: string) => keys.includes(key), moveWith, toggle, clear: () => setKeys([]) };
+  return { rect, boxGesture, findMembers, isGrouped: (key: string) => keys.includes(key), moveWith, pickWithKey, clear: () => setKeys([]) };
 }
 
 /// Поки тягнуть учасника групи, решта показує той самий крок ще до відпускання.
@@ -91,11 +96,15 @@ export function useBoardGroup({ view, toShare, selection, isEditingObjects, find
   const collectItems = (): GroupItem[] => (isEditingObjects ? findObjects().shown.filter((object) => object.id > 0).map((object) => ({ key: `object-${object.id}`, position: object.at })) : findTokens());
   const onMove = (shifts: GroupShift[]) => (isEditingObjects ? findObjects().moveMany(shifts.flatMap((shift) => (shift.to ? [{ id: findIdInGroupKey(shift.key), from: shift.from, at: shift.to }] : []))) : moveTokenGroup(shifts));
   const onPickOne = (key: string | null) => (isEditingObjects ? findObjects().choose(key ? findIdInGroupKey(key) : null) : selection.select(key));
-  const group = useMapGroup({ toShare, collectItems, onPickOne, onMove });
-  const isAddingRef = useAddingModifier();
-  const canGroup = view.myRole === "GM" && !view.isArchived;
+  const findPickedKey = () => {
+    if (!isEditingObjects) return selection.key;
+    const chosen = findObjects().chosen;
+    return chosen ? `object-${chosen.id}` : null;
+  };
+  const group = useMapGroup({ toShare, collectItems, findPickedKey, onPickOne, onMove });
+  const canGroup = view.myRole === "GM" && !view.isArchived && !isEditingObjects;
   const tap = (key: string, open: () => void) => {
-    if (canGroup && isAddingRef.current) return group.toggle(key, selection.key);
+    if (canGroup && group.pickWithKey(key)) return;
     group.clear();
     selection.tap(key, open);
   };
@@ -103,17 +112,17 @@ export function useBoardGroup({ view, toShare, selection, isEditingObjects, find
   return { group, moveTokenGroup, tokenSelection };
 }
 
-/// Дотик до токена не несе клавіш, тож запам'ятовуємо їх на початку натискання.
-function useAddingModifier() {
-  const isAddingRef = useRef(false);
+/// Дотик до токена й кінець рамки не несуть клавіш, тож запам'ятовуємо їх на початку натискання.
+function useGroupPickKey() {
+  const pickRef = useRef<GroupPick | null>(null);
   useEffect(() => {
     const remember = (event: PointerEvent) => {
-      isAddingRef.current = event.shiftKey || event.ctrlKey || event.metaKey;
+      pickRef.current = event.ctrlKey || event.metaKey ? "remove" : event.shiftKey ? "add" : null;
     };
     window.addEventListener("pointerdown", remember, true);
     return () => window.removeEventListener("pointerdown", remember, true);
   }, []);
-  return isAddingRef;
+  return pickRef;
 }
 
 /// Група токенів іде одним запитом: поодинці вона швидко вичерпала б ліміт ходів, а скасування — один крок.

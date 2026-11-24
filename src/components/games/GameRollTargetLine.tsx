@@ -7,6 +7,7 @@ import { undoRollDamageAction } from "@/lib/actions/game-sessions";
 import { addGameEvents, useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import type { GameRollTargetView } from "@/rules/game-roll-target";
+import { describeDamageDefense } from "@/lib/components/dice/roll-contexts";
 
 export function GameRollTargetLine({ target, seq }: { target: GameRollTargetView; seq: number }) {
   return (
@@ -16,6 +17,7 @@ export function GameRollTargetLine({ target, seq }: { target: GameRollTargetView
         <span className="font-semibold tabular-nums">· {buildOutcomeText(target)}</span>
         {target.gm?.isUndone ? <span className="rounded-md border border-white/10 px-1.5 text-xs text-slate-300">скасовано</span> : null}
       </div>
+      {target.damageDefenses.length ? <p className="text-xs text-amber-100/90">{target.damageDefenses.map(describeDamageDefense).join(" · ")}</p> : null}
       {target.gm ? <GmDetails gm={target.gm} kind={target.kind} seq={seq} /> : null}
     </div>
   );

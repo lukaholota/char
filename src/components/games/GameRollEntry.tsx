@@ -1,4 +1,6 @@
-import { Fragment } from "react";
+"use client";
+
+import { Fragment, useState } from "react";
 import { Dices, EyeOff, Lock } from "lucide-react";
 import { formatModifier } from "@/lib/logic/utils";
 import { cn } from "@/lib/utils";
@@ -6,7 +8,9 @@ import { pickD20Value } from "@/rules/dice-roll";
 import { findNaturalD20, hasRollResult, type GameRoll } from "@/rules/game-roll";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameSessionMemberView } from "@/server/db/game-sessions";
+import { describeDamageByType } from "@/lib/components/dice/roll-contexts";
 import { GameAvatar } from "./GameAvatar";
+import { GameRollCancelButton, GameRollCancelConfirm } from "./GameRollCancel";
 import { GameRollHeroTargetLine } from "./GameRollHeroTargetLine";
 import { GameRollSavesList } from "./GameRollSavesList";
 import { GameRollTargetLine } from "./GameRollTargetLine";
@@ -14,26 +18,30 @@ import { GameRollTargetLine } from "./GameRollTargetLine";
 const LATE_AFTER_MS = 30_000;
 const TIME_FORMAT = new Intl.DateTimeFormat("uk-UA", { hour: "2-digit", minute: "2-digit" });
 
-export function GameRollEntry({ event, isMine, isNew }: { event: GameRollEventView; isMine: boolean; isNew: boolean }) {
-  const natural = event.roll ? findNaturalD20(event.roll) : null;
+export function GameRollEntry({ event, isMine, isNew, canCancel = false }: { event: GameRollEventView; isMine: boolean; isNew: boolean; canCancel?: boolean }) {
+  const natural = event.roll && !event.isCancelled ? findNaturalD20(event.roll) : null;
+  const [isAskingCancel, setIsAskingCancel] = useState(false);
   return (
     <li className={cn("rounded-xl border px-3 py-2", isNew && "game-entry-in", natural === "NAT_20" ? "border-emerald-400/40 bg-emerald-500/10" : natural === "NAT_1" ? "border-rose-400/40 bg-rose-500/10" : "border-white/10 bg-slate-900/50")}>
       <div className="flex items-start gap-3">
         <GameAvatar src={event.avatarUrl} name={event.persName ?? event.authorName} className="mt-0.5 h-9 w-9 text-base" />
-        <div className="min-w-0 flex-1">
+        <div className={cn("min-w-0 flex-1", event.isCancelled && "opacity-60")}>
           <EntryAuthor event={event} isMine={isMine} />
-          <div className={cn("break-words text-sm text-slate-100", event.source === "MESSAGE" ? "whitespace-pre-line" : "font-semibold")}>{event.label}</div>
+          <div className={cn("break-words text-sm text-slate-100", event.source === "MESSAGE" ? "whitespace-pre-line" : "font-semibold", event.isCancelled && "line-through")}>{event.label}</div>
+          {event.restoredHeroes?.length ? <p className="mt-0.5 text-xs text-slate-300 tabular-nums">Хіти повернуто: {event.restoredHeroes.map((hero) => `${hero.name} ${hero.kind === "heal" ? "+" : "−"}${hero.amount}`).join(" · ")}</p> : null}
           {event.roll?.groups.length ? <RollDetails roll={event.roll} /> : null}
           {event.target ? <GameRollTargetLine target={event.target} seq={event.seq} /> : null}
           {event.saves ? <GameRollSavesList saves={event.saves} seq={event.seq} /> : null}
           {event.heroTarget ? <GameRollHeroTargetLine target={event.heroTarget} roll={event.roll} total={event.total} seq={event.seq} /> : null}
         </div>
-        <div className="shrink-0 text-right">
-          {event.source === "MESSAGE" || (event.roll && !hasRollResult(event.roll)) ? null : <div className="text-2xl font-bold tabular-nums text-slate-50" aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>}
+        <div className="flex shrink-0 flex-col items-end">
+          {event.source === "MESSAGE" || (event.roll && !hasRollResult(event.roll)) ? null : <div className={cn("text-2xl font-bold tabular-nums text-slate-50", event.isCancelled && "text-slate-400 line-through")} aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>}
           {natural ? <div className={cn("text-xs font-semibold", natural === "NAT_20" ? "text-emerald-200" : "text-rose-200")}>{natural === "NAT_20" ? "Природна 20" : "Природна 1"}</div> : null}
-          {event.roll?.check ? <CheckMark check={event.roll.check} /> : null}
+          {event.roll?.check && !event.isCancelled ? <CheckMark check={event.roll.check} /> : null}
+          {canCancel && !event.isCancelled ? <GameRollCancelButton isAsking={isAskingCancel} onAsk={() => setIsAskingCancel((isAsking) => !isAsking)} /> : null}
         </div>
       </div>
+      {isAskingCancel && canCancel && !event.isCancelled ? <GameRollCancelConfirm seq={event.seq} onClose={() => setIsAskingCancel(false)} /> : null}
     </li>
   );
 }
@@ -59,6 +67,7 @@ function EntryAuthor({ event, isMine }: { event: GameRollEventView; isMine: bool
       <time dateTime={event.rolledAt}>{TIME_FORMAT.format(new Date(event.rolledAt))}</time>
       {isLate ? <span title="Кидок дійшов пізніше — не було звʼязку">надіслано пізніше</span> : null}
       <VisibilityMark visibility={event.visibility} />
+      {event.isCancelled ? <span className="rounded-md border border-white/10 px-1.5 text-slate-300">скасовано майстром</span> : null}
     </div>
   );
 }
@@ -82,6 +91,7 @@ function VisibilityMark({ visibility }: { visibility: GameRollEventView["visibil
 
 function RollDetails({ roll }: { roll: GameRoll }) {
   const kept = roll.d20Mode ? pickD20Value(roll.groups[0].values, roll.d20Mode) : null;
+  const typed = roll.d20Mode ? null : describeDamageByType(roll);
   return (
     <div className="mt-0.5 flex flex-wrap items-baseline gap-x-2 text-xs text-slate-300 tabular-nums">
       {roll.groups.map((group, index) => (
@@ -101,6 +111,7 @@ function RollDetails({ roll }: { roll: GameRoll }) {
         </span>
       ))}
       {roll.bonus ? <span>{formatModifier(roll.bonus)}</span> : null}
+      {typed ? <span className="basis-full text-slate-200">Шкода: {typed}</span> : null}
     </div>
   );
 }

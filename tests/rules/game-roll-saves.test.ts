@@ -60,7 +60,7 @@ describe("buildGameRollSavesView", () => {
     const rows = buildGameRollSavesView(stored, { isGm: true })!.rows.map((row) => row.gm!);
     expect(rows[0]).toMatchObject({ d20: [12], bonus: 2, total: 14, hitPointsBefore: 7, hitPointsAfter: 0, canUndo: true, isUndone: false });
     expect(rows[1]).toMatchObject({ canUndo: false, isUndone: true });
-    expect(rows[2]).toMatchObject({ defense: "immune", hitPointsBefore: null, hitPointsAfter: null, canUndo: false });
+    expect(rows[2]).toMatchObject({ hitPointsBefore: null, hitPointsAfter: null, canUndo: false });
   });
 
   it("скасований стан гравець більше не бачить, а майстер бачить його поруч зі «скасовано»", () => {
@@ -108,14 +108,14 @@ describe("шкода двох типів", () => {
     expect(splitSaveDamage({ groups: [roll.groups[0]], total: 9 }, iceStorm)).toEqual({ rolledDamage: 9, secondRolledDamage: 0 });
   });
 
-  it("майстер бачить опір до кожного типу, а одному типу другий не домальовується", () => {
+  it("опір до кожного типу бачать усі, а одному типу другий не домальовується", () => {
     const row = { creatureId: 3, name: "Єті", d20: [4], mode: "NORMAL" as const, bonus: 1, total: 5, isSaved: false, isAutoFail: false, defense: null, secondDefense: "immune" as const, damage: 9, hpBefore: 20, hpChange: 9, isUndone: false };
     const stored: StoredSaves = { ability: "DEX", dc: 15, damageType: "bludgeoning", secondDamageType: "cold", isHalfOnSave: true, rows: [row] };
-    const view = buildGameRollSavesView(stored, { isGm: true })!;
+    const view = buildGameRollSavesView(stored, { isGm: false })!;
     expect(view.secondDamageType).toBe("cold");
-    expect(view.rows[0].gm).toMatchObject({ defense: null, secondDefense: "immune" });
+    expect(view.rows[0].defenses).toEqual([{ damageType: "COLD", defense: "immune" }]);
     const single = buildGameRollSavesView({ ...stored, secondDamageType: undefined }, { isGm: true })!;
     expect(single).not.toHaveProperty("secondDamageType");
-    expect(single.rows[0].gm).not.toHaveProperty("secondDefense");
+    expect(single.rows[0].defenses).toEqual([]);
   });
 });

@@ -67,7 +67,7 @@ describe("вигляд цілі в журналі", () => {
 
   it("гравець бачить кинуту шкоду, але ні хітів, ні КБ, ні кнопки скасування", () => {
     const view = buildGameRollTargetView(damageRow, { isGm: false });
-    expect(view).toEqual({ name: "Гоблін 2", kind: "damage", isHit: null, damage: 9, isDowned: true, gm: null });
+    expect(view).toEqual({ name: "Гоблін 2", kind: "damage", isHit: null, damage: 9, damageDefenses: [], isDowned: true, gm: null });
     expect(JSON.stringify(view)).not.toContain("7");
   });
 

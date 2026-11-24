@@ -1,6 +1,6 @@
 import type { PersWithRelations } from "@/lib/actions/pers";
 import { applyActiveStates, findRollState } from "@/lib/logic/active-states";
-import { calculateDamageResistances, calculateFinalAC, calculateFinalSave, readStateEffects } from "@/lib/logic/bonus-calculator";
+import { calculateDamageImmunities, calculateDamageResistances, calculateFinalAC, calculateFinalSave, readStateEffects } from "@/lib/logic/bonus-calculator";
 import { prisma } from "@/lib/prisma";
 import type { D20Mode } from "@/rules/dice-roll";
 import { listBonusDice, type BonusDie } from "@/rules/state-effects";
@@ -17,6 +17,7 @@ export type RoomHero = {
   armorClass: number;
   conditions: string[];
   resistances: string[];
+  immunities: string[];
   saves: Record<AbilityKey, { bonus: number; mode: D20Mode }>;
   saveDice: Pick<BonusDie, "sides" | "sign">[];
 };
@@ -38,5 +39,5 @@ function buildRoomHero(rawPers: PersWithRelations, conditions: string[]): RoomHe
   const sheetDice = listBonusDice(readStateEffects(pers), "SAVE");
   const isBlessedOnlyInRoom = conditions.includes(BLESSED_MARK) && !sheetDice.some((die) => die.sourceKey === "BLESS");
   const saveDice = [...sheetDice.map(({ sides, sign }) => ({ sides, sign })), ...(isBlessedOnlyInRoom ? [BLESSED_DIE] : [])];
-  return { persId: pers.persId, userId: pers.userId, name: pers.name, armorClass: calculateFinalAC(pers), conditions, resistances: calculateDamageResistances(pers), saves, saveDice };
+  return { persId: pers.persId, userId: pers.userId, name: pers.name, armorClass: calculateFinalAC(pers), conditions, resistances: calculateDamageResistances(pers), immunities: calculateDamageImmunities(pers), saves, saveDice };
 }

@@ -4,8 +4,8 @@ import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameRollTargetView } from "@/rules/game-roll-target";
 import type { GameRollHeroTargetView } from "@/rules/game-roll-hero-target";
 
-const creature = (overrides: Partial<GameRollTargetView>) => ({ target: { name: "Гоблін", kind: "attack" as const, isHit: null, damage: null, isDowned: false, gm: null, ...overrides }, heroTarget: null, saves: null });
-const hero = (overrides: Partial<GameRollHeroTargetView>) => ({ target: null, heroTarget: { persId: 1, name: "Тарас", kind: "heal" as const, damage: null, healing: null, isHit: null, armorClass: null, isAppliedToSheet: true, ...overrides }, saves: null });
+const creature = (overrides: Partial<GameRollTargetView>) => ({ target: { name: "Гоблін", kind: "attack" as const, isHit: null, damage: null, isDowned: false, damageDefenses: [], gm: null, ...overrides }, heroTarget: null, saves: null });
+const hero = (overrides: Partial<GameRollHeroTargetView>) => ({ target: null, heroTarget: { persId: 1, name: "Тарас", kind: "heal" as const, damage: null, healing: null, isHit: null, armorClass: null, isAppliedToSheet: true, damageDefenses: [], ...overrides }, saves: null });
 
 describe("вердикт кидка в лотку", () => {
   it("атака: влучання, промах або рішення майстра, коли КБ невідомий", () => {
@@ -20,8 +20,13 @@ describe("вердикт кидка в лотку", () => {
     expect(buildRollVerdict({ target: null, heroTarget: null, saves: null })).toBeNull();
   });
 
+  it("опір чи імунітет цілі видно в лотку поруч зі знятою шкодою", () => {
+    const damageDefenses = [{ damageType: "POISON" as const, defense: "immune" as const, before: 4, after: 0 }];
+    expect(buildRollVerdict(creature({ kind: "damage", damage: 8, damageDefenses }))?.text).toBe("Гоблін: −8 · імунітет (отрутою) 4 → 0");
+  });
+
   it("ряткидки: одна ціль — ім'я, шкода й стан; кілька — підсумок; провал цілі — добрий тон", () => {
-    const row = { name: "Варлок", persId: 5, isSaved: false, damage: 0, condition: null, isAppliedToSheet: false, gm: null };
+    const row = { name: "Варлок", persId: 5, isSaved: false, damage: 0, condition: null, isAppliedToSheet: false, defenses: [], gm: null };
     const saves = (rows: Array<typeof row | (Omit<typeof row, "condition"> & { condition: "frightened" })>) => ({ target: null, heroTarget: null, saves: { ability: "WIS" as const, dc: 12, damageType: null, rows } });
     expect(buildRollVerdict(saves([{ ...row, condition: "frightened" }]))).toEqual({ tone: "good", text: "Варлок — провал · Наляканий" });
     expect(buildRollVerdict(saves([{ ...row, damage: 7 }]))).toEqual({ tone: "good", text: "Варлок — провал · −7" });

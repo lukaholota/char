@@ -3,7 +3,8 @@ import type { GameRoll } from "./game-roll";
 import { findSpellSaveDamage, type CreatureSaveResult, type DamageDefense, type DamageType, type SaveDieRoll, type SaveEffect } from "./creature-save";
 import { ABILITY_KEYS } from "./feat-grants";
 import { isRuleConditionKey, type RuleConditionKey } from "./token-conditions";
-import type { AbilityKey } from "./types";
+import type { AbilityKey, DamageTypeKey } from "./types";
+import { toDamageTypeKey } from "./damage-parts";
 
 export const MAX_SAVE_TARGETS = 40;
 const DC_RANGE = { min: 1, max: 40 } as const;
@@ -27,10 +28,13 @@ export type GameRollSaveRowView = {
   damage: number;
   condition: RuleConditionKey | null;
   isAppliedToSheet: boolean;
-  gm: { d20: number[]; mode: D20Mode; bonus: number; dice: SaveDieRoll[]; total: number; isAutoFail: boolean; defense: DamageDefense | null; secondDefense?: DamageDefense | null; hitPointsBefore: number | null; hitPointsAfter: number | null; canUndo: boolean; isUndone: boolean } | null;
+  /// Опори видно всім: гравець має знати, чому шкода менша за кинуту.
+  defenses: SaveDefense[];
+  gm: { d20: number[]; mode: D20Mode; bonus: number; dice: SaveDieRoll[]; total: number; isAutoFail: boolean; hitPointsBefore: number | null; hitPointsAfter: number | null; canUndo: boolean; isUndone: boolean } | null;
 };
 export type GameRollSavesView = { ability: AbilityKey; dc: number; damageType: DamageType | null; secondDamageType?: DamageType; rows: GameRollSaveRowView[] };
 
+export type SaveDefense = { damageType: DamageTypeKey; defense: DamageDefense };
 export type SaveDamageParts = { rolledDamage: number; secondRolledDamage: number };
 
 /// Друга група кубиків — шкода другого типу; бонус і додаткові кубики лишаються в першій частині.
@@ -89,6 +93,7 @@ export function buildGameRollSavesView(saves: StoredSaves | undefined, viewer: {
       damage: row.damage,
       condition: viewer.isGm || !row.isUndone ? row.condition ?? null : null,
       isAppliedToSheet: row.isAppliedToSheet ?? false,
+      defenses: listSaveDefenses(saves, row),
       gm: viewer.isGm
         ? {
             d20: row.d20,
@@ -97,8 +102,6 @@ export function buildGameRollSavesView(saves: StoredSaves | undefined, viewer: {
             dice: row.dice ?? [],
             total: row.total,
             isAutoFail: row.isAutoFail,
-            defense: row.defense,
-            ...(saves.secondDamageType ? { secondDefense: row.secondDefense ?? null } : {}),
             hitPointsBefore: row.hpBefore,
             hitPointsAfter: row.hpBefore !== null && row.hpChange !== null ? row.hpBefore - row.hpChange : null,
             canUndo: ((row.hpChange ?? 0) > 0 || Boolean(row.isConditionAdded)) && !row.isUndone,
@@ -107,4 +110,9 @@ export function buildGameRollSavesView(saves: StoredSaves | undefined, viewer: {
         : null,
     })),
   };
+}
+
+function listSaveDefenses(saves: StoredSaves, row: StoredSaveRow): SaveDefense[] {
+  const parts: Array<[DamageType | null | undefined, DamageDefense | null | undefined]> = [[saves.damageType, row.defense], [saves.secondDamageType, row.secondDefense]];
+  return parts.flatMap(([damageType, defense]) => (damageType && defense ? [{ damageType: toDamageTypeKey(damageType), defense }] : []));
 }

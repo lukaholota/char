@@ -97,6 +97,8 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
         d20Mode: action.isD20 ? d20Mode : null,
         mainDiceCount: countMainDice(action, d20Mode),
         extraDice: action.extraDice ?? [],
+        ...(action.damageType ? { damageType: action.damageType } : {}),
+        ...(action.bonusParts?.length ? { bonusParts: action.bonusParts } : {}),
       };
       const context = rollContextRef.current;
       holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget(context.isCreatureRoll ? "free" : "sheet", context.rollTarget), context, action, d20Mode } : null);

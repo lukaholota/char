@@ -8,13 +8,12 @@ import { addGameEvents, useGameSessionLiveStore } from "@/lib/components/game/ga
 import { formatModifier } from "@/lib/logic/utils";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
-import { damageTypeTranslations } from "@/lib/refs/translation";
-import type { DamageDefense, DamageType, SaveDieRoll } from "@/rules/creature-save";
+import { describeDamageDefense } from "@/lib/components/dice/roll-contexts";
+import type { SaveDieRoll } from "@/rules/creature-save";
 import type { GameRollSaveRowView, GameRollSavesView } from "@/rules/game-roll-saves";
 import { TOKEN_CONDITION_LABELS } from "@/rules/token-conditions";
 import { MyHeroDamage } from "./GameRollHeroTargetLine";
 
-const DEFENSE_LABELS: Record<DamageDefense, string> = { immune: "імунітет", resistant: "опір", vulnerable: "вразливість" };
 const MODE_LABELS = { ADVANTAGE: "перевага", DISADVANTAGE: "перешкода", NORMAL: null } as const;
 
 export function GameRollSavesList({ saves, seq }: { saves: GameRollSavesView; seq: number }) {
@@ -31,7 +30,8 @@ export function GameRollSavesList({ saves, seq }: { saves: GameRollSavesView; se
             {row.condition ? <span className="text-amber-200">{TOKEN_CONDITION_LABELS[row.condition]}</span> : null}
             {row.gm?.isUndone ? <span className="rounded-md border border-white/10 px-1.5 text-xs text-slate-300">скасовано</span> : null}
           </div>
-          {row.gm ? <GmSaveDetails gm={row.gm} defenses={describeDefenses(saves, row.gm)} undoLabel={`Скасувати ${saves.damageType ? "шкоду" : "ефект"}: ${row.name}`} seq={seq} rowIndex={index} /> : null}
+          {row.defenses.length ? <p className="text-xs text-amber-100/90">{row.defenses.map(describeDamageDefense).join(" · ")}</p> : null}
+          {row.gm ? <GmSaveDetails gm={row.gm} undoLabel={`Скасувати ${saves.damageType ? "шкоду" : "ефект"}: ${row.name}`} seq={seq} rowIndex={index} /> : null}
           {sessionId !== null && row.persId !== null && myPersIds?.includes(row.persId) && row.damage > 0 ? (
             <MyHeroDamage sessionId={sessionId} seq={seq} persId={row.persId} amount={row.damage} saveRowIndex={index} isApplied={row.isAppliedToSheet} />
           ) : null}
@@ -41,7 +41,7 @@ export function GameRollSavesList({ saves, seq }: { saves: GameRollSavesView; se
   );
 }
 
-function GmSaveDetails({ gm, defenses, undoLabel, seq, rowIndex }: { gm: NonNullable<GameRollSaveRowView["gm"]>; defenses: string[]; undoLabel: string; seq: number; rowIndex: number }) {
+function GmSaveDetails({ gm, undoLabel, seq, rowIndex }: { gm: NonNullable<GameRollSaveRowView["gm"]>; undoLabel: string; seq: number; rowIndex: number }) {
   const sessionId = useGameSessionLiveStore((state) => state.sessionId);
   const [isUndoing, setIsUndoing] = useState(false);
   const undo = async () => {
@@ -57,7 +57,6 @@ function GmSaveDetails({ gm, defenses, undoLabel, seq, rowIndex }: { gm: NonNull
   const details = [
     gm.isAutoFail ? "автопровал" : [`к20 ${gm.d20.join("/")}`, formatModifier(gm.bonus), ...gm.dice.map(describeSaveDie), `= ${gm.total}`].join(" "),
     MODE_LABELS[gm.mode],
-    ...defenses,
     hitPoints,
   ].filter(Boolean);
   return (
@@ -70,13 +69,6 @@ function GmSaveDetails({ gm, defenses, undoLabel, seq, rowIndex }: { gm: NonNull
       ) : null}
     </div>
   );
-}
-
-/// Шкода двох типів: «дробяча — опір», щоб було видно, проти чого саме захист.
-function describeDefenses(saves: GameRollSavesView, gm: NonNullable<GameRollSaveRowView["gm"]>): string[] {
-  if (!saves.secondDamageType) return gm.defense ? [DEFENSE_LABELS[gm.defense]] : [];
-  const parts: Array<[DamageType | null, DamageDefense | null | undefined]> = [[saves.damageType, gm.defense], [saves.secondDamageType, gm.secondDefense]];
-  return parts.flatMap(([type, defense]) => (type && defense ? [`${damageTypeTranslations[type.toUpperCase()].toLocaleLowerCase("uk")} — ${DEFENSE_LABELS[defense]}`] : []));
 }
 
 /// «+к4 3» — кубик «Благословення» в ряткидку.

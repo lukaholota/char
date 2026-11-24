@@ -6,7 +6,10 @@ import type { CreatureSaveAction, CreatureSaveEffect } from "@/rules/creature-ar
 import type { CreatureRoll } from "@/rules/creature-rolls";
 import { AREA_SHAPE_LABELS } from "@/rules/game-areas";
 import type { SpellRollPlan } from "@/rules/spell-dice";
-import type { AbilityKey } from "@/rules/types";
+import type { AbilityKey, DamageTypeKey } from "@/rules/types";
+import { hasDamageTypes, splitDamageByType, type DamageBonusPart, type DamageDefenseNote, type DamagePart, type TypedDamageRoll } from "@/rules/damage-parts";
+import type { DamageDefense } from "@/rules/creature-save";
+import { damageTypeTranslations } from "@/lib/refs/translation";
 import type { CustomRollFormula } from "@/rules/custom-roll-formula";
 
 export type AbilityRollKind = "check" | "save";
@@ -71,17 +74,20 @@ export function buildWeaponRollContext(input: {
   damageDice: string;
   attackState?: RollStateView;
   damageExtraDice?: ExtraDie[];
+  damageType?: DamageTypeKey | null;
+  damageBonusParts?: DamageBonusPart[];
 }): DiceRollContext {
   const formulaDice = parseWeaponDamageFormula(input.damageDice)?.dice ?? [];
   const [damage, ...otherGroups] = formulaDice.length ? formulaDice : [parseDiceNotation(input.damageDice)];
-  const groupDice = otherGroups.flatMap((group) => Array.from({ length: group.count }, () => ({ sides: group.sides, sign: 1 as const, label: `${group.count}к${group.sides}` })));
+  const damageType = input.damageType ?? undefined;
+  const groupDice = otherGroups.flatMap((group) => Array.from({ length: group.count }, () => ({ sides: group.sides, sign: 1 as const, label: `${group.count}к${group.sides}`, ...(damageType ? { damageType } : {}) })));
   const extraDice = [...groupDice, ...(input.damageExtraDice ?? [])];
   return {
     title: input.weaponName,
     subtitle: `Шкода ${[damage, ...otherGroups].map((group) => `${group.count}к${group.sides}`).join("+")}`,
     actions: [
       buildD20Action("attack", "Атака", input.attackBonus, input.attackState),
-      { key: "damage", label: "Шкода", count: damage.count, sides: damage.sides, bonus: input.damageBonus, isD20: false, extraDice: extraDice.length ? extraDice : input.damageExtraDice },
+      { key: "damage", label: "Шкода", count: damage.count, sides: damage.sides, bonus: input.damageBonus, isD20: false, extraDice: extraDice.length ? extraDice : input.damageExtraDice, ...(damageType ? { damageType } : {}), ...(input.damageBonusParts?.length ? { bonusParts: input.damageBonusParts } : {}) },
     ],
     autoRollKey: "attack",
   };
@@ -173,7 +179,7 @@ function buildCreatureAction(key: string, roll: CreatureRoll, saveEffect: Creatu
   }
   if (roll.kind === "recharge") return { key, label: roll.from < 6 ? `Перезарядка ${roll.from}–6` : "Перезарядка 6", count: 1, sides: 6, bonus: 0, isD20: false };
   if (roll.kind === "dice") return { key, label: `Кидок ${roll.count > 1 ? roll.count : ""}к${roll.sides}`, count: roll.count, sides: roll.sides, bonus: 0, isD20: false };
-  return { key, label: roll.kind === "heal" ? "Лікування" : "Шкода", count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false };
+  return { key, label: roll.kind === "heal" ? "Лікування" : "Шкода", count: roll.count, sides: roll.sides, bonus: roll.bonus, isD20: false, ...(roll.kind === "damage" && roll.damageType ? { damageType: roll.damageType } : {}) };
 }
 
 export function buildCreatureD20RollContext(creatureName: string, subtitle: string | undefined, actions: DiceRollAction[]): DiceRollContext {
@@ -187,6 +193,8 @@ export type PendingRollMeta = {
   d20Mode: D20Mode | null;
   mainDiceCount: number;
   extraDice: ExtraDie[];
+  damageType?: DamageTypeKey;
+  bonusParts?: DamageBonusPart[];
 };
 
 export type ExtraDieOutcome = ExtraDie & { value: number };
@@ -236,4 +244,29 @@ export function formatExtraDice(dice: readonly ExtraDie[]): string {
 /// Для назви кнопки: «+к4 (Благословення)» — звідки кубик, чути й без підказки.
 export function describeExtraDiceAloud(dice: readonly ExtraDie[]): string {
   return dice.length ? ` ${formatExtraDice(dice)} (${dice.map((die) => die.label).join(", ")})` : "";
+}
+
+/// «4+5 (ріжуча) + 2+5 (дробяча)» — видно, скільки шкоди якого типу, щоб опори рахувалися окремо.
+export function describeDamageByType(roll: TypedDamageRoll): string | null {
+  return hasDamageTypes(roll) ? splitDamageByType(roll).map(describeDamagePart).join(" + ") : null;
+}
+
+function describeDamagePart(part: DamagePart): string {
+  const terms = [...part.values, ...(part.bonus ? [part.bonus] : [])];
+  const sum = terms.map((value, index) => (value < 0 ? `−${-value}` : index ? `+${value}` : String(value))).join("");
+  const name = part.damageType ? describeDamageType(part.damageType) : part.label;
+  return name ? `${sum} (${name})` : sum;
+}
+
+const DEFENSE_LABELS: Record<DamageDefense, string> = { immune: "імунітет", resistant: "опір", vulnerable: "вразливість" };
+
+/// «опір (вогняна) 8 → 4»: назви типів бувають і в орудному («отрутою»), тож тип — у дужках, як у підписі шкоди.
+/// Ряткидок числа частин не зберігає, тоді лише захист і тип.
+export function describeDamageDefense(note: Pick<DamageDefenseNote, "damageType" | "defense"> & Partial<Pick<DamageDefenseNote, "before" | "after">>): string {
+  const change = note.before === undefined ? "" : ` ${note.before} → ${note.after}`;
+  return `${DEFENSE_LABELS[note.defense]} (${describeDamageType(note.damageType)})${change}`;
+}
+
+export function describeDamageType(damageType: DamageTypeKey): string {
+  return (damageTypeTranslations[damageType] ?? damageType).toLocaleLowerCase("uk");
 }

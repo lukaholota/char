@@ -7,8 +7,9 @@ import { buildHeroDamageOperationId } from "@/rules/game-roll-hero-target";
 
 /// Удар чекає тут, доки лист героя його не підхопить: черга офлайн, тимчасові хіти, концентрація.
 /// isAppliedOnServer — кімната вже зняла хіти, лист лише бере свіжі з сервера й питає про концентрацію.
-/// isHealing — союзник вилікував героя: лист лише бере свіжі хіти, без ряткидка концентрації.
-export type HeroDamageRequest = { persId: number; amount: number; operationId: string; isAppliedOnServer?: boolean; isHealing?: boolean };
+/// isHealing — героя вилікували чи майстер скасував кидок: лист лише бере свіжі хіти, без ряткидка концентрації.
+/// isOthersHero — майстер дивиться лист гравця: концентрацію перевіряє сам гравець.
+export type HeroDamageRequest = { persId: number; amount: number; operationId: string; isAppliedOnServer?: boolean; isHealing?: boolean; isOthersHero?: boolean };
 
 export const useHeroDamageStore = create<{ requests: HeroDamageRequest[] }>(() => ({ requests: [] }));
 const seenOperationIds = new Set<string>();
@@ -28,7 +29,10 @@ export function collectAppliedHeroDamage(sessionId: number, myPersId: number, ev
     const fromSaves = (event.saves?.rows ?? []).flatMap((row, index) =>
       row.persId === myPersId && row.isAppliedToSheet && row.damage > 0 ? [{ persId: myPersId, amount: row.damage, operationId: buildHeroDamageOperationId(sessionId, event.seq, index), isAppliedOnServer: true }] : [],
     );
-    return [...fromTarget, ...fromSaves];
+    const fromCancel = (event.restoredHeroes ?? []).flatMap((restored, index) =>
+      restored.persId === myPersId ? [{ persId: myPersId, amount: restored.amount, operationId: buildHeroDamageOperationId(sessionId, event.seq, index), isAppliedOnServer: true, isHealing: true }] : [],
+    );
+    return [...fromTarget, ...fromSaves, ...fromCancel];
   });
 }
 

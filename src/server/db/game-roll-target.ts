@@ -1,6 +1,7 @@
 import { randomInt } from "node:crypto";
 import { Prisma } from "@prisma/client";
-import { resolveCreatureSave, type SaveEffect } from "@/rules/creature-save";
+import { findDamageDefense, resolveCreatureSave, type SaveEffect } from "@/rules/creature-save";
+import { resolveTypedDamage, toCreatureDamageType, type DamageDefenseNote } from "@/rules/damage-parts";
 import { resolveHeroSave } from "@/rules/hero-save";
 import type { GameRollSavesDraft, SaveDamageParts, StoredSaveRow, StoredSaves } from "@/rules/game-roll-saves";
 import { buildMapCreatureViews } from "@/rules/game-map-creatures";
@@ -47,7 +48,10 @@ const CREATURE_ROW_SELECT = {
 
 /// Ціль — лише істота активної сцени, що стоїть на мапі: підготовка майстра (під мапою чи в іншій сцені) не видає себе в журналі.
 /// Істота зникла або знята з мапи, поки кидок чекав у черзі, — кидок лишається без цілі; чужа кімната — відмова.
-export async function applyRollTarget(tx: Prisma.TransactionClient, sessionId: number, target: GameRollTargetDraft, roll: GameRoll): Promise<GameSessionResult<RollTargetEffect | null>> {
+/// damageDefenses — опори цілі, що змінили шкоду: їх бачать усі в журналі.
+export type RolledTarget = { columns: RollTargetEffect; damage: number; damageDefenses: DamageDefenseNote[] };
+
+export async function applyRollTarget(tx: Prisma.TransactionClient, sessionId: number, target: GameRollTargetDraft, roll: GameRoll): Promise<GameSessionResult<RolledTarget | null>> {
   const rows = await tx.gameMapCreature.findMany({ where: { gameSessionId: sessionId, scene: { activeIn: { some: { id: sessionId } } } }, select: CREATURE_ROW_SELECT });
   const findCreature = await loadRoomCreatures(rows);
   const creature = buildMapCreatureViews(rows, findCreature, true).find((view) => view.id === target.creatureId);
@@ -58,10 +62,11 @@ export async function applyRollTarget(tx: Prisma.TransactionClient, sessionId: n
   const base = { targetCreatureId: creature.id, targetName: creature.playerLabel, rollKind: target.kind };
   if (target.kind === "attack") {
     const targetAc = parseArmorClass(statblock?.ac);
-    return { ok: true, value: { ...base, targetAc, isHit: findAttackHit(roll, roll.total, targetAc), hpBefore: null, hpChange: null } };
+    return { ok: true, value: { columns: { ...base, targetAc, isHit: findAttackHit(roll, roll.total, targetAc), hpBefore: null, hpChange: null }, damage: 0, damageDefenses: [] } };
   }
-  const change = await removeHitPoints(tx, sessionId, creature.id, roll.total, parseCreatureHitPoints(statblock?.hp ?? ""));
-  return { ok: true, value: { ...base, targetAc: null, isHit: null, ...change } };
+  const { damage, notes } = statblock ? resolveTypedDamage(roll, (damageType) => findDamageDefense(statblock, toCreatureDamageType(damageType))) : { damage: roll.total, notes: [] };
+  const change = await removeHitPoints(tx, sessionId, creature.id, damage, parseCreatureHitPoints(statblock?.hp ?? ""));
+  return { ok: true, value: { columns: { ...base, targetAc: null, isHit: null, ...change }, damage, damageDefenses: notes } };
 }
 
 /// Кожна істота в зоні кидає свій ряткидок тут, на сервері: гравець не підкрутить чужий к20.
@@ -99,7 +104,7 @@ async function applyCreatureSave(tx: Prisma.TransactionClient, sessionId: number
 async function rollHeroSave(tx: Prisma.TransactionClient, sessionId: number, hero: RoomHero, effect: SaveEffect, dc: number, damage: SaveDamageParts): Promise<StoredSaveRow> {
   const { bonus, mode } = hero.saves[effect.ability];
   const dice = rollSaveDice(hero.saveDice);
-  const save = resolveHeroSave({ bonus, mode, conditions: hero.conditions, resistances: hero.resistances, effect, dc, ...damage, d20Pair: [randomInt(1, 21), randomInt(1, 21)], dice });
+  const save = resolveHeroSave({ bonus, mode, conditions: hero.conditions, resistances: hero.resistances, immunities: hero.immunities, effect, dc, ...damage, d20Pair: [randomInt(1, 21), randomInt(1, 21)], dice });
   const isConditionAdded = save.condition ? await addSaveCondition(tx, Prisma.sql`game_session_id = ${sessionId} AND pers_id = ${hero.persId}`, save.condition, "hero") : null;
   return { ...save, persId: hero.persId, name: hero.name, hpBefore: null, hpChange: null, isUndone: false, ...(isConditionAdded === null ? {} : { isConditionAdded }) };
 }

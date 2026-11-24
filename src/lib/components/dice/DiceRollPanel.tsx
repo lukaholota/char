@@ -6,7 +6,7 @@ import { buildRollVerdict, clearRollVerdict, useRollVerdictStore } from "@/lib/c
 import { useDiceUIStore, type DiceRollAction, type DiceRollContext } from "@/lib/stores/diceUIStore";
 import type { D20Mode } from "@/rules/dice-roll";
 import { cn } from "@/lib/utils";
-import { describeActionDice, formatExtraDice, isFlatAction, type DiceRollOutcome } from "./roll-contexts";
+import { describeActionDice, describeDamageByType, describeDamageType, formatExtraDice, isFlatAction, type DiceRollOutcome } from "./roll-contexts";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { findActionRollKind } from "@/lib/components/game/build-game-roll";
 import { TOKEN_CONDITION_LABELS } from "@/rules/token-conditions";
@@ -131,7 +131,7 @@ function OutcomeCard({ action, outcome, isRolling, isSecret }: { action: DiceRol
   return (
     <div className="rounded-2xl border border-amber-400/25 bg-amber-500/10 px-4 py-3 text-center" aria-live="polite">
       <div className="text-[11px] font-semibold uppercase tracking-wide text-amber-200/80">
-        {action.label} · {isFlatAction(action) ? action.bonus : describeActionDice(action)}{!isFlatAction(action) && (action.isD20 || action.bonus) ? ` ${formatModifier(action.bonus)}` : null}
+        {action.label}{action.damageType ? ` (${describeDamageType(action.damageType)})` : null} · {isFlatAction(action) ? action.bonus : describeActionDice(action)}{!isFlatAction(action) && (action.isD20 || action.bonus) ? ` ${formatModifier(action.bonus)}` : null}
         {action.extraDice?.length ? ` ${formatExtraDice(action.extraDice)}` : null}
       </div>
       <StateLine action={action} />
@@ -212,6 +212,8 @@ function StateLine({ action }: { action: DiceRollAction }) {
 export function describeOutcome(outcome: DiceRollOutcome): string {
   const extras = (outcome.extraValues ?? []).map((die) => ` ${die.sign > 0 ? "+" : "−"} ${die.value} (${die.label})`).join("");
   const bonus = `${extras}${outcome.bonus ? ` ${outcome.bonus > 0 ? "+" : "−"} ${Math.abs(outcome.bonus)}` : ""}`;
+  const typed = outcome.d20Mode === null ? describeDamageByType({ ...outcome, groups: [{ values: outcome.dieValues }], extra: outcome.extraValues }) : null;
+  if (typed) return typed;
   if (outcome.d20Mode === null) return outcome.dieValues.length ? `${outcome.dieValues.join(" + ")}${bonus}` : "Без кубиків";
   const natural = outcome.baseValue === 20 ? " · натуральна 20!" : outcome.baseValue === 1 ? " · натуральна 1" : "";
   if (outcome.d20Mode === "NORMAL") return `${outcome.baseValue}${bonus}${natural}`;

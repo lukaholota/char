@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useId, useMemo, useRef, useState, useTransition } from "react";
 import { ArrowDownToLine, ArrowUpToLine, ChevronDown, ChevronLeft, ChevronRight, Swords, UserPlus } from "lucide-react";
 import { toast } from "sonner";
+import { create } from "zustand";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -88,21 +89,35 @@ function useCombatCommand() {
   return { isPending, run };
 }
 
+/// Рамка вибору живе в мапі, а «Почати бій» — поза нею: вибрані токени ділимо тут, щоб бій почався лише з ними.
+const useMapPickStore = create<{ pick: CombatPick }>(() => ({ pick: null }));
+
+function useShareMapPick(pick: NonNullable<CombatPick>) {
+  const key = `${pick.persIds.join(",")}|${pick.creatureIds.join(",")}`;
+  useEffect(() => {
+    useMapPickStore.setState({ pick: pick.persIds.length + pick.creatureIds.length ? pick : null });
+    return () => useMapPickStore.setState({ pick: null });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- новий обʼєкт вибору на кожен рендер; змінюється лише набір id
+  }, [key]);
+}
+
 /// Бій іде на сцені, яку бачать гравці. Якщо майстер дивиться іншу, її спершу показуємо всім — інакше істоти з неї не потрапили б у чергу.
 function StartCombatButton({ view }: { view: GameSessionView }) {
   const { isPending, run } = useCombatCommand();
+  const pick = useMapPickStore((state) => state.pick);
+  const pickedCount = pick ? pick.persIds.length + pick.creatureIds.length : 0;
   const privateScene = view.viewedSceneId === view.activeSceneId ? undefined : view.scenes.find((scene) => scene.id === view.viewedSceneId);
   const start = async () => {
     if (privateScene && !(await askToConfirm({ title: "Показати сцену гравцям і почати бій?", description: `Гравці зараз бачать іншу сцену, а бій іде там, де вони. «${privateScene.name}» відкриється для всіх.`, confirmLabel: "Показати й почати" }))) return;
     run(async () => {
       const shown = privateScene ? await activateGameSceneAction(view.id, privateScene.id) : null;
-      return shown && !shown.ok ? shown : startCombatAction(view.id);
+      return shown && !shown.ok ? shown : startCombatAction(view.id, pick);
     }, ({ combatantCount }) => captureGameEvent("game_combat_started", { combatant_count: combatantCount }));
   };
   return (
     <Button type="button" variant="outline" onClick={start} disabled={isPending} title="Усі герої й поставлені істоти. Лише декого — виділіть рамкою чи Shift-кліком. Істотам ініціативу кине сервер, гравці кидають самі з листа" className="h-11 gap-2 px-3">
       <Swords className="h-4 w-4" aria-hidden />
-      Почати бій
+      {pickedCount ? `Почати бій з вибраними: ${pickedCount}` : "Почати бій"}
     </Button>
   );
 }
@@ -110,6 +125,7 @@ function StartCombatButton({ view }: { view: GameSessionView }) {
 /// Виділені на мапі токени: до бою — починають його самі, під час бою — приєднуються.
 export function PickedCombatButton({ view, pick }: { view: GameSessionView; pick: NonNullable<CombatPick> }) {
   const { isPending, run } = useCombatCommand();
+  useShareMapPick(pick);
   const count = pick.persIds.length + pick.creatureIds.length;
   if (count === 0) return null;
   const join = () =>

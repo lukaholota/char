@@ -13,6 +13,7 @@ import {
   listRollNotations,
   countMainDice,
   describeActionDice,
+  describeDamageByType,
   isFlatAction,
 } from "./roll-contexts";
 
@@ -24,6 +25,20 @@ describe("підсумок кидка", () => {
 
   it("шкода складає всі кубики", () => {
     expect(buildRollOutcome({ actionKey: "damage", label: "Шкода", bonus: 2, d20Mode: null, mainDiceCount: 2, extraDice: [] }, [3, 5])).toMatchObject({ baseValue: 8, total: 10 });
+  });
+});
+
+describe("шкода за типами в підписі кидка", () => {
+  it("меч з додатковою дроблячою шкодою: кожен тип своєю частиною", () => {
+    const context = buildWeaponRollContext({ weaponName: "Меч", attackBonus: 5, damageBonus: 10, damageDice: "1к8", damageType: "SLASHING", damageExtraDice: [{ sides: 4, sign: 1, label: "Молот", damageType: "BLUDGEONING" }], damageBonusParts: [{ label: "Молот", damageType: "BLUDGEONING", value: 5 }] });
+    const damage = context.actions[1];
+    expect(damage).toMatchObject({ damageType: "SLASHING", bonusParts: [{ value: 5 }] });
+    const outcome = buildRollOutcome({ actionKey: "damage", label: "Шкода", bonus: 10, d20Mode: null, mainDiceCount: 1, extraDice: damage.extraDice ?? [], damageType: damage.damageType, bonusParts: damage.bonusParts }, [4, 2]);
+    expect(describeDamageByType({ ...outcome, groups: [{ values: outcome.dieValues }], extra: outcome.extraValues })).toBe("4+5 (ріжуча) + 2+5 (дробяча)");
+  });
+
+  it("кидок без типів лишається старим підписом", () => {
+    expect(describeDamageByType({ groups: [{ values: [3] }], extra: [{ sign: -1, label: "Зменшення", value: 2 }], bonus: 1 })).toBeNull();
   });
 });
 

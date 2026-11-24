@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { calculateWeaponAttackBonus, calculateWeaponDamageBonus, calculateWeaponDamageDice, findWeaponDamageType, findWeaponRange } from "@/lib/logic/bonus-calculator";
-import { hasManualWeaponBonus, listWeaponExtraDice, listWeaponMagicItems, sumWeaponExtraDamageBonus } from "@/lib/logic/magic-weapon-links";
+import { hasManualWeaponBonus, listWeaponExtraBonusParts, listWeaponExtraDice, listWeaponMagicItems } from "@/lib/logic/magic-weapon-links";
 import { buildPersWithItems } from "./magic-item-pers-fixture";
 import { buildExtraDamage, toExtraDamageDrafts } from "@/rules/weapon-profile";
 
@@ -8,6 +8,8 @@ const LONGSWORD = { persWeaponId: 7, isProficient: true, weapon: { name: "LONGSW
 const DAGGER = { ...LONGSWORD, persWeaponId: 8, weapon: { ...LONGSWORD.weapon, name: "DAGGER", properties: ["FINESSE"] } };
 const PLUS_TWO = { engName: "Weapon +2", requiresAttunement: false, description: "Ви маєте бонус +2 до кидків атаки й шкоди цією магічною зброєю." };
 const FROST_BRAND = { engName: "Frost Brand", requiresAttunement: true, description: "" };
+
+const sumParts = (parts: { value: number }[]) => parts.reduce((total, part) => total + part.value, 0);
 
 const withItems = (items: Parameters<typeof buildPersWithItems>[0]) =>
   buildPersWithItems(items, { str: 16, weapons: [LONGSWORD, DAGGER] });
@@ -25,12 +27,12 @@ describe("магічна зброя, привʼязана до рядка збр
     expect(calculateWeaponDamageBonus(withItems([{ ...PLUS_TWO, persWeaponId: 7, isEquipped: false }]), LONGSWORD as never)).toBe(3);
     const unattuned = withItems([{ ...FROST_BRAND, persWeaponId: 7, isAttuned: false }]);
     expect(listWeaponMagicItems(unattuned, LONGSWORD)).toEqual([
-      { name: "Frost Brand", bonus: 0, hits: [{ count: 1, sides: 6, damageType: "COLD", condition: null }], profile: null, isActive: false },
+      { name: "Frost Brand", bonus: 0, hits: [{ count: 1, sides: 6, damageType: "COLD", condition: null }], profile: null, isActive: false, isMagic: true },
     ]);
   });
 
   it("кидає кубики при влучанні лише від активного предмета й без умови", () => {
-    expect(listWeaponExtraDice(withItems([{ ...FROST_BRAND, persWeaponId: 7 }]), LONGSWORD)).toEqual([{ sides: 6, sign: 1, label: "Frost Brand" }]);
+    expect(listWeaponExtraDice(withItems([{ ...FROST_BRAND, persWeaponId: 7 }]), LONGSWORD)).toEqual([{ sides: 6, sign: 1, label: "Frost Brand", damageType: "COLD" }]);
     expect(listWeaponExtraDice(withItems([{ ...FROST_BRAND, persWeaponId: 7, isAttuned: false }]), LONGSWORD)).toEqual([]);
     expect(listWeaponExtraDice(withItems([{ engName: "Flame Tongue", requiresAttunement: true, description: "", persWeaponId: 7 }]), LONGSWORD)).toEqual([]);
   });
@@ -38,9 +40,9 @@ describe("магічна зброя, привʼязана до рядка збр
   it("кидає додаткову шкоду, вписану в листі, разом з кубиками предмета", () => {
     const flaming = { ...LONGSWORD, extraDamage: [{ count: 2, sides: 6, damageType: "FIRE" }, { count: 1, sides: 4, damageType: "BOGUS" }] };
     expect(listWeaponExtraDice(withItems([{ ...FROST_BRAND, persWeaponId: 7 }]), flaming)).toEqual([
-      { sides: 6, sign: 1, label: "Вогняна" },
-      { sides: 6, sign: 1, label: "Вогняна" },
-      { sides: 6, sign: 1, label: "Frost Brand" },
+      { sides: 6, sign: 1, label: "Вогняна", damageType: "FIRE" },
+      { sides: 6, sign: 1, label: "Вогняна", damageType: "FIRE" },
+      { sides: 6, sign: 1, label: "Frost Brand", damageType: "COLD" },
     ]);
   });
 
@@ -49,7 +51,7 @@ describe("магічна зброя, привʼязана до рядка збр
     const drafts = toExtraDamageDrafts(extraDamage);
     expect(drafts).toMatchObject([{ dice: "1к4", damageType: "FIRE" }]);
     expect(buildExtraDamage(drafts)).toEqual(extraDamage);
-    expect(listWeaponExtraDice(withItems([]), { ...LONGSWORD, extraDamage })).toEqual([{ sides: 4, sign: 1, label: "Вогняна" }]);
+    expect(listWeaponExtraDice(withItems([]), { ...LONGSWORD, extraDamage })).toEqual([{ sides: 4, sign: 1, label: "Вогняна", damageType: "FIRE" }]);
   });
 
   it("бачить ручний бонус на зброї, щоб попередити про подвійний облік", () => {
@@ -71,8 +73,12 @@ describe("хомбрю-зброя з профілем", () => {
     expect(toExtraDamageDrafts(own)).toMatchObject([{ dice: "1к4+СИЛ", damageType: "BLUDGEONING" }]);
     expect(toExtraDamageDrafts(attached)).toMatchObject([{ dice: "1к6+СПР*2-1", damageType: "FIRE" }]);
     expect(listWeaponExtraDice(pers, weapon).map(({ sides }) => sides)).toEqual([4, 6]);
-    expect(sumWeaponExtraDamageBonus(pers, weapon, (ability) => ability === "STR" ? -1 : 2)).toBe(2);
-    expect(sumWeaponExtraDamageBonus(pers, weapon, (ability) => ability === "STR" ? 3 : 2)).toBe(6);
+    expect(sumParts(listWeaponExtraBonusParts(pers, weapon, (ability) => ability === "STR" ? -1 : 2))).toBe(2);
+    expect(sumParts(listWeaponExtraBonusParts(pers, weapon, (ability) => ability === "STR" ? 3 : 2))).toBe(6);
+    expect(listWeaponExtraBonusParts(pers, weapon, (ability) => ability === "STR" ? -1 : 2)).toEqual([
+      { label: "Дробяча", value: -1, damageType: "BLUDGEONING" },
+      { label: "Блочний лук · Вогняна", value: 3, damageType: "FIRE" },
+    ]);
   });
 
   it("профіль привʼязаного предмета задає атаку, шкоду, тип і дальність", () => {
@@ -82,7 +88,7 @@ describe("хомбрю-зброя з профілем", () => {
     expect(calculateWeaponDamageDice(pers, LONGSWORD as never)).toBe("1d10");
     expect(findWeaponDamageType(pers, LONGSWORD as never)).toBe("PIERCING");
     expect(findWeaponRange(pers, LONGSWORD as never)).toEqual({ normal: 150, long: 600 });
-    expect(listWeaponExtraDice(pers, LONGSWORD)).toEqual([{ sides: 4, sign: 1, label: "Блочний лук" }]);
+    expect(listWeaponExtraDice(pers, LONGSWORD)).toEqual([{ sides: 4, sign: 1, label: "Блочний лук", damageType: "FIRE" }]);
   });
 
   it("ручні налаштування рядка мають перевагу над профілем", () => {

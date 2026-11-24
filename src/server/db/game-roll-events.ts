@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { buildSecretRollLabel, canSeeGameRollValues, EMPTY_GAME_ROLL, type GameRoll, type GameRollSource, type GameRollVisibility } from "@/rules/game-roll";
@@ -5,8 +6,9 @@ import { buildGameRollHeroTargetView, type GameRollHeroTargetDraft, type GameRol
 import { buildGameRollSavesView, splitSaveDamage, type GameRollSavesDraft, type GameRollSavesView, type StoredSaves } from "@/rules/game-roll-saves";
 import { buildGameRollTargetView, type GameRollTargetDraft, type GameRollTargetView } from "@/rules/game-roll-target";
 import { findAttackHit } from "@/rules/game-roll-target";
+import type { DamageDefenseNote } from "@/rules/damage-parts";
 import { takeRolledInitiative } from "@/server/db/game-combat";
-import { changeHeroTargetHitPoints, damageHeroSaveRows } from "@/server/db/game-hero-damage";
+import { changeHeroTargetHitPoints, damageHeroSaveRows, revertHeroHitPoints, type RestoredHero } from "@/server/db/game-hero-damage";
 import { findRoomHeroes, type RoomHero } from "@/server/db/game-room-heroes";
 import { applyRollTarget, applySaveTargets, revertRollDamage, revertSaveDamage } from "@/server/db/game-roll-target";
 import { buildAvatarUrl, buildMemberName, findActiveGmSession, GAME_SESSION_SIGNAL_CHANNEL, isBindablePers, signalGameSession, type GameSessionResult } from "@/server/db/game-sessions";
@@ -27,6 +29,9 @@ export type GameRollEventView = {
   target: GameRollTargetView | null;
   saves: GameRollSavesView | null;
   heroTarget: GameRollHeroTargetView | null;
+  isCancelled?: true;
+  cancelsSeq?: number;
+  restoredHeroes?: RestoredHero[];
 };
 
 export type GameRollDraft = {
@@ -70,10 +75,13 @@ const EVENT_SELECT = {
 } satisfies Prisma.GameRollEventSelect;
 
 type EventRow = Prisma.GameRollEventGetPayload<{ select: typeof EVENT_SELECT }>;
+/// targetDamage — шкода по істоті після її опорів; heroTarget тримає свою.
+/// isCancelled — майстер скасував кидок; cancelsSeq і restoredHeroes — у самої події скасування.
+type StoredRoll = GameRoll & { saves?: StoredSaves; heroTarget?: StoredHeroTarget; targetDamage?: { damage: number; damageDefenses: DamageDefenseNote[] }; isCancelled?: true; cancelsSeq?: number; restoredHeroes?: RestoredHero[] };
 
 function toEventView(row: EventRow, viewer: GameRollViewer): GameRollEventView {
   const visibility = row.visibility as GameRollVisibility;
-  const { saves, heroTarget, ...roll } = row.roll as GameRoll & { saves?: StoredSaves; heroTarget?: StoredHeroTarget };
+  const { saves, heroTarget, targetDamage, isCancelled, cancelsSeq, restoredHeroes, ...roll } = row.roll as StoredRoll;
   const hasValues = canSeeGameRollValues(visibility, viewer);
   return {
     seq: Number(row.seq),
@@ -88,9 +96,12 @@ function toEventView(row: EventRow, viewer: GameRollViewer): GameRollEventView {
     total: hasValues ? row.total : null,
     rolledAt: row.rolledAt.toISOString(),
     createdAt: row.createdAt.toISOString(),
-    target: hasValues ? buildGameRollTargetView(row, viewer) : null,
+    target: hasValues ? buildGameRollTargetView({ ...row, ...targetDamage }, viewer) : null,
     saves: hasValues ? buildGameRollSavesView(saves, viewer) : null,
     heroTarget: hasValues ? buildGameRollHeroTargetView(heroTarget, row.total, viewer) : null,
+    ...(isCancelled ? { isCancelled } : {}),
+    ...(cancelsSeq ? { cancelsSeq } : {}),
+    ...(hasValues && restoredHeroes?.length ? { restoredHeroes } : {}),
   };
 }
 
@@ -148,7 +159,8 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
     const seq = session.last_event_seq + BigInt(1);
     const rolledSaves = draft.saves ? await applySaveTargets(tx, sessionId, draft.saves, splitSaveDamage(draft.roll, draft.saves.effect), heroes) : null;
     const saves = await damageHeroSaveRows(tx, sessionId, Number(seq), rolledSaves, heroes);
-    const heroTarget = await changeHeroTargetHitPoints(tx, sessionId, Number(seq), draft.heroTarget ? buildHeroTarget(draft.heroTarget, heroes.get(draft.heroTarget.persId), draft.roll) : null, draft.roll.total, heroes);
+    const heroTarget = await changeHeroTargetHitPoints(tx, sessionId, Number(seq), draft.heroTarget ? buildHeroTarget(draft.heroTarget, heroes.get(draft.heroTarget.persId), draft.roll) : null, draft.roll, heroes);
+    const targetDamage = effect.value?.damageDefenses.length ? { damage: effect.value.damage, damageDefenses: effect.value.damageDefenses } : null;
     await tx.gameSession.update({ where: { id: sessionId }, data: { lastEventSeq: seq, updatedAt: new Date() } });
     const created = await tx.gameRollEvent.create({
       data: {
@@ -162,16 +174,16 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
         authorName: author.value.authorName,
         persName: author.value.persName,
         label: draft.label,
-        roll: { ...draft.roll, ...(saves ? { saves } : {}), ...(heroTarget ? { heroTarget } : {}) } as unknown as Prisma.InputJsonValue,
+        roll: { ...draft.roll, ...(saves ? { saves } : {}), ...(heroTarget ? { heroTarget } : {}), ...(targetDamage ? { targetDamage } : {}) } as unknown as Prisma.InputJsonValue,
         total: draft.roll.total,
         rolledAt: draft.rolledAt,
-        ...effect.value,
+        ...effect.value?.columns,
       },
       select: EVENT_SELECT,
     });
     await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "roll" })})`;
     const isInitiativeTaken = draft.isInitiative && author.value.persId !== null ? await takeRolledInitiative(tx, sessionId, author.value.persId, draft.roll.total) : false;
-    if (isInitiativeTaken || effect.value?.hpChange || saves?.rows.some((row) => row.hpChange || row.isConditionAdded)) await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "session" })})`;
+    if (isInitiativeTaken || effect.value?.columns.hpChange || heroTarget?.isAppliedToSheet || saves?.rows.some((row) => row.hpChange || row.isConditionAdded || row.isAppliedToSheet)) await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "session" })})`;
     return { ok: true as const, value: toEventView(created, authorViewer) };
   });
 }
@@ -205,7 +217,65 @@ export async function undoRollDamage(sessionId: number, userId: number, seq: num
   return reverted;
 }
 
-async function findRollAuthor(sessionId: number, userId: number, draft: GameRollDraft): Promise<GameSessionResult<{ authorName: string; isGm: boolean; persId: number | null; persName: string | null }>> {
+/// Майстер скасовує будь-який кидок: шкоду й стани повернуто, а в журналі лишається запис «Скасовано».
+/// Позначка на події ставиться першим UPDATE — другий клік нічого не поверне вдруге.
+export async function cancelGameRoll(sessionId: number, userId: number, seq: number): Promise<GameSessionResult<GameRollEventView[]>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const author = await findRollAuthor(sessionId, userId, { source: "FREE", persId: null });
+  if (!author.ok) return author;
+  const heroes = await findRoomHeroes(sessionId, await listRollPersIds(sessionId, seq));
+  const viewer = { userId, isGm: true };
+  const cancelled = await prisma.$transaction(async (tx) => {
+    const [session] = await tx.$queryRaw<{ last_event_seq: bigint }[]>`SELECT last_event_seq FROM game_session WHERE game_session_id = ${sessionId} FOR UPDATE`;
+    const [claimed] = await tx.$queryRaw<{ label: string; visibility: GameRollVisibility; roll: StoredRoll }[]>`
+      UPDATE game_roll_event SET roll = roll || '{"isCancelled": true}'::jsonb
+      WHERE game_session_id = ${sessionId} AND seq = ${seq}::bigint AND source <> 'MESSAGE'
+        AND NOT (roll ? 'isCancelled') AND NOT (roll ? 'cancelsSeq') AND (visibility <> 'SELF' OR author_user_id = ${userId})
+      RETURNING label, visibility, roll`;
+    if (!session || !claimed) return { ok: false as const, error: await findCancelFailure(tx, sessionId, seq) };
+    const cancelSeq = session.last_event_seq + BigInt(1);
+    await revertRollDamage(tx, sessionId, seq);
+    for (const index of claimed.roll.saves?.rows.keys() ?? []) await revertSaveDamage(tx, sessionId, seq, index);
+    const restoredHeroes = await revertHeroHitPoints(tx, sessionId, Number(cancelSeq), claimed.roll, heroes);
+    await tx.gameSession.update({ where: { id: sessionId }, data: { lastEventSeq: cancelSeq, updatedAt: new Date() } });
+    const created = await tx.gameRollEvent.create({
+      data: {
+        gameSessionId: sessionId,
+        seq: cancelSeq,
+        authorUserId: userId,
+        idempotencyKey: randomUUID(),
+        visibility: claimed.visibility,
+        source: "FREE",
+        authorName: author.value.authorName,
+        persName: author.value.persName,
+        persId: author.value.persId,
+        label: `Скасовано: ${claimed.label}`,
+        roll: { ...EMPTY_GAME_ROLL, cancelsSeq: seq, ...(restoredHeroes.length ? { restoredHeroes } : {}) } as unknown as Prisma.InputJsonValue,
+        total: 0,
+        rolledAt: new Date(),
+      },
+      select: EVENT_SELECT,
+    });
+    const original = await tx.gameRollEvent.findUniqueOrThrow({ where: { gameSessionId_seq: { gameSessionId: sessionId, seq } }, select: EVENT_SELECT });
+    return { ok: true as const, value: [toEventView(original, viewer), toEventView(created, viewer)] };
+  });
+  if (cancelled.ok) await Promise.all([signalGameSession(sessionId, "roll"), signalGameSession(sessionId, "session")]);
+  return cancelled;
+}
+
+async function listRollPersIds(sessionId: number, seq: number): Promise<number[]> {
+  const event = await prisma.gameRollEvent.findUnique({ where: { gameSessionId_seq: { gameSessionId: sessionId, seq } }, select: { roll: true } });
+  const roll = event?.roll as StoredRoll | undefined;
+  return [...(roll?.heroTarget ? [roll.heroTarget.persId] : []), ...(roll?.saves?.rows ?? []).flatMap((row) => row.persId ?? [])];
+}
+
+async function findCancelFailure(tx: Prisma.TransactionClient, sessionId: number, seq: number): Promise<"not_found" | "already_cancelled"> {
+  const event = await tx.gameRollEvent.findUnique({ where: { gameSessionId_seq: { gameSessionId: sessionId, seq } }, select: { roll: true } });
+  return (event?.roll as StoredRoll | undefined)?.isCancelled ? "already_cancelled" : "not_found";
+}
+
+async function findRollAuthor(sessionId: number, userId: number, draft: Pick<GameRollDraft, "source" | "persId">): Promise<GameSessionResult<{ authorName: string; isGm: boolean; persId: number | null; persName: string | null }>> {
   const member = await prisma.gameSessionMember.findUnique({
     where: { gameSessionId_userId_heroSlot: { gameSessionId: sessionId, userId, heroSlot: 0 } },
     select: { role: true, persId: true, pers: { select: { name: true } }, user: { select: { id: true, displayName: true, name: true } } },
