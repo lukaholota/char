@@ -128,6 +128,7 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick, mapDrop }: Lib
     setProgress(null);
     setImportResult(result);
     appendImages(result.keys, destination);
+    if (!directory && files.length === 1 && result.keys.length === 1) await onPick(result.keys[0]);
   });
   const moveImage = (imageKey: string, destination: number | null) => startBusy(async () => {
     const result = await moveLibraryImageAction(imageKey, destination).catch(() => null);
@@ -137,13 +138,16 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick, mapDrop }: Lib
   });
   const isMoving = moveTo !== undefined;
   const cannotUpload = isBusy || isFull || isDeleting || isMoving || library === null;
-  const drop = useFileDrop(setCroppingFile, cannotUpload, mapDrop ? importFiles : undefined);
+  const drop = useFileDrop(mapDrop ? (file) => importFiles([file]) : setCroppingFile, cannotUpload, mapDrop ? importFiles : undefined);
   const canDropAt = (point: Point) => mapDrop?.canDropAt(point) ?? false;
   const drag = useTokenDrag<string>((key, point) => mapDrop && canDropAt(point) && startBusy(() => mapDrop.onDrop(key, point)), canDropAt, (key) => startBusy(() => onPick(key)), LIST_TOUCH_HOLD_MS);
 
+  /// Обʼєкт лишає свої пропорції й прозорість, тож квадратна обрізка — лише для токенів істот.
   const pickFile = (event: ChangeEvent<HTMLInputElement>) => {
-    setCroppingFile(event.target.files?.[0] ?? null);
+    const files = Array.from(event.target.files ?? []);
     event.target.value = "";
+    if (!mapDrop) setCroppingFile(files[0] ?? null);
+    else if (files.length > 0) importFiles(files);
   };
 
   const uploadCropped = (blob: Blob) => {
@@ -200,7 +204,7 @@ export function TokenImageLibrary({ chosenKey, cropTitle, onPick, mapDrop }: Lib
         // eslint-disable-next-line @next/next/no-img-element -- та сама мініатюра, що й у бібліотеці
         <img src={buildMediaImageUrl(drag.ghost.id, "thumbnail")} alt="" aria-hidden width={64} height={64} className={cn("pointer-events-none fixed z-[10000] h-16 w-16 -translate-x-1/2 -translate-y-1/2 object-contain", !drag.ghost.isOverTarget && "opacity-60")} style={{ left: drag.ghost.clientX, top: drag.ghost.clientY }} />
       ) : null}
-      <input ref={inputRef} type="file" accept={ACCEPTED_IMAGE_MIME_TYPES} aria-label="Завантажити нове зображення" className="sr-only" tabIndex={-1} onChange={pickFile} />
+      <input ref={inputRef} type="file" accept={ACCEPTED_IMAGE_MIME_TYPES} multiple={Boolean(mapDrop)} aria-label="Завантажити нове зображення" className="sr-only" tabIndex={-1} onChange={pickFile} />
       <ImageCropDialog file={croppingFile} title={cropTitle} onCancel={() => setCroppingFile(null)} onCropped={uploadCropped} onUnreadable={() => { setCroppingFile(null); toast.error("Не вдалося відкрити картинку. Спробуйте JPEG, PNG або WebP."); }} />
     </div>
   );

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyObjectTransform, buildSceneObjectViews, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, parseObjectPlacement, scatterObjectPlacement, toObjectPlacement, toObjectTransform } from "@/rules/game-objects";
+import { applyObjectTransform, buildSceneObjectViews, clampObjectAspect, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, parseObjectPlacement, scatterObjectPlacement, toObjectPlacement, toObjectTransform } from "@/rules/game-objects";
 
 const placement = { at: { x: 0.5, y: 0.25 }, widthCells: 2, rotation: 90, name: "Скриня", isHidden: false, sortOrder: 0 };
 const row = (id: number, overrides: Partial<{ isHidden: boolean; sortOrder: number }> = {}) => ({ id, imageKey: `token-images/1/${id}`, name: null, x: 0.1, y: 0.2, widthCells: 1, rotation: 0, isHidden: false, sortOrder: 0, ...overrides });
@@ -84,5 +84,18 @@ describe("scatterObjectPlacement", () => {
   it("не виходить за межі ширини", () => {
     expect(scatterObjectPlacement({ ...full, widthCells: OBJECT_LIMITS.widthCells.max }, () => 0.999).widthCells).toBe(OBJECT_LIMITS.widthCells.max);
     expect(scatterObjectPlacement({ ...full, widthCells: OBJECT_LIMITS.widthCells.min }, () => 0).widthCells).toBe(OBJECT_LIMITS.widthCells.min);
+  });
+});
+
+describe("clampObjectAspect", () => {
+  it("keeps a wide cart wide and rounds it", () => {
+    expect(clampObjectAspect(1280, 600)).toBe(2.133);
+  });
+
+  it("falls back to a square for an unreadable image and clamps extreme strips", () => {
+    expect(clampObjectAspect(0, 0)).toBe(1);
+    expect(clampObjectAspect(100, 0)).toBe(1);
+    expect(clampObjectAspect(10_000, 10)).toBe(OBJECT_LIMITS.aspect.max);
+    expect(clampObjectAspect(1, 10_000)).toBe(OBJECT_LIMITS.aspect.min);
   });
 });

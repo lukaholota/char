@@ -80,4 +80,16 @@ describe("власні зображення обʼєктів", () => {
     expect(onDrop).not.toHaveBeenCalled();
     expect(onPick).not.toHaveBeenCalled();
   });
+
+  it("одне нове зображення обʼєкта завантажується без квадратної обрізки й одразу стає на мапу", async () => {
+    library.upload.mockResolvedValueOnce({ ok: true, value: "token-images/7/cart" });
+    const { onPick } = await renderLibrary();
+    const input = screen.getByLabelText("Завантажити нове зображення") as HTMLInputElement;
+    expect(input.multiple).toBe(true);
+    fireEvent.change(input, { target: { files: [new File(["image"], "cart.png", { type: "image/png" })] } });
+
+    await vi.waitFor(() => expect(onPick).toHaveBeenCalledWith("token-images/7/cart"));
+    const form: FormData = library.upload.mock.lastCall![0];
+    expect(form.get("cropped")).toBeNull();
+  });
 });

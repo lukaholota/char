@@ -4,7 +4,7 @@ import { useState } from "react";
 import { addSceneObjectAction, changeSceneObjectAction, moveSceneObjectsAction, removeSceneObjectsAction } from "@/lib/actions/game-scene-tools";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
-import { applyObjectTransform, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, toObjectPlacement, type ObjectAppearance, type ObjectPlacement, type SceneObjectView } from "@/rules/game-objects";
+import { applyObjectTransform, clampObjectAspect, findBackSortOrder, findFrontSortOrder, findObjectWidthShare, OBJECT_LIMITS, toObjectPlacement, type ObjectAppearance, type ObjectPlacement, type SceneObjectView } from "@/rules/game-objects";
 import { findPastePosition, shiftTokenPosition, type TokenPosition } from "@/rules/game-map";
 import type { FloorId } from "@/rules/game-floors";
 import type { TokenTransform } from "@/rules/token-transform";
@@ -206,7 +206,8 @@ export function useMapObjects({ view, shownFloor, editing, gridColumns, findDrop
     canDropAt: (point: Point) => findDropPosition(point) !== null,
     placeFromLibrary: async (imageKey: string, widthCells = 1, dropPoint?: Point) => {
       const at = (dropPoint && findDropPosition(dropPoint)) ?? findViewCentre();
-      await place(imageKey, { at, widthCells, rotation: 0, name: null, isHidden: false, sortOrder: findFrontSortOrder(readShown()), floor: shownFloor, aspect: 1 });
+      const aspect = await readImageAspect(buildMediaImageUrl(imageKey, "thumbnail"));
+      await place(imageKey, { at, widthCells, rotation: 0, name: null, isHidden: false, sortOrder: findFrontSortOrder(readShown()), floor: shownFloor, aspect });
       captureGameEvent("game_object_placed", { is_copy: false });
     },
     change,
@@ -232,3 +233,20 @@ export function useMapObjects({ view, shownFloor, editing, gridColumns, findDrop
 }
 
 export type MapObjects = ReturnType<typeof useMapObjects>;
+
+const ASPECT_WAIT_MS = 2000;
+
+/// Мініатюра вже в кеші з бібліотеки й має ті самі пропорції, що й повна картинка.
+function readImageAspect(url: string): Promise<number> {
+  return new Promise((resolve) => {
+    const image = new Image();
+    const timer = setTimeout(() => resolve(1), ASPECT_WAIT_MS);
+    const finish = (aspect: number) => {
+      clearTimeout(timer);
+      resolve(aspect);
+    };
+    image.onload = () => finish(clampObjectAspect(image.naturalWidth, image.naturalHeight));
+    image.onerror = () => finish(1);
+    image.src = url;
+  });
+}

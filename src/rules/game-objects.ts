@@ -31,6 +31,13 @@ export function scatterObjectPlacement(placement: ObjectPlacement, random: () =>
 }
 const SORT_ORDER_LIMIT = 1_000_000;
 
+/// Пропорції картинки, що не читаються чи виходять за межі, не мають ламати постановку обʼєкта.
+export function clampObjectAspect(width: number, height: number): number {
+  const aspect = width / height;
+  if (!Number.isFinite(aspect) || aspect <= 0) return 1;
+  return Math.round(Math.min(OBJECT_LIMITS.aspect.max, Math.max(OBJECT_LIMITS.aspect.min, aspect)) * 1000) / 1000;
+}
+
 const isShare = (value: unknown): value is number => typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 1;
 const isInRange = (value: unknown, min: number, max: number): value is number => typeof value === "number" && Number.isFinite(value) && value >= min && value <= max;
 

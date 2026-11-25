@@ -83,8 +83,19 @@ import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
 import { DEFAULT_ATMOSPHERE } from "@/rules/game-atmosphere";
 import { DEFAULT_LIGHT_LOOK } from "@/rules/game-lighting";
 
+class WideCartImage {
+  naturalWidth = 1280;
+  naturalHeight = 600;
+  onload: (() => void) | null = null;
+  onerror: (() => void) | null = null;
+  set src(_url: string) {
+    queueMicrotask(() => this.onload?.());
+  }
+}
+
 beforeEach(() => {
   vi.clearAllMocks();
+  vi.stubGlobal("Image", WideCartImage);
   mocks.moveGameTokenAction.mockResolvedValue({ ok: true, value: null });
   mocks.moveMapCreatureAction.mockResolvedValue({ ok: true, value: null });
   mocks.moveMapTokensAction.mockResolvedValue({ ok: true, value: null });
@@ -115,6 +126,7 @@ beforeEach(() => {
 });
 afterEach(() => {
   cleanup();
+  vi.unstubAllGlobals();
   resetOptimisticValues();
   resetMapHistory();
 });
@@ -711,13 +723,13 @@ describe("обʼєкти на мапі", () => {
     expect(within(map).queryByRole("button", { name: /Скриня/ })).toBeNull();
   });
 
-  it("майстер ставить картинку з бібліотеки в центр мапи; гравець інструмента не має", async () => {
+  it("майстер ставить картинку з бібліотеки в центр мапи з її пропорціями; гравець інструмента не має", async () => {
     render(<GameRoomMap view={gmView()} />);
     loadMap();
     fireEvent.click(screen.getByRole("button", { name: "Обʼєкти" }));
     const tile = await screen.findByRole("button", { name: "Поставити зображення 1" });
     await act(async () => fireEvent.click(tile));
-    expect(mocks.addSceneObjectAction).toHaveBeenCalledWith(7, 1, "token-images/1/chest", { at: { x: 0.5, y: 0.5 }, widthCells: 1, rotation: 0, name: null, isHidden: false, sortOrder: 0, floor: null, aspect: 1 });
+    expect(mocks.addSceneObjectAction).toHaveBeenCalledWith(7, 1, "token-images/1/chest", { at: { x: 0.5, y: 0.5 }, widthCells: 1, rotation: 0, name: null, isHidden: false, sortOrder: 0, floor: null, aspect: 2.133 });
     cleanup();
     render(<GameRoomMap view={buildView()} />);
     expect(screen.queryByRole("button", { name: "Обʼєкти" })).toBeNull();
