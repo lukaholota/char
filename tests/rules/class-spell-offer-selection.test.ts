@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { ClassSpellOffer } from "@/rules/class-spell-choices-2024";
-import { findPreparableSpells, keepOfferedSpells } from "@/rules/class-spell-offer-selection";
+import { findClassSpellSelectionProblem } from "@/rules/class-spell-choices-2024";
+import { findPreparableSpells, keepOfferedClassSpells, keepOfferedSpells } from "@/rules/class-spell-offer-selection";
 
 function spell(spellId: number, level = 1) {
   return { spellId, level, school: null, name: `Заклинання ${spellId}`, engName: `Spell ${spellId}` };
@@ -42,5 +43,26 @@ describe("вибір заклинань у межах чинної пропоз�
 
     expect(findPreparableSpells(wizard, { cantripIds: [], preparedIds: [], spellbookIds: [10, 11] }).map((entry) => entry.spellId)).toEqual([30, 10]);
     expect(keepOfferedSpells({ cantripIds: [], preparedIds: [10, 12, 30], spellbookIds: [10, 11, 12] }, wizard)).toEqual({ cantripIds: [], preparedIds: [10, 30], spellbookIds: [10, 11] });
+  });
+
+  it("левелап відправляє вибір, урізаний до чинної квоти: ручне заклинання на аркуші вже закрило таблицю", () => {
+    const swapOnly = buildOffer({ className: "BARD_2014", classLabel: "Бард", quota: { cantrips: 0, prepared: 0, spellbook: 0, maxSpellLevel: 1 } });
+    const staleForm = { expectedLevel: 4, classSpells: { cantripIds: [] as number[], preparedIds: [10], spellbookIds: [] } };
+
+    const submitted = keepOfferedClassSpells(staleForm, swapOnly);
+
+    expect(submitted).toEqual({ expectedLevel: 4, classSpells: { cantripIds: [], preparedIds: [], spellbookIds: [] } });
+    const filters = { cantrips: { levels: [0], schools: null, spellList: "Бард" }, spells: { levels: [1], schools: null, spellList: "Бард" } };
+    const findProblem = (selection: typeof staleForm.classSpells) =>
+      findClassSpellSelectionProblem({ quota: swapOnly.quota, filters, selection, candidates: swapOnly.spells, usesSpellbook: false, bookSpellIds: [], unavailableSpellIds: [], spellsCountLabel: "нових заклинань" });
+    expect(findProblem(staleForm.classSpells)).toBe("Оберіть нових заклинань: 0");
+    expect(findProblem(submitted.classSpells!)).toBeNull();
+  });
+
+  it("без пропозиції чи вибору форма йде як є", () => {
+    const form = { classSpells: { cantripIds: [1], preparedIds: [], spellbookIds: [] } };
+
+    expect(keepOfferedClassSpells(form, null)).toBe(form);
+    expect(keepOfferedClassSpells({ expectedLevel: 2 }, buildOffer())).toEqual({ expectedLevel: 2 });
   });
 });

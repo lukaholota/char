@@ -1,4 +1,6 @@
+import type { MapTool } from "@/components/games/use-map-tools";
 import type { GameRollVisibility } from "@/rules/game-roll";
+import type { SpotlightStyle } from "@/rules/token-conditions";
 import type { GameSessionRole } from "@/server/db/game-sessions";
 import { capturePostHogEvent } from "./posthog-client";
 
@@ -30,7 +32,7 @@ type GameEventProperties = {
   game_combat_turn_advanced: { step: 1 | -1 };
   game_combat_initiative_edited: Record<string, never>;
   game_combatants_added: { added_count: number };
-  game_condition_changed: { token: "creature" | "hero"; kind: "toggle" | "exhaustion" | "spotlight" };
+  game_condition_changed: { target: "creature" | "hero"; kind: "toggle" | "exhaustion" | "spotlight"; spotlight_style?: SpotlightStyle | null };
   game_roll_target_set: { surface: "statblock" | "hero_tray" };
   game_hero_damage_taken: Record<string, never>;
   game_damage_undone: Record<string, never>;
@@ -49,7 +51,7 @@ type GameEventProperties = {
   game_door_toggled: { is_open: boolean };
   game_lighting_changed: { lighting: "off" | "bright" | "dim" | "dark" };
   game_light_placed: { preset: string; target: "scene" | "hero" | "creature" };
-  game_map_tool_opened: { tool: "ruler" | "area" | "fog" | "grid" };
+  game_map_tool_opened: { tool: MapTool };
 };
 
 /// Без назв кімнат, міток і значень кидків — лише як люди користуються кімнатами.

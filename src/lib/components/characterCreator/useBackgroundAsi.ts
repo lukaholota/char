@@ -24,11 +24,18 @@ export function useBackgroundAsi(
   abilityOptions: readonly string[] | null | undefined,
 ): BackgroundAsiState {
   const stored = usePersFormStore((state) => state.formData.backgroundAsiChoice);
+  const updateFormData = usePersFormStore((state) => state.updateFormData);
   const step = useMemo(
     () => findBackgroundAsiStep(ruleset ?? "RULES_2014", abilityOptions),
     [ruleset, abilityOptions],
   );
   const [draft, setDraft] = useState<BackgroundAsiDraft | null>(stored ?? null);
 
-  return { step, draft, setDraft, complete: step ? findCompleteBackgroundAsi(step, draft) : null };
+  // Пишемо одразу, а не лише по «Далі»: зі кроку часто йдуть степером, і вибір губився.
+  const changeDraft = (next: BackgroundAsiDraft) => {
+    setDraft(next);
+    if (step) updateFormData({ backgroundAsiChoice: findCompleteBackgroundAsi(step, next) ?? undefined });
+  };
+
+  return { step, draft, setDraft: changeDraft, complete: step ? findCompleteBackgroundAsi(step, draft) : null };
 }

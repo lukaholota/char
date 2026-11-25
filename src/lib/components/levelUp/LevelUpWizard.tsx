@@ -97,6 +97,7 @@ import { LevelUpFeatSpellStep } from "@/lib/components/levelUp/LevelUpFeatSpellS
 import { useLevelUpClassOptionSpellOffer } from "@/lib/components/levelUp/level-up-class-option-spell-offer";
 import { collectCatchUpSpellIds, LevelUpCatchUpSpellStep, useLevelUpCatchUpSpellOffers } from "@/lib/components/levelUp/LevelUpCatchUpSpellStep";
 import { ClassSpellChoiceStep } from "@/components/spells/ClassSpellChoiceStep";
+import { keepOfferedClassSpells } from "@/rules/class-spell-offer-selection";
 import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
 import {
   useLevelUpFeatSpellGrowthOffer,
@@ -482,12 +483,15 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
     );
   }, [selectedClass, effectiveSubclassId]);
 
+  const [classSpellOfferRevision, setClassSpellOfferRevision] = useState(0);
+  const reloadClassSpellOffer = () => setClassSpellOfferRevision((revision) => revision + 1);
   const classSpellOffer = useLevelUpSpellOffer({
     persId: pers?.persId,
     classId: selectedClassId,
     subclassId: effectiveSubclassId ?? null,
     classChoiceSelections: formData.classChoiceSelections,
     subclassChoiceSelections: formData.subclassChoiceSelections,
+    revision: classSpellOfferRevision,
   });
 
   const classOptionSpellOffer = useLevelUpClassOptionSpellOffer({
@@ -1400,9 +1404,10 @@ function LevelUpWizardSteps({ info, guide, isRestored, onStartOver }: { info: Le
       setIsSubmitting(true);
       let levelUpSaved = false;
       try {
-        const res = await levelUpCharacter(pers.persId, { ...formData, expectedLevel: pers.level });
+        const res = await levelUpCharacter(pers.persId, keepOfferedClassSpells({ ...formData, expectedLevel: pers.level }, classSpellOfferWithoutFeatSpells));
         if ("error" in res) {
           toast.error(res.error || "Помилка при збереженні");
+          reloadClassSpellOffer();
         } else {
           levelUpSaved = true;
           toast.success("Рівень підвищено!");

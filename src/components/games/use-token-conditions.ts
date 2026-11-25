@@ -19,6 +19,12 @@ export const useIsTokenInvisible = (token: TokenRef, server: TokenConditions) =>
 
 const isSpotlightChange = (change: TokenConditionChange) => change.kind === "toggle" && isSpotlightMark(change.condition);
 
+export function buildConditionEvent(token: TokenRef, change: TokenConditionChange) {
+  if (change.kind !== "toggle" || !isSpotlightMark(change.condition)) return { target: token.kind, kind: change.kind };
+  const style = change.isActive ? findSpotlightStyle({ conditions: [change.condition], exhaustionLevel: 0 }) : null;
+  return { target: token.kind, kind: "spotlight" as const, spotlight_style: style };
+}
+
 function sendChange(sessionId: number, token: TokenRef, change: TokenConditionChange) {
   return token.kind === "hero" ? changeHeroConditionsAction(sessionId, token.id, change) : changeMapCreatureConditionsAction(sessionId, token.id, change);
 }
@@ -37,7 +43,7 @@ export function useTokenConditionChanges(sessionId: number, sceneId: number | nu
       pushUndoStep(sceneId, { undo: () => changeConditions(token, server, findUndoChange(before, change)), redo: () => changeConditions(token, server, change) });
     }
     const result = await sendOptimistic(key, next, () => sendChange(sessionId, token, change));
-    if (result.ok) captureGameEvent("game_condition_changed", { token: token.kind, kind: isSpotlightChange(change) ? "spotlight" : change.kind });
+    if (result.ok) captureGameEvent("game_condition_changed", buildConditionEvent(token, change));
     router.refresh();
   };
   return changeConditions;

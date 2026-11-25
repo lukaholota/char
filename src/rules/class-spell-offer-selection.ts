@@ -18,6 +18,10 @@ export function keepOfferedSpells(selection: ClassSpellSelection, offer: ClassSp
   };
 }
 
+export function keepOfferedClassSpells<Form extends { classSpells?: ClassSpellSelection }>(form: Form, offer: ClassSpellOffer | null): Form {
+  return form.classSpells && offer ? { ...form, classSpells: keepOfferedSpells(form.classSpells, offer) } : form;
+}
+
 function withSwap(key: "cantripSwap" | "preparedSwap", swap: SpellSwap | null): Partial<ClassSpellSelection> {
   return swap ? { [key]: swap } : {};
 }

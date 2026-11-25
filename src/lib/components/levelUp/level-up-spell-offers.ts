@@ -55,11 +55,13 @@ export function useLevelUpSpellOffer(input: {
   subclassId: number | null;
   classChoiceSelections: Record<string, number | number[]> | undefined;
   subclassChoiceSelections: Record<string, number | number[]> | undefined;
+  /** Зростає після відмови сервера: аркуш могли змінити в іншій вкладці, і квота вже інша. */
+  revision?: number;
 }): ClassSpellOffer | null {
   const [offer, setOffer] = useState<ClassSpellOffer | null>(null);
   const optionKey = joinOptionIds(input.classChoiceSelections);
   const subclassOptionKey = joinOptionIds(input.subclassChoiceSelections);
-  const { persId, classId, subclassId } = input;
+  const { persId, classId, subclassId, revision } = input;
 
   useEffect(() => {
     if (!persId || !classId) return;
@@ -70,7 +72,7 @@ export function useLevelUpSpellOffer(input: {
     return () => {
       isCurrent = false;
     };
-  }, [persId, classId, subclassId, optionKey, subclassOptionKey]);
+  }, [persId, classId, subclassId, optionKey, subclassOptionKey, revision]);
 
   return classId ? offer : null;
 }

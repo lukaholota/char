@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { castOnArea, dropAreaCast, placeAreaCast, registerReadyMapBoard, useAreaCastStore } from "@/lib/components/game/area-cast";
 import { describeTargetSave, findPressedTargetSave } from "@/lib/components/dice/roll-contexts";
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
+import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
 import { isPointInArea, isTokenInArea, type AreaPlacement } from "@/rules/game-areas";
 import { applyFogChange, isPointHidden, type FogStroke, type SceneFog } from "@/rules/game-fog";
@@ -191,12 +192,11 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
   const changeTool = (next: MapTool | null) => {
     if (next !== "area") area.close();
     if (cast) dropAreaCast();
-    if (tool === "ruler") ruler.clear();
-    if (tool === "grid") gridDraft.dropDraft();
-    setIsFogPreview(false);
-    clearChoices();
+    if (tool === "ruler") ruler.clear(); else if (tool === "grid") gridDraft.dropDraft();
+    setIsFogPreview(false); clearChoices();
     walls.reset();
     drawings.reset();
+    if (next !== null && next !== tool) captureGameEvent("game_map_tool_opened", { tool: next });
     setTool(next);
   };
   const findViewCentre = () => {
