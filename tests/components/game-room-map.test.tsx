@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { act, cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import type { TokenPosition } from "@/rules/game-map";
 import { SPOTLIGHT_MARK as SPOTLIGHT } from "@/rules/token-conditions";
 import type { MapCreatureView } from "@/rules/game-map-creatures";
@@ -24,7 +24,7 @@ vi.hoisted(() => {
   Object.defineProperty(window, "localStorage", { value: storage, configurable: true, writable: true });
   globalThis.ResizeObserver ??= class { observe() {} unobserve() {} disconnect() {} } as unknown as typeof ResizeObserver;
 });
-const mocks = vi.hoisted(() => ({ replace: vi.fn(), moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), changeMapCreatureHitPointsAction: vi.fn(), changeMapCreatureConditionsAction: vi.fn(), changeHeroConditionsAction: vi.fn(), transformHeroTokenAction: vi.fn(), transformMapCreatureAction: vi.fn(), refresh: vi.fn(), changeSceneFogAction: vi.fn(), changeSceneGridAction: vi.fn(), saveSceneAreaAction: vi.fn(), removeSceneAreasAction: vi.fn(), saveSceneDrawingsAction: vi.fn(), removeSceneDrawingsAction: vi.fn(), moveSceneDrawingAction: vi.fn(), listAreaSpellsAction: vi.fn(), addSceneObjectAction: vi.fn(), changeSceneObjectAction: vi.fn(), removeSceneObjectsAction: vi.fn(), editSceneWallsAction: vi.fn(), changeSceneOpeningAction: vi.fn(), setSceneLightingAction: vi.fn(), saveSceneLightAction: vi.fn(), removeSceneLightsAction: vi.fn(), setHeroTokenLightAction: vi.fn(), setMapCreatureLightAction: vi.fn(), setHeroDarkvisionAction: vi.fn(), setDarkvisionLookAction: vi.fn(), moveMapTokensAction: vi.fn(), setSceneAmbienceAction: vi.fn() }));
+const mocks = vi.hoisted(() => ({ replace: vi.fn(), moveGameTokenAction: vi.fn(), moveMapCreatureAction: vi.fn(), removeMapCreaturesAction: vi.fn(), setMapCreatureSizeAction: vi.fn(), setCreatureNameModeAction: vi.fn(), changeMapCreatureHitPointsAction: vi.fn(), changeMapCreatureConditionsAction: vi.fn(), changeHeroConditionsAction: vi.fn(), transformHeroTokenAction: vi.fn(), transformMapCreatureAction: vi.fn(), refresh: vi.fn(), changeSceneFogAction: vi.fn(), changeSceneGridAction: vi.fn(), saveSceneAreaAction: vi.fn(), removeSceneAreasAction: vi.fn(), saveSceneDrawingsAction: vi.fn(), removeSceneDrawingsAction: vi.fn(), moveSceneDrawingAction: vi.fn(), listAreaSpellsAction: vi.fn(), addSceneObjectAction: vi.fn(), changeSceneObjectAction: vi.fn(), removeSceneObjectsAction: vi.fn(), editSceneWallsAction: vi.fn(), changeSceneOpeningAction: vi.fn(), setSceneLightingAction: vi.fn(), saveSceneLightAction: vi.fn(), removeSceneLightsAction: vi.fn(), setHeroTokenLightAction: vi.fn(), setMapCreatureLightAction: vi.fn(), setHeroDarkvisionAction: vi.fn(), setDarkvisionLookAction: vi.fn(), moveMapTokensAction: vi.fn(), setSceneAmbienceAction: vi.fn(), duplicateMapCreatureAction: vi.fn(), setMapCreatureControllerAction: vi.fn() }));
 vi.mock("@/lib/actions/game-token-images", () => ({ listTokenImagesAction: async () => ({ ok: true, value: ["token-images/1/chest"] }) }));
 vi.mock("@/lib/actions/game-image-library", () => ({ listImageLibraryAction: async () => ({ ok: true, value: { folders: [], images: [{ imageKey: "token-images/1/chest", folderId: null }] } }), createImageFolderAction: vi.fn(), moveLibraryImageAction: vi.fn(), uploadImageToLibraryAction: vi.fn() }));
 vi.mock("@/lib/actions/game-creature-border-color", () => ({ setMapCreatureBorderColorAction: vi.fn(async () => ({ ok: true, value: null })) }));
@@ -34,6 +34,8 @@ vi.mock("@/lib/actions/game-sessions", () => ({
   moveMapCreatureAction: mocks.moveMapCreatureAction,
   moveMapTokensAction: mocks.moveMapTokensAction,
   removeMapCreaturesAction: mocks.removeMapCreaturesAction,
+  duplicateMapCreatureAction: mocks.duplicateMapCreatureAction,
+  setMapCreatureControllerAction: mocks.setMapCreatureControllerAction,
   setMapCreatureSizeAction: mocks.setMapCreatureSizeAction,
   setCreatureNameModeAction: mocks.setCreatureNameModeAction,
   changeMapCreatureHitPointsAction: mocks.changeMapCreatureHitPointsAction,
@@ -76,6 +78,9 @@ import { HeroTokenSlotContext, MapHintSlotContext, resetRoomTabs, showRoomTab, T
 import { ConfirmDialogHost } from "@/components/ui/confirm-dialog";
 import { GameRoomMap } from "@/components/games/GameRoomMap";
 import { useAreaCastStore } from "@/lib/components/game/area-cast";
+import { openRoomRoll } from "@/lib/components/game/open-room-roll";
+import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { resetOptimisticValues } from "@/components/games/optimistic-values";
 import { resetMapHistory } from "@/components/games/map-history";
 import { resetLiveSession, showMapPing, useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
@@ -133,7 +138,7 @@ afterEach(() => {
 
 const member = (userId: number, role: "GM" | "PLAYER", persName: string | null, token: GameSessionMemberView["token"] = null): GameSessionMemberView => ({
   heroId: userId, heroSlot: 0, isCutout: false,
-  userId, name: `Гравець ${userId}`, role, persId: persName ? userId * 10 : null, persName, avatarUrl: null, isOnline: true, token, tokenTransform: { rotation: 0, scale: 100 }, conditions: { conditions: [], exhaustionLevel: 0 }, lifeState: { kind: "up" }, light: { brightFeet: 0, dimFeet: 0 }, darkvisionFeet: 0,
+  userId, name: `Гравець ${userId}`, role, persId: persName ? userId * 10 : null, persName, avatarUrl: null, isOnline: true, token, tokenTransform: { rotation: 0, scale: 100 }, conditions: { conditions: [], exhaustionLevel: 0 }, lifeState: { kind: "up" }, light: { brightFeet: 0, dimFeet: 0 }, darkvisionFeet: 0, floor: null, beastForm: null,
 });
 
 function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
@@ -158,7 +163,7 @@ function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
 }
 
 const goblin = (id: number, badge: number, token: MapCreatureView["token"] = null): MapCreatureView => ({
-  id, creatureKey: "goblin", ruleset: "RULES_2014", label: `Гоблін ${badge}`, statblockName: null, customName: null, badge, borderColor: null, imageUrl: null, isRoundImage: false, tokenSize: "medium", token, tokenTransform: { rotation: 0, scale: 100 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 }, light: { brightFeet: 0, dimFeet: 0 },
+  id, creatureKey: "goblin", ruleset: "RULES_2014", label: `Гоблін ${badge}`, statblockName: null, customName: null, badge, borderColor: null, imageUrl: null, isRoundImage: false, tokenSize: "medium", token, tokenTransform: { rotation: 0, scale: 100 }, hitPoints: null, isDown: false, conditions: { conditions: [], exhaustionLevel: 0 }, light: { brightFeet: 0, dimFeet: 0 }, controllerHeroId: null,
 });
 const gmView = (overrides: Partial<GameSessionView> = {}) => buildView({ myUserId: 1, myRole: "GM", myPersId: null, myPersIds: [], ...overrides });
 
@@ -208,6 +213,14 @@ describe("мапа кімнати", () => {
 
     expect(mocks.moveGameTokenAction).toHaveBeenCalledWith(7, 1, 2, { x: 0.25, y: 0.75 }, null);
     expect(within(map).getByRole("button", { name: /Токен «Арвен»/ })).toBeTruthy();
+  });
+
+  it("герой у звіриній формі стоїть на мапі звіром, а імʼя каже, хто це", () => {
+    const bear = { ...member(3, "PLAYER", "Торин", { x: 0.5, y: 0.5 }), beastForm: { name: "Бурий ведмідь", imageUrl: "/images/creatures/2014/brown-bear.webp" } };
+    render(<GameRoomMap view={gmView({ members: [member(1, "GM", null), member(2, "PLAYER", "Арвен"), bear] })} />);
+    const token = within(placeMap()).getByRole("button", { name: /Токен «Торин» у формі «Бурий ведмідь»/ });
+
+    expect(token.parentElement!.parentElement!.querySelector("img")?.getAttribute("src")).toBe("/images/creatures/2014/brown-bear.webp");
   });
 
   it("дотик без руху нічого не надсилає, а витягнутий за межі токен повертається в ряд", () => {
@@ -444,6 +457,45 @@ describe("мапа кімнати", () => {
     drag(within(map).getByRole("button", { name: /«Гоблін 3»/ }), { clientX: 100, clientY: 50 }, { clientX: 100, clientY: 260 });
     expect(mocks.removeMapCreaturesAction).toHaveBeenCalledWith(7, 53);
     expect(mocks.moveMapCreatureAction).toHaveBeenCalledTimes(1);
+  });
+
+  it("майстер копіює істоту на іншу карту з меню статблока — лише на карти з мапою, крім відкритої", async () => {
+    mocks.duplicateMapCreatureAction.mockResolvedValue({ ok: true, value: { id: 99 } });
+    const scenes = [{ id: 1, name: "Печера", hasMap: true, isActive: true }, { id: 2, name: "Таверна", hasMap: true, isActive: false }, { id: 3, name: "Без мапи", hasMap: false, isActive: false }];
+    render(<GameRoomMap view={gmView({ scenes, creatures: [goblin(52, 2, { x: 0.5, y: 0.5 })] })} />);
+    tap(within(placeMap()).getByRole("button", { name: /Токен «Гоблін 2»/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Статблок і стани" }));
+    const picker = within(screen.getByRole("dialog", { name: "Гоблін 2" })).getByRole("combobox", { name: "Копіювати на іншу карту" });
+    expect(within(picker).getAllByRole("option").map((option) => option.textContent)).toEqual(["Оберіть карту…", "Таверна"]);
+    fireEvent.change(picker, { target: { value: "2" } });
+    expect(mocks.duplicateMapCreatureAction).toHaveBeenCalledWith(7, 52, 1, 2);
+    await waitFor(() => expect(toast.success).toHaveBeenCalledWith("«Гоблін 2» тепер і на карті «Таверна»"));
+  });
+
+  it("майстер передає істоту герою вибором «Керує»; гравець тягне свою істоту й міняє їй хіти, а чужу лише відкриває", async () => {
+    mocks.setMapCreatureControllerAction.mockResolvedValue({ ok: true, value: null });
+    const { unmount } = render(<GameRoomMap view={gmView({ creatures: [goblin(52, 2, { x: 0.5, y: 0.5 })] })} />);
+    tap(within(placeMap()).getByRole("button", { name: /Токен «Гоблін 2»/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Статблок і стани" }));
+    const picker = within(screen.getByRole("dialog", { name: "Гоблін 2" })).getByRole("combobox", { name: "Керує" });
+    expect(within(picker).getAllByRole("option").map((option) => option.textContent)).toEqual(["Майстер", "Арвен", "Торин"]);
+    fireEvent.change(picker, { target: { value: "2" } });
+    expect(mocks.setMapCreatureControllerAction).toHaveBeenCalledWith(7, 52, 2);
+    unmount();
+
+    const familiar = { ...goblin(52, 2, { x: 0.5, y: 0.5 }), controllerHeroId: 2, hitPoints: { current: 4, max: 7 } };
+    render(<GameRoomMap view={buildView({ creatures: [familiar, goblin(53, 3, { x: 0.25, y: 0.25 })] })} />);
+    const map = placeMap();
+    drag(within(map).getByRole("button", { name: /Токен «Гоблін 2».*Ваша істота/ }), { clientX: 200, clientY: 100 }, { clientX: 100, clientY: 150 });
+    expect(mocks.moveMapCreatureAction).toHaveBeenCalledWith(7, 52, expect.objectContaining({ x: expect.any(Number) }), null);
+    drag(within(map).getByRole("button", { name: /Токен «Гоблін 3»/ }), { clientX: 100, clientY: 50 }, { clientX: 150, clientY: 150 });
+    expect(mocks.moveMapCreatureAction).toHaveBeenCalledTimes(1);
+
+    tap(within(map).getByRole("button", { name: /Токен «Гоблін 2»/ }));
+    const card = screen.getByRole("dialog", { name: "Гоблін 2" });
+    expect(within(card).queryByRole("combobox", { name: "Керує" })).toBeNull();
+    expect(within(card).queryByRole("button", { name: "Прибрати з мапи" })).toBeNull();
+    expect(within(card).getByRole("button", { name: /Лікування/ })).toBeTruthy();
   });
 
   it("майстер обводить мишею героя й істот рамкою, тягне одну — уся група переїжджає одним запитом; дотик по мапі знімає вибір", () => {
@@ -1785,6 +1837,31 @@ describe("поворот і розмір токена на мапі", () => {
     return slot;
   }
 
+  it("на компʼютері гравець відкриває свою істоту в бічній панелі, а не у вікні; чужу — як і раніше, у вікні", () => {
+    const familiar = { ...goblin(52, 2, { x: 0.5, y: 0.5 }), controllerHeroId: 2, hitPoints: { current: 4, max: 7 } };
+    const slot = renderWithSidePanel(buildView({ creatures: [familiar, { ...goblin(53, 3, { x: 0.25, y: 0.25 }), creatureKey: null }] }));
+    const map = placeMap();
+    fireEvent.click(within(map).getByRole("button", { name: /Токен «Гоблін 3»/ }));
+    expect(screen.getByRole("dialog", { name: "Гоблін 3" })).toBeTruthy();
+    fireEvent.keyDown(screen.getByRole("dialog", { name: "Гоблін 3" }), { key: "Escape" });
+
+    tap(within(map).getByRole("button", { name: /Токен «Гоблін 2»/ }));
+    expect(screen.queryByRole("dialog", { name: "Гоблін 2" })).toBeNull();
+    const panel = within(slot).getByRole("region", { name: "Гоблін 2" });
+    expect(within(panel).getByRole("button", { name: /Лікування/ })).toBeTruthy();
+    expect(within(panel).queryByRole("combobox", { name: "Керує" })).toBeNull();
+    fireEvent.click(within(panel).getByRole("button", { name: "Закрити інструмент" }));
+    expect(within(slot).queryByRole("region", { name: "Гоблін 2" })).toBeNull();
+
+    tap(within(map).getByRole("button", { name: /Токен «Гоблін 2»/ }));
+    act(() => openRoomRoll({ title: "Гоблін 2", actions: [], isCreatureRoll: true }));
+    const targeting = useMapTargetingStore.getState().targeting;
+    const roll = targeting && "roll" in targeting ? targeting.roll : useDiceUIStore.getState().rollContext;
+    expect(roll?.fromCreatureId).toBe(52);
+    useMapTargetingStore.setState({ targeting: null });
+    useDiceUIStore.setState({ rollContext: null });
+  });
+
   it("другий дотик відкриває вкладку «Токен», де майстер змінює колір обводки", async () => {
     const slot = renderWithSidePanel(gmView({ id: 9, creatures: [goblin(65, 5, { x: 0.5, y: 0.5 })] }));
     const map = placeMap();
@@ -1796,6 +1873,7 @@ describe("поворот і розмір токена на мапі", () => {
     expect(within(panel).getByText("Завантаження статблоку…")).toBeTruthy();
     expect(within(panel).queryByRole("slider", { name: "Розмір" })).toBeNull();
     expect(within(panel).queryByRole("radiogroup")).toBeNull();
+    expect(within(panel).getByRole("combobox", { name: "Керує" })).toBeTruthy();
 
     tap(token);
     expect(screen.queryByRole("dialog", { name: "Гоблін 5" })).toBeNull();

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { findAngleTowards, snapAreaAngle, type AreaPlacement, type SceneAreaView } from "@/rules/game-areas";
-import { parseFogArea, type FogChange, type FogStroke } from "@/rules/game-fog";
+import { applyFogChange, parseFogArea, type FogChange, type FogStroke, type SceneFog } from "@/rules/game-fog";
 import { buildGridFromCells, snapToGrid, snapToHalfCell, type MapFrame, type SceneGrid } from "@/rules/game-grid";
 import type { TokenPosition } from "@/rules/game-map";
 import { appendStrokePoint } from "@/rules/map-strokes";
@@ -10,11 +10,17 @@ import type { MapRect, MapSegment } from "./MapOverlay";
 import type { MapGesture } from "./use-map-viewport";
 
 type Point = { clientX: number; clientY: number };
-export type MapTool = "ruler" | "area" | "draw" | "objects" | "walls" | "light" | "fog" | "floors" | "atmosphere" | "sounds" | "grid" | "view";
+export type MapTool = "ruler" | "area" | "draw" | "objects" | "walls" | "light" | "fog" | "floors" | "atmosphere" | "sounds" | "grid" | "view" | "summon";
 type ToShare = (point: Point) => TokenPosition | null;
 
 const TAP_SLOP_SHARE = 0.004;
-const clampShare = (point: TokenPosition) => ({ x: Math.min(1, Math.max(0, point.x)), y: Math.min(1, Math.max(0, point.y)) });
+export const clampShare = (point: TokenPosition) => ({ x: Math.min(1, Math.max(0, point.x)), y: Math.min(1, Math.max(0, point.y)) });
+/// Мазок пензля видно під пальцем ще до відповіді сервера, разом з усім туманом.
+export function findShownFog(fog: SceneFog | null, stroke: FogStroke | null) {
+  const next = stroke ? applyFogChange(fog, { kind: "area", area: stroke }) : fog;
+  return next === "too_many" ? fog : next;
+}
+
 export const toRect = (from: TokenPosition, to: TokenPosition): MapRect => ({ x: Math.min(from.x, to.x), y: Math.min(from.y, to.y), width: Math.abs(to.x - from.x), height: Math.abs(to.y - from.y) });
 
 /// Перетягування пальцем від точки до точки в частках мапи; спільна основа лінійки, рамок і зсуву.

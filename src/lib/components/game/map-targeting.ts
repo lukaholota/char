@@ -10,7 +10,7 @@ import type { GameSessionView } from "@/server/db/game-sessions";
 import { findPressedAction } from "@/lib/components/dice/roll-contexts";
 import type { HeroRollKind } from "@/rules/game-roll-hero-target";
 import { findMapRoomId, showMapForPicking } from "./area-cast";
-import { findActionRollKind } from "./build-game-roll";
+import { findActionRollKind, isAimedAtHeroes } from "./build-game-roll";
 import { useGameSessionLiveStore } from "./game-session-live-store";
 
 type TargetPicking = { sessionId: number; maxPicks: number; picks: RollTargetRef[] };
@@ -40,16 +40,16 @@ export function startMapTargeting(roll: DiceRollContext): boolean {
 
 function findTargetedRollKind(roll: DiceRollContext, view: GameSessionView): HeroRollKind | "save" | null {
   if (roll.areaTargets || roll.rollTarget !== undefined || roll.check) return null;
-  if (roll.isCreatureRoll && view.myRole !== "GM") return null;
+  if (isAimedAtHeroes(roll) && view.myRole !== "GM") return null;
   const action = findPressedAction(roll);
   if (action?.targetSave) return "save";
   return action ? findActionRollKind(roll, action) : null;
 }
 
 function readStickyTarget(sessionId: number, roll: DiceRollContext): RollTargetRef | null {
-  const id = roll.isCreatureRoll ? readHeroTargetPersId(sessionId) : readRollTargetCreatureId(sessionId);
+  const id = isAimedAtHeroes(roll) ? readHeroTargetPersId(sessionId) : readRollTargetCreatureId(sessionId);
   if (id === null) return null;
-  return roll.isCreatureRoll ? { persId: id } : { creatureId: id };
+  return isAimedAtHeroes(roll) ? { persId: id } : { creatureId: id };
 }
 
 export function pickMapTarget(target: RollTargetRef) {

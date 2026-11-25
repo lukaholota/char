@@ -5,6 +5,7 @@ import type { Ruleset } from "@prisma/client";
 import { canEditPers } from "@/lib/actions/pers";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { signalPersRooms } from "@/server/db/game-sessions";
 import {
   applyDamageInBeastForm,
   applyHealingInBeastForm,
@@ -220,6 +221,7 @@ export async function enterWildshapeForm(input: {
   if (!active) return { ok: false, error: "Не вдалося увійти у форму" };
 
   revalidatePath(`/char/${input.persId}`);
+  await signalPersRooms(input.persId).catch(() => undefined);
   return { ok: true, active, warnings: shortfall ? [shortfall] : [] };
 }
 
@@ -233,6 +235,7 @@ export async function leaveWildshapeForm(persId: number): Promise<{ ok: true } |
   await leaveBeastForm(persId);
 
   revalidatePath(`/char/${persId}`);
+  await signalPersRooms(persId).catch(() => undefined);
   return { ok: true };
 }
 
@@ -270,6 +273,7 @@ export async function damageBeastForm(input: {
       data: { currentHp: outcome.persCurrent },
     });
     await leaveBeastForm(input.persId);
+    await signalPersRooms(input.persId).catch(() => undefined);
   } else {
     await setBeastHitPoints(active.wildshapeId, outcome.beastCurrent);
   }

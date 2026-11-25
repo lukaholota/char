@@ -2,9 +2,9 @@
 import { cleanup, fireEvent, renderHook, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-const mocks = vi.hoisted(() => ({ duplicate: vi.fn(), remove: vi.fn(), refresh: vi.fn(), toastError: vi.fn(), pushUndo: vi.fn() }));
+const mocks = vi.hoisted(() => ({ move: vi.fn(), duplicate: vi.fn(), remove: vi.fn(), refresh: vi.fn(), toastError: vi.fn(), pushUndo: vi.fn() }));
 
-vi.mock("@/lib/actions/game-sessions", () => ({ duplicateMapCreatureAction: mocks.duplicate, removeMapCreaturesAction: mocks.remove }));
+vi.mock("@/lib/actions/game-sessions", () => ({ duplicateMapCreatureAction: mocks.duplicate, moveMapTokensAction: mocks.move, removeMapCreaturesAction: mocks.remove }));
 vi.mock("@/components/no-ai/NoAiModeProvider", () => ({ useModeRouter: () => ({ refresh: mocks.refresh }) }));
 vi.mock("@/lib/actions/game-scene-tools", () => ({}));
 vi.mock("sonner", () => ({ toast: { error: mocks.toastError } }));
@@ -13,18 +13,22 @@ vi.mock("@/components/games/map-history", () => ({ pushUndoStep: mocks.pushUndo 
 const { findClipboardAction, useMapClipboard } = await import("@/components/games/map-clipboard");
 
 const object = { id: 4, imageKey: "token-images/1/rock", imageUrl: "", at: { x: 0.5, y: 0.2 }, widthCells: 2, rotation: 0, name: null, isHidden: false, sortOrder: 0, floor: null, aspect: 1 };
-const view = { id: 7, viewedSceneId: 3 };
+const view = { id: 7, viewedSceneId: 3, members: [] as Array<{ heroId: number; token: { x: number; y: number } | null }> };
 
-function renderClipboard(chosen: { object?: typeof object; creatureId?: number; groupKeys?: string[]; shown?: Array<typeof object> }, canEdit = true) {
+function renderClipboard(chosen: { object?: typeof object; creatureId?: number; groupKeys?: string[]; shown?: Array<typeof object>; view?: typeof view }, canEdit = true) {
   const board = document.createElement("div");
   document.body.append(board);
   const objects = { chosen: chosen.object ?? null, shown: chosen.shown ?? [], pasteCopy: vi.fn(), pasteMany: vi.fn() };
-  const group = { findMembers: () => (chosen.groupKeys ?? []).map((key) => ({ key, position: { x: 0, y: 0 } })) };
+  const group = { findMembers: () => (chosen.groupKeys ?? []).map((key) => ({ key, position: { x: 0.2, y: 0.6 } })) };
   const lights = { chosen: null, place: vi.fn() };
   const token = chosen.creatureId ? { lightTarget: { kind: "creature", creature: { id: chosen.creatureId } } } : null;
-  const options = { view, canEdit, scope: { current: board }, objects, lights, token, group } as unknown as Parameters<typeof useMapClipboard>[0];
-  const { result } = renderHook(() => useMapClipboard(options));
-  return { objects, duplicateChosen: () => result.current.duplicateChosen() };
+  const options = { view: chosen.view ?? view, canEdit, scope: { current: board }, objects, lights, token, group } as unknown as Parameters<typeof useMapClipboard>[0];
+  const { result, rerender } = renderHook(() => useMapClipboard(options));
+  const openScene = (next: typeof view) => {
+    options.view = next as unknown as typeof options.view;
+    rerender();
+  };
+  return { objects, openScene, duplicateChosen: () => result.current.duplicateChosen() };
 }
 const press = (code: string) => fireEvent.keyDown(window, { code, ctrlKey: true });
 
@@ -86,7 +90,7 @@ describe("буфер мапи", () => {
     press("KeyC");
     press("KeyV");
     await waitFor(() => expect(mocks.refresh).toHaveBeenCalled());
-    expect(mocks.duplicate).toHaveBeenCalledWith(7, 12, 1);
+    expect(mocks.duplicate).toHaveBeenCalledWith(7, 12, 1, 3);
 
     await waitFor(() => expect(mocks.pushUndo).toHaveBeenCalledWith(3, expect.anything()));
     await mocks.pushUndo.mock.calls[0][1].undo();
@@ -105,8 +109,39 @@ describe("буфер мапи", () => {
       { imageKey: object.imageKey, placement: expect.objectContaining({ at: { x: 0.53, y: 0.23 }, widthCells: 2, rotation: 0 }) },
       { imageKey: tree.imageKey, placement: expect.objectContaining({ at: { x: 0.13, y: 0.43 }, widthCells: 2, rotation: 30 }) },
     ]);
-    await waitFor(() => expect(mocks.duplicate).toHaveBeenCalledWith(7, 12, 1));
+    await waitFor(() => expect(mocks.duplicate).toHaveBeenCalledWith(7, 12, 1, 3));
     expect(mocks.duplicate).toHaveBeenCalledTimes(1);
+  });
+
+  it("герої з групи на іншій сцені виходять з лотка на мапу поруч з копіями; на тій самій — лишаються на місці; крок назад повертає в лоток", async () => {
+    mocks.duplicate.mockResolvedValue({ ok: true, value: { id: 91 } });
+    mocks.move.mockResolvedValue({ ok: true, value: null });
+    const { openScene } = renderClipboard({ groupKeys: ["creature-12", "hero-2", "hero-5"] });
+    press("KeyC");
+    press("KeyV");
+    await waitFor(() => expect(mocks.duplicate).toHaveBeenCalledTimes(1));
+    expect(mocks.move).not.toHaveBeenCalled();
+
+    openScene({ id: 7, viewedSceneId: 8, members: [{ heroId: 2, token: null }, { heroId: 5, token: { x: 0.9, y: 0.1 } }] });
+    press("KeyV");
+    const landed = { x: 0.26, y: 0.66 };
+    await waitFor(() => expect(mocks.move).toHaveBeenCalledWith(7, 8, { heroes: [{ id: 2, at: landed }, { id: 5, at: landed }], creatures: [] }));
+    expect(mocks.duplicate).toHaveBeenLastCalledWith(7, 12, 2, 8);
+
+    mocks.remove.mockResolvedValue({ ok: true, value: null });
+    await waitFor(() => expect(mocks.pushUndo.mock.calls.filter(([sceneId]) => sceneId === 8)).toHaveLength(2));
+    for (const [sceneId, step] of mocks.pushUndo.mock.calls) if (sceneId === 8) await step.undo();
+    expect(mocks.move).toHaveBeenLastCalledWith(7, 8, { heroes: [{ id: 2, at: null }, { id: 5, at: { x: 0.9, y: 0.1 } }], creatures: [] });
+  });
+
+  it("сервер не переніс героїв — пояснює, і кроку назад немає", async () => {
+    mocks.move.mockResolvedValue({ ok: false, error: "Ця сцена вже не відкрита" });
+    const { openScene } = renderClipboard({ groupKeys: ["hero-2", "object-4"], shown: [object] });
+    press("KeyC");
+    openScene({ id: 7, viewedSceneId: 8, members: [] });
+    press("KeyV");
+    await waitFor(() => expect(mocks.toastError).toHaveBeenCalledWith("Ця сцена вже не відкрита"));
+    expect(mocks.pushUndo).not.toHaveBeenCalled();
   });
 
   it("кнопка «Копіювати» в панелі групи одразу ставить копію", () => {

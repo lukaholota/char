@@ -34,7 +34,7 @@ export function useRollVisibilityChoice(sessionId: number | undefined, knownRole
 
 /// Ціль показана до кидка: гравець бачить, у яку кімнату й кому піде результат, ще до натискання.
 /// pickedTarget — ціль, обрана на мапі для цього кидка: її вже не міняють тут, лише бачать (і героя, якого лікують).
-export function GameRollTargetBar({ isSheetRoll, isCreatureRoll = false, canTarget = true, pickedTarget }: { isSheetRoll: boolean; isCreatureRoll?: boolean; canTarget?: boolean; pickedTarget?: RollTargetRef | null }) {
+export function GameRollTargetBar({ isSheetRoll, isCreatureRoll = false, isAimedAtHeroes = isCreatureRoll, canTarget = true, pickedTarget }: { isSheetRoll: boolean; isCreatureRoll?: boolean; isAimedAtHeroes?: boolean; canTarget?: boolean; pickedTarget?: RollTargetRef | null }) {
   const active = useGameSessionStore((state) => state.active);
   const choice = useRollVisibilityChoice(active?.id);
   const hasSheetPers = useSheetPersStore((state) => state.pers !== null);
@@ -56,7 +56,7 @@ export function GameRollTargetBar({ isSheetRoll, isCreatureRoll = false, canTarg
           }}
         />
       </div>
-      {pickedTarget !== undefined ? <PickedTargetLine target={pickedTarget} /> : !canTarget ? null : isCreatureRoll ? <HeroTargetPicker sessionId={active.id} /> : isSheetRoll ? <RollTargetChip /> : null}
+      {pickedTarget !== undefined ? <PickedTargetLine target={pickedTarget} /> : !canTarget ? null : isAimedAtHeroes ? <HeroTargetPicker sessionId={active.id} /> : isSheetRoll ? <RollTargetChip /> : null}
     </>
   );
 }

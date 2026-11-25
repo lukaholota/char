@@ -136,7 +136,7 @@ export function useHeroTokens({ view, moves, layout, nameMode, selection, group,
           <>
             <button
               type="button"
-              aria-label={`Токен «${member.persName ?? member.name}»${describeLifeSuffix(member.lifeState)}. ${isPlaced ? "Дотик — вибрати для повороту й розміру, ще дотик — стани героя; тягніть або рухайте стрілками; Delete — прибрати з мапи" : "Перетягніть на мапу або натисніть Enter"}`}
+              aria-label={`Токен «${member.persName ?? member.name}»${describeBeastSuffix(member)}${describeLifeSuffix(member.lifeState)}. ${isPlaced ? "Дотик — вибрати для повороту й розміру, ще дотик — стани героя; тягніть або рухайте стрілками; Delete — прибрати з мапи" : "Перетягніть на мапу або натисніть Enter"}`}
               className="absolute inset-0 cursor-grab touch-none rounded-full active:cursor-grabbing"
               data-token-tap={onBoard ? findKey(member.heroId) : undefined}
               onKeyDown={onKeyDown}
@@ -211,7 +211,7 @@ function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = 
   const isInvisible = useIsTokenInvisible({ kind: "hero", id: member.heroId }, member.conditions);
   const { lifeState } = member;
   return (
-    <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isInvisible && "opacity-50", isDimmed && "opacity-40")} title={name}>
+    <div className={cn("flex flex-col items-center", !children && "pointer-events-none", isInvisible && "opacity-50", isDimmed && "opacity-40")} title={name + describeBeastSuffix(member)}>
       <div className={cn("relative isolate rounded-full", onBoard?.isHighlighted && HIGHLIGHT_RING_CLASS)} style={buildTokenSizeStyle(size)}>
         <SpotlightAura style={spotlight} />
         <div className="h-full w-full" style={findTokenRotationStyle(onBoard?.rotation ?? 0)}>
@@ -231,6 +231,8 @@ function TokenFace({ member, isMine, isDimmed, size = TOKEN_SIZE_PX, nameMode = 
   );
 }
 
+const describeBeastSuffix = (member: GameSessionMemberView) => (member.beastForm ? ` у формі «${member.beastForm.name}»` : "");
+
 type HeroPortraitProps = { member: GameSessionMemberView; name: string; isOnBoard: boolean; screenPx: number; frameClass: string; borderClass: string; outlineClass: string };
 
 const ROUND_FRAME = "border-2 shadow-lg shadow-black/50 ring-2 ring-slate-950/80";
@@ -238,8 +240,9 @@ const ROUND_FRAME = "border-2 shadow-lg shadow-black/50 ring-2 ring-slate-950/80
 /// У лотку токен завжди круглий; на мапі й під пальцем прозорий герой лишається прозорим.
 function HeroPortrait({ member, name, isOnBoard, screenPx, frameClass, borderClass, outlineClass }: HeroPortraitProps) {
   const isCutoutChosen = useOptimistic(findHeroCutoutKey(member.heroId), member.isCutout);
-  const avatarUrl = isAboveThumbnail(screenPx) && isMediaImageUrl(member.avatarUrl) ? buildFullSizeMediaUrl(member.avatarUrl) : member.avatarUrl;
-  const cutoutSrc = isCutoutChosen && isOnBoard && isMediaImageUrl(avatarUrl) ? avatarUrl : null;
+  const beastImageUrl = member.beastForm?.imageUrl ?? null;
+  const avatarUrl = beastImageUrl ?? (isAboveThumbnail(screenPx) && isMediaImageUrl(member.avatarUrl) ? buildFullSizeMediaUrl(member.avatarUrl) : member.avatarUrl);
+  const cutoutSrc = !beastImageUrl && isCutoutChosen && isOnBoard && isMediaImageUrl(avatarUrl) ? avatarUrl : null;
   const { isCutout, inspectImage } = useCutoutImage(cutoutSrc);
   if (!cutoutSrc) return <GameAvatar src={avatarUrl} name={name} className={cn("h-full w-full", ROUND_FRAME, borderClass, frameClass)} />;
   return (

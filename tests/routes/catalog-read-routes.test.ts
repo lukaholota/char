@@ -18,6 +18,13 @@ describe("читання каталогу звичайним GET", () => {
     expect(await response.json()).toMatchObject({ creature: { nameEng: "Ancient Blue Dragon" }, loreGroup: { key: "dragons" } });
   });
 
+  it("заклинання мага приходять списком із кидками, а назва коротка, без оригіналу в дужках", async () => {
+    const response = await getStatblock(requestTo("/api/bestiary/statblock", { key: "mage", ruleset: "RULES_2014" }));
+    const { creature } = await response.json();
+    expect(creature.spellcasting).toMatchObject({ attackBonus: 6, saveDc: 14, ruleset: "RULES_2014" });
+    expect(creature.spellcasting.spells).toContainEqual(expect.objectContaining({ name: "Вогнекуля", level: 3, plan: expect.objectContaining({ save: "DEX" }) }));
+  });
+
   it("знаходить істот за текстом статблока, а не лише за назвою", async () => {
     const response = await getTextMatches(requestTo("/api/bestiary/text-matches", { q: "nimble escape", ruleset: "RULES_2014" }));
     expect(await response.json()).toContain("goblin");

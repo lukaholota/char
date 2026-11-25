@@ -14,7 +14,7 @@ vi.mock("@/server/media/media-store", () => ({
 }));
 
 import { changeCreatureConditions, changeHeroConditions, clearBlessedMarks, markBlessedTargets } from "@/server/db/game-conditions";
-import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, setMapCreatureNameHidden } from "@/server/db/game-map-creatures";
+import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, setMapCreatureController, setMapCreatureNameHidden, summonMapCreature } from "@/server/db/game-map-creatures";
 import { cancelGameRoll, insertGameRollEvent, listEventsAfter, undoRollDamage, type GameRollDraft } from "@/server/db/game-roll-events";
 import { bindMemberPers, createGameSession, findGameSessionView, joinGameSessionByToken } from "@/server/db/game-sessions";
 import { createGameScene, moveGameToken, openGameScene } from "@/server/db/game-scenes";
@@ -602,6 +602,65 @@ describe("удар майстра по герою", () => {
     expect(await readHp()).toBe(8);
     await heal(9);
     expect(await readHp()).toBe(10);
+  });
+
+  it("майстер передає істоту герою: той рухає її, міняє хіти й стани й бʼє з її статблоку; інші — ні, чужим статблоком не вдарити, а повернута — знову лише майстрова", async () => {
+    const { gm, player, other, sessionId } = await createTable();
+    const familiar = await placeGoblin(sessionId, gm.id);
+    const enemy = await placeGoblin(sessionId, gm.id);
+    const playerHero = await findHeroId(sessionId, player.id);
+    const ok = { ok: true, value: null };
+    const forbidden = { ok: false, error: "forbidden" };
+    const statblockAttack = (fromCreatureId?: number) => buildDraft({ target: { creatureId: enemy, kind: "damage" }, fromCreatureId });
+
+    expect(await setMapCreatureController(sessionId, player.id, familiar, playerHero)).toEqual(forbidden);
+    expect(await setMapCreatureController(sessionId, gm.id, familiar, playerHero)).toEqual(ok);
+    expect((await findGameSessionView(sessionId, player.id))!.creatures.find((creature) => creature.id === familiar)).toMatchObject({ creatureKey: "goblin", hitPoints: { max: 10, current: 10 }, controllerHeroId: playerHero });
+    expect((await findGameSessionView(sessionId, other.id))!.creatures.find((creature) => creature.id === familiar)).toMatchObject({ creatureKey: null, hitPoints: null, controllerHeroId: null });
+
+    expect(await moveMapCreature(sessionId, player.id, familiar, { x: 0.6, y: 0.6 })).toEqual(ok);
+    expect(await changeMapCreatureHitPoints(sessionId, player.id, familiar, { kind: "damage", amount: 3 })).toEqual(ok);
+    expect(await changeCreatureConditions(sessionId, player.id, familiar, { kind: "toggle", condition: "prone", isActive: true })).toEqual(ok);
+    expect(await moveMapCreature(sessionId, player.id, enemy, { x: 0.6, y: 0.6 })).toEqual(forbidden);
+    expect(await moveMapCreature(sessionId, other.id, familiar, { x: 0.1, y: 0.1 })).toEqual(forbidden);
+    expect(await insertGameRollEvent(sessionId, player.id, statblockAttack(familiar))).toMatchObject({ ok: true, value: { target: { name: "Гоблін 2", damage: 3 } } });
+    expect(await readStoredHitPoints(enemy)).toMatchObject({ hpCurrent: 7 });
+    expect(await insertGameRollEvent(sessionId, player.id, statblockAttack())).toEqual(forbidden);
+    expect(await insertGameRollEvent(sessionId, player.id, statblockAttack(enemy))).toEqual(forbidden);
+    expect(await insertGameRollEvent(sessionId, other.id, statblockAttack(familiar))).toEqual(forbidden);
+
+    expect(await setMapCreatureController(sessionId, gm.id, familiar, null)).toEqual(ok);
+    expect(await insertGameRollEvent(sessionId, player.id, statblockAttack(familiar))).toEqual(forbidden);
+    expect(await changeMapCreatureHitPoints(sessionId, player.id, familiar, { kind: "heal", amount: 3 })).toEqual(forbidden);
+    expect(await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: familiar }, select: { hpCurrent: true, conditions: true, tokenX: true } })).toEqual({ hpCurrent: 7, conditions: ["prone"], tokenX: 0.6 });
+  });
+
+  it("керування віддається лише герою з персонажем цієї кімнати; вигнаний гравець повертає істоту майстрові", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const familiar = await placeGoblin(sessionId, gm.id);
+    const stranger = await createTable();
+    expect(await setMapCreatureController(sessionId, gm.id, familiar, await findHeroId(stranger.sessionId, stranger.player.id))).toEqual({ ok: false, error: "bad_pers" });
+    expect(await setMapCreatureController(sessionId, gm.id, familiar, await findHeroId(sessionId, gm.id))).toEqual({ ok: false, error: "bad_pers" });
+    await setMapCreatureController(sessionId, gm.id, familiar, await findHeroId(sessionId, player.id));
+    await prisma.gameSessionMember.deleteMany({ where: { gameSessionId: sessionId, userId: player.id } });
+    expect((await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: familiar }, select: { controllerMemberId: true } })).controllerMemberId).toBeNull();
+  });
+
+  it("гравець закликає фамільяра: сова стає в обраній точці активної сцени й слухається його героя; чужа заклинанню істота й майстер без персонажа — відмова", async () => {
+    const { gm, player, other, sessionId } = await createTable();
+    const familiar = { spellEngName: "Find Familiar", creatureKey: "owl", position: { x: 0.3, y: 0.7 } };
+    expect(await summonMapCreature(sessionId, player.id, familiar)).toEqual({ ok: true, value: { name: "Сова" } });
+    expect(await summonMapCreature(sessionId, player.id, { ...familiar, creatureKey: "adult-red-dragon" })).toEqual({ ok: false, error: "bad_creature" });
+    expect(await summonMapCreature(sessionId, gm.id, familiar)).toEqual({ ok: false, error: "no_map" });
+
+    const stored = await prisma.gameMapCreature.findFirstOrThrow({ where: { gameSessionId: sessionId }, select: { id: true, tokenX: true, tokenY: true, gameSceneId: true, controllerMemberId: true, hpMax: true } });
+    const { activeSceneId } = await prisma.gameSession.findUniqueOrThrow({ where: { id: sessionId }, select: { activeSceneId: true } });
+    expect(stored).toMatchObject({ gameSceneId: activeSceneId, controllerMemberId: await findHeroId(sessionId, player.id) });
+    expect([stored.tokenX, stored.tokenY, stored.hpMax]).toEqual([expect.closeTo(0.3), expect.closeTo(0.7), expect.any(Number)]);
+    expect((await findGameSessionView(sessionId, player.id))!.creatures).toMatchObject([{ id: stored.id, creatureKey: "owl" }]);
+    expect((await findGameSessionView(sessionId, other.id))!.creatures).toMatchObject([{ id: stored.id, creatureKey: null }]);
+    expect(await moveMapCreature(sessionId, player.id, stored.id, { x: 0.5, y: 0.5 })).toEqual({ ok: true, value: null });
+    expect(await moveMapCreature(sessionId, other.id, stored.id, { x: 0.1, y: 0.1 })).toEqual({ ok: false, error: "forbidden" });
   });
 
   it("гравцю цілитися в героя не можна, а чужий персонаж лишає кидок без цілі", async () => {

@@ -149,26 +149,15 @@ describe("навички у звіриній формі", () => {
 });
 
 describe("смуга другого шару", () => {
-  it("статблок звіра читається з листа тим самим компонентом, що в бестіарії", () => {
-    render(
-      <BeastFormBar creature={brownBear} is2024={false} showBeastLayer onToggleLayer={vi.fn()} />
-    );
+  it("перемикач веде до статблока й назад до власного листа, не виходячи з форми", () => {
+    const onLayerChange = vi.fn();
+    render(<BeastFormBar creature={brownBear} is2024={false} layer="beast" onLayerChange={onLayerChange} />);
 
-    fireEvent.click(screen.getByRole("button", { name: /Статблок/ }));
-
-    expect(screen.getByText("Дії")).toBeTruthy();
-    expect(screen.getAllByText(/Багатоатака|Укус/).length).toBeGreaterThan(0);
-  });
-
-  it("перемикач повертає до власного листа, не виходячи з форми", () => {
-    const onToggleLayer = vi.fn();
-    render(
-      <BeastFormBar creature={brownBear} is2024={false} showBeastLayer onToggleLayer={onToggleLayer} />
-    );
-
+    expect(screen.getByRole("button", { name: "Істота", pressed: true })).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: "Статблок" }));
     fireEvent.click(screen.getByRole("button", { name: "Ти" }));
 
-    expect(onToggleLayer).toHaveBeenCalledWith(false);
+    expect(onLayerChange.mock.calls).toEqual([["statblock"], ["own"]]);
   });
 });
 

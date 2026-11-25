@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { buildCreatureSpellcasting, describeCreatureSpellLevel, findDefaultSpellStats, planSpellFromDescription } from "@/rules/creature-spellcasting";
+import { buildCreatureSpellcasting, buildStatblockSpellcasting, describeCreatureSpellLevel, findDefaultSpellStats, planSpellFromDescription } from "@/rules/creature-spellcasting";
+import { getAllCreatures } from "@/lib/bestiaryData";
+import { getSpellByIdOrSlug } from "@/lib/spellsData";
 
 const CASTER = { mentalScores: [10, 18, 12], proficiencyBonus: 3, attackBonus: null, saveDc: null, casterLevel: null };
 
@@ -68,5 +70,50 @@ describe("кидки з опису заклинання", () => {
 
   it("опис без кубиків, атаки й ряткидка — кидати нічого", () => {
     expect(planSpellFromDescription("<p>Ціль відновлює 70 ХП.</p>")).toBeNull();
+  });
+});
+
+const CATALOG = [
+  { spellId: 10, name: "Вогняний заряд", engName: "Fire Bolt", level: 0 },
+  { spellId: 11, name: "Вогнекуля", engName: "Fireball", level: 3 },
+  { spellId: 12, name: "Щит", engName: "Shield", level: 1 },
+];
+const findCatalogSpell = (key: string) => CATALOG.find((spell) => spell.engName.toLowerCase().replace(" ", "-") === key);
+const STATBLOCK = { ruleset: "RULES_2014" as const, specialAbilities: "", actions: "", intelligence: "17 (+3)", wisdom: "12 (+1)", charisma: "11 (+0)", proficiencyBonus: "+3" };
+
+describe("заклинання з тексту статблока бестіарію", () => {
+  it("абзац «Чаротворення» дає список, бонус, СК і рівень заклинача для замовлянь", () => {
+    const specialAbilities = '<p><b>Чаротворення{{Spellcasting}}.</b> Маг — заклинач 9 рівня. (СК рятівного кидка від заклинань 14, +6 на влучання атаками заклинаннями).\n\nЗамовляння: <a href="/spells/fire-bolt">Вогняний заряд [Fire Bolt]</a>\n1 рівень: <a href="/spells/shield">Щит [Shield]</a>, <a href="/spells/fire-bolt">Вогняний заряд</a></p>';
+    const casting = buildStatblockSpellcasting({ ...STATBLOCK, specialAbilities }, findCatalogSpell);
+    expect(casting).toMatchObject({ attackBonus: 6, saveDc: 14, ruleset: "RULES_2014" });
+    expect(casting?.spells.map((spell) => spell.name)).toEqual(["Вогняний заряд", "Щит"]);
+    expect(casting?.spells[0].plan?.rolls[0]).toMatchObject({ count: 2, sides: 10 });
+  });
+
+  it("«версія 4 рівня» підсилює кидок, а бонус атаки без тексту — СК мінус 8", () => {
+    const actions = '<p><b>Кинджал{{Dagger}}.</b> <a href="/2024/spells/shield">Щит</a></p><p><b>Чаротворення{{Spellcasting}}.</b> (СК заклинань 15): 2/день: <a href="/2024/spells/fireball">Вогнекуля [Fireball]</a> (версія 4 рівня).</p>';
+    const casting = buildStatblockSpellcasting({ ...STATBLOCK, ruleset: "RULES_2024", actions }, findCatalogSpell);
+    expect(casting).toMatchObject({ attackBonus: 7, saveDc: 15, ruleset: "RULES_2024" });
+    expect(casting?.spells.map((spell) => spell.name)).toEqual(["Вогнекуля"]);
+    expect(casting?.spells[0].plan?.rolls[0]).toMatchObject({ count: 9, sides: 6 });
+  });
+
+  it("без СК у тексті числа беруться з характеристик, а невідомі заклинання пропускаються", () => {
+    const specialAbilities = '<p><b>Вроджене чаклування{{Innate Spellcasting}}.</b> 1/день: <a href="/spells/shield">Щит</a>, <a href="/spells/homebrew-x">Х</a></p>';
+    const casting = buildStatblockSpellcasting({ ...STATBLOCK, specialAbilities }, findCatalogSpell);
+    expect(casting).toMatchObject({ attackBonus: 6, saveDc: 14 });
+    expect(casting?.spells).toHaveLength(1);
+  });
+
+  it("істота без абзацу чаротворення заклинань не має", () => {
+    expect(buildStatblockSpellcasting({ ...STATBLOCK, actions: '<p><b>Удар{{Slam}}.</b> <a href="/spells/shield">Щит</a></p>' }, findCatalogSpell)).toBeNull();
+  });
+
+  it.each(["RULES_2014", "RULES_2024"] as const)("кожне посилання в чаротворенні істот каталогу %s знаходить заклинання", (ruleset) => {
+    const casters = getAllCreatures(ruleset).filter((creature) => /\{\{[^}]*Spellcasting[^}]*\}\}/u.test(creature.specialAbilities + creature.actions + (creature.bonusActions ?? "")));
+    const missing: string[] = [];
+    const withSpells = casters.filter((creature) => buildStatblockSpellcasting({ ...creature, ruleset }, (key) => getSpellByIdOrSlug(key, ruleset) ?? void missing.push(`${creature.nameEng}: ${key}`)));
+    expect(missing).toEqual([]);
+    expect(withSpells.length).toBeGreaterThan(ruleset === "RULES_2014" ? 250 : 110);
   });
 });

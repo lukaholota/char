@@ -23,7 +23,7 @@ import {
   joinGameSessionByToken,
   setGameSessionArchived,
 } from "@/server/db/game-sessions";
-import { moveGameToken, moveMapTokens, transformHeroToken } from "@/server/db/game-scenes";
+import { createGameScene, moveGameToken, moveMapTokens, transformHeroToken } from "@/server/db/game-scenes";
 import { setActiveSceneMap } from "./game-scene-setup";
 import { addMapCreatures, changeMapCreatureHitPoints, duplicateMapCreature, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureSize, transformMapCreature } from "@/server/db/game-map-creatures";
 import { openGameSessionStream } from "@/server/game-sessions/game-session-stream";
@@ -224,15 +224,35 @@ describe("мапа кімнати", () => {
     const [original] = (await findGameSessionView(sessionId, gm.id))!.creatures;
     await moveMapCreature(sessionId, gm.id, original.id, { x: 0.5, y: 0.2 });
     await transformMapCreature(sessionId, gm.id, original.id, { rotation: 90, scale: 150 });
-    await prisma.gameMapCreature.update({ where: { id: original.id }, data: { conditions: ["prone"], hpCurrent: 1, isNameHidden: true, borderColor: "green" } });
+    const { gameSceneId: sceneId } = await prisma.gameMapCreature.update({ where: { id: original.id }, data: { conditions: ["prone"], hpCurrent: 1, isNameHidden: true, borderColor: "green" } });
 
-    expect(await duplicateMapCreature(sessionId, player.id, original.id, 1)).toEqual({ ok: false, error: "forbidden" });
-    const copied = await duplicateMapCreature(sessionId, gm.id, original.id, 2);
+    expect(await duplicateMapCreature(sessionId, player.id, original.id, 1, sceneId!)).toEqual({ ok: false, error: "forbidden" });
+    const copied = await duplicateMapCreature(sessionId, gm.id, original.id, 2, sceneId!);
     if (!copied.ok) throw new Error(copied.error);
     const copy = await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: copied.value.id } });
     expect(copy).toMatchObject({ customName: "Варта", borderColor: "green", number: 2, tokenRotation: 90, tokenScalePercent: 150, isNameHidden: true, conditions: [], tokenX: 0.56, tokenY: 0.26 });
     expect(copy.hpCurrent).toBe(copy.hpMax);
-    expect(await duplicateMapCreature(sessionId, gm.id, 999_999, 1)).toEqual({ ok: false, error: "creature_gone" });
+    expect(await duplicateMapCreature(sessionId, gm.id, 999_999, 1, sceneId!)).toEqual({ ok: false, error: "creature_gone" });
+  });
+
+  it("НІП переходить на іншу карту: копія на ній, з тими самими хітами, станами й номером", async () => {
+    const { gm, sessionId } = await createTableWithHeroes();
+    await setActiveSceneMap(sessionId, gm.id, await createMapImage());
+    await addMapCreatures(sessionId, gm.id, { creatureKey: "goblin", ruleset: "RULES_2014", count: 3, customName: null });
+    const third = await prisma.gameMapCreature.findFirstOrThrow({ where: { gameSessionId: sessionId, number: 3 } });
+    const original = await prisma.gameMapCreature.update({ where: { id: third.id }, data: { conditions: ["prone"], exhaustionLevel: 2, hpCurrent: 1, floor: 1 } });
+    const tavern = await createGameScene(sessionId, gm.id, "Таверна", { kind: "upload", file: await createMapImage() });
+    const empty = await createGameScene(sessionId, gm.id, "Без мапи", { kind: "none" });
+    if (!tavern.ok || !empty.ok) throw new Error("scene");
+
+    const walked = await duplicateMapCreature(sessionId, gm.id, original.id, 1, tavern.value.id);
+    if (!walked.ok) throw new Error(walked.error);
+    const copy = await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: walked.value.id } });
+    expect(copy).toMatchObject({ gameSceneId: tavern.value.id, number: 3, hpCurrent: 1, hpMax: original.hpMax, conditions: ["prone"], exhaustionLevel: 2, floor: null });
+    const second = await duplicateMapCreature(sessionId, gm.id, original.id, 2, tavern.value.id);
+    expect(second.ok && (await prisma.gameMapCreature.findUniqueOrThrow({ where: { id: second.value.id } })).number).toBe(1);
+    expect(await duplicateMapCreature(sessionId, gm.id, original.id, 1, empty.value.id)).toEqual({ ok: false, error: "no_map" });
+    expect(await prisma.gameMapCreature.count({ where: { gameSceneId: original.gameSceneId } })).toBe(3);
   });
 
   it("на мапі не більше 40 істот; «прибрати всіх» очищує сцену, а нова мапа знімає істот з мапи", async () => {

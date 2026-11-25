@@ -2376,6 +2376,7 @@ CREATE TABLE public.game_map_creature (
     floor smallint,
     is_name_hidden boolean DEFAULT false NOT NULL,
     border_color character varying(5),
+    controller_member_id integer,
     CONSTRAINT game_map_creature_border_color_check CHECK (((border_color)::text = ANY ((ARRAY['green'::character varying, 'red'::character varying])::text[]))),
     CONSTRAINT game_map_creature_custom_name_check CHECK (((custom_name IS NULL) OR ((length(btrim((custom_name)::text)) >= 1) AND (length(btrim((custom_name)::text)) <= 40)))),
     CONSTRAINT game_map_creature_exhaustion_check CHECK (((exhaustion_level >= 0) AND (exhaustion_level <= 6))),
@@ -2390,6 +2391,8 @@ CREATE TABLE public.game_map_creature (
 );
 ALTER TABLE ONLY public.game_map_creature ALTER COLUMN floor SET (pg_attver=9356955208);
 ALTER TABLE ONLY public.game_map_creature ALTER COLUMN is_name_hidden SET (pg_attver=9544376384);
+ALTER TABLE ONLY public.game_map_creature ALTER COLUMN border_color SET (pg_attver=9578206816);
+ALTER TABLE ONLY public.game_map_creature ALTER COLUMN controller_member_id SET (pg_attver=9661039392);
 
 
 --
@@ -7011,6 +7014,13 @@ CREATE INDEX game_combatant_session_idx ON public.game_combatant USING btree (ga
 
 
 --
+-- Name: game_map_creature_controller_member_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX game_map_creature_controller_member_id_idx ON public.game_map_creature USING btree (controller_member_id) WHERE (controller_member_id IS NOT NULL);
+
+
+--
 -- Name: game_map_creature_scene_idx; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -7925,6 +7935,14 @@ ALTER TABLE ONLY public.game_combatant
 
 ALTER TABLE ONLY public.game_combatant
     ADD CONSTRAINT game_combatant_pers_id_fkey FOREIGN KEY (pers_id) REFERENCES public.pers(pers_id) ON DELETE CASCADE;
+
+
+--
+-- Name: game_map_creature game_map_creature_controller_member_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.game_map_creature
+    ADD CONSTRAINT game_map_creature_controller_member_id_fkey FOREIGN KEY (controller_member_id) REFERENCES public.game_session_member(game_session_member_id) ON DELETE SET NULL;
 
 
 --

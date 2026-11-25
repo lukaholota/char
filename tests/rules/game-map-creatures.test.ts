@@ -38,6 +38,16 @@ const row = (overrides: Partial<MapCreatureRow>): MapCreatureRow => ({
 });
 
 describe("істоти на мапі кімнати", () => {
+  it("герой, якому майстер передав істоту, бачить її статблок і хіти, навіть невидимою; інші гравці — ні", () => {
+    const rows = [row({ id: 1, tokenX: 0.5, tokenY: 0.5, hpMax: 7, hpCurrent: 3, conditions: ["invisible"], controllerMemberId: 42 })];
+    const [mine] = buildMapCreatureViews(rows, findEntry, false, [42]);
+    expect(mine).toMatchObject({ creatureKey: "goblin", hitPoints: { max: 7, current: 3 }, controllerHeroId: 42 });
+    expect(buildMapCreatureViews(rows, findEntry, false, [7])).toEqual([]);
+    const [visibleToOthers] = buildMapCreatureViews([{ ...rows[0], conditions: [] }], findEntry, false, [7]);
+    expect(visibleToOthers).toMatchObject({ creatureKey: null, hitPoints: null, controllerHeroId: null });
+    expect(buildMapCreatureViews(rows, findEntry, true)[0].controllerHeroId).toBe(42);
+  });
+
   it("власне зображення замінює картинку бестіарію для всіх, а ключ бачить лише майстер", () => {
     const rows = [row({ creatureKey: "wolf", customImageKey: "token-images/1/dragon", tokenX: 0.5, tokenY: 0.5 })];
     const [gmView] = buildMapCreatureViews(rows, findEntry, true);

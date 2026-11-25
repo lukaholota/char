@@ -23,7 +23,8 @@ import {
   usesSeparateBeastHitPoints,
 } from "@/rules/wildshape";
 import { parseBeastSaveModifiers, parseBeastSkillModifiers } from "./beast-proficiencies";
-import { calculateFinalAC, calculateFinalModifier, calculateFinalSave, calculateFinalSkill } from "./bonus-calculator";
+import { calculateFinalAC, calculateFinalMaxHP, calculateFinalModifier, calculateFinalSave, calculateFinalSkill, calculateFinalStat } from "./bonus-calculator";
+import { formatModifier } from "./utils";
 
 /// `context` — рівень друїда, коло й редакція. Саме редакція, а не каталог, з якого приїхала
 /// істота: правила бере персонаж.
@@ -86,6 +87,24 @@ function findBeastScore(creature: CreatureData, ability: Ability): number | null
   if (ability === Ability.STR) return parseAbilityScore(creature.strength);
   if (ability === Ability.DEX) return parseAbilityScore(creature.dexterity);
   return parseAbilityScore(creature.constitution);
+}
+
+/// Статблок звіра з числами персонажа у формі — тими самими, що й на листі другого шару: характеристики (розум друїда), КЗ і хіти.
+/// shortcut: рятівні кидки й навички лишаються текстом статблока; лист другого шару рахує їх точно.
+export function buildBeastFormStatblock(creature: CreatureData, beastPers: PersWithRelations): CreatureData {
+  const describeScore = (ability: Ability) => `${calculateFinalStat(beastPers, ability)} (${formatModifier(calculateFinalModifier(beastPers, ability))})`;
+  const temporary = beastPers.tempHp > 0 ? ` + ${beastPers.tempHp} тимчасових` : "";
+  return {
+    ...creature,
+    ac: String(calculateFinalAC(beastPers)),
+    hp: `${beastPers.currentHp} з ${calculateFinalMaxHP(beastPers)}${temporary}`,
+    strength: describeScore(Ability.STR),
+    dexterity: describeScore(Ability.DEX),
+    constitution: describeScore(Ability.CON),
+    intelligence: describeScore(Ability.INT),
+    wisdom: describeScore(Ability.WIS),
+    charisma: describeScore(Ability.CHA),
+  };
 }
 
 /// 2014 — хіти звіра окремий стос, а не бонус до власних: блок хітів на листі стає звіриним

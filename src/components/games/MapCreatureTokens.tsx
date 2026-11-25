@@ -7,7 +7,7 @@ import { askToConfirm } from "@/components/ui/confirm-dialog";
 import { ContentImage, useIsArtHidden } from "@/components/no-ai/ContentImage";
 import { CREATURE_BORDER_CLASSES, findCutoutOutlineClass, useCutoutImage } from "./token-cutout";
 import { useModeRouter } from "@/components/no-ai/NoAiModeProvider";
-import { moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setMapCreatureNameHiddenAction } from "@/lib/actions/game-sessions";
+import { duplicateMapCreatureAction, moveMapCreatureAction, removeMapCreaturesAction, renameMapCreatureAction, setMapCreatureControllerAction, setMapCreatureNameHiddenAction } from "@/lib/actions/game-sessions";
 import { useAreaCastStore } from "@/lib/components/game/area-cast";
 import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
@@ -26,6 +26,8 @@ import { buildCreatureTargetControl, useRollTargetCreatureId } from "./RollTarge
 import { TokenConditionMarks } from "./TokenConditionMarks";
 import { useIsTokenInvisible, useSpotlightStyle, useShownConditions, useSpotlightControl, useTokenConditionChanges } from "./use-token-conditions";
 import { CreatureSheet, CreatureTokenSettings, MapCreatureStatblockDialog, type CreatureControls } from "./MapCreatureStatblockDialog";
+import { ToolPanel } from "./MapToolbar";
+import { useOwnCreatureRolls } from "@/lib/components/game/open-room-roll";
 import { holdValueBefore, rememberUndo } from "./map-history";
 import { readOptimistic, sendOptimistic, sendOptimisticMany, showOptimistic, useOptimisticReader } from "./optimistic-values";
 import { useCreatureLooks } from "./use-creature-looks";
@@ -37,17 +39,20 @@ import { GroupedTokenFrame, TokenTransformHandles, findTokenRotationStyle, scale
 
 type Point = { clientX: number; clientY: number };
 
-const NO_CREATURE_CONTROLS: CreatureControls = { onRemove: null, size: null, cutout: null, hitPoints: null, conditions: null, target: null, naming: null, borderColor: null };
+const NO_CREATURE_CONTROLS: CreatureControls = { onRemove: null, copyToScene: null, controller: null, size: null, cutout: null, hitPoints: null, conditions: null, target: null, naming: null, borderColor: null };
 
-type CreatureTokensInput = { view: GameSessionView; layout: TokenLayout; selection: TokenSelection; group: TokenGroupBinding; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean };
+type CreatureTokensInput = { view: GameSessionView; layout: TokenLayout; selection: TokenSelection; group: TokenGroupBinding; findDropPosition: (point: Point) => TokenPosition | null; isTurned: () => boolean; hasSidePanel: boolean };
 
 /// Черга бою відкриває картку тієї ж мапи, у якій стоїть: у кімнаті й на весь екран — кожна свою.
 export const OpenCreatureCardContext = createContext<((creatureId: number) => void) | null>(null);
 
 /// Істот рухає й прибирає лише майстер; дотик без руху відкриває картку: майстру — зі статблоком, гравцю — без. Істоту в тумані гравець не бачить зовсім.
 /// Майстрові перший дотик до істоти на мапі вибирає її для повороту й розміру, другий — відкриває картку.
-export function useMapCreatureTokens({ view, layout, selection, group, findDropPosition, isTurned }: CreatureTokensInput) {
+/// Гравець, якому майстер передав істоту, рухає її, міняє хіти й стани; controllerHeroId гравцю приходить лише для його істот.
+/// Статблок такої істоти на компʼютері відкривається в бічній панелі, як у майстра, і кидки з нього йдуть від імені істоти.
+export function useMapCreatureTokens({ view, layout, selection, group, findDropPosition, isTurned, hasSidePanel }: CreatureTokensInput) {
   const canEdit = view.myRole === "GM" && !view.isArchived;
+  const canCommand = (creature: MapCreatureView) => canEdit || (!view.isArchived && creature.controllerHeroId !== null);
   const moves = useCreatureMoves(view);
   const looks = useCreatureLooks(view);
   const changeConditions = useTokenConditionChanges(view.id, view.viewedSceneId);
@@ -73,7 +78,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       const creature = view.creatures.find((candidate) => candidate.id === id);
       const position = findSnappedDrop(creature, point);
       if (position && group.moveWith(findKey(id), position)) return;
-      if (creature && (position || moves.findPosition(creature))) void moves.send(id, position, findLandingFloor(creature, position));
+      if (creature && (position || (canEdit && moves.findPosition(creature)))) void moves.send(id, position, findLandingFloor(creature, position));
     },
     (point) => findDropPosition(point) !== null,
     (id) => tapCreature(id),
@@ -94,6 +99,13 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
   const removeAfterConfirm = async (creature: MapCreatureView) => {
     if (await askToConfirm({ title: `Прибрати «${creature.label}»?`, description: "Істота зникне і з мапи, і з ряду під нею.", confirmLabel: "Прибрати", isDestructive: true })) void moves.send(creature.id, null);
   };
+  const heroes = view.members.flatMap((member) => (member.persId !== null ? [{ id: member.heroId, name: member.persName ?? member.name }] : []));
+  const otherScenes = view.scenes.filter((scene) => scene.hasMap && scene.id !== view.viewedSceneId);
+  const copyToScene = async (creature: MapCreatureView, sceneId: number) => {
+    const result = await duplicateMapCreatureAction(view.id, creature.id, 1, sceneId).catch(() => ({ ok: false as const, error: "Немає звʼязку — копію не додано" }));
+    if (!result.ok) return void toast.error(result.error);
+    toast.success(`«${creature.label}» тепер і на карті «${otherScenes.find((scene) => scene.id === sceneId)?.name ?? ""}»`);
+  };
   const removeFromStatblock = (id: number) => {
     setOpenId(null);
     void moves.send(id, null);
@@ -102,16 +114,21 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
   const waiting = shown.filter((creature) => !moves.findPosition(creature));
   const dragged = ghost ? shown.find((creature) => creature.id === ghost.id) : undefined;
   const openCreature = shown.find((creature) => creature.id === openId) ?? null;
+  const ownCreature = !canEdit && openCreature?.creatureKey ? openCreature : null;
+  useOwnCreatureRolls(ownCreature?.id ?? null);
   const openConditions = useShownConditions({ kind: "creature", id: openCreature?.id ?? 0 }, openCreature?.conditions ?? NO_TOKEN_CONDITIONS);
   const buildControls = (creature: MapCreatureView | null, conditions: TokenConditions): CreatureControls => {
     if (!creature) return NO_CREATURE_CONTROLS;
     const editable = <Control,>(control: Control) => (canEdit ? control : null);
+    const commandable = <Control,>(control: Control) => (canCommand(creature) ? control : null);
     return {
       onRemove: editable(() => removeFromStatblock(creature.id)),
+      copyToScene: canEdit && otherScenes.length ? { scenes: otherScenes, onCopy: (sceneId: number) => void copyToScene(creature, sceneId) } : null,
+      controller: editable({ value: creature.controllerHeroId, heroes, onChange: (heroId: number | null) => void refreshAfter(setMapCreatureControllerAction(view.id, creature.id, heroId)) }),
       size: editable({ value: looks.findSize(creature), onChange: (size: CreatureTokenSize) => void looks.sendSize(creature.id, size) }),
       cutout: editable({ value: looks.findIsCutout(creature), onChange: (isCutout: boolean) => void looks.sendCutout(creature, isCutout) }),
-      hitPoints: editable({ value: creature.hitPoints, onChange: (change: HitPointChange) => void looks.sendHitPointChange(creature, change) }),
-      conditions: { value: conditions, onChange: editable((change: TokenConditionChange) => void changeConditions({ kind: "creature", id: creature.id }, creature.conditions, change)) },
+      hitPoints: commandable({ value: creature.hitPoints, onChange: (change: HitPointChange) => void looks.sendHitPointChange(creature, change) }),
+      conditions: { value: conditions, onChange: commandable((change: TokenConditionChange) => void changeConditions({ kind: "creature", id: creature.id }, creature.conditions, change)) },
       target: myHeroName && moves.findPosition(creature) ? buildCreatureTargetControl(view.id, creature.id, targetId, myHeroName) : null,
       naming: editable({ value: creature.customName, isHidden: creature.isNameHidden, onSave: (name: string) => renameCreature(creature.id, name), onHiddenChange: (isHidden: boolean) => refreshAfter(setMapCreatureNameHiddenAction(view.id, creature.id, isHidden)) }),
       borderColor: editable({ value: creature.borderColor, onChange: (color: CreatureBorderColor) => void looks.sendBorderColor(creature, color) }),
@@ -130,7 +147,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
   const findKey = (id: number) => `creature-${id}`;
   const tapCreature = (id: number) => {
     const creature = shown.find((candidate) => candidate.id === id);
-    if (creature && moves.findPosition(creature)) selection.tap(findKey(id), () => openStatblock(id));
+    if (canEdit && creature && moves.findPosition(creature)) selection.tap(findKey(id), () => openStatblock(id));
     else openStatblock(id);
   };
   const selectedCreature = canEdit ? shown.find((creature) => findKey(creature.id) === selection.key && isShownOnMap(creature)) : undefined;
@@ -170,7 +187,7 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
         const spot = layout.findFreeSpot();
         void moves.send(creature.id, spot, findLandingFloor(creature, spot));
       }
-      else if (event.key === "Delete" || event.key === "Backspace") void removeAfterConfirm(creature);
+      else if (canEdit && (event.key === "Delete" || event.key === "Backspace")) void removeAfterConfirm(creature);
       else return;
       event.preventDefault();
     };
@@ -178,23 +195,31 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
       if (findTokenArrowStep(event.key, layout.frame) && position) void moves.send(creature.id, snapTokenPosition(position, layout, findCells(creature)));
     };
     const status = `${creature.hitPoints ? `, хіти ${creature.hitPoints.current} з ${creature.hitPoints.max}` : ""}${creature.isDown ? ", повалений" : ""}${creature.id === targetId ? ", ціль" : ""}`;
-    const hint = canEdit ? (position ? "Дотик — вибрати для повороту й розміру, ще дотик — статблок і стани; тягніть або рухайте стрілками; Delete — прибрати" : "Перетягніть на мапу або натисніть Enter") : "Відкрити картку істоти";
+    const isCommanded = canCommand(creature);
+    const hint = !canEdit && isCommanded ? "Ваша істота: тягніть або рухайте стрілками, дотик — статблок" : canEdit ? (position ? "Дотик — вибрати для повороту й розміру, ще дотик — статблок і стани; тягніть або рухайте стрілками; Delete — прибрати" : "Перетягніть на мапу або натисніть Enter") : "Відкрити картку істоти";
     return (
       <CreatureTokenFace creature={creature} size={size} nameMode={shownName} isDimmed={ghost?.id === creature.id} isTarget={creature.id === targetId} onBoard={onBoard}>
         <button
           type="button"
           aria-label={`Токен «${creature.label}»${status}. ${hint}`}
-          className={cn("absolute inset-0 rounded-full", canEdit && "cursor-grab touch-none active:cursor-grabbing")}
+          className={cn("absolute inset-0 rounded-full", isCommanded && "cursor-grab touch-none active:cursor-grabbing")}
           data-token-tap={canEdit && onBoard ? findKey(creature.id) : undefined}
-          {...(canEdit ? { onKeyDown, onKeyUp, ...bindToken(creature.id) } : { onClick: () => openStatblock(creature.id) })}
+          {...(isCommanded ? { onKeyDown, onKeyUp, ...bindToken(creature.id) } : { onClick: () => openStatblock(creature.id) })}
         />
         {handles}
       </CreatureTokenFace>
     );
   };
 
+  const sidePanelCreature = hasSidePanel ? ownCreature : null;
+
   return {
     openStatblock,
+    sidePanel: sidePanelCreature ? (
+      <ToolPanel title={sidePanelCreature.label} onClose={() => setOpenId(null)}>
+        <CreatureSheet creature={sidePanelCreature} controls={buildControls(sidePanelCreature, openConditions)} />
+      </ToolPanel>
+    ) : null,
     remove: (id: number) => void moves.send(id, null),
     ghost,
     drag,
@@ -229,9 +254,9 @@ export function useMapCreatureTokens({ view, layout, selection, group, findDropP
     overlay: (
       <>
         {ghost && dragged ? (
-          <CreatureGhost ghost={ghost} creature={dragged} size={drag?.ghostPx ?? 0} labelWidth={findLabelWidth(layout, CREATURE_TOKEN_SIZE_SCALES[looks.findSize(dragged)])} rotation={looks.findTransform(dragged).rotation} isOutlined={layout.isCutoutOutlined} isTurned={isTurned()} isLeavingMap={!ghost.isOverTarget && draggedFrom !== null} />
+          <CreatureGhost ghost={ghost} creature={dragged} size={drag?.ghostPx ?? 0} labelWidth={findLabelWidth(layout, CREATURE_TOKEN_SIZE_SCALES[looks.findSize(dragged)])} rotation={looks.findTransform(dragged).rotation} isOutlined={layout.isCutoutOutlined} isTurned={isTurned()} isLeavingMap={canEdit && !ghost.isOverTarget && draggedFrom !== null} />
         ) : null}
-        <MapCreatureStatblockDialog creature={openCreature} onClose={() => setOpenId(null)} sessionId={view.id} controls={buildControls(openCreature, openConditions)} />
+        <MapCreatureStatblockDialog creature={sidePanelCreature ? null : openCreature} onClose={() => setOpenId(null)} sessionId={view.id} controls={buildControls(openCreature, openConditions)} />
       </>
     ),
   };

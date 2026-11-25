@@ -296,6 +296,19 @@ describe("лист героя в кімнаті", () => {
     const view = await findGameSessionView(sessionId, gm.id);
     expect(view!.members.find((member) => member.persId === persId)?.lifeState).toEqual({ kind: "dying", successes: 0, failures: 1 });
   });
+
+  it("герой у звіриній формі приходить у кімнату з іменем і картинкою звіра, поза формою — без неї", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const persId = await createPers(player.id, "Арвен");
+    await bindMemberPers(sessionId, player.id, persId);
+    const findHero = async () => (await findGameSessionView(sessionId, gm.id))!.members.find((member) => member.persId === persId);
+
+    expect((await findHero())?.beastForm).toBeNull();
+    await prisma.persWildshape.create({ data: { persId, creatureKey: "wolf", ruleset: "RULES_2014" } });
+    await prisma.persWildshape.create({ data: { persId, creatureKey: "brown-bear", ruleset: "RULES_2014", isActive: true, currentHp: 20 } });
+
+    expect((await findHero())?.beastForm).toEqual({ name: "Бурий ведмідь", imageUrl: expect.stringContaining("brown-bear") });
+  });
 });
 
 function readStreamEvents(stream: ReadableStream<Uint8Array>) {

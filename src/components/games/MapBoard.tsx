@@ -8,10 +8,10 @@ import { useMapTargetingStore } from "@/lib/components/game/map-targeting";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 import { cn } from "@/lib/utils";
 import { isPointInArea, isTokenInArea, type AreaPlacement } from "@/rules/game-areas";
-import { applyFogChange, isPointHidden, type FogStroke, type SceneFog } from "@/rules/game-fog";
+import { isPointHidden } from "@/rules/game-fog";
 import { findFreeCellNear, measureGridFeet, snapToHalfCell, type MapFrame } from "@/rules/game-grid";
 import { findPointSight, isTokenSeen } from "@/rules/game-lighting";
-import { findMapShareInRect, findTokenPositionInRect, type TokenPosition } from "@/rules/game-map";
+import { findMapShareInRect, findTokenPositionInRect } from "@/rules/game-map";
 import type { TokenNameMode } from "@/rules/game-map-creatures";
 import type { GameSessionView } from "@/server/db/game-sessions";
 import { AreaControls, AreaPanel, type AreaStart } from "./AreaToolPanel";
@@ -35,6 +35,7 @@ import { useMapFloors } from "./use-map-floors";
 import { AtmospherePanel, MapTint, MapWeather, useSceneAtmosphere } from "./MapAtmosphere";
 import { useWeatherShown } from "./use-token-scale";
 import { SoundsPanel, SoundUnlockButton } from "./MapSounds";
+import { SummonPanel, useSummonCastOpener } from "./SummonPanel";
 import { MapPings, pingMap } from "./MapPings";
 import { MapOpeningButtons } from "./MapOpenings";
 import { MapWallsLayer, WallsPanel } from "./MapWalls";
@@ -49,7 +50,7 @@ import { buildGroupShiftStyle, useBoardGroup } from "./use-map-group";
 import { useMapObjects } from "./use-map-objects";
 import { findHiddenPreviewHeroes, useCharacterView, usePartySight, useWallSight } from "./use-map-sight";
 import { useMapWalls } from "./use-map-walls";
-import { useAreaTool, useFogTool, useGridTool, useRulerTool, type MapTool } from "./use-map-tools";
+import { clampShare, findShownFog, useAreaTool, useFogTool, useGridTool, useRulerTool, type MapTool } from "./use-map-tools";
 import { useMapViewport } from "./use-map-viewport";
 import { useGridDraft, useSceneTools } from "./use-scene-tools";
 import { useTokenSelection } from "./TokenTransformControls";
@@ -68,14 +69,7 @@ const LAYOUT = {
   panel: "row-start-3 max-h-[38dvh] overflow-y-auto overscroll-contain p-2 [@container(min-width:40rem)]:max-h-none [@container(min-width:40rem)]:overflow-visible [@container(min-width:40rem)]:p-0",
 };
 
-const clampShare = (point: TokenPosition) => ({ x: Math.min(1, Math.max(0, point.x)), y: Math.min(1, Math.max(0, point.y)) });
 const isInsideRect = (point: Point, rect: DOMRect) => point.clientX >= rect.left && point.clientX <= rect.right && point.clientY >= rect.top && point.clientY <= rect.bottom;
-/// Мазок пензля видно під пальцем ще до відповіді сервера, разом з усім туманом.
-function findShownFog(fog: SceneFog | null, stroke: FogStroke | null) {
-  const next = stroke ? applyFogChange(fog, { kind: "area", area: stroke }) : fog;
-  return next === "too_many" ? fog : next;
-}
-
 export type MapBoardProps = {
   view: GameSessionView;
   moves: TokenMoves;
@@ -183,7 +177,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     isHidden: (position, cells) => layout.isHidden(position, cells) || (sightHidesForMe && !isTokenSeen(position, cells, sight, frame)),
     revealClassName: sightHidesForMe ? "map-sight-reveal" : undefined,
   };
-  const creatures = useMapCreatureTokens({ view, layout: creatureLayout, selection: tokenSelection, group, findDropPosition, isTurned: isQuarterTurned });
+  const creatures = useMapCreatureTokens({ view, layout: creatureLayout, selection: tokenSelection, group, findDropPosition, isTurned: isQuarterTurned, hasSidePanel: panelSlot !== null });
   const hiddenHeroKeys = findHiddenPreviewHeroes({ viewer: characterView.hero, members: heroes.heroes, moves, layout: creatureLayout });
   const visibleHeroes = hiddenHeroKeys.size ? heroes.placed.filter((hero) => !hiddenHeroKeys.has(hero.key)) : heroes.placed;
   const objects = useMapObjects({ view, shownFloor: floors.shown, editing: isEditingObjects ? "all" : tool === "floors" && canEditScene ? "shownFloor" : null, gridColumns: grid?.columns ?? null, findDropPosition, findViewCentre: () => findViewCentre(), group });
@@ -238,6 +232,7 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     startArea(start, earlier?.placement);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- зону ставить лише новий каст, а не кожен рендер мапи
   }, [castState, hasFrame, view.id]);
+  useSummonCastOpener(view.id, () => changeTool("summon"));
   const isTargeting = targeting !== null;
   useEffect(() => {
     if (isTargeting) changeTool(null);
@@ -295,12 +290,13 @@ export function MapBoard({ view, moves, tokenScale, onTokenScaleChange, heroName
     : tool === "fog" ? <FogPanel fog={scene.fog} tool={fogTool} history={history} onChange={(change) => void scene.changeFog(change)} isPreview={isFogPreview} onPreviewChange={setIsFogPreview} onClose={() => changeTool(null)} />
     : tool === "floors" && canEditScene ? <FloorsPanel floors={floors} objects={objects} history={history} onClose={() => changeTool(null)} />
     : tool === "atmosphere" && canEditScene ? <AtmospherePanel view={view} onClose={() => changeTool(null)} />
+    : tool === "summon" ? <SummonPanel sessionId={view.id} findPosition={findViewCentre} onClose={() => changeTool(null)} />
     : tool === "sounds" && canEditScene ? <SoundsPanel view={view} onClose={() => changeTool(null)} />
     : tool === "grid" ? <GridPanel grid={grid} aspect={aspect} isSaving={gridDraft.isSaving} onChange={gridDraft.changeGrid} tool={gridTool} onClose={() => changeTool(null)} />
     : tool === "view" ? <ViewPanel hasGrid={grid !== null} tokenScale={tokenScale} onTokenScaleChange={onTokenScaleChange} heroNames={heroNames} creatureNames={creatures.names} cutoutOutline={cutoutOutline} partyPortraits={partyPortraits} weather={atmosphere.weather === "none" ? null : { isOn: isWeatherShown, onChange: changeWeatherShown }} onClose={() => changeTool(null)} />
     : groupPanel ? groupPanel
     : selectedToken ? <SelectedTokenPanel token={selectedToken} selection={selection} isSide={panelSlot !== null} scope={boardRef} lights={lights.lighting !== "off" ? <TokenLightRows target={selectedToken.lightTarget} tokenLights={tokenLights} characterView={canEditScene ? characterView : null} /> : null} />
-    : null;
+    : creatures.sidePanel;
   const shownPanel = targeting ? <MapTargetingPanel view={view} targeting={targeting} /> : panel;
   const localPanel = panelSlot ? null : shownPanel;
 

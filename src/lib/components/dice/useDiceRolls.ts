@@ -101,7 +101,7 @@ export function useDiceRolls(isOpen: boolean, rollContext: DiceRollContext | nul
         ...(action.bonusParts?.length ? { bonusParts: action.bonusParts } : {}),
       };
       const context = rollContextRef.current;
-      holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget(context.isCreatureRoll ? "free" : "sheet", context.rollTarget), context, action, d20Mode } : null);
+      holdPublication(pendingPublicationRef, context ? { kind: "action", target: captureGameRollTarget(context.isCreatureRoll ? "free" : "sheet", context.rollTarget, context.fromCreatureId), context, action, d20Mode } : null);
       setActiveActionKey(action.key);
       if (isFlatAction(action)) {
         const flatOutcome = buildRollOutcome({ ...meta, extraDice: [] }, []);

@@ -1,5 +1,5 @@
 import { randomBytes } from "node:crypto";
-import type { Prisma } from "@prisma/client";
+import type { Prisma, Ruleset } from "@prisma/client";
 import { buildMediaImageUrl } from "@/lib/media-url";
 import { prisma } from "@/lib/prisma";
 import { buildCombatView, type CombatHeroView, type CombatView } from "@/rules/game-combat";
@@ -24,7 +24,7 @@ import { isTokenHiddenFromViewer, normalizeTokenConditions, type TokenConditions
 import { findHeroLifeState, type HeroLifeState } from "@/rules/hero-life-state";
 import { canEditPers } from "@/server/db/pers-actions";
 import { parseCampaignHouseRules, parsePersHouseRules, type CampaignHouseRules } from "@/rules/house-rules";
-import { loadRoomCreatures } from "@/server/db/room-creatures";
+import { loadRoomCreatures, type RoomCreatureLookup } from "@/server/db/room-creatures";
 import { CAMPAIGN_FEATURE_SELECT, CAMPAIGN_SKILL_SELECT, syncCampaignCopies, type CampaignFeatureView, type CampaignSkillView } from "@/server/db/campaign-custom-content";
 export type { CampaignFeatureView, CampaignSkillView };
 
@@ -55,6 +55,7 @@ export type GameSessionMemberView = {
   light: TokenLight;
   darkvisionFeet: number;
   floor: FloorId;
+  beastForm: { name: string; imageUrl: string | null } | null;
 };
 
 export type GameSessionView = {
@@ -184,12 +185,14 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
   const me = session?.members.find((member) => member.userId === viewerUserId && member.heroSlot === 0);
   if (!session || !me) return null;
   const myPersIds = session.members.flatMap((member) => (member.userId === viewerUserId && member.persId !== null ? [member.persId] : []));
-  const findCreature = await loadRoomCreatures(session.mapCreatures);
+  const myHeroIds = session.members.flatMap((member) => (member.userId === viewerUserId ? [member.id] : []));
+  const beastForms = session.members.flatMap((member) => member.pers?.wildshapes ?? []);
+  const findCreature = await loadRoomCreatures([...session.mapCreatures, ...beastForms]);
   const now = Date.now();
   const isGm = me.role === "GM";
   const viewedSceneId = findViewedSceneId({ isGm, activeSceneId: session.activeSceneId, openSceneId: me.openSceneId });
   const buildSceneCreatures = (sceneId: number | null) =>
-    buildMapCreatureViews(session.mapCreatures.filter((creature) => creature.gameSceneId === sceneId), findCreature, isGm);
+    buildMapCreatureViews(session.mapCreatures.filter((creature) => creature.gameSceneId === sceneId), findCreature, isGm, myHeroIds);
   const creatures = buildSceneCreatures(viewedSceneId);
   const combatCreatures = viewedSceneId === session.activeSceneId ? creatures : buildSceneCreatures(session.activeSceneId);
   const viewedMapKey = session.scenes.find((scene) => scene.id === viewedSceneId)?.mapImageKey ?? null;
@@ -226,6 +229,7 @@ export async function findGameSessionView(sessionId: number, viewerUserId: numbe
       lifeState: findHeroLifeState(member.pers),
       ...findHeroSight(tokenByHeroId.get(member.id), member.pers),
       floor: tokenByHeroId.get(member.id)?.floor ?? null,
+      beastForm: findBeastForm(member.pers?.wildshapes[0], findCreature),
     })),
     creatures,
     creatureNameMode: parseTokenNameMode(session.creatureNameMode) ?? "short",
@@ -263,6 +267,12 @@ function buildCombatHeroes(members: NonNullable<Awaited<ReturnType<typeof findSe
   return heroes;
 }
 
+function findBeastForm(form: { creatureKey: string; ruleset: Ruleset } | undefined, findCreature: RoomCreatureLookup): GameSessionMemberView["beastForm"] {
+  if (!form) return null;
+  const creature = findCreature(form.creatureKey, form.ruleset);
+  return { name: creature?.name ?? form.creatureKey, imageUrl: creature?.imageUrl ?? null };
+}
+
 function findSessionWithMembers(sessionId: number, viewerUserId: number) {
   return prisma.gameSession.findUnique({
     where: { id: sessionId },
@@ -295,14 +305,14 @@ function findSessionWithMembers(sessionId: number, viewerUserId: number) {
           openSceneId: true,
           conditions: true,
           exhaustionLevel: true,
-          pers: { select: { name: true, portraitKey: true, currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true, ...DARKVISION_SELECT } },
+          pers: { select: { name: true, portraitKey: true, currentHp: true, deathSaveSuccesses: true, deathSaveFailures: true, isDead: true, ...DARKVISION_SELECT, wildshapes: { where: { isActive: true }, take: 1, select: { creatureKey: true, ruleset: true } } } },
           user: { select: { id: true, displayName: true, name: true, image: true } },
         },
       },
       mapCreatures: {
         where: { scene: sceneVisibleTo(sessionId, viewerUserId) },
         orderBy: [{ createdAt: "asc" }, { id: "asc" }],
-        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, borderColor: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true, floor: true, isNameHidden: true },
+        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, borderColor: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true, floor: true, isNameHidden: true, controllerMemberId: true },
       },
     },
   });

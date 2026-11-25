@@ -1,5 +1,8 @@
 import type { Ruleset } from "@prisma/client";
 import type { CreatureData } from "@/lib/bestiaryData";
+import { getSpellByIdOrSlug } from "@/lib/spellsData";
+import { shortenSpellName } from "@/lib/logic/spell-name";
+import { buildStatblockSpellcasting } from "@/rules/creature-spellcasting";
 import { buildRefId, findWildshapeCreature, findWildshapeCreatures } from "@/server/db/wildshape-creatures";
 
 export type RoomCreatureLookup = (key: string, ruleset: Ruleset) => CreatureData | null;
@@ -12,4 +15,17 @@ export async function loadRoomCreatures(rows: ReadonlyArray<{ creatureKey: strin
 
 export function findRoomCreature(key: string, ruleset: Ruleset): Promise<CreatureData | null> {
   return findWildshapeCreature({ key, ruleset });
+}
+
+/// Статблок для показу: бестіарній істоті додаємо заклинання з її тексту, хоумбрю вже несе свої.
+export async function findCreatureStatblock(key: string, ruleset: Ruleset): Promise<CreatureData | null> {
+  const creature = await findRoomCreature(key, ruleset);
+  if (!creature || creature.spellcasting) return creature;
+  const spellcasting = buildStatblockSpellcasting({ ...creature, ruleset }, (spellKey) => findShortSpell(spellKey, ruleset));
+  return spellcasting ? { ...creature, spellcasting } : creature;
+}
+
+function findShortSpell(key: string, ruleset: Ruleset) {
+  const spell = getSpellByIdOrSlug(key, ruleset);
+  return spell && { ...spell, name: shortenSpellName(spell.name) };
 }

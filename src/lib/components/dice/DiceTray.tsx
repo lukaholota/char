@@ -10,7 +10,7 @@ import { FreeDicePanel } from "./FreeDicePanel";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { useDiceRolls } from "./useDiceRolls";
 import { GameRollTargetBar } from "@/components/games/GameRollTargetBar";
-import { canRollTakeTarget } from "@/lib/components/game/build-game-roll";
+import { canRollTakeTarget, isAimedAtHeroes } from "@/lib/components/game/build-game-roll";
 import { DICE_TRAY_HEIGHT_VAR, DICE_TRAY_Z_INDEX, holdTrayResize, requestTrayResize, waitForAnimationFrames } from "./dice-tray-layout";
 
 const DISMISS_DRAG_PX = 80;
@@ -45,7 +45,7 @@ export function DiceTray() {
           onClose={close}
           onEdit={handleEdit}
         >
-          <GameRollTargetBar isSheetRoll={isRollMode} isCreatureRoll={isRollMode && Boolean(rollContext?.isCreatureRoll)} canTarget={!isRollMode || canRollTakeTarget(rollContext)} pickedTarget={isRollMode ? rollContext.rollTarget : undefined} />
+          <GameRollTargetBar isSheetRoll={isRollMode} isCreatureRoll={isRollMode && Boolean(rollContext?.isCreatureRoll)} isAimedAtHeroes={isRollMode && isAimedAtHeroes(rollContext)} canTarget={!isRollMode || canRollTakeTarget(rollContext)} pickedTarget={isRollMode ? rollContext.rollTarget : undefined} />
           {isRollMode ? (
             <DiceRollPanel
               context={rollContext}

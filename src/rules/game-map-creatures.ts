@@ -51,6 +51,7 @@ export type MapCreatureRow = {
   lightDimFeet: number;
   floor?: number | null;
   isNameHidden?: boolean;
+  controllerMemberId?: number | null;
 };
 export type MapCreatureCatalogEntry = { name: string; size: string; hp?: string; imageUrl?: string; imageShape?: "round" };
 
@@ -58,6 +59,7 @@ export type MapCreatureCatalogEntry = { name: string; size: string; hp?: string;
 /// customName і statblockName бачить лише майстер.
 /// Числа хітів бачить лише майстер; гравцям іде тільки isDown.
 /// playerLabel — що бачать гравці: з нього підписуються кидки істоти й ціль у журналі.
+/// Герой, якому майстер передав істоту (фамільяр, прикликаний звір), бачить її статблок і хіти, як майстер.
 export type MapCreatureView = {
   id: number;
   creatureKey: string | null;
@@ -81,6 +83,7 @@ export type MapCreatureView = {
   conditions: TokenConditions;
   light: TokenLight;
   floor: number | null;
+  controllerHeroId: number | null;
 };
 
 export type CreatureBorderColor = "green" | "red" | null;
@@ -141,12 +144,15 @@ export function buildMapCreatureViews(
   rows: MapCreatureRow[],
   findEntry: (key: string, ruleset: MapCreatureRuleset) => MapCreatureCatalogEntry | null,
   isGm: boolean,
+  myHeroIds: readonly number[] = [],
 ): MapCreatureView[] {
   const copiesByGroup = new Map<string, number>();
   for (const row of rows) copiesByGroup.set(findCreatureGroupKey(row), (copiesByGroup.get(findCreatureGroupKey(row)) ?? 0) + 1);
+  const isMine = (row: MapCreatureRow) => row.controllerMemberId != null && myHeroIds.includes(row.controllerMemberId);
   return rows
-    .filter((row) => isGm || (row.tokenX !== null && !isTokenInvisible(row.conditions)))
+    .filter((row) => isGm || (row.tokenX !== null && (isMine(row) || !isTokenInvisible(row.conditions))))
     .map((row) => {
+      const canSeeStatblock = isGm || isMine(row);
       const entry = findEntry(row.creatureKey, row.ruleset);
       const hasCopies = (copiesByGroup.get(findCreatureGroupKey(row)) ?? 0) > 1;
       const statblockName = entry?.name ?? row.creatureKey;
@@ -157,7 +163,7 @@ export function buildMapCreatureViews(
       const hitPoints = findCreatureHitPoints(row, entry?.hp);
       return {
         id: row.id,
-        creatureKey: isGm ? row.creatureKey : null,
+        creatureKey: canSeeStatblock ? row.creatureKey : null,
         ruleset: row.ruleset,
         label: isGm ? numbered(name) : playerLabel,
         playerLabel,
@@ -173,11 +179,12 @@ export function buildMapCreatureViews(
         isCutout: row.isCutout,
         token: row.tokenX !== null && row.tokenY !== null ? { x: row.tokenX, y: row.tokenY } : null,
         tokenTransform: readTokenTransform(row),
-        hitPoints: isGm ? hitPoints : null,
+        hitPoints: canSeeStatblock ? hitPoints : null,
         isDown: isCreatureDown(hitPoints),
         conditions: normalizeTokenConditions(row),
         light: { brightFeet: row.lightBrightFeet, dimFeet: row.lightDimFeet },
         floor: row.floor ?? null,
+        controllerHeroId: canSeeStatblock ? row.controllerMemberId ?? null : null,
       };
     });
 }

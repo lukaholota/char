@@ -2,6 +2,7 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import type { RollTargets } from "@/rules/map-target-picks";
 import { BLESSED_MARK, SPOTLIGHT_MARK_KEYS, canChangeTokenConditions, isSpotlightMark, type TokenConditionChange } from "@/rules/token-conditions";
+import { findCreatureCommand } from "@/server/db/game-map-creatures";
 import { findActiveGmSession, findMembership, findRoomHero, signalGameSession, type GameSessionFailure, type GameSessionResult } from "@/server/db/game-sessions";
 
 const fail = (error: GameSessionFailure) => ({ ok: false as const, error });
@@ -18,8 +19,8 @@ function buildConditionAssignment(change: TokenConditionChange): Prisma.Sql {
 }
 
 export async function changeCreatureConditions(sessionId: number, userId: number, creatureId: number, change: TokenConditionChange): Promise<GameSessionResult<null>> {
-  const gm = await findActiveGmSession(sessionId, userId);
-  if (!gm.ok) return gm;
+  const command = await findCreatureCommand(sessionId, userId, creatureId);
+  if (!command.ok) return command;
   const changed = await prisma.$executeRaw`
     UPDATE game_map_creature SET ${buildConditionAssignment(change)}
     WHERE game_map_creature_id = ${creatureId} AND game_session_id = ${sessionId}`;

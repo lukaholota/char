@@ -62,6 +62,11 @@ export function findActionRollKind(context: Pick<DiceRollContext, "isCreatureRol
 }
 
 /// Лікування й ряткидки ворога ціллю не беруть: лоток не має показувати ворога, у якого вони нібито підуть.
+/// Монстр майстра бʼє героїв; фамільяр чи прикликаний гравця — ворогів, як герой.
+export function isAimedAtHeroes(context: Pick<DiceRollContext, "isCreatureRoll" | "fromCreatureId">): boolean {
+  return Boolean(context.isCreatureRoll && !context.fromCreatureId);
+}
+
 export function canRollTakeTarget(context: Pick<DiceRollContext, "isCreatureRoll" | "actions">): boolean {
   return context.actions.some((action) => action.targetSave !== undefined || isEnemyRollKind(findActionRollKind(context, action)));
 }

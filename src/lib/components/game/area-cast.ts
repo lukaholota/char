@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { create } from "zustand";
 import type { AreaSpellList } from "@/lib/actions/game-area-spells";
 import { findPressedAction } from "@/lib/components/dice/roll-contexts";
@@ -72,10 +73,20 @@ export async function startAreaCast(roll: DiceRollContext): Promise<boolean> {
 
 export const canCastOnArea = (roll: DiceRollContext) => findCastSessionId(roll) !== null;
 
+/// Без сітки зону не виміряти у футах: кидок іде по токену, а гравець бачить чому.
+export async function warnAreaWithoutGrid(roll: DiceRollContext) {
+  const sessionId = hasSaveEffect(roll) && findMapRoomId({ needsGrid: true }) === null ? findMapRoomId() : null;
+  const area = sessionId === null ? null : await findCastArea(sessionId, roll);
+  if (area) toast.info(`«${area.name}»: на мапі без сітки зону не поставити, тож оберіть ціль токеном`, { description: "Сітку вмикає майстер: «Сітка» на панелі мапи." });
+}
+
 function findCastSessionId(roll: DiceRollContext): number | null {
+  return hasSaveEffect(roll) ? findMapRoomId({ needsGrid: true }) : null;
+}
+
+function hasSaveEffect(roll: DiceRollContext): boolean {
   const save = roll.targetSave;
-  const hasSaveEffect = Boolean(findPressedAction(roll)?.targetSave || save?.effect || (save?.spell && findSpellSaveDamage(save.spell)));
-  return hasSaveEffect ? findMapRoomId({ needsGrid: true }) : null;
+  return Boolean(findPressedAction(roll)?.targetSave || save?.effect || (save?.spell && findSpellSaveDamage(save.spell)));
 }
 
 async function findCastArea(sessionId: number, roll: DiceRollContext): Promise<CastArea | null> {

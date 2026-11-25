@@ -10,6 +10,7 @@ import type { DamageDefenseNote } from "@/rules/damage-parts";
 import { takeRolledInitiative } from "@/server/db/game-combat";
 import { changeHeroTargetHitPoints, damageHeroSaveRows, revertHeroHitPoints, type RestoredHero } from "@/server/db/game-hero-damage";
 import { findRoomHeroes, type RoomHero } from "@/server/db/game-room-heroes";
+import { findCreatureCommand } from "@/server/db/game-map-creatures";
 import { applyRollTarget, applySaveTargets, revertRollDamage, revertSaveDamage } from "@/server/db/game-roll-target";
 import { buildAvatarUrl, buildMemberName, findActiveGmSession, GAME_SESSION_SIGNAL_CHANNEL, isBindablePers, signalGameSession, type GameSessionResult } from "@/server/db/game-sessions";
 
@@ -46,6 +47,7 @@ export type GameRollDraft = {
   saves?: GameRollSavesDraft | null;
   heroTarget?: GameRollHeroTargetDraft | null;
   isInitiative?: boolean;
+  fromCreatureId?: number | null;
 };
 
 export type GameRollViewer = { userId: number; isGm: boolean };
@@ -140,7 +142,7 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
   const author = await findRollAuthor(sessionId, authorUserId, draft);
   if (!author.ok) return author;
   const authorViewer = { userId: authorUserId, isGm: author.value.isGm };
-  if (!author.value.isGm && isGmOnlyRoll(draft)) return { ok: false, error: "forbidden" };
+  if (!author.value.isGm && isGmOnlyRoll(draft) && !(await isOwnCreatureRoll(sessionId, authorUserId, draft))) return { ok: false, error: "forbidden" };
   const heroes = await findRoomHeroes(sessionId, [...(draft.saves?.persIds ?? []), ...(draft.heroTarget ? [draft.heroTarget.persId] : [])]);
   return prisma.$transaction(async (tx) => {
     const [session] = await tx.$queryRaw<{ last_event_seq: bigint; archived_at: Date | null }[]>`
@@ -291,9 +293,14 @@ async function findRollAuthor(sessionId: number, userId: number, draft: Pick<Gam
   return { ok: true, value: { authorName, isGm, persId, persName: pers?.name ?? null } };
 }
 
-/// Кидки зі статблоку (без листа) по істоті, герою чи зоні — справа майстра: гравець бʼє лише своїм персонажем.
+/// Кидки зі статблоку (без листа) по істоті, герою чи зоні — справа майстра; гравець бʼє своїм персонажем або істотою, якою керує.
 function isGmOnlyRoll(draft: GameRollDraft): boolean {
   return draft.source === "FREE" && Boolean(draft.target || draft.heroTarget || draft.saves);
+}
+
+async function isOwnCreatureRoll(sessionId: number, userId: number, draft: GameRollDraft): Promise<boolean> {
+  const creatureId = draft.fromCreatureId;
+  return creatureId != null && (await findCreatureCommand(sessionId, userId, creatureId)).ok;
 }
 
 /// Герой, що вийшов із кімнати, поки кидок чекав у черзі, — кидок лишається без цілі.

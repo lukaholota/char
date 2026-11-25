@@ -13,6 +13,7 @@ import { parseSceneMapSource } from "@/rules/game-scenes";
 import { readSceneLayoutField } from "@/rules/uvtt-import";
 import { parseCreatureTokenSize, parseCustomName, parseNewMapCreatures, parseTokenNameMode } from "@/rules/game-map-creatures";
 import { parseTokenConditionChange } from "@/rules/token-conditions";
+import { parseSummonRequest } from "@/rules/summon-spells";
 import { isId, rejectBadInput, runAsUser, tooFast } from "@/server/game-sessions/game-action";
 import { activateGameScene, createGameScene, deleteGameScene, moveGameToken, moveMapTokens, openGameScene, renameGameScene, replaceGameSceneMap, transformHeroToken } from "@/server/db/game-scenes";
 import { changeCreatureConditions, changeHeroConditions, clearBlessedMarks, markBlessedTargets } from "@/server/db/game-conditions";
@@ -22,7 +23,7 @@ import { parseJournalMessage } from "@/rules/game-roll";
 import { tryTakeRollSlot, tryTakeTokenMoveSlot } from "@/server/game-sessions/game-session-limits";
 import { MAX_SAVE_TARGETS } from "@/rules/game-roll-saves";
 import { addMissingCombatants, advanceCombatTurn, endCombat, endOwnCombatTurn, setCombatantInitiative, startCombat } from "@/server/db/game-combat";
-import { addMapCreatures, changeMapCreatureHitPoints, duplicateMapCreature, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureCutout, setMapCreatureNameHidden, setMapCreatureSize, transformMapCreature } from "@/server/db/game-map-creatures";
+import { addMapCreatures, changeMapCreatureHitPoints, duplicateMapCreature, moveMapCreature, removeMapCreatures, renameMapCreature, setCreatureNameMode, setMapCreatureController, setMapCreatureCutout, setMapCreatureNameHidden, setMapCreatureSize, summonMapCreature, transformMapCreature } from "@/server/db/game-map-creatures";
 import {
   bindMemberPers,
   GAME_SESSION_LIMITS,
@@ -169,11 +170,20 @@ export async function addMapCreaturesAction(sessionId: number, rawInput: unknown
   });
 }
 
-export async function duplicateMapCreatureAction(sessionId: number, creatureId: number, step: number) {
+export async function summonMapCreatureAction(sessionId: number, rawSummon: unknown) {
+  const summon = parseSummonRequest(rawSummon);
   return runAsUser(async (userId) => {
-    if (!isId(sessionId) || !isId(creatureId) || !Number.isInteger(step) || step < 1 || step > 100) return rejectBadInput;
+    if (!isId(sessionId) || !summon) return rejectBadInput;
     if (!tryTakeTokenMoveSlot(userId)) return tooFast;
-    return duplicateMapCreature(sessionId, userId, creatureId, step);
+    return summonMapCreature(sessionId, userId, summon);
+  });
+}
+
+export async function duplicateMapCreatureAction(sessionId: number, creatureId: number, step: number, sceneId: number) {
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(creatureId) || !isId(sceneId) || !Number.isInteger(step) || step < 1 || step > 100) return rejectBadInput;
+    if (!tryTakeTokenMoveSlot(userId)) return tooFast;
+    return duplicateMapCreature(sessionId, userId, creatureId, step, sceneId);
   });
 }
 
@@ -226,6 +236,13 @@ export async function postJournalMessageAction(sessionId: number, rawText: unkno
     if (!tryTakeRollSlot(userId)) return tooFast;
     const posted = await insertJournalMessage(sessionId, userId, { idempotencyKey, text, isForGm });
     return posted.ok ? { ok: true as const, value: null } : posted;
+  });
+}
+
+export async function setMapCreatureControllerAction(sessionId: number, creatureId: number, heroId: unknown) {
+  return runAsUser(async (userId) => {
+    if (!isId(sessionId) || !isId(creatureId) || (heroId !== null && !isId(heroId))) return rejectBadInput;
+    return setMapCreatureController(sessionId, userId, creatureId, heroId);
   });
 }
 

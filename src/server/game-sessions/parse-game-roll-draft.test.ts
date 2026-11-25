@@ -48,9 +48,9 @@ describe("ряткидки цілей", () => {
     expect(parseGameRollDraft(sheetBody({ saves: iceStorm }), NOW)).toEqual({ problem: "damage of two types needs two dice groups" });
   });
 
-  it("відмовляє ряткидкам разом з ціллю, з вільного кидка, з к20 чи з зіпсованим записом", () => {
+  it("відмовляє ряткидкам разом з ціллю, з к20 чи з зіпсованим записом; заклинання зі статблоку — як із листа", () => {
     expect(parseGameRollDraft(sheetBody({ saves, target: { creatureId: 3, kind: "damage" } }), NOW)).toEqual({ problem: "a roll has one kind of target" });
-    expect(parseGameRollDraft(sheetBody({ saves, source: "FREE", persId: null }), NOW)).toEqual({ problem: "spell saves come from a sheet, action saves from a statblock" });
+    expect(parseGameRollDraft(sheetBody({ saves, source: "FREE", persId: null }), NOW)).toMatchObject({ draft: { source: "FREE", saves: { spell: saves.spell } } });
     expect(parseGameRollDraft(sheetBody({ saves: { ...saves, dc: "15" } }), NOW)).toEqual({ problem: "bad saves" });
     const d20 = { ...damage, groups: [{ sides: 20, values: [12] }], d20Mode: "NORMAL", total: 12 };
     expect("problem" in parseGameRollDraft(sheetBody({ saves, roll: d20 }), NOW)).toBe(true);

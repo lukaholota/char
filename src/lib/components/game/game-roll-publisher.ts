@@ -13,21 +13,22 @@ import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameSessionMemberView } from "@/server/db/game-sessions";
 import { captureGameEvent } from "@/lib/monitoring/game-analytics";
 
-export type GameRollTarget = { sessionId: number; visibility: GameRollVisibility; persId: number | null; creatureId: number | null; heroPersId?: number | null };
+export type GameRollTarget = { sessionId: number; visibility: GameRollVisibility; persId: number | null; creatureId: number | null; heroPersId?: number | null; fromCreatureId?: number };
 
 const RETRY_MS = 15_000;
 let runningFlush: Promise<void> | null = null;
 
 /// Ціль фіксується в момент натискання: поки кубики котяться, кімнату можуть змінити в іншій вкладці.
 /// picked — ціль, обрана на мапі для цього кидка, — важить більше за закріплену; null — свідомо без цілі.
-/// З листа бʼє гравець (будь-яку істоту чи героя), зі статблоку — лише майстер.
-export function captureGameRollTarget(kind: "sheet" | "free" | "pool", picked?: RollTargetRef | null): GameRollTarget | null {
+/// З листа бʼє гравець (будь-яку істоту чи героя), зі статблоку — майстер або гравець зі статблоку своєї істоти (fromCreatureId).
+export function captureGameRollTarget(kind: "sheet" | "free" | "pool", picked?: RollTargetRef | null, fromCreatureId?: number): GameRollTarget | null {
   const active = useGameSessionStore.getState().active;
   if (!active) return null;
   const persId = useSheetPersStore.getState().pers?.persId ?? null;
   if (kind === "sheet" && persId === null) return null;
-  const canTarget = kind === "sheet" || (kind === "free" && useGameSessionLiveStore.getState().view?.myRole === "GM");
-  const sticky = kind === "sheet" ? readStickyCreature(active.id) : readStickyHero(active.id);
+  const isOwnCreature = kind === "free" && fromCreatureId !== undefined;
+  const canTarget = kind === "sheet" || isOwnCreature || (kind === "free" && useGameSessionLiveStore.getState().view?.myRole === "GM");
+  const sticky = kind === "sheet" || isOwnCreature ? readStickyCreature(active.id) : readStickyHero(active.id);
   const aim = canTarget ? (picked === undefined ? sticky : picked) : null;
   return {
     sessionId: active.id,
@@ -35,6 +36,7 @@ export function captureGameRollTarget(kind: "sheet" | "free" | "pool", picked?: 
     persId: kind === "sheet" ? persId : null,
     creatureId: aim && "creatureId" in aim ? aim.creatureId : null,
     heroPersId: aim && "persId" in aim ? aim.persId : null,
+    ...(isOwnCreature ? { fromCreatureId } : {}),
   };
 }
 
@@ -72,7 +74,7 @@ export function settleGameRollStart(target: GameRollTarget) {
 
 /// Без цілі ряткидка немає: сервер такий запис не прийме, тож кидок навіть не стає в чергу.
 export function publishTargetSave(context: DiceRollContext, targetSave: TargetSaveRequest) {
-  const target = captureGameRollTarget("free", context.rollTarget);
+  const target = captureGameRollTarget("free", context.rollTarget, context.fromCreatureId);
   const targets = target && (context.areaTargets ?? listSingleTarget(target));
   if (!target || !targets || targets.creatureIds.length + targets.persIds.length === 0) return void toast.info("Оберіть ціль ряткидка на мапі або в лотку");
   publishGameRoll(target, buildTargetSaveGameRoll(context, targetSave));
@@ -93,6 +95,7 @@ export function publishGameRoll(target: GameRollTarget, publication: GameRollPub
       roll: publication.roll,
       rolledAt: new Date().toISOString(),
       ...(publication.isInitiative ? { isInitiative: true } : {}),
+      ...(!publication.isFromSheet && target.fromCreatureId ? { fromCreatureId: target.fromCreatureId } : {}),
       ...buildRollTargets(target, publication),
     },
   };

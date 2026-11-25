@@ -1,4 +1,5 @@
 import { calculateAbilityModifier } from "./abilities";
+import { readSignedNumber } from "./creature-rolls";
 import { findSpellDice, planSpellRolls, type SpellRoll, type SpellRollPlan } from "./spell-dice";
 import type { AbilityKey } from "./types";
 
@@ -7,7 +8,17 @@ export type CreatureSpellOption = CreatureSpellChoice & { searchName: string };
 export type CreatureSpell = CreatureSpellChoice & { engName: string; plan: SpellRollPlan | null };
 export type CreatureSpellcasting = { attackBonus: number; saveDc: number; ruleset: "RULES_2014" | "RULES_2024"; spells: CreatureSpell[] };
 
-type CatalogSpell = { spellId: number; name: string; engName: string; level: number; description?: string | null };
+type CatalogSpell = { spellId: number; name: string; engName: string; level: number; description?: string | null; slotLevel?: number | null };
+type StatblockCaster = {
+  ruleset: "RULES_2014" | "RULES_2024";
+  specialAbilities: string;
+  actions: string;
+  bonusActions?: string;
+  intelligence: string;
+  wisdom: string;
+  charisma: string;
+  proficiencyBonus: string;
+};
 type CasterInput = {
   mentalScores: readonly number[];
   proficiencyBonus: number;
@@ -24,6 +35,11 @@ const ABILITY_BY_STEM: Readonly<Record<string, AbilityKey>> = { сил: "STR", �
 const HIGHER_SLOT_SENTENCE = /вищ(?:ого|ому|их|е)(?!\p{L})/iu;
 const DAMAGE_WORD = /шкод/iu;
 const HEALING_WORDS = /(?:відновл|лікує)\p{L}*[^.]*(?:хіт|ХП)/iu;
+const SPELLCASTING_PARAGRAPH = /<p>(?:(?!<\/p>)[\s\S])*?\{\{[^}]*Spellcasting[^}]*\}\}(?:(?!<\/p>)[\s\S])*<\/p>/gu;
+const SPELL_LINK = /href="(?:\/2024)?\/spells\/([^"#?]+)"[^>]*>(?:(?!<\/a>)[\s\S])*<\/a>\s*»?\s*(?:\((?:версія|як заклинання|накладене на)\s+(\d+))?/gu;
+const STATBLOCK_SAVE_DC = /СК\D{0,40}?(\d+)/u;
+const STATBLOCK_ATTACK = /\+(\d+)\s+(?:на|до)\s+(?:влучання|кидк\p{L}*\s+атаки)/u;
+const STATBLOCK_CASTER_LEVEL = /(?:заклинач|чаротворець)\p{L}*\s+(\d+)/u;
 
 export function describeCreatureSpellLevel(level: number): string {
   return level === 0 ? "Замовляння" : `${level}-й рівень`;
@@ -53,9 +69,39 @@ export function buildCreatureSpellcasting(spells: readonly CatalogSpell[], rules
   };
 }
 
+/// Бестіарій перелічує заклинання посиланнями в абзаці «Чаротворення»; звідти ж беремо СК, бонус атаки й рівень заклинача.
+export function buildStatblockSpellcasting(statblock: StatblockCaster, findSpell: (key: string) => CatalogSpell | undefined): CreatureSpellcasting | null {
+  const html = [statblock.specialAbilities, statblock.actions, statblock.bonusActions ?? ""].join("").match(SPELLCASTING_PARAGRAPH)?.join(" ") ?? "";
+  const spells = findLinkedSpells(html, findSpell);
+  if (!spells.length) return null;
+  const text = html.replace(/<[^>]+>/g, "");
+  const saveDc = readFirstNumber(text, STATBLOCK_SAVE_DC);
+  return buildCreatureSpellcasting(spells, statblock.ruleset, {
+    mentalScores: [statblock.intelligence, statblock.wisdom, statblock.charisma].map((score) => Number.parseInt(score, 10) || 10),
+    proficiencyBonus: readSignedNumber(statblock.proficiencyBonus) ?? 2,
+    attackBonus: readFirstNumber(text, STATBLOCK_ATTACK) ?? (saveDc === null ? null : saveDc - 8),
+    saveDc,
+    casterLevel: readFirstNumber(text, STATBLOCK_CASTER_LEVEL),
+  });
+}
+
+function findLinkedSpells(html: string, findSpell: (key: string) => CatalogSpell | undefined): CatalogSpell[] {
+  const spells = new Map<number, CatalogSpell>();
+  for (const [, key, slotLevel] of html.matchAll(SPELL_LINK)) {
+    const spell = findSpell(key);
+    if (spell && !spells.has(spell.spellId)) spells.set(spell.spellId, { ...spell, slotLevel: slotLevel ? Number(slotLevel) : null });
+  }
+  return [...spells.values()];
+}
+
+function readFirstNumber(text: string, pattern: RegExp): number | null {
+  const found = text.match(pattern)?.[1];
+  return found ? Number(found) : null;
+}
+
 function planCreatureSpell(spell: CatalogSpell, ruleset: "RULES_2014" | "RULES_2024", characterLevel: number, spellcastingModifier: number): SpellRollPlan | null {
   const dice = findSpellDice({ engName: spell.engName, level: spell.level, ruleset });
-  if (dice) return planSpellRolls(dice, { spellLevel: spell.level, slotLevel: spell.level, characterLevel, spellcastingModifier });
+  if (dice) return planSpellRolls(dice, { spellLevel: spell.level, slotLevel: Math.max(spell.level, spell.slotLevel ?? spell.level), characterLevel, spellcastingModifier });
   return planSpellFromDescription(spell.description ?? "", spellcastingModifier);
 }
 

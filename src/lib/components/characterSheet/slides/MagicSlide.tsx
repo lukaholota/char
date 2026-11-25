@@ -31,6 +31,7 @@ import { SpellPointsCounter, useSpellPoints } from "./SpellPointsCounter";
 import { describeTargetSave } from "@/lib/components/dice/roll-contexts";
 import { openRoomRoll } from "@/lib/components/game/open-room-roll";
 import { startBlessTargeting } from "@/lib/components/game/map-targeting";
+import { startSummonCast } from "@/lib/components/game/summon-cast";
 import { isBlessSpell } from "@/lib/components/game/room-blessing";
 import { preloadSpellCardsWhenIdle } from "@/lib/spell-cards";
 import { buildHomebrewSheetSpellRows, isHomebrewCatalogId } from "@/lib/logic/homebrew-view";
@@ -596,6 +597,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
     const spellId = getPersSpellId(ps);
     if (spellId !== null) setLastCastSlotBySpellId((prev) => ({ ...prev, [spellId]: slot }));
     if (roll) openRoomRoll(roll);
+    else startSummonCast(ps?.spell?.engName);
   };
 
   const buildSpellRoll = (ps: any, slot: CastSlot | null) =>

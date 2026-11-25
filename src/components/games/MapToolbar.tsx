@@ -1,6 +1,6 @@
 "use client";
 
-import { BrickWall, ChevronDown, CloudFog, CloudSnow, Flame, Grid3x3, Layers, Lightbulb, Maximize2, Minus, Package, PencilLine, Plus, Redo2, Ruler, RotateCw, Scan, SlidersHorizontal, Undo2, Volume2, X, type LucideIcon } from "lucide-react";
+import { BrickWall, ChevronDown, CloudFog, CloudSnow, Flame, Grid3x3, Layers, Lightbulb, Maximize2, Minus, Package, PawPrint, PencilLine, Plus, Redo2, Ruler, RotateCw, Scan, SlidersHorizontal, Undo2, Volume2, X, type LucideIcon } from "lucide-react";
 import { Fragment, useId, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -10,9 +10,10 @@ import type { MapTool } from "./use-map-tools";
 import type { CharacterView } from "./use-map-sight";
 import { CharacterViewRailButton } from "./CharacterViewRailButton";
 
-const TOOLS: Array<{ tool: MapTool; label: string; icon: LucideIcon; isGmOnly?: boolean; startsGroup?: boolean }> = [
+const TOOLS: Array<{ tool: MapTool; label: string; icon: LucideIcon; isGmOnly?: boolean; isPlayerOnly?: boolean; startsGroup?: boolean }> = [
   { tool: "ruler", label: "Лінійка", icon: Ruler },
   { tool: "area", label: "Область", icon: Flame },
+  { tool: "summon", label: "Виклик", icon: PawPrint, isPlayerOnly: true },
   { tool: "draw", label: "Малювання", icon: PencilLine },
   { tool: "sounds", label: "Звуки", icon: Volume2, isGmOnly: true },
   { tool: "objects", label: "Обʼєкти", icon: Package, isGmOnly: true, startsGroup: true },
@@ -31,7 +32,7 @@ const TOOL_BUTTON = "flex h-11 w-11 shrink-0 flex-col items-center justify-cente
 const TOOL_GROUP_RULE = "mx-2 my-0.5 h-px shrink-0 bg-white/10";
 
 export function MapToolRow({ tool, onToolChange, canEditScene, canDraw, className, characterView }: { tool: MapTool | null; onToolChange: (tool: MapTool | null) => void; canEditScene: boolean; canDraw: boolean; className?: string; characterView?: CharacterView | null }) {
-  const tools = TOOLS.filter((entry) => (canEditScene || !entry.isGmOnly) && (canDraw || entry.tool !== "draw"));
+  const tools = TOOLS.filter((entry) => (canEditScene ? !entry.isPlayerOnly : !entry.isGmOnly) && (canDraw || entry.tool !== "draw"));
   return (
     <div role="toolbar" aria-label="Інструменти мапи" className={cn(TOOL_ROW, className)}>
       {characterView ? <CharacterViewRailButton view={characterView} className={cn(TOOL_BUTTON, characterView.hero && "bg-arcane-300/20 text-arcane-100 ring-1 ring-inset ring-arcane-300/60")} /> : null}

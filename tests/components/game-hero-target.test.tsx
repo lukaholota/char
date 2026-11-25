@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, renderHook, screen } from "@testing-library/react";
 import type { GameRoll } from "@/rules/game-roll";
 import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameSessionView } from "@/server/db/game-sessions";
@@ -24,6 +24,8 @@ import { captureGameRollTarget, publishGameRoll } from "@/lib/components/game/ga
 import { addGameEvents, resetLiveSession, useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
 import { useHeroDamageRequests, useHeroDamageStore, type HeroDamageRequest } from "@/lib/components/game/hero-damage";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
+import { useDiceUIStore } from "@/lib/stores/diceUIStore";
+import { openRoomRoll, useOwnCreatureRolls } from "@/lib/components/game/open-room-roll";
 
 const damageRoll: GameRoll = { d20Mode: null, modeSources: [], groups: [{ sides: 8, values: [6] }], extra: [], bonus: 0, total: 6, check: null };
 const EMPTY_ROLL: GameRoll = { d20Mode: null, modeSources: [], groups: [], extra: [], bonus: 0, total: 0, check: null };
@@ -74,6 +76,26 @@ describe("майстер цілиться в героя", () => {
     render(<GameRollTargetBar isSheetRoll isCreatureRoll />);
     expect(screen.queryByRole("button", { name: "Ельза" })).toBeNull();
     expect(captureGameRollTarget("free")!.heroPersId).toBeNull();
+  });
+
+  it("гравець бʼє зі статблоку своєї істоти по закріпленому ворогу: кидок каже, з якої він істоти; зі статблоку не своєї — без цілі", () => {
+    enterRoom({ myRole: "PLAYER", myPersId: 5 });
+    useGameSessionStore.setState({ targetCreatureBySession: { 1: 12 } });
+    const ownCreature = renderHook(() => useOwnCreatureRolls(3));
+    openRoomRoll({ title: "Сова", actions: [], isCreatureRoll: true });
+    const context = useDiceUIStore.getState().rollContext!;
+    expect(context.fromCreatureId).toBe(3);
+    render(<GameRollTargetBar isSheetRoll isCreatureRoll isAimedAtHeroes={false} />);
+    expect(screen.queryByRole("button", { name: "Ельза" })).toBeNull();
+    publishGameRoll(captureGameRollTarget("free", context.rollTarget, context.fromCreatureId)!, { label: "Сова · Шкода", roll: damageRoll, isFromSheet: false, kind: "damage" });
+    expect(readOutbox(window.localStorage).at(-1)!.draft).toMatchObject({ source: "FREE", fromCreatureId: 3, target: { creatureId: 12, kind: "damage" } });
+
+    ownCreature.unmount();
+    openRoomRoll({ title: "Гоблін", actions: [], isCreatureRoll: true });
+    expect(useDiceUIStore.getState().rollContext!.fromCreatureId).toBeUndefined();
+    publishGameRoll(captureGameRollTarget("free")!, { label: "Гоблін · Шкода", roll: damageRoll, isFromSheet: false, kind: "damage" });
+    expect(readOutbox(window.localStorage).at(-1)!.draft).toMatchObject({ target: null });
+    expect(readOutbox(window.localStorage).at(-1)!.draft).not.toHaveProperty("fromCreatureId");
   });
 });
 

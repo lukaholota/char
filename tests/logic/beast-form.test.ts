@@ -3,7 +3,7 @@ import { Ability, AbilityBonusType, Skills } from "@prisma/client";
 import type { PersWithRelations } from "@/lib/actions/pers";
 import { getAllCreatures } from "@/lib/bestiaryData";
 import type { CreatureData } from "@/lib/bestiaryData";
-import { buildBeastFormPers, listBeastAbilities } from "@/lib/logic/beast-form";
+import { buildBeastFormPers, buildBeastFormStatblock, listBeastAbilities } from "@/lib/logic/beast-form";
 import type { WildshapeContext } from "@/rules/wildshape";
 import {
   calculateFinalAC,
@@ -361,5 +361,21 @@ describe("KR24.6 — шар 2024 поруч із шаром 2014", () => {
     buildBeastFormPers(own, buildLayer2024(wolf2024, true));
 
     expect(readSheetNumbers(own)).toEqual(before);
+  });
+});
+
+describe("статблок звіра в кімнаті", () => {
+  it("2014: тіло ведмедя, розум друїда, КЗ форми й хіти звіра замість числа з каталогу", () => {
+    const statblock = buildBeastFormStatblock(brownBear, buildBeastFormPers(buildDruid(), { ...bearLayer, beastCurrentHp: 20 }));
+
+    expect(statblock).toMatchObject({ strength: "19 (+4)", dexterity: "10 (+0)", constitution: "16 (+3)", intelligence: "10 (+0)", wisdom: "19 (+4)", charisma: "11 (+0)", ac: "11", hp: "20 з 34" });
+    expect(statblock.actions).toBe(brownBear.actions);
+  });
+
+  it("2024: хіти лишаються друїдовими разом із тимчасовими", () => {
+    const layer = { creature: wolf2024, context: { druidLevel: 6, isMoonCircle: false, ruleset: "RULES_2024" as const }, beastCurrentHp: 0, beastMaxHp: 0 };
+    const druid = buildDruid();
+
+    expect(buildBeastFormStatblock(wolf2024, buildBeastFormPers(druid, layer)).hp).toBe(`30 з ${calculateFinalMaxHP(druid)} + 4 тимчасових`);
   });
 });

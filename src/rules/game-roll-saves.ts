@@ -11,7 +11,7 @@ const DC_RANGE = { min: 1, max: 40 } as const;
 const DAMAGE_TYPES = ["acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder"] as const satisfies readonly DamageType[];
 
 export type SaveSpellRef = { engName: string; level: number; ruleset: "RULES_2014" | "RULES_2024" };
-/// spell — заклинання з листа; без нього ефект прийшов із дії статблоку, і такий кидок приймається лише від майстра.
+/// spell — заклинання з листа чи статблоку, ефект сервер бере з таблиці; без нього ефект прийшов із дії статблоку, і такий кидок приймається лише від майстра чи того, хто керує істотою.
 export type GameRollSavesDraft = { creatureIds: number[]; persIds: number[]; spell: SaveSpellRef | null; effect: SaveEffect; dc: number };
 /// Що надсилає клієнт: ефект заклинання сервер бере з довідника сам, тож effect потрібен лише дії статблоку.
 export type GameRollSavesRequest = { creatureIds: number[]; persIds: number[]; spell: SaveSpellRef | null; effect?: SaveEffect; dc: number };

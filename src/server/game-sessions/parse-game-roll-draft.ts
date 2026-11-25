@@ -15,6 +15,7 @@ export function parseGameRollDraft(body: unknown, now = Date.now()): { draft: Ga
   if (!isGameRollVisibility(input.visibility)) return { problem: "bad visibility" };
   if (input.source !== "CHARACTER" && input.source !== "FREE") return { problem: "bad source" };
   if (input.persId !== null && !(Number.isInteger(input.persId) && (input.persId as number) > 0)) return { problem: "bad pers" };
+  if (input.fromCreatureId !== undefined && !(input.source === "FREE" && Number.isInteger(input.fromCreatureId) && (input.fromCreatureId as number) > 0)) return { problem: "bad roller creature" };
   const label = typeof input.label === "string" ? input.label.trim() : "";
   if (!label || label.length > GAME_ROLL_LIMITS.label) return { problem: "bad label" };
   const rolledAt = typeof input.rolledAt === "string" ? new Date(input.rolledAt) : null;
@@ -30,7 +31,7 @@ export function parseGameRollDraft(body: unknown, now = Date.now()): { draft: Ga
   const heroTarget = parseGameRollHeroTarget(input.heroTarget);
   if (heroTarget === undefined) return { problem: "bad hero target" };
   if ([target, saves, heroTarget].filter(Boolean).length > 1) return { problem: "a roll has one kind of target" };
-  if (saves && (saves.spell ? input.source !== "CHARACTER" : input.source !== "FREE")) return { problem: "spell saves come from a sheet, action saves from a statblock" };
+  if (saves && !saves.spell && input.source !== "FREE") return { problem: "action saves come from a statblock" };
   const kind = target?.kind ?? heroTarget?.kind ?? (saves && !isSaveOnly ? "damage" : null);
   const targetProblem = kind ? findGameRollTargetProblem(input.roll as GameRoll, kind) : null;
   if (targetProblem) return { problem: targetProblem };
@@ -46,6 +47,7 @@ export function parseGameRollDraft(body: unknown, now = Date.now()): { draft: Ga
       target,
       saves,
       heroTarget,
+      fromCreatureId: (input.fromCreatureId as number | undefined) ?? null,
       isInitiative: input.isInitiative === true && input.source === "CHARACTER" && !target && !saves && !heroTarget,
     },
   };

@@ -11,8 +11,9 @@ import { CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
-import { buildBeastFormPers, listBeastAbilities } from "@/lib/logic/beast-form";
-import { BeastFormBar } from "./BeastFormBar";
+import { buildBeastFormPers, buildBeastFormStatblock, listBeastAbilities } from "@/lib/logic/beast-form";
+import { BeastFormBar, type BeastSheetLayer } from "./BeastFormBar";
+import { CreatureStatblockCard } from "@/components/bestiary/CreatureStatblockCard";
 import type { BeastFormView } from "./BeastFormMarks";
 import { useWildshapeState } from "./useWildshapeState";
 import { applyActiveStates } from "@/lib/logic/active-states";
@@ -51,7 +52,9 @@ interface CharacterCarouselProps {
 export default function CharacterCarousel({ pers, spellcastingSources, onPersUpdate, groupedFeatures, isReadOnly, reloadFeatures, isEmbedded = false }: CharacterCarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
   const wildshape = useWildshapeState(pers.persId);
-  const [showBeastLayer, setShowBeastLayer] = useState(true);
+  /// У кімнаті друїд у формі грає звіром, тож спершу бачить його статблок; на сторінці листа — лист у формі.
+  const [beastLayer, setBeastLayer] = useState<BeastSheetLayer>(isEmbedded ? "statblock" : "beast");
+  const showBeastLayer = beastLayer !== "own";
 
   /// Пул використань один, а лічильників на листі два: бейдж Дикої форми зі стану форми й
   /// «Ресурси класу» на слайді Рис із серверних фіч (KR24.5). Тому вхід у форму й вихід із неї
@@ -166,8 +169,8 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
         <BeastFormBar
           creature={wildshape.active.creature}
           is2024={wildshape.standing?.ruleset === "RULES_2024"}
-          showBeastLayer={showBeastLayer}
-          onToggleLayer={setShowBeastLayer}
+          layer={beastLayer}
+          onLayerChange={setBeastLayer}
         />
       )}
 
@@ -221,6 +224,11 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
               </SwiperSlide>
             ))}
           </Swiper>
+          {beastLayer === "statblock" && beastForm ? (
+            <div className={cn("absolute inset-0 z-10 overflow-y-auto overscroll-contain bg-slate-950 px-3 pt-3", isEmbedded ? "pb-3" : "pb-16 md:pb-3")}>
+              <CreatureStatblockCard creature={buildBeastFormStatblock(beastForm.layer.creature, sheetPers)} is2024={beastForm.layer.context.ruleset === "RULES_2024"} rollName={pers.name} />
+            </div>
+          ) : null}
 
           {isEmbedded ? null : (<>
           <Button
@@ -256,6 +264,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
                 key={s.id}
                 type="button"
                 onClick={() => {
+                  if (beastLayer === "statblock") setBeastLayer("beast");
                   swiperRef.current?.slideToLoop(idx);
                 }}
                 className={

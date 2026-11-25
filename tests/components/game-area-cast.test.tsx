@@ -10,7 +10,8 @@ vi.hoisted(() => {
   Object.defineProperty(globalThis, "localStorage", { value: storage, configurable: true, writable: true });
   Object.defineProperty(window, "localStorage", { value: storage, configurable: true, writable: true });
 });
-const mocks = vi.hoisted(() => ({ listAreaSpellsAction: vi.fn(), undoSaveDamageAction: vi.fn() }));
+const mocks = vi.hoisted(() => ({ listAreaSpellsAction: vi.fn(), undoSaveDamageAction: vi.fn(), toastInfo: vi.fn() }));
+vi.mock("sonner", () => ({ toast: { info: mocks.toastInfo, error: vi.fn(), success: vi.fn() } }));
 vi.mock("@/lib/actions/game-area-spells", () => ({ listAreaSpellsAction: mocks.listAreaSpellsAction }));
 vi.mock("@/lib/actions/game-sessions", () => ({ undoSaveDamageAction: mocks.undoSaveDamageAction, undoRollDamageAction: vi.fn() }));
 vi.mock("@/lib/monitoring/game-analytics", () => ({ captureGameEvent: vi.fn() }));
@@ -23,6 +24,7 @@ import { openRoomRoll } from "@/lib/components/game/open-room-roll";
 import { resetLiveSession, useGameSessionLiveStore } from "@/lib/components/game/game-session-live-store";
 import { useDiceUIStore, type DiceRollContext } from "@/lib/stores/diceUIStore";
 import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
+import { buildCreatureSpellRollContext } from "@/lib/components/dice/roll-contexts";
 
 const fireball: DiceRollContext = {
   title: "Вогняна куля",
@@ -73,10 +75,15 @@ describe("каст заклинання з областю", () => {
     unregister();
   });
 
-  it("мапа без сітки зони не ставить: кидок піде звичайним прицілюванням по токену", async () => {
+  it("мапа без сітки зони не ставить: кидок піде звичайним прицілюванням по токену, а підказка каже чому", async () => {
     enterRoom();
     const unregister = registerReadyMapBoard(1, false);
     expect(await startAreaCast(fireball)).toBe(false);
+    openRoomRoll(fireball);
+    await waitFor(() => expect(mocks.toastInfo).toHaveBeenCalledWith(expect.stringContaining("«Вогняна куля»: на мапі без сітки"), expect.anything()));
+    openRoomRoll({ ...fireball, targetSave: undefined });
+    await Promise.resolve();
+    expect(mocks.toastInfo).toHaveBeenCalledTimes(1);
     unregister();
   });
 
@@ -87,6 +94,15 @@ describe("каст заклинання з областю", () => {
     expect(await startAreaCast(mindSpike)).toBe(false);
     expect(await startAreaCast({ ...fireball, targetSave: undefined })).toBe(false);
     expect(useAreaCastStore.getState().cast).toBeNull();
+    unregister();
+  });
+
+  it("заклинання істоти зі статблоку ставить зону так само, як із листа", async () => {
+    enterRoom();
+    const unregister = registerReadyMapBoard(1, true);
+    const plan = { attack: false, save: "DEX" as const, rolls: [{ key: "damage", label: "Шкода", count: 8, sides: 6, bonus: 0 }] };
+    openRoomRoll(buildCreatureSpellRollContext({ creatureName: "Маг", spellName: "Вогнекуля", plan, attackBonus: 6, saveDC: 14, spell: { engName: "Fireball", level: 3, ruleset: "RULES_2014" }, pressedKey: "damage" }));
+    await waitFor(() => expect(useAreaCastStore.getState().cast).toMatchObject({ area: { shape: "circle", sizeFeet: 20 }, roll: { title: "Маг", isCreatureRoll: true } }));
     unregister();
   });
 
