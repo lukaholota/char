@@ -7,6 +7,9 @@ const auth = vi.hoisted(() => ({ signIn: vi.fn() }));
 
 vi.mock("next-auth/react", () => ({ useSession: () => ({ data: null, status: "unauthenticated" }), signIn: auth.signIn }));
 vi.mock("next/navigation", () => ({ usePathname: () => window.location.pathname }));
+// Підказка для вбудованого браузера ліниво тягне схеми конструктора; справжні модулі довантажувались уже після кінця тесту й валили CI.
+vi.mock("@/lib/stores/persFormStore", () => ({ findLinkableDraft: () => null }));
+vi.mock("@/lib/utils/draft-link", () => ({ encodeDraftLink: () => null }));
 vi.mock("@/lib/monitoring/posthog-client", () => ({ capturePostHogEvent: vi.fn(), isPostHogEnabled: () => false, configurePostHogBootstrap: vi.fn(), registerPostHogSuperProperties: vi.fn(), findPostHogIds: () => ({ distinctId: null, sessionId: null }), flushPostHogOnExit: vi.fn() }));
 
 const THREADS_IOS = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Barcelona 337.0.0.22.95 (iPhone15,3; iOS 17_5; uk_UA; uk; scale=3.00; 1290x2796; 615203047)";
