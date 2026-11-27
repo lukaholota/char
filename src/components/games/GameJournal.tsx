@@ -25,7 +25,7 @@ const STATUS_TEXT: Partial<Record<GameConnectionStatus, string>> = {
 };
 
 function isCancellable(event: GameRollEventView): boolean {
-  return event.seq > 0 && event.source !== "MESSAGE" && !event.cancelsSeq && !event.isCancelled;
+  return event.seq > 0 && event.source !== "MESSAGE" && !event.cancelsSeq && !event.isCancelled && event.damageReview?.isPending !== false;
 }
 
 export function GameJournal({ myUserId, className }: { myUserId: number | null; className?: string }) {

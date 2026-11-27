@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Heart, Skull, Sword } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Skull } from "lucide-react";
+import { HitPointsEditor, type HitPointsEdit } from "@/components/ui/HitPointsEditor";
 import { cn } from "@/lib/utils";
-import { CREATURE_HIT_POINT_LIMIT, findHitPointBarTone, type CreatureHitPoints, type HitPointBarTone, type HitPointChange } from "@/rules/creature-hit-points";
+import { findHitPointBarTone, findHitPointChangesFromEdit, type CreatureHitPoints, type HitPointBarTone, type HitPointChange } from "@/rules/creature-hit-points";
 
 export type HitPointsControl = { value: CreatureHitPoints | null; onChange: (change: HitPointChange) => void };
 
@@ -32,54 +30,16 @@ export function DownBadge() {
 }
 
 export function MapCreatureHitPoints({ control }: { control: HitPointsControl }) {
-  const [draft, setDraft] = useState("");
-  const amount = Number(draft);
-  const isAmountValid = Number.isInteger(amount) && amount >= 1;
-  const submit = (kind: HitPointChange["kind"]) => {
-    if (!isAmountValid) return;
-    control.onChange({ kind, amount });
-    setDraft("");
-  };
   const { value } = control;
+  const apply = (edit: HitPointsEdit) => findHitPointChangesFromEdit(value, edit).forEach((change) => control.onChange(change));
   return (
     <section aria-label="Хіти" className="grid gap-2 rounded-xl border border-white/10 bg-slate-900/40 p-3">
       <div className="flex items-center justify-between gap-3">
         <span className="text-sm text-slate-400">Хіти</span>
-        {value ? (
-          <span className="font-mono text-lg text-slate-50">
-            {value.current} / {value.max}
-          </span>
-        ) : (
-          <span className="text-sm text-slate-400">не задано</span>
-        )}
+        {value ? null : <span className="text-sm text-slate-400">не задано — впишіть максимум</span>}
       </div>
       {value ? <HitPointBar hitPoints={value} /> : null}
-      <div className="flex flex-wrap items-center gap-2">
-        <Input
-          inputMode="numeric"
-          aria-label="Кількість хітів"
-          placeholder="Скільки"
-          value={draft}
-          maxLength={String(CREATURE_HIT_POINT_LIMIT).length}
-          onChange={(event) => setDraft(event.target.value.replace(/\D/g, ""))}
-          className="h-11 w-24"
-        />
-        {value ? (
-          <>
-            <Button type="button" variant="destructive" disabled={!isAmountValid} onClick={() => submit("damage")} className="h-11 gap-2">
-              <Sword className="h-4 w-4" aria-hidden />
-              Шкода
-            </Button>
-            <Button type="button" variant="secondary" disabled={!isAmountValid} onClick={() => submit("heal")} className="h-11 gap-2">
-              <Heart className="h-4 w-4" aria-hidden />
-              Лікування
-            </Button>
-          </>
-        ) : null}
-        <Button type="button" variant="outline" disabled={!isAmountValid} onClick={() => submit("set_max")} className="h-11">
-          Задати максимум
-        </Button>
-      </div>
+      <HitPointsEditor current={value?.current ?? null} max={value?.max ?? null} temp={value ? value.temp ?? 0 : undefined} onApply={apply} />
     </section>
   );
 }

@@ -3,10 +3,12 @@ import {
   applyHitPointChange,
   findCreatureHitPoints,
   findHitPointBarTone,
+  findHitPointChangesFromEdit,
   findHitPointChangesTo,
   isCreatureDown,
   parseHitPointChange,
   rollCreatureMaxHitPoints,
+  type CreatureHitPoints,
 } from "@/rules/creature-hit-points";
 
 const always = (value: number) => () => value;
@@ -86,5 +88,56 @@ describe("findHitPointChangesTo", () => {
     expect(replay({ current: 20, max: 30 }, { current: 2, max: 6 })).toEqual({ current: 2, max: 6 });
     expect(replay({ current: 0, max: 6 }, { current: 6, max: 6 })).toEqual({ current: 6, max: 6 });
     expect(findHitPointChangesTo({ current: 4, max: 9 }, { current: 4, max: 9 })).toEqual([]);
+  });
+});
+
+describe("тимчасові хіти істоти", () => {
+  const shielded = { current: 10, max: 12, temp: 5 };
+  const replay = (from: CreatureHitPoints, to: CreatureHitPoints) => findHitPointChangesTo(from, to).reduce<CreatureHitPoints | null>(applyHitPointChange, from);
+
+  it("шкода спершу знімає тимчасові, лікування їх не чіпає, максимум їх не обнуляє", () => {
+    expect(applyHitPointChange(shielded, { kind: "damage", amount: 3 })).toEqual({ current: 10, max: 12, temp: 2 });
+    expect(applyHitPointChange(shielded, { kind: "damage", amount: 8 })).toEqual({ current: 7, max: 12, temp: 0 });
+    expect(applyHitPointChange(shielded, { kind: "damage", amount: 99 })).toEqual({ current: 0, max: 12, temp: 0 });
+    expect(applyHitPointChange(shielded, { kind: "heal", amount: 9 })).toEqual({ current: 12, max: 12, temp: 5 });
+    expect(applyHitPointChange(shielded, { kind: "set_max", amount: 8 })).toEqual({ current: 8, max: 8, temp: 5 });
+    expect(applyHitPointChange(shielded, { kind: "set_temp", amount: 0 })).toEqual({ current: 10, max: 12, temp: 0 });
+    expect(applyHitPointChange(null, { kind: "set_temp", amount: 4 })).toBeNull();
+  });
+
+  it("обнулити тимчасові можна, а відʼємні чи дробові — ні", () => {
+    expect(parseHitPointChange({ kind: "set_temp", amount: 0 })).toEqual({ kind: "set_temp", amount: 0 });
+    expect(parseHitPointChange({ kind: "damage", amount: 0 })).toBeNull();
+    expect(parseHitPointChange({ kind: "set_temp", amount: -1 })).toBeNull();
+    expect(parseHitPointChange({ kind: "set_temp", amount: 2.5 })).toBeNull();
+  });
+
+  it("скасування повертає і поточні, і тимчасові рівно до попередніх", () => {
+    const states: CreatureHitPoints[] = [shielded, { current: 7, max: 12, temp: 0 }, { current: 12, max: 12, temp: 3 }, { current: 4, max: 12, temp: 6 }, { current: 4, max: 8, temp: 0 }];
+    for (const from of states) for (const to of states) expect(replay(from, to)).toEqual(to);
+  });
+
+  it("правка з панелі задає тимчасові поряд з поточними", () => {
+    expect(findHitPointChangesFromEdit(shielded, { temp: 0 }).reduce<CreatureHitPoints | null>(applyHitPointChange, shielded)).toEqual({ current: 10, max: 12, temp: 0 });
+    expect(findHitPointChangesFromEdit(shielded, { current: 6, temp: 8 }).reduce<CreatureHitPoints | null>(applyHitPointChange, shielded)).toEqual({ current: 6, max: 12, temp: 8 });
+    expect(findHitPointChangesFromEdit(shielded, { damage: 7 }).reduce<CreatureHitPoints | null>(applyHitPointChange, shielded)).toEqual({ current: 8, max: 12, temp: 0 });
+  });
+});
+
+describe("правка хітів з панелі", () => {
+  const wounded = { current: 7, max: 10 };
+  const applyAll = (edit: Parameters<typeof findHitPointChangesFromEdit>[1]) => findHitPointChangesFromEdit(wounded, edit).reduce<CreatureHitPoints | null>(applyHitPointChange, wounded);
+
+  it("нові числа стають рівно такими, шкода й лікування йдуть поверх них", () => {
+    expect(applyAll({ current: 3 })).toEqual({ current: 3, max: 10 });
+    expect(applyAll({ max: 20, current: 15 })).toEqual({ current: 15, max: 20 });
+    expect(applyAll({ max: 5 })).toEqual({ current: 5, max: 5 });
+    expect(applyAll({ current: 9, damage: 4, heal: 1 })).toEqual({ current: 6, max: 10 });
+    expect(findHitPointChangesFromEdit(wounded, {})).toEqual([]);
+  });
+
+  it("без хітів задається лише максимум", () => {
+    expect(findHitPointChangesFromEdit(null, { max: 12, damage: 3 })).toEqual([{ kind: "set_max", amount: 12 }]);
+    expect(findHitPointChangesFromEdit(null, { damage: 3 })).toEqual([]);
   });
 });

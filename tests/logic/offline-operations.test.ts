@@ -55,6 +55,13 @@ describe("KR22.6 — локальне застосування офлайн-оп
     expect(next.tempHp).toBe(5);
   });
 
+  it("задані поточні й тимчасові хіти стають рівно такими, поточні — не вищі за максимум", () => {
+    expect(applyOfflineOperation(BASE, operation({ kind: "hp", mode: "set-current", amount: 7 }))).toMatchObject({ currentHp: 7, tempHp: 5 });
+    expect(applyOfflineOperation(BASE, operation({ kind: "hp", mode: "set-current", amount: 99 })).currentHp).toBe(30);
+    expect(applyOfflineOperation(BASE, operation({ kind: "hp", mode: "set-temp", amount: 2 })).tempHp).toBe(2);
+    expect(isOfflineOperation(operation({ kind: "hp", mode: "set-temp", amount: 2 }))).toBe(true);
+  });
+
   it("падіння до нуля лишає кидки смерті, підйом вище нуля їх скидає", () => {
     const downed = applyOfflineOperation(BASE, operation({ kind: "hp", mode: "damage", amount: 40 }));
     expect(downed).toMatchObject({ currentHp: 0, deathSaveSuccesses: 1, deathSaveFailures: 1 });

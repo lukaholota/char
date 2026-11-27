@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { calculateWeaponAttackBonus, calculateWeaponDamageBonus, calculateWeaponDamageDice, findWeaponDamageType, findWeaponRange } from "@/lib/logic/bonus-calculator";
-import { hasManualWeaponBonus, listWeaponExtraBonusParts, listWeaponExtraDice, listWeaponMagicItems } from "@/lib/logic/magic-weapon-links";
+import { hasManualWeaponBonus, listMagicItemsCardLinks, listWeaponExtraBonusParts, listWeaponExtraDice, listWeaponMagicItems } from "@/lib/logic/magic-weapon-links";
 import { buildPersWithItems } from "./magic-item-pers-fixture";
 import { buildExtraDamage, toExtraDamageDrafts } from "@/rules/weapon-profile";
 
@@ -63,6 +63,11 @@ describe("магічна зброя, привʼязана до рядка збр
 
 describe("хомбрю-зброя з профілем", () => {
   const COMPOUND_BOW = { engName: "Блочний лук", requiresAttunement: false, isMundane: true, description: "", persWeaponId: 7, weaponProfile: { attackAbility: "DEX", damage: "1к10+СПР", damageType: "PIERCING", extraDamage: [{ count: 1, sides: 4, damageType: "FIRE" }], normalRange: 150, longRange: 600 } };
+
+  it("у магічних предметах звичайна зброя з рядком не дублюється; магічна чи без рядка — лишається", () => {
+    const names = (pers: ReturnType<typeof withItems>) => listMagicItemsCardLinks(pers).map((link) => link.magicItem.engName);
+    expect(names(withItems([COMPOUND_BOW, { ...COMPOUND_BOW, engName: "Лук без рядка", persWeaponId: null }, { ...PLUS_TWO, persWeaponId: 7 }]))).toEqual(["Лук без рядка", "Weapon +2"]);
+  });
 
   it("рахує формули з листа й профілю кожного разу за модифікаторами героя", () => {
     const own = buildExtraDamage([{ dice: "1к4+СИЛ", damageType: "BLUDGEONING" }]);

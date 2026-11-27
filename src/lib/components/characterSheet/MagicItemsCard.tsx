@@ -23,6 +23,7 @@ import { describePotionDrink } from "@/lib/logic/potion-drink-text";
 import { isDrinkableMagicItem } from "@/rules/potions";
 import { findMagicWeaponTraits } from "@/rules/magic-weapons";
 import { findPersWeaponName } from "@/lib/logic/weapon-name";
+import { listMagicItemsCardLinks } from "@/lib/logic/magic-weapon-links";
 import { MagicWeaponLinkPanel } from "./MagicWeaponLinkPanel";
 import { PersHouseRulesDialog } from "./PersHouseRulesDialog";
 import { MagicItemSpellUsePanel } from "./MagicItemSpellUsePanel";
@@ -37,7 +38,7 @@ export function MagicItemsCard({ pers, isReadOnly }: { pers: PersWithRelations; 
   const [removingIds, setRemovingIds] = useState<Set<number>>(() => new Set());
   const [isPending, startTransition] = useTransition();
 
-  const magicItems = pers.magicItems ?? [];
+  const magicItems = listMagicItemsCardLinks(pers);
   const attunedCount = magicItems.filter((pmi) => pmi.isAttuned).length;
   const attunementCapacity = useMemo(() => findAttunementCapacityForPers(pers, findPersHouseRules(pers).attunementLimit), [pers]);
   const selected = magicItems.find((pmi) => pmi.persMagicItemId === selectedLinkId) ?? null;

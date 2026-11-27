@@ -258,7 +258,7 @@ function describeDamagePart(part: DamagePart): string {
   return name ? `${sum} (${name})` : sum;
 }
 
-const DEFENSE_LABELS: Record<DamageDefense, string> = { immune: "імунітет", resistant: "опір", vulnerable: "вразливість" };
+export const DEFENSE_LABELS: Record<DamageDefense, string> = { immune: "імунітет", resistant: "опір", vulnerable: "вразливість" };
 
 /// «опір (вогняна) 8 → 4»: назви типів бувають і в орудному («отрутою»), тож тип — у дужках, як у підписі шкоди.
 /// Ряткидок числа частин не зберігає, тоді лише захист і тип.

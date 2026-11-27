@@ -1668,6 +1668,7 @@ model GameMapCreature {
   customImage        UserTokenImage?    @relation(fields: [customImageKey], references: [imageKey], onUpdate: NoAction)
   borderColor        String?            @map("border_color") @db.VarChar(5)
   controllerMemberId Int?               @map("controller_member_id")
+  hpTemp             Int                @default(0) @map("hp_temp") @db.SmallInt
   controller         GameSessionMember? @relation(fields: [controllerMemberId], references: [id], onUpdate: NoAction)
   scene              GameScene?         @relation(fields: [gameSceneId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   gameSession        GameSession        @relation(fields: [gameSessionId], references: [id], onDelete: Cascade, onUpdate: NoAction)

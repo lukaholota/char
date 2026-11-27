@@ -154,7 +154,7 @@ function buildView(overrides: Partial<GameSessionView> = {}): GameSessionView {
     drawings: [],
     objects: [],
     walls: [],
-    lighting: "off", darkvisionLook: "grey", houseRules: { attunementLimit: null, magicSystem: null, damageTypes: [] }, lights: [], atmosphere: DEFAULT_ATMOSPHERE, ambience: [], floors: [], shownFloor: null,
+    lighting: "off", darkvisionLook: "grey", houseRules: { attunementLimit: null, magicSystem: null, damageTypes: [], isDamageConfirmedByGm: true }, lights: [], atmosphere: DEFAULT_ATMOSPHERE, ambience: [], floors: [], shownFloor: null,
     viewedSceneId: 1,
     activeSceneId: null,
     scenes: [],
@@ -495,7 +495,7 @@ describe("мапа кімнати", () => {
     const card = screen.getByRole("dialog", { name: "Гоблін 2" });
     expect(within(card).queryByRole("combobox", { name: "Керує" })).toBeNull();
     expect(within(card).queryByRole("button", { name: "Прибрати з мапи" })).toBeNull();
-    expect(within(card).getByRole("button", { name: /Лікування/ })).toBeTruthy();
+    expect(within(card).getByLabelText("Лікування")).toBeTruthy();
   });
 
   it("майстер обводить мишею героя й істот рамкою, тягне одну — уся група переїжджає одним запитом; дотик по мапі знімає вибір", () => {
@@ -655,25 +655,32 @@ describe("мапа кімнати", () => {
 
     const statblock = screen.getByRole("dialog", { name: "Гоблін 1" });
     const hitPoints = within(statblock).getByRole("region", { name: "Хіти" });
-    expect(within(hitPoints).getByText("7 / 10")).toBeTruthy();
-    expect(within(hitPoints).getByRole("button", { name: "Шкода" }).hasAttribute("disabled")).toBe(true);
+    const currentField = () => within(hitPoints).getByLabelText<HTMLInputElement>("Поточні хіти");
+    const applyButton = within(hitPoints).getByRole("button", { name: "Застосувати" });
+    expect([currentField().value, within(hitPoints).getByLabelText<HTMLInputElement>("Максимум хітів").value]).toEqual(["7", "10"]);
+    expect(applyButton.hasAttribute("disabled")).toBe(true);
 
-    fireEvent.change(within(hitPoints).getByLabelText("Кількість хітів"), { target: { value: "4" } });
-    fireEvent.click(within(hitPoints).getByRole("button", { name: "Шкода" }));
+    fireEvent.change(within(hitPoints).getByLabelText("Шкода"), { target: { value: "4" } });
+    fireEvent.click(applyButton);
     expect(mocks.changeMapCreatureHitPointsAction).toHaveBeenCalledWith(9, 81, { kind: "damage", amount: 4 });
-    expect(await within(statblock).findByText("3 / 10")).toBeTruthy();
+    await waitFor(() => expect(currentField().value).toBe("3"));
 
-    fireEvent.change(within(hitPoints).getByLabelText("Кількість хітів"), { target: { value: "50" } });
-    fireEvent.click(within(hitPoints).getByRole("button", { name: "Шкода" }));
-    expect(await within(statblock).findByText("0 / 10")).toBeTruthy();
+    fireEvent.change(within(hitPoints).getByLabelText("Шкода"), { target: { value: "50" } });
+    fireEvent.submit(currentField().form!);
+    await waitFor(() => expect(currentField().value).toBe("0"));
     expect(within(statblock).getAllByText("Повалений")).toHaveLength(2);
     expect(mocks.changeMapCreatureHitPointsAction).toHaveBeenLastCalledWith(9, 81, { kind: "damage", amount: 50 });
     expect(within(map).getByRole("button", { name: /хіти 0 з 10, повалений/, hidden: true })).toBeTruthy();
 
-    fireEvent.change(within(hitPoints).getByLabelText("Кількість хітів"), { target: { value: "6" } });
-    fireEvent.click(within(hitPoints).getByRole("button", { name: "Лікування" }));
+    fireEvent.change(within(hitPoints).getByLabelText("Лікування"), { target: { value: "6" } });
+    fireEvent.click(applyButton);
     expect(mocks.changeMapCreatureHitPointsAction).toHaveBeenLastCalledWith(9, 81, { kind: "heal", amount: 6 });
-    expect(await within(statblock).findByText("6 / 10")).toBeTruthy();
+    await waitFor(() => expect(currentField().value).toBe("6"));
+
+    fireEvent.change(currentField(), { target: { value: "9" } });
+    fireEvent.submit(currentField().form!);
+    expect(mocks.changeMapCreatureHitPointsAction).toHaveBeenLastCalledWith(9, 81, { kind: "heal", amount: 3 });
+    await waitFor(() => expect(currentField().value).toBe("9"));
   });
 
   it("помилка сервера повертає хіти назад і показує причину; без хітів у статблоку їх лише задають", async () => {
@@ -681,20 +688,21 @@ describe("мапа кімнати", () => {
     render(<GameRoomMap view={gmView({ id: 9, creatures: [{ ...goblin(82, 1, { x: 0.5, y: 0.5 }), hitPoints: { current: 7, max: 10 } }] })} />);
     tapTwice(within(placeMap()).getByRole("button", { name: /«Гоблін 1»/ }));
     const hitPoints = within(screen.getByRole("dialog", { name: "Гоблін 1" })).getByRole("region", { name: "Хіти" });
-    fireEvent.change(within(hitPoints).getByLabelText("Кількість хітів"), { target: { value: "4" } });
-    fireEvent.click(within(hitPoints).getByRole("button", { name: "Шкода" }));
-    expect(await within(hitPoints).findByText("7 / 10")).toBeTruthy();
+    fireEvent.change(within(hitPoints).getByLabelText("Шкода"), { target: { value: "4" } });
+    fireEvent.click(within(hitPoints).getByRole("button", { name: "Застосувати" }));
+    await waitFor(() => expect(mocks.changeMapCreatureHitPointsAction).toHaveBeenCalled());
+    await waitFor(() => expect(within(hitPoints).getByLabelText<HTMLInputElement>("Поточні хіти").value).toBe("7"));
     cleanup();
 
     render(<GameRoomMap view={gmView({ id: 9, creatures: [goblin(83, 1, { x: 0.5, y: 0.5 })] })} />);
     tapTwice(within(placeMap()).getByRole("button", { name: /«Гоблін 1»/ }));
     const unset = within(screen.getByRole("dialog", { name: "Гоблін 1" })).getByRole("region", { name: "Хіти" });
-    expect(within(unset).getByText("не задано")).toBeTruthy();
-    expect(within(unset).queryByRole("button", { name: "Шкода" })).toBeNull();
-    fireEvent.change(within(unset).getByLabelText("Кількість хітів"), { target: { value: "12" } });
-    fireEvent.click(within(unset).getByRole("button", { name: "Задати максимум" }));
+    expect(within(unset).getByText(/не задано/)).toBeTruthy();
+    expect(within(unset).getByLabelText("Шкода").hasAttribute("disabled")).toBe(true);
+    fireEvent.change(within(unset).getByLabelText("Максимум хітів"), { target: { value: "12" } });
+    fireEvent.click(within(unset).getByRole("button", { name: "Застосувати" }));
     expect(mocks.changeMapCreatureHitPointsAction).toHaveBeenLastCalledWith(9, 83, { kind: "set_max", amount: 12 });
-    expect(await within(unset).findByText("12 / 12")).toBeTruthy();
+    await waitFor(() => expect(within(unset).getByLabelText<HTMLInputElement>("Поточні хіти").value).toBe("12"));
   });
 
   it("гравець не бачить ні хітів, ні блоку хітів, але бачить повалену істоту", () => {
@@ -1442,8 +1450,8 @@ describe("інструменти мапи на весь екран", () => {
     tapTwice(within(dialog).getByRole("button", { name: /«Гоблін 1»/ }));
     const statblock = screen.getByRole("dialog", { name: "Гоблін 1" });
     const hitPoints = within(statblock).getByRole("region", { name: "Хіти" });
-    fireEvent.change(within(hitPoints).getByLabelText("Кількість хітів"), { target: { value: "50" } });
-    await act(async () => fireEvent.click(within(hitPoints).getByRole("button", { name: "Шкода" })));
+    fireEvent.change(within(hitPoints).getByLabelText("Шкода"), { target: { value: "50" } });
+    await act(async () => fireEvent.click(within(hitPoints).getByRole("button", { name: "Застосувати" })));
     await undo();
     expect(mocks.changeMapCreatureHitPointsAction).toHaveBeenLastCalledWith(7, 81, { kind: "heal", amount: 7 });
 
@@ -1848,7 +1856,7 @@ describe("поворот і розмір токена на мапі", () => {
     tap(within(map).getByRole("button", { name: /Токен «Гоблін 2»/ }));
     expect(screen.queryByRole("dialog", { name: "Гоблін 2" })).toBeNull();
     const panel = within(slot).getByRole("region", { name: "Гоблін 2" });
-    expect(within(panel).getByRole("button", { name: /Лікування/ })).toBeTruthy();
+    expect(within(panel).getByLabelText("Лікування")).toBeTruthy();
     expect(within(panel).queryByRole("combobox", { name: "Керує" })).toBeNull();
     fireEvent.click(within(panel).getByRole("button", { name: "Закрити інструмент" }));
     expect(within(slot).queryByRole("region", { name: "Гоблін 2" })).toBeNull();

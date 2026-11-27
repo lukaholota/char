@@ -18,7 +18,7 @@ export type GameRollSavesRequest = { creatureIds: number[]; persIds: number[]; s
 
 /// Рядок героя хітів не знімає: їх знімає гравець на своєму листі, тож hpChange там завжди null.
 /// isConditionAdded — провал справді додав стан (його не було), тож скасування його зніме.
-export type StoredSaveRow = CreatureSaveResult & { creatureId?: number; persId?: number; name: string; hpBefore: number | null; hpChange: number | null; isUndone: boolean; isAppliedToSheet?: boolean; isConditionAdded?: boolean };
+export type StoredSaveRow = CreatureSaveResult & { creatureId?: number; persId?: number; name: string; hpBefore: number | null; hpChange: number | null; tempHpChange?: number; isUndone: boolean; isAppliedToSheet?: boolean; isConditionAdded?: boolean };
 export type StoredSaves = { ability: AbilityKey; dc: number; damageType: DamageType | null; secondDamageType?: DamageType; isHalfOnSave: boolean; condition?: RuleConditionKey; rows: StoredSaveRow[] };
 
 export type GameRollSaveRowView = {
@@ -104,7 +104,7 @@ export function buildGameRollSavesView(saves: StoredSaves | undefined, viewer: {
             isAutoFail: row.isAutoFail,
             hitPointsBefore: row.hpBefore,
             hitPointsAfter: row.hpBefore !== null && row.hpChange !== null ? row.hpBefore - row.hpChange : null,
-            canUndo: ((row.hpChange ?? 0) > 0 || Boolean(row.isConditionAdded)) && !row.isUndone,
+            canUndo: ((row.hpChange ?? 0) > 0 || (row.tempHpChange ?? 0) > 0 || Boolean(row.isConditionAdded)) && !row.isUndone,
             isUndone: row.isUndone,
           }
         : null,

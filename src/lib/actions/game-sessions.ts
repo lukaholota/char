@@ -18,7 +18,7 @@ import { isId, rejectBadInput, runAsUser, tooFast } from "@/server/game-sessions
 import { activateGameScene, createGameScene, deleteGameScene, moveGameToken, moveMapTokens, openGameScene, renameGameScene, replaceGameSceneMap, transformHeroToken } from "@/server/db/game-scenes";
 import { changeCreatureConditions, changeHeroConditions, clearBlessedMarks, markBlessedTargets } from "@/server/db/game-conditions";
 import { parseRollTargets } from "@/rules/map-target-picks";
-import { cancelGameRoll, insertJournalMessage, undoRollDamage } from "@/server/db/game-roll-events";
+import { cancelGameRoll, confirmRollDamage, insertJournalMessage, undoRollDamage } from "@/server/db/game-roll-events";
 import { parseJournalMessage } from "@/rules/game-roll";
 import { tryTakeRollSlot, tryTakeTokenMoveSlot } from "@/server/game-sessions/game-session-limits";
 import { MAX_SAVE_TARGETS } from "@/rules/game-roll-saves";
@@ -322,6 +322,10 @@ export async function undoRollDamageAction(sessionId: number, eventSeq: number) 
 
 export async function cancelGameRollAction(sessionId: number, eventSeq: number) {
   return runAsUser(async (userId) => (isId(sessionId) && isId(eventSeq) ? cancelGameRoll(sessionId, userId, eventSeq) : rejectBadInput));
+}
+
+export async function confirmRollDamageAction(sessionId: number, eventSeq: number, choices: unknown) {
+  return runAsUser(async (userId) => (isId(sessionId) && isId(eventSeq) ? confirmRollDamage(sessionId, userId, eventSeq, choices) : rejectBadInput));
 }
 
 export async function undoSaveDamageAction(sessionId: number, eventSeq: number, rowIndex: number) {

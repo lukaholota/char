@@ -11,6 +11,10 @@ import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { findActionRollKind } from "@/lib/components/game/build-game-roll";
 import { TOKEN_CONDITION_LABELS } from "@/rules/token-conditions";
 import { AddedDamageDice } from "./AddedDamageDice";
+import { Switch } from "@/components/ui/switch";
+import { useGameSessionStore } from "@/lib/stores/gameSessionStore";
+import { captureGameEvent } from "@/lib/monitoring/game-analytics";
+import { isAttackWithDamage, useAutoDamageAfterAttack, useCloseTrayAfterDamage } from "./useAutoDamage";
 
 type Props = {
   context: DiceRollContext;
@@ -41,6 +45,12 @@ export function DiceRollPanel({ context, activeActionKey, isReady, isRolling, ou
     clearRollVerdict();
     setAddedAction(null);
   }, [context]);
+  const rollDamage = (action: DiceRollAction) => {
+    setAddedAction(action);
+    onRoll(action, "NORMAL");
+  };
+  useAutoDamageAfterAttack({ context, activeAction, outcome, isRolling }, rollDamage);
+  useCloseTrayAfterDamage({ context, activeAction, outcome, isRolling });
   return (
     <div className="space-y-3 px-4">
       {context.actions.length > 1 ? (
@@ -87,18 +97,27 @@ export function DiceRollPanel({ context, activeActionKey, isReady, isRolling, ou
               );
             })}
           </div>
-          {!context.targetSave && findActionRollKind(context, activeAction) === "damage" ? (
-            <AddedDamageDice
-              disabled={!canRoll}
-              onRoll={(action) => {
-                setAddedAction(action);
-                onRoll(action, "NORMAL");
-              }}
-            />
-          ) : null}
+          {!context.targetSave && findActionRollKind(context, activeAction) === "damage" ? <AddedDamageDice disabled={!canRoll} onRoll={rollDamage} /> : null}
+          {isAttackWithDamage(context) ? <AutoDamageSwitch /> : null}
         </>
       )}
     </div>
+  );
+}
+
+function AutoDamageSwitch() {
+  const isInRoom = useGameSessionStore((state) => state.active !== null);
+  const isOn = useGameSessionStore((state) => state.isDamageAutoRolled);
+  if (!isInRoom) return null;
+  const toggle = (isDamageAutoRolled: boolean) => {
+    useGameSessionStore.setState({ isDamageAutoRolled });
+    captureGameEvent("game_damage_auto_toggled", { is_on: isDamageAutoRolled });
+  };
+  return (
+    <label className="flex min-h-11 cursor-pointer items-center justify-between gap-3 text-sm text-slate-300">
+      Шкода сама після влучання
+      <Switch checked={isOn} onCheckedChange={toggle} />
+    </label>
   );
 }
 

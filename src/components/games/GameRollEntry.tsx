@@ -10,6 +10,7 @@ import type { GameRollEventView } from "@/server/db/game-roll-events";
 import type { GameSessionMemberView } from "@/server/db/game-sessions";
 import { describeDamageByType } from "@/lib/components/dice/roll-contexts";
 import { GameAvatar } from "./GameAvatar";
+import { GameRollDamageReviewLine } from "./GameRollDamageReviewLine";
 import { GameRollCancelButton, GameRollCancelConfirm } from "./GameRollCancel";
 import { GameRollHeroTargetLine } from "./GameRollHeroTargetLine";
 import { GameRollSavesList } from "./GameRollSavesList";
@@ -30,9 +31,10 @@ export function GameRollEntry({ event, isMine, isNew, canCancel = false }: { eve
           <div className={cn("break-words text-sm text-slate-100", event.source === "MESSAGE" ? "whitespace-pre-line" : "font-semibold", event.isCancelled && "line-through")}>{event.label}</div>
           {event.restoredHeroes?.length ? <p className="mt-0.5 text-xs text-slate-300 tabular-nums">Хіти повернуто: {event.restoredHeroes.map((hero) => `${hero.name} ${hero.kind === "heal" ? "+" : "−"}${hero.amount}`).join(" · ")}</p> : null}
           {event.roll?.groups.length ? <RollDetails roll={event.roll} /> : null}
-          {event.target ? <GameRollTargetLine target={event.target} seq={event.seq} /> : null}
+          {event.damageReview ? <GameRollDamageReviewLine event={event} /> : null}
+          {event.target && !event.damageReview ? <GameRollTargetLine target={event.target} seq={event.seq} /> : null}
           {event.saves ? <GameRollSavesList saves={event.saves} seq={event.seq} /> : null}
-          {event.heroTarget ? <GameRollHeroTargetLine target={event.heroTarget} roll={event.roll} total={event.total} seq={event.seq} /> : null}
+          {event.heroTarget && !event.damageReview ? <GameRollHeroTargetLine target={event.heroTarget} roll={event.roll} total={event.total} seq={event.seq} /> : null}
         </div>
         <div className="flex shrink-0 flex-col items-end">
           {event.source === "MESSAGE" || (event.roll && !hasRollResult(event.roll)) ? null : <div className={cn("text-2xl font-bold tabular-nums text-slate-50", event.isCancelled && "text-slate-400 line-through")} aria-label={event.total === null ? "Результат прихований" : `Разом ${event.total}`}>{event.total ?? "?"}</div>}

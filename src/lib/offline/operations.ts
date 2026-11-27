@@ -71,7 +71,7 @@ export type FeatureUseDirection = "spend" | "restore";
 
 export type OfflineOperation =
   | (OfflineOperationBase & { kind: "details"; patch: OfflineDetailsPatch })
-  | (OfflineOperationBase & { kind: "hp"; mode: "damage" | "heal" | "temp"; amount: number })
+  | (OfflineOperationBase & { kind: "hp"; mode: HpMode; amount: number })
   | (OfflineOperationBase & { kind: "death-saves"; successes: number; failures: number })
   | (OfflineOperationBase & { kind: "spend-spell-slot"; slotLevel: number })
   | (OfflineOperationBase & { kind: "restore-spell-slot"; slotLevel: number })
@@ -177,7 +177,10 @@ export function applyOfflineOperation<T extends OfflinePersState>(pers: T, opera
   }
 }
 
-function applyHpChange<T extends OfflinePersState>(pers: T, mode: "damage" | "heal" | "temp", rawAmount: number): T {
+export type HpMode = "damage" | "heal" | "temp" | "set-current" | "set-temp";
+export const HP_MODES: readonly HpMode[] = ["damage", "heal", "temp", "set-current", "set-temp"];
+
+function applyHpChange<T extends OfflinePersState>(pers: T, mode: HpMode, rawAmount: number): T {
   const amount = clampInteger(rawAmount, 0);
   const maxHp = Math.max(1, clampInteger(pers.maxHp, 1));
   let currentHp = clampInteger(pers.currentHp, 0);
@@ -189,6 +192,10 @@ function applyHpChange<T extends OfflinePersState>(pers: T, mode: "damage" | "he
     currentHp = Math.max(0, currentHp - (amount - absorbed));
   } else if (mode === "heal") {
     currentHp = Math.min(maxHp, currentHp + amount);
+  } else if (mode === "set-current") {
+    currentHp = Math.min(maxHp, amount);
+  } else if (mode === "set-temp") {
+    tempHp = amount;
   } else {
     tempHp = Math.max(tempHp, amount);
   }
@@ -346,7 +353,7 @@ export function isOfflineOperation(value: unknown): value is OfflineOperation {
     case "details":
       return Boolean(operation.patch) && typeof operation.patch === "object" && !Array.isArray(operation.patch);
     case "hp":
-      return ["damage", "heal", "temp"].includes(String(operation.mode)) && Number.isFinite(operation.amount);
+      return HP_MODES.includes(operation.mode as HpMode) && Number.isFinite(operation.amount);
     case "death-saves":
       return Number.isFinite(operation.successes) && Number.isFinite(operation.failures);
     case "spend-spell-slot":

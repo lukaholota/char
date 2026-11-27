@@ -7,11 +7,13 @@ import { buildGameRollSavesView, splitSaveDamage, type GameRollSavesDraft, type 
 import { buildGameRollTargetView, type GameRollTargetDraft, type GameRollTargetView } from "@/rules/game-roll-target";
 import { findAttackHit } from "@/rules/game-roll-target";
 import type { DamageDefenseNote } from "@/rules/damage-parts";
+import { applyDamageReviewChoices, parseDamageReviewChoices, resolveReviewedDamage, type DamageReview } from "@/rules/damage-review";
+import { parseCampaignHouseRules } from "@/rules/house-rules";
 import { takeRolledInitiative } from "@/server/db/game-combat";
-import { changeHeroTargetHitPoints, damageHeroSaveRows, revertHeroHitPoints, type RestoredHero } from "@/server/db/game-hero-damage";
+import { applyReviewedHeroDamage, buildHeroDamageReviewParts, changeHeroTargetHitPoints, damageHeroSaveRows, revertHeroHitPoints, type RestoredHero } from "@/server/db/game-hero-damage";
 import { findRoomHeroes, type RoomHero } from "@/server/db/game-room-heroes";
 import { findCreatureCommand } from "@/server/db/game-map-creatures";
-import { applyRollTarget, applySaveTargets, revertRollDamage, revertSaveDamage } from "@/server/db/game-roll-target";
+import { applyReviewedCreatureDamage, applyRollTarget, applySaveTargets, revertRollDamage, revertSaveDamage } from "@/server/db/game-roll-target";
 import { buildAvatarUrl, buildMemberName, findActiveGmSession, GAME_SESSION_SIGNAL_CHANNEL, isBindablePers, signalGameSession, type GameSessionResult } from "@/server/db/game-sessions";
 
 export type GameRollEventView = {
@@ -33,6 +35,9 @@ export type GameRollEventView = {
   isCancelled?: true;
   cancelsSeq?: number;
   restoredHeroes?: RestoredHero[];
+  /// Рядки шкоди бачить лише майстер: захисти цілі зі статблоку гравцям не показуємо.
+  damageReview?: DamageReview;
+  confirmsSeq?: number;
 };
 
 export type GameRollDraft = {
@@ -79,11 +84,12 @@ const EVENT_SELECT = {
 type EventRow = Prisma.GameRollEventGetPayload<{ select: typeof EVENT_SELECT }>;
 /// targetDamage — шкода по істоті після її опорів; heroTarget тримає свою.
 /// isCancelled — майстер скасував кидок; cancelsSeq і restoredHeroes — у самої події скасування.
-type StoredRoll = GameRoll & { saves?: StoredSaves; heroTarget?: StoredHeroTarget; targetDamage?: { damage: number; damageDefenses: DamageDefenseNote[] }; isCancelled?: true; cancelsSeq?: number; restoredHeroes?: RestoredHero[] };
+/// damageReview — шкода гравця чекала майстра; confirmsSeq — у події, якою майстер її наніс.
+type StoredRoll = GameRoll & { saves?: StoredSaves; heroTarget?: StoredHeroTarget; targetDamage?: { damage: number; damageDefenses: DamageDefenseNote[]; tempHpChange?: number }; isCancelled?: true; cancelsSeq?: number; restoredHeroes?: RestoredHero[]; damageReview?: DamageReview; confirmsSeq?: number };
 
 function toEventView(row: EventRow, viewer: GameRollViewer): GameRollEventView {
   const visibility = row.visibility as GameRollVisibility;
-  const { saves, heroTarget, targetDamage, isCancelled, cancelsSeq, restoredHeroes, ...roll } = row.roll as StoredRoll;
+  const { saves, heroTarget, targetDamage, isCancelled, cancelsSeq, restoredHeroes, damageReview, confirmsSeq, ...roll } = row.roll as StoredRoll;
   const hasValues = canSeeGameRollValues(visibility, viewer);
   return {
     seq: Number(row.seq),
@@ -104,6 +110,8 @@ function toEventView(row: EventRow, viewer: GameRollViewer): GameRollEventView {
     ...(isCancelled ? { isCancelled } : {}),
     ...(cancelsSeq ? { cancelsSeq } : {}),
     ...(hasValues && restoredHeroes?.length ? { restoredHeroes } : {}),
+    ...(damageReview ? { damageReview: viewer.isGm ? damageReview : { parts: [], isPending: damageReview.isPending } } : {}),
+    ...(confirmsSeq ? { confirmsSeq } : {}),
   };
 }
 
@@ -145,8 +153,8 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
   if (!author.value.isGm && isGmOnlyRoll(draft) && !(await isOwnCreatureRoll(sessionId, authorUserId, draft))) return { ok: false, error: "forbidden" };
   const heroes = await findRoomHeroes(sessionId, [...(draft.saves?.persIds ?? []), ...(draft.heroTarget ? [draft.heroTarget.persId] : [])]);
   return prisma.$transaction(async (tx) => {
-    const [session] = await tx.$queryRaw<{ last_event_seq: bigint; archived_at: Date | null }[]>`
-      SELECT last_event_seq, archived_at FROM game_session WHERE game_session_id = ${sessionId} FOR UPDATE`;
+    const [session] = await tx.$queryRaw<{ last_event_seq: bigint; archived_at: Date | null; house_rules: unknown }[]>`
+      SELECT last_event_seq, archived_at, house_rules FROM game_session WHERE game_session_id = ${sessionId} FOR UPDATE`;
     if (!session) return { ok: false as const, error: "not_found" as const };
     const existing = await tx.gameRollEvent.findUnique({
       where: { gameSessionId_authorUserId_idempotencyKey: { gameSessionId: sessionId, authorUserId, idempotencyKey: draft.idempotencyKey } },
@@ -156,13 +164,18 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
     if (session.archived_at) return { ok: false as const, error: "archived" as const };
     const isStillMember = await tx.gameSessionMember.count({ where: { gameSessionId: sessionId, userId: authorUserId } });
     if (!isStillMember) return { ok: false as const, error: "forbidden" as const };
-    const effect = draft.target ? await applyRollTarget(tx, sessionId, draft.target, draft.roll) : { ok: true as const, value: null };
+    const isReviewed = !author.value.isGm && draft.visibility !== "SELF" && isDamageAtTarget(draft) && parseCampaignHouseRules(session.house_rules).isDamageConfirmedByGm;
+    const effect = draft.target ? await applyRollTarget(tx, sessionId, draft.target, draft.roll, isReviewed) : { ok: true as const, value: null };
     if (!effect.ok) return effect;
     const seq = session.last_event_seq + BigInt(1);
     const rolledSaves = draft.saves ? await applySaveTargets(tx, sessionId, draft.saves, splitSaveDamage(draft.roll, draft.saves.effect), heroes) : null;
     const saves = await damageHeroSaveRows(tx, sessionId, Number(seq), rolledSaves, heroes);
-    const heroTarget = await changeHeroTargetHitPoints(tx, sessionId, Number(seq), draft.heroTarget ? buildHeroTarget(draft.heroTarget, heroes.get(draft.heroTarget.persId), draft.roll) : null, draft.roll, heroes);
-    const targetDamage = effect.value?.damageDefenses.length ? { damage: effect.value.damage, damageDefenses: effect.value.damageDefenses } : null;
+    const builtHeroTarget = draft.heroTarget ? buildHeroTarget(draft.heroTarget, heroes.get(draft.heroTarget.persId), draft.roll) : null;
+    const heroReviewParts = isReviewed && builtHeroTarget?.kind === "damage" ? buildHeroDamageReviewParts(builtHeroTarget, draft.roll, heroes) : null;
+    const heroTarget = heroReviewParts ? builtHeroTarget : await changeHeroTargetHitPoints(tx, sessionId, Number(seq), builtHeroTarget, draft.roll, heroes);
+    const targetDamage = effect.value?.damageDefenses.length || effect.value?.tempHpChange ? buildTargetDamage(effect.value.damage, effect.value.damageDefenses, effect.value.tempHpChange) : null;
+    const reviewParts = effect.value?.reviewParts ?? heroReviewParts;
+    const damageReview: DamageReview | null = reviewParts ? { parts: reviewParts, isPending: true } : null;
     await tx.gameSession.update({ where: { id: sessionId }, data: { lastEventSeq: seq, updatedAt: new Date() } });
     const created = await tx.gameRollEvent.create({
       data: {
@@ -176,7 +189,7 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
         authorName: author.value.authorName,
         persName: author.value.persName,
         label: draft.label,
-        roll: { ...draft.roll, ...(saves ? { saves } : {}), ...(heroTarget ? { heroTarget } : {}), ...(targetDamage ? { targetDamage } : {}) } as unknown as Prisma.InputJsonValue,
+        roll: { ...draft.roll, ...(saves ? { saves } : {}), ...(heroTarget ? { heroTarget } : {}), ...(targetDamage ? { targetDamage } : {}), ...(damageReview ? { damageReview } : {}) } as unknown as Prisma.InputJsonValue,
         total: draft.roll.total,
         rolledAt: draft.rolledAt,
         ...effect.value?.columns,
@@ -185,9 +198,13 @@ export async function insertGameRollEvent(sessionId: number, authorUserId: numbe
     });
     await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "roll" })})`;
     const isInitiativeTaken = draft.isInitiative && author.value.persId !== null ? await takeRolledInitiative(tx, sessionId, author.value.persId, draft.roll.total) : false;
-    if (isInitiativeTaken || effect.value?.columns.hpChange || heroTarget?.isAppliedToSheet || saves?.rows.some((row) => row.hpChange || row.isConditionAdded || row.isAppliedToSheet)) await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "session" })})`;
+    if (isInitiativeTaken || effect.value?.columns.hpChange || effect.value?.tempHpChange || heroTarget?.isAppliedToSheet || saves?.rows.some((row) => row.hpChange || row.isConditionAdded || row.isAppliedToSheet)) await tx.$executeRaw`SELECT pg_notify(${GAME_SESSION_SIGNAL_CHANNEL}, ${JSON.stringify({ s: sessionId, k: "session" })})`;
     return { ok: true as const, value: toEventView(created, authorViewer) };
   });
+}
+
+function buildTargetDamage(damage: number, damageDefenses: DamageDefenseNote[], tempHpChange = 0) {
+  return { damage, damageDefenses, ...(tempHpChange ? { tempHpChange } : {}) };
 }
 
 export type JournalMessageDraft = { idempotencyKey: string; text: string; isForGm: boolean };
@@ -264,6 +281,64 @@ export async function cancelGameRoll(sessionId: number, userId: number, seq: num
   });
   if (cancelled.ok) await Promise.all([signalGameSession(sessionId, "roll"), signalGameSession(sessionId, "session")]);
   return cancelled;
+}
+
+/// Майстер наносить шкоду, що чекала його: числа й захисти — його, типи рядків — зі збереженого кидка.
+/// Рядок події замкнено до кінця транзакції: другий клік побачить, що шкоду вже нанесено.
+export async function confirmRollDamage(sessionId: number, userId: number, seq: number, rawChoices: unknown): Promise<GameSessionResult<GameRollEventView[]>> {
+  const gm = await findActiveGmSession(sessionId, userId);
+  if (!gm.ok) return gm;
+  const author = await findRollAuthor(sessionId, userId, { source: "FREE", persId: null });
+  if (!author.ok) return author;
+  const heroes = await findRoomHeroes(sessionId, await listRollPersIds(sessionId, seq));
+  const viewer = { userId, isGm: true };
+  const confirmed = await prisma.$transaction(async (tx) => {
+    const [session] = await tx.$queryRaw<{ last_event_seq: bigint }[]>`SELECT last_event_seq FROM game_session WHERE game_session_id = ${sessionId} FOR UPDATE`;
+    const [pending] = await tx.$queryRaw<{ label: string; visibility: GameRollVisibility; roll: StoredRoll; target_creature_id: number | null; target_name: string | null }[]>`
+      SELECT label, visibility, roll, target_creature_id, target_name FROM game_roll_event
+      WHERE game_session_id = ${sessionId} AND seq = ${seq}::bigint AND (roll->'damageReview'->>'isPending')::boolean AND NOT (roll ? 'isCancelled')
+      FOR UPDATE`;
+    if (!session || !pending?.roll.damageReview) return { ok: false as const, error: "already_confirmed" as const };
+    const choices = parseDamageReviewChoices(rawChoices, pending.roll.damageReview.parts.length);
+    if (!choices) return { ok: false as const, error: "bad_damage" as const };
+    const parts = applyDamageReviewChoices(pending.roll.damageReview.parts, choices);
+    const { damage, notes } = resolveReviewedDamage(parts);
+    const confirmSeq = session.last_event_seq + BigInt(1);
+    const review: DamageReview = { parts, isPending: false };
+    await tx.$executeRaw`UPDATE game_roll_event SET roll = jsonb_set(roll, '{damageReview}', ${JSON.stringify(review)}::jsonb) WHERE game_session_id = ${sessionId} AND seq = ${seq}::bigint`;
+    const creatureId = pending.target_creature_id;
+    const { tempHpChange, ...hitPoints } = creatureId !== null ? await applyReviewedCreatureDamage(tx, sessionId, creatureId, damage) : { tempHpChange: 0 };
+    const heroTarget = pending.roll.heroTarget ? await applyReviewedHeroDamage(tx, sessionId, Number(confirmSeq), pending.roll.heroTarget, damage, notes, heroes) : null;
+    const targetColumns = creatureId !== null ? { targetCreatureId: creatureId, targetName: pending.target_name, rollKind: "damage", ...hitPoints } : {};
+    await tx.gameSession.update({ where: { id: sessionId }, data: { lastEventSeq: confirmSeq, updatedAt: new Date() } });
+    const created = await tx.gameRollEvent.create({
+      data: {
+        gameSessionId: sessionId,
+        seq: confirmSeq,
+        authorUserId: userId,
+        idempotencyKey: randomUUID(),
+        visibility: pending.visibility,
+        source: "FREE",
+        authorName: author.value.authorName,
+        persName: author.value.persName,
+        persId: author.value.persId,
+        label: `Підтверджено: ${pending.label}`,
+        roll: { ...EMPTY_GAME_ROLL, bonus: damage, total: damage, confirmsSeq: seq, ...(heroTarget ? { heroTarget } : {}), ...(creatureId !== null ? { targetDamage: buildTargetDamage(damage, notes, tempHpChange) } : {}) } as unknown as Prisma.InputJsonValue,
+        total: damage,
+        rolledAt: new Date(),
+        ...targetColumns,
+      },
+      select: EVENT_SELECT,
+    });
+    const original = await tx.gameRollEvent.findUniqueOrThrow({ where: { gameSessionId_seq: { gameSessionId: sessionId, seq } }, select: EVENT_SELECT });
+    return { ok: true as const, value: [toEventView(original, viewer), toEventView(created, viewer)] };
+  });
+  if (confirmed.ok) await Promise.all([signalGameSession(sessionId, "roll"), signalGameSession(sessionId, "session")]);
+  return confirmed;
+}
+
+function isDamageAtTarget(draft: GameRollDraft): boolean {
+  return draft.target?.kind === "damage" || draft.heroTarget?.kind === "damage";
 }
 
 async function listRollPersIds(sessionId: number, seq: number): Promise<number[]> {

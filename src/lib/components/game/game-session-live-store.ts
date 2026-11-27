@@ -165,7 +165,13 @@ function matchPendingRolls(state: LiveState, incoming: readonly GameRollEventVie
 /// Потік приносить лише нову подію скасування — сам скасований кидок позначаємо тут.
 function markCancelledRolls(events: GameRollEventView[], incoming: readonly GameRollEventView[]): GameRollEventView[] {
   const cancelledSeqs = new Set(incoming.flatMap((event) => event.cancelsSeq ?? []));
-  return cancelledSeqs.size ? events.map((event) => (cancelledSeqs.has(event.seq) && !event.isCancelled ? { ...event, isCancelled: true } : event)) : events;
+  const confirmedSeqs = new Set(incoming.flatMap((event) => event.confirmsSeq ?? []));
+  if (!cancelledSeqs.size && !confirmedSeqs.size) return events;
+  return events.map((event) => {
+    if (cancelledSeqs.has(event.seq) && !event.isCancelled) return { ...event, isCancelled: true };
+    if (confirmedSeqs.has(event.seq) && event.damageReview?.isPending) return { ...event, damageReview: { ...event.damageReview, isPending: false } };
+    return event;
+  });
 }
 
 /// Події приходять і з потоку, і з відповіді на власний кидок, і зі старших сторінок — порядок тримає лише seq.

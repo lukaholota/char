@@ -18,6 +18,8 @@ describe("вердикт кидка в лотку", () => {
     expect(buildRollVerdict(creature({ kind: "damage", damage: 7, isDowned: true }))?.text).toBe("Гоблін: −7 · повалений");
     expect(buildRollVerdict(hero({ healing: 6 }))).toEqual({ tone: "good", text: "Тарас: +6 хітів" });
     expect(buildRollVerdict({ target: null, heroTarget: null, saves: null })).toBeNull();
+    expect(buildRollVerdict({ ...creature({ kind: "damage", damage: 0 }), damageReview: { parts: [], isPending: true } })?.text).toBe("Гоблін: шкоду перевіряє майстер");
+    expect(buildRollVerdict({ ...creature({ kind: "damage", damage: 0 }), damageReview: { parts: [], isPending: false } })?.text).toBe("Гоблін: майстер перевірив шкоду");
   });
 
   it("опір чи імунітет цілі видно в лотку поруч зі знятою шкодою", () => {

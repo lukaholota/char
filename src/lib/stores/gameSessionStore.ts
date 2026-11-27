@@ -17,6 +17,8 @@ type GameSessionState = {
   /// Відкрита сторінка кімнати: вкладка слухає її, навіть коли кімната в архіві й кидки туди не йдуть.
   viewedRoomId: number | null;
   isSoundOn: boolean;
+  /// Після влучання лоток сам кидає шкоду; вимкнено — гравець тисне «Шкода» сам.
+  isDamageAutoRolled: boolean;
   /// Гучність звуків сцени (ефекти й фон від майстра) на цьому пристрої, 0–100; кидки вимикає isSoundOn окремо.
   sceneVolume: number;
   /// На компʼютері журнал може жити внизу бічної колонки під листом, а не окремою вкладкою.
@@ -51,6 +53,7 @@ export const useGameSessionStore = create<GameSessionState>()(
       isHydrated: false,
       viewedRoomId: null,
       isSoundOn: true,
+      isDamageAutoRolled: true,
       sceneVolume: 70,
       isJournalDocked: false,
       sidePanelWidth: DEFAULT_SIDE_PANEL_WIDTH,
@@ -82,7 +85,7 @@ export const useGameSessionStore = create<GameSessionState>()(
     {
       name: GAME_SESSION_STORE_KEY,
       storage: createJSONStorage(() => localStorage),
-      partialize: ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }) => ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }),
+      partialize: ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, isDamageAutoRolled, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }) => ({ active, visibilityBySession, targetCreatureBySession, targetHeroBySession, isSoundOn, isDamageAutoRolled, sceneVolume, isJournalDocked, sidePanelWidth, dockedJournalHeight }),
       onRehydrateStorage: (initial) => () => initial.markHydrated(),
     },
   ),

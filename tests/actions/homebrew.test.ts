@@ -20,6 +20,7 @@ vi.mock("@/server/media/media-store", () => ({
 
 import { deleteHomebrewEntry, listCreatureSpellChoices, listHomebrewEntries, loadHomebrewEditValues, loadHomebrewEntry, saveHomebrewCreature, saveHomebrewItem, saveHomebrewSpell } from "@/lib/actions/homebrew-actions";
 import { addMagicItemToPers, toggleMagicItemForPers } from "@/lib/actions/magic-item-actions";
+import { deleteWeapon } from "@/lib/actions/equipment-actions";
 import { prisma } from "@/lib/prisma";
 import { BackgroundCategory, Classes, Races } from "@prisma/client";
 import { createCharacter } from "@/lib/actions/character";
@@ -196,6 +197,9 @@ describe("хоумбрю-предмети", () => {
       expect.objectContaining({ overrideName: "Меч Дана", isMagical: false, weapon: expect.objectContaining({ ruleset: "RULES_2014" }) }),
       expect.objectContaining({ overrideName: "Меч Дана", isMagical: false, weapon: expect.objectContaining({ ruleset: "RULES_2014" }) }),
     ]);
+
+    expect(await deleteWeapon(links[0].persWeaponId!)).toEqual({ success: true });
+    expect(await prisma.persMagicItem.count({ where: { persId, magicItemId } })).toBe(1);
   });
 });
 

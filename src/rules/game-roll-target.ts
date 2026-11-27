@@ -20,6 +20,7 @@ export type GameRollTargetRow = {
   /// Шкода після опорів істоти; без опорів — кинуте значення.
   damage?: number;
   damageDefenses?: DamageDefenseNote[];
+  tempHpChange?: number;
 };
 
 export type GameRollTargetView = {
@@ -86,7 +87,7 @@ export function buildGameRollTargetView(row: GameRollTargetRow, viewer: { isGm: 
           armorClass: row.targetAc,
           hitPointsBefore: hitPoints?.before ?? null,
           hitPointsAfter: hitPoints ? hitPoints.before - hitPoints.change : null,
-          canUndo: hitPoints !== null && hitPoints.change > 0 && !row.hpChangeUndone && row.targetCreatureId !== null,
+          canUndo: hitPoints !== null && (hitPoints.change > 0 || (row.tempHpChange ?? 0) > 0) && !row.hpChangeUndone && row.targetCreatureId !== null,
           isUndone: row.hpChangeUndone,
         }
       : null,

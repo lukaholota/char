@@ -69,9 +69,11 @@ function pickRollFields(roll: GameRoll): GameRoll {
     d20Mode: roll.d20Mode,
     modeSources: roll.modeSources,
     groups: roll.groups.map(({ sides, values }) => ({ sides, values })),
-    extra: roll.extra.map(({ sides, sign, label, value }) => ({ sides, sign, label, value })),
+    extra: roll.extra.map(({ sides, sign, label, value, damageType }) => ({ sides, sign, label, value, ...(damageType ? { damageType } : {}) })),
     bonus: roll.bonus,
     total: roll.total,
     check: roll.check ? { dc: roll.check.dc, isSuccess: roll.check.isSuccess } : null,
+    ...(roll.damageType ? { damageType: roll.damageType } : {}),
+    ...(roll.bonusParts?.length ? { bonusParts: roll.bonusParts.map(({ label, value, damageType }) => ({ label, value, ...(damageType ? { damageType } : {}) })) } : {}),
   };
 }

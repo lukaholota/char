@@ -211,9 +211,10 @@ export async function deleteWeapon(persWeaponId: number) {
   if (!owned.ok) return { success: false, error: owned.error };
 
   try {
-    await prisma.persWeapon.delete({
-      where: { persWeaponId },
-    });
+    await prisma.$transaction([
+      prisma.persMagicItem.deleteMany({ where: { persWeaponId, magicItem: { isMundane: true } } }),
+      prisma.persWeapon.delete({ where: { persWeaponId } }),
+    ]);
 
     revalidatePath(`/char/${weapon.persId}`);
     revalidatePath(`/character/${weapon.persId}`);

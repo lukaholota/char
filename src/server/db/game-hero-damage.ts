@@ -2,7 +2,8 @@ import type { Prisma } from "@prisma/client";
 import { buildHeroDamageOperationId, type StoredHeroTarget } from "@/rules/game-roll-hero-target";
 import type { StoredSaves } from "@/rules/game-roll-saves";
 import type { GameRoll } from "@/rules/game-roll";
-import { resolveTypedDamage } from "@/rules/damage-parts";
+import { resolveTypedDamage, type DamageDefenseNote } from "@/rules/damage-parts";
+import { buildDamageReviewParts, type DamageReviewPart } from "@/rules/damage-review";
 import { findHeroDamageDefense } from "@/rules/hero-save";
 import type { RoomHero } from "@/server/db/game-room-heroes";
 import { applyPersFieldOperationIn } from "@/server/db/offline-operations";
@@ -18,6 +19,20 @@ export async function changeHeroTargetHitPoints(tx: Prisma.TransactionClient, se
   if (amount <= 0) return { ...target, ...adjusted };
   await changeHeroHitPoints(tx, hero, target.kind, amount, buildHeroDamageOperationId(sessionId, seq));
   return { ...target, ...adjusted, isAppliedToSheet: true };
+}
+
+export function buildHeroDamageReviewParts(target: StoredHeroTarget, roll: GameRoll, heroes: Heroes): DamageReviewPart[] {
+  const hero = heroes.get(target.persId);
+  return buildDamageReviewParts(roll, (damageType) => (hero ? findHeroDamageDefense(hero, damageType) : null));
+}
+
+/// Герой, що вийшов із кімнати до підтвердження, лишає запис без змін на листі.
+export async function applyReviewedHeroDamage(tx: Prisma.TransactionClient, sessionId: number, seq: number, target: StoredHeroTarget, amount: number, notes: DamageDefenseNote[], heroes: Heroes): Promise<StoredHeroTarget> {
+  const hero = heroes.get(target.persId);
+  const reviewed = { ...target, amount, ...(notes.length ? { damageDefenses: notes } : {}) };
+  if (!hero || amount <= 0) return reviewed;
+  await changeHeroHitPoints(tx, hero, "damage", amount, buildHeroDamageOperationId(sessionId, seq));
+  return { ...reviewed, isAppliedToSheet: true };
 }
 
 export async function damageHeroSaveRows(tx: Prisma.TransactionClient, sessionId: number, seq: number, saves: StoredSaves | null, heroes: Heroes): Promise<StoredSaves | null> {

@@ -4,6 +4,7 @@ import { BackgroundCategory, Classes, Races } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { createCharacter } from "@/lib/actions/character";
 import { applyHpChange, setDeathSaves } from "@/lib/actions/combat-actions";
+import type { HpMode } from "@/lib/offline/operations";
 import { minimalForm } from "../helpers/build-form";
 import { backgroundByName, classByName, raceByName } from "../helpers/seed-lookup";
 import { disconnectDatabase, resetUserData } from "../user-data";
@@ -71,7 +72,7 @@ type CombatFields = typeof HEALTHY;
 type HpCase = {
   name: string;
   before: Partial<CombatFields>;
-  change: { mode: "damage" | "heal" | "temp"; amount: number };
+  change: { mode: HpMode; amount: number };
   after: Partial<CombatFields>;
 };
 
@@ -92,6 +93,9 @@ const HP_CASES: HpCase[] = [
   { name: "лікування не піднімає понад максимум", before: { currentHp: 8 }, change: { mode: "heal", amount: 5 }, after: { currentHp: 10 } },
   { name: "менші тимчасові хіти не замінюють більших", before: { tempHp: 5 }, change: { mode: "temp", amount: 3 }, after: { tempHp: 5 } },
   { name: "більші тимчасові хіти замінюють менші", before: { tempHp: 5 }, change: { mode: "temp", amount: 7 }, after: { tempHp: 7 } },
+  { name: "поточні хіти задаються числом і не чіпають тимчасових", before: { currentHp: 9, tempHp: 4 }, change: { mode: "set-current", amount: 3 }, after: { currentHp: 3, tempHp: 4 } },
+  { name: "задані поточні хіти не вищі за максимум і з нуля скидають кидки смерті", before: { currentHp: 0, deathSaveFailures: 2 }, change: { mode: "set-current", amount: 40 }, after: { currentHp: 10, deathSaveFailures: 0 } },
+  { name: "тимчасові хіти можна зменшити чи прибрати", before: { tempHp: 5 }, change: { mode: "set-temp", amount: 0 }, after: { tempHp: 0 } },
 ];
 
 describe.each([

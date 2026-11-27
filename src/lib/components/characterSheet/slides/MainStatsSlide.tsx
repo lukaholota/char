@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { formatModifier } from "@/lib/logic/utils";
 import { Ability } from "@/lib/prisma-enums";
 import { attributesUkrShort, damageTypeTranslations } from "@/lib/refs/translation";
-import { Heart, Shield, Sword } from "lucide-react";
+import { Shield } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,10 @@ import {
 import { HeroicInspirationRow } from "@/lib/components/characterSheet/HeroicInspirationRow";
 import { SheetNotesField } from "@/lib/components/characterSheet/SheetNotesField";
 import { grantsHeroicInspirationOnLongRest, limitHeroicInspirationCount } from "@/rules/heroic-inspiration";
-import { applyOfflineOperation, type OfflineOperation, type OfflinePersState } from "@/lib/offline/operations";
+import { applyOfflineOperation, type HpMode, type OfflineOperation, type OfflinePersState } from "@/lib/offline/operations";
+import { HitPointsEditor, type HitPointsEdit } from "@/components/ui/HitPointsEditor";
+import { updateMaxHp } from "@/lib/actions/bonus-actions";
+import { commitOptimisticSave } from "@/lib/components/characterSheet/commit-optimistic-save";
 import { createOperationId } from "@/lib/offline/queue";
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import { updateCharacterAction } from "@/lib/actions/update-character";
@@ -119,8 +122,6 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
 
   const [hpOpen, setHpOpen] = useState(false);
   const [hitDiceOpen, setHitDiceOpen] = useState(false);
-  const [hpMode, setHpMode] = useState<"damage" | "heal" | "temp">("damage");
-  const [hpAmount, setHpAmount] = useState<string>("");
 
   const [localCurrentHp, setLocalCurrentHp] = useState<number>(() => pers.currentHp);
   const [localTempHp, setLocalTempHp] = useState<number>(() => (pers as any).tempHp ?? 0);
@@ -443,9 +444,10 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
     operation: OfflineOperation,
     sendToServer: (operationId: string) => Promise<CombatSaveResult>,
     failureTitle: string,
+    previous = readCombatState(),
   ) => {
-    const previous = readCombatState();
-    writeCombatState(applyOfflineOperation(previous, operation));
+    const next = applyOfflineOperation(previous, operation);
+    writeCombatState(next);
 
     startHpTransition(async () => {
       const outcome = await commitOperation(operation, sendToServer);
@@ -461,20 +463,33 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
       writeCombatState({ ...previous, ...res });
       router.refresh();
     });
+    return next;
   };
 
-  const applyHp = () => {
-    setHpOpen(false);
-    const amount = Math.max(0, Math.trunc(Number(hpAmount)));
-    if (!Number.isFinite(amount) || amount <= 0) return;
-
-    setHpAmount("");
-    changeHp(hpMode, amount);
-  };
-
-  const changeHp = (mode: typeof hpMode, amount: number, operation = buildOperation({ kind: "hp", mode, amount })) => {
-    commitCombatOperation(operation, (operationId) => applyHpChange({ persId, mode, amount, operationId }), "Не вдалося оновити HP");
+  const changeHp = (mode: HpMode, amount: number, operation = buildOperation({ kind: "hp", mode, amount }), from = readCombatState()) => {
+    const next = commitCombatOperation(operation, (operationId) => applyHpChange({ persId, mode, amount, operationId }), "Не вдалося оновити HP", from);
     if (mode === "damage") sheetStates?.promptConcentrationCheck(amount);
+    return next;
+  };
+
+  const runHpChanges = (changes: HpEditChange[], from = readCombatState()) =>
+    changes.reduce((state, [mode, amount]) => changeHp(mode, amount, undefined, state), from);
+
+  /// Новий максимум не ставиться в офлайн-чергу: решту змін шлемо після нього, щоб поточні не обрізало старим максимумом.
+  const applyHpEdit = (edit: HitPointsEdit) => {
+    setHpOpen(false);
+    const changes = listHpEditChanges(edit);
+    if (edit.max === undefined) return void runHpChanges(changes);
+    const maxHp = edit.max;
+    commitOptimisticSave({
+      prevPers: pers,
+      nextPers: { ...pers, maxHp, currentHp: Math.min(maxHp, pers.currentHp) },
+      onPersUpdate: handlePersUpdate,
+      close: () => undefined,
+      refresh: () => router.refresh(),
+      send: () => updateMaxHp(persId, maxHp),
+      applyResult: (result) => void (result.success && runHpChanges(changes, { ...readCombatState(), maxHp: result.maxHp, currentHp: result.currentHp })),
+    });
   };
 
   /// Хіти вже змінила кімната: той самий ідентифікатор сервер визнає повтором і просто віддає свіжий стан листа.
@@ -769,69 +784,7 @@ const MainStatsSlide = memo(function MainStatsSlide({ pers, onPersUpdate, isRead
           </DialogHeader>
 
           <div className="space-y-3">
-            <div className="rounded-lg border border-white/10 bg-slate-900/40 p-3">
-              <div className="text-xs text-slate-300">Поточне: <span className="font-semibold text-slate-50">{localCurrentHp}</span> / {localMaxHp}</div>
-              <div className="text-xs text-slate-300">Тимчасове: <span className="font-semibold text-slate-50">{localTempHp}</span></div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <Button
-                type="button"
-                variant={hpMode === "damage" ? "default" : "secondary"}
-                disabled={isHpPending}
-                onClick={() => setHpMode("damage")}
-                className={hpMode === "damage" ? "bg-rose-500/30 border text-slate-200 border-rose-400/40 hover:bg-rose-500/50" : "hover:bg-rose-500/50"}
-              >
-                <Sword className="h-4 w-4 mr-2" />
-                Шкода
-              </Button>
-              <Button
-                type="button"
-                variant={hpMode === "heal" ? "default" : "secondary"}
-                disabled={isHpPending}
-                onClick={() => setHpMode("heal")}
-                className={hpMode === "heal" ? "bg-emerald-500/25 border border-emerald-400/40 text-slate-200 hover:bg-emerald-500/50" : "hover:bg-emerald-500/50"}
-              >
-                <Heart className="h-4 w-4 mr-2" />
-                Лікування
-              </Button>
-              <Button
-                type="button"
-                variant={hpMode === "temp" ? "default" : "secondary"}
-                disabled={isHpPending}
-                onClick={() => setHpMode("temp")}
-                className={hpMode === "temp" ? "bg-blue-500/25 border border-blue-400/40 text-slate-200 hover:bg-blue-500/50" : "hover:bg-blue-500/50"}
-              >
-                <Shield className="h-4 w-4 mr-2" />
-                Тимч.
-              </Button>
-            </div>
-
-            <div className="space-y-2">
-              <Input
-                inputMode="numeric"
-                pattern="[0-9]*"
-                placeholder="Введи число"
-                value={hpAmount}
-                onChange={(e) => setHpAmount(e.target.value)}
-                disabled={isHpPending}
-              />
-              <Button type="button" onClick={applyHp} disabled={isHpPending || !hpAmount || Number(hpAmount) <= 0} className="w-full bg-slate-300 hover:bg-slate-200 text-slate-900">
-                Застосувати
-              </Button>
-              <Button
-                type="button"
-                variant="secondary"
-                className="w-full"
-                disabled={isReadOnly}
-                onClick={() => {
-                  setHpOpen(false);
-                  openModify({ type: 'simple', field: 'hp' });
-                }}
-              >
-                Змінити максимум
-              </Button>
-            </div>
+            <HitPointsEditor current={localCurrentHp} max={localMaxHp} temp={localTempHp} disabled={isHpPending || Boolean(isReadOnly)} onApply={applyHpEdit} />
 
             {localCurrentHp <= 0 ? (
               <div className="rounded-lg border border-white/10 bg-slate-900/40 p-3 space-y-3">
@@ -1162,6 +1115,13 @@ function readProficiencyText(pers: PersWithRelations) {
     { proficiencies: String(pers.customProficiencies ?? ""), languages: String(pers.customLanguagesKnown ?? "") },
     calculatePersProficiencies(pers),
   );
+}
+
+type HpEditChange = [HpMode, number];
+
+function listHpEditChanges(edit: HitPointsEdit): HpEditChange[] {
+  const changes: [HpMode, number | undefined][] = [["set-current", edit.current], ["set-temp", edit.temp], ["damage", edit.damage], ["heal", edit.heal]];
+  return changes.filter((change): change is HpEditChange => change[1] !== undefined);
 }
 
 export default MainStatsSlide;

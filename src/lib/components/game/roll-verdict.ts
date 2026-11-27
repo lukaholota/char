@@ -24,10 +24,11 @@ export function clearRollVerdict(key?: string) {
 }
 
 /// Гравець бачить те саме, що й у журналі: влучання чи промах, кинуту шкоду, «повалений» — без КБ і хітів істоти.
-export function buildRollVerdict(event: Pick<GameRollEventView, "target" | "heroTarget" | "saves">): RollVerdict | null {
+export function buildRollVerdict(event: Pick<GameRollEventView, "target" | "heroTarget" | "saves" | "damageReview">): RollVerdict | null {
   if (event.saves) return buildSavesVerdict(event.saves);
   const target = event.target ?? event.heroTarget;
   if (!target) return null;
+  if (event.damageReview) return { tone: "plain", text: `${target.name}: ${event.damageReview.isPending ? "шкоду перевіряє майстер" : "майстер перевірив шкоду"}` };
   if (target.kind === "attack") return buildAttackVerdict(target.name, target.isHit);
   if (target.kind === "heal") return { tone: "good", text: `${target.name}: +${event.heroTarget?.healing ?? 0} хітів` };
   const isDowned = event.target?.isDowned ?? false;

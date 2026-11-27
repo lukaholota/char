@@ -9,6 +9,7 @@ type GameEventProperties = {
   game_roll_target_changed: { is_on: boolean };
   game_roll_visibility_changed: { visibility: GameRollVisibility; surface: "room" | "dock" | "popout" | "tray" };
   game_sound_toggled: { is_on: boolean };
+  game_damage_auto_toggled: { is_on: boolean };
   game_invite_copied: { member_count: number };
   game_invite_rotated: Record<string, never>;
   game_pers_bound: { has_pers: boolean; option_count: number };
@@ -36,6 +37,7 @@ type GameEventProperties = {
   game_roll_target_set: { surface: "statblock" | "hero_tray" };
   game_hero_damage_taken: Record<string, never>;
   game_damage_undone: Record<string, never>;
+  game_damage_confirmed: Record<string, never>;
   game_roll_cancelled: Record<string, never>;
   game_fog_changed: { kind: "cover" | "clear" | "undo" | "area" | "brush" };
   game_area_shown: { shape: "circle" | "cone" | "line" | "square"; is_gm: boolean };

@@ -7,11 +7,8 @@ import { applyPersFieldOperation, isOperationId } from "@/server/db/offline-oper
 import { findUserIdByEmail } from "@/server/db/users";
 import { revalidatePath } from "next/cache";
 import { limitHeroicInspirationCount, type HeroicInspiration } from "@/rules/heroic-inspiration";
-import type { OfflineOperation } from "@/lib/offline/operations";
+import { HP_MODES, type HpMode, type OfflineOperation } from "@/lib/offline/operations";
 
-type HpMode = "damage" | "heal" | "temp";
-
-const HP_MODES: readonly HpMode[] = ["damage", "heal", "temp"];
 
 function clampInt(value: unknown, fallback = 0) {
   const n = typeof value === "number" ? value : Number(value);
@@ -71,6 +68,10 @@ export async function applyHpChange({
     nextHp = Math.max(0, nextHp - remaining);
   } else if (mode === "heal") {
     nextHp = Math.min(maxHp, nextHp + amt);
+  } else if (mode === "set-current") {
+    nextHp = Math.min(maxHp, amt);
+  } else if (mode === "set-temp") {
+    nextTemp = amt;
   } else {
     // DnD 5e: temp HP doesn't stack; take the higher value.
     nextTemp = Math.max(nextTemp, amt);

@@ -3,7 +3,8 @@ import { isRecord } from "./abilities";
 export type MagicSystem = "SLOTS" | "POINTS";
 export type SharedHouseRules = { attunementLimit: number | null; magicSystem: MagicSystem | null };
 export type PersHouseRules = SharedHouseRules & { darkvisionRange: number | null };
-export type CampaignHouseRules = SharedHouseRules & { damageTypes: string[] };
+/// isDamageConfirmedByGm — шкода гравців чекає майстра; у старих кампаніях поля немає, і це вмикає перевірку.
+export type CampaignHouseRules = SharedHouseRules & { damageTypes: string[]; isDamageConfirmedByGm: boolean };
 export type HouseRules = { attunementLimit: number | null; magicSystem: MagicSystem; damageTypes: string[] };
 
 export const ATTUNEMENT_LIMIT_MAX = 20;
@@ -28,7 +29,8 @@ function readWholeInRange(value: unknown, min: number, max: number): number | nu
 }
 
 export function parseCampaignHouseRules(value: unknown): CampaignHouseRules {
-  return { ...parseSharedHouseRules(isRecord(value) ? value : {}), damageTypes: parseCustomDamageTypes(isRecord(value) ? value.damageTypes : null) };
+  const raw = isRecord(value) ? value : {};
+  return { ...parseSharedHouseRules(raw), damageTypes: parseCustomDamageTypes(raw.damageTypes), isDamageConfirmedByGm: raw.isDamageConfirmedByGm !== false };
 }
 
 export function parseCustomDamageTypes(value: unknown): string[] {

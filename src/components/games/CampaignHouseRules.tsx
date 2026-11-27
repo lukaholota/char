@@ -10,12 +10,14 @@ import { HouseRulesFields, MAGIC_SYSTEM_LABELS } from "@/components/house-rules/
 import { saveGameSessionHouseRulesAction } from "@/lib/actions/game-sessions";
 import { CUSTOM_DAMAGE_TYPES_LIMIT, parseCustomDamageTypes, type CampaignHouseRules } from "@/rules/house-rules";
 import type { GameSessionView } from "@/server/db/game-sessions";
+import { SwitchRow } from "./MapToolPanels";
 
 export function describeCampaignHouseRules(rules: CampaignHouseRules): string[] {
   return [
     rules.attunementLimit === null ? null : `Предметів із налаштуванням: до ${rules.attunementLimit}`,
     rules.magicSystem === "POINTS" ? `Магія: ${MAGIC_SYSTEM_LABELS.POINTS}` : null,
     rules.damageTypes.length ? `Свої типи шкоди: ${rules.damageTypes.join(", ")}` : null,
+    rules.isDamageConfirmedByGm ? null : "Шкода гравців знімається одразу, без перевірки майстра",
   ].filter((line): line is string => line !== null);
 }
 
@@ -75,6 +77,7 @@ function CampaignHouseRulesForm({ view, onDone }: { view: GameSessionView; onDon
         placeholder="Світло, Хаос"
         hint={`Через кому, до ${CUSTOM_DAMAGE_TYPES_LIMIT}. Гравці зможуть обрати їх для додаткової шкоди зброї.`}
       />
+      <SwitchRow label="Майстер перевіряє шкоду гравців перед тим, як зняти хіти" isChecked={rules.isDamageConfirmedByGm} onChange={(isDamageConfirmedByGm) => setRules({ ...rules, isDamageConfirmedByGm })} />
       <p className="text-xs text-slate-500">Гравець може змінити ліміт і магію для свого героя на листі персонажа.</p>
       <div className="grid grid-cols-2 gap-2">
         <Button type="submit" disabled={isPending} className="h-12 text-base">Зберегти</Button>

@@ -15,7 +15,7 @@ vi.mock("@/server/media/media-store", () => ({
 
 import { changeCreatureConditions, changeHeroConditions, clearBlessedMarks, markBlessedTargets } from "@/server/db/game-conditions";
 import { addMapCreatures, changeMapCreatureHitPoints, moveMapCreature, removeMapCreatures, setMapCreatureController, setMapCreatureNameHidden, summonMapCreature } from "@/server/db/game-map-creatures";
-import { cancelGameRoll, insertGameRollEvent, listEventsAfter, undoRollDamage, type GameRollDraft } from "@/server/db/game-roll-events";
+import { cancelGameRoll, confirmRollDamage, insertGameRollEvent, listEventsAfter, undoRollDamage, type GameRollDraft } from "@/server/db/game-roll-events";
 import { bindMemberPers, createGameSession, findGameSessionView, joinGameSessionByToken } from "@/server/db/game-sessions";
 import { createGameScene, moveGameToken, openGameScene } from "@/server/db/game-scenes";
 import { setActiveSceneMap } from "./game-scene-setup";
@@ -51,7 +51,8 @@ async function createPers(userId: number) {
   return pers.persId;
 }
 
-async function createTable() {
+/// Більшість тестів тут про шкоду, що знімається одразу; перевірку майстром вмикає describe нижче.
+async function createTable({ isDamageConfirmedByGm = false } = {}) {
   const gm = await createUser("gm");
   const player = await createUser("player");
   const other = await createUser("other");
@@ -65,6 +66,7 @@ async function createTable() {
   }
   const bytes = await sharp({ create: { width: 800, height: 600, channels: 3, background: "#335522" } }).png().toBuffer();
   await setActiveSceneMap(sessionId, gm.id, new Blob([new Uint8Array(bytes)], { type: "image/png" }));
+  await prisma.gameSession.update({ where: { id: sessionId }, data: { houseRules: { isDamageConfirmedByGm } } });
   return { gm, player, other, sessionId };
 }
 
@@ -296,6 +298,48 @@ describe("ціль на межі довіри", () => {
   });
 });
 
+describe("тимчасові хіти істоти", () => {
+  const readWithTemp = (creatureId: number) => prisma.gameMapCreature.findUniqueOrThrow({ where: { id: creatureId }, select: { hpCurrent: true, hpTemp: true } });
+
+  it("шкода спершу знімає тимчасові, скасування повертає обидва запаси окремо; гравець тимчасових не бачить", async () => {
+    const { gm, player, sessionId } = await createTable();
+    const creatureId = await placeGoblin(sessionId, gm.id, { max: 10, current: 10 });
+    expect(await changeMapCreatureHitPoints(sessionId, gm.id, creatureId, { kind: "set_temp", amount: 5 })).toEqual({ ok: true, value: null });
+    expect((await findGameSessionView(sessionId, gm.id))!.creatures.find((creature) => creature.id === creatureId)?.hitPoints).toEqual({ current: 10, max: 10, temp: 5 });
+    expect((await findGameSessionView(sessionId, player.id))!.creatures.find((creature) => creature.id === creatureId)?.hitPoints).toBeNull();
+
+    const damage = async (total: number) => {
+      const created = await insertGameRollEvent(sessionId, player.id, buildSheetDraft({ roll: buildRoll({ total }), target: { creatureId, kind: "damage" } }));
+      if (!created.ok) throw new Error(created.error);
+      return created.value;
+    };
+    const absorbed = await damage(3);
+    expect(await readWithTemp(creatureId)).toEqual({ hpCurrent: 10, hpTemp: 2 });
+    const [absorbedForGm] = await listEventsAfter(sessionId, { userId: gm.id, isGm: true }, absorbed.seq - 1, 1);
+    expect(absorbedForGm.target).toMatchObject({ damage: 3, isDowned: false, gm: { hitPointsBefore: 10, hitPointsAfter: 10, canUndo: true } });
+    const through = await damage(6);
+    expect(await readWithTemp(creatureId)).toEqual({ hpCurrent: 6, hpTemp: 0 });
+
+    expect(await undoRollDamage(sessionId, gm.id, absorbed.seq)).toMatchObject({ ok: true });
+    expect(await readWithTemp(creatureId)).toEqual({ hpCurrent: 6, hpTemp: 3 });
+    expect(await undoRollDamage(sessionId, gm.id, through.seq)).toMatchObject({ ok: true });
+    expect(await readWithTemp(creatureId)).toEqual({ hpCurrent: 10, hpTemp: 5 });
+  });
+
+  it("підтверджена майстром шкода теж іде спершу в тимчасові", async () => {
+    const { gm, player, sessionId } = await createTable({ isDamageConfirmedByGm: true });
+    const creatureId = await placeGoblin(sessionId, gm.id, { max: 20, current: 20 });
+    await changeMapCreatureHitPoints(sessionId, gm.id, creatureId, { kind: "set_temp", amount: 4 });
+    const created = await insertGameRollEvent(sessionId, player.id, buildSheetDraft({ roll: buildRoll({ total: 9 }), target: { creatureId, kind: "damage" } }));
+    if (!created.ok) throw new Error(created.error);
+    const confirmed = await confirmRollDamage(sessionId, gm.id, created.value.seq, [{ amount: 9, defense: null }]);
+    if (!confirmed.ok) throw new Error(confirmed.error);
+    expect(await readWithTemp(creatureId)).toEqual({ hpCurrent: 15, hpTemp: 0 });
+    await undoRollDamage(sessionId, gm.id, confirmed.value[1].seq);
+    expect(await readWithTemp(creatureId)).toEqual({ hpCurrent: 20, hpTemp: 4 });
+  });
+});
+
 describe("скасування шкоди", () => {
   async function createDamageEvent() {
     const table = await createTable();
@@ -332,6 +376,63 @@ describe("скасування шкоди", () => {
     const gone = await createDamageEvent();
     await removeMapCreatures(gone.sessionId, gone.gm.id, gone.creatureId);
     expect(await undoRollDamage(gone.sessionId, gone.gm.id, gone.seq)).toEqual({ ok: false, error: "creature_gone" });
+  });
+});
+
+describe("майстер підтверджує шкоду гравця", () => {
+  async function rollPendingDamage() {
+    const table = await createTable({ isDamageConfirmedByGm: true });
+    const creatureId = await placeGoblin(table.sessionId, table.gm.id, { max: 20, current: 20 });
+    const roll = buildRoll({ groups: [{ sides: 6, values: [4] }], extra: [{ sides: 6, sign: 1, label: "Вогонь", value: 5, damageType: "FIRE" }], total: 9, damageType: "SLASHING" });
+    const created = await insertGameRollEvent(table.sessionId, table.player.id, buildSheetDraft({ roll, target: { creatureId, kind: "damage" } }));
+    if (!created.ok) throw new Error(created.error);
+    return { ...table, creatureId, seq: created.value.seq };
+  }
+
+  it("кидок гравця хітів не знімає; майстер бачить рядки за типами, гравець — лише стан", async () => {
+    const { gm, player, sessionId, creatureId, seq } = await rollPendingDamage();
+    expect((await readStoredHitPoints(creatureId)).hpCurrent).toBe(20);
+    const [forGm] = await listEventsAfter(sessionId, { userId: gm.id, isGm: true }, seq - 1, 1);
+    expect(forGm.damageReview).toEqual({ isPending: true, parts: [{ damageType: "SLASHING", label: "", amount: 4, defense: null }, { damageType: "FIRE", label: "Вогонь", amount: 5, defense: null }] });
+    const [forPlayer] = await listEventsAfter(sessionId, { userId: player.id, isGm: false }, seq - 1, 1);
+    expect(forPlayer.damageReview).toEqual({ isPending: true, parts: [] });
+  });
+
+  it("майстер наносить свої числа й захисти рівно раз, і цю шкоду можна повернути", async () => {
+    const { gm, player, sessionId, creatureId, seq } = await rollPendingDamage();
+    const choices = [{ amount: 4, defense: "vulnerable" }, { amount: 5, defense: "immune" }];
+    expect(await confirmRollDamage(sessionId, player.id, seq, choices)).toEqual({ ok: false, error: "forbidden" });
+    expect(await confirmRollDamage(sessionId, gm.id, seq, [{ amount: 4, defense: null }])).toEqual({ ok: false, error: "bad_damage" });
+    const clicks = await Promise.all([confirmRollDamage(sessionId, gm.id, seq, choices), confirmRollDamage(sessionId, gm.id, seq, choices)]);
+    expect(clicks.filter((click) => click.ok)).toHaveLength(1);
+    expect(clicks.find((click) => !click.ok)).toEqual({ ok: false, error: "already_confirmed" });
+    expect((await readStoredHitPoints(creatureId)).hpCurrent).toBe(12);
+    const confirmed = clicks.find((click) => click.ok)!;
+    if (!confirmed.ok) throw new Error("no confirm");
+    const [original, applied] = confirmed.value;
+    expect(original).toMatchObject({ seq, damageReview: { isPending: false } });
+    expect(applied).toMatchObject({ confirmsSeq: seq, total: 8, target: { kind: "damage", damage: 8, gm: { hitPointsBefore: 20, hitPointsAfter: 12, canUndo: true } } });
+    expect(applied.target!.damageDefenses).toEqual([{ damageType: "SLASHING", defense: "vulnerable", before: 4, after: 8 }, { damageType: "FIRE", defense: "immune", before: 5, after: 0 }]);
+    await undoRollDamage(sessionId, gm.id, applied.seq);
+    expect((await readStoredHitPoints(creatureId)).hpCurrent).toBe(20);
+  });
+
+  it("відхилена шкода хітів не знімає й підтвердити її вже не можна", async () => {
+    const { gm, sessionId, creatureId, seq } = await rollPendingDamage();
+    expect(await cancelGameRoll(sessionId, gm.id, seq)).toMatchObject({ ok: true });
+    expect(await confirmRollDamage(sessionId, gm.id, seq, [{ amount: 4, defense: null }, { amount: 5, defense: null }])).toEqual({ ok: false, error: "already_confirmed" });
+    expect((await readStoredHitPoints(creatureId)).hpCurrent).toBe(20);
+  });
+
+  it("шкода майстра й кидок «лише мені» не чекають підтвердження", async () => {
+    const { gm, player, sessionId } = await createTable({ isDamageConfirmedByGm: true });
+    const creatureId = await placeGoblin(sessionId, gm.id, { max: 20, current: 20 });
+    const byGm = await insertGameRollEvent(sessionId, gm.id, buildDraft({ roll: buildRoll({ total: 5 }), target: { creatureId, kind: "damage" } }));
+    expect(byGm).toMatchObject({ ok: true, value: { target: { damage: 5 } } });
+    expect(byGm.ok && byGm.value.damageReview).toBeFalsy();
+    expect((await readStoredHitPoints(creatureId)).hpCurrent).toBe(15);
+    const onlyMe = await insertGameRollEvent(sessionId, player.id, buildSheetDraft({ visibility: "SELF", roll: buildRoll({ total: 3 }), target: { creatureId, kind: "damage" } }));
+    expect(onlyMe.ok && onlyMe.value.damageReview).toBeFalsy();
   });
 });
 

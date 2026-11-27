@@ -115,7 +115,7 @@ export async function duplicateMapCreature(sessionId: number, userId: number, cr
     const at = original.tokenX === null || original.tokenY === null ? null : findPastePosition({ x: original.tokenX, y: original.tokenY }, step);
     const hpMax = rollCreatureMaxHitPoints(entry.hp);
     const { id: _id, createdAt: _createdAt, conditions, exhaustionLevel, ...look } = original;
-    const state = isWalking ? { conditions, exhaustionLevel, floor: null } : { hpMax, hpCurrent: hpMax };
+    const state = isWalking ? { conditions, exhaustionLevel, floor: null } : { hpMax, hpCurrent: hpMax, hpTemp: 0 };
     const copy = await tx.gameMapCreature.create({ data: { ...look, ...state, gameSceneId: sceneId, number, tokenX: at?.x ?? null, tokenY: at?.y ?? null }, select: { id: true } });
     return { ok: true as const, value: copy };
   });
@@ -211,14 +211,14 @@ export async function changeMapCreatureHitPoints(sessionId: number, userId: numb
   const placed = await prisma.gameMapCreature.findFirst({ where: { id: creatureId, gameSessionId: sessionId }, select: { creatureKey: true, ruleset: true } });
   const statblockHp = placed ? (await findRoomCreature(placed.creatureKey, placed.ruleset))?.hp : undefined;
   const changed = await prisma.$transaction(async (tx) => {
-    const [creature] = await tx.$queryRaw<{ creature_key: string; ruleset: MapCreatureRuleset; hp_max: number | null; hp_current: number | null }[]>`
-      SELECT creature_key, ruleset, hp_max, hp_current FROM game_map_creature
+    const [creature] = await tx.$queryRaw<{ creature_key: string; ruleset: MapCreatureRuleset; hp_max: number | null; hp_current: number | null; hp_temp: number }[]>`
+      SELECT creature_key, ruleset, hp_max, hp_current, hp_temp FROM game_map_creature
       WHERE game_map_creature_id = ${creatureId} AND game_session_id = ${sessionId} FOR UPDATE`;
     if (!creature) return fail("creature_gone");
-    const stored = { hpMax: creature.hp_max, hpCurrent: creature.hp_current };
+    const stored = { hpMax: creature.hp_max, hpCurrent: creature.hp_current, hpTemp: creature.hp_temp };
     const next = applyHitPointChange(findCreatureHitPoints(stored, statblockHp), change);
     if (!next) return fail("no_hit_points");
-    await tx.gameMapCreature.update({ where: { id: creatureId }, data: { hpMax: next.max, hpCurrent: next.current } });
+    await tx.gameMapCreature.update({ where: { id: creatureId }, data: { hpMax: next.max, hpCurrent: next.current, hpTemp: next.temp ?? 0 } });
     return { ok: true as const, value: null };
   });
   if (changed.ok) await signalGameSession(sessionId, "session");

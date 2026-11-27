@@ -13,7 +13,7 @@ export const MAX_FEATURE_USES = 999;
 
 export const MAX_CUSTOM_SKILLS = 30;
 export const MAX_CUSTOM_FEATURES = 40;
-export const MAX_CAMPAIGN_SKILLS = 10;
+export const MAX_CAMPAIGN_SKILLS = 50;
 export const MAX_CAMPAIGN_FEATURES = 20;
 
 export type CustomSkillProficiency = (typeof SKILL_PROFICIENCIES)[number];

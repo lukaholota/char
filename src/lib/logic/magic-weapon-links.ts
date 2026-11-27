@@ -15,6 +15,11 @@ export function listActiveMagicItemLinks(pers: PersWithRelations): MagicItemLink
   return (pers.magicItems ?? []).filter(isMagicItemActive);
 }
 
+/// Звичайна хомбрю-зброя живе рядком у «Зброї»: у магічних предметах вона була б дублем.
+export function listMagicItemsCardLinks(pers: PersWithRelations): MagicItemLink[] {
+  return (pers.magicItems ?? []).filter((link) => !(link.magicItem?.isMundane && link.persWeaponId !== null));
+}
+
 /// Предмети, які гравець привʼязав до цього рядка зброї; магічні рахуються лише активні, звичайна хомбрю-зброя — завжди.
 export function listWeaponMagicItems(pers: PersWithRelations, pw: Pick<PersWeaponWithWeapon, "persWeaponId">): WeaponMagicItem[] {
   return (pers.magicItems ?? []).flatMap((link) => {

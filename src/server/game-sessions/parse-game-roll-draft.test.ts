@@ -81,6 +81,19 @@ describe("ціль-герой кидка зі статблоку", () => {
   });
 });
 
+describe("типи шкоди", () => {
+  it("кидок зберігає тип зброї, додаткових кубиків і пласких бонусів — без них журнал не ділить шкоду, а опори не працюють", () => {
+    const roll = {
+      groups: [{ sides: 6, values: [5] }], d20Mode: null, modeSources: [], bonus: 12, total: 20, check: null,
+      damageType: "SLASHING",
+      extra: [{ sides: 4, sign: 1, label: "Меч · Дробяча", value: 3, damageType: "BLUDGEONING" }],
+      bonusParts: [{ label: "Меч · Дробяча", value: 2, damageType: "BLUDGEONING" }],
+    };
+    const result = parseGameRollDraft({ ...draftBody({ rolledAt: new Date(NOW).toISOString() }), label: "Меч · Шкода", roll }, NOW);
+    expect("draft" in result && result.draft.roll).toMatchObject({ damageType: "SLASHING", extra: [{ damageType: "BLUDGEONING" }], bonusParts: [{ value: 2, damageType: "BLUDGEONING" }] });
+  });
+});
+
 describe("кидок ініціативи", () => {
   const initiativeOf = (body: Record<string, unknown>) => {
     const result = parseGameRollDraft({ ...draftBody({ rolledAt: new Date(NOW).toISOString() }), ...body }, NOW);

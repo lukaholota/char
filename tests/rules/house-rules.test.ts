@@ -13,9 +13,15 @@ describe("house rules", () => {
     expect(names).toHaveLength(8);
   });
 
+  it("asks the GM to confirm player damage unless the campaign turned it off", () => {
+    expect(parseCampaignHouseRules(null).isDamageConfirmedByGm).toBe(true);
+    expect(parseCampaignHouseRules({ isDamageConfirmedByGm: "no" }).isDamageConfirmedByGm).toBe(true);
+    expect(parseCampaignHouseRules({ isDamageConfirmedByGm: false }).isDamageConfirmedByGm).toBe(false);
+  });
+
   it("lets the hero override the campaign and merges several campaigns", () => {
-    const strict = { attunementLimit: 4, magicSystem: null, damageTypes: ["Світло"] };
-    const generous = { attunementLimit: 6, magicSystem: "POINTS" as const, damageTypes: ["Хаос", "Світло"] };
+    const strict = { attunementLimit: 4, magicSystem: null, damageTypes: ["Світло"], isDamageConfirmedByGm: true };
+    const generous = { attunementLimit: 6, magicSystem: "POINTS" as const, damageTypes: ["Хаос", "Світло"], isDamageConfirmedByGm: false };
     expect(resolveHouseRules({ attunementLimit: null, magicSystem: null }, [strict, generous])).toEqual({ attunementLimit: 6, magicSystem: "POINTS", damageTypes: ["Світло", "Хаос"] });
     expect(resolveHouseRules({ attunementLimit: 2, magicSystem: "SLOTS" }, [generous])).toMatchObject({ attunementLimit: 2, magicSystem: "SLOTS" });
     expect(resolveHouseRules({ attunementLimit: null, magicSystem: null }, [])).toEqual({ attunementLimit: null, magicSystem: "SLOTS", damageTypes: [] });

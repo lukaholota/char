@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { Skills } from "@prisma/client";
 import type { PersWithRelations } from "@/lib/actions/pers";
 import { getAllCreatures } from "@/lib/bestiaryData";
@@ -29,7 +29,9 @@ vi.mock("@/server/db/wildshape-actions", () => ({
   healBeastForm: vi.fn(),
   loadWildshapeForms: vi.fn(),
 }));
-vi.mock("@/hooks/useOfflineQueue", () => ({ useOfflineQueue: () => ({ commitOperation: vi.fn() }) }));
+const offlineQueue = vi.hoisted(() => ({ commitOperation: vi.fn(async () => ({ queued: true })) }));
+vi.mock("@/hooks/useOfflineQueue", () => ({ useOfflineQueue: () => offlineQueue }));
+vi.mock("@/lib/actions/bonus-actions", () => ({ updateMaxHp: vi.fn() }));
 vi.mock("@/lib/actions/pers-custom-content-actions", () => ({}));
 vi.mock("@/lib/actions/pers-house-rules-actions", () => ({ savePersHouseRulesAction: vi.fn() }));
 vi.mock("@/lib/actions/combat-actions", () => ({
@@ -222,6 +224,25 @@ describe("головна сторінка листа у звіриній фор�
     expect(screen.getByText("Здоровʼя")).toBeTruthy();
     expect(screen.queryByText("Хіти звіра")).toBeNull();
     expect(container.querySelectorAll("[title='Ваше значення поза формою']")).toHaveLength(0);
+  });
+});
+
+describe("діалог хітів листа", () => {
+  it("поточні й тимчасові задаються числом, шкода йде поверх них — і все одним Enter", async () => {
+    render(<MainStatsSlide pers={buildDruid()} />);
+    fireEvent.click(screen.getByText("Здоровʼя").closest("button")!);
+    const dialog = screen.getByRole("dialog");
+    expect(within(dialog).getByLabelText<HTMLInputElement>("Поточні хіти").value).toBe("30");
+
+    fireEvent.change(within(dialog).getByLabelText("Поточні хіти"), { target: { value: "10" } });
+    fireEvent.change(within(dialog).getByLabelText("Тимчасові хіти"), { target: { value: "3" } });
+    fireEvent.change(within(dialog).getByLabelText("Шкода"), { target: { value: "4" } });
+    fireEvent.submit(within(dialog).getByLabelText("Шкода").closest("form")!);
+
+    await waitFor(() => expect(offlineQueue.commitOperation).toHaveBeenCalledTimes(3));
+    expect(offlineQueue.commitOperation.mock.calls.map(([operation]) => [operation.mode, operation.amount])).toEqual([["set-current", 10], ["set-temp", 3], ["damage", 4]]);
+    expect(screen.getByText("9")).toBeTruthy();
+    expect(screen.queryByText(/Тимч\.: \+/)).toBeNull();
   });
 });
 

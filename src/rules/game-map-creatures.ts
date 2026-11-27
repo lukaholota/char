@@ -45,6 +45,7 @@ export type MapCreatureRow = {
   tokenScalePercent: number;
   hpMax: number | null;
   hpCurrent: number | null;
+  hpTemp?: number;
   conditions: string[];
   exhaustionLevel: number;
   lightBrightFeet: number;

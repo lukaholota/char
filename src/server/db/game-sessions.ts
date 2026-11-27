@@ -34,7 +34,7 @@ export const DRAWING_ROW_SELECT = { id: true, userId: true, color: true, width: 
 export const GAME_SESSION_SIGNAL_CHANNEL = "game_session";
 
 export type GameSessionRole = "GM" | "PLAYER";
-export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "already_cancelled" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "bad_drawing" | "drawing_limit" | "drawing_gone" | "token_image_gone" | "hero_limit" | "bad_object" | "object_limit" | "object_gone" | "bad_wall" | "wall_limit" | "wall_gone" | "door_locked" | "bad_light" | "light_limit" | "light_gone" | "bad_atmosphere" | "bad_ambience" | "bad_floor" | "floor_limit" | "sound_gone";
+export type GameSessionFailure = "not_found" | "forbidden" | "archived" | "full" | "too_many" | "bad_name" | "bad_pers" | "bad_image" | "no_map" | "bad_creature" | "creature_limit" | "creature_gone" | "no_hit_points" | "combat_active" | "no_combat" | "no_combatants" | "combatant_gone" | "turn_moved" | "bad_scene" | "bad_scene_name" | "scene_limit" | "scene_in_combat" | "scene_active" | "scene_changed" | "bad_target" | "already_undone" | "already_cancelled" | "already_confirmed" | "bad_damage" | "bad_grid" | "bad_fog" | "fog_limit" | "bad_area" | "area_limit" | "area_gone" | "bad_drawing" | "drawing_limit" | "drawing_gone" | "token_image_gone" | "hero_limit" | "bad_object" | "object_limit" | "object_gone" | "bad_wall" | "wall_limit" | "wall_gone" | "door_locked" | "bad_light" | "light_limit" | "light_gone" | "bad_atmosphere" | "bad_ambience" | "bad_floor" | "floor_limit" | "sound_gone";
 export type GameSessionResult<T> = { ok: true; value: T } | { ok: false; error: GameSessionFailure };
 
 export type GameSessionMemberView = {
@@ -312,7 +312,7 @@ function findSessionWithMembers(sessionId: number, viewerUserId: number) {
       mapCreatures: {
         where: { scene: sceneVisibleTo(sessionId, viewerUserId) },
         orderBy: [{ createdAt: "asc" }, { id: "asc" }],
-        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, borderColor: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true, floor: true, isNameHidden: true, controllerMemberId: true },
+        select: { id: true, gameSceneId: true, creatureKey: true, ruleset: true, number: true, borderColor: true, customName: true, tokenSize: true, isCutout: true, customImageKey: true, tokenX: true, tokenY: true, tokenRotation: true, tokenScalePercent: true, hpMax: true, hpCurrent: true, hpTemp: true, conditions: true, exhaustionLevel: true, lightBrightFeet: true, lightDimFeet: true, floor: true, isNameHidden: true, controllerMemberId: true },
       },
     },
   });
